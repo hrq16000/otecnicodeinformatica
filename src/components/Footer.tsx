@@ -22,7 +22,7 @@ export const Footer = () => {
           
           <div className="flex items-center gap-4">
             <a 
-              href="https://wa.me/5541999999999" 
+              href="https://wa.me/5541997452053" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"

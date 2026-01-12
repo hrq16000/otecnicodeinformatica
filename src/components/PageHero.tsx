@@ -2,8 +2,8 @@ import { MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541999999999";
-const PHONE_NUMBER = "5541999999999";
+const WHATSAPP_NUMBER = "5541997452053";
+const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 interface PageHeroProps {

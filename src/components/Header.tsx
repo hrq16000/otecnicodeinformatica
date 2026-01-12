@@ -30,7 +30,7 @@ export const Header = () => {
           <Button variant="cta" size="sm" asChild>
             <a href={phoneUrl}>
               <Phone className="h-4 w-4" />
-              <span className="hidden md:inline">(41) 99999-9999</span>
+              <span className="hidden md:inline">(41) 9.9745-2053</span>
               <span className="md:hidden">Ligar</span>
             </a>
           </Button>

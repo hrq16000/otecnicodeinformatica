@@ -28,7 +28,7 @@ export const Footer = () => {
               className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
             >
               <MessageCircle className="h-4 w-4" />
-              <span>(41) 99999-9999</span>
+              <span>(41) 9.97452-053</span>
             </a>
             <a 
               href="tel:+5541997452053"

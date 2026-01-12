@@ -1,0 +1,57 @@
+import { Phone, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+
+const WHATSAPP_NUMBER = "5541999999999";
+const PHONE_NUMBER = "5541999999999";
+const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
+export const CTASection = () => {
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const phoneUrl = `tel:+${PHONE_NUMBER}`;
+
+  return (
+    <section className="py-12 md:py-16 lg:py-20 bg-secondary">
+      <div className="container mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          <img 
+            src={logo} 
+            alt="Técnico Curitiba" 
+            className="h-16 md:h-20 mx-auto mb-6"
+          />
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+            Precisa resolver agora?
+          </h2>
+          
+          <p className="text-lg md:text-xl text-accent font-semibold mb-8">
+            Fale direto com o técnico. Atendimento imediato!
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="heroWhatsapp"
+              className="animate-pulse-soft"
+              asChild
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
+                WhatsApp Imediato
+              </a>
+            </Button>
+            
+            <Button 
+              variant="heroCta"
+              asChild
+            >
+              <a href={phoneUrl}>
+                <Phone className="h-5 w-5 md:h-6 md:w-6" />
+                Ligação Direta
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

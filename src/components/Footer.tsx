@@ -31,11 +31,11 @@ export const Footer = () => {
               <span>(41) 99999-9999</span>
             </a>
             <a 
-              href="tel:+5541999999999"
+              href="tel:+5541997452053"
               className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
             >
               <Phone className="h-4 w-4" />
-              <span>(41) 99999-9999</span>
+              <span>(41) 99745-2053</span>
             </a>
           </div>
         </div>

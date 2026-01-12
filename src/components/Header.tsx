@@ -1,8 +1,8 @@
 import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-const WHATSAPP_NUMBER = "5541999999999";
-const PHONE_NUMBER = "5541999999999";
+const WHATSAPP_NUMBER = "5541997452053";
+const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 export const Header = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;

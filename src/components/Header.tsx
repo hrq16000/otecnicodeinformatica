@@ -10,7 +10,7 @@ export const Header = () => {
   return <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-3">
         <a href="/" className="flex-shrink-0">
-          <img alt="Técnico Curitiba - Suporte em Informática" className="h-12 md:h-14 w-auto" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.png" />
+          <img alt="Técnico Curitiba - Suporte em Informática" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.png" className="h-12 md:h-14 w-auto object-scale-down" />
         </a>
         
         <div className="flex items-center gap-2 md:gap-3">

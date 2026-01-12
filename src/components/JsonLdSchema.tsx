@@ -8,7 +8,7 @@ const localBusinessSchema = {
   "alternateName": "Técnico de Informática Curitiba",
   "description": "Serviços de informática em Curitiba: formatação, remoção de vírus, conserto de computadores e notebooks, suporte técnico presencial e remoto.",
   "url": "https://tecnicocuritiba.com.br",
-  "telephone": "+55-41-99999-9999",
+  "telephone": "+55-41-99745-2053",
   "email": "contato@tecnicocuritiba.com.br",
   "image": "https://tecnicocuritiba.com.br/og-image.jpg",
   "logo": "https://tecnicocuritiba.com.br/logo.png",

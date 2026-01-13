@@ -1,0 +1,23 @@
+import { Link } from "react-router-dom";
+import { Info } from "lucide-react";
+
+export const PricingBanner = () => {
+  return (
+    <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 md:p-5">
+      <div className="flex items-start gap-3">
+        <Info className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-foreground font-semibold mb-1">
+            Serviços rápidos a partir de <span className="text-accent">R$ 99,99</span> (30 min)
+          </p>
+          <p className="text-muted-foreground text-sm">
+            Diagnóstico com coleta: taxa de R$ 99 em caso de desistência. 
+            <Link to="/precos-e-politicas" className="text-accent hover:underline ml-1">
+              Ver política completa →
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};

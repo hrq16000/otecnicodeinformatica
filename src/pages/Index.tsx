@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { PainSection } from "@/components/PainSection";
@@ -9,8 +10,14 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { trackPageView } from "@/lib/analytics";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "Técnico de Informática em Curitiba – Atendimento Rápido e Profissional | Técnico Curitiba";
+    trackPageView("/", "Home");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <JsonLdSchema />

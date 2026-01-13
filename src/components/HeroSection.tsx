@@ -17,13 +17,13 @@ export const HeroSection = () => {
           {/* Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4 md:mb-6">
-              Técnico de Informática
+              Técnico de Informática em Curitiba
               <br />
-              <span className="text-accent">em Curitiba</span>
+              <span className="text-accent text-2xl sm:text-3xl md:text-4xl">Atendimento Rápido e Profissional</span>
             </h1>
             
             <p className="text-lg md:text-xl text-white/90 mb-6 md:mb-8">
-              Atendimento rápido • No local ou remoto • Com garantia
+              Assistência técnica em domicílio e empresas • Curitiba e região • Orçamento transparente
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

@@ -8,8 +8,9 @@ import { NeighborhoodsSection } from "@/components/NeighborhoodsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { PricingBanner } from "@/components/PricingBanner";
 import { trackPageView } from "@/lib/analytics";
 
 const Index = () => {
@@ -24,6 +25,14 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        {/* Pricing Banner */}
+        <section className="py-4 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <PricingBanner />
+            </div>
+          </div>
+        </section>
         <PainSection />
         <ServicesSection />
         <NeighborhoodsSection />
@@ -32,7 +41,7 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      <WhatsAppChat />
     </div>
   );
 };

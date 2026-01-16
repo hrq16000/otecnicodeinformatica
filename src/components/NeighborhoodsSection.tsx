@@ -1,11 +1,32 @@
+import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 
 const neighborhoods = [
-  "Centro", "Batel", "Água Verde", "Portão", "Bigorrilho",
-  "Mercês", "Campina do Siqueira", "Santa Felicidade", "Boa Vista", "Juvevê",
-  "Alto da XV", "Cabral", "Cristo Rei", "Jardim das Américas", "Cajuru",
-  "Uberaba", "Pinheirinho", "Xaxim", "Boqueirão", "Hauer",
-  "Bacacheri", "Tingui", "Atuba", "São Lourenço", "Pilarzinho"
+  { name: "Centro", slug: "centro", hasPage: true },
+  { name: "Batel", slug: "batel", hasPage: true },
+  { name: "Água Verde", slug: "agua-verde", hasPage: false },
+  { name: "Portão", slug: "portao", hasPage: true },
+  { name: "Bigorrilho", slug: "bigorrilho", hasPage: false },
+  { name: "Mercês", slug: "merces", hasPage: false },
+  { name: "Campina do Siqueira", slug: "campina-do-siqueira", hasPage: false },
+  { name: "Santa Felicidade", slug: "santa-felicidade", hasPage: true },
+  { name: "Boa Vista", slug: "boa-vista", hasPage: false },
+  { name: "Juvevê", slug: "juveve", hasPage: false },
+  { name: "Alto da XV", slug: "alto-da-xv", hasPage: false },
+  { name: "Cabral", slug: "cabral", hasPage: false },
+  { name: "Cristo Rei", slug: "cristo-rei", hasPage: false },
+  { name: "Jardim das Américas", slug: "jardim-das-americas", hasPage: false },
+  { name: "Cajuru", slug: "cajuru", hasPage: false },
+  { name: "Uberaba", slug: "uberaba", hasPage: false },
+  { name: "Pinheirinho", slug: "pinheirinho", hasPage: false },
+  { name: "Xaxim", slug: "xaxim", hasPage: false },
+  { name: "Boqueirão", slug: "boqueirao", hasPage: false },
+  { name: "Hauer", slug: "hauer", hasPage: false },
+  { name: "Bacacheri", slug: "bacacheri", hasPage: false },
+  { name: "Tingui", slug: "tingui", hasPage: false },
+  { name: "Atuba", slug: "atuba", hasPage: false },
+  { name: "Campo Comprido", slug: "campo-comprido", hasPage: true },
+  { name: "CIC", slug: "cic", hasPage: true },
 ];
 
 export const NeighborhoodsSection = () => {
@@ -23,17 +44,37 @@ export const NeighborhoodsSection = () => {
         
         <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto">
           {neighborhoods.map((neighborhood) => (
-            <div
-              key={neighborhood}
-              className="flex items-center gap-1.5 bg-background px-3 py-1.5 rounded-full text-sm border border-primary/10 hover:border-primary/30 transition-colors"
-            >
-              <MapPin className="h-3.5 w-3.5 text-accent" />
-              <span className="text-foreground/80">{neighborhood}</span>
-            </div>
+            neighborhood.hasPage ? (
+              <Link
+                key={neighborhood.slug}
+                to={`/bairros/${neighborhood.slug}`}
+                className="flex items-center gap-1.5 bg-background px-3 py-1.5 rounded-full text-sm border border-primary/10 hover:border-accent hover:bg-accent/5 transition-colors group"
+              >
+                <MapPin className="h-3.5 w-3.5 text-accent" />
+                <span className="text-foreground/80 group-hover:text-accent transition-colors">{neighborhood.name}</span>
+              </Link>
+            ) : (
+              <div
+                key={neighborhood.slug}
+                className="flex items-center gap-1.5 bg-background px-3 py-1.5 rounded-full text-sm border border-primary/10 hover:border-primary/30 transition-colors"
+              >
+                <MapPin className="h-3.5 w-3.5 text-accent" />
+                <span className="text-foreground/80">{neighborhood.name}</span>
+              </div>
+            )
           ))}
         </div>
         
-        <p className="text-center text-sm text-muted-foreground mt-6">
+        <div className="text-center mt-8">
+          <Link 
+            to="/tecnico-informatica-curitiba" 
+            className="text-accent hover:underline font-medium"
+          >
+            Ver todos os bairros atendidos em Curitiba →
+          </Link>
+        </div>
+        
+        <p className="text-center text-sm text-muted-foreground mt-4">
           E mais bairros em Curitiba e região metropolitana • Consulte disponibilidade
         </p>
       </div>

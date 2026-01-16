@@ -57,12 +57,17 @@ export const Footer = () => {
                   Suporte para Empresas
                 </Link>
               </li>
+              <li>
+                <Link to="/precos-e-politicas" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Preços e Políticas
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Regiões */}
+          {/* Bairros Curitiba */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Regiões</h3>
+            <h3 className="text-white font-semibold mb-4">Curitiba</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/tecnico-informatica-curitiba" className="text-white/70 hover:text-white text-sm transition-colors">
@@ -70,25 +75,69 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tecnico-informatica-sao-jose-pinhais" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Técnico em São José dos Pinhais
+                <Link to="/bairros/centro" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Centro
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/batel" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Batel
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/portao" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Portão
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/santa-felicidade" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Santa Felicidade
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/cic" className="text-white/70 hover:text-white text-sm transition-colors">
+                  CIC
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Institucional */}
+          {/* Bairros SJP + Institucional */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Institucional</h3>
+            <h3 className="text-white font-semibold mb-4">São José dos Pinhais</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/tecnico-informatica-sao-jose-pinhais" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Técnico em SJP
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/afonso-pena" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Afonso Pena
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/cruzeiro" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Cruzeiro
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/costeira" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Costeira
+                </Link>
+              </li>
+              <li>
+                <Link to="/bairros/guatupe" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Guatupê
+                </Link>
+              </li>
+            </ul>
+            
+            <h3 className="text-white font-semibold mb-3 mt-6">Links Úteis</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/sobre" className="text-white/70 hover:text-white text-sm transition-colors">
                   Sobre Nós
-                </Link>
-              </li>
-              <li>
-                <Link to="/contato" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Contato
                 </Link>
               </li>
               <li>
@@ -98,7 +147,12 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/faq" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Perguntas Frequentes
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/contato" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Contato
                 </Link>
               </li>
             </ul>

@@ -29,6 +29,22 @@ import SantaFelicidade from "./pages/bairros/SantaFelicidade";
 // Bairros São José dos Pinhais
 import SaoJoseDosPinhais from "./pages/bairros/SaoJoseDosPinhais";
 import AfonsoPena from "./pages/bairros/AfonsoPena";
+import Cruzeiro from "./pages/bairros/Cruzeiro";
+import Aristocrata from "./pages/bairros/Aristocrata";
+import Braga from "./pages/bairros/Braga";
+import Costeira from "./pages/bairros/Costeira";
+import Aviacao from "./pages/bairros/Aviacao";
+import ParqueDaFonte from "./pages/bairros/ParqueDaFonte";
+import Guatupe from "./pages/bairros/Guatupe";
+import SaoCristovao from "./pages/bairros/SaoCristovao";
+import SaoDomingos from "./pages/bairros/SaoDomingos";
+import SaoMarcos from "./pages/bairros/SaoMarcos";
+import SaoFrancisco from "./pages/bairros/SaoFrancisco";
+import DelRey from "./pages/bairros/DelRey";
+import BarroPreto from "./pages/bairros/BarroPreto";
+
+// Landing Pages Ads
+import TecnicoInformaticaCuritibaAds from "./pages/ads/TecnicoInformaticaCuritibaAds";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +80,22 @@ const App = () => (
           {/* Bairros São José dos Pinhais */}
           <Route path="/bairros/sao-jose-dos-pinhais" element={<SaoJoseDosPinhais />} />
           <Route path="/bairros/afonso-pena" element={<AfonsoPena />} />
+          <Route path="/bairros/cruzeiro" element={<Cruzeiro />} />
+          <Route path="/bairros/aristocrata" element={<Aristocrata />} />
+          <Route path="/bairros/braga" element={<Braga />} />
+          <Route path="/bairros/costeira" element={<Costeira />} />
+          <Route path="/bairros/aviacao" element={<Aviacao />} />
+          <Route path="/bairros/parque-da-fonte" element={<ParqueDaFonte />} />
+          <Route path="/bairros/guatupe" element={<Guatupe />} />
+          <Route path="/bairros/sao-cristovao" element={<SaoCristovao />} />
+          <Route path="/bairros/sao-domingos" element={<SaoDomingos />} />
+          <Route path="/bairros/sao-marcos" element={<SaoMarcos />} />
+          <Route path="/bairros/sao-francisco" element={<SaoFrancisco />} />
+          <Route path="/bairros/del-rey" element={<DelRey />} />
+          <Route path="/bairros/barro-preto" element={<BarroPreto />} />
+          
+          {/* Landing Pages Ads */}
+          <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

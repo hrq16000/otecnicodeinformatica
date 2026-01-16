@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Phone, MessageCircle, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ const mainNavItems = [
 ];
 
 const moreNavItems = [
+  { label: "Preços", to: "/precos-e-politicas" },
   { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
   { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
   { label: "Blog", to: "/blog" },
@@ -34,8 +35,17 @@ const moreNavItems = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const phoneUrl = `tel:+${PHONE_NUMBER}`;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleWhatsAppClick = () => {
     trackCTAClick('whatsapp', 'header');
@@ -46,13 +56,13 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm">
-      <div className="container mx-auto flex items-center justify-between py-3">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-background shadow-sm transition-all duration-300 ${isScrolled ? 'py-1' : 'py-2'}`}>
+      <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img
             alt="Técnico Curitiba - Assistência Técnica em Informática"
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.png"
-            className="h-10 md:h-12 w-auto object-scale-down"
+            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`}
           />
         </Link>
 

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
@@ -8,7 +9,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
-import { MapPin, Clock, Shield, Wrench, CheckCircle } from "lucide-react";
+import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
 const benefits = [
   {
@@ -34,29 +35,69 @@ const benefits = [
 ];
 
 const bairros = [
-  "Centro",
-  "Afonso Pena",
-  "Cidade Jardim",
-  "Pedro Moro",
-  "São Cristóvão",
-  "Costeira",
-  "Guatupê",
-  "Ipê",
-  "Jardim Cruzeiro",
-  "Rio Pequeno",
-  "Aristocrata",
-  "Borda do Campo",
+  { name: "Centro SJP", slug: "sao-jose-dos-pinhais", hasPage: true },
+  { name: "Afonso Pena", slug: "afonso-pena", hasPage: true },
+  { name: "Cruzeiro", slug: "cruzeiro", hasPage: true },
+  { name: "Aristocrata", slug: "aristocrata", hasPage: true },
+  { name: "Braga", slug: "braga", hasPage: true },
+  { name: "Costeira", slug: "costeira", hasPage: true },
+  { name: "Aviação", slug: "aviacao", hasPage: true },
+  { name: "Parque da Fonte", slug: "parque-da-fonte", hasPage: true },
+  { name: "Guatupê", slug: "guatupe", hasPage: true },
+  { name: "São Cristóvão", slug: "sao-cristovao", hasPage: true },
+  { name: "São Domingos", slug: "sao-domingos", hasPage: true },
+  { name: "São Marcos", slug: "sao-marcos", hasPage: true },
+  { name: "São Francisco", slug: "sao-francisco", hasPage: true },
+  { name: "Del Rey", slug: "del-rey", hasPage: true },
+  { name: "Barro Preto", slug: "barro-preto", hasPage: true },
+  { name: "Cidade Jardim", slug: null, hasPage: false },
+  { name: "Pedro Moro", slug: null, hasPage: false },
+  { name: "Ipê", slug: null, hasPage: false },
+  { name: "Rio Pequeno", slug: null, hasPage: false },
+  { name: "Borda do Campo", slug: null, hasPage: false },
 ];
 
 const servicos = [
-  "Formatação de computador e notebook",
-  "Remoção de vírus e proteção",
-  "Conserto de PC e notebook",
-  "Upgrade de memória e SSD",
-  "Configuração de rede e internet",
-  "Backup e recuperação de arquivos",
-  "Instalação de programas e sistemas",
-  "Suporte técnico para empresas locais",
+  {
+    title: "Formatação de Computador",
+    description: "Instalação limpa do Windows 10 ou 11 com drivers e programas essenciais",
+    slug: "formatacao",
+  },
+  {
+    title: "Remoção de Vírus",
+    description: "Limpeza completa de malware, ransomware e proteção com antivírus",
+    slug: "remocao-virus",
+  },
+  {
+    title: "Conserto de PC e Notebook",
+    description: "Reparo de hardware, troca de peças e diagnóstico técnico",
+    slug: "conserto",
+  },
+  {
+    title: "Upgrade SSD e Memória",
+    description: "Aumente a velocidade do seu computador com SSD e mais RAM",
+    slug: "upgrade",
+  },
+  {
+    title: "Configuração de Rede",
+    description: "Instalação e configuração de roteadores, repetidores e Wi-Fi",
+    slug: "redes",
+  },
+  {
+    title: "Backup e Recuperação",
+    description: "Proteção e recuperação de arquivos importantes",
+    slug: "backup",
+  },
+  {
+    title: "Instalação de Programas",
+    description: "Office, antivírus, drivers e softwares profissionais",
+    slug: "instalacao",
+  },
+  {
+    title: "Suporte para Empresas",
+    description: "Atendimento contínuo e planos mensais para negócios locais",
+    slug: "empresas",
+  },
 ];
 
 const TecnicoInformaticaSaoJosePinhais = () => {
@@ -111,21 +152,36 @@ const TecnicoInformaticaSaoJosePinhais = () => {
           </div>
         </section>
 
-        {/* Bairros Atendidos */}
+        {/* Bairros Atendidos com Links */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
                 Bairros Atendidos em São José dos Pinhais
               </h2>
+              <p className="text-center text-muted-foreground mb-8">
+                Clique no bairro para ver serviços específicos e solicitar atendimento
+              </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {bairros.map((bairro, index) => (
-                  <div
-                    key={index}
-                    className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground"
-                  >
-                    {bairro}
-                  </div>
+                  bairro.hasPage && bairro.slug ? (
+                    <Link
+                      key={index}
+                      to={`/bairros/${bairro.slug}`}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors group flex items-center justify-center gap-2"
+                    >
+                      <MapPin className="h-4 w-4 text-accent group-hover:text-accent-foreground" />
+                      {bairro.name}
+                    </Link>
+                  ) : (
+                    <div
+                      key={index}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                    >
+                      <MapPin className="h-4 w-4 text-muted-foreground" />
+                      {bairro.name}
+                    </div>
+                  )
                 ))}
               </div>
               <p className="text-center text-muted-foreground mt-4 text-sm">
@@ -135,21 +191,43 @@ const TecnicoInformaticaSaoJosePinhais = () => {
           </div>
         </section>
 
-        {/* Serviços */}
+        {/* Serviços com Links */}
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-                Serviços Disponíveis
+                Serviços de Informática em São José dos Pinhais
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {servicos.map((servico, index) => (
-                  <div key={index} className="flex items-center gap-3 bg-background rounded-lg p-4">
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                    <span className="text-foreground">{servico}</span>
-                  </div>
+                  <Link 
+                    key={index} 
+                    to="/servicos"
+                    className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent transition-all group"
+                  >
+                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                        {servico.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {servico.description}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors mt-1" />
+                  </Link>
                 ))}
+              </div>
+
+              <div className="text-center mt-8">
+                <Link 
+                  to="/servicos"
+                  className="inline-flex items-center gap-2 text-accent hover:underline font-medium"
+                >
+                  Ver lista completa de serviços
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>

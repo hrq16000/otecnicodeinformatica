@@ -1,0 +1,245 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
+
+const WHATSAPP_NUMBER = "5541992671754";
+const PHONE_NUMBER = "5541992671754";
+
+const RemocaoVirus = () => {
+  useEffect(() => {
+    document.title = "Remoção de Vírus em Curitiba | Malware, Ransomware - Técnico Curitiba";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Remoção de vírus, malware, ransomware e spyware em Curitiba. Limpeza completa do computador. Atendimento domiciliar. Suporte remoto disponível.");
+    }
+    trackPageView("/servicos/remocao-virus", "Remoção de Vírus");
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    trackCTAClick("whatsapp", "remocao-virus");
+    const message = encodeURIComponent("Olá! Meu computador está com vírus. Podem me ajudar?");
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+  };
+
+  const handlePhoneClick = () => {
+    trackCTAClick("phone", "remocao-virus");
+    window.location.href = `tel:${PHONE_NUMBER}`;
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 px-4 py-2 rounded-full mb-6">
+              <ShieldCheck className="h-5 w-5" />
+              <span className="font-medium">Proteção Especializada</span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+              Remoção de Vírus em Curitiba
+            </h1>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Eliminamos vírus, malware, ransomware, spyware e todas as ameaças do seu computador. Proteção completa com antivírus profissional.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={handleWhatsAppClick}>
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Remover Vírus Agora
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" onClick={handlePhoneClick}>
+                <Phone className="mr-2 h-5 w-5" />
+                (41) 99267-1754
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preço Destaque */}
+      <section className="py-8 bg-accent/10 border-y border-accent/20">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-2xl font-bold text-primary">
+            Limpeza de vírus a partir de <span className="text-accent">R$ 99,99</span>
+          </p>
+          <p className="text-muted-foreground mt-2">Suporte remoto disponível para casos simples</p>
+        </div>
+      </section>
+
+      {/* Tipos de Ameaças */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+            Tipos de Ameaças que Removemos
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { title: "Vírus", desc: "Programas maliciosos que se replicam e danificam seu sistema" },
+              { title: "Malware", desc: "Software projetado para causar danos ou roubar informações" },
+              { title: "Ransomware", desc: "Sequestra seus arquivos e exige pagamento para liberá-los" },
+              { title: "Spyware", desc: "Monitora suas atividades e rouba dados pessoais" },
+              { title: "Adware", desc: "Exibe propagandas indesejadas e redirecionamentos" },
+              { title: "Trojans", desc: "Programas disfarçados que abrem portas para hackers" },
+            ].map((item, index) => (
+              <div key={index} className="flex gap-4 p-4 bg-secondary rounded-xl border-l-4 border-red-500">
+                <AlertTriangle className="h-6 w-6 text-red-500 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-primary">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sinais de Infecção */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+            Sinais de que Seu Computador Está Infectado
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              "Computador muito lento sem motivo aparente",
+              "Pop-ups e propagandas aparecendo constantemente",
+              "Programas abrindo sozinhos",
+              "Navegador redirecionando para sites estranhos",
+              "Arquivos desaparecendo ou corrompidos",
+              "Mensagens de resgate pedindo pagamento",
+              "Antivírus desativado sem você fazer isso",
+              "Emails sendo enviados sem sua autorização",
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg">
+                <ArrowRight className="h-5 w-5 text-red-500" />
+                <span className="text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nosso Processo */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+            Nosso Processo de Remoção
+          </h2>
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              { step: "1", title: "Diagnóstico", desc: "Identificamos todas as ameaças presentes no sistema" },
+              { step: "2", title: "Remoção", desc: "Eliminamos vírus, malware e programas maliciosos" },
+              { step: "3", title: "Limpeza", desc: "Removemos rastros e arquivos residuais" },
+              { step: "4", title: "Proteção", desc: "Instalamos antivírus e configuramos segurança" },
+            ].map((item, index) => (
+              <div key={index} className="text-center p-6 bg-secondary rounded-xl">
+                <div className="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                  {item.step}
+                </div>
+                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* O que inclui */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+            O Que Está Incluso no Serviço
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              "Análise completa do sistema",
+              "Remoção de todos os vírus encontrados",
+              "Limpeza de malware e spyware",
+              "Remoção de programas indesejados",
+              "Instalação de antivírus profissional",
+              "Atualização do sistema operacional",
+              "Otimização de desempenho",
+              "Orientações de segurança",
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg">
+                <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                <span className="text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+            Perguntas Frequentes
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              { q: "Vocês conseguem remover ransomware?", a: "Sim, removemos o ransomware. Em alguns casos, conseguimos recuperar os arquivos criptografados. Em outros, recomendamos formatação com backup." },
+              { q: "Quanto tempo demora a limpeza?", a: "Depende da gravidade da infecção. Casos simples levam cerca de 1 hora. Casos graves podem levar de 2 a 4 horas." },
+              { q: "Posso resolver por atendimento remoto?", a: "Sim! Para infecções leves, oferecemos suporte remoto. Casos graves requerem atendimento presencial ou coleta." },
+              { q: "Vou perder meus arquivos?", a: "Na maioria dos casos, não. Fazemos o possível para preservar seus dados. Só recomendamos formatação em casos extremos." },
+              { q: "Qual antivírus vocês instalam?", a: "Instalamos antivírus profissional gratuito ou pago, de acordo com sua preferência e necessidade." },
+            ].map((item, index) => (
+              <div key={index} className="bg-secondary p-6 rounded-xl">
+                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <p className="text-muted-foreground">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-16 bg-primary">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-heading font-bold text-white mb-4">
+            Computador com Vírus? Resolva Agora!
+          </h2>
+          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+            Não espere o problema piorar. Entre em contato e elimine as ameaças do seu computador hoje!
+          </p>
+          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={handleWhatsAppClick}>
+            <MessageCircle className="mr-2 h-5 w-5" />
+            Remover Vírus Agora
+          </Button>
+        </div>
+      </section>
+
+      {/* Serviços Relacionados */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+            Serviços Relacionados
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+              Formatação
+            </Link>
+            <Link to="/servicos/backup-recuperacao" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+              Backup de Dados
+            </Link>
+            <Link to="/atendimento-remoto" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+              Suporte Remoto
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+      <WhatsAppFloat />
+    </div>
+  );
+};
+
+export default RemocaoVirus;

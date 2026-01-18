@@ -46,6 +46,15 @@ import BarroPreto from "./pages/bairros/BarroPreto";
 // Landing Pages Ads
 import TecnicoInformaticaCuritibaAds from "./pages/ads/TecnicoInformaticaCuritibaAds";
 
+// Páginas de Serviços Individuais
+import FormatacaoComputador from "./pages/servicos/FormatacaoComputador";
+import RemocaoVirus from "./pages/servicos/RemocaoVirus";
+import UpgradeSsdMemoria from "./pages/servicos/UpgradeSsdMemoria";
+import ConsertoPcNotebook from "./pages/servicos/ConsertoPcNotebook";
+import RedesWifi from "./pages/servicos/RedesWifi";
+import BackupRecuperacao from "./pages/servicos/BackupRecuperacao";
+import MontagemPc from "./pages/servicos/MontagemPc";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -96,6 +105,15 @@ const App = () => (
           
           {/* Landing Pages Ads */}
           <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />
+          
+          {/* Páginas de Serviços */}
+          <Route path="/servicos/formatacao-computador" element={<FormatacaoComputador />} />
+          <Route path="/servicos/remocao-virus" element={<RemocaoVirus />} />
+          <Route path="/servicos/upgrade-ssd-memoria" element={<UpgradeSsdMemoria />} />
+          <Route path="/servicos/conserto-pc-notebook" element={<ConsertoPcNotebook />} />
+          <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
+          <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
+          <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,16 +1,27 @@
-import { Phone, MessageCircle } from "lucide-react";
+import { MessageCircle, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import { trackCTAClick } from "@/lib/analytics";
+
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
 export const CTASection = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
-  return <section className="py-12 md:py-16 lg:py-20 bg-secondary">
+  
+  const openChatbot = () => {
+    trackCTAClick('chatbot', 'cta_section');
+    window.dispatchEvent(new CustomEvent('openChatbot'));
+  };
+
+  return (
+    <section className="py-12 md:py-16 lg:py-20 bg-secondary">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center">
-          <img alt="Técnico Curitiba" className="h-16 md:h-20 mx-auto mb-6" src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.png" />
+          <img 
+            alt="Técnico Curitiba" 
+            className="h-16 md:h-20 mx-auto mb-6" 
+            src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.png" 
+          />
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
             Precisa resolver agora?
@@ -28,14 +39,13 @@ export const CTASection = () => {
               </a>
             </Button>
             
-            <Button variant="heroCta" asChild>
-              <a href={phoneUrl}>
-                <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                Ligação Direta
-              </a>
+            <Button variant="heroCta" onClick={openChatbot}>
+              <Bot className="h-5 w-5 md:h-6 md:w-6" />
+              Atendimento Rápido
             </Button>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

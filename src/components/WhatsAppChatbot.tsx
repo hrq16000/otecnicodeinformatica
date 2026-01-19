@@ -167,6 +167,15 @@ export const WhatsAppChatbot = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Listener para abrir chatbot de outros componentes
+  useEffect(() => {
+    const handleOpenChatbot = () => {
+      setIsOpen(true);
+    };
+    window.addEventListener('openChatbot', handleOpenChatbot);
+    return () => window.removeEventListener('openChatbot', handleOpenChatbot);
+  }, []);
+
   useEffect(() => {
     if (isOpen && mensagens.length === 0) {
       const estadoInicial = chatFlow.inicio;
@@ -327,20 +336,32 @@ export const WhatsAppChatbot = () => {
         </div>
       )}
 
-      {/* Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-4 sm:right-6 z-50 bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
-          !isOpen ? "animate-pulse-soft" : ""
-        }`}
-        aria-label="Abrir assistente virtual"
-      >
-        {isOpen ? (
-          <X className="h-7 w-7" />
-        ) : (
-          <MessageCircle className="h-7 w-7" />
+      {/* Toggle Button with Label */}
+      <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-2">
+        {!isOpen && (
+          <div className="bg-background border border-border rounded-lg px-3 py-2 shadow-lg animate-in fade-in slide-in-from-bottom-2 duration-300">
+            <p className="text-xs font-medium text-foreground whitespace-nowrap">
+              💬 Atendimento Rápido
+            </p>
+            <p className="text-[10px] text-muted-foreground">
+              Assistente Virtual 24h
+            </p>
+          </div>
         )}
-      </button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`bg-whatsapp hover:bg-whatsapp-hover text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
+            !isOpen ? "animate-pulse-soft" : ""
+          }`}
+          aria-label="Abrir assistente virtual"
+        >
+          {isOpen ? (
+            <X className="h-7 w-7" />
+          ) : (
+            <MessageCircle className="h-7 w-7" />
+          )}
+        </button>
+      </div>
     </>
   );
 };

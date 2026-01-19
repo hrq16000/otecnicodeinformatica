@@ -1,13 +1,20 @@
-import { Phone, MessageCircle } from "lucide-react";
+import { MessageCircle, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-technician.png";
+import { trackCTAClick } from "@/lib/analytics";
+
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
 export const HeroSection = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
-  return <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 lg:pb-20">
+  
+  const openChatbot = () => {
+    trackCTAClick('chatbot', 'hero');
+    window.dispatchEvent(new CustomEvent('openChatbot'));
+  };
+
+  return (
+    <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 lg:pb-20">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}
@@ -30,11 +37,9 @@ export const HeroSection = () => {
                 </a>
               </Button>
               
-              <Button variant="heroCta" asChild>
-                <a href={phoneUrl}>
-                  <Phone className="h-5 w-5 md:h-6 md:w-6" />
-                  Ligar Agora
-                </a>
+              <Button variant="heroCta" onClick={openChatbot}>
+                <Bot className="h-5 w-5 md:h-6 md:w-6" />
+                Atendimento Rápido
               </Button>
             </div>
           </div>
@@ -42,7 +47,12 @@ export const HeroSection = () => {
           {/* Image */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
-              <img alt="Técnico de informática profissional em Curitiba" className="w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl" loading="eager" src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.png" />
+              <img 
+                alt="Técnico de informática profissional em Curitiba" 
+                className="w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl" 
+                loading="eager" 
+                src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.png" 
+              />
               <div className="absolute -bottom-3 -right-3 bg-accent text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg">
                 ✓ Atendimento Imediato
               </div>
@@ -50,5 +60,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

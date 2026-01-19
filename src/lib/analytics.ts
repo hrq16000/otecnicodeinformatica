@@ -8,7 +8,7 @@ declare global {
 }
 
 // Track CTA clicks for conversions
-export const trackCTAClick = (ctaType: 'whatsapp' | 'phone', location: string) => {
+export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
   // Google Analytics event
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'cta_click', {

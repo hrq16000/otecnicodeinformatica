@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Phone, MessageCircle, Menu, X, ChevronDown } from "lucide-react";
+import { MessageCircle, Menu, X, ChevronDown, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -12,7 +12,6 @@ import {
 import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 const mainNavItems = [
@@ -37,7 +36,6 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,8 +49,10 @@ export const Header = () => {
     trackCTAClick('whatsapp', 'header');
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick('phone', 'header');
+  const openChatbot = () => {
+    trackCTAClick('chatbot', 'header');
+    // Dispara evento customizado para abrir o chatbot
+    window.dispatchEvent(new CustomEvent('openChatbot'));
   };
 
   return (
@@ -115,12 +115,10 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" asChild>
-            <a href={phoneUrl} onClick={handlePhoneClick}>
-              <Phone className="h-4 w-4" />
-              <span className="hidden md:inline">(41) 9.9745-2053</span>
-              <span className="md:hidden">Ligar</span>
-            </a>
+          <Button variant="cta" size="sm" onClick={openChatbot}>
+            <Bot className="h-4 w-4" />
+            <span className="hidden md:inline">Atendimento Rápido</span>
+            <span className="md:hidden">Atender</span>
           </Button>
 
           {/* Mobile Menu Toggle */}

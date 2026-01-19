@@ -8,7 +8,7 @@ import { NeighborhoodsSection } from "@/components/NeighborhoodsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppChat } from "@/components/WhatsAppChat";
+import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
 import { trackPageView } from "@/lib/analytics";
@@ -41,7 +41,7 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
-      <WhatsAppChat />
+      <WhatsAppChatbot />
     </div>
   );
 };

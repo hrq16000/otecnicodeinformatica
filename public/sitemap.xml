@@ -1,20 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Páginas Principais -->
   <url><loc>https://tecnicocuritiba.com.br/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/servicos</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/precos-e-politicas</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/atendimento-domicilio</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/atendimento-remoto</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/suporte-empresas</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://tecnicocuritiba.com.br/precos-e-politicas</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/sobre</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/contato</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/faq</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  
+  <!-- Páginas de Serviços Individuais -->
+  <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/remocao-virus</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/upgrade-ssd-memoria</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-pc-notebook</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/redes-wifi</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/backup-recuperacao</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/montagem-pc</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  
+  <!-- Páginas de Cidades -->
+  <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-curitiba</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-sao-jose-pinhais</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  
+  <!-- Bairros Curitiba -->
   <url><loc>https://tecnicocuritiba.com.br/bairros/centro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/batel</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/portao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/campo-comprido</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/cic</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/santa-felicidade</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  
+  <!-- Bairros São José dos Pinhais -->
   <url><loc>https://tecnicocuritiba.com.br/bairros/sao-jose-dos-pinhais</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/afonso-pena</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/cruzeiro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/aristocrata</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/braga</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/costeira</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/aviacao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/parque-da-fonte</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/guatupe</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/sao-cristovao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/sao-domingos</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/sao-marcos</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/sao-francisco</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/del-rey</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/barro-preto</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  
+  <!-- Posts do Blog -->
+  <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-vale-a-pena-atualizar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/como-instalar-windows-11-pc-antigo</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-lento-como-resolver</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/office-365-guia-completo-empresas</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/office-365-vs-office-tradicional</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/configurar-email-outlook-office-365</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/seguranca-digital-empresas-guia-2024</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/ransomware-como-proteger-empresa</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/phishing-como-identificar-golpes</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/backup-nuvem-empresas-qual-escolher</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/como-deixar-computador-mais-rapido</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/sinais-computador-com-virus</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/quando-trocar-hd-por-ssd</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/backup-como-proteger-seus-arquivos</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/notebook-superaquecendo-o-que-fazer</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/wifi-lento-como-melhorar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>

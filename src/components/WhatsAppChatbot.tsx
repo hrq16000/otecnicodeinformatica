@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send, Bot, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
+import DOMPurify from "dompurify";
 
 const WHATSAPP_NUMBER = "5541997452053";
 
@@ -223,10 +224,11 @@ export const WhatsAppChatbot = () => {
   };
 
   const formatarTexto = (texto: string) => {
-    // Converte markdown básico para HTML
-    return texto
+    // Converte markdown básico para HTML e sanitiza para prevenir XSS
+    const html = texto
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '<br />');
+    return DOMPurify.sanitize(html);
   };
 
   if (!isVisible) return null;

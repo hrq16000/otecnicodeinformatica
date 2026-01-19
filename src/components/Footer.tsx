@@ -1,20 +1,13 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, MessageCircle } from "lucide-react";
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-primary py-10 md:py-12">
+  return <footer className="bg-primary py-10 md:py-12">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Logo e Contato */}
           <div className="space-y-4">
-            <img
-              alt="Técnico Curitiba"
-              className="h-10 brightness-0 invert object-scale-down"
-              src="/lovable-uploads/c858cf99-e05f-4d8f-a05a-c741ebfabfea.png"
-            />
+            <img alt="Técnico Curitiba" className="h-10 brightness-0 invert object-fill" src="/lovable-uploads/c858cf99-e05f-4d8f-a05a-c741ebfabfea.png" />
             <div className="flex items-center gap-2 text-white/80 text-sm">
               <MapPin className="h-4 w-4 flex-shrink-0" />
               <span>Curitiba e Região Metropolitana, PR</span>
@@ -165,6 +158,5 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };

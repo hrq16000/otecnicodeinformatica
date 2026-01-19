@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { 
   Monitor, 
   ShieldCheck, 
@@ -7,7 +8,8 @@ import {
   Database, 
   Building2, 
   Headphones,
-  MapPin
+  MapPin,
+  ArrowRight
 } from "lucide-react";
 
 const services = [
@@ -15,46 +17,64 @@ const services = [
     icon: Monitor,
     title: "Formatação de Computador",
     description: "Windows, drivers e programas configurados",
+    link: "/servicos/formatacao-computador",
+    preco: "A partir de R$ 150"
   },
   {
     icon: ShieldCheck,
     title: "Remoção de Vírus",
     description: "Limpeza completa de malwares e ameaças",
+    link: "/servicos/remocao-virus",
+    preco: "A partir de R$ 99,99"
   },
   {
     icon: Wrench,
     title: "Conserto de PC e Notebook",
     description: "Diagnóstico e reparo de hardware",
+    link: "/servicos/conserto-pc-notebook",
+    preco: "Sob orçamento"
   },
   {
     icon: HardDrive,
     title: "Upgrade SSD e Memória",
     description: "Deixe seu computador mais rápido",
+    link: "/servicos/upgrade-ssd-memoria",
+    preco: "A partir de R$ 80"
   },
   {
     icon: Wifi,
     title: "Redes e Wi-Fi",
     description: "Instalação e configuração de rede",
+    link: "/servicos/redes-wifi",
+    preco: "A partir de R$ 80"
   },
   {
     icon: Database,
     title: "Backup e Recuperação",
     description: "Proteção e resgate dos seus dados",
+    link: "/servicos/backup-recuperacao",
+    preco: "A partir de R$ 80"
   },
   {
     icon: Building2,
     title: "Suporte para Empresas",
-    description: "Atendimento técnico corporativo",
+    description: "Atendimento técnico corporativo com SLA",
+    link: "/suporte-empresas",
+    preco: "A partir de R$ 300/mês"
   },
   {
     icon: Headphones,
     title: "Atendimento Remoto",
     description: "Suporte imediato online",
+    link: "/atendimento-remoto",
+    preco: "A partir de R$ 79,99"
   },
   {
     icon: MapPin,
-    title: "Atendimento Residencial",
-    description: "Vamos até você em Curitiba",
+    title: "Atendimento Domiciliar",
+    description: "Vamos até você em Curitiba e região",
+    link: "/atendimento-domicilio",
+    preco: "R$ 99,99 / 30 min"
   },
 ];
 
@@ -75,26 +95,44 @@ export const ServicesSection = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div 
+              <Link 
                 key={index}
-                className="bg-secondary rounded-xl p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20"
+                to={service.link}
+                className="group bg-secondary rounded-xl p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20"
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-lg p-3 flex-shrink-0">
+                  <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors">
                     <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-primary text-lg mb-1">
+                  <div className="flex-1">
+                    <h3 className="font-heading font-bold text-primary text-lg mb-1 group-hover:text-accent transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-muted-foreground text-sm mb-2">
                       {service.description}
                     </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-accent font-semibold text-sm">
+                        {service.preco}
+                      </span>
+                      <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
+        </div>
+
+        {/* Link para tabela completa */}
+        <div className="text-center mt-8">
+          <Link
+            to="/precos-e-politicas"
+            className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all"
+          >
+            Ver tabela completa de preços
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

@@ -95,33 +95,28 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Bairros SJP + Institucional */}
+          {/* Região Metropolitana */}
           <div>
-            <h3 className="text-white font-semibold mb-4">São José dos Pinhais</h3>
+            <h3 className="text-white font-semibold mb-4">Região Metropolitana</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/tecnico-informatica-sao-jose-pinhais" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Técnico em SJP
+                  São José dos Pinhais
                 </Link>
               </li>
               <li>
-                <Link to="/bairros/afonso-pena" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Afonso Pena
+                <Link to="/tecnico-informatica-araucaria" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Araucária
                 </Link>
               </li>
               <li>
-                <Link to="/bairros/cruzeiro" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Cruzeiro
+                <Link to="/tecnico-informatica-campo-largo" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Campo Largo
                 </Link>
               </li>
               <li>
-                <Link to="/bairros/costeira" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Costeira
-                </Link>
-              </li>
-              <li>
-                <Link to="/bairros/guatupe" className="text-white/70 hover:text-white text-sm transition-colors">
-                  Guatupê
+                <Link to="/tecnico-informatica-pinhais" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Pinhais
                 </Link>
               </li>
             </ul>

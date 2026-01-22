@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Servicos from "./pages/Servicos";
 import AtendimentoDomicilio from "./pages/AtendimentoDomicilio";
@@ -11,6 +12,9 @@ import SuporteEmpresas from "./pages/SuporteEmpresas";
 import PrecosEPoliticas from "./pages/PrecosEPoliticas";
 import TecnicoInformaticaCuritiba from "./pages/TecnicoInformaticaCuritiba";
 import TecnicoInformaticaSaoJosePinhais from "./pages/TecnicoInformaticaSaoJosePinhais";
+import TecnicoInformaticaAraucaria from "./pages/TecnicoInformaticaAraucaria";
+import TecnicoInformaticaCampoLargo from "./pages/TecnicoInformaticaCampoLargo";
+import TecnicoInformaticaPinhais from "./pages/TecnicoInformaticaPinhais";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
@@ -63,6 +67,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/servicos" element={<Servicos />} />
@@ -70,8 +75,14 @@ const App = () => (
           <Route path="/atendimento-remoto" element={<AtendimentoRemoto />} />
           <Route path="/suporte-empresas" element={<SuporteEmpresas />} />
           <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
+          
+          {/* Páginas de Cidades */}
           <Route path="/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritiba />} />
           <Route path="/tecnico-informatica-sao-jose-pinhais" element={<TecnicoInformaticaSaoJosePinhais />} />
+          <Route path="/tecnico-informatica-araucaria" element={<TecnicoInformaticaAraucaria />} />
+          <Route path="/tecnico-informatica-campo-largo" element={<TecnicoInformaticaCampoLargo />} />
+          <Route path="/tecnico-informatica-pinhais" element={<TecnicoInformaticaPinhais />} />
+          
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/blog" element={<Blog />} />

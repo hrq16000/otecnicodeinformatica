@@ -25,19 +25,19 @@ const cities: CityData[] = [
     name: "Araucária",
     slug: "araucaria",
     neighborhoods: ["Centro", "Chapada", "Costeira", "Iguaçu", "Thomaz Coelho"],
-    hasPage: false
+    hasPage: true
   },
   {
     name: "Campo Largo",
     slug: "campo-largo",
     neighborhoods: ["Centro", "Jardim Guilhermina", "Jardim América", "Ferraria"],
-    hasPage: false
+    hasPage: true
   },
   {
     name: "Pinhais",
     slug: "pinhais",
     neighborhoods: ["Centro", "Emiliano Perneta", "Maria Antonieta", "Weissópolis"],
-    hasPage: false
+    hasPage: true
   }
 ];
 

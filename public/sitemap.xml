@@ -24,6 +24,9 @@
   <!-- Páginas de Cidades -->
   <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-curitiba</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-sao-jose-pinhais</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-araucaria</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-campo-largo</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-pinhais</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   
   <!-- Bairros Curitiba -->
   <url><loc>https://tecnicocuritiba.com.br/bairros/centro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>

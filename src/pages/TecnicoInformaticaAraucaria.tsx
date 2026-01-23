@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Factory, Home } from "lucide-react";
 
@@ -93,6 +94,29 @@ const servicos = [
     title: "Montagem de PC",
     description: "Montagem personalizada de computadores para gaming e trabalho",
     slug: "montagem-pc",
+  },
+];
+
+const localFaqs = [
+  {
+    question: "Qual o tempo de atendimento em Araucária?",
+    answer:
+      "O tempo de deslocamento até Araucária costuma ficar entre 30 e 50 minutos (varia conforme o bairro e o trânsito). Quando possível, atendemos no mesmo dia com horário agendado.",
+  },
+  {
+    question: "Vocês atendem empresas no polo industrial de Araucária?",
+    answer:
+      "Sim. Atendemos comércios e empresas em toda a cidade, incluindo a região do CIAR e áreas industriais. Podemos montar um plano de suporte recorrente para reduzir paradas e prevenir problemas.",
+  },
+  {
+    question: "Quanto custa a visita do técnico em Araucária?",
+    answer:
+      "A visita técnica parte de R$ 99,99 (30 minutos). Antes de executar qualquer serviço adicional, fazemos diagnóstico e informamos o valor com transparência.",
+  },
+  {
+    question: "Vocês fazem formatação e remoção de vírus em Araucária?",
+    answer:
+      "Sim. Realizamos formatação do Windows (com drivers e ajustes), remoção de malware/ransomware, otimização e orientação de segurança para evitar reinfecção.",
   },
 ];
 
@@ -303,38 +327,7 @@ const TecnicoInformaticaAraucaria = () => {
         </section>
 
         {/* FAQ Local */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-                Perguntas Frequentes - Araucária
-              </h2>
-              <div className="space-y-4">
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Qual o tempo de atendimento em Araucária?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    O tempo de deslocamento até Araucária é de aproximadamente 30-50 minutos partindo de Curitiba, 
-                    dependendo do bairro. Agendamos horários flexíveis para sua conveniência.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Vocês atendem empresas no polo industrial?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Sim! Atendemos empresas em toda Araucária, incluindo a região do CIAR e proximidades da REPAR. 
-                    Oferecemos planos de suporte contínuo para empresas que precisam de atendimento regular.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Qual o valor mínimo para atendimento?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    O valor da visita técnica é a partir de R$ 99,99 (30 minutos). Serviços adicionais são orçados 
-                    separadamente com total transparência antes da execução.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LocalFAQSection title="Perguntas Frequentes - Araucária" faqs={localFaqs} />
 
         <TrustSection />
         <CTASection />

@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
@@ -93,6 +94,29 @@ const servicos = [
     title: "Suporte Empresarial",
     description: "Planos de suporte para pequenas empresas",
     slug: null,
+  },
+];
+
+const localFaqs = [
+  {
+    question: "Por que o atendimento em Pinhais é mais rápido?",
+    answer:
+      "Como Pinhais faz divisa com Curitiba, o deslocamento costuma ficar entre 15 e 30 minutos (variando por bairro e trânsito). Isso facilita encaixes e urgências.",
+  },
+  {
+    question: "Vocês atendem Weissópolis, Pineville e Centro de Pinhais?",
+    answer:
+      "Sim. Atendemos todos os bairros de Pinhais, incluindo Weissópolis, Pineville, Centro, Maria Antonieta, Emiliano Perneta e regiões próximas.",
+  },
+  {
+    question: "Quanto custa a visita técnica em Pinhais?",
+    answer:
+      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de realizar qualquer serviço.",
+  },
+  {
+    question: "Vocês fazem suporte remoto para clientes de Pinhais?",
+    answer:
+      "Sim, quando o problema é de software (lentidão, configurações, instalação, limpeza), o suporte remoto pode resolver com rapidez. Para hardware, recomendamos atendimento presencial.",
   },
 ];
 
@@ -302,38 +326,7 @@ const TecnicoInformaticaPinhais = () => {
         </section>
 
         {/* FAQ Local */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-                Perguntas Frequentes - Pinhais
-              </h2>
-              <div className="space-y-4">
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Qual a vantagem de estar em Pinhais?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Por fazer divisa com Curitiba, o tempo de deslocamento até Pinhais é muito curto, 
-                    geralmente entre 15-30 minutos. Isso permite atendimentos mais rápidos e até emergenciais.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Atendem no Weissópolis e região?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Sim! Atendemos todos os bairros de Pinhais, incluindo Weissópolis, Maria Antonieta, 
-                    Emiliano Perneta, Vargem Grande e demais regiões.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Vocês atendem urgências?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Sim, por estar próximo, conseguimos atender urgências em Pinhais com agilidade. 
-                    Entre em contato pelo WhatsApp e informe que é urgente.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LocalFAQSection title="Perguntas Frequentes - Pinhais" faqs={localFaqs} />
 
         <TrustSection />
         <CTASection />

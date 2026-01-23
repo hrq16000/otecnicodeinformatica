@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -97,6 +98,29 @@ const servicos = [
     title: "Suporte para Empresas",
     description: "Atendimento contínuo e planos mensais para negócios locais",
     slug: "empresas",
+  },
+];
+
+const localFaqs = [
+  {
+    question: "Vocês atendem a domicílio em São José dos Pinhais?",
+    answer:
+      "Sim. Fazemos atendimento a domicílio em toda a cidade, incluindo regiões próximas ao aeroporto e bairros como Afonso Pena, Costeira, Aviação e Centro.",
+  },
+  {
+    question: "Quanto custa a visita do técnico em São José dos Pinhais?",
+    answer:
+      "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de realizar qualquer procedimento.",
+  },
+  {
+    question: "Quais serviços vocês fazem em São José dos Pinhais?",
+    answer:
+      "Os mais comuns são formatação, remoção de vírus, conserto de notebook/PC, upgrade para SSD e configuração de Wi‑Fi. Também fazemos backup e suporte remoto quando aplicável.",
+  },
+  {
+    question: "Vocês atendem urgências (computador parou) em SJP?",
+    answer:
+      "Sim. Quando o caso é urgente, tentamos encaixe no mesmo dia. Chame no WhatsApp e informe o bairro e o problema para agilizar.",
   },
 ];
 
@@ -232,6 +256,8 @@ const TecnicoInformaticaSaoJosePinhais = () => {
             </div>
           </div>
         </section>
+
+        <LocalFAQSection title="Perguntas Frequentes - São José dos Pinhais" faqs={localFaqs} />
 
         <TrustSection />
         <CTASection />

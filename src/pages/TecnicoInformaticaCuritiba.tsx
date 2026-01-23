@@ -9,6 +9,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -98,6 +99,29 @@ const servicos = [
   {
     title: "Atendimento Remoto",
     description: "Suporte imediato sem sair de casa",
+  },
+];
+
+const localFaqs = [
+  {
+    question: "Quanto custa um técnico de informática em Curitiba?",
+    answer:
+      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+  },
+  {
+    question: "Vocês atendem em todos os bairros de Curitiba?",
+    answer:
+      "Sim. Atendemos toda Curitiba (Centro, Batel, Portão, CIC, Santa Felicidade e demais bairros) e também regiões próximas da grande Curitiba.",
+  },
+  {
+    question: "Em quanto tempo o técnico chega?",
+    answer:
+      "Quando possível, atendemos no mesmo dia. O tempo de chegada varia conforme bairro e trânsito, mas buscamos sempre o encaixe mais rápido após seu contato.",
+  },
+  {
+    question: "Vocês fazem atendimento remoto em Curitiba?",
+    answer:
+      "Sim. Para problemas de software, configuração e lentidão, o suporte remoto pode resolver rapidamente. Para hardware e troca de peças, recomendamos atendimento presencial.",
   },
 ];
 
@@ -243,6 +267,8 @@ const TecnicoInformaticaCuritiba = () => {
             </div>
           </div>
         </section>
+
+        <LocalFAQSection title="Perguntas Frequentes - Curitiba" faqs={localFaqs} />
 
         <TestimonialsSection />
         <TrustSection />

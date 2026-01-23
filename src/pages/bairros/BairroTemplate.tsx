@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { 
@@ -115,6 +116,26 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
       }))
     }
   };
+
+  const localFaqs = [
+    {
+      question: `Vocês atendem a domicílio no ${data.nome}?`,
+      answer: `Sim. Fazemos atendimento a domicílio no ${data.nome} (${data.cidade}) com horário agendado. Levamos ferramentas e fazemos diagnóstico no local sempre que possível.`,
+    },
+    {
+      question: `Quanto tempo demora para o técnico chegar no ${data.nome}?`,
+      answer: `Em geral, ${data.tempoDeslocamento.toLowerCase()}. O tempo pode variar conforme trânsito e disponibilidade do dia. Para urgências, tentamos encaixe no mesmo dia.`,
+    },
+    {
+      question: `Quais serviços vocês fazem no ${data.nome}?`,
+      answer: `Os mais comuns são ${data.servicosDestaque.slice(0, 4).join(", ")}. Também realizamos diagnóstico, manutenção preventiva, suporte remoto (quando aplicável) e melhorias de desempenho.`,
+    },
+    {
+      question: `Qual o valor da visita técnica no ${data.nome}?`,
+      answer:
+        "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -296,6 +317,11 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </div>
         </section>
+
+        <LocalFAQSection
+          title={`Perguntas Frequentes - ${data.nome}`}
+          faqs={localFaqs}
+        />
 
         <TrustSection />
         <CTASection />

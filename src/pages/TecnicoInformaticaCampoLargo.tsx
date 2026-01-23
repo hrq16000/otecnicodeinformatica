@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Trees } from "lucide-react";
 
@@ -93,6 +94,29 @@ const servicos = [
     title: "Montagem de PC",
     description: "Montagem personalizada para suas necessidades",
     slug: "montagem-pc",
+  },
+];
+
+const localFaqs = [
+  {
+    question: "Vocês atendem na área rural de Campo Largo?",
+    answer:
+      "Sim. Atendemos toda Campo Largo, inclusive distritos e áreas de chácaras. O ideal é agendar para garantir disponibilidade e melhor rota.",
+  },
+  {
+    question: "Qual o tempo de deslocamento para Campo Largo?",
+    answer:
+      "Em geral, o deslocamento fica entre 40 e 70 minutos dependendo do bairro e do trânsito. Para urgências, tentamos encaixar atendimento no mesmo dia.",
+  },
+  {
+    question: "Quanto custa a visita técnica em Campo Largo?",
+    answer:
+      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, o orçamento é informado antes de qualquer execução.",
+  },
+  {
+    question: "Quais serviços são mais comuns em Campo Largo?",
+    answer:
+      "Os mais solicitados são formatação/otimização, remoção de vírus, upgrade para SSD e configuração de Wi‑Fi. Também fazemos conserto de notebook e recuperação de dados.",
   },
 ];
 
@@ -302,38 +326,7 @@ const TecnicoInformaticaCampoLargo = () => {
         </section>
 
         {/* FAQ Local */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-                Perguntas Frequentes - Campo Largo
-              </h2>
-              <div className="space-y-4">
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Vocês atendem na área rural de Campo Largo?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Sim, atendemos toda a região de Campo Largo, incluindo distritos como Ferraria, Bateias, 
-                    e áreas de chácaras. O atendimento é agendado com antecedência para garantir disponibilidade.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Qual o tempo de deslocamento até Campo Largo?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    O tempo de deslocamento de Curitiba até Campo Largo é de aproximadamente 40-60 minutos, 
-                    dependendo do bairro. Agendamos atendimentos com horários que funcionem para você.
-                  </p>
-                </div>
-                <div className="bg-secondary rounded-lg p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Atendem empresas do setor cerâmico?</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Sim! Atendemos empresas de todos os segmentos em Campo Largo, incluindo o setor cerâmico. 
-                    Oferecemos suporte para sistemas de gestão, redes e manutenção de equipamentos.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LocalFAQSection title="Perguntas Frequentes - Campo Largo" faqs={localFaqs} />
 
         <TrustSection />
         <CTASection />

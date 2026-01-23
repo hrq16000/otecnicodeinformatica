@@ -35,22 +35,22 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro", hasPage: false },
-  { name: "Emiliano Perneta", hasPage: false },
-  { name: "Maria Antonieta", hasPage: false },
-  { name: "Weissópolis", hasPage: false },
-  { name: "Vargem Grande", hasPage: false },
-  { name: "Estância Pinhais", hasPage: false },
-  { name: "Pineville", hasPage: false },
-  { name: "Alto Tarumã", hasPage: false },
-  { name: "Graciosa", hasPage: false },
-  { name: "Jardim Amélia", hasPage: false },
-  { name: "Palmital", hasPage: false },
-  { name: "Atuba", hasPage: false },
-  { name: "Sete Vilas", hasPage: false },
-  { name: "Vila Tarumã", hasPage: false },
-  { name: "Vale das Águas", hasPage: false },
-  { name: "Jardim Claudia", hasPage: false },
+  { name: "Centro", slug: "centro-pinhais", hasPage: true },
+  { name: "Weissópolis", slug: "weissopolis", hasPage: true },
+  { name: "Pineville", slug: "pineville", hasPage: true },
+  { name: "Emiliano Perneta", slug: "emiliano-perneta", hasPage: false },
+  { name: "Maria Antonieta", slug: "maria-antonieta", hasPage: false },
+  { name: "Vargem Grande", slug: "vargem-grande", hasPage: false },
+  { name: "Estância Pinhais", slug: "estancia-pinhais", hasPage: false },
+  { name: "Alto Tarumã", slug: "alto-taruma", hasPage: false },
+  { name: "Graciosa", slug: "graciosa", hasPage: false },
+  { name: "Jardim Amélia", slug: "jardim-amelia", hasPage: false },
+  { name: "Palmital", slug: "palmital-pinhais", hasPage: false },
+  { name: "Atuba", slug: "atuba-pinhais", hasPage: false },
+  { name: "Sete Vilas", slug: "sete-vilas", hasPage: false },
+  { name: "Vila Tarumã", slug: "vila-taruma", hasPage: false },
+  { name: "Vale das Águas", slug: "vale-das-aguas", hasPage: false },
+  { name: "Jardim Claudia", slug: "jardim-claudia", hasPage: false },
 ];
 
 const servicos = [
@@ -214,15 +214,26 @@ const TecnicoInformaticaPinhais = () => {
                 Técnico de informática a domicílio em todos os bairros de Pinhais
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {bairros.map((bairro, index) => (
-                  <div
-                    key={index}
-                    className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
-                  >
-                    <MapPin className="h-4 w-4 text-accent" />
-                    {bairro.name}
-                  </div>
-                ))}
+                {bairros.map((bairro) =>
+                  bairro.hasPage ? (
+                    <Link
+                      key={bairro.slug}
+                      to={`/bairros/${bairro.slug}`}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </Link>
+                  ) : (
+                    <div
+                      key={bairro.slug}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </div>
+                  )
+                )}
               </div>
               <p className="text-center text-muted-foreground mt-4 text-sm">
                 Cobertura completa em toda a cidade de Pinhais

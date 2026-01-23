@@ -47,6 +47,21 @@ import SaoFrancisco from "./pages/bairros/SaoFrancisco";
 import DelRey from "./pages/bairros/DelRey";
 import BarroPreto from "./pages/bairros/BarroPreto";
 
+// Bairros Araucária
+import AraucariaCentro from "./pages/bairros/AraucariaCentro";
+import CapelaVelhaAraucaria from "./pages/bairros/CapelaVelhaAraucaria";
+import ThomazCoelhoAraucaria from "./pages/bairros/ThomazCoelhoAraucaria";
+
+// Bairros Campo Largo
+import CampoLargoCentro from "./pages/bairros/CampoLargoCentro";
+import FerrariaCampoLargo from "./pages/bairros/FerrariaCampoLargo";
+import JardimGuilherminaCampoLargo from "./pages/bairros/JardimGuilherminaCampoLargo";
+
+// Bairros Pinhais
+import PinhaisCentro from "./pages/bairros/PinhaisCentro";
+import WeissopolisPinhais from "./pages/bairros/WeissopolisPinhais";
+import PinevillePinhais from "./pages/bairros/PinevillePinhais";
+
 // Landing Pages Ads
 import TecnicoInformaticaCuritibaAds from "./pages/ads/TecnicoInformaticaCuritibaAds";
 
@@ -113,6 +128,21 @@ const App = () => (
           <Route path="/bairros/sao-francisco" element={<SaoFrancisco />} />
           <Route path="/bairros/del-rey" element={<DelRey />} />
           <Route path="/bairros/barro-preto" element={<BarroPreto />} />
+
+          {/* Bairros Araucária */}
+          <Route path="/bairros/centro-araucaria" element={<AraucariaCentro />} />
+          <Route path="/bairros/capela-velha" element={<CapelaVelhaAraucaria />} />
+          <Route path="/bairros/thomaz-coelho" element={<ThomazCoelhoAraucaria />} />
+
+          {/* Bairros Campo Largo */}
+          <Route path="/bairros/centro-campo-largo" element={<CampoLargoCentro />} />
+          <Route path="/bairros/ferraria" element={<FerrariaCampoLargo />} />
+          <Route path="/bairros/jardim-guilhermina" element={<JardimGuilherminaCampoLargo />} />
+
+          {/* Bairros Pinhais */}
+          <Route path="/bairros/centro-pinhais" element={<PinhaisCentro />} />
+          <Route path="/bairros/weissopolis" element={<WeissopolisPinhais />} />
+          <Route path="/bairros/pineville" element={<PinevillePinhais />} />
           
           {/* Landing Pages Ads */}
           <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />

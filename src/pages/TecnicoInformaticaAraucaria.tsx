@@ -35,22 +35,22 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro", hasPage: true },
-  { name: "Chapada", hasPage: false },
-  { name: "Costeira", hasPage: false },
-  { name: "Iguaçu", hasPage: false },
-  { name: "Thomaz Coelho", hasPage: false },
-  { name: "Campina da Barra", hasPage: false },
-  { name: "Porto das Laranjeiras", hasPage: false },
-  { name: "Tindiquera", hasPage: false },
-  { name: "Barigui", hasPage: false },
-  { name: "Fazenda Velha", hasPage: false },
-  { name: "Estação", hasPage: false },
-  { name: "Boqueirão", hasPage: false },
-  { name: "Capela Velha", hasPage: false },
-  { name: "Sabiá", hasPage: false },
-  { name: "Passaúna", hasPage: false },
-  { name: "Guajuvira", hasPage: false },
+  { name: "Centro", slug: "centro-araucaria", hasPage: true },
+  { name: "Capela Velha", slug: "capela-velha", hasPage: true },
+  { name: "Thomaz Coelho", slug: "thomaz-coelho", hasPage: true },
+  { name: "Chapada", slug: "chapada", hasPage: false },
+  { name: "Costeira", slug: "costeira-araucaria", hasPage: false },
+  { name: "Iguaçu", slug: "iguacu-araucaria", hasPage: false },
+  { name: "Campina da Barra", slug: "campina-da-barra", hasPage: false },
+  { name: "Porto das Laranjeiras", slug: "porto-das-laranjeiras", hasPage: false },
+  { name: "Tindiquera", slug: "tindiquera", hasPage: false },
+  { name: "Barigui", slug: "barigui-araucaria", hasPage: false },
+  { name: "Fazenda Velha", slug: "fazenda-velha-araucaria", hasPage: false },
+  { name: "Estação", slug: "estacao-araucaria", hasPage: false },
+  { name: "Boqueirão", slug: "boqueirao-araucaria", hasPage: false },
+  { name: "Sabiá", slug: "sabia", hasPage: false },
+  { name: "Passaúna", slug: "passauna", hasPage: false },
+  { name: "Guajuvira", slug: "guajuvira", hasPage: false },
 ];
 
 const servicos = [
@@ -215,15 +215,26 @@ const TecnicoInformaticaAraucaria = () => {
                 Técnico de informática com atendimento a domicílio em todos os bairros de Araucária
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {bairros.map((bairro, index) => (
-                  <div
-                    key={index}
-                    className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
-                  >
-                    <MapPin className="h-4 w-4 text-accent" />
-                    {bairro.name}
-                  </div>
-                ))}
+                {bairros.map((bairro) =>
+                  bairro.hasPage ? (
+                    <Link
+                      key={bairro.slug}
+                      to={`/bairros/${bairro.slug}`}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </Link>
+                  ) : (
+                    <div
+                      key={bairro.slug}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </div>
+                  )
+                )}
               </div>
               <p className="text-center text-muted-foreground mt-4 text-sm">
                 E todos os demais bairros da cidade • Consulte disponibilidade

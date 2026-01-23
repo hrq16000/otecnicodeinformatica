@@ -52,6 +52,21 @@
   <url><loc>https://tecnicocuritiba.com.br/bairros/sao-francisco</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/del-rey</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/barro-preto</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Bairros Araucária -->
+  <url><loc>https://tecnicocuritiba.com.br/bairros/centro-araucaria</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/capela-velha</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/thomaz-coelho</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Bairros Campo Largo -->
+  <url><loc>https://tecnicocuritiba.com.br/bairros/centro-campo-largo</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/ferraria</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/jardim-guilhermina</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Bairros Pinhais -->
+  <url><loc>https://tecnicocuritiba.com.br/bairros/centro-pinhais</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/weissopolis</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/bairros/pineville</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   
   <!-- Posts do Blog -->
   <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-vale-a-pena-atualizar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
@@ -70,4 +85,6 @@
   <url><loc>https://tecnicocuritiba.com.br/blog/backup-como-proteger-seus-arquivos</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/blog/notebook-superaquecendo-o-que-fazer</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/blog/wifi-lento-como-melhorar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/como-escolher-um-bom-antivirus</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/dicas-manter-notebook-funcionando-bem</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>

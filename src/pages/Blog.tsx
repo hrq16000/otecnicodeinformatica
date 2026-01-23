@@ -91,6 +91,14 @@ const blogPosts = [
     readTime: "8 min",
     category: "Segurança",
   },
+  {
+    slug: "como-escolher-um-bom-antivirus",
+    title: "Como Escolher um Bom Antivírus em 2024 (Sem Cair em Pegadinhas)",
+    excerpt: "Guia prático para escolher antivírus para Windows e notebook: o que realmente importa, recursos essenciais, opções gratuitas x pagas e sinais de falso antivírus.",
+    date: "2024-02-02",
+    readTime: "7 min",
+    category: "Segurança",
+  },
   // Artigos anteriores
   {
     slug: "como-deixar-computador-mais-rapido",
@@ -99,6 +107,14 @@ const blogPosts = [
     date: "2024-01-04",
     readTime: "5 min",
     category: "Dicas",
+  },
+  {
+    slug: "dicas-manter-notebook-funcionando-bem",
+    title: "Dicas Para Manter o Notebook Funcionando Bem (E Evitar Assistência)",
+    excerpt: "Cuidados simples que aumentam a vida útil do notebook: limpeza, bateria, armazenamento, temperaturas, atualizações e hábitos que evitam travamentos.",
+    date: "2024-02-01",
+    readTime: "6 min",
+    category: "Manutenção",
   },
   {
     slug: "sinais-computador-com-virus",

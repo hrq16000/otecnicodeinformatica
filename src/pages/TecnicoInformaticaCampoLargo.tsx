@@ -35,22 +35,22 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro", hasPage: false },
-  { name: "Jardim Guilhermina", hasPage: false },
-  { name: "Jardim América", hasPage: false },
-  { name: "Ferraria", hasPage: false },
-  { name: "Botiatuva", hasPage: false },
-  { name: "Rondinha", hasPage: false },
-  { name: "São Silvestre", hasPage: false },
-  { name: "Três Córregos", hasPage: false },
-  { name: "Itaqui", hasPage: false },
-  { name: "Ouro Fino", hasPage: false },
-  { name: "Bateias", hasPage: false },
-  { name: "Palmital", hasPage: false },
-  { name: "Santa Cruz", hasPage: false },
-  { name: "Correia de Freitas", hasPage: false },
-  { name: "Jardim Planalto", hasPage: false },
-  { name: "Vila Solene", hasPage: false },
+  { name: "Centro", slug: "centro-campo-largo", hasPage: true },
+  { name: "Ferraria", slug: "ferraria", hasPage: true },
+  { name: "Jardim Guilhermina", slug: "jardim-guilhermina", hasPage: true },
+  { name: "Jardim América", slug: "jardim-america-campo-largo", hasPage: false },
+  { name: "Botiatuva", slug: "botiatuva", hasPage: false },
+  { name: "Rondinha", slug: "rondinha", hasPage: false },
+  { name: "São Silvestre", slug: "sao-silvestre", hasPage: false },
+  { name: "Três Córregos", slug: "tres-corregos", hasPage: false },
+  { name: "Itaqui", slug: "itaqui", hasPage: false },
+  { name: "Ouro Fino", slug: "ouro-fino", hasPage: false },
+  { name: "Bateias", slug: "bateias", hasPage: false },
+  { name: "Palmital", slug: "palmital-campo-largo", hasPage: false },
+  { name: "Santa Cruz", slug: "santa-cruz-campo-largo", hasPage: false },
+  { name: "Correia de Freitas", slug: "correia-de-freitas", hasPage: false },
+  { name: "Jardim Planalto", slug: "jardim-planalto-campo-largo", hasPage: false },
+  { name: "Vila Solene", slug: "vila-solene", hasPage: false },
 ];
 
 const servicos = [
@@ -214,15 +214,26 @@ const TecnicoInformaticaCampoLargo = () => {
                 Técnico de informática a domicílio em todos os bairros de Campo Largo
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {bairros.map((bairro, index) => (
-                  <div
-                    key={index}
-                    className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
-                  >
-                    <MapPin className="h-4 w-4 text-accent" />
-                    {bairro.name}
-                  </div>
-                ))}
+                {bairros.map((bairro) =>
+                  bairro.hasPage ? (
+                    <Link
+                      key={bairro.slug}
+                      to={`/bairros/${bairro.slug}`}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:bg-accent/10 hover:text-accent transition-colors"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </Link>
+                  ) : (
+                    <div
+                      key={bairro.slug}
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                    >
+                      <MapPin className="h-4 w-4 text-accent" />
+                      {bairro.name}
+                    </div>
+                  )
+                )}
               </div>
               <p className="text-center text-muted-foreground mt-4 text-sm">
                 E todos os demais bairros e distritos da cidade

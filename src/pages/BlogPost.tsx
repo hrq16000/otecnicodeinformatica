@@ -16,6 +16,150 @@ const blogPostsContent: Record<string, {
   category: string;
   content: React.ReactNode;
 }> = {
+  "como-escolher-um-bom-antivirus": {
+    title: "Como Escolher um Bom Antivírus em 2024 (Sem Cair em Pegadinhas)",
+    excerpt:
+      "Guia prático para escolher antivírus para Windows e notebook: o que realmente importa, recursos essenciais, opções gratuitas x pagas e sinais de falso antivírus.",
+    date: "2024-02-02",
+    readTime: "7 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">
+          Escolher antivírus não é sobre “o mais famoso” — é sobre equilíbrio entre proteção,
+          desempenho e hábitos de uso. Aqui vai um guia objetivo (sem enrolação) para você
+          escolher bem e evitar falso antivírus, lentidão e anúncios chatos.
+        </p>
+
+        <h2>1) O que um bom antivírus precisa ter (de verdade)</h2>
+        <ul>
+          <li>
+            <strong>Proteção em tempo real:</strong> monitora arquivos e downloads automaticamente.
+          </li>
+          <li>
+            <strong>Proteção web/anti-phishing:</strong> bloqueia links maliciosos e golpes por email.
+          </li>
+          <li>
+            <strong>Atualizações frequentes:</strong> novas ameaças surgem todos os dias.
+          </li>
+          <li>
+            <strong>Baixo impacto no desempenho:</strong> antivírus pesado deixa o PC lento.
+          </li>
+        </ul>
+
+        <h2>2) Antivírus gratuito ou pago?</h2>
+        <p>
+          Para uso doméstico comum (navegar, redes sociais, estudos), soluções gratuitas podem
+          ser suficientes <strong>se você mantém o Windows atualizado</strong> e evita downloads
+          suspeitos. Já o antivírus pago costuma valer a pena quando você quer:
+        </p>
+        <ul>
+          <li>Mais camadas de proteção (ransomware, firewall avançado, proteção de webcam)</li>
+          <li>Suporte técnico do fabricante</li>
+          <li>Gerenciamento em múltiplos dispositivos</li>
+        </ul>
+
+        <h2>3) Recursos que parecem bons… mas exigem cuidado</h2>
+        <ul>
+          <li>
+            <strong>“Otimizador/limpador” embutido:</strong> alguns são mais marketing do que benefício.
+          </li>
+          <li>
+            <strong>VPN inclusa:</strong> pode ser útil, mas nem sempre tem boa qualidade/velocidade.
+          </li>
+          <li>
+            <strong>Extensões de navegador:</strong> só instale se for oficial e realmente necessária.
+          </li>
+        </ul>
+
+        <h2>4) Sinais de falso antivírus (fuja)</h2>
+        <ul>
+          <li>Janelas dizendo que você está infectado “agora” e pedindo pagamento imediato</li>
+          <li>Site estranho oferecendo “scan grátis” no navegador</li>
+          <li>Muitos anúncios, pop-ups e redirecionamentos depois da instalação</li>
+          <li>Desinstalação difícil ou “proteção” que não permite remover</li>
+        </ul>
+
+        <h2>5) Checklist rápido (antes de instalar)</h2>
+        <ul>
+          <li>Baixe sempre do site oficial do fabricante</li>
+          <li>Evite ter 2 antivírus ao mesmo tempo (pode dar conflito e piorar a proteção)</li>
+          <li>Atualize Windows e navegador</li>
+          <li>Ative autenticação em dois fatores no email (muito mais importante do que parece)</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer que a gente configure pra você?</h3>
+          <p className="text-muted-foreground mb-0">
+            Um técnico pode instalar e configurar o antivírus correto, ajustar o navegador e verificar se
+            não há adwares/ameaças escondidas que deixam o PC lento.
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "dicas-manter-notebook-funcionando-bem": {
+    title: "Dicas Para Manter o Notebook Funcionando Bem (E Evitar Assistência)",
+    excerpt:
+      "Cuidados simples que aumentam a vida útil do notebook: limpeza, bateria, armazenamento, temperaturas, atualizações e hábitos que evitam travamentos.",
+    date: "2024-02-01",
+    readTime: "6 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">
+          Notebook é prático, mas sofre com calor, poeira e falta de manutenção. Com alguns hábitos simples
+          você reduz travamentos, aumenta a vida útil e evita gastos com conserto.
+        </p>
+
+        <h2>1) Use em superfície rígida (cama e sofá são vilões)</h2>
+        <p>
+          Quando você usa o notebook em tecido, as entradas/saídas de ar ficam bloqueadas e a temperatura
+          sobe. Calor constante causa queda de desempenho e pode danificar componentes.
+        </p>
+
+        <h2>2) Controle o armazenamento (disco cheio deixa tudo lento)</h2>
+        <ul>
+          <li>Mantenha pelo menos <strong>15–20%</strong> do disco livre</li>
+          <li>Remova programas que você não usa</li>
+          <li>Organize downloads e mova arquivos pesados para nuvem/HD externo</li>
+        </ul>
+
+        <h2>3) Atualize Windows, drivers e navegador</h2>
+        <p>
+          Atualizações corrigem falhas e melhoram estabilidade. Navegador atualizado reduz risco de golpes e
+          melhora performance.
+        </p>
+
+        <h2>4) Cuidado com carregador e bateria</h2>
+        <ul>
+          <li>Use carregador original ou compatível de boa procedência</li>
+          <li>Evite aquecer a bateria (deixe o notebook ventilado)</li>
+          <li>Se a bateria estufar, pare de usar e procure assistência imediatamente</li>
+        </ul>
+
+        <h2>5) Limpeza preventiva e pasta térmica (quando faz sentido)</h2>
+        <p>
+          Se a ventoinha fica muito barulhenta ou o notebook esquenta demais, pode ser hora de
+          <strong> limpeza interna</strong> e, dependendo do caso, troca de pasta térmica.
+        </p>
+
+        <h2>6) A melhor melhoria custo-benefício: SSD</h2>
+        <p>
+          Se o notebook ainda usa HD, trocar por SSD costuma dar o maior ganho de velocidade.
+          O sistema inicia mais rápido e programas abrem quase instantaneamente.
+        </p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Seu notebook está lento ou esquentando?</h3>
+          <p className="text-muted-foreground mb-0">
+            A gente faz diagnóstico, limpeza preventiva, upgrade (SSD/RAM) e ajustes para deixar o notebook
+            estável e rápido — com orientação clara do que vale a pena fazer.
+          </p>
+        </div>
+      </>
+    ),
+  },
   "como-deixar-computador-mais-rapido": {
     title: "Como Deixar o Computador Mais Rápido: 7 Dicas Práticas",
     excerpt: "Seu PC está lento? Descubra 7 técnicas simples que você pode aplicar hoje mesmo para melhorar a velocidade do seu computador sem gastar nada.",

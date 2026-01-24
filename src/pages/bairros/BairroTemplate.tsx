@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { TrustSection } from "@/components/TrustSection";
@@ -7,7 +8,9 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
+import { GeoSpecificFAQs, bairroFAQs } from "@/components/GeoSpecificFAQs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
+import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { 
@@ -19,7 +22,8 @@ import {
   CheckCircle,
   Wrench,
   Monitor,
-  HardDrive
+  HardDrive,
+  ArrowRight
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997452053";
@@ -318,10 +322,39 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
           </div>
         </section>
 
-        <LocalFAQSection
-          title={`Perguntas Frequentes - ${data.nome}`}
-          faqs={localFaqs}
-        />
+        {/* FAQs Geo-específicas (se existirem) */}
+        {bairroFAQs[data.slug] ? (
+          <GeoSpecificFAQs
+            bairroSlug={data.slug}
+            bairroNome={data.nome}
+            cidadeNome={data.cidade}
+          />
+        ) : (
+          <LocalFAQSection
+            title={`Perguntas Frequentes - ${data.nome}`}
+            faqs={[
+              {
+                question: `Vocês atendem a domicílio no ${data.nome}?`,
+                answer: `Sim. Fazemos atendimento a domicílio no ${data.nome} (${data.cidade}) com horário agendado. Levamos ferramentas e fazemos diagnóstico no local sempre que possível.`,
+              },
+              {
+                question: `Quanto tempo demora para o técnico chegar no ${data.nome}?`,
+                answer: `Em geral, ${data.tempoDeslocamento.toLowerCase()}. O tempo pode variar conforme trânsito e disponibilidade do dia.`,
+              },
+              {
+                question: `Quais serviços vocês fazem no ${data.nome}?`,
+                answer: `Os mais comuns são ${data.servicosDestaque.slice(0, 4).join(", ")}. Também realizamos diagnóstico e manutenção preventiva.`,
+              },
+              {
+                question: `Qual o valor da visita técnica no ${data.nome}?`,
+                answer: "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+              },
+            ]}
+          />
+        )}
+
+        {/* Interlinking de Serviços */}
+        <ServiceLocalLinks currentCity={data.cidade} currentNeighborhood={data.nome} />
 
         <TrustSection />
         <CTASection />

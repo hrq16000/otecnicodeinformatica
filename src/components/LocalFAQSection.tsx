@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export type LocalFAQItem = {
   question: string;
@@ -39,14 +45,23 @@ export const LocalFAQSection = ({ title, faqs }: LocalFAQSectionProps) => {
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
             {title}
           </h2>
-          <div className="space-y-4">
+          
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((item, idx) => (
-              <div key={idx} className="bg-secondary rounded-lg p-5">
-                <h3 className="font-semibold text-foreground mb-2">{item.question}</h3>
-                <p className="text-muted-foreground text-sm">{item.answer}</p>
-              </div>
+              <AccordionItem 
+                key={idx} 
+                value={`item-${idx}`}
+                className="bg-secondary rounded-lg border-none"
+              >
+                <AccordionTrigger className="px-5 py-4 text-left font-semibold text-foreground hover:text-accent hover:no-underline">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-4 text-muted-foreground leading-relaxed">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </div>
     </section>

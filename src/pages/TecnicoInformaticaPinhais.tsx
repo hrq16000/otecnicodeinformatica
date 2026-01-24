@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
+import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
@@ -326,8 +328,9 @@ const TecnicoInformaticaPinhais = () => {
         </section>
 
         {/* FAQ Local */}
+        <ServiceLocalLinks currentCity="Pinhais" />
         <LocalFAQSection title="Perguntas Frequentes - Pinhais" faqs={localFaqs} />
-
+        <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>

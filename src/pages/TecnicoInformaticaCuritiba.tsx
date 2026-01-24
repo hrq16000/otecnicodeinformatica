@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
+import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import { trackPageView } from "@/lib/analytics";
-import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Star, Award } from "lucide-react";
 
 const benefits = [
   {
@@ -21,18 +22,18 @@ const benefits = [
   },
   {
     icon: Clock,
-    title: "Atendimento Rápido",
-    description: "Resposta imediata via WhatsApp. Agendamos visita técnica para o mesmo dia quando possível.",
+    title: "Atendimento no Mesmo Dia",
+    description: "Resposta imediata via WhatsApp. Na maioria dos casos, atendemos hoje mesmo. Urgências são prioridade.",
   },
   {
     icon: Shield,
     title: "Garantia por Escrito",
-    description: "Todos os serviços realizados contam com garantia. Trabalhamos com transparência e compromisso.",
+    description: "Todos os serviços realizados contam com garantia de 30 dias a 1 ano. Trabalhamos com transparência total.",
   },
   {
     icon: Wrench,
-    title: "Técnico Especializado",
-    description: "Profissional com experiência em manutenção de computadores, notebooks e redes. Diagnóstico preciso e solução eficaz.",
+    title: "Técnico Certificado",
+    description: "Profissional com mais de 10 anos de experiência. Diagnóstico preciso e solução definitiva.",
   },
 ];
 
@@ -43,62 +44,52 @@ const bairros = [
   { name: "Campo Comprido", slug: "campo-comprido", hasPage: true },
   { name: "CIC", slug: "cic", hasPage: true },
   { name: "Santa Felicidade", slug: "santa-felicidade", hasPage: true },
-  { name: "Água Verde", slug: null, hasPage: false },
-  { name: "Bigorrilho", slug: null, hasPage: false },
-  { name: "Mercês", slug: null, hasPage: false },
-  { name: "Boa Vista", slug: null, hasPage: false },
-  { name: "Juvevê", slug: null, hasPage: false },
-  { name: "Cabral", slug: null, hasPage: false },
-  { name: "Cristo Rei", slug: null, hasPage: false },
-  { name: "Cajuru", slug: null, hasPage: false },
-  { name: "Uberaba", slug: null, hasPage: false },
-  { name: "Pinheirinho", slug: null, hasPage: false },
-  { name: "Xaxim", slug: null, hasPage: false },
-  { name: "Boqueirão", slug: null, hasPage: false },
-  { name: "Bacacheri", slug: null, hasPage: false },
-  { name: "Tingui", slug: null, hasPage: false },
+  { name: "Água Verde", slug: "agua-verde", hasPage: false },
+  { name: "Bigorrilho", slug: "bigorrilho", hasPage: false },
+  { name: "Mercês", slug: "merces", hasPage: false },
+  { name: "Boa Vista", slug: "boa-vista", hasPage: false },
+  { name: "Juvevê", slug: "juveve", hasPage: false },
+  { name: "Cabral", slug: "cabral", hasPage: false },
+  { name: "Cristo Rei", slug: "cristo-rei", hasPage: false },
+  { name: "Cajuru", slug: "cajuru", hasPage: false },
+  { name: "Uberaba", slug: "uberaba", hasPage: false },
+  { name: "Pinheirinho", slug: "pinheirinho", hasPage: false },
+  { name: "Xaxim", slug: "xaxim", hasPage: false },
+  { name: "Boqueirão", slug: "boqueirao", hasPage: false },
+  { name: "Bacacheri", slug: "bacacheri", hasPage: false },
+  { name: "Tingui", slug: "tingui", hasPage: false },
 ];
 
 const servicos = [
   {
     title: "Formatação de Computador",
-    description: "Instalação limpa do Windows com drivers e programas essenciais",
+    description: "Instalação limpa do Windows 10/11 com drivers e programas essenciais. Backup incluso.",
+    slug: "formatacao-computador",
   },
   {
     title: "Remoção de Vírus e Malware",
-    description: "Limpeza completa e proteção contra ameaças digitais",
+    description: "Limpeza completa e proteção contra ameaças digitais. Antivírus instalado.",
+    slug: "remocao-virus",
   },
   {
     title: "Conserto de PC e Notebook",
-    description: "Reparo de hardware, diagnóstico e troca de peças",
+    description: "Reparo de hardware, diagnóstico avançado e troca de peças com garantia.",
+    slug: "conserto-pc-notebook",
   },
   {
     title: "Upgrade SSD e Memória RAM",
-    description: "Deixe seu computador até 10x mais rápido",
+    description: "Deixe seu computador até 10x mais rápido. Migração completa do sistema.",
+    slug: "upgrade-ssd-memoria",
   },
   {
     title: "Configuração de Redes Wi-Fi",
-    description: "Instalação de roteadores, repetidores e mesh",
+    description: "Instalação de roteadores, repetidores, mesh e redes empresariais.",
+    slug: "redes-wifi",
   },
   {
     title: "Backup e Recuperação de Dados",
-    description: "Proteção e recuperação de arquivos importantes",
-  },
-  {
-    title: "Instalação de Programas",
-    description: "Office, antivírus, drivers e softwares profissionais",
-  },
-  {
-    title: "Limpeza Interna e Pasta Térmica",
-    description: "Manutenção preventiva para melhor desempenho",
-  },
-  {
-    title: "Suporte para Home Office",
-    description: "Configuração completa para trabalho remoto",
-  },
-  {
-    title: "Atendimento Remoto",
-    description: "Suporte imediato sem sair de casa",
+    description: "Proteção e recuperação de arquivos importantes. Backup em nuvem.",
+    slug: "backup-recuperacao",
   },
 ];
 
@@ -106,33 +97,43 @@ const localFaqs = [
   {
     question: "Quanto custa um técnico de informática em Curitiba?",
     answer:
-      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+      "A visita técnica começa em R$ 99,99 (30 minutos). Este valor inclui deslocamento, diagnóstico e pequenos ajustes. Serviços adicionais são orçados antes da execução, sem surpresas.",
   },
   {
     question: "Vocês atendem em todos os bairros de Curitiba?",
     answer:
-      "Sim. Atendemos toda Curitiba (Centro, Batel, Portão, CIC, Santa Felicidade e demais bairros) e também regiões próximas da grande Curitiba.",
+      "Sim! Atendemos 100% de Curitiba: Centro, Batel, Portão, Água Verde, CIC, Santa Felicidade, Boqueirão, Cajuru, Boa Vista e todos os demais bairros. Também atendemos região metropolitana.",
   },
   {
-    question: "Em quanto tempo o técnico chega?",
+    question: "Em quanto tempo o técnico chega em Curitiba?",
     answer:
-      "Quando possível, atendemos no mesmo dia. O tempo de chegada varia conforme bairro e trânsito, mas buscamos sempre o encaixe mais rápido após seu contato.",
+      "O tempo médio de chegada é de 30 a 60 minutos, dependendo do bairro e trânsito. Para urgências, priorizamos atendimento no mesmo dia sempre que possível.",
   },
   {
     question: "Vocês fazem atendimento remoto em Curitiba?",
     answer:
-      "Sim. Para problemas de software, configuração e lentidão, o suporte remoto pode resolver rapidamente. Para hardware e troca de peças, recomendamos atendimento presencial.",
+      "Sim! Para problemas de software, configuração e lentidão, o suporte remoto pode resolver em minutos. Para hardware e troca de peças, recomendamos atendimento presencial.",
+  },
+  {
+    question: "Os serviços têm garantia?",
+    answer:
+      "Todos os serviços têm garantia por escrito. Formatação: 30 dias. Remoção de vírus: 30 dias. Troca de peças: 90 dias a 1 ano dependendo do componente.",
+  },
+  {
+    question: "Atendem empresas em Curitiba?",
+    answer:
+      "Sim! Oferecemos suporte técnico para empresas de todos os portes. Desde atendimentos pontuais até contratos mensais com SLA e atendimento prioritário.",
   },
 ];
 
 const TecnicoInformaticaCuritiba = () => {
   useEffect(() => {
-    document.title = "Técnico de Informática em Curitiba | Assistência Técnica Local | Técnico Curitiba";
+    document.title = "Técnico de Informática em Curitiba | Assistência Técnica Nº1 | Atendimento Hoje";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Curitiba com atendimento em domicílio e remoto. Conserto de computador, formatação, remoção de vírus. Técnico perto de mim em Curitiba."
+        "A assistência técnica em informática mais completa de Curitiba. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. ⭐ 4.9/5 - Atendimento a domicílio no mesmo dia. (41) 99745-2053"
       );
     }
     trackPageView("/tecnico-informatica-curitiba", "Técnico Curitiba");
@@ -238,7 +239,7 @@ const TecnicoInformaticaCuritiba = () => {
                 {servicos.map((servico, index) => (
                   <Link 
                     key={index} 
-                    to="/servicos"
+                    to={`/servicos/${servico.slug}`}
                     className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent transition-all group"
                   >
                     <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
@@ -268,9 +269,9 @@ const TecnicoInformaticaCuritiba = () => {
           </div>
         </section>
 
+        <ServiceLocalLinks currentCity="Curitiba" />
         <LocalFAQSection title="Perguntas Frequentes - Curitiba" faqs={localFaqs} />
-
-        <TestimonialsSection />
+        <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>

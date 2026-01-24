@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
+import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight } from "lucide-react";
 
@@ -257,8 +259,9 @@ const TecnicoInformaticaSaoJosePinhais = () => {
           </div>
         </section>
 
+        <ServiceLocalLinks currentCity="São José dos Pinhais" />
         <LocalFAQSection title="Perguntas Frequentes - São José dos Pinhais" faqs={localFaqs} />
-
+        <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>

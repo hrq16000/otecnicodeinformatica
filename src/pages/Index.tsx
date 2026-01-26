@@ -14,6 +14,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { CitiesSection } from "@/components/CitiesSection";
 import { TopSearchedServicesSection } from "@/components/TopSearchedServicesSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { CoverageMapSection } from "@/components/CoverageMapSection";
 import { trackPageView } from "@/lib/analytics";
 
 const Index = () => {
@@ -45,6 +46,7 @@ const Index = () => {
         <PainSection />
         <ServicesSection />
         <TopSearchedServicesSection />
+        <CoverageMapSection />
         <CitiesSection />
         <NeighborhoodsSection />
         <SocialProofSection />

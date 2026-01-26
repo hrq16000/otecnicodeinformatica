@@ -11,6 +11,7 @@ import { PricingBanner } from "@/components/PricingBanner";
 import { GeoSpecificFAQs, bairroFAQs } from "@/components/GeoSpecificFAQs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { 
@@ -141,6 +142,18 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     },
   ];
 
+  // Determinar link da cidade
+  const getCityLink = () => {
+    switch (data.cidade) {
+      case "Curitiba": return "/tecnico-informatica-curitiba";
+      case "São José dos Pinhais": return "/tecnico-informatica-sao-jose-pinhais";
+      case "Araucária": return "/tecnico-informatica-araucaria";
+      case "Campo Largo": return "/tecnico-informatica-campo-largo";
+      case "Pinhais": return "/tecnico-informatica-pinhais";
+      default: return "/";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <JsonLdSchema />
@@ -149,6 +162,12 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
       />
       <Header />
+      <Breadcrumbs
+        items={[
+          { label: `Técnico em ${data.cidade}`, href: getCityLink() },
+          { label: data.nome },
+        ]}
+      />
       <main>
         {/* Hero */}
         <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">

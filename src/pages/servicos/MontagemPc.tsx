@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541992671754";
@@ -34,9 +35,15 @@ const MontagemPc = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <Breadcrumbs
+        items={[
+          { label: "Serviços", href: "/servicos" },
+          { label: "Montagem de PC" },
+        ]}
+      />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
+      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">

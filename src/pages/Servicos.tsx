@@ -7,6 +7,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
@@ -145,6 +146,7 @@ const Servicos = () => {
     <div className="min-h-screen bg-background">
       <JsonLdSchema />
       <Header />
+      <Breadcrumbs items={[{ label: "Serviços" }]} />
       <main>
         <PageHero
           title="Serviços de Informática em Curitiba"

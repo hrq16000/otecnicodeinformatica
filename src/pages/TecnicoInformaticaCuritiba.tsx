@@ -11,6 +11,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Star, Award } from "lucide-react";
 
@@ -143,6 +144,7 @@ const TecnicoInformaticaCuritiba = () => {
     <div className="min-h-screen bg-background">
       <JsonLdSchema />
       <Header />
+      <Breadcrumbs items={[{ label: "Técnico em Curitiba" }]} />
       <main>
         <PageHero
           title="Técnico de Informática em Curitiba"

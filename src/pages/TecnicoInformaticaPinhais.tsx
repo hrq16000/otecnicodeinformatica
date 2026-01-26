@@ -11,6 +11,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
@@ -169,6 +170,7 @@ const TecnicoInformaticaPinhais = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pinhaisSchema) }} />
       <JsonLdSchema />
       <Header />
+      <Breadcrumbs items={[{ label: "Técnico em Pinhais" }]} />
       <main>
         <PageHero
           title="Técnico de Informática em Pinhais"

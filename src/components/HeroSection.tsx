@@ -1,6 +1,7 @@
 import { MessageCircle, Bot, MapPin, Clock, Shield, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
+import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
@@ -79,8 +80,13 @@ export const HeroSection = () => {
               </Button>
             </div>
 
+            {/* Real-time availability indicator */}
+            <div className="mt-4">
+              <TechnicianAvailabilityInline />
+            </div>
+
             {/* Micro-conversion trust */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mt-4 text-white/70 text-sm">
+            <div className="flex items-center justify-center lg:justify-start gap-2 mt-3 text-white/70 text-sm">
               <CheckCircle className="h-4 w-4 text-trust" />
               <span>Resposta em até 5 minutos • Orçamento sem compromisso</span>
             </div>

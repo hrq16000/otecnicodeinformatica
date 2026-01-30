@@ -15,6 +15,7 @@ import { CitiesSection } from "@/components/CitiesSection";
 import { TopSearchedServicesSection } from "@/components/TopSearchedServicesSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { CoverageMapSection } from "@/components/CoverageMapSection";
+import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { trackPageView } from "@/lib/analytics";
 
 const Index = () => {
@@ -35,11 +36,16 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        {/* Pricing Banner */}
-        <section className="py-4 bg-background">
+        {/* Availability + Pricing */}
+        <section className="py-6 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto">
-              <PricingBanner />
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <TechnicianAvailability />
+                <div className="flex items-center">
+                  <PricingBanner />
+                </div>
+              </div>
             </div>
           </div>
         </section>

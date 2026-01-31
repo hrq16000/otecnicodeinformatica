@@ -1,7 +1,9 @@
-import { MessageCircle, Bot, MapPin, Clock, Shield, Star, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { MessageCircle, Bot, MapPin, Clock, Shield, Star, CheckCircle, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
+import { SchedulingModal } from "@/components/scheduling";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
@@ -13,6 +15,7 @@ const trustSignals = [
 ];
 
 export const HeroSection = () => {
+  const [isSchedulingOpen, setIsSchedulingOpen] = useState(false);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   
   const openChatbot = () => {
@@ -21,6 +24,8 @@ export const HeroSection = () => {
   };
 
   return (
+    <>
+    <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
     <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 lg:pb-20" aria-label="Técnico de informática em Curitiba">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -74,9 +79,9 @@ export const HeroSection = () => {
                 </a>
               </Button>
               
-              <Button variant="heroCta" onClick={openChatbot} aria-label="Atendimento rápido por assistente virtual">
-                <Bot className="h-5 w-5 md:h-6 md:w-6" />
-                Atendimento Rápido
+              <Button variant="heroCta" onClick={() => setIsSchedulingOpen(true)} aria-label="Agendar atendimento técnico online">
+                <CalendarDays className="h-5 w-5 md:h-6 md:w-6" />
+                Agendar Atendimento
               </Button>
             </div>
 
@@ -117,5 +122,6 @@ export const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };

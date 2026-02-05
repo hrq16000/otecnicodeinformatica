@@ -7,6 +7,8 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
 
 const blogPostsContent: Record<string, {
   title: string;
@@ -14,8 +16,150 @@ const blogPostsContent: Record<string, {
   date: string;
   readTime: string;
   category: string;
+  image?: string;
   content: React.ReactNode;
 }> = {
+  "windows-11-atualizacao-kb5074105-novidades": {
+    title: "Windows 11 KB5074105: Todas as Novidades da Atualização de Janeiro 2026",
+    excerpt: "A Microsoft liberou a atualização KB5074105 para Windows 11 25H2 e 24H2 com recursos inéditos: Smart App Control configurável, sincronização celular-PC, melhorias no Windows Hello e correções críticas.",
+    date: "2026-01-30",
+    readTime: "10 min",
+    category: "Windows 11",
+    image: windowsKb5074105Image,
+    content: (
+      <>
+        <p className="lead">
+          A <strong>Microsoft</strong> começou a liberar a atualização <strong>KB5074105</strong> para o <strong>Windows 11</strong>, 
+          e desta vez não é só mais um pacote de correções pontuais. O update opcional de janeiro de 2026 traz mudanças importantes 
+          tanto para a versão <strong>25H2 quanto para a 24H2</strong>, incluindo algo que usuários pediam há tempos: a possibilidade 
+          de ativar ou desativar o Controle de Aplicativos Inteligentes sem precisar reinstalar o sistema.
+        </p>
+
+        <h2>Onde Baixar o Patch KB5074105</h2>
+        <p>
+          A atualização já está disponível via <strong>Windows Update</strong> e também pode ser baixada manualmente por meio dos 
+          instaladores offline (.msu). Por padrão, ela não é instalada automaticamente, a menos que o usuário ative a opção de 
+          receber atualizações assim que elas ficarem disponíveis.
+        </p>
+        <p>
+          Nos testes, o pacote aparece identificado como <strong>2026-01 Update (KB5074105)</strong> e leva o sistema para a 
+          <strong> build 26200.7705 no Windows 11 25H2</strong> ou <strong>26100.7705 no 24H2</strong>.
+        </p>
+        <p>
+          <strong>Atenção:</strong> Apesar de opcional, trata-se de um update grande. Os instaladores passam facilmente dos 4 GB, 
+          algo que já virou motivo de crítica. O motivo para um arquivo desse tamanho é a inclusão de modelos de IA no pacote, 
+          mesmo em PCs que não possuem NPU ou qualquer recurso de aceleração para inteligência artificial.
+        </p>
+        <p>
+          Em uma conexão de 200 Mbps, o download e a instalação levam cerca de 15 minutos, seguidos por um reinício obrigatório. 
+          A boa notícia é que, diferente das atualizações do Patch Tuesday, essa <strong>pode ser desinstalada</strong> a qualquer momento.
+        </p>
+
+        <h2>Principais Novidades da KB5074105</h2>
+        
+        <h3>1. Retomar Tarefas Entre Celular e PC</h3>
+        <p>
+          Um dos destaques da KB5074105 é a evolução do recurso <strong>Retomar</strong>, que funciona como uma espécie de Handoff do Windows. 
+          O sistema permite iniciar uma tarefa no celular e continuar exatamente de onde parou ao desbloquear o PC.
+        </p>
+        <p>
+          Antes, o recurso era bastante limitado e funcionava basicamente com o OneDrive. Com essa atualização, o suporte foi ampliado para 
+          aplicativos populares, como o <strong>Spotify</strong>. Se você estiver ouvindo uma música no celular, por exemplo, o Windows passa 
+          a exibir um aviso na barra de tarefas para retomar a reprodução instantaneamente no desktop.
+        </p>
+        <p>
+          O mesmo vale para documentos do Word, Excel e PowerPoint, além de navegadores de terceiros e até do Microsoft 365 Copilot.
+        </p>
+
+        <h3>2. Smart App Control Finalmente Configurável</h3>
+        <p>
+          Outro avanço muito aguardado envolve o <strong>Smart App Control</strong>, recurso de segurança que bloqueia aplicativos 
+          considerados não confiáveis. Embora a proposta seja proteger o usuário, na prática ele acabava barrando softwares legítimos 
+          e criava uma situação absurda: <strong>para desativar o recurso, era necessário reinstalar o Windows</strong>.
+        </p>
+        <p>
+          Com a KB5074105, isso finalmente muda. Agora é possível ativar ou desativar o Controle de Aplicativos Inteligentes 
+          diretamente pelo app de Segurança do Windows, sem instalação limpa e sem gambiarras.
+        </p>
+
+        <h3>3. Melhorias no Windows MIDI</h3>
+        <p>
+          Quem trabalha com música também ganha melhorias importantes. O <strong>Windows MIDI Services</strong> recebeu ajustes que 
+          tornam o funcionamento mais estável e rápido tanto no MIDI 1.0 quanto no MIDI 2.0. Isso significa menos conflitos e 
+          possibilidade de compartilhar portas MIDI entre aplicativos.
+        </p>
+
+        <h3>4. Windows Hello Mais Seguro</h3>
+        <p>
+          A atualização também amplia o suporte ao <strong>Windows Hello Enhanced Sign-in Security (ESS)</strong>. Até agora, 
+          o nível extra de segurança só funcionava com sensores de impressão digital integrados ao notebook. Com a KB5074105, 
+          sensores periféricos passam a ser compatíveis.
+        </p>
+
+        <h3>5. Novo Cartão de Dispositivo nas Configurações</h3>
+        <p>
+          A página inicial do aplicativo Configurações também recebeu ajustes. Um novo <strong>cartão de Dispositivo</strong> passa 
+          a exibir informações básicas sobre o computador, como armazenamento e uso geral, facilitando o acesso rápido às informações 
+          mais importantes.
+        </p>
+
+        <h2>Correções de Bugs Importantes</h2>
+        <p>
+          Além dos novos recursos, a Microsoft corrigiu uma série de problemas que vinham incomodando usuários:
+        </p>
+        <ul>
+          <li>Travamentos do explorer.exe</li>
+          <li>Sumiço da barra de tarefas</li>
+          <li>Erros de personalização no Explorador de Arquivos</li>
+          <li>Casos raros de tela preta após a atualização</li>
+          <li>Erros de BSOD relacionados à dxgmms2.sys em algumas GPUs</li>
+          <li>Problemas no menu Iniciar</li>
+          <li>Falhas na tela de bloqueio</li>
+          <li>Movimentação inesperada de ícones na área de trabalho</li>
+          <li>Erros no Windows Sandbox</li>
+        </ul>
+
+        <h2>Problemas Conhecidos</h2>
+        <div className="bg-destructive/10 rounded-xl p-6 my-8 border border-destructive/20">
+          <h3 className="text-destructive font-bold mb-2">⚠️ Atenção: Bug da Tela Preta</h3>
+          <p className="text-muted-foreground mb-4">
+            A atualização obrigatória do Windows 11 liberada em janeiro de 2026 ainda apresenta problemas para alguns usuários. 
+            Mesmo após a Microsoft liberar um patch emergencial (KB5078127), alguns usuários seguem enfrentando <strong>tela preta, 
+            travamentos e falhas de inicialização</strong>.
+          </p>
+          <p className="text-muted-foreground mb-0">
+            Os sistemas afetados podem exibir o erro <strong>UNMOUNTABLE_BOOT_VOLUME</strong> ou <strong>UNEXPECTED_KERNEL_MODE_TRAP</strong>. 
+            Em alguns casos, a única solução definitiva é <strong>formatar e reinstalar o Windows</strong>.
+          </p>
+        </div>
+
+        <p>
+          A Microsoft também confirmou que ainda investiga um bug antigo em que o <strong>ícone de senha desaparece da tela de login</strong>, 
+          um problema detectado desde 2025. A empresa afirma estar trabalhando em uma correção, mas ainda não divulgou prazo.
+        </p>
+
+        <h2>Vale a Pena Instalar a KB5074105?</h2>
+        <p>
+          Se você não está enfrentando problemas com o Windows 11 atual, pode esperar alguns dias para ver se novos bugs são reportados. 
+          Porém, se você precisa dos novos recursos (especialmente a possibilidade de desativar o Smart App Control), a atualização 
+          traz melhorias significativas.
+        </p>
+        <p>
+          <strong>Recomendação:</strong> Faça um backup completo antes de instalar qualquer atualização major. Se algo der errado, 
+          você poderá restaurar o sistema ou seus arquivos.
+        </p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Problemas com Atualização do Windows 11?</h3>
+          <p className="text-muted-foreground mb-0">
+            Se você instalou a atualização e está enfrentando tela preta, travamentos ou erros de inicialização, 
+            um <strong>técnico especializado em Windows 11</strong> pode ajudar a recuperar seu sistema ou fazer uma 
+            <strong> formatação segura</strong> preservando seus arquivos. Atendimento em Curitiba e região no mesmo dia.
+          </p>
+        </div>
+      </>
+    ),
+  },
   "como-escolher-um-bom-antivirus": {
     title: "Como Escolher um Bom Antivírus em 2024 (Sem Cair em Pegadinhas)",
     excerpt:
@@ -460,6 +604,17 @@ const BlogPost = () => {
         {/* Content */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
+            {post.image && (
+              <div className="max-w-3xl mx-auto mb-8">
+                <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+              </div>
+            )}
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
               {post.content}
             </article>

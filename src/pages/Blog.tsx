@@ -10,10 +10,19 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 const blogPosts = [
   // Windows 11
   {
+    slug: "windows-11-atualizacao-kb5074105-novidades",
+    title: "Windows 11 KB5074105: Todas as Novidades da Atualização de Janeiro 2026",
+    excerpt: "A Microsoft liberou a atualização KB5074105 para Windows 11 25H2 e 24H2 com recursos inéditos: Smart App Control configurável, sincronização celular-PC, melhorias no Windows Hello e correções críticas.",
+    date: "2026-01-30",
+    readTime: "10 min",
+    category: "Windows 11",
+    image: "/assets/blog/windows-11-kb5074105-update.jpg",
+  },
+  {
     slug: "windows-11-vale-a-pena-atualizar",
-    title: "Windows 11: Vale a Pena Atualizar? Guia Completo 2024",
+    title: "Windows 11: Vale a Pena Atualizar? Guia Completo 2026",
     excerpt: "Análise detalhada do Windows 11: requisitos, novidades, vantagens e desvantagens. Descubra se seu computador está pronto para a atualização.",
-    date: "2024-01-15",
+    date: "2026-01-15",
     readTime: "8 min",
     category: "Windows 11",
   },

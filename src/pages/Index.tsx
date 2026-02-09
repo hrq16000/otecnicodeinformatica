@@ -17,6 +17,8 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { CoverageMapSection } from "@/components/CoverageMapSection";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { SchedulingSection } from "@/components/scheduling";
+import { SocialProofProvider, TrustBadges, SecurityBadge } from "@/components/social-proof";
+import { SocialProofAdminPanel } from "@/components/social-proof/AdminPanel";
 import { trackPageView } from "@/lib/analytics";
 
 const Index = () => {
@@ -61,9 +63,22 @@ const Index = () => {
         <FAQSection />
         <TrustSection />
         <CTASection />
+        {/* Trust Badges Section */}
+        <section className="py-8 bg-muted/30">
+          <div className="container mx-auto">
+            <div className="text-center mb-6">
+              <SecurityBadge />
+            </div>
+            <TrustBadges variant="card" />
+          </div>
+        </section>
       </main>
       <Footer />
       <WhatsAppChatbot />
+      
+      {/* Social Proof System */}
+      <SocialProofProvider />
+      <SocialProofAdminPanel />
     </div>
   );
 };

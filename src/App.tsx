@@ -74,6 +74,15 @@ import RedesWifi from "./pages/servicos/RedesWifi";
 import BackupRecuperacao from "./pages/servicos/BackupRecuperacao";
 import MontagemPc from "./pages/servicos/MontagemPc";
 
+// Páginas combinadas Serviço + Bairro
+import FormatacaoCentro from "./pages/servico-bairro/FormatacaoCentro";
+import ConsertoNotebookBatel from "./pages/servico-bairro/ConsertoNotebookBatel";
+import RemocaoVirusPortao from "./pages/servico-bairro/RemocaoVirusPortao";
+import UpgradeSsdSantaFelicidade from "./pages/servico-bairro/UpgradeSsdSantaFelicidade";
+import FormatacaoSaoJosePinhais from "./pages/servico-bairro/FormatacaoSaoJosePinhais";
+import ConsertoNotebookCIC from "./pages/servico-bairro/ConsertoNotebookCIC";
+import RedesWifiAraucaria from "./pages/servico-bairro/RedesWifiAraucaria";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -155,6 +164,15 @@ const App = () => (
           <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
           <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
           <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
+          
+          {/* Páginas combinadas Serviço + Bairro (SEO local) */}
+          <Route path="/servicos/formatacao-computador/centro" element={<FormatacaoCentro />} />
+          <Route path="/servicos/conserto-pc-notebook/batel" element={<ConsertoNotebookBatel />} />
+          <Route path="/servicos/remocao-virus/portao" element={<RemocaoVirusPortao />} />
+          <Route path="/servicos/upgrade-ssd-memoria/santa-felicidade" element={<UpgradeSsdSantaFelicidade />} />
+          <Route path="/servicos/formatacao-computador/sao-jose-dos-pinhais" element={<FormatacaoSaoJosePinhais />} />
+          <Route path="/servicos/conserto-pc-notebook/cic" element={<ConsertoNotebookCIC />} />
+          <Route path="/servicos/redes-wifi/araucaria" element={<RedesWifiAraucaria />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

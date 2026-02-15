@@ -82,6 +82,7 @@ import UpgradeSsdSantaFelicidade from "./pages/servico-bairro/UpgradeSsdSantaFel
 import FormatacaoSaoJosePinhais from "./pages/servico-bairro/FormatacaoSaoJosePinhais";
 import ConsertoNotebookCIC from "./pages/servico-bairro/ConsertoNotebookCIC";
 import RedesWifiAraucaria from "./pages/servico-bairro/RedesWifiAraucaria";
+import CFTVPage from "./pages/CFTV";
 
 const queryClient = new QueryClient();
 
@@ -155,6 +156,9 @@ const App = () => (
           
           {/* Landing Pages Ads */}
           <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />
+          
+          {/* CFTV */}
+          <Route path="/cftv" element={<CFTVPage />} />
           
           {/* Páginas de Serviços */}
           <Route path="/servicos/formatacao-computador" element={<FormatacaoComputador />} />

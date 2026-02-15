@@ -19,6 +19,232 @@ const blogPostsContent: Record<string, {
   image?: string;
   content: React.ReactNode;
 }> = {
+  "diferenca-camera-wifi-dvr-qual-escolher": {
+    title: "Câmera Wi-Fi ou DVR: Qual a Diferença e Qual Escolher?",
+    excerpt: "Entenda as diferenças técnicas entre câmeras Wi-Fi e sistemas DVR.",
+    date: "2026-02-14",
+    readTime: "8 min",
+    category: "CFTV",
+    content: (
+      <>
+        <p className="lead">Na hora de instalar câmeras de segurança, a dúvida mais comum é: <strong>câmera Wi-Fi ou sistema DVR com cabo?</strong> Cada tecnologia tem vantagens e limitações. Neste guia, explicamos tudo de forma clara para você decidir com segurança.</p>
+
+        <h2>Câmera Wi-Fi: Praticidade com Ressalvas</h2>
+        <p>Câmeras Wi-Fi se conectam à internet sem fio e são fáceis de instalar. São populares para uso doméstico simples, mas possuem limitações importantes:</p>
+        <ul>
+          <li><strong>Dependem 100% da internet:</strong> se o Wi-Fi cair, a câmera para de funcionar</li>
+          <li><strong>Interferência de sinal:</strong> paredes, distância e outros dispositivos podem prejudicar a qualidade</li>
+          <li><strong>Vulnerabilidade:</strong> invasores podem usar inibidores de sinal para desativar as câmeras</li>
+          <li><strong>Armazenamento limitado:</strong> muitas dependem de nuvem com mensalidade</li>
+        </ul>
+
+        <h2>Sistema DVR com Cabo: Estabilidade e Confiança</h2>
+        <p>O sistema DVR (Digital Video Recorder) utiliza câmeras conectadas por cabo coaxial ou UTP diretamente ao gravador. É a escolha profissional para segurança real:</p>
+        <ul>
+          <li><strong>Funciona sem internet:</strong> grava localmente no HD mesmo se a internet cair</li>
+          <li><strong>Sem interferência:</strong> conexão por cabo é 100% estável</li>
+          <li><strong>Imune a inibidores:</strong> não pode ser desativado por equipamentos de bloqueio</li>
+          <li><strong>Gravação contínua 24h:</strong> HD local armazena dias de gravação sem custo mensal</li>
+          <li><strong>Acesso remoto:</strong> você ainda vê pelo celular quando tem internet no local</li>
+        </ul>
+
+        <h2>Comparativo Direto</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border border-border rounded-lg">
+            <thead><tr className="bg-muted"><th className="p-3 text-left">Característica</th><th className="p-3 text-left">Wi-Fi</th><th className="p-3 text-left">DVR (Cabo)</th></tr></thead>
+            <tbody>
+              <tr><td className="p-3 border-t">Estabilidade</td><td className="p-3 border-t">Média</td><td className="p-3 border-t">Alta</td></tr>
+              <tr><td className="p-3 border-t">Funciona sem internet</td><td className="p-3 border-t">Não</td><td className="p-3 border-t">Sim</td></tr>
+              <tr><td className="p-3 border-t">Vulnerável a inibidor</td><td className="p-3 border-t">Sim</td><td className="p-3 border-t">Não</td></tr>
+              <tr><td className="p-3 border-t">Gravação local</td><td className="p-3 border-t">Limitada</td><td className="p-3 border-t">Contínua 24h</td></tr>
+              <tr><td className="p-3 border-t">Mensalidade</td><td className="p-3 border-t">Geralmente sim</td><td className="p-3 border-t">Não</td></tr>
+              <tr><td className="p-3 border-t">Indicação</td><td className="p-3 border-t">Uso casual</td><td className="p-3 border-t">Segurança real</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Qual Escolher?</h2>
+        <p>Para <strong>segurança real e profissional</strong>, o sistema DVR com câmeras Intelbras é a escolha certa. Funciona independente da internet, não pode ser desativado remotamente e grava continuamente sem custo mensal.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Kit 4 Câmeras Intelbras com Instalação</h3>
+          <p className="text-muted-foreground mb-0">Sistema DVR profissional completo com 4 câmeras HD, DVR, HD de gravação e instalação inclusa por <strong>R$ 1.350</strong>. Atendemos Curitiba, São José dos Pinhais e Litoral do PR.</p>
+        </div>
+      </>
+    ),
+  },
+  "seguranca-casas-praia-itapoa-guaratuba": {
+    title: "Segurança em Casas de Praia: Como Proteger Seu Imóvel em Itapoá e Guaratuba",
+    excerpt: "Imóveis de veraneio ficam meses desocupados e são alvos fáceis.",
+    date: "2026-02-12",
+    readTime: "7 min",
+    category: "CFTV",
+    content: (
+      <>
+        <p className="lead">Quem tem casa de praia no litoral do Paraná conhece a preocupação: <strong>o imóvel fica vazio durante 9 meses do ano</strong>. Sem vigilância, se torna alvo fácil para furtos, vandalismo e invasões. Veja como resolver isso de forma definitiva.</p>
+
+        <h2>O Problema: Imóvel Vazio = Alvo Fácil</h2>
+        <p>Cidades como <strong>Itapoá</strong> e <strong>Guaratuba</strong> recebem turistas no verão, mas fora da temporada as ruas ficam vazias. Criminosos sabem disso e aproveitam a baixa movimentação para agir:</p>
+        <ul>
+          <li>Furto de eletrodomésticos e móveis</li>
+          <li>Vandalismo e depredação</li>
+          <li>Invasão para uso irregular do imóvel</li>
+          <li>Danos na rede elétrica e hidráulica</li>
+        </ul>
+
+        <h2>A Solução: Monitoramento Remoto 24h</h2>
+        <p>Com câmeras de segurança e acesso remoto, você transforma seu celular em uma central de monitoramento. Funciona assim:</p>
+        <ul>
+          <li><strong>Câmeras com visão noturna</strong> captam tudo, mesmo no escuro</li>
+          <li><strong>DVR grava continuamente</strong> no HD local, sem depender de internet estável</li>
+          <li><strong>App no celular</strong> permite ver ao vivo de Curitiba ou qualquer cidade</li>
+          <li><strong>Alerta de movimento</strong> avisa quando alguém se aproxima</li>
+        </ul>
+
+        <h2>Casos Reais no Litoral</h2>
+        <p>Proprietários que instalaram câmeras em casas de praia relatam resultados imediatos: identificação de invasores, acionamento da PM em tempo real e <strong>redução total de ocorrências</strong> após a instalação visível das câmeras.</p>
+
+        <h2>Dicas Extras de Segurança</h2>
+        <ul>
+          <li>Mantenha a vegetação do terreno aparada (mato alto indica casa vazia)</li>
+          <li>Use timer em lâmpadas para simular presença</li>
+          <li>Peça a um vizinho de confiança para verificar periodicamente</li>
+          <li>Instale câmeras visíveis na fachada (efeito deterrente)</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Proteja Sua Casa de Praia</h3>
+          <p className="text-muted-foreground mb-0">A Mileuma Soluções instala câmeras Intelbras em <strong>Itapoá, Guaratuba e todo o litoral do PR</strong>. Kit completo com 4 câmeras, DVR e acesso remoto por R$ 1.350. Equipe especializada desde 1999.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-escolher-melhor-kit-cameras-seguranca": {
+    title: "Como Escolher o Melhor Kit de Câmeras de Segurança Para Sua Casa ou Comércio",
+    excerpt: "Guia completo para escolher o kit ideal de CFTV.",
+    date: "2026-02-10",
+    readTime: "9 min",
+    category: "CFTV",
+    content: (
+      <>
+        <p className="lead">Comprar câmeras de segurança pode parecer simples, mas <strong>escolher errado significa jogar dinheiro fora</strong>. Neste guia, explicamos os critérios técnicos que realmente importam para proteger seu imóvel.</p>
+
+        <h2>1. Quantas Câmeras Você Precisa?</h2>
+        <p>A regra geral é cobrir todos os acessos e pontos vulneráveis:</p>
+        <ul>
+          <li><strong>Casa pequena/apartamento:</strong> 2 a 4 câmeras (entrada, garagem, quintal)</li>
+          <li><strong>Casa grande:</strong> 4 a 8 câmeras (perímetro completo)</li>
+          <li><strong>Comércio:</strong> 4 a 16 câmeras (caixa, estoque, entrada, corredor)</li>
+          <li><strong>Condomínio:</strong> 8+ câmeras (portaria, garagem, áreas comuns)</li>
+        </ul>
+
+        <h2>2. Resolução: HD, Full HD ou 4K?</h2>
+        <p>Para a maioria dos casos, <strong>câmeras HD (720p) ou Full HD (1080p)</strong> são suficientes e oferecem excelente custo-benefício. Câmeras 4K são indicadas para grandes áreas onde é necessário dar zoom nas imagens.</p>
+
+        <h2>3. Visão Noturna</h2>
+        <p>Essencial. A maioria dos crimes acontece à noite. Procure câmeras com <strong>infravermelho (IR)</strong> que captam imagens em até 20-30 metros de distância no escuro total.</p>
+
+        <h2>4. Armazenamento</h2>
+        <ul>
+          <li><strong>HD 1TB:</strong> armazena aproximadamente 7-10 dias com 4 câmeras</li>
+          <li><strong>HD 2TB:</strong> aproximadamente 15-20 dias</li>
+          <li>A gravação é contínua e quando o HD enche, sobrescreve as mais antigas</li>
+        </ul>
+
+        <h2>5. Marca do Equipamento</h2>
+        <p>No Brasil, a <strong>Intelbras</strong> é líder absoluta em CFTV. Oferece equipamentos de qualidade, suporte nacional, garantia real e app de acesso remoto estável. Evite marcas desconhecidas — economia no equipamento pode sair caro na segurança.</p>
+
+        <h2>6. Instalação: Profissional ou Faça Você Mesmo?</h2>
+        <p>Instalação amadora é a principal causa de sistemas que não funcionam corretamente. Um técnico profissional garante:</p>
+        <ul>
+          <li>Posicionamento correto das câmeras</li>
+          <li>Passagem adequada dos cabos</li>
+          <li>Configuração correta do DVR e acesso remoto</li>
+          <li>Teste completo de todas as câmeras</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Kit Recomendado: 4 Câmeras Intelbras</h3>
+          <p className="text-muted-foreground mb-0">Kit completo com 4 câmeras HD, DVR 4 canais, HD de gravação, cabos, conectores e <strong>instalação profissional inclusa</strong> por R$ 1.350. Garantia de 1 ano. Atendemos Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+  "monitoramento-24-horas-como-funciona": {
+    title: "Monitoramento 24 Horas: Como Funciona e Por Que Você Precisa",
+    excerpt: "Saiba como funciona a gravação contínua e o acesso remoto.",
+    date: "2026-02-08",
+    readTime: "6 min",
+    category: "CFTV",
+    content: (
+      <>
+        <p className="lead">Monitoramento 24 horas não é mais exclusividade de grandes empresas. Com um kit de câmeras Intelbras e um celular, <strong>qualquer pessoa pode vigiar seu imóvel em tempo real</strong>, de qualquer lugar do mundo.</p>
+
+        <h2>Como Funciona na Prática</h2>
+        <p>O sistema é composto por câmeras conectadas a um DVR (gravador digital) que registra tudo continuamente em um HD interno. Ao mesmo tempo, o DVR se conecta à internet e transmite as imagens para o app no seu celular.</p>
+        <ul>
+          <li><strong>Gravação local:</strong> funciona 24h, mesmo sem internet</li>
+          <li><strong>Acesso remoto:</strong> veja ao vivo pelo app (Android/iPhone)</li>
+          <li><strong>Playback:</strong> volte e reveja gravações passadas</li>
+          <li><strong>Alertas:</strong> notificação quando detecta movimento</li>
+        </ul>
+
+        <h2>Por Que o Monitoramento Contínuo é Essencial?</h2>
+        <p>A maioria dos crimes é planejada. Criminosos observam rotinas e escolhem momentos de vulnerabilidade. Com monitoramento 24h:</p>
+        <ul>
+          <li>Toda atividade suspeita é registrada como prova</li>
+          <li>Câmeras visíveis inibem ações criminosas</li>
+          <li>Você pode acionar a polícia em tempo real</li>
+          <li>Funcionários sabem que estão sendo monitorados</li>
+        </ul>
+
+        <h2>Precisa Pagar Mensalidade?</h2>
+        <p><strong>Não!</strong> Diferente de serviços de monitoramento terceirizados, o sistema com DVR é 100% seu. Não há mensalidade, não há contrato. Você paga uma vez e usa para sempre.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Monte Seu Sistema de Monitoramento</h3>
+          <p className="text-muted-foreground mb-0">Kit 4 câmeras Intelbras com DVR, HD e instalação profissional por <strong>R$ 1.350</strong>. Configuramos o app no seu celular na hora. Sem mensalidade, sem burocracia.</p>
+        </div>
+      </>
+    ),
+  },
+  "equipe-especializada-cftv-litoral-parana": {
+    title: "Equipe Especializada em CFTV no Litoral do Paraná: Por Que Contratar Profissionais",
+    excerpt: "Instalação amadora pode comprometer toda a segurança.",
+    date: "2026-02-06",
+    readTime: "7 min",
+    category: "CFTV",
+    content: (
+      <>
+        <p className="lead">Comprar câmeras de segurança é apenas metade do trabalho. A <strong>instalação profissional é o que diferencia um sistema funcional de um equipamento inútil</strong>. No litoral do Paraná, onde as condições são mais desafiadoras, isso é ainda mais crítico.</p>
+
+        <h2>Os Riscos da Instalação Amadora</h2>
+        <ul>
+          <li><strong>Posicionamento errado:</strong> câmeras que não cobrem os pontos vulneráveis</li>
+          <li><strong>Cabos expostos:</strong> fáceis de cortar por invasores</li>
+          <li><strong>Configuração incorreta:</strong> gravação que não funciona ou acesso remoto instável</li>
+          <li><strong>Falta de proteção contra intempéries:</strong> no litoral, a maresia e umidade destroem equipamentos mal instalados</li>
+        </ul>
+
+        <h2>O Que Uma Equipe Especializada Faz de Diferente</h2>
+        <ul>
+          <li><strong>Análise do local:</strong> identificação de todos os pontos vulneráveis antes da instalação</li>
+          <li><strong>Passagem protegida dos cabos:</strong> dentro de conduítes, protegidos e invisíveis</li>
+          <li><strong>Configuração completa:</strong> DVR, gravação, acesso remoto e alertas no celular</li>
+          <li><strong>Proteção contra maresia:</strong> selagem adequada dos conectores e escolha de pontos protegidos</li>
+          <li><strong>Teste completo:</strong> verificação de cada câmera, visão noturna e gravação antes de entregar</li>
+        </ul>
+
+        <h2>Por Que a Mileuma Soluções no Litoral?</h2>
+        <p>A equipe do <strong>Mestre dos Serviços (Henrique da Cruz)</strong> atua desde 1999 e conhece as particularidades do litoral paranaense. Já instalamos câmeras em centenas de imóveis em <strong>Itapoá, Guaratuba, Matinhos e Pontal do Paraná</strong>.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Instalação Profissional no Litoral do PR</h3>
+          <p className="text-muted-foreground mb-0">Kit 4 câmeras Intelbras com instalação especializada por <strong>R$ 1.350</strong>. Atendemos todo o litoral do Paraná com equipe própria. Garantia de 1 ano.</p>
+        </div>
+      </>
+    ),
+  },
   "windows-11-atualizacao-kb5074105-novidades": {
     title: "Windows 11 KB5074105: Todas as Novidades da Atualização de Janeiro 2026",
     excerpt: "A Microsoft liberou a atualização KB5074105 para Windows 11 25H2 e 24H2 com recursos inéditos: Smart App Control configurável, sincronização celular-PC, melhorias no Windows Hello e correções críticas.",

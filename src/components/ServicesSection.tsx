@@ -9,7 +9,8 @@ import {
   Building2, 
   Headphones,
   MapPin,
-  ArrowRight
+  ArrowRight,
+  Camera,
 } from "lucide-react";
 
 const services = [
@@ -75,6 +76,13 @@ const services = [
     description: "Vamos até você em Curitiba e região",
     link: "/atendimento-domicilio",
     preco: "R$ 99,99 / 30 min"
+  },
+  {
+    icon: Camera,
+    title: "CFTV - Câmeras de Segurança",
+    description: "Kit 4 câmeras Intelbras com instalação",
+    link: "/cftv",
+    preco: "R$ 1.350 completo"
   },
 ];
 

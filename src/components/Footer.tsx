@@ -36,6 +36,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/cftv" className="text-white/70 hover:text-white text-sm transition-colors">
+                  CFTV - Câmeras de Segurança
+                </Link>
+              </li>
+              <li>
                 <Link to="/atendimento-domicilio" className="text-white/70 hover:text-white text-sm transition-colors">
                   Atendimento em Domicílio
                 </Link>

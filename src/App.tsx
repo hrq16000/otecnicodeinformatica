@@ -83,6 +83,10 @@ import FormatacaoSaoJosePinhais from "./pages/servico-bairro/FormatacaoSaoJosePi
 import ConsertoNotebookCIC from "./pages/servico-bairro/ConsertoNotebookCIC";
 import RedesWifiAraucaria from "./pages/servico-bairro/RedesWifiAraucaria";
 import CFTVPage from "./pages/CFTV";
+import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
+import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";
+import CFTVLitoral from "./pages/cftv/CFTVLitoral";
+import CFTVGuaratuba from "./pages/cftv/CFTVGuaratuba";
 
 const queryClient = new QueryClient();
 
@@ -159,6 +163,10 @@ const App = () => (
           
           {/* CFTV */}
           <Route path="/cftv" element={<CFTVPage />} />
+          <Route path="/cftv/curitiba" element={<CFTVCuritiba />} />
+          <Route path="/cftv/sao-jose-dos-pinhais" element={<CFTVSaoJosePinhais />} />
+          <Route path="/cftv/litoral" element={<CFTVLitoral />} />
+          <Route path="/cftv/guaratuba" element={<CFTVGuaratuba />} />
           
           {/* Páginas de Serviços */}
           <Route path="/servicos/formatacao-computador" element={<FormatacaoComputador />} />

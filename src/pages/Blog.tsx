@@ -8,6 +8,47 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const blogPosts = [
+  // CFTV
+  {
+    slug: "diferenca-camera-wifi-dvr-qual-escolher",
+    title: "Câmera Wi-Fi ou DVR: Qual a Diferença e Qual Escolher?",
+    excerpt: "Entenda as diferenças técnicas entre câmeras Wi-Fi e sistemas DVR com cabo. Veja qual opção oferece mais segurança, estabilidade e custo-benefício para seu imóvel.",
+    date: "2026-02-14",
+    readTime: "8 min",
+    category: "CFTV",
+  },
+  {
+    slug: "seguranca-casas-praia-itapoa-guaratuba",
+    title: "Segurança em Casas de Praia: Como Proteger Seu Imóvel em Itapoá e Guaratuba",
+    excerpt: "Imóveis de veraneio ficam meses desocupados e são alvos fáceis. Descubra como câmeras com acesso remoto protegem sua casa de praia no litoral do Paraná.",
+    date: "2026-02-12",
+    readTime: "7 min",
+    category: "CFTV",
+  },
+  {
+    slug: "como-escolher-melhor-kit-cameras-seguranca",
+    title: "Como Escolher o Melhor Kit de Câmeras de Segurança Para Sua Casa ou Comércio",
+    excerpt: "Guia completo: quantidade de câmeras, resolução, visão noturna, armazenamento e instalação. Tudo o que você precisa saber antes de comprar um kit de CFTV.",
+    date: "2026-02-10",
+    readTime: "9 min",
+    category: "CFTV",
+  },
+  {
+    slug: "monitoramento-24-horas-como-funciona",
+    title: "Monitoramento 24 Horas: Como Funciona e Por Que Você Precisa",
+    excerpt: "Saiba como funciona a gravação contínua, o acesso remoto pelo celular e por que o monitoramento 24h é essencial para a segurança do seu patrimônio.",
+    date: "2026-02-08",
+    readTime: "6 min",
+    category: "CFTV",
+  },
+  {
+    slug: "equipe-especializada-cftv-litoral-parana",
+    title: "Equipe Especializada em CFTV no Litoral do Paraná: Por Que Contratar Profissionais",
+    excerpt: "Instalação amadora pode comprometer toda a segurança. Conheça os riscos e veja por que uma equipe especializada faz diferença na instalação de câmeras no litoral.",
+    date: "2026-02-06",
+    readTime: "7 min",
+    category: "CFTV",
+  },
   // Windows 11
   {
     slug: "windows-11-atualizacao-kb5074105-novidades",
@@ -167,7 +208,7 @@ const blogPosts = [
   },
 ];
 
-const categories = ["Todos", "Windows 11", "Office 365", "Segurança", "Hardware", "Dicas", "Manutenção", "Redes"];
+const categories = ["Todos", "CFTV", "Windows 11", "Office 365", "Segurança", "Hardware", "Dicas", "Manutenção", "Redes"];
 
 const Blog = () => {
   useEffect(() => {

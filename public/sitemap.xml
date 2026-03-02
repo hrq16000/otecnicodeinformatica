@@ -21,6 +21,16 @@
   <url><loc>https://tecnicocuritiba.com.br/servicos/backup-recuperacao</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/servicos/montagem-pc</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   
+  <!-- Páginas CFTV -->
+  <url><loc>https://tecnicocuritiba.com.br/cftv</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/curitiba</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/sao-jose-dos-pinhais</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/araucaria</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/campo-largo</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/pinhais</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/litoral</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/cftv/guaratuba</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
   <!-- Páginas de Cidades -->
   <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-curitiba</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/tecnico-informatica-sao-jose-pinhais</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
@@ -67,6 +77,15 @@
   <url><loc>https://tecnicocuritiba.com.br/bairros/centro-pinhais</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/weissopolis</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/bairros/pineville</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Páginas Serviço + Bairro -->
+  <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador/centro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-pc-notebook/batel</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/remocao-virus/portao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/upgrade-ssd-memoria/santa-felicidade</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador/sao-jose-dos-pinhais</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-pc-notebook/cic</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/redes-wifi/araucaria</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   
   <!-- Posts do Blog -->
   <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-vale-a-pena-atualizar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
@@ -87,4 +106,10 @@
   <url><loc>https://tecnicocuritiba.com.br/blog/wifi-lento-como-melhorar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/blog/como-escolher-um-bom-antivirus</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/blog/dicas-manter-notebook-funcionando-bem</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/diferenca-camera-wifi-dvr-qual-escolher</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/seguranca-casas-praia-itapoa-guaratuba</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/como-escolher-melhor-kit-cameras-seguranca</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/monitoramento-24-horas-como-funciona</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/equipe-especializada-cftv-litoral-parana</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-atualizacao-kb5074105-novidades</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 </urlset>

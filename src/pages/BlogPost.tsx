@@ -843,6 +843,28 @@ const BlogPost = () => {
             )}
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
               {post.content}
+
+              {post.category === "CFTV" && (
+                <div className="not-prose mt-12 bg-primary/5 rounded-xl p-6 border border-primary/10">
+                  <h3 className="font-heading font-bold text-primary text-lg mb-3">Instalação de Câmeras na Sua Cidade</h3>
+                  <p className="text-muted-foreground text-sm mb-4">Veja informações específicas de instalação para a sua região:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Curitiba", path: "/cftv/curitiba" },
+                      { name: "São José dos Pinhais", path: "/cftv/sao-jose-dos-pinhais" },
+                      { name: "Araucária", path: "/cftv/araucaria" },
+                      { name: "Campo Largo", path: "/cftv/campo-largo" },
+                      { name: "Pinhais", path: "/cftv/pinhais" },
+                      { name: "Litoral do PR", path: "/cftv/litoral" },
+                      { name: "Guaratuba", path: "/cftv/guaratuba" },
+                    ].map((city) => (
+                      <Link key={city.path} to={city.path} className="inline-flex items-center gap-1.5 bg-background border border-primary/10 rounded-full px-4 py-2 text-sm text-foreground hover:border-accent/30 hover:text-accent transition-all">
+                        {city.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </article>
           </div>
         </section>

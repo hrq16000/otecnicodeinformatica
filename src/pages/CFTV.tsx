@@ -317,6 +317,57 @@ const CFTVPage = () => {
           </div>
         </section>
 
+        {/* Cidades Atendidas */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-4">
+              CFTV na Sua Cidade
+            </h2>
+            <p className="text-muted-foreground text-center mb-8 max-w-xl mx-auto">
+              Páginas dedicadas com informações de instalação para cada região atendida.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              {[
+                { name: "Curitiba", path: "/cftv/curitiba" },
+                { name: "São José dos Pinhais", path: "/cftv/sao-jose-dos-pinhais" },
+                { name: "Araucária", path: "/cftv/araucaria" },
+                { name: "Campo Largo", path: "/cftv/campo-largo" },
+                { name: "Pinhais", path: "/cftv/pinhais" },
+                { name: "Litoral do PR", path: "/cftv/litoral" },
+                { name: "Guaratuba", path: "/cftv/guaratuba" },
+              ].map((city) => (
+                <a key={city.path} href={city.path} className="flex items-center gap-2 bg-muted/30 border border-primary/10 rounded-xl px-5 py-4 hover:border-accent/30 hover:shadow-md transition-all group">
+                  <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                  <span className="text-foreground font-medium text-sm group-hover:text-accent transition-colors">{city.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Artigos Relacionados */}
+        <section className="py-12 md:py-16 bg-muted/50">
+          <div className="container mx-auto">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-4">
+              Artigos Sobre Segurança Eletrônica
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {[
+                { title: "Câmera Wi-Fi ou DVR: Qual Escolher?", slug: "diferenca-camera-wifi-dvr-qual-escolher", excerpt: "Entenda as diferenças técnicas entre câmeras Wi-Fi e sistemas DVR." },
+                { title: "Segurança em Casas de Praia", slug: "seguranca-casas-praia-itapoa-guaratuba", excerpt: "Imóveis de veraneio ficam meses desocupados e são alvos fáceis." },
+                { title: "Como Escolher o Melhor Kit de Câmeras", slug: "como-escolher-melhor-kit-cameras-seguranca", excerpt: "Guia completo para escolher o kit ideal de CFTV." },
+                { title: "Monitoramento 24 Horas", slug: "monitoramento-24-horas-como-funciona", excerpt: "Saiba como funciona a gravação contínua e o acesso remoto." },
+                { title: "Equipe Especializada no Litoral", slug: "equipe-especializada-cftv-litoral-parana", excerpt: "Por que contratar profissionais para instalação no litoral." },
+              ].map((article) => (
+                <a key={article.slug} href={`/blog/${article.slug}`} className="bg-background rounded-xl p-5 border border-primary/5 hover:border-accent/30 hover:shadow-md transition-all">
+                  <h3 className="font-semibold text-foreground text-sm mb-1">{article.title}</h3>
+                  <p className="text-muted-foreground text-xs">{article.excerpt}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <FAQSection />
 

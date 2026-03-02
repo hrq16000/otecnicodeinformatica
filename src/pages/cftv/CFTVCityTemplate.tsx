@@ -156,6 +156,28 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
           </div>
         </section>
 
+        {/* Artigos Relacionados */}
+        <section className="py-12 md:py-16 bg-muted/50">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-8 text-center">
+              Artigos Sobre Segurança Eletrônica
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { title: "Câmera Wi-Fi ou DVR: Qual Escolher?", slug: "diferenca-camera-wifi-dvr-qual-escolher", desc: "Entenda as diferenças técnicas e descubra qual sistema é mais seguro." },
+                { title: "Como Escolher o Melhor Kit de Câmeras", slug: "como-escolher-melhor-kit-cameras-seguranca", desc: "Guia completo com critérios técnicos para proteger seu imóvel." },
+                { title: "Monitoramento 24 Horas: Como Funciona", slug: "monitoramento-24-horas-como-funciona", desc: "Saiba como funciona a gravação contínua e o acesso remoto pelo celular." },
+              ].map((article) => (
+                <Link key={article.slug} to={`/blog/${article.slug}`} className="bg-background rounded-xl p-5 border border-primary/5 hover:border-accent/30 hover:shadow-md transition-all group">
+                  <ArrowRight className="h-5 w-5 text-accent mb-3 group-hover:translate-x-1 transition-transform" />
+                  <h3 className="font-semibold text-foreground text-sm mb-1 group-hover:text-accent transition-colors">{article.title}</h3>
+                  <p className="text-muted-foreground text-xs">{article.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Final */}
         <section className="py-16 md:py-24 hero-gradient">
           <div className="container mx-auto text-center">

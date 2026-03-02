@@ -87,6 +87,9 @@ import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";
 import CFTVLitoral from "./pages/cftv/CFTVLitoral";
 import CFTVGuaratuba from "./pages/cftv/CFTVGuaratuba";
+import CFTVAraucaria from "./pages/cftv/CFTVAraucaria";
+import CFTVCampoLargo from "./pages/cftv/CFTVCampoLargo";
+import CFTVPinhais from "./pages/cftv/CFTVPinhais";
 
 const queryClient = new QueryClient();
 
@@ -167,6 +170,9 @@ const App = () => (
           <Route path="/cftv/sao-jose-dos-pinhais" element={<CFTVSaoJosePinhais />} />
           <Route path="/cftv/litoral" element={<CFTVLitoral />} />
           <Route path="/cftv/guaratuba" element={<CFTVGuaratuba />} />
+          <Route path="/cftv/araucaria" element={<CFTVAraucaria />} />
+          <Route path="/cftv/campo-largo" element={<CFTVCampoLargo />} />
+          <Route path="/cftv/pinhais" element={<CFTVPinhais />} />
           
           {/* Páginas de Serviços */}
           <Route path="/servicos/formatacao-computador" element={<FormatacaoComputador />} />

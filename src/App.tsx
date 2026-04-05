@@ -92,6 +92,31 @@ import RedesWifiSantaFelicidade from "./pages/servico-bairro/RedesWifiSantaFelic
 import FormatacaoCampoComprido from "./pages/servico-bairro/FormatacaoCampoComprido";
 import RemocaoVirusBatel from "./pages/servico-bairro/RemocaoVirusBatel";
 import MontagemPcCIC from "./pages/servico-bairro/MontagemPcCIC";
+
+// SJP - Serviço + Cidade
+import RemocaoVirusSaoJosePinhais from "./pages/servico-bairro/RemocaoVirusSaoJosePinhais";
+import ConsertoNotebookSaoJosePinhais from "./pages/servico-bairro/ConsertoNotebookSaoJosePinhais";
+import UpgradeSsdSaoJosePinhais from "./pages/servico-bairro/UpgradeSsdSaoJosePinhais";
+import RedesWifiSaoJosePinhais from "./pages/servico-bairro/RedesWifiSaoJosePinhais";
+
+// Araucária - Serviço + Cidade
+import FormatacaoAraucaria from "./pages/servico-bairro/FormatacaoAraucaria";
+import RemocaoVirusAraucaria from "./pages/servico-bairro/RemocaoVirusAraucaria";
+import ConsertoNotebookAraucaria from "./pages/servico-bairro/ConsertoNotebookAraucaria";
+import UpgradeSsdAraucaria from "./pages/servico-bairro/UpgradeSsdAraucaria";
+
+// Campo Largo - Serviço + Cidade
+import FormatacaoCampoLargo from "./pages/servico-bairro/FormatacaoCampoLargo";
+import RemocaoVirusCampoLargo from "./pages/servico-bairro/RemocaoVirusCampoLargo";
+import ConsertoNotebookCampoLargo from "./pages/servico-bairro/ConsertoNotebookCampoLargo";
+import RedesWifiCampoLargo from "./pages/servico-bairro/RedesWifiCampoLargo";
+
+// Pinhais - Serviço + Cidade
+import FormatacaoPinhais from "./pages/servico-bairro/FormatacaoPinhais";
+import RemocaoVirusPinhais from "./pages/servico-bairro/RemocaoVirusPinhais";
+import ConsertoNotebookPinhais from "./pages/servico-bairro/ConsertoNotebookPinhais";
+import UpgradeSsdPinhais from "./pages/servico-bairro/UpgradeSsdPinhais";
+
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";
@@ -211,6 +236,30 @@ const App = () => (
           <Route path="/servicos/formatacao-computador/campo-comprido" element={<FormatacaoCampoComprido />} />
           <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
           <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />
+          
+          {/* SJP - Serviço + Cidade */}
+          <Route path="/servicos/remocao-virus/sao-jose-dos-pinhais" element={<RemocaoVirusSaoJosePinhais />} />
+          <Route path="/servicos/conserto-pc-notebook/sao-jose-dos-pinhais" element={<ConsertoNotebookSaoJosePinhais />} />
+          <Route path="/servicos/upgrade-ssd-memoria/sao-jose-dos-pinhais" element={<UpgradeSsdSaoJosePinhais />} />
+          <Route path="/servicos/redes-wifi/sao-jose-dos-pinhais" element={<RedesWifiSaoJosePinhais />} />
+          
+          {/* Araucária - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/araucaria" element={<FormatacaoAraucaria />} />
+          <Route path="/servicos/remocao-virus/araucaria" element={<RemocaoVirusAraucaria />} />
+          <Route path="/servicos/conserto-pc-notebook/araucaria" element={<ConsertoNotebookAraucaria />} />
+          <Route path="/servicos/upgrade-ssd-memoria/araucaria" element={<UpgradeSsdAraucaria />} />
+          
+          {/* Campo Largo - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/campo-largo" element={<FormatacaoCampoLargo />} />
+          <Route path="/servicos/remocao-virus/campo-largo" element={<RemocaoVirusCampoLargo />} />
+          <Route path="/servicos/conserto-pc-notebook/campo-largo" element={<ConsertoNotebookCampoLargo />} />
+          <Route path="/servicos/redes-wifi/campo-largo" element={<RedesWifiCampoLargo />} />
+          
+          {/* Pinhais - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/pinhais" element={<FormatacaoPinhais />} />
+          <Route path="/servicos/remocao-virus/pinhais" element={<RemocaoVirusPinhais />} />
+          <Route path="/servicos/conserto-pc-notebook/pinhais" element={<ConsertoNotebookPinhais />} />
+          <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

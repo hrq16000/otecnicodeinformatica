@@ -652,6 +652,7 @@ const ComoFunciona = () => {
         </section>
       </main>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

@@ -11,7 +11,7 @@ export const WhatsAppFloat = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-subtle group"
+      className="fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-whatsapp hover:bg-whatsapp-hover text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-subtle group"
       aria-label="Falar pelo WhatsApp"
     >
       <MessageCircle className="h-6 w-6 transition-transform group-hover:rotate-12" />

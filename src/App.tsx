@@ -117,6 +117,9 @@ import RemocaoVirusPinhais from "./pages/servico-bairro/RemocaoVirusPinhais";
 import ConsertoNotebookPinhais from "./pages/servico-bairro/ConsertoNotebookPinhais";
 import UpgradeSsdPinhais from "./pages/servico-bairro/UpgradeSsdPinhais";
 
+// Dynamic service+city page
+import ServicoCidadePage from "./pages/servico-bairro/ServicoCidadePage";
+
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";
@@ -260,6 +263,9 @@ const App = () => (
           <Route path="/servicos/remocao-virus/pinhais" element={<RemocaoVirusPinhais />} />
           <Route path="/servicos/conserto-pc-notebook/pinhais" element={<ConsertoNotebookPinhais />} />
           <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
+          
+          {/* Dynamic service+city route (catches all new combinations) */}
+          <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

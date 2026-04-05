@@ -11,8 +11,8 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541992671754";
-const PHONE_NUMBER = "5541992671754";
+const WHATSAPP_NUMBER = "5541997452053";
+const PHONE_NUMBER = "5541997452053";
 
 export interface ServicoBairroData {
   // SEO
@@ -85,18 +85,13 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     provider: {
       "@type": "LocalBusiness",
       name: "Técnico Curitiba",
-      telephone: "+5541992671754",
+      telephone: "+55-41-99745-2053",
       address: {
         "@type": "PostalAddress",
         addressLocality: data.cidade,
         addressRegion: "PR",
         addressCountry: "BR"
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "347"
-      }
     },
     areaServed: {
       "@type": "Place",
@@ -175,7 +170,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                 onClick={handlePhoneClick}
               >
                 <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
+                (41) 99745-2053
               </Button>
             </div>
           </div>

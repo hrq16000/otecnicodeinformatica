@@ -136,41 +136,6 @@ const localBusinessSchema = {
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Maria Silva"
-      },
-      "reviewBody": "Excelente profissional! Resolveu o problema do meu notebook rapidamente. Recomendo!"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "João Santos"
-      },
-      "reviewBody": "Atendimento rápido e profissional. O técnico chegou no horário combinado."
-    }
-  ],
   "sameAs": [
     "https://wa.me/5541997452053"
   ],

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { 
   CheckCircle, Clock, Shield, ArrowRight, MessageCircle, Phone, 

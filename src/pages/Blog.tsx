@@ -332,6 +332,7 @@ const Blog = () => {
           </div>
         </section>
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

@@ -338,6 +338,7 @@ const TecnicoInformaticaAraucaria = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

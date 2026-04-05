@@ -278,6 +278,7 @@ const TecnicoInformaticaCuritiba = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

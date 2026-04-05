@@ -153,6 +153,7 @@ const Sobre = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

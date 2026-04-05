@@ -108,6 +108,7 @@ const AtendimentoRemoto = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

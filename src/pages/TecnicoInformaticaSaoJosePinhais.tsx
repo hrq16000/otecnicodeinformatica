@@ -268,6 +268,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

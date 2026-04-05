@@ -395,6 +395,7 @@ const CFTVPage = () => {
         </section>
       </main>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppChatbot />
     </div>

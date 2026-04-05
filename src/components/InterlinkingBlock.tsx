@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, HelpCircle, DollarSign, Wrench, Search } from "lucide-react";
+import { ArrowRight, HelpCircle, DollarSign, Wrench, Search, Truck, AlertTriangle, Monitor } from "lucide-react";
 
 const links = [
   {
     icon: HelpCircle,
     title: "Como Funciona",
-    desc: "Entenda o passo a passo do atendimento técnico",
+    desc: "Passo a passo do atendimento técnico",
     to: "/como-funciona",
   },
   {
     icon: DollarSign,
     title: "Preços e Políticas",
-    desc: "Veja a tabela completa de valores e condições",
+    desc: "Tabela completa de valores e condições",
     to: "/precos-e-politicas",
   },
   {
     icon: Search,
     title: "Diagnóstico Técnico",
-    desc: "Saiba por que o diagnóstico profissional é essencial",
-    to: "/como-funciona#diagnostico",
+    desc: "Por que o diagnóstico profissional é essencial",
+    to: "/diagnostico-tecnico",
   },
   {
     icon: Wrench,
@@ -26,17 +26,35 @@ const links = [
     desc: "Conheça todos os serviços disponíveis",
     to: "/servicos",
   },
+  {
+    icon: Monitor,
+    title: "Equipamentos",
+    desc: "Veja os equipamentos que atendemos",
+    to: "/equipamentos-atendidos",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Casos Reais",
+    desc: "Exemplos reais de problemas e soluções",
+    to: "/problemas-reais-e-casos",
+  },
+  {
+    icon: Truck,
+    title: "Coleta e Entrega",
+    desc: "Serviço de logística para equipamentos",
+    to: "/coleta-e-entrega",
+  },
 ];
 
 export const InterlinkingBlock = () => {
   return (
     <section className="py-10 md:py-14 bg-secondary">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-xl md:text-2xl font-bold text-primary mb-6 text-center">
             Entenda Mais Sobre Nosso Atendimento
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {links.map((item, i) => {
               const Icon = item.icon;
               return (

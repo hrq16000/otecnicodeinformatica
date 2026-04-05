@@ -139,6 +139,31 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/diagnostico-tecnico" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Diagnóstico Técnico
+                </Link>
+              </li>
+              <li>
+                <Link to="/equipamentos-atendidos" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Equipamentos Atendidos
+                </Link>
+              </li>
+              <li>
+                <Link to="/problemas-reais-e-casos" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Casos Reais
+                </Link>
+              </li>
+              <li>
+                <Link to="/coleta-e-entrega" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Coleta e Entrega
+                </Link>
+              </li>
+              <li>
+                <Link to="/quando-nao-compensa" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Quando Não Compensa
+                </Link>
+              </li>
+              <li>
                 <Link to="/servicos" className="text-white/70 hover:text-white text-sm transition-colors">
                   Serviços
                 </Link>

@@ -21,6 +21,11 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
 import ComoFunciona from "./pages/ComoFunciona";
+import DiagnosticoTecnico from "./pages/DiagnosticoTecnico";
+import EquipamentosAtendidos from "./pages/EquipamentosAtendidos";
+import ProblemasReaisCasos from "./pages/ProblemasReaisCasos";
+import ColetaEntrega from "./pages/ColetaEntrega";
+import QuandoNaoCompensa from "./pages/QuandoNaoCompensa";
 import NotFound from "./pages/NotFound";
 
 // Bairros Curitiba
@@ -160,6 +165,11 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/como-funciona" element={<ComoFunciona />} />
+          <Route path="/diagnostico-tecnico" element={<DiagnosticoTecnico />} />
+          <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
+          <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
+          <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
+          <Route path="/quando-nao-compensa" element={<QuandoNaoCompensa />} />
           
           {/* Bairros Curitiba */}
           <Route path="/bairros/centro" element={<Centro />} />

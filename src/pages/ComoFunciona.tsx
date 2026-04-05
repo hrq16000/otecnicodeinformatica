@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -31,6 +32,7 @@ import {
   ChevronRight,
   DollarSign,
   AlertCircle,
+  AlertTriangle,
   FileText,
   Headphones,
 } from "lucide-react";
@@ -393,6 +395,199 @@ const ComoFunciona = () => {
           </div>
         </section>
 
+        {/* ===== TIPOS DE ATENDIMENTO ===== */}
+        <section id="diagnostico" className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Tipos de Atendimento Disponíveis
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Cada situação exige um tipo diferente de atendimento. Entenda as diferenças para escolher a melhor opção.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Visita Técnica a Domicílio",
+                    desc: "O técnico vai até você com ferramentas profissionais. Ideal para diagnósticos rápidos, formatações, upgrades e reparos simples que podem ser resolvidos no local. Cobrança por tempo de atendimento.",
+                    ideal: "Problemas de software, formatação, upgrade SSD/RAM, configuração de rede",
+                  },
+                  {
+                    title: "Diagnóstico em Laboratório",
+                    desc: "Equipamento é coletado e levado para bancada técnica. Necessário para reparos que exigem ferramentas especiais, micro-solda ou tempo estendido de análise.",
+                    ideal: "Reparo de placa mãe, troca de tela, recuperação de dados, problemas complexos",
+                  },
+                  {
+                    title: "Atendimento Remoto",
+                    desc: "O técnico acessa seu computador de forma segura pela internet. Mais rápido e econômico para problemas que não envolvem hardware físico.",
+                    ideal: "Lentidão, configurações, instalação de programas, remoção de vírus simples",
+                  },
+                  {
+                    title: "Coleta e Entrega",
+                    desc: "Para equipamentos que precisam de bancada, fazemos a coleta no seu endereço e devolvemos após o reparo. Logística segura com recibo detalhado.",
+                    ideal: "TVs, notebooks com defeito grave, equipamentos pesados ou delicados",
+                  },
+                ].map((tipo, i) => (
+                  <div key={i} className="bg-secondary rounded-xl p-6">
+                    <h3 className="font-bold text-primary text-lg mb-2">{tipo.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">{tipo.desc}</p>
+                    <div className="bg-accent/10 rounded-lg p-3">
+                      <span className="text-xs font-semibold text-accent">Ideal para: </span>
+                      <span className="text-xs text-muted-foreground">{tipo.ideal}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-6 flex flex-wrap gap-3 justify-center">
+                <Link to="/coleta-e-entrega" className="text-sm text-accent hover:underline font-medium">Saiba mais sobre Coleta e Entrega →</Link>
+                <Link to="/atendimento-remoto" className="text-sm text-accent hover:underline font-medium">Atendimento Remoto →</Link>
+                <Link to="/atendimento-domicilio" className="text-sm text-accent hover:underline font-medium">Atendimento a Domicílio →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== CENÁRIOS REAIS ===== */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Cenários Reais: Do Simples ao Complexo
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Nem todo problema é o que parece. Veja como diferentes níveis de complexidade afetam o diagnóstico, o tempo e o custo.
+              </p>
+              <div className="space-y-4">
+                {[
+                  {
+                    nivel: "Simples",
+                    cor: "text-accent",
+                    bgCor: "bg-accent/10",
+                    exemplo: "Computador lento → SSD cheio + muitos programas na inicialização",
+                    tempo: "30-60 minutos",
+                    solucao: "Limpeza de disco, otimização de inicialização, upgrade de SSD se necessário",
+                    custo: "R$ 99,99 a R$ 200",
+                  },
+                  {
+                    nivel: "Médio",
+                    cor: "text-yellow-600",
+                    bgCor: "bg-yellow-50",
+                    exemplo: "Notebook não liga → Fonte defeituosa + bateria viciada",
+                    tempo: "1-3 horas ou coleta para bancada",
+                    solucao: "Diagnóstico detalhado, troca de fonte/carregador, avaliação de bateria",
+                    custo: "R$ 150 a R$ 400",
+                  },
+                  {
+                    nivel: "Complexo",
+                    cor: "text-destructive",
+                    bgCor: "bg-destructive/5",
+                    exemplo: "PC com artefatos visuais → GPU com desgaste por superaquecimento crônico",
+                    tempo: "3-15 dias em bancada",
+                    solucao: "Diagnóstico de placa, teste de GPU, possível reballing ou substituição",
+                    custo: "R$ 300 a R$ 800+",
+                  },
+                ].map((c, i) => (
+                  <div key={i} className={`${c.bgCor} rounded-xl p-5 border-l-4 ${c.cor === "text-accent" ? "border-accent" : c.cor === "text-yellow-600" ? "border-yellow-500" : "border-destructive"}`}>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`text-sm font-bold ${c.cor} uppercase`}>{c.nivel}</span>
+                    </div>
+                    <p className="font-medium text-primary mb-2">{c.exemplo}</p>
+                    <div className="grid sm:grid-cols-3 gap-2 text-xs text-muted-foreground">
+                      <span><strong>Tempo:</strong> {c.tempo}</span>
+                      <span><strong>Solução:</strong> {c.solucao}</span>
+                      <span><strong>Custo estimado:</strong> {c.custo}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                <Link to="/problemas-reais-e-casos" className="text-accent hover:underline font-medium">Ver mais casos reais detalhados →</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== RISCOS TÉCNICOS ===== */}
+        <section className="py-12 md:py-16 bg-accent/5">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Riscos Técnicos: O Que Pode Dar Errado
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Entender os riscos ajuda a valorizar o trabalho profissional e a evitar decisões que podem sair muito mais caras.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                {[
+                  { title: "Usar ferramentas inadequadas", desc: "Chaves improvisadas, facas ou objetos pontiagudos podem riscar trilhas de placas, cortar cabos flat e danificar conectores permanentemente." },
+                  { title: "Instalar peças incompatíveis", desc: "Memória RAM, SSD ou fonte com especificações erradas podem causar curto-circuito, queimar componentes e danificar a placa mãe." },
+                  { title: "Ignorar sinais de falha", desc: "Ruídos, lentidão extrema e reinícios aleatórios são sintomas de falhas que pioram com o uso contínuo. Quanto mais tempo demora, maior o prejuízo." },
+                  { title: "Tentar resolver sem diagnóstico", desc: "Formatar um computador com HD defeituoso não resolve o problema — e pode apagar dados irrecuperáveis sem necessidade." },
+                ].map((r, i) => (
+                  <div key={i} className="bg-background rounded-xl p-5 flex gap-4">
+                    <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-bold text-primary mb-1 text-sm">{r.title}</h3>
+                      <p className="text-xs text-muted-foreground">{r.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                <Link to="/diagnostico-tecnico" className="text-accent hover:underline font-medium">Entenda por que o diagnóstico profissional é essencial →</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== QUANDO COMPENSA REPARAR ===== */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Quando Compensa Reparar — E Quando Não
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-accent/5 rounded-xl p-6 border-2 border-accent/20">
+                  <h3 className="font-bold text-accent text-lg mb-3">✅ Compensa reparar quando:</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Equipamento tem menos de 5 anos",
+                      "Problema é pontual (1 componente)",
+                      "Custo do reparo < 40% do valor de um novo",
+                      "Dados importantes no equipamento",
+                      "Problemas de software (formatação, vírus)",
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-destructive/5 rounded-xl p-6 border-2 border-destructive/20">
+                  <h3 className="font-bold text-destructive text-lg mb-3">❌ Não compensa quando:</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Equipamento tem mais de 8-10 anos",
+                      "Múltiplos defeitos simultâneos",
+                      "Custo do reparo > 40% de um novo",
+                      "Peças obsoletas e caras",
+                      "Painel LCD/OLED danificado por impacto",
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <AlertTriangle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                <Link to="/quando-nao-compensa" className="text-accent hover:underline font-medium">Guia completo: quando NÃO compensa reparar →</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ===== 10. FAQ ===== */}
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
@@ -457,6 +652,7 @@ const ComoFunciona = () => {
         </section>
       </main>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

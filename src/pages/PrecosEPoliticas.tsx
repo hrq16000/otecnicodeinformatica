@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
 import { 
@@ -467,6 +468,168 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
+        {/* MODALIDADE: VISITA POR TEMPO */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Modalidade 1 — Visita Técnica por Tempo
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Ideal para serviços rápidos como formatação, upgrade, configuração de rede e remoção de vírus.
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                {[
+                  { tempo: "15 min", valor: "R$ 69" },
+                  { tempo: "30 min", valor: "R$ 99" },
+                  { tempo: "1 hora", valor: "R$ 169" },
+                  { tempo: "2 horas", valor: "R$ 199" },
+                  { tempo: "3 horas", valor: "R$ 369" },
+                ].map((t, i) => (
+                  <div key={i} className="bg-secondary rounded-xl p-4 text-center">
+                    <span className="text-sm text-muted-foreground">{t.tempo}</span>
+                    <div className="text-xl font-bold text-accent mt-1">{t.valor}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-accent/5 rounded-xl p-4 mt-6 border border-accent/20">
+                <p className="text-sm text-muted-foreground text-center">
+                  <strong className="text-foreground">Como funciona:</strong> O técnico permanece o tempo necessário para resolver. A cobrança é pelo tempo contratado. O foco é na resolução rápida e eficiente do problema.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* MODALIDADE: DIAGNÓSTICO COM COMPROMISSO */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Modalidade 2 — Diagnóstico com Compromisso
+              </h2>
+              <div className="bg-background rounded-2xl p-6 md:p-8 border-2 border-accent/20">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-primary mb-3">Como funciona:</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Diagnóstico custa <strong>R$ 90</strong> em caso de desistência
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        <strong>NÃO</strong> existe orçamento gratuito presencial
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Valor mínimo pré-aprovado: <strong>R$ 300 a R$ 400</strong>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Se o reparo estiver dentro do pré-aprovado, é realizado automaticamente
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-accent/10 rounded-xl p-5">
+                    <h3 className="font-bold text-accent mb-2">Importante entender:</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Estimativas gratuitas são feitas somente via WhatsApp. O diagnóstico presencial envolve deslocamento, tempo técnico e ferramentas profissionais — por isso tem custo. Se o reparo for aprovado, o valor do diagnóstico é abatido do total.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center mt-4">
+                <Link to="/diagnostico-tecnico" className="text-accent text-sm hover:underline font-medium">
+                  Entenda tudo sobre o diagnóstico técnico →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* MODALIDADE: LABORATÓRIO */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Modalidade 3 — Laboratório (Coleta e Entrega)
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Para reparos que exigem bancada, peças específicas ou tempo estendido de análise.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-secondary rounded-xl p-6">
+                  <h3 className="font-bold text-primary mb-3">Aplicável para:</h3>
+                  <ul className="space-y-2">
+                    {["TVs (LED, OLED, Smart)", "Placas mãe de notebooks", "Notebooks com defeito grave", "Equipamentos complexos", "Recuperação de dados em HD danificado"].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-secondary rounded-xl p-6">
+                  <h3 className="font-bold text-primary mb-3">Detalhes:</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Prazo médio: 15 a 60 dias",
+                      "Pode variar conforme complexidade e peças",
+                      "Inclui coleta e entrega no seu endereço",
+                      "Recibo detalhado na coleta",
+                      "Atualizações via WhatsApp",
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p className="text-center mt-4">
+                <Link to="/coleta-e-entrega" className="text-accent text-sm hover:underline font-medium">
+                  Saiba mais sobre o serviço de coleta e entrega →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* MODALIDADE: CASOS COMPLEXOS */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Modalidade 4 — Casos Complexos
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Alguns problemas exigem análise profunda e conhecimento avançado. Entenda o que são casos complexos e por que o prazo pode ser maior.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Curto em Placa Mãe", desc: "Curto-circuito causado por líquido, surto elétrico ou peça incompatível. Exige micro-solda e testes componente a componente." },
+                  { title: "GPU Desgastada", desc: "Placa de vídeo com desgaste por uso intenso (jogos, mineração). Pode exigir reballing ou substituição de chips." },
+                  { title: "Erro em Upgrade", desc: "Dano causado por instalação incorreta de peças (RAM, SSD, processador). Trilhas rompidas, slots danificados." },
+                  { title: "Placa Danificada por Ferramenta", desc: "Uso de chaves inadequadas, facas ou objetos pontiagudos que riscaram trilhas ou cortaram cabos flat." },
+                  { title: "Reballing de BGA", desc: "Processo de refusão das esferas de solda em chips BGA. Aplicável em GPUs e chipsets com problema de contato." },
+                  { title: "Fila de Atendimento", desc: "Casos complexos entram em fila conforme ordem de chegada. O prazo depende da quantidade de equipamentos em análise." },
+                ].map((c, i) => (
+                  <div key={i} className="bg-background rounded-xl p-5">
+                    <AlertTriangle className="h-5 w-5 text-accent mb-2" />
+                    <h3 className="font-bold text-primary text-sm mb-1">{c.title}</h3>
+                    <p className="text-xs text-muted-foreground">{c.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center mt-4">
+                <Link to="/problemas-reais-e-casos" className="text-accent text-sm hover:underline font-medium">
+                  Ver exemplos reais de casos complexos →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Final */}
         <section className="py-12 md:py-16 bg-primary">
           <div className="container mx-auto">
@@ -492,6 +655,7 @@ const PrecosEPoliticas = () => {
 
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppChat />
     </div>

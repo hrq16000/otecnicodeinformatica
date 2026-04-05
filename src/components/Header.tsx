@@ -24,6 +24,7 @@ const mainNavItems = [
 ];
 
 const moreNavItems = [
+  { label: "Remoto", to: "/atendimento-remoto" },
   { label: "Preços", to: "/precos-e-politicas" },
   { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
   { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },

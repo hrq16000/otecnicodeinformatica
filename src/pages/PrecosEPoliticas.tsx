@@ -210,6 +210,20 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
+        {/* Link para Como Funciona */}
+        <section className="py-6 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto text-center bg-background rounded-xl p-6 border border-accent/20">
+              <p className="text-muted-foreground mb-3">
+                Não entendeu como funciona o atendimento? Veja o passo a passo completo.
+              </p>
+              <Link to="/como-funciona" className="inline-flex items-center gap-2 text-accent font-semibold hover:underline">
+                Ver Como Funciona →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Modalidades de Atendimento */}
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">

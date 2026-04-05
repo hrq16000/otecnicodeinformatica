@@ -338,6 +338,7 @@ const TecnicoInformaticaPinhais = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

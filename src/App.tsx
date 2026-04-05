@@ -92,6 +92,31 @@ import RedesWifiSantaFelicidade from "./pages/servico-bairro/RedesWifiSantaFelic
 import FormatacaoCampoComprido from "./pages/servico-bairro/FormatacaoCampoComprido";
 import RemocaoVirusBatel from "./pages/servico-bairro/RemocaoVirusBatel";
 import MontagemPcCIC from "./pages/servico-bairro/MontagemPcCIC";
+
+// SJP - Serviço + Cidade
+import RemocaoVirusSaoJosePinhais from "./pages/servico-bairro/RemocaoVirusSaoJosePinhais";
+import ConsertoNotebookSaoJosePinhais from "./pages/servico-bairro/ConsertoNotebookSaoJosePinhais";
+import UpgradeSsdSaoJosePinhais from "./pages/servico-bairro/UpgradeSsdSaoJosePinhais";
+import RedesWifiSaoJosePinhais from "./pages/servico-bairro/RedesWifiSaoJosePinhais";
+
+// Araucária - Serviço + Cidade
+import FormatacaoAraucaria from "./pages/servico-bairro/FormatacaoAraucaria";
+import RemocaoVirusAraucaria from "./pages/servico-bairro/RemocaoVirusAraucaria";
+import ConsertoNotebookAraucaria from "./pages/servico-bairro/ConsertoNotebookAraucaria";
+import UpgradeSsdAraucaria from "./pages/servico-bairro/UpgradeSsdAraucaria";
+
+// Campo Largo - Serviço + Cidade
+import FormatacaoCampoLargo from "./pages/servico-bairro/FormatacaoCampoLargo";
+import RemocaoVirusCampoLargo from "./pages/servico-bairro/RemocaoVirusCampoLargo";
+import ConsertoNotebookCampoLargo from "./pages/servico-bairro/ConsertoNotebookCampoLargo";
+import RedesWifiCampoLargo from "./pages/servico-bairro/RedesWifiCampoLargo";
+
+// Pinhais - Serviço + Cidade
+import FormatacaoPinhais from "./pages/servico-bairro/FormatacaoPinhais";
+import RemocaoVirusPinhais from "./pages/servico-bairro/RemocaoVirusPinhais";
+import ConsertoNotebookPinhais from "./pages/servico-bairro/ConsertoNotebookPinhais";
+import UpgradeSsdPinhais from "./pages/servico-bairro/UpgradeSsdPinhais";
+
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";

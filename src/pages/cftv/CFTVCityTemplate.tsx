@@ -197,6 +197,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
           </div>
         </section>
       </main>
+      <BlocoInteligencia compact />
       <Footer />
       <WhatsAppChatbot />
     </div>

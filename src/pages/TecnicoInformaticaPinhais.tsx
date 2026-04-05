@@ -6,6 +6,7 @@ import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
@@ -336,6 +337,7 @@ const TecnicoInformaticaPinhais = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

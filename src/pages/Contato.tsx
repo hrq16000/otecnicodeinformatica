@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
@@ -217,6 +218,7 @@ const Contato = () => {
           </div>
         </section>
       </main>
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

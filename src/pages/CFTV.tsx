@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { Button } from "@/components/ui/button";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -394,6 +395,7 @@ const CFTVPage = () => {
         </section>
       </main>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppChatbot />
     </div>

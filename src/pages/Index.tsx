@@ -20,6 +20,9 @@ import { SchedulingSection } from "@/components/scheduling";
 import { SocialProofProvider, TrustBadges, SecurityBadge } from "@/components/social-proof";
 import { SocialProofAdminPanel } from "@/components/social-proof/AdminPanel";
 import { trackPageView } from "@/lib/analytics";
+import { HomePricingBlock } from "@/components/HomePricingBlock";
+import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
+import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 
 const Index = () => {
   useEffect(() => {
@@ -95,6 +98,10 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        <HomePricingBlock />
+        <HomeDiagnosticoBlock />
+        <HomeEquipamentosBlock />
 
         <FAQSection />
         <TrustSection />

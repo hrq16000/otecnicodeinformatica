@@ -126,7 +126,7 @@ export const Footer = () => {
               </li>
             </ul>
             
-            <h3 className="text-white font-semibold mb-3 mt-6">Links Úteis</h3>
+            <h3 className="text-white font-semibold mb-3 mt-6">Institucional</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/como-funciona" className="text-white/70 hover:text-white text-sm transition-colors">
@@ -136,6 +136,11 @@ export const Footer = () => {
               <li>
                 <Link to="/precos-e-politicas" className="text-white/70 hover:text-white text-sm transition-colors">
                   Preços e Políticas
+                </Link>
+              </li>
+              <li>
+                <Link to="/servicos" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Serviços
                 </Link>
               </li>
               <li>

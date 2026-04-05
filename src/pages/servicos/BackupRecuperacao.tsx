@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -220,6 +221,7 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

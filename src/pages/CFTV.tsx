@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { Button } from "@/components/ui/button";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -395,6 +396,7 @@ const CFTVPage = () => {
         </section>
       </main>
 
+      <BlocoInteligencia compact />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppChatbot />

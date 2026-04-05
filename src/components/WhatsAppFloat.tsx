@@ -13,7 +13,7 @@ const ANIMATIONS = [
 ] as const;
 
 export const WhatsAppFloat = () => {
-  const [animClass, setAnimClass] = useState(ANIMATIONS[0]);
+  const [animClass, setAnimClass] = useState<string>(ANIMATIONS[0]);
 
   useEffect(() => {
     // Switch animation randomly every 6-10 seconds

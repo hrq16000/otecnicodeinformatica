@@ -158,50 +158,53 @@ export const SocialProofProvider = () => {
   // Render scarcity
   const { availableTechnicians, waitTime, isPeakHour } = scarcityData;
   return (
-    <div
-      className={cn(
-        "fixed bottom-20 left-4 z-40 max-w-xs",
-        "bg-card border rounded-xl shadow-lg",
-        "transform transition-all duration-400 ease-out",
-        isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
-        isPeakHour ? "border-accent/50 bg-accent/5" : "border-border",
-        "w-[calc(100vw-2rem)] sm:w-auto"
-      )}
-      role="complementary"
-      aria-label="Informações de disponibilidade"
-    >
-      <div className="p-3 sm:p-4">
-        {isPeakHour && (
-          <div className="flex items-center gap-2 mb-2 text-accent">
-            <AlertTriangle className="h-4 w-4" />
-            <span className="text-xs font-medium">Horário de pico</span>
-          </div>
+    <>
+      <ExitIntentPopup />
+      <div
+        className={cn(
+          "fixed bottom-20 left-4 z-40 max-w-xs",
+          "bg-card border rounded-xl shadow-lg",
+          "transform transition-all duration-400 ease-out",
+          isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
+          isPeakHour ? "border-accent/50 bg-accent/5" : "border-border",
+          "w-[calc(100vw-2rem)] sm:w-auto"
         )}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-primary" />
-            <span className="text-sm">
-              {availableTechnicians > 0 ? (
-                <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{city && ` em ${city}`}</>
-              ) : "Atendimento retorna amanhã"}
-            </span>
-          </div>
-          {availableTechnicians > 0 && (
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Tempo estimado: <strong>{waitTime}</strong></span>
+        role="complementary"
+        aria-label="Informações de disponibilidade"
+      >
+        <div className="p-3 sm:p-4">
+          {isPeakHour && (
+            <div className="flex items-center gap-2 mb-2 text-accent">
+              <AlertTriangle className="h-4 w-4" />
+              <span className="text-xs font-medium">Horário de pico</span>
             </div>
           )}
-        </div>
-        <div className="flex items-center justify-between mt-3">
-          <p className="text-[10px] text-muted-foreground/70 leading-tight">
-            Disponibilidade pode variar conforme região e horário.
-          </p>
-          <button onClick={handleClose} className="p-1 rounded-full hover:bg-muted transition-colors ml-2" aria-label="Fechar">
-            <X className="h-3 w-3 text-muted-foreground" />
-          </button>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-primary" />
+              <span className="text-sm">
+                {availableTechnicians > 0 ? (
+                  <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{city && ` em ${city}`}</>
+                ) : "Atendimento retorna amanhã"}
+              </span>
+            </div>
+            {availableTechnicians > 0 && (
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">Tempo estimado: <strong>{waitTime}</strong></span>
+              </div>
+            )}
+          </div>
+          <div className="flex items-center justify-between mt-3">
+            <p className="text-[10px] text-muted-foreground/70 leading-tight">
+              Disponibilidade pode variar conforme região e horário.
+            </p>
+            <button onClick={handleClose} className="p-1 rounded-full hover:bg-muted transition-colors ml-2" aria-label="Fechar">
+              <X className="h-3 w-3 text-muted-foreground" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

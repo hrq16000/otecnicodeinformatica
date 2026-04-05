@@ -217,6 +217,7 @@ const FormatacaoComputador = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

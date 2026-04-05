@@ -39,7 +39,7 @@ export const SocialProofProvider = () => {
   const [scarcityData, setScarcityData] = useState(getScarcityData());
   const { city, isLoading } = useGeolocation();
   const { settings } = useSocialProofSettings();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cycleRef = useRef(0);
 
   const messages = getActivityMessages(city || "sua região");

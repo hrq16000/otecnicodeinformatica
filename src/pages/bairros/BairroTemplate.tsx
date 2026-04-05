@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { BenefitsGrid } from "@/components/BenefitsGrid";

@@ -379,6 +379,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia compact />
       <Footer />
       <WhatsAppChat />
     </div>

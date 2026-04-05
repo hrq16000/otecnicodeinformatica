@@ -329,6 +329,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
         </div>
       </section>
 
+      <BlocoInteligencia />
       <Footer />
       <WhatsAppFloat />
     </div>

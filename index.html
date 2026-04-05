@@ -20,6 +20,12 @@
     <meta name="ICBM" content="-25.4284, -49.2733" />
     <link rel="canonical" href="https://tecnicocuritiba.com.br/" />
 
+    <!-- DNS Prefetch & Preconnect for speed -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tecnicocuritiba.com.br/" />
@@ -49,43 +55,60 @@
       content="https://storage.googleapis.com/gpt-engineer-file-uploads/2rXIlpbtSZgIHy2rCA6pIkDl7Jg1/social-images/social-1768799382339-77ec0b6a-9ce8-4e20-b893-7eff7ec03859.png"
     />
 
-    <!-- Fonts -->
+    <!-- Fonts — preconnect + swap for faster render -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Google Analytics 4 -->
+    <!-- Critical inline styles for above-the-fold -->
+    <style>
+      body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif}
+      #root{min-height:100vh}
+    </style>
+
+    <!-- Google Analytics 4 — deferred -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-B9VPHCZC10');
+      gtag('config', 'G-B9VPHCZC10', { send_page_view: true });
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17892118207"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-17892118207');
     </script>
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager — loaded after interactive -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PTQNSLFS');
+      if(typeof requestIdleCallback==='function'){
+        requestIdleCallback(function(){loadGTM()});
+      }else{
+        setTimeout(loadGTM,3500);
+      }
+      function loadGTM(){
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PTQNSLFS');
+      }
     </script>
   </head>
   <body>

@@ -82,6 +82,16 @@ import UpgradeSsdSantaFelicidade from "./pages/servico-bairro/UpgradeSsdSantaFel
 import FormatacaoSaoJosePinhais from "./pages/servico-bairro/FormatacaoSaoJosePinhais";
 import ConsertoNotebookCIC from "./pages/servico-bairro/ConsertoNotebookCIC";
 import RedesWifiAraucaria from "./pages/servico-bairro/RedesWifiAraucaria";
+import RemocaoVirusCentro from "./pages/servico-bairro/RemocaoVirusCentro";
+import UpgradeSsdBatel from "./pages/servico-bairro/UpgradeSsdBatel";
+import FormatacaoPortao from "./pages/servico-bairro/FormatacaoPortao";
+import RedesWifiCIC from "./pages/servico-bairro/RedesWifiCIC";
+import BackupCentro from "./pages/servico-bairro/BackupCentro";
+import ConsertoNotebookPortao from "./pages/servico-bairro/ConsertoNotebookPortao";
+import RedesWifiSantaFelicidade from "./pages/servico-bairro/RedesWifiSantaFelicidade";
+import FormatacaoCampoComprido from "./pages/servico-bairro/FormatacaoCampoComprido";
+import RemocaoVirusBatel from "./pages/servico-bairro/RemocaoVirusBatel";
+import MontagemPcCIC from "./pages/servico-bairro/MontagemPcCIC";
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";
@@ -191,6 +201,16 @@ const App = () => (
           <Route path="/servicos/formatacao-computador/sao-jose-dos-pinhais" element={<FormatacaoSaoJosePinhais />} />
           <Route path="/servicos/conserto-pc-notebook/cic" element={<ConsertoNotebookCIC />} />
           <Route path="/servicos/redes-wifi/araucaria" element={<RedesWifiAraucaria />} />
+          <Route path="/servicos/remocao-virus/centro" element={<RemocaoVirusCentro />} />
+          <Route path="/servicos/upgrade-ssd-memoria/batel" element={<UpgradeSsdBatel />} />
+          <Route path="/servicos/formatacao-computador/portao" element={<FormatacaoPortao />} />
+          <Route path="/servicos/redes-wifi/cic" element={<RedesWifiCIC />} />
+          <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
+          <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
+          <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />
+          <Route path="/servicos/formatacao-computador/campo-comprido" element={<FormatacaoCampoComprido />} />
+          <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
+          <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

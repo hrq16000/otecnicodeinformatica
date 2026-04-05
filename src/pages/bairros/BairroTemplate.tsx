@@ -5,6 +5,7 @@ import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
@@ -378,6 +379,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia compact />
       <Footer />
       <WhatsAppChat />
     </div>

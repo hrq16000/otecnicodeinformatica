@@ -193,11 +193,32 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-6">
-              {data.servico} no {data.bairro}: Por Que Nos Escolher?
-            </h2>
-            <div className="prose prose-lg text-muted-foreground">
-              <p>{data.descricaoLonga}</p>
+            <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+              <div>
+                <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+                  {data.servico} no {data.bairro}: Por Que Nos Escolher?
+                </h2>
+                <div className="prose prose-lg text-muted-foreground">
+                  <p>{data.descricaoLonga}</p>
+                </div>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={data.servicoSlug.includes("conserto") ? IMAGES.notebookReparo 
+                    : data.servicoSlug.includes("formatacao") ? IMAGES.tecnicoTrabalhando
+                    : data.servicoSlug.includes("virus") ? IMAGES.segurancaDigital
+                    : data.servicoSlug.includes("upgrade") ? IMAGES.componentesSsd
+                    : data.servicoSlug.includes("redes") ? IMAGES.redesWifi
+                    : data.servicoSlug.includes("backup") ? IMAGES.diagnostico
+                    : data.servicoSlug.includes("montagem") ? IMAGES.desktopMontado
+                    : IMAGES.tecnicoTrabalhando}
+                  alt={`${data.servico} profissional no ${data.bairro}, ${data.cidade}`}
+                  className="w-full h-64 object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="400"
+                />
+              </div>
             </div>
             
             {/* Pontos de Referência */}

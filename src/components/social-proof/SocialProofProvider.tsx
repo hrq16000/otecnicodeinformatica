@@ -111,7 +111,7 @@ export const SocialProofProvider = () => {
     timeoutRef.current = setTimeout(showNextProof, 25000 + Math.random() * 10000);
   };
 
-  if (!activeType) return null;
+  if (!activeType) return <ExitIntentPopup />;
 
   // Render notification
   if (activeType === "notification") {

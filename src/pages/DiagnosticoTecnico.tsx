@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -78,6 +79,17 @@ const DiagnosticoTecnico = () => {
                     <DollarSign className="h-5 w-5" /> Ver Valores
                   </Link>
                 </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Imagem diagnóstico real */}
+        <section className="py-0 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto -mt-8 relative z-20">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img src={IMAGES.diagnostico} alt={IMAGES.diagnosticoAlt} className="w-full h-48 md:h-64 object-cover" loading="eager" width="800" height="400" />
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
@@ -231,6 +232,17 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
+              {/* Imagem real de atendimento */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={IMAGES.atendimentoDomiciliar} 
+                  alt={`Técnico de informática realizando atendimento a domicílio no ${data.nome}, ${data.cidade}`}
+                  className="w-full h-48 md:h-64 object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="400"
+                />
+              </div>
               <div className="grid lg:grid-cols-5 gap-8">
                 <div className="lg:col-span-3">
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">

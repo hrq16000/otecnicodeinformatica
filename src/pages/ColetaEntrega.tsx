@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -62,6 +63,17 @@ const ColetaEntrega = () => {
                   <MessageCircle className="h-5 w-5" /> Agendar Coleta
                 </a>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Imagem coleta */}
+        <section className="py-0 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto -mt-8 relative z-20">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img src={IMAGES.coletaEntrega} alt={IMAGES.coletaEntregaAlt} className="w-full h-48 md:h-64 object-cover" loading="eager" width="800" height="400" />
+              </div>
             </div>
           </div>
         </section>

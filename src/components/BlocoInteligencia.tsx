@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { IMAGES } from "@/lib/images";
 import { 
   AlertTriangle, 
   Search, 
@@ -17,6 +18,17 @@ export const BlocoInteligencia = ({ compact = false }: BlocoInteligenciaProps) =
   return (
     <section className="py-12 bg-muted/30" aria-label="Informações importantes sobre diagnóstico e serviço técnico">
       <div className="container mx-auto px-4 max-w-5xl">
+        {/* Imagem de destaque */}
+        <div className="mb-8 rounded-xl overflow-hidden shadow-lg max-w-3xl mx-auto">
+          <img 
+            src={IMAGES.bancadaTecnica} 
+            alt={IMAGES.bancadaTecnicaAlt}
+            className="w-full h-40 md:h-56 object-cover"
+            loading="lazy"
+            width="800"
+            height="300"
+          />
+        </div>
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
           🧠 O Que Você Precisa Saber Antes de Contratar um Técnico
         </h2>

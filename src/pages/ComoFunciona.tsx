@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -127,6 +128,17 @@ const ComoFunciona = () => {
                     Ver Preços e Condições
                   </Link>
                 </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Imagem real de atendimento */}
+        <section className="py-0 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto -mt-8 relative z-20">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img src={IMAGES.atendimentoDomiciliar} alt={IMAGES.atendimentoDomiciliarAlt} className="w-full h-48 md:h-72 object-cover" loading="eager" width="800" height="400" />
               </div>
             </div>
           </div>

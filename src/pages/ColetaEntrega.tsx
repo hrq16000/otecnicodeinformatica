@@ -67,6 +67,17 @@ const ColetaEntrega = () => {
           </div>
         </section>
 
+        {/* Imagem coleta */}
+        <section className="py-0 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto -mt-8 relative z-20">
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img src={IMAGES.coletaEntrega} alt={IMAGES.coletaEntregaAlt} className="w-full h-48 md:h-64 object-cover" loading="eager" width="800" height="400" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* QUANDO É NECESSÁRIO */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">

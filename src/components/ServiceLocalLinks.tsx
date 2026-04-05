@@ -1,58 +1,53 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
-
-interface ServiceLocalLink {
-  service: string;
-  location: string;
-  url: string;
-}
+import { SERVICOS, CIDADES } from "@/lib/servicoCidadeData";
 
 interface ServiceLocalLinksProps {
   currentCity: string;
   currentNeighborhood?: string;
 }
 
-// Links de serviço + localização para interlinking forte
-const serviceLocalLinks: ServiceLocalLink[] = [
-  // Curitiba - Serviço + Bairro
-  { service: "Formatação de Computador", location: "Centro de Curitiba", url: "/servicos/formatacao-computador/centro" },
-  { service: "Conserto de Notebook", location: "Batel", url: "/servicos/conserto-pc-notebook/batel" },
-  { service: "Remoção de Vírus", location: "Portão", url: "/servicos/remocao-virus/portao" },
-  { service: "Upgrade SSD", location: "Santa Felicidade", url: "/servicos/upgrade-ssd-memoria/santa-felicidade" },
-  { service: "Remoção de Vírus", location: "Centro de Curitiba", url: "/servicos/remocao-virus/centro" },
-  { service: "Upgrade SSD e Memória", location: "Batel", url: "/servicos/upgrade-ssd-memoria/batel" },
-  { service: "Formatação de Computador", location: "Portão", url: "/servicos/formatacao-computador/portao" },
-  { service: "Redes Wi-Fi", location: "CIC", url: "/servicos/redes-wifi/cic" },
-  { service: "Backup e Recuperação", location: "Centro de Curitiba", url: "/servicos/backup-recuperacao/centro" },
-  { service: "Conserto de Notebook", location: "Portão", url: "/servicos/conserto-pc-notebook/portao" },
-  { service: "Conserto de Notebook", location: "CIC", url: "/servicos/conserto-pc-notebook/cic" },
-  { service: "Redes Wi-Fi", location: "Santa Felicidade", url: "/servicos/redes-wifi/santa-felicidade" },
-  { service: "Formatação de Computador", location: "Campo Comprido", url: "/servicos/formatacao-computador/campo-comprido" },
-  { service: "Remoção de Vírus", location: "Batel", url: "/servicos/remocao-virus/batel" },
-  { service: "Montagem de PC", location: "CIC", url: "/servicos/montagem-pc/cic" },
-  { service: "Redes Wi-Fi", location: "Araucária", url: "/servicos/redes-wifi/araucaria" },
-  { service: "Formatação de PC", location: "São José dos Pinhais", url: "/servicos/formatacao-computador/sao-jose-dos-pinhais" },
-];
-
 export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceLocalLinksProps) => {
-  // Filtra para não mostrar o local atual
-  const filteredLinks = serviceLocalLinks.filter(link => {
-    if (currentNeighborhood) {
-      return !link.location.toLowerCase().includes(currentNeighborhood.toLowerCase());
+  // Build links from all service+city combinations, excluding current location
+  const links = SERVICOS.flatMap(s =>
+    CIDADES.filter(c => {
+      if (currentNeighborhood) {
+        return !c.nome.toLowerCase().includes(currentNeighborhood.toLowerCase());
+      }
+      return !c.nome.toLowerCase().includes(currentCity.toLowerCase());
+    }).map(c => ({
+      service: s.nome,
+      location: c.nome,
+      url: `/servicos/${s.slug}/${c.slug}`,
+    }))
+  );
+
+  // Pick a diverse sample: cycle through services to avoid showing all same service
+  const diverse: typeof links = [];
+  const used = new Set<string>();
+  for (let round = 0; diverse.length < 12 && round < SERVICOS.length; round++) {
+    for (const link of links) {
+      if (diverse.length >= 12) break;
+      const key = `${link.service}-${link.location}`;
+      const serviceUsed = diverse.filter(d => d.service === link.service).length;
+      const cityUsed = diverse.filter(d => d.location === link.location).length;
+      if (!used.has(key) && serviceUsed <= round && cityUsed <= 1) {
+        diverse.push(link);
+        used.add(key);
+      }
     }
-    return true;
-  }).slice(0, 8); // Máximo 8 links para não poluir
+  }
 
   return (
     <section className="py-10 md:py-14 bg-muted/30">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h3 className="text-xl font-bold text-primary mb-6 text-center">
-            Serviços em Destaque na Região
+            Serviços de Informática na Região Metropolitana
           </h3>
           
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
-            {filteredLinks.map((link, index) => (
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {diverse.map((link, index) => (
               <Link
                 key={index}
                 to={link.url}

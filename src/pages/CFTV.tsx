@@ -396,6 +396,7 @@ const CFTVPage = () => {
         </section>
       </main>
 
+      <BlocoInteligencia compact />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppChatbot />

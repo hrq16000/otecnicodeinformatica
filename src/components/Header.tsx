@@ -17,10 +17,10 @@ const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 const mainNavItems = [
   { label: "Início", to: "/" },
   { label: "Serviços", to: "/servicos" },
+  { label: "Como Funciona", to: "/como-funciona" },
   { label: "CFTV", to: "/cftv" },
   { label: "Domicílio", to: "/atendimento-domicilio" },
   { label: "Empresas", to: "/suporte-empresas" },
-  { label: "Remoto", to: "/atendimento-remoto" },
 ];
 
 const moreNavItems = [

@@ -82,6 +82,16 @@ import UpgradeSsdSantaFelicidade from "./pages/servico-bairro/UpgradeSsdSantaFel
 import FormatacaoSaoJosePinhais from "./pages/servico-bairro/FormatacaoSaoJosePinhais";
 import ConsertoNotebookCIC from "./pages/servico-bairro/ConsertoNotebookCIC";
 import RedesWifiAraucaria from "./pages/servico-bairro/RedesWifiAraucaria";
+import RemocaoVirusCentro from "./pages/servico-bairro/RemocaoVirusCentro";
+import UpgradeSsdBatel from "./pages/servico-bairro/UpgradeSsdBatel";
+import FormatacaoPortao from "./pages/servico-bairro/FormatacaoPortao";
+import RedesWifiCIC from "./pages/servico-bairro/RedesWifiCIC";
+import BackupCentro from "./pages/servico-bairro/BackupCentro";
+import ConsertoNotebookPortao from "./pages/servico-bairro/ConsertoNotebookPortao";
+import RedesWifiSantaFelicidade from "./pages/servico-bairro/RedesWifiSantaFelicidade";
+import FormatacaoCampoComprido from "./pages/servico-bairro/FormatacaoCampoComprido";
+import RemocaoVirusBatel from "./pages/servico-bairro/RemocaoVirusBatel";
+import MontagemPcCIC from "./pages/servico-bairro/MontagemPcCIC";
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";

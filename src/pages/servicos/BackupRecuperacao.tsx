@@ -221,6 +221,7 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

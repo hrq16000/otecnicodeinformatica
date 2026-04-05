@@ -210,6 +210,7 @@ const MontagemPc = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

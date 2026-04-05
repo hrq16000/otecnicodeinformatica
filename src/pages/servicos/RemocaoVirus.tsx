@@ -244,6 +244,7 @@ const RemocaoVirus = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

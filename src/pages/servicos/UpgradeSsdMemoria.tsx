@@ -244,6 +244,7 @@ const UpgradeSsdMemoria = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

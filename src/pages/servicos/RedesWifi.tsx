@@ -192,6 +192,7 @@ const RedesWifi = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

@@ -233,6 +233,7 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
+      <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />
     </div>

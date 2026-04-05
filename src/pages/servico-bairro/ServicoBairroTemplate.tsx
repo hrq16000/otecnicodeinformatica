@@ -92,11 +92,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
         addressRegion: "PR",
         addressCountry: "BR"
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "347"
-      }
     },
     areaServed: {
       "@type": "Place",

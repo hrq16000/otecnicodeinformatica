@@ -129,6 +129,16 @@ export const Footer = () => {
             <h3 className="text-white font-semibold mb-3 mt-6">Links Úteis</h3>
             <ul className="space-y-2">
               <li>
+                <Link to="/como-funciona" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Como Funciona
+                </Link>
+              </li>
+              <li>
+                <Link to="/precos-e-politicas" className="text-white/70 hover:text-white text-sm transition-colors">
+                  Preços e Políticas
+                </Link>
+              </li>
+              <li>
                 <Link to="/sobre" className="text-white/70 hover:text-white text-sm transition-colors">
                   Sobre Nós
                 </Link>

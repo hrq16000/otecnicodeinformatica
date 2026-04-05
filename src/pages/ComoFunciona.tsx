@@ -1,0 +1,596 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { JsonLdSchema } from "@/components/JsonLdSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { Button } from "@/components/ui/button";
+import {
+  MessageCircle,
+  Phone,
+  Search,
+  Calendar,
+  ClipboardCheck,
+  Wrench,
+  Shield,
+  CheckCircle2,
+  ArrowRight,
+  MapPin,
+  Monitor,
+  ShieldCheck,
+  HardDrive,
+  Wifi,
+  Database,
+  Clock,
+  Users,
+  Eye,
+  Zap,
+  BadgeCheck,
+  ChevronRight,
+  DollarSign,
+  AlertCircle,
+  FileText,
+  Headphones,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const WHATSAPP_NUMBER = "5541997452053";
+
+const ComoFunciona = () => {
+  useEffect(() => {
+    document.title = "Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia."
+      );
+    }
+    trackPageView("/como-funciona", "Como Funciona");
+  }, []);
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Gostaria de entender como funciona o atendimento técnico.")}`;
+
+  const handleCTA = (label: string) => {
+    trackCTAClick("whatsapp", `como-funciona-${label}`);
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* JSON-LD FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
+          }),
+        }}
+      />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.lovable.app/" },
+              { "@type": "ListItem", position: 2, name: "Como Funciona", item: "https://tecnicocuritiba.lovable.app/como-funciona" },
+            ],
+          }),
+        }}
+      />
+      <JsonLdSchema />
+      <Header />
+      <Breadcrumbs items={[{ label: "Como Funciona" }]} />
+
+      <main>
+        {/* ===== 1. HERO ===== */}
+        <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 pt-24 pb-14 md:pt-32 md:pb-20">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
+          <div className="container mx-auto relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+                Como Funciona o Atendimento Técnico em Curitiba e Região
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                Entenda passo a passo como solicitar, quanto custa para começar e como garantimos um atendimento rápido, seguro e profissional.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="heroWhatsapp" size="lg" className="text-base md:text-lg px-8" asChild onClick={() => handleCTA("hero")}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    Chamar no WhatsApp
+                  </a>
+                </Button>
+                <Button variant="heroCta" size="lg" className="text-base md:text-lg px-8" asChild>
+                  <Link to="/precos-e-politicas">
+                    <DollarSign className="h-5 w-5" />
+                    Ver Preços e Condições
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 2. RESUMO RÁPIDO ===== */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+                Atendimento Simples, Rápido e Transparente
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                {resumoItems.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="bg-background rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
+                      <div className="bg-primary rounded-lg p-3 w-fit mx-auto mb-3">
+                        <Icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <h3 className="font-bold text-primary text-sm md:text-base mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs md:text-sm">{item.text}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 3. PASSO A PASSO DETALHADO ===== */}
+        <section className="py-12 md:py-20 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Passo a Passo: Do Primeiro Contato à Garantia
+              </h2>
+              <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+                Conheça cada etapa do nosso processo de atendimento técnico em Curitiba. Transparência do início ao fim para você ter total segurança.
+              </p>
+
+              <div className="space-y-0">
+                {etapas.map((etapa, i) => {
+                  const Icon = etapa.icon;
+                  return (
+                    <div key={i} className="relative flex gap-4 md:gap-6">
+                      {/* Timeline line */}
+                      {i < etapas.length - 1 && (
+                        <div className="absolute left-5 md:left-6 top-14 bottom-0 w-0.5 bg-border" />
+                      )}
+                      {/* Step number */}
+                      <div className="relative z-10 flex-shrink-0">
+                        <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-bold text-sm md:text-base">
+                          {i + 1}
+                        </div>
+                      </div>
+                      {/* Content */}
+                      <div className="pb-10 md:pb-12 flex-1">
+                        <div className="bg-secondary rounded-xl p-5 md:p-6">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Icon className="h-5 w-5 text-accent" />
+                            <h3 className="text-lg md:text-xl font-bold text-primary">{etapa.title}</h3>
+                          </div>
+                          <ul className="space-y-2">
+                            {etapa.items.map((item, j) => (
+                              <li key={j} className="flex items-start gap-2 text-muted-foreground">
+                                <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          {etapa.detail && (
+                            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{etapa.detail}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="text-center mt-6">
+                <Button variant="whatsapp" size="lg" asChild onClick={() => handleCTA("passo-a-passo")}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    Iniciar Atendimento Agora
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 4. BLOCO DE PREÇOS ===== */}
+        <section className="py-12 md:py-16 bg-accent/5">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="bg-background rounded-2xl p-8 md:p-10 shadow-lg border-2 border-accent/20">
+                <DollarSign className="h-12 w-12 text-accent mx-auto mb-4" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                  Quanto Custa o Atendimento?
+                </h2>
+                <p className="text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto">
+                  Os valores iniciais são simples e transparentes. A visita técnica presencial custa <strong className="text-accent">R$ 99,99 por cada 30 minutos</strong> de atendimento. Formatação a partir de <strong className="text-accent">R$ 150</strong>. Suporte remoto a partir de <strong className="text-accent">R$ 79,99</strong>.
+                </p>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Os valores podem variar conforme a complexidade do serviço, necessidade de peças e localização. Veja todos os detalhes na nossa tabela completa de preços.
+                </p>
+                <Button variant="cta" size="lg" asChild>
+                  <Link to="/precos-e-politicas">
+                    <FileText className="h-5 w-5" />
+                    Ver Preços e Políticas Completas
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 5. O QUE ESTÁ INCLUSO ===== */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+                O Que Está Incluso no Atendimento
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {inclusosItems.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-secondary rounded-lg p-4">
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold text-primary">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 6. O QUE PODE ALTERAR O VALOR ===== */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                O Que Pode Alterar o Valor do Serviço
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
+                Prezamos pela transparência. Veja os fatores que podem influenciar o valor final do atendimento técnico:
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {fatoresPreco.map((fator, i) => (
+                  <div key={i} className="bg-background rounded-xl p-5 flex items-start gap-3">
+                    <AlertCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold text-primary text-sm">{fator.title}</h3>
+                      <p className="text-xs text-muted-foreground">{fator.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                Em todos os casos, o orçamento é informado e aprovado <strong>antes</strong> da execução do serviço. Sem surpresas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 7. REGIÕES ATENDIDAS ===== */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Regiões Atendidas pelo Técnico de Informática
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Nosso atendimento técnico cobre Curitiba e toda a região metropolitana. Atendemos a domicílio ou remotamente, com agilidade e profissionalismo.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {regioes.map((r, i) => (
+                  <Link
+                    key={i}
+                    to={r.link}
+                    className="bg-secondary rounded-xl p-4 text-center hover:bg-accent/10 hover:border-accent/30 border border-transparent transition-all group"
+                  >
+                    <MapPin className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <span className="font-semibold text-primary text-sm group-hover:text-accent transition-colors">{r.name}</span>
+                  </Link>
+                ))}
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                Também atendemos bairros específicos. <Link to="/servicos" className="text-accent hover:underline font-medium">Veja a cobertura completa →</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 8. TIPOS DE SERVIÇOS ===== */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Serviços de Informática Disponíveis
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Oferecemos uma gama completa de serviços técnicos para computadores, notebooks e redes. Cada serviço segue o mesmo processo transparente descrito acima.
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {servicos.map((s, i) => {
+                  const Icon = s.icon;
+                  return (
+                    <Link
+                      key={i}
+                      to={s.link}
+                      className="bg-background rounded-xl p-5 flex items-start gap-3 hover:shadow-md hover:border-accent/20 border border-transparent transition-all group"
+                    >
+                      <div className="bg-primary rounded-lg p-2 flex-shrink-0">
+                        <Icon className="h-5 w-5 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors">{s.title}</h3>
+                        <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="text-center mt-8">
+                <Button variant="outline" asChild>
+                  <Link to="/servicos">
+                    Ver Todos os Serviços
+                    <ArrowRight className="h-4 w-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 9. PROVA DE CONFIANÇA ===== */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+                Por Que Confiar no Nosso Atendimento
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {confiancaItems.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex gap-4 items-start">
+                      <div className="bg-accent/10 rounded-lg p-3 flex-shrink-0">
+                        <Icon className="h-6 w-6 text-accent" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-primary mb-1">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 10. FAQ ===== */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Perguntas Frequentes Sobre o Atendimento
+              </h2>
+              <p className="text-center text-muted-foreground mb-8">
+                Tire suas dúvidas sobre como funciona o atendimento técnico de informática em Curitiba
+              </p>
+              <Accordion type="single" collapsible className="space-y-3">
+                {faqItems.map((item, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-xl border px-5">
+                    <AccordionTrigger className="text-left font-semibold text-primary hover:text-accent">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 11. CTA FINAL ===== */}
+        <section className="py-14 md:py-20 bg-primary">
+          <div className="container mx-auto">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+                Precisa de Atendimento Agora?
+              </h2>
+              <p className="text-primary-foreground/80 mb-8 text-lg">
+                Nossa equipe está pronta para atender você. Entre em contato pelo WhatsApp e receba suporte técnico profissional hoje mesmo.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="heroWhatsapp" size="lg" className="text-base px-8" asChild onClick={() => handleCTA("cta-final")}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    Chamar no WhatsApp
+                  </a>
+                </Button>
+                <Button variant="heroCta" size="lg" className="text-base px-8" asChild>
+                  <Link to="/servicos">
+                    <Wrench className="h-5 w-5" />
+                    Ver Serviços
+                  </Link>
+                </Button>
+                <Button variant="heroCta" size="lg" className="text-base px-8" asChild>
+                  <Link to="/precos-e-politicas">
+                    <DollarSign className="h-5 w-5" />
+                    Ver Preços
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-primary-foreground/60 text-sm mt-6">
+                WhatsApp: (41) 99745-2053 • Atendimento de segunda a sábado
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <WhatsAppFloat />
+    </div>
+  );
+};
+
+/* ===== DATA ===== */
+
+const resumoItems = [
+  { icon: MessageCircle, title: "Solicitação Rápida", text: "Chame via WhatsApp e explique seu problema em poucos minutos" },
+  { icon: Search, title: "Diagnóstico Técnico", text: "Avaliação profissional no local ou remotamente" },
+  { icon: Eye, title: "Execução Transparente", text: "Serviço realizado com sua aprovação e acompanhamento" },
+  { icon: Shield, title: "Garantia do Serviço", text: "Todo serviço inclui garantia por escrito de 30 a 90 dias" },
+];
+
+const etapas = [
+  {
+    icon: MessageCircle,
+    title: "Primeiro Contato via WhatsApp",
+    items: [
+      "Você entra em contato pelo WhatsApp (41) 99745-2053",
+      "Descreve o problema ou necessidade do seu computador",
+      "Recebe orientação inicial e possíveis soluções imediatas",
+    ],
+    detail: "Nosso atendimento é humanizado e direto. Nada de robôs ou esperas intermináveis. Você fala diretamente com um técnico especializado que vai entender sua situação e direcionar o melhor caminho para resolver o problema.",
+  },
+  {
+    icon: Search,
+    title: "Pré-Avaliação e Orientação",
+    items: [
+      "O técnico analisa a descrição do problema",
+      "Estima valores iniciais baseados no diagnóstico preliminar",
+      "Direciona para atendimento presencial, remoto ou coleta",
+    ],
+    detail: "Em muitos casos, conseguimos identificar o problema e orientar uma solução já na primeira conversa. Se for algo que exija visita técnica, informamos os valores antes mesmo de agendar — sem compromisso.",
+  },
+  {
+    icon: Calendar,
+    title: "Agendamento Flexível",
+    items: [
+      "Definição de data e horário conforme sua disponibilidade",
+      "Confirmação do endereço e detalhes de acesso",
+      "Organização dos materiais e ferramentas necessários",
+    ],
+    detail: "Atendemos em horários flexíveis, inclusive aos sábados. O técnico chega no horário combinado, respeitando seu tempo e rotina. Para atendimento remoto, basta estar com o computador ligado e conectado à internet.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Visita Técnica e Diagnóstico",
+    items: [
+      "Diagnóstico completo no local com equipamentos profissionais",
+      "Testes detalhados de hardware e software",
+      "Explicação clara e objetiva do problema encontrado",
+    ],
+    detail: "Não fazemos diagnósticos vagos. Você vai entender exatamente o que está acontecendo com seu computador, quais são as opções de solução e quanto cada uma vai custar. Transparência total antes de qualquer execução.",
+  },
+  {
+    icon: Wrench,
+    title: "Execução do Serviço com Aprovação",
+    items: [
+      "Serviço realizado somente após sua aprovação explícita",
+      "Acompanhamento em tempo real da execução",
+      "Sem cobranças surpresa — orçamento previamente informado",
+    ],
+    detail: "Você aprova o valor e o escopo do serviço antes de qualquer execução. Se durante o atendimento surgir algo que altere o orçamento, consultamos você antes de prosseguir. Essa é a nossa política de transparência.",
+  },
+  {
+    icon: Shield,
+    title: "Finalização, Testes e Garantia",
+    items: [
+      "Testes completos para garantir que tudo funciona perfeitamente",
+      "Orientações de uso e prevenção para o futuro",
+      "Garantia por escrito de 30 a 90 dias conforme o serviço",
+    ],
+    detail: "Antes de finalizar, fazemos uma bateria de testes para validar o serviço. Você recebe orientações para manter o computador saudável e um termo de garantia. Se algo der errado dentro do prazo, voltamos sem custo adicional.",
+  },
+];
+
+const inclusosItems = [
+  { title: "Diagnóstico Técnico Profissional", desc: "Avaliação completa do equipamento com identificação precisa do problema e das possíveis soluções." },
+  { title: "Atendimento no Local ou Remoto", desc: "Você escolhe: o técnico vai até você ou resolve remotamente via acesso seguro ao seu computador." },
+  { title: "Orientação e Suporte Especializado", desc: "Explicação detalhada de tudo que foi feito, com dicas de manutenção preventiva para o futuro." },
+  { title: "Execução Mediante Aprovação", desc: "Nenhum serviço é executado sem sua autorização prévia. Você controla todo o processo do início ao fim." },
+];
+
+const fatoresPreco = [
+  { title: "Complexidade do Problema", desc: "Problemas mais complexos exigem mais tempo e ferramentas especializadas." },
+  { title: "Tempo de Execução", desc: "Serviços cobrados por hora técnica dependem do tempo necessário para resolução." },
+  { title: "Necessidade de Peças", desc: "Se for preciso trocar componentes, o custo das peças é adicional ao serviço." },
+  { title: "Urgência do Atendimento", desc: "Atendimentos emergenciais ou fora do horário comercial podem ter valores diferenciados." },
+  { title: "Localização do Cliente", desc: "Deslocamentos para regiões mais distantes podem ter taxa adicional de transporte." },
+  { title: "Tipo de Equipamento", desc: "Notebooks e equipamentos especializados podem ter valores diferentes de desktops." },
+];
+
+const regioes = [
+  { name: "Curitiba", link: "/tecnico-informatica-curitiba" },
+  { name: "São José dos Pinhais", link: "/tecnico-informatica-sao-jose-pinhais" },
+  { name: "Pinhais", link: "/tecnico-informatica-pinhais" },
+  { name: "Araucária", link: "/tecnico-informatica-araucaria" },
+  { name: "Campo Largo", link: "/tecnico-informatica-campo-largo" },
+];
+
+const servicos = [
+  { icon: Monitor, title: "Formatação de Computador", desc: "Windows + drivers + programas essenciais", link: "/servicos/formatacao-computador" },
+  { icon: ShieldCheck, title: "Remoção de Vírus", desc: "Limpeza completa de malwares e proteção", link: "/servicos/remocao-virus" },
+  { icon: HardDrive, title: "Upgrade SSD e Memória", desc: "Deixe seu computador até 10x mais rápido", link: "/servicos/upgrade-ssd-memoria" },
+  { icon: Wrench, title: "Conserto de PC e Notebook", desc: "Reparo de hardware e software", link: "/servicos/conserto-pc-notebook" },
+  { icon: Wifi, title: "Redes e Wi-Fi", desc: "Instalação e configuração de redes", link: "/servicos/redes-wifi" },
+  { icon: Database, title: "Backup e Recuperação", desc: "Proteção e recuperação de dados", link: "/servicos/backup-recuperacao" },
+  { icon: Headphones, title: "Suporte Remoto", desc: "Atendimento online sem visita técnica", link: "/atendimento-remoto" },
+  { icon: Zap, title: "Montagem de PC", desc: "PCs personalizados para trabalho ou jogos", link: "/servicos/montagem-pc" },
+  { icon: Users, title: "Suporte para Empresas", desc: "Planos de TI para sua empresa", link: "/suporte-empresas" },
+];
+
+const confiancaItems = [
+  { icon: BadgeCheck, title: "Atendimento Profissional e Certificado", desc: "Técnicos com experiência comprovada em assistência técnica de informática. Emitimos nota fiscal e fornecemos garantia por escrito em todos os serviços realizados." },
+  { icon: Clock, title: "Atendimento Rápido — Mesmo Dia", desc: "Na maioria dos casos, conseguimos atender no mesmo dia da solicitação. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
+  { icon: Eye, title: "Transparência Total nos Valores", desc: "Orçamento informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
+  { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 30 a 90 dias. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },
+];
+
+const faqItems = [
+  { question: "Quanto custa a visita técnica?", answer: "A visita técnica presencial custa R$ 99,99 por cada 30 minutos de atendimento. O tempo é cronometrado a partir da chegada do técnico. Serviços rápidos como formatação geralmente levam de 30 a 60 minutos. Também temos a modalidade de visita sem compromisso por R$ 100,00 (até 30 min), onde você apenas recebe o diagnóstico sem obrigação de reparo." },
+  { question: "O valor pode mudar depois do orçamento?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
+  { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },
+  { question: "Atende no mesmo dia?", answer: "Na maioria dos casos, sim. Nosso objetivo é atender no mesmo dia da solicitação, dependendo da disponibilidade de agenda e da sua localização. Entre em contato via WhatsApp para verificar a disponibilidade." },
+  { question: "O serviço tem garantia?", answer: "Sim. Todos os serviços possuem garantia por escrito de 30 a 90 dias, dependendo do tipo de serviço. Peças possuem garantia do fabricante. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional." },
+  { question: "Faz atendimento remoto?", answer: "Sim. Para problemas de software, configurações e muitos outros casos, realizamos atendimento remoto seguro. O técnico acessa seu computador de forma controlada e resolve o problema enquanto você acompanha em tempo real. É rápido, prático e mais econômico." },
+  { question: "Atende empresas?", answer: "Sim. Temos planos específicos para empresas de todos os portes. Oferecemos suporte contínuo, manutenção preventiva, gestão de TI e atendimento prioritário. Emitimos nota fiscal de serviço e de produto." },
+  { question: "Quais formas de pagamento são aceitas?", answer: "Aceitamos PIX (forma preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato mensal, oferecemos pagamento faturado com boleto ou transferência." },
+  { question: "Precisa agendar ou atende por ordem de chegada?", answer: "É necessário agendar via WhatsApp. O agendamento garante que o técnico estará disponível no horário combinado, com todos os materiais necessários. Atendemos de segunda a sábado, com horários flexíveis." },
+  { question: "O técnico leva peças para o atendimento?", answer: "Sim, quando possível. Se na pré-avaliação identificarmos a necessidade de peças específicas (como SSD, memória RAM, cabos), o técnico já leva os componentes para o atendimento. Peças especiais ou sob encomenda podem necessitar de agendamento adicional." },
+  { question: "Qual a área de cobertura do atendimento?", answer: "Atendemos Curitiba e toda a região metropolitana, incluindo São José dos Pinhais, Pinhais, Araucária e Campo Largo. Para bairros mais distantes, pode haver uma taxa adicional de deslocamento, sempre informada previamente." },
+  { question: "Como funciona o atendimento a domicílio?", answer: "O técnico vai até sua casa ou escritório com todas as ferramentas necessárias. Realiza o diagnóstico e o reparo no local, sem que você precise levar o equipamento a uma loja. Atendimento prático, rápido e profissional." },
+];
+
+export default ComoFunciona;

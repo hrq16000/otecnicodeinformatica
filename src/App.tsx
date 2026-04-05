@@ -20,6 +20,7 @@ import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
+import ComoFunciona from "./pages/ComoFunciona";
 import NotFound from "./pages/NotFound";
 
 // Bairros Curitiba
@@ -158,6 +159,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/como-funciona" element={<ComoFunciona />} />
           
           {/* Bairros Curitiba */}
           <Route path="/bairros/centro" element={<Centro />} />

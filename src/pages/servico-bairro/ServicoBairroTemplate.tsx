@@ -170,7 +170,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                 onClick={handlePhoneClick}
               >
                 <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
+                (41) 99745-2053
               </Button>
             </div>
           </div>

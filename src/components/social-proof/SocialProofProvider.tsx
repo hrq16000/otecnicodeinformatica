@@ -118,37 +118,40 @@ export const SocialProofProvider = () => {
     const message = messages[messageIndex];
     const IconComponent = message.icon;
     return (
-      <div
-        className={cn(
-          "fixed bottom-20 left-4 z-40 max-w-sm",
-          "bg-card border border-border rounded-xl shadow-lg",
-          "transform transition-all duration-400 ease-out",
-          isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
-          "w-[calc(100vw-2rem)] sm:w-auto sm:min-w-[320px]"
-        )}
-        role="status"
-        aria-live="polite"
-      >
-        <div className="p-4">
-          <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <IconComponent className="h-5 w-5 text-primary" />
+      <>
+        <ExitIntentPopup />
+        <div
+          className={cn(
+            "fixed bottom-20 left-4 z-40 max-w-sm",
+            "bg-card border border-border rounded-xl shadow-lg",
+            "transform transition-all duration-400 ease-out",
+            isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
+            "w-[calc(100vw-2rem)] sm:w-auto sm:min-w-[320px]"
+          )}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="p-4">
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <IconComponent className="h-5 w-5 text-primary" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-foreground leading-tight">{message.text}</p>
+                <p className="text-xs text-muted-foreground mt-1">{message.subtext}</p>
+              </div>
+              <button onClick={handleClose} className="flex-shrink-0 p-1 rounded-full hover:bg-muted transition-colors" aria-label="Fechar">
+                <X className="h-4 w-4 text-muted-foreground" />
+              </button>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground leading-tight">{message.text}</p>
-              <p className="text-xs text-muted-foreground mt-1">{message.subtext}</p>
-            </div>
-            <button onClick={handleClose} className="flex-shrink-0 p-1 rounded-full hover:bg-muted transition-colors" aria-label="Fechar">
-              <X className="h-4 w-4 text-muted-foreground" />
-            </button>
+          </div>
+          <div className="px-4 pb-3">
+            <p className="text-[10px] text-muted-foreground/70 leading-tight">
+              Avisos com base em atividade recente e volume médio de solicitações.
+            </p>
           </div>
         </div>
-        <div className="px-4 pb-3">
-          <p className="text-[10px] text-muted-foreground/70 leading-tight">
-            Avisos com base em atividade recente e volume médio de solicitações.
-          </p>
-        </div>
-      </div>
+      </>
     );
   }
 

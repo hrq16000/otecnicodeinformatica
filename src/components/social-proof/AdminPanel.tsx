@@ -28,15 +28,11 @@ export const SocialProofAdminPanel = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className={cn(
-          "fixed bottom-4 right-4 z-[100] p-2 rounded-full",
-          "bg-muted/80 hover:bg-muted border border-border shadow-lg",
-          "transition-all duration-200 opacity-30 hover:opacity-100"
-        )}
+        className="fixed top-1 left-1 z-[100] p-1 rounded opacity-[0.03] hover:opacity-40 transition-opacity duration-500"
         aria-label="Abrir painel de configurações"
-        title="Painel de Prova Social (Ctrl+Shift+P)"
+        title="Ctrl+Shift+P"
       >
-        <Settings className="h-5 w-5 text-muted-foreground" />
+        <Settings className="h-3 w-3 text-muted-foreground" />
       </button>
     );
   }

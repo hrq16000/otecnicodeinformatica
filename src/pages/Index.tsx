@@ -99,6 +99,10 @@ const Index = () => {
           </div>
         </section>
 
+        <HomePricingBlock />
+        <HomeDiagnosticoBlock />
+        <HomeEquipamentosBlock />
+
         <FAQSection />
         <TrustSection />
         <CTASection />

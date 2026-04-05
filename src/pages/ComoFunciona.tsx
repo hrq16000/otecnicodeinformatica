@@ -32,6 +32,7 @@ import {
   ChevronRight,
   DollarSign,
   AlertCircle,
+  AlertTriangle,
   FileText,
   Headphones,
 } from "lucide-react";

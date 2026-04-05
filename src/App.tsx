@@ -21,6 +21,11 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
 import ComoFunciona from "./pages/ComoFunciona";
+import DiagnosticoTecnico from "./pages/DiagnosticoTecnico";
+import EquipamentosAtendidos from "./pages/EquipamentosAtendidos";
+import ProblemasReaisCasos from "./pages/ProblemasReaisCasos";
+import ColetaEntrega from "./pages/ColetaEntrega";
+import QuandoNaoCompensa from "./pages/QuandoNaoCompensa";
 import NotFound from "./pages/NotFound";
 
 // Bairros Curitiba

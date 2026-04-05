@@ -220,6 +220,7 @@ const Servicos = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

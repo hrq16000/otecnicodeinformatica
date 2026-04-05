@@ -218,6 +218,7 @@ const Contato = () => {
           </div>
         </section>
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

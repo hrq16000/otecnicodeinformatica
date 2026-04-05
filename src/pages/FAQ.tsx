@@ -216,6 +216,7 @@ const FAQ = () => {
 
         <CTASection />
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

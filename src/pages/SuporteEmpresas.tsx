@@ -277,6 +277,7 @@ const SuporteEmpresas = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

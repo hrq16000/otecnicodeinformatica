@@ -223,6 +223,7 @@ const AtendimentoDomicilio = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

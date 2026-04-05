@@ -264,6 +264,9 @@ const App = () => (
           <Route path="/servicos/conserto-pc-notebook/pinhais" element={<ConsertoNotebookPinhais />} />
           <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
           
+          {/* Dynamic service+city route (catches all new combinations) */}
+          <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

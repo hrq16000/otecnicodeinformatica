@@ -14,29 +14,24 @@ interface ServiceLocalLinksProps {
 
 // Links de serviço + localização para interlinking forte
 const serviceLocalLinks: ServiceLocalLink[] = [
-  // Curitiba
-  { service: "Formatação de Computador", location: "Centro de Curitiba", url: "/servicos/formatacao-computador" },
-  { service: "Conserto de Notebook", location: "Batel", url: "/servicos/conserto-pc-notebook" },
-  { service: "Remoção de Vírus", location: "Água Verde", url: "/servicos/remocao-virus" },
-  { service: "Upgrade SSD", location: "Portão", url: "/servicos/upgrade-ssd-memoria" },
-  { service: "Configuração de Redes Wi-Fi", location: "CIC", url: "/servicos/redes-wifi" },
-  { service: "Backup de Dados", location: "Santa Felicidade", url: "/servicos/backup-recuperacao" },
-  
-  // São José dos Pinhais
-  { service: "Conserto de Notebook", location: "São José dos Pinhais", url: "/servicos/conserto-pc-notebook" },
-  { service: "Formatação de PC", location: "Afonso Pena", url: "/servicos/formatacao-computador" },
-  
-  // Araucária
-  { service: "Assistência Técnica", location: "Araucária Centro", url: "/tecnico-informatica-araucaria" },
-  { service: "Manutenção de Computadores", location: "Capela Velha", url: "/bairros/capela-velha-araucaria" },
-  
-  // Campo Largo
-  { service: "Técnico de Informática", location: "Campo Largo Centro", url: "/tecnico-informatica-campo-largo" },
-  { service: "Upgrade de Hardware", location: "Ferraria", url: "/bairros/ferraria-campo-largo" },
-  
-  // Pinhais
-  { service: "Suporte Técnico", location: "Pinhais Centro", url: "/tecnico-informatica-pinhais" },
-  { service: "Formatação Windows", location: "Weissópolis", url: "/bairros/weissopolis-pinhais" },
+  // Curitiba - Serviço + Bairro
+  { service: "Formatação de Computador", location: "Centro de Curitiba", url: "/servicos/formatacao-computador/centro" },
+  { service: "Conserto de Notebook", location: "Batel", url: "/servicos/conserto-pc-notebook/batel" },
+  { service: "Remoção de Vírus", location: "Portão", url: "/servicos/remocao-virus/portao" },
+  { service: "Upgrade SSD", location: "Santa Felicidade", url: "/servicos/upgrade-ssd-memoria/santa-felicidade" },
+  { service: "Remoção de Vírus", location: "Centro de Curitiba", url: "/servicos/remocao-virus/centro" },
+  { service: "Upgrade SSD e Memória", location: "Batel", url: "/servicos/upgrade-ssd-memoria/batel" },
+  { service: "Formatação de Computador", location: "Portão", url: "/servicos/formatacao-computador/portao" },
+  { service: "Redes Wi-Fi", location: "CIC", url: "/servicos/redes-wifi/cic" },
+  { service: "Backup e Recuperação", location: "Centro de Curitiba", url: "/servicos/backup-recuperacao/centro" },
+  { service: "Conserto de Notebook", location: "Portão", url: "/servicos/conserto-pc-notebook/portao" },
+  { service: "Conserto de Notebook", location: "CIC", url: "/servicos/conserto-pc-notebook/cic" },
+  { service: "Redes Wi-Fi", location: "Santa Felicidade", url: "/servicos/redes-wifi/santa-felicidade" },
+  { service: "Formatação de Computador", location: "Campo Comprido", url: "/servicos/formatacao-computador/campo-comprido" },
+  { service: "Remoção de Vírus", location: "Batel", url: "/servicos/remocao-virus/batel" },
+  { service: "Montagem de PC", location: "CIC", url: "/servicos/montagem-pc/cic" },
+  { service: "Redes Wi-Fi", location: "Araucária", url: "/servicos/redes-wifi/araucaria" },
+  { service: "Formatação de PC", location: "São José dos Pinhais", url: "/servicos/formatacao-computador/sao-jose-dos-pinhais" },
 ];
 
 export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceLocalLinksProps) => {

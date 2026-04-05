@@ -85,7 +85,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     provider: {
       "@type": "LocalBusiness",
       name: "Técnico Curitiba",
-      telephone: "+5541992671754",
+      telephone: "+55-41-99745-2053",
       address: {
         "@type": "PostalAddress",
         addressLocality: data.cidade,

@@ -117,6 +117,9 @@ import RemocaoVirusPinhais from "./pages/servico-bairro/RemocaoVirusPinhais";
 import ConsertoNotebookPinhais from "./pages/servico-bairro/ConsertoNotebookPinhais";
 import UpgradeSsdPinhais from "./pages/servico-bairro/UpgradeSsdPinhais";
 
+// Dynamic service+city page
+import ServicoCidadePage from "./pages/servico-bairro/ServicoCidadePage";
+
 import CFTVPage from "./pages/CFTV";
 import CFTVCuritiba from "./pages/cftv/CFTVCuritiba";
 import CFTVSaoJosePinhais from "./pages/cftv/CFTVSaoJosePinhais";

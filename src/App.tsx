@@ -201,6 +201,16 @@ const App = () => (
           <Route path="/servicos/formatacao-computador/sao-jose-dos-pinhais" element={<FormatacaoSaoJosePinhais />} />
           <Route path="/servicos/conserto-pc-notebook/cic" element={<ConsertoNotebookCIC />} />
           <Route path="/servicos/redes-wifi/araucaria" element={<RedesWifiAraucaria />} />
+          <Route path="/servicos/remocao-virus/centro" element={<RemocaoVirusCentro />} />
+          <Route path="/servicos/upgrade-ssd-memoria/batel" element={<UpgradeSsdBatel />} />
+          <Route path="/servicos/formatacao-computador/portao" element={<FormatacaoPortao />} />
+          <Route path="/servicos/redes-wifi/cic" element={<RedesWifiCIC />} />
+          <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
+          <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
+          <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />
+          <Route path="/servicos/formatacao-computador/campo-comprido" element={<FormatacaoCampoComprido />} />
+          <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
+          <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

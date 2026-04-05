@@ -86,6 +86,16 @@
   <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador/sao-jose-dos-pinhais</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-pc-notebook/cic</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://tecnicocuritiba.com.br/servicos/redes-wifi/araucaria</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/remocao-virus/centro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/upgrade-ssd-memoria/batel</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador/portao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/redes-wifi/cic</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/backup-recuperacao/centro</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-pc-notebook/portao</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/redes-wifi/santa-felicidade</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/formatacao-computador/campo-comprido</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/remocao-virus/batel</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tecnicocuritiba.com.br/servicos/montagem-pc/cic</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   
   <!-- Posts do Blog -->
   <url><loc>https://tecnicocuritiba.com.br/blog/windows-11-vale-a-pena-atualizar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>

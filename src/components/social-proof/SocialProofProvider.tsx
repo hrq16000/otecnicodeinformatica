@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { ExitIntentPopup } from "./ExitIntentPopup";
 import { X, Users, Clock, MapPin, Activity, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGeolocation } from "@/hooks/useGeolocation";

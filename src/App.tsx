@@ -237,6 +237,30 @@ const App = () => (
           <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
           <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />
           
+          {/* SJP - Serviço + Cidade */}
+          <Route path="/servicos/remocao-virus/sao-jose-dos-pinhais" element={<RemocaoVirusSaoJosePinhais />} />
+          <Route path="/servicos/conserto-pc-notebook/sao-jose-dos-pinhais" element={<ConsertoNotebookSaoJosePinhais />} />
+          <Route path="/servicos/upgrade-ssd-memoria/sao-jose-dos-pinhais" element={<UpgradeSsdSaoJosePinhais />} />
+          <Route path="/servicos/redes-wifi/sao-jose-dos-pinhais" element={<RedesWifiSaoJosePinhais />} />
+          
+          {/* Araucária - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/araucaria" element={<FormatacaoAraucaria />} />
+          <Route path="/servicos/remocao-virus/araucaria" element={<RemocaoVirusAraucaria />} />
+          <Route path="/servicos/conserto-pc-notebook/araucaria" element={<ConsertoNotebookAraucaria />} />
+          <Route path="/servicos/upgrade-ssd-memoria/araucaria" element={<UpgradeSsdAraucaria />} />
+          
+          {/* Campo Largo - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/campo-largo" element={<FormatacaoCampoLargo />} />
+          <Route path="/servicos/remocao-virus/campo-largo" element={<RemocaoVirusCampoLargo />} />
+          <Route path="/servicos/conserto-pc-notebook/campo-largo" element={<ConsertoNotebookCampoLargo />} />
+          <Route path="/servicos/redes-wifi/campo-largo" element={<RedesWifiCampoLargo />} />
+          
+          {/* Pinhais - Serviço + Cidade */}
+          <Route path="/servicos/formatacao-computador/pinhais" element={<FormatacaoPinhais />} />
+          <Route path="/servicos/remocao-virus/pinhais" element={<RemocaoVirusPinhais />} />
+          <Route path="/servicos/conserto-pc-notebook/pinhais" element={<ConsertoNotebookPinhais />} />
+          <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

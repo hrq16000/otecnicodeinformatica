@@ -9,6 +9,31 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const blogPosts = [
+  // Novos artigos SEO cauda longa
+  {
+    slug: "computador-lento-causas-solucoes",
+    title: "Computador Lento: 12 Causas Reais e Como Resolver (Guia Técnico 2026)",
+    excerpt: "Seu PC demora para abrir programas, trava no navegador ou leva minutos para iniciar? Descubra as 12 causas mais comuns e o que realmente funciona para resolver — com ou sem técnico.",
+    date: "2026-04-06",
+    readTime: "12 min",
+    category: "Manutenção",
+  },
+  {
+    slug: "como-saber-se-pc-tem-virus-malware",
+    title: "Como Saber se Seu PC Tem Vírus ou Malware: Sinais, Testes e Soluções",
+    excerpt: "Pop-ups, lentidão extrema, programas desconhecidos. Aprenda a identificar se seu computador foi infectado e o que fazer antes de perder dados ou piorar o problema.",
+    date: "2026-04-05",
+    readTime: "10 min",
+    category: "Segurança",
+  },
+  {
+    slug: "notebook-nao-liga-o-que-fazer",
+    title: "Notebook Não Liga: O Que Pode Ser e O Que Fazer Antes de Desesperar",
+    excerpt: "Apertou o botão e nada aconteceu? Tela preta, LED piscando ou som de ventilador sem imagem? Veja as causas mais comuns e quando vale a pena levar ao técnico.",
+    date: "2026-04-04",
+    readTime: "9 min",
+    category: "Manutenção",
+  },
   // CFTV
   {
     slug: "diferenca-camera-wifi-dvr-qual-escolher",

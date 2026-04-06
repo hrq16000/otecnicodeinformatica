@@ -3475,7 +3475,6 @@ Em Curitiba, realizamos instalações profissionais do Windows 10 e 11 com drive
 
 Realizamos instalação completa do Windows com drivers originais, otimização de performance e backup de dados. Atendimento em toda Curitiba e região metropolitana.`
   },
-];
 
   // ==================== NOTEBOOK SUPERAQUECENDO ====================
   {

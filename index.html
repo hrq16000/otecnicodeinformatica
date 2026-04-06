@@ -66,19 +66,30 @@
       #root{min-height:100vh}
     </style>
 
-    <!-- Google Analytics 4 — deferred -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10"></script>
+    <!-- Google Analytics 4 + Ads — single gtag load, deferred -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B9VPHCZC10', { send_page_view: true });
-      gtag('config', 'AW-17892118207');
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17892118207/i5jSCMqi1JYcEL-d0NNC',
-        'value': 1.0,
-        'currency': 'BRL'
-      });
+      if(typeof requestIdleCallback==='function'){
+        requestIdleCallback(function(){loadGA()});
+      }else{
+        setTimeout(loadGA,2000);
+      }
+      function loadGA(){
+        var s=document.createElement('script');s.async=true;
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';
+        document.head.appendChild(s);
+        s.onload=function(){
+          window.dataLayer=window.dataLayer||[];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag=gtag;
+          gtag('js',new Date());
+          gtag('config','G-B9VPHCZC10',{send_page_view:true});
+          gtag('config','AW-17892118207');
+          gtag('event','conversion',{
+            'send_to':'AW-17892118207/i5jSCMqi1JYcEL-d0NNC',
+            'value':1.0,'currency':'BRL'
+          });
+        };
+      }
     </script>
 
     <!-- Google Ads — deferred -->

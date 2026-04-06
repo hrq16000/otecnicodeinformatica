@@ -7385,7 +7385,6 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
-],
 
   // ——— notebook-tela-preta-curitiba ———
   {

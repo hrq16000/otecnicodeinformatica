@@ -271,6 +271,14 @@ const Servicos = () => {
                       { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
                     ],
                   },
+                  {
+                    problema: "TV Com Defeito",
+                    descricao: "Conserto de TV LED, LCD e Smart TV. Reparo de placa-fonte, backlight e T-CON.",
+                    links: [
+                      { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
+                      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+                    ],
+                  },
                 ].map((item, i) => (
                   <div key={i} className="bg-secondary rounded-xl p-6 border border-transparent hover:border-accent/20 transition-all">
                     <h3 className="text-lg font-bold text-primary mb-2">{item.problema}</h3>

@@ -101,6 +101,15 @@ const ConsertoPcNotebook = lazy(() => import("./pages/servicos/ConsertoPcNoteboo
 const RedesWifi = lazy(() => import("./pages/servicos/RedesWifi"));
 const BackupRecuperacao = lazy(() => import("./pages/servicos/BackupRecuperacao"));
 const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
+const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
+const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
+const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
+const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
+
+// Novas cidades
+const TecnicoInformaticaPiraquara = lazy(() => import("./pages/TecnicoInformaticaPiraquara"));
+const TecnicoInformaticaCampoMagro = lazy(() => import("./pages/TecnicoInformaticaCampoMagro"));
+const TecnicoInformaticaQuatroBarras = lazy(() => import("./pages/TecnicoInformaticaQuatroBarras"));
 
 // Páginas combinadas Serviço + Bairro
 const FormatacaoCentro = lazy(() => import("./pages/servico-bairro/FormatacaoCentro"));
@@ -192,6 +201,9 @@ const App = () => (
             <Route path="/tecnico-informatica-colombo" element={<TecnicoInformaticaColombo />} />
             <Route path="/tecnico-informatica-fazenda-rio-grande" element={<TecnicoInformaticaFazendaRioGrande />} />
             <Route path="/tecnico-informatica-almirante-tamandare" element={<TecnicoInformaticaAlmiranteTamandare />} />
+            <Route path="/tecnico-informatica-piraquara" element={<TecnicoInformaticaPiraquara />} />
+            <Route path="/tecnico-informatica-campo-magro" element={<TecnicoInformaticaCampoMagro />} />
+            <Route path="/tecnico-informatica-quatro-barras" element={<TecnicoInformaticaQuatroBarras />} />
             
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
@@ -281,6 +293,10 @@ const App = () => (
             <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
             <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
+            <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
+            <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
+            <Route path="/servicos/manutencao-tv" element={<ManutencaoTV />} />
+            <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}
             <Route path="/servicos/formatacao-computador/centro" element={<FormatacaoCentro />} />

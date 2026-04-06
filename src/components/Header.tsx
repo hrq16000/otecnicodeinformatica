@@ -55,6 +55,9 @@ const mainNavItems = [
       { label: "Colombo", to: "/tecnico-informatica-colombo" },
       { label: "Fazenda Rio Grande", to: "/tecnico-informatica-fazenda-rio-grande" },
       { label: "Almirante Tamandaré", to: "/tecnico-informatica-almirante-tamandare" },
+      { label: "Piraquara", to: "/tecnico-informatica-piraquara" },
+      { label: "Campo Magro", to: "/tecnico-informatica-campo-magro" },
+      { label: "Quatro Barras", to: "/tecnico-informatica-quatro-barras" },
     ],
   },
   {

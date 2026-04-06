@@ -9,6 +9,47 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const blogPosts = [
+  // Artigos de autoridade - Cluster Manutenção
+  {
+    slug: "quando-trocar-computador-ou-reparar",
+    title: "Quando Trocar o Computador e Quando Vale a Pena Reparar (Guia Técnico)",
+    excerpt: "PC antigo, lento ou com defeito? Descubra os critérios técnicos que definem se vale investir no reparo ou se é hora de partir para um equipamento novo.",
+    date: "2026-04-06",
+    readTime: "11 min",
+    category: "Manutenção",
+  },
+  {
+    slug: "erros-comuns-upgrade-computador",
+    title: "5 Erros Comuns ao Fazer Upgrade no Computador (e Como Evitar Prejuízo)",
+    excerpt: "Comprar RAM incompatível, instalar SSD errado, forçar peças no slot — veja os erros mais frequentes que causam curto-circuito e prejuízo financeiro.",
+    date: "2026-04-06",
+    readTime: "8 min",
+    category: "Manutenção",
+  },
+  {
+    slug: "manutencao-preventiva-computador-guia",
+    title: "Manutenção Preventiva do Computador: O Guia Que Evita 80% dos Problemas",
+    excerpt: "Limpeza de cooler, pasta térmica, verificação de disco, backup automático — rotinas simples que prolongam a vida útil do seu PC e evitam chamados técnicos.",
+    date: "2026-04-06",
+    readTime: "9 min",
+    category: "Manutenção",
+  },
+  {
+    slug: "diagnostico-tecnico-por-que-e-pago",
+    title: "Por Que o Diagnóstico Técnico é Pago? Entenda de Uma Vez",
+    excerpt: "Muita gente pergunta: 'Por que cobram para olhar?' Explicamos por que o diagnóstico tem custo, o que ele envolve e como evita prejuízos maiores.",
+    date: "2026-04-05",
+    readTime: "7 min",
+    category: "Atendimento",
+  },
+  {
+    slug: "como-proteger-computador-golpes-internet",
+    title: "Como Proteger Seu Computador Contra Golpes e Fraudes na Internet",
+    excerpt: "Links falsos, e-mails de phishing, extensões maliciosas — aprenda a se proteger dos golpes mais comuns e quando procurar ajuda profissional.",
+    date: "2026-04-05",
+    readTime: "10 min",
+    category: "Segurança",
+  },
   // Novos artigos SEO cauda longa
   {
     slug: "computador-lento-causas-solucoes",

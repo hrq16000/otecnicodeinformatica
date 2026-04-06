@@ -43,6 +43,9 @@ interface BairroData {
   pontosReferencia: string[];
   tempoDeslocamento: string;
   servicosDestaque: string[];
+  conteudoExclusivo?: string;
+  problemasComuns?: string[];
+  dicasLocais?: string;
 }
 
 interface BairroTemplateProps {

@@ -3848,6 +3848,231 @@ Em Curitiba, fazemos uma limpeza profissional completa e, quando necessário, mi
     conteudoExtra: `## O Que Está Ocupando Espaço no Seu Disco?\n\nA maioria das pessoas se surpreende ao descobrir o que realmente ocupa espaço:\n\n### Top 10 Maiores Consumidores de Espaço\n\n| Item | Espaço Típico | Pode Limpar? |\n|---|---|---|\n| Pasta Windows\\Temp | 2-15 GB | ✅ Sim |\n| Cache do navegador | 1-5 GB | ✅ Sim |\n| Windows Update cache | 5-20 GB | ✅ Com cuidado |\n| WinSxS (componentes) | 10-30 GB | ⚠️ Parcialmente |\n| Shadow Copies | 5-50 GB | ✅ Ajustar limite |\n| Backup iPhone/Android | 10-50 GB | ⚠️ Se tiver cópia |\n| Pasta Downloads | 5-30 GB | ✅ Manualmente |\n| Jogos (Steam, Epic) | 20-200 GB | ⚠️ Mover para outro disco |\n| Arquivos PST (Outlook) | 2-20 GB | ⚠️ Compactar |\n| WSL/Docker | 5-50 GB | ⚠️ Se não usar |\n\n### SSD de 120 GB: Por Que Não é Suficiente em 2026\n\nO Windows 11 sozinho ocupa 25-40 GB. Adicione Office, navegador, antivírus e atualizações: você já usou 60-70 GB. Sobram 50 GB para TUDO o mais.\n\nNossa recomendação mínima: **SSD de 480 GB** para uso básico, **1 TB** para quem trabalha com arquivos grandes.\n\n### Dica Preventiva: Regra dos 20%\n\nMantenha sempre pelo menos 20% do disco livre. Para um SSD de 240 GB, isso significa manter 48 GB livres. Isso garante:\n\n- Espaço para swap/paginação do Windows\n- Espaço para atualizações de segurança\n- Vida útil maior do SSD (wear leveling eficiente)\n- Performance consistente do sistema\n\n### Passo a Passo: Limpeza Básica Que Você Pode Fazer\n\n1. **Limpeza de Disco** — Pesquise "Limpeza de Disco" no menu Iniciar → selecione tudo → limpar\n2. **Pasta Downloads** — Abra a pasta e delete instaladores antigos\n3. **Lixeira** — Esvazie a lixeira (clique direito no ícone da área de trabalho)\n4. **Cache do navegador** — Chrome: Ctrl+Shift+Del → Limpar dados\n\nSe depois disso ainda não resolver, é hora de chamar o técnico para uma limpeza profunda.`
   },
 
+
+  // ===== windows-travando-na-atualizacao-curitiba =====
+  {
+    slug: "windows-travando-na-atualizacao-curitiba",
+    title: "Windows Travando na Atualização em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Windows travou na atualização em Curitiba? Técnico resolve atualização parada, loop de reinicialização e tela preta pós-update. Atendimento rápido.",
+    h1: "Windows Travando na Atualização — Diagnóstico e Solução em Curitiba",
+    categoria: "Software — Sistema",
+    intro: `Seu Windows travou em "Atualizando... não desligue o computador" e já se passaram horas? Ou o PC reiniciou após uma atualização e entrou em loop infinito? Esse é um dos problemas mais frustrantes — e mais comuns — que atendemos em Curitiba.
+
+Atualizações do Windows podem falhar por diversos motivos: disco cheio, arquivos corrompidos, drivers incompatíveis ou até queda de energia durante a instalação. O resultado é quase sempre o mesmo: PC inutilizável.
+
+O pior erro que você pode cometer é desligar o computador à força durante uma atualização. Isso pode corromper o sistema de arquivos e transformar um problema reversível em perda de dados. Antes de fazer qualquer coisa, fale com um técnico.`,
+    sintomas: [
+      { titulo: "Tela presa em 'Atualizando... XX%' por horas", desc: "A atualização parou em uma porcentagem e não avança. LED do HD pode estar parado.", gravidade: "Alta" },
+      { titulo: "Loop de reinicialização após update", desc: "PC reinicia, tenta aplicar atualização, falha, reinicia de novo — infinitamente.", gravidade: "Alta" },
+      { titulo: "Tela azul (BSOD) após atualização", desc: "Driver incompatível com a atualização causa crash no boot.", gravidade: "Alta" },
+      { titulo: "Tela preta após atualização do Windows", desc: "Sistema não carrega a interface gráfica após update — driver de vídeo incompatível.", gravidade: "Alta" },
+      { titulo: "'Desfazendo alterações' em loop", desc: "Windows tenta reverter a atualização mas falha e entra em loop.", gravidade: "Alta" },
+      { titulo: "PC extremamente lento após atualização", desc: "Atualização instalou mas deixou serviços rodando em segundo plano consumindo 100% do disco/CPU.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Espaço insuficiente em disco", desc: "Atualizações grandes precisam de 10-20 GB livres. Sem espaço, a instalação trava no meio.", tipo: "software" },
+      { titulo: "Arquivos de sistema corrompidos", desc: "Arquivos do Windows danificados impedem que a atualização se aplique corretamente.", tipo: "software" },
+      { titulo: "Driver incompatível", desc: "Driver de vídeo, áudio ou rede antigo conflita com a nova versão do Windows.", tipo: "software" },
+      { titulo: "Queda de energia durante atualização", desc: "Interrupção durante a gravação de arquivos críticos corrompe o sistema.", tipo: "erro-humano" },
+      { titulo: "Antivírus bloqueando arquivos", desc: "Antivírus de terceiros podem impedir a substituição de arquivos do sistema.", tipo: "software" },
+      { titulo: "HD/SSD com setores defeituosos", desc: "Disco com problemas físicos não consegue gravar os arquivos da atualização.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Boot em modo seguro + desinstalação da atualização problemática.", tempo: "1h a 2h", custo: "R$ 120 a R$ 200" },
+      { nivel: "Médio", desc: "Reparo do sistema via WinRE + limpeza de componentes + reinstalação da atualização.", tempo: "2h a 4h", custo: "R$ 180 a R$ 350" },
+      { nivel: "Complexo", desc: "Formatação com preservação de dados + reinstalação limpa do Windows.", tempo: "3h a 6h", custo: "R$ 250 a R$ 450" }
+    ],
+    riscos: [
+      "Desligar o PC à força durante atualização pode corromper o sistema de arquivos permanentemente",
+      "Atualizações de segurança paradas deixam o sistema vulnerável a ransomware e vírus",
+      "Loop de reinicialização prolongado pode desgastar o SSD desnecessariamente",
+      "Tentativas amadoras de 'consertar' pelo Prompt podem piorar a situação",
+      "Perda de dados se o sistema for reinstalado sem backup adequado"
+    ],
+    diagnostico: `Diagnóstico especializado para atualização travada:\n\n1. Avaliação se a atualização ainda está em progresso (verificar LED de atividade do disco)\n2. Boot em modo seguro ou WinRE (Ambiente de Recuperação)\n3. Verificação de espaço em disco\n4. Scan de integridade com SFC e DISM\n5. Identificação da atualização problemática (KB específico)\n6. Teste de integridade do disco (SMART + setores)\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a gravidade:\n\n- **Atualização parada**: Aguardar tempo adequado (até 3h para updates grandes), depois boot em WinRE\n- **Loop de reinicialização**: Desinstalar atualização via modo seguro ou WinRE\n- **Tela azul/preta**: Reverter driver problemático ou restaurar ponto anterior\n- **Sistema corrompido**: Reparo com DISM + SFC ou reinstalação preservando dados\n- **Disco com problema**: Clonar para SSD novo antes de qualquer reparo de software\n\nSempre fazemos backup dos dados antes de qualquer intervenção.`,
+    quandoCompensa: "Quase sempre — a maioria dos problemas de atualização se resolve com reparo de software (R$ 120-350), sem perda de dados nem formatação.",
+    quandoNaoCompensa: "Quando o PC já tinha múltiplos problemas acumulados (vírus, disco defeituoso, sistema muito antigo). Nesses casos, formatação limpa é mais eficiente.",
+    whatsappMessage: "Olá! Meu Windows travou na atualização e não consigo usar o computador. Podem me ajudar?",
+    relatedPages: [
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/erro-disco-cheio-curitiba", label: "Disco Cheio" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## O Que Fazer (e Não Fazer) Quando o Windows Trava na Atualização\n\n### ❌ NÃO FAÇA\n\n1. **Não desligue o PC à força** — Espere pelo menos 2-3 horas antes de considerar isso\n2. **Não tire da tomada** — Isso é a pior coisa que pode fazer durante uma atualização\n3. **Não tente "consertar" com comandos do YouTube** — Muitos tutoriais estão errados ou desatualizados\n4. **Não reinstale o Windows por conta própria** — Sem backup, você perde tudo\n\n### ✅ FAÇA\n\n1. **Observe o LED de atividade do disco** — Se estiver piscando, a atualização ainda está em andamento\n2. **Espere pelo menos 3 horas** — Atualizações grandes podem levar tempo, especialmente em HDs antigos\n3. **Se parou há mais de 3h sem atividade** — Desligue segurando o botão 10 segundos\n4. **Na reinicialização** — Se entrar em WinRE, escolha "Restaurar para ponto anterior"\n\n### Atualizações Problemáticas Conhecidas (2025-2026)\n\n| Atualização | Problema Comum | Solução |\n|---|---|---|\n| Windows 11 24H2 | Loop de reinicialização | Desinstalar via WinRE |\n| KB5034441 | Erro 0x80070643 | Redimensionar partição WinRE |\n| KB5074105 | Tela preta após update | Reverter driver de vídeo |\n| Feature Update 24H2 | Incompatibilidade com drivers antigos | Atualizar drivers antes |\n\n### Prevenção: Como Evitar Problemas com Atualizações\n\n1. **Mantenha 20% do disco livre** — Espaço é essencial para updates\n2. **Crie um ponto de restauração** antes de atualizações grandes\n3. **Atualize drivers** de vídeo e rede antes de feature updates\n4. **Não desligue** durante atualizações — use nobreak se possível\n5. **Agende atualizações** para horários em que não vai usar o PC`
+  },
+
+  // ===== notebook-com-tela-quebrada-curitiba =====
+  {
+    slug: "notebook-com-tela-quebrada-curitiba",
+    title: "Notebook com Tela Quebrada em Curitiba — Troca de Tela e Reparo",
+    metaDescription: "Tela do notebook quebrada, trincada ou com manchas em Curitiba? Troca de tela LCD/LED com peças compatíveis. Orçamento rápido e sem compromisso.",
+    h1: "Notebook com Tela Quebrada — Troca e Reparo em Curitiba",
+    categoria: "Hardware — Tela",
+    intro: `Notebook caiu, levou uma pancada ou a tela simplesmente começou a apresentar manchas e linhas? A tela é um dos componentes mais frágeis do notebook — e um dos mais caros de substituir se não souber onde procurar.
+
+Em Curitiba, fazemos a troca de tela de notebook de todas as marcas: Dell, Lenovo, HP, Acer, Samsung, ASUS. Trabalhamos com telas compatíveis de qualidade, testadas antes da instalação.
+
+O importante é não continuar usando com a tela quebrada: além do desconforto visual, cristais líquidos podem vazar e danificar outros componentes. Quanto antes trocar, melhor.`,
+    sintomas: [
+      { titulo: "Tela trincada ou rachada", desc: "Impacto físico causou trinca visível. Imagem pode estar parcialmente visível.", gravidade: "Alta" },
+      { titulo: "Manchas pretas ou coloridas espalhadas", desc: "Cristal líquido vazou internamente — tela precisa ser substituída.", gravidade: "Alta" },
+      { titulo: "Linhas verticais ou horizontais na tela", desc: "Pode ser cabo flat com mau contato ou defeito no painel LCD/LED.", gravidade: "Média" },
+      { titulo: "Tela com metade escura", desc: "Backlight parcialmente queimado ou conector do cabo flat solto.", gravidade: "Média" },
+      { titulo: "Tela piscando ou com flickering", desc: "Cabo flat com mau contato na dobradiça ou inversor com defeito.", gravidade: "Média" },
+      { titulo: "Tela funciona só em ângulo específico", desc: "Cabo flat rompendo na região da dobradiça — vai piorar progressivamente.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Queda ou impacto", desc: "A causa mais comum. Notebook caiu, algo caiu sobre ele, ou foi apertado na mochila.", tipo: "erro-humano" },
+      { titulo: "Pressão sobre a tampa fechada", desc: "Apoiar peso sobre o notebook fechado pode trincar a tela.", tipo: "erro-humano" },
+      { titulo: "Desgaste do cabo flat", desc: "O cabo que conecta a tela à placa-mãe passa pela dobradiça e se desgasta com o uso.", tipo: "desgaste" },
+      { titulo: "Dobradiça quebrada ou apertada", desc: "Dobradiça com defeito força o cabo flat e pode trincar a moldura.", tipo: "desgaste" },
+      { titulo: "Defeito de fabricação", desc: "Alguns modelos têm telas propensas a dead pixels ou backlight bleeding.", tipo: "hardware" },
+      { titulo: "Choque térmico", desc: "Mudanças bruscas de temperatura podem causar micro-trincas no painel.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reencaixe do cabo flat ou ajuste de dobradiça. Tela fisicamente intacta.", tempo: "1h a 2h", custo: "R$ 90 a R$ 200" },
+      { nivel: "Médio", desc: "Troca de tela LCD/LED padrão (14\"-15.6\"). Maioria dos casos.", tempo: "1 a 3 dias", custo: "R$ 350 a R$ 700" },
+      { nivel: "Complexo", desc: "Troca de tela touch/IPS/alta resolução ou modelos raros. Peça sob encomenda.", tempo: "5 a 15 dias", custo: "R$ 600 a R$ 1.500" }
+    ],
+    riscos: [
+      "Cristal líquido vazando pode danificar a placa-mãe e outros componentes",
+      "Cabo flat rompendo progressivamente pode causar curto-circuito",
+      "Usar com tela quebrada causa fadiga visual e dores de cabeça",
+      "Telas genéricas baratas podem ter cores distorcidas e durabilidade baixa",
+      "Trocar tela sem experiência pode danificar o cabo flat, webcam ou antena Wi-Fi"
+    ],
+    diagnostico: `Diagnóstico completo de tela:\n\n1. Inspeção visual da tela (trinca, mancha, linha)\n2. Teste com monitor externo (para confirmar que GPU está OK)\n3. Verificação do cabo flat (mau contato vs. rompimento)\n4. Teste de dobradiças (folga, aperto, quebra)\n5. Identificação do modelo exato da tela (part number)\n6. Orçamento com peça compatível de qualidade\n\nCusto do diagnóstico: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Processo de troca de tela:\n\n1. **Identificação** — Localizamos o part number exato da tela original\n2. **Peça** — Tela compatível de qualidade (mesma resolução, brilho e conector)\n3. **Desmontagem** — Remoção cuidadosa da moldura, dobradiças e cabos\n4. **Instalação** — Conexão do cabo flat e fixação da nova tela\n5. **Teste** — Verificação de cores, brilho, dead pixels e funcionamento do touch (se aplicável)\n6. **Entrega** — Notebook pronto com garantia na peça e serviço`,
+    quandoCompensa: "Na maioria dos casos compensa — especialmente notebooks de até 4-5 anos. Troca de tela custa R$ 350-700, muito menos que um notebook novo.",
+    quandoNaoCompensa: "Quando o notebook é antigo (7+ anos), a tela é de resolução/modelo raro e cara, ou há outros problemas simultâneos (placa, bateria, teclado).",
+    whatsappMessage: "Olá! A tela do meu notebook está quebrada/trincada. Vocês fazem troca de tela? Qual o valor?",
+    relatedPages: [
+      { to: "/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/vale-a-pena-consertar-notebook", label: "Vale Consertar Notebook?" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Guia Completo: Troca de Tela de Notebook\n\n### Tipos de Tela de Notebook\n\n| Tipo | Características | Custo Médio |\n|---|---|---|\n| TN (básica) | Cores lavadas, ângulo ruim, barata | R$ 250-400 |\n| IPS | Cores vivas, bom ângulo de visão | R$ 400-700 |\n| Touch | Tela sensível ao toque | R$ 500-1.000 |\n| OLED | Pretos profundos, premium | R$ 800-1.500 |\n| Alta resolução (2K/4K) | Mais nítida, mais cara | R$ 600-1.200 |\n\n### Perguntas Frequentes Sobre Troca de Tela\n\n**Posso colocar uma tela melhor que a original?**\nEm muitos casos, sim. É possível fazer upgrade de TN para IPS no mesmo tamanho, desde que o conector seja compatível.\n\n**Quanto tempo demora?**\nA troca em si leva 1-2 horas. O tempo total depende da disponibilidade da peça (1-15 dias).\n\n**A tela nova vem com garantia?**\nSim — garantimos a peça e o serviço por 90 dias contra defeitos.\n\n### Como Proteger a Tela do Notebook\n\n1. **Use capa/sleeve** para transporte\n2. **Nunca apoie peso** sobre o notebook fechado\n3. **Abra pela parte central** da tela, não pelos cantos\n4. **Não limpe com álcool** — use pano de microfibra levemente úmido\n5. **Cuidado com objetos sobre o teclado** — canetas e fones podem trincar a tela ao fechar\n\n### Marcas: Facilidade e Custo de Troca\n\n| Marca | Facilidade de Troca | Disponibilidade de Peça | Custo |\n|---|---|---|---|\n| Dell | Fácil | Alta | Médio |\n| Lenovo | Fácil | Alta | Médio |\n| HP | Média | Alta | Médio |\n| Acer | Fácil | Média | Baixo-Médio |\n| Samsung | Difícil | Baixa | Alto |\n| Apple | Muito difícil | Baixa | Muito alto |`
+  },
+
+  // ===== pc-reiniciando-sozinho-curitiba =====
+  {
+    slug: "pc-reiniciando-sozinho-curitiba",
+    title: "PC Reiniciando Sozinho em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Computador reiniciando sozinho em Curitiba? Diagnóstico profissional identifica se é superaquecimento, fonte, RAM ou sistema. Atendimento rápido.",
+    h1: "PC Reiniciando Sozinho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Estabilidade",
+    intro: `Seu computador reinicia do nada, sem aviso, no meio do trabalho ou durante jogos? Esse problema é especialmente frustrante porque você perde o que estava fazendo — e não sabe quando vai acontecer de novo.
+
+Reinicializações aleatórias quase sempre indicam um problema de hardware: superaquecimento, fonte de alimentação instável, memória RAM com defeito ou placa-mãe com capacitores estufados. Menos frequentemente, pode ser driver ou atualização do Windows.
+
+O mais perigoso é ignorar: se a causa for superaquecimento, cada reinicialização significa que o processador atingiu temperatura crítica. Com o tempo, isso danifica permanentemente o chip.`,
+    sintomas: [
+      { titulo: "Reinicia durante jogos ou tarefas pesadas", desc: "Forte indicativo de superaquecimento ou fonte sem potência suficiente.", gravidade: "Alta" },
+      { titulo: "Reinicia aleatoriamente, sem padrão", desc: "Pode ser RAM com defeito intermitente ou capacitor estufado na placa-mãe.", gravidade: "Alta" },
+      { titulo: "Reinicia e mostra tela azul rapidamente", desc: "O Windows está crashando (BSOD) e reiniciando automaticamente antes de você ler.", gravidade: "Alta" },
+      { titulo: "Reinicia ao conectar periférico USB", desc: "Porta USB com curto-circuito ou fonte sobrecarregada.", gravidade: "Média" },
+      { titulo: "Reinicia sempre no mesmo horário", desc: "Windows Update ou tarefa agendada configurada para reiniciar automaticamente.", gravidade: "Baixa" },
+      { titulo: "Reinicia e não volta (fica desligado)", desc: "Proteção térmica ativada ou fonte com defeito intermitente.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento do processador", desc: "Pasta térmica seca + cooler com poeira = CPU atinge temperatura crítica e o PC desliga para se proteger.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação instável", desc: "Fonte degradada fornece tensão irregular, causando reinicialização sob carga.", tipo: "hardware" },
+      { titulo: "Memória RAM com defeito", desc: "Erro intermitente na RAM causa crash do sistema e reinicialização.", tipo: "hardware" },
+      { titulo: "Capacitores estufados na placa-mãe", desc: "Capacitores inchados causam instabilidade elétrica progressiva.", tipo: "desgaste" },
+      { titulo: "Driver de vídeo com defeito", desc: "Driver incompatível causa BSOD seguido de reinicialização automática.", tipo: "software" },
+      { titulo: "Windows Update automático", desc: "O Windows pode reiniciar automaticamente para aplicar atualizações.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna + troca de pasta térmica + desativação de reinicialização automática.", tempo: "1h a 2h", custo: "R$ 120 a R$ 200" },
+      { nivel: "Médio", desc: "Troca de fonte, substituição de RAM ou atualização de drivers.", tempo: "1h a 3h", custo: "R$ 200 a R$ 450" },
+      { nivel: "Complexo", desc: "Reparo de placa-mãe (troca de capacitores) ou substituição de placa.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800" }
+    ],
+    riscos: [
+      "Superaquecimento repetido reduz a vida útil do processador permanentemente",
+      "Reinicializações durante gravação de dados corrompem arquivos e podem danificar o disco",
+      "Fonte instável pode causar surto de tensão e queimar placa de vídeo ou placa-mãe",
+      "Capacitores estufados eventualmente explodem e podem danificar componentes vizinhos",
+      "Perda de trabalho não salvo a cada reinicialização inesperada"
+    ],
+    diagnostico: `Diagnóstico completo para PC reiniciando:\n\n1. Monitoramento de temperatura em tempo real (CPU, GPU)\n2. Teste de estresse para reproduzir o problema de forma controlada\n3. Teste de memória RAM (Memtest86 — mínimo 4 passagens)\n4. Verificação visual da placa-mãe (capacitores estufados)\n5. Teste da fonte com multímetro (todas as linhas de tensão)\n6. Análise do Event Viewer e minidumps de BSOD\n7. Verificação de drivers e atualizações do Windows\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução por causa identificada:\n\n- **Superaquecimento**: Limpeza completa + pasta térmica de qualidade + verificação do cooler\n- **Fonte**: Substituição por fonte de potência adequada (certificada 80 Plus)\n- **RAM**: Substituição do pente defeituoso (com teste prévio de cada pente)\n- **Placa-mãe**: Troca de capacitores ou substituição da placa\n- **Software**: Atualização de drivers + ajuste de configurações de reinicialização\n\nTeste de estabilidade por 2+ horas após o reparo.`,
+    quandoCompensa: "Na grande maioria dos casos — limpeza térmica ou troca de fonte são soluções baratas (R$ 120-350) que resolvem 80% dos casos.",
+    quandoNaoCompensa: "Quando a placa-mãe tem múltiplos capacitores estufados em PC de 8+ anos. O custo do reparo não justifica em hardware tão antigo.",
+    whatsappMessage: "Olá! Meu computador está reiniciando sozinho do nada. Podem fazer um diagnóstico?",
+    relatedPages: [
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ],
+    conteudoExtra: `## Como Descobrir Por Que Seu PC Está Reiniciando\n\n### Passo 1: Desativar Reinicialização Automática\n\nO Windows esconde a tela azul (BSOD) reiniciando rápido demais. Para ver o erro:\n\n1. Clique direito em "Este Computador" → Propriedades\n2. Configurações avançadas do sistema\n3. Inicialização e Recuperação → Configurações\n4. Desmarque "Reiniciar automaticamente"\n5. Na próxima falha, a tela azul ficará visível\n\n### Passo 2: Verificar Temperatura\n\nBaixe o HWMonitor (gratuito) e observe:\n- **CPU abaixo de 80°C sob carga** = Normal\n- **CPU entre 80-95°C** = Precisa de limpeza\n- **CPU acima de 95°C** = Desligamento térmico iminente\n\n### Tabela de Diagnóstico Rápido\n\n| Quando Reinicia | Causa Mais Provável | Solução |\n|---|---|---|\n| Durante jogos/renderização | Superaquecimento ou fonte | Limpeza ou troca de fonte |\n| Aleatoriamente | RAM ou capacitores | Teste de RAM / inspeção placa |\n| Ao conectar USB | Curto na porta USB | Teste e reparo de porta |\n| Sempre no mesmo horário | Windows Update | Ajustar configurações |\n| Logo após ligar (1-5 min) | Superaquecimento grave | Limpeza urgente |\n| Só quando chove | Rede elétrica instável | Usar nobreak |\n\n### A Importância do Nobreak\n\nSe seu PC reinicia durante quedas de energia (mesmo micro-quedas de 0.5 segundo), um nobreak é essencial:\n\n- **Básico (600 VA)**: R$ 300-500 — protege contra micro-quedas\n- **Intermediário (1200 VA)**: R$ 500-800 — mantém PC ligado por 15-30 min\n- **Gamer (1500+ VA)**: R$ 800-1.500 — para PCs com placa de vídeo potente`
+  },
+
+  // ===== hd-fazendo-barulho-curitiba =====
+  {
+    slug: "hd-fazendo-barulho-curitiba",
+    title: "HD Fazendo Barulho em Curitiba — Diagnóstico e Recuperação de Dados",
+    metaDescription: "HD fazendo barulho, clique ou rangido em Curitiba? Diagnóstico urgente e recuperação de dados. Não ignore — cada minuto conta. Atendimento rápido.",
+    h1: "HD Fazendo Barulho — Diagnóstico e Recuperação de Dados em Curitiba",
+    categoria: "Hardware — Armazenamento",
+    intro: `Se o HD do seu computador está fazendo barulhos estranhos — cliques, rangidos, estalos ou zumbidos — isso é um sinal de URGÊNCIA. Diferente de outros problemas que podem esperar, um HD barulhento pode parar de funcionar a qualquer momento, levando todos os seus dados junto.
+
+Cada vez que você liga o computador com o HD barulhento, aumenta o risco de perda permanente de dados. Fotos, documentos, trabalhos — tudo pode ser perdido.
+
+Em Curitiba, tratamos HD barulhento como emergência: diagnóstico prioritário para avaliar o estado do disco, tentativa de backup imediato dos dados e orientação sobre os próximos passos — sempre com transparência.`,
+    sintomas: [
+      { titulo: "Cliques repetitivos (click of death)", desc: "A cabeça de leitura não consegue posicionar — disco em estado crítico. DESLIGUE IMEDIATAMENTE.", gravidade: "Crítica" },
+      { titulo: "Rangido ou chiado constante", desc: "Rolamento do motor com desgaste. O disco pode parar a qualquer momento.", gravidade: "Alta" },
+      { titulo: "Estalos esporádicos", desc: "Setores defeituosos sendo remapeados. Disco em degradação progressiva.", gravidade: "Alta" },
+      { titulo: "Zumbido mais alto que o normal", desc: "Motor do disco trabalhando com esforço extra — pode ser início de falha mecânica.", gravidade: "Média" },
+      { titulo: "Barulho + computador travando", desc: "O sistema tenta ler setores defeituosos e trava esperando resposta do disco.", gravidade: "Alta" },
+      { titulo: "Barulho + arquivos desaparecendo", desc: "Setores com dados estão se tornando ilegíveis — perda de dados em andamento.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Desgaste mecânico natural", desc: "HDs têm vida útil de 3-5 anos. Após esse período, componentes mecânicos começam a falhar.", tipo: "desgaste" },
+      { titulo: "Queda ou impacto", desc: "Mesmo uma pequena queda pode desalinhar as cabeças de leitura ou danificar os pratos.", tipo: "erro-humano" },
+      { titulo: "Superaquecimento prolongado", desc: "Temperatura acima de 50°C degrada os componentes internos do HD.", tipo: "desgaste" },
+      { titulo: "Setores defeituosos acumulados", desc: "Setores bad se multiplicam progressivamente até o disco ficar ilegível.", tipo: "desgaste" },
+      { titulo: "Falha do motor (spindle)", desc: "O motor que gira os pratos está travando ou com rolamento danificado.", tipo: "hardware" },
+      { titulo: "Cabeça de leitura desalinhada", desc: "A cabeça que lê os dados está tocando os pratos (head crash) — dano físico.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "HD com poucos setores defeituosos — backup urgente + migração para SSD.", tempo: "2h a 4h", custo: "R$ 200 a R$ 400" },
+      { nivel: "Médio", desc: "HD com muitos bad sectors — clonagem setor a setor com ferramenta especializada.", tempo: "6h a 24h", custo: "R$ 300 a R$ 600" },
+      { nivel: "Complexo", desc: "HD não detectado ou cabeça danificada — recuperação em sala limpa (lab especializado).", tempo: "5 a 30 dias", custo: "R$ 800 a R$ 5.000+" }
+    ],
+    riscos: [
+      "CADA VEZ que o HD barulhento é ligado, o risco de perda total de dados aumenta",
+      "Head crash (cabeça tocando o prato) causa dano físico irreversível nos dados",
+      "Tentar usar software de recuperação em HD com falha mecânica pode piorar o dano",
+      "Congelar o HD (mito da internet) pode causar condensação e destruir os pratos",
+      "Abrir o HD fora de sala limpa contamina os pratos com poeira e inviabiliza a recuperação"
+    ],
+    diagnostico: `Diagnóstico de EMERGÊNCIA para HD barulhento:\n\n1. Avaliação sonora (tipo de barulho indica gravidade)\n2. Verificação SMART (saúde do disco via software)\n3. Teste de leitura superficial (sem estressar o disco)\n4. Se detectado: tentativa imediata de backup dos dados mais importantes\n5. Avaliação: clonagem possível vs. necessidade de lab especializado\n6. Orçamento para migração de dados para SSD novo\n\nCusto: R$ 90 (incorporado se aprovar o serviço). URGENTE — não adie.`,
+    solucao: `Protocolo para HD barulhento:\n\n1. **Não ligue mais o PC** até o diagnóstico — cada boot é um risco\n2. **Backup emergencial** — Se o HD ainda lê, copiamos os dados prioritários primeiro\n3. **Clonagem** — Para HDs com setores ruins, usamos ferramentas de clonagem bit-a-bit\n4. **Migração para SSD** — Instalamos SSD novo com seus dados e sistema operacional\n5. **Casos graves** — Encaminhamos para laboratório de recuperação em sala limpa\n\nSempre preservamos o HD original como último recurso até confirmar que todos os dados foram recuperados.`,
+    quandoCompensa: "Sempre vale diagnosticar — o custo do diagnóstico é mínimo comparado ao valor dos dados. Se a clonagem funcionar (R$ 200-600), é excelente custo-benefício.",
+    quandoNaoCompensa: "Quando o HD precisa de sala limpa (R$ 2.000-5.000+), vale avaliar se os dados justificam o investimento. Para dados substituíveis, melhor comprar SSD novo.",
+    whatsappMessage: "Olá! O HD do meu computador está fazendo barulho estranho e estou preocupado com meus dados. É urgente!",
+    relatedPages: [
+      { to: "/erro-disco-cheio-curitiba", label: "Disco Cheio" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## URGENTE: O Que Fazer Agora Se Seu HD Está Barulhento\n\n### Ação Imediata\n\n1. **DESLIGUE o computador** — Não "normalmente", pode desligar direto no botão se necessário\n2. **NÃO ligue de novo** para "ver se melhorou" — cada tentativa pode ser a última\n3. **NÃO tente software de recuperação** — Em falha mecânica, isso piora o dano\n4. **NÃO congele o HD** — Mito perigoso. Condensação destrói os pratos\n5. **NÃO abra o HD** — Poeira microscópica inutiliza os dados\n6. **Ligue para um técnico** — Diagnóstico urgente\n\n### Guia Sonoro: O Que Cada Barulho Significa\n\n| Barulho | Significado | Gravidade | Ação |\n|---|---|---|---|\n| Click-click-click | Cabeça não posiciona | CRÍTICA | Desligue AGORA |\n| Rangido contínuo | Motor travando | ALTA | Desligue em breve |\n| Estalos esporádicos | Setores ruins | ALTA | Backup urgente |\n| Zumbido alto | Motor com esforço | MÉDIA | Agende diagnóstico |\n| Silêncio total | Motor não gira | CRÍTICA | HD já parou |\n\n### HD vs. SSD: Por Que Migrar\n\n| Característica | HD (mecânico) | SSD (estado sólido) |\n|---|---|---|\n| Partes móveis | Sim (motor, cabeças) | Não |\n| Risco de falha mecânica | Alto após 3-5 anos | Zero |\n| Barulho | Sim | Silencioso |\n| Velocidade | 80-150 MB/s | 500-3.500 MB/s |\n| Resistência a queda | Baixa | Alta |\n| Vida útil | 3-5 anos típicos | 5-10 anos típicos |\n\n### Quanto Valem Seus Dados?\n\nAntes de decidir se vale investir em recuperação, considere:\n\n- **Fotos de família** — Insubstituíveis. Qualquer custo justificado\n- **Documentos de trabalho** — Podem custar muito mais que a recuperação\n- **Downloads e programas** — Podem ser baixados de novo\n- **Sistema operacional** — Reinstalável\n\n### Prevenção: Como Evitar Perder Dados\n\n1. **Backup 3-2-1**: 3 cópias, 2 mídias diferentes, 1 fora de casa (nuvem)\n2. **Migre para SSD**: Sem partes mecânicas = sem risco de falha mecânica\n3. **Monitore o SMART**: CrystalDiskInfo (gratuito) avisa antes do HD falhar\n4. **Nobreak**: Protege contra queda de energia que pode danificar o HD\n5. **Não mova o PC ligado**: Vibrações danificam o HD em operação`
+  },
+
 ];
 
 // Helper to get a page by slug

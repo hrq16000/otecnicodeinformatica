@@ -234,6 +234,7 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

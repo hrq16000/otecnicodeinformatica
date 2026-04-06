@@ -245,6 +245,7 @@ const RemocaoVirus = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

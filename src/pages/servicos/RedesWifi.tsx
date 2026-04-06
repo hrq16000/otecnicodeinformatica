@@ -193,6 +193,7 @@ const RedesWifi = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="redesWifi" caption="Configuração profissional de redes e roteadores" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

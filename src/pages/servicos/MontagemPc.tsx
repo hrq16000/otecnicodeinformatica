@@ -211,6 +211,7 @@ const MontagemPc = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="desktopMontado" secondaryImageKey="placaMae" layout="duo" caption="PC gamer montado sob medida" secondaryCaption="Componentes de alta performance" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

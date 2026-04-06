@@ -218,6 +218,7 @@ const FormatacaoComputador = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="desktopMontado" layout="duo" caption="Formatação profissional com backup completo" secondaryCaption="Computador pronto após formatação" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

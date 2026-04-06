@@ -245,6 +245,7 @@ const UpgradeSsdMemoria = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="placaMae" layout="duo" caption="SSD e memória RAM para upgrade" secondaryCaption="Diagnóstico de placa-mãe para compatibilidade" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

@@ -222,6 +222,7 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

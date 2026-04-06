@@ -2850,6 +2850,349 @@ Resolvemos no mesmo dia em toda Curitiba e região. Maioria dos casos em menos d
 
 Diagnóstico de armazenamento em toda Curitiba e região. Parceria com laboratórios certificados.`
   },
+
+  // ========== NOVAS PÁGINAS — Tela Azul, Wi-Fi, Som, Lentidão Jogos ==========
+
+  {
+    slug: "tela-azul-windows-curitiba",
+    title: "Tela Azul no Windows em Curitiba | Diagnóstico BSOD Profissional",
+    metaDescription: "Tela azul da morte (BSOD) no Windows? Diagnóstico profissional em Curitiba. Identificamos o driver ou hardware causador. WhatsApp (41) 99745-2053.",
+    h1: "Tela Azul no Windows (BSOD) — Diagnóstico e Solução Profissional",
+    categoria: "Erros de Sistema",
+    intro: `A temida "Tela Azul da Morte" (BSOD - Blue Screen of Death) é o erro mais assustador do Windows. O computador para tudo, exibe um código de erro e reinicia sozinho.\n\nNa maioria dos casos, a tela azul é causada por um driver incompatível, memória RAM defeituosa ou superaquecimento. Mas também pode indicar HD/SSD com falha ou até placa-mãe danificada.\n\nEm Curitiba, analisamos os logs de crash dump para identificar exatamente qual componente ou driver está causando o problema — sem tentativa e erro.`,
+    sintomas: [
+      { titulo: "Tela azul com código IRQL_NOT_LESS_OR_EQUAL", desc: "Geralmente causado por driver de rede ou antivírus incompatível com o Windows.", gravidade: "Médio" },
+      { titulo: "BSOD com CRITICAL_PROCESS_DIED", desc: "Processo essencial do Windows falhou. Pode ser arquivo do sistema corrompido.", gravidade: "Médio a Complexo" },
+      { titulo: "Tela azul ao iniciar o Windows", desc: "O sistema não consegue completar o boot. Driver ou atualização problemática.", gravidade: "Médio" },
+      { titulo: "BSOD durante jogos ou uso pesado", desc: "Superaquecimento, GPU instável ou fonte de alimentação insuficiente.", gravidade: "Médio" },
+      { titulo: "Tela azul aleatória sem padrão", desc: "Memória RAM defeituosa é a causa mais comum de BSODs aleatórios.", gravidade: "Médio a Complexo" },
+      { titulo: "BSOD com WHEA_UNCORRECTABLE_ERROR", desc: "Erro de hardware detectado pelo sistema — CPU, RAM ou placa-mãe.", gravidade: "Complexo" },
+    ],
+    causas: [
+      { titulo: "Driver incompatível ou corrompido", desc: "Drivers de vídeo, rede ou periféricos desatualizados são a causa #1 de BSOD.", tipo: "software" },
+      { titulo: "Memória RAM defeituosa", desc: "Módulos com falha causam erros intermitentes e BSODs aleatórios.", tipo: "hardware" },
+      { titulo: "Superaquecimento de CPU ou GPU", desc: "Temperaturas acima de 90°C fazem o sistema travar para se proteger.", tipo: "desgaste" },
+      { titulo: "HD/SSD com setores defeituosos", desc: "Disco com falhas causa erros de leitura que resultam em tela azul.", tipo: "desgaste" },
+      { titulo: "Windows Update corrompido", desc: "Atualizações incompletas podem corromper arquivos do sistema.", tipo: "software" },
+      { titulo: "Fonte de alimentação insuficiente", desc: "Fonte subdimensionada causa instabilidade sob carga, gerando BSODs.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Atualização/reversão de driver, reparo de arquivos do sistema (SFC/DISM)", tempo: "1–2h", custo: "R$100–R$180" },
+      { nivel: "Médio", desc: "Teste e substituição de RAM, limpeza térmica, reparo do Windows", tempo: "2–4h", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Diagnóstico de placa-mãe, troca de HD/SSD, reinstalação completa", tempo: "1–3 dias", custo: "R$250–R$500+" },
+    ],
+    riscos: [
+      "Ignorar BSODs frequentes pode levar à perda de dados quando o HD falhar",
+      "Desativar verificações de driver pode mascarar problemas graves",
+      "Forçar desligamento durante BSOD pode corromper o sistema de arquivos",
+      "Usar 'fixers' genéricos da internet pode instalar malware",
+    ],
+    diagnostico: "Analisamos os crash dumps (MEMORY.DMP e Minidump) com ferramentas profissionais como WinDbg para identificar exatamente qual driver ou componente causou o BSOD. Também executamos testes de memória (MemTest86), de disco (SMART) e de temperatura.\n\nIsso elimina a abordagem de 'tentativa e erro' que outros técnicos usam.",
+    solucao: "Com o driver/componente identificado, a solução é direta: atualizar/reverter driver, substituir RAM defeituosa, fazer limpeza térmica ou reparar o Windows. Sempre preservamos seus dados.\n\nPara BSODs causados por hardware, apresentamos orçamento detalhado antes de qualquer troca.",
+    quandoCompensa: "Sempre compensa diagnosticar — o BSOD é um sintoma, não o problema. Identificar a causa evita danos maiores e perda de dados.",
+    quandoNaoCompensa: "Quando múltiplos componentes estão falhando simultaneamente (placa-mãe + RAM + HD), pode ser mais viável substituir o conjunto.",
+    whatsappMessage: "Olá! Meu computador está dando tela azul. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "PC Reiniciando Sozinho", to: "/pc-reiniciando-sozinho-curitiba" },
+      { label: "Computador Travando", to: "/computador-travando-curitiba" },
+      { label: "PC Superaquecendo", to: "/pc-superaquecendo-curitiba" },
+      { label: "Placa-mãe Queimada", to: "/placa-mae-queimada" },
+    ],
+    conteudoExtra: `## Guia: Tela Azul (BSOD) em Curitiba
+
+### Códigos de Erro Mais Comuns e Suas Causas
+
+| Código BSOD | Causa Provável | Ação |
+|---|---|---|
+| IRQL_NOT_LESS_OR_EQUAL | Driver incompatível | Atualizar/reverter driver |
+| CRITICAL_PROCESS_DIED | Arquivo do sistema corrompido | SFC /scannow + DISM |
+| WHEA_UNCORRECTABLE_ERROR | Erro de hardware (CPU/RAM) | Teste de hardware |
+| PAGE_FAULT_IN_NONPAGED_AREA | RAM defeituosa | MemTest86 |
+| KERNEL_DATA_INPAGE_ERROR | HD/SSD com falha | Verificar SMART |
+| DRIVER_IRQL_NOT_LESS_OR_EQUAL | Driver de rede/USB | Identificar driver |
+| SYSTEM_SERVICE_EXCEPTION | Driver ou serviço do sistema | Análise do dump |
+
+### O Que Fazer Quando Aparece a Tela Azul
+
+1. **Anote o código de erro** que aparece na tela
+2. **Não force desligamento** — espere reiniciar sozinho
+3. **Verifique se repete** — BSOD único pode ser falha momentânea
+4. **Se repetir, procure assistência** — BSODs frequentes indicam problema real
+
+### Atendimento em Curitiba e Região
+
+Diagnosticamos telas azuis em toda Curitiba e região metropolitana. Análise de crash dump inclusa no diagnóstico.`
+  },
+
+  {
+    slug: "notebook-sem-wifi-curitiba",
+    title: "Notebook Sem Wi-Fi em Curitiba | Diagnóstico e Solução Rápida",
+    metaDescription: "Notebook não conecta no Wi-Fi? Diagnóstico rápido em Curitiba. Problema de driver, placa wireless, configuração. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    h1: "Notebook Sem Wi-Fi — Diagnóstico e Solução Rápida",
+    categoria: "Problemas de Notebook",
+    intro: `Seu notebook parou de encontrar redes Wi-Fi ou não consegue se conectar? Esse problema afeta milhares de usuários e pode ter causas simples ou complexas.\n\nDesde um driver desatualizado pelo Windows Update até uma placa wireless queimada, o diagnóstico correto é essencial para não gastar dinheiro à toa.\n\nEm Curitiba, resolvemos problemas de Wi-Fi em notebooks de todas as marcas — Dell, Lenovo, HP, Acer, Asus, Samsung e Apple.`,
+    sintomas: [
+      { titulo: "Ícone de Wi-Fi com X vermelho", desc: "O adaptador wireless está desativado ou não é encontrado pelo sistema.", gravidade: "Simples a Médio" },
+      { titulo: "Encontra redes mas não conecta", desc: "Senha correta mas falha na conexão — problema de driver ou protocolo.", gravidade: "Simples" },
+      { titulo: "Wi-Fi conecta mas sem internet", desc: "Conectado à rede mas sem acesso — problema de DNS, IP ou roteador.", gravidade: "Simples" },
+      { titulo: "Wi-Fi desconecta após poucos minutos", desc: "Economia de energia, driver instável ou interferência.", gravidade: "Médio" },
+      { titulo: "Não encontra nenhuma rede Wi-Fi", desc: "Placa wireless desativada (tecla Fn), driver ausente ou placa com defeito.", gravidade: "Simples a Complexo" },
+    ],
+    causas: [
+      { titulo: "Driver wireless corrompido/ausente", desc: "Após formatação ou atualização do Windows, o driver pode sumir ou corromper.", tipo: "software" },
+      { titulo: "Tecla Fn desativou o Wi-Fi", desc: "Combinação de teclas (Fn+F2, Fn+F5 etc.) pode desativar o adaptador wireless.", tipo: "erro-humano" },
+      { titulo: "Configuração de economia de energia", desc: "Windows desativa o adaptador para economizar bateria, causando desconexões.", tipo: "software" },
+      { titulo: "Placa wireless com defeito", desc: "A placa Wi-Fi mini PCIe ou M.2 pode queimar ou perder contato.", tipo: "hardware" },
+      { titulo: "Antena wireless desconectada", desc: "Ao abrir o notebook, os cabos da antena podem ter sido desconectados.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reativação via Fn, reinstalação de driver, configuração de energia", tempo: "15–30min", custo: "R$50–R$120" },
+      { nivel: "Médio", desc: "Reinstalação do Windows para driver, adaptador USB externo como alternativa", tempo: "1–2h", custo: "R$100–R$200" },
+      { nivel: "Complexo", desc: "Troca da placa wireless interna, reconexão de antenas", tempo: "1–3h", custo: "R$150–R$350" },
+    ],
+    riscos: [
+      "Instalar driver errado pode causar tela azul ou outros problemas",
+      "Abrir notebook sem experiência pode danificar cabos flat e antenas",
+      "Adaptadores USB baratos oferecem velocidade e alcance reduzidos",
+    ],
+    diagnostico: "Verificamos: 1) Status do adaptador no Gerenciador de Dispositivos; 2) Driver instalado e versão; 3) Configurações de economia de energia; 4) Teste da placa wireless; 5) Estado das antenas.\n\nEm 70% dos casos, resolvemos em menos de 30 minutos.",
+    solucao: "Desde reativação por tecla Fn (1 minuto) até troca da placa wireless. Sempre testamos com driver original do fabricante.\n\nComo alternativa temporária, podemos instalar um adaptador Wi-Fi USB.",
+    quandoCompensa: "Sempre compensa diagnosticar — na maioria dos casos é software (driver) e o custo é baixo.",
+    quandoNaoCompensa: "Quando o notebook é muito antigo e a placa wireless é rara/cara. Adaptador USB é alternativa mais econômica.",
+    whatsappMessage: "Olá! Meu notebook não conecta no Wi-Fi. Preciso de ajuda.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Internet Lenta", to: "/internet-lenta-curitiba" },
+      { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Notebook Lento", to: "/notebook-lento-curitiba" },
+      { label: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Notebook Sem Wi-Fi em Curitiba
+
+### Checklist Antes de Chamar o Técnico
+
+1. **Pressione Fn + tecla Wi-Fi** (F2, F5 ou F12 dependendo da marca)
+2. **Verifique o modo avião** — deve estar desativado
+3. **Reinicie o notebook** e o roteador
+4. **Teste com outro dispositivo** — se outro aparelho conecta, problema é no notebook
+5. **Verifique no Gerenciador de Dispositivos** se há exclamação amarela
+
+### Por Marca de Notebook
+
+| Marca | Tecla Wi-Fi | Driver Comum |
+|---|---|---|
+| Dell | Fn+F2 | Intel Wireless |
+| HP | Fn+F12 | Realtek/Intel |
+| Lenovo | Fn+F5 | Intel/Qualcomm |
+| Acer | Fn+F3 | Qualcomm/Intel |
+| Asus | Fn+F2 | Intel/MediaTek |
+
+### Atendimento em Curitiba
+
+Resolvemos problemas de Wi-Fi em notebooks de todas as marcas. Atendimento a domicílio no mesmo dia em toda Curitiba e região metropolitana.`
+  },
+
+  {
+    slug: "pc-trava-ao-jogar-curitiba",
+    title: "PC Trava ao Jogar em Curitiba | Diagnóstico Gamer Profissional",
+    metaDescription: "PC trava, congela ou reinicia durante jogos? Diagnóstico gamer em Curitiba. GPU, fonte, temperatura, drivers. Atendimento especializado. WhatsApp (41) 99745-2053.",
+    h1: "PC Trava ao Jogar — Diagnóstico Gamer e Soluções Reais",
+    categoria: "Problemas Gamer",
+    intro: `Seu PC congela, trava ou reinicia no meio de uma partida? Esse é um dos problemas mais frustrantes para gamers — especialmente quando acontece em momentos cruciais.\n\nAs causas mais comuns envolvem superaquecimento de GPU, fonte de alimentação insuficiente, drivers desatualizados ou RAM instável. Mas identificar qual é o culpado exige diagnóstico profissional.\n\nEm Curitiba, oferecemos diagnóstico especializado para PCs gamer com testes de stress, monitoramento de temperatura e análise de estabilidade.`,
+    sintomas: [
+      { titulo: "PC congela completamente durante jogo", desc: "Tela congela, som trava em loop e o PC não responde a nada. Precisa forçar desligamento.", gravidade: "Médio" },
+      { titulo: "PC reinicia sozinho em jogos pesados", desc: "Desliga e liga sem aviso — geralmente fonte insuficiente ou superaquecimento.", gravidade: "Médio a Complexo" },
+      { titulo: "Queda drástica de FPS após alguns minutos", desc: "Throttling térmico — GPU ou CPU reduz performance para se proteger do calor.", gravidade: "Simples a Médio" },
+      { titulo: "Tela preta durante jogo (driver crashed)", desc: "Driver de vídeo para de responder. Tela preta por segundos e depois volta.", gravidade: "Simples a Médio" },
+      { titulo: "Artefatos visuais (quadrados coloridos, texturas bugadas)", desc: "Artefatos indicam GPU com problema — superaquecimento, memória da GPU ou defeito.", gravidade: "Médio a Complexo" },
+    ],
+    causas: [
+      { titulo: "GPU superaquecendo", desc: "Pasta térmica seca ou cooler com poeira fazem a GPU atingir temperaturas críticas.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação insuficiente", desc: "Fonte subdimensionada não sustenta o consumo sob carga máxima da GPU.", tipo: "hardware" },
+      { titulo: "Driver de vídeo desatualizado", desc: "Drivers NVIDIA/AMD desatualizados causam crashes em jogos novos.", tipo: "software" },
+      { titulo: "RAM instável ou insuficiente", desc: "RAM com perfil XMP instável ou pouca memória causa travamentos.", tipo: "hardware" },
+      { titulo: "SSD/HD lento causando stuttering", desc: "Disco lento não carrega texturas a tempo, causando micro-travadas.", tipo: "desgaste" },
+      { titulo: "GPU com defeito (memória VRAM)", desc: "Memória da placa de vídeo com defeito causa artefatos e crashes.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Atualização de drivers, limpeza de poeira, ajuste de ventilação", tempo: "1–2h", custo: "R$100–R$180" },
+      { nivel: "Médio", desc: "Troca de pasta térmica da GPU, teste de fonte, ajuste de RAM/XMP", tempo: "2–4h", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Substituição de fonte, reparo/troca de GPU, upgrade de RAM", tempo: "1–3 dias", custo: "R$300–R$1000+" },
+    ],
+    riscos: [
+      "Ignorar superaquecimento pode queimar a GPU permanentemente",
+      "Fonte subdimensionada pode danificar outros componentes",
+      "Overclock instável acelera degradação de CPU e GPU",
+      "Usar drivers beta pode causar mais instabilidade",
+    ],
+    diagnostico: "Executamos testes de stress com FurMark (GPU), Prime95 (CPU) e MemTest86 (RAM) monitorando temperaturas e estabilidade. Medimos o consumo real da fonte e verificamos se atende à demanda.\n\nIdentificamos exatamente qual componente está falhando sob carga.",
+    solucao: "Para superaquecimento: limpeza + pasta térmica (custo baixo, resultado imediato). Para fonte: substituição por modelo certificado 80 Plus. Para RAM: ajuste de timings ou substituição.\n\nSempre recomendamos a solução mais econômica primeiro.",
+    quandoCompensa: "Quando o PC é capaz de rodar os jogos mas está instável — o custo de estabilizar é muito menor que comprar um PC novo.",
+    quandoNaoCompensa: "Quando o hardware é muito antigo e não atende os requisitos mínimos dos jogos atuais. Nesse caso, upgrade ou troca.",
+    whatsappMessage: "Olá! Meu PC trava/reinicia durante jogos. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "PC Superaquecendo", to: "/pc-superaquecendo-curitiba" },
+      { label: "GPU Desgastada", to: "/gpu-desgastada" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Montagem de PC", to: "/servicos/montagem-pc" },
+    ],
+    conteudoExtra: `## Guia: PC Gamer Travando em Curitiba
+
+### Temperaturas Ideais vs Críticas
+
+| Componente | Ideal | Aceitável | Crítico |
+|---|---|---|---|
+| CPU (jogo) | 60–70°C | 70–80°C | 85°C+ |
+| GPU (jogo) | 65–75°C | 75–85°C | 90°C+ |
+| VRM (placa-mãe) | 50–70°C | 70–90°C | 100°C+ |
+
+### Calculadora de Fonte
+
+| Configuração | Fonte Recomendada |
+|---|---|
+| GTX 1650 + i5/R5 | 450W 80 Plus |
+| RTX 3060 + i5/R5 | 550W 80 Plus Bronze |
+| RTX 4070 + i7/R7 | 650W 80 Plus Gold |
+| RTX 4090 + i9/R9 | 850W+ 80 Plus Gold |
+
+### Manutenção Preventiva Para Gamers
+
+1. **Limpe a poeira** a cada 3–6 meses
+2. **Troque a pasta térmica** anualmente (GPU e CPU)
+3. **Monitore temperaturas** com HWiNFO64
+4. **Mantenha drivers atualizados** (NVIDIA GeForce Experience / AMD Adrenalin)
+5. **Não faça overclock** sem refrigeração adequada
+
+### Atendimento Gamer em Curitiba
+
+Diagnóstico especializado para PCs gamer em toda Curitiba e região. Equipamentos de teste profissionais inclusos.`
+  },
+
+  {
+    slug: "computador-com-som-estranho-curitiba",
+    title: "Computador Com Som Estranho em Curitiba | Diagnóstico de Barulhos",
+    metaDescription: "Computador fazendo barulho estranho? Diagnóstico profissional em Curitiba. Ventoinha, HD, fonte, cooler. Identifique antes que quebre. WhatsApp (41) 99745-2053.",
+    h1: "Computador Com Som Estranho — Diagnóstico de Barulhos e Ruídos",
+    categoria: "Problemas de Hardware",
+    intro: `Seu computador começou a fazer barulhos estranhos? Chiados, zumbidos, cliques ou vibrações não são normais e quase sempre indicam um componente prestes a falhar.\n\nIdentificar a origem do barulho cedo pode evitar quebras mais caras e perda de dados. Cada tipo de som aponta para um componente diferente.\n\nEm Curitiba, diagnosticamos a origem do barulho com precisão para resolver antes que o problema se agrave.`,
+    sintomas: [
+      { titulo: "Barulho de ventoinha muito alto", desc: "Ventoinhas barulhentas indicam poeira acumulada, rolamento desgastado ou superaquecimento.", gravidade: "Simples" },
+      { titulo: "Cliques rítmicos vindos do gabinete", desc: "Clique repetitivo é sinal clássico de HD com falha mecânica. Urgente!", gravidade: "Complexo" },
+      { titulo: "Chiado/zumbido da fonte", desc: "Capacitores da fonte de alimentação podem chiar quando estão falhando.", gravidade: "Médio" },
+      { titulo: "Vibração excessiva do gabinete", desc: "Ventoinha desbalanceada ou HD com vibração anormal.", gravidade: "Simples a Médio" },
+      { titulo: "Beeps ao ligar o PC", desc: "Bips do BIOS indicam erro de hardware — cada padrão significa algo diferente.", gravidade: "Médio a Complexo" },
+    ],
+    causas: [
+      { titulo: "Ventoinha com poeira acumulada", desc: "Poeira no cooler da CPU ou ventoinhas do gabinete causa ruído e superaquecimento.", tipo: "desgaste" },
+      { titulo: "HD mecânico com falha", desc: "Cliques indicam que o cabeçote de leitura está colidindo com os pratos.", tipo: "hardware" },
+      { titulo: "Fonte de alimentação falhando", desc: "Capacitores inchados ou secos causam chiado e instabilidade.", tipo: "desgaste" },
+      { titulo: "Cooler do processador solto", desc: "Presilhas quebradas fazem o cooler vibrar e perder contato térmico.", tipo: "hardware" },
+      { titulo: "Rolamento de ventoinha desgastado", desc: "Com o tempo, o rolamento seca e a ventoinha começa a fazer barulho.", tipo: "desgaste" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de poeira, lubrificação de ventoinha, reposicionamento de componentes", tempo: "30min–1h", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Troca de ventoinha, substituição de cooler, backup preventivo de HD", tempo: "1–2h", custo: "R$100–R$250" },
+      { nivel: "Complexo", desc: "Substituição de HD com clique, troca de fonte, diagnóstico de placa-mãe", tempo: "1–3 dias", custo: "R$200–R$500+" },
+    ],
+    riscos: [
+      "Ignorar cliques de HD pode resultar em perda total de dados",
+      "Fonte com chiado pode causar curto-circuito em outros componentes",
+      "Superaquecimento por ventoinha parada pode queimar CPU ou GPU",
+    ],
+    diagnostico: "Abrimos o gabinete e identificamos a origem do barulho tocando/parando cada ventoinha individualmente. Verificamos o SMART do HD, inspecionamos a fonte e testamos temperaturas.\n\nPara bips do BIOS, consultamos o manual da placa-mãe para decodificar o padrão.",
+    solucao: "Para ventoinhas: limpeza ou troca (R$30–80 por ventoinha). Para HD: backup imediato e substituição por SSD. Para fonte: troca por modelo certificado.\n\nPrevenção é muito mais barata que reparo — limpeza periódica evita a maioria dos problemas.",
+    quandoCompensa: "Sempre compensa diagnosticar barulhos — são avisos de falhas futuras. Resolver cedo é mais barato.",
+    quandoNaoCompensa: "Quando o PC é muito antigo e múltiplos componentes estão desgastados simultaneamente.",
+    whatsappMessage: "Olá! Meu computador está fazendo barulho estranho. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "PC Com Barulho", to: "/pc-com-barulho-estranho-curitiba" },
+      { label: "PC Superaquecendo", to: "/pc-superaquecendo-curitiba" },
+      { label: "HD Não Reconhece", to: "/pc-nao-reconhece-hd-curitiba" },
+      { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Barulhos no Computador em Curitiba
+
+### Tabela de Barulhos e Significados
+
+| Barulho | Origem Provável | Urgência |
+|---|---|---|
+| Zumbido contínuo | Ventoinha com poeira | Baixa |
+| Clique rítmico | HD com falha | ALTA |
+| Chiado agudo | Fonte de alimentação | Média-Alta |
+| Vibração | Ventoinha desbalanceada | Baixa |
+| Bips ao ligar | Erro de hardware (BIOS) | Alta |
+| Rangido | Rolamento de cooler | Média |
+
+### Manutenção Preventiva
+
+- Limpe poeira a cada 3–4 meses
+- Substitua pasta térmica anualmente
+- Troque ventoinhas com mais de 3 anos
+- Monitore saúde do HD com CrystalDiskInfo
+
+### Atendimento em Curitiba
+
+Diagnosticamos barulhos em PCs e notebooks em toda Curitiba e região. Limpeza preventiva inclui verificação de todos os componentes.`
+  },
+
+  {
+    slug: "computador-nao-conecta-bluetooth-curitiba",
+    title: "Computador Não Conecta Bluetooth em Curitiba | Diagnóstico Rápido",
+    metaDescription: "Bluetooth não funciona no computador? Diagnóstico rápido em Curitiba. Driver, adaptador, configuração. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    h1: "Computador Não Conecta Bluetooth — Diagnóstico e Solução",
+    categoria: "Problemas de Conectividade",
+    intro: `O Bluetooth do seu computador parou de funcionar? Não consegue parear fones, mouse, teclado ou caixas de som sem fio?\n\nEsse problema é extremamente comum e na maioria dos casos é causado por driver, configuração ou adaptador desativado.\n\nEm Curitiba, resolvemos problemas de Bluetooth em PCs e notebooks com rapidez.`,
+    sintomas: [
+      { titulo: "Ícone Bluetooth não aparece", desc: "Adaptador desativado, driver ausente ou hardware não presente.", gravidade: "Simples a Médio" },
+      { titulo: "Não encontra dispositivos para parear", desc: "O dispositivo pode não estar em modo de pareamento ou há interferência.", gravidade: "Simples" },
+      { titulo: "Conecta mas desconecta rapidamente", desc: "Driver instável, interferência Wi-Fi ou bateria do dispositivo.", gravidade: "Simples a Médio" },
+      { titulo: "Áudio Bluetooth com atraso/cortes", desc: "Protocolo A2DP com problemas, interferência ou largura de banda insuficiente.", gravidade: "Simples" },
+      { titulo: "Bluetooth conecta mas não funciona", desc: "Perfil errado ativado (ex: telefonia em vez de mídia).", gravidade: "Simples" },
+    ],
+    causas: [
+      { titulo: "Driver Bluetooth corrompido", desc: "Windows Update pode corromper o driver do adaptador Bluetooth.", tipo: "software" },
+      { titulo: "Adaptador desativado no BIOS/Windows", desc: "Bluetooth pode estar desativado nas configurações do sistema.", tipo: "erro-humano" },
+      { titulo: "Interferência com Wi-Fi 2.4GHz", desc: "Bluetooth e Wi-Fi 2.4GHz usam a mesma faixa de frequência.", tipo: "hardware" },
+      { titulo: "Adaptador USB Bluetooth com defeito", desc: "Adaptadores baratos falham com frequência.", tipo: "hardware" },
+      { titulo: "Serviço Bluetooth parado no Windows", desc: "O serviço do Windows que gerencia Bluetooth pode estar desativado.", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Ativação do serviço, reinstalação de driver, reconfiguração", tempo: "15–30min", custo: "R$50–R$100" },
+      { nivel: "Médio", desc: "Instalação de adaptador USB, ajuste de protocolos, redução de interferência", tempo: "30min–1h", custo: "R$80–R$180" },
+      { nivel: "Complexo", desc: "Troca de placa wireless com Bluetooth integrado no notebook", tempo: "1–2h", custo: "R$150–R$300" },
+    ],
+    riscos: [
+      "Instalar driver genérico pode causar conflitos com Wi-Fi",
+      "Adaptadores USB muito baratos têm alcance mínimo",
+    ],
+    diagnostico: "Verificamos status do adaptador, driver, serviços do Windows e fazemos teste de pareamento com dispositivos conhecidos.\n\nPara notebooks, verificamos se a placa wireless inclui Bluetooth (nem todas incluem).",
+    solucao: "Na maioria dos casos: reinstalação de driver + ativação de serviço (15 min). Quando o hardware não tem Bluetooth, instalamos adaptador USB de qualidade.\n\nPara notebooks, podemos trocar a placa wireless por uma com Bluetooth integrado.",
+    quandoCompensa: "Sempre compensa — soluções de Bluetooth são geralmente baratas e rápidas.",
+    quandoNaoCompensa: "Praticamente nunca — adaptadores USB Bluetooth custam a partir de R$30.",
+    whatsappMessage: "Olá! O Bluetooth do meu computador não funciona. Preciso de ajuda.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Notebook Sem Wi-Fi", to: "/notebook-sem-wifi-curitiba" },
+      { label: "Teclado/Mouse", to: "/teclado-mouse-nao-funciona-curitiba" },
+      { label: "Internet Lenta", to: "/internet-lenta-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Bluetooth no Computador em Curitiba
+
+### Checklist Rápido
+
+1. Verifique se Bluetooth está ativado (Configurações > Dispositivos)
+2. Coloque o dispositivo em modo de pareamento
+3. Reinicie o serviço Bluetooth (services.msc)
+4. Reinstale o driver no Gerenciador de Dispositivos
+5. Teste com outro dispositivo Bluetooth
+
+### Atendimento em Curitiba
+
+Resolvemos problemas de Bluetooth no mesmo dia em toda Curitiba e região.`
+  },
 ];
 
 // Helper to get a page by slug

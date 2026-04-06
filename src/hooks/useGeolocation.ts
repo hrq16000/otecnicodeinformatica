@@ -34,43 +34,45 @@ export const useGeolocation = (): GeoData => {
   });
 
   useEffect(() => {
-    const fetchLocation = async () => {
-      try {
-        // Use free IP geolocation API
-        const response = await fetch("https://ipapi.co/json/", {
-          signal: AbortSignal.timeout(5000),
-        });
-        
-        if (!response.ok) {
-          throw new Error("Failed to fetch location");
+    // Defer geolocation to not block initial render / LCP
+    const timer = setTimeout(() => {
+      const fetchLocation = async () => {
+        try {
+          const response = await fetch("https://ipapi.co/json/", {
+            signal: AbortSignal.timeout(5000),
+          });
+          
+          if (!response.ok) {
+            throw new Error("Failed to fetch location");
+          }
+
+          const data = await response.json();
+          
+          const detectedCity = data.city || "";
+          const isInServiceArea = CURITIBA_REGION_CITIES.some(
+            (city) => city.toLowerCase() === detectedCity.toLowerCase()
+          );
+
+          setGeoData({
+            city: isInServiceArea ? detectedCity : getRandomLocalCity(),
+            region: data.region || "Paraná",
+            isLoading: false,
+            error: null,
+          });
+        } catch (error) {
+          setGeoData({
+            city: getRandomLocalCity(),
+            region: "Paraná",
+            isLoading: false,
+            error: null,
+          });
         }
+      };
 
-        const data = await response.json();
-        
-        // Check if city is in our service area
-        const detectedCity = data.city || "";
-        const isInServiceArea = CURITIBA_REGION_CITIES.some(
-          (city) => city.toLowerCase() === detectedCity.toLowerCase()
-        );
+      fetchLocation();
+    }, 3000);
 
-        setGeoData({
-          city: isInServiceArea ? detectedCity : getRandomLocalCity(),
-          region: data.region || "Paraná",
-          isLoading: false,
-          error: null,
-        });
-      } catch (error) {
-        // Fallback to random local city
-        setGeoData({
-          city: getRandomLocalCity(),
-          region: "Paraná",
-          isLoading: false,
-          error: null,
-        });
-      }
-    };
-
-    fetchLocation();
+    return () => clearTimeout(timer);
   }, []);
 
   return geoData;

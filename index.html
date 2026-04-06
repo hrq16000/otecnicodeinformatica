@@ -22,8 +22,6 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.webp" type="image/webp" fetchpriority="high" />
@@ -68,39 +66,33 @@
       #root{min-height:100vh}
     </style>
 
-    <!-- Google Analytics 4 — deferred -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B9VPHCZC10', { send_page_view: true });
-      gtag('config', 'AW-17892118207');
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17892118207/i5jSCMqi1JYcEL-d0NNC',
-        'value': 1.0,
-        'currency': 'BRL'
-      });
-    </script>
-
-    <!-- Google Ads — deferred -->
+    <!-- Google Analytics 4 + Ads — single gtag load, deferred -->
     <script>
       if(typeof requestIdleCallback==='function'){
-        requestIdleCallback(function(){loadGAds()});
+        requestIdleCallback(function(){loadGA()});
       }else{
-        setTimeout(loadGAds,3000);
+        setTimeout(loadGA,2000);
       }
-      function loadGAds(){
+      function loadGA(){
         var s=document.createElement('script');s.async=true;
-        s.src='https://www.googletagmanager.com/gtag/js?id=AW-17892118207';
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';
         document.head.appendChild(s);
         s.onload=function(){
           window.dataLayer=window.dataLayer||[];
           function gtag(){dataLayer.push(arguments);}
-          gtag('js',new Date());gtag('config','AW-17892118207');
+          window.gtag=gtag;
+          gtag('js',new Date());
+          gtag('config','G-B9VPHCZC10',{send_page_view:true});
+          gtag('config','AW-17892118207');
+          gtag('event','conversion',{
+            'send_to':'AW-17892118207/i5jSCMqi1JYcEL-d0NNC',
+            'value':1.0,'currency':'BRL'
+          });
         };
       }
     </script>
+
+    <!-- Google Ads now loaded via unified GA script above -->
 
     <!-- Google Tag Manager — loaded after interactive -->
     <script>

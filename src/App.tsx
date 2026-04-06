@@ -293,6 +293,10 @@ const App = () => (
             <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
             <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
+            <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
+            <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
+            <Route path="/servicos/manutencao-tv" element={<ManutencaoTV />} />
+            <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}
             <Route path="/servicos/formatacao-computador/centro" element={<FormatacaoCentro />} />

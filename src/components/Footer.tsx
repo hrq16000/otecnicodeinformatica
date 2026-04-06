@@ -94,6 +94,9 @@ export const Footer = () => {
                 { label: "Colombo", to: "/tecnico-informatica-colombo" },
                 { label: "Faz. Rio Grande", to: "/tecnico-informatica-fazenda-rio-grande" },
                 { label: "Alm. Tamandaré", to: "/tecnico-informatica-almirante-tamandare" },
+                { label: "Piraquara", to: "/tecnico-informatica-piraquara" },
+                { label: "Campo Magro", to: "/tecnico-informatica-campo-magro" },
+                { label: "Quatro Barras", to: "/tecnico-informatica-quatro-barras" },
               ].map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} className={footerLink}>{item.label}</Link>

@@ -6982,6 +6982,208 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+
+  // ── notebook-teclado-nao-funciona-curitiba ──
+  {
+    slug: "notebook-teclado-nao-funciona-curitiba",
+    title: "Teclado do Notebook Não Funciona em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Teclado do notebook parou de funcionar? Teclas não respondem, digitam errado ou teclado fantasma? Técnico especialista em Curitiba com diagnóstico preciso.",
+    h1: "Teclado do Notebook Não Funciona — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `O teclado é um dos componentes mais utilizados do notebook e, quando falha, compromete totalmente a produtividade. Problemas no teclado podem variar desde teclas individuais que não respondem até o teclado inteiro parando de funcionar.\n\nAs causas são diversas: derramamento de líquidos, desgaste mecânico do flat cable, falhas no driver de teclado do Windows, sujeira acumulada sob as teclas ou até mesmo problemas na placa-mãe. Um diagnóstico preciso é essencial para determinar se a solução é simples (software/limpeza) ou requer troca do componente.\n\nEm Curitiba, nosso técnico realiza o diagnóstico completo do teclado, testando cada circuito e identificando exatamente o ponto de falha antes de qualquer intervenção.`,
+    sintomas: [
+      { titulo: "Teclas não respondem ao pressionar", desc: "Uma ou mais teclas não registram digitação, exigindo pressão excessiva ou simplesmente não funcionam.", gravidade: "Médio" },
+      { titulo: "Teclado digita caracteres errados", desc: "Ao pressionar uma tecla, aparece um caractere diferente do esperado, indicando possível problema de layout ou flat cable.", gravidade: "Simples" },
+      { titulo: "Teclado inteiro parou de funcionar", desc: "Nenhuma tecla responde, mas o notebook liga e funciona normalmente com teclado USB externo.", gravidade: "Complexo" },
+      { titulo: "Teclas digitam sozinhas (teclado fantasma)", desc: "Caracteres são digitados sem que ninguém toque no teclado, geralmente causado por curto-circuito ou líquido.", gravidade: "Complexo" },
+      { titulo: "Algumas teclas estão grudando ou duras", desc: "Teclas travam ou exigem muita força, geralmente por sujeira, resíduo de líquido ou desgaste mecânico.", gravidade: "Simples" },
+      { titulo: "Teclado funciona intermitentemente", desc: "Ora funciona, ora para — problema típico de flat cable com mau contato ou conector solto na placa-mãe.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Derramamento de líquido", desc: "Café, água ou refrigerante derramados causam oxidação e curto-circuito nas trilhas do teclado, podendo danificar permanentemente o componente.", tipo: "erro-humano" },
+      { titulo: "Flat cable danificado ou solto", desc: "O cabo flat que conecta o teclado à placa-mãe pode se soltar com o tempo ou romper por dobras, causando falha parcial ou total.", tipo: "desgaste" },
+      { titulo: "Driver de teclado corrompido", desc: "Atualizações do Windows podem corromper o driver HID do teclado, fazendo com que o sistema não reconheça o dispositivo.", tipo: "software" },
+      { titulo: "Sujeira e detritos sob as teclas", desc: "Acúmulo de poeira, migalhas e pelos sob as teclas impede o contato mecânico correto, causando falhas intermitentes.", tipo: "desgaste" },
+      { titulo: "Problema na placa-mãe (controlador de teclado)", desc: "Em casos mais graves, o chip controlador de teclado na placa-mãe pode falhar, exigindo reparo em nível de componente.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de driver ou configuração de layout — reinstalação do driver HID resolve.", tempo: "30min–1h", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Flat cable solto ou teclado com sujeira — limpeza profunda ou reencaixe do cabo.", tempo: "1–2h", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Teclado danificado por líquido ou falha no controlador — troca do teclado completo ou reparo na placa.", tempo: "2–5 dias", custo: "R$200–R$450" }
+    ],
+    riscos: [
+      "Tentar remover teclas sem experiência pode quebrar os mecanismos de encaixe permanentemente",
+      "Usar secador de cabelo após derramamento de líquido pode espalhar o líquido para áreas não afetadas",
+      "Ignorar teclado fantasma pode causar exclusão acidental de arquivos ou envio de mensagens indesejadas",
+      "Comprar teclado incompatível online resulta em prejuízo financeiro e perda de tempo"
+    ],
+    diagnostico: `O diagnóstico de teclado de notebook envolve múltiplas etapas:\n\n1. Teste com teclado USB externo para isolar se o problema é do teclado interno ou do sistema.\n2. Verificação do Gerenciador de Dispositivos para identificar falhas de driver ou dispositivo não reconhecido.\n3. Teste de cada tecla usando software de mapeamento para identificar o padrão de falha.\n4. Inspeção física do flat cable e conector na placa-mãe.\n5. Em casos de líquido, desmontagem completa para avaliação de oxidação e danos nas trilhas.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução varia conforme a causa identificada:\n\n**Software:** Reinstalação do driver HID, correção de layout de teclado (ABNT2/US Internacional), remoção de software conflitante.\n\n**Flat cable:** Reencaixe ou substituição do cabo flat — requer desmontagem parcial do notebook com ferramentas adequadas.\n\n**Teclado físico:** Substituição completa do teclado por peça compatível com o modelo exato do notebook. Inclui desmontagem, instalação e teste de todas as teclas.\n\n**Placa-mãe:** Reparo do circuito controlador com micro-solda — procedimento avançado realizado em bancada com equipamento profissional.\n\nTodas as soluções incluem teste completo de funcionamento antes da entrega.`,
+    quandoCompensa: "Quando o notebook tem menos de 4 anos, o restante do hardware está em bom estado e o custo do reparo é inferior a 30% do valor de um notebook equivalente novo.",
+    quandoNaoCompensa: "Quando o notebook já apresenta outros problemas (tela, bateria, dobradiça) e o custo acumulado de reparos ultrapassa 50% do valor de um equipamento novo.",
+    conteudoExtra: `## Cuidados Preventivos com o Teclado do Notebook\n\n### Proteção contra líquidos\nUse uma película protetora de silicone sobre o teclado. Evite consumir bebidas próximo ao notebook. Em caso de derramamento, desligue imediatamente, vire o notebook de cabeça para baixo e procure assistência técnica.\n\n### Limpeza periódica\nUse ar comprimido a cada 2-3 meses para remover detritos sob as teclas. Nunca use aspirador de pó diretamente sobre o teclado, pois pode gerar eletricidade estática.\n\n### Teclado externo para uso prolongado\nPara quem digita muitas horas por dia, usar um teclado externo preserva o teclado interno e oferece melhor ergonomia.\n\n## Modelos Mais Comuns com Problema de Teclado em Curitiba\n\n- **Dell Inspiron 15 série 3000/5000** — flat cable com histórico de mau contato\n- **Lenovo IdeaPad 3/5** — teclas com mecanismo frágil\n- **Acer Aspire 5** — sensibilidade a líquidos por design do chassi\n- **Samsung Book** — desgaste prematuro das membranas`,
+    whatsappMessage: "Olá! O teclado do meu notebook não está funcionando. Preciso de diagnóstico e reparo em Curitiba.",
+    relatedPages: [
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── erro-0x800f081f-curitiba ──
+  {
+    slug: "erro-0x800f081f-curitiba",
+    title: "Erro 0x800F081F no Windows em Curitiba | Resolução Profissional",
+    metaDescription: "Erro 0x800F081F no Windows Update ou .NET Framework? Técnico especialista em Curitiba resolve falhas de componentes do Windows com diagnóstico preciso.",
+    h1: "Erro 0x800F081F — Resolução Profissional em Curitiba",
+    categoria: "Software / Windows",
+    intro: `O erro 0x800F081F é um dos mais frustrantes do Windows porque bloqueia a instalação de atualizações, componentes do .NET Framework e recursos opcionais do sistema. Ele indica que o Windows não conseguiu encontrar os arquivos de origem necessários para completar a instalação.\n\nEsse erro é especialmente comum após atualizações de versão do Windows 10/11 (feature updates), em sistemas com políticas de grupo mal configuradas ou quando os componentes do Windows Update estão corrompidos. Também aparece frequentemente ao tentar habilitar o .NET Framework 3.5, necessário para muitos softwares empresariais e jogos.\n\nEm Curitiba, nosso técnico especializado resolve esse erro com procedimentos avançados de reparo do sistema, sem necessidade de formatação na maioria dos casos.`,
+    sintomas: [
+      { titulo: "Erro ao instalar atualizações do Windows", desc: "O Windows Update falha repetidamente com o código 0x800F081F, impedindo a instalação de atualizações de segurança e recursos.", gravidade: "Médio" },
+      { titulo: "Falha ao habilitar .NET Framework 3.5", desc: "Ao tentar ativar o recurso via Painel de Controle ou DISM, o sistema retorna o erro indicando que não encontra os arquivos de origem.", gravidade: "Médio" },
+      { titulo: "Recursos opcionais não instalam", desc: "Componentes como Hyper-V, Subsistema Linux (WSL) ou ferramentas RSAT falham na instalação com este código.", gravidade: "Complexo" },
+      { titulo: "Software que depende do .NET não executa", desc: "Aplicações empresariais, ERPs e jogos mais antigos exigem .NET Framework 3.5 e não funcionam sem ele.", gravidade: "Médio" },
+      { titulo: "Loop de tentativas de atualização", desc: "O Windows tenta instalar a mesma atualização repetidamente, falhando sempre e consumindo banda e recursos do sistema.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Componentes do Windows Update corrompidos", desc: "Pastas SoftwareDistribution ou Catroot2 com dados corrompidos impedem o download e a verificação de integridade dos pacotes.", tipo: "software" },
+      { titulo: "Políticas de Grupo bloqueando fontes de reparo", desc: "A GPO 'Specify settings for optional component installation' pode bloquear o acesso ao Windows Update como fonte de arquivos de reparo.", tipo: "software" },
+      { titulo: "Imagem do sistema danificada (CBS Store)", desc: "O Component Based Servicing (CBS) Store possui arquivos corrompidos que impedem a instalação de novos componentes.", tipo: "software" },
+      { titulo: "Conflito com software de segurança", desc: "Antivírus de terceiros ou firewalls corporativos podem bloquear o download dos componentes necessários do Windows Update.", tipo: "software" },
+      { titulo: "Mídia de instalação incompatível", desc: "Tentativas de instalar .NET 3.5 via mídia de instalação de versão diferente do Windows instalado causam incompatibilidade.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reset dos componentes do Windows Update e limpeza de cache resolve o problema.", tempo: "1–2h", custo: "R$100–R$150" },
+      { nivel: "Médio", desc: "Reparo da imagem do sistema com DISM/SFC e correção de políticas de grupo.", tempo: "2–4h", custo: "R$150–R$250" },
+      { nivel: "Complexo", desc: "CBS Store severamente corrompida — reparo in-place upgrade do Windows preservando dados e programas.", tempo: "4–8h", custo: "R$250–R$400" }
+    ],
+    riscos: [
+      "Ignorar o erro deixa o sistema sem atualizações de segurança, vulnerável a ataques",
+      "Editar o registro do Windows sem conhecimento pode causar instabilidade severa ou impedir o boot",
+      "Baixar 'soluções milagrosas' de sites não confiáveis frequentemente instala malware",
+      "Tentativas repetidas de força bruta podem corromper ainda mais o CBS Store",
+      "Formatar sem necessidade causa perda de dados e tempo quando o reparo seria possível"
+    ],
+    diagnostico: `O diagnóstico do erro 0x800F081F segue um fluxo técnico específico:\n\n1. Análise dos logs CBS (Component Based Servicing) em C:\\Windows\\Logs\\CBS para identificar exatamente qual componente está falhando.\n2. Verificação de integridade da imagem com DISM /Online /Cleanup-Image /CheckHealth.\n3. Análise do registro do Windows para políticas de grupo que possam bloquear fontes de reparo.\n4. Teste de conectividade com os servidores do Windows Update.\n5. Verificação de conflitos com software de segurança instalado.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A resolução do erro 0x800F081F utiliza procedimentos em camadas:\n\n**Nível 1 — Reset de componentes:**\nParada dos serviços BITS e Windows Update, limpeza das pastas SoftwareDistribution e Catroot2, re-registro das DLLs do Windows Update.\n\n**Nível 2 — Reparo da imagem:**\nExecução de DISM /Online /Cleanup-Image /RestoreHealth com fonte de reparo verificada, seguido de SFC /scannow para reparar arquivos do sistema.\n\n**Nível 3 — Correção de políticas:**\nAjuste da GPO para permitir fontes de reparo online, remoção de restrições que bloqueiam o Windows Update como fonte de componentes.\n\n**Nível 4 — Reparo avançado:**\nIn-place upgrade usando mídia de instalação da mesma versão e build do Windows, preservando todos os dados, programas e configurações.\n\nTodas as soluções incluem verificação pós-reparo para garantir que atualizações pendentes são instaladas com sucesso.`,
+    quandoCompensa: "Sempre compensa reparar, pois o erro é de software e a solução não exige troca de peças. O reparo preserva todos os dados e programas instalados.",
+    quandoNaoCompensa: "Apenas quando o sistema já está severamente comprometido com múltiplos erros acumulados e o usuário deseja uma instalação limpa para recomeçar.",
+    conteudoExtra: `## Entendendo os Erros de Windows Update\n\n### A família de erros 0x800F\nOs erros que começam com 0x800F são específicos do CBS (Component Based Servicing), o sistema que gerencia componentes do Windows. Cada código indica um tipo diferente de falha:\n\n- **0x800F081F** — Arquivo de origem não encontrado\n- **0x800F0922** — Partição de sistema cheia ou VPN ativa\n- **0x800F0831** — Pré-requisito de atualização ausente\n\n### Por que o .NET Framework 3.5 é tão problemático?\nO .NET Framework 3.5 é um componente legado que não vem pré-instalado no Windows 10/11. Sua instalação requer download dos servidores da Microsoft, e qualquer interrupção nesse processo gera o erro 0x800F081F.\n\n### Prevenção\n- Mantenha o Windows sempre atualizado\n- Não desabilite o serviço Windows Update\n- Evite ferramentas de "otimização" que desativam componentes do sistema\n- Mantenha pelo menos 10GB livres na partição do sistema`,
+    whatsappMessage: "Olá! Estou com o erro 0x800F081F no Windows e não consigo instalar atualizações. Preciso de ajuda em Curitiba.",
+    relatedPages: [
+      { to: "/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
+      { to: "/erro-0x80004005-curitiba", label: "Erro 0x80004005" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── pc-sem-som-hdmi-curitiba ──
+  {
+    slug: "pc-sem-som-hdmi-curitiba",
+    title: "PC Sem Som no HDMI em Curitiba | Diagnóstico e Solução",
+    metaDescription: "PC ou notebook sem som na TV via HDMI? Áudio não sai pelo HDMI? Técnico em Curitiba resolve problemas de áudio HDMI com diagnóstico preciso.",
+    h1: "PC Sem Som no HDMI — Diagnóstico e Solução em Curitiba",
+    categoria: "Hardware / Áudio",
+    intro: `Conectar o PC ou notebook na TV via HDMI e não ter som é um problema extremamente comum e frustrante. O cabo HDMI transmite tanto vídeo quanto áudio, mas o Windows nem sempre configura automaticamente a saída de som para o dispositivo HDMI.\n\nAs causas variam desde configurações simples de dispositivo de reprodução até problemas mais complexos com drivers de áudio HDMI (geralmente vinculados à placa de vídeo), cabos defeituosos ou incompatibilidade de handshake HDMI entre o PC e a TV.\n\nEm Curitiba, nosso técnico diagnostica e resolve problemas de áudio HDMI em PCs, notebooks e home theaters, garantindo que vídeo e som funcionem perfeitamente na sua TV.`,
+    sintomas: [
+      { titulo: "Imagem aparece na TV mas sem som", desc: "O vídeo é transmitido normalmente pelo HDMI, porém o áudio continua saindo pelos alto-falantes do PC/notebook.", gravidade: "Simples" },
+      { titulo: "Dispositivo HDMI não aparece nas opções de som", desc: "Ao acessar as configurações de som do Windows, não há opção de saída HDMI disponível para seleção.", gravidade: "Médio" },
+      { titulo: "Som no HDMI falha intermitentemente", desc: "O áudio funciona por alguns minutos e depois para, ou falha ao alternar entre aplicações.", gravidade: "Médio" },
+      { titulo: "Áudio com estalos ou distorção pelo HDMI", desc: "O som sai pela TV mas com qualidade degradada, estalos, atrasos ou cortes frequentes.", gravidade: "Médio" },
+      { titulo: "Som funciona com um cabo mas não com outro", desc: "Trocar o cabo HDMI resolve temporariamente, indicando problema no cabo ou na porta HDMI.", gravidade: "Simples" },
+      { titulo: "HDMI funciona em uma TV mas não em outra", desc: "O áudio HDMI funciona em determinados dispositivos mas falha em outros, indicando problema de handshake ou EDID.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Dispositivo de reprodução padrão incorreto", desc: "O Windows está configurado para enviar o áudio para os alto-falantes internos ou outra saída, ignorando o HDMI.", tipo: "software" },
+      { titulo: "Driver de áudio HDMI não instalado", desc: "O componente de áudio HD da placa de vídeo (NVIDIA/AMD/Intel) não está instalado ou está desabilitado no Gerenciador de Dispositivos.", tipo: "software" },
+      { titulo: "Cabo HDMI defeituoso ou de baixa qualidade", desc: "Cabos HDMI danificados ou de qualidade inferior podem transmitir vídeo mas falhar na transmissão de áudio.", tipo: "hardware" },
+      { titulo: "Porta HDMI com defeito", desc: "Pinos danificados na porta HDMI do PC ou da TV podem comprometer o canal de áudio.", tipo: "hardware" },
+      { titulo: "Incompatibilidade de handshake HDMI/EDID", desc: "O protocolo de negociação entre PC e TV falha, resultando em transmissão parcial (apenas vídeo).", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração do dispositivo de reprodução padrão e habilitação do áudio HDMI no Windows.", tempo: "30min–1h", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Instalação/atualização de drivers de áudio HDMI da placa de vídeo e configuração avançada.", tempo: "1–2h", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Problema de hardware na porta HDMI ou placa de vídeo — diagnóstico com teste de componentes.", tempo: "2–4h", custo: "R$200–R$350" }
+    ],
+    riscos: [
+      "Instalar drivers genéricos pode causar conflitos com a placa de vídeo e afetar o desempenho gráfico",
+      "Forçar resoluções incompatíveis pode danificar a configuração de vídeo, resultando em tela preta",
+      "Desabilitar dispositivos de áudio incorretos pode deixar o PC completamente sem som",
+      "Usar adaptadores HDMI de baixa qualidade pode danificar a porta HDMI do PC ou da TV"
+    ],
+    diagnostico: `O diagnóstico de problemas de áudio HDMI segue estas etapas:\n\n1. Verificação das configurações de dispositivo de reprodução padrão no Windows.\n2. Teste com cabo HDMI diferente para descartar problema no cabo.\n3. Verificação do Gerenciador de Dispositivos para drivers de áudio HDMI (Intel Display Audio, NVIDIA High Definition Audio, AMD High Definition Audio).\n4. Teste em outra TV/monitor para isolar o problema.\n5. Análise dos logs de eventos do Windows para erros de dispositivo de áudio.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução para problemas de áudio HDMI envolve:\n\n**Configuração de software:**\nDefinir o dispositivo HDMI como saída de áudio padrão em Configurações > Som > Saída. Habilitar dispositivos desabilitados e desconectados na lista de reprodução.\n\n**Drivers:**\nInstalar o driver completo da placa de vídeo (NVIDIA GeForce Experience, AMD Adrenalin ou Intel Graphics) com o componente de áudio HD incluído. Verificar se o "HD Audio Controller" está habilitado no Gerenciador de Dispositivos.\n\n**Hardware:**\nTeste e substituição de cabo HDMI. Verificação das portas HDMI com lupa para identificar pinos danificados. Em último caso, uso de extrator de áudio HDMI ou adaptador DisplayPort-HDMI com suporte a áudio.\n\nTodas as soluções incluem teste completo com o equipamento do cliente.`,
+    quandoCompensa: "Sempre compensa resolver, pois na maioria dos casos é um problema de configuração ou driver que se resolve rapidamente e a baixo custo.",
+    quandoNaoCompensa: "Quando a porta HDMI da placa-mãe ou placa de vídeo está fisicamente danificada e o custo de reparo se aproxima do valor de uma placa de vídeo nova.",
+    conteudoExtra: `## Guia Rápido: Verificando o Áudio HDMI no Windows\n\n### Passo 1: Verificar dispositivo de reprodução\n1. Clique com o botão direito no ícone de som na bandeja do sistema\n2. Selecione "Configurações de som"\n3. Em "Saída", verifique se o dispositivo HDMI está listado e selecionado\n\n### Passo 2: Verificar dispositivos ocultos\n1. Clique com o botão direito no ícone de som\n2. Selecione "Configurações de som" > "Mais configurações de som"\n3. Na aba "Reprodução", clique com o botão direito e marque "Mostrar dispositivos desabilitados"\n4. Se o HDMI aparecer desabilitado, clique com o botão direito e selecione "Habilitar"\n\n### HDMI ARC vs HDMI normal\nSe você está conectando a uma soundbar via HDMI ARC na TV, certifique-se de usar a porta HDMI marcada como "ARC" na TV e habilitar o CEC/ARC nas configurações da TV.\n\n## Diferenças entre HDMI 1.4, 2.0 e 2.1\nTodos suportam áudio, mas cabos mais antigos (1.4) podem não suportar formatos avançados como Dolby Atmos. Para uso básico (TV como monitor), qualquer versão funciona.`,
+    whatsappMessage: "Olá! Meu PC/notebook não está enviando som pelo HDMI para a TV. Preciso de ajuda em Curitiba.",
+    relatedPages: [
+      { to: "/notebook-sem-audio-curitiba", label: "Notebook Sem Áudio" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── monitor-piscando-curitiba ──
+  {
+    slug: "monitor-piscando-curitiba",
+    title: "Monitor Piscando em Curitiba | Diagnóstico e Reparo Profissional",
+    metaDescription: "Monitor piscando, com flickering ou desligando sozinho? Técnico em Curitiba diagnostica e repara problemas de monitor e placa de vídeo com precisão.",
+    h1: "Monitor Piscando — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware / Vídeo",
+    intro: `Monitor piscando é um problema que afeta tanto a produtividade quanto a saúde visual. O flickering pode se manifestar como piscadas rápidas imperceptíveis (que causam dor de cabeça e fadiga ocular) ou como desligamentos completos da tela com intervalos regulares.\n\nAs causas são variadas: pode ser um problema no próprio monitor (capacitores da fonte interna, backlight ou painel), no cabo de vídeo (HDMI, DisplayPort, VGA), na placa de vídeo, nos drivers ou até na frequência de atualização configurada no Windows.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo testando cada componente da cadeia de vídeo para identificar exatamente a origem do problema antes de qualquer intervenção.`,
+    sintomas: [
+      { titulo: "Monitor pisca em intervalos regulares", desc: "A tela apaga e reacende a cada poucos segundos com padrão repetitivo, indicando possível problema no cabo ou frequência de atualização.", gravidade: "Médio" },
+      { titulo: "Tela com flickering sutil e constante", desc: "Tremulação leve e contínua da imagem, mais perceptível em fundos claros. Causa fadiga ocular e dor de cabeça.", gravidade: "Simples" },
+      { titulo: "Monitor desliga e liga sozinho", desc: "A tela fica preta por alguns segundos e retorna, às vezes com a mensagem 'Sem sinal' antes de voltar.", gravidade: "Complexo" },
+      { titulo: "Linhas horizontais ou verticais piscando", desc: "Linhas coloridas ou brancas aparecem intermitentemente na tela, indicando problema no painel ou na conexão de vídeo.", gravidade: "Complexo" },
+      { titulo: "Monitor pisca apenas em certas resoluções", desc: "O flickering ocorre apenas quando uma resolução ou taxa de atualização específica é configurada.", gravidade: "Simples" },
+      { titulo: "Brilho do monitor oscila sozinho", desc: "O brilho aumenta e diminui automaticamente sem intervenção, geralmente relacionado ao sensor de luz ambiente ou backlight defeituoso.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Cabo de vídeo danificado ou solto", desc: "Cabos HDMI, DisplayPort ou VGA com mau contato ou danificados causam perda intermitente de sinal, resultando em piscadas.", tipo: "hardware" },
+      { titulo: "Taxa de atualização incompatível", desc: "Configurar uma taxa de atualização (Hz) não suportada nativamente pelo monitor causa flickering ou desligamentos.", tipo: "software" },
+      { titulo: "Capacitores da fonte do monitor estufados", desc: "Capacitores eletrolíticos da placa-fonte interna do monitor perdem capacidade com o tempo, causando instabilidade na alimentação do painel.", tipo: "desgaste" },
+      { titulo: "Driver de placa de vídeo com defeito", desc: "Drivers desatualizados, corrompidos ou incompatíveis podem causar flickering, especialmente após atualizações do Windows.", tipo: "software" },
+      { titulo: "Placa de vídeo superaquecendo ou com defeito", desc: "GPU com temperatura excessiva ou falha de memória de vídeo pode causar artefatos e flickering na imagem.", tipo: "hardware" },
+      { titulo: "Backlight do monitor com defeito", desc: "LEDs de retroiluminação falhando causam oscilação de brilho ou piscadas em áreas específicas da tela.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de cabo solto, driver ou configuração de frequência — ajuste rápido resolve.", tempo: "30min–1h", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Cabo defeituoso ou driver com conflito — substituição de cabo e reinstalação limpa do driver.", tempo: "1–2h", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Capacitores do monitor estufados ou backlight defeituoso — reparo eletrônico ou substituição de componentes.", tempo: "3–7 dias", custo: "R$200–R$450" }
+    ],
+    riscos: [
+      "Usar o monitor piscando por longos períodos causa dor de cabeça, fadiga ocular e pode agravar problemas de visão",
+      "Capacitores estufados podem estourar e causar curto-circuito, danificando outros componentes do monitor",
+      "Trocar cabos por versões incompatíveis pode não resolver e mascarar um problema mais grave",
+      "Tentar abrir o monitor sem conhecimento expõe a capacitores de alta voltagem — risco de choque elétrico grave",
+      "Ignorar flickering causado pela placa de vídeo pode indicar falha progressiva que levará à perda total da GPU"
+    ],
+    diagnostico: `O diagnóstico de monitor piscando é sistemático:\n\n1. Teste com outro cabo de vídeo (HDMI, DP ou VGA) para descartar problema no cabo.\n2. Teste do monitor em outro computador para isolar se o problema é do monitor ou do PC.\n3. Verificação da taxa de atualização e resolução configuradas no Windows.\n4. Análise do driver da placa de vídeo e teste com driver genérico.\n5. Inspeção interna do monitor (capacitores, placa-fonte, backlight) quando necessário.\n6. Teste de temperatura da GPU sob carga para descartar superaquecimento.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução depende da causa identificada:\n\n**Software:** Ajuste de taxa de atualização para o valor nativo do monitor, instalação limpa do driver da placa de vídeo (DDU + driver mais recente estável), desativação de recursos como FreeSync/G-Sync quando incompatíveis.\n\n**Cabos e conexões:** Substituição por cabo certificado de qualidade (HDMI 2.0+ ou DisplayPort 1.4+). Verificação e limpeza das portas de vídeo.\n\n**Reparo de monitor:** Substituição de capacitores estufados na placa-fonte interna. Reparo ou troca da barra de LEDs do backlight. Em monitores com valor agregado, o reparo é economicamente viável.\n\n**Placa de vídeo:** Limpeza do cooler da GPU, troca de pasta térmica. Em caso de defeito, orientação para substituição com melhor custo-benefício.\n\nTodos os reparos incluem teste de estabilidade prolongado antes da entrega.`,
+    quandoCompensa: "Quando o monitor é de boa qualidade (IPS, 144Hz+, 4K) e o custo do reparo é inferior a 40% do valor de um monitor equivalente novo.",
+    quandoNaoCompensa: "Quando o monitor é básico (TN, Full HD, 60Hz) com mais de 5 anos e o custo de um monitor novo equivalente é baixo (R$500-700).",
+    conteudoExtra: `## Como Testar se o Problema é do Monitor ou do PC\n\n### Teste rápido\n1. Desconecte o cabo de vídeo do PC\n2. Se o monitor exibir a mensagem "Sem sinal" sem piscar, o monitor está OK — o problema é no PC ou cabo\n3. Se o monitor continuar piscando mesmo sem sinal, o defeito é interno do monitor\n\n### Teste do cabo\n1. Experimente outro cabo de vídeo (peça emprestado se necessário)\n2. Se possível, teste com outro tipo de conexão (ex: trocar HDMI por DisplayPort)\n\n### Teste cruzado\n1. Conecte o monitor em outro PC ou notebook\n2. Conecte outro monitor no seu PC\n3. Isso isola definitivamente se o problema é do monitor, do PC ou do cabo\n\n## Frequências de Atualização e Flickering\n\n| Frequência | Flickering visível? | Recomendação |\n|-----------|--------------------|--------------|\n| 60Hz | Possível em CRT, raro em LCD | Mínimo aceitável para LCD |\n| 75Hz | Raro | Bom para uso geral |\n| 120Hz+ | Muito raro | Ideal para jogos e produtividade |`,
+    whatsappMessage: "Olá! Meu monitor está piscando/com flickering. Preciso de diagnóstico em Curitiba.",
+    relatedPages: [
+      { to: "/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
+      { to: "/pc-travando-em-jogos-curitiba", label: "PC Travando em Jogos" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

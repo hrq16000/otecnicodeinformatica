@@ -16,7 +16,7 @@ export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) =>
     {
       icon: Award,
       title: "Mais de 20 anos de experiência",
-      description: "Atendendo Curitiba e região desde 2014",
+      description: "Atendendo Curitiba e região desde 2005",
     },
     {
       icon: Clock,

@@ -25,6 +25,7 @@ import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
 import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Index = () => {
   useEffect(() => {
@@ -44,86 +45,102 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        {/* Availability + Pricing */}
-        <section className="py-6 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-4 mb-4">
-                <TechnicianAvailability />
-                <div className="flex items-center">
-                  <PricingBanner />
+        <AnimatedSection>
+          <section className="py-6 bg-background">
+            <div className="container mx-auto">
+              <div className="max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <TechnicianAvailability />
+                  <div className="flex items-center">
+                    <PricingBanner />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <PainSection />
-        <SchedulingSection />
-        <ServicesSection />
-        <TopSearchedServicesSection />
-        <CoverageMapSection />
-        <CitiesSection />
-        <NeighborhoodsSection />
-        <SocialProofSection />
+          </section>
+        </AnimatedSection>
+        <AnimatedSection>
+          <PainSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <SchedulingSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <ServicesSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <TopSearchedServicesSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <CoverageMapSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <CitiesSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <NeighborhoodsSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <SocialProofSection />
+        </AnimatedSection>
 
-        {/* Como Funciona - Resumo */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
-                Como Funciona Nosso Atendimento
-              </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Atendimento técnico simples, rápido e transparente em 3 passos
-              </p>
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">1</div>
-                  <h3 className="font-bold text-primary mb-2">Chame no WhatsApp</h3>
-                  <p className="text-sm text-muted-foreground">Descreva o problema e receba orientação imediata do técnico</p>
+        <AnimatedSection>
+          <section className="py-12 md:py-16 bg-secondary">
+            <div className="container mx-auto">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
+                  Como Funciona Nosso Atendimento
+                </h2>
+                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Atendimento técnico simples, rápido e transparente em 3 passos
+                </p>
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  <div className="bg-background rounded-xl p-6 text-center">
+                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">1</div>
+                    <h3 className="font-bold text-primary mb-2">Chame no WhatsApp</h3>
+                    <p className="text-sm text-muted-foreground">Descreva o problema e receba orientação imediata do técnico</p>
+                  </div>
+                  <div className="bg-background rounded-xl p-6 text-center">
+                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">2</div>
+                    <h3 className="font-bold text-primary mb-2">Diagnóstico e Orçamento</h3>
+                    <p className="text-sm text-muted-foreground">Avaliação profissional com orçamento transparente antes da execução</p>
+                  </div>
+                  <div className="bg-background rounded-xl p-6 text-center">
+                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">3</div>
+                    <h3 className="font-bold text-primary mb-2">Execução com Garantia</h3>
+                    <p className="text-sm text-muted-foreground">Serviço realizado com aprovação e garantia por escrito</p>
+                  </div>
                 </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">2</div>
-                  <h3 className="font-bold text-primary mb-2">Diagnóstico e Orçamento</h3>
-                  <p className="text-sm text-muted-foreground">Avaliação profissional com orçamento transparente antes da execução</p>
-                </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">3</div>
-                  <h3 className="font-bold text-primary mb-2">Execução com Garantia</h3>
-                  <p className="text-sm text-muted-foreground">Serviço realizado com aprovação e garantia por escrito</p>
-                </div>
+                <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                  Entender Como Funciona
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </a>
               </div>
-              <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-                Entender Como Funciona
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </a>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
 
-        <HomePricingBlock />
-        <HomeDiagnosticoBlock />
-        <HomeEquipamentosBlock />
-        <HomeParaQuemBlock />
-        <InterlinkingBlock />
-
-        <FAQSection />
-        <TrustSection />
-        <CTASection />
-        {/* Trust Badges Section */}
-        <section className="py-8 bg-muted/30">
-          <div className="container mx-auto">
-            <div className="text-center mb-6">
-              <SecurityBadge />
+        <AnimatedSection><HomePricingBlock /></AnimatedSection>
+        <AnimatedSection><HomeDiagnosticoBlock /></AnimatedSection>
+        <AnimatedSection><HomeEquipamentosBlock /></AnimatedSection>
+        <AnimatedSection><HomeParaQuemBlock /></AnimatedSection>
+        <AnimatedSection><InterlinkingBlock /></AnimatedSection>
+        <AnimatedSection><FAQSection /></AnimatedSection>
+        <AnimatedSection><TrustSection /></AnimatedSection>
+        <AnimatedSection><CTASection /></AnimatedSection>
+        <AnimatedSection>
+          <section className="py-8 bg-muted/30">
+            <div className="container mx-auto">
+              <div className="text-center mb-6">
+                <SecurityBadge />
+              </div>
+              <TrustBadges variant="card" />
             </div>
-            <TrustBadges variant="card" />
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
       </main>
       <Footer />
       <WhatsAppChatbot />
-      
-      {/* Social Proof System */}
       <SocialProofProvider />
       <SocialProofAdminPanel />
     </div>

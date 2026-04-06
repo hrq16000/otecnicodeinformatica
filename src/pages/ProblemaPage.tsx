@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AlertCircle, MessageCircle, ArrowRight, CheckCircle, Wrench, Shield, Search, TrendingDown } from "lucide-react";
@@ -128,6 +129,7 @@ const ProblemaPage = () => {
         </div>
       </section>
 
+      <AnimatedSection>
       {/* Introdução completa */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
@@ -138,7 +140,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Sintomas */}
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
@@ -157,7 +161,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Causas Reais */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
@@ -178,7 +184,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Cenários */}
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
@@ -199,7 +207,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Riscos */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
@@ -219,7 +229,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Diagnóstico */}
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
@@ -235,7 +247,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Solução */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
@@ -251,7 +265,9 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Quando Compensa / Não Compensa */}
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
@@ -271,9 +287,11 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Conteúdo Extra (Markdown) */}
       {data.conteudoExtra && (
+        <AnimatedSection>
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto prose prose-sm md:prose-base prose-headings:text-primary prose-headings:font-bold">
@@ -281,10 +299,12 @@ const ProblemaPage = () => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
       )}
 
       {/* FAQ Visível */}
       {faqItems.length > 0 && (
+        <AnimatedSection>
         <section className="py-12 bg-secondary">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -303,8 +323,10 @@ const ProblemaPage = () => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
       )}
 
+      <AnimatedSection>
       {/* CTA */}
       <section className="py-12 bg-primary text-white">
         <div className="container mx-auto text-center px-4">
@@ -315,7 +337,9 @@ const ProblemaPage = () => {
           </Button>
         </div>
       </section>
+      </AnimatedSection>
 
+      <AnimatedSection>
       {/* Links Relacionados */}
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
@@ -331,6 +355,7 @@ const ProblemaPage = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       <BlocoInteligencia />
       <InterlinkingBlock />

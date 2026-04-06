@@ -216,6 +216,95 @@ const Servicos = () => {
                 );
               })}
             </div>
+
+            {/* Blocos por tipo de problema */}
+            <div className="mt-16">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-8 text-center">
+                Qual o Seu Problema?
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    problema: "Computador Lento",
+                    descricao: "HD antigo, pouca RAM, vírus ou Windows corrompido. Diagnóstico identifica a causa real.",
+                    links: [
+                      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+                      { label: "Formatação", to: "/servicos/formatacao-computador" },
+                      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+                    ],
+                  },
+                  {
+                    problema: "Notebook Não Liga",
+                    descricao: "Pode ser bateria, carregador, placa-mãe ou tela. Precisa de diagnóstico técnico.",
+                    links: [
+                      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+                      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+                    ],
+                  },
+                  {
+                    problema: "Vírus e Pop-ups",
+                    descricao: "Propagandas, programas estranhos, lentidão extrema. Limpeza profissional com proteção.",
+                    links: [
+                      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+                      { label: "Formatação", to: "/servicos/formatacao-computador" },
+                    ],
+                  },
+                  {
+                    problema: "Wi-Fi Lento ou Caindo",
+                    descricao: "Posicionamento do roteador, interferência ou configuração errada. Resolvemos na visita.",
+                    links: [
+                      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+                    ],
+                  },
+                  {
+                    problema: "Perdi Meus Arquivos",
+                    descricao: "HD com defeito, formatação acidental ou ransomware. Tentamos recuperar antes de tudo.",
+                    links: [
+                      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+                    ],
+                  },
+                  {
+                    problema: "Quero Montar ou Melhorar Meu PC",
+                    descricao: "Montagem personalizada ou upgrade de componentes para melhor desempenho.",
+                    links: [
+                      { label: "Montagem de PC", to: "/servicos/montagem-pc" },
+                      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+                    ],
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="bg-secondary rounded-xl p-6 border border-transparent hover:border-accent/20 transition-all">
+                    <h3 className="text-lg font-bold text-primary mb-2">{item.problema}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">{item.descricao}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {item.links.map((link) => (
+                        <Link key={link.to} to={link.to} className="text-xs bg-accent/10 text-accent px-3 py-1.5 rounded-full hover:bg-accent/20 transition-colors">
+                          {link.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Links para decisão */}
+            <div className="mt-12 bg-secondary rounded-xl p-6 md:p-8">
+              <h3 className="text-xl font-bold text-primary mb-4 text-center">Antes de Solicitar um Serviço</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <Link to="/como-funciona" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
+                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Como Funciona</p>
+                  <p className="text-xs text-muted-foreground mt-1">Entenda o passo a passo do atendimento</p>
+                </Link>
+                <Link to="/precos-e-politicas" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
+                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Preços e Condições</p>
+                  <p className="text-xs text-muted-foreground mt-1">Valores claros e transparentes</p>
+                </Link>
+                <Link to="/diagnostico-tecnico" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
+                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Diagnóstico Técnico</p>
+                  <p className="text-xs text-muted-foreground mt-1">Por que o diagnóstico é pago</p>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -16,27 +16,57 @@ const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 const mainNavItems = [
   { label: "Início", to: "/" },
-  { label: "Serviços", to: "/servicos" },
-  { label: "Como Funciona", to: "/como-funciona" },
-  { label: "Preços", to: "/precos-e-politicas" },
-  { label: "Diagnóstico", to: "/diagnostico-tecnico" },
-  { label: "Domicílio", to: "/atendimento-domicilio" },
-];
-
-const moreNavItems = [
-  { label: "Equipamentos", to: "/equipamentos-atendidos" },
-  { label: "CFTV", to: "/cftv" },
-  { label: "Empresas", to: "/suporte-empresas" },
-  { label: "Remoto", to: "/atendimento-remoto" },
-  { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
-  { label: "Casos Reais", to: "/problemas-reais-e-casos" },
-  { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
-  { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
-  { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
-  { label: "Blog", to: "/blog" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Sobre", to: "/sobre" },
-  { label: "Contato", to: "/contato" },
+  {
+    label: "Serviços",
+    to: "/servicos",
+    sub: [
+      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "CFTV / Câmeras", to: "/cftv" },
+      { label: "Todos os Serviços", to: "/servicos" },
+    ],
+  },
+  {
+    label: "Atendimento",
+    to: "/como-funciona",
+    sub: [
+      { label: "Como Funciona", to: "/como-funciona" },
+      { label: "Preços e Políticas", to: "/precos-e-politicas" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+      { label: "Domicílio", to: "/atendimento-domicilio" },
+      { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
+      { label: "Remoto", to: "/atendimento-remoto" },
+      { label: "Empresas", to: "/suporte-empresas" },
+    ],
+  },
+  {
+    label: "Regiões",
+    to: "/tecnico-informatica-curitiba",
+    sub: [
+      { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
+      { label: "Araucária", to: "/tecnico-informatica-araucaria" },
+      { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
+      { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
+    ],
+  },
+  {
+    label: "Saiba Mais",
+    to: "/blog",
+    sub: [
+      { label: "Blog", to: "/blog" },
+      { label: "Equipamentos Atendidos", to: "/equipamentos-atendidos" },
+      { label: "Casos Reais", to: "/problemas-reais-e-casos" },
+      { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
+      { label: "FAQ", to: "/faq" },
+      { label: "Sobre", to: "/sobre" },
+      { label: "Contato", to: "/contato" },
+    ],
+  },
 ];
 
 export const Header = () => {

@@ -160,6 +160,10 @@ export const Footer = () => {
             <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline transition-colors">
               Preciso de Um
             </a>
+            {" · "}
+            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline transition-colors">
+              Mestre dos Serviços
+            </a>
           </p>
         </div>
       </div>

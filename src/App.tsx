@@ -157,6 +157,9 @@ const UpgradeSsdPinhais = lazy(() => import("./pages/servico-bairro/UpgradeSsdPi
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
 
+// Dynamic problem/intent pages (50 páginas de intenção de busca)
+const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
+
 // CFTV
 const CFTVPage = lazy(() => import("./pages/CFTV"));
 const CFTVCuritiba = lazy(() => import("./pages/cftv/CFTVCuritiba"));

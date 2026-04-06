@@ -1233,69 +1233,1260 @@ TVs LED modernas usam tiras de LEDs para iluminar o painel LCD. Quando esses LED
   },
 
   // ===== ERROS / CASOS (26-30) =====
-  { slug: "erro-ao-instalar-memoria-ram", title: "Erro ao Instalar Memória RAM | Guia Técnico", metaDescription: "Erro ao instalar RAM? Computador não liga após trocar memória? Veja causas e soluções. Diagnóstico profissional em Curitiba.", h1: "Erro ao Instalar Memória RAM — O Que Fazer?", categoria: "Erros e Casos Reais", intro: `Instalou memória RAM nova e o computador não liga, emite bips ou fica com tela preta? RAM incompatível, mal encaixada ou frequência diferente são as causas mais comuns. Cada placa-mãe aceita tipos específicos de memória (DDR3, DDR4, DDR5) com frequências específicas. Instalar o módulo errado pode resultar em tela preta, instabilidade ou até dano ao slot.`, sintomas: [{ titulo: "Computador não liga após instalar RAM", desc: "RAM incompatível ou mal encaixada.", gravidade: "Simples" }, { titulo: "Bips ao ligar", desc: "Sequência de bips indica problema de memória.", gravidade: "Simples" }, { titulo: "Instabilidade e travamentos", desc: "RAM funcionou mas é incompatível em frequência ou timings.", gravidade: "Simples a médio" }], causas: [{ titulo: "RAM de geração errada", desc: "DDR4 em slot DDR3 ou vice-versa. Não são compatíveis.", tipo: "erro-humano" }, { titulo: "Frequência incompatível", desc: "RAM com frequência diferente da suportada pela placa.", tipo: "erro-humano" }, { titulo: "Módulo mal encaixado", desc: "Trava não clicou completamente.", tipo: "erro-humano" }, { titulo: "Slot com defeito", desc: "Slot danificado durante a instalação.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reencaixe correto ou troca por módulo compatível.", tempo: "30 min", custo: "R$ 90" }, { nivel: "Médio", desc: "Diagnóstico de compatibilidade + compra do módulo correto.", tempo: "1h", custo: "R$ 100 a R$ 200 + peça" }, { nivel: "Complexo", desc: "Slot danificado — reparo de placa-mãe.", tempo: "3 a 7 dias", custo: "R$ 200 a R$ 500" }], riscos: ["Forçar módulo pode danificar o slot permanentemente", "RAM incompatível pode causar instabilidade em dados"], diagnostico: `Verificação de compatibilidade, teste de módulos, inspeção de slots. Custo: R$ 90.`, solucao: `Identificar módulo compatível, instalar corretamente, testar estabilidade.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Se o slot foi danificado fisicamente em placa antiga.", whatsappMessage: "Olá! Instalei memória RAM e meu computador não funciona. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/upgrade-deu-problema" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Como Evitar Erros de RAM\n\n1. Verifique o manual da placa-mãe para saber DDR e frequência suportados\n2. Use sites como Crucial.com para verificar compatibilidade\n3. Sempre desligue e desconecte da tomada antes de instalar\n4. Use pulseira antiestática\n5. Ouça o "click" da trava ao encaixar` },
+  { slug: "erro-ao-instalar-memoria-ram", title: "Erro ao Instalar Memória RAM | Guia Técnico", metaDescription: "Erro ao instalar RAM? Computador não liga após trocar memória? Veja causas e soluções. Diagnóstico profissional em Curitiba.", h1: "Erro ao Instalar Memória RAM — O Que Fazer?", categoria: "Erros e Casos Reais", intro: `Instalou memória RAM nova e o computador não liga, emite bips ou fica com tela preta? RAM incompatível, mal encaixada ou frequência diferente são as causas mais comuns. Cada placa-mãe aceita tipos específicos de memória (DDR3, DDR4, DDR5) com frequências específicas. Instalar o módulo errado pode resultar em tela preta, instabilidade ou até dano ao slot.`, sintomas: [{ titulo: "Computador não liga após instalar RAM", desc: "RAM incompatível ou mal encaixada.", gravidade: "Simples" }, { titulo: "Bips ao ligar", desc: "Sequência de bips indica problema de memória.", gravidade: "Simples" }, { titulo: "Instabilidade e travamentos", desc: "RAM funcionou mas é incompatível em frequência ou timings.", gravidade: "Simples a médio" }], causas: [{ titulo: "RAM de geração errada", desc: "DDR4 em slot DDR3 ou vice-versa. Não são compatíveis.", tipo: "erro-humano" }, { titulo: "Frequência incompatível", desc: "RAM com frequência diferente da suportada pela placa.", tipo: "erro-humano" }, { titulo: "Módulo mal encaixado", desc: "Trava não clicou completamente.", tipo: "erro-humano" }, { titulo: "Slot com defeito", desc: "Slot danificado durante a instalação.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reencaixe correto ou troca por módulo compatível.", tempo: "30 min", custo: "R$ 90" }, { nivel: "Médio", desc: "Diagnóstico de compatibilidade + compra do módulo correto.", tempo: "1h", custo: "R$ 100 a R$ 200 + peça" }, { nivel: "Complexo", desc: "Slot danificado — reparo de placa-mãe.", tempo: "3 a 7 dias", custo: "R$ 200 a R$ 500" }], riscos: ["Forçar módulo pode danificar o slot permanentemente", "RAM incompatível pode causar instabilidade em dados"], diagnostico: `Verificação de compatibilidade, teste de módulos, inspeção de slots. Custo: R$ 90.`, solucao: `Identificar módulo compatível, instalar corretamente, testar estabilidade.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Se o slot foi danificado fisicamente em placa antiga.", whatsappMessage: "Olá! Instalei memória RAM e meu computador não funciona. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/upgrade-deu-problema" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Erros Comuns em Upgrade", to: "/erros-comuns-em-upgrade" }], conteudoExtra: `### Como Evitar Erros de RAM
 
-  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | Técnico Curitiba", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 90 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/erros-comuns-em-upgrade" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)\n\n| Upgrade | Erro Comum | Como Evitar |\n|---|---|---|\n| SSD | Interface errada (NVMe vs SATA) | Verificar manual da placa |\n| RAM | Geração ou frequência errada | Consultar QVL da placa |\n| GPU | Fonte insuficiente | Calcular TDP total |\n| Processador | Socket incompatível | Verificar compatibilidade exata |` },
+1. Verifique o manual da placa-mãe para saber DDR e frequência suportados
+2. Use sites como Crucial.com para verificar compatibilidade
+3. Sempre desligue e desconecte da tomada antes de instalar
+4. Use pulseira antiestática
+5. Ouça o "click" da trava ao encaixar
 
-  { slug: "placa-mae-queimada", title: "Placa-Mãe Queimada | Diagnóstico Curitiba", metaDescription: "Placa-mãe queimada? Veja sintomas, causas e quando compensa reparar. Diagnóstico profissional em Curitiba.", h1: "Placa-Mãe Queimada — Diagnóstico e Opções", categoria: "Erros e Casos Reais", intro: `Uma placa-mãe queimada é um dos diagnósticos mais temidos — mas nem sempre significa substituição total. Em muitos casos, o dano é localizado (um capacitor, um regulador de tensão, uma trilha) e pode ser reparado em bancada por um valor muito menor que a troca.`, sintomas: [{ titulo: "Computador não liga de jeito nenhum", desc: "Curto na placa impede qualquer inicialização.", gravidade: "Complexo" }, { titulo: "Cheiro de queimado", desc: "Componente queimou. Pode ser localizado ou extenso.", gravidade: "Complexo" }, { titulo: "Funciona parcialmente", desc: "Algumas portas não funcionam, USB mortas, etc.", gravidade: "Médio" }], causas: [{ titulo: "Pico de energia", desc: "Surto na rede elétrica queima componentes. Usar estabilizador/nobreak previne.", tipo: "hardware" }, { titulo: "Curto por líquido ou poeira", desc: "Líquido ou poeira condutiva entre trilhas causa curto.", tipo: "erro-humano" }, { titulo: "Desgaste natural", desc: "Capacitores estufam após 5-10 anos de uso.", tipo: "desgaste" }, { titulo: "Uso de fonte de baixa qualidade", desc: "Fontes genéricas podem enviar tensão irregular e danificar a placa.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Componente localizado (capacitor, fusível). Reparo em bancada.", tempo: "2 a 5 dias", custo: "R$ 200 a R$ 400" }, { nivel: "Médio", desc: "Regulador de tensão ou múltiplos capacitores.", tempo: "5 a 10 dias", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Dano extenso — troca de placa necessária.", tempo: "Depende", custo: "R$ 400 a R$ 1500+ (placa nova)" }], riscos: ["Continuar usando com queima parcial pode danificar outros componentes", "Reparo amador pode causar mais curtos"], diagnostico: `Inspeção visual com lupa/microscópio, teste de curto com multímetro, medição de tensões. Custo: R$ 90.`, solucao: `Para dano localizado: reparo com microssolda. Para dano extenso: troca de placa.`, quandoCompensa: "Reparo de componentes localizados quase sempre compensa. Vale verificar antes de comprar placa nova.", quandoNaoCompensa: "Dano extenso em placa antiga onde o custo da troca supera o valor do computador.", whatsappMessage: "Olá! Acho que a placa-mãe do meu computador queimou. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Curto em Placa", to: "/curto-em-placa-eletronica" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }], conteudoExtra: `### Vale a Pena Reparar a Placa-Mãe?\n\nDepende:\n- **Sim**: quando o dano é localizado (1-2 componentes), reparo custa R$ 200-400\n- **Talvez**: quando precisa de análise para determinar extensão\n- **Não**: quando há queima extensa ou a placa é antiga demais` },
+### Entendendo os Tipos de RAM
 
-  { slug: "gpu-desgastada", title: "GPU Desgastada | Diagnóstico Curitiba", metaDescription: "GPU/placa de vídeo com problemas? Artefatos, tela preta, desempenho baixo? Diagnóstico em Curitiba.", h1: "GPU Desgastada — Sinais e O Que Fazer", categoria: "Erros e Casos Reais", intro: `GPUs (placas de vídeo) são componentes que trabalham sob alta temperatura e carga. Com o tempo, solda, pasta térmica e capacitores degradam. Os sinais mais comuns são artefatos na tela, travamentos em jogos e tela preta. GPUs usadas em mineração de criptomoedas sofrem desgaste acelerado.`, sintomas: [{ titulo: "Artefatos visuais (pixels coloridos)", desc: "Pontos, linhas ou blocos coloridos na tela. Memória da GPU ou chip com defeito.", gravidade: "Médio a complexo" }, { titulo: "Tela preta em jogos", desc: "GPU não aguenta carga e desliga o vídeo.", gravidade: "Médio" }, { titulo: "Performance muito abaixo do esperado", desc: "Temperaturas altas causam throttling ou chip degradado.", gravidade: "Médio" }], causas: [{ titulo: "Desgaste por temperatura", desc: "Anos de uso em temperatura alta degradam a solda e os chips.", tipo: "desgaste" }, { titulo: "Mineração de criptomoedas", desc: "Uso 24/7 em carga máxima acelera o desgaste em 3-5x.", tipo: "desgaste" }, { titulo: "Pasta térmica seca", desc: "GPU esquenta mais que deveria, acelerando degradação.", tipo: "desgaste" }, { titulo: "Solda fria (BGA)", desc: "Microsoldas entre chip e substrato perdem contato.", tipo: "desgaste" }], cenarios: [{ nivel: "Simples", desc: "Troca de pasta térmica e limpeza. Pode resolver throttling.", tempo: "1h", custo: "R$ 120 a R$ 200" }, { nivel: "Médio", desc: "Troca de pasta + pads térmicos + teste extensivo.", tempo: "1 a 2 dias", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Reballing (resolda do chip). Nem sempre funciona.", tempo: "5 a 15 dias", custo: "R$ 300 a R$ 600" }], riscos: ["Reballing não é garantido e a GPU pode falhar novamente", "Continuar usando com artefatos pode causar dano ao monitor (raro)"], diagnostico: `Teste de estresse com monitoramento de temperatura, análise de artefatos, verificação de solda com diagnóstico térmico. Custo: R$ 90.`, solucao: `Para superaquecimento: manutenção térmica. Para solda fria: reballing (quando viável). Para desgaste severo: substituição.`, quandoCompensa: "Limpeza + pasta sempre compensa. Reballing compensa para GPUs de médio a alto valor.", quandoNaoCompensa: "Reballing de GPU de baixo valor (GT 710, GT 1030) ou muito antiga.", whatsappMessage: "Olá! Minha placa de vídeo está com problemas. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Sem Vídeo", to: "/computador-sem-video-curitiba" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }], conteudoExtra: `### GPUs de Mineração: Cuidado\n\nSe você comprou GPU usada que foi usada em mineração, saiba que:\n- A vida útil foi drasticamente reduzida\n- Soldas BGA estão mais frágeis\n- Ventoinhas podem estar desgastadas\n- Reballing pode dar sobrevida temporária` },
+A memória RAM passou por diversas gerações, cada uma incompatível fisicamente com a anterior:
 
-  { slug: "curto-em-placa-eletronica", title: "Curto em Placa Eletrônica | Diagnóstico Curitiba", metaDescription: "Curto-circuito em placa eletrônica? Diagnóstico profissional e reparo com microssolda em Curitiba.", h1: "Curto em Placa Eletrônica — Diagnóstico e Reparo", categoria: "Erros e Casos Reais", intro: `Um curto-circuito em placa eletrônica pode afetar computadores, notebooks, TVs e diversos equipamentos. O curto ocorre quando dois pontos que não deveriam estar conectados fazem contato — por líquido, poeira condutiva, componente queimado ou trilha danificada. O diagnóstico com multímetro e câmera térmica localiza o ponto exato do curto.`, sintomas: [{ titulo: "Equipamento não liga", desc: "Curto impede alimentação. Fonte entra em proteção.", gravidade: "Médio a complexo" }, { titulo: "Cheiro de queimado", desc: "Componente em curto gera calor e queima.", gravidade: "Complexo" }, { titulo: "Funciona parcialmente", desc: "Curto em trilha específica afeta apenas uma função.", gravidade: "Médio" }], causas: [{ titulo: "Líquido na placa", desc: "Água, café ou outros líquidos criam caminhos de curto.", tipo: "erro-humano" }, { titulo: "Componente SMD queimado", desc: "Resistor, capacitor ou diodo que falhou e criou curto.", tipo: "hardware" }, { titulo: "Poeira condutiva", desc: "Acúmulo de poeira metálica ou úmida entre trilhas.", tipo: "desgaste" }, { titulo: "Dano por ferramenta", desc: "Chave de fenda escorregou e riscou trilha, criando contato.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Limpeza e remoção do agente causador do curto.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Troca de componente SMD em curto.", tempo: "2 a 5 dias", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Reparo de trilha danificada + troca de componentes.", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 800+" }], riscos: ["Curto em cadeia pode danificar vários componentes", "Tentar reparar sem equipamento adequado causa mais dano"], diagnostico: `Localização do curto com multímetro e câmera térmica, identificação do componente causador, análise da extensão do dano. Custo: R$ 90-150.`, solucao: `Remoção do componente em curto, troca por novo, limpeza e teste completo.`, quandoCompensa: "Quando o curto é localizado e o equipamento tem valor. O reparo é viável na maioria dos casos.", quandoNaoCompensa: "Quando o curto causou dano em cadeia extenso.", whatsappMessage: "Olá! Meu equipamento tem curto-circuito. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Placa-Mãe Queimada", to: "/placa-mae-queimada" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }], conteudoExtra: `### Como Ocorre um Curto?\n\nImagine trilhas de cobre na placa como estradas. Um curto é como uma ponte ilegal entre duas estradas — a energia vai para onde não deveria, causando dano. O diagnóstico localiza essa "ponte" e a remove.` },
+- **DDR3**: Computadores de 2007 a 2015. Voltagem 1.5V. Chanfro (encaixe) diferente da DDR4.
+- **DDR4**: Computadores de 2015 a 2022. Voltagem 1.2V. Padrão mais comum atualmente.
+- **DDR5**: Computadores a partir de 2022. Voltagem 1.1V. Plataformas Intel 12ª geração+ e AMD AM5.
+
+Cada tipo tem o chanfro (corte no módulo) em posição diferente, o que impede fisicamente a instalação no slot errado. Porém, módulos com voltagem ou frequência inadequada podem encaixar mas não funcionar, gerando tela preta ou bips.
+
+### Frequência e Timings: O Que Importa
+
+Não basta ser o DDR correto. A frequência (ex: 2400MHz, 3200MHz, 4800MHz) deve ser suportada pela placa-mãe. Instalar RAM de 3200MHz em placa que suporta até 2400MHz não vai danificar nada, mas o módulo vai operar em velocidade reduzida. Já instalar frequência ABAIXO do mínimo pode causar instabilidade.
+
+Os **timings** (CL16, CL18, etc.) também importam quando se mistura módulos diferentes. Dois pentes com timings muito diferentes podem causar travamentos intermitentes — difíceis de diagnosticar sem ferramentas profissionais como MemTest86.
+
+### Casos Reais em Curitiba
+
+Recebemos semanalmente casos de upgrade de RAM mal executado na região de Curitiba e metropolitana:
+
+- **Caso 1 - Portão**: Cliente comprou DDR4 2666MHz para placa que suportava apenas DDR3. Módulo não encaixava e ele forçou — resultado: slot quebrado. Reparo: R$ 350.
+- **Caso 2 - Pinhais**: Cliente misturou pentes DDR4 de 2400MHz com 3200MHz. PC funcionava mas travava aleatoriamente. Solução: manter apenas os pentes de mesma frequência.
+- **Caso 3 - São José dos Pinhais**: Notebook com RAM soldada na placa — cliente tentou adicionar módulo no slot extra sem verificar que o notebook só suportava 1 slot adicional de 8GB. Funcionou perfeitamente após orientação.
+
+### Quanto de RAM Você Realmente Precisa?
+
+| Uso | RAM Recomendada |
+|---|---|
+| Navegação e Office | 8GB |
+| Trabalho multitarefa | 16GB |
+| Design e vídeo | 32GB |
+| Jogos modernos | 16-32GB |
+| Servidor/virtualização | 32-64GB+ |
+
+Se você está em dúvida sobre qual RAM comprar para seu computador em Curitiba, entre em contato antes de comprar. Uma consultoria rápida pode evitar uma compra errada e um reparo desnecessário.` },
+
+  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | Técnico Curitiba", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 90 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/erros-comuns-em-upgrade" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Notebook Após Upgrade", to: "/notebook-apos-upgrade-nao-liga-curitiba" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)
+
+| Upgrade | Erro Comum | Como Evitar |
+|---|---|---|
+| SSD | Interface errada (NVMe vs SATA) | Verificar manual da placa |
+| RAM | Geração ou frequência errada | Consultar QVL da placa |
+| GPU | Fonte insuficiente | Calcular TDP total |
+| Processador | Socket incompatível | Verificar compatibilidade exata |
+
+### Por Que Upgrades Dão Errado?
+
+O principal motivo é a **confiança em tutoriais genéricos**. O YouTube está cheio de vídeos "como instalar SSD" ou "como trocar RAM", mas nenhum deles verifica a compatibilidade específica do SEU equipamento. Cada placa-mãe, cada notebook, cada geração tem suas particularidades.
+
+Em Curitiba, atendemos em média 15 a 20 casos por mês de upgrades mal executados. Os mais comuns:
+
+1. **SSD M.2 NVMe em slot M.2 SATA** — O conector é igual, o módulo encaixa, mas não funciona. São protocolos diferentes e o slot precisa suportar NVMe. Muitos notebooks de 2015-2018 têm M.2 mas só SATA.
+
+2. **RAM dual-channel com pentes diferentes** — Misturar pentes de marcas, frequências ou timings diferentes pode causar instabilidade intermitente. O computador funciona "às vezes" e trava "aleatoriamente".
+
+3. **GPU sem fonte adequada** — Uma GTX 1660 precisa de pelo menos 450W de fonte de qualidade. Instalar em fonte genérica de 400W causa desligamentos sob carga.
+
+4. **Processador de geração errada** — Um Core i7 de 10ª geração NÃO funciona em placa de 8ª geração, mesmo sendo LGA 1200 vs LGA 1151.
+
+### O Que Fazer Quando o Upgrade Dá Errado
+
+**Passo 1**: Não entre em pânico. Na maioria dos casos, o equipamento original não está danificado.
+
+**Passo 2**: Se possível, reverta o upgrade (reinstale a peça original) para confirmar que o PC funciona normalmente.
+
+**Passo 3**: Se não consegue reverter ou o problema persiste, chame diagnóstico profissional.
+
+### Custo de Correção vs Custo de Fazer Certo
+
+| Cenário | Custo do Upgrade DIY (com erro) | Custo com Técnico desde o Início |
+|---|---|---|
+| RAM incompatível | Peça errada R$ 200 + correção R$ 150 = R$ 350 | Peça certa R$ 200 + instalação R$ 90 = R$ 290 |
+| SSD errado | SSD errado R$ 250 + troca R$ 150 = R$ 400 | SSD certo R$ 250 + instalação R$ 120 = R$ 370 |
+| Dano ao slot | Peça R$ 200 + reparo R$ 400 = R$ 600 | Peça R$ 200 + instalação R$ 90 = R$ 290 |
+
+Contratar um técnico para orientar ou executar o upgrade quase sempre sai mais barato do que tentar sozinho e errar.` },
+
+  { slug: "placa-mae-queimada", title: "Placa-Mãe Queimada | Diagnóstico Curitiba", metaDescription: "Placa-mãe queimada? Veja sintomas, causas e quando compensa reparar. Diagnóstico profissional em Curitiba.", h1: "Placa-Mãe Queimada — Diagnóstico e Opções", categoria: "Erros e Casos Reais", intro: `Uma placa-mãe queimada é um dos diagnósticos mais temidos — mas nem sempre significa substituição total. Em muitos casos, o dano é localizado (um capacitor, um regulador de tensão, uma trilha) e pode ser reparado em bancada por um valor muito menor que a troca.`, sintomas: [{ titulo: "Computador não liga de jeito nenhum", desc: "Curto na placa impede qualquer inicialização.", gravidade: "Complexo" }, { titulo: "Cheiro de queimado", desc: "Componente queimou. Pode ser localizado ou extenso.", gravidade: "Complexo" }, { titulo: "Funciona parcialmente", desc: "Algumas portas não funcionam, USB mortas, etc.", gravidade: "Médio" }], causas: [{ titulo: "Pico de energia", desc: "Surto na rede elétrica queima componentes. Usar estabilizador/nobreak previne.", tipo: "hardware" }, { titulo: "Curto por líquido ou poeira", desc: "Líquido ou poeira condutiva entre trilhas causa curto.", tipo: "erro-humano" }, { titulo: "Desgaste natural", desc: "Capacitores estufam após 5-10 anos de uso.", tipo: "desgaste" }, { titulo: "Uso de fonte de baixa qualidade", desc: "Fontes genéricas podem enviar tensão irregular e danificar a placa.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Componente localizado (capacitor, fusível). Reparo em bancada.", tempo: "2 a 5 dias", custo: "R$ 200 a R$ 400" }, { nivel: "Médio", desc: "Regulador de tensão ou múltiplos capacitores.", tempo: "5 a 10 dias", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Dano extenso — troca de placa necessária.", tempo: "Depende", custo: "R$ 400 a R$ 1500+ (placa nova)" }], riscos: ["Continuar usando com queima parcial pode danificar outros componentes", "Reparo amador pode causar mais curtos"], diagnostico: `Inspeção visual com lupa/microscópio, teste de curto com multímetro, medição de tensões. Custo: R$ 90.`, solucao: `Para dano localizado: reparo com microssolda. Para dano extenso: troca de placa.`, quandoCompensa: "Reparo de componentes localizados quase sempre compensa. Vale verificar antes de comprar placa nova.", quandoNaoCompensa: "Dano extenso em placa antiga onde o custo da troca supera o valor do computador.", whatsappMessage: "Olá! Acho que a placa-mãe do meu computador queimou. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Curto em Placa", to: "/curto-em-placa-eletronica" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }, { label: "GPU Desgastada", to: "/gpu-desgastada" }, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }], conteudoExtra: `### Vale a Pena Reparar a Placa-Mãe?
+
+Depende:
+- **Sim**: quando o dano é localizado (1-2 componentes), reparo custa R$ 200-400
+- **Talvez**: quando precisa de análise para determinar extensão
+- **Não**: quando há queima extensa ou a placa é antiga demais
+
+### Anatomia de uma Placa-Mãe: O Que Pode Queimar
+
+Uma placa-mãe é um circuito complexo com centenas de componentes. Quando dizemos "queimou", pode significar coisas bem diferentes:
+
+**Capacitores** — São os cilindros metálicos visíveis na placa. Quando estufam (topo arredondado em vez de plano) ou vazam (resíduo marrom), estão com defeito. É o reparo mais comum e mais barato: R$ 50-150 por capacitor, mais mão de obra.
+
+**VRM (Reguladores de Tensão)** — Alimentam o processador. Quando falham, o PC não liga ou desliga sob carga. Reparo possível mas mais complexo: R$ 200-400.
+
+**Chipset** — O "cérebro secundário" da placa. Falha rara mas grave. Se o chipset queimou, geralmente não compensa reparar.
+
+**Trilhas de circuito** — As "estradas" de cobre na placa. Podem ser danificadas por curto, líquido ou dano mecânico. Reparo com microssolda é possível em muitos casos.
+
+### Sinais de Alerta: Quando Sua Placa Está em Risco
+
+1. **Cheiro leve de queimado** ao usar o PC — NÃO ignore. Desligue imediatamente.
+2. **Portas USB parando de funcionar** uma a uma — sinal de degradação progressiva.
+3. **Reinicializações sob carga** — VRM pode estar falhando.
+4. **Capacitores visivelmente estufados** — troque ANTES que causem mais dano.
+
+### Prevenção: Como Proteger Sua Placa-Mãe
+
+A maioria dos danos em placas-mãe em Curitiba é causada por **picos de energia** — comuns na rede elétrica do Paraná, especialmente durante tempestades.
+
+**Proteção recomendada:**
+- **Mínimo**: filtro de linha com proteção contra surtos (R$ 30-80)
+- **Recomendado**: estabilizador de qualidade (R$ 150-300)
+- **Ideal**: nobreak/UPS (R$ 400-1000) — protege contra queda E surto
+
+### Casos Atendidos em Curitiba e Região
+
+- **Batel**: PC gamer de R$ 8.000 com placa-mãe "queimada". Diagnóstico revelou apenas 2 capacitores estufados. Reparo: R$ 250. Equipamento voltou a funcionar perfeitamente.
+- **Araucária**: Notebook corporativo com placa danificada por pico durante tempestade. Reparo de VRM: R$ 400. Economizou R$ 3.000+ em notebook novo.
+- **Campo Largo**: PC de escritório com 6 anos, múltiplos componentes queimados. Nesse caso, recomendamos troca — reparo custaria mais que um PC novo equivalente.` },
+
+  { slug: "gpu-desgastada", title: "GPU Desgastada | Diagnóstico Curitiba", metaDescription: "GPU/placa de vídeo com problemas? Artefatos, tela preta, desempenho baixo? Diagnóstico em Curitiba.", h1: "GPU Desgastada — Sinais e O Que Fazer", categoria: "Erros e Casos Reais", intro: `GPUs (placas de vídeo) são componentes que trabalham sob alta temperatura e carga. Com o tempo, solda, pasta térmica e capacitores degradam. Os sinais mais comuns são artefatos na tela, travamentos em jogos e tela preta. GPUs usadas em mineração de criptomoedas sofrem desgaste acelerado.`, sintomas: [{ titulo: "Artefatos visuais (pixels coloridos)", desc: "Pontos, linhas ou blocos coloridos na tela. Memória da GPU ou chip com defeito.", gravidade: "Médio a complexo" }, { titulo: "Tela preta em jogos", desc: "GPU não aguenta carga e desliga o vídeo.", gravidade: "Médio" }, { titulo: "Performance muito abaixo do esperado", desc: "Temperaturas altas causam throttling ou chip degradado.", gravidade: "Médio" }], causas: [{ titulo: "Desgaste por temperatura", desc: "Anos de uso em temperatura alta degradam a solda e os chips.", tipo: "desgaste" }, { titulo: "Mineração de criptomoedas", desc: "Uso 24/7 em carga máxima acelera o desgaste em 3-5x.", tipo: "desgaste" }, { titulo: "Pasta térmica seca", desc: "GPU esquenta mais que deveria, acelerando degradação.", tipo: "desgaste" }, { titulo: "Solda fria (BGA)", desc: "Microsoldas entre chip e substrato perdem contato.", tipo: "desgaste" }], cenarios: [{ nivel: "Simples", desc: "Troca de pasta térmica e limpeza. Pode resolver throttling.", tempo: "1h", custo: "R$ 120 a R$ 200" }, { nivel: "Médio", desc: "Troca de pasta + pads térmicos + teste extensivo.", tempo: "1 a 2 dias", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Reballing (resolda do chip). Nem sempre funciona.", tempo: "5 a 15 dias", custo: "R$ 300 a R$ 600" }], riscos: ["Reballing não é garantido e a GPU pode falhar novamente", "Continuar usando com artefatos pode causar dano ao monitor (raro)"], diagnostico: `Teste de estresse com monitoramento de temperatura, análise de artefatos, verificação de solda com diagnóstico térmico. Custo: R$ 90.`, solucao: `Para superaquecimento: manutenção térmica. Para solda fria: reballing (quando viável). Para desgaste severo: substituição.`, quandoCompensa: "Limpeza + pasta sempre compensa. Reballing compensa para GPUs de médio a alto valor.", quandoNaoCompensa: "Reballing de GPU de baixo valor (GT 710, GT 1030) ou muito antiga.", whatsappMessage: "Olá! Minha placa de vídeo está com problemas. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Sem Vídeo", to: "/computador-sem-video-curitiba" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }, { label: "Placa-Mãe Queimada", to: "/placa-mae-queimada" }, { label: "PC Superaquecendo", to: "/pc-superaquecendo-curitiba" }, { label: "Montagem PC", to: "/servicos/montagem-pc" }], conteudoExtra: `### GPUs de Mineração: Cuidado
+
+Se você comprou GPU usada que foi usada em mineração, saiba que:
+- A vida útil foi drasticamente reduzida
+- Soldas BGA estão mais frágeis
+- Ventoinhas podem estar desgastadas
+- Reballing pode dar sobrevida temporária
+
+### Entendendo os Artefatos Visuais
+
+Artefatos são o sintoma mais visível de uma GPU com problemas. Existem diferentes tipos:
+
+- **Pontos coloridos aleatórios**: Geralmente memória VRAM com defeito. Pode ser solda fria no chip de memória.
+- **Blocos retangulares**: Chip GPU com degradação. Sinal mais grave.
+- **Linhas horizontais/verticais**: Pode ser GPU ou monitor — teste com outro monitor primeiro.
+- **Textos distorcidos**: Memória de vídeo ou driver corrompido (testar com DDU + reinstalação).
+
+### Temperatura: O Inimigo Número 1
+
+GPUs são projetadas para operar até 80-85°C sob carga. Acima de 90°C, entram em **thermal throttling** (reduzem performance para não queimar). Acima de 100°C, começam a sofrer danos reais.
+
+**Causas de superaquecimento em GPUs:**
+1. Pasta térmica seca (após 2-4 anos de uso)
+2. Ventoinhas com rolamento desgastado
+3. Pads térmicos comprimidos ou ressecados
+4. Gabinete sem fluxo de ar adequado
+5. Cooler obstruído por poeira
+
+### Reballing: O Que É e Quando Funciona
+
+Reballing é o processo de remover o chip GPU da placa, limpar as microsoldas BGA e resoldá-las com esferas novas de estanho. É um procedimento complexo que exige:
+
+- Estação de retrabalho BGA profissional
+- Stencils específicos para cada chip
+- Experiência técnica significativa
+
+**Taxa de sucesso**: 60-80% dependendo do chip e extensão do dano. Pode dar sobrevida de meses a anos, mas não é garantia permanente.
+
+**Compensa quando**: GPU custa R$ 1.500+ nova e o reballing fica em R$ 300-500.
+**Não compensa quando**: GPU vale menos de R$ 500 nova ou já foi reballing antes.
+
+### Manutenção Preventiva para GPUs
+
+Para prolongar a vida da sua GPU em Curitiba (onde o clima úmido e a poeira são fatores):
+
+| Intervalo | Ação | Custo |
+|---|---|---|
+| 6 meses | Limpeza externa com ar comprimido | Grátis (DIY) |
+| 12-18 meses | Troca de pasta térmica | R$ 120-200 |
+| 24 meses | Troca de pads térmicos | R$ 150-250 |
+| Quando necessário | Troca de ventoinhas | R$ 80-200 |` },
+
+  { slug: "curto-em-placa-eletronica", title: "Curto em Placa Eletrônica | Diagnóstico Curitiba", metaDescription: "Curto-circuito em placa eletrônica? Diagnóstico profissional e reparo com microssolda em Curitiba.", h1: "Curto em Placa Eletrônica — Diagnóstico e Reparo", categoria: "Erros e Casos Reais", intro: `Um curto-circuito em placa eletrônica pode afetar computadores, notebooks, TVs e diversos equipamentos. O curto ocorre quando dois pontos que não deveriam estar conectados fazem contato — por líquido, poeira condutiva, componente queimado ou trilha danificada. O diagnóstico com multímetro e câmera térmica localiza o ponto exato do curto.`, sintomas: [{ titulo: "Equipamento não liga", desc: "Curto impede alimentação. Fonte entra em proteção.", gravidade: "Médio a complexo" }, { titulo: "Cheiro de queimado", desc: "Componente em curto gera calor e queima.", gravidade: "Complexo" }, { titulo: "Funciona parcialmente", desc: "Curto em trilha específica afeta apenas uma função.", gravidade: "Médio" }], causas: [{ titulo: "Líquido na placa", desc: "Água, café ou outros líquidos criam caminhos de curto.", tipo: "erro-humano" }, { titulo: "Componente SMD queimado", desc: "Resistor, capacitor ou diodo que falhou e criou curto.", tipo: "hardware" }, { titulo: "Poeira condutiva", desc: "Acúmulo de poeira metálica ou úmida entre trilhas.", tipo: "desgaste" }, { titulo: "Dano por ferramenta", desc: "Chave de fenda escorregou e riscou trilha, criando contato.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Limpeza e remoção do agente causador do curto.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Troca de componente SMD em curto.", tempo: "2 a 5 dias", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Reparo de trilha danificada + troca de componentes.", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 800+" }], riscos: ["Curto em cadeia pode danificar vários componentes", "Tentar reparar sem equipamento adequado causa mais dano"], diagnostico: `Localização do curto com multímetro e câmera térmica, identificação do componente causador, análise da extensão do dano. Custo: R$ 90-150.`, solucao: `Remoção do componente em curto, troca por novo, limpeza e teste completo.`, quandoCompensa: "Quando o curto é localizado e o equipamento tem valor. O reparo é viável na maioria dos casos.", quandoNaoCompensa: "Quando o curto causou dano em cadeia extenso.", whatsappMessage: "Olá! Meu equipamento tem curto-circuito. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Placa-Mãe Queimada", to: "/placa-mae-queimada" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }, { label: "Notebook com Líquido", to: "/notebook-com-agua-ou-liquido-curitiba" }, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }], conteudoExtra: `### Como Ocorre um Curto?
+
+Imagine trilhas de cobre na placa como estradas. Um curto é como uma ponte ilegal entre duas estradas — a energia vai para onde não deveria, causando dano. O diagnóstico localiza essa "ponte" e a remove.
+
+### O Processo de Diagnóstico de Curto-Circuito
+
+Diagnosticar um curto em placa eletrônica é um trabalho técnico que exige ferramentas específicas e experiência. O processo na nossa bancada em Curitiba segue estas etapas:
+
+**1. Inspeção Visual com Microscópio**
+Antes de ligar qualquer instrumento, inspecionamos a placa sob microscópio estereoscópico (aumento de 10-40x). Procuramos sinais visíveis: trilhas escurecidas, componentes queimados, resíduos de líquido, soldas frias.
+
+**2. Medição com Multímetro**
+Testamos resistência entre linhas de alimentação. Valores anormalmente baixos (próximos de zero ohms) indicam curto direto. Cada linha de tensão é testada individualmente.
+
+**3. Injeção de Corrente Controlada**
+Com uma fonte de bancada limitada em corrente, alimentamos a placa com tensão baixa. O componente em curto esquenta — e é aí que entra a câmera térmica.
+
+**4. Câmera Térmica / Thermal Pad**
+A câmera infravermelha identifica exatamente qual componente está gerando calor anormal. É o ponto do curto.
+
+**5. Remoção e Teste**
+Removemos o componente suspeito com estação de solda de ar quente e testamos novamente. Se o curto desaparece, encontramos o culpado.
+
+### Tipos de Componentes que Causam Curto
+
+| Componente | Frequência | Reparo |
+|---|---|---|
+| Capacitor cerâmico | Muito comum | Fácil — troca rápida |
+| MOSFET | Comum | Médio — precisa do componente certo |
+| Diodo de proteção | Comum | Fácil — troca rápida |
+| Chip BGA | Raro | Complexo — reballing ou troca |
+| Trilha danificada | Variável | Médio — ponte com fio |
+
+### Prevenção de Curtos em Equipamentos
+
+Em Curitiba e região metropolitana, os fatores ambientais que mais contribuem para curtos são:
+
+1. **Umidade alta** — especialmente em garagens e cômodos sem ventilação. Use desumidificador ou mantenha o PC em local arejado.
+2. **Poeira** — ambientes com reformas, oficinas mecânicas ou próximos a avenidas movimentadas acumulam poeira condutiva. Limpeza preventiva a cada 6-12 meses.
+3. **Rede elétrica instável** — bairros mais afastados de Curitiba e cidades como Fazenda Rio Grande e Piraquara sofrem mais com oscilações. Use no mínimo filtro de linha com varistor.
+4. **Animais domésticos** — pelos de gato e cachorro acumulam dentro de gabinetes e podem reter umidade.` },
 
   // ===== SOFTWARE / SISTEMA (31-35) =====
-  { slug: "windows-lento-curitiba", title: "Windows Lento em Curitiba | Otimização e Diagnóstico", metaDescription: "Windows lento? Otimização profissional, limpeza e diagnóstico em Curitiba. Resolva sem formatar.", h1: "Windows Lento em Curitiba — Otimização Profissional", categoria: "Software / Sistema", intro: `Windows lento pode ser causado por acúmulo de programas, malware, drivers desatualizados, registro corrompido ou simplesmente hardware insuficiente. Antes de formatar, vale investir em diagnóstico para entender se o problema é software (otimização resolve) ou hardware (upgrade necessário). A formatação é solução válida, mas nem sempre necessária.`, sintomas: [{ titulo: "Boot demorado", desc: "Windows leva minutos para iniciar. Muitos programas na inicialização.", gravidade: "Simples" }, { titulo: "Programas lentos", desc: "Tudo abre devagar. RAM lotada ou disco em 100%.", gravidade: "Simples a médio" }, { titulo: "Windows Update trava", desc: "Atualizações ficam em loop ou travam a máquina.", gravidade: "Simples" }], causas: [{ titulo: "Programas desnecessários na inicialização", desc: "Dezenas de programas abrem junto com o Windows.", tipo: "software" }, { titulo: "Malware oculto", desc: "Vírus ou mineradores consumindo recursos.", tipo: "software" }, { titulo: "Registro corrompido", desc: "Anos de instalações acumulam lixo no registro.", tipo: "software" }, { titulo: "HD mecânico", desc: "O gargalo pode ser hardware, não software.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização, limpeza de inicialização, remoção de bloatware.", tempo: "1h", custo: "R$ 100 a R$ 150" }, { nivel: "Médio", desc: "Formatação limpa + instalação de drivers.", tempo: "2h a 4h", custo: "R$ 150 a R$ 250" }, { nivel: "Complexo", desc: "Diagnóstico de hardware + upgrade.", tempo: "2h a 1 dia", custo: "R$ 250 a R$ 600+" }], riscos: ["CCleaner e similares podem causar mais problemas", "Formatar sem backup perde dados"], diagnostico: `Análise de performance, verificação de malware, teste de disco e RAM. Custo: R$ 90.`, solucao: `Otimização quando possível, formatação quando necessário, upgrade quando o hardware é o gargalo.`, quandoCompensa: "Otimização sempre compensa tentar antes de formatar.", quandoNaoCompensa: "Quando o hardware é muito antigo — otimizar software não compensa o gargalo.", whatsappMessage: "Olá! Meu Windows está muito lento. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }], conteudoExtra: `### Otimização vs Formatação\n\n| Aspecto | Otimização | Formatação |\n|---|---|---|\n| Tempo | 1h | 2-4h |\n| Perde dados | Não | Sim (sem backup) |\n| Eficácia | 70-80% dos casos | 95% dos casos |\n| Custo | Menor | Maior |\n| Recomendado quando | Problema é leve | Sistema muito comprometido |` },
+  { slug: "windows-lento-curitiba", title: "Windows Lento em Curitiba | Otimização e Diagnóstico", metaDescription: "Windows lento? Otimização profissional, limpeza e diagnóstico em Curitiba. Resolva sem formatar.", h1: "Windows Lento em Curitiba — Otimização Profissional", categoria: "Software / Sistema", intro: `Windows lento pode ser causado por acúmulo de programas, malware, drivers desatualizados, registro corrompido ou simplesmente hardware insuficiente. Antes de formatar, vale investir em diagnóstico para entender se o problema é software (otimização resolve) ou hardware (upgrade necessário). A formatação é solução válida, mas nem sempre necessária.`, sintomas: [{ titulo: "Boot demorado", desc: "Windows leva minutos para iniciar. Muitos programas na inicialização.", gravidade: "Simples" }, { titulo: "Programas lentos", desc: "Tudo abre devagar. RAM lotada ou disco em 100%.", gravidade: "Simples a médio" }, { titulo: "Windows Update trava", desc: "Atualizações ficam em loop ou travam a máquina.", gravidade: "Simples" }], causas: [{ titulo: "Programas desnecessários na inicialização", desc: "Dezenas de programas abrem junto com o Windows.", tipo: "software" }, { titulo: "Malware oculto", desc: "Vírus ou mineradores consumindo recursos.", tipo: "software" }, { titulo: "Registro corrompido", desc: "Anos de instalações acumulam lixo no registro.", tipo: "software" }, { titulo: "HD mecânico", desc: "O gargalo pode ser hardware, não software.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização, limpeza de inicialização, remoção de bloatware.", tempo: "1h", custo: "R$ 100 a R$ 150" }, { nivel: "Médio", desc: "Formatação limpa + instalação de drivers.", tempo: "2h a 4h", custo: "R$ 150 a R$ 250" }, { nivel: "Complexo", desc: "Diagnóstico de hardware + upgrade.", tempo: "2h a 1 dia", custo: "R$ 250 a R$ 600+" }], riscos: ["CCleaner e similares podem causar mais problemas", "Formatar sem backup perde dados"], diagnostico: `Análise de performance, verificação de malware, teste de disco e RAM. Custo: R$ 90.`, solucao: `Otimização quando possível, formatação quando necessário, upgrade quando o hardware é o gargalo.`, quandoCompensa: "Otimização sempre compensa tentar antes de formatar.", quandoNaoCompensa: "Quando o hardware é muito antigo — otimizar software não compensa o gargalo.", whatsappMessage: "Olá! Meu Windows está muito lento. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }, { label: "Vírus no PC", to: "/computador-com-virus-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Otimização vs Formatação
 
-  { slug: "computador-com-virus-curitiba", title: "Computador com Vírus em Curitiba | Remoção", metaDescription: "Computador com vírus? Remoção profissional em Curitiba. Malware, ransomware, adware. Atendimento no mesmo dia.", h1: "Computador com Vírus em Curitiba — Remoção Profissional", categoria: "Software / Sistema", intro: `Vírus, malware, ransomware, adware — cada tipo de ameaça requer uma abordagem diferente. "Passar o antivírus" nem sempre resolve. Ameaças modernas se escondem em processos do sistema, registro e áreas protegidas do disco. A remoção profissional garante eliminação completa sem perda de dados.`, sintomas: [{ titulo: "Pop-ups e propagandas excessivas", desc: "Adware instalado. Programas indesejados abrem sozinhos.", gravidade: "Simples" }, { titulo: "Computador extremamente lento", desc: "Minerador de criptomoedas usando CPU/GPU em segundo plano.", gravidade: "Simples a médio" }, { titulo: "Arquivos criptografados (ransomware)", desc: "Arquivos renomeados com extensão estranha. Pedido de resgate.", gravidade: "Complexo" }, { titulo: "Programas abrindo sozinhos", desc: "Malware executando em segundo plano.", gravidade: "Simples a médio" }], causas: [{ titulo: "Download de programas de fontes não confiáveis", desc: "Cracks, programas piratas e sites duvidosos.", tipo: "erro-humano" }, { titulo: "E-mail com anexo malicioso", desc: "Phishing com arquivo infectado.", tipo: "erro-humano" }, { titulo: "Navegação em sites comprometidos", desc: "Drive-by download — infecção automática.", tipo: "software" }, { titulo: "Pen drive infectado", desc: "Autorun de dispositivos USB.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Remoção de adware e programas indesejados.", tempo: "1h a 2h", custo: "R$ 100 a R$ 180" }, { nivel: "Médio", desc: "Remoção de malware profundo + limpeza completa.", tempo: "2h a 4h", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Ransomware ou rootkit — pode exigir formatação.", tempo: "4h a 1 dia", custo: "R$ 250 a R$ 500" }], riscos: ["Antivírus gratuito nem sempre detecta ameaças avançadas", "Tentar remover manualmente pode apagar arquivos do sistema", "Ransomware: pagar resgate não garante recuperação"], diagnostico: `Análise com ferramentas profissionais (não só antivírus), scan de registro, processos e serviços. Custo: R$ 90.`, solucao: `Remoção completa com ferramentas profissionais + proteção + orientação de prevenção.`, quandoCompensa: "Quase sempre — remoção é mais rápida e barata que formatação na maioria dos casos.", quandoNaoCompensa: "Ransomware com criptografia forte onde os dados não são recuperáveis — formatação é a saída.", whatsappMessage: "Olá! Meu computador está com vírus. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Remoção de Vírus", to: "/servicos/remocao-virus" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }], conteudoExtra: `### Prevenção é Melhor que Remediação\n\n1. Nunca baixe programas de sites desconhecidos\n2. Não abra anexos de e-mails suspeitos\n3. Mantenha Windows e antivírus atualizados\n4. Use senhas fortes e diferentes\n5. Faça backup regular dos dados importantes` },
+| Aspecto | Otimização | Formatação |
+|---|---|---|
+| Tempo | 1h | 2-4h |
+| Perde dados | Não | Sim (sem backup) |
+| Eficácia | 70-80% dos casos | 95% dos casos |
+| Custo | Menor | Maior |
+| Recomendado quando | Problema é leve | Sistema muito comprometido |
 
-  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. Técnico em Curitiba.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 90 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?\n\n| Problema | Formatar Resolve? |\n|---|---|\n| Vírus/malware | ✅ Sim |\n| Windows corrompido | ✅ Sim |\n| Lento por software | ✅ Sim |\n| HD com defeito | ❌ Não |\n| Superaquecimento | ❌ Não |\n| RAM defeituosa | ❌ Não |\n| Fonte instável | ❌ Não |\n| Tela azul por driver | ✅ Sim |\n| Tela azul por hardware | ❌ Não |` },
+### As 10 Causas Mais Comuns de Windows Lento em Curitiba
 
-  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | Técnico Curitiba", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 90 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }], conteudoExtra: `### Por Que Isso Acontece?\n\nFormatação é como repintar uma casa com problemas estruturais — fica bonita por fora mas os problemas continuam. O diagnóstico antes de formatar evita esse desperdício.` },
+Baseado em mais de 500 atendimentos nos últimos 12 meses, estas são as causas mais frequentes de lentidão em Windows na região de Curitiba:
 
-  { slug: "pc-com-programas-pesados", title: "PC com Programas Pesados em Curitiba | Otimização", metaDescription: "PC não roda programas pesados? AutoCAD, Photoshop, jogos? Diagnóstico e upgrade em Curitiba.", h1: "PC com Programas Pesados em Curitiba — Otimização e Upgrade", categoria: "Software / Sistema", intro: `Programas como AutoCAD, Photoshop, Premiere, jogos modernos e softwares de engenharia exigem hardware específico. Se seu computador trava, fica lento ou não abre esses programas, o diagnóstico identifica qual componente é o gargalo e qual upgrade resolve.`, sintomas: [{ titulo: "Programa trava ao abrir", desc: "RAM ou GPU insuficiente para o software.", gravidade: "Simples" }, { titulo: "Lentidão extrema ao usar", desc: "Processador ou disco não acompanha.", gravidade: "Simples a médio" }, { titulo: "Renderização muito lenta", desc: "CPU/GPU insuficiente para processamento pesado.", gravidade: "Simples" }], causas: [{ titulo: "RAM insuficiente", desc: "Programas pesados exigem 16-32GB. Muitos PCs têm 4-8GB.", tipo: "hardware" }, { titulo: "GPU insuficiente", desc: "Jogos e 3D exigem GPU dedicada. Integrada não dá conta.", tipo: "hardware" }, { titulo: "Disco lento (HD)", desc: "Programas grandes precisam de SSD para carregar rápido.", tipo: "hardware" }, { titulo: "Processador antigo", desc: "Processadores de 5+ anos podem não acompanhar software moderno.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Upgrade de RAM + SSD resolve a maioria.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Médio", desc: "Upgrade de RAM + SSD + GPU.", tempo: "4h a 1 dia", custo: "R$ 600 a R$ 1500" }, { nivel: "Complexo", desc: "Montagem de PC otimizada para a carga de trabalho.", tempo: "Sob consulta", custo: "Sob consulta" }], riscos: ["Comprar peça errada por não saber qual é o gargalo", "Upgrade parcial pode não resolver se o gargalo é outro componente"], diagnostico: `Análise de requisitos do software vs hardware atual, identificação do gargalo, recomendação de upgrade. Custo: R$ 90 (incorporado ao serviço).`, solucao: `Upgrade direcionado ao gargalo identificado. Sem desperdício.`, quandoCompensa: "Quando o upgrade resolve o gargalo e o hardware base ainda é bom.", quandoNaoCompensa: "Quando o hardware todo é defasado e o upgrade seria quase uma montagem nova.", whatsappMessage: "Olá! Meu PC não roda programas pesados. Podem me ajudar com upgrade?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Montagem PC", to: "/servicos/montagem-pc" }], conteudoExtra: `### Requisitos Mínimos Recomendados\n\n| Software | RAM Mínima | GPU | SSD |\n|---|---|---|---|\n| AutoCAD | 16GB | Dedicada | Sim |\n| Photoshop | 16GB | 2GB+ | Sim |\n| Premiere Pro | 32GB | 4GB+ | NVMe |\n| Jogos Modernos | 16GB | GTX 1060+ | Sim |\n| Office/Navegação | 8GB | Integrada | Sim |` },
+1. **HD mecânico (42% dos casos)** — O gargalo número 1. Computadores com HD mecânico ficam dramaticamente lentos com o Windows 10/11. A solução é upgrade para SSD — transformação imediata.
+
+2. **Pouca RAM (28%)** — Windows 11 com 4GB de RAM é impraticável. Chrome com 5 abas já esgota. Mínimo recomendado: 8GB.
+
+3. **Programas na inicialização (15%)** — Dezenas de programas abrem ao ligar. Spotify, Discord, Steam, Google Drive, OneDrive, Adobe, etc. Cada um consome memória e processamento.
+
+4. **Malware oculto (8%)** — Mineradores de criptomoeda, adware e spyware consumindo recursos sem que o usuário perceba.
+
+5. **Windows Update em loop (4%)** — Atualizações que baixam, falham e tentam novamente infinitamente.
+
+6. **Disco cheio (3%)** — Menos de 10% de espaço livre no disco causa lentidão significativa.
+
+### O Mito dos "Programas de Otimização"
+
+**CCleaner, Advanced SystemCare, IObit, etc.** — Esses programas prometem "limpar e otimizar" o Windows, mas frequentemente:
+
+- Apagam entradas de registro que o sistema precisa
+- Removem cache que o Windows vai recriar (gerando mais trabalho)
+- Instalam bloatware adicional junto
+- Criam falsa sensação de melhoria sem resolver o problema real
+
+A otimização profissional é diferente: identificamos a CAUSA real da lentidão (hardware ou software) e aplicamos a solução correta.
+
+### Checklist de Otimização Profissional
+
+Quando fazemos otimização em Curitiba, seguimos um protocolo completo:
+
+1. ✅ Análise de processos em execução (Gerenciador de Tarefas)
+2. ✅ Verificação de disco (SMART + CrystalDiskInfo)
+3. ✅ Teste de memória (MemTest86)
+4. ✅ Scan de malware (ferramentas profissionais, não antivírus gratuito)
+5. ✅ Limpeza de inicialização (Autoruns da Microsoft)
+6. ✅ Verificação de drivers desatualizados
+7. ✅ Análise de espaço em disco
+8. ✅ Verificação de temperatura do processador
+9. ✅ Teste de velocidade do disco (benchmarks)
+10. ✅ Recomendação: otimizar, formatar ou fazer upgrade` },
+
+  { slug: "computador-com-virus-curitiba", title: "Computador com Vírus em Curitiba | Remoção", metaDescription: "Computador com vírus? Remoção profissional em Curitiba. Malware, ransomware, adware. Atendimento no mesmo dia.", h1: "Computador com Vírus em Curitiba — Remoção Profissional", categoria: "Software / Sistema", intro: `Vírus, malware, ransomware, adware — cada tipo de ameaça requer uma abordagem diferente. "Passar o antivírus" nem sempre resolve. Ameaças modernas se escondem em processos do sistema, registro e áreas protegidas do disco. A remoção profissional garante eliminação completa sem perda de dados.`, sintomas: [{ titulo: "Pop-ups e propagandas excessivas", desc: "Adware instalado. Programas indesejados abrem sozinhos.", gravidade: "Simples" }, { titulo: "Computador extremamente lento", desc: "Minerador de criptomoedas usando CPU/GPU em segundo plano.", gravidade: "Simples a médio" }, { titulo: "Arquivos criptografados (ransomware)", desc: "Arquivos renomeados com extensão estranha. Pedido de resgate.", gravidade: "Complexo" }, { titulo: "Programas abrindo sozinhos", desc: "Malware executando em segundo plano.", gravidade: "Simples a médio" }], causas: [{ titulo: "Download de programas de fontes não confiáveis", desc: "Cracks, programas piratas e sites duvidosos.", tipo: "erro-humano" }, { titulo: "E-mail com anexo malicioso", desc: "Phishing com arquivo infectado.", tipo: "erro-humano" }, { titulo: "Navegação em sites comprometidos", desc: "Drive-by download — infecção automática.", tipo: "software" }, { titulo: "Pen drive infectado", desc: "Autorun de dispositivos USB.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Remoção de adware e programas indesejados.", tempo: "1h a 2h", custo: "R$ 100 a R$ 180" }, { nivel: "Médio", desc: "Remoção de malware profundo + limpeza completa.", tempo: "2h a 4h", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Ransomware ou rootkit — pode exigir formatação.", tempo: "4h a 1 dia", custo: "R$ 250 a R$ 500" }], riscos: ["Antivírus gratuito nem sempre detecta ameaças avançadas", "Tentar remover manualmente pode apagar arquivos do sistema", "Ransomware: pagar resgate não garante recuperação"], diagnostico: `Análise com ferramentas profissionais (não só antivírus), scan de registro, processos e serviços. Custo: R$ 90.`, solucao: `Remoção completa com ferramentas profissionais + proteção + orientação de prevenção.`, quandoCompensa: "Quase sempre — remoção é mais rápida e barata que formatação na maioria dos casos.", quandoNaoCompensa: "Ransomware com criptografia forte onde os dados não são recuperáveis — formatação é a saída.", whatsappMessage: "Olá! Meu computador está com vírus. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Remoção de Vírus", to: "/servicos/remocao-virus" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }], conteudoExtra: `### Prevenção é Melhor que Remediação
+
+1. Nunca baixe programas de sites desconhecidos
+2. Não abra anexos de e-mails suspeitos
+3. Mantenha Windows e antivírus atualizados
+4. Use senhas fortes e diferentes
+5. Faça backup regular dos dados importantes
+
+### Tipos de Ameaças Digitais em 2024-2025
+
+As ameaças evoluíram significativamente. Não é mais só "vírus" — cada tipo requer uma abordagem diferente:
+
+**Adware** — Exibe propagandas, abre abas no navegador, instala barras de ferramentas. Geralmente vem junto com programas "gratuitos". Remoção: relativamente simples.
+
+**Spyware** — Espiona o que você faz: teclas digitadas, senhas, dados bancários. Pode ser invisível por meses. Remoção: moderada, exige ferramentas específicas.
+
+**Ransomware** — Criptografa seus arquivos e pede resgate (geralmente em Bitcoin). As variantes modernas usam criptografia AES-256 que é IMPOSSÍVEL de quebrar sem a chave. Prevenção: backup é a ÚNICA proteção eficaz.
+
+**Cryptojacker** — Usa seu computador para minerar criptomoedas. Sintoma: CPU a 100% constantemente, ventoinhas em velocidade máxima, conta de luz mais alta.
+
+**Rootkit** — Se esconde nas camadas mais profundas do sistema operacional. Antivírus convencionais não detectam. Pode ser necessário formatação completa.
+
+### O Processo de Remoção Profissional
+
+Diferente de "passar o antivírus", a remoção profissional que fazemos em Curitiba segue um protocolo rigoroso:
+
+1. **Análise de processos** — Identificamos todos os processos em execução e comparamos com uma base de dados de malware conhecido.
+2. **Scan com múltiplas ferramentas** — Usamos 3-4 ferramentas diferentes, pois cada uma detecta ameaças que as outras não encontram.
+3. **Verificação de registro** — Malware cria entradas de registro para se auto-executar no boot. Removemos todas.
+4. **Verificação de serviços** — Alguns malwares se instalam como serviços do Windows, difíceis de encontrar.
+5. **Verificação de tarefas agendadas** — Malware pode agendar reinfecção.
+6. **Verificação de extensões do navegador** — Adware frequentemente se instala como extensão.
+7. **Teste final + proteção** — Após remoção, instalamos proteção adequada.
+
+### Ransomware: A Ameaça Mais Perigosa
+
+Em Curitiba, atendemos casos de ransomware mensalmente — tanto em residências quanto em empresas. O que você PRECISA saber:
+
+- **NUNCA pague o resgate** — não há garantia de recuperação e financia criminosos
+- **Backup é a única prevenção** — HD externo ou nuvem, desconectado do PC
+- **Existem decifradores gratuitos** para algumas variantes antigas (verifique nomoreransom.org)
+- **Para variantes modernas** — se não tem backup, os dados estão perdidos
+
+### Quanto Custa a Proteção vs o Dano
+
+| Item | Custo de Prevenção | Custo do Dano |
+|---|---|---|
+| Antivírus pago | R$ 80-200/ano | Remoção: R$ 150-500 |
+| Backup em HD externo | R$ 250-400 (uma vez) | Perda de dados: incalculável |
+| Backup em nuvem | R$ 10-30/mês | Ransomware: perda total |
+| Proteção de e-mail | R$ 0 (educação) | Phishing: roubo bancário |` },
+
+  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. Técnico em Curitiba.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 90 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }, { label: "Erro Após Formatação", to: "/erro-apos-formatacao" }, { label: "Vírus no PC", to: "/computador-com-virus-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?
+
+| Problema | Formatar Resolve? |
+|---|---|
+| Vírus/malware | ✅ Sim |
+| Windows corrompido | ✅ Sim |
+| Lento por software | ✅ Sim |
+| HD com defeito | ❌ Não |
+| Superaquecimento | ❌ Não |
+| RAM defeituosa | ❌ Não |
+| Fonte instável | ❌ Não |
+| Tela azul por driver | ✅ Sim |
+| Tela azul por hardware | ❌ Não |
+
+### A Formatação em Detalhes
+
+Formatar um computador não é simplesmente "resetar". É um processo que envolve:
+
+1. **Backup de dados** — O passo mais importante e mais esquecido. Documentos, fotos, favoritos do navegador, senhas salvas, licenças de programas — tudo precisa ser salvo ANTES.
+
+2. **Criação do pendrive de instalação** — Com a mídia oficial do Windows (não versões modificadas de fóruns).
+
+3. **Formatação do disco** — Apaga todos os dados e partições. Para HDs com defeito, isso pode mascarar o problema temporariamente.
+
+4. **Instalação limpa do Windows** — Windows 10 ou 11, versão mais recente, sem programas pré-instalados.
+
+5. **Instalação de drivers** — Chipset, vídeo, áudio, rede, Bluetooth. Cada fabricante tem drivers específicos.
+
+6. **Atualizações** — Windows Update completo (pode demorar 1-2h dependendo da internet).
+
+7. **Instalação de programas essenciais** — Office, navegador, antivírus, etc.
+
+8. **Restauração de dados** — Devolver os arquivos do backup.
+
+### Por Que "Formatou e Voltou a Ficar Lento"?
+
+Esse é um dos relatos mais comuns em Curitiba. A formatação resolveu por 2-3 semanas e o PC ficou lento de novo. Causas:
+
+- **O problema era hardware** — HD com setores defeituosos, RAM com erros, ou superaquecimento. A formatação mascarou temporariamente.
+- **Reinstalou os mesmos programas pesados** — Se você reinstala 30 programas na inicialização, vai ficar lento de novo.
+- **Não instalou drivers corretos** — Sem o driver de vídeo, o processador faz o trabalho da GPU = lentidão.
+- **Reinfecção por malware** — Sem antivírus adequado, reinfecção em dias.
+
+### Diagnóstico Primeiro: Economize Dinheiro
+
+O diagnóstico custa R$ 90 e identifica se o problema é software (formatação resolve) ou hardware (formatação não resolve). Compare:
+
+| Cenário | Sem Diagnóstico | Com Diagnóstico |
+|---|---|---|
+| Problema é software | Formatação R$ 200 ✅ | Diagnóstico R$ 90 + Formatação R$ 200 = R$ 290 ✅ |
+| Problema é hardware | Formatação R$ 200 ❌ + Reparo R$ 300 = R$ 500 | Diagnóstico R$ 90 + Reparo R$ 300 = R$ 390 ✅ |
+
+No segundo cenário, economiza R$ 110 E resolve mais rápido.` },
+
+  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | Técnico Curitiba", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 90 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Por Que Isso Acontece?
+
+Formatação é como repintar uma casa com problemas estruturais — fica bonita por fora mas os problemas continuam. O diagnóstico antes de formatar evita esse desperdício.
+
+### Os 5 Problemas Mais Comuns Após Formatação
+
+**1. Lentidão que volta em dias**
+A causa mais comum: o HD está com setores defeituosos. O Windows até instala no disco, mas ao tentar ler/escrever nas áreas danificadas, trava. A solução não é formatar de novo — é trocar o HD por um SSD.
+
+**2. Tela azul aleatória**
+Códigos como IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA ou MEMORY_MANAGEMENT apontam para RAM defeituosa. O teste MemTest86 (roda antes do Windows) confirma em 30-60 minutos.
+
+**3. Desligamento durante uso pesado**
+Se o computador desliga ao jogar ou usar programas pesados MESMO após formatação, o problema é superaquecimento (pasta térmica seca, ventoinha travada) ou fonte insuficiente.
+
+**4. Wi-Fi ou som não funcionam**
+Não é erro — é falta de driver. A formatação remove todos os drivers. Cada fabricante (Dell, HP, Lenovo, Acer, Asus) tem drivers específicos que precisam ser baixados e instalados.
+
+**5. "Disco 100%" no Gerenciador de Tarefas**
+Se o disco fica em 100% de uso constantemente mesmo após formatação limpa, o HD mecânico é o gargalo. Windows 10/11 não foi feito para rodar em HD — SSD é essencial.
+
+### Quanto Custa Resolver de Verdade?
+
+| Problema Real | Solução | Custo |
+|---|---|---|
+| HD defeituoso | Troca por SSD + clonagem | R$ 250 a R$ 500 |
+| RAM com defeito | Troca de módulo | R$ 150 a R$ 400 |
+| Superaquecimento | Limpeza + pasta térmica | R$ 120 a R$ 200 |
+| Drivers faltando | Instalação completa | R$ 90 a R$ 150 |
+| Fonte instável | Troca de fonte | R$ 200 a R$ 400 |
+
+### Formatação Mal Feita: Sinais
+
+Às vezes o problema não é hardware — é que a formatação foi mal executada:
+
+- **Windows pirata ou modificado** — Versões "lite" ou "otimizadas" de fóruns removem componentes essenciais
+- **Modo Legacy vs UEFI** — Instalar em modo errado causa problemas de boot e performance
+- **Partição errada** — GPT vs MBR precisa estar correto para o modo de boot
+- **Sem drivers** — "Funciona" mas sem driver de vídeo, o PC usa renderização por software (extremamente lento)
+
+Se sua formatação foi feita por alguém sem experiência técnica, pode ser que o problema seja a própria formatação, não o hardware.` },
+
+  { slug: "pc-com-programas-pesados", title: "PC com Programas Pesados em Curitiba | Otimização", metaDescription: "PC não roda programas pesados? AutoCAD, Photoshop, jogos? Diagnóstico e upgrade em Curitiba.", h1: "PC com Programas Pesados em Curitiba — Otimização e Upgrade", categoria: "Software / Sistema", intro: `Programas como AutoCAD, Photoshop, Premiere, jogos modernos e softwares de engenharia exigem hardware específico. Se seu computador trava, fica lento ou não abre esses programas, o diagnóstico identifica qual componente é o gargalo e qual upgrade resolve.`, sintomas: [{ titulo: "Programa trava ao abrir", desc: "RAM ou GPU insuficiente para o software.", gravidade: "Simples" }, { titulo: "Lentidão extrema ao usar", desc: "Processador ou disco não acompanha.", gravidade: "Simples a médio" }, { titulo: "Renderização muito lenta", desc: "CPU/GPU insuficiente para processamento pesado.", gravidade: "Simples" }], causas: [{ titulo: "RAM insuficiente", desc: "Programas pesados exigem 16-32GB. Muitos PCs têm 4-8GB.", tipo: "hardware" }, { titulo: "GPU insuficiente", desc: "Jogos e 3D exigem GPU dedicada. Integrada não dá conta.", tipo: "hardware" }, { titulo: "Disco lento (HD)", desc: "Programas grandes precisam de SSD para carregar rápido.", tipo: "hardware" }, { titulo: "Processador antigo", desc: "Processadores de 5+ anos podem não acompanhar software moderno.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Upgrade de RAM + SSD resolve a maioria.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Médio", desc: "Upgrade de RAM + SSD + GPU.", tempo: "4h a 1 dia", custo: "R$ 600 a R$ 1500" }, { nivel: "Complexo", desc: "Montagem de PC otimizada para a carga de trabalho.", tempo: "Sob consulta", custo: "Sob consulta" }], riscos: ["Comprar peça errada por não saber qual é o gargalo", "Upgrade parcial pode não resolver se o gargalo é outro componente"], diagnostico: `Análise de requisitos do software vs hardware atual, identificação do gargalo, recomendação de upgrade. Custo: R$ 90 (incorporado ao serviço).`, solucao: `Upgrade direcionado ao gargalo identificado. Sem desperdício.`, quandoCompensa: "Quando o upgrade resolve o gargalo e o hardware base ainda é bom.", quandoNaoCompensa: "Quando o hardware todo é defasado e o upgrade seria quase uma montagem nova.", whatsappMessage: "Olá! Meu PC não roda programas pesados. Podem me ajudar com upgrade?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/computador-lento-curitiba" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Montagem PC", to: "/servicos/montagem-pc" }, { label: "Computador Travando", to: "/computador-travando-curitiba" }, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }], conteudoExtra: `### Requisitos Mínimos Recomendados
+
+| Software | RAM Mínima | GPU | SSD |
+|---|---|---|---|
+| AutoCAD | 16GB | Dedicada | Sim |
+| Photoshop | 16GB | 2GB+ | Sim |
+| Premiere Pro | 32GB | 4GB+ | NVMe |
+| Jogos Modernos | 16GB | GTX 1060+ | Sim |
+| Office/Navegação | 8GB | Integrada | Sim |
+
+### Identificando o Gargalo: O Passo Mais Importante
+
+Antes de comprar qualquer peça, é ESSENCIAL identificar qual componente está limitando o desempenho. Comprar RAM extra quando o problema é GPU não resolve nada — e vice-versa.
+
+**Como identificamos o gargalo:**
+
+1. **Monitoramos CPU, RAM, GPU e Disco** durante o uso do programa problemático
+2. O componente que fica a 100% enquanto os outros ficam ociosos é o gargalo
+3. Ex: Se a RAM fica a 95% mas CPU fica a 30% → gargalo é RAM → upgrade de RAM resolve
+
+### Cenários Comuns em Curitiba
+
+**Estudante de arquitetura/engenharia** — AutoCAD e Revit em notebook com 8GB RAM e GPU integrada. Solução: upgrade para 16GB RAM + SSD (se notebook suportar). Se não suportar, montagem de desktop dedicado.
+
+**Designer gráfico** — Photoshop e Illustrator em PC com HD mecânico. Solução: SSD NVMe (files de trabalho carregam 10x mais rápido) + upgrade de RAM para 16-32GB.
+
+**Editor de vídeo** — Premiere Pro em PC com 8GB RAM e GPU fraca. Solução: 32GB RAM + SSD NVMe para scratch disk + GPU com pelo menos 4GB VRAM.
+
+**Gamer** — Jogos modernos (GTA V, Cyberpunk, Valorant) em PC antigo. Solução: depende do orçamento — pode ser upgrade gradual (SSD → RAM → GPU) ou montagem completa otimizada.
+
+### Upgrade Gradual vs Montagem Nova
+
+| Fator | Upgrade Gradual | Montagem Nova |
+|---|---|---|
+| Custo | R$ 300-1500 | R$ 2500-8000+ |
+| Tempo para usar | Mesmo dia | 1-3 dias |
+| Performance | Boa (se base ok) | Máxima |
+| Recomendado quando | PC tem menos de 5 anos | PC tem 7+ anos |
+| Risco | Gargalo pode migrar | Nenhum |
+
+Na maioria dos casos em Curitiba, o upgrade gradual é a melhor opção: SSD + RAM resolve 80% dos problemas de performance por uma fração do custo de um PC novo.` },
 
   // ===== DECISÃO DO CLIENTE (36-40) =====
-  { slug: "vale-a-pena-consertar-computador", title: "Vale a Pena Consertar o Computador? | Guia", metaDescription: "Vale a pena consertar ou comprar novo? Guia completo para decidir. Diagnóstico profissional em Curitiba.", h1: "Vale a Pena Consertar o Computador? — Guia de Decisão", categoria: "Decisão do Cliente", intro: `Essa é a dúvida mais comum que recebemos. A resposta honesta é: depende. Depende do problema, da idade do equipamento, do custo do reparo e das necessidades do usuário. Nesta página, apresentamos um framework de decisão transparente para ajudar você a tomar a melhor escolha — sem pressão de venda.`, sintomas: [{ titulo: "Regra dos 40%", desc: "Se o reparo custa mais de 40% do valor de um equivalente novo, geralmente não compensa.", gravidade: "N/A" }, { titulo: "Idade do equipamento", desc: "Computadores com mais de 7-8 anos tendem a ter múltiplos problemas em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Problema único e identificável", desc: "Um componente com defeito em equipamento novo — compensa reparar.", tipo: "hardware" }, { titulo: "Múltiplos problemas", desc: "Vários componentes falhando — sinal de desgaste generalizado.", tipo: "desgaste" }, { titulo: "Defasagem tecnológica", desc: "Hardware não suporta software atual — upgrade pode não resolver.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema único com custo baixo → CONSERTAR", tempo: "Variável", custo: "Até 30% do valor de novo" }, { nivel: "Médio", desc: "Problema identificável mas custo moderado → AVALIAR", tempo: "Variável", custo: "30-50% do valor de novo" }, { nivel: "Complexo", desc: "Múltiplos problemas ou custo alto → CONSIDERAR NOVO", tempo: "Variável", custo: "Acima de 50% do valor de novo" }], riscos: ["Reparar sem diagnóstico pode acabar custando mais que novo", "Comprar novo sem avaliar pode ser desperdício quando reparo é simples"], diagnostico: `Diagnóstico profissional + laudo com opções claras: reparar (custo X), upgrade (custo Y) ou trocar. Custo: R$ 90.`, solucao: `Transparência total. Apresentamos as opções com custos e você decide.`, quandoCompensa: "Equipamento com menos de 5-6 anos, problema único, custo do reparo até 40% do novo.", quandoNaoCompensa: "Equipamento com 7+ anos, múltiplos problemas, reparo custando mais de 50% do novo.", whatsappMessage: "Olá! Quero saber se compensa consertar meu computador. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }, { label: "Custo Reparo vs Novo", to: "/custo-reparo-vs-novo" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }], conteudoExtra: `### Checklist de Decisão\n\n✅ Compensa consertar se:\n- Equipamento tem menos de 5 anos\n- Problema é único e identificável\n- Custo do reparo < 40% do novo\n- Hardware atende suas necessidades\n\n❌ Considere trocar se:\n- Equipamento tem 7+ anos\n- Já teve reparos recentes\n- Precisa de mais performance\n- Custo do reparo > 50% do novo` },
+  { slug: "vale-a-pena-consertar-computador", title: "Vale a Pena Consertar o Computador? | Guia", metaDescription: "Vale a pena consertar ou comprar novo? Guia completo para decidir. Diagnóstico profissional em Curitiba.", h1: "Vale a Pena Consertar o Computador? — Guia de Decisão", categoria: "Decisão do Cliente", intro: `Essa é a dúvida mais comum que recebemos. A resposta honesta é: depende. Depende do problema, da idade do equipamento, do custo do reparo e das necessidades do usuário. Nesta página, apresentamos um framework de decisão transparente para ajudar você a tomar a melhor escolha — sem pressão de venda.`, sintomas: [{ titulo: "Regra dos 40%", desc: "Se o reparo custa mais de 40% do valor de um equivalente novo, geralmente não compensa.", gravidade: "N/A" }, { titulo: "Idade do equipamento", desc: "Computadores com mais de 7-8 anos tendem a ter múltiplos problemas em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Problema único e identificável", desc: "Um componente com defeito em equipamento novo — compensa reparar.", tipo: "hardware" }, { titulo: "Múltiplos problemas", desc: "Vários componentes falhando — sinal de desgaste generalizado.", tipo: "desgaste" }, { titulo: "Defasagem tecnológica", desc: "Hardware não suporta software atual — upgrade pode não resolver.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema único com custo baixo → CONSERTAR", tempo: "Variável", custo: "Até 30% do valor de novo" }, { nivel: "Médio", desc: "Problema identificável mas custo moderado → AVALIAR", tempo: "Variável", custo: "30-50% do valor de novo" }, { nivel: "Complexo", desc: "Múltiplos problemas ou custo alto → CONSIDERAR NOVO", tempo: "Variável", custo: "Acima de 50% do valor de novo" }], riscos: ["Reparar sem diagnóstico pode acabar custando mais que novo", "Comprar novo sem avaliar pode ser desperdício quando reparo é simples"], diagnostico: `Diagnóstico profissional + laudo com opções claras: reparar (custo X), upgrade (custo Y) ou trocar. Custo: R$ 90.`, solucao: `Transparência total. Apresentamos as opções com custos e você decide.`, quandoCompensa: "Equipamento com menos de 5-6 anos, problema único, custo do reparo até 40% do novo.", quandoNaoCompensa: "Equipamento com 7+ anos, múltiplos problemas, reparo custando mais de 50% do novo.", whatsappMessage: "Olá! Quero saber se compensa consertar meu computador. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }, { label: "Custo Reparo vs Novo", to: "/custo-reparo-vs-novo" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }, { label: "Vale Consertar Notebook?", to: "/vale-a-pena-consertar-notebook" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Checklist de Decisão
 
-  { slug: "vale-a-pena-consertar-notebook", title: "Vale a Pena Consertar o Notebook? | Guia", metaDescription: "Vale a pena consertar o notebook ou comprar novo? Guia de decisão com dados reais. Curitiba.", h1: "Vale a Pena Consertar o Notebook? — Guia Completo", categoria: "Decisão do Cliente", intro: `Notebooks são mais caros de reparar que desktops (componentes integrados, peças específicas). Mas isso não significa que sempre é melhor comprar novo. O diagnóstico profissional identifica o problema e o custo real do reparo para você poder decidir com informação — não com medo.`, sintomas: [{ titulo: "Problema simples em notebook bom", desc: "Troca de tela, teclado, SSD → quase sempre compensa.", gravidade: "Simples" }, { titulo: "Placa-mãe em notebook caro", desc: "Reparo pode valer se o notebook é recente e de valor.", gravidade: "Médio" }, { titulo: "Múltiplos defeitos em notebook antigo", desc: "Geralmente não compensa.", gravidade: "Complexo" }], causas: [{ titulo: "Peças específicas por modelo", desc: "Telas, teclados e baterias são específicos — preço varia muito.", tipo: "hardware" }, { titulo: "Reparo de placa-mãe", desc: "Mais complexo que desktop por componentes soldados.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Troca de SSD, RAM, teclado, bateria → COMPENSA", tempo: "1 a 3 dias", custo: "R$ 150 a R$ 500" }, { nivel: "Médio", desc: "Troca de tela ou reparo de jack → AVALIAR", tempo: "3 a 7 dias", custo: "R$ 300 a R$ 800" }, { nivel: "Complexo", desc: "Reparo de placa-mãe → DEPENDE DO VALOR DO NOTEBOOK", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 1200" }], riscos: ["Comprar notebook novo barato pode ser pior que reparar o atual"], diagnostico: `Diagnóstico completo com laudo detalhado e opções. Custo: R$ 90.`, solucao: `Transparência: laudo com custo de reparo vs custo de equivalente novo.`, quandoCompensa: "Notebook de menos de 4 anos, com problema específico e custo de reparo razoável.", quandoNaoCompensa: "Notebook de baixo valor (< R$ 2000 novo) com placa-mãe defeituosa.", whatsappMessage: "Olá! Quero saber se compensa consertar meu notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }], conteudoExtra: `### Tabela de Decisão para Notebooks\n\n| Valor do Notebook Novo | Custo Máximo de Reparo Recomendado |\n|---|---|\n| Até R$ 2.000 | Até R$ 500 |\n| R$ 2.000 - R$ 4.000 | Até R$ 1.000 |\n| R$ 4.000 - R$ 8.000 | Até R$ 1.500 |\n| Acima de R$ 8.000 | Até R$ 2.500 |` },
+✅ Compensa consertar se:
+- Equipamento tem menos de 5 anos
+- Problema é único e identificável
+- Custo do reparo < 40% do novo
+- Hardware atende suas necessidades
 
-  { slug: "quando-trocar-computador", title: "Quando Trocar o Computador? | Guia Técnico", metaDescription: "Quando vale trocar o computador por um novo? Guia técnico honesto. Diagnóstico em Curitiba.", h1: "Quando Trocar o Computador? — Guia Técnico Honesto", categoria: "Decisão do Cliente", intro: `Trocar nem sempre é a resposta. Mas às vezes é a decisão mais racional. Nesta página, explicamos os sinais claros de que chegou a hora de trocar, e quando ainda vale investir em reparo ou upgrade.`, sintomas: [{ titulo: "Sinais de que é hora de trocar", desc: "Múltiplos defeitos, lentidão irrecuperável, incompatibilidade com software atual.", gravidade: "N/A" }, { titulo: "Sinais de que NÃO precisa trocar", desc: "Problema único, upgrade resolve, equipamento atende necessidades.", gravidade: "N/A" }], causas: [{ titulo: "Obsolescência real", desc: "Processador não suporta Windows 11, DDR3 não suporta mais RAM, etc.", tipo: "hardware" }, { titulo: "Obsolescência percebida", desc: "Computador parece velho mas um SSD + RAM resolve.", tipo: "software" }], cenarios: [{ nivel: "Simples", desc: "Upgrade resolve → NÃO precisa trocar", tempo: "N/A", custo: "R$ 300 a R$ 600 de upgrade" }, { nivel: "Médio", desc: "Avaliar: upgrade parcial + uso por mais 2-3 anos", tempo: "N/A", custo: "Variável" }, { nivel: "Complexo", desc: "Hardware defasado + múltiplos problemas → TROCAR", tempo: "N/A", custo: "Investir em novo" }], riscos: ["Trocar prematuramente desperdiça dinheiro", "Não trocar quando deveria desperdiça tempo e produtividade"], diagnostico: `Avaliação completa: vale upgrade ou trocar? Custo: R$ 90 (investimento que pode economizar centenas).`, solucao: `Recomendação honesta baseada em dados técnicos, não em venda.`, quandoCompensa: "Trocar quando o custo total de reparos + upgrades ultrapassa 60% de um novo que atende melhor.", quandoNaoCompensa: "Quando um upgrade de R$ 300-500 resolve o problema e estende a vida útil em 3-4 anos.", whatsappMessage: "Olá! Quero saber se devo trocar meu computador ou reparar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/vale-a-pena-consertar-computador" }, { label: "Custo Reparo vs Novo", to: "/custo-reparo-vs-novo" }], conteudoExtra: `### Os 5 Sinais de Que Chegou a Hora\n\n1. Processador anterior a 2015 (não suporta software atual)\n2. Máximo de RAM suportada é 4GB\n3. Não suporta SSD\n4. Terceiro reparo em 12 meses\n5. Não roda mais os programas que você precisa` },
+❌ Considere trocar se:
+- Equipamento tem 7+ anos
+- Já teve reparos recentes
+- Precisa de mais performance
+- Custo do reparo > 50% do novo
 
-  { slug: "quando-nao-compensa-reparo", title: "Quando Não Compensa o Reparo? | Guia Transparente", metaDescription: "Quando não compensa reparar? Guia honesto sobre custos, riscos e decisões. Curitiba.", h1: "Quando Não Compensa o Reparo — Transparência Total", categoria: "Decisão do Cliente", intro: `Existem situações em que reparar não é a melhor decisão. Nós fazemos questão de informar quando isso acontece, mesmo que signifique não fechar um serviço. Isso faz parte do nosso compromisso com transparência e honestidade técnica. Nesta página, explicamos os cenários onde substituir é mais inteligente que reparar.`, sintomas: [{ titulo: "Custo do reparo > 50% de novo", desc: "Investimento não se justifica.", gravidade: "N/A" }, { titulo: "Equipamento com 8+ anos", desc: "Mais problemas virão em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Desgaste generalizado", desc: "Vários componentes no fim da vida útil.", tipo: "desgaste" }, { titulo: "Tecnologia obsoleta", desc: "Não recebe mais atualizações ou suporte.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reparo barato → COMPENSA (mesmo em equipamento antigo)", tempo: "N/A", custo: "Baixo" }, { nivel: "Médio", desc: "Reparo moderado em equipamento médio → AVALIAR", tempo: "N/A", custo: "Moderado" }, { nivel: "Complexo", desc: "Reparo caro em equipamento antigo → NÃO COMPENSA", tempo: "N/A", custo: "Alto" }], riscos: ["Gastar em reparo e ter outro problema em semanas"], diagnostico: `Avaliação transparente. Custo: R$ 90.`, solucao: `Recomendação honesta: reparar ou substituir.`, quandoCompensa: "Reparos baratos sempre compensam. A análise deve ser feita caso a caso.", quandoNaoCompensa: "Múltiplos defeitos em equipamento antigo, custo alto relativo ao valor.", whatsappMessage: "Olá! Quero saber se compensa reparar meu equipamento. Podem avaliar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }], conteudoExtra: `### Nossa Filosofia\n\nPreferimos perder um serviço a realizar um reparo que não vale a pena. Quando diagnosticamos um equipamento e concluímos que não compensa, informamos com transparência e orientamos sobre as melhores opções de compra.` },
+### A Matemática da Decisão
 
-  { slug: "custo-reparo-vs-novo", title: "Custo de Reparo vs Computador Novo | Comparação", metaDescription: "Quanto custa reparar vs comprar novo? Comparação real com dados atualizados. Curitiba.", h1: "Custo de Reparo vs Computador Novo — Comparação Real", categoria: "Decisão do Cliente", intro: `Para tomar uma decisão inteligente, você precisa comparar números reais. Nesta página, apresentamos os custos médios de reparos comuns versus o preço de computadores novos equivalentes. Dados atualizados para ajudar na sua decisão.`, sintomas: [{ titulo: "Custo médio de reparos", desc: "Desde R$ 90 (diagnóstico) até R$ 800+ (reparo complexo).", gravidade: "N/A" }], causas: [{ titulo: "Cada caso é diferente", desc: "O diagnóstico define o custo real. Sem diagnóstico, qualquer estimativa é achismo.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, formatação, troca de peça simples: R$ 90 a R$ 250", tempo: "1h a 4h", custo: "Até R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD+RAM, troca de tela, fonte: R$ 250 a R$ 600", tempo: "1 dia", custo: "R$ 250 a R$ 600" }, { nivel: "Complexo", desc: "Reparo de placa, recuperação de dados: R$ 400 a R$ 1200+", tempo: "Dias", custo: "R$ 400 a R$ 1200+" }], riscos: ["Comprar barato demais pode gerar mais problemas que o equipamento atual"], diagnostico: `Diagnóstico + laudo comparativo: custo do reparo vs preço de equivalente novo. Custo: R$ 90.`, solucao: `Decisão informada com dados reais.`, quandoCompensa: "Quando o reparo custa até 40% de um equivalente novo.", quandoNaoCompensa: "Quando o reparo ultrapassa 50% e o equipamento é antigo.", whatsappMessage: "Olá! Quero comparar custo de reparo vs comprar novo. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }, { label: "Quando Não Compensa", to: "/quando-nao-compensa-reparo" }], conteudoExtra: `### Tabela Comparativa (2024-2025)\n\n| Reparo | Custo Médio | PC Novo Equivalente |\n|---|---|---|\n| Troca de SSD + RAM | R$ 350-500 | R$ 2.500-3.500 |\n| Troca de fonte | R$ 200-350 | R$ 2.500-3.500 |\n| Troca de tela notebook | R$ 300-800 | R$ 3.000-5.000 |\n| Formatação completa | R$ 150-250 | R$ 2.500+ |\n| Reparo placa-mãe | R$ 300-600 | R$ 3.000+ |` },
+Muitos clientes em Curitiba nos perguntam "compensa consertar?". A resposta é sempre baseada em números, não em opinião. Vamos usar exemplos reais:
+
+**Exemplo 1: Desktop de 3 anos com fonte queimada**
+- Valor de um equivalente novo: R$ 3.500
+- Custo do reparo (troca de fonte): R$ 250
+- Cálculo: R$ 250 / R$ 3.500 = 7% → **COMPENSA MUITO**
+
+**Exemplo 2: Notebook de 5 anos com tela quebrada**
+- Valor de um equivalente novo: R$ 4.000
+- Custo da troca de tela: R$ 600
+- Cálculo: R$ 600 / R$ 4.000 = 15% → **COMPENSA**
+
+**Exemplo 3: Desktop de 8 anos com placa-mãe queimada**
+- Valor de um equivalente novo: R$ 3.000
+- Custo da troca de placa + processador + RAM (incompatíveis): R$ 1.800
+- Cálculo: R$ 1.800 / R$ 3.000 = 60% → **NÃO COMPENSA**
+
+### A Regra dos Reparos Sequenciais
+
+Se seu computador já precisou de reparo nos últimos 6 meses e agora precisa de outro, atenção: isso pode indicar desgaste generalizado. Quando componentes começam a falhar em sequência, o custo acumulado rapidamente ultrapassa o de um equipamento novo.
+
+### Nosso Compromisso de Transparência
+
+Preferimos perder um serviço a recomendar um reparo que não vale a pena. Quando diagnosticamos e concluímos que não compensa, informamos e orientamos sobre as melhores opções de compra para seu perfil de uso.
+
+Em Curitiba e região metropolitana, atendemos centenas de diagnósticos por mês. Em média, 75% dos casos compensam reparar, 15% compensam fazer upgrade, e 10% recomendamos substituição.
+
+### O Fator "Emocional" vs "Racional"
+
+Muitos clientes têm apego ao equipamento (fotos, configurações, anos de uso). Isso é válido, mas a decisão deve ser racional:
+
+- **Dados e fotos**: podem ser transferidos para o novo equipamento
+- **Configurações**: podem ser reconfiguradas
+- **Programas**: podem ser reinstalados
+- **O que NÃO pode ser transferido**: nada — tudo é migrável` },
+
+  { slug: "vale-a-pena-consertar-notebook", title: "Vale a Pena Consertar o Notebook? | Guia", metaDescription: "Vale a pena consertar o notebook ou comprar novo? Guia de decisão com dados reais. Curitiba.", h1: "Vale a Pena Consertar o Notebook? — Guia Completo", categoria: "Decisão do Cliente", intro: `Notebooks são mais caros de reparar que desktops (componentes integrados, peças específicas). Mas isso não significa que sempre é melhor comprar novo. O diagnóstico profissional identifica o problema e o custo real do reparo para você poder decidir com informação — não com medo.`, sintomas: [{ titulo: "Problema simples em notebook bom", desc: "Troca de tela, teclado, SSD → quase sempre compensa.", gravidade: "Simples" }, { titulo: "Placa-mãe em notebook caro", desc: "Reparo pode valer se o notebook é recente e de valor.", gravidade: "Médio" }, { titulo: "Múltiplos defeitos em notebook antigo", desc: "Geralmente não compensa.", gravidade: "Complexo" }], causas: [{ titulo: "Peças específicas por modelo", desc: "Telas, teclados e baterias são específicos — preço varia muito.", tipo: "hardware" }, { titulo: "Reparo de placa-mãe", desc: "Mais complexo que desktop por componentes soldados.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Troca de SSD, RAM, teclado, bateria → COMPENSA", tempo: "1 a 3 dias", custo: "R$ 150 a R$ 500" }, { nivel: "Médio", desc: "Troca de tela ou reparo de jack → AVALIAR", tempo: "3 a 7 dias", custo: "R$ 300 a R$ 800" }, { nivel: "Complexo", desc: "Reparo de placa-mãe → DEPENDE DO VALOR DO NOTEBOOK", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 1200" }], riscos: ["Comprar notebook novo barato pode ser pior que reparar o atual"], diagnostico: `Diagnóstico completo com laudo detalhado e opções. Custo: R$ 90.`, solucao: `Transparência: laudo com custo de reparo vs custo de equivalente novo.`, quandoCompensa: "Notebook de menos de 4 anos, com problema específico e custo de reparo razoável.", quandoNaoCompensa: "Notebook de baixo valor (< R$ 2000 novo) com placa-mãe defeituosa.", whatsappMessage: "Olá! Quero saber se compensa consertar meu notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }, { label: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" }, { label: "Notebook com Líquido", to: "/notebook-com-agua-ou-liquido-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }], conteudoExtra: `### Tabela de Decisão para Notebooks
+
+| Valor do Notebook Novo | Custo Máximo de Reparo Recomendado |
+|---|---|
+| Até R$ 2.000 | Até R$ 500 |
+| R$ 2.000 - R$ 4.000 | Até R$ 1.000 |
+| R$ 4.000 - R$ 8.000 | Até R$ 1.500 |
+| Acima de R$ 8.000 | Até R$ 2.500 |
+
+### Notebooks vs Desktops: Por Que o Reparo é Diferente
+
+Notebooks têm características que tornam o reparo mais desafiador e, às vezes, mais caro:
+
+**Componentes soldados** — Processador, GPU e muitas vezes RAM são soldados na placa-mãe. Se um falha, o reparo exige microssolda profissional.
+
+**Peças específicas** — Cada modelo tem tela, teclado, bateria e dobradiças com formato único. Não é "genérico" como desktop.
+
+**Acesso interno** — Desmontar um notebook requer experiência. Flexs frágeis, conectores minúsculos e parafusos ocultos tornam o processo arriscado para não-profissionais.
+
+### Casos Comuns que Atendemos em Curitiba
+
+**Troca de SSD/RAM (R$ 200-500)** — O upgrade mais comum e com melhor custo-benefício. Transforma notebooks lentos em rápidos. SEMPRE compensa.
+
+**Troca de tela (R$ 300-800)** — Depende do modelo. Telas de notebooks populares (Dell, Lenovo, HP, Acer) são relativamente acessíveis. Telas OLED ou touchscreen de ultrabooks custam significativamente mais.
+
+**Troca de bateria (R$ 150-400)** — Baterias duram 2-4 anos. A troca é simples e sempre compensa, desde que o notebook ainda atenda suas necessidades.
+
+**Reparo de placa-mãe (R$ 400-1200)** — O caso mais delicado. A decisão depende 100% do valor do notebook. Para um notebook de R$ 6.000+, um reparo de R$ 800 faz sentido. Para um de R$ 2.000, não.
+
+### O Erro do "Notebook Barato Novo"
+
+Muitos clientes consideram comprar um notebook barato (R$ 1.500-2.500) em vez de reparar o atual. Cuidado: notebooks nessa faixa frequentemente são PIORES que o seu notebook atual reparado.
+
+Notebooks baratos geralmente têm:
+- Processador fraco (Celeron, Pentium)
+- 4GB de RAM (insuficiente)
+- HD mecânico (lento)
+- Tela de baixa resolução
+- Construção frágil
+
+Seu notebook atual com um SSD novo e uma limpeza térmica pode ser superior a um notebook novo de R$ 2.000.` },
+
+  { slug: "quando-trocar-computador", title: "Quando Trocar o Computador? | Guia Técnico", metaDescription: "Quando vale trocar o computador por um novo? Guia técnico honesto. Diagnóstico em Curitiba.", h1: "Quando Trocar o Computador? — Guia Técnico Honesto", categoria: "Decisão do Cliente", intro: `Trocar nem sempre é a resposta. Mas às vezes é a decisão mais racional. Nesta página, explicamos os sinais claros de que chegou a hora de trocar, e quando ainda vale investir em reparo ou upgrade.`, sintomas: [{ titulo: "Sinais de que é hora de trocar", desc: "Múltiplos defeitos, lentidão irrecuperável, incompatibilidade com software atual.", gravidade: "N/A" }, { titulo: "Sinais de que NÃO precisa trocar", desc: "Problema único, upgrade resolve, equipamento atende necessidades.", gravidade: "N/A" }], causas: [{ titulo: "Obsolescência real", desc: "Processador não suporta Windows 11, DDR3 não suporta mais RAM, etc.", tipo: "hardware" }, { titulo: "Obsolescência percebida", desc: "Computador parece velho mas um SSD + RAM resolve.", tipo: "software" }], cenarios: [{ nivel: "Simples", desc: "Upgrade resolve → NÃO precisa trocar", tempo: "N/A", custo: "R$ 300 a R$ 600 de upgrade" }, { nivel: "Médio", desc: "Avaliar: upgrade parcial + uso por mais 2-3 anos", tempo: "N/A", custo: "Variável" }, { nivel: "Complexo", desc: "Hardware defasado + múltiplos problemas → TROCAR", tempo: "N/A", custo: "Investir em novo" }], riscos: ["Trocar prematuramente desperdiça dinheiro", "Não trocar quando deveria desperdiça tempo e produtividade"], diagnostico: `Avaliação completa: vale upgrade ou trocar? Custo: R$ 90 (investimento que pode economizar centenas).`, solucao: `Recomendação honesta baseada em dados técnicos, não em venda.`, quandoCompensa: "Trocar quando o custo total de reparos + upgrades ultrapassa 60% de um novo que atende melhor.", quandoNaoCompensa: "Quando um upgrade de R$ 300-500 resolve o problema e estende a vida útil em 3-4 anos.", whatsappMessage: "Olá! Quero saber se devo trocar meu computador ou reparar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/vale-a-pena-consertar-computador" }, { label: "Custo Reparo vs Novo", to: "/custo-reparo-vs-novo" }, { label: "Quando Não Compensa", to: "/quando-nao-compensa-reparo" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Os 5 Sinais de Que Chegou a Hora
+
+1. Processador anterior a 2015 (não suporta software atual)
+2. Máximo de RAM suportada é 4GB
+3. Não suporta SSD
+4. Terceiro reparo em 12 meses
+5. Não roda mais os programas que você precisa
+
+### Obsolescência Real vs Percebida
+
+A indústria de tecnologia quer que você compre novo a cada 2-3 anos. A realidade é que um computador bem cuidado dura 7-10 anos com upgrades adequados.
+
+**Obsolescência percebida**: "Meu computador está lento, preciso de um novo." — Na maioria dos casos, um SSD + RAM resolve. Custo: R$ 300-500 em vez de R$ 3.000+.
+
+**Obsolescência real**: Quando o hardware não pode ser atualizado para atender necessidades atuais. Exemplos:
+- Processador Intel 4ª geração ou anterior (2013-) → não suporta Windows 11
+- Placa-mãe com DDR3 → máximo de 16GB RAM, insuficiente para workloads modernos
+- Slot PCI-Express 2.0 → limita GPUs modernas
+
+### Matriz de Decisão Completa
+
+| Idade do PC | Problema | Custo Reparo | Decisão |
+|---|---|---|---|
+| 0-3 anos | Qualquer | Até R$ 800 | REPARAR ✅ |
+| 3-5 anos | Simples/Médio | Até R$ 600 | REPARAR ✅ |
+| 3-5 anos | Complexo | R$ 600+ | AVALIAR ⚠️ |
+| 5-7 anos | Simples | Até R$ 400 | REPARAR ✅ |
+| 5-7 anos | Médio/Complexo | R$ 400+ | UPGRADE ou TROCAR 🔄 |
+| 7+ anos | Qualquer | Qualquer | AVALIAR TROCA 🆕 |
+
+### Quanto Custa um PC Novo em 2024-2025?
+
+Para ajudar na comparação, estes são os preços médios em Curitiba:
+
+| Perfil de Uso | Desktop | Notebook |
+|---|---|---|
+| Básico (Office/Internet) | R$ 2.000-3.000 | R$ 2.500-3.500 |
+| Intermediário (Multitarefa) | R$ 3.000-5.000 | R$ 3.500-5.500 |
+| Profissional (Design/Dev) | R$ 5.000-8.000 | R$ 5.500-10.000 |
+| Gamer/Pesado | R$ 5.000-15.000 | R$ 6.000-15.000 |
+
+Compare esses valores com o custo do reparo/upgrade do seu equipamento atual para tomar a decisão mais racional.` },
+
+  { slug: "quando-nao-compensa-reparo", title: "Quando Não Compensa o Reparo? | Guia Transparente", metaDescription: "Quando não compensa reparar? Guia honesto sobre custos, riscos e decisões. Curitiba.", h1: "Quando Não Compensa o Reparo — Transparência Total", categoria: "Decisão do Cliente", intro: `Existem situações em que reparar não é a melhor decisão. Nós fazemos questão de informar quando isso acontece, mesmo que signifique não fechar um serviço. Isso faz parte do nosso compromisso com transparência e honestidade técnica. Nesta página, explicamos os cenários onde substituir é mais inteligente que reparar.`, sintomas: [{ titulo: "Custo do reparo > 50% de novo", desc: "Investimento não se justifica.", gravidade: "N/A" }, { titulo: "Equipamento com 8+ anos", desc: "Mais problemas virão em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Desgaste generalizado", desc: "Vários componentes no fim da vida útil.", tipo: "desgaste" }, { titulo: "Tecnologia obsoleta", desc: "Não recebe mais atualizações ou suporte.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reparo barato → COMPENSA (mesmo em equipamento antigo)", tempo: "N/A", custo: "Baixo" }, { nivel: "Médio", desc: "Reparo moderado em equipamento médio → AVALIAR", tempo: "N/A", custo: "Moderado" }, { nivel: "Complexo", desc: "Reparo caro em equipamento antigo → NÃO COMPENSA", tempo: "N/A", custo: "Alto" }], riscos: ["Gastar em reparo e ter outro problema em semanas"], diagnostico: `Avaliação transparente. Custo: R$ 90.`, solucao: `Recomendação honesta: reparar ou substituir.`, quandoCompensa: "Reparos baratos sempre compensam. A análise deve ser feita caso a caso.", quandoNaoCompensa: "Múltiplos defeitos em equipamento antigo, custo alto relativo ao valor.", whatsappMessage: "Olá! Quero saber se compensa reparar meu equipamento. Podem avaliar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }, { label: "Custo Reparo vs Novo", to: "/custo-reparo-vs-novo" }, { label: "Quando Não Compensa (Geral)", to: "/quando-nao-compensa" }], conteudoExtra: `### Nossa Filosofia
+
+Preferimos perder um serviço a realizar um reparo que não vale a pena. Quando diagnosticamos um equipamento e concluímos que não compensa, informamos com transparência e orientamos sobre as melhores opções de compra.
+
+### Os 7 Cenários Onde NÃO Compensa Reparar
+
+**1. Custo do reparo > 50% do valor de novo**
+Se um notebook novo custa R$ 3.000 e o reparo custa R$ 1.800, não faz sentido. Você gasta 60% do preço e fica com equipamento usado.
+
+**2. Terceiro reparo em 12 meses**
+Quando os componentes começam a falhar em sequência, é sinal de desgaste generalizado. O próximo reparo está a caminho.
+
+**3. Processador obsoleto sem upgrade possível**
+Processadores anteriores a 2015 não suportam Windows 11 e muitos softwares atuais. Não há upgrade de processador que resolva — é a plataforma inteira.
+
+**4. Notebook com placa-mãe queimada + baixo valor**
+Notebooks de entrada (R$ 1.500-2.500 novos) com placa-mãe defeituosa: o reparo de placa (R$ 600-1000) se aproxima do preço de um novo, sem a garantia de fábrica.
+
+**5. TV com painel LCD danificado**
+O painel é o componente mais caro da TV. Se o painel rachou ou tem defeito extenso de pixels, a troca custa quase tanto quanto uma TV nova.
+
+**6. HD mecânico com danos físicos extensos**
+Quando o disco tem centenas de setores defeituosos e a informação não é crítica, é mais inteligente comprar SSD novo do que tentar recuperar.
+
+**7. Equipamento com dano por líquido extenso**
+Notebook que ficou dias molhado sem tratamento: oxidação generalizada torna o reparo uma loteria. Cada componente pode falhar a qualquer momento.
+
+### Como Comunicamos Quando Não Compensa
+
+Nosso laudo pós-diagnóstico inclui:
+
+1. **O que foi encontrado** — Problema detalhado com fotos quando relevante
+2. **Custo do reparo** — Valor exato, não estimativa vaga
+3. **Valor de referência de novo** — Para comparação
+4. **Nossa recomendação** — Reparar, fazer upgrade ou substituir
+5. **Se recomendamos substituir** — Sugerimos configurações adequadas ao perfil de uso do cliente
+
+### Dados Reais: Quando Recomendamos Substituição
+
+Em 2024, dos mais de 1.200 diagnósticos realizados em Curitiba e região:
+- **75%** — Recomendamos reparo (custo-benefício favorável)
+- **15%** — Recomendamos upgrade (SSD + RAM resolve)
+- **10%** — Recomendamos substituição (não compensa reparar)
+
+Esses 10% representam equipamentos onde a honestidade é mais valiosa que o faturamento.` },
+
+  { slug: "custo-reparo-vs-novo", title: "Custo de Reparo vs Computador Novo | Comparação", metaDescription: "Quanto custa reparar vs comprar novo? Comparação real com dados atualizados. Curitiba.", h1: "Custo de Reparo vs Computador Novo — Comparação Real", categoria: "Decisão do Cliente", intro: `Para tomar uma decisão inteligente, você precisa comparar números reais. Nesta página, apresentamos os custos médios de reparos comuns versus o preço de computadores novos equivalentes. Dados atualizados para ajudar na sua decisão.`, sintomas: [{ titulo: "Custo médio de reparos", desc: "Desde R$ 90 (diagnóstico) até R$ 800+ (reparo complexo).", gravidade: "N/A" }], causas: [{ titulo: "Cada caso é diferente", desc: "O diagnóstico define o custo real. Sem diagnóstico, qualquer estimativa é achismo.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, formatação, troca de peça simples: R$ 90 a R$ 250", tempo: "1h a 4h", custo: "Até R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD+RAM, troca de tela, fonte: R$ 250 a R$ 600", tempo: "1 dia", custo: "R$ 250 a R$ 600" }, { nivel: "Complexo", desc: "Reparo de placa, recuperação de dados: R$ 400 a R$ 1200+", tempo: "Dias", custo: "R$ 400 a R$ 1200+" }], riscos: ["Comprar barato demais pode gerar mais problemas que o equipamento atual"], diagnostico: `Diagnóstico + laudo comparativo: custo do reparo vs preço de equivalente novo. Custo: R$ 90.`, solucao: `Decisão informada com dados reais.`, quandoCompensa: "Quando o reparo custa até 40% de um equivalente novo.", quandoNaoCompensa: "Quando o reparo ultrapassa 50% e o equipamento é antigo.", whatsappMessage: "Olá! Quero comparar custo de reparo vs comprar novo. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/quando-trocar-computador" }, { label: "Quando Não Compensa", to: "/quando-nao-compensa-reparo" }, { label: "Vale Consertar Notebook?", to: "/vale-a-pena-consertar-notebook" }], conteudoExtra: `### Tabela Comparativa (2024-2025)
+
+| Reparo | Custo Médio | PC Novo Equivalente |
+|---|---|---|
+| Troca de SSD + RAM | R$ 350-500 | R$ 2.500-3.500 |
+| Troca de fonte | R$ 200-350 | R$ 2.500-3.500 |
+| Troca de tela notebook | R$ 300-800 | R$ 3.000-5.000 |
+| Formatação completa | R$ 150-250 | R$ 2.500+ |
+| Reparo placa-mãe | R$ 300-600 | R$ 3.000+ |
+
+### Análise Detalhada por Tipo de Reparo
+
+**Formatação Completa (R$ 150-250)**
+- Resolve: vírus, lentidão por software, Windows corrompido
+- Economia vs novo: R$ 2.250-3.250 (87-93% de economia)
+- Veredicto: SEMPRE compensa
+
+**Upgrade SSD + RAM (R$ 350-600)**
+- Resolve: lentidão geral, disco cheio, pouca memória
+- Economia vs novo: R$ 1.900-3.150 (76-90% de economia)
+- Veredicto: COMPENSA na grande maioria dos casos
+- Nota: É o upgrade com melhor custo-benefício que existe
+
+**Troca de Fonte (R$ 200-400)**
+- Resolve: PC não liga, instabilidade, desligamentos
+- Economia vs novo: R$ 2.100-3.300 (84-94% de economia)
+- Veredicto: SEMPRE compensa
+
+**Limpeza + Pasta Térmica (R$ 120-200)**
+- Resolve: superaquecimento, lentidão por throttling
+- Economia vs novo: R$ 2.300-3.380 (92-96% de economia)
+- Veredicto: SEMPRE compensa (manutenção preventiva)
+
+**Troca de Tela Notebook (R$ 300-800)**
+- Resolve: tela quebrada ou com manchas
+- Economia vs novo: R$ 2.200-4.700 (73-85% de economia)
+- Veredicto: Geralmente COMPENSA, exceto para modelos OLED/touch premium
+
+**Reparo de Placa-Mãe (R$ 300-800)**
+- Resolve: PC/notebook não liga por problema na placa
+- Economia vs novo: R$ 2.200-4.200 (73-84% de economia)
+- Veredicto: Compensa quando o dano é LOCALIZADO. Não compensa com dano extenso.
+
+### O Cenário Mais Comum em Curitiba
+
+O caso que mais atendemos em Curitiba e região metropolitana é: **computador lento que o dono acha que precisa trocar**. Em 8 de cada 10 casos, um upgrade de SSD + RAM (R$ 350-500) transforma o computador. Performance melhora 5-10x e a vida útil estende em 3-4 anos.
+
+Faça as contas: R$ 400 de upgrade vs R$ 3.000+ de PC novo, para o mesmo resultado de performance. A decisão é racional.
+
+### Quando os Números Dizem "Troque"
+
+Se o diagnóstico aponta que o reparo custa mais de R$ 1.200 em um equipamento com 6+ anos, os números geralmente dizem para trocar. Por R$ 2.500-3.500, você compra um PC novo com:
+- Processador atual com 3-5 anos de suporte
+- SSD NVMe (velocidade máxima)
+- 8-16GB RAM
+- Garantia de 1-3 anos
+- Windows 11 com atualizações por anos` },
 
   // ===== BUSCAS EDUCATIVAS (41-45) =====
-  { slug: "o-que-fazer-computador-nao-liga", title: "O Que Fazer Quando o Computador Não Liga?", metaDescription: "Passo a passo: o que fazer quando o computador não liga. Verificações, testes e quando chamar técnico.", h1: "O Que Fazer Quando o Computador Não Liga?", categoria: "Buscas Educativas", intro: `Seu computador não ligou e você não sabe o que fazer? Calma. Antes de chamar o técnico, existem verificações simples que você pode fazer em casa. Neste guia, explicamos o passo a passo desde a verificação básica até o momento de buscar ajuda profissional.`, sintomas: [{ titulo: "Verificações que você pode fazer", desc: "Tomada, cabo, monitor, periféricos.", gravidade: "Simples" }], causas: [{ titulo: "Causa pode ser simples", desc: "Em 20% dos casos, é algo que o próprio usuário resolve.", tipo: "hardware" }, { titulo: "Causa pode ser técnica", desc: "Nos outros 80%, precisa de diagnóstico profissional.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema de cabo, tomada ou configuração.", tempo: "5 min", custo: "R$ 0 (você resolve)" }, { nivel: "Médio", desc: "Componente com problema que precisa de técnico.", tempo: "1h+", custo: "R$ 90+" }, { nivel: "Complexo", desc: "Placa-mãe ou curto que precisa de bancada.", tempo: "Dias", custo: "R$ 200+" }], riscos: ["Tentar abrir sem conhecimento pode piorar"], diagnostico: `Se as verificações básicas não resolveram, diagnóstico profissional é o próximo passo. Custo: R$ 90.`, solucao: `Passo a passo de verificação → diagnóstico → reparo.`, quandoCompensa: "Sempre vale verificar antes de chamar — pode economizar uma visita.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Meu computador não liga e já tentei o básico. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Computador Sem Vídeo", to: "/computador-sem-video-curitiba" }], conteudoExtra: `### Checklist Passo a Passo\n\n1. ✅ Verifique se o cabo de energia está conectado\n2. ✅ Teste outra tomada\n3. ✅ Verifique se o monitor está ligado\n4. ✅ Desconecte todos os USB\n5. ✅ Se notebook: remova bateria e tente só na tomada\n6. ✅ Espere 5 min e tente novamente\n7. ❌ Se nada funcionou → chame o técnico` },
+  { slug: "o-que-fazer-computador-nao-liga", title: "O Que Fazer Quando o Computador Não Liga?", metaDescription: "Passo a passo: o que fazer quando o computador não liga. Verificações, testes e quando chamar técnico.", h1: "O Que Fazer Quando o Computador Não Liga?", categoria: "Buscas Educativas", intro: `Seu computador não ligou e você não sabe o que fazer? Calma. Antes de chamar o técnico, existem verificações simples que você pode fazer em casa. Neste guia, explicamos o passo a passo desde a verificação básica até o momento de buscar ajuda profissional.`, sintomas: [{ titulo: "Verificações que você pode fazer", desc: "Tomada, cabo, monitor, periféricos.", gravidade: "Simples" }], causas: [{ titulo: "Causa pode ser simples", desc: "Em 20% dos casos, é algo que o próprio usuário resolve.", tipo: "hardware" }, { titulo: "Causa pode ser técnica", desc: "Nos outros 80%, precisa de diagnóstico profissional.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema de cabo, tomada ou configuração.", tempo: "5 min", custo: "R$ 0 (você resolve)" }, { nivel: "Médio", desc: "Componente com problema que precisa de técnico.", tempo: "1h+", custo: "R$ 90+" }, { nivel: "Complexo", desc: "Placa-mãe ou curto que precisa de bancada.", tempo: "Dias", custo: "R$ 200+" }], riscos: ["Tentar abrir sem conhecimento pode piorar"], diagnostico: `Se as verificações básicas não resolveram, diagnóstico profissional é o próximo passo. Custo: R$ 90.`, solucao: `Passo a passo de verificação → diagnóstico → reparo.`, quandoCompensa: "Sempre vale verificar antes de chamar — pode economizar uma visita.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Meu computador não liga e já tentei o básico. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" }, { label: "Computador Sem Vídeo", to: "/computador-sem-video-curitiba" }, { label: "Riscos de Consertar Sozinho", to: "/riscos-de-tentar-consertar" }, { label: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" }], conteudoExtra: `### Checklist Passo a Passo
 
-  { slug: "o-que-fazer-notebook-lento", title: "O Que Fazer Com Notebook Lento? | Guia Prático", metaDescription: "Notebook lento? Guia prático com verificações e soluções. Quando otimizar, quando fazer upgrade, quando trocar.", h1: "O Que Fazer Com Notebook Lento? — Guia Prático", categoria: "Buscas Educativas", intro: `Notebook lento atrapalha trabalho, estudo e lazer. Mas antes de sair comprando um novo, existem coisas que você pode verificar e ações simples que podem melhorar a performance. Este guia explica o que fazer, desde verificações básicas até quando é hora de buscar upgrade profissional.`, sintomas: [{ titulo: "Coisas que você pode fazer", desc: "Fechar programas, limpar inicialização, verificar disco.", gravidade: "Simples" }], causas: [{ titulo: "Software (você pode resolver)", desc: "Programas desnecessários, navegador pesado, cache cheio.", tipo: "software" }, { titulo: "Hardware (precisa de técnico)", desc: "HD antigo, pouca RAM, superaquecimento.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização de software pelo próprio usuário.", tempo: "30 min", custo: "R$ 0" }, { nivel: "Médio", desc: "Upgrade profissional (SSD + RAM).", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + upgrade + limpeza interna.", tempo: "1 dia", custo: "R$ 400 a R$ 800" }], riscos: ["Programas de 'otimização' podem piorar", "Upgrade errado desperdiça dinheiro"], diagnostico: `Se as dicas básicas não resolveram, diagnóstico identifica o gargalo. Custo: R$ 90.`, solucao: `Guia de autoajuda + opções de upgrade profissional.`, quandoCompensa: "Upgrade compensa na maioria dos notebooks com menos de 6 anos.", quandoNaoCompensa: "Notebooks muito antigos onde o gargalo é o processador.", whatsappMessage: "Olá! Meu notebook está lento e já tentei otimizar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/notebook-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Dicas Rápidas (Faça Você Mesmo)\n\n1. Ctrl+Shift+Esc → Inicializar → Desative programas desnecessários\n2. Desinstale programas que não usa\n3. Limite as abas do Chrome (cada aba = memória)\n4. Verifique espaço no disco (mínimo 20% livre)\n5. Reinicie o notebook (sério, muita gente só fecha a tampa)` },
+1. ✅ Verifique se o cabo de energia está conectado
+2. ✅ Teste outra tomada
+3. ✅ Verifique se o monitor está ligado
+4. ✅ Desconecte todos os USB
+5. ✅ Se notebook: remova bateria e tente só na tomada
+6. ✅ Espere 5 min e tente novamente
+7. ❌ Se nada funcionou → chame o técnico
 
-  { slug: "o-que-causa-curto-em-placa", title: "O Que Causa Curto em Placa Eletrônica?", metaDescription: "Entenda o que causa curto-circuito em placas eletrônicas. Prevenção, causas e reparo. Curitiba.", h1: "O Que Causa Curto em Placa Eletrônica?", categoria: "Buscas Educativas", intro: `Curto-circuito em placas eletrônicas é um dos problemas mais técnicos que atendemos. Entender como ele acontece ajuda a prevenir e a tomar decisões mais informadas sobre reparo. Neste guia educativo, explicamos as causas, como identificar e como prevenir.`, sintomas: [{ titulo: "Equipamento não liga", desc: "Curto impede fornecimento de energia.", gravidade: "Complexo" }], causas: [{ titulo: "Líquido", desc: "Qualquer líquido condutivo entre trilhas energizadas causa curto instantâneo.", tipo: "erro-humano" }, { titulo: "Poeira metálica", desc: "Ambientes com partículas metálicas (oficinas, indústrias).", tipo: "desgaste" }, { titulo: "Componente que falhou", desc: "Capacitor ou transistor que entrou em curto internamente.", tipo: "hardware" }, { titulo: "Dano mecânico", desc: "Ferramenta que riscou trilha, parafuso que caiu na placa.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Limpeza remove causa do curto.", tempo: "1h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Troca de componente em curto.", tempo: "3 a 5 dias", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Reparo de trilha + troca de componentes.", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 800" }], riscos: ["Curto pode causar dano em cadeia", "Reparo amador piora o problema"], diagnostico: `Localização com multímetro e câmera térmica. Custo: R$ 90-150.`, solucao: `Remoção da causa + troca do componente + teste completo.`, quandoCompensa: "Na maioria dos casos quando o curto é localizado.", quandoNaoCompensa: "Quando causou dano extenso em cadeia.", whatsappMessage: "Olá! Meu equipamento teve curto-circuito. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Curto em Placa", to: "/curto-em-placa-eletronica" }, { label: "Placa-Mãe Queimada", to: "/placa-mae-queimada" }], conteudoExtra: `### Como Prevenir Curtos\n\n1. Use estabilizador ou nobreak\n2. Mantenha o equipamento em local seco e limpo\n3. Evite comer/beber perto do computador\n4. Faça limpeza preventiva anual\n5. Use fonte de qualidade` },
+### Guia Detalhado: Verificações que Você Pode Fazer com Segurança
 
-  { slug: "erros-comuns-em-upgrade", title: "Erros Comuns em Upgrade de PC | Evite Problemas", metaDescription: "Os erros mais comuns ao fazer upgrade de PC. Evite problemas com RAM, SSD, GPU. Guia técnico.", h1: "Erros Comuns em Upgrade de PC — Evite Problemas", categoria: "Buscas Educativas", intro: `Upgrades são a forma mais inteligente de melhorar o computador. Mas erros na escolha das peças ou na instalação podem transformar uma melhoria em um problema. Neste guia, listamos os erros mais comuns que vemos em Curitiba e como evitá-los.`, sintomas: [{ titulo: "Computador não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }], causas: [{ titulo: "Comprar peça errada", desc: "RAM DDR4 para placa DDR3, SSD NVMe para slot SATA.", tipo: "erro-humano" }, { titulo: "Não verificar compatibilidade", desc: "Processador incompatível com placa-mãe, fonte insuficiente para GPU.", tipo: "erro-humano" }, { titulo: "Instalação sem cuidado", desc: "Forçar peças, não usar antiestática, conectar cabos errados.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Troca por peça compatível resolve.", tempo: "1h", custo: "R$ 90 + diferença de peça" }, { nivel: "Médio", desc: "Peça incompatível causou dano leve.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Dano a componentes durante instalação.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Cada erro pode ser mais caro que contratar um técnico desde o início"], diagnostico: `Avaliação do upgrade realizado + correção. Custo: R$ 90.`, solucao: `Identificação do erro + correção + orientação.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Quando causou dano físico irreversível.", whatsappMessage: "Olá! Fiz um upgrade e deu problema. Podem me ajudar a corrigir?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/upgrade-deu-problema" }, { label: "Erro RAM", to: "/erro-ao-instalar-memoria-ram" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Top 5 Erros de Upgrade\n\n1. **RAM errada** — DDR4 em placa DDR3 (não encaixa mas tentam forçar)\n2. **SSD errado** — NVMe em slot M.2 SATA (parece igual mas não é)\n3. **Fonte insuficiente** — GPU nova com fonte antiga que não aguenta\n4. **Sem antiestática** — Descarga queima chips invisíveis\n5. **Sem backup** — Trocar SSD sem migrar dados` },
+**Passo 1: Verifique a Energia**
+Parece óbvio, mas é a causa mais frequente de "computador não liga" que atendemos em Curitiba. Verifique:
+- Cabo de energia está firme na tomada E no computador/monitor
+- A régua de tomada ou filtro de linha está ligado
+- Teste a tomada com outro aparelho (carregador de celular, por exemplo)
+- Se houve queda de energia recente, o disjuntor pode ter desarmado
 
-  { slug: "riscos-de-tentar-consertar", title: "Riscos de Tentar Consertar Sozinho | Guia", metaDescription: "Os riscos de tentar consertar computador, notebook ou TV sozinho. Por que o diagnóstico profissional evita prejuízo.", h1: "Riscos de Tentar Consertar Sozinho — Por Que Evitar", categoria: "Buscas Educativas", intro: `Tutoriais do YouTube fazem parecer simples. Mas consertar equipamentos eletrônicos sem conhecimento técnico real é arriscado — e frequentemente sai mais caro que chamar um profissional desde o início. Nesta página, explicamos os riscos reais com exemplos do nosso dia a dia.`, sintomas: [{ titulo: "Tentou e piorou", desc: "A maioria dos casos que recebemos de 'tentei consertar' viram reparos mais caros.", gravidade: "N/A" }], causas: [{ titulo: "Falta de conhecimento técnico", desc: "YouTube mostra o procedimento mas não ensina diagnóstico.", tipo: "erro-humano" }, { titulo: "Falta de ferramentas adequadas", desc: "Chave errada, falta de antiestática, sem multímetro.", tipo: "erro-humano" }, { titulo: "Diagnóstico errado", desc: "Achar que é a fonte quando é a placa, trocar peça errada.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Tentou e não piorou — técnico resolve normalmente.", tempo: "Normal", custo: "Normal" }, { nivel: "Médio", desc: "Tentou e causou dano adicional.", tempo: "+1 a 2 dias", custo: "+30-50% do reparo original" }, { nivel: "Complexo", desc: "Tentou e inutilizou o equipamento.", tempo: "N/A", custo: "Perda total" }], riscos: ["Descarga eletrostática queima componentes invisivelmente", "Forçar peças danifica conectores", "Trocar peça errada não resolve e gasta dinheiro", "Perder garantia ao abrir sem autorização", "Choque elétrico (especialmente em TVs e monitores)"], diagnostico: `Deixe o diagnóstico com quem tem conhecimento e ferramentas. Custo: R$ 90 vs custo de uma tentativa errada: R$ centenas.`, solucao: `Diagnóstico profissional primeiro. Sempre.`, quandoCompensa: "Verificações básicas (cabo, tomada, reiniciar) são seguras. Abrir equipamento, não.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Tentei consertar e piorou. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }], conteudoExtra: `### Casos Reais do Nosso Dia a Dia\n\n- Cliente trocou RAM por achismo → queimou o slot → reparo de placa R$ 400\n- Cliente tentou trocar tela do notebook → rompeu flex → custo dobrou\n- Cliente usou secador no notebook molhado → empurrou líquido para placa → perda total\n- Cliente trocou fonte sem testar → fonte errada queimou placa-mãe\n\nO diagnóstico profissional custa R$ 90. Qualquer uma dessas tentativas custou mais.` },
+**Passo 2: Isole o Monitor**
+Muitas vezes o computador ESTÁ ligando, mas o monitor é que está desligado ou com cabo solto:
+- Verifique se o monitor está ligado (LED de standby)
+- Cabo de vídeo (HDMI, VGA, DisplayPort) está firme em ambas as pontas
+- Teste com outro cabo de vídeo se disponível
+- Aperte os botões do monitor para trocar a entrada (HDMI1, HDMI2, VGA)
+
+**Passo 3: Ouça o Computador**
+Ao pressionar o botão power, preste atenção:
+- **Nenhum som**: Pode ser fonte queimada ou botão com defeito
+- **Ventoinhas giram por instantes**: Pode ser curto ou superaquecimento
+- **Bips**: Código de erro — anote a sequência (curto/longo/quantidade)
+- **Ventoinhas normais mas sem imagem**: Problema de vídeo (RAM, GPU, cabo)
+
+**Passo 4: Desconecte Periféricos**
+USB defeituoso pode impedir a inicialização:
+- Desconecte TUDO: pen drives, HD externo, impressora, webcam
+- Tente ligar apenas com monitor, teclado e mouse
+- Se funcionar, reconecte um por um para identificar o causador
+
+**Passo 5 (Notebooks): Reset de Energia**
+Notebooks acumulam carga estática que pode impedir a inicialização:
+- Desconecte o carregador
+- Remova a bateria (se possível)
+- Segure o botão power por 30 segundos
+- Reconecte apenas o carregador (sem bateria)
+- Tente ligar
+
+### Quando é Hora de Chamar o Técnico
+
+Se todas as verificações acima não resolveram, o problema provavelmente é interno e requer diagnóstico profissional. **NÃO tente abrir o computador** sem experiência — o risco de causar mais dano é real.
+
+Em Curitiba e região metropolitana, nosso técnico pode ir até você no mesmo dia para diagnóstico presencial (R$ 90, incorporado ao serviço se aprovado).
+
+### Os 5 Erros Mais Comuns ao Tentar Resolver Sozinho
+
+1. **Abrir o gabinete sem descarregar estática** → queima componentes
+2. **Trocar RAM por achismo** → gasta dinheiro em peça errada
+3. **Forçar cabos e conectores** → quebra pin ou conector
+4. **"Formatar vai resolver"** → perde dados e o problema persiste
+5. **Comprar fonte sem testar a atual** → fonte não era o problema` },
+
+  { slug: "o-que-fazer-notebook-lento", title: "O Que Fazer Com Notebook Lento? | Guia Prático", metaDescription: "Notebook lento? Guia prático com verificações e soluções. Quando otimizar, quando fazer upgrade, quando trocar.", h1: "O Que Fazer Com Notebook Lento? — Guia Prático", categoria: "Buscas Educativas", intro: `Notebook lento atrapalha trabalho, estudo e lazer. Mas antes de sair comprando um novo, existem coisas que você pode verificar e ações simples que podem melhorar a performance. Este guia explica o que fazer, desde verificações básicas até quando é hora de buscar upgrade profissional.`, sintomas: [{ titulo: "Coisas que você pode fazer", desc: "Fechar programas, limpar inicialização, verificar disco.", gravidade: "Simples" }], causas: [{ titulo: "Software (você pode resolver)", desc: "Programas desnecessários, navegador pesado, cache cheio.", tipo: "software" }, { titulo: "Hardware (precisa de técnico)", desc: "HD antigo, pouca RAM, superaquecimento.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização de software pelo próprio usuário.", tempo: "30 min", custo: "R$ 0" }, { nivel: "Médio", desc: "Upgrade profissional (SSD + RAM).", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + upgrade + limpeza interna.", tempo: "1 dia", custo: "R$ 400 a R$ 800" }], riscos: ["Programas de 'otimização' podem piorar", "Upgrade errado desperdiça dinheiro"], diagnostico: `Se as dicas básicas não resolveram, diagnóstico identifica o gargalo. Custo: R$ 90.`, solucao: `Guia de autoajuda + opções de upgrade profissional.`, quandoCompensa: "Upgrade compensa na maioria dos notebooks com menos de 6 anos.", quandoNaoCompensa: "Notebooks muito antigos onde o gargalo é o processador.", whatsappMessage: "Olá! Meu notebook está lento e já tentei otimizar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/notebook-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }, { label: "Windows Lento", to: "/windows-lento-curitiba" }, { label: "Formatação Resolve?", to: "/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/computador-lento-curitiba" }], conteudoExtra: `### Dicas Rápidas (Faça Você Mesmo)
+
+1. Ctrl+Shift+Esc → Inicializar → Desative programas desnecessários
+2. Desinstale programas que não usa
+3. Limite as abas do Chrome (cada aba = memória)
+4. Verifique espaço no disco (mínimo 20% livre)
+5. Reinicie o notebook (sério, muita gente só fecha a tampa)
+
+### O Teste dos 3 Minutos: Identifique Seu Gargalo
+
+Abra o Gerenciador de Tarefas (Ctrl+Shift+Esc) e observe por 3 minutos enquanto usa o notebook normalmente:
+
+**Se o Disco fica em 100%** → Seu gargalo é o disco. Se é HD mecânico, trocar por SSD é a solução mais impactante. Custo: R$ 250-400.
+
+**Se a Memória fica acima de 85%** → Seu gargalo é RAM. Muitos notebooks permitem adicionar mais RAM. Custo: R$ 150-350.
+
+**Se a CPU fica acima de 90%** → Pode ser malware (minerador) ou processador insuficiente. Scan de vírus primeiro; se o problema é o processador, upgrade não é possível em notebooks.
+
+**Se tudo fica normal** → O problema pode ser software (muitos programas na inicialização, Windows corrompido).
+
+### O Impacto Real de Cada Upgrade
+
+| Upgrade | Melhoria Percebida | Custo em Curitiba |
+|---|---|---|
+| HD → SSD SATA | ⭐⭐⭐⭐⭐ Transformador | R$ 250-400 |
+| SSD SATA → NVMe | ⭐⭐ Leve melhoria | R$ 300-500 |
+| 4GB → 8GB RAM | ⭐⭐⭐⭐ Muito significativo | R$ 150-250 |
+| 8GB → 16GB RAM | ⭐⭐⭐ Significativo | R$ 200-350 |
+| Limpeza + pasta térmica | ⭐⭐⭐ Reduz throttling | R$ 120-200 |
+
+### Programas que Mais Consomem Recursos
+
+Em ordem de impacto na performance do notebook:
+
+1. **Google Chrome** — Cada aba consome 50-300MB de RAM. 10 abas = até 3GB
+2. **Antivírus pesados** — Norton, McAfee e Kaspersky versões completas são notoriamente pesados. Windows Defender é suficiente para a maioria.
+3. **OneDrive/Google Drive sincronizando** — Sincronização contínua em segundo plano
+4. **Adobe Creative Cloud** — Mantém vários serviços em background mesmo sem usar
+5. **Discord/Spotify/Steam** — Abrem com o Windows e ficam consumindo
+
+### Quando o Notebook Lento é Sinal de Problema Maior
+
+Às vezes a lentidão é sintoma de algo mais sério:
+- **Superaquecimento** → Notebook esquenta muito e fica lento? Pasta térmica seca.
+- **HD com setores defeituosos** → Lentidão + sons de clique no disco.
+- **Malware** → Lento de repente sem motivo aparente? Scan profissional.
+- **Bateria inchada** → Base do notebook estufando? PARE DE USAR. Urgente.` },
+
+  { slug: "o-que-causa-curto-em-placa", title: "O Que Causa Curto em Placa Eletrônica?", metaDescription: "Entenda o que causa curto-circuito em placas eletrônicas. Prevenção, causas e reparo. Curitiba.", h1: "O Que Causa Curto em Placa Eletrônica?", categoria: "Buscas Educativas", intro: `Curto-circuito em placas eletrônicas é um dos problemas mais técnicos que atendemos. Entender como ele acontece ajuda a prevenir e a tomar decisões mais informadas sobre reparo. Neste guia educativo, explicamos as causas, como identificar e como prevenir.`, sintomas: [{ titulo: "Equipamento não liga", desc: "Curto impede fornecimento de energia.", gravidade: "Complexo" }], causas: [{ titulo: "Líquido", desc: "Qualquer líquido condutivo entre trilhas energizadas causa curto instantâneo.", tipo: "erro-humano" }, { titulo: "Poeira metálica", desc: "Ambientes com partículas metálicas (oficinas, indústrias).", tipo: "desgaste" }, { titulo: "Componente que falhou", desc: "Capacitor ou transistor que entrou em curto internamente.", tipo: "hardware" }, { titulo: "Dano mecânico", desc: "Ferramenta que riscou trilha, parafuso que caiu na placa.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Limpeza remove causa do curto.", tempo: "1h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Troca de componente em curto.", tempo: "3 a 5 dias", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Reparo de trilha + troca de componentes.", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 800" }], riscos: ["Curto pode causar dano em cadeia", "Reparo amador piora o problema"], diagnostico: `Localização com multímetro e câmera térmica. Custo: R$ 90-150.`, solucao: `Remoção da causa + troca do componente + teste completo.`, quandoCompensa: "Na maioria dos casos quando o curto é localizado.", quandoNaoCompensa: "Quando causou dano extenso em cadeia.", whatsappMessage: "Olá! Meu equipamento teve curto-circuito. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Curto em Placa", to: "/curto-em-placa-eletronica" }, { label: "Placa-Mãe Queimada", to: "/placa-mae-queimada" }, { label: "Riscos de Consertar Sozinho", to: "/riscos-de-tentar-consertar" }, { label: "Conserto Placa", to: "/servicos/conserto-placa" }], conteudoExtra: `### Como Prevenir Curtos
+
+1. Use estabilizador ou nobreak
+2. Mantenha o equipamento em local seco e limpo
+3. Evite comer/beber perto do computador
+4. Faça limpeza preventiva anual
+5. Use fonte de qualidade
+
+### Entendendo o Curto-Circuito: Explicação Simples
+
+Imagine as trilhas de cobre na placa como ruas de uma cidade. Cada rua leva energia para um destino específico (processador, memória, vídeo). Um curto-circuito é como construir uma ponte ilegal entre duas ruas — a energia vai para onde não deveria, e o resultado é destruição.
+
+### Os 4 Tipos de Curto em Placas
+
+**1. Curto Direto (Baixa Resistência)**
+Dois pontos conectados com resistência quase zero. A corrente sobe dramaticamente e queima o componente ou a trilha. Causa: líquido, solda com excesso, parafuso solto.
+
+**2. Curto por Fuga (Alta Resistência)**
+Conexão parcial — corrente pequena "vaza" onde não deveria. Pode causar comportamento errático sem queimar. Causa: umidade, oxidação, poeira condutiva.
+
+**3. Curto Intermitente**
+Acontece apenas em certas condições (temperatura, vibração, posição). O mais difícil de diagnosticar. Causa: solda fria, fio parcialmente rompido, componente com fissura.
+
+**4. Curto em Cadeia**
+Um componente queima e o curto se propaga para componentes adjacentes. Pode transformar um reparo simples em dano extenso. Causa: continuar usando equipamento com cheiro de queimado.
+
+### Fatores Ambientais em Curitiba e Região
+
+O clima e as condições locais influenciam na incidência de curtos:
+
+**Umidade** — Curitiba tem umidade relativa média de 80-85%. Equipamentos em garagens, sótãos ou próximos a janelas estão mais sujeitos a oxidação e curtos por umidade.
+
+**Tempestades elétricas** — O Paraná é um dos estados com maior incidência de raios no Brasil. Surtos de tensão causados por descargas atmosféricas podem induzir curtos em equipamentos sem proteção.
+
+**Poeira** — Regiões com obras ou próximas a vias movimentadas (BR-116, BR-277) acumulam mais poeira. Poeira misturada com umidade se torna condutiva.
+
+### Kit de Prevenção Recomendado
+
+| Item | Custo | Proteção |
+|---|---|---|
+| Filtro de linha com varistor | R$ 30-80 | Surtos leves |
+| Estabilizador | R$ 150-300 | Variação de tensão |
+| Nobreak | R$ 400-1000 | Queda + surto |
+| Limpeza preventiva anual | R$ 120-200 | Poeira + pasta térmica |
+| Desumidificador (ambientes úmidos) | R$ 200-600 | Umidade |` },
+
+  { slug: "erros-comuns-em-upgrade", title: "Erros Comuns em Upgrade de PC | Evite Problemas", metaDescription: "Os erros mais comuns ao fazer upgrade de PC. Evite problemas com RAM, SSD, GPU. Guia técnico.", h1: "Erros Comuns em Upgrade de PC — Evite Problemas", categoria: "Buscas Educativas", intro: `Upgrades são a forma mais inteligente de melhorar o computador. Mas erros na escolha das peças ou na instalação podem transformar uma melhoria em um problema. Neste guia, listamos os erros mais comuns que vemos em Curitiba e como evitá-los.`, sintomas: [{ titulo: "Computador não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }], causas: [{ titulo: "Comprar peça errada", desc: "RAM DDR4 para placa DDR3, SSD NVMe para slot SATA.", tipo: "erro-humano" }, { titulo: "Não verificar compatibilidade", desc: "Processador incompatível com placa-mãe, fonte insuficiente para GPU.", tipo: "erro-humano" }, { titulo: "Instalação sem cuidado", desc: "Forçar peças, não usar antiestática, conectar cabos errados.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Troca por peça compatível resolve.", tempo: "1h", custo: "R$ 90 + diferença de peça" }, { nivel: "Médio", desc: "Peça incompatível causou dano leve.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Dano a componentes durante instalação.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Cada erro pode ser mais caro que contratar um técnico desde o início"], diagnostico: `Avaliação do upgrade realizado + correção. Custo: R$ 90.`, solucao: `Identificação do erro + correção + orientação.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Quando causou dano físico irreversível.", whatsappMessage: "Olá! Fiz um upgrade e deu problema. Podem me ajudar a corrigir?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/upgrade-deu-problema" }, { label: "Erro RAM", to: "/erro-ao-instalar-memoria-ram" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Notebook Após Upgrade", to: "/notebook-apos-upgrade-nao-liga-curitiba" }, { label: "Riscos de Consertar Sozinho", to: "/riscos-de-tentar-consertar" }], conteudoExtra: `### Top 5 Erros de Upgrade
+
+1. **RAM errada** — DDR4 em placa DDR3 (não encaixa mas tentam forçar)
+2. **SSD errado** — NVMe em slot M.2 SATA (parece igual mas não é)
+3. **Fonte insuficiente** — GPU nova com fonte antiga que não aguenta
+4. **Sem antiestática** — Descarga queima chips invisíveis
+5. **Sem backup** — Trocar SSD sem migrar dados
+
+### Guia Completo de Compatibilidade por Componente
+
+**RAM — O Que Verificar**
+- Geração: DDR3, DDR4 ou DDR5 (placa-mãe suporta apenas uma)
+- Frequência: verificar frequência máxima suportada pela placa
+- Quantidade de slots e máximo por slot (ex: 2 slots, 16GB max cada)
+- Formato: DIMM (desktop) vs SO-DIMM (notebook) — fisicamente diferentes
+- Site útil: crucial.com/compatibility (insere modelo, mostra opções compatíveis)
+
+**SSD — O Que Verificar**
+- Interface: SATA (2.5" ou M.2 SATA) vs NVMe (M.2 NVMe)
+- O slot M.2 pode ser SATA-only, NVMe-only ou ambos — verificar manual
+- Tamanho do M.2: 2230, 2242, 2260, 2280 — notebooks variam
+- Para desktop: SSD 2.5" SATA funciona em qualquer PC com porta SATA
+
+**GPU — O Que Verificar**
+- Slot PCI-Express: versão e número de lanes (x16 para GPU)
+- Fonte de alimentação: wattagem total e conectores disponíveis (6pin, 8pin)
+- Tamanho físico: a GPU cabe no gabinete? (medir comprimento)
+- Alimentação: GPUs potentes precisam de 2x conectores de 8pin
+
+**Processador — O Que Verificar**
+- Socket: LGA 1700, AM5, etc. — incompatível = não encaixa
+- Chipset: nem todo chipset suporta todo processador do mesmo socket
+- Geração: processadores mais novos podem não ser suportados por placas mais antigas (mesmo socket)
+- TDP: a placa-mãe e o cooler precisam suportar o TDP do processador
+
+### Erro de Upgrade vs Custo de Contratar Técnico
+
+| Cenário | Fazer Sozinho (com erro) | Contratar Técnico |
+|---|---|---|
+| Consultoria pré-compra | R$ 0 | R$ 50-90 |
+| Comprar peça errada | R$ 200-400 perdidos | R$ 0 (orienta antes) |
+| Danificar slot/conector | R$ 200-500 reparo | R$ 0 (instala corretamente) |
+| Total médio em caso de erro | R$ 400-900 | R$ 140-280 (consulta + instalação) |
+
+A economia de fazer sozinho pode virar prejuízo. O investimento em consultoria técnica pré-upgrade é o melhor custo-benefício em upgrades.
+
+### Checklist Universal Pré-Upgrade
+
+Antes de comprar QUALQUER peça, verifique:
+1. ☐ Manual da placa-mãe/notebook (especificações suportadas)
+2. ☐ Compatibilidade no site do fabricante
+3. ☐ Wattagem da fonte (para GPU)
+4. ☐ Espaço físico (para GPU e coolers)
+5. ☐ Backup completo dos dados
+6. ☐ Ferramentas adequadas (chaves, pulseira antiestática)
+7. ☐ Vídeo/fotos do estado atual (para referência na remontagem)` },
+
+  { slug: "riscos-de-tentar-consertar", title: "Riscos de Tentar Consertar Sozinho | Guia", metaDescription: "Os riscos de tentar consertar computador, notebook ou TV sozinho. Por que o diagnóstico profissional evita prejuízo.", h1: "Riscos de Tentar Consertar Sozinho — Por Que Evitar", categoria: "Buscas Educativas", intro: `Tutoriais do YouTube fazem parecer simples. Mas consertar equipamentos eletrônicos sem conhecimento técnico real é arriscado — e frequentemente sai mais caro que chamar um profissional desde o início. Nesta página, explicamos os riscos reais com exemplos do nosso dia a dia.`, sintomas: [{ titulo: "Tentou e piorou", desc: "A maioria dos casos que recebemos de 'tentei consertar' viram reparos mais caros.", gravidade: "N/A" }], causas: [{ titulo: "Falta de conhecimento técnico", desc: "YouTube mostra o procedimento mas não ensina diagnóstico.", tipo: "erro-humano" }, { titulo: "Falta de ferramentas adequadas", desc: "Chave errada, falta de antiestática, sem multímetro.", tipo: "erro-humano" }, { titulo: "Diagnóstico errado", desc: "Achar que é a fonte quando é a placa, trocar peça errada.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Tentou e não piorou — técnico resolve normalmente.", tempo: "Normal", custo: "Normal" }, { nivel: "Médio", desc: "Tentou e causou dano adicional.", tempo: "+1 a 2 dias", custo: "+30-50% do reparo original" }, { nivel: "Complexo", desc: "Tentou e inutilizou o equipamento.", tempo: "N/A", custo: "Perda total" }], riscos: ["Descarga eletrostática queima componentes invisivelmente", "Forçar peças danifica conectores", "Trocar peça errada não resolve e gasta dinheiro", "Perder garantia ao abrir sem autorização", "Choque elétrico (especialmente em TVs e monitores)"], diagnostico: `Deixe o diagnóstico com quem tem conhecimento e ferramentas. Custo: R$ 90 vs custo de uma tentativa errada: R$ centenas.`, solucao: `Diagnóstico profissional primeiro. Sempre.`, quandoCompensa: "Verificações básicas (cabo, tomada, reiniciar) são seguras. Abrir equipamento, não.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Tentei consertar e piorou. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }, { label: "Erros de Upgrade", to: "/erros-comuns-em-upgrade" }, { label: "Upgrade Deu Problema", to: "/upgrade-deu-problema" }, { label: "O Que Fazer PC Não Liga", to: "/o-que-fazer-computador-nao-liga" }], conteudoExtra: `### Casos Reais do Nosso Dia a Dia
+
+- Cliente trocou RAM por achismo → queimou o slot → reparo de placa R$ 400
+- Cliente tentou trocar tela do notebook → rompeu flex → custo dobrou
+- Cliente usou secador no notebook molhado → empurrou líquido para placa → perda total
+- Cliente trocou fonte sem testar → fonte errada queimou placa-mãe
+
+O diagnóstico profissional custa R$ 90. Qualquer uma dessas tentativas custou mais.
+
+### Os 10 Riscos Reais (com Exemplos de Curitiba)
+
+**1. Descarga Eletrostática (ESD)**
+Você não sente. Não vê. Mas a descarga eletrostática do seu corpo (pode chegar a 25.000 volts) queima chips e transistores invisíveis. O dano só aparece depois — intermitência, travamentos, perda total. Prevenção: pulseira antiestática (que quase ninguém tem em casa).
+
+**2. Forçar Componentes**
+"Se não encaixou, força mais." Essa mentalidade quebra slots de RAM, conectores M.2, flexs de notebook e portas USB. Um slot de RAM quebrado = reparo de placa-mãe (R$ 350+).
+
+**3. Diagnóstico Errado = Dinheiro Jogado Fora**
+"O fórum disse que é a fonte." Você compra fonte nova, instala, e o problema continua — era a placa-mãe. Agora tem uma fonte que não precisava e ainda precisa do diagnóstico.
+
+**4. Perda de Garantia**
+Abrir notebook ou desktop ainda na garantia sem autorização do fabricante anula a cobertura. Selos de garantia são verificados.
+
+**5. Choque Elétrico**
+TVs e monitores têm capacitores que armazenam carga LETAL mesmo desligados. Não é exagero — é perigo real. Nunca abra uma TV sem conhecimento.
+
+**6. Perda Total de Dados**
+"Vou formatar para resolver." Sem backup, formatou e perdeu 10 anos de fotos, documentos e trabalhos. Irrecuperável na maioria dos casos.
+
+**7. Curto Acidental**
+Chave de fenda que escorrega e risca trilha na placa-mãe. Parafuso que cai dentro do gabinete e faz ponte. Dano que pode ser permanente.
+
+**8. Dano Térmico**
+Secador de cabelo em notebook molhado. Soprador de ar quente em placa sem experiência. Aquecimento excessivo causa mais dano que resolve.
+
+**9. Componente Incorreto**
+Pasta térmica condutiva (prata) que vaza para os pinos do processador. SSD NVMe em slot M.2 SATA. RAM DDR4 forçada em slot DDR3.
+
+**10. Transformar Problema Simples em Complexo**
+Um problema de R$ 90 (cabo solto, configuração) vira um de R$ 500+ (componente danificado durante a tentativa). Vemos isso semanalmente.
+
+### O Que Você PODE Fazer com Segurança
+
+Nem tudo é proibido. Estas verificações são seguras para qualquer pessoa:
+
+✅ Verificar cabos e tomadas
+✅ Reiniciar o equipamento
+✅ Desconectar periféricos USB
+✅ Verificar se o monitor está ligado
+✅ Limpar a parte externa com pano seco
+✅ Verificar espaço em disco
+✅ Fechar programas no Gerenciador de Tarefas
+
+❌ NÃO faça sem experiência:
+❌ Abrir gabinete ou notebook
+❌ Trocar componentes internos
+❌ Formatar sem backup
+❌ Aplicar pasta térmica
+❌ Abrir TV ou monitor
+❌ Mexer em configurações da BIOS` },
 
   // ===== LOCAL + INTENÇÃO (46-50) =====
   { slug: "assistencia-tecnica-urgente-curitiba", title: "Assistência Técnica Urgente em Curitiba | Mesmo Dia", metaDescription: "Precisa de assistência técnica urgente em Curitiba? Atendimento no mesmo dia. Computador, notebook, TV. WhatsApp (41) 99745-2053.", h1: "Assistência Técnica Urgente em Curitiba — Atendimento no Mesmo Dia", categoria: "Local + Intenção", intro: `Situações urgentes acontecem: o computador do trabalho parou, o notebook com o TCC travou, a TV da empresa de eventos não liga antes de um evento. Para esses momentos, oferecemos atendimento prioritário em Curitiba e região metropolitana, com visita técnica no mesmo dia (sujeito à disponibilidade).
 
-Nosso atendimento urgente funciona via WhatsApp — descreva a situação, envie fotos/vídeos se possível, e priorizamos seu caso na agenda do dia. Atendemos computadores, notebooks, TVs, redes e equipamentos eletrônicos.`, sintomas: [{ titulo: "Equipamento parou e você precisa dele AGORA", desc: "Atendimento prioritário via WhatsApp.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer problema técnico", desc: "Atendemos todos os tipos de problema com prioridade.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido na visita urgente.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico urgente + reparo no mesmo dia.", tempo: "2h a 4h", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico urgente + equipamento vai para bancada com prioridade.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Não deixe para última hora — quanto antes chamar, melhor"], diagnostico: `Diagnóstico presencial prioritário. Custo: R$ 90 (mesmo do normal).`, solucao: `Atendimento priorizado na agenda do dia. WhatsApp para triagem imediata.`, quandoCompensa: "Quando a urgência justifica — trabalho, estudo, evento.", quandoNaoCompensa: "Para problemas que podem esperar, o agendamento normal tem o mesmo custo.", whatsappMessage: "URGENTE! Preciso de atendimento técnico hoje. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Como Funciona", to: "/como-funciona" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }], conteudoExtra: `### Como Funciona o Atendimento Urgente\n\n1. Chame no WhatsApp com "URGENTE"\n2. Descreva o problema + envie fotos\n3. Verificamos disponibilidade imediata\n4. Se possível, técnico vai no mesmo dia\n5. Diagnóstico + solução no local (quando viável)` },
+Nosso atendimento urgente funciona via WhatsApp — descreva a situação, envie fotos/vídeos se possível, e priorizamos seu caso na agenda do dia. Atendemos computadores, notebooks, TVs, redes e equipamentos eletrônicos.`, sintomas: [{ titulo: "Equipamento parou e você precisa dele AGORA", desc: "Atendimento prioritário via WhatsApp.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer problema técnico", desc: "Atendemos todos os tipos de problema com prioridade.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido na visita urgente.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico urgente + reparo no mesmo dia.", tempo: "2h a 4h", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico urgente + equipamento vai para bancada com prioridade.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Não deixe para última hora — quanto antes chamar, melhor"], diagnostico: `Diagnóstico presencial prioritário. Custo: R$ 90 (mesmo do normal).`, solucao: `Atendimento priorizado na agenda do dia. WhatsApp para triagem imediata.`, quandoCompensa: "Quando a urgência justifica — trabalho, estudo, evento.", quandoNaoCompensa: "Para problemas que podem esperar, o agendamento normal tem o mesmo custo.", whatsappMessage: "URGENTE! Preciso de atendimento técnico hoje. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Como Funciona", to: "/como-funciona" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Emergência TI", to: "/tecnico-informatica-emergencia-curitiba" }, { label: "Conserto Domicílio", to: "/conserto-computador-domicilio-curitiba" }, { label: "Técnico Perto de Mim", to: "/tecnico-computador-perto-de-mim" }], conteudoExtra: `### Como Funciona o Atendimento Urgente
+
+1. Chame no WhatsApp com "URGENTE"
+2. Descreva o problema + envie fotos
+3. Verificamos disponibilidade imediata
+4. Se possível, técnico vai no mesmo dia
+5. Diagnóstico + solução no local (quando viável)
+
+### Cobertura de Atendimento Urgente
+
+Atendemos com prioridade em toda Curitiba e região metropolitana:
+
+**Curitiba** — Todos os bairros: Centro, Batel, Portão, Água Verde, Bigorrilho, CIC, Santa Felicidade, Campo Comprido, Cajuru, Boa Vista, Boqueirão, Cristo Rei, Hauer, Juvevê, Mercês, Pinheirinho, Rebouças, Seminário, Tarumã, Vila Izabel e demais.
+
+**Região Metropolitana** — São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Almirante Tamandaré, Fazenda Rio Grande, Piraquara, Campo Magro, Quatro Barras.
+
+O tempo de deslocamento varia de 20 a 60 minutos dependendo da localização e trânsito.
+
+### Tipos de Urgência Mais Comuns
+
+**1. Computador de trabalho parou (Home Office)**
+Com o aumento do trabalho remoto, o computador virou ferramenta essencial. Quando para, o prejuízo é imediato. Priorizamos esses casos pois cada hora sem computador = hora sem trabalhar.
+
+**2. Notebook acadêmico (TCC, Provas)**
+Estudantes universitários com prazo de entrega e notebook travado, sem ligar ou com dados em risco. Atendemos com prioridade, especialmente em período de provas.
+
+**3. Equipamento de empresa**
+Servidores, computadores de caixa, estações de trabalho — quando param, a empresa para. Oferecemos atendimento corporativo urgente.
+
+**4. TV para evento**
+Empresa de eventos, bar ou restaurante com TV que não liga antes de um jogo importante ou apresentação.
+
+### O Que NÃO Fazer Enquanto Espera o Técnico
+
+- **NÃO tente abrir o equipamento** — pode piorar e aumentar o custo
+- **NÃO tente formatar** — pode perder dados sem resolver
+- **NÃO compre peças por achismo** — espere o diagnóstico
+- **NÃO use secador/arroz em equipamento molhado** — só piora
+- **FAÇA**: documente o problema (fotos, vídeos, descrição) e envie por WhatsApp
+
+### Horário de Atendimento Urgente
+
+| Dia | Horário |
+|---|---|
+| Segunda a Sexta | 8h às 18h |
+| Sábado | 8h às 14h |
+| Domingo/Feriado | Sob consulta (casos críticos) |
+
+O agendamento normal tem os mesmos horários, mas sem prioridade na fila. Para urgências, priorização é imediata.` },
 
   { slug: "tecnico-informatica-emergencia-curitiba", title: "Técnico Informática Emergência Curitiba | 24h", metaDescription: "Técnico de informática para emergência em Curitiba. Atendimento prioritário, computador, notebook, rede. WhatsApp.", h1: "Técnico de Informática para Emergência em Curitiba", categoria: "Local + Intenção", intro: `Emergências técnicas podem acontecer a qualquer momento: servidor da empresa caiu, computador do caixa parou, notebook com apresentação importante travou. Para esses casos, oferecemos atendimento de emergência com prioridade máxima na agenda.
 
-Importante: nosso atendimento é presencial com deslocamento. O tempo de chegada depende da localização e horário, mas priorizamos emergências na fila de atendimento.`, sintomas: [{ titulo: "Equipamento crítico parou", desc: "Servidores, caixas, equipamentos de produção.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer falha técnica crítica", desc: "Hardware, software, rede, energia.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido no local.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Reparo no local + configuração.", tempo: "2h a 4h", custo: "R$ 250 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico + bancada prioritária.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Tempo parado = perda de receita"], diagnostico: `Diagnóstico prioritário. Custo: R$ 90.`, solucao: `Resolução mais rápida possível com foco em retorno à operação.`, quandoCompensa: "Para empresas e profissionais que dependem do equipamento.", quandoNaoCompensa: "Para problemas não críticos que podem esperar agendamento normal.", whatsappMessage: "EMERGÊNCIA! Equipamento crítico parou. Podem atender hoje?", relatedPages: [...RELATED_BASE, { label: "Suporte Empresas", to: "/suporte-empresas" }, { label: "Atendimento Urgente", to: "/assistencia-tecnica-urgente-curitiba" }], conteudoExtra: `### Para Empresas\n\nOferecemos contratos de suporte contínuo para empresas que não podem parar. Manutenção preventiva + atendimento prioritário quando necessário.` },
+Importante: nosso atendimento é presencial com deslocamento. O tempo de chegada depende da localização e horário, mas priorizamos emergências na fila de atendimento.`, sintomas: [{ titulo: "Equipamento crítico parou", desc: "Servidores, caixas, equipamentos de produção.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer falha técnica crítica", desc: "Hardware, software, rede, energia.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido no local.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Reparo no local + configuração.", tempo: "2h a 4h", custo: "R$ 250 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico + bancada prioritária.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Tempo parado = perda de receita"], diagnostico: `Diagnóstico prioritário. Custo: R$ 90.`, solucao: `Resolução mais rápida possível com foco em retorno à operação.`, quandoCompensa: "Para empresas e profissionais que dependem do equipamento.", quandoNaoCompensa: "Para problemas não críticos que podem esperar agendamento normal.", whatsappMessage: "EMERGÊNCIA! Equipamento crítico parou. Podem atender hoje?", relatedPages: [...RELATED_BASE, { label: "Suporte Empresas", to: "/suporte-empresas" }, { label: "Atendimento Urgente", to: "/assistencia-tecnica-urgente-curitiba" }, { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" }, { label: "Conserto Domicílio", to: "/conserto-computador-domicilio-curitiba" }], conteudoExtra: `### Para Empresas
+
+Oferecemos contratos de suporte contínuo para empresas que não podem parar. Manutenção preventiva + atendimento prioritário quando necessário.
+
+### Emergências Empresariais: O Que Fazemos
+
+**Servidor caiu** — Diagnóstico presencial de hardware e software de servidores. Se é problema de HD/SSD, providenciamos substituição emergencial. Se é software (Active Directory, compartilhamento de arquivos), configuramos no local.
+
+**Rede da empresa parou** — Verificação de roteadores, switches, cabos de rede, access points. Identificação de equipamento defeituoso e substituição. Configuração de rede de contingência.
+
+**Computadores de PDV/Caixa** — Equipamentos de ponto de venda que param significam vendas perdidas. Priorizamos com atendimento imediato.
+
+**Estações de trabalho** — Formatação emergencial, remoção de ransomware, recuperação de acesso.
+
+### Calculando o Prejuízo da Parada
+
+Para empresas, o custo do técnico é muito menor que o custo da parada:
+
+| Tipo de Empresa | Custo médio/hora parado | Custo do técnico urgente |
+|---|---|---|
+| Comércio (PDV) | R$ 200-500/hora em vendas | R$ 90-300 |
+| Escritório (5 funcionários) | R$ 150-400/hora em produtividade | R$ 90-300 |
+| Prestador de serviço | R$ 100-300/hora | R$ 90-300 |
+
+Em quase todos os cenários, o custo do técnico é menor que 1-2 horas de parada.
+
+### Contrato de Suporte Contínuo
+
+Para empresas que não podem correr risco de parada, oferecemos:
+
+- **Manutenção preventiva mensal** — Verificação de todos os equipamentos
+- **Atendimento prioritário** — Fila VIP para emergências
+- **Tempo de resposta garantido** — Máximo de 2 horas para atendimento
+- **Consultoria de TI** — Orientação sobre compras, upgrades e infraestrutura
+
+Entre em contato pelo WhatsApp para consultar valores de contrato para sua empresa.` },
 
   { slug: "conserto-computador-domicilio-curitiba", title: "Conserto de Computador a Domicílio em Curitiba", metaDescription: "Conserto de computador e notebook a domicílio em Curitiba e região. Técnico vai até você. Atendimento no mesmo dia.", h1: "Conserto de Computador a Domicílio em Curitiba", categoria: "Local + Intenção", intro: `Não precisa carregar seu computador até uma loja. Nosso técnico vai até o seu endereço em Curitiba e região metropolitana para diagnosticar e resolver o problema no conforto da sua casa ou escritório.
 
-O atendimento a domicílio funciona para a maioria dos problemas: formatação, limpeza, upgrade, configuração de rede, remoção de vírus e diagnóstico inicial. Para reparos que exigem bancada (placa-mãe, soldagem), fazemos a coleta no local e devolvemos pronto.`, sintomas: [{ titulo: "Qualquer problema de computador/notebook", desc: "Atendimento na sua casa ou empresa.", gravidade: "Variável" }], causas: [{ titulo: "Conveniência + eficiência", desc: "Técnico no seu ambiente vê o contexto completo: rede, energia, uso.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Resolvido na visita (formatação, limpeza, configuração).", tempo: "1h a 3h", custo: "R$ 100 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico + upgrade no local.", tempo: "2h a 4h", custo: "R$ 200 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico no local + coleta para bancada.", tempo: "Variável", custo: "R$ 250+" }], riscos: ["Nenhum — atendimento profissional no seu endereço"], diagnostico: `Diagnóstico presencial no seu endereço. Custo: R$ 90 (incorporado ao serviço se aprovado).`, solucao: `Resolução no local quando possível. Coleta + entrega quando precisa de bancada.`, quandoCompensa: "Sempre — economiza tempo e transporte. Técnico vê o ambiente real.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Preciso de conserto a domicílio em Curitiba. Podem atender?", relatedPages: [...RELATED_BASE, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Coleta e Entrega", to: "/coleta-e-entrega" }], conteudoExtra: `### Regiões de Atendimento a Domicílio\n\nAtendemos toda Curitiba (todos os bairros) e região metropolitana: São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Almirante Tamandaré, Fazenda Rio Grande, Piraquara, Campo Magro e Quatro Barras.\n\nO agendamento é feito via WhatsApp com escolha de faixa de horário.` },
+O atendimento a domicílio funciona para a maioria dos problemas: formatação, limpeza, upgrade, configuração de rede, remoção de vírus e diagnóstico inicial. Para reparos que exigem bancada (placa-mãe, soldagem), fazemos a coleta no local e devolvemos pronto.`, sintomas: [{ titulo: "Qualquer problema de computador/notebook", desc: "Atendimento na sua casa ou empresa.", gravidade: "Variável" }], causas: [{ titulo: "Conveniência + eficiência", desc: "Técnico no seu ambiente vê o contexto completo: rede, energia, uso.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Resolvido na visita (formatação, limpeza, configuração).", tempo: "1h a 3h", custo: "R$ 100 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico + upgrade no local.", tempo: "2h a 4h", custo: "R$ 200 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico no local + coleta para bancada.", tempo: "Variável", custo: "R$ 250+" }], riscos: ["Nenhum — atendimento profissional no seu endereço"], diagnostico: `Diagnóstico presencial no seu endereço. Custo: R$ 90 (incorporado ao serviço se aprovado).`, solucao: `Resolução no local quando possível. Coleta + entrega quando precisa de bancada.`, quandoCompensa: "Sempre — economiza tempo e transporte. Técnico vê o ambiente real.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Preciso de conserto a domicílio em Curitiba. Podem atender?", relatedPages: [...RELATED_BASE, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Coleta e Entrega", to: "/coleta-e-entrega" }, { label: "Atendimento Urgente", to: "/assistencia-tecnica-urgente-curitiba" }, { label: "Técnico Perto de Mim", to: "/tecnico-computador-perto-de-mim" }], conteudoExtra: `### Regiões de Atendimento a Domicílio
+
+Atendemos toda Curitiba (todos os bairros) e região metropolitana: São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Almirante Tamandaré, Fazenda Rio Grande, Piraquara, Campo Magro e Quatro Barras.
+
+O agendamento é feito via WhatsApp com escolha de faixa de horário.
+
+### Vantagens do Atendimento a Domicílio
+
+**1. Conveniência**
+Você não precisa desconectar, embalar e transportar o equipamento. Especialmente importante para desktops, que são pesados e delicados.
+
+**2. Contexto Completo**
+O técnico vê seu ambiente real: rede Wi-Fi, tomadas, cabos, periféricos, condições de temperatura e umidade. Isso ajuda no diagnóstico — problemas que seriam invisíveis em uma loja (como rede instável ou tomada com mau contato) são identificados no local.
+
+**3. Economia de Tempo**
+Sem deslocamento, sem fila, sem espera. O técnico chega, diagnostica e resolve (ou coleta para bancada se necessário).
+
+**4. Segurança**
+Seu equipamento não sai do seu controle. Você acompanha o diagnóstico e o reparo.
+
+### O Que Resolvemos no Local vs O Que Vai para Bancada
+
+**Resolvemos na visita:**
+- Formatação e instalação de Windows
+- Upgrade de SSD e RAM
+- Limpeza interna e troca de pasta térmica
+- Configuração de rede Wi-Fi
+- Remoção de vírus e malware
+- Instalação de programas e drivers
+- Diagnóstico inicial (para definir próximos passos)
+
+**Vai para bancada (coleta + entrega):**
+- Reparo de placa-mãe (microssolda)
+- Troca de tela de notebook
+- Reparo de TV
+- Recuperação de dados de HD com falha mecânica
+- Reballing de GPU
+
+### Como Funciona o Agendamento
+
+1. **Contato via WhatsApp** — Descreva o problema
+2. **Triagem** — Avaliamos a urgência e tipo de serviço
+3. **Agendamento** — Escolha a faixa de horário (manhã, tarde)
+4. **Confirmação** — No dia, confirmamos horário de chegada
+5. **Atendimento** — Técnico chega, diagnostica e resolve
+
+### Tabela de Serviços e Tempos Médios no Local
+
+| Serviço | Tempo Médio | Custo |
+|---|---|---|
+| Diagnóstico | 30-60 min | R$ 90 |
+| Formatação completa | 2-3h | R$ 150-250 |
+| Upgrade SSD + clonagem | 2-3h | R$ 250-500 (com SSD) |
+| Upgrade RAM | 30 min | R$ 90-150 (+ peça) |
+| Limpeza + pasta térmica | 1-2h | R$ 120-200 |
+| Remoção de vírus | 1-3h | R$ 100-300 |
+| Configuração rede Wi-Fi | 1-2h | R$ 120-250 |` },
 
   { slug: "manutencao-notebook-curitiba-rapido", title: "Manutenção de Notebook Rápida em Curitiba", metaDescription: "Manutenção de notebook rápida em Curitiba. Limpeza, upgrade SSD, troca de tela, formatação. Atendimento no mesmo dia.", h1: "Manutenção de Notebook Rápida em Curitiba", categoria: "Local + Intenção", intro: `Precisa de manutenção rápida no notebook? Limpeza interna, troca de pasta térmica, upgrade de SSD/RAM, formatação, troca de tela — fazemos a maioria dos serviços de manutenção com rapidez e qualidade em Curitiba.
 
-Nosso diferencial é a transparência: você sabe exatamente o que vai ser feito, quanto custa e quanto tempo leva. Sem surpresas, sem venda de serviço desnecessário.`, sintomas: [{ titulo: "Notebook precisando de manutenção", desc: "Lento, esquentando, bateria fraca, tela quebrada.", gravidade: "Variável" }], causas: [{ titulo: "Manutenção preventiva", desc: "Limpeza + pasta térmica a cada 12-18 meses prolonga a vida útil.", tipo: "desgaste" }, { titulo: "Manutenção corretiva", desc: "Reparo de problema específico identificado.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, pasta térmica, otimização de software.", tempo: "1h a 2h", custo: "R$ 120 a R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD + RAM + formatação.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Troca de tela, reparo de jack, placa-mãe.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Adiar manutenção preventiva leva a reparos mais caros"], diagnostico: `Diagnóstico rápido para definir o que precisa ser feito. Custo: R$ 90 (incorporado se aprovar serviço).`, solucao: `Manutenção focada e rápida com peças de qualidade.`, quandoCompensa: "Sempre — manutenção preventiva é o melhor investimento.", quandoNaoCompensa: "Quando o notebook é tão antigo que a manutenção é paliativa.", whatsappMessage: "Olá! Preciso de manutenção rápida no notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/notebook-lento-curitiba" }, { label: "Notebook Esquentando", to: "/notebook-esquentando-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }], conteudoExtra: `### Tabela de Tempos Médios\n\n| Serviço | Tempo Médio |\n|---|---|\n| Limpeza + pasta térmica | 1h a 2h |\n| Upgrade SSD (com clonagem) | 2h a 3h |\n| Formatação completa | 2h a 4h |\n| Troca de tela | 1 a 3 dias |\n| Troca de teclado | 1 a 3 dias |` },
+Nosso diferencial é a transparência: você sabe exatamente o que vai ser feito, quanto custa e quanto tempo leva. Sem surpresas, sem venda de serviço desnecessário.`, sintomas: [{ titulo: "Notebook precisando de manutenção", desc: "Lento, esquentando, bateria fraca, tela quebrada.", gravidade: "Variável" }], causas: [{ titulo: "Manutenção preventiva", desc: "Limpeza + pasta térmica a cada 12-18 meses prolonga a vida útil.", tipo: "desgaste" }, { titulo: "Manutenção corretiva", desc: "Reparo de problema específico identificado.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, pasta térmica, otimização de software.", tempo: "1h a 2h", custo: "R$ 120 a R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD + RAM + formatação.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Troca de tela, reparo de jack, placa-mãe.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Adiar manutenção preventiva leva a reparos mais caros"], diagnostico: `Diagnóstico rápido para definir o que precisa ser feito. Custo: R$ 90 (incorporado se aprovar serviço).`, solucao: `Manutenção focada e rápida com peças de qualidade.`, quandoCompensa: "Sempre — manutenção preventiva é o melhor investimento.", quandoNaoCompensa: "Quando o notebook é tão antigo que a manutenção é paliativa.", whatsappMessage: "Olá! Preciso de manutenção rápida no notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/notebook-lento-curitiba" }, { label: "Notebook Esquentando", to: "/notebook-esquentando-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }, { label: "Vale Consertar Notebook?", to: "/vale-a-pena-consertar-notebook" }], conteudoExtra: `### Tabela de Tempos Médios
+
+| Serviço | Tempo Médio |
+|---|---|
+| Limpeza + pasta térmica | 1h a 2h |
+| Upgrade SSD (com clonagem) | 2h a 3h |
+| Formatação completa | 2h a 4h |
+| Troca de tela | 1 a 3 dias |
+| Troca de teclado | 1 a 3 dias |
+
+### Manutenção Preventiva: O Investimento Mais Inteligente
+
+A maioria dos problemas graves em notebooks começa com a falta de manutenção preventiva. Um notebook que nunca passou por limpeza interna e troca de pasta térmica vai, inevitavelmente:
+
+1. Superaquecer → throttling → lentidão
+2. Acumular poeira → bloquear ventilação → mais superaquecimento
+3. Pasta térmica secar → temperatura do processador sobe 15-25°C
+4. Ventoinha trabalhar em velocidade máxima → barulho excessivo → desgaste do rolamento
+5. Componentes operar acima da temperatura ideal → redução da vida útil
+
+A limpeza + pasta térmica a cada 12-18 meses custa R$ 120-200 e pode prolongar a vida do notebook em 3-5 anos.
+
+### Marcas e Modelos que Mais Atendemos em Curitiba
+
+| Marca | Modelos Comuns | Manutenção Mais Frequente |
+|---|---|---|
+| Dell | Inspiron, Vostro, Latitude | SSD + limpeza térmica |
+| Lenovo | IdeaPad, ThinkPad | RAM + limpeza |
+| HP | Pavilion, ProBook | Bateria + pasta térmica |
+| Acer | Aspire, Nitro | Limpeza + pasta (esquentam muito) |
+| Samsung | Book, Galaxy Book | SSD + bateria |
+| Asus | VivoBook, TUF | Pasta térmica + pads |
+
+### Pacotes de Manutenção
+
+**Pacote Básico (R$ 120-200)**
+- Limpeza interna completa
+- Troca de pasta térmica
+- Otimização de Windows
+- Verificação de saúde do disco (SMART)
+- Verificação de temperatura
+
+**Pacote Intermediário (R$ 300-500)**
+- Tudo do Pacote Básico
+- Upgrade SSD (com clonagem de dados)
+- Upgrade RAM (se necessário)
+- Formatação limpa (opcional)
+
+**Pacote Completo (R$ 400-700)**
+- Tudo do Pacote Intermediário
+- Troca de bateria (se necessária)
+- Verificação de dobradiças
+- Limpeza de teclado e touchpad
+- Instalação de programas essenciais
+
+### Dicas de Cuidado com Notebook
+
+1. **Use em superfícies planas e rígidas** — Cama e sofá bloqueiam a ventilação
+2. **Não coma/beba perto** — Líquido no notebook é emergência
+3. **Feche a tampa com cuidado** — Dobradiças quebram com força excessiva
+4. **Transporte em capa/mochila acolchoada** — Quedas são devastadoras
+5. **Conecte e desconecte o carregador com cuidado** — DC jack é frágil
+6. **Reinicie pelo menos 1x por semana** — Fechar a tampa não é reiniciar` },
 
   { slug: "tecnico-computador-perto-de-mim", title: "Técnico de Computador Perto de Mim | Curitiba", metaDescription: "Procurando técnico de computador perto de você em Curitiba? Atendimento a domicílio em todos os bairros. WhatsApp (41) 99745-2053.", h1: "Técnico de Computador Perto de Mim em Curitiba", categoria: "Local + Intenção", intro: `Se você está procurando um técnico de computador perto de você em Curitiba e região metropolitana, você está no lugar certo. Atendemos todos os bairros de Curitiba e as cidades da região metropolitana com visita técnica a domicílio.
 
-Diferente de lojas de informática genéricas, somos técnicos especializados em diagnóstico e reparo. Isso significa que você recebe atendimento de quem realmente entende do problema — não de um vendedor que vai tentar empurrar peças.`, sintomas: [{ titulo: "Precisa de técnico na sua região", desc: "Atendimento a domicílio em toda Curitiba e região.", gravidade: "Variável" }], causas: [{ titulo: "Cobertura ampla", desc: "Todos os bairros de Curitiba + 10 cidades da região metropolitana.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Visita técnica + resolução no local.", tempo: "1h a 3h", custo: "R$ 90 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico + upgrade/reparo no local.", tempo: "2h a 4h", custo: "R$ 200 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + coleta para bancada.", tempo: "Variável", custo: "R$ 250+" }], riscos: ["Cuidado com técnicos sem formação ou experiência comprovada"], diagnostico: `Diagnóstico profissional na sua casa. Custo: R$ 90.`, solucao: `Técnico especializado na sua região com atendimento no mesmo dia.`, quandoCompensa: "Sempre — atendimento domiciliar economiza tempo.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Preciso de um técnico de computador na minha região. Podem atender?", relatedPages: [...RELATED_BASE, { label: "Curitiba", to: "/tecnico-informatica-curitiba" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Regiões", to: "/tecnico-informatica-curitiba" }], conteudoExtra: `### Bairros e Cidades Atendidas\n\n**Curitiba**: Centro, Batel, Portão, CIC, Santa Felicidade, Campo Comprido, Água Verde, Bigorrilho, Cajuru, Boa Vista, Boqueirão, Cristo Rei, Hauer, Juvevê, Mercês, Pinheirinho, Rebouças, Seminário, Tarumã, Vila Izabel e todos os demais.\n\n**Região Metropolitana**: São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Almirante Tamandaré, Fazenda Rio Grande, Piraquara, Campo Magro, Quatro Barras.` },
+Diferente de lojas de informática genéricas, somos técnicos especializados em diagnóstico e reparo. Isso significa que você recebe atendimento de quem realmente entende do problema — não de um vendedor que vai tentar empurrar peças.`, sintomas: [{ titulo: "Precisa de técnico na sua região", desc: "Atendimento a domicílio em toda Curitiba e região.", gravidade: "Variável" }], causas: [{ titulo: "Cobertura ampla", desc: "Todos os bairros de Curitiba + 10 cidades da região metropolitana.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Visita técnica + resolução no local.", tempo: "1h a 3h", custo: "R$ 90 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico + upgrade/reparo no local.", tempo: "2h a 4h", custo: "R$ 200 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + coleta para bancada.", tempo: "Variável", custo: "R$ 250+" }], riscos: ["Cuidado com técnicos sem formação ou experiência comprovada"], diagnostico: `Diagnóstico profissional na sua casa. Custo: R$ 90.`, solucao: `Técnico especializado na sua região com atendimento no mesmo dia.`, quandoCompensa: "Sempre — atendimento domiciliar economiza tempo.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Preciso de um técnico de computador na minha região. Podem atender?", relatedPages: [...RELATED_BASE, { label: "Curitiba", to: "/tecnico-informatica-curitiba" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Conserto Domicílio", to: "/conserto-computador-domicilio-curitiba" }, { label: "Atendimento Urgente", to: "/assistencia-tecnica-urgente-curitiba" }, { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" }], conteudoExtra: `### Bairros e Cidades Atendidas
+
+**Curitiba**: Centro, Batel, Portão, CIC, Santa Felicidade, Campo Comprido, Água Verde, Bigorrilho, Cajuru, Boa Vista, Boqueirão, Cristo Rei, Hauer, Juvevê, Mercês, Pinheirinho, Rebouças, Seminário, Tarumã, Vila Izabel e todos os demais.
+
+**Região Metropolitana**: São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Almirante Tamandaré, Fazenda Rio Grande, Piraquara, Campo Magro, Quatro Barras.
+
+### Por Que Escolher um Técnico Especializado?
+
+Existem muitas opções quando você busca "técnico de computador perto de mim" em Curitiba. Aqui estão os diferenciais que fazem a diferença:
+
+**Diagnóstico antes de tudo** — Não trocamos peças por achismo. Investimos em diagnóstico correto para resolver o problema de primeira.
+
+**Transparência total** — Você sabe exatamente o que será feito, quanto custa e quanto tempo leva ANTES de aprovar qualquer serviço.
+
+**Honestidade** — Se não compensa reparar, informamos. Preferimos perder um serviço a fazer um reparo que não vale a pena.
+
+**Experiência documentada** — Não somos "o sobrinho que entende de computador". Somos técnicos com experiência em centenas de equipamentos diferentes.
+
+### Como Nos Encontrar
+
+**WhatsApp**: (41) 99745-2053 — Resposta rápida
+**Atendimento**: Segunda a Sábado
+**Cobertura**: Curitiba + 10 cidades da região metropolitana
+**Deslocamento**: Técnico vai até você — sem precisar sair de casa
+
+### Perguntas Frequentes Sobre Atendimento a Domicílio
+
+**Q: Tem taxa de deslocamento?**
+A: O diagnóstico (R$ 90) já inclui o deslocamento. Se o serviço for aprovado, o valor do diagnóstico é incorporado ao total.
+
+**Q: Quanto tempo demora para o técnico chegar?**
+A: Dependendo da região e agenda, entre 1 a 4 horas após o agendamento. Para urgências, priorizamos.
+
+**Q: Atende no mesmo dia?**
+A: Na maioria dos casos, sim. Depende da agenda do dia. Urgências são priorizadas.
+
+**Q: Posso acompanhar o serviço?**
+A: Sim! Você pode acompanhar todo o processo. Transparência é nosso diferencial.
+
+**Q: Se o problema não puder ser resolvido no local?**
+A: Fazemos a coleta do equipamento e devolvemos pronto. Sem custo adicional de transporte.
+
+### Serviços Disponíveis a Domicílio
+
+| Serviço | Disponível no Local? | Tempo Médio |
+|---|---|---|
+| Diagnóstico | ✅ | 30-60 min |
+| Formatação | ✅ | 2-3h |
+| Upgrade SSD/RAM | ✅ | 1-3h |
+| Limpeza + pasta térmica | ✅ | 1-2h |
+| Remoção de vírus | ✅ | 1-3h |
+| Configuração de rede | ✅ | 1-2h |
+| Reparo placa-mãe | ❌ (coleta) | 3-7 dias |
+| Troca de tela notebook | ❌ (coleta) | 1-3 dias |
+| Reparo de TV | ❌ (coleta) | 3-10 dias |` },
 ];
 
 // Helper to get a page by slug

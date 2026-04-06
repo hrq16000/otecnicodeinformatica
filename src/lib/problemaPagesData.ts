@@ -7588,6 +7588,202 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+  // ===================== IMPRESSORA NÃO IMPRIME =====================
+  {
+    slug: "impressora-nao-imprime-curitiba",
+    title: "Impressora Não Imprime em Curitiba — Diagnóstico e Solução Profissional",
+    metaDescription: "Impressora não imprime? Técnico em Curitiba resolve entupimento, erro de driver, spooler travado e falhas de conexão USB/Wi-Fi. Diagnóstico profissional.",
+    h1: "Impressora Não Imprime — Diagnóstico e Solução em Curitiba",
+    categoria: "Periféricos",
+    intro: `Você manda imprimir e nada acontece. O documento fica preso na fila, a impressora pisca luzes ou simplesmente ignora o comando. Esse é um dos problemas mais comuns em escritórios e home offices de Curitiba.\n\nAs causas vão desde cabos mal conectados e drivers desatualizados até cabeçotes entupidos e falhas no spooler de impressão do Windows. Sem diagnóstico correto, muitos trocam cartuchos ou compram impressoras novas desnecessariamente.\n\nNosso técnico avalia o equipamento presencialmente, identifica a causa exata e resolve — seja ajuste de software, limpeza de cabeçote ou configuração de rede.`,
+    sintomas: [
+      { titulo: "Documento fica preso na fila de impressão", desc: "O arquivo aparece como 'imprimindo' mas nada sai. O spooler pode estar travado ou corrompido.", gravidade: "Médio" },
+      { titulo: "Impressora pisca luzes mas não imprime", desc: "Indicação de erro interno como falta de papel, tampa aberta, cartucho não reconhecido ou entupimento.", gravidade: "Médio" },
+      { titulo: "Impressão sai em branco ou com falhas", desc: "Linhas faltando, cores erradas ou páginas totalmente em branco indicam cabeçote entupido ou cartucho vazio.", gravidade: "Médio" },
+      { titulo: "PC não detecta a impressora", desc: "A impressora não aparece na lista de dispositivos. Pode ser driver, cabo USB defeituoso ou configuração de rede.", gravidade: "Complexo" },
+      { titulo: "Erro 'impressora offline' mesmo ligada", desc: "O Windows marca a impressora como offline por problemas de comunicação, porta errada ou serviço parado.", gravidade: "Simples" },
+      { titulo: "Impressão Wi-Fi intermitente", desc: "Imprime às vezes e falha em outras. Geralmente causado por IP dinâmico, sinal fraco ou roteador com isolamento de clientes.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Spooler de impressão travado", desc: "O serviço do Windows que gerencia a fila de impressão trava ou corrompe, impedindo qualquer trabalho.", tipo: "software" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Atualização do Windows ou instalação incorreta causa conflito de driver, impedindo comunicação com a impressora.", tipo: "software" },
+      { titulo: "Cabeçote entupido", desc: "Impressoras jato de tinta que ficam sem uso secam o cabeçote. Tinta ressecada bloqueia os bicos de impressão.", tipo: "desgaste" },
+      { titulo: "Cabo USB defeituoso ou porta danificada", desc: "Conexão física intermitente causa falhas de comunicação entre PC e impressora.", tipo: "hardware" },
+      { titulo: "Configuração de rede incorreta", desc: "IP fixo não configurado, porta errada no Windows ou firewall bloqueando a comunicação com impressora de rede.", tipo: "erro-humano" },
+      { titulo: "Cartucho/toner não reconhecido", desc: "Cartuchos remanufaturados, chip com defeito ou toner incompatível fazem a impressora recusar o consumível.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reiniciar spooler, limpar fila de impressão, reinstalar driver. Impressora volta a funcionar normalmente.", tempo: "30-60 min", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Limpeza de cabeçote, reconfiguração de rede/Wi-Fi, troca de cabo, configuração de IP fixo.", tempo: "1-2 horas", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Troca de cabeçote, reparo de placa lógica, configuração de servidor de impressão em rede corporativa.", tempo: "2-4 horas", custo: "R$200–R$400" }
+    ],
+    riscos: [
+      "Comprar impressora nova sem necessidade quando o problema é apenas software",
+      "Trocar cartuchos caros achando que estão vazios quando o cabeçote está entupido",
+      "Usar limpeza caseira com álcool errado e danificar permanentemente o cabeçote",
+      "Ficar sem impressão por dias em ambiente que depende de documentos físicos"
+    ],
+    diagnostico: `O diagnóstico profissional começa verificando a comunicação entre PC e impressora (USB, rede ou Wi-Fi). Testamos o spooler, verificamos drivers e realizamos impressão de teste pela própria impressora.\n\nPara problemas de qualidade, fazemos limpeza de cabeçote com produtos adequados e teste de bicos. Em impressoras de rede, verificamos IP, portas e configuração de firewall.\n\nO diagnóstico tem custo a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `A solução varia conforme a causa: reinstalação de driver e reinício do spooler resolvem a maioria dos casos de software. Para entupimento, realizamos limpeza profissional do cabeçote com solventes específicos.\n\nEm redes corporativas, configuramos IP fixo, porta correta e permissões de firewall. Quando o hardware está comprometido, orientamos sobre custo-benefício de reparo versus troca.`,
+    quandoCompensa: "Impressoras laser e multifuncionais de boa qualidade sempre compensam reparo. Jato de tinta recentes com cabeçote recuperável também. Problemas de software sempre são resolvíveis.",
+    quandoNaoCompensa: "Impressoras jato de tinta muito antigas (5+ anos), com cabeçote irrecuperável e cartuchos descontinuados. Quando o custo do reparo ultrapassa 60% de uma nova equivalente.",
+    whatsappMessage: "Olá! Minha impressora não está imprimindo. Preciso de diagnóstico profissional.",
+    conteudoExtra: `## Dicas Para Evitar Problemas de Impressão\n\nImprima pelo menos uma página por semana para evitar entupimento do cabeçote. Mantenha os drivers atualizados e configure IP fixo em impressoras de rede.\n\n## Impressora Laser vs Jato de Tinta\n\nLasers são mais confiáveis para escritórios com alto volume. Jato de tinta é ideal para fotos e uso doméstico, mas exige manutenção regular do cabeçote.`,
+    relatedPages: [
+      { to: "/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
+      { to: "/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== NOTEBOOK DESLIGA SOZINHO =====================
+  {
+    slug: "notebook-desliga-sozinho-curitiba",
+    title: "Notebook Desliga Sozinho em Curitiba — Causas e Solução Técnica",
+    metaDescription: "Notebook desliga sozinho? Técnico em Curitiba diagnostica superaquecimento, bateria defeituosa, falha de placa e instabilidade elétrica. Atendimento profissional.",
+    h1: "Notebook Desliga Sozinho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `O notebook desliga sem aviso, no meio de um trabalho ou reunião. Pode acontecer após minutos de uso ou sob carga pesada como jogos e edição de vídeo. Esse sintoma indica problemas que vão de superaquecimento a falhas críticas de hardware.\n\nIgnorar desligamentos repentinos acelera o desgaste de componentes e pode causar perda de dados. Cada desligamento abrupto é um risco para o HD/SSD e para a integridade do sistema operacional.\n\nNosso técnico em Curitiba realiza diagnóstico térmico, elétrico e de software para identificar e resolver a causa raiz do problema.`,
+    sintomas: [
+      { titulo: "Desliga após poucos minutos de uso", desc: "Superaquecimento rápido por pasta térmica ressecada, cooler travado ou dissipador obstruído por poeira.", gravidade: "Médio" },
+      { titulo: "Desliga sob carga pesada (jogos, vídeo)", desc: "Processador ou GPU atinge temperatura crítica e o sistema desliga como proteção. Indica refrigeração insuficiente.", gravidade: "Médio" },
+      { titulo: "Desliga e não liga mais por alguns minutos", desc: "Proteção térmica ativada. O notebook precisa esfriar antes de ligar novamente. Sinal claro de superaquecimento severo.", gravidade: "Complexo" },
+      { titulo: "Desliga mesmo frio, logo ao ligar", desc: "Pode indicar falha na placa-mãe, curto-circuito, capacitor estufado ou problema na regulação de tensão.", gravidade: "Complexo" },
+      { titulo: "Desliga ao desconectar o carregador", desc: "Bateria defeituosa que não sustenta carga. Pode estar inchada, com células mortas ou circuito de carga danificado.", gravidade: "Médio" },
+      { titulo: "Tela azul antes de desligar", desc: "BSOD seguido de desligamento indica driver corrompido, RAM defeituosa ou falha de disco.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento por pasta térmica ressecada", desc: "A pasta térmica perde eficiência após 2-3 anos, fazendo o processador atingir temperaturas críticas rapidamente.", tipo: "desgaste" },
+      { titulo: "Cooler obstruído ou travado", desc: "Acúmulo de poeira bloqueia o fluxo de ar. Cooler com rolamento desgastado não gira na velocidade necessária.", tipo: "desgaste" },
+      { titulo: "Bateria defeituosa ou inchada", desc: "Baterias de lítio degradam com o tempo. Células mortas causam desligamento ao sair da tomada. Inchaço é risco de segurança.", tipo: "desgaste" },
+      { titulo: "Falha no circuito de alimentação", desc: "Capacitores estufados, MOSFETs queimados ou trilhas danificadas na placa-mãe causam instabilidade elétrica.", tipo: "hardware" },
+      { titulo: "Memória RAM defeituosa", desc: "Erros em módulos de RAM causam travamentos e desligamentos, especialmente sob carga que exige mais memória.", tipo: "hardware" },
+      { titulo: "Driver ou atualização problemática", desc: "Drivers de vídeo ou chipset com bugs causam BSOD e desligamento. Comum após atualizações do Windows.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna, troca de pasta térmica e atualização de drivers. Notebook volta a operar em temperaturas normais.", tempo: "1-2 horas", custo: "R$120–R$180" },
+      { nivel: "Médio", desc: "Troca de cooler, substituição de bateria ou reparo de conector de carga. Componentes substituídos por compatíveis.", tempo: "2-4 horas", custo: "R$180–R$350" },
+      { nivel: "Complexo", desc: "Reparo de placa-mãe (solda BGA, troca de capacitor/MOSFET), troca de módulo de RAM ou recuperação de dados.", tempo: "3-7 dias", custo: "R$350–R$800" }
+    ],
+    riscos: [
+      "Perda de dados por desligamento abrupto corrompendo arquivos e sistema",
+      "Bateria inchada pode estourar e danificar o notebook permanentemente",
+      "Superaquecimento prolongado reduz a vida útil do processador e GPU",
+      "Desligamentos repetidos danificam setores do HD convencional"
+    ],
+    diagnostico: `O diagnóstico começa com monitoramento térmico em tempo real usando sensores do processador e GPU. Abrimos o notebook para inspeção visual de pasta térmica, cooler e bateria.\n\nRealizamos stress test controlado para reproduzir o desligamento e identificar o ponto de falha. Testamos memória RAM com ferramentas específicas e verificamos tensões da placa-mãe.\n\nO diagnóstico custa a partir de R$50, valor abatido do serviço aprovado.`,
+    solucao: `Para superaquecimento: limpeza completa, troca de pasta térmica de qualidade e verificação do cooler. Para bateria: substituição por modelo compatível com garantia.\n\nEm falhas de placa-mãe, realizamos microssolda de componentes (capacitores, MOSFETs) quando viável. Sempre orientamos sobre custo-benefício antes de aprovar reparos complexos.\n\nProblemas de software são resolvidos com atualização de drivers, reparo do Windows ou reinstalação limpa quando necessário.`,
+    quandoCompensa: "Notebooks de até 4 anos com superaquecimento ou bateria ruim sempre compensam. Reparos de placa compensam em modelos de alto valor (acima de R$3.000 novo).",
+    quandoNaoCompensa: "Notebooks muito antigos (6+ anos) com falha grave de placa-mãe. Quando o custo do reparo ultrapassa 50% de um equivalente novo.",
+    whatsappMessage: "Olá! Meu notebook está desligando sozinho. Preciso de diagnóstico técnico.",
+    conteudoExtra: `## Como Prevenir Desligamentos\n\nMantenha as saídas de ar desobstruídas. Use o notebook em superfícies rígidas, nunca em cama ou almofada. Troque a pasta térmica a cada 2 anos.\n\n## Sinais de Bateria Inchada\n\nSe o touchpad está alto, a base não fecha direito ou há deformação na carcaça, desligue imediatamente e procure um técnico. Bateria inchada é risco de incêndio.`,
+    relatedPages: [
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/notebook-nao-liga-curitiba", label: "Notebook Não Liga" },
+      { to: "/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
+      { to: "/computador-travando-curitiba", label: "Computador Travando" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== ERRO 0x80070057 =====================
+  {
+    slug: "erro-0x80070057-curitiba",
+    title: "Erro 0x80070057 em Curitiba — Diagnóstico e Correção Profissional",
+    metaDescription: "Erro 0x80070057 no Windows? Técnico em Curitiba resolve falha de parâmetro incorreto em backup, formatação, Windows Update e partições. Atendimento especializado.",
+    h1: "Erro 0x80070057 — Correção Profissional em Curitiba",
+    categoria: "Software",
+    intro: `O erro 0x80070057 ('O parâmetro está incorreto') é um dos mais frustrantes do Windows. Aparece em diversas situações: ao tentar fazer backup, formatar disco, instalar atualizações ou copiar arquivos grandes.\n\nEsse código genérico pode ter dezenas de causas diferentes, desde configuração regional incorreta até setores defeituosos no disco. Soluções genéricas da internet raramente resolvem porque não atacam a causa raiz.\n\nNosso técnico em Curitiba analisa o contexto exato do erro, identifica a causa específica e aplica a correção adequada — sem tentativa e erro.`,
+    sintomas: [
+      { titulo: "Erro ao fazer backup do Windows", desc: "O backup do Windows falha com 0x80070057 por problema na partição de destino, espaço insuficiente ou registro corrompido.", gravidade: "Médio" },
+      { titulo: "Falha ao formatar disco ou partição", desc: "Tentativa de formatar via Gerenciamento de Disco retorna o erro. Indica tabela de partição corrompida ou setores defeituosos.", gravidade: "Complexo" },
+      { titulo: "Windows Update não instala atualizações", desc: "Atualizações falham repetidamente com este código. Cache do Windows Update corrompido ou componentes do sistema danificados.", gravidade: "Médio" },
+      { titulo: "Erro ao copiar arquivos grandes", desc: "Copiar arquivos acima de 4GB para pen drive FAT32 ou para disco com problema gera este erro.", gravidade: "Simples" },
+      { titulo: "Falha ao instalar o Windows", desc: "Durante instalação limpa, o erro aparece ao selecionar partição. Disco com problema ou configuração UEFI/Legacy incorreta.", gravidade: "Complexo" },
+      { titulo: "Erro ao restaurar imagem do sistema", desc: "Restauração de backup de imagem falha por incompatibilidade de partição ou arquivo de backup corrompido.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Configuração decimal do registro", desc: "O separador decimal no registro do Windows pode estar configurado incorretamente, causando falha em operações de backup.", tipo: "software" },
+      { titulo: "Cache do Windows Update corrompido", desc: "Arquivos temporários de atualização danificados impedem download e instalação de novos updates.", tipo: "software" },
+      { titulo: "Sistema de arquivos incompatível", desc: "Tentativa de gravar arquivos maiores que 4GB em partição FAT32, que não suporta esse tamanho.", tipo: "erro-humano" },
+      { titulo: "Setores defeituosos no disco", desc: "HD com bad blocks ou SSD com células danificadas causa falha ao ler/gravar dados em áreas específicas.", tipo: "hardware" },
+      { titulo: "Tabela de partição corrompida", desc: "GPT ou MBR danificado impede operações de formatação, instalação e particionamento.", tipo: "software" },
+      { titulo: "Serviços do Windows danificados", desc: "Componentes de sistema (CBS, TrustedInstaller) corrompidos após queda de energia ou desligamento forçado.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Correção de configuração decimal, conversão FAT32→NTFS ou limpeza de cache do Windows Update.", tempo: "30-60 min", custo: "R$80–R$130" },
+      { nivel: "Médio", desc: "Reparo de componentes do sistema (SFC/DISM), recriação de partições ou correção de registro.", tempo: "1-3 horas", custo: "R$130–R$220" },
+      { nivel: "Complexo", desc: "Recuperação de tabela de partição, substituição de disco com defeito, reinstalação completa com migração de dados.", tempo: "3-6 horas", custo: "R$220–R$450" }
+    ],
+    riscos: [
+      "Perda de dados ao formatar disco sem backup por causa do erro persistente",
+      "Sistema ficar sem atualizações de segurança por semanas ou meses",
+      "Disco com setores defeituosos piorar progressivamente até falha total",
+      "Tentativas de correção via internet podem danificar o registro do Windows"
+    ],
+    diagnostico: `Analisamos o contexto exato em que o erro 0x80070057 ocorre: backup, formatação, update ou cópia de arquivos. Cada cenário tem causas e soluções diferentes.\n\nVerificamos integridade do disco com ferramentas profissionais, analisamos logs do Windows (Event Viewer, CBS.log) e testamos componentes do sistema.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Para backup: correção do separador decimal no registro e verificação da partição de destino. Para Windows Update: limpeza de cache, reset de componentes e reparo via DISM.\n\nPara problemas de disco: verificação de integridade, reparo de tabela de partição ou substituição do disco quando necessário, sempre com migração segura dos dados.\n\nEm instalações: configuração correta de UEFI/Legacy, limpeza de partições e criação de mídia de instalação íntegra.`,
+    quandoCompensa: "Sempre compensa resolver quando o disco está saudável e o problema é de software/configuração. Computadores com menos de 5 anos de uso merecem o investimento.",
+    quandoNaoCompensa: "Quando o disco apresenta muitos setores defeituosos e já está em fim de vida. Nesse caso, trocar o disco é mais seguro e econômico que tentar reparar.",
+    whatsappMessage: "Olá! Estou com o erro 0x80070057 no meu computador. Preciso de ajuda técnica.",
+    conteudoExtra: `## Entendendo o Erro 0x80070057\n\nEsse código significa 'parâmetro incorreto' — o Windows recebe um dado que não consegue processar. Por ser genérico, o mesmo código aparece em contextos completamente diferentes.\n\n## Prevenção\n\nMantenha o Windows atualizado, faça backups regulares e monitore a saúde do disco com ferramentas como CrystalDiskInfo. Desligue o computador corretamente para evitar corrupção de sistema.`,
+    relatedPages: [
+      { to: "/erro-0x80240034-curitiba", label: "Erro 0x80240034" },
+      { to: "/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
+      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul BSOD" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== PC REINICIANDO SOZINHO =====================
+  {
+    slug: "pc-reiniciando-sozinho-curitiba",
+    title: "PC Reiniciando Sozinho em Curitiba — Diagnóstico e Solução",
+    metaDescription: "PC reiniciando sozinho? Técnico em Curitiba diagnostica superaquecimento, fonte instável, RAM defeituosa e erros de Windows. Atendimento profissional.",
+    h1: "PC Reiniciando Sozinho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `O computador reinicia sem aviso, perdendo todo o trabalho aberto. Pode acontecer aleatoriamente, ao abrir programas pesados ou até durante o boot. Reinicializações constantes são sintomas de problemas sérios que pioram com o tempo.\n\nAs causas mais comuns são superaquecimento, fonte de alimentação instável, memória RAM defeituosa e drivers com bug. Em casos mais graves, pode indicar falha no processador ou placa-mãe.\n\nNosso técnico em Curitiba utiliza ferramentas de diagnóstico profissional para identificar a causa exata e resolver o problema de forma definitiva.`,
+    sintomas: [
+      { titulo: "Reinicia ao abrir jogos ou programas pesados", desc: "Fonte de alimentação não suporta a demanda de energia ou GPU superaquece. O sistema reinicia como proteção.", gravidade: "Médio" },
+      { titulo: "Reinicia aleatoriamente sem padrão", desc: "RAM defeituosa, driver instável ou fonte com ripple excessivo. Difícil de prever quando vai acontecer.", gravidade: "Complexo" },
+      { titulo: "Reinicia durante o boot (loop infinito)", desc: "Arquivo de sistema corrompido, atualização que falhou ou disco com problema. O Windows não consegue completar o carregamento.", gravidade: "Complexo" },
+      { titulo: "Reinicia com tela azul rápida", desc: "BSOD aparece por fração de segundo antes do reinício. O Windows está configurado para reiniciar automaticamente após erro crítico.", gravidade: "Médio" },
+      { titulo: "Reinicia após queda de energia", desc: "Instabilidade na rede elétrica ou fonte degradada não mantém tensão estável. Nobreak/estabilizador inadequado.", gravidade: "Simples" },
+      { titulo: "Reinicia e exibe erro de hardware no boot", desc: "POST detecta falha em componente (RAM, CPU, disco) e reinicia. Pode exibir beeps ou LEDs de diagnóstico.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Fonte de alimentação instável", desc: "Fonte degradada não fornece tensão estável sob carga. Capacitores ressecados causam ripple excessivo que reinicia o sistema.", tipo: "hardware" },
+      { titulo: "Superaquecimento de CPU ou GPU", desc: "Temperatura crítica aciona proteção térmica. Pasta térmica ressecada, cooler com poeira ou gabinete sem ventilação.", tipo: "desgaste" },
+      { titulo: "Memória RAM com defeito", desc: "Erros em células de memória causam falhas aleatórias. Pode ser um módulo defeituoso ou incompatibilidade entre pentes.", tipo: "hardware" },
+      { titulo: "Driver de vídeo com bug", desc: "Drivers NVIDIA ou AMD com problemas causam BSOD e reinício, especialmente em jogos ou aceleração de hardware.", tipo: "software" },
+      { titulo: "Arquivo de sistema corrompido", desc: "Desligamento forçado ou queda de energia corrompe arquivos essenciais do Windows, causando boot loop.", tipo: "software" },
+      { titulo: "Instabilidade elétrica", desc: "Rede elétrica com variações de tensão, sem aterramento ou com fiação subdimensionada afeta componentes sensíveis.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de cooler, troca de pasta térmica, atualização de drivers. Configuração de nobreak/estabilizador.", tempo: "1-2 horas", custo: "R$100–R$160" },
+      { nivel: "Médio", desc: "Troca de fonte de alimentação, substituição de módulo de RAM defeituoso, reparo do Windows.", tempo: "2-4 horas", custo: "R$160–R$350" },
+      { nivel: "Complexo", desc: "Diagnóstico de placa-mãe, troca de processador, reinstalação completa com recuperação de dados.", tempo: "3-7 dias", custo: "R$350–R$700" }
+    ],
+    riscos: [
+      "Perda de documentos e trabalho não salvos a cada reinício inesperado",
+      "Corrupção progressiva do sistema operacional e arquivos",
+      "Fonte instável pode queimar placa-mãe e outros componentes",
+      "HD convencional sofre dano mecânico com desligamentos abruptos repetidos"
+    ],
+    diagnostico: `Desabilitamos o reinício automático do Windows para capturar a tela azul completa e identificar o código de erro específico. Monitoramos temperaturas, tensões da fonte e frequência do processador.\n\nRealizamos teste de estresse (CPU, GPU, RAM) isolando cada componente para identificar qual causa a instabilidade. Verificamos memória com MemTest86 e fonte com multímetro.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Para superaquecimento: limpeza completa e troca de pasta térmica. Para fonte: substituição por modelo de qualidade com potência adequada ao sistema.\n\nRAM defeituosa é substituída após teste individual de cada módulo. Drivers são atualizados para versões estáveis e compatíveis.\n\nEm boot loops: reparo do Windows via ambiente de recuperação, ou reinstalação limpa quando necessário, sempre preservando dados do usuário.`,
+    quandoCompensa: "PCs de até 5 anos com fonte ou RAM defeituosa sempre compensam. Superaquecimento é barato de resolver. Troca de fonte é investimento que protege todo o sistema.",
+    quandoNaoCompensa: "PCs muito antigos (8+ anos) com múltiplos componentes falhando simultaneamente. Quando placa-mãe e processador estão comprometidos em máquina de baixo valor.",
+    whatsappMessage: "Olá! Meu PC está reiniciando sozinho. Preciso de diagnóstico profissional.",
+    conteudoExtra: `## Como Identificar a Causa em Casa\n\nDesative o reinício automático: Propriedades do Sistema → Avançado → Inicialização e Recuperação → desmarque 'Reiniciar automaticamente'. Assim você verá a tela azul com o código do erro.\n\n## Importância da Fonte de Alimentação\n\nA fonte é o componente mais negligenciado. Uma fonte de má qualidade pode danificar todos os outros componentes. Invista em fontes 80 Plus de marcas reconhecidas.`,
+    relatedPages: [
+      { to: "/computador-travando-curitiba", label: "Computador Travando" },
+      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul BSOD" },
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

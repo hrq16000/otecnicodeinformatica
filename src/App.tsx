@@ -244,6 +244,21 @@ const App = () => (
             <Route path="/bairros/centro-pinhais" element={<PinhaisCentro />} />
             <Route path="/bairros/weissopolis" element={<WeissopolisPinhais />} />
             <Route path="/bairros/pineville" element={<PinevillePinhais />} />
+
+            {/* Bairros Colombo */}
+            <Route path="/bairros/centro-colombo" element={<CentroColombo />} />
+            <Route path="/bairros/maracana-colombo" element={<MaracanaColombo />} />
+            <Route path="/bairros/guaraituba-colombo" element={<GuaraitubaColombo />} />
+
+            {/* Bairros Fazenda Rio Grande */}
+            <Route path="/bairros/centro-fazenda-rio-grande" element={<CentroFRG />} />
+            <Route path="/bairros/eucaliptos-frg" element={<EucaliptosFRG />} />
+            <Route path="/bairros/nacoes-frg" element={<NacoesFRG />} />
+
+            {/* Bairros Almirante Tamandaré */}
+            <Route path="/bairros/centro-almirante-tamandare" element={<CentroAlmiranteTamandare />} />
+            <Route path="/bairros/jardim-monte-santo" element={<JardimMontoSantoAT />} />
+            <Route path="/bairros/cachoeira-at" element={<CachoeiraAT />} />
             
             {/* Landing Pages Ads */}
             <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />

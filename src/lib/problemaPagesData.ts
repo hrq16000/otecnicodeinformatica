@@ -5480,7 +5480,350 @@ Sempre use "Remover hardware com segurança" antes de desconectar pendrives e HD
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
   },
+
+  // ============================================================
+  // notebook-teclado-nao-funciona-curitiba
+  // ============================================================
+  {
+    slug: "notebook-teclado-nao-funciona-curitiba",
+    title: "Teclado do Notebook Não Funciona? Causas e Soluções | Técnico Curitiba",
+    metaDescription: "Teclado do notebook parou de funcionar? Teclas travadas, sem resposta ou digitando errado? Diagnóstico e reparo em Curitiba. Atendimento rápido a domicílio.",
+    h1: "Teclado do Notebook Não Funciona em Curitiba? Resolvemos!",
+    categoria: "Hardware",
+    intro: `O teclado é um dos componentes mais usados do notebook e, por isso, um dos que mais apresentam problemas. Teclas que não respondem, que digitam caracteres errados, ou um teclado completamente inoperante podem ter diversas causas — desde líquido derramado até falha no flat cable. Em Curitiba, nosso técnico diagnostica a causa real e resolve com peças de qualidade.`,
+    sintomas: [
+      { titulo: "Nenhuma tecla responde", desc: "O teclado inteiro para de funcionar. Pode ser flat cable desconectado, driver corrompido ou dano na placa-mãe.", gravidade: "Médio a complexo" },
+      { titulo: "Teclas específicas não funcionam", desc: "Algumas teclas não respondem ao toque. Geralmente sujeira sob a membrana, tecla quebrada ou trilha danificada.", gravidade: "Simples a médio" },
+      { titulo: "Teclado digita sozinho", desc: "Caracteres aparecem sem você digitar. Pode ser curto-circuito por líquido, tecla travada ou interferência de software.", gravidade: "Médio" },
+      { titulo: "Teclado digitando errado", desc: "Teclas produzem caracteres diferentes do esperado. Configuração de idioma incorreta, driver errado ou dano físico.", gravidade: "Simples" },
+      { titulo: "Teclas duras ou travadas", desc: "Precisam de muita força para pressionar. Sujeira acumulada, resíduo de líquido ou mecanismo de mola danificado.", gravidade: "Simples a médio" },
+      { titulo: "Funciona com teclado USB externo", desc: "Teclado externo funciona normal mas o integrado não. Confirma problema no teclado interno, flat cable ou conector.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Líquido derramado", desc: "Água, café ou refrigerante causam curto-circuito nas trilhas condutoras da membrana do teclado.", tipo: "erro-humano" },
+      { titulo: "Flat cable danificado", desc: "O cabo flexível que conecta o teclado à placa-mãe pode se romper, desencaixar ou oxidar com o tempo.", tipo: "desgaste" },
+      { titulo: "Driver corrompido", desc: "Atualização do Windows ou conflito de software pode corromper o driver do teclado PS/2 integrado.", tipo: "software" },
+      { titulo: "Sujeira acumulada", desc: "Migalhas, poeira e cabelos se acumulam sob as teclas e impedem o contato elétrico.", tipo: "desgaste" },
+      { titulo: "Conector na placa-mãe", desc: "O conector ZIF onde o flat cable encaixa pode estar com a trava quebrada ou com mau contato.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração de idioma errada ou driver corrompido — resolvido com software", tempo: "30 min", custo: "R$ 80–120" },
+      { nivel: "Médio", desc: "Troca do teclado completo ou limpeza profunda após derramamento de líquido", tempo: "1–2 horas", custo: "R$ 150–280" },
+      { nivel: "Complexo", desc: "Reparo no conector da placa-mãe ou micro-solda em trilhas danificadas", tempo: "2–4 horas", custo: "R$ 250–450" },
+    ],
+    riscos: [
+      "Forçar teclas travadas pode quebrar o mecanismo permanentemente",
+      "Derramar mais líquido tentando 'limpar' pode causar curto na placa-mãe",
+      "Trocar teclado sem experiência pode danificar o flat cable ou conector ZIF",
+      "Usar secador de cabelo em líquido derramado pode espalhar o resíduo para áreas mais profundas",
+    ],
+    diagnostico: `1. Teste com teclado USB externo para confirmar se o problema é no teclado integrado ou no sistema operacional.
+
+2. Verificação no Gerenciador de Dispositivos do status do driver do teclado PS/2.
+
+3. Boot via BIOS/UEFI para testar se o teclado funciona fora do Windows — se funcionar, o problema é software.
+
+4. Inspeção física: remoção do teclado, verificação do flat cable, conector ZIF e presença de resíduos de líquido.
+
+5. Teste de continuidade nas trilhas da membrana para identificar teclas com circuito interrompido.`,
+    solucao: `**Driver/Software**: Reinstalação do driver do teclado, verificação de configurações de idioma e layout, desinstalação de softwares que possam estar interceptando teclas.
+
+**Limpeza**: Remoção do teclado, limpeza com álcool isopropílico das membranas e contatos, secagem completa e remontagem.
+
+**Flat cable**: Reconexão ou substituição do flat cable. Verificação e reparo da trava do conector ZIF se necessário.
+
+**Troca completa**: Substituição do teclado por peça compatível com o modelo exato do notebook. Inclui teste de todas as teclas e atalhos de função (Fn).`,
+    quandoCompensa: "Na maioria dos casos compensa reparar. A troca do teclado é relativamente barata e rápida, devolvendo funcionalidade total ao notebook.",
+    quandoNaoCompensa: "Se o líquido atingiu a placa-mãe e causou danos além do teclado, o custo total de reparo pode não compensar em notebooks antigos.",
+    conteudoExtra: `## Dicas Para Evitar Problemas no Teclado
+
+### Prevenção
+1. **Nunca coma ou beba sobre o notebook** — migalhas e líquidos são os maiores inimigos
+2. **Limpe periodicamente** com ar comprimido entre as teclas
+3. **Use película protetora** de silicone se trabalha em ambientes com poeira
+4. **Feche a tampa com cuidado** — batidas podem desencaixar o flat cable
+
+### O Que Fazer se Derramar Líquido
+1. **Desligue imediatamente** — não tente salvar o trabalho
+2. **Vire de cabeça para baixo** para escorrer o líquido
+3. **NÃO use secador de cabelo** — o ar quente pode derreter componentes
+4. **Leve ao técnico o mais rápido possível** — quanto mais tempo, mais corrosão
+
+### Teclado Externo Como Solução Temporária
+Enquanto aguarda o reparo, um teclado USB externo funciona perfeitamente com qualquer notebook. É uma solução prática para não perder produtividade.`,
+    whatsappMessage: "Olá! O teclado do meu notebook parou de funcionar. Podem me ajudar?",
+    relatedPages: [
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
+      { to: "/notebook-touchpad-nao-funciona-curitiba", label: "Touchpad Não Funciona" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // pc-sem-audio-curitiba
+  // ============================================================
+  {
+    slug: "pc-sem-audio-curitiba",
+    title: "PC Sem Áudio? Computador Sem Som | Técnico em Curitiba",
+    metaDescription: "Computador ou notebook sem som? Áudio parou de funcionar? Diagnóstico e reparo em Curitiba e região metropolitana. Atendimento rápido a domicílio.",
+    h1: "PC ou Notebook Sem Áudio em Curitiba? Diagnóstico e Solução",
+    categoria: "Hardware / Software",
+    intro: `Ficar sem áudio no computador é mais do que um incômodo — afeta reuniões online, aulas, entretenimento e trabalho. O problema pode estar no hardware (placa de som, alto-falantes, conector P2) ou no software (driver, configuração do Windows, serviço de áudio). Nosso técnico em Curitiba identifica a causa exata e resolve com agilidade.`,
+    sintomas: [
+      { titulo: "Nenhum som sai do computador", desc: "Sem áudio em nenhum programa, ícone de som com X vermelho. Pode ser driver, serviço de áudio parado ou placa de som com defeito.", gravidade: "Simples a médio" },
+      { titulo: "Som apenas pelo fone de ouvido", desc: "Alto-falantes não funcionam mas fone sim (ou vice-versa). Problema no conector, detecção automática ou configuração de saída.", gravidade: "Simples" },
+      { titulo: "Áudio com chiado ou estalo", desc: "Som sai mas com ruído, estalo ou distorção. Pode ser interferência, driver desatualizado ou alto-falante danificado.", gravidade: "Simples a médio" },
+      { titulo: "Volume muito baixo", desc: "Mesmo no máximo o som é fraco. Equalização mal configurada, driver incorreto ou alto-falante desgastado.", gravidade: "Simples" },
+      { titulo: "Microfone não funciona", desc: "O microfone integrado ou externo não capta áudio. Driver, permissões de privacidade ou hardware defeituoso.", gravidade: "Simples a médio" },
+      { titulo: "Áudio trava ou falha intermitente", desc: "Som funciona e para aleatoriamente. Conflito de driver, gerenciamento de energia ou problema no chipset de áudio.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Driver de áudio corrompido", desc: "Atualizações do Windows podem instalar drivers genéricos incompatíveis com o chipset Realtek, Conexant ou outro.", tipo: "software" },
+      { titulo: "Serviço Windows Audio parado", desc: "O serviço responsável pelo áudio pode travar ou ser desabilitado por otimizadores de sistema.", tipo: "software" },
+      { titulo: "Conector P2 danificado", desc: "Entrada de fone de ouvido ou microfone com mau contato, oxidação ou soldas frias.", tipo: "hardware" },
+      { titulo: "Chipset de áudio com defeito", desc: "O chip Realtek/Conexant na placa-mãe pode falhar, especialmente após picos de energia.", tipo: "hardware" },
+      { titulo: "Configuração de saída errada", desc: "Windows direcionando áudio para dispositivo inexistente (HDMI, Bluetooth desconectado, monitor sem caixas).", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver ou reconfiguração de dispositivo de saída padrão", tempo: "30–60 min", custo: "R$ 80–120" },
+      { nivel: "Médio", desc: "Reparo do conector P2 ou substituição de alto-falantes internos do notebook", tempo: "1–2 horas", custo: "R$ 120–220" },
+      { nivel: "Complexo", desc: "Substituição do chipset de áudio na placa-mãe ou instalação de placa de som dedicada", tempo: "2–3 horas", custo: "R$ 200–400" },
+    ],
+    riscos: [
+      "Instalar drivers de áudio de fontes não confiáveis pode trazer malware",
+      "Forçar o conector P2 pode quebrar a ponta do plug dentro da entrada",
+      "Desabilitar serviços do Windows sem conhecimento pode causar outros problemas",
+      "Ajustar volume no máximo com driver incorreto pode danificar alto-falantes",
+    ],
+    diagnostico: `1. Verificação do Gerenciador de Dispositivos para status do driver de áudio (exclamação amarela, driver genérico, dispositivo desabilitado).
+
+2. Teste do serviço Windows Audio (services.msc) — verificar se está iniciado e em modo automático.
+
+3. Teste com fone de ouvido e com alto-falante externo para isolar se o problema é na saída interna.
+
+4. Verificação da configuração de dispositivo de reprodução padrão no painel de som do Windows.
+
+5. Teste em outro sistema operacional (Linux live USB) para confirmar se é hardware ou software.
+
+6. Inspeção física dos conectores, alto-falantes internos e chicote de cabos de áudio.`,
+    solucao: `**Driver**: Download e instalação do driver oficial do fabricante da placa-mãe/notebook. Remoção completa do driver anterior com DDU (Display Driver Uninstaller para áudio Realtek).
+
+**Serviço**: Reinicialização do Windows Audio e dependências (Windows Audio Endpoint Builder, RPC). Configuração para início automático.
+
+**Hardware**: Resolda do conector P2, substituição de alto-falantes internos ou instalação de placa de som USB/PCI-E como alternativa ao chipset integrado com defeito.
+
+**Configuração**: Definição correta do dispositivo de reprodução padrão, desativação de aprimoramentos de áudio que causam conflito, ajuste de formato de áudio (16/24 bit, 44.1/48 kHz).`,
+    quandoCompensa: "Problemas de software são rápidos e baratos de resolver. Mesmo troca de conector P2 ou alto-falantes internos tem custo acessível.",
+    quandoNaoCompensa: "Se o chipset de áudio da placa-mãe falhou em notebook antigo, uma placa de som USB externa (R$ 30-80) pode ser mais prática que micro-solda.",
+    conteudoExtra: `## Soluções Rápidas Para Problemas de Áudio
+
+### Checklist Antes do Técnico
+1. Verifique se o volume não está no mudo (ícone na barra de tarefas)
+2. Clique com botão direito no ícone de som > Configurações de som > verifique o dispositivo de saída
+3. Teste com fone de ouvido — se funcionar, o problema é nos alto-falantes
+4. Reinicie o computador — às vezes o serviço de áudio trava
+
+### Atalho Útil
+- **Win + I > Sistema > Som**: acesso rápido às configurações de áudio no Windows 10/11
+- **Painel de Controle > Som**: acesso às propriedades avançadas do dispositivo
+
+### Placa de Som USB
+Para quem não quer esperar o reparo, uma placa de som USB externa (adaptador USB para P2) custa entre R$ 20 e R$ 80 e funciona plug-and-play na maioria dos computadores.`,
+    whatsappMessage: "Olá! Meu computador está sem áudio/som. Podem me ajudar?",
+    relatedPages: [
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // erro-disco-100-porcento-curitiba
+  // ============================================================
+  {
+    slug: "erro-disco-100-porcento-curitiba",
+    title: "Disco 100% no Gerenciador de Tarefas? Solução | Técnico Curitiba",
+    metaDescription: "Disco em 100% no Windows? Computador extremamente lento por uso de disco constante? Diagnóstico e solução em Curitiba. Atendimento rápido.",
+    h1: "Disco 100% no Gerenciador de Tarefas em Curitiba? Resolvemos!",
+    categoria: "Software / Hardware",
+    intro: `O disco em 100% de uso no Gerenciador de Tarefas é um dos problemas mais comuns e frustrantes do Windows 10 e 11. O computador fica extremamente lento, programas demoram minutos para abrir e até digitar no teclado tem atraso. As causas vão desde configurações erradas do Windows até HD mecânico chegando ao fim da vida útil. Nosso técnico em Curitiba resolve esse problema com diagnóstico preciso.`,
+    sintomas: [
+      { titulo: "Disco 100% constante no Gerenciador", desc: "A coluna 'Disco' mostra 100% o tempo todo, mesmo sem programas abertos. O sistema fica travando constantemente.", gravidade: "Médio" },
+      { titulo: "Computador leva minutos para iniciar", desc: "Após o login do Windows, demora 5-10 minutos até poder usar o computador. Disco em atividade constante.", gravidade: "Médio" },
+      { titulo: "Programas abrem muito devagar", desc: "Clicar em qualquer programa (Chrome, Word, etc) demora 30-60 segundos para abrir. Cursor de carregamento constante.", gravidade: "Simples a médio" },
+      { titulo: "Travamentos ao salvar arquivos", desc: "Salvar documentos ou fazer download trava o sistema. O disco não consegue processar as operações de escrita.", gravidade: "Médio" },
+      { titulo: "Ruído constante do HD", desc: "HD mecânico fazendo barulho de acesso contínuo (tec-tec-tec). Indica atividade intensa ou problemas físicos.", gravidade: "Médio a complexo" },
+      { titulo: "100% causado por processo específico", desc: "Processos como Windows Search, Superfetch/SysMain, Windows Update ou antivírus monopolizam o disco.", gravidade: "Simples" },
+    ],
+    causas: [
+      { titulo: "HD mecânico lento ou defeituoso", desc: "HDs de 5400 RPM não acompanham a demanda do Windows moderno. Setores defeituosos pioram drasticamente.", tipo: "hardware" },
+      { titulo: "Windows Search indexando", desc: "O serviço de busca do Windows reconstrói o índice de busca constantemente, consumindo todo o disco.", tipo: "software" },
+      { titulo: "Superfetch/SysMain", desc: "Serviço que pré-carrega programas na memória. Em HDs mecânicos, causa mais lentidão do que benefício.", tipo: "software" },
+      { titulo: "Windows Update baixando/instalando", desc: "Atualizações sendo baixadas e instaladas em segundo plano consomem disco intensamente.", tipo: "software" },
+      { titulo: "Malware minerando ou escrevendo em disco", desc: "Vírus e malware podem usar o disco intensamente para mineração, gravação de logs ou propagação.", tipo: "software" },
+      { titulo: "Memória RAM insuficiente", desc: "Com pouca RAM, o Windows usa paginação (arquivo de swap) intensamente, sobrecarregando o disco.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Desabilitação de serviços desnecessários (SysMain, Windows Search) e otimização do Windows", tempo: "1–2 horas", custo: "R$ 100–150" },
+      { nivel: "Médio", desc: "Upgrade de HD mecânico para SSD — solução definitiva para 80% dos casos", tempo: "1–2 horas", custo: "R$ 200–350 (com SSD)" },
+      { nivel: "Complexo", desc: "Diagnóstico de HD com setores defeituosos + migração de dados + instalação de SSD", tempo: "3–5 horas", custo: "R$ 300–500" },
+    ],
+    riscos: [
+      "Ignorar disco 100% por muito tempo pode causar perda de dados se o HD estiver falhando",
+      "Desabilitar serviços do Windows sem critério pode causar instabilidade",
+      "HD em 100% constante indica possível falha iminente — faça backup urgente",
+      "Formatação sem diagnóstico pode não resolver se o problema é o HD físico",
+    ],
+    diagnostico: `1. Análise do Gerenciador de Tarefas: identificação do processo que mais consome disco (Windows Search, SysMain, antivírus, etc).
+
+2. Teste de saúde do HD/SSD com CrystalDiskInfo: verificação de setores realocados, contagem de erros e temperatura.
+
+3. Verificação da memória RAM disponível e uso de paginação — RAM insuficiente causa uso intenso de swap.
+
+4. Scan por malware com ferramentas profissionais para descartar atividade maliciosa.
+
+5. Análise do Event Viewer (Visualizador de Eventos) para erros de disco e NTFS.
+
+6. Benchmark de velocidade do disco para comparar com valores esperados do modelo.`,
+    solucao: `**Otimização de Software**:
+- Desabilitação do SysMain (Superfetch) e Windows Search se desnecessários
+- Configuração do Windows Update para horários específicos
+- Remoção de programas que iniciam com o sistema desnecessariamente
+- Verificação e remoção de malware
+
+**Upgrade para SSD (Solução Definitiva)**:
+A troca do HD mecânico por um SSD resolve 80-90% dos casos de disco 100%. O SSD é 10-50x mais rápido que um HD convencional, eliminando o gargalo. Inclui:
+- Clonagem do sistema atual para o SSD (sem perder dados)
+- Instalação física do SSD
+- Otimização do Windows para SSD (TRIM, alinhamento)
+
+**Expansão de RAM**: Se a causa é paginação excessiva, adicionar memória RAM reduz drasticamente o uso do disco.`,
+    quandoCompensa: "Sempre compensa resolver. O upgrade para SSD é a melhor relação custo-benefício em informática — transforma completamente a experiência de uso.",
+    quandoNaoCompensa: "Se o computador é muito antigo (pré-2010) e não suporta SSD SATA, pode ser mais vantajoso investir em um equipamento novo.",
+    conteudoExtra: `## Disco 100%: A Solução Definitiva é o SSD
+
+### Por Que o SSD Resolve
+O principal motivo do disco 100% em computadores com HD mecânico é simples: **o Windows moderno exige mais do que um HD consegue entregar**. O sistema operacional faz milhares de operações de leitura/escrita simultâneas que um HD com prato giratório não consegue processar.
+
+Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gargalo.
+
+### Comparativo Real
+| Operação | HD Mecânico | SSD |
+|----------|------------|-----|
+| Boot do Windows | 2-5 minutos | 15-30 segundos |
+| Abrir Chrome | 30-60 seg | 2-3 seg |
+| Copiar 1GB | 1-2 min | 5-10 seg |
+| Uso de disco | 80-100% | 5-20% |
+
+### Quanto Custa o Upgrade
+- SSD 240GB: R$ 120-180
+- SSD 480GB: R$ 200-300
+- Mão de obra (clonagem + instalação): R$ 100-150
+- **Total**: R$ 220-450 para transformar seu computador`,
+    whatsappMessage: "Olá! Meu computador está com disco em 100% e muito lento. Podem me ajudar?",
+    relatedPages: [
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // computador-reiniciando-sozinho-curitiba
+  // ============================================================
+  {
+    slug: "computador-reiniciando-sozinho-curitiba",
+    title: "Computador Reiniciando Sozinho? Causas e Soluções | Técnico Curitiba",
+    metaDescription: "Computador reiniciando sozinho sem aviso? Pode ser superaquecimento, fonte, RAM ou Windows. Diagnóstico profissional em Curitiba. Atendimento rápido.",
+    h1: "Computador Reiniciando Sozinho em Curitiba? Encontramos a Causa!",
+    categoria: "Hardware / Software",
+    intro: `Um computador que reinicia sozinho sem aviso é sinal de algo grave. O sistema detecta uma condição crítica (temperatura, voltagem, erro de memória) e faz um desligamento de proteção. Ignorar esse sintoma pode levar a danos permanentes no hardware. Em Curitiba, nosso técnico identifica a causa raiz com ferramentas profissionais de diagnóstico.`,
+    sintomas: [
+      { titulo: "Reinicia sem aviso prévio", desc: "O computador simplesmente desliga e liga novamente, sem tela azul ou mensagem de erro. Geralmente é hardware.", gravidade: "Médio a complexo" },
+      { titulo: "Reinicia com tela azul (BSOD)", desc: "Aparece uma tela azul com código de erro antes de reiniciar. O código indica a causa: memória, driver ou disco.", gravidade: "Médio" },
+      { titulo: "Reinicia durante jogos ou uso pesado", desc: "Só acontece em carga alta (jogos, renderização). Indica superaquecimento ou fonte insuficiente.", gravidade: "Médio" },
+      { titulo: "Reinicia aleatoriamente", desc: "Acontece em momentos imprevisíveis, sem padrão. Pode ser memória RAM com defeito ou fonte instável.", gravidade: "Médio a complexo" },
+      { titulo: "Reinicia em loop (boot loop)", desc: "Liga, começa a carregar e reinicia antes de completar o boot. Windows corrompido ou hardware falhando.", gravidade: "Complexo" },
+      { titulo: "Reinicia apenas com programas específicos", desc: "Certos programas causam o reinício. Driver incompatível, conflito de software ou recurso de hardware insuficiente.", gravidade: "Simples a médio" },
+    ],
+    causas: [
+      { titulo: "Superaquecimento", desc: "CPU ou GPU ultrapassam a temperatura máxima e o sistema desliga por proteção. Pasta térmica seca ou cooler obstruído.", tipo: "hardware" },
+      { titulo: "Fonte de alimentação instável", desc: "Fonte sub-dimensionada ou com capacitores estufados não mantém voltagem estável, causando reinícios sob carga.", tipo: "hardware" },
+      { titulo: "Memória RAM com defeito", desc: "Módulos de RAM com células defeituosas causam erros aleatórios que forçam reinícios de proteção.", tipo: "hardware" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Drivers de vídeo, chipset ou rede podem causar BSOD que resulta em reinício automático.", tipo: "software" },
+      { titulo: "Windows corrompido", desc: "Arquivos de sistema corrompidos por desligamento forçado, vírus ou disco com defeito.", tipo: "software" },
+      { titulo: "Placa-mãe com defeito", desc: "Capacitores estufados, reguladores de tensão falhando ou trilhas com micro-fissuras.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Driver corrompido ou configuração do Windows (reinício automático em erro) — resolvido com software", tempo: "1–2 horas", custo: "R$ 100–150" },
+      { nivel: "Médio", desc: "Limpeza + troca de pasta térmica, troca de memória RAM ou substituição da fonte", tempo: "1–3 horas", custo: "R$ 150–350" },
+      { nivel: "Complexo", desc: "Diagnóstico de placa-mãe com defeito, reparo ou substituição de componentes", tempo: "3–5 horas", custo: "R$ 300–600" },
+    ],
+    riscos: [
+      "Reinícios constantes podem corromper o sistema de arquivos e causar perda de dados",
+      "Superaquecimento ignorado pode queimar o processador permanentemente",
+      "Fonte instável pode danificar placa-mãe, memória e outros componentes",
+      "Usar o computador com RAM defeituosa pode corromper arquivos e instalações de programas",
+    ],
+    diagnostico: `1. Monitoramento de temperatura em tempo real da CPU e GPU com HWMonitor para detectar superaquecimento.
+
+2. Teste de memória RAM com MemTest86 (mínimo 4 passes) para identificar células defeituosas.
+
+3. Teste de estabilidade da fonte com multímetro nas linhas 12V, 5V e 3.3V sob carga.
+
+4. Análise dos dumps de BSOD (arquivos .dmp) para identificar o driver ou componente causador.
+
+5. Verificação visual da placa-mãe: capacitores estufados, marcas de queimado, soldas frias.
+
+6. Teste de estresse (Prime95 + FurMark) para reproduzir o problema em ambiente controlado.`,
+    solucao: `**Superaquecimento**: Limpeza completa interna, troca de pasta térmica (Arctic MX-4 ou similar), verificação dos coolers e ventilação. Em notebooks, limpeza do sistema de heat pipe.
+
+**Fonte**: Substituição por fonte de qualidade com potência adequada ao sistema. Em notebooks, teste e troca do carregador se necessário.
+
+**Memória RAM**: Identificação do módulo defeituoso e substituição. Teste dos slots da placa-mãe para confirmar que não é o slot com defeito.
+
+**Software**: Desativação do reinício automático em erro (para poder ver o código BSOD), atualização de drivers problemáticos, reparo ou reinstalação do Windows.
+
+**Placa-mãe**: Troca de capacitores estufados, reparo de reguladores de tensão ou substituição da placa em casos mais graves.`,
+    quandoCompensa: "Na maioria dos casos, a causa é algo reparável (limpeza, pasta térmica, fonte, RAM). O diagnóstico é essencial para não trocar peças desnecessariamente.",
+    quandoNaoCompensa: "Se a placa-mãe tem múltiplos capacitores estufados em computador antigo, ou se o processador já sofreu dano térmico, pode ser mais vantajoso trocar o equipamento.",
+    conteudoExtra: `## Reinício Constante: Guia de Emergência
+
+### Antes de Chamar o Técnico
+1. **Desabilite o reinício automático**: Painel de Controle > Sistema > Configurações avançadas > Inicialização e Recuperação > desmarque "Reiniciar automaticamente"
+2. **Anote o código da tela azul** — ex: KERNEL_DATA_INPAGE_ERROR, WHEA_UNCORRECTABLE_ERROR
+3. **Verifique a temperatura** — se o gabinete está muito quente, desligue e espere esfriar
+4. **Ouça a fonte** — estalo ou cheiro de queimado indica problema elétrico urgente
+
+### Códigos de BSOD Mais Comuns
+- **WHEA_UNCORRECTABLE_ERROR**: Problema de hardware (CPU, RAM, placa-mãe)
+- **KERNEL_DATA_INPAGE_ERROR**: HD/SSD com setores defeituosos
+- **IRQL_NOT_LESS_OR_EQUAL**: Driver incompatível ou RAM defeituosa
+- **CRITICAL_PROCESS_DIED**: Arquivo de sistema corrompido
+- **MEMORY_MANAGEMENT**: RAM com defeito
+
+### Prevenção
+- Mantenha a limpeza interna a cada 6 meses
+- Use um nobreak/estabilizador para proteger contra oscilações elétricas
+- Monitore temperaturas periodicamente com HWMonitor ou Core Temp`,
+    whatsappMessage: "Olá! Meu computador fica reiniciando sozinho. Podem me ajudar?",
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/computador-desligando-apos-segundos-curitiba", label: "Desligando Após Segundos" },
+      { to: "/memoria-ram-com-defeito-curitiba", label: "RAM com Defeito" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
 ];
+
 
 // Helper to get a page by slug
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {

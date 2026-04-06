@@ -3193,7 +3193,6 @@ Diagnosticamos barulhos em PCs e notebooks em toda Curitiba e região. Limpeza p
 
 Resolvemos problemas de Bluetooth no mesmo dia em toda Curitiba e região.`
   },
-];
 
   // ---------- pen-drive-nao-reconhece-curitiba ----------
   {

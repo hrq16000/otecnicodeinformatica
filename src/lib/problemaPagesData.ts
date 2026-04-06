@@ -3477,6 +3477,210 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
   },
 ];
 
+  // ==================== NOTEBOOK SUPERAQUECENDO ====================
+  {
+    slug: "notebook-superaquecendo-curitiba",
+    title: "Notebook Superaquecendo em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Notebook esquentando demais e desligando sozinho? Técnico em Curitiba resolve superaquecimento com limpeza térmica, troca de pasta e reparo de cooler. Atendimento rápido.",
+    h1: "Notebook Superaquecendo — Diagnóstico e Solução em Curitiba",
+    categoria: "Hardware",
+    intro: `O superaquecimento é uma das falhas mais perigosas para notebooks. Quando a temperatura interna ultrapassa os limites seguros, o processador reduz a velocidade (thermal throttling) ou o notebook desliga abruptamente para se proteger. Ignorar esse problema pode causar danos irreversíveis na placa-mãe e no processador.\n\nEm Curitiba, especialmente em dias quentes ou em ambientes com pouca ventilação, notebooks podem atingir temperaturas críticas rapidamente. Usar o notebook na cama, sofá ou sobre superfícies que bloqueiam a ventilação agrava ainda mais o problema.\n\nNosso serviço inclui diagnóstico térmico completo com software profissional, limpeza interna, troca de pasta térmica e, quando necessário, reparo ou substituição do cooler. Tudo com garantia e atendimento em domicílio na região metropolitana de Curitiba.`,
+    sintomas: [
+      { titulo: "Notebook desliga sozinho durante uso", desc: "Desligamento abrupto sem aviso, geralmente durante tarefas pesadas como jogos ou edição de vídeo. É o mecanismo de proteção térmica do processador.", gravidade: "Alta" },
+      { titulo: "Base do notebook muito quente ao toque", desc: "Calor excessivo na parte inferior indica que o sistema de refrigeração não está dissipando o calor adequadamente.", gravidade: "Média" },
+      { titulo: "Ventilador faz barulho alto constantemente", desc: "O cooler gira em velocidade máxima tentando compensar a temperatura elevada. Pode indicar pasta térmica ressecada ou duto entupido.", gravidade: "Média" },
+      { titulo: "Lentidão progressiva durante o uso", desc: "O processador reduz a frequência (throttling) para diminuir a temperatura, causando travamentos e lentidão.", gravidade: "Média" },
+      { titulo: "Tela congela e só volta após esfriar", desc: "Congelamento causado por proteção térmica. Após esfriar, o notebook volta a funcionar temporariamente.", gravidade: "Alta" },
+      { titulo: "Cheiro de queimado vindo do notebook", desc: "Sinal grave de que componentes podem estar sendo danificados pelo calor excessivo. Pare de usar imediatamente.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Pasta térmica ressecada", desc: "A pasta térmica perde eficiência após 2-3 anos, reduzindo drasticamente a transferência de calor entre o processador e o dissipador.", tipo: "desgaste" },
+      { titulo: "Ventilador obstruído por poeira", desc: "Acúmulo de poeira e pelos bloqueia as saídas de ar e as aletas do dissipador, impedindo a circulação de ar.", tipo: "desgaste" },
+      { titulo: "Cooler com defeito ou travado", desc: "O motor do ventilador pode falhar por desgaste, fazendo-o girar devagar ou parar completamente.", tipo: "hardware" },
+      { titulo: "Uso em superfície inadequada", desc: "Cama, travesseiro e sofá bloqueiam as entradas de ar na parte inferior do notebook, causando superaquecimento.", tipo: "erro-humano" },
+      { titulo: "Heatpipe danificado ou descolado", desc: "O tubo de calor (heatpipe) pode perder o contato com o processador ou desenvolver vazamento interno.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna + troca de pasta térmica. Resolve 70% dos casos de superaquecimento.", tempo: "1-2 horas", custo: "R$100–R$180" },
+      { nivel: "Médio", desc: "Substituição de cooler/ventilador + limpeza completa + pasta térmica premium.", tempo: "2-4 horas", custo: "R$180–R$350" },
+      { nivel: "Complexo", desc: "Reparo de heatpipe, substituição de dissipador completo ou dano na placa por superaquecimento prolongado.", tempo: "3-7 dias", custo: "R$350–R$800" }
+    ],
+    riscos: [
+      "Dano permanente no processador por exposição prolongada a altas temperaturas",
+      "Queima de componentes da placa-mãe (VRM, chipset)",
+      "Descolamento de solda BGA do processador ou GPU",
+      "Perda de dados por desligamento abrupto durante gravação",
+      "Redução da vida útil da bateria por calor excessivo"
+    ],
+    diagnostico: `O diagnóstico térmico profissional utiliza software especializado (HWMonitor, AIDA64) para medir as temperaturas em tempo real de CPU, GPU e disco durante testes de estresse.\n\nVerificamos a rotação do cooler com tacômetro, inspecionamos a condição da pasta térmica, avaliamos o estado das aletas do dissipador e testamos o fluxo de ar. O resultado é um laudo completo com as causas identificadas e as soluções recomendadas.`,
+    solucao: `A solução profissional para superaquecimento inclui:\n\n1. Desmontagem cuidadosa do notebook\n2. Limpeza completa do sistema de refrigeração (cooler, dutos e aletas)\n3. Remoção da pasta térmica antiga com solvente isopropílico\n4. Aplicação de pasta térmica de alta performance (Arctic MX-4 ou similar)\n5. Teste de estresse pós-reparo para validar temperaturas\n6. Orientações sobre uso correto e prevenção\n\nUsamos pasta térmica premium que mantém a eficiência por até 8 anos, muito superior às pastas genéricas.`,
+    quandoCompensa: "Na maioria dos casos, o superaquecimento é resolvido com limpeza e troca de pasta térmica — um investimento baixo que prolonga a vida útil do notebook em vários anos.",
+    quandoNaoCompensa: "Quando há dano severo na placa-mãe por superaquecimento prolongado, com componentes queimados ou solda BGA comprometida, pode ser mais viável investir em um notebook novo.",
+    whatsappMessage: "Olá! Meu notebook está superaquecendo e preciso de diagnóstico. Podem me ajudar?",
+    conteudoExtra: `## Por Que o Superaquecimento é Tão Perigoso?\n\nO superaquecimento não é apenas um inconveniente — é uma ameaça real à integridade do seu notebook. Processadores modernos operam em temperaturas de 60-80°C sob carga, mas quando ultrapassam 90-100°C, entram em modo de proteção.\n\n### Thermal Throttling: O Que é e Como Afeta Seu Notebook\n\nQuando a temperatura sobe demais, o processador reduz automaticamente sua velocidade para gerar menos calor. Isso significa que seu notebook com processador i7 pode estar operando como um i3 — você pagou por desempenho que não está usando.\n\n### A Importância da Pasta Térmica\n\nA pasta térmica é o material que preenche as micro-imperfeições entre o processador e o dissipador de calor. Sem ela, o contato térmico é ineficiente e as temperaturas sobem drasticamente.\n\nPastas térmicas de qualidade inferior ressecam em 1-2 anos. Utilizamos pasta térmica profissional (Arctic MX-4, Thermal Grizzly Kryonaut) que mantém suas propriedades por até 8 anos.\n\n### Prevenção: Como Evitar o Superaquecimento\n\n1. **Use sempre em superfície rígida e plana** — mesa, escrivaninha ou suporte para notebook\n2. **Evite bloquear as saídas de ar** — nunca use na cama ou sobre almofadas\n3. **Faça limpeza preventiva a cada 12-18 meses** — especialmente se tiver pets\n4. **Considere um cooler externo** — base refrigerada ajuda em ambientes quentes\n5. **Monitore temperaturas** — apps como HWMonitor alertam sobre temperaturas anormais\n\n### Marcas Que Mais Sofrem Com Superaquecimento\n\nAlguns modelos são mais propensos ao problema:\n- **Dell Inspiron e Vostro** — sistema de refrigeração compacto\n- **Lenovo Ideapad** — pasta térmica de fábrica de baixa qualidade\n- **Acer Nitro** — notebooks gamer com dissipação subdimensionada\n- **HP Pavilion** — dutos de ar estreitos que entopem facilmente\n\nTemos experiência com todas as marcas e modelos, com peças de reposição em estoque para agilizar o reparo.`,
+    relatedPages: [
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/pc-trava-ao-jogar-curitiba", label: "PC Trava ao Jogar" },
+      { to: "/computador-com-som-estranho-curitiba", label: "Som Estranho no PC" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ]
+  },
+
+  // ==================== CÂMERA SEGURANÇA NÃO FUNCIONA ====================
+  {
+    slug: "camera-seguranca-nao-funciona-curitiba",
+    title: "Câmera de Segurança Não Funciona em Curitiba | Reparo CFTV",
+    metaDescription: "Câmera de segurança parou de funcionar? Técnico CFTV em Curitiba resolve problemas de DVR, câmeras IP, acesso remoto e gravação. Atendimento rápido.",
+    h1: "Câmera de Segurança Não Funciona — Reparo CFTV em Curitiba",
+    categoria: "CFTV / Segurança",
+    intro: `Câmeras de segurança que param de funcionar deixam sua casa ou empresa vulnerável. O problema pode estar na câmera, no DVR/NVR, no cabeamento, na fonte de alimentação ou na configuração de rede.\n\nEm Curitiba e região metropolitana, oferecemos diagnóstico completo de sistemas CFTV — desde câmeras analógicas até sistemas IP modernos. Trabalhamos com todas as marcas (Intelbras, Hikvision, Giga, Multilaser) e resolvemos desde problemas simples como falta de energia até falhas complexas no DVR.\n\nSe suas câmeras pararam de gravar, perderam o acesso remoto pelo celular ou estão com imagem distorcida, nosso técnico identifica e resolve o problema com rapidez e garantia.`,
+    sintomas: [
+      { titulo: "Câmera com tela preta ou sem imagem", desc: "A câmera está ligada mas não transmite imagem. Pode ser problema na câmera, no cabo ou na porta do DVR.", gravidade: "Alta" },
+      { titulo: "DVR não grava ou perdeu gravações", desc: "O HD do DVR pode estar cheio, com defeito, ou as configurações de gravação foram alteradas.", gravidade: "Alta" },
+      { titulo: "Acesso remoto pelo celular não funciona", desc: "O app do celular não conecta nas câmeras. Pode ser problema de rede, DDNS ou configuração do roteador.", gravidade: "Média" },
+      { titulo: "Imagem com interferência ou distorção", desc: "Imagem com linhas, cores alteradas ou ruído. Geralmente causado por cabo danificado ou fonte inadequada.", gravidade: "Média" },
+      { titulo: "Câmera com visão noturna fraca", desc: "Imagem escura à noite, LEDs infravermelhos apagados ou fracos. Pode ser desgaste dos LEDs ou configuração errada.", gravidade: "Baixa" },
+      { titulo: "DVR reinicia sozinho ou trava", desc: "Instabilidade no DVR causada por HD com defeito, fonte insuficiente ou superaquecimento.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "HD do DVR com defeito", desc: "HDs de vigilância (purple) têm vida útil de 3-5 anos em uso contínuo 24/7. Quando falham, param de gravar ou corrompem as gravações.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação queimada", desc: "Fontes chaveadas de CFTV queimam por oscilação na rede elétrica ou por sobrecarga quando alimentam muitas câmeras.", tipo: "hardware" },
+      { titulo: "Cabo coaxial ou UTP danificado", desc: "Cabos expostos ao sol, chuva ou roedores perdem a blindagem, causando interferência ou perda total de sinal.", tipo: "desgaste" },
+      { titulo: "Configuração de rede alterada", desc: "Mudança de roteador, IP ou provedor de internet desconecta o acesso remoto e o DDNS do sistema.", tipo: "erro-humano" },
+      { titulo: "Câmera com placa queimada", desc: "Curto-circuito por raio, surto elétrico ou infiltração de água danifica a placa interna da câmera.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reconfiguração de acesso remoto, DDNS, ajuste de gravação ou troca de fonte. Sem necessidade de peças.", tempo: "1-2 horas", custo: "R$100–R$200" },
+      { nivel: "Médio", desc: "Troca de HD do DVR, substituição de câmera com defeito, reparo de cabeamento parcial.", tempo: "2-4 horas", custo: "R$200–R$500" },
+      { nivel: "Complexo", desc: "Reestruturação completa do sistema, troca de DVR, repassagem de cabos e reconfiguração total.", tempo: "1-3 dias", custo: "R$500–R$2.000" }
+    ],
+    riscos: [
+      "Casa ou empresa sem monitoramento = vulnerável a furtos e invasões",
+      "Perda de gravações importantes como evidência para ocorrências policiais",
+      "Câmeras aparentemente funcionando mas sem gravar (falsa sensação de segurança)",
+      "Acesso remoto comprometido pode permitir invasão do sistema por hackers",
+      "Danos elétricos podem se propagar para outras câmeras do sistema"
+    ],
+    diagnostico: `O diagnóstico de CFTV inclui teste individual de cada câmera com monitor portátil, verificação do cabeamento com testador de cabo, análise do HD do DVR com software especializado (CrystalDiskInfo) e teste da rede para acesso remoto.\n\nVerificamos também a fonte de alimentação com multímetro, a qualidade da imagem em cada canal, o status das gravações e a configuração do DDNS/P2P. O resultado é um laudo completo do sistema com priorização dos reparos necessários.`,
+    solucao: `A solução profissional para sistemas CFTV inclui:\n\n1. Diagnóstico completo de todas as câmeras, cabos e DVR\n2. Substituição de componentes com defeito (HD, fontes, câmeras)\n3. Reconfiguração de acesso remoto e DDNS\n4. Teste de gravação e reprodução em todos os canais\n5. Configuração de alertas e detecção de movimento\n6. Orientação sobre manutenção preventiva do sistema\n\nTrabalhamos com peças originais Intelbras e compatíveis de qualidade, sempre com garantia.`,
+    quandoCompensa: "Na maioria dos casos, o reparo é viável — trocar um HD ou fonte custa muito menos que um sistema novo. Mesmo câmeras individuais podem ser substituídas sem trocar todo o sistema.",
+    quandoNaoCompensa: "Sistemas muito antigos (analógicos de baixa resolução) podem não valer o investimento em reparo. Nesses casos, recomendamos a migração para um sistema moderno com câmeras Full HD ou 4K.",
+    whatsappMessage: "Olá! Minhas câmeras de segurança pararam de funcionar e preciso de reparo. Podem me ajudar?",
+    conteudoExtra: `## Manutenção Preventiva Para Sistemas CFTV\n\nUm sistema de câmeras de segurança precisa de manutenção periódica para funcionar de forma confiável. Recomendamos revisão a cada 6-12 meses.\n\n### O Que Verificar Periodicamente\n\n1. **Gravações** — Verifique se o DVR está gravando corretamente todos os canais\n2. **Acesso remoto** — Teste o app do celular regularmente para garantir que funciona\n3. **Qualidade de imagem** — Câmeras sujas ou desalinhadas perdem eficiência\n4. **HD do DVR** — Monitore a saúde do HD para trocar antes que falhe\n5. **Fontes e conexões** — Verifique se há oxidação ou mau contato nos conectores\n\n### Tipos de Câmera e Suas Particularidades\n\n- **Câmeras Analógicas (AHD/TVI/CVI)** — Mais simples e baratas, usam cabo coaxial. Resolução até 5MP.\n- **Câmeras IP** — Conectam via rede (cabo de rede ou WiFi). Resolução até 8MP (4K). Mais flexíveis mas exigem rede bem configurada.\n- **Câmeras WiFi** — Práticas mas dependem da qualidade do sinal WiFi. Sujeitas a interferência.\n\n### Quando Fazer Upgrade do Sistema\n\n- Câmeras com menos de 2MP (1080p) já não oferecem imagem útil para identificação\n- DVRs antigos não suportam acesso remoto por P2P (exigem configuração de portas no roteador)\n- Sistemas com mais de 5 anos podem ter peças de reposição descontinuadas\n\nOferecemos consultoria gratuita para avaliar se seu sistema precisa de upgrade ou apenas manutenção.`,
+    relatedPages: [
+      { to: "/cftv", label: "CFTV e Câmeras" },
+      { to: "/cftv/curitiba", label: "CFTV Curitiba" },
+      { to: "/servicos/redes-wifi", label: "Redes e WiFi" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/suporte-empresas", label: "Suporte Empresas" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ]
+  },
+
+  // ==================== FONTE QUEIMADA ====================
+  {
+    slug: "fonte-queimada-curitiba",
+    title: "Fonte Queimada em Curitiba | Diagnóstico e Troca de Fonte",
+    metaDescription: "Fonte do computador ou notebook queimou? Técnico em Curitiba faz diagnóstico e troca de fonte com garantia. Atendimento rápido em domicílio.",
+    h1: "Fonte Queimada — Diagnóstico e Substituição em Curitiba",
+    categoria: "Hardware",
+    intro: `A fonte de alimentação é responsável por converter a energia da tomada para o padrão que os componentes internos do computador ou notebook necessitam. Quando ela queima, o equipamento simplesmente para de funcionar — sem nenhum sinal de vida.\n\nUma fonte com defeito pode causar danos graves em outros componentes como placa-mãe, processador e HD/SSD. Por isso, é fundamental usar fontes de qualidade e fazer a substituição corretamente quando necessário.\n\nEm Curitiba, oferecemos diagnóstico preciso para confirmar se o problema é realmente na fonte (e não na placa-mãe) e fazemos a substituição com fontes certificadas 80 Plus, garantindo eficiência energética e proteção para seus componentes.`,
+    sintomas: [
+      { titulo: "Computador não liga de jeito nenhum", desc: "Nenhuma luz, nenhum som, nenhuma reação ao pressionar o botão de ligar. Pode ser fonte queimada ou botão com defeito.", gravidade: "Alta" },
+      { titulo: "Computador desliga sozinho sob carga", desc: "Desliga durante jogos ou tarefas pesadas. A fonte não consegue fornecer energia suficiente.", gravidade: "Alta" },
+      { titulo: "Cheiro de queimado vindo do gabinete", desc: "Componentes internos da fonte queimaram. Desligue imediatamente da tomada para evitar danos maiores.", gravidade: "Crítica" },
+      { titulo: "Computador reinicia aleatoriamente", desc: "Instabilidade na alimentação elétrica causa reinicializações sem motivo aparente.", gravidade: "Média" },
+      { titulo: "Ventilador da fonte parou de girar", desc: "A ventoinha da fonte não funciona, causando superaquecimento interno que pode levar à queima.", gravidade: "Média" },
+      { titulo: "Notebook não carrega a bateria", desc: "O carregador/fonte do notebook pode estar com defeito, impedindo o carregamento mesmo conectado na tomada.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Surto ou oscilação na rede elétrica", desc: "Picos de tensão, quedas de energia e raios podem queimar a fonte instantaneamente. Uso de estabilizador/nobreak previne.", tipo: "hardware" },
+      { titulo: "Fonte subdimensionada para os componentes", desc: "Fonte de baixa potência (300W) alimentando placa de vídeo que exige 500W+ causa sobrecarga e queima.", tipo: "erro-humano" },
+      { titulo: "Desgaste natural dos capacitores", desc: "Capacitores internos da fonte perdem capacidade ao longo dos anos, especialmente em fontes genéricas de baixa qualidade.", tipo: "desgaste" },
+      { titulo: "Acúmulo de poeira interna", desc: "Poeira bloqueia a ventilação da fonte, causando superaquecimento dos componentes internos.", tipo: "desgaste" },
+      { titulo: "Tomada sem aterramento", desc: "Instalação elétrica sem aterramento adequado aumenta o risco de danos por surtos e descargas.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de fonte de desktop por modelo certificado 80 Plus. Apenas a fonte com defeito, sem danos em outros componentes.", tempo: "1-2 horas", custo: "R$200–R$400" },
+      { nivel: "Médio", desc: "Troca de fonte + diagnóstico de componentes que podem ter sido afetados (placa-mãe, HD).", tempo: "2-4 horas", custo: "R$300–R$600" },
+      { nivel: "Complexo", desc: "Fonte queimou e danificou placa-mãe ou outros componentes. Requer substituição múltipla.", tempo: "3-7 dias", custo: "R$500–R$1.500" }
+    ],
+    riscos: [
+      "Fonte genérica pode queimar e levar junto placa-mãe, processador e memórias",
+      "Fonte subdimensionada causa instabilidade e corrupção de dados",
+      "Risco de curto-circuito e incêndio com fontes de procedência duvidosa",
+      "Perda total do equipamento se a queima se propagar para outros componentes",
+      "Danos à rede elétrica do ambiente em casos extremos"
+    ],
+    diagnostico: `O diagnóstico de fonte é feito com multímetro digital, verificando as tensões de saída em cada trilha (3.3V, 5V, 12V) e comparando com os valores de referência ATX.\n\nUtilizamos testador de fonte ATX para simular carga e verificar estabilidade. Também inspecionamos visualmente os capacitores internos (capacitores estufados ou com vazamento indicam defeito). O teste inclui verificação da placa-mãe para garantir que não houve dano colateral.`,
+    solucao: `A solução profissional para fonte queimada inclui:\n\n1. Diagnóstico com multímetro e testador de fonte ATX\n2. Verificação de danos em outros componentes\n3. Dimensionamento correto da nova fonte (potência adequada para os componentes)\n4. Instalação de fonte certificada 80 Plus (Bronze, Silver ou Gold)\n5. Teste de estabilidade sob carga\n6. Orientação sobre proteção elétrica (nobreak, estabilizador, DPS)\n\nSempre recomendamos fontes de marcas reconhecidas (Corsair, EVGA, Cooler Master, DeepCool) para evitar reincidência.`,
+    quandoCompensa: "Trocar a fonte sempre compensa quando os demais componentes estão funcionando. Uma fonte de qualidade custa R$200-R$500 e protege um investimento de R$2.000-R$10.000 em componentes.",
+    quandoNaoCompensa: "Quando a fonte queimada danificou placa-mãe e processador de um computador antigo, o custo total de reparo pode ultrapassar o valor de um equipamento novo e mais moderno.",
+    whatsappMessage: "Olá! A fonte do meu computador queimou e ele não liga mais. Podem me ajudar?",
+    conteudoExtra: `## Como Escolher a Fonte Certa Para Seu Computador\n\nA fonte de alimentação é o componente mais negligenciado na montagem de PCs, mas é o mais importante para a segurança de todo o sistema.\n\n### Certificação 80 Plus: O Que Significa\n\nA certificação 80 Plus garante que a fonte converte pelo menos 80% da energia da tomada em energia útil para o computador:\n\n- **80 Plus White** — 80% de eficiência (entrada de linha)\n- **80 Plus Bronze** — 82-85% (melhor custo-benefício)\n- **80 Plus Gold** — 87-90% (ideal para uso intenso)\n- **80 Plus Platinum/Titanium** — 90-94% (profissional/servidor)\n\n### Dimensionamento: Quanto de Potência Você Precisa\n\n- **PC básico (sem placa de vídeo)** — 300-400W\n- **PC intermediário (GTX 1650/RX 6500)** — 450-500W\n- **PC gamer (RTX 3060/RX 6700)** — 550-650W\n- **PC gamer high-end (RTX 4070+)** — 750-850W\n- **Workstation profissional** — 850W+\n\n### Fontes Genéricas vs. Certificadas\n\nFontes genéricas (sem certificação) custam R$50-R$100 mas representam risco real:\n- Não têm proteção contra surto, curto-circuito ou sobrecarga\n- Componentes internos de baixa qualidade falham prematuramente\n- Podem fornecer tensões instáveis que danificam componentes\n- Em casos extremos, podem causar incêndio\n\nUma fonte certificada de R$250-R$400 protege um investimento de milhares de reais em componentes. É economia inteligente.\n\n### Proteção Adicional: Nobreak e DPS\n\nAlém de uma boa fonte, recomendamos:\n- **Nobreak (UPS)** — Mantém o PC ligado durante quedas de energia, evitando corrupção de dados\n- **DPS (Dispositivo de Proteção contra Surtos)** — Protege contra raios e picos de tensão na rede elétrica`,
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/montagem-pc", label: "Montagem de PC" },
+      { to: "/computador-com-som-estranho-curitiba", label: "Som Estranho no PC" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ]
+  },
+
+  // ==================== PLACA-MÃE COM DEFEITO ====================
+  {
+    slug: "placa-mae-com-defeito-curitiba",
+    title: "Placa-Mãe com Defeito em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Placa-mãe com defeito? Técnico em Curitiba faz diagnóstico profissional, reparo de componentes e substituição. Atendimento para desktop e notebook.",
+    h1: "Placa-Mãe com Defeito — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `A placa-mãe é o componente central do computador — ela conecta e gerencia a comunicação entre processador, memória, disco, placa de vídeo e todos os periféricos. Um defeito na placa-mãe pode causar desde instabilidade e travamentos até a impossibilidade total de ligar o equipamento.\n\nO diagnóstico de placa-mãe exige conhecimento técnico avançado e ferramentas específicas, pois os sintomas podem ser confundidos com problemas em outros componentes. Em Curitiba, oferecemos diagnóstico profissional com multímetro, osciloscópio e testes de bancada para identificar com precisão o componente defeituoso.\n\nTrabalhamos com reparo de placa-mãe (quando viável) e substituição, tanto para desktops quanto para notebooks de todas as marcas.`,
+    sintomas: [
+      { titulo: "Computador não liga (sem nenhuma reação)", desc: "Ao pressionar o botão power, não há luzes, ventiladores ou bipes. Pode ser placa-mãe, fonte ou botão power.", gravidade: "Alta" },
+      { titulo: "Bipes ao ligar (código de erro)", desc: "Sequência de bipes indica erro específico: memória, vídeo, processador ou placa-mãe. Cada fabricante tem códigos diferentes.", gravidade: "Alta" },
+      { titulo: "Portas USB, áudio ou rede não funcionam", desc: "Controladores integrados à placa-mãe podem falhar individualmente, desativando portas e funções específicas.", gravidade: "Média" },
+      { titulo: "Computador liga mas não exibe imagem", desc: "POST falha — o computador liga os ventiladores mas não inicializa. Pode ser VRM, BIOS corrompida ou slot de memória.", gravidade: "Alta" },
+      { titulo: "Reinicializações e travamentos frequentes", desc: "Capacitores estufados, trilhas oxidadas ou VRM com defeito causam instabilidade generalizada.", gravidade: "Alta" },
+      { titulo: "Capacitores visivelmente estufados ou vazando", desc: "Capacitores com topo abaulado ou com resíduo marrom são sinal claro de defeito e devem ser substituídos.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Surto elétrico / raio", desc: "Picos de tensão na rede elétrica podem queimar trilhas e componentes da placa-mãe instantaneamente.", tipo: "hardware" },
+      { titulo: "Capacitores estufados por desgaste", desc: "Capacitores eletrolíticos perdem eficiência com o tempo e temperatura, causando instabilidade progressiva.", tipo: "desgaste" },
+      { titulo: "Curto-circuito por líquido ou poeira condutiva", desc: "Líquido derramado ou acúmulo de poeira metálica pode causar curto entre trilhas da placa.", tipo: "erro-humano" },
+      { titulo: "BIOS corrompida", desc: "Atualização de BIOS interrompida ou falha de firmware pode tornar a placa inoperante.", tipo: "software" },
+      { titulo: "VRM (regulador de tensão) com defeito", desc: "O circuito que regula a tensão para o processador pode falhar, impedindo a inicialização ou causando instabilidade.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reset de BIOS, troca de bateria CMOS, limpeza de contatos oxidados. Sem substituição de componentes.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Troca de capacitores, reparo de conector, atualização/recuperação de BIOS com gravador.", tempo: "2-5 horas", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Substituição completa da placa-mãe. Requer compatibilidade com processador e memórias existentes.", tempo: "3-7 dias", custo: "R$400–R$1.500" }
+    ],
+    riscos: [
+      "Placa-mãe com defeito parcial pode danificar processador ou memórias",
+      "Curto-circuito em andamento pode queimar componentes ainda funcionando",
+      "VRM com defeito pode fornecer tensão excessiva ao processador, queimando-o",
+      "Tentativa amadora de reparo pode agravar o dano e inutilizar a placa",
+      "Perda total de dados se o defeito causar dano ao controlador de disco"
+    ],
+    diagnostico: `O diagnóstico profissional de placa-mãe utiliza múltiplas ferramentas:\n\n1. Inspeção visual com lupa — capacitores estufados, trilhas queimadas, componentes carbonizados\n2. Multímetro — verificação de tensões, continuidade e curto-circuito\n3. Teste com fonte de bancada — alimentação controlada para identificar consumo anormal\n4. Teste de POST — cartão de diagnóstico PCI/PCIe que exibe códigos de erro\n5. Teste de componentes isolados — memória, processador e vídeo testados separadamente\n\nO resultado é um laudo preciso indicando se o reparo é viável ou se a substituição é mais indicada.`,
+    solucao: `A solução profissional para placa-mãe com defeito inclui:\n\n1. Diagnóstico completo com ferramentas de bancada\n2. Reparo quando viável (troca de capacitores, resolda de componentes, recuperação de BIOS)\n3. Substituição quando o reparo não é viável — com compatibilidade garantida para seu processador e memórias\n4. Teste de estabilidade completo (Prime95, MemTest86)\n5. Reinstalação de drivers se necessário\n6. Garantia de 90 dias no serviço\n\nPara notebooks, trabalhamos com reballing BGA e micro-soldagem quando aplicável.`,
+    quandoCompensa: "Reparos simples (capacitores, BIOS) compensam em qualquer situação. Substituição de placa compensa quando processador e memórias são recentes e compatíveis com placas disponíveis no mercado.",
+    quandoNaoCompensa: "Quando a placa é de geração antiga (mais de 6 anos) e não há substituta compatível no mercado, ou quando o custo de placa + mão de obra ultrapassa 60% do valor de um PC novo equivalente.",
+    whatsappMessage: "Olá! Suspeito que a placa-mãe do meu computador está com defeito. Podem fazer um diagnóstico?",
+    conteudoExtra: `## Entendendo os Defeitos de Placa-Mãe\n\nA placa-mãe é um componente complexo com centenas de circuitos integrados, capacitores, resistores e trilhas. Entender como ela funciona ajuda a prevenir problemas.\n\n### Componentes Críticos da Placa-Mãe\n\n1. **VRM (Voltage Regulator Module)** — Regula a tensão para o processador. Falha = PC não liga ou instável\n2. **Chipset** — Gerencia a comunicação entre CPU, memória e periféricos\n3. **BIOS/UEFI** — Firmware que inicializa o hardware antes do sistema operacional\n4. **Capacitores** — Filtram e estabilizam a energia. São os componentes que mais falham\n5. **Slots e conectores** — PCIe, RAM, SATA, USB, áudio\n\n### Sinais de Alerta Que Você Não Deve Ignorar\n\n- **Bipes ao ligar** — Cada sequência tem um significado (consulte o manual da placa)\n- **LEDs de diagnóstico** — Placas modernas têm LEDs que indicam qual etapa do POST falhou\n- **Cheiro de queimado** — Desligue imediatamente. Componente pode estar em curto\n- **Instabilidade progressiva** — Travamentos cada vez mais frequentes indicam degeneração\n\n### Desktop vs. Notebook: Diferenças no Reparo\n\n**Desktop:**\n- Placa-mãe facilmente substituível\n- Padrão ATX/mATX = muitas opções de substituição\n- Reparo de capacitores é relativamente simples\n\n**Notebook:**\n- Placa-mãe é específica para cada modelo\n- Substituição cara e com pouca disponibilidade\n- Reparo com micro-soldagem e reballing é mais viável\n- Maior probabilidade de dano por líquido ou superaquecimento\n\n### Prevenção: Como Proteger Sua Placa-Mãe\n\n1. **Use nobreak** — Protege contra surtos e quedas de energia\n2. **Mantenha aterramento** — Instalação elétrica com fio terra é essencial\n3. **Evite poeira** — Limpeza interna a cada 6-12 meses\n4. **Não force componentes** — Instalação incorreta de RAM ou placa de vídeo pode danificar slots\n5. **Atualize BIOS com cuidado** — Nunca desligue o PC durante atualização de BIOS`,
+    relatedPages: [
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/servicos/conserto-placa", label: "Conserto de Placa" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/montagem-pc", label: "Montagem de PC" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ]
+  },
+
 // Helper to get a page by slug
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {
   return problemaPagesData.find(p => p.slug === slug);

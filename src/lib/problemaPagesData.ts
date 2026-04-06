@@ -6569,6 +6569,212 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
     ]
   },
+  // ---------- pc-reiniciando-sozinho-curitiba ----------
+  {
+    slug: "pc-reiniciando-sozinho-curitiba",
+    title: "PC Reiniciando Sozinho em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Seu PC fica reiniciando sozinho? Veja as causas reais (superaquecimento, fonte, RAM, Windows) e como resolver em Curitiba com diagnóstico profissional.",
+    h1: "PC Reiniciando Sozinho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware / Software",
+    intro: "Um computador que reinicia sozinho sem aviso pode indicar problemas graves de hardware ou instabilidade de software. Esse comportamento é frustrante porque interrompe o trabalho, pode causar perda de dados e, se ignorado, pode danificar componentes permanentemente.\n\nAs causas variam desde superaquecimento do processador e fonte de alimentação com defeito até erros de driver, infecção por malware ou módulos de memória RAM com falha. Em Curitiba, onde variações de tensão na rede elétrica são comuns em alguns bairros, a fonte de alimentação é uma das vilãs mais frequentes.\n\nO diagnóstico preciso é fundamental porque o sintoma — reinício aleatório — pode ter dezenas de origens diferentes. Tentar resolver por tentativa e erro geralmente agrava o problema ou causa gastos desnecessários com peças que não eram a causa real.",
+    sintomas: [
+      { titulo: "PC reinicia durante uso normal", desc: "O computador desliga e liga novamente sem tela azul, geralmente indicando superaquecimento ou falha na fonte de alimentação.", gravidade: "Médio" },
+      { titulo: "Reinício ao abrir jogos ou programas pesados", desc: "Ocorre quando a fonte não entrega energia suficiente ou o processador/GPU superaquece sob carga.", gravidade: "Médio" },
+      { titulo: "Tela azul rápida antes do reinício", desc: "Um BSOD aparece por frações de segundo antes de reiniciar, indicando erro de driver, RAM ou disco.", gravidade: "Complexo" },
+      { titulo: "Reinício em loop antes de entrar no Windows", desc: "O sistema tenta iniciar mas reinicia repetidamente, geralmente por corrupção do sistema ou falha de hardware.", gravidade: "Complexo" },
+      { titulo: "PC reinicia apenas quando move o gabinete", desc: "Indica mau contato em cabos internos, placa de vídeo mal encaixada ou conector da fonte solto.", gravidade: "Simples" },
+      { titulo: "Reinício com cheiro de queimado", desc: "Sinal grave de componente queimando — capacitor estufado, VRM da placa-mãe ou fonte em curto.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento do processador", desc: "Pasta térmica seca, cooler com poeira ou ventilador parado fazem o CPU atingir temperatura crítica e o sistema desliga para proteção.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação insuficiente ou defeituosa", desc: "Fontes genéricas ou desgastadas não fornecem energia estável, causando reinícios aleatórios especialmente sob carga.", tipo: "hardware" },
+      { titulo: "Memória RAM com defeito", desc: "Módulos de RAM com setores defeituosos causam erros aleatórios que resultam em reinícios e telas azuis.", tipo: "hardware" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Drivers de vídeo, chipset ou rede podem causar instabilidade no kernel do Windows, forçando reinício.", tipo: "software" },
+      { titulo: "Infecção por malware", desc: "Alguns malwares causam instabilidade proposital no sistema, corrompendo arquivos do Windows e forçando reinícios.", tipo: "software" },
+      { titulo: "Instabilidade na rede elétrica", desc: "Quedas e picos de tensão frequentes danificam a fonte e podem causar reinícios — uso de nobreak é recomendado.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna, reencaixe de cabos e componentes, troca de pasta térmica.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Troca de fonte de alimentação, remoção de malware, reinstalação de drivers.", tempo: "2-4 horas", custo: "R$150–R$350" },
+      { nivel: "Complexo", desc: "Substituição de placa-mãe, troca de RAM defeituosa ou reparo elétrico.", tempo: "1-3 dias", custo: "R$300–R$700+" }
+    ],
+    riscos: [
+      "Perda de dados por desligamento abrupto durante gravação em disco",
+      "Dano permanente ao HD/SSD por desligamentos repetidos sem shutdown correto",
+      "Queima de componentes se a causa for elétrica e não for tratada",
+      "Corrupção progressiva do Windows tornando o sistema irrecuperável",
+      "Risco de curto-circuito se houver componente queimando internamente"
+    ],
+    diagnostico: "O diagnóstico começa com inspeção visual interna (capacitores estufados, poeira excessiva, cabos soltos). Em seguida, monitoramos temperaturas do CPU/GPU sob estresse com HWMonitor. Testamos a fonte com multímetro e testador de PSU. A memória RAM é verificada com MemTest86. Analisamos os logs do Visualizador de Eventos do Windows para identificar o erro exato que precede cada reinício. Também verificamos a estabilidade do sistema operacional e drivers instalados.",
+    solucao: "A solução depende da causa identificada. Para superaquecimento: limpeza completa, troca de pasta térmica e verificação dos coolers. Para fonte defeituosa: substituição por modelo certificado 80 Plus com potência adequada. Para RAM: substituição do módulo defeituoso após teste individual. Para software: reparo do Windows via SFC/DISM, atualização de drivers e remoção de malware. Recomendamos instalação de nobreak para proteção contra instabilidade elétrica.",
+    quandoCompensa: "Na maioria dos casos compensa reparar — a causa costuma ser fonte, pasta térmica ou RAM, com custo bem inferior a um PC novo. Mesmo troca de placa-mãe pode valer se o processador e demais componentes estiverem em bom estado.",
+    quandoNaoCompensa: "Se o PC tem mais de 8 anos, múltiplos componentes com defeito simultâneo e a placa-mãe não aceita peças atuais, o investimento em reparo pode ultrapassar o valor de um equipamento novo com garantia.",
+    whatsappMessage: "Olá! Meu PC fica reiniciando sozinho e preciso de diagnóstico profissional em Curitiba. Podem me ajudar?",
+    conteudoExtra: `## Como Identificar a Causa do Reinício Sozinho\n\nAntes de levar ao técnico, você pode reunir informações úteis:\n\n### Verifique o Visualizador de Eventos\n1. Pressione Win + R e digite **eventvwr.msc**\n2. Vá em Logs do Windows > Sistema\n3. Procure por eventos com nível "Crítico" ou "Erro" no horário do reinício\n4. Anote o código do erro — isso ajuda muito no diagnóstico\n\n### Monitore a Temperatura\n- Instale o **HWMonitor** e observe as temperaturas\n- CPU acima de 90°C indica superaquecimento\n- GPU acima de 95°C também é crítico\n\n### Observe o Padrão\n- Reinicia **só em jogos**? Provavelmente fonte ou GPU\n- Reinicia **aleatoriamente**? Pode ser RAM ou driver\n- Reinicia **ao ligar**? Provável falha de hardware grave\n\n## Fonte de Alimentação: A Vilã Silenciosa\n\nEm Curitiba, muitos PCs usam fontes genéricas que não entregam a potência prometida. Uma fonte de 500W genérica pode entregar apenas 300W reais. Quando o sistema exige mais energia (jogos, renderização), a fonte não aguenta e o PC reinicia.\n\n**Recomendação**: fontes certificadas 80 Plus Bronze ou superior, de marcas como Corsair, EVGA ou Cooler Master.\n\n## Curitiba: Rede Elétrica e Seus Efeitos\n\nAlguns bairros de Curitiba sofrem com instabilidade na rede elétrica, especialmente durante tempestades. Picos e quedas de tensão danificam fontes de alimentação e podem causar reinícios. A instalação de um **nobreak** (UPS) é altamente recomendada para proteger seu equipamento.`,
+    relatedPages: [
+      { to: "/pc-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/computador-muito-barulhento-curitiba", label: "PC Barulhento" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ---------- notebook-sem-audio-curitiba ----------
+  {
+    slug: "notebook-sem-audio-curitiba",
+    title: "Notebook Sem Áudio em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Notebook sem som? Veja causas reais (driver, serviço de áudio, alto-falante queimado) e como resolver em Curitiba com técnico especializado.",
+    h1: "Notebook Sem Áudio — Diagnóstico e Reparo em Curitiba",
+    categoria: "Software / Hardware",
+    intro: "Perder o áudio do notebook é um problema comum que afeta reuniões, aulas online, entretenimento e produtividade. A causa pode ser tão simples quanto um driver desatualizado ou tão complexa quanto um alto-falante interno queimado.\n\nEm muitos casos, o problema surge após atualizações do Windows que substituem o driver de áudio por uma versão genérica incompatível. Em outros, o conector P2 está com mau contato interno, ou o serviço Windows Audio parou de funcionar.\n\nO diagnóstico correto evita gastos desnecessários — não adianta trocar o alto-falante se o problema é software, e não adianta reinstalar drivers se o componente físico está danificado.",
+    sintomas: [
+      { titulo: "Ícone de som com X vermelho", desc: "O Windows não detecta nenhum dispositivo de áudio instalado. Geralmente problema de driver ou serviço desativado.", gravidade: "Simples" },
+      { titulo: "Som funciona só no fone de ouvido", desc: "O alto-falante interno pode estar queimado ou o conector P2 está travado na posição 'fone conectado'.", gravidade: "Médio" },
+      { titulo: "Áudio chiando ou com estática", desc: "Pode indicar alto-falante danificado, interferência elétrica na placa de áudio ou driver com conflito.", gravidade: "Médio" },
+      { titulo: "Volume no máximo mas som muito baixo", desc: "Alto-falante com bobina desgastada, configuração de equalização incorreta ou limitador de volume ativo.", gravidade: "Simples" },
+      { titulo: "Som parou após atualização do Windows", desc: "Driver de áudio foi substituído por versão genérica durante o Windows Update.", gravidade: "Simples" },
+      { titulo: "Áudio trava e faz loops de som", desc: "Conflito de driver, DPC latency alto ou falha no chip de áudio da placa-mãe.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Driver de áudio ausente ou corrompido", desc: "Após formatação ou atualização do Windows, o driver Realtek/Conexant pode ser removido ou substituído por versão genérica.", tipo: "software" },
+      { titulo: "Serviço Windows Audio desativado", desc: "O serviço responsável pelo áudio pode ter sido desativado por otimizadores de sistema ou erro do Windows.", tipo: "software" },
+      { titulo: "Alto-falante interno queimado", desc: "Uso em volume máximo prolongado ou curto-circuito pode danificar a bobina do alto-falante interno.", tipo: "hardware" },
+      { titulo: "Conector P2 com mau contato", desc: "O conector de fone de ouvido pode estar com detrito interno, fazendo o sistema pensar que há fone conectado.", tipo: "desgaste" },
+      { titulo: "Chip de áudio com defeito na placa-mãe", desc: "O codec de áudio (Realtek ALC, Conexant) na placa-mãe pode ter falhado por sobretensão.", tipo: "hardware" },
+      { titulo: "Conflito entre dispositivos de áudio", desc: "HDMI, Bluetooth e alto-falante interno competindo como dispositivo padrão causa confusão no sistema.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver, reativação do serviço Windows Audio, ajuste de dispositivo padrão.", tempo: "30-60 min", custo: "R$60–R$120" },
+      { nivel: "Médio", desc: "Limpeza/reparo do conector P2, troca de alto-falante interno.", tempo: "1-3 horas", custo: "R$120–R$250" },
+      { nivel: "Complexo", desc: "Reparo ou substituição do chip de áudio na placa-mãe, uso de placa de som USB externa.", tempo: "1-3 dias", custo: "R$200–R$450" }
+    ],
+    riscos: [
+      "Instalar drivers de áudio incompatíveis pode causar tela azul",
+      "Forçar o conector P2 pode danificar a trilha da placa-mãe",
+      "Desinstalar drivers errados pode afetar outros dispositivos",
+      "Ignorar chiado no áudio pode indicar curto-circuito progressivo"
+    ],
+    diagnostico: "Verificamos primeiro se o problema é software: testamos o driver no Gerenciador de Dispositivos, verificamos o serviço Windows Audio, testamos com fone de ouvido para isolar alto-falante vs. sistema. Usamos diagnóstico de áudio integrado do fabricante (Dell, Lenovo, HP). Se software estiver OK, abrimos o notebook para inspecionar o alto-falante, cabo flat de áudio e conector P2.",
+    solucao: "Para software: instalação do driver correto do fabricante, configuração do dispositivo de áudio padrão, reativação de serviços. Para hardware: troca do alto-falante interno (peça específica por modelo), limpeza ou troca do conector P2, ou instalação de placa de som USB externa quando o chip onboard está danificado.",
+    quandoCompensa: "Quase sempre compensa resolver — a maioria dos casos é software (custo baixo). Mesmo troca de alto-falante é acessível (R$80-R$150 a peça + mão de obra).",
+    quandoNaoCompensa: "Se o chip de áudio na placa-mãe queimou em notebook muito antigo (7+ anos), o custo de micro-solda pode não justificar. Nesses casos, uma placa de som USB externa (R$30-R$80) é a alternativa mais econômica.",
+    whatsappMessage: "Olá! Meu notebook está sem áudio e preciso de diagnóstico em Curitiba. Podem me ajudar?",
+    conteudoExtra: `## Soluções Rápidas Para Testar Antes do Técnico\n\n### 1. Verifique o Dispositivo de Áudio Padrão\n- Clique com botão direito no ícone de som > **Configurações de som**\n- Verifique se o dispositivo correto está selecionado como saída\n- Se aparecer "HDMI" como padrão, mude para "Alto-falantes"\n\n### 2. Reinicie o Serviço de Áudio\n1. Pressione Win + R e digite **services.msc**\n2. Encontre **Windows Audio** e **Windows Audio Endpoint Builder**\n3. Clique com botão direito > **Reiniciar** em ambos\n\n### 3. Teste com Fone de Ouvido\n- Se funciona no fone mas não no alto-falante, o problema é hardware interno\n- Se não funciona em nenhum, provavelmente é driver ou serviço\n\n## Drivers de Áudio: O Problema Mais Comum\n\nApós atualizações do Windows 10/11, o driver de áudio do fabricante é frequentemente substituído por um driver genérico da Microsoft. Esse driver genérico funciona parcialmente mas pode causar:\n- Volume máximo muito baixo\n- Microfone não funcionando\n- Som cortando intermitentemente\n\n**Solução**: baixe o driver diretamente do site do fabricante (Dell, Lenovo, HP, Acer) usando o número de série/modelo exato do notebook.\n\n## Alto-Falantes de Notebook: Fragilidade Conhecida\n\nAlto-falantes internos de notebooks são componentes pequenos e frágeis. O uso prolongado em volume máximo acelera o desgaste da bobina. Em notebooks mais finos (ultrabooks), o espaço reduzido limita a qualidade e durabilidade do áudio.`,
+    relatedPages: [
+      { to: "/notebook-sem-webcam-curitiba", label: "Notebook Sem Webcam" },
+      { to: "/notebook-lento-curitiba", label: "Notebook Lento" },
+      { to: "/notebook-nao-liga-curitiba", label: "Notebook Não Liga" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ---------- erro-0x80070005-curitiba ----------
+  {
+    slug: "erro-0x80070005-curitiba",
+    title: "Erro 0x80070005 em Curitiba — Acesso Negado no Windows",
+    metaDescription: "Erro 0x80070005 (Acesso Negado) no Windows? Veja causas reais e soluções profissionais em Curitiba. Diagnóstico técnico especializado.",
+    h1: "Erro 0x80070005 (Acesso Negado) — Solução em Curitiba",
+    categoria: "Erros do Windows",
+    intro: "O erro 0x80070005, também conhecido como ACCESS_DENIED, é um dos códigos mais frustrantes do Windows. Ele impede atualizações do sistema, instalação de programas, ativação do Windows e até o funcionamento correto de aplicativos.\n\nEsse erro ocorre quando o Windows ou um programa não tem permissões suficientes para acessar um arquivo, pasta ou registro do sistema. As causas incluem permissões corrompidas, perfil de usuário danificado, antivírus bloqueando operações do sistema e infecção por malware que altera permissões de arquivos críticos.\n\nDiferente de erros simples, o 0x80070005 frequentemente exige intervenção em permissões NTFS, registro do Windows e políticas de grupo — operações que, se feitas incorretamente, podem tornar o sistema inacessível.",
+    sintomas: [
+      { titulo: "Windows Update falha com erro 0x80070005", desc: "As atualizações baixam mas não instalam, exibindo 'Acesso negado' repetidamente.", gravidade: "Médio" },
+      { titulo: "Impossível instalar ou atualizar programas", desc: "Instaladores travam com mensagem de permissão insuficiente, mesmo executando como administrador.", gravidade: "Médio" },
+      { titulo: "Ativação do Windows falha", desc: "Ao tentar ativar o Windows, o erro 0x80070005 impede a comunicação com servidores Microsoft.", gravidade: "Simples" },
+      { titulo: "Restauração do sistema bloqueada", desc: "Não é possível criar ou restaurar pontos de restauração — acesso negado às pastas de backup.", gravidade: "Complexo" },
+      { titulo: "Erro ao acessar pastas do sistema", desc: "Pastas como Windows, System32 ou ProgramData ficam inacessíveis mesmo para administradores.", gravidade: "Complexo" },
+      { titulo: "Microsoft Store não instala apps", desc: "Aplicativos da Store falham com erro de permissão durante download ou instalação.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Permissões NTFS corrompidas", desc: "Atualizações falhas ou desligamentos abruptos podem corromper a tabela de permissões de arquivos do sistema.", tipo: "software" },
+      { titulo: "Perfil de usuário danificado", desc: "O perfil do usuário atual pode ter perdido privilégios administrativos por corrupção do registro.", tipo: "software" },
+      { titulo: "Antivírus bloqueando operações do sistema", desc: "Softwares de segurança podem interpretar operações legítimas do Windows Update como ameaças.", tipo: "software" },
+      { titulo: "Malware alterando permissões", desc: "Vírus e ransomware alteram permissões de pastas críticas para impedir remoção e reparo do sistema.", tipo: "software" },
+      { titulo: "Serviço Windows Update corrompido", desc: "Os componentes do Windows Update (pasta SoftwareDistribution, serviços BITS/wuauserv) podem estar danificados.", tipo: "software" },
+      { titulo: "Política de grupo mal configurada", desc: "Em ambientes corporativos ou após uso de 'otimizadores', políticas de grupo podem restringir acesso.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reset do Windows Update, limpeza de cache, execução como administrador.", tempo: "30-60 min", custo: "R$60–R$120" },
+      { nivel: "Médio", desc: "Reparo de permissões NTFS, recriação de perfil de usuário, SFC/DISM.", tempo: "1-3 horas", custo: "R$120–R$250" },
+      { nivel: "Complexo", desc: "Reparo offline do registro, remoção de malware avançado, reinstalação do Windows preservando dados.", tempo: "3-8 horas", custo: "R$200–R$400" }
+    ],
+    riscos: [
+      "Alterar permissões NTFS incorretamente pode tornar o Windows inacessível",
+      "Ignorar o erro permite acúmulo de atualizações de segurança pendentes",
+      "Sistema sem atualizações fica vulnerável a ransomware e exploits",
+      "Tentar 'forçar' permissões com takeown em pastas erradas pode quebrar o sistema",
+      "Malware pode estar usando o erro como cortina de fumaça para atividade maliciosa"
+    ],
+    diagnostico: "Identificamos primeiro o contexto exato do erro: Windows Update, instalação de programa ou acesso a pasta. Verificamos o Visualizador de Eventos para logs detalhados. Testamos permissões NTFS com icacls. Verificamos integridade do sistema com SFC /scannow e DISM. Escaneamos por malware com ferramentas offline. Analisamos políticas de grupo e perfil do usuário.",
+    solucao: "Para Windows Update: reset completo dos componentes (parar serviços, renomear SoftwareDistribution/catroot2, reiniciar serviços). Para permissões: reparo via icacls e takeown nos diretórios corretos. Para perfil corrompido: criação de novo perfil com migração de dados. Para malware: remoção com boot externo e restauração de permissões padrão. Executamos SFC/DISM para garantir integridade dos arquivos do sistema.",
+    quandoCompensa: "Sempre compensa resolver — o erro 0x80070005 geralmente é software puro, sem necessidade de trocar hardware. Mesmo nos casos mais complexos, o custo é muito inferior ao de um equipamento novo.",
+    quandoNaoCompensa: "Raramente não compensa. Apenas se o Windows estiver tão corrompido que múltiplos erros se acumularam e uma formatação limpa seria mais rápida e econômica que tentar reparar individualmente.",
+    whatsappMessage: "Olá! Meu computador está com erro 0x80070005 (Acesso Negado) e preciso de ajuda profissional em Curitiba.",
+    conteudoExtra: `## Entendendo o Erro 0x80070005 em Detalhes\n\nO código **0x80070005** traduz para **E_ACCESSDENIED** na API do Windows. Significa que uma operação tentou acessar um recurso (arquivo, pasta, chave de registro, serviço) sem ter as permissões necessárias.\n\n### Onde Este Erro Aparece\n- **Windows Update**: a situação mais comum\n- **Microsoft Store**: ao instalar ou atualizar apps\n- **Ativação do Windows**: ao tentar ativar licença\n- **Backup e Restauração**: ao criar pontos de restauração\n- **Instalação de programas**: especialmente .NET Framework e Visual C++\n\n### Solução Passo a Passo (Nível Básico)\n\n#### Reset do Windows Update\n\`\`\`\nnet stop wuauserv\nnet stop cryptSvc\nnet stop bits\nnet stop msiserver\nren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old\nren C:\\Windows\\System32\\catroot2 catroot2.old\nnet start wuauserv\nnet start cryptSvc\nnet start bits\nnet start msiserver\n\`\`\`\n\n#### Verificação de Integridade\n\`\`\`\nsfc /scannow\nDISM /Online /Cleanup-Image /RestoreHealth\n\`\`\`\n\n**Importante**: se esses comandos também retornarem erro de acesso, o problema é mais profundo e requer diagnóstico profissional.\n\n## Quando o Erro Indica Malware\n\nAlguns tipos de malware alteram propositalmente as permissões de pastas do Windows para:\n- Impedir que o antivírus acesse seus arquivos\n- Bloquear atualizações de segurança\n- Impedir que o usuário remova o malware\n\nSe o erro 0x80070005 surgiu repentinamente junto com lentidão e comportamento estranho, há forte suspeita de infecção.`,
+    relatedPages: [
+      { to: "/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
+      { to: "/erro-0xc00000e-curitiba", label: "Erro 0xc00000e" },
+      { to: "/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
+      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ---------- pc-desligando-sozinho-curitiba ----------
+  {
+    slug: "pc-desligando-sozinho-curitiba",
+    title: "PC Desligando Sozinho em Curitiba — Diagnóstico e Solução",
+    metaDescription: "PC desliga sozinho sem aviso? Veja causas reais (superaquecimento, fonte, placa-mãe) e solução profissional em Curitiba. Diagnóstico técnico.",
+    h1: "PC Desligando Sozinho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: "Quando o computador desliga completamente sozinho — sem reiniciar, sem tela azul — o problema quase sempre é hardware. Diferente do reinício, onde o PC volta a ligar automaticamente, o desligamento total indica que algo cortou a energia abruptamente.\n\nAs causas mais comuns são superaquecimento severo (o processador ativa proteção térmica e corta energia), fonte de alimentação falhando sob carga, e problemas na placa-mãe como capacitores estufados ou VRM com defeito.\n\nEsse é um sintoma que não deve ser ignorado: cada desligamento abrupto pode causar dano ao disco rígido, corrupção de dados e desgaste acelerado de componentes. O diagnóstico rápido previne danos maiores e mais caros.",
+    sintomas: [
+      { titulo: "PC desliga completamente sem aviso", desc: "Como se tivesse tirado da tomada — sem tela azul, sem mensagem. Indica corte abrupto de energia.", gravidade: "Complexo" },
+      { titulo: "Desliga após alguns minutos de uso", desc: "Padrão típico de superaquecimento: funciona frio, desliga quando esquenta. Tempo diminui progressivamente.", gravidade: "Médio" },
+      { titulo: "Desliga só em jogos ou renderização", desc: "A fonte não suporta o consumo máximo de CPU + GPU, cortando energia sob carga pesada.", gravidade: "Médio" },
+      { titulo: "Desliga e não liga mais por alguns minutos", desc: "Proteção térmica ativada — o sistema só permite religar após o processador esfriar.", gravidade: "Complexo" },
+      { titulo: "Desliga com cheiro de queimado", desc: "Componente em curto-circuito — situação grave que requer desligar da tomada imediatamente.", gravidade: "Complexo" },
+      { titulo: "Desliga ao tocar ou mover o gabinete", desc: "Mau contato em cabos de energia, placa-mãe com parafuso solto ou conector ATX com folga.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento crítico do processador", desc: "Quando o CPU ultrapassa a temperatura máxima (geralmente 100-105°C), o sistema desliga instantaneamente para evitar dano permanente.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação com defeito", desc: "Fontes desgastadas ou subdimensionadas falham ao fornecer energia estável, especialmente sob carga máxima.", tipo: "hardware" },
+      { titulo: "Capacitores estufados na placa-mãe", desc: "Capacitores eletrolíticos incham com o tempo, causando instabilidade de tensão e desligamentos aleatórios.", tipo: "desgaste" },
+      { titulo: "VRM da placa-mãe superaquecendo", desc: "Os reguladores de tensão (VRM) aquecem excessivamente em placas sem dissipador adequado, cortando energia ao CPU.", tipo: "hardware" },
+      { titulo: "Curto-circuito interno", desc: "Parafuso solto, cabo encostando em componente ou placa com trilha rompida podem causar curto intermitente.", tipo: "hardware" },
+      { titulo: "Botão power com mau contato", desc: "O botão de ligar/desligar pode estar com contato intermitente, enviando sinal de desligamento aleatoriamente.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna profunda, troca de pasta térmica, reencaixe de cabos e conectores.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Troca de fonte de alimentação, reparo do botão power, substituição de cooler.", tempo: "2-4 horas", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Substituição de placa-mãe, reparo de VRM/capacitores, diagnóstico de curto-circuito.", tempo: "2-5 dias", custo: "R$300–R$800+" }
+    ],
+    riscos: [
+      "HD pode desenvolver setores defeituosos por desligamentos abruptos repetidos",
+      "SSD pode sofrer corrupção da tabela de partição",
+      "Componente em curto pode danificar outros componentes conectados",
+      "Dados não salvos são perdidos a cada desligamento",
+      "Superaquecimento ignorado pode queimar o processador permanentemente"
+    ],
+    diagnostico: "Abrimos o gabinete para inspeção visual: procuramos capacitores estufados, marcas de queimado, poeira excessiva e cabos soltos. Medimos temperaturas do CPU/GPU/VRM com sensores. Testamos a fonte com multímetro em todas as linhas (3.3V, 5V, 12V). Verificamos o botão power. Fazemos teste de estresse controlado para reproduzir o desligamento e identificar o limiar exato (temperatura, carga, tempo).",
+    solucao: "Para superaquecimento: limpeza profunda com ar comprimido, troca de pasta térmica premium, verificação/substituição de coolers. Para fonte: substituição por modelo 80 Plus certificado com potência adequada ao sistema. Para placa-mãe: reparo de capacitores (quando viável) ou substituição completa. Para curto-circuito: identificação e isolamento do ponto de falha. Sempre recomendamos uso de nobreak para proteção adicional.",
+    quandoCompensa: "Na maioria dos casos compensa reparar. Troca de fonte e limpeza térmica são soluções de baixo custo com alto impacto. Mesmo troca de placa-mãe pode valer se processador e memórias estiverem funcionais.",
+    quandoNaoCompensa: "Se a placa-mãe queimou e levou junto processador e/ou memórias, o custo acumulado de substituição pode se aproximar de um PC novo. PCs com mais de 8-10 anos geralmente não justificam investimento alto em reparo.",
+    whatsappMessage: "Olá! Meu PC está desligando sozinho e preciso de diagnóstico profissional em Curitiba. Podem me ajudar?",
+    conteudoExtra: `## Desligando vs. Reiniciando: Qual a Diferença?\n\nÉ importante distinguir os dois sintomas, pois indicam causas diferentes:\n\n| Comportamento | Causa Provável | Gravidade |\n|---|---|---|\n| **Desliga e não religa** | Superaquecimento, fonte defeituosa | Alta |\n| **Desliga e religa sozinho** | Driver, RAM, instabilidade elétrica | Média |\n| **Desliga só em jogos** | Fonte subdimensionada, GPU superaquecendo | Média |\n| **Desliga com cheiro** | Curto-circuito, componente queimando | Crítica |\n\n## Superaquecimento: O Inimigo #1 em Curitiba\n\nEmbora Curitiba tenha clima mais ameno, o acúmulo de poeira nos coolers é igualmente problemático. PCs em ambientes com carpete, cortinas e animais de estimação acumulam poeira muito mais rapidamente.\n\n### Sinais de Superaquecimento\n- PC desliga após tempo previsível (5, 10, 15 minutos)\n- Ventiladores fazem barulho excessivo antes de desligar\n- Gabinete está quente ao toque\n- O tempo até desligar é cada vez menor\n\n### Prevenção\n- Limpeza interna a cada 6 meses\n- Troca de pasta térmica anualmente\n- Gabinete em local ventilado (não dentro de móvel fechado)\n- Filtros de poeira nos ventiladores\n\n## Fonte de Alimentação: Não Economize\n\nUma fonte de qualidade é o investimento mais importante para a longevidade do PC. Fontes genéricas sem certificação podem:\n- Entregar tensão instável que danifica componentes\n- Não ter proteção contra surto/curto\n- Falhar silenciosamente, degradando outros componentes\n\n**Recomendação**: invista em fonte 80 Plus Bronze ou superior, dimensionada com 20-30% de folga acima do consumo real do sistema.`,
+    relatedPages: [
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/computador-muito-barulhento-curitiba", label: "PC Barulhento" },
+      { to: "/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

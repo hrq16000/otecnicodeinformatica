@@ -71,7 +71,26 @@ const PinhaisCentro = lazy(() => import("./pages/bairros/PinhaisCentro"));
 const WeissopolisPinhais = lazy(() => import("./pages/bairros/WeissopolisPinhais"));
 const PinevillePinhais = lazy(() => import("./pages/bairros/PinevillePinhais"));
 
-// Landing Pages Ads
+// Novas cidades
+const TecnicoInformaticaColombo = lazy(() => import("./pages/TecnicoInformaticaColombo"));
+const TecnicoInformaticaFazendaRioGrande = lazy(() => import("./pages/TecnicoInformaticaFazendaRioGrande"));
+const TecnicoInformaticaAlmiranteTamandare = lazy(() => import("./pages/TecnicoInformaticaAlmiranteTamandare"));
+
+// Bairros Colombo
+const CentroColombo = lazy(() => import("./pages/bairros/CentroColombo"));
+const MaracanaColombo = lazy(() => import("./pages/bairros/MaracanaColombo"));
+const GuaraitubaColombo = lazy(() => import("./pages/bairros/GuaraitubaColombo"));
+
+// Bairros Fazenda Rio Grande
+const CentroFRG = lazy(() => import("./pages/bairros/CentroFRG"));
+const EucaliptosFRG = lazy(() => import("./pages/bairros/EucaliptosFRG"));
+const NacoesFRG = lazy(() => import("./pages/bairros/NacoesFRG"));
+
+// Bairros Almirante Tamandaré
+const CentroAlmiranteTamandare = lazy(() => import("./pages/bairros/CentroAlmiranteTamandare"));
+const JardimMontoSantoAT = lazy(() => import("./pages/bairros/JardimMontoSantoAT"));
+const CachoeiraAT = lazy(() => import("./pages/bairros/CachoeiraAT"));
+
 const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInformaticaCuritibaAds"));
 
 // Páginas de Serviços Individuais

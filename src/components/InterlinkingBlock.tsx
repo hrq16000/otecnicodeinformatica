@@ -41,6 +41,27 @@ const regiaoLinks = [
   { title: "Quatro Barras", to: "/tecnico-informatica-quatro-barras" },
 ];
 
+const problemaLinks = [
+  { title: "PC Não Liga", to: "/computador-nao-liga-curitiba" },
+  { title: "PC Lento", to: "/computador-lento-curitiba" },
+  { title: "PC Travando", to: "/computador-travando-curitiba" },
+  { title: "Tela Preta", to: "/computador-com-tela-preta-curitiba" },
+  { title: "Superaquecendo", to: "/pc-superaquecendo-curitiba" },
+  { title: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" },
+  { title: "Notebook Lento", to: "/notebook-lento-curitiba" },
+  { title: "Notebook com Água", to: "/notebook-com-agua-ou-liquido-curitiba" },
+  { title: "Tela Quebrada", to: "/notebook-com-tela-quebrada-curitiba" },
+  { title: "TV Não Liga", to: "/tv-nao-liga-curitiba" },
+  { title: "TV Sem Imagem", to: "/tv-com-som-sem-imagem-curitiba" },
+  { title: "Placa-Mãe Queimada", to: "/placa-mae-queimada" },
+  { title: "GPU Desgastada", to: "/gpu-desgastada" },
+  { title: "Erro de Upgrade", to: "/upgrade-deu-problema" },
+  { title: "Vírus no PC", to: "/computador-com-virus-curitiba" },
+  { title: "Windows Lento", to: "/windows-lento-curitiba" },
+  { title: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" },
+  { title: "Técnico Urgente", to: "/assistencia-tecnica-urgente-curitiba" },
+];
+
 export const InterlinkingBlock = () => {
   return (
     <section className="py-10 md:py-14 bg-secondary">

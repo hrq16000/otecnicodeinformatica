@@ -347,6 +347,9 @@ const App = () => (
             {/* Dynamic service+city route (catches all new combinations) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
             
+            {/* Páginas de Problema / Intenção de Busca (50 páginas dinâmicas) */}
+            <Route path="/:slug" element={<ProblemaPage />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

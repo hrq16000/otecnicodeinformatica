@@ -9,6 +9,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Helmet } from "react-helmet";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { getProblemaPageBySlug } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
@@ -47,6 +48,44 @@ const ProblemaPage = () => {
     }
   }, [data]);
 
+  const faqItems = data ? [
+    ...data.sintomas.slice(0, 3).map(s => ({
+      question: `O que significa quando ${s.titulo.toLowerCase()}?`,
+      answer: s.desc,
+    })),
+    {
+      question: `Quanto custa resolver "${data.h1.split("—")[0].trim()}" em Curitiba?`,
+      answer: data.cenarios.map(c => `${c.nivel}: ${c.custo} (${c.tempo})`).join(". "),
+    },
+    {
+      question: "O diagnóstico é gratuito?",
+      answer: "O diagnóstico profissional tem custo a partir de R$50, que é abatido do serviço caso aprovado. Isso garante uma análise precisa e evita reparos desnecessários.",
+    },
+  ] : [];
+
+  const faqSchema = data ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(item => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  } : null;
+
+  const breadcrumbSchema = data ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.com.br/" },
+      { "@type": "ListItem", position: 2, name: data.categoria, item: "https://tecnicocuritiba.com.br/servicos" },
+      { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `https://tecnicocuritiba.com.br/${data.slug}` },
+    ],
+  } : null;
+
   if (!data) {
     return (
       <div className="min-h-screen bg-background">
@@ -67,6 +106,11 @@ const ProblemaPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href={`https://tecnicocuritiba.com.br/${data.slug}`} />
+        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
+        {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
+      </Helmet>
       <Header />
       <Breadcrumbs items={[{ label: data.categoria, href: "/servicos" }, { label: data.h1.split("—")[0].trim() }]} />
 
@@ -234,6 +278,28 @@ const ProblemaPage = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto prose prose-sm md:prose-base prose-headings:text-primary prose-headings:font-bold">
               <ReactMarkdown>{data.conteudoExtra}</ReactMarkdown>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ Visível */}
+      {faqItems.length > 0 && (
+        <section className="py-12 bg-secondary">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">Perguntas Frequentes</h2>
+              <div className="space-y-4">
+                {faqItems.map((item, i) => (
+                  <details key={i} className="bg-background rounded-xl border border-border group">
+                    <summary className="p-4 font-semibold text-foreground cursor-pointer hover:text-accent transition-colors list-none flex items-center justify-between">
+                      {item.question}
+                      <span className="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{item.answer}</div>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
         </section>

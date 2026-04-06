@@ -234,7 +234,7 @@ const blogPosts = [
   },
 ];
 
-const categories = ["Todos", "CFTV", "Windows 11", "Office 365", "Segurança", "Hardware", "Dicas", "Manutenção", "Redes"];
+const categories = ["Todos", "Manutenção", "Segurança", "CFTV", "Windows 11", "Office 365", "Hardware", "Dicas", "Redes"];
 
 const Blog = () => {
   useEffect(() => {

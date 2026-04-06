@@ -198,6 +198,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
           </div>
         </section>
       </main>
+      <RealImageSection imageKey="cameraSeguranca" caption="Instalação profissional de CFTV e monitoramento" />
       <BlocoInteligencia compact />
       <Footer />
       <WhatsAppChatbot />

@@ -20,7 +20,7 @@ export const CTASection = () => {
           <img 
             alt="Técnico Curitiba" 
             className="h-16 md:h-20 mx-auto mb-6" 
-            src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.png" 
+            src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.webp" 
           />
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-4">

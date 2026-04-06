@@ -101,6 +101,15 @@ const ConsertoPcNotebook = lazy(() => import("./pages/servicos/ConsertoPcNoteboo
 const RedesWifi = lazy(() => import("./pages/servicos/RedesWifi"));
 const BackupRecuperacao = lazy(() => import("./pages/servicos/BackupRecuperacao"));
 const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
+const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
+const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
+const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
+const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
+
+// Novas cidades
+const TecnicoInformaticaPiraquara = lazy(() => import("./pages/TecnicoInformaticaPiraquara"));
+const TecnicoInformaticaCampoMagro = lazy(() => import("./pages/TecnicoInformaticaCampoMagro"));
+const TecnicoInformaticaQuatroBarras = lazy(() => import("./pages/TecnicoInformaticaQuatroBarras"));
 
 // Páginas combinadas Serviço + Bairro
 const FormatacaoCentro = lazy(() => import("./pages/servico-bairro/FormatacaoCentro"));

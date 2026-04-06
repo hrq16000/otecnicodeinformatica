@@ -34,6 +34,7 @@ export const WhatsAppFloat = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackCTAClick('whatsapp', 'float_button')}
       className={cn(
         "fixed bottom-6 left-6 z-50 flex items-center gap-2",
         "bg-whatsapp hover:bg-whatsapp-hover text-white",

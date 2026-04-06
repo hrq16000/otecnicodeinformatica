@@ -32,8 +32,9 @@ export const RealImageSection = ({
                 src={src}
                 alt={alt}
                 loading="lazy"
-                width={800}
-                height={533}
+                decoding="async"
+                width={600}
+                height={400}
                 className="rounded-xl w-full h-64 md:h-72 object-cover shadow-md"
               />
               {caption && (

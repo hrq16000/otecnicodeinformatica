@@ -283,6 +283,28 @@ const ProblemaPage = () => {
         </section>
       )}
 
+      {/* FAQ Visível */}
+      {faqItems.length > 0 && (
+        <section className="py-12 bg-secondary">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">Perguntas Frequentes</h2>
+              <div className="space-y-4">
+                {faqItems.map((item, i) => (
+                  <details key={i} className="bg-background rounded-xl border border-border group">
+                    <summary className="p-4 font-semibold text-foreground cursor-pointer hover:text-accent transition-colors list-none flex items-center justify-between">
+                      {item.question}
+                      <span className="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{item.answer}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="py-12 bg-primary text-white">
         <div className="container mx-auto text-center px-4">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, HelpCircle, DollarSign, Wrench, Search, Truck, AlertTriangle, Monitor, Cpu, Wifi, Shield, HardDrive, Tv, CircuitBoard, Server, Camera, MapPin, BookOpen, MessageCircle } from "lucide-react";
+import { ArrowRight, HelpCircle, DollarSign, Wrench, Search, Truck, AlertTriangle, Monitor, Cpu, Wifi, Shield, HardDrive, Tv, CircuitBoard, Server, Camera, MapPin, BookOpen, MessageCircle, AlertCircle } from "lucide-react";
 
 const atendimentoLinks = [
   { icon: HelpCircle, title: "Como Funciona", desc: "Passo a passo do atendimento", to: "/como-funciona" },

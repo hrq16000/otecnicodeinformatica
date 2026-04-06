@@ -7784,6 +7784,202 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+  // ===================== MONITOR SEM SINAL =====================
+  {
+    slug: "monitor-sem-sinal-curitiba",
+    title: "Monitor Sem Sinal em Curitiba — Diagnóstico e Solução Profissional",
+    metaDescription: "Monitor sem sinal? Técnico em Curitiba diagnostica cabo, placa de vídeo, RAM e configuração de saída de vídeo. Atendimento profissional com diagnóstico preciso.",
+    h1: "Monitor Sem Sinal — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `Você liga o computador e o monitor exibe "Sem Sinal", "No Signal" ou simplesmente fica preto. O PC parece ligar normalmente — ventoinhas giram, LEDs acendem — mas não aparece imagem alguma.\n\nEsse problema pode ter causas simples como cabo solto ou entrada errada, mas também indica falhas graves como placa de vídeo queimada, RAM mal encaixada ou placa-mãe com defeito.\n\nNosso técnico em Curitiba realiza diagnóstico sistemático, testando cada componente para identificar a causa exata e resolver sem troca desnecessária de peças.`,
+    sintomas: [
+      { titulo: "Monitor exibe 'Sem Sinal' e entra em standby", desc: "O monitor não recebe dados de vídeo do PC. Pode ser cabo, porta de saída ou placa de vídeo.", gravidade: "Médio" },
+      { titulo: "Tela fica preta mas PC liga normalmente", desc: "Ventoinhas giram e LEDs acendem, mas sem imagem. RAM mal encaixada ou GPU com defeito são causas comuns.", gravidade: "Médio" },
+      { titulo: "Imagem aparece e some rapidamente", desc: "Sinal intermitente indica cabo com mau contato, conector danificado ou GPU superaquecendo.", gravidade: "Médio" },
+      { titulo: "Monitor funciona em outro PC", desc: "Se o monitor funciona em outro computador, o problema está no PC de origem — GPU, RAM ou placa-mãe.", gravidade: "Complexo" },
+      { titulo: "PC bipa ao ligar mas sem imagem", desc: "Beeps de POST indicam falha específica: RAM, GPU ou CPU. O padrão de bips identifica o componente com defeito.", gravidade: "Complexo" },
+      { titulo: "Funciona na placa-mãe mas não na GPU", desc: "Saída de vídeo onboard funciona, mas a placa de vídeo dedicada não. GPU com defeito, sem alimentação ou mal encaixada.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Cabo de vídeo defeituoso ou solto", desc: "Cabo HDMI, VGA ou DisplayPort com mau contato, pinos tortos ou danificado internamente. Causa mais comum e simples.", tipo: "hardware" },
+      { titulo: "Entrada de vídeo errada no monitor", desc: "Monitor configurado para HDMI enquanto o cabo está no VGA, ou vice-versa. Basta trocar a entrada.", tipo: "erro-humano" },
+      { titulo: "Placa de vídeo com defeito", desc: "GPU queimada, sem alimentação extra (6/8 pinos) ou mal encaixada no slot PCI-E. Pode ser dano por superaquecimento.", tipo: "hardware" },
+      { titulo: "Memória RAM mal encaixada", desc: "Após limpeza ou transporte, pente de RAM sai do encaixe. PC liga mas não completa POST sem RAM funcional.", tipo: "erro-humano" },
+      { titulo: "Placa-mãe com defeito", desc: "Capacitores estufados, slot PCI-E danificado ou controlador de vídeo integrado queimado.", tipo: "hardware" },
+      { titulo: "BIOS/UEFI com configuração errada", desc: "Saída de vídeo primária configurada para onboard quando há GPU dedicada, ou vice-versa.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de cabo, reencaixe de RAM ou GPU, alteração de entrada no monitor. Solução imediata.", tempo: "30-60 min", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Reencaixe de GPU com limpeza de contatos, reset de BIOS, teste com outra placa de vídeo.", tempo: "1-2 horas", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Diagnóstico de GPU ou placa-mãe com defeito. Substituição de componente ou reparo de solda.", tempo: "2-5 dias", custo: "R$200–R$600" }
+    ],
+    riscos: [
+      "Comprar monitor novo achando que o problema é nele quando a causa está no PC",
+      "Forçar cabos em portas erradas e danificar conectores",
+      "Trocar placa de vídeo sem testar RAM e BIOS, gastando dinheiro à toa",
+      "PC funcionando sem imagem pode ter problema progressivo que piora com o tempo"
+    ],
+    diagnostico: `Testamos o monitor com outro cabo e outra fonte de vídeo para isolá-lo como causa. Verificamos RAM (reencaixe e teste individual), GPU (alimentação, encaixe, teste em outro slot) e BIOS.\n\nUsamos placa de vídeo de teste para confirmar se o problema é na GPU do cliente. Verificamos beeps de POST e LEDs de diagnóstico da placa-mãe.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Cabo defeituoso é substituído. RAM é reencaixada e testada. GPU é verificada com alimentação correta e limpeza de contatos do slot PCI-E.\n\nSe a GPU está defeituosa, orientamos sobre custo-benefício de reparo vs. troca. Em placas-mãe, verificamos se o vídeo onboard pode ser ativado como solução temporária.\n\nConfiguração de BIOS é ajustada para a saída de vídeo correta.`,
+    quandoCompensa: "Sempre compensa quando o problema é cabo, RAM ou configuração. GPU dedicada de alto valor compensa reparo ou troca por usada compatível.",
+    quandoNaoCompensa: "GPU antiga de baixo desempenho com defeito irreparável. Placa-mãe muito antiga sem vídeo onboard e com GPU queimada.",
+    whatsappMessage: "Olá! Meu monitor está sem sinal. Preciso de diagnóstico técnico.",
+    conteudoExtra: `## Diferença Entre Sem Sinal e Tela Preta\n\n"Sem sinal" significa que o monitor não recebe dados — o problema é na conexão ou no PC. "Tela preta" pode ser o monitor com defeito (backlight, inverter).\n\n## Dica Rápida\n\nAntes de chamar um técnico: teste outro cabo, verifique a entrada do monitor (HDMI/VGA) e tente conectar em outro computador para isolar a causa.`,
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
+      { to: "/placa-de-video-nao-funciona-curitiba", label: "Placa de Vídeo com Defeito" },
+      { to: "/computador-com-tela-preta-curitiba", label: "PC com Tela Preta" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== PLACA DE VÍDEO NÃO FUNCIONA =====================
+  {
+    slug: "placa-de-video-nao-funciona-curitiba",
+    title: "Placa de Vídeo Não Funciona em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Placa de vídeo não funciona? Técnico em Curitiba diagnostica GPU queimada, driver crashando, artefatos e sem imagem. Reparo profissional com garantia.",
+    h1: "Placa de Vídeo Não Funciona — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `A placa de vídeo parou de funcionar: sem imagem, artefatos na tela, crashes em jogos ou driver que não instala. GPUs são componentes caros e sensíveis que podem falhar por superaquecimento, desgaste ou problema elétrico.\n\nAntes de comprar uma GPU nova, é essencial diagnosticar corretamente. Muitas vezes o problema é driver, alimentação insuficiente, slot PCI-E ou até a fonte — e não a placa em si.\n\nNosso técnico em Curitiba testa a GPU isoladamente, verifica alimentação, temperaturas e drivers para identificar a causa real e evitar gastos desnecessários.`,
+    sintomas: [
+      { titulo: "PC liga mas sem imagem pela GPU", desc: "Ventoinhas da GPU giram mas não há sinal de vídeo. Pode ser GPU queimada, sem alimentação extra ou BIOS configurado errado.", gravidade: "Complexo" },
+      { titulo: "Artefatos visuais (quadrados, linhas coloridas)", desc: "Pixels corrompidos na tela indicam memória de vídeo (VRAM) com defeito ou chip GPU com solda fria.", gravidade: "Complexo" },
+      { titulo: "Driver de vídeo crasha constantemente", desc: "Tela pisca, fica preta por segundos e retorna com mensagem de recuperação do driver. Pode ser driver, superaquecimento ou defeito.", gravidade: "Médio" },
+      { titulo: "Jogo trava ou fecha sozinho", desc: "GPU não suporta a carga térmica ou elétrica. Pode ser fonte subdimensionada, superaquecimento ou VRAM insuficiente.", gravidade: "Médio" },
+      { titulo: "Ventoinhas da GPU não giram", desc: "Algumas GPUs modernas desligam fans em idle. Se não giram sob carga, pode ser conector do fan ou controlador queimado.", gravidade: "Médio" },
+      { titulo: "PC reinicia ao exigir GPU (jogos, render)", desc: "Fonte de alimentação não suporta o pico de consumo da GPU. Proteção de sobrecarga desliga o sistema.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento crônico", desc: "Pasta térmica ressecada, cooler com poeira ou gabinete sem fluxo de ar. GPU atinge 90°C+ e degrada componentes.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação insuficiente", desc: "GPU exige mais watts do que a fonte fornece, ou cabos de alimentação PCIe (6/8 pinos) não estão conectados.", tipo: "erro-humano" },
+      { titulo: "VRAM defeituosa", desc: "Chips de memória de vídeo com defeito causam artefatos. Comum em GPUs com uso intensivo prolongado.", tipo: "hardware" },
+      { titulo: "Solda BGA fria no chip GPU", desc: "Micro-fissuras na solda entre chip e placa causam falha intermitente. Agravado por ciclos térmicos.", tipo: "desgaste" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Atualização de driver falha, versão incompatível com Windows ou resíduo de driver anterior causando conflito.", tipo: "software" },
+      { titulo: "Slot PCI-E danificado", desc: "Contatos oxidados, slot com defeito na placa-mãe ou trava quebrada não segura a GPU corretamente.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação limpa de driver (DDU), conexão de alimentação extra, reencaixe no slot. GPU volta a funcionar.", tempo: "1-2 horas", custo: "R$100–R$160" },
+      { nivel: "Médio", desc: "Troca de pasta térmica da GPU, limpeza do cooler, teste com outra fonte de alimentação.", tempo: "2-4 horas", custo: "R$160–R$280" },
+      { nivel: "Complexo", desc: "Diagnóstico de VRAM/chip GPU, reballing ou substituição da placa de vídeo. Orientação custo-benefício.", tempo: "3-10 dias", custo: "R$280–R$800+" }
+    ],
+    riscos: [
+      "Comprar GPU nova quando o problema é a fonte de alimentação",
+      "Usar GPU superaquecendo e causar dano permanente ao chip",
+      "Artefatos de VRAM podem corromper dados em processamento (render, cálculos)",
+      "Tentativa de 'reballing caseiro' com forno pode destruir a placa completamente"
+    ],
+    diagnostico: `Testamos a GPU em bancada com fonte de potência conhecida e monitor de teste. Monitoramos temperaturas sob stress test e verificamos VRAM com ferramentas de diagnóstico.\n\nInstalamos driver limpo usando DDU (Display Driver Uninstaller) para eliminar conflitos de software. Testamos o slot PCI-E da placa-mãe com outra GPU.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Problemas de driver são resolvidos com remoção completa (DDU) e instalação limpa da versão estável. Superaquecimento é corrigido com troca de pasta térmica e limpeza do cooler da GPU.\n\nFonte subdimensionada: orientamos upgrade para modelo adequado. Para defeito de hardware (VRAM, chip), avaliamos viabilidade de reparo vs. custo de GPU equivalente usada/nova.\n\nEm todos os casos, fazemos stress test final para garantir estabilidade.`,
+    quandoCompensa: "GPUs de alto valor (RTX 3060 ou superior) compensam reparo térmico e de driver. Problemas de fonte são baratos de resolver e salvam a GPU.",
+    quandoNaoCompensa: "GPUs antigas de baixo desempenho (GT 710, GT 1030) com defeito de hardware. Custo de reparo supera o valor de uma GPU nova equivalente.",
+    whatsappMessage: "Olá! Minha placa de vídeo não está funcionando. Preciso de diagnóstico técnico.",
+    conteudoExtra: `## Como Saber se é a GPU ou a Fonte?\n\nSe o PC reinicia só em jogos/render, provavelmente é a fonte. Se há artefatos visuais em qualquer situação (desktop, BIOS), é a GPU.\n\n## Cuidados com GPU\n\nMantenha o gabinete limpo, com bom fluxo de ar. Evite overclock sem monitorar temperaturas. Troque pasta térmica da GPU a cada 3 anos em uso intensivo.`,
+    relatedPages: [
+      { to: "/monitor-sem-sinal-curitiba", label: "Monitor Sem Sinal" },
+      { to: "/computador-travando-curitiba", label: "PC Travando" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== SSD NÃO RECONHECE =====================
+  {
+    slug: "ssd-nao-reconhece-curitiba",
+    title: "SSD Não Reconhece em Curitiba — Diagnóstico e Recuperação",
+    metaDescription: "SSD não reconhece no PC? Técnico em Curitiba diagnostica falha de firmware, BIOS, partição e recupera dados. Atendimento profissional com garantia.",
+    h1: "SSD Não Reconhece — Diagnóstico e Solução em Curitiba",
+    categoria: "Hardware",
+    intro: `O SSD não aparece no Windows, não é detectado na BIOS ou sumiu do dia para a noite. SSDs são mais confiáveis que HDs mecânicos, mas também falham — e quando falham, podem perder dados sem aviso.\n\nAs causas variam: BIOS desatualizada, modo AHCI desativado, partição corrompida, cabo/slot defeituoso ou falha de firmware. Em SSDs M.2 NVMe, incompatibilidade de slot é muito comum.\n\nNosso técnico em Curitiba diagnostica com precisão, recupera dados quando possível e resolve o problema — seja configuração, hardware ou substituição.`,
+    sintomas: [
+      { titulo: "SSD não aparece na BIOS/UEFI", desc: "Problema físico: cabo SATA defeituoso, slot M.2 incompatível, SSD com firmware corrompido ou componente queimado.", gravidade: "Complexo" },
+      { titulo: "SSD aparece na BIOS mas não no Windows", desc: "Partição não inicializada, sistema de arquivos corrompido ou letra de unidade não atribuída. Geralmente resolvível.", gravidade: "Simples" },
+      { titulo: "SSD fica sumindo intermitentemente", desc: "Mau contato no cabo SATA, slot M.2 com problema ou SSD com células NAND degradadas em estágio inicial de falha.", gravidade: "Médio" },
+      { titulo: "Windows não inicia após instalar SSD", desc: "Modo de boot (UEFI/Legacy) incompatível, prioridade de boot errada ou falta de driver NVMe na instalação.", gravidade: "Médio" },
+      { titulo: "SSD detectado com capacidade errada", desc: "Firmware corrompido mostra capacidade incorreta (ex: 2TB aparece como 8MB). Requer reparo de firmware ou RMA.", gravidade: "Complexo" },
+      { titulo: "Lentidão extrema após SSD reconhecer", desc: "SSD com TRIM desativado, modo IDE em vez de AHCI, ou células NAND com muitas escritas (desgaste).", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Cabo SATA defeituoso ou porta danificada", desc: "Cabos SATA são frágeis e perdem contato. Portas SATA da placa-mãe podem queimar por oscilação elétrica.", tipo: "hardware" },
+      { titulo: "Slot M.2 incompatível", desc: "SSD NVMe em slot que só suporta SATA M.2, ou vice-versa. Placa-mãe pode ter slots M.2 com limitações.", tipo: "erro-humano" },
+      { titulo: "BIOS desatualizada ou AHCI desativado", desc: "BIOS antiga pode não reconhecer SSDs NVMe. Modo IDE em vez de AHCI impede detecção correta.", tipo: "software" },
+      { titulo: "Partição corrompida ou não inicializada", desc: "SSD novo sem inicialização ou tabela de partição corrompida por desligamento abrupto.", tipo: "software" },
+      { titulo: "Firmware do SSD com bug", desc: "Alguns modelos têm bugs de firmware que causam desaparecimento após certo tempo de uso ou número de escritas.", tipo: "software" },
+      { titulo: "Desgaste de células NAND", desc: "SSDs têm vida útil limitada de escritas. TLC/QLC em uso intensivo pode degradar após 3-5 anos.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Inicialização de disco no Gerenciamento de Disco, ativação de AHCI na BIOS, troca de cabo SATA.", tempo: "30-60 min", custo: "R$80–R$130" },
+      { nivel: "Médio", desc: "Atualização de BIOS, reparo de partição, configuração de boot UEFI, verificação de compatibilidade M.2.", tempo: "1-3 horas", custo: "R$130–R$230" },
+      { nivel: "Complexo", desc: "Recuperação de dados de SSD com falha de firmware, reparo de controlador ou substituição com migração.", tempo: "2-7 dias", custo: "R$230–R$700" }
+    ],
+    riscos: [
+      "Perda total de dados se o SSD falhar completamente sem backup",
+      "Inicializar disco errado no Gerenciamento de Disco e apagar dados",
+      "Forçar SSD NVMe em slot M.2 SATA e danificar conector",
+      "Atualização de firmware mal sucedida pode briquear o SSD"
+    ],
+    diagnostico: `Verificamos detecção na BIOS primeiro. Testamos com outro cabo SATA ou slot M.2 para isolar problema físico. Checamos compatibilidade do slot (NVMe vs SATA M.2).\n\nAnalisamos saúde do SSD com ferramentas do fabricante (Samsung Magician, Crucial Storage Executive, CrystalDiskInfo). Verificamos SMART para identificar desgaste e erros.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Para problemas de configuração: ativamos AHCI, atualizamos BIOS e inicializamos o disco corretamente. Cabo defeituoso é substituído.\n\nPara SSDs com desgaste: monitoramos saúde e orientamos backup e substituição preventiva antes da falha total. Migramos sistema e dados para o novo SSD.\n\nEm casos de falha de firmware: tentamos reparo com ferramentas do fabricante. Quando possível, recuperamos dados antes da substituição.`,
+    quandoCompensa: "Sempre compensa quando o problema é configuração (BIOS, cabo, partição). SSDs de boa qualidade com pouco desgaste compensam reparo e recuperação.",
+    quandoNaoCompensa: "SSDs com SMART indicando falha iminente e desgaste extremo. Modelos baratos sem marca com controlador proprietário sem ferramentas de reparo.",
+    whatsappMessage: "Olá! Meu SSD não está sendo reconhecido. Preciso de diagnóstico técnico.",
+    conteudoExtra: `## SSD SATA vs NVMe — Cuidados na Instalação\n\nSSDs M.2 existem em dois tipos: SATA e NVMe. Eles usam o mesmo conector físico mas são eletricamente diferentes. Verifique a compatibilidade do slot antes de comprar.\n\n## Vida Útil do SSD\n\nSSDs modernos duram 5-10 anos em uso normal. Use CrystalDiskInfo para monitorar a saúde. Quando atingir 80%+ de desgaste, faça backup e planeje a substituição.`,
+    relatedPages: [
+      { to: "/hd-externo-nao-reconhece-curitiba", label: "HD Externo Não Reconhece" },
+      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD e Memória" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+  // ===================== NOTEBOOK TECLADO NÃO FUNCIONA =====================
+  {
+    slug: "notebook-teclado-nao-funciona-curitiba",
+    title: "Teclado do Notebook Não Funciona em Curitiba — Reparo Profissional",
+    metaDescription: "Teclado do notebook não funciona? Técnico em Curitiba resolve teclas travadas, flat cable, derramamento de líquido e driver. Reparo ou troca com garantia.",
+    h1: "Teclado do Notebook Não Funciona — Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `Algumas teclas não respondem, o teclado inteiro parou ou digita caracteres errados. Problemas de teclado em notebook são muito comuns e têm causas que vão de sujeira acumulada a danos por líquido.\n\nDiferente de desktops onde basta trocar o teclado, em notebooks o reparo envolve desmontagem e troca do flat cable ou do teclado inteiro — um procedimento delicado que exige técnico experiente.\n\nNosso técnico em Curitiba diagnostica a causa exata, realiza limpeza profissional ou troca o teclado por modelo compatível com garantia.`,
+    sintomas: [
+      { titulo: "Algumas teclas não respondem", desc: "Sujeira sob as teclas, membrana danificada ou trilha oxidada. Comum em teclas mais usadas (espaço, enter, letras centrais).", gravidade: "Simples" },
+      { titulo: "Teclado inteiro não funciona", desc: "Flat cable desconectado, danificado ou conector na placa-mãe com problema. Também pode ser driver ou configuração.", gravidade: "Médio" },
+      { titulo: "Teclas digitam caracteres errados", desc: "Configuração de idioma do teclado errada (ABNT2 vs US), driver corrompido ou dano parcial na membrana.", gravidade: "Simples" },
+      { titulo: "Teclado digita sozinho (teclas fantasma)", desc: "Curto-circuito por líquido, tecla fisicamente travada ou interferência eletromagnética. Pode ser grave.", gravidade: "Complexo" },
+      { titulo: "Teclado parou após derramamento de líquido", desc: "Água, café ou refrigerante danifica trilhas e membrana. Requer limpeza imediata e profissional.", gravidade: "Complexo" },
+      { titulo: "Teclado funciona no BIOS mas não no Windows", desc: "Problema de driver, filtro de teclas ativado acidentalmente ou conflito com software de terceiros.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Sujeira e resíduos sob as teclas", desc: "Migalhas, poeira e resíduos se acumulam sob as teclas ao longo dos anos, impedindo o contato elétrico.", tipo: "desgaste" },
+      { titulo: "Flat cable desconectado ou danificado", desc: "O cabo flat que conecta o teclado à placa-mãe pode soltar após impacto, transporte ou manutenção anterior.", tipo: "hardware" },
+      { titulo: "Derramamento de líquido", desc: "Líquidos causam oxidação e curto-circuito nas trilhas da membrana. Dano pode se espalhar para a placa-mãe.", tipo: "erro-humano" },
+      { titulo: "Membrana do teclado desgastada", desc: "A membrana condutiva perde eficiência com uso intenso. Trilhas se desgastam em teclas mais usadas.", tipo: "desgaste" },
+      { titulo: "Driver ou configuração de Windows", desc: "Filtro de teclas ativado, idioma errado configurado ou driver de teclado corrompido após atualização.", tipo: "software" },
+      { titulo: "Conector na placa-mãe danificado", desc: "O conector ZIF (Zero Insertion Force) onde o flat cable encaixa pode quebrar, soltar ou ter pinos oxidados.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza profissional do teclado, reencaixe do flat cable, correção de configuração/driver no Windows.", tempo: "30-60 min", custo: "R$80–R$130" },
+      { nivel: "Médio", desc: "Troca do teclado completo por modelo compatível. Inclui desmontagem e remontagem do notebook.", tempo: "1-3 horas", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Limpeza e reparo após derramamento de líquido (teclado + placa-mãe). Troca de teclado + reparo de conector.", tempo: "2-5 dias", custo: "R$300–R$600" }
+    ],
+    riscos: [
+      "Derramamento de líquido não tratado rapidamente danifica a placa-mãe",
+      "Teclas fantasma podem enviar comandos indesejados (deletar arquivos, enviar mensagens)",
+      "Tentativa de trocar teclado sem experiência pode danificar flat cable ou conector",
+      "Usar teclado USB externo permanentemente afeta portabilidade do notebook"
+    ],
+    diagnostico: `Testamos o teclado na BIOS para descartar problemas de software. Verificamos configuração de idioma, filtro de teclas e driver no Windows.\n\nAbrimos o notebook para inspecionar flat cable, conector e membrana. Em casos de líquido, avaliamos extensão do dano com lupa e multímetro.\n\nO diagnóstico custa a partir de R$50, abatido do serviço aprovado.`,
+    solucao: `Para sujeira: limpeza profissional com ar comprimido e álcool isopropílico. Flat cable é reencaixado ou substituído.\n\nQuando o teclado precisa ser trocado, utilizamos modelos compatíveis com o chassi do notebook. Após derramamento, fazemos limpeza ultrassônica quando viável.\n\nProblemas de software são resolvidos com correção de configuração, reinstalação de driver ou desativação de filtro de teclas.`,
+    quandoCompensa: "Sempre compensa em notebooks de até 5 anos. Troca de teclado é relativamente barata e restaura a funcionalidade completa.",
+    quandoNaoCompensa: "Quando o líquido danificou a placa-mãe além do teclado e o custo total de reparo excede 50% do valor do notebook.",
+    whatsappMessage: "Olá! O teclado do meu notebook não está funcionando. Preciso de reparo.",
+    conteudoExtra: `## Prevenção de Danos ao Teclado\n\nEvite comer sobre o notebook. Use película protetora de silicone em ambientes com poeira. Em caso de derramamento de líquido, desligue imediatamente, vire de cabeça para baixo e procure um técnico.\n\n## Teclado Externo como Solução Temporária\n\nEnquanto aguarda reparo, um teclado USB compacto permite continuar usando o notebook normalmente. O teclado virtual do Windows (osk.exe) também ajuda em emergências.`,
+    relatedPages: [
+      { to: "/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
+      { to: "/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
+      { to: "/conserto-pc-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

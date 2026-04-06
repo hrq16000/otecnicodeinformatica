@@ -6183,6 +6183,193 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
+
+  // --- notebook-tela-amarelada-curitiba ---
+  {
+    slug: "notebook-tela-amarelada-curitiba",
+    title: "Notebook com Tela Amarelada em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Tela do notebook amarelada ou com tonalidade quente? Saiba as causas reais — cabo flat, inversor, painel LCD ou configuração — e como resolver em Curitiba.",
+    h1: "Notebook com Tela Amarelada — Causas, Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Notebook",
+    intro: `A tela do notebook ficou amarelada, com tonalidade quente ou cores distorcidas? Esse problema pode ter origem em configuração de software (modo noturno, perfil de cor), cabo flat deteriorado, falha no inversor da backlight ou degradação do próprio painel LCD.\n\nEm muitos casos, a causa é simples — o modo noturno (Night Light) do Windows está ativado ou o perfil de cor ICC está incorreto. Porém, quando a tonalidade persiste mesmo com ajustes de software, o problema é físico e exige diagnóstico profissional.\n\nEm Curitiba, nosso técnico realiza testes com monitor externo para isolar se a falha está na placa de vídeo, no cabo flat ou no painel LCD, garantindo um diagnóstico preciso antes de qualquer reparo.`,
+    sintomas: [
+      { titulo: "Tela com tom amarelado uniforme", desc: "Toda a tela apresenta uma tonalidade quente/amarelada que não existia antes, alterando a percepção de cores.", gravidade: "Médio" },
+      { titulo: "Cores distorcidas em parte da tela", desc: "Apenas uma região da tela apresenta alteração de cor, podendo indicar dano no painel LCD.", gravidade: "Alto" },
+      { titulo: "Tela amarelada após atualização do Windows", desc: "O problema surgiu após uma atualização que pode ter ativado o modo noturno ou alterado perfis de cor.", gravidade: "Baixo" },
+      { titulo: "Tonalidade muda ao inclinar a tela", desc: "A cor muda conforme o ângulo, indicando possível problema no cabo flat ou conexão do painel.", gravidade: "Médio" },
+      { titulo: "Tela amarelada com linhas ou manchas", desc: "Além da tonalidade alterada, surgem linhas ou manchas, indicando degradação do painel LCD.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "Modo Noturno (Night Light) ativado", desc: "O Windows possui um filtro de luz azul que torna a tela amarelada. Pode ser ativado acidentalmente ou por atualização.", tipo: "software" },
+      { titulo: "Perfil de cor ICC incorreto", desc: "Drivers de vídeo ou atualizações podem alterar o perfil de cores do monitor, distorcendo a tonalidade.", tipo: "software" },
+      { titulo: "Cabo flat deteriorado", desc: "O cabo que conecta a placa-mãe ao painel LCD pode oxidar ou romper parcialmente, causando alteração de cores.", tipo: "desgaste" },
+      { titulo: "Degradação do painel LCD", desc: "Painéis LCD têm vida útil limitada. Com o tempo, a backlight pode amarelecer, especialmente em notebooks mais antigos.", tipo: "desgaste" },
+      { titulo: "Falha na placa de vídeo integrada", desc: "Problemas no chip gráfico podem causar distorção de cores em toda a saída de vídeo.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Modo noturno ativado ou perfil de cor incorreto — ajuste via configurações do Windows e driver de vídeo.", tempo: "15-30 min", custo: "R$50–R$80" },
+      { nivel: "Médio", desc: "Cabo flat oxidado ou com mau contato — substituição do cabo flat do display.", tempo: "1-2 horas", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Painel LCD degradado ou falha na GPU — substituição do painel ou reparo na placa-mãe.", tempo: "2-5 dias", custo: "R$400–R$900" },
+    ],
+    riscos: [
+      "Forçar o cabo flat pode romper a conexão permanentemente",
+      "Usar perfis de cor genéricos pode mascarar problemas reais de hardware",
+      "Ignorar o problema pode indicar degradação progressiva do painel",
+      "Tentativas de reparo sem experiência podem danificar o display",
+    ],
+    diagnostico: `O diagnóstico começa verificando configurações de software: modo noturno, perfil de cor ICC e driver de vídeo. Se o problema persistir, conectamos um monitor externo para testar a saída de vídeo da placa gráfica.\n\nSe a imagem no monitor externo estiver normal, o problema está no cabo flat ou painel LCD. Realizamos inspeção visual do cabo e testes de continuidade. Em casos de degradação do painel, avaliamos o custo-benefício da substituição versus um notebook novo.`,
+    solucao: `Para causas de software, desativamos o Night Light, recalibramos o perfil de cor e atualizamos o driver de vídeo. Em casos de cabo flat, realizamos a substituição com peça compatível.\n\nPara painéis LCD degradados, substituímos o display completo com painel compatível. Em casos de falha na GPU integrada, avaliamos reparo por reballing ou substituição da placa-mãe, sempre considerando o custo-benefício.`,
+    quandoCompensa: "Quando o notebook tem menos de 4 anos, o problema é no cabo flat (reparo barato) ou é apenas configuração de software.",
+    quandoNaoCompensa: "Quando o painel LCD está degradado em notebook antigo e o custo de substituição ultrapassa 60% do valor de um notebook novo equivalente.",
+    whatsappMessage: "Olá! A tela do meu notebook está amarelada. Preciso de diagnóstico e reparo em Curitiba.",
+    conteudoExtra: `## Como Verificar se é Problema de Software\n\n1. **Desative o Night Light**: Vá em Configurações → Sistema → Tela → Desative \"Luz noturna\"\n2. **Verifique o perfil de cor**: Painel de Controle → Gerenciamento de Cores → Remova perfis personalizados\n3. **Atualize o driver de vídeo**: Acesse o site do fabricante (Intel, NVIDIA, AMD) e instale a versão mais recente\n4. **Teste com monitor externo**: Conecte via HDMI/VGA — se as cores estiverem normais no externo, o problema é no display do notebook\n\n## Quando Procurar um Técnico\n\nSe após os ajustes de software a tela continuar amarelada, é necessário diagnóstico profissional. Nosso técnico em Curitiba utiliza equipamentos de teste para identificar se a causa é o cabo flat, o painel ou a placa de vídeo.`,
+    relatedPages: [
+      { to: "/notebook-com-tela-piscando-curitiba", label: "Tela Piscando" },
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // --- pc-nao-entra-modo-seguro-curitiba ---
+  {
+    slug: "pc-nao-entra-modo-seguro-curitiba",
+    title: "PC Não Entra no Modo Seguro em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Computador não entra no Modo Seguro do Windows? Saiba as causas — BCD corrompido, falha no disco, malware — e como resolver em Curitiba.",
+    h1: "PC Não Entra no Modo Seguro — Causas e Soluções em Curitiba",
+    categoria: "Software — Windows",
+    intro: `O Modo Seguro é essencial para diagnosticar e resolver problemas do Windows. Quando o computador não consegue entrar nesse modo, a situação é crítica — indica que o sistema operacional pode estar severamente corrompido.\n\nAs causas mais comuns incluem BCD (Boot Configuration Data) corrompido, setores defeituosos no disco que impedem o carregamento dos arquivos de boot, infecção por malware que altera o bootloader, ou falha em componentes de hardware como RAM e disco.\n\nEm Curitiba, nosso técnico utiliza ferramentas de boot externo (WinPE, Linux Live) para acessar o sistema, reparar o BCD e recuperar o acesso ao Modo Seguro, preservando os dados do cliente.`,
+    sintomas: [
+      { titulo: "Tela preta ao tentar Modo Seguro", desc: "O computador exibe tela preta sem cursor após selecionar Modo Seguro no menu de boot.", gravidade: "Alto" },
+      { titulo: "Reinicia em loop ao selecionar Modo Seguro", desc: "O PC tenta carregar o Modo Seguro mas reinicia automaticamente, entrando em loop infinito.", gravidade: "Alto" },
+      { titulo: "Erro 'Winload.exe ausente' no boot", desc: "Mensagem de erro indicando que o arquivo de boot do Windows está corrompido ou ausente.", gravidade: "Alto" },
+      { titulo: "Menu de boot não aparece com F8", desc: "A tecla F8 não abre o menu de opções avançadas, impedindo o acesso ao Modo Seguro.", gravidade: "Médio" },
+      { titulo: "BSOD ao carregar Modo Seguro", desc: "Tela azul aparece durante o carregamento do Modo Seguro, indicando falha crítica de driver ou hardware.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "BCD (Boot Configuration Data) corrompido", desc: "O arquivo de configuração de boot foi danificado por desligamento forçado, vírus ou falha de disco.", tipo: "software" },
+      { titulo: "Setores defeituosos no disco", desc: "Áreas do disco onde estão os arquivos de boot do Modo Seguro estão fisicamente danificadas.", tipo: "hardware" },
+      { titulo: "Malware no bootloader", desc: "Rootkits e bootkits podem alterar o processo de boot, impedindo o carregamento do Modo Seguro.", tipo: "software" },
+      { titulo: "Driver incompatível travando o boot", desc: "Um driver essencial falha mesmo no Modo Seguro, causando BSOD ou trava.", tipo: "software" },
+      { titulo: "RAM com defeito", desc: "Módulos de memória com falha podem causar erros aleatórios durante qualquer processo de boot.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "BCD corrompido — reparo via bcdedit e bootrec a partir de mídia de instalação do Windows.", tempo: "30-60 min", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Arquivos de sistema corrompidos — reparo via SFC/DISM com boot externo ou reinstalação preservando dados.", tempo: "2-4 horas", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Disco com setores defeituosos ou malware no bootloader — clonagem de disco, remoção de rootkit ou substituição de hardware.", tempo: "1-3 dias", custo: "R$250–R$500" },
+    ],
+    riscos: [
+      "Tentativas incorretas de reparo do BCD podem tornar o Windows completamente inacessível",
+      "Formatação precipitada causa perda total de dados sem necessidade",
+      "Ignorar setores defeituosos leva à perda progressiva de dados",
+      "Rootkits não removidos podem roubar senhas e dados bancários",
+    ],
+    diagnostico: `Iniciamos o diagnóstico com boot via mídia externa (WinPE ou Linux Live) para acessar o disco e verificar a integridade dos arquivos de boot. Executamos bootrec /fixmbr, bootrec /fixboot e bootrec /rebuildbcd.\n\nSe o reparo do BCD não resolver, verificamos a integridade do disco com CHKDSK e realizamos teste de memória RAM. Em casos de suspeita de malware, fazemos varredura offline com ferramentas especializadas.`,
+    solucao: `Para BCD corrompido, reconstruímos a configuração de boot usando o Prompt de Comando do ambiente de recuperação. Para arquivos de sistema danificados, executamos SFC /scannow e DISM offline.\n\nEm casos de disco defeituoso, realizamos clonagem para um disco saudável antes de qualquer reparo. Para malware no bootloader, utilizamos ferramentas de remoção offline e, se necessário, reinstalamos o Windows preservando os dados do usuário.`,
+    quandoCompensa: "Quando o problema é apenas BCD corrompido ou driver incompatível — reparo rápido e barato que restaura o acesso completo.",
+    quandoNaoCompensa: "Quando o disco está com muitos setores defeituosos e o sistema já apresentava instabilidade — melhor migrar para SSD novo com instalação limpa.",
+    whatsappMessage: "Olá! Meu PC não entra no Modo Seguro do Windows. Preciso de ajuda técnica em Curitiba.",
+    conteudoExtra: `## Alternativas ao F8 para Acessar o Modo Seguro\n\nNo Windows 10/11, o F8 está desabilitado por padrão. Alternativas:\n\n1. **Via Configurações**: Configurações → Atualização → Recuperação → Reiniciar agora → Solução de Problemas → Opções Avançadas → Configurações de Inicialização\n2. **Via msconfig**: Execute msconfig → aba Inicialização do Sistema → marque \"Inicialização segura\"\n3. **Via Shift+Reiniciar**: Na tela de login, segure Shift e clique em Reiniciar\n4. **Forçar Recuperação**: Desligue o PC 3 vezes durante o boot para ativar o Reparo Automático\n\n## Quando o Modo Seguro é Essencial\n\nO Modo Seguro carrega apenas drivers básicos, permitindo remover programas problemáticos, desinstalar drivers incompatíveis e executar antivírus em ambiente limpo.`,
+    relatedPages: [
+      { to: "/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
+      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+    ]
+  },
+
+  // --- erro-0xc000021a-curitiba ---
+  {
+    slug: "erro-0xc000021a-curitiba",
+    title: "Erro 0xc000021a Windows em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Erro 0xc000021a no Windows? Tela azul crítica com STATUS_SYSTEM_PROCESS_TERMINATED. Saiba as causas e como resolver em Curitiba.",
+    h1: "Erro 0xc000021a no Windows — Diagnóstico e Reparo em Curitiba",
+    categoria: "Software — Windows",
+    intro: `O erro 0xc000021a (STATUS_SYSTEM_PROCESS_TERMINATED) é uma das telas azuis mais críticas do Windows. Ele indica que um processo essencial do sistema (csrss.exe ou winlogon.exe) falhou, e o Windows não consegue continuar operando.\n\nEste erro geralmente impede o boot completo do sistema, deixando o computador preso em loop de reinicialização ou na tela azul. As causas incluem atualização do Windows mal-sucedida, arquivos de sistema corrompidos, driver incompatível ou infecção por malware.\n\nEm Curitiba, nosso técnico resolve este erro utilizando ferramentas de recuperação avançadas, reparando arquivos de sistema sem perda de dados.`,
+    sintomas: [
+      { titulo: "Tela azul com código 0xc000021a", desc: "BSOD exibindo STATUS_SYSTEM_PROCESS_TERMINATED, impedindo o carregamento do Windows.", gravidade: "Alto" },
+      { titulo: "Loop de reinicialização infinito", desc: "O PC tenta iniciar, mostra o erro e reinicia automaticamente sem conseguir carregar o desktop.", gravidade: "Alto" },
+      { titulo: "Erro após atualização do Windows", desc: "O problema surgiu imediatamente após uma atualização do Windows Update que falhou ou foi interrompida.", gravidade: "Alto" },
+      { titulo: "Reparo automático não resolve", desc: "O Windows tenta o Reparo Automático mas falha, exibindo 'Não foi possível reparar o PC'.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "Atualização do Windows corrompida", desc: "Uma atualização foi interrompida ou instalou arquivos incompatíveis, corrompendo processos críticos (csrss.exe, winlogon.exe).", tipo: "software" },
+      { titulo: "Arquivos de sistema corrompidos", desc: "Desligamento forçado ou falha de disco corrompeu arquivos essenciais do Windows.", tipo: "software" },
+      { titulo: "Driver incompatível", desc: "Um driver de dispositivo instalado recentemente causa conflito com processos críticos do sistema.", tipo: "software" },
+      { titulo: "Infecção por malware", desc: "Vírus ou rootkits podem substituir ou corromper processos essenciais do Windows.", tipo: "software" },
+      { titulo: "Disco com setores defeituosos", desc: "Falhas físicas no disco onde estão armazenados os arquivos de sistema do Windows.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Atualização recente causou o problema — reversão da atualização via Ambiente de Recuperação.", tempo: "30-60 min", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Arquivos de sistema corrompidos — reparo via SFC/DISM offline ou restauração do sistema.", tempo: "2-4 horas", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Disco defeituoso ou corrupção severa — clonagem de disco, reinstalação do Windows preservando dados.", tempo: "1-3 dias", custo: "R$250–R$500" },
+    ],
+    riscos: [
+      "Tentativas repetidas de boot podem agravar a corrupção de arquivos",
+      "Formatação sem backup causa perda total de dados",
+      "Ignorar setores defeituosos no disco leva a falhas recorrentes",
+      "Reinstalação sem resolver a causa raiz faz o erro retornar",
+    ],
+    diagnostico: `O diagnóstico inicia com boot via mídia de recuperação do Windows ou Linux Live para acessar o disco sem carregar o sistema corrompido. Verificamos os logs de erro em C:\\Windows\\System32\\winevt\\Logs para identificar o processo que falhou.\n\nExecutamos SFC /scannow e DISM offline para verificar e reparar arquivos de sistema. Testamos a integridade do disco com CHKDSK e realizamos verificação de malware offline. Se o erro surgiu após atualização, tentamos reverter via DISM /Remove-Package.`,
+    solucao: `Para atualizações problemáticas, revertemos o pacote específico usando DISM offline. Para arquivos corrompidos, reparamos com SFC/DISM ou restauramos de um ponto de restauração.\n\nEm casos severos, realizamos uma instalação de reparo (In-Place Upgrade) que reinstala o Windows mantendo programas e dados. Se o disco estiver defeituoso, clonamos para um SSD saudável antes de qualquer reparo.`,
+    quandoCompensa: "Quando o erro surgiu após uma atualização específica ou o sistema tem ponto de restauração disponível — reparo rápido sem perda de dados.",
+    quandoNaoCompensa: "Quando o disco está fisicamente danificado e o sistema já apresentava múltiplos erros — melhor instalar Windows limpo em SSD novo.",
+    whatsappMessage: "Olá! Meu PC está com erro 0xc000021a e não liga. Preciso de ajuda técnica em Curitiba.",
+    conteudoExtra: `## O Que Significa o Erro 0xc000021a\n\nEste código indica que um dos dois processos mais críticos do Windows falhou:\n\n- **csrss.exe** (Client/Server Runtime Subsystem): Gerencia console, criação/destruição de threads e funções críticas do kernel\n- **winlogon.exe**: Responsável pelo login, logoff e carregamento do perfil do usuário\n\nQuando qualquer um desses processos termina inesperadamente, o Windows não pode continuar e exibe a tela azul.\n\n## Passos de Emergência\n\n1. **Não force reinicializações repetidas** — isso pode piorar a corrupção\n2. **Acesse o Ambiente de Recuperação** — use uma mídia de instalação USB do Windows\n3. **Tente a Restauração do Sistema** — se houver pontos de restauração disponíveis\n4. **Não formate sem backup** — seus dados provavelmente estão intactos no disco`,
+    relatedPages: [
+      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/erro-0x0000007b-curitiba", label: "Erro 0x0000007B" },
+      { to: "/pc-nao-entra-modo-seguro-curitiba", label: "PC Não Entra no Modo Seguro" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+    ]
+  },
+
+  // --- computador-sem-wifi-curitiba ---
+  {
+    slug: "computador-sem-wifi-curitiba",
+    title: "Computador Sem Wi-Fi em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Computador não conecta no Wi-Fi? Ícone de rede ausente ou adaptador desativado? Saiba as causas e como resolver em Curitiba.",
+    h1: "Computador Sem Wi-Fi — Causas, Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware/Software — Rede",
+    intro: `O computador parou de mostrar redes Wi-Fi disponíveis ou o ícone de rede sem fio desapareceu? Este problema pode ter causas variadas — desde um simples botão de Wi-Fi desativado até falha no adaptador de rede sem fio.\n\nAs causas mais comuns incluem adaptador Wi-Fi desativado no Windows ou por tecla de função (Fn), driver de rede corrompido após atualização, serviço WLAN AutoConfig parado, antena Wi-Fi desconectada (em notebooks) ou falha física no módulo wireless.\n\nEm Curitiba, nosso técnico diagnostica rapidamente se o problema é de software (driver, serviço, configuração) ou hardware (módulo Wi-Fi, antena), resolvendo na maioria dos casos no mesmo dia.`,
+    sintomas: [
+      { titulo: "Ícone de Wi-Fi ausente na barra de tarefas", desc: "O ícone de rede sem fio desapareceu completamente, sem opção de conectar a redes.", gravidade: "Médio" },
+      { titulo: "Adaptador Wi-Fi não aparece no Gerenciador de Dispositivos", desc: "O Windows não reconhece nenhum adaptador de rede sem fio instalado.", gravidade: "Alto" },
+      { titulo: "Wi-Fi aparece mas não encontra redes", desc: "O adaptador está ativo mas a lista de redes disponíveis está sempre vazia.", gravidade: "Médio" },
+      { titulo: "Conecta mas desconecta frequentemente", desc: "O Wi-Fi conecta por alguns minutos e depois cai, exigindo reconexão manual.", gravidade: "Médio" },
+      { titulo: "Erro 'Sem adaptador de rede sem fio'", desc: "Mensagem indicando que nenhum adaptador wireless foi encontrado no sistema.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "Adaptador Wi-Fi desativado", desc: "O adaptador pode ter sido desativado por tecla de função (Fn+F2/F5), pelo Modo Avião ou nas configurações do Windows.", tipo: "software" },
+      { titulo: "Driver de rede corrompido ou ausente", desc: "Atualização do Windows removeu ou corrompeu o driver do adaptador Wi-Fi.", tipo: "software" },
+      { titulo: "Serviço WLAN AutoConfig parado", desc: "O serviço do Windows responsável por gerenciar conexões Wi-Fi não está em execução.", tipo: "software" },
+      { titulo: "Antena Wi-Fi desconectada (notebook)", desc: "Os cabos da antena Wi-Fi dentro do notebook podem ter se desconectado, especialmente após manutenção.", tipo: "hardware" },
+      { titulo: "Módulo Wi-Fi com defeito", desc: "O chip ou placa Wi-Fi (geralmente mini PCIe ou M.2) falhou e precisa ser substituído.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Adaptador desativado ou Modo Avião ligado — reativação via configurações, tecla Fn ou Gerenciador de Dispositivos.", tempo: "15-30 min", custo: "R$50–R$80" },
+      { nivel: "Médio", desc: "Driver corrompido ou serviço parado — reinstalação do driver e configuração de serviços do Windows.", tempo: "30-60 min", custo: "R$80–R$150" },
+      { nivel: "Complexo", desc: "Módulo Wi-Fi defeituoso ou antena desconectada — substituição do módulo wireless ou reconexão da antena.", tempo: "1-2 horas", custo: "R$150–R$350" },
+    ],
+    riscos: [
+      "Instalar drivers genéricos pode causar instabilidade no sistema",
+      "Abrir o notebook sem experiência pode danificar cabos flat e antenas",
+      "Usar adaptador USB como solução permanente pode causar desconexões",
+      "Ignorar o problema pode indicar falha progressiva na placa-mãe",
+    ],
+    diagnostico: `O diagnóstico inicia verificando se o adaptador está visível no Gerenciador de Dispositivos. Se ausente, testamos com boot via Linux Live para verificar se o hardware é reconhecido — isso diferencia falha de software (driver Windows) de falha física.\n\nVerificamos o serviço WLAN AutoConfig, testamos diferentes drivers e, em notebooks, inspecionamos a conexão física da antena e do módulo Wi-Fi. Em desktops, testamos com outro adaptador Wi-Fi para confirmar a falha.`,
+    solucao: `Para problemas de software, reinstalamos o driver correto do fabricante, reiniciamos serviços de rede e reconfiguramos o adaptador. Em casos de driver removido por atualização, fazemos rollback.\n\nPara falhas de hardware em notebooks, reconectamos a antena ou substituímos o módulo Wi-Fi (mini PCIe/M.2) por peça compatível. Em desktops, substituímos a placa Wi-Fi PCIe ou configuramos um adaptador USB de alta qualidade como alternativa.`,
+    quandoCompensa: "Quando o problema é de software (driver, serviço) ou quando o módulo Wi-Fi é barato e fácil de substituir no modelo específico.",
+    quandoNaoCompensa: "Quando a falha está na placa-mãe (trilha do slot Wi-Fi danificada) e o custo de reparo ultrapassa o valor de um adaptador USB externo de qualidade.",
+    whatsappMessage: "Olá! Meu computador não conecta no Wi-Fi. Preciso de diagnóstico e reparo em Curitiba.",
+    conteudoExtra: `## Verificações Rápidas Antes de Chamar um Técnico\n\n1. **Verifique o Modo Avião**: Configurações → Rede e Internet → certifique-se que o Modo Avião está desligado\n2. **Tecla de função**: Pressione Fn + tecla com ícone de Wi-Fi (varia por fabricante: F2, F5, F12)\n3. **Gerenciador de Dispositivos**: Clique com botão direito no menu Iniciar → Gerenciador de Dispositivos → Adaptadores de Rede → verifique se o adaptador Wi-Fi está ativo\n4. **Serviço WLAN**: Execute services.msc → procure \"Configuração Automática de WLAN\" → certifique-se que está Iniciado e Automático\n5. **Reset de rede**: Configurações → Rede → Redefinição de rede\n\n## Adaptador USB como Solução Temporária\n\nEnquanto aguarda o reparo, um adaptador Wi-Fi USB pode restaurar a conectividade. Recomendamos modelos com antena externa para melhor sinal. Nosso técnico pode indicar o modelo ideal para seu caso.`,
+    relatedPages: [
+      { to: "/pc-nao-conecta-internet-curitiba", label: "PC Sem Internet" },
+      { to: "/notebook-nao-conecta-bluetooth-curitiba", label: "Sem Bluetooth" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
 ];
 
 

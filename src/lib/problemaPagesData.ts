@@ -8270,7 +8270,6 @@ export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefine
 export const getAllProblemaSlugs = (): string[] => {
   return problemaPagesData.map(p => p.slug);
 };
-    metaDescription: "Fonte do PC queimou? Diagnóstico profissional de fontes queimadas em Curitiba. Identificamos curto-circuito, capacitores estufados e substituímos com fonte certificada 80 Plus.",
     h1: "Fonte Queimada em Curitiba — Diagnóstico e Substituição Profissional",
     categoria: "hardware",
     breadcrumbs: [

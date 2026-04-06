@@ -37,7 +37,7 @@ const benefits = [
   {
     icon: Wrench,
     title: "Técnico Certificado",
-    description: "Profissional com mais de 10 anos de experiência. Diagnóstico preciso e solução definitiva.",
+    description: "Profissional com mais de 20 anos de experiência. Diagnóstico preciso e solução definitiva.",
   },
 ];
 

@@ -20,7 +20,7 @@ import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home
 const benefits = [
   { icon: MapPin, title: "Cobertura em Campo Magro", description: "Atendemos do Centro à região rural. Conhecemos os acessos da cidade." },
   { icon: Clock, title: "Deslocamento de 35-55 Minutos", description: "Acesso pela Estrada do Cerne (PR-090). Agendamento flexível." },
-  { icon: Shield, title: "Técnico Experiente", description: "Mais de 10 anos. Profissional identificado com ferramentas profissionais." },
+  { icon: Shield, title: "Técnico Experiente", description: "Mais de 20 anos. Profissional identificado com ferramentas profissionais." },
   { icon: Wrench, title: "Garantia por Escrito", description: "Orçamento antes da execução. Garantia em todos os serviços." },
 ];
 

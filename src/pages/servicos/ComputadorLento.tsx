@@ -125,7 +125,7 @@ const ComputadorLento = () => {
                 </h3>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Processador Celeron, Pentium ou Atom antigo</li>
-                  <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Máquina com mais de 8-10 anos</li>
+                  <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Máquina com mais de 8-20 anos</li>
                   <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Placa-mãe sem suporte a SSD SATA/NVMe</li>
                   <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Custo do reparo acima de 60% do valor de um novo</li>
                   <li className="flex items-start gap-2"><AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> Múltiplos componentes falhando</li>

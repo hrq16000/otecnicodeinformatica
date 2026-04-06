@@ -64,7 +64,7 @@ const blogPostsContent: Record<string, {
         <p>Chrome é famoso por consumir muita RAM. Se você tem 10+ extensões, cada aba pode consumir 300 MB ou mais. Desative extensões que não usa e considere usar Edge ou Firefox se seu PC tem pouca RAM.</p>
 
         <h2>12. Hardware Antigo (Processador Ultrapassado)</h2>
-        <p>Processadores com mais de 8-10 anos podem não dar conta do Windows atual. Um Celeron ou Pentium antigo, mesmo com SSD e RAM, terá limitações. <strong>Nesse caso, a melhor solução pode ser trocar o computador</strong> — e não gastar em upgrades que não vão resolver.</p>
+        <p>Processadores com mais de 8-20 anos podem não dar conta do Windows atual. Um Celeron ou Pentium antigo, mesmo com SSD e RAM, terá limitações. <strong>Nesse caso, a melhor solução pode ser trocar o computador</strong> — e não gastar em upgrades que não vão resolver.</p>
         <p><Link to="/quando-nao-compensa" className="text-accent">→ Saiba quando não compensa reparar</Link></p>
 
         <h2>O Que Fazer Agora?</h2>

@@ -32,7 +32,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Técnico Experiente",
-    description: "Mais de 10 anos de experiência. Profissional identificado e com referências comprovadas.",
+    description: "Mais de 20 anos de experiência. Profissional identificado e com referências comprovadas.",
   },
   {
     icon: Wrench,

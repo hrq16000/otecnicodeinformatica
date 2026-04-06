@@ -32,7 +32,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Profissional Qualificado",
-    description: "Técnico identificado com mais de 10 anos de experiência. Atendimento seguro e confiável.",
+    description: "Técnico identificado com mais de 20 anos de experiência. Atendimento seguro e confiável.",
   },
   {
     icon: Wrench,

@@ -151,9 +151,15 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center">
+        <div className="border-t border-white/10 pt-6 text-center space-y-2">
           <p className="text-white/60 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. Todos os direitos reservados.
+          </p>
+          <p className="text-white/40 text-xs">
+            Uma empresa do ecossistema{" "}
+            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline transition-colors">
+              Preciso de Um
+            </a>
           </p>
         </div>
       </div>

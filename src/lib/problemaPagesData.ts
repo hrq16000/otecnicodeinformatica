@@ -7980,6 +7980,245 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+  // ─── fonte-queimada-curitiba ───
+  {
+    slug: "fonte-queimada-curitiba",
+    title: "Fonte Queimada em Curitiba | Diagnóstico e Troca de Fonte - TécnicoCuritiba",
+    metaDescription: "Fonte do PC queimou? Diagnóstico profissional de fontes queimadas em Curitiba. Identificamos curto-circuito, capacitores estufados e substituímos com fonte certificada 80 Plus.",
+    h1: "Fonte Queimada em Curitiba — Diagnóstico e Substituição Profissional",
+    categoria: "hardware",
+    breadcrumbs: [
+      { to: "/", label: "Início" },
+      { to: "/servicos", label: "Serviços" },
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada Curitiba" }
+    ],
+    intro: `A fonte de alimentação é o coração elétrico do computador. Quando ela falha, o PC simplesmente não liga — ou pior, pode danificar outros componentes como placa-mãe, SSD e memória RAM. Em Curitiba, oscilações na rede elétrica e falta de proteção adequada são causas frequentes de fontes queimadas.
+
+Nossos técnicos utilizam multímetro digital e testador de fonte ATX para diagnosticar com precisão se o problema é realmente a fonte ou se há danos colaterais em outros componentes. Substituímos por fontes certificadas 80 Plus para garantir eficiência energética e proteção.`,
+    sintomas: [
+      { titulo: "PC não liga de jeito nenhum", desc: "Ao apertar o botão power não acontece absolutamente nada — sem luzes, sem ventoinhas, sem beeps.", gravidade: "alta" },
+      { titulo: "PC liga e desliga imediatamente", desc: "O computador tenta iniciar por 1-2 segundos e desliga sozinho, repetindo o ciclo.", gravidade: "alta" },
+      { titulo: "Cheiro de queimado na parte traseira", desc: "Odor característico de componente eletrônico queimado vindo da região da fonte.", gravidade: "crítica" },
+      { titulo: "PC reinicia sob carga pesada", desc: "O computador funciona normalmente em tarefas leves mas reinicia ao jogar ou renderizar.", gravidade: "média" },
+      { titulo: "Estalos ou faíscas na fonte", desc: "Sons de estalo ou pequenas faíscas visíveis pela grade da fonte de alimentação.", gravidade: "crítica" }
+    ],
+    causas: [
+      { titulo: "Surto elétrico ou queda de energia", desc: "Picos de tensão na rede elétrica que ultrapassam a capacidade de proteção da fonte, queimando componentes internos.", tipo: "hardware" },
+      { titulo: "Capacitores estufados ou vazando", desc: "Capacitores eletrolíticos que perderam a vedação e estufaram, causando instabilidade e eventual falha total.", tipo: "desgaste" },
+      { titulo: "Ventilador da fonte travado", desc: "Acúmulo de poeira trava o cooler da fonte, causando superaquecimento interno e queima de componentes.", tipo: "desgaste" },
+      { titulo: "Fonte subdimensionada para o hardware", desc: "Fonte com potência insuficiente para a configuração, trabalhando no limite e falhando prematuramente.", tipo: "erro-humano" },
+      { titulo: "Curto-circuito interno", desc: "Falha de isolamento ou solda fria que gera curto-circuito entre trilhas da placa da fonte.", tipo: "hardware" }
+    ],
+    diagnostico: `### Como diagnosticamos uma fonte queimada
+
+1. **Teste do clipe de papel (jumper)** — Verificamos se a fonte responde ao sinal PS_ON isolada do sistema
+2. **Multímetro nas linhas** — Medimos tensões em +3.3V, +5V, +12V e -12V para verificar se estão dentro da tolerância de ±5%
+3. **Testador ATX digital** — Conectamos o testador para leitura simultânea de todas as linhas e verificação de PG (Power Good)
+4. **Inspeção visual interna** — Abrimos a fonte para verificar capacitores estufados, trilhas queimadas e componentes carbonizados
+5. **Teste de carga** — Verificamos se a fonte mantém tensões estáveis sob carga real do sistema
+6. **Verificação de danos colaterais** — Testamos placa-mãe, RAM e armazenamento para garantir que a fonte queimada não danificou outros componentes`,
+    cenarios: [
+      { nivel: "Simples", desc: "Fonte queimada sem danos colaterais — substituição direta por modelo compatível certificado", tempo: "1-2 horas", custo: "R$ 200–400" },
+      { nivel: "Médio", desc: "Fonte queimada com necessidade de fonte de maior potência ou modelo específico (modular, SFX)", tempo: "1-2 dias", custo: "R$ 400–700" },
+      { nivel: "Complexo", desc: "Fonte queimou e danificou placa-mãe ou outros componentes — diagnóstico completo + substituição múltipla", tempo: "3-5 dias", custo: "R$ 700–1.500" }
+    ],
+    riscos: [
+      "Fonte genérica sem certificação pode queimar novamente e danificar todo o PC",
+      "Usar fonte subdimensionada causa instabilidade e reduz vida útil dos componentes",
+      "Não usar estabilizador/nobreak expõe o novo equipamento aos mesmos riscos",
+      "Ignorar danos colaterais pode resultar em falhas intermitentes difíceis de diagnosticar"
+    ],
+    faqs: [
+      { pergunta: "Como saber se a fonte do PC queimou?", resposta: "Os sinais mais claros são: PC não liga de jeito nenhum, cheiro de queimado, ou o computador liga por 1-2 segundos e desliga. Um teste com multímetro confirma o diagnóstico." },
+      { pergunta: "Fonte genérica é segura?", resposta: "Não recomendamos. Fontes genéricas não possuem certificação 80 Plus, proteções adequadas (OVP, OCP, SCP) e podem danificar seus componentes. Sempre indicamos fontes certificadas." },
+      { pergunta: "Preciso de nobreak além da fonte nova?", resposta: "Sim, é altamente recomendado. O nobreak protege contra picos de tensão e quedas de energia, que são as principais causas de fontes queimadas em Curitiba." },
+      { pergunta: "Quanto tempo dura uma fonte boa?", resposta: "Fontes certificadas de boas marcas duram em média 5-10 anos. Muitas possuem garantia de 5+ anos do fabricante." }
+    ],
+    localInfo: [
+      { to: "/tecnico-informatica-curitiba", label: "Técnico em Curitiba" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ─── computador-nao-desliga-curitiba ───
+  {
+    slug: "computador-nao-desliga-curitiba",
+    title: "Computador Não Desliga em Curitiba | Solução Técnica - TécnicoCuritiba",
+    metaDescription: "PC não desliga ou fica travado no desligamento? Resolvemos problemas de shutdown em Curitiba: drivers conflitantes, processos travados, falhas de ACPI e erros do Windows.",
+    h1: "Computador Não Desliga em Curitiba — Diagnóstico e Solução Definitiva",
+    categoria: "software",
+    breadcrumbs: [
+      { to: "/", label: "Início" },
+      { to: "/servicos", label: "Serviços" },
+      { to: "/computador-nao-desliga-curitiba", label: "Computador Não Desliga Curitiba" }
+    ],
+    intro: `Um computador que não desliga corretamente é mais do que um incômodo — é um sinal de que algo está errado no sistema. Processos travados, drivers incompatíveis, falhas de gerenciamento de energia (ACPI) ou até problemas de hardware podem impedir o desligamento.
+
+Esse problema afeta tanto a produtividade quanto a saúde do hardware, já que desligamentos forçados pelo botão podem corromper dados e danificar o sistema de arquivos. Nossos técnicos em Curitiba identificam a causa raiz e aplicam a correção definitiva.`,
+    sintomas: [
+      { titulo: "Tela fica em 'Desligando...' infinitamente", desc: "O Windows mostra a animação de desligamento mas nunca completa o processo, ficando preso na tela.", gravidade: "média" },
+      { titulo: "PC reinicia em vez de desligar", desc: "Ao clicar em Desligar, o computador reinicia automaticamente em vez de se desligar.", gravidade: "média" },
+      { titulo: "Tela apaga mas luzes e ventoinhas continuam", desc: "O monitor apaga e o sistema parece desligado, mas LEDs e coolers permanecem funcionando.", gravidade: "alta" },
+      { titulo: "Mensagem de processo impedindo desligamento", desc: "O Windows exibe aviso de que um programa está impedindo o desligamento e fica aguardando.", gravidade: "baixa" },
+      { titulo: "Tela azul durante o desligamento", desc: "BSOD aparece no momento do shutdown, forçando reinicialização em vez de desligamento.", gravidade: "alta" }
+    ],
+    causas: [
+      { titulo: "Driver com falha no gerenciamento de energia", desc: "Drivers de placa de rede, USB ou GPU que não respondem corretamente ao comando de shutdown do Windows.", tipo: "software" },
+      { titulo: "Configuração ACPI incorreta na BIOS", desc: "Advanced Configuration and Power Interface mal configurada impede o sinal de desligamento correto.", tipo: "software" },
+      { titulo: "Processo ou serviço travado", desc: "Um programa ou serviço do Windows que não responde ao pedido de encerramento, bloqueando o shutdown.", tipo: "software" },
+      { titulo: "Fast Startup (Inicialização Rápida) corrompida", desc: "O recurso de inicialização rápida do Windows 10/11 pode corromper e causar falhas no desligamento.", tipo: "software" },
+      { titulo: "Problema no botão de energia ou placa-mãe", desc: "Falha no circuito de power do painel frontal ou na seção de gerenciamento de energia da placa-mãe.", tipo: "hardware" }
+    ],
+    diagnostico: `### Como diagnosticamos problemas de desligamento
+
+1. **Verificação do Event Viewer** — Analisamos os logs do Windows para identificar processos, drivers ou serviços que falharam durante o último shutdown
+2. **Teste em Modo de Segurança** — Verificamos se o problema persiste sem drivers e programas de terceiros
+3. **Análise de drivers** — Identificamos drivers problemáticos via Device Manager e verificamos atualizações pendentes
+4. **Configurações de energia** — Revisamos plano de energia, Fast Startup e configurações ACPI na BIOS
+5. **Comando shutdown -s -f -t 0** — Forçamos desligamento via terminal para isolar se o problema é de interface ou sistema
+6. **Teste de hardware** — Verificamos botão power, conexões do painel frontal e circuito de energia da placa-mãe`,
+    cenarios: [
+      { nivel: "Simples", desc: "Desativação do Fast Startup, atualização de driver problemático ou kill de processo travado", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Reconfiguração de ACPI na BIOS, reparo de componentes do Windows ou reinstalação de drivers de chipset", tempo: "1-3 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Falha no circuito de energia da placa-mãe ou necessidade de reinstalação limpa do Windows", tempo: "1-2 dias", custo: "R$ 300–600" }
+    ],
+    riscos: [
+      "Desligamentos forçados pelo botão podem corromper o sistema de arquivos e causar perda de dados",
+      "Problema pode indicar driver com falha grave que causa instabilidade geral do sistema",
+      "Hardware funcionando continuamente sem desligamento adequado reduz vida útil dos componentes",
+      "Ignorar o problema pode evoluir para telas azuis frequentes ou corrupção do Windows"
+    ],
+    faqs: [
+      { pergunta: "É seguro desligar pelo botão quando o PC não desliga?", resposta: "Não é ideal. Desligamentos forçados podem corromper dados. Se necessário, pressione o botão por 5-10 segundos, mas procure resolver a causa raiz o quanto antes." },
+      { pergunta: "O Fast Startup pode causar problemas?", resposta: "Sim. O Fast Startup do Windows salva o estado do kernel em disco para boot mais rápido, mas pode corromper e causar falhas no desligamento. Desativá-lo é um dos primeiros passos do diagnóstico." },
+      { pergunta: "Preciso reinstalar o Windows?", resposta: "Na maioria dos casos não. O problema geralmente se resolve com atualização de drivers, ajustes de energia ou reparo do sistema. Reinstalação é último recurso." },
+      { pergunta: "Pode ser problema de vírus?", resposta: "Sim, malwares podem instalar serviços que impedem o desligamento. Fazemos varredura completa como parte do diagnóstico." }
+    ],
+    localInfo: [
+      { to: "/tecnico-informatica-curitiba", label: "Técnico em Curitiba" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ─── erro-ao-instalar-windows-curitiba ───
+  {
+    slug: "erro-ao-instalar-windows-curitiba",
+    title: "Erro ao Instalar Windows em Curitiba | Solução Profissional - TécnicoCuritiba",
+    metaDescription: "Erro ao instalar Windows 10 ou 11 em Curitiba? Resolvemos falhas de instalação: erros 0x80300024, GPT/MBR, drivers RAID, UEFI e partições incompatíveis. Diagnóstico técnico.",
+    h1: "Erro ao Instalar Windows em Curitiba — Diagnóstico e Instalação Profissional",
+    categoria: "software",
+    breadcrumbs: [
+      { to: "/", label: "Início" },
+      { to: "/servicos", label: "Serviços" },
+      { to: "/erro-ao-instalar-windows-curitiba", label: "Erro ao Instalar Windows Curitiba" }
+    ],
+    intro: `Instalar o Windows parece simples, mas diversos erros técnicos podem travar o processo: incompatibilidade entre GPT e MBR, falta de drivers de armazenamento, erros de partição, mídia corrompida ou configurações de BIOS/UEFI incorretas. Cada código de erro indica uma causa específica que exige conhecimento técnico para resolver.
+
+Em Curitiba, atendemos diariamente casos de instalações travadas — especialmente em notebooks novos com armazenamento NVMe que requerem drivers específicos, ou máquinas antigas que precisam de ajustes de compatibilidade. Nosso serviço inclui diagnóstico, correção e instalação limpa com todos os drivers.`,
+    sintomas: [
+      { titulo: "Erro 0x80300024 durante instalação", desc: "Mensagem 'Não foi possível instalar o Windows no local selecionado' ao tentar selecionar a partição.", gravidade: "média" },
+      { titulo: "Disco não aparece na tela de partições", desc: "O instalador do Windows não detecta nenhum disco rígido ou SSD para instalação.", gravidade: "alta" },
+      { titulo: "Erro 'O Windows não pode ser instalado neste disco (GPT)'", desc: "Incompatibilidade entre modo de boot (UEFI/Legacy) e tabela de partições (GPT/MBR).", gravidade: "média" },
+      { titulo: "Instalação trava em porcentagem específica", desc: "O progresso da instalação para em determinado ponto (geralmente 25%, 49% ou 74%) e não avança.", gravidade: "alta" },
+      { titulo: "Tela azul durante a instalação", desc: "BSOD com erros como IRQL_NOT_LESS_OR_EQUAL ou KERNEL_DATA_INPAGE_ERROR durante o setup.", gravidade: "crítica" }
+    ],
+    causas: [
+      { titulo: "Tabela de partições incompatível (GPT vs MBR)", desc: "O disco está formatado em MBR mas o boot é UEFI (ou vice-versa), impedindo a instalação.", tipo: "software" },
+      { titulo: "Falta de driver de armazenamento", desc: "SSDs NVMe e controladores RAID modernos precisam de drivers que não vêm incluídos no instalador padrão do Windows.", tipo: "software" },
+      { titulo: "Mídia de instalação corrompida", desc: "Pendrive com ISO corrompida, setores defeituosos ou USB mal criado pelo Media Creation Tool.", tipo: "erro-humano" },
+      { titulo: "Memória RAM defeituosa", desc: "Módulos de RAM com erros causam falhas aleatórias durante a cópia de arquivos na instalação.", tipo: "hardware" },
+      { titulo: "BIOS/UEFI mal configurada", desc: "Secure Boot, CSM, modo AHCI/RAID ou ordem de boot configurados incorretamente para a instalação.", tipo: "software" }
+    ],
+    diagnostico: `### Como diagnosticamos erros de instalação do Windows
+
+1. **Análise do código de erro** — Cada erro de instalação tem uma causa específica que direcionamos o diagnóstico
+2. **Verificação de BIOS/UEFI** — Conferimos Secure Boot, CSM, modo SATA (AHCI/RAID) e configurações de boot
+3. **Teste da mídia de instalação** — Verificamos integridade da ISO e do pendrive com hash SHA-256
+4. **Diagnóstico de hardware** — Testamos RAM com MemTest86, SSD/HD com ferramentas do fabricante e verificamos temperaturas
+5. **Preparação de drivers** — Identificamos o controlador de armazenamento e preparamos drivers específicos para injeção durante a instalação
+6. **Particionamento correto** — Convertendo entre GPT/MBR conforme necessidade e criando partições adequadas via Diskpart`,
+    cenarios: [
+      { nivel: "Simples", desc: "Ajuste de BIOS (UEFI/Legacy, AHCI) ou conversão de tabela de partições GPT/MBR via Diskpart", tempo: "1-2 horas", custo: "R$ 100–200" },
+      { nivel: "Médio", desc: "Instalação com injeção de drivers NVMe/RAID, particionamento manual e configuração completa pós-instalação", tempo: "2-4 horas", custo: "R$ 200–400" },
+      { nivel: "Complexo", desc: "Hardware com defeito (RAM/SSD) impedindo instalação — substituição + instalação + migração de dados", tempo: "1-3 dias", custo: "R$ 400–800" }
+    ],
+    riscos: [
+      "Tentativas de instalação sem conhecimento podem apagar dados importantes sem backup",
+      "Formatação incorreta pode destruir a tabela de partições e dificultar recuperação de dados",
+      "Forçar instalação em hardware defeituoso resulta em sistema instável com telas azuis frequentes",
+      "Instalar Windows sem drivers corretos causa dispositivos sem funcionar e vulnerabilidades de segurança"
+    ],
+    faqs: [
+      { pergunta: "Posso instalar Windows 11 em PC antigo?", resposta: "O Windows 11 exige TPM 2.0, Secure Boot e processador compatível. Em PCs que não atendem os requisitos, podemos avaliar alternativas ou métodos de instalação com limitações conhecidas." },
+      { pergunta: "Meus arquivos serão perdidos na instalação?", resposta: "Fazemos backup completo antes de qualquer instalação. Se o disco está acessível, seus arquivos são preservados. Se não está acessível, tentamos recuperação antes." },
+      { pergunta: "Por que meu SSD NVMe não aparece no instalador?", resposta: "O instalador padrão do Windows não inclui drivers para muitos controladores NVMe. É necessário carregar o driver manualmente durante a instalação (opção 'Carregar driver')." },
+      { pergunta: "Qual a diferença entre GPT e MBR?", resposta: "GPT é o formato moderno usado com UEFI (suporta discos >2TB, mais partições). MBR é o formato legado usado com BIOS tradicional. A instalação deve usar o formato compatível com o modo de boot." }
+    ],
+    localInfo: [
+      { to: "/tecnico-informatica-curitiba", label: "Técnico em Curitiba" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ─── notebook-touchpad-nao-funciona-curitiba ───
+  {
+    slug: "notebook-touchpad-nao-funciona-curitiba",
+    title: "Touchpad do Notebook Não Funciona em Curitiba | Reparo Técnico - TécnicoCuritiba",
+    metaDescription: "Touchpad do notebook parou de funcionar? Diagnóstico e reparo em Curitiba: driver Synaptics/ELAN, flat cable, configurações do Windows e substituição de touchpad.",
+    h1: "Touchpad do Notebook Não Funciona em Curitiba — Diagnóstico e Reparo",
+    categoria: "hardware",
+    breadcrumbs: [
+      { to: "/", label: "Início" },
+      { to: "/servicos", label: "Serviços" },
+      { to: "/notebook-touchpad-nao-funciona-curitiba", label: "Touchpad Não Funciona Curitiba" }
+    ],
+    intro: `O touchpad é o principal dispositivo de entrada do notebook quando você está em movimento. Quando ele para de funcionar, a produtividade despenca. As causas vão desde um simples atalho de teclado desativado até problemas de hardware como flat cable danificado ou placa do touchpad defeituosa.
+
+Em Curitiba, nossos técnicos diagnosticam a causa exata — seja software (drivers Synaptics, ELAN ou Precision) ou hardware (flat cable, conector, placa) — e aplicam a solução definitiva, desde reinstalação de drivers até substituição do componente.`,
+    sintomas: [
+      { titulo: "Touchpad completamente sem resposta", desc: "O cursor não se move de jeito nenhum ao tocar ou deslizar no touchpad, sem nenhuma reação.", gravidade: "alta" },
+      { titulo: "Touchpad funciona intermitentemente", desc: "O touchpad funciona por alguns minutos e depois para, ou funciona apenas em certas áreas da superfície.", gravidade: "média" },
+      { titulo: "Cursor pula ou se move erraticamente", desc: "O ponteiro do mouse se move de forma irregular, pula para cantos da tela ou tem movimentos fantasma.", gravidade: "média" },
+      { titulo: "Gestos multitoque não funcionam", desc: "Toque com dois dedos (scroll), pinça para zoom ou gestos de três dedos não respondem, mas o movimento básico funciona.", gravidade: "baixa" },
+      { titulo: "Botões do touchpad não clicam", desc: "Os botões físicos ou a área de clique do touchpad não registram cliques, embora o movimento funcione.", gravidade: "média" }
+    ],
+    causas: [
+      { titulo: "Touchpad desativado por atalho de teclado", desc: "A maioria dos notebooks tem tecla Fn+F_ que desativa o touchpad. Pode ter sido pressionada acidentalmente.", tipo: "erro-humano" },
+      { titulo: "Driver corrompido ou incompatível", desc: "Atualização do Windows instalou driver genérico que não suporta todos os recursos do touchpad específico do modelo.", tipo: "software" },
+      { titulo: "Flat cable do touchpad solto ou danificado", desc: "O cabo flex que conecta o touchpad à placa-mãe pode ter se soltado por vibração ou estar com trilhas rompidas.", tipo: "hardware" },
+      { titulo: "Configuração desativada no Windows", desc: "O touchpad pode estar desativado nas configurações do Windows (Dispositivos > Touchpad) ou no Gerenciador de Dispositivos.", tipo: "software" },
+      { titulo: "Placa do touchpad defeituosa", desc: "O módulo do touchpad em si pode ter falhado por desgaste, líquido derramado ou componente eletrônico queimado.", tipo: "hardware" }
+    ],
+    diagnostico: `### Como diagnosticamos problemas no touchpad
+
+1. **Verificação de atalho de teclado** — Testamos a tecla Fn + tecla de touchpad (varia por fabricante: F5, F6, F7, F9) para descartar desativação acidental
+2. **Configurações do Windows** — Verificamos se o touchpad está habilitado em Configurações > Bluetooth e dispositivos > Touchpad
+3. **Gerenciador de Dispositivos** — Checamos se o touchpad é reconhecido, se há erros de driver (triângulo amarelo) ou se está desabilitado
+4. **Teste com driver específico** — Instalamos o driver oficial do fabricante (Synaptics, ELAN ou Precision Touchpad) para o modelo exato
+5. **Teste no BIOS** — Verificamos se o touchpad funciona na BIOS/UEFI para isolar problema de hardware vs software
+6. **Inspeção interna** — Abrimos o notebook para verificar flat cable, conector e placa do touchpad visualmente`,
+    cenarios: [
+      { nivel: "Simples", desc: "Reativação por atalho de teclado, configurações do Windows ou reinstalação de driver correto do fabricante", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Reconexão de flat cable solto, limpeza de conector oxidado ou reparo de trilha do cabo flex", tempo: "1-3 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Substituição completa do módulo touchpad ou reparo de conector na placa-mãe", tempo: "2-5 dias", custo: "R$ 300–600" }
+    ],
+    riscos: [
+      "Abrir o notebook sem experiência pode danificar o flat cable ou outros conectores delicados",
+      "Instalar driver incorreto pode causar conflitos com outros dispositivos de entrada",
+      "Líquido derramado sobre o touchpad pode ter atingido a placa-mãe — dano pode ser maior que o aparente",
+      "Usar mouse externo indefinidamente sem consertar pode indicar problema maior que se agrava com o tempo"
+    ],
+    faqs: [
+      { pergunta: "Como reativar o touchpad pelo teclado?", resposta: "Cada fabricante usa uma tecla diferente: Dell (Fn+F5), Lenovo (Fn+F6 ou F8), HP (toque duplo no canto superior esquerdo do touchpad), Acer (Fn+F7). Verifique o ícone de touchpad nas teclas F." },
+      { pergunta: "Mouse externo desativa o touchpad automaticamente?", resposta: "Sim, há uma configuração no Windows que desativa o touchpad quando um mouse USB é conectado. Vá em Configurações > Touchpad e desmarque 'Desativar touchpad quando um mouse estiver conectado'." },
+      { pergunta: "Touchpad de notebook pode ser trocado?", resposta: "Sim, na maioria dos modelos o touchpad é um módulo separado que pode ser substituído. Encomendamos a peça compatível com seu modelo específico." },
+      { pergunta: "O touchpad pode ser consertado após derramar líquido?", resposta: "Depende da extensão do dano. Se apenas o touchpad foi afetado, a substituição resolve. Se o líquido atingiu a placa-mãe, é necessário diagnóstico mais amplo." }
+    ],
+    localInfo: [
+      { to: "/tecnico-informatica-curitiba", label: "Técnico em Curitiba" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

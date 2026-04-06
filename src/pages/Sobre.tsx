@@ -154,6 +154,7 @@ const Sobre = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="clienteSatisfeito" layout="duo" caption="Nossa bancada de trabalho profissional" secondaryCaption="Clientes satisfeitos com nosso atendimento" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

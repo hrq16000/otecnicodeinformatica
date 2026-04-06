@@ -218,6 +218,7 @@ const FAQ = () => {
 
         <CTASection />
       </main>
+      <RealImageSection imageKey="diagnostico" caption="Diagnóstico técnico profissional com equipamentos especializados" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

@@ -225,6 +225,7 @@ const AtendimentoDomicilio = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="tecnicoTrabalhando" layout="duo" caption="Atendimento técnico diretamente na sua casa" secondaryCaption="Diagnóstico profissional a domicílio" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

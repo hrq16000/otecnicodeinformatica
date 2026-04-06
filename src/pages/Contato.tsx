@@ -220,6 +220,7 @@ const Contato = () => {
           </div>
         </section>
       </main>
+      <RealImageSection imageKey="clienteSatisfeito" caption="Atendimento humanizado e profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

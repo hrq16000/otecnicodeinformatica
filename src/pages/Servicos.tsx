@@ -222,6 +222,7 @@ const Servicos = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="notebookReparo" layout="duo" caption="Técnico especializado em ação" secondaryCaption="Reparo profissional de notebooks" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

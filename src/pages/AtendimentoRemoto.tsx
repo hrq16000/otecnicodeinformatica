@@ -109,6 +109,7 @@ const AtendimentoRemoto = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="suporteRemoto" caption="Suporte técnico remoto profissional" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

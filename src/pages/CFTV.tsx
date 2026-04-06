@@ -397,6 +397,7 @@ const CFTVPage = () => {
         </section>
       </main>
 
+      <RealImageSection imageKey="cameraSeguranca" caption="Câmera de segurança CFTV instalada profissionalmente" />
       <BlocoInteligencia compact />
       <InterlinkingBlock />
       <Footer />

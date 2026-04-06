@@ -279,6 +279,7 @@ const SuporteEmpresas = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="servidores" secondaryImageKey="redesWifi" layout="duo" caption="Infraestrutura de rede empresarial" secondaryCaption="Configuração profissional de redes corporativas" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

@@ -9,6 +9,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Helmet } from "react-helmet";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { getProblemaPageBySlug } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";

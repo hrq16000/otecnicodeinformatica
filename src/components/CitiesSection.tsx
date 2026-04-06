@@ -127,7 +127,7 @@ export const CitiesSection = () => {
           </h3>
           <div className="prose prose-sm text-muted-foreground max-w-none">
             <p>
-              Somos especialistas em <strong>manutenção de computadores e notebooks</strong> com mais de 10 anos 
+              Somos especialistas em <strong>manutenção de computadores e notebooks</strong> com mais de 20 anos 
               de experiência atendendo a região de Curitiba. Nossa equipe de técnicos qualificados oferece 
               <strong> atendimento a domicílio</strong> em toda a região metropolitana, incluindo 
               <strong> São José dos Pinhais</strong>, <strong>Araucária</strong>, <strong>Campo Largo</strong>, 

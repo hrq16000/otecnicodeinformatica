@@ -33,7 +33,7 @@ const reviews = [
     name: "Ana Paula Costa",
     location: "Portão, Curitiba",
     rating: 5,
-    text: "Recuperaram todos os arquivos do meu HD que achei que tinha perdido para sempre. Fotos de família de mais de 10 anos! Super recomendo o serviço.",
+    text: "Recuperaram todos os arquivos do meu HD que achei que tinha perdido para sempre. Fotos de família de mais de 20 anos! Super recomendo o serviço.",
     service: "Recuperação de Dados",
     date: "2024-01-05",
     verified: true

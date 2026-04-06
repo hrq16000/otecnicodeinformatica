@@ -580,7 +580,7 @@ const ComoFunciona = () => {
                   <h3 className="font-bold text-destructive text-lg mb-3">❌ Não compensa quando:</h3>
                   <ul className="space-y-2">
                     {[
-                      "Equipamento tem mais de 8-10 anos",
+                      "Equipamento tem mais de 8-20 anos",
                       "Múltiplos defeitos simultâneos",
                       "Custo do reparo > 40% de um novo",
                       "Peças obsoletas e caras",

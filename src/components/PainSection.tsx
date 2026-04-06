@@ -8,7 +8,7 @@ const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 const benefits = [
   {
     icon: Clock,
-    text: "Mais de 10 anos de experiência",
+    text: "Mais de 20 anos de experiência",
     description: "Profissional experiente no mercado"
   },
   {

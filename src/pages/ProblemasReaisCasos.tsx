@@ -59,7 +59,7 @@ const casos = [
     problema: "Cliente queria 'deixar o computador rápido novamente'. O PC tinha 12 anos, HD mecânico de 160GB, 2GB de RAM DDR2 e processador Core 2 Duo.",
     diagnostico: "Equipamento em fim de vida útil. HD com setores defeituosos, memória DDR2 (fora de fabricação, cara no mercado), processador sem suporte para Windows 10/11.",
     solucao: "O técnico orientou o cliente que investir em reparo não compensava: a memória DDR2 custava quase o mesmo que DDR5 atual, o processador não suportaria sistemas modernos e o HD precisaria ser trocado. Sugestão: montar um PC novo por R$ 1.500 com desempenho 10x superior.",
-    licao: "Equipamentos com mais de 8-10 anos geralmente não compensam reparo. O custo das peças antigas é alto, a disponibilidade é baixa e o desempenho nunca será satisfatório para uso moderno. Um técnico honesto orienta quando é hora de trocar.",
+    licao: "Equipamentos com mais de 8-20 anos geralmente não compensam reparo. O custo das peças antigas é alto, a disponibilidade é baixa e o desempenho nunca será satisfatório para uso moderno. Um técnico honesto orienta quando é hora de trocar.",
     icon: Monitor,
   },
   {

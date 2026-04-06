@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
+import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = "5541997452053";

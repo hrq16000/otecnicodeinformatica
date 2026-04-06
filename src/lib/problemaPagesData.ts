@@ -4927,6 +4927,216 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     conteudoExtra: `## PC Desligando Sozinho: Guia de Diagnóstico\n\n### Tempo Ligado vs Causa Provável\n\n| Tempo | Causa Mais Provável |\n|---|---|\n| 0-3 segundos | Curto-circuito ou proteção da fonte |\n| 3-5 segundos | Cooler de CPU não detectado |\n| 5-15 segundos | RAM defeituosa ou incompatível |\n| 15-60 segundos | Superaquecimento (sem pasta térmica) |\n| Minutos | Fonte subdimensionada sob carga |\n| Aleatório | Capacitor estufado / mau contato |\n\n### Teste Bare-Bones (Diagnóstico por Eliminação)\n\n1. Remova TUDO do gabinete: GPU, HDs, SSDs, ventoinhas extras\n2. Deixe apenas: placa-mãe + CPU + cooler + 1 pente de RAM\n3. Conecte a fonte e tente ligar\n4. Se funcionar: adicione um componente por vez até encontrar o culpado\n5. Se não funcionar: problema é na placa-mãe, CPU, RAM ou fonte\n\n### Sinais Visuais de Problemas\n\n| Sinal | Componente | Ação |\n|---|---|---|\n| Capacitor estufado (topo abaulado) | Placa-mãe/Fonte | Trocar componente |\n| Marca de queimado na placa | Placa-mãe | Avaliar reparo |\n| Pinos tortos no socket | Processador | Endireitar ou trocar |\n| Conector derretido | Fonte/GPU | Trocar imediatamente |`
   },
 
+  // ==================== NOTEBOOK TOUCHPAD NÃO FUNCIONA ====================
+  {
+    slug: "notebook-touchpad-nao-funciona-curitiba",
+    title: "Touchpad do Notebook Não Funciona em Curitiba | Técnico Especialista",
+    metaDescription: "Touchpad do notebook parou de funcionar, não responde ao toque ou está travado? Técnico em Curitiba resolve problemas de touchpad com diagnóstico rápido e preciso.",
+    h1: "Touchpad do Notebook Não Funciona — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Periférico",
+    intro: `O touchpad do notebook parou de responder, funciona de forma intermitente ou perdeu gestos como scroll e zoom? Esse problema pode parecer menor, mas torna o notebook praticamente inútil sem um mouse externo — especialmente para quem usa o equipamento fora de casa.\n\nAs causas vão desde uma simples tecla de atalho que desativou o touchpad (Fn + F-key) até problemas de driver, cabo flat desconectado ou defeito no próprio sensor capacitivo. Em notebooks mais recentes com touchpad de precisão (Windows Precision), problemas de driver são especialmente comuns após atualizações do Windows.\n\nEm Curitiba, atendemos muitos casos onde o touchpad parou após atualização do Windows, derramamento de líquido sobre o teclado (que atinge o touchpad por baixo) ou após manutenção onde o cabo flat não foi reconectado corretamente.`,
+    sintomas: [
+      { titulo: "Touchpad completamente morto (sem resposta)", desc: "Nenhum movimento, clique ou gesto funciona. Pode ser desativado por tecla de atalho, driver ausente ou cabo flat desconectado.", gravidade: "Média" },
+      { titulo: "Cursor se move mas cliques não funcionam", desc: "O cursor acompanha o dedo mas tocar para clicar ou os botões físicos não respondem. Problema de configuração ou sensor de clique.", gravidade: "Baixa-Média" },
+      { titulo: "Touchpad funciona de forma intermitente", desc: "Às vezes funciona, às vezes para. Piora com temperatura ou posição específica. Indica cabo flat com mau contato ou sensor com falha parcial.", gravidade: "Média" },
+      { titulo: "Gestos de scroll/zoom pararam de funcionar", desc: "O cursor se move mas scroll com dois dedos, pinch-to-zoom e outros gestos não respondem. Geralmente problema de driver ou configuração.", gravidade: "Baixa" },
+      { titulo: "Cursor pula ou se move sozinho", desc: "O cursor salta para posições aleatórias ou se move sem tocar. Pode ser interferência eletrostática, sujeira no sensor ou driver com bug.", gravidade: "Média" },
+      { titulo: "Touchpad desativa quando conecta mouse USB", desc: "Configuração do Windows ou BIOS que desativa o touchpad quando mouse externo é detectado. Pode ser ajustado nas configurações.", gravidade: "Baixa" }
+    ],
+    causas: [
+      { titulo: "Desativado por tecla de atalho (Fn + F-key)", desc: "A maioria dos notebooks tem uma tecla (F5, F6, F7 ou F9) que desativa o touchpad. Muitos usuários apertam sem querer e acham que quebrou.", tipo: "erro-humano" },
+      { titulo: "Driver Synaptics/ELAN corrompido ou ausente", desc: "Após atualização do Windows, o driver do touchpad pode ser substituído por versão genérica que não suporta gestos ou funciona parcialmente.", tipo: "software" },
+      { titulo: "Cabo flat desconectado ou danificado", desc: "O cabo flat que conecta o touchpad à placa-mãe pode se soltar após impacto, vibração ou manutenção. Fio rompido causa falha total.", tipo: "hardware" },
+      { titulo: "Líquido derramado sobre o teclado", desc: "Água, café ou refrigerante derramado no teclado pode escorrer para baixo e atingir o circuito do touchpad, causando curto ou corrosão.", tipo: "erro-humano" },
+      { titulo: "Touchpad desativado na BIOS", desc: "Algumas BIOS/UEFI têm opção de desativar o touchpad. Pode ter sido alterado acidentalmente ou durante manutenção.", tipo: "erro-humano" },
+      { titulo: "Sensor capacitivo com defeito", desc: "O próprio sensor do touchpad pode falhar por desgaste, impacto ou defeito de fabricação. Mais comum em notebooks com mais de 4 anos.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reativação por tecla de atalho + reinstalação de driver + configuração de gestos. Resolve 50% dos casos.", tempo: "20-40 min", custo: "R$ 70–130" },
+      { nivel: "Médio", desc: "Reconexão do cabo flat + limpeza de contatos + instalação de driver específico do fabricante.", tempo: "1-2 horas", custo: "R$ 130–250" },
+      { nivel: "Complexo", desc: "Troca do módulo touchpad completo ou reparo de trilha na placa do touchpad após dano por líquido.", tempo: "2-5 dias", custo: "R$ 200–500" }
+    ],
+    riscos: [
+      "Derramamento de líquido pode corroer outros componentes além do touchpad",
+      "Forçar cabo flat pode romper o conector na placa-mãe — reparo caro",
+      "Instalar driver de touchpad genérico pode causar conflito com outros dispositivos",
+      "Desmontar notebook sem experiência pode danificar clipes e travas do touchpad",
+      "Usar mouse externo permanentemente sobrecarrega a porta USB e limita mobilidade"
+    ],
+    diagnostico: `Diagnóstico de touchpad:\n\n1. Verificação de tecla de atalho (Fn + F-key)\n2. Verificação de configuração do Windows (Configurações → Dispositivos → Touchpad)\n3. Verificação no Gerenciador de Dispositivos (driver, status)\n4. Teste com mouse USB conectado e desconectado\n5. Verificação na BIOS (touchpad habilitado?)\n6. Inspeção física do cabo flat e conector\n\nCusto: R$ 70 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Tecla de atalho**: Reativação via Fn + F-key ou Configurações do Windows\n- **Driver**: Remoção do driver genérico + instalação do driver Synaptics/ELAN do fabricante\n- **Cabo flat**: Reconexão segura ou troca do cabo\n- **BIOS**: Reativação da opção de touchpad nas configurações de BIOS\n- **Sensor**: Troca do módulo touchpad por peça compatível\n- **Líquido**: Limpeza com álcool isopropílico + secagem + teste de continuidade\n\nTeste completo de todos os gestos e cliques após o reparo.`,
+    quandoCompensa: "Sempre — resolver touchpad custa R$ 70-250 na maioria dos casos. Mesmo troca do módulo (R$ 200-500) é mais barato que usar mouse externo para sempre.",
+    quandoNaoCompensa: "Quando o notebook é muito antigo e a peça de reposição não existe mais. Nesse caso, um mouse Bluetooth compacto resolve por R$ 50-100.",
+    whatsappMessage: "Olá! O touchpad do meu notebook parou de funcionar. Podem me ajudar?",
+    relatedPages: [
+      { to: "/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver" },
+      { to: "/notebook-nao-conecta-bluetooth-curitiba", label: "Bluetooth Não Conecta" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Touchpad do Notebook: Guia Completo\n\n### Teclas de Atalho para Touchpad por Fabricante\n\n| Fabricante | Tecla | Observação |\n|---|---|---|\n| Dell | Fn + F5 | Ícone de touchpad na tecla |\n| Lenovo | Fn + F6 | Varia por modelo |\n| HP | Duplo toque no canto superior esquerdo | Ou Fn + F-key |\n| Acer | Fn + F7 | LED indicador no touchpad |\n| ASUS | Fn + F9 | Varia por modelo |\n| Samsung | Fn + F5 | Ícone na tecla |\n\n### Tipos de Touchpad\n\n| Tipo | Gestos | Precisão | Notebooks |\n|---|---|---|---|\n| Synaptics | Básicos | Boa | Maioria até 2018 |\n| ELAN | Básicos a intermediários | Boa | Dell, Acer, ASUS |\n| Windows Precision | Completos (4+ dedos) | Excelente | Modernos 2019+ |\n| Apple Force Touch | Completos + força | Excelente | MacBook |\n\n### Como Verificar se o Touchpad Está Ativo\n\n1. **Win + I** → Dispositivos → Touchpad → Deve estar "Ativado"\n2. Verifique se existe um LED no touchpad (alguns modelos) — se aceso, está desativado\n3. Conecte um mouse USB → vá em Configurações → desmaque "Desativar touchpad quando mouse está conectado"`
+  },
+
+  // ==================== PC NÃO RECONHECE SEGUNDO MONITOR ====================
+  {
+    slug: "pc-nao-reconhece-segundo-monitor-curitiba",
+    title: "PC Não Reconhece Segundo Monitor em Curitiba | Técnico Especialista",
+    metaDescription: "Segundo monitor não é reconhecido pelo PC ou notebook? Técnico em Curitiba resolve problemas de dual monitor com diagnóstico profissional. Atendimento rápido.",
+    h1: "PC Não Reconhece Segundo Monitor — Diagnóstico e Configuração em Curitiba",
+    categoria: "Hardware — Vídeo",
+    intro: `Conectou um segundo monitor mas o PC não reconhece, não detecta ou mostra apenas um? O setup dual monitor se tornou essencial para produtividade, home office e gaming, mas configurá-lo nem sempre é simples — especialmente quando envolve tipos diferentes de saída de vídeo, adaptadores e configurações do Windows.\n\nOs problemas mais comuns envolvem: cabo ou adaptador incompatível, driver de vídeo desatualizado, configuração errada no Windows (modo de exibição), limitação da placa de vídeo ou notebook que não suporta saída simultânea em determinada resolução.\n\nEm Curitiba, configuramos setups dual e triple monitor diariamente para home offices, escritórios de contabilidade, design e programação. O diagnóstico identifica se o problema é hardware (cabo, porta, GPU) ou software (driver, configuração) para resolver com eficiência.`,
+    sintomas: [
+      { titulo: "Segundo monitor mostra 'Sem Sinal'", desc: "O monitor está ligado mas não recebe sinal do PC. Pode ser cabo errado, porta inativa, adaptador incompatível ou GPU não suportando duas saídas.", gravidade: "Média" },
+      { titulo: "Windows só detecta um monitor", desc: "Em Configurações → Sistema → Tela, aparece apenas '1 monitor'. O segundo não é listado nem com 'Detectar'. Problema de driver ou hardware.", gravidade: "Média" },
+      { titulo: "Segundo monitor duplica em vez de estender", desc: "Ambos os monitores mostram a mesma imagem em vez de estender a área de trabalho. Configuração de modo de exibição precisa ser alterada.", gravidade: "Baixa" },
+      { titulo: "Resolução errada no segundo monitor", desc: "O segundo monitor mostra imagem borrada, esticada ou com barras pretas. A resolução nativa não está sendo usada — ajuste necessário.", gravidade: "Baixa" },
+      { titulo: "Monitor funciona sozinho mas não com o outro", desc: "Cada monitor funciona individualmente quando é o único conectado, mas ao conectar os dois, um deles não funciona.", gravidade: "Média" },
+      { titulo: "Segundo monitor pisca ou desconecta intermitentemente", desc: "O monitor fica conectando e desconectando sozinho. Pode ser cabo com mau contato, adaptador de baixa qualidade ou limitação de bandwidth.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Cabo ou adaptador incompatível", desc: "Adaptadores HDMI-VGA baratos nem sempre funcionam. Conversores ativos são necessários para certas combinações (ex: DisplayPort para HDMI em resolução 4K).", tipo: "hardware" },
+      { titulo: "Driver de vídeo desatualizado ou genérico", desc: "O driver Microsoft Basic Display Adapter não suporta múltiplos monitores. É necessário o driver oficial da NVIDIA, AMD ou Intel.", tipo: "software" },
+      { titulo: "Placa de vídeo não suporta saídas simultâneas", desc: "Algumas GPUs integradas ou modelos antigos limitam o número de saídas simultâneas ou a resolução máxima em dual monitor.", tipo: "hardware" },
+      { titulo: "Configuração de exibição errada no Windows", desc: "O Windows pode estar em modo 'Apenas tela do PC' ou 'Duplicar' em vez de 'Estender'. Win + P alterna entre modos.", tipo: "erro-humano" },
+      { titulo: "BIOS desabilitou vídeo integrado", desc: "Ao instalar GPU dedicada, a BIOS pode desabilitar o vídeo integrado. Para usar monitor na placa-mãe + GPU, é preciso habilitar 'IGD Multi-Monitor'.", tipo: "software" },
+      { titulo: "Porta de vídeo com defeito", desc: "A porta HDMI, DP ou VGA do PC ou do monitor pode ter defeito mecânico — pinos tortos, oxidação ou conector frouxo.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração correta do Windows + atualização de driver + troca de cabo. Resolve 60% dos casos.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Instalação de adaptador ativo + configuração de BIOS para multi-monitor + ajuste de resoluções e refresh rate.", tempo: "1-2 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Instalação de placa de vídeo adicional ou dock station USB-C para suportar múltiplos monitores.", tempo: "2-4 horas", custo: "R$ 250–800" }
+    ],
+    riscos: [
+      "Adaptadores baratos podem danificar portas de vídeo com voltagem incorreta",
+      "Forçar resolução não suportada pode causar tela preta permanente até reset",
+      "Usar splitter HDMI em vez de dual output resulta em imagem duplicada, não estendida",
+      "Driver de vídeo errado pode desabilitar todos os monitores temporariamente",
+      "Notebooks com GPU híbrida (Intel + NVIDIA) têm limitações de saída que confundem o diagnóstico"
+    ],
+    diagnostico: `Diagnóstico de dual monitor:\n\n1. Verificação de cabos e adaptadores (tipo, qualidade, compatibilidade)\n2. Teste de cada porta de vídeo individualmente\n3. Verificação de driver de vídeo (versão, fabricante)\n4. Configuração do Windows (Win + P, Configurações de Tela)\n5. Verificação de BIOS (IGD Multi-Monitor, saída primária)\n6. Teste com outro monitor/cabo para isolar o problema\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Cabo**: Troca por cabo certificado do tipo correto (HDMI 2.0, DP 1.4)\n- **Adaptador**: Instalação de adaptador ativo de qualidade (não splitter)\n- **Driver**: DDU + instalação limpa do driver NVIDIA/AMD/Intel\n- **Configuração**: Win + P → Estender + ajuste de resolução e posição dos monitores\n- **BIOS**: Habilitação de IGD Multi-Monitor e configuração de saída primária\n- **GPU**: Instalação de placa de vídeo com múltiplas saídas ou dock USB-C\n\nCalibração de resolução, refresh rate e posição dos monitores incluída.`,
+    quandoCompensa: "Sempre — configurar dual monitor custa R$ 80-300 e aumenta drasticamente a produtividade. Até instalar GPU dedicada vale o investimento.",
+    quandoNaoCompensa: "Quando o notebook ou PC simplesmente não tem capacidade gráfica para dois monitores na resolução desejada — nesse caso, upgrade de GPU é necessário.",
+    whatsappMessage: "Olá! Meu PC não reconhece o segundo monitor. Podem me ajudar a configurar?",
+    relatedPages: [
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/monitor-sem-sinal-curitiba", label: "Monitor Sem Sinal" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver" },
+      { to: "/servicos/redes-wifi", label: "Redes e Infraestrutura" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Dual Monitor: Guia Completo\n\n### Tipos de Conexão de Vídeo\n\n| Conexão | Resolução Máx | Áudio | Melhor Para |\n|---|---|---|---|\n| VGA | 1920x1080 | Não | Monitores antigos |\n| DVI-D | 2560x1600 | Não | Desktop |\n| HDMI 2.0 | 4K 60Hz | Sim | Uso geral |\n| HDMI 2.1 | 4K 120Hz | Sim | Gaming |\n| DisplayPort 1.4 | 4K 120Hz | Sim | Produtividade |\n| USB-C/Thunderbolt | 5K 60Hz | Sim | Notebooks modernos |\n\n### Atalhos Úteis para Dual Monitor\n\n| Atalho | Função |\n|---|---|\n| Win + P | Alternar modo (Duplicar/Estender) |\n| Win + Shift + ← ou → | Mover janela entre monitores |\n| Win + ↑ | Maximizar janela no monitor atual |\n| Win + ← ou → | Snap janela para metade da tela |\n\n### Configuração Ideal por Uso\n\n| Uso | Resolução Ideal | Tamanho | Painel |\n|---|---|---|---|\n| Escritório/Office | Full HD (1080p) | 24" | IPS |\n| Design/Foto | QHD (1440p) ou 4K | 27" | IPS sRGB 99%+ |\n| Programação | QHD (1440p) | 27" | IPS |\n| Gaming | Full HD ou QHD | 24-27" | IPS 144Hz+ |`
+  },
+
+  // ==================== ERRO ATUALIZAÇÃO WINDOWS 11 ====================
+  {
+    slug: "erro-atualizacao-windows-11-curitiba",
+    title: "Erro na Atualização do Windows 11 em Curitiba | Técnico Especialista",
+    metaDescription: "Erro ao atualizar o Windows 11? Atualização travada, falha de instalação ou PC incompatível? Técnico em Curitiba resolve problemas de update com segurança.",
+    h1: "Erro na Atualização do Windows 11 — Diagnóstico e Correção em Curitiba",
+    categoria: "Software — Windows",
+    intro: `Atualizações do Windows 11 são essenciais para segurança e desempenho, mas frequentemente causam dor de cabeça: atualizações que travam em uma porcentagem, erros com códigos incompreensíveis (0x80070002, 0x800f081f), PC que não inicia após update ou a mensagem temida "Desfazendo alterações, não desligue o computador".\n\nO Windows 11 trouxe requisitos de hardware mais rígidos (TPM 2.0, Secure Boot, processador compatível), e muitos PCs que rodavam Windows 10 perfeitamente enfrentam bloqueios ou instabilidade ao tentar migrar ou atualizar. Além disso, atualizações cumulativas mensais podem conflitar com drivers, softwares de terceiros ou configurações específicas.\n\nEm Curitiba, atendemos diariamente problemas de atualização — desde updates mensais que falham até migrações completas do Windows 10 para 11. Nosso diagnóstico identifica a causa exata e resolve sem perda de dados.`,
+    sintomas: [
+      { titulo: "Atualização trava em porcentagem fixa", desc: "O update fica parado em 20%, 45%, 73% ou 99% por horas. Pode ser conflito de driver, espaço em disco insuficiente ou arquivo de update corrompido.", gravidade: "Média" },
+      { titulo: "Erro com código (0x80070002, 0x800f081f, etc.)", desc: "Windows exibe código de erro e a atualização falha. Cada código indica uma causa diferente — arquivo corrompido, serviço parado ou componente ausente.", gravidade: "Média" },
+      { titulo: "'Desfazendo alterações' em loop", desc: "O PC reinicia mostrando 'Desfazendo alterações, não desligue' e fica em loop. A atualização falhou e o Windows tenta reverter sem sucesso.", gravidade: "Alta" },
+      { titulo: "PC não inicia após atualização", desc: "Tela azul, tela preta ou loop de reparo automático após instalar update. A atualização corrompeu drivers ou arquivos do sistema.", gravidade: "Alta" },
+      { titulo: "Mensagem 'Este PC não atende aos requisitos'", desc: "O Windows 11 exige TPM 2.0, Secure Boot e processador compatível. PCs de antes de 2018 geralmente são bloqueados.", gravidade: "Média" },
+      { titulo: "Espaço insuficiente para atualização", desc: "Windows pede 20-64 GB livres para updates maiores. Em SSDs de 128 GB, o espaço acaba rapidamente com cache de update.", gravidade: "Baixa-Média" }
+    ],
+    causas: [
+      { titulo: "Cache de Windows Update corrompido", desc: "A pasta SoftwareDistribution acumula arquivos de updates anteriores que podem se corromper e bloquear novas atualizações.", tipo: "software" },
+      { titulo: "Driver incompatível com a nova versão", desc: "Drivers de vídeo, áudio ou rede antigos podem conflitar com a atualização, causando tela azul ou falha na instalação.", tipo: "software" },
+      { titulo: "Espaço em disco insuficiente", desc: "Updates grandes (feature updates) precisam de 20-64 GB livres. SSDs de 128 GB frequentemente não têm espaço suficiente.", tipo: "software" },
+      { titulo: "Hardware não atende requisitos do Windows 11", desc: "TPM 2.0 não presente ou desabilitado, Secure Boot desligado ou processador fora da lista de compatibilidade da Microsoft.", tipo: "hardware" },
+      { titulo: "Software de segurança bloqueando o update", desc: "Antivírus de terceiros (Avast, Kaspersky, Norton) podem interferir no processo de atualização, corrompendo arquivos durante a instalação.", tipo: "software" },
+      { titulo: "Arquivos de sistema corrompidos", desc: "Erros pré-existentes nos arquivos do Windows (detectáveis com SFC /scannow e DISM) impedem que updates se instalem corretamente.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de cache de update + reset de componentes do Windows Update + reinstalação do update. Resolve 60% dos casos.", tempo: "1-2 horas", custo: "R$ 100–200" },
+      { nivel: "Médio", desc: "Reparo de arquivos de sistema (SFC + DISM) + atualização de drivers + resolução de erros específicos por código.", tempo: "2-4 horas", custo: "R$ 200–350" },
+      { nivel: "Complexo", desc: "Repair install do Windows 11 (mantém dados e programas) + resolução de incompatibilidades de hardware/TPM.", tempo: "3-6 horas", custo: "R$ 300–500" }
+    ],
+    riscos: [
+      "Desligar o PC durante atualização pode corromper o Windows permanentemente",
+      "Forçar instalação do Windows 11 em hardware incompatível pode causar instabilidade crônica",
+      "Ignorar atualizações de segurança deixa o PC vulnerável a malware e ransomware",
+      "Resetar o Windows Update incorretamente pode quebrar o sistema de updates permanentemente",
+      "Antivírus de terceiros podem corromper arquivos de sistema durante o update",
+      "Updates grandes podem apagar programas instalados sem aviso prévio"
+    ],
+    diagnostico: `Diagnóstico de atualização do Windows 11:\n\n1. Verificação de código de erro específico e causa catalogada\n2. Análise de logs do Windows Update (CBS.log, WindowsUpdate.log)\n3. Verificação de espaço em disco e saúde do SSD/HD\n4. Teste de integridade do sistema (SFC /scannow + DISM)\n5. Verificação de compatibilidade de hardware (TPM, Secure Boot, CPU)\n6. Identificação de drivers e softwares conflitantes\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme o problema:\n\n- **Cache corrompido**: Reset da pasta SoftwareDistribution + reinício dos serviços de update\n- **Arquivos de sistema**: Reparo com SFC /scannow + DISM /RestoreHealth\n- **Drivers**: Atualização prévia de todos os drivers críticos antes do update\n- **Espaço**: Limpeza de disco + remoção de updates antigos + Storage Sense\n- **Incompatibilidade**: Configuração de TPM na BIOS + habilitação de Secure Boot\n- **Loop**: Boot em modo de segurança + desinstalação do update problemático\n\nVerificação completa de funcionamento do sistema após a atualização bem-sucedida.`,
+    quandoCompensa: "Sempre — manter o Windows atualizado é essencial para segurança. O custo de R$ 100-350 evita problemas maiores no futuro.",
+    quandoNaoCompensa: "Quando o hardware é incompatível com Windows 11 e o PC roda bem com Windows 10 (que terá suporte até outubro de 2025). Nesse caso, usar o 10 até planejar upgrade.",
+    whatsappMessage: "Olá! Estou com erro ao atualizar o Windows 11. Podem me ajudar?",
+    relatedPages: [
+      { to: "/windows-travando-na-atualizacao-curitiba", label: "Windows Travando na Atualização" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Atualização do Windows 11: Guia Completo\n\n### Requisitos Mínimos do Windows 11\n\n| Componente | Requisito |\n|---|---|\n| Processador | 1 GHz, 2+ núcleos, 64-bit compatível |\n| RAM | 4 GB (recomendado 8 GB) |\n| Armazenamento | 64 GB livres |\n| TPM | Versão 2.0 |\n| Secure Boot | Habilitado |\n| Placa de vídeo | DirectX 12 com WDDM 2.0 |\n| Tela | 720p, 9" ou maior |\n\n### Códigos de Erro Comuns e Soluções\n\n| Código | Significado | Solução |\n|---|---|---|\n| 0x80070002 | Arquivo não encontrado | Limpar cache do WU |\n| 0x800f081f | Componente ausente | DISM /RestoreHealth |\n| 0x80240034 | Download falhou | Reset do WU + tentar novamente |\n| 0xC1900101 | Erro de driver | Atualizar drivers antes |\n| 0x80070070 | Espaço insuficiente | Liberar disco |\n\n### Como Limpar Cache do Windows Update\n\n\`\`\`\nnet stop wuauserv\nnet stop cryptSvc\nnet stop bits\nren C:\\Windows\\SoftwareDistribution SoftwareDistribution.old\nren C:\\Windows\\System32\\catroot2 catroot2.old\nnet start wuauserv\nnet start cryptSvc\nnet start bits\n\`\`\`\n\n### Como Verificar TPM 2.0\n\n1. Pressione **Win + R** → digite **tpm.msc** → Enter\n2. Se mostrar "TPM está pronto para uso" e versão 2.0 → OK\n3. Se não encontrar: verifique na BIOS (Security → TPM → Enable)`
+  },
+
+  // ==================== COMPUTADOR COM CHEIRO DE QUEIMADO ====================
+  {
+    slug: "computador-com-cheiro-de-queimado-curitiba",
+    title: "Computador com Cheiro de Queimado em Curitiba | Emergência Técnica",
+    metaDescription: "Computador com cheiro de queimado? DESLIGUE IMEDIATAMENTE. Técnico em Curitiba diagnostica componente queimado (fonte, placa-mãe, capacitor) com urgência.",
+    h1: "Computador com Cheiro de Queimado — Atendimento de Emergência em Curitiba",
+    categoria: "Hardware — Emergência",
+    intro: `Se seu computador está exalando cheiro de queimado, a primeira e mais importante ação é: DESLIGUE DA TOMADA IMEDIATAMENTE. Não desligue pelo botão — puxe o cabo de força da parede. Cheiro de queimado em eletrônico indica que algum componente está superaquecendo perigosamente ou já queimou, e continuar com o PC ligado pode causar danos em cadeia, incêndio ou choque elétrico.\n\nOs cheiros mais comuns são: plástico queimando (geralmente isolamento de fio ou conector derretendo), cheiro químico acre (capacitor estufando ou vazando eletrólito) e cheiro de metal quente (componente eletrônico queimando). Cada tipo de cheiro aponta para uma causa diferente.\n\nEm Curitiba, tratamos cheiro de queimado como atendimento de emergência. Após quedas de energia (frequentes durante tempestades), picos de tensão e uso de fontes de alimentação baratas, componentes podem queimar silenciosamente e o cheiro é o primeiro — e às vezes único — aviso antes de uma falha catastrófica.`,
+    sintomas: [
+      { titulo: "Cheiro de plástico queimando", desc: "Isolamento de fios, conectores Molex/SATA ou plástico do gabinete derretendo por calor excessivo. DESLIGUE IMEDIATAMENTE.", gravidade: "Crítica" },
+      { titulo: "Cheiro químico acre (vinagre/azedo)", desc: "Capacitor eletrolítico estufando ou vazando. O eletrólito tem cheiro característico. Comum em fontes baratas e placas-mãe com mais de 5 anos.", gravidade: "Crítica" },
+      { titulo: "Fumaça visível saindo do gabinete", desc: "Fumaça indica combustão ativa. DESLIGUE DA TOMADA (não pelo botão), afaste-se e ventile o ambiente. Não abra o gabinete enquanto houver fumaça.", gravidade: "Crítica" },
+      { titulo: "Cheiro de queimado após queda de energia", desc: "Pico de tensão ao retornar a energia pode queimar fonte, placa-mãe ou outros componentes. Não religue sem diagnóstico.", gravidade: "Alta" },
+      { titulo: "PC funciona mas com cheiro constante", desc: "O cheiro persiste durante o uso normal. Pode ser poeira acumulada queimando no dissipador ou componente no limite térmico.", gravidade: "Média-Alta" },
+      { titulo: "Cheiro apenas durante uso pesado (jogos, renderização)", desc: "Aparece só sob carga alta. Pode ser GPU superaquecendo, VRMs da placa-mãe no limite ou fonte subdimensionada.", gravidade: "Média-Alta" }
+    ],
+    causas: [
+      { titulo: "Capacitor eletrolítico estufado/vazando", desc: "Capacitores em fontes e placas-mãe podem estufar (topo abaulado) e vazar eletrólito por calor excessivo, idade ou fabricação defeituosa. Cheiro ácido característico.", tipo: "desgaste" },
+      { titulo: "Fonte de alimentação barata ou subdimensionada", desc: "Fontes sem certificação 80 Plus usam componentes de baixa qualidade que falham sob carga. Pior cenário: curto-circuito que danifica todo o PC.", tipo: "hardware" },
+      { titulo: "Pico de tensão na rede elétrica", desc: "Raios, oscilações e retorno de energia após queda podem enviar voltagem acima do normal. Sem protetor de surto ou nobreak, componentes queimam.", tipo: "hardware" },
+      { titulo: "Poeira acumulada em componentes quentes", desc: "Poeira depositada em dissipadores, VRMs e reguladores de tensão pode carbonizar com o calor, gerando cheiro de queimado sem necessariamente haver dano.", tipo: "desgaste" },
+      { titulo: "Conector Molex/SATA derretendo", desc: "Conectores de alimentação Molex e SATA com mau contato geram calor no ponto de conexão, derretendo o plástico. Adaptadores Molex-SATA são notórios por isso.", tipo: "hardware" },
+      { titulo: "VRM da placa-mãe sobrecarregado", desc: "Os reguladores de tensão (VRMs) que alimentam o processador podem sobrecarregar com CPUs de alto consumo ou overclock, gerando calor extremo.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de poeira carbonizada + verificação de todos os componentes. Nenhum dano real — apenas acúmulo de sujeira em peças quentes.", tempo: "1-2 horas", custo: "R$ 100–200" },
+      { nivel: "Médio", desc: "Troca de fonte queimada ou capacitor estufado + verificação de danos colaterais em outros componentes.", tempo: "2-4 horas", custo: "R$ 200–500" },
+      { nivel: "Complexo", desc: "Múltiplos componentes queimados (fonte + placa-mãe + possível GPU). Avaliação de viabilidade de reparo vs troca.", tempo: "2-5 dias", custo: "R$ 400–1500+" }
+    ],
+    riscos: [
+      "RISCO DE INCÊNDIO: componente em combustão pode causar fogo no gabinete e se espalhar",
+      "RISCO DE CHOQUE: componente queimado pode expor partes energizadas",
+      "Continuar usando pode queimar componentes saudáveis por efeito cascata",
+      "Fonte queimada pode enviar tensão errada para placa-mãe, RAM e GPU, destruindo tudo",
+      "Inalação de fumaça de eletrônico é tóxica — ventile o ambiente imediatamente",
+      "Capacitor vazando pode corroer trilhas da placa-mãe se não limpo rapidamente"
+    ],
+    diagnostico: `Diagnóstico de emergência (com PC DESLIGADO da tomada):\n\n1. Inspeção visual completa: componentes queimados, estufados, derretidos\n2. Teste de cheiro isolado (qual componente exala o odor)\n3. Verificação de capacitores em fonte e placa-mãe (visual + multímetro)\n4. Teste de fonte isolada (sem conectar na placa-mãe)\n5. Verificação de conectores (Molex, SATA, EPS, PCIe) — derretidos/escurecidos\n6. Teste individual de cada componente em bancada limpa\n\nCusto: R$ 100 (incorporado se aprovar o serviço). Atendimento prioritário.`,
+    solucao: `Solução conforme a causa:\n\n- **Poeira**: Limpeza profunda completa + verificação térmica de todos os componentes\n- **Capacitor**: Troca de capacitor por técnico em eletrônica (quando viável) ou troca da placa\n- **Fonte**: Troca por fonte 80 Plus Bronze/Gold certificada + instalação de protetor de surto\n- **Conector**: Troca do cabo de alimentação danificado + verificação de todos os conectores\n- **VRM**: Verificação de compatibilidade CPU/placa + melhoria de refrigeração dos VRMs\n\nInstalação de protetor de surto ou nobreak recomendada para evitar recorrência.\n\nTeste de estabilidade prolongado (2h+) com monitoramento térmico após o reparo.`,
+    quandoCompensa: "Quando apenas a fonte ou um capacitor queimou e os demais componentes estão intactos. Diagnóstico rápido evita gastar com peças desnecessárias.",
+    quandoNaoCompensa: "Quando fonte, placa-mãe e GPU queimaram juntas em efeito cascata. O custo de reparo pode ultrapassar o valor de um PC novo equivalente.",
+    whatsappMessage: "Olá! Meu computador está com cheiro de queimado. URGENTE — podem me ajudar?",
+    relatedPages: [
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/computador-desligando-apos-segundos-curitiba", label: "PC Desligando em Segundos" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Cheiro de Queimado no PC: Guia de Emergência\n\n### O Que Fazer IMEDIATAMENTE\n\n1. 🔴 **DESLIGUE DA TOMADA** (puxe o cabo, não use o botão)\n2. 🔴 **AFASTE-SE** se houver fumaça — ventile o ambiente\n3. ❌ **NÃO ABRA** o gabinete enquanto houver fumaça ou calor\n4. ❌ **NÃO RELIGUE** sem diagnóstico profissional\n5. ✅ **AGUARDE** esfriar completamente (30+ minutos)\n6. ✅ **PROCURE** técnico especializado\n\n### Identificando o Componente pelo Cheiro\n\n| Cheiro | Componente Provável |\n|---|---|\n| Plástico derretendo | Conector Molex/SATA, cabo |\n| Químico acre/vinagre | Capacitor estufado |\n| Metal quente | VRM, regulador, chip |\n| Borracha queimando | Fio de alimentação |\n| Poeira queimando | Dissipador sujo (menos grave) |\n\n### Prevenção: Como Proteger Seu PC\n\n| Proteção | Custo | Protege Contra |\n|---|---|---|\n| Filtro de linha básico | R$ 20-50 | Nada (não protege de verdade) |\n| Protetor de surto (DPS) | R$ 50-150 | Picos de tensão |\n| Estabilizador | R$ 100-300 | Oscilações leves |\n| Nobreak (UPS) | R$ 300-1000 | Queda + pico + estabilização |\n\n⚠️ **Filtro de linha NÃO É protetor de surto** — a maioria dos filtros baratos não tem proteção real contra picos.`
+  },
+
 ];
 
 // Helper to get a page by slug

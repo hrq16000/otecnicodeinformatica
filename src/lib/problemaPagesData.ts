@@ -6370,6 +6370,205 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
+
+  // ==================== NOTEBOOK SEM WEBCAM ====================
+  {
+    slug: "notebook-sem-webcam-curitiba",
+    title: "Notebook Sem Webcam Funcionando em Curitiba | Câmera Não Detectada",
+    metaDescription: "Webcam do notebook não funciona em Curitiba? Diagnóstico de driver, cabo flat e módulo da câmera. Técnico especialista com atendimento rápido.",
+    h1: "Notebook Sem Webcam Funcionando em Curitiba — Câmera Não Detectada",
+    categoria: "Problemas de Notebook",
+    intro: `A webcam integrada do notebook parou de funcionar ou não é detectada pelo sistema. O problema pode aparecer como "câmera não encontrada", tela preta em aplicativos de vídeo, LED da câmera não acende, ou a webcam simplesmente desapareceu do Gerenciador de Dispositivos.\n\nEm Curitiba, com o aumento do trabalho remoto e reuniões online, esse problema impacta diretamente a produtividade. As causas variam desde configurações de privacidade do Windows até falha física do módulo da câmera.`,
+    sintomas: [
+      { titulo: "Webcam não aparece no Gerenciador de Dispositivos", desc: "O módulo da câmera não é reconhecido pelo sistema. Pode ser driver ausente, cabo flat desconectado ou falha no hardware.", gravidade: "Médio a complexo" },
+      { titulo: "Tela preta em aplicativos de vídeo", desc: "Zoom, Teams ou Google Meet exibem tela preta. O dispositivo pode estar bloqueado por privacidade ou com driver corrompido.", gravidade: "Simples a médio" },
+      { titulo: "LED da câmera não acende", desc: "Ao abrir aplicativos de vídeo, o LED indicador não liga, sugerindo que o hardware não está sendo ativado.", gravidade: "Médio" },
+      { titulo: "Mensagem 'Não foi possível encontrar sua câmera'", desc: "Erro 0xA00F4244 do Windows indica que nenhum dispositivo de câmera foi detectado pelo sistema.", gravidade: "Médio" },
+      { titulo: "Webcam funciona intermitentemente", desc: "Liga e desliga sozinha durante uso. Geralmente indica cabo flat com mau contato ou driver instável.", gravidade: "Médio" },
+      { titulo: "Imagem congelada ou com linhas", desc: "A câmera é detectada mas a imagem congela ou apresenta artefatos visuais, indicando falha parcial do sensor.", gravidade: "Médio a complexo" },
+    ],
+    causas: [
+      { titulo: "Configurações de Privacidade do Windows", desc: "O Windows 10/11 tem opções que bloqueiam o acesso à câmera por aplicativos. Uma atualização pode redefinir essas configurações.", tipo: "software" },
+      { titulo: "Driver corrompido ou ausente", desc: "Atualizações do Windows podem remover ou corromper o driver da webcam, tornando o dispositivo invisível ao sistema.", tipo: "software" },
+      { titulo: "Cabo flat desconectado", desc: "Em notebooks que sofreram queda ou tiveram a tela aberta para reparo, o cabo flat da câmera pode ter se desconectado.", tipo: "hardware" },
+      { titulo: "Módulo da câmera defeituoso", desc: "Falha no hardware do sensor CMOS da webcam. Pode ocorrer por desgaste ou impacto.", tipo: "hardware" },
+      { titulo: "Antivírus bloqueando acesso", desc: "Alguns antivírus possuem proteção de webcam que impede o acesso por aplicativos não autorizados.", tipo: "software" },
+      { titulo: "Tampa de privacidade física fechada", desc: "Slider de privacidade fechado (comum em notebooks corporativos Lenovo, HP e Dell) bloqueia fisicamente a câmera.", tipo: "erro-humano" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração de privacidade bloqueando, tampa física fechada ou driver desatualizado. Resolvido remotamente ou na visita.", tempo: "15 min a 30 min", custo: "Dentro da visita técnica" },
+      { nivel: "Médio", desc: "Driver corrompido por atualização, conflito de software ou reinstalação necessária. Pode exigir rollback.", tempo: "30 min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Complexo", desc: "Cabo flat desconectado ou módulo da câmera defeituoso. Requer abertura do notebook e possível substituição de peça.", tempo: "1h a 3h", custo: "R$ 150 a R$ 300 + peça" },
+    ],
+    riscos: [
+      "Reinstalar drivers incorretos pode causar conflitos com outros dispositivos",
+      "Abrir a tampa do notebook sem experiência pode danificar o cabo flat da tela",
+      "Usar webcam USB como alternativa permanente ocupa porta e reduz portabilidade",
+      "Ignorar falha intermitente pode indicar problema progressivo no cabo flat",
+    ],
+    diagnostico: `O diagnóstico começa verificando as Configurações de Privacidade do Windows (Configurações → Privacidade → Câmera). Em seguida, verificamos o Gerenciador de Dispositivos para confirmar se o hardware é reconhecido.\n\nSe o dispositivo aparece com erro, testamos reinstalação de driver. Se não aparece, fazemos boot com Linux Live USB para verificar se o hardware é detectado fora do Windows — isso diferencia falha de software de hardware.\n\nPara suspeita de cabo flat, inspecionamos a conexão física entre a placa-mãe e o módulo da câmera na tampa do notebook.`,
+    solucao: `Para problemas de software, reconfiguramos as permissões de privacidade, reinstalamos o driver correto do fabricante e removemos conflitos de antivírus. Em casos de driver corrompido por atualização, fazemos rollback.\n\nPara falhas de hardware, reconectamos o cabo flat da webcam ou substituímos o módulo da câmera. A maioria dos módulos de webcam para notebook é acessível e tem custo baixo. Em casos raros onde a placa controladora falhou, configuramos uma webcam USB compacta de alta qualidade como alternativa.`,
+    quandoCompensa: "Quando o problema é de software (driver, permissão) ou quando o módulo da câmera é acessível e barato para o modelo específico.",
+    quandoNaoCompensa: "Quando a falha está na placa controladora integrada à placa-mãe e o custo de reparo ultrapassa o valor de uma webcam USB externa de qualidade.",
+    whatsappMessage: "Olá! A webcam do meu notebook não está funcionando. Preciso de diagnóstico e reparo em Curitiba.",
+    conteudoExtra: `## Verificações Rápidas Antes de Chamar um Técnico\n\n1. **Verifique a tampa de privacidade**: Muitos notebooks têm um slider físico sobre a câmera\n2. **Configurações de Privacidade**: Configurações → Privacidade e Segurança → Câmera → ative "Acesso à câmera"\n3. **Gerenciador de Dispositivos**: Clique com botão direito no menu Iniciar → procure "Câmeras" ou "Dispositivos de imagem"\n4. **Teste em outro app**: Se não funciona no Teams, teste no aplicativo Câmera do Windows\n5. **Reinicie o notebook**: Um simples reinício pode resolver conflitos temporários\n\n## Webcam USB como Solução Temporária\n\nPara reuniões urgentes, uma webcam USB pode ser conectada imediatamente. Modelos Full HD com microfone integrado custam a partir de R$ 80 e oferecem qualidade superior à maioria das webcams integradas.`,
+    relatedPages: [
+      { label: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" },
+      { label: "Conserto de Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Tela Preta", to: "/notebook-tela-preta-curitiba" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+    ]
+  },
+
+  // ==================== ERRO 0xC00000E ====================
+  {
+    slug: "erro-0xc00000e-curitiba",
+    title: "Erro 0xc00000e em Curitiba | PC Não Inicia — BCD Corrompido",
+    metaDescription: "Erro 0xc00000e no Windows em Curitiba? Reparo de BCD, boot manager e configuração de inicialização. Técnico especialista com diagnóstico rápido.",
+    h1: "Erro 0xc00000e — PC Não Inicia em Curitiba — BCD Corrompido",
+    categoria: "Erros de Windows",
+    intro: `O erro 0xc00000e é uma das telas azuis mais comuns que impedem o Windows de iniciar. Ele indica que o Boot Configuration Data (BCD) — o arquivo que diz ao sistema onde encontrar o Windows no disco — está corrompido, ausente ou referenciando uma partição incorreta.\n\nEm Curitiba, atendemos esse erro frequentemente após atualizações do Windows que falharam, clonagem de disco mal feita, ou quando o usuário adicionou/removeu um segundo HD/SSD sem reconfigurar o boot. A tela exibe "Seu PC precisa ser reparado" com o código 0xc000000e.`,
+    sintomas: [
+      { titulo: "Tela azul com código 0xc000000e", desc: "Ao ligar o PC, aparece tela azul de recuperação com o código de erro específico, impedindo qualquer acesso ao sistema.", gravidade: "Complexo" },
+      { titulo: "Mensagem 'Seu PC precisa ser reparado'", desc: "O Windows exibe tela de recuperação indicando que o dispositivo precisa ser reparado antes de iniciar.", gravidade: "Médio a complexo" },
+      { titulo: "Windows não inicia após múltiplas tentativas", desc: "Mesmo reiniciando várias vezes, o sistema não consegue passar da tela de erro.", gravidade: "Complexo" },
+      { titulo: "Erro após atualização do Windows", desc: "O problema surgiu imediatamente após uma atualização do Windows que foi interrompida ou falhou.", gravidade: "Médio" },
+      { titulo: "Problema após clonar disco ou trocar SSD", desc: "Ao migrar para SSD novo, o BCD não foi transferido corretamente e o boot falha.", gravidade: "Médio" },
+      { titulo: "Tela de recuperação em loop infinito", desc: "O reparo automático tenta corrigir mas falha repetidamente, entrando em ciclo.", gravidade: "Complexo" },
+    ],
+    causas: [
+      { titulo: "BCD corrompido", desc: "O arquivo de configuração de boot foi danificado por desligamento forçado ou falha de energia durante gravação.", tipo: "software" },
+      { titulo: "Clonagem de disco incorreta", desc: "Ao migrar para SSD, a partição EFI/boot não foi clonada corretamente, deixando o bootloader órfão.", tipo: "erro-humano" },
+      { titulo: "Atualização do Windows falhou", desc: "Update interrompido por falta de energia ou desligamento corrompeu os arquivos de inicialização.", tipo: "software" },
+      { titulo: "Ordem de boot alterada na BIOS", desc: "BIOS/UEFI está tentando iniciar pelo disco errado após alteração manual ou reset de CMOS.", tipo: "erro-humano" },
+      { titulo: "Partição EFI danificada", desc: "A partição de sistema EFI (100-500MB) foi modificada ou formatada acidentalmente por software de partição.", tipo: "software" },
+      { titulo: "Setores defeituosos no disco", desc: "Área do disco onde o BCD está armazenado possui bad blocks, impossibilitando a leitura do bootloader.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Ordem de boot errada na BIOS ou BCD com referência incorreta após adição de segundo disco. Correção rápida.", tempo: "20 min a 40 min", custo: "Dentro da visita técnica" },
+      { nivel: "Médio", desc: "BCD corrompido por atualização ou clonagem. Reconstrução com bootrec e bcdboot via ambiente de recuperação.", tempo: "1h a 2h", custo: "R$ 120 a R$ 200" },
+      { nivel: "Complexo", desc: "Partição EFI danificada ou disco com setores defeituosos. Recriação da partição EFI ou substituição de disco.", tempo: "2h a 4h", custo: "R$ 200 a R$ 400 + peça" },
+    ],
+    riscos: [
+      "Usar comandos bootrec sem conhecimento pode apagar a configuração de todos os sistemas instalados",
+      "Formatar a partição EFI incorreta pode tornar outros sistemas (dual boot) inacessíveis",
+      "Ignorar setores defeituosos pode levar à perda de dados progressiva",
+      "Tentativas repetidas de reparo automático podem agravar a corrupção",
+    ],
+    diagnostico: `O diagnóstico inicia com boot via mídia de instalação do Windows (USB/DVD) para acessar o Prompt de Comando do ambiente de recuperação. Verificamos o estado do BCD com \`bcdedit /enum\` e identificamos se as referências de partição estão corretas.\n\nTestamos a integridade do disco com \`chkdsk /r\` na partição do sistema e verificamos se a partição EFI existe e está íntegra. Em sistemas UEFI, confirmamos que o tipo de partição GPT está correto. Se o erro surgiu após clonagem, verificamos se o bootloader foi transferido corretamente.`,
+    solucao: `Para BCD corrompido, reconstruímos usando os comandos \`bootrec /fixmbr\`, \`bootrec /fixboot\`, \`bootrec /scanos\` e \`bootrec /rebuildbcd\` a partir do ambiente de recuperação. Em sistemas UEFI, recriamos a entrada no boot manager com \`bcdboot\`.\n\nSe a partição EFI foi danificada, recriamos a partição de sistema EFI e reinstalamos o bootloader. Para discos com setores defeituosos, fazemos backup dos dados e substituímos o disco. Após clonagem mal feita, reconfiguramos o BCD para apontar para as partições corretas no novo SSD.`,
+    quandoCompensa: "Quando o problema é apenas de BCD corrompido e o disco está saudável — o reparo é rápido e sem perda de dados.",
+    quandoNaoCompensa: "Quando o disco possui setores defeituosos extensos na área de boot ou quando a instalação do Windows está severamente corrompida, sendo mais rápido reinstalar.",
+    whatsappMessage: "Olá! Meu PC está com erro 0xc00000e e não inicia. Preciso de reparo em Curitiba.",
+    conteudoExtra: `## O Que Fazer Quando Aparece o Erro 0xc00000e\n\n1. **Não entre em pânico**: Seus dados provavelmente estão seguros — o erro é no bootloader, não nos arquivos\n2. **Verifique a ordem de boot**: Entre na BIOS (Del, F2 ou F12 ao ligar) e confirme que o disco correto está como primeiro boot\n3. **Tente o Reparo Automático**: Se o Windows oferece "Opções avançadas", tente "Reparo de Inicialização"\n4. **Não formate**: Formatar apaga seus dados — o erro pode ser resolvido sem perda\n5. **Desligue o PC**: Tentativas repetidas de ligar com disco defeituoso podem agravar o problema\n\n## Erro Após Clonagem de SSD\n\nSe o erro apareceu após migrar para um SSD novo, o problema quase certamente é que o BCD não foi transferido. Nosso técnico reconfigura o bootloader no novo SSD sem necessidade de reinstalar o Windows, preservando todos os programas e configurações.`,
+    relatedPages: [
+      { label: "Erro 0xc000021a", to: "/erro-0xc000021a-curitiba" },
+      { label: "Tela Azul (BSOD)", to: "/tela-azul-bsod-curitiba" },
+      { label: "PC Não Liga", to: "/computador-nao-liga-curitiba" },
+      { label: "Formatação", to: "/servicos/formatacao-computador" },
+    ]
+  },
+
+  // ==================== PC COM TELA CONGELADA ====================
+  {
+    slug: "pc-com-tela-congelada-curitiba",
+    title: "PC com Tela Congelada em Curitiba | Computador Trava e Não Responde",
+    metaDescription: "Computador congela e trava em Curitiba? Diagnóstico de superaquecimento, RAM, disco e drivers. Técnico especialista resolve com atendimento rápido.",
+    h1: "PC com Tela Congelada em Curitiba — Computador Trava e Não Responde",
+    categoria: "Problemas de Computador",
+    intro: `O computador congela completamente — o mouse para, o teclado não responde e a única saída é forçar o desligamento pelo botão de energia. Esse problema pode ser aleatório ou ocorrer em situações específicas como ao abrir programas pesados, jogar ou após um tempo de uso.\n\nEm Curitiba, diagnosticamos centenas de casos de tela congelada. As causas mais comuns são superaquecimento (especialmente em dias quentes ou notebooks com ventilação obstruída), memória RAM defeituosa, disco rígido com setores defeituosos e drivers de vídeo incompatíveis.`,
+    sintomas: [
+      { titulo: "Tela congela completamente", desc: "Mouse e teclado não respondem. A única saída é forçar desligamento pelo botão de energia.", gravidade: "Médio a complexo" },
+      { titulo: "Travamentos aleatórios durante o uso", desc: "O computador congela sem padrão aparente, podendo ocorrer a qualquer momento durante uso normal.", gravidade: "Médio" },
+      { titulo: "Congelamento ao usar programas específicos", desc: "Sempre trava ao abrir determinado programa ou jogo, sugerindo incompatibilidade ou falta de recursos.", gravidade: "Simples a médio" },
+      { titulo: "Trava durante jogos ou tarefas pesadas", desc: "Congelamento sob carga indica superaquecimento, fonte instável ou GPU com defeito.", gravidade: "Médio a complexo" },
+      { titulo: "Trava após poucos minutos de uso", desc: "PC funciona brevemente e congela, sugerindo superaquecimento rápido ou RAM com erro.", gravidade: "Médio" },
+      { titulo: "Travamento com áudio em loop", desc: "O som fica repetindo o último fragmento enquanto a tela congela — indica travamento de kernel.", gravidade: "Complexo" },
+    ],
+    causas: [
+      { titulo: "Superaquecimento", desc: "Pasta térmica seca, cooler obstruído por poeira ou ventilação insuficiente fazem o processador throttle e congelar o sistema.", tipo: "hardware" },
+      { titulo: "Memória RAM defeituosa", desc: "Módulos com erros intermitentes causam travamentos aleatórios. Pode ser oxidação ou chip danificado.", tipo: "hardware" },
+      { titulo: "HD com setores defeituosos", desc: "HD mecânico com bad blocks congela ao tentar ler áreas danificadas do disco.", tipo: "desgaste" },
+      { titulo: "Driver de vídeo incompatível", desc: "Driver da GPU corrompido ou versão incompatível com o Windows causa travamento durante renderização.", tipo: "software" },
+      { titulo: "Fonte de alimentação instável", desc: "Fonte fornecendo voltagem irregular causa travamentos sob carga quando a demanda de energia aumenta.", tipo: "hardware" },
+      { titulo: "Capacitores estufados na placa-mãe", desc: "Capacitores danificados causam instabilidade geral e travamentos imprevisíveis.", tipo: "desgaste" },
+      { titulo: "Conflito de software ou malware", desc: "Antivírus, programas em segundo plano ou malware consumindo 100% dos recursos do sistema.", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Driver de vídeo desatualizado, conflito de software ou configuração errada. Resolvido com atualização ou remoção.", tempo: "30 min a 1h", custo: "Dentro da visita técnica" },
+      { nivel: "Médio", desc: "Superaquecimento por poeira ou pasta térmica seca. Limpeza completa e troca de pasta térmica.", tempo: "1h a 2h", custo: "R$ 120 a R$ 200" },
+      { nivel: "Complexo", desc: "RAM defeituosa, HD com bad blocks, fonte instável ou capacitores estufados. Substituição de componentes.", tempo: "1 a 3 dias", custo: "R$ 200 a R$ 500 + peças" },
+    ],
+    riscos: [
+      "Desligamentos forçados repetidos podem corromper o sistema de arquivos",
+      "Ignorar superaquecimento pode danificar permanentemente o processador",
+      "Continuar usando HD com setores defeituosos pode causar perda total de dados",
+      "Atualizar driver de vídeo incorretamente pode causar tela preta",
+    ],
+    diagnostico: `O diagnóstico segue uma metodologia de eliminação. Primeiro, monitoramos temperaturas do processador e GPU em tempo real durante stress test para descartar superaquecimento. Em seguida, executamos MemTest86 para verificar a integridade da RAM.\n\nTestamos o disco com ferramentas como CrystalDiskInfo (SMART) e Victoria para identificar setores defeituosos. Verificamos a estabilidade da fonte com multímetro nas linhas de 3.3V, 5V e 12V sob carga. Por fim, analisamos logs do Windows (Visualizador de Eventos) para identificar o componente responsável pelo congelamento.`,
+    solucao: `Para superaquecimento, fazemos limpeza completa do sistema de refrigeração, troca de pasta térmica e verificação dos coolers. Para RAM defeituosa, identificamos o módulo com falha e substituímos.\n\nPara HD com setores defeituosos, fazemos backup imediato dos dados e substituímos por SSD. Para drivers de vídeo, fazemos remoção completa com DDU (Display Driver Uninstaller) e instalação da versão estável mais recente. Para fontes instáveis, substituímos por modelo de qualidade certificada.`,
+    quandoCompensa: "Quando o problema é resolvível com limpeza, troca de pasta térmica, substituição de RAM ou HD — custos acessíveis com grande impacto.",
+    quandoNaoCompensa: "Quando a placa-mãe tem capacitores estufados extensivamente ou quando múltiplos componentes estão falhando simultaneamente em equipamento antigo.",
+    whatsappMessage: "Olá! Meu computador está congelando e travando. Preciso de diagnóstico e reparo em Curitiba.",
+    conteudoExtra: `## O Que Fazer Quando o PC Congela\n\n1. **Aguarde 2-3 minutos**: Às vezes o sistema está processando e pode voltar ao normal\n2. **Ctrl+Alt+Del**: Tente abrir o Gerenciador de Tarefas para fechar o programa travado\n3. **Verifique a temperatura**: Toque na saída de ar — se estiver muito quente, desligue e aguarde esfriar\n4. **Monitore a frequência**: Anote quando os travamentos ocorrem (horário, programa aberto, tempo de uso)\n5. **Faça backup**: Se travamentos são frequentes, faça backup dos dados importantes imediatamente\n\n## Superaquecimento — A Causa Mais Comum\n\nEm Curitiba, especialmente nos meses mais quentes, o superaquecimento é a causa #1 de travamentos. Notebooks usados sobre cama, almofada ou superfícies que bloqueiam a ventilação são os mais afetados. Uma limpeza preventiva a cada 12 meses evita esse problema.`,
+    relatedPages: [
+      { label: "PC Lento", to: "/computador-lento-curitiba" },
+      { label: "Tela Azul (BSOD)", to: "/tela-azul-bsod-curitiba" },
+      { label: "Superaquecimento", to: "/computador-superaquecendo-curitiba" },
+      { label: "Conserto de PC", to: "/servicos/conserto-pc-notebook" },
+    ]
+  },
+
+  // ==================== COMPUTADOR MUITO BARULHENTO ====================
+  {
+    slug: "computador-muito-barulhento-curitiba",
+    title: "Computador Muito Barulhento em Curitiba | Ventoinhas e Ruídos Anormais",
+    metaDescription: "Computador fazendo barulho em Curitiba? Diagnóstico de cooler, HD, ventoinha e vibração. Técnico especialista com atendimento rápido e solução definitiva.",
+    h1: "Computador Muito Barulhento em Curitiba — Ventoinhas e Ruídos Anormais",
+    categoria: "Problemas de Computador",
+    intro: `O computador começou a fazer barulho excessivo — ventoinhas girando em alta rotação, sons de clique, zumbido constante ou vibração. Esse problema vai além do incômodo: ruídos anormais frequentemente indicam que algum componente está falhando ou que o sistema está superaquecendo.\n\nEm Curitiba, diagnosticamos que a maioria dos computadores barulhentos sofre de acúmulo de poeira nos coolers (que força rotações mais altas para compensar), rolamentos desgastados em ventoinhas, ou HD mecânico com falha iminente emitindo sons de clique.`,
+    sintomas: [
+      { titulo: "Ventoinhas em alta rotação constante", desc: "Coolers giram no máximo o tempo todo, mesmo em idle. Indica superaquecimento ou curva de fan agressiva na BIOS.", gravidade: "Médio" },
+      { titulo: "Sons de clique rítmico do HD", desc: "Cliques vindos do disco rígido indicam cabeças de leitura com dificuldade — sinal de falha iminente.", gravidade: "Complexo" },
+      { titulo: "Zumbido ou vibração do gabinete", desc: "Ressonância causada por parafusos soltos, painéis desencaixados ou HD sem borrachas anti-vibração.", gravidade: "Simples" },
+      { titulo: "Barulho aumenta com programas ou jogos", desc: "Ruído cresce proporcionalmente à carga do sistema, indicando que o resfriamento está no limite.", gravidade: "Médio" },
+      { titulo: "Ventoinha com raspagem ou ranger", desc: "Rolamento desgastado produz ruído metálico de raspagem. A ventoinha pode parar a qualquer momento.", gravidade: "Médio" },
+      { titulo: "Notebook parece um 'secador de cabelo'", desc: "Ventilação extrema ao ligar indica pasta térmica seca ou sistema de refrigeração obstruído por poeira.", gravidade: "Médio" },
+      { titulo: "Coil whine da placa de vídeo ou fonte", desc: "Zumbido agudo de alta frequência vindo de indutores sob carga. Comum em GPUs e fontes de baixa qualidade.", gravidade: "Simples a médio" },
+    ],
+    causas: [
+      { titulo: "Acúmulo de poeira nos coolers", desc: "Poeira obstrui as aletas do dissipador, reduzindo a eficiência térmica e forçando rotações mais altas.", tipo: "desgaste" },
+      { titulo: "Rolamento desgastado nas ventoinhas", desc: "Ventoinhas com rolamento gasto produzem ruído de raspagem, vibração e podem parar de funcionar.", tipo: "desgaste" },
+      { titulo: "HD mecânico com falha iminente", desc: "Sons de clique indicam que as cabeças de leitura estão com dificuldade para acessar dados — falha próxima.", tipo: "hardware" },
+      { titulo: "Pasta térmica seca", desc: "Sem transferência térmica eficiente entre processador e dissipador, o cooler precisa girar mais rápido para compensar.", tipo: "desgaste" },
+      { titulo: "Curva de ventoinha agressiva na BIOS", desc: "BIOS configurada para manter ventoinhas em alta rotação mesmo com temperaturas normais.", tipo: "software" },
+      { titulo: "Vibração estrutural do gabinete", desc: "Parafusos soltos, painéis desencaixados ou HD montado sem borrachas anti-vibração causam ressonância.", tipo: "hardware" },
+      { titulo: "Coil whine em componentes eletrônicos", desc: "Vibração de indutores em placas de vídeo ou fontes sob carga pesada. Característica do componente.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Parafusos soltos, curva de fan na BIOS ou vibração de gabinete. Ajuste rápido na visita.", tempo: "15 min a 30 min", custo: "Dentro da visita técnica" },
+      { nivel: "Médio", desc: "Limpeza de coolers, troca de pasta térmica e substituição de ventoinha com rolamento desgastado.", tempo: "1h a 2h", custo: "R$ 100 a R$ 200 + peça" },
+      { nivel: "Complexo", desc: "HD com cliques (falha iminente) — backup emergencial e substituição por SSD.", tempo: "2h a 1 dia", custo: "R$ 200 a R$ 450 + SSD" },
+    ],
+    riscos: [
+      "Ignorar cliques do HD pode resultar em perda total de dados sem aviso",
+      "Rodar com ventoinhas ineficientes causa superaquecimento e danos permanentes",
+      "Lubrificar ventoinhas com produtos inadequados pode causar curto-circuito",
+      "Usar o computador sem cooler funcional pode queimar o processador",
+    ],
+    diagnostico: `O diagnóstico inicia identificando a fonte exata do ruído. Abrimos o gabinete e, com o sistema ligado, paramos individualmente cada ventoinha (com segurança) para isolar qual está gerando o barulho.\n\nPara HDs, usamos ferramentas SMART (CrystalDiskInfo) para verificar contadores de erro e saúde do disco. Verificamos temperaturas do processador e GPU para confirmar se o ruído é compensação por superaquecimento. Inspecionamos parafusos, painéis e borrachas anti-vibração do gabinete.`,
+    solucao: `Para acúmulo de poeira, fazemos limpeza completa com ar comprimido e aspirador antiestático, incluindo troca de pasta térmica. Para ventoinhas com rolamento desgastado, substituímos por modelos de qualidade com rolamento de esferas ou hidráulico.\n\nPara HD com cliques, fazemos backup emergencial dos dados e substituímos por SSD — que é silencioso e muito mais rápido. Para coil whine, ajustamos configurações de energia ou limitamos FPS em jogos. Para vibrações do gabinete, reposicionamos componentes e adicionamos borrachas anti-vibração.`,
+    quandoCompensa: "Quando a solução é limpeza, troca de pasta térmica ou substituição de ventoinha — custos baixos e resultado imediato.",
+    quandoNaoCompensa: "Quando o coil whine é inerente ao modelo da placa de vídeo (característica do componente) ou quando o gabinete inteiro está comprometido estruturalmente.",
+    whatsappMessage: "Olá! Meu computador está fazendo muito barulho. Preciso de diagnóstico em Curitiba.",
+    conteudoExtra: `## Identificando o Tipo de Ruído\n\n- **Ventilação alta constante**: Provavelmente poeira ou pasta térmica seca → limpeza resolve\n- **Cliques rítmicos**: HD mecânico com falha → **faça backup imediatamente**\n- **Raspagem/ranger**: Ventoinha com rolamento gasto → substituição do cooler\n- **Vibração/ressonância**: Parafusos soltos ou HD sem borrachas → reposicionamento\n- **Zumbido agudo sob carga**: Coil whine → ajuste de software ou troca de componente\n\n## Manutenção Preventiva — Evite Ruídos\n\nA limpeza interna a cada 6-12 meses previne a maioria dos problemas de ruído. Em ambientes com pets ou muita poeira, recomendamos limpeza a cada 6 meses. A troca de pasta térmica a cada 2-3 anos mantém as temperaturas baixas e os coolers silenciosos.\n\n## SSD — A Solução Silenciosa\n\nSe seu computador ainda usa HD mecânico, a troca por SSD elimina completamente o ruído do disco, além de acelerar o sistema em até 10x. É o upgrade com melhor custo-benefício disponível.`,
+    relatedPages: [
+      { label: "Superaquecimento", to: "/computador-superaquecendo-curitiba" },
+      { label: "PC Lento", to: "/computador-lento-curitiba" },
+      { label: "HD com Barulho", to: "/hd-fazendo-barulho-curitiba" },
+      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
+    ]
+  },
 ];
 
 

@@ -143,6 +143,25 @@ export const InterlinkingBlock = () => {
             </div>
           </div>
 
+          {/* Problemas Comuns */}
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+              Problemas Mais Comuns
+            </h2>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {problemaLinks.map((item, i) => (
+                <Link
+                  key={i}
+                  to={item.to}
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 transition-all"
+                >
+                  <AlertCircle className="h-3.5 w-3.5" />
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

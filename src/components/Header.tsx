@@ -16,27 +16,57 @@ const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 const mainNavItems = [
   { label: "Início", to: "/" },
-  { label: "Serviços", to: "/servicos" },
-  { label: "Como Funciona", to: "/como-funciona" },
-  { label: "Preços", to: "/precos-e-politicas" },
-  { label: "Diagnóstico", to: "/diagnostico-tecnico" },
-  { label: "Domicílio", to: "/atendimento-domicilio" },
-];
-
-const moreNavItems = [
-  { label: "Equipamentos", to: "/equipamentos-atendidos" },
-  { label: "CFTV", to: "/cftv" },
-  { label: "Empresas", to: "/suporte-empresas" },
-  { label: "Remoto", to: "/atendimento-remoto" },
-  { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
-  { label: "Casos Reais", to: "/problemas-reais-e-casos" },
-  { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
-  { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
-  { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
-  { label: "Blog", to: "/blog" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Sobre", to: "/sobre" },
-  { label: "Contato", to: "/contato" },
+  {
+    label: "Serviços",
+    to: "/servicos",
+    sub: [
+      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "CFTV / Câmeras", to: "/cftv" },
+      { label: "Todos os Serviços", to: "/servicos" },
+    ],
+  },
+  {
+    label: "Atendimento",
+    to: "/como-funciona",
+    sub: [
+      { label: "Como Funciona", to: "/como-funciona" },
+      { label: "Preços e Políticas", to: "/precos-e-politicas" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+      { label: "Domicílio", to: "/atendimento-domicilio" },
+      { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
+      { label: "Remoto", to: "/atendimento-remoto" },
+      { label: "Empresas", to: "/suporte-empresas" },
+    ],
+  },
+  {
+    label: "Regiões",
+    to: "/tecnico-informatica-curitiba",
+    sub: [
+      { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
+      { label: "Araucária", to: "/tecnico-informatica-araucaria" },
+      { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
+      { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
+    ],
+  },
+  {
+    label: "Saiba Mais",
+    to: "/blog",
+    sub: [
+      { label: "Blog", to: "/blog" },
+      { label: "Equipamentos Atendidos", to: "/equipamentos-atendidos" },
+      { label: "Casos Reais", to: "/problemas-reais-e-casos" },
+      { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
+      { label: "FAQ", to: "/faq" },
+      { label: "Sobre", to: "/sobre" },
+      { label: "Contato", to: "/contato" },
+    ],
+  },
 ];
 
 export const Header = () => {
@@ -74,27 +104,29 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5">
           {mainNavItems.map((item) => (
-            <NavLink key={item.to} to={item.to}>
-              {item.label}
-            </NavLink>
+            item.sub ? (
+              <DropdownMenu key={item.label}>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
+                  {item.label} <ChevronDown className="h-3.5 w-3.5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-52">
+                  {item.sub.map((sub) => (
+                    <DropdownMenuItem key={sub.to} asChild>
+                      <Link to={sub.to} className="w-full cursor-pointer">
+                        {sub.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <NavLink key={item.to} to={item.to}>
+                {item.label}
+              </NavLink>
+            )
           ))}
-          
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
-              Mais <ChevronDown className="h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              {moreNavItems.map((item) => (
-                <DropdownMenuItem key={item.to} asChild>
-                  <Link to={item.to} className="w-full cursor-pointer">
-                    {item.label}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
         </nav>
 
         {/* CTA Buttons */}
@@ -146,30 +178,37 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t">
-          <nav className="container mx-auto py-4 flex flex-col gap-3">
+        <div className="lg:hidden bg-background border-t max-h-[80vh] overflow-y-auto">
+          <nav className="container mx-auto py-4 flex flex-col gap-1">
             {mainNavItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 text-base"
-              >
-                {item.label}
-              </NavLink>
+              <div key={item.label}>
+                {!item.sub ? (
+                  <NavLink
+                    to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-2 text-base block"
+                  >
+                    {item.label}
+                  </NavLink>
+                ) : (
+                  <>
+                    <p className="py-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider mt-2">
+                      {item.label}
+                    </p>
+                    {item.sub.map((sub) => (
+                      <NavLink
+                        key={sub.to}
+                        to={sub.to}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="py-1.5 pl-3 text-base block"
+                      >
+                        {sub.label}
+                      </NavLink>
+                    ))}
+                  </>
+                )}
+              </div>
             ))}
-            <div className="border-t border-border pt-3 mt-1">
-              {moreNavItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 text-base block"
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </div>
           </nav>
         </div>
       )}

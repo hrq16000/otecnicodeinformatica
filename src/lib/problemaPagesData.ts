@@ -7184,6 +7184,207 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+
+  // ── notebook-nao-carrega-bateria-curitiba ──
+  {
+    slug: "notebook-nao-carrega-bateria-curitiba",
+    title: "Notebook Não Carrega a Bateria em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Notebook não carrega a bateria? Carregador conectado mas bateria não enche? Técnico em Curitiba com diagnóstico preciso de fonte, conector e bateria.",
+    h1: "Notebook Não Carrega a Bateria — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `Notebook plugado na tomada mas a bateria não carrega é um problema que compromete completamente a mobilidade do equipamento. A causa pode estar no carregador, no conector DC-in, na própria bateria ou no circuito de carregamento da placa-mãe.\n\nÉ importante diferenciar os cenários: o notebook funciona apenas na tomada mas a bateria não carrega? A bateria carrega até certo percentual e para? O ícone mostra "conectado, não carregando"? Cada sintoma aponta para uma causa diferente.\n\nEm Curitiba, nosso técnico realiza testes elétricos precisos com multímetro no carregador, conector e bateria para identificar exatamente o componente com defeito antes de qualquer troca.`,
+    sintomas: [
+      { titulo: "Ícone mostra 'Conectado, não carregando'", desc: "O Windows reconhece o carregador mas a bateria permanece no mesmo percentual, indicando bloqueio no circuito de carga.", gravidade: "Médio" },
+      { titulo: "Bateria carrega até certo % e para", desc: "A bateria carrega até 60%, 80% ou outro valor e não avança mais, indicando desgaste das células ou limitação de firmware.", gravidade: "Médio" },
+      { titulo: "Notebook só funciona na tomada", desc: "Ao desconectar o carregador, o notebook desliga imediatamente — bateria completamente sem carga ou defeituosa.", gravidade: "Complexo" },
+      { titulo: "LED do carregador apaga ao conectar", desc: "O LED indicador do carregador se apaga ao plugar no notebook, indicando curto-circuito no conector ou placa-mãe.", gravidade: "Complexo" },
+      { titulo: "Carregador esquenta excessivamente", desc: "O carregador fica muito quente durante o uso, indicando sobrecarga ou defeito interno na fonte.", gravidade: "Médio" },
+      { titulo: "Bateria descarrega muito rápido", desc: "A bateria carrega normalmente mas dura menos de 1 hora, indicando células degradadas ou consumo excessivo.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Carregador com defeito ou incompatível", desc: "Fonte de alimentação com voltagem/amperagem incorreta ou com cabo interno rompido não fornece energia suficiente para carregar.", tipo: "hardware" },
+      { titulo: "Conector DC-in danificado", desc: "O conector de energia do notebook (DC jack) fica solto ou com mau contato por uso prolongado, impedindo a carga estável.", tipo: "desgaste" },
+      { titulo: "Bateria com células degradadas", desc: "Baterias de lítio perdem capacidade após 300-500 ciclos de carga, reduzindo a autonomia progressivamente até não carregarem mais.", tipo: "desgaste" },
+      { titulo: "Circuito de carregamento na placa-mãe", desc: "O chip controlador de carga (charger IC) ou MOSFETs de potência podem falhar, bloqueando completamente o carregamento.", tipo: "hardware" },
+      { titulo: "Configuração de software limitando carga", desc: "Alguns notebooks possuem software que limita a carga a 80% para preservar a bateria (ex: Lenovo Conservation Mode, ASUS Battery Health).", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração de software limitando carga ou driver de bateria ACPI corrompido — ajuste resolve.", tempo: "30min–1h", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Carregador defeituoso ou bateria degradada — substituição do componente.", tempo: "1–3 dias", custo: "R$150–R$350" },
+      { nivel: "Complexo", desc: "Conector DC-in solto ou circuito de carga na placa-mãe — micro-solda e reparo eletrônico.", tempo: "3–7 dias", custo: "R$250–R$500" }
+    ],
+    riscos: [
+      "Usar carregador genérico com voltagem errada pode queimar o circuito de carga da placa-mãe permanentemente",
+      "Continuar usando bateria estufada é risco de incêndio — deve ser removida imediatamente",
+      "Forçar o conector de energia com mau contato pode causar curto-circuito e dano irreversível",
+      "Comprar bateria genérica sem verificar compatibilidade pode danificar o notebook ou oferecer risco de explosão"
+    ],
+    diagnostico: `O diagnóstico de problemas de carregamento envolve testes elétricos precisos:\n\n1. Medição de voltagem e amperagem do carregador com multímetro.\n2. Verificação de continuidade e resistência no conector DC-in.\n3. Teste da bateria com software de diagnóstico para verificar ciclos, capacidade real vs. projetada e saúde das células.\n4. Verificação do Gerenciador de Dispositivos para o driver Microsoft ACPI-Compliant Control Method Battery.\n5. Inspeção visual da bateria para estufamento (inchaço).\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução depende do componente identificado como defeituoso:\n\n**Software:** Reset do driver ACPI da bateria, desativação de modos de conservação, calibração da bateria via BIOS.\n\n**Carregador:** Substituição por fonte original ou compatível certificada com voltagem e amperagem corretas para o modelo.\n\n**Bateria:** Troca por bateria compatível com o modelo exato do notebook. Baterias originais oferecem melhor durabilidade.\n\n**Conector DC-in:** Ressolda ou substituição do conector de energia — requer desmontagem completa e micro-solda profissional.\n\n**Placa-mãe:** Reparo do circuito de carga com substituição de charger IC ou MOSFETs em bancada especializada.\n\nTodos os reparos incluem teste de carga completa antes da entrega.`,
+    quandoCompensa: "Quando o notebook tem menos de 4 anos, bom desempenho geral e o custo do reparo (bateria + mão de obra) é inferior a 25% do valor de um notebook novo equivalente.",
+    quandoNaoCompensa: "Quando o notebook já tem mais de 5 anos, processador defasado, e o custo de bateria + possíveis reparos adicionais ultrapassa 40% do valor de um equipamento novo.",
+    conteudoExtra: `## Como Verificar a Saúde da Bateria do Notebook\n\n### Relatório de bateria do Windows\nAbra o Prompt de Comando como administrador e execute:\n\`\`\`\npowercfg /batteryreport\n\`\`\`\nIsso gera um relatório HTML detalhado em C:\\Users\\SeuUsuario\\battery-report.html com:\n- Capacidade original vs. capacidade atual\n- Histórico de ciclos de carga\n- Estimativa de autonomia\n\n### Sinais de que a bateria precisa ser trocada\n- Capacidade atual abaixo de 50% da original\n- Mais de 500 ciclos de carga\n- Bateria visivelmente estufada (inchaço no touchpad ou base)\n- Autonomia inferior a 30 minutos\n\n## Cuidados para Prolongar a Vida da Bateria\n\n- Evite deixar o notebook sempre conectado na tomada — faça ciclos parciais (20-80%)\n- Não deixe a bateria chegar a 0% frequentemente\n- Evite temperaturas extremas — calor excessivo acelera a degradação\n- Use o modo de economia de bateria quando não precisar de performance máxima`,
+    whatsappMessage: "Olá! Meu notebook não está carregando a bateria. Preciso de diagnóstico em Curitiba.",
+    relatedPages: [
+      { to: "/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
+      { to: "/notebook-teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── erro-0xc000021a-curitiba ──
+  {
+    slug: "erro-0xc000021a-curitiba",
+    title: "Erro 0xc000021a Tela Azul em Curitiba | Resolução Profissional",
+    metaDescription: "Tela azul com erro 0xc000021a? PC não inicia e fica reiniciando? Técnico em Curitiba resolve falhas críticas do Windows sem perda de dados.",
+    h1: "Erro 0xc000021a (Tela Azul) — Resolução Profissional em Curitiba",
+    categoria: "Software / Windows",
+    intro: `O erro 0xc000021a é uma das telas azuis (BSOD) mais graves do Windows porque indica que um processo crítico do sistema — geralmente o csrss.exe (Client/Server Runtime Subsystem) ou o winlogon.exe — falhou de forma irrecuperável, impedindo o Windows de iniciar.\n\nDiferentemente de outros erros de tela azul que ocorrem durante o uso, o 0xc000021a geralmente aparece durante a inicialização, criando um loop infinito de reinicialização. O sistema tenta iniciar, exibe a tela azul, reinicia e repete o ciclo.\n\nAs causas incluem atualizações do Windows que corromperam arquivos do sistema, drivers incompatíveis instalados antes da falha, infecção por malware que modificou arquivos críticos ou até mesmo setores defeituosos no HD/SSD. Em Curitiba, nosso técnico resolve esse erro com procedimentos avançados de recuperação, priorizando a preservação dos seus dados.`,
+    sintomas: [
+      { titulo: "Tela azul durante a inicialização", desc: "O Windows não chega à tela de login — exibe tela azul com código STATUS_SYSTEM_PROCESS_TERMINATED e reinicia.", gravidade: "Complexo" },
+      { titulo: "Loop infinito de reinicialização", desc: "O PC reinicia repetidamente sem conseguir iniciar o Windows, alternando entre tela azul e tentativa de boot.", gravidade: "Complexo" },
+      { titulo: "Reparo automático falha repetidamente", desc: "O Windows tenta executar o Reparo Automático mas não consegue corrigir o problema, exibindo 'O PC não foi iniciado corretamente'.", gravidade: "Complexo" },
+      { titulo: "Erro após atualização do Windows", desc: "O problema começou imediatamente após uma atualização do Windows ser instalada, indicando arquivos corrompidos pela atualização.", gravidade: "Médio" },
+      { titulo: "Tela azul após instalar driver ou programa", desc: "A falha começou após a instalação de um novo driver (vídeo, áudio) ou software, indicando incompatibilidade.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Atualização do Windows corrompida", desc: "Uma atualização interrompida ou com defeito substituiu arquivos críticos do sistema por versões corrompidas ou incompatíveis.", tipo: "software" },
+      { titulo: "Arquivos do sistema corrompidos (csrss.exe/winlogon.exe)", desc: "Os processos essenciais para a interface do Windows foram danificados por malware, desligamento forçado ou erro de disco.", tipo: "software" },
+      { titulo: "Driver incompatível ou defeituoso", desc: "Um driver recém-instalado (especialmente de vídeo ou armazenamento) causa conflito fatal com o kernel do Windows.", tipo: "software" },
+      { titulo: "Setores defeituosos no HD/SSD", desc: "Áreas danificadas do disco que armazenam arquivos críticos do Windows causam leitura incorreta durante o boot.", tipo: "hardware" },
+      { titulo: "Infecção por malware avançado", desc: "Rootkits ou malware que modificam arquivos do sistema podem corromper processos críticos de inicialização.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Driver incompatível — remoção via Modo de Segurança ou Ambiente de Recuperação.", tempo: "1–2h", custo: "R$100–R$150" },
+      { nivel: "Médio", desc: "Arquivos do sistema corrompidos — reparo com DISM/SFC via WinRE ou in-place upgrade.", tempo: "2–5h", custo: "R$150–R$280" },
+      { nivel: "Complexo", desc: "HD com setores defeituosos + sistema corrompido — backup de dados, troca de disco e reinstalação.", tempo: "1–3 dias", custo: "R$280–R$500" }
+    ],
+    riscos: [
+      "Cada reinicialização forçada no loop pode corromper ainda mais o sistema de arquivos",
+      "Tentativas de reparo sem conhecimento podem sobrescrever pontos de restauração válidos",
+      "Ignorar setores defeituosos do disco leva à perda progressiva e irreversível de dados",
+      "Reinstalar o Windows sem backup adequado resulta em perda total dos arquivos do usuário",
+      "Usar ferramentas de reparo de terceiros não confiáveis pode instalar malware adicional"
+    ],
+    diagnostico: `O diagnóstico do erro 0xc000021a requer acesso ao sistema via ambiente de recuperação:\n\n1. Boot via mídia de instalação do Windows ou WinRE para acessar o Prompt de Comando.\n2. Análise dos logs de eventos do Windows (SYSTEM e APPLICATION) para identificar o último driver/software instalado.\n3. Verificação de integridade do disco com chkdsk /r para identificar setores defeituosos.\n4. Execução de SFC /scannow offline apontando para a instalação do Windows.\n5. Verificação do status do BCD (Boot Configuration Data) e do MBR/GPT.\n6. Teste de saúde do HD/SSD com ferramentas SMART.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A resolução segue uma abordagem em camadas, do menos ao mais invasivo:\n\n**Restauração do Sistema:** Boot via WinRE e restauração para um ponto anterior à falha — solução mais rápida quando disponível.\n\n**Remoção de driver/atualização:** Via Modo de Segurança ou Prompt de Comando do WinRE, desinstalar o último driver ou atualização que causou o problema.\n\n**Reparo de arquivos do sistema:** DISM e SFC executados offline para reparar csrss.exe, winlogon.exe e outros arquivos críticos corrompidos.\n\n**In-place upgrade:** Reinstalação do Windows sobre a instalação existente, preservando dados e programas — resolve corrupção profunda do CBS Store.\n\n**Instalação limpa com backup:** Em último caso, backup completo dos dados, troca de disco (se necessário) e instalação limpa do Windows.\n\nTodas as soluções priorizam a preservação dos dados do usuário.`,
+    quandoCompensa: "Sempre compensa quando o objetivo é recuperar os dados e o sistema. Mesmo em casos graves, o backup profissional garante que os arquivos sejam preservados.",
+    quandoNaoCompensa: "Quando o disco está fisicamente danificado ao ponto de não ser lido, exigindo recuperação em laboratório especializado (custo elevado).",
+    conteudoExtra: `## O Que É o Erro 0xc000021a em Detalhes\n\n### Processos críticos do Windows\nO Windows depende de dois processos essenciais para funcionar:\n\n- **csrss.exe** (Client/Server Runtime Subsystem): Gerencia a criação e exclusão de threads e processos. Sem ele, o Windows não consegue executar nenhum programa.\n- **winlogon.exe**: Controla o processo de login, bloqueio de tela e o SAS (Secure Attention Sequence - Ctrl+Alt+Del).\n\nQuando qualquer um desses processos falha, o Windows não tem como se recuperar e exibe o erro 0xc000021a.\n\n### Diferença entre telas azuis\n- **0xc000021a**: Processo crítico do usermode falhou — geralmente software/driver\n- **0x0000007E**: Exceção do sistema não tratada — geralmente driver\n- **0x00000050**: Falha de página em memória — geralmente RAM defeituosa\n\n### Prevenção\n- Crie pontos de restauração antes de instalar drivers ou atualizações importantes\n- Mantenha um backup regular dos seus dados\n- Não force o desligamento do PC durante atualizações do Windows\n- Use antivírus atualizado para prevenir infecções por rootkits`,
+    whatsappMessage: "Olá! Meu PC está com tela azul erro 0xc000021a e não inicia. Preciso de ajuda urgente em Curitiba.",
+    relatedPages: [
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
+      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── pc-nao-reconhece-usb-curitiba ──
+  {
+    slug: "pc-nao-reconhece-usb-curitiba",
+    title: "PC Não Reconhece USB em Curitiba | Diagnóstico e Solução",
+    metaDescription: "PC ou notebook não reconhece pendrive, HD externo ou dispositivo USB? Técnico em Curitiba resolve problemas de portas USB com diagnóstico preciso.",
+    h1: "PC Não Reconhece USB — Diagnóstico e Solução em Curitiba",
+    categoria: "Hardware / Periféricos",
+    intro: `Quando o PC não reconhece dispositivos USB — pendrives, HDs externos, teclados, mouses ou impressoras — a produtividade é diretamente afetada. O problema pode estar nas portas USB do computador, nos drivers do sistema, no próprio dispositivo ou no gerenciamento de energia do Windows.\n\nÉ fundamental identificar se o problema é em todas as portas ou apenas em algumas, se afeta todos os dispositivos ou apenas um específico, e se começou após alguma atualização ou mudança no sistema. Cada combinação aponta para uma causa diferente.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo das portas USB, controladores e drivers para identificar a causa exata e aplicar a solução correta.`,
+    sintomas: [
+      { titulo: "Dispositivo USB não é reconhecido", desc: "Ao conectar pendrive ou HD externo, o Windows exibe 'Dispositivo USB não reconhecido' ou não acontece nada.", gravidade: "Médio" },
+      { titulo: "Portas USB pararam de funcionar", desc: "Nenhum dispositivo funciona em uma ou mais portas USB, enquanto outras portas funcionam normalmente.", gravidade: "Médio" },
+      { titulo: "USB conecta e desconecta repetidamente", desc: "O som de conexão/desconexão do Windows toca repetidamente, e o dispositivo aparece e desaparece no sistema.", gravidade: "Médio" },
+      { titulo: "HD externo não aparece no Explorer", desc: "O HD externo é detectado no Gerenciador de Dispositivos mas não aparece em 'Meu Computador' para acesso aos arquivos.", gravidade: "Simples" },
+      { titulo: "USB funciona em outro PC mas não neste", desc: "O mesmo dispositivo funciona perfeitamente em outro computador, confirmando que o problema é no PC.", gravidade: "Médio" },
+      { titulo: "Todas as portas USB param após suspensão", desc: "Após o PC entrar em modo de suspensão ou hibernação, as portas USB não voltam a funcionar até reiniciar.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Gerenciamento de energia desativando portas", desc: "O Windows desativa portas USB para economizar energia, mas nem sempre as reativa corretamente, especialmente após suspensão.", tipo: "software" },
+      { titulo: "Driver do controlador USB corrompido", desc: "Drivers do Hub USB Root ou controlador xHCI/eHCI corrompidos após atualizações impedem o reconhecimento de dispositivos.", tipo: "software" },
+      { titulo: "Porta USB fisicamente danificada", desc: "Pinos tortos, oxidados ou solda fria no conector USB da placa-mãe impedem o contato elétrico adequado.", tipo: "hardware" },
+      { titulo: "Dispositivo USB com defeito", desc: "O pendrive, HD externo ou cabo USB está danificado — controlador interno queimado ou cabo com fio rompido.", tipo: "hardware" },
+      { titulo: "Conflito de drivers após atualização", desc: "Atualizações do Windows podem instalar drivers genéricos que conflitam com os controladores USB específicos da placa-mãe.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de gerenciamento de energia ou driver — ajuste de configuração e reinstalação de driver.", tempo: "30min–1h", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Controlador USB com conflito ou dispositivo com problema lógico — reparo de drivers e partição.", tempo: "1–2h", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Porta USB danificada fisicamente ou controlador na placa-mãe com defeito — reparo de hardware.", tempo: "2–5 dias", custo: "R$200–R$400" }
+    ],
+    riscos: [
+      "Remover HD externo sem 'Ejetar com segurança' pode corromper dados e o sistema de arquivos do dispositivo",
+      "Usar hub USB de baixa qualidade pode causar queda de tensão e danificar dispositivos conectados",
+      "Ignorar desconexões intermitentes de HD externo pode resultar em perda definitiva de dados",
+      "Desinstalar drivers USB incorretos pode deixar teclado e mouse sem funcionar, travando o acesso ao PC"
+    ],
+    diagnostico: `O diagnóstico de problemas USB é metódico:\n\n1. Teste do dispositivo em outro PC para confirmar se o defeito é no computador ou no dispositivo.\n2. Teste de diferentes portas USB (frontais, traseiras, USB 2.0, USB 3.0) para mapear quais funcionam.\n3. Verificação do Gerenciador de Dispositivos para erros em controladores USB e dispositivos desconhecidos.\n4. Análise das configurações de gerenciamento de energia do Hub USB Root.\n5. Verificação do Gerenciamento de Disco para dispositivos detectados mas sem letra de unidade.\n6. Teste de voltagem nas portas USB com multímetro para identificar problemas elétricos.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução varia conforme a causa:\n\n**Gerenciamento de energia:** Desabilitar a opção "O computador pode desligar este dispositivo para economizar energia" em cada Hub USB Root no Gerenciador de Dispositivos.\n\n**Drivers:** Desinstalar todos os controladores USB no Gerenciador de Dispositivos e reiniciar para que o Windows reinstale automaticamente. Em alguns casos, instalar o driver do chipset da placa-mãe resolve.\n\n**Dispositivo não aparece no Explorer:** Acessar Gerenciamento de Disco, atribuir letra de unidade ou formatar a partição (se não houver dados importantes).\n\n**Hardware:** Limpeza dos contatos da porta USB com álcool isopropílico. Ressolda de conectores com solda fria. Em último caso, instalação de placa USB PCI-Express.\n\nTodos os reparos incluem teste com múltiplos dispositivos para garantir funcionamento completo.`,
+    quandoCompensa: "Sempre compensa diagnosticar, pois na maioria dos casos o problema é de software (driver/configuração) e se resolve rapidamente.",
+    quandoNaoCompensa: "Quando o controlador USB da placa-mãe está queimado em um PC muito antigo — uma placa USB PCI-E é mais econômica que trocar a placa-mãe.",
+    conteudoExtra: `## Diferenças entre USB 2.0, 3.0 e USB-C\n\n| Padrão | Velocidade | Cor do conector | Uso ideal |\n|--------|-----------|----------------|----------|\n| USB 2.0 | 480 Mbps | Preto/Branco | Mouse, teclado, impressora |\n| USB 3.0 | 5 Gbps | Azul | Pendrive, HD externo |\n| USB 3.1 | 10 Gbps | Teal | SSD externo |\n| USB-C | Até 40 Gbps | Sem cor padrão | Dispositivos modernos |\n\n### Dicas para Evitar Problemas com USB\n\n- Sempre use "Ejetar com segurança" antes de remover pendrives e HDs externos\n- Evite conectar muitos dispositivos USB de alta potência sem um hub alimentado\n- Mantenha os drivers do chipset da placa-mãe atualizados\n- Não force conectores — se não encaixa facilmente, verifique a orientação\n- Use cabos USB de qualidade, especialmente para HDs externos e transferência de dados`,
+    whatsappMessage: "Olá! Meu PC não está reconhecendo dispositivos USB. Preciso de diagnóstico em Curitiba.",
+    relatedPages: [
+      { to: "/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ── wifi-caindo-curitiba ──
+  {
+    slug: "wifi-caindo-curitiba",
+    title: "Wi-Fi Caindo em Curitiba | Diagnóstico e Solução Profissional",
+    metaDescription: "Wi-Fi caindo toda hora? Internet instável, lenta ou desconectando? Técnico em Curitiba resolve problemas de rede Wi-Fi com diagnóstico completo.",
+    h1: "Wi-Fi Caindo — Diagnóstico e Solução em Curitiba",
+    categoria: "Redes / Wi-Fi",
+    intro: `Wi-Fi que cai toda hora é um dos problemas mais frustrantes da vida digital moderna. A instabilidade pode se manifestar como desconexões frequentes, velocidade muito abaixo do contratado, latência alta ou sinal fraco em determinados cômodos.\n\nAs causas vão desde problemas simples de configuração do roteador até interferência eletromagnética, sobrecarga de dispositivos conectados, firmware desatualizado, problemas na placa Wi-Fi do computador ou até mesmo falhas na infraestrutura do provedor de internet.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo da rede Wi-Fi, incluindo análise de espectro, teste de velocidade em diferentes pontos, verificação de interferência e otimização de canais para garantir conexão estável e rápida.`,
+    sintomas: [
+      { titulo: "Wi-Fi desconecta e reconecta frequentemente", desc: "O dispositivo perde a conexão Wi-Fi a cada poucos minutos e reconecta automaticamente, interrompendo downloads e videochamadas.", gravidade: "Médio" },
+      { titulo: "Internet lenta mesmo com sinal forte", desc: "O ícone do Wi-Fi mostra sinal cheio, mas a velocidade é muito inferior ao plano contratado.", gravidade: "Médio" },
+      { titulo: "Sinal Wi-Fi fraco em certos cômodos", desc: "A conexão funciona bem perto do roteador mas fica fraca ou inexistente em quartos e andares distantes.", gravidade: "Simples" },
+      { titulo: "Wi-Fi cai quando muitos dispositivos conectam", desc: "A rede fica instável quando vários dispositivos estão conectados simultaneamente (celulares, TVs, notebooks).", gravidade: "Médio" },
+      { titulo: "Wi-Fi funciona mas sem acesso à internet", desc: "O dispositivo conecta ao Wi-Fi normalmente mas exibe 'Sem internet' ou 'Conectado, sem internet'.", gravidade: "Médio" },
+      { titulo: "Velocidade cai em horários específicos", desc: "A internet fica lenta sempre nos mesmos horários (noite, fim de semana), indicando congestionamento ou throttling.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Canal Wi-Fi congestionado", desc: "Muitas redes vizinhas usando o mesmo canal causam interferência, reduzindo velocidade e estabilidade — muito comum em apartamentos.", tipo: "software" },
+      { titulo: "Roteador desatualizado ou subdimensionado", desc: "Roteadores antigos (802.11n) ou fornecidos pelo provedor não suportam a velocidade contratada ou muitos dispositivos simultâneos.", tipo: "hardware" },
+      { titulo: "Interferência eletromagnética", desc: "Micro-ondas, telefones sem fio, baby monitors e dispositivos Bluetooth na frequência 2.4GHz causam interferência no Wi-Fi.", tipo: "hardware" },
+      { titulo: "Driver da placa Wi-Fi desatualizado", desc: "O driver do adaptador Wi-Fi do notebook/PC está desatualizado ou corrompido, causando desconexões intermitentes.", tipo: "software" },
+      { titulo: "Configuração incorreta do roteador", desc: "DNS mal configurado, MTU incorreto, modo de segurança incompatível (WEP/WPA antigo) ou DHCP com conflitos de IP.", tipo: "software" },
+      { titulo: "Problema no provedor de internet", desc: "Instabilidade na rede do provedor, cabo coaxial ou fibra com mau contato, ou modem/ONT com defeito.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Otimização de canal Wi-Fi, atualização de firmware do roteador e configuração de DNS.", tempo: "1–2h", custo: "R$100–R$150" },
+      { nivel: "Médio", desc: "Reconfiguração completa da rede, troca de canal, separação 2.4/5GHz, ajuste de potência e posicionamento.", tempo: "2–3h", custo: "R$150–R$250" },
+      { nivel: "Complexo", desc: "Instalação de sistema mesh ou access points, cabeamento estruturado e configuração de rede corporativa.", tempo: "4–8h", custo: "R$300–R$800+" }
+    ],
+    riscos: [
+      "Resetar o roteador para padrão de fábrica sem anotar as configurações pode deixar você sem internet",
+      "Comprar repetidor de sinal barato pode piorar a situação ao criar uma segunda rede congestionada",
+      "Usar canais fixos sem análise de espectro pode colocar sua rede no canal mais congestionado",
+      "Desativar a segurança do Wi-Fi para 'resolver' quedas expõe sua rede a invasores"
+    ],
+    diagnostico: `O diagnóstico de Wi-Fi instável é abrangente:\n\n1. Teste de velocidade em múltiplos pontos da residência/escritório (junto ao roteador e nos cômodos com problema).\n2. Análise de espectro Wi-Fi para mapear interferência de redes vizinhas e identificar o melhor canal.\n3. Verificação de firmware do roteador e configurações de segurança/DHCP/DNS.\n4. Teste de latência e perda de pacotes para o gateway e servidores externos.\n5. Verificação da placa Wi-Fi do dispositivo e drivers instalados.\n6. Teste com cabo Ethernet para isolar se o problema é no Wi-Fi ou na internet em si.\n\nO diagnóstico custa a partir de R$50 e é abatido do serviço caso o reparo seja aprovado.`,
+    solucao: `A solução é personalizada para cada ambiente:\n\n**Otimização de software:** Seleção do canal menos congestionado (2.4GHz e 5GHz), atualização de firmware, configuração de DNS otimizado (Google/Cloudflare), ajuste de MTU e QoS para priorizar tráfego importante.\n\n**Reposicionamento:** Orientação sobre o melhor local para o roteador (centralizado, elevado, longe de paredes grossas e eletrodomésticos).\n\n**Upgrade de equipamento:** Recomendação e configuração de roteador Wi-Fi 5 (AC) ou Wi-Fi 6 (AX) adequado ao tamanho do ambiente e número de dispositivos.\n\n**Sistema mesh:** Para casas grandes ou escritórios, instalação de sistema mesh com roaming seamless entre pontos de acesso.\n\n**Cabeamento:** Instalação de pontos de rede cabeados para dispositivos fixos (TV, desktop, console de jogos) liberando o Wi-Fi para dispositivos móveis.\n\nTodas as soluções incluem teste de velocidade e estabilidade após a implementação.`,
+    quandoCompensa: "Sempre compensa otimizar a rede Wi-Fi, pois na maioria dos casos uma reconfiguração resolve sem necessidade de equipamento novo.",
+    quandoNaoCompensa: "Quando o ambiente é muito grande (>200m²) e o roteador é básico — nesse caso, investir em sistema mesh ou access points é a melhor solução de longo prazo.",
+    conteudoExtra: `## Guia: Como Melhorar seu Wi-Fi Antes de Chamar um Técnico\n\n### 1. Reinicie o roteador corretamente\nDesligue da tomada, aguarde 30 segundos e religue. Isso limpa a memória e pode resolver problemas temporários.\n\n### 2. Verifique a posição do roteador\n- Coloque em local central e elevado (não no chão)\n- Longe de paredes grossas, espelhos e aquários\n- Afastado de micro-ondas e telefones sem fio\n\n### 3. Use a banda 5GHz quando possível\nA banda 5GHz é mais rápida e menos congestionada, ideal para dispositivos próximos ao roteador. A banda 2.4GHz tem maior alcance mas é mais lenta e sujeita a interferência.\n\n## Wi-Fi 5 vs Wi-Fi 6: Vale a Troca?\n\n| Recurso | Wi-Fi 5 (AC) | Wi-Fi 6 (AX) |\n|---------|-------------|-------------|\n| Velocidade máxima | 3.5 Gbps | 9.6 Gbps |\n| Dispositivos simultâneos | Bom | Excelente (OFDMA) |\n| Alcance | Bom | Melhor (BSS Coloring) |\n| Consumo de bateria | Normal | Otimizado (TWT) |\n| Preço médio | R$200-400 | R$400-800 |\n\nSe você tem mais de 10 dispositivos conectados ou plano acima de 300 Mbps, o Wi-Fi 6 faz diferença significativa.`,
+    whatsappMessage: "Olá! Meu Wi-Fi está caindo toda hora. Preciso de diagnóstico e solução em Curitiba.",
+    relatedPages: [
+      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/suporte-empresas", label: "Suporte para Empresas" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

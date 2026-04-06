@@ -1,8 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
 User-agent: Twitterbot
 Allow: /
@@ -10,12 +12,24 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-# Sitemap
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+Disallow: /ads/
+
 Sitemap: https://tecnicocuritiba.com.br/sitemap.xml
 
-# Disallow ads landing pages from organic search
-User-agent: *
-Disallow: /ads/
+Host: https://tecnicocuritiba.com.br

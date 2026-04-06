@@ -3193,6 +3193,288 @@ Diagnosticamos barulhos em PCs e notebooks em toda Curitiba e região. Limpeza p
 
 Resolvemos problemas de Bluetooth no mesmo dia em toda Curitiba e região.`
   },
+
+  // ---------- pen-drive-nao-reconhece-curitiba ----------
+  {
+    slug: "pen-drive-nao-reconhece-curitiba",
+    title: "Pen Drive Não Reconhece em Curitiba | Técnico Especialista",
+    metaDescription: "Pen drive não aparece no computador? Diagnóstico profissional em Curitiba. Recuperação de dados, reparo de porta USB e formatação especializada.",
+    h1: "Pen Drive Não Reconhece — Diagnóstico e Solução em Curitiba",
+    categoria: "Periféricos & Armazenamento",
+    intro: `Você conecta o pen drive e nada acontece? Esse é um dos problemas mais frustrantes do dia a dia digital. O dispositivo pode não ser reconhecido por falhas na porta USB, corrupção do sistema de arquivos, driver desatualizado ou até dano físico no próprio pen drive.
+
+Em Curitiba, atendemos diariamente casos de pen drives que param de funcionar sem aviso. Muitas vezes os dados estão intactos, mas o sistema não consegue montar o dispositivo. Nosso diagnóstico identifica se o problema é no computador, no pen drive ou no sistema operacional.
+
+Antes de formatar e perder tudo, consulte um técnico. Em muitos casos, conseguimos recuperar 100% dos arquivos e resolver o problema sem perda de dados.`,
+    sintomas: [
+      { titulo: "Pen drive não aparece no Explorador de Arquivos", desc: "O dispositivo é conectado mas não surge nenhuma unidade nova no sistema.", gravidade: "Médio" },
+      { titulo: "Windows emite som de conexão mas não mostra o dispositivo", desc: "O sistema detecta algo na USB mas não consegue montar o volume.", gravidade: "Médio" },
+      { titulo: "Mensagem 'Você precisa formatar o disco'", desc: "O Windows reconhece o pen drive mas pede formatação antes de abrir.", gravidade: "Alto" },
+      { titulo: "Pen drive pisca e desconecta sozinho", desc: "A luz LED acende brevemente e apaga, indicando falha de contato ou energia.", gravidade: "Alto" },
+      { titulo: "Funciona em outro computador mas não neste", desc: "Indica problema localizado na porta USB ou driver do computador específico.", gravidade: "Simples" },
+      { titulo: "Pen drive aparece como 'Dispositivo Desconhecido'", desc: "No Gerenciador de Dispositivos surge com ícone de erro amarelo.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Porta USB com defeito ou sem energia suficiente", desc: "Portas frontais de gabinete frequentemente fornecem energia insuficiente para pen drives maiores.", tipo: "hardware" },
+      { titulo: "Sistema de arquivos corrompido", desc: "Remoção sem ejetar, quedas de energia ou vírus corrompem a tabela de partição do pen drive.", tipo: "software" },
+      { titulo: "Driver USB desatualizado ou conflitante", desc: "Drivers do controlador USB podem estar corrompidos após atualizações do Windows.", tipo: "software" },
+      { titulo: "Pen drive com dano físico", desc: "Conector torto, chip de memória danificado ou placa interna com curto-circuito.", tipo: "hardware" },
+      { titulo: "Remoção insegura repetida", desc: "Desconectar o pen drive durante gravação corrompe setores e pode danificar o firmware.", tipo: "erro-humano" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de driver ou porta USB — reinstalação do driver ou troca de porta resolve.", tempo: "30-60 min", custo: "R$50-80" },
+      { nivel: "Médio", desc: "Sistema de arquivos corrompido — recuperação de dados e reformatação do pen drive.", tempo: "1-3 horas", custo: "R$80-150" },
+      { nivel: "Complexo", desc: "Dano físico no pen drive — recuperação de dados em bancada com ferramentas especializadas.", tempo: "2-5 dias", custo: "R$150-400" },
+    ],
+    riscos: [
+      "Formatar o pen drive sem backup apaga todos os dados permanentemente",
+      "Forçar o conector em porta torta pode danificar a placa-mãe do computador",
+      "Usar softwares de recuperação inadequados pode sobrescrever dados recuperáveis",
+      "Ignorar o problema pode indicar falha na controladora USB que afeta outros dispositivos",
+    ],
+    diagnostico: `O diagnóstico envolve teste em múltiplas portas USB, verificação do Gerenciador de Dispositivos, análise do Gerenciamento de Disco do Windows e teste do pen drive em outro computador.\n\nUsamos ferramentas profissionais como TestDisk, PhotoRec e softwares de recuperação de dados para avaliar o estado do sistema de arquivos e a integridade dos dados armazenados.`,
+    solucao: `A solução depende da causa: reinstalação de drivers USB, reparo da tabela de partição, recuperação de dados com ferramentas forenses, ou substituição de portas USB com defeito.\n\nEm casos de dano físico, realizamos micro-soldagem e recuperação em bancada. Sempre priorizamos a recuperação dos dados antes de qualquer formatação.`,
+    quandoCompensa: "Quando o pen drive contém dados importantes e únicos, ou quando o problema é no computador (porta/driver) e não no dispositivo em si.",
+    quandoNaoCompensa: "Quando o pen drive é barato (menos de R$30), não contém dados importantes e apresenta dano físico severo — nesse caso, substituir é mais econômico.",
+    whatsappMessage: "Olá! Meu pen drive não está sendo reconhecido pelo computador. Preciso de diagnóstico e possível recuperação de dados.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "HD Externo Não Reconhece", to: "/hd-externo-nao-reconhece-curitiba" },
+      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+    ],
+    conteudoExtra: `## Guia Completo: Pen Drive Não Reconhece em Curitiba
+
+### Antes de Levar ao Técnico — Checklist
+
+1. Teste o pen drive em outra porta USB (preferencialmente traseira)
+2. Teste em outro computador para isolar o problema
+3. Verifique no Gerenciamento de Disco (diskmgmt.msc) se aparece sem letra
+4. Tente atribuir uma letra de unidade manualmente
+5. Atualize os drivers USB pelo Gerenciador de Dispositivos
+
+### Tipos de Pen Drive e Suas Fragilidades
+
+Pen drives baratos usam chips de memória de qualidade inferior com vida útil limitada a ~10.000 ciclos de gravação. Marcas reconhecidas (SanDisk, Kingston, Samsung) oferecem maior durabilidade e garantia.
+
+### Proteção de Dados
+
+Sempre ejete o pen drive antes de remover. Use backups em nuvem para dados críticos. Pen drives não são dispositivos de armazenamento permanente — são para transporte temporário de arquivos.
+
+### Atendimento Especializado em Curitiba
+
+Atendemos em toda Curitiba e região metropolitana com diagnóstico no mesmo dia para problemas de pen drive e dispositivos USB.`
+  },
+
+  // ---------- som-nao-funciona-curitiba ----------
+  {
+    slug: "som-nao-funciona-curitiba",
+    title: "Som Não Funciona no Computador em Curitiba | Técnico",
+    metaDescription: "Computador sem som em Curitiba? Diagnóstico de áudio, drivers, placa de som e alto-falantes. Atendimento rápido a domicílio.",
+    h1: "Som Não Funciona no Computador — Diagnóstico em Curitiba",
+    categoria: "Áudio & Multimídia",
+    intro: `Seu computador ficou mudo de repente? Problemas de áudio são extremamente comuns e podem ter causas variadas: driver corrompido após atualização do Windows, configuração errada de saída de som, placa de áudio com defeito ou até cabo/conector danificado.
+
+O Windows 10 e 11 frequentemente alteram o dispositivo de saída padrão após atualizações, deixando o som direcionado para um dispositivo que não está conectado. Antes de trocar peças, um diagnóstico simples pode resolver.
+
+Em Curitiba, atendemos no mesmo dia problemas de áudio em desktops, notebooks, monitores com alto-falantes integrados e sistemas de home office com múltiplas saídas de som.`,
+    sintomas: [
+      { titulo: "Ícone de som com X vermelho na bandeja", desc: "O Windows indica que nenhum dispositivo de áudio está instalado ou funcional.", gravidade: "Médio" },
+      { titulo: "Som funciona no fone mas não nos alto-falantes", desc: "Indica problema na saída de áudio específica ou configuração de dispositivo padrão.", gravidade: "Simples" },
+      { titulo: "Áudio com chiado, estalo ou distorção", desc: "Pode indicar driver incompatível, interferência elétrica ou alto-falante danificado.", gravidade: "Médio" },
+      { titulo: "Som parou após atualização do Windows", desc: "Atualização substituiu o driver de áudio por versão genérica incompatível.", gravidade: "Simples" },
+      { titulo: "Volume no máximo mas som muito baixo", desc: "Pode ser configuração de equalização, limitador de volume ou alto-falante desgastado.", gravidade: "Médio" },
+      { titulo: "Som funciona em alguns programas mas não em outros", desc: "Configuração de áudio por aplicativo ou mixer de volume com canal silenciado.", gravidade: "Simples" },
+    ],
+    causas: [
+      { titulo: "Driver de áudio corrompido ou incompatível", desc: "Atualizações do Windows frequentemente instalam drivers genéricos que não funcionam com o chipset de áudio.", tipo: "software" },
+      { titulo: "Dispositivo de saída padrão incorreto", desc: "O Windows pode direcionar o áudio para HDMI, Bluetooth ou dispositivo virtual inexistente.", tipo: "software" },
+      { titulo: "Serviço Windows Audio desativado", desc: "O serviço responsável pelo áudio pode ter sido desabilitado por otimizadores ou malware.", tipo: "software" },
+      { titulo: "Conector P2 com mau contato", desc: "Poeira, oxidação ou desgaste no conector de 3.5mm causa perda de áudio intermitente.", tipo: "hardware" },
+      { titulo: "Placa de som onboard com defeito", desc: "Chipset de áudio na placa-mãe pode falhar por desgaste ou surto elétrico.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de configuração ou driver — reinstalação e ajuste resolve rapidamente.", tempo: "30-60 min", custo: "R$50-80" },
+      { nivel: "Médio", desc: "Conector danificado ou conflito de hardware — reparo ou placa de som USB externa.", tempo: "1-2 horas", custo: "R$80-150" },
+      { nivel: "Complexo", desc: "Placa de som onboard queimada — instalação de placa de som dedicada ou USB.", tempo: "1-2 horas", custo: "R$120-250" },
+    ],
+    riscos: [
+      "Instalar drivers de fontes não confiáveis pode introduzir malware",
+      "Forçar volume no máximo com alto-falantes danificados pode queimar a saída de áudio",
+      "Desabilitar serviços do Windows sem conhecimento pode afetar outras funcionalidades",
+      "Usar adaptadores baratos pode causar interferência e ruído no áudio",
+    ],
+    diagnostico: `Verificamos o Gerenciador de Dispositivos, testamos diferentes saídas de áudio, reinstalamos drivers do fabricante e testamos com fones/caixas diferentes.\n\nUsamos ferramentas de diagnóstico para verificar se o chipset de áudio está respondendo corretamente e se há conflitos de IRQ ou recursos do sistema.`,
+    solucao: `Na maioria dos casos, reinstalar o driver correto do fabricante da placa-mãe resolve. Ajustamos o dispositivo de saída padrão, verificamos o mixer de volume e habilitamos serviços necessários.\n\nSe a placa onboard estiver com defeito, instalamos uma placa de som USB ou PCIe de qualidade, com configuração otimizada para o uso do cliente.`,
+    quandoCompensa: "Sempre compensa investigar — 80% dos problemas de áudio são resolvidos com software (driver/configuração) sem custo de peças.",
+    quandoNaoCompensa: "Apenas quando a placa-mãe está com defeito generalizado e já apresenta outros problemas — nesse caso, a troca da placa é mais indicada.",
+    whatsappMessage: "Olá! O som do meu computador parou de funcionar. Preciso de diagnóstico e reparo.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Computador Lento", to: "/computador-lento-curitiba" },
+      { label: "Formatação", to: "/servicos/formatacao-computador" },
+    ],
+    conteudoExtra: `## Guia: Resolver Problemas de Som no Computador
+
+### Checklist Rápido Antes de Chamar o Técnico
+
+1. Clique com botão direito no ícone de som > Configurações de som
+2. Verifique se o dispositivo de saída correto está selecionado
+3. Abra o Mixer de Volume e veja se algum app está silenciado
+4. Teste com outro fone de ouvido ou caixa de som
+5. Reinicie o serviço Windows Audio (services.msc)
+
+### Problemas Comuns por Marca de Notebook
+
+- **Dell**: Driver Realtek conflita com MaxxAudio após updates
+- **Lenovo**: Dolby Audio pode silenciar saídas não reconhecidas
+- **HP**: Bang & Olufsen software requer driver específico
+- **Acer/Asus**: Drivers genéricos do Windows geralmente funcionam
+
+### Atendimento em Curitiba
+
+Resolvemos problemas de áudio no mesmo dia em toda Curitiba e região metropolitana.`
+  },
+
+  // ---------- computador-nao-desliga-curitiba ----------
+  {
+    slug: "computador-nao-desliga-curitiba",
+    title: "Computador Não Desliga em Curitiba | Diagnóstico Técnico",
+    metaDescription: "Computador não desliga ou fica na tela de desligamento? Técnico em Curitiba resolve problema de shutdown, driver e energia.",
+    h1: "Computador Não Desliga — Diagnóstico e Solução em Curitiba",
+    categoria: "Sistema Operacional",
+    intro: `Clicar em "Desligar" e o computador ficar preso na tela de encerramento ou simplesmente não desligar é um problema mais comum do que parece. Isso pode acontecer por processos travados, drivers incompatíveis, atualizações pendentes ou problemas na configuração de energia.
+
+Em casos mais graves, o computador pode reiniciar ao invés de desligar, ou a tela fica preta mas os coolers continuam rodando. Esses sintomas indicam problemas diferentes que requerem abordagens específicas.
+
+Em Curitiba, diagnosticamos e resolvemos problemas de desligamento no mesmo dia, seja a domicílio ou em nosso laboratório.`,
+    sintomas: [
+      { titulo: "Computador fica travado na tela 'Desligando...'", desc: "O Windows inicia o processo de shutdown mas nunca completa, ficando preso indefinidamente.", gravidade: "Médio" },
+      { titulo: "Tela fica preta mas o computador continua ligado", desc: "O monitor apaga mas coolers, LEDs e HD continuam funcionando — shutdown incompleto.", gravidade: "Médio" },
+      { titulo: "Computador reinicia ao invés de desligar", desc: "Ao clicar em Desligar, o PC reinicia automaticamente — ciclo infinito.", gravidade: "Alto" },
+      { titulo: "Demora mais de 5 minutos para desligar", desc: "Processos ou serviços em segundo plano impedem o encerramento rápido.", gravidade: "Simples" },
+      { titulo: "Mensagem 'Aguardando programas fecharem'", desc: "Um ou mais programas não respondem ao comando de encerramento do Windows.", gravidade: "Simples" },
+      { titulo: "Só desliga forçando pelo botão de energia", desc: "O shutdown por software não funciona, obrigando desligamento físico — pode corromper dados.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "Driver de dispositivo impedindo shutdown", desc: "Drivers de rede, USB ou vídeo com bugs podem travar o processo de encerramento.", tipo: "software" },
+      { titulo: "Inicialização rápida (Fast Startup) com conflito", desc: "O recurso de inicialização rápida do Windows 10/11 pode conflitar com certos hardwares.", tipo: "software" },
+      { titulo: "Atualização do Windows pendente ou travada", desc: "Updates que não conseguem ser instalados podem travar o shutdown indefinidamente.", tipo: "software" },
+      { titulo: "Processo ou serviço travado em segundo plano", desc: "Antivírus, sincronizadores de nuvem ou malware podem impedir o encerramento.", tipo: "software" },
+      { titulo: "Problema na fonte de alimentação", desc: "Fonte com defeito pode não cortar a energia corretamente após o shutdown do software.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Desabilitar inicialização rápida e ajustar configurações de energia resolve.", tempo: "30-60 min", custo: "R$50-80" },
+      { nivel: "Médio", desc: "Driver problemático ou atualização travada — diagnóstico, atualização e limpeza de sistema.", tempo: "1-2 horas", custo: "R$80-150" },
+      { nivel: "Complexo", desc: "Problema de hardware (fonte/placa-mãe) — teste e substituição de componentes.", tempo: "2-4 horas", custo: "R$150-350" },
+    ],
+    riscos: [
+      "Desligar forçando pelo botão repetidamente pode corromper o disco e o sistema operacional",
+      "Atualizações interrompidas podem inutilizar o Windows",
+      "Fonte com defeito pode danificar outros componentes por não cortar energia corretamente",
+      "Ignorar o problema pode mascarar falhas de hardware progressivas",
+    ],
+    diagnostico: `Analisamos o Event Viewer do Windows para identificar processos ou drivers que bloqueiam o shutdown. Verificamos configurações de energia, Fast Startup e atualizações pendentes.\n\nTestamos o comportamento em Modo de Segurança para isolar se é problema de software ou hardware. Verificamos também a fonte de alimentação com multímetro.`,
+    solucao: `Desabilitamos o Fast Startup, atualizamos drivers problemáticos, resolvemos updates travados e configuramos corretamente as opções de energia.\n\nSe o problema for de hardware, testamos e substituímos a fonte de alimentação ou verificamos a placa-mãe. Sempre garantimos que o shutdown funcione corretamente antes de encerrar o atendimento.`,
+    quandoCompensa: "Sempre compensa resolver — forçar desligamento pelo botão repetidamente leva a problemas muito mais graves e caros no futuro.",
+    quandoNaoCompensa: "Apenas se o computador já apresenta múltiplos problemas de hardware e tem mais de 8 anos — nesse caso, considerar upgrade ou troca.",
+    whatsappMessage: "Olá! Meu computador não está desligando corretamente. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Computador Lento", to: "/computador-lento-curitiba" },
+      { label: "Tela Azul Windows", to: "/tela-azul-windows-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Computador Não Desliga em Curitiba
+
+### Soluções Rápidas
+
+1. Desabilite Fast Startup: Painel de Controle > Opções de Energia > Alterar comportamento dos botões
+2. Verifique atualizações pendentes: Configurações > Windows Update
+3. Feche todos os programas manualmente antes de desligar
+4. Teste no Modo de Segurança para isolar drivers
+5. Execute \`shutdown /s /f /t 0\` no Prompt de Comando
+
+### Quando o Problema é Grave
+
+Se o computador reinicia ao invés de desligar, pode ser BSOD oculto. Verifique o Event Viewer (eventvwr.msc) para erros críticos no momento do shutdown.
+
+### Atendimento em Curitiba
+
+Diagnóstico e solução no mesmo dia para problemas de desligamento em Curitiba e região.`
+  },
+
+  // ---------- erro-ao-instalar-windows-curitiba ----------
+  {
+    slug: "erro-ao-instalar-windows-curitiba",
+    title: "Erro ao Instalar Windows em Curitiba | Técnico Especialista",
+    metaDescription: "Erro na instalação do Windows em Curitiba? Técnico resolve problemas de boot, partição, driver e BIOS para instalação limpa do Windows 10/11.",
+    h1: "Erro ao Instalar Windows — Solução Profissional em Curitiba",
+    categoria: "Instalação & Formatação",
+    intro: `Tentou instalar o Windows e deparou com erros como "Não foi possível instalar o Windows nesta partição", "Erro 0x80070570" ou a instalação trava em uma porcentagem? Esses erros são muito comuns e podem ter causas variadas.
+
+Problemas de instalação do Windows geralmente envolvem: mídia de instalação corrompida, HD/SSD com setores defeituosos, configuração incorreta de BIOS/UEFI, tabela de partição incompatível (MBR vs GPT) ou drivers de armazenamento ausentes.
+
+Em Curitiba, realizamos instalações profissionais do Windows 10 e 11 com drivers corretos, ativação legítima e configuração otimizada para o hardware do cliente.`,
+    sintomas: [
+      { titulo: "Erro 'Não foi possível criar/formatar partição selecionada'", desc: "A instalação não consegue gravar na partição — pode ser disco protegido, corrompido ou formato incompatível.", gravidade: "Médio" },
+      { titulo: "Instalação trava em porcentagem específica", desc: "O progresso para em 25%, 49% ou 74% — indica arquivo corrompido na mídia ou setor defeituoso no disco.", gravidade: "Alto" },
+      { titulo: "Erro 0x80070570 — arquivo corrompido", desc: "A mídia de instalação (USB/DVD) possui arquivos danificados ou a RAM está com defeito.", gravidade: "Médio" },
+      { titulo: "Tela azul durante a instalação", desc: "BSOD durante setup indica incompatibilidade de hardware, RAM defeituosa ou disco com problemas.", gravidade: "Alto" },
+      { titulo: "BIOS não reconhece o pendrive bootável", desc: "Configuração de Secure Boot, UEFI/Legacy ou pendrive criado incorretamente impede o boot.", gravidade: "Simples" },
+      { titulo: "Windows instala mas não inicia (boot loop)", desc: "Após instalação, o PC fica em loop de reinicialização — bootloader corrompido ou driver crítico ausente.", gravidade: "Alto" },
+    ],
+    causas: [
+      { titulo: "Mídia de instalação corrompida", desc: "Pen drive criado com ferramenta errada ou ISO com download incompleto/corrompido.", tipo: "erro-humano" },
+      { titulo: "Disco com setores defeituosos", desc: "HD/SSD com falhas físicas impede a gravação dos arquivos de instalação.", tipo: "hardware" },
+      { titulo: "Configuração BIOS/UEFI incorreta", desc: "Secure Boot, CSM, modo AHCI/IDE e ordem de boot mal configurados.", tipo: "erro-humano" },
+      { titulo: "Tabela de partição incompatível", desc: "Disco em MBR tentando instalar em modo UEFI ou vice-versa causa erros de partição.", tipo: "software" },
+      { titulo: "RAM com defeito", desc: "Memória RAM com erros causa corrupção durante a cópia de arquivos da instalação.", tipo: "hardware" },
+      { titulo: "Drivers de armazenamento ausentes", desc: "SSDs NVMe ou controladoras RAID podem precisar de drivers adicionais durante a instalação.", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de configuração BIOS ou mídia — recriação do pendrive e ajuste de BIOS resolve.", tempo: "1-2 horas", custo: "R$80-120" },
+      { nivel: "Médio", desc: "Disco com setores ruins ou partição incompatível — formatação completa e conversão GPT/MBR.", tempo: "2-3 horas", custo: "R$120-200" },
+      { nivel: "Complexo", desc: "Hardware defeituoso (HD/RAM) — substituição de componente + instalação completa.", tempo: "3-5 horas", custo: "R$200-450" },
+    ],
+    riscos: [
+      "Forçar instalação em disco com setores ruins pode causar perda total de dados",
+      "Alterar configurações de BIOS sem conhecimento pode impedir o boot de qualquer sistema",
+      "Usar ISOs de fontes não oficiais pode instalar versões com malware pré-instalado",
+      "Converter MBR para GPT sem backup apaga todos os dados do disco",
+      "Instalar Windows sem drivers corretos pode causar instabilidade e telas azuis",
+    ],
+    diagnostico: `Testamos a mídia de instalação, verificamos o disco com ferramentas como CrystalDiskInfo e SMART, testamos a RAM com MemTest86 e validamos todas as configurações de BIOS.\n\nIdentificamos o erro exato (código, momento da falha) para aplicar a solução correta sem tentativa e erro.`,
+    solucao: `Criamos mídia de instalação verificada a partir da ferramenta oficial da Microsoft. Configuramos BIOS corretamente (UEFI/Legacy, Secure Boot, AHCI). Convertemos a tabela de partição se necessário.\n\nSe o disco estiver com defeito, substituímos por SSD novo e realizamos instalação limpa com todos os drivers do fabricante, ativação legítima e configurações de performance otimizadas.`,
+    quandoCompensa: "Sempre compensa ter uma instalação profissional — erros durante a instalação geralmente indicam problemas que vão piorar se não forem resolvidos.",
+    quandoNaoCompensa: "Quando o hardware é muito antigo e não suporta Windows 10/11 (sem UEFI, sem TPM 2.0) — pode ser melhor considerar Linux ou upgrade de hardware.",
+    whatsappMessage: "Olá! Estou com erro ao tentar instalar o Windows no meu computador. Preciso de ajuda profissional.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Formatação de Computador", to: "/servicos/formatacao-computador" },
+      { label: "Tela Azul Windows", to: "/tela-azul-windows-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Instalação do Windows em Curitiba
+
+### Requisitos Mínimos Windows 11
+
+- Processador: 1GHz, 2 cores, 64-bit compatível
+- RAM: 4GB mínimo (8GB recomendado)
+- Armazenamento: 64GB mínimo (SSD 240GB recomendado)
+- TPM 2.0 e Secure Boot habilitados
+- UEFI com GPT (não MBR)
+
+### Erros Mais Comuns e Soluções Rápidas
+
+| Erro | Causa Provável | Solução |
+|------|---------------|---------|
+| 0x80070570 | Arquivo corrompido | Recriar pendrive com Rufus |
+| 0x80300024 | Partição incompatível | Limpar disco com diskpart |
+| 0x8007025D | RAM com defeito | Testar RAM com MemTest86 |
+| Boot loop | Driver ausente | Instalar driver de armazenamento |
+
+### Instalação Profissional em Curitiba
+
+Realizamos instalação completa do Windows com drivers originais, otimização de performance e backup de dados. Atendimento em toda Curitiba e região metropolitana.`
+  },
 ];
 
 // Helper to get a page by slug

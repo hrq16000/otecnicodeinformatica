@@ -4298,6 +4298,216 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     conteudoExtra: `## Resolva Problemas de Wi-Fi: Guia Completo\n\n### Reset Completo de Rede no Windows\n\n1. Abra **Configurações → Rede e Internet**\n2. Clique em **Redefinição de Rede** (no final da página)\n3. Clique em **Redefinir agora**\n4. O PC vai reiniciar — reconecte ao Wi-Fi com a senha\n\nIsso resolve 60% dos problemas de conectividade.\n\n### Diagnóstico via Prompt de Comando\n\n\`\`\`\nipconfig /all          → Mostra configuração de rede\nping 8.8.8.8          → Testa conexão com internet\nping google.com       → Testa DNS\nnetsh wlan show all   → Mostra redes e adaptador\n\`\`\`\n\n### Wi-Fi 5 GHz vs 2.4 GHz\n\n| Característica | 2.4 GHz | 5 GHz |\n|---|---|---|\n| Alcance | Longo (até 50m) | Curto (até 20m) |\n| Velocidade | Até 300 Mbps | Até 1.300+ Mbps |\n| Interferência | Alta (vizinhos, microondas) | Baixa |\n| Paredes | Atravessa bem | Perde sinal fácil |\n| Ideal para | Distância, IoT | Velocidade, jogos |\n\n### Adaptadores Wi-Fi USB Recomendados\n\n| Modelo | Padrão | Velocidade | Preço Médio |\n|---|---|---|---|\n| TP-Link Archer T3U | Wi-Fi 5 (AC) | Até 1.300 Mbps | R$ 100-150 |\n| TP-Link Archer TX20U | Wi-Fi 6 (AX) | Até 1.800 Mbps | R$ 150-250 |\n| Qualquer USB 2.0 N | Wi-Fi 4 (N) | Até 300 Mbps | R$ 40-70 |`
   },
 
+  // ==================== NOTEBOOK ESQUENTANDO E DESLIGANDO ====================
+  {
+    slug: "notebook-esquentando-desligando-curitiba",
+    title: "Notebook Esquentando e Desligando Sozinho em Curitiba | Técnico Especialista",
+    metaDescription: "Notebook esquentando demais e desligando sozinho? Técnico em Curitiba resolve superaquecimento com limpeza, troca de pasta térmica e reparo de cooler. Atendimento rápido.",
+    h1: "Notebook Esquentando e Desligando — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Térmico",
+    intro: `Quando o notebook começa a esquentar excessivamente e desliga sozinho sem aviso, isso é um mecanismo de proteção do processador chamado thermal shutdown. O processador atinge temperaturas acima de 95-100°C e o sistema desliga para evitar danos permanentes ao chip.\n\nEsse problema é extremamente comum em Curitiba — apesar do clima mais ameno, a poeira acumulada nas saídas de ar e a pasta térmica ressecada são as principais causas. Notebooks com mais de 2 anos sem manutenção preventiva quase sempre apresentam esse sintoma.\n\nIgnorar o superaquecimento pode causar danos irreversíveis ao processador, GPU e placa-mãe. A solda BGA que conecta o chip à placa pode trincar com ciclos repetidos de calor extremo, transformando um problema de R$ 150 em um de R$ 800+.`,
+    sintomas: [
+      { titulo: "Desliga sozinho durante uso intenso", desc: "O notebook desliga abruptamente ao rodar jogos, editar vídeos ou abrir muitas abas. É o thermal shutdown protegendo o processador.", gravidade: "Alta" },
+      { titulo: "Base do notebook muito quente", desc: "A parte inferior fica impossível de usar no colo. Temperaturas acima de 50°C na superfície indicam 90°C+ internamente.", gravidade: "Média-Alta" },
+      { titulo: "Cooler fazendo barulho alto constantemente", desc: "A ventoinha gira na velocidade máxima o tempo todo, tentando compensar o calor excessivo. Pode indicar pasta térmica seca ou saída obstruída.", gravidade: "Média" },
+      { titulo: "Lentidão progressiva antes de desligar", desc: "O processador reduz a velocidade (throttling) para tentar baixar a temperatura antes do desligamento forçado.", gravidade: "Média" },
+      { titulo: "Tela congela e depois desliga", desc: "A GPU superaquece primeiro, causando artefatos visuais ou congelamento, seguido pelo desligamento térmico.", gravidade: "Alta" },
+      { titulo: "Notebook não liga após desligar por calor", desc: "Proteção térmica impede a reinicialização até o processador esfriar. Se não liga nem depois de frio, pode haver dano na placa.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Pasta térmica ressecada", desc: "A pasta térmica entre o processador e o dissipador perde eficiência após 2-3 anos. Em vez de transferir calor, ela isola — fazendo a temperatura subir 20-30°C acima do normal.", tipo: "desgaste" },
+      { titulo: "Saída de ar obstruída por poeira", desc: "Poeira, pelos de animais e fibras acumulam na grade do dissipador, bloqueando o fluxo de ar. É a causa mais comum e mais fácil de resolver.", tipo: "desgaste" },
+      { titulo: "Cooler com defeito ou travado", desc: "O motor da ventoinha desgasta com o tempo, gira mais devagar ou trava completamente. Sem ventilação, a temperatura dispara em minutos.", tipo: "hardware" },
+      { titulo: "Uso em superfícies que bloqueiam ventilação", desc: "Usar o notebook na cama, almofada ou sofá bloqueia as entradas de ar inferiores. Isso impede a circulação e causa superaquecimento mesmo em notebooks novos.", tipo: "erro-humano" },
+      { titulo: "Componentes exigindo mais do que o sistema térmico suporta", desc: "Jogos pesados ou softwares de renderização forçam CPU e GPU ao máximo. Se o sistema de refrigeração já está comprometido, o desligamento é inevitável.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna + troca de pasta térmica. Resolve 70% dos casos de superaquecimento.", tempo: "1-2 horas", custo: "R$ 120–200" },
+      { nivel: "Médio", desc: "Troca do cooler/ventoinha + limpeza completa + pasta térmica premium.", tempo: "2-4 horas", custo: "R$ 200–400" },
+      { nivel: "Complexo", desc: "Reparo de solda BGA na GPU/CPU danificada pelo calor + sistema térmico completo.", tempo: "3-7 dias", custo: "R$ 400–900" }
+    ],
+    riscos: [
+      "Dano permanente ao processador por ciclos repetidos de superaquecimento",
+      "Solda BGA da GPU pode trincar, causando artefatos visuais permanentes ou tela preta",
+      "Bateria pode inchar e deformar com calor excessivo — risco de incêndio",
+      "Componentes da placa-mãe podem queimar (VRMs, capacitores) com calor prolongado",
+      "Perda de dados se o desligamento abrupto corromper o sistema de arquivos do HD/SSD",
+      "Tela pode apresentar manchas amarelas permanentes por calor irradiado da GPU"
+    ],
+    diagnostico: `Diagnóstico térmico completo:\n\n1. Medição de temperatura com sensores (CPU, GPU, SSD, ambiente)\n2. Teste de estresse controlado (Prime95 + FurMark) com monitoramento em tempo real\n3. Inspeção visual do dissipador, pasta térmica e ventoinha\n4. Verificação de RPM do cooler e curva de velocidade\n5. Análise do fluxo de ar (entrada e saída)\n6. Teste de bateria para verificar inchaço por calor\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a gravidade:\n\n- **Pasta térmica**: Remoção completa da pasta antiga + aplicação de pasta premium (Thermal Grizzly Kryonaut ou Arctic MX-6)\n- **Limpeza**: Desmontagem completa, limpeza do dissipador com ar comprimido e álcool isopropílico\n- **Cooler**: Troca da ventoinha por modelo original ou compatível\n- **Pad térmico**: Substituição dos thermal pads da memória VRAM e VRMs\n- **Base refrigerada**: Recomendação de base com ventilação para uso intenso\n\nTeste de estresse por 30+ minutos após o reparo para garantir temperaturas saudáveis (< 85°C sob carga).`,
+    quandoCompensa: "Quase sempre — limpeza térmica custa R$ 120-200 e pode dar mais 2-3 anos de vida ao notebook. É a manutenção preventiva mais importante.",
+    quandoNaoCompensa: "Quando a GPU já teve solda BGA danificada repetidamente e o notebook tem mais de 7 anos. Nesse caso o reparo pode custar mais que um notebook usado equivalente.",
+    whatsappMessage: "Olá! Meu notebook está esquentando muito e desligando sozinho. Podem me ajudar?",
+    relatedPages: [
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Superaquecimento de Notebook: Guia Completo\n\n### Temperaturas Normais vs Perigosas\n\n| Componente | Idle (repouso) | Carga leve | Carga pesada | Crítico |\n|---|---|---|---|---|\n| CPU | 35-50°C | 50-70°C | 70-85°C | > 95°C |\n| GPU | 30-45°C | 45-65°C | 65-85°C | > 95°C |\n| SSD | 25-40°C | 35-50°C | 45-60°C | > 70°C |\n| Superfície | 25-35°C | 35-42°C | 42-50°C | > 55°C |\n\n### Como Verificar a Temperatura\n\n1. **HWMonitor** (gratuito) — mostra temperatura de todos os sensores\n2. **Core Temp** — focado em CPU, mostra throttling\n3. **GPU-Z** — monitora temperatura da placa de vídeo\n\n### Dicas para Reduzir o Calor\n\n- Use o notebook em superfície plana e rígida (mesa)\n- Invista em uma base refrigerada (R$ 60-150)\n- Limpe as saídas de ar com ar comprimido a cada 6 meses\n- Faça manutenção térmica profissional a cada 2 anos\n- Evite usar na cama ou no colo por longos períodos\n\n### Pasta Térmica: Qual Escolher?\n\n| Marca | Condutividade | Duração | Preço |\n|---|---|---|---|\n| Arctic MX-6 | 8.5 W/mK | 3-4 anos | R$ 30-50 |\n| Thermal Grizzly Kryonaut | 12.5 W/mK | 2-3 anos | R$ 60-100 |\n| Noctua NT-H2 | 9.0 W/mK | 3-5 anos | R$ 50-80 |\n| Pasta genérica (branca) | 1-3 W/mK | 1 ano | R$ 5-15 |`
+  },
+
+  // ==================== ERRO DE BIOS ====================
+  {
+    slug: "erro-bios-curitiba",
+    title: "Erro de BIOS em Curitiba | Diagnóstico e Reparo Especializado",
+    metaDescription: "Erro de BIOS no computador? Técnico em Curitiba resolve BIOS corrompida, configuração errada, atualização falha e senha esquecida. Atendimento profissional.",
+    h1: "Erro de BIOS — Diagnóstico e Reparo Profissional em Curitiba",
+    categoria: "Hardware — Firmware",
+    intro: `A BIOS (ou UEFI, em computadores modernos) é o primeiro software que roda quando você liga o computador. Ela inicializa o hardware, verifica se tudo está funcionando e passa o controle para o sistema operacional. Quando há um erro na BIOS, o computador pode não ligar, travar na tela de POST, emitir bipes ou mostrar mensagens de erro antes do Windows.\n\nErros de BIOS são particularmente assustadores porque aparecem antes mesmo do sistema operacional carregar — muitos usuários pensam que o computador "morreu". Na maioria dos casos, porém, o problema é resolvível com configuração correta, reset de CMOS ou regravação de firmware.\n\nEm Curitiba, atendemos frequentemente casos de BIOS corrompida após queda de energia (algo comum em bairros como CIC, Boqueirão e Cajuru), atualização de BIOS interrompida e configurações incorretas após upgrade de hardware.`,
+    sintomas: [
+      { titulo: "Mensagem 'CMOS Checksum Error'", desc: "A bateria CR2032 da placa-mãe está fraca ou morta. A BIOS perde as configurações salvas toda vez que o PC é desligado.", gravidade: "Simples" },
+      { titulo: "PC não passa da tela de POST", desc: "O computador liga, mostra o logo do fabricante, mas trava e não chega ao Windows. Pode indicar configuração de boot incorreta ou hardware não reconhecido.", gravidade: "Média" },
+      { titulo: "Bipes ao ligar (beep codes)", desc: "Sequências de bipes indicam erros específicos de hardware. 1 bipe longo + 3 curtos = problema de vídeo. Cada fabricante tem códigos diferentes.", gravidade: "Média-Alta" },
+      { titulo: "Mensagem 'Boot Device Not Found'", desc: "A BIOS não encontra o HD/SSD para iniciar o sistema. Pode ser cabo solto, ordem de boot errada ou disco com falha.", gravidade: "Média" },
+      { titulo: "BIOS corrompida após atualização", desc: "Atualização de BIOS interrompida por queda de energia ou arquivo errado. O computador pode não ligar de jeito nenhum.", gravidade: "Alta" },
+      { titulo: "Senha de BIOS esquecida", desc: "Uma senha foi definida na BIOS e agora impede o acesso às configurações ou até a inicialização do sistema.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Bateria CR2032 fraca ou morta", desc: "A bateria da placa-mãe mantém as configurações da BIOS quando o PC está desligado. Após 3-5 anos, ela descarrega e a BIOS reseta para padrão de fábrica a cada boot.", tipo: "desgaste" },
+      { titulo: "Atualização de BIOS falha", desc: "Atualizar a BIOS é arriscado — uma queda de energia, versão errada ou interrupção durante o processo pode corromper o firmware permanentemente.", tipo: "erro-humano" },
+      { titulo: "Configuração incorreta após upgrade", desc: "Ao instalar novo hardware (RAM, SSD NVMe, processador), a BIOS pode precisar de ajustes. Configuração errada de AHCI/IDE, XMP ou boot order causa erros.", tipo: "erro-humano" },
+      { titulo: "Queda de energia ou pico de tensão", desc: "Picos elétricos podem corromper o chip de BIOS/UEFI. Comum em Curitiba durante tempestades, especialmente sem uso de nobreak ou estabilizador.", tipo: "hardware" },
+      { titulo: "Malware de BIOS (rootkit)", desc: "Embora raro, existem malwares que se instalam na BIOS/UEFI, sobrevivendo até a formatação. Mais comum em máquinas corporativas.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de bateria CR2032 + reset de CMOS + reconfiguração. Resolve checksum errors e perda de configurações.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Reconfiguração completa de BIOS/UEFI, ajuste de boot order, habilitação de AHCI/NVMe, configuração de XMP.", tempo: "1-2 horas", custo: "R$ 120–250" },
+      { nivel: "Complexo", desc: "Regravação de chip BIOS com gravador externo (CH341A) + reprogramação de firmware. Para BIOS completamente corrompida.", tempo: "1-3 dias", custo: "R$ 200–500" }
+    ],
+    riscos: [
+      "Atualizar BIOS com versão errada pode inutilizar a placa-mãe permanentemente",
+      "Resetar CMOS sem conhecimento pode desabilitar recursos essenciais (AHCI, boot seguro)",
+      "Configurar overclocking na BIOS sem experiência pode queimar processador ou RAM",
+      "Ignorar erro de bateria CR2032 pode causar perda de hora/data e problemas de certificados SSL",
+      "Desabilitar Secure Boot pode impedir o Windows 11 de iniciar",
+      "Regravação amadora de BIOS pode gravar firmware incompatível e inutilizar a placa"
+    ],
+    diagnostico: `Diagnóstico de BIOS/UEFI:\n\n1. Análise dos beep codes (padrão do fabricante da placa-mãe)\n2. Verificação de bateria CR2032 com multímetro (deve estar acima de 2.8V)\n3. Reset de CMOS via jumper ou remoção de bateria\n4. Verificação de versão atual da BIOS vs versão mais recente\n5. Teste de boot com configurações padrão (Load Optimized Defaults)\n6. Verificação de integridade do chip BIOS com gravador externo\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme o caso:\n\n- **Bateria**: Troca da CR2032 + reconfiguração de data/hora e boot order\n- **Configuração**: Load Optimized Defaults + ajustes específicos (AHCI, XMP, boot order)\n- **Senha**: Reset via jumper CMOS ou remoção de bateria por 30 minutos\n- **BIOS corrompida**: Regravação com gravador CH341A e firmware original do fabricante\n- **Dual BIOS**: Ativação do chip BIOS de backup (em placas que possuem)\n\nTeste completo de POST e inicialização do sistema após o reparo.`,
+    quandoCompensa: "Quase sempre — a maioria dos problemas de BIOS custa R$ 80-250 para resolver. Mesmo regravação de chip (R$ 200-500) é mais barato que trocar a placa-mãe.",
+    quandoNaoCompensa: "Quando a placa-mãe já tem outros defeitos além da BIOS corrompida (capacitores estufados, trilhas queimadas) e tem mais de 8 anos.",
+    whatsappMessage: "Olá! Meu computador está com erro de BIOS e não inicia corretamente. Podem me ajudar?",
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Entendendo a BIOS/UEFI: Guia Completo\n\n### BIOS vs UEFI — Qual a Diferença?\n\n| Característica | BIOS (Legacy) | UEFI |\n|---|---|---|\n| Interface | Texto azul/cinza | Gráfica com mouse |\n| Limite de disco | 2 TB (MBR) | 9.4 ZB (GPT) |\n| Boot seguro | Não | Sim (Secure Boot) |\n| Velocidade de boot | Mais lento | Mais rápido |\n| Ano de adoção | 1981-2012 | 2012+ |\n\n### Beep Codes Comuns (Award BIOS)\n\n| Bipes | Significado |\n|---|---|\n| 1 curto | POST OK — boot normal |\n| 1 longo + 2 curtos | Erro de vídeo (GPU ou RAM de vídeo) |\n| 1 longo + 3 curtos | Erro de teclado ou vídeo |\n| Contínuo | Erro de memória RAM |\n| Nenhum bipe, sem vídeo | Processador ou placa-mãe |\n\n### Como Acessar a BIOS\n\n| Fabricante | Tecla |\n|---|---|\n| ASUS | DEL ou F2 |\n| Gigabyte | DEL |\n| MSI | DEL |\n| Dell | F2 |\n| HP | F10 ou ESC |\n| Lenovo | F1 ou F2 |\n| Acer | F2 ou DEL |\n\n### Quando Atualizar a BIOS?\n\n- ✅ Ao instalar processador novo que exige BIOS mais recente\n- ✅ Para corrigir bug conhecido (instabilidade, compatibilidade)\n- ❌ Se tudo funciona normalmente — "não mexa no que funciona"\n- ❌ Nunca atualize durante tempestade ou sem nobreak`
+  },
+
+  // ==================== PC TRAVANDO EM JOGOS ====================
+  {
+    slug: "pc-travando-em-jogos-curitiba",
+    title: "PC Travando em Jogos em Curitiba | Diagnóstico Gamer Profissional",
+    metaDescription: "PC travando, engasgando ou dando tela azul em jogos? Técnico gamer em Curitiba diagnostica e resolve problemas de performance, FPS baixo e crashes. Atendimento especializado.",
+    h1: "PC Travando em Jogos — Diagnóstico e Otimização Gamer em Curitiba",
+    categoria: "Performance — Gaming",
+    intro: `Seu PC trava, engasga ou dá tela azul durante jogos? Esse é um dos problemas mais frustrantes para gamers — especialmente quando o computador funciona normalmente para tarefas básicas e só apresenta problemas sob carga pesada de jogos.\n\nTravamentos em jogos podem ter dezenas de causas: desde driver de vídeo desatualizado até RAM com defeito, superaquecimento da GPU, fonte insuficiente ou até mesmo configurações erradas do jogo. Identificar a causa exata exige diagnóstico profissional com ferramentas específicas.\n\nEm Curitiba, atendemos gamers de todas as configurações — desde PCs gamer de entrada até setups high-end. O importante é entender que o hardware precisa trabalhar em harmonia: não adianta ter uma RTX 4070 se a fonte é de 400W ou a pasta térmica da GPU está seca há 4 anos.`,
+    sintomas: [
+      { titulo: "FPS cai drasticamente durante o jogo", desc: "O jogo começa fluido mas depois de 10-30 minutos o FPS despenca. Forte indicativo de throttling térmico — GPU ou CPU reduzindo velocidade por calor.", gravidade: "Média" },
+      { titulo: "Jogo fecha sozinho sem mensagem de erro", desc: "O jogo simplesmente desaparece e volta para a área de trabalho. Pode ser driver de vídeo, RAM defeituosa ou DX/Vulkan instável.", gravidade: "Média-Alta" },
+      { titulo: "Tela azul (BSOD) durante jogos", desc: "O Windows dá tela azul com erros como VIDEO_TDR_FAILURE, IRQL_NOT_LESS_OR_EQUAL ou WHEA_UNCORRECTABLE_ERROR. Indica problema sério de hardware ou driver.", gravidade: "Alta" },
+      { titulo: "Artefatos visuais (quadrados, linhas coloridas)", desc: "Aparecem blocos coloridos, linhas ou texturas corrompidas durante o jogo. Pode ser GPU superaquecendo, VRAM com defeito ou overclock instável.", gravidade: "Alta" },
+      { titulo: "PC desliga completamente durante jogos pesados", desc: "O computador simplesmente apaga como se tivesse puxado o cabo de força. Forte indicativo de fonte de alimentação insuficiente ou defeituosa.", gravidade: "Alta" },
+      { titulo: "Engasgos e stuttering constante", desc: "O jogo não é fluido mesmo com FPS alto no contador. Pode ser problema de RAM insuficiente, HDD lento ou CPU bottleneck.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Driver de vídeo desatualizado ou corrompido", desc: "Drivers da NVIDIA/AMD são atualizados frequentemente com otimizações para jogos novos. Driver antigo ou instalação corrompida causa crashes e baixa performance.", tipo: "software" },
+      { titulo: "Superaquecimento de GPU ou CPU", desc: "Sob carga de jogos, GPU e CPU atingem temperaturas máximas. Pasta térmica seca, cooler sujo ou gabinete sem ventilação causam throttling e desligamentos.", tipo: "hardware" },
+      { titulo: "Fonte de alimentação insuficiente", desc: "Jogos pesados fazem a GPU consumir 200-350W. Se a fonte não aguenta os picos de consumo, o PC desliga instantaneamente.", tipo: "hardware" },
+      { titulo: "RAM com defeito ou insuficiente", desc: "8GB já não é suficiente para muitos jogos modernos. RAM com erro intermitente causa crashes aleatórios que só aparecem sob carga pesada.", tipo: "hardware" },
+      { titulo: "HD/SSD lento causando stuttering", desc: "Jogos modernos carregam texturas e assets em tempo real. HD mecânico causa engasgos visíveis; SSD SATA pode ser lento para jogos AAA.", tipo: "hardware" },
+      { titulo: "Windows ou jogo mal configurado", desc: "Configurações de energia no modo economia, game mode do Windows com bug, overlay de programas (Discord, GeForce Experience) causando conflito.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação limpa de drivers + otimização de Windows + configuração de jogo. Resolve crashes por software.", tempo: "1-2 horas", custo: "R$ 100–200" },
+      { nivel: "Médio", desc: "Limpeza térmica completa + troca de pasta térmica + diagnóstico de RAM + otimização geral.", tempo: "2-4 horas", custo: "R$ 200–400" },
+      { nivel: "Complexo", desc: "Troca de fonte + upgrade de RAM + diagnóstico completo de GPU com teste de estresse prolongado.", tempo: "1-3 dias", custo: "R$ 400–1200" }
+    ],
+    riscos: [
+      "Ignorar superaquecimento da GPU pode causar dano permanente ao chip gráfico",
+      "Fonte subdimensionada pode queimar e levar outros componentes junto (placa-mãe, GPU)",
+      "RAM com defeito pode corromper saves de jogos e arquivos do sistema",
+      "Overclock instável pode degradar a vida útil do processador e GPU",
+      "Drivers beta ou modificados podem causar instabilidade crônica",
+      "Ignorar artefatos visuais pode significar GPU em estágio final de vida"
+    ],
+    diagnostico: `Diagnóstico gamer completo:\n\n1. Monitoramento de temperaturas em tempo real (GPU, CPU, VRM)\n2. Teste de estresse com FurMark (GPU) e Prime95 (CPU) por 30 minutos\n3. Teste de memória RAM com MemTest86 (mínimo 4 passes)\n4. Verificação de fonte com multímetro (voltagens nos trilhos 12V, 5V, 3.3V)\n5. Benchmark comparativo (3DMark) vs resultado esperado para o hardware\n6. Análise de logs de crash do Windows (Event Viewer + BlueScreenView)\n7. Verificação de drivers e conflitos de software\n\nCusto: R$ 100 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Drivers**: DDU (Display Driver Uninstaller) + instalação limpa do driver mais recente estável\n- **Térmico**: Limpeza completa + pasta térmica premium + otimização de curva de fan\n- **Fonte**: Troca por fonte 80 Plus Bronze/Gold com potência adequada ao setup\n- **RAM**: Troca de pente defeituoso + ativação de XMP na BIOS\n- **Storage**: Migração do jogo para SSD NVMe\n- **Software**: Otimização de Windows para gaming + remoção de overlays conflitantes\n\nTeste com os jogos que apresentavam problema por 1+ hora após o reparo.`,
+    quandoCompensa: "Quase sempre — a maioria dos problemas de gaming custa R$ 100-400 para resolver. Até troca de fonte (R$ 300-600) é mais barato que um PC novo.",
+    quandoNaoCompensa: "Quando o hardware é tão antigo que não atende os requisitos mínimos do jogo (ex: GPU de 10+ anos). Nesse caso, upgrade ou PC novo é o caminho.",
+    whatsappMessage: "Olá! Meu PC está travando durante jogos. Podem me ajudar com diagnóstico?",
+    relatedPages: [
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/servicos/montagem-pc", label: "Montagem de PC" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## PC Gamer Travando: Guia Completo de Solução\n\n### Temperaturas Máximas Aceitáveis em Jogos\n\n| Componente | Aceitável | Preocupante | Crítico |\n|---|---|---|---|\n| CPU Intel | < 85°C | 85-95°C | > 95°C |\n| CPU AMD | < 85°C | 85-90°C | > 90°C |\n| GPU NVIDIA | < 83°C | 83-90°C | > 90°C |\n| GPU AMD | < 90°C | 90-100°C | > 100°C |\n\n### Fonte: Quanto de Potência Você Precisa?\n\n| Setup | Potência Mínima | Recomendada |\n|---|---|---|\n| GT 1030 / RX 550 | 300W | 400W |\n| GTX 1660 / RX 5600 | 450W | 550W |\n| RTX 3060 / RX 6700 | 550W | 650W |\n| RTX 4070 / RX 7800 | 650W | 750W |\n| RTX 4080/4090 | 750W | 850-1000W |\n\n### Checklist Rápido de Diagnóstico\n\n1. ✅ Temperatura da GPU durante o jogo (MSI Afterburner)\n2. ✅ Uso de RAM durante o jogo (Gerenciador de Tarefas)\n3. ✅ Driver de vídeo atualizado (GeForce Experience / AMD Software)\n4. ✅ Windows atualizado\n5. ✅ Plano de energia em "Alto Desempenho"\n6. ✅ Jogo instalado no SSD (não no HD)\n7. ✅ Overlays desativados (teste sem Discord/GeForce overlay)`
+  },
+
+  // ==================== BACKUP PERDIDO ====================
+  {
+    slug: "backup-perdido-curitiba",
+    title: "Backup Perdido em Curitiba | Recuperação de Dados Especializada",
+    metaDescription: "Perdeu backup, arquivos ou fotos importantes? Técnico em Curitiba recupera dados de HD, SSD, pen drive e nuvem. Atendimento emergencial com sigilo total.",
+    h1: "Backup Perdido — Recuperação de Dados em Curitiba",
+    categoria: "Dados — Recuperação",
+    intro: `Perder um backup é uma das situações mais desesperadoras na informática. Fotos de família, documentos de trabalho, projetos acadêmicos, planilhas financeiras — anos de dados podem desaparecer em um instante por falha de hardware, exclusão acidental, ransomware ou corrupção de disco.\n\nA boa notícia é que, na maioria dos casos, os dados ainda existem no disco — mesmo quando você não consegue vê-los. Quando um arquivo é "deletado", o sistema apenas marca o espaço como disponível. Enquanto nada for gravado por cima, a recuperação é possível.\n\nA má notícia é que cada minuto que você continua usando o dispositivo após a perda reduz as chances de recuperação. Por isso, a primeira regra é: PARE DE USAR O DISPOSITIVO IMEDIATAMENTE e procure ajuda profissional.\n\nEm Curitiba, realizamos recuperação de dados com ferramentas profissionais (R-Studio, DMDE, PC-3000) e ambiente controlado para casos de HD com dano físico.`,
+    sintomas: [
+      { titulo: "Arquivos sumiram sem explicação", desc: "Pastas inteiras ou arquivos específicos desapareceram. Pode ser exclusão acidental, vírus ou corrupção do sistema de arquivos.", gravidade: "Média-Alta" },
+      { titulo: "HD externo de backup não é reconhecido", desc: "O HD externo onde você guardava seus backups não aparece mais no computador. Pode ser problema no USB, no controlador do HD ou falha mecânica.", gravidade: "Alta" },
+      { titulo: "Mensagem 'Disco precisa ser formatado'", desc: "O Windows pede para formatar o disco. NÃO FORMATE — isso pode sobrescrever dados. O sistema de arquivos está corrompido mas os dados provavelmente estão intactos.", gravidade: "Alta" },
+      { titulo: "Fotos e vídeos corrompidos (não abrem)", desc: "Os arquivos existem mas não abrem ou aparecem com erros. Pode ser corrupção parcial do sistema de arquivos ou setores defeituosos no disco.", gravidade: "Média" },
+      { titulo: "Ransomware criptografou os arquivos", desc: "Todos os arquivos foram criptografados e há uma mensagem pedindo resgate em bitcoin. NÃO PAGUE — procure ajuda profissional primeiro.", gravidade: "Crítica" },
+      { titulo: "Formatou o HD/SSD por engano", desc: "Formatou o disco errado ou reinstalou o Windows no disco com os dados. Recuperação é possível se a formatação foi rápida e pouco foi gravado depois.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Exclusão acidental", desc: "Deletou arquivos da lixeira, formatou pen drive sem querer ou apagou partição errada. É a causa mais comum e geralmente tem alta taxa de recuperação.", tipo: "erro-humano" },
+      { titulo: "Falha de HD mecânico", desc: "HDs mecânicos têm partes móveis que desgastam com o tempo. Setores defeituosos, cabeça de leitura danificada ou motor travado causam perda de acesso aos dados.", tipo: "desgaste" },
+      { titulo: "Ransomware ou vírus destrutivo", desc: "Malware que criptografa ou destrói arquivos intencionalmente. Ransomware cobra resgate; vírus destrutivos simplesmente apagam dados sem aviso.", tipo: "software" },
+      { titulo: "Queda de energia durante gravação", desc: "Corte de luz enquanto o sistema gravava dados pode corromper o sistema de arquivos inteiro (FAT32, NTFS, ext4). Comum em Curitiba durante tempestades.", tipo: "hardware" },
+      { titulo: "Backup em mídia única sem redundância", desc: "Confiar em um único HD externo, pen drive ou mesmo nuvem sem cópia secundária. Qualquer falha na mídia única significa perda total.", tipo: "erro-humano" },
+      { titulo: "SSD com falha no controlador", desc: "SSDs não fazem barulho quando falham — simplesmente param de funcionar. O controlador pode pifar sem aviso, tornando todos os dados inacessíveis.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Recuperação de arquivos deletados ou de pen drive formatado. Software profissional em disco saudável.", tempo: "2-6 horas", custo: "R$ 150–350" },
+      { nivel: "Médio", desc: "Recuperação de HD/SSD com corrupção lógica, sistema de arquivos danificado ou formatação acidental.", tempo: "1-3 dias", custo: "R$ 300–800" },
+      { nivel: "Complexo", desc: "Recuperação de HD com dano físico (clique, não gira) ou SSD com controlador queimado. Pode exigir câmara limpa.", tempo: "5-15 dias", custo: "R$ 800–3000+" }
+    ],
+    riscos: [
+      "Continuar usando o dispositivo após perda de dados reduz drasticamente as chances de recuperação",
+      "Formatar o disco 'para ver se resolve' sobrescreve os dados permanentemente",
+      "Softwares gratuitos de recuperação podem piorar a situação se usados incorretamente",
+      "Abrir um HD mecânico fora de ambiente limpo contamina os pratos com poeira e destrói dados",
+      "Pagar resgate de ransomware não garante recuperação e financia criminosos",
+      "Tentar recuperar dados de SSD com TRIM ativado pode ser impossível — o controlador já apagou os blocos"
+    ],
+    diagnostico: `Diagnóstico de recuperação de dados:\n\n1. Avaliação do dispositivo (HD, SSD, pen drive, cartão SD)\n2. Verificação de saúde do disco (SMART, setores defeituosos)\n3. Clone bit-a-bit do disco original (para trabalhar na cópia, protegendo o original)\n4. Análise do sistema de arquivos (NTFS, FAT32, ext4, APFS)\n5. Scan profundo com ferramentas profissionais (R-Studio, DMDE)\n6. Listagem de arquivos recuperáveis com prévia\n7. Orçamento baseado na complexidade e volume de dados\n\nCusto do diagnóstico: R$ 100 (incorporado se aprovar a recuperação).`,
+    solucao: `Solução conforme o cenário:\n\n- **Exclusão acidental**: Scan profundo + recuperação com R-Studio ou PhotoRec\n- **Corrupção lógica**: Reparo de tabela de partição + reconstrução de sistema de arquivos\n- **HD com dano físico**: Clone em ambiente controlado + recuperação da imagem\n- **Ransomware**: Verificação de chave de descriptografia conhecida + recuperação de shadow copies\n- **SSD**: Recuperação via modo de manutenção do controlador (quando possível)\n\nTodos os dados recuperados são entregues em mídia nova (HD externo ou SSD) com verificação de integridade.\n\nAdicional: montamos estratégia de backup 3-2-1 para evitar futuras perdas.`,
+    quandoCompensa: "Sempre que os dados têm valor sentimental ou profissional insubstituível. Fotos de família, documentos únicos e projetos acadêmicos não têm preço.",
+    quandoNaoCompensa: "Quando os dados podem ser baixados novamente (jogos, programas, músicas compradas) ou quando o custo de recuperação excede o valor comercial dos dados.",
+    whatsappMessage: "Olá! Perdi dados importantes e preciso de recuperação. Podem me ajudar urgentemente?",
+    relatedPages: [
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
+      { to: "/erro-disco-cheio-curitiba", label: "Disco Cheio" },
+      { to: "/virus-ransomware-curitiba", label: "Vírus e Ransomware" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Recuperação de Dados: Guia Completo\n\n### Regra 3-2-1 de Backup\n\n- **3** cópias dos seus dados\n- **2** tipos de mídia diferentes (ex: SSD + nuvem)\n- **1** cópia em local físico diferente (nuvem ou HD na casa de familiar)\n\n### O Que Fazer Imediatamente Após Perder Dados\n\n1. 🛑 **PARE** de usar o dispositivo imediatamente\n2. ❌ **NÃO** instale software de recuperação no mesmo disco\n3. ❌ **NÃO** formate o disco "para ver se resolve"\n4. ❌ **NÃO** abra HD mecânico em casa\n5. ✅ **DESLIGUE** o computador se o HD estiver fazendo cliques\n6. ✅ **PROCURE** ajuda profissional o mais rápido possível\n\n### Chances de Recuperação por Cenário\n\n| Cenário | Chance de Sucesso |\n|---|---|\n| Deletou da lixeira (sem uso após) | 90-95% |\n| Formatação rápida (sem uso após) | 80-90% |\n| Formatação completa | 40-70% |\n| HD com cliques/não reconhece | 60-80% (com câmara limpa) |\n| SSD com TRIM (após 24h) | 10-30% |\n| Ransomware (sem chave) | 30-60% (shadow copies) |\n| Dano por água/fogo | 20-50% |\n\n### Soluções de Backup Recomendadas\n\n| Solução | Custo Mensal | Espaço | Facilidade |\n|---|---|---|---|\n| Google Drive | Grátis-R$ 35 | 15GB-2TB | Muito fácil |\n| OneDrive | Grátis-R$ 45 | 5GB-1TB | Fácil (integrado ao Windows) |\n| HD Externo 1TB | R$ 0 (compra R$ 250) | 1TB | Médio |\n| NAS Synology | R$ 0 (compra R$ 1500+) | 2TB+ | Avançado |\n| Backblaze | ~R$ 35/mês | Ilimitado | Fácil |`
+  },
+
 ];
 
 // Helper to get a page by slug

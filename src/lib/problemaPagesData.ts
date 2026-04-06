@@ -3679,6 +3679,175 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
       { to: "/como-funciona", label: "Como Funciona" }
     ]
   },
+
+  // ===== notebook-nao-carrega-curitiba =====
+  {
+    slug: "notebook-nao-carrega-curitiba",
+    title: "Notebook Não Carrega a Bateria em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Notebook não carrega a bateria em Curitiba? Diagnóstico profissional identifica se é carregador, conector DC, bateria ou placa. Atendimento rápido.",
+    h1: "Notebook Não Carrega a Bateria — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Energia",
+    intro: `Seu notebook está conectado à tomada mas a bateria não carrega? Ou carrega até um ponto e para? Esse problema é mais comum do que parece e pode ter causas simples (carregador defeituoso) ou complexas (circuito de carga da placa-mãe).
+
+Ignorar esse sintoma pode levar a danos permanentes na bateria ou na placa-mãe. Quanto antes diagnosticar, menor o custo do reparo.
+
+Em Curitiba, fazemos diagnóstico preciso para identificar exatamente o que está impedindo o carregamento — e só então propomos a solução adequada. Sem trocar peças desnecessárias.`,
+    sintomas: [
+      { titulo: "LED do carregador apaga ao conectar", desc: "Indica possível curto-circuito no notebook ou carregador com defeito.", gravidade: "Alta" },
+      { titulo: "Bateria carrega até 80% e para", desc: "Pode ser limitação de software (modo de conservação) ou bateria em degradação.", gravidade: "Média" },
+      { titulo: "Carrega só com notebook desligado", desc: "Circuito de carga pode estar sobrecarregado ou componente da placa com defeito.", gravidade: "Alta" },
+      { titulo: "Mensagem 'conectado, sem carregar'", desc: "O sistema reconhece o carregador mas não inicia a carga — problema no IC de carga.", gravidade: "Alta" },
+      { titulo: "Bateria descarrega mesmo na tomada", desc: "Carregador com potência insuficiente ou conector DC com mau contato.", gravidade: "Média" },
+      { titulo: "Notebook só funciona na tomada", desc: "Bateria completamente degradada ou desconectada internamente.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Carregador defeituoso ou incompatível", desc: "Carregador com voltagem/amperagem errada ou cabo rompido internamente.", tipo: "hardware" },
+      { titulo: "Conector DC (jack) com mau contato", desc: "O conector onde o carregador encaixa está solto, oxidado ou com solda fria.", tipo: "desgaste" },
+      { titulo: "Bateria degradada (ciclos esgotados)", desc: "Baterias de lítio perdem capacidade após 300-500 ciclos de carga.", tipo: "desgaste" },
+      { titulo: "Circuito de carga da placa-mãe", desc: "O IC (chip) responsável por gerenciar a carga está danificado.", tipo: "hardware" },
+      { titulo: "Configuração de software", desc: "Modo de conservação de bateria ativado (Lenovo, ASUS) limita carga a 60-80%.", tipo: "software" },
+      { titulo: "Driver ACPI corrompido", desc: "Driver de gerenciamento de energia com defeito impede o carregamento correto.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de carregador ou reset de bateria via software. Solução em minutos.", tempo: "30min a 1h", custo: "R$ 90 a R$ 200" },
+      { nivel: "Médio", desc: "Troca de conector DC (jack de carga) ou substituição da bateria.", tempo: "1h a 3h", custo: "R$ 150 a R$ 400" },
+      { nivel: "Complexo", desc: "Reparo de circuito de carga na placa-mãe com micro-soldagem.", tempo: "3 a 7 dias", custo: "R$ 300 a R$ 700" }
+    ],
+    riscos: [
+      "Usar carregador genérico incompatível pode danificar a placa-mãe permanentemente",
+      "Bateria inchada pode deformar o chassis e romper a tela internamente",
+      "Continuar usando com bateria defeituosa pode causar superaquecimento e incêndio",
+      "Conector DC solto pode causar curto-circuito intermitente na placa",
+      "Ignorar o problema degrada a bateria mais rápido — o que era troca de R$200 vira reparo de R$600"
+    ],
+    diagnostico: `O diagnóstico avalia cada ponto da cadeia de carga:\n\n1. Teste do carregador com multímetro (voltagem e amperagem real)\n2. Inspeção do conector DC (mau contato, solda fria, oxidação)\n3. Verificação da saúde da bateria (ciclos, capacidade residual, inchaço)\n4. Teste do circuito de carga da placa-mãe\n5. Verificação de configurações de software (modo conservação, driver ACPI)\n\nCusto do diagnóstico: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `A solução depende da causa identificada:\n\n- **Carregador**: Substituição por modelo original ou compatível certificado\n- **Conector DC**: Resoldagem ou troca do conector (requer desmontagem)\n- **Bateria**: Substituição por bateria compatível com garantia\n- **Circuito de carga**: Micro-soldagem de componentes na placa-mãe\n- **Software**: Atualização de drivers ACPI e ajuste de configurações\n\nTodos os reparos incluem teste de carga completo antes da entrega.`,
+    quandoCompensa: "Na maioria dos casos compensa reparar — trocar bateria ou conector custa uma fração do valor do notebook. Até reparo de circuito na placa pode valer a pena em notebooks de R$ 3.000+.",
+    quandoNaoCompensa: "Quando o notebook tem mais de 7 anos e o reparo envolve placa-mãe + bateria + carregador simultaneamente. Ou quando o custo total ultrapassa 50% do valor de um notebook novo equivalente.",
+    whatsappMessage: "Olá! Meu notebook não está carregando a bateria. Podem fazer um diagnóstico?",
+    relatedPages: [
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Como Verificar a Saúde da Bateria do Notebook\n\nAntes de levar ao técnico, você pode fazer um teste rápido:\n\n### Windows — Relatório de Bateria\n\n1. Abra o Prompt de Comando como administrador\n2. Digite: \`powercfg /batteryreport\`\n3. Abra o arquivo HTML gerado em C:\\Windows\\System32\n4. Compare "Design Capacity" com "Full Charge Capacity"\n\n**Se a Full Charge Capacity for menos de 50% da Design Capacity, a bateria precisa ser trocada.**\n\n### Tabela: Sinais e Possíveis Causas\n\n| Sintoma | Causa Provável | Urgência |\n|---|---|---|\n| LED apaga ao conectar | Curto ou carregador | Alta |\n| Carrega até 80% | Software ou degradação | Média |\n| Só funciona na tomada | Bateria morta | Média |\n| Carregador esquenta muito | Carregador incompatível | Alta |\n| Bateria inchada | Degradação química | URGENTE |\n\n### Atenção: Bateria Inchada\n\nSe o touchpad está levantado, o chassis está deformado ou há uma protuberância na parte inferior do notebook, **desligue imediatamente**. Bateria inchada de lítio pode romper e causar incêndio. Não tente remover sozinho — leve ao técnico.\n\n### Marcas e Modelos com Problemas Comuns de Carga\n\n| Marca | Problema Frequente | Solução Típica |\n|---|---|---|\n| Dell | Mensagem "carregador não reconhecido" | Trocar carregador original Dell |\n| Lenovo | Modo conservação ativado de fábrica | Desativar no Lenovo Vantage |\n| HP | Conector DC frágil | Resoldagem do jack |\n| Acer | Bateria degrada rápido | Troca de bateria |\n| Samsung | IC de carga sensível | Reparo de placa |`
+  },
+
+  // ===== pc-com-tela-preta-curitiba =====
+  {
+    slug: "pc-com-tela-preta-curitiba",
+    title: "PC com Tela Preta em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Computador ou notebook com tela preta em Curitiba? Diagnóstico identifica se é placa de vídeo, RAM, monitor ou sistema. Atendimento rápido.",
+    h1: "PC com Tela Preta — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Vídeo",
+    intro: `Ligar o computador e não ver nada na tela é desesperador. O PC com tela preta pode ter causas simples — como cabo HDMI solto — ou graves, como placa de vídeo queimada ou placa-mãe com defeito.
+
+O mais importante é não entrar em pânico e não ficar reiniciando sem parar. Cada reinicialização forçada pode agravar o problema se a causa for um componente em curto.
+
+Em Curitiba, nosso diagnóstico identifica a causa exata da tela preta — e só então propomos o reparo adequado. Trabalhamos com desktops e notebooks de todas as marcas.`,
+    sintomas: [
+      { titulo: "Tela totalmente preta, sem sinal", desc: "Monitor/tela não recebe nenhum sinal — pode ser cabo, placa de vídeo ou RAM.", gravidade: "Alta" },
+      { titulo: "Tela preta com cursor piscando", desc: "O hardware funciona mas o sistema operacional não carregou corretamente.", gravidade: "Média" },
+      { titulo: "Tela preta após logo do Windows", desc: "Problema de software: driver de vídeo, atualização corrompida ou perfil de usuário.", gravidade: "Média" },
+      { titulo: "Tela preta com bipes ao ligar", desc: "POST falhou — o padrão de bipes indica qual componente está com defeito.", gravidade: "Alta" },
+      { titulo: "Tela pisca e apaga", desc: "Backlight do monitor/tela com defeito ou inversor queimado (notebooks).", gravidade: "Média" },
+      { titulo: "Tela preta intermitente", desc: "Problema de contato no cabo flat (notebook) ou placa de vídeo instável.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Memória RAM mal encaixada ou com defeito", desc: "RAM com mau contato é a causa mais comum de tela preta. Basta reencaixar.", tipo: "hardware" },
+      { titulo: "Placa de vídeo com defeito", desc: "GPU queimada, superaquecida ou com solda BGA trincada.", tipo: "hardware" },
+      { titulo: "Cabo de vídeo desconectado ou defeituoso", desc: "Cabo HDMI, VGA ou DisplayPort com mau contato ou rompido.", tipo: "hardware" },
+      { titulo: "Monitor com defeito", desc: "Backlight queimado, placa de controle do monitor ou cabo flat danificado.", tipo: "hardware" },
+      { titulo: "Driver de vídeo corrompido", desc: "Após atualização do Windows, o driver de vídeo pode ficar incompatível.", tipo: "software" },
+      { titulo: "Fonte de alimentação insuficiente", desc: "Fonte sem potência para alimentar a placa de vídeo = tela preta.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reencaixe de RAM, troca de cabo ou ajuste de saída de vídeo.", tempo: "30min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Médio", desc: "Reinstalação de driver de vídeo em modo seguro ou troca de monitor.", tempo: "1h a 3h", custo: "R$ 120 a R$ 300" },
+      { nivel: "Complexo", desc: "Troca de placa de vídeo, reparo de GPU (reballing) ou substituição de tela.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 1.200" }
+    ],
+    riscos: [
+      "Reinicializações forçadas repetidas podem corromper o sistema de arquivos e causar perda de dados",
+      "Placa de vídeo superaquecida continua danificando a solda BGA a cada uso",
+      "Fonte subdimensionada pode queimar componentes além da GPU",
+      "Ignorar bipes de erro pode resultar em dano progressivo à placa-mãe",
+      "Tentar trocar RAM ou GPU sem aterramento pode causar descarga eletrostática"
+    ],
+    diagnostico: `Diagnóstico sistemático para tela preta:\n\n1. Verificação de cabos e conexões externas\n2. Teste com monitor externo (notebook) ou outro monitor (desktop)\n3. Teste de RAM (reencaixe e teste individual de cada pente)\n4. Verificação de bipes/LEDs de diagnóstico do POST\n5. Teste de placa de vídeo dedicada vs integrada\n6. Boot em modo seguro para descartar problemas de driver\n7. Teste de fonte com multímetro\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **RAM**: Limpeza dos contatos e reencaixe (ou substituição se defeituosa)\n- **Placa de vídeo**: Substituição ou reparo (reballing em casos específicos)\n- **Cabo/Monitor**: Troca do cabo ou reparo/troca do monitor\n- **Driver**: Reinstalação em modo seguro ou reversão de atualização\n- **Fonte**: Upgrade para fonte com potência adequada\n\nTeste completo de estresse após o reparo para garantir estabilidade.`,
+    quandoCompensa: "Na maioria dos casos — o problema pode ser tão simples quanto um pente de RAM solto (R$ 90). Mesmo troca de placa de vídeo compensa se o restante do PC é atual.",
+    quandoNaoCompensa: "Quando envolve GPU integrada na placa-mãe de notebook antigo (reparo de BGA caro e sem garantia de durabilidade) e o notebook já tem mais de 5-6 anos.",
+    whatsappMessage: "Olá! Meu computador está com tela preta ao ligar. Podem fazer um diagnóstico?",
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/conserto-placa", label: "Conserto de Placa" },
+      { to: "/como-funciona", label: "Como Funciona" }
+    ],
+    conteudoExtra: `## Guia: Como Identificar a Causa da Tela Preta\n\nAntes de chamar o técnico, observe estes detalhes:\n\n### Checklist Rápido\n\n1. **O PC liga?** (ventoinhas giram, LEDs acendem)\n   - Sim → Problema é vídeo/monitor\n   - Não → Problema é energia/placa-mãe\n\n2. **Há bipes ao ligar?**\n   - 1 bipe curto = POST OK (problema é no monitor/cabo)\n   - 3 bipes curtos = RAM com defeito\n   - 1 longo + 3 curtos = Placa de vídeo\n\n3. **Funciona com monitor externo?** (para notebooks)\n   - Sim → Tela/cabo flat do notebook com defeito\n   - Não → GPU ou placa-mãe\n\n### Tabela de Diagnóstico por Sintoma\n\n| Situação | Causa Mais Provável | Custo Médio |\n|---|---|---|\n| Tela preta + ventoinhas ligam | RAM ou cabo | R$ 90-150 |\n| Tela preta + bipes | RAM ou GPU | R$ 90-400 |\n| Tela preta após atualização | Driver de vídeo | R$ 120-200 |\n| Tela preta + cursor | Sistema corrompido | R$ 150-250 |\n| Tela preta intermitente | Cabo flat ou GPU | R$ 150-600 |\n| Nada funciona | Fonte ou placa-mãe | R$ 200-800 |\n\n### Erro Comum: "Tentei Trocar a RAM e Não Resolveu"\n\nTrocar RAM sem diagnóstico pode ser inútil. O problema pode estar no slot da placa-mãe, não na memória. Um técnico testa cada slot individualmente e identifica se o defeito é do pente ou do encaixe.\n\n### Desktop vs. Notebook: Diferenças\n\n**Desktop** — Mais fácil de diagnosticar: componentes são removíveis e testáveis individualmente. Placa de vídeo pode ser trocada facilmente.\n\n**Notebook** — GPU geralmente soldada na placa-mãe. Se a GPU falhar, pode ser necessário reballing (resoldagem) ou troca de placa inteira.`
+  },
+
+  // ===== erro-disco-cheio-curitiba =====
+  {
+    slug: "erro-disco-cheio-curitiba",
+    title: "Erro de Disco Cheio em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Computador com disco cheio em Curitiba? Limpeza profissional, migração para SSD e organização de arquivos. Atendimento rápido em domicílio.",
+    h1: "Erro de Disco Cheio — Diagnóstico e Solução em Curitiba",
+    categoria: "Software — Armazenamento",
+    intro: `Seu computador está mostrando avisos de "disco cheio" ou "espaço insuficiente"? Além de impedir que você salve arquivos, o disco cheio causa lentidão extrema, travamentos e até impede atualizações de segurança do Windows.
+
+Na maioria dos casos, o problema não é que você tem "coisas demais" — mas sim que arquivos temporários, logs, caches e backups antigos estão ocupando dezenas de gigabytes sem você saber.
+
+Em Curitiba, fazemos uma limpeza profissional completa e, quando necessário, migramos seus dados para um SSD maior — mantendo tudo funcionando como antes, só que mais rápido.`,
+    sintomas: [
+      { titulo: "Aviso 'Disco Local (C:) com pouco espaço'", desc: "Windows exibe notificação vermelha na barra de tarefas quando restam menos de 10% livres.", gravidade: "Média" },
+      { titulo: "Computador extremamente lento", desc: "Sem espaço livre, o Windows não consegue criar arquivos de paginação e swap.", gravidade: "Alta" },
+      { titulo: "Programas não abrem ou travam", desc: "Aplicativos precisam de espaço temporário para funcionar. Sem espaço = crash.", gravidade: "Alta" },
+      { titulo: "Windows Update falha repetidamente", desc: "Atualizações precisam de 10-20 GB livres. Sem espaço, ficam em loop de falha.", gravidade: "Média" },
+      { titulo: "Não consegue salvar arquivos", desc: "Erro ao salvar documentos, fotos ou downloads — disco 100% ocupado.", gravidade: "Alta" },
+      { titulo: "Lixeira não esvazia ou está vazia mas sem espaço", desc: "Arquivos ocultos, Shadow Copies ou WinSxS estão ocupando o espaço.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Arquivos temporários acumulados", desc: "O Windows acumula GBs de arquivos temp, cache de navegador, logs antigos.", tipo: "software" },
+      { titulo: "Pasta WinSxS inchada", desc: "A pasta de componentes do Windows pode ocupar 15-30 GB com backups de atualizações.", tipo: "software" },
+      { titulo: "Shadow Copies (pontos de restauração)", desc: "O Windows cria cópias de segurança automáticas que podem ocupar dezenas de GB.", tipo: "software" },
+      { titulo: "HD/SSD pequeno demais", desc: "SSDs de 120-240 GB ficam cheios rapidamente com Windows 11 + programas.", tipo: "hardware" },
+      { titulo: "Downloads e duplicatas esquecidos", desc: "Pasta de downloads com GBs de instaladores antigos e arquivos duplicados.", tipo: "erro-humano" },
+      { titulo: "Backup local do celular", desc: "Backup do iPhone/Android pode ocupar 20-50 GB sem o usuário saber.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de temporários, cache e downloads antigos. Recupera 10-30 GB.", tempo: "1h a 2h", custo: "R$ 90 a R$ 180" },
+      { nivel: "Médio", desc: "Limpeza profunda + reorganização de dados + mover arquivos para HD externo.", tempo: "2h a 4h", custo: "R$ 150 a R$ 300" },
+      { nivel: "Complexo", desc: "Migração completa para SSD maior com clonagem do sistema.", tempo: "3h a 5h", custo: "R$ 250 a R$ 600 (com SSD)" }
+    ],
+    riscos: [
+      "Disco 100% cheio pode corromper o sistema de arquivos do Windows",
+      "Sem espaço para swap/paginação, o sistema pode travar e perder dados não salvos",
+      "Atualizações de segurança paradas deixam o sistema vulnerável a vírus",
+      "Apagar arquivos sem saber o que são pode remover dados importantes do sistema",
+      "SSD funcionando em 100% de capacidade degrada mais rápido (wear leveling prejudicado)"
+    ],
+    diagnostico: `Análise completa de espaço em disco:\n\n1. Mapeamento de uso com WizTree/TreeSize — identifica exatamente o que ocupa espaço\n2. Análise de arquivos temporários, cache e logs\n3. Verificação de Shadow Copies e pontos de restauração\n4. Identificação de pastas ocultas grandes (WinSxS, backup celular, WSL)\n5. Avaliação se o disco atual comporta suas necessidades\n6. Recomendação: limpeza vs. upgrade de SSD\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução em camadas:\n\n1. **Limpeza segura** — Removemos apenas o que é seguro: temp, cache, logs, duplicatas\n2. **Otimização** — Compactação NTFS, limpeza de WinSxS, ajuste de Shadow Copies\n3. **Reorganização** — Movemos arquivos grandes para unidade secundária ou nuvem\n4. **Upgrade** (quando necessário) — Migração para SSD de 480GB/1TB com clonagem\n\nTudo com backup prévio dos dados importantes.`,
+    quandoCompensa: "Sempre — limpeza custa pouco e resolve na maioria dos casos. Upgrade de SSD é o melhor investimento para PCs com SSD de 120-240 GB.",
+    quandoNaoCompensa: "Quando o disco está cheio porque o computador é muito antigo com HD de 320 GB e o custo de SSD + mão de obra se aproxima de um notebook novo.",
+    whatsappMessage: "Olá! Meu computador está com disco cheio e muito lento. Podem me ajudar?",
+    relatedPages: [
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## O Que Está Ocupando Espaço no Seu Disco?\n\nA maioria das pessoas se surpreende ao descobrir o que realmente ocupa espaço:\n\n### Top 10 Maiores Consumidores de Espaço\n\n| Item | Espaço Típico | Pode Limpar? |\n|---|---|---|\n| Pasta Windows\\Temp | 2-15 GB | ✅ Sim |\n| Cache do navegador | 1-5 GB | ✅ Sim |\n| Windows Update cache | 5-20 GB | ✅ Com cuidado |\n| WinSxS (componentes) | 10-30 GB | ⚠️ Parcialmente |\n| Shadow Copies | 5-50 GB | ✅ Ajustar limite |\n| Backup iPhone/Android | 10-50 GB | ⚠️ Se tiver cópia |\n| Pasta Downloads | 5-30 GB | ✅ Manualmente |\n| Jogos (Steam, Epic) | 20-200 GB | ⚠️ Mover para outro disco |\n| Arquivos PST (Outlook) | 2-20 GB | ⚠️ Compactar |\n| WSL/Docker | 5-50 GB | ⚠️ Se não usar |\n\n### SSD de 120 GB: Por Que Não é Suficiente em 2026\n\nO Windows 11 sozinho ocupa 25-40 GB. Adicione Office, navegador, antivírus e atualizações: você já usou 60-70 GB. Sobram 50 GB para TUDO o mais.\n\nNossa recomendação mínima: **SSD de 480 GB** para uso básico, **1 TB** para quem trabalha com arquivos grandes.\n\n### Dica Preventiva: Regra dos 20%\n\nMantenha sempre pelo menos 20% do disco livre. Para um SSD de 240 GB, isso significa manter 48 GB livres. Isso garante:\n\n- Espaço para swap/paginação do Windows\n- Espaço para atualizações de segurança\n- Vida útil maior do SSD (wear leveling eficiente)\n- Performance consistente do sistema\n\n### Passo a Passo: Limpeza Básica Que Você Pode Fazer\n\n1. **Limpeza de Disco** — Pesquise "Limpeza de Disco" no menu Iniciar → selecione tudo → limpar\n2. **Pasta Downloads** — Abra a pasta e delete instaladores antigos\n3. **Lixeira** — Esvazie a lixeira (clique direito no ícone da área de trabalho)\n4. **Cache do navegador** — Chrome: Ctrl+Shift+Del → Limpar dados\n\nSe depois disso ainda não resolver, é hora de chamar o técnico para uma limpeza profunda.`
+  },
+
 ];
 
 // Helper to get a page by slug

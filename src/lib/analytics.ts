@@ -20,10 +20,17 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       value: 1
     });
 
-    // Google Ads conversion — WhatsApp click
-    if (ctaType === 'whatsapp') {
+    // Google Ads conversions
+    const conversionLabels: Record<string, string> = {
+      whatsapp: 'whatsapp_click',
+      phone: 'phone_click',
+      chatbot: 'chatbot_click',
+    };
+
+    const label = conversionLabels[ctaType];
+    if (label) {
       window.gtag('event', 'conversion', {
-        send_to: `${ADS_ID}/whatsapp_click`,
+        send_to: `${ADS_ID}/${label}`,
         value: 1.0,
         currency: 'BRL'
       });

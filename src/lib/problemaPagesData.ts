@@ -5822,6 +5822,367 @@ Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gar
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
+
+  // ============================================================
+  // pc-nao-conecta-internet-curitiba
+  // ============================================================
+  {
+    slug: "pc-nao-conecta-internet-curitiba",
+    title: "PC Não Conecta na Internet? Causas e Soluções | Técnico Curitiba",
+    metaDescription: "Computador ou notebook sem internet? Wi-Fi não conecta, cabo sem rede? Diagnóstico e solução em Curitiba e região. Atendimento rápido a domicílio.",
+    h1: "PC ou Notebook Não Conecta na Internet em Curitiba? Resolvemos!",
+    categoria: "Redes / Software",
+    intro: `Ficar sem internet é um dos problemas mais urgentes para quem trabalha ou estuda em casa. O computador pode não se conectar ao Wi-Fi, não reconhecer o cabo de rede, ou até conectar mas sem navegar. As causas vão de configurações simples do Windows até falhas na placa de rede. Em Curitiba, nosso técnico diagnostica e resolve com rapidez.`,
+    sintomas: [
+      { titulo: "Wi-Fi não aparece na lista", desc: "Nenhuma rede sem fio é detectada. Pode ser adaptador desabilitado, driver ausente ou placa Wi-Fi com defeito.", gravidade: "Médio" },
+      { titulo: "Conecta mas sem internet", desc: "Mostra 'Conectado, sem internet' ou 'Sem acesso à internet'. Problema de DNS, gateway ou configuração do roteador.", gravidade: "Simples a médio" },
+      { titulo: "Cabo de rede não funciona", desc: "Conecta o cabo Ethernet mas não reconhece. Pode ser porta de rede queimada, cabo danificado ou driver.", gravidade: "Simples a médio" },
+      { titulo: "Internet lenta só neste PC", desc: "Outros dispositivos funcionam normal mas este PC está lento. Driver desatualizado, malware ou configuração de rede.", gravidade: "Simples" },
+      { titulo: "Desconecta sozinho do Wi-Fi", desc: "Conecta e depois de minutos cai. Gerenciamento de energia, interferência ou driver instável.", gravidade: "Simples a médio" },
+      { titulo: "Ícone de rede com X vermelho", desc: "Windows indica que não há adaptador de rede ativo. Hardware desabilitado, driver removido ou placa com defeito.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Driver de rede corrompido", desc: "Atualização do Windows pode instalar driver genérico que não funciona corretamente com o adaptador de rede.", tipo: "software" },
+      { titulo: "Adaptador Wi-Fi desabilitado", desc: "Tecla Fn+F2 (ou similar) pode ter desligado o Wi-Fi. Modo avião ativado acidentalmente.", tipo: "software" },
+      { titulo: "Configuração de DNS incorreta", desc: "DNS configurado manualmente com endereço incorreto ou servidor DNS do provedor fora do ar.", tipo: "software" },
+      { titulo: "Placa de rede com defeito", desc: "Adaptador Wi-Fi ou porta Ethernet pode ter queimado, especialmente após picos de energia.", tipo: "hardware" },
+      { titulo: "Gerenciamento de energia", desc: "Windows desliga o adaptador Wi-Fi para economizar energia, causando desconexões intermitentes.", tipo: "software" },
+      { titulo: "Malware alterando configurações", desc: "Vírus podem modificar proxy, DNS ou arquivo hosts, impedindo a navegação normal.", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver, reconfiguração de DNS ou desativação do modo avião", tempo: "30–60 min", custo: "R$ 80–120" },
+      { nivel: "Médio", desc: "Remoção de malware que alterou configurações de rede + restauração", tempo: "1–2 horas", custo: "R$ 120–200" },
+      { nivel: "Complexo", desc: "Substituição de placa Wi-Fi interna ou instalação de adaptador USB Wi-Fi", tempo: "1–2 horas", custo: "R$ 150–300" },
+    ],
+    riscos: [
+      "Alterar configurações de rede sem conhecimento pode deixar o computador completamente offline",
+      "Baixar drivers de sites não oficiais pode instalar malware",
+      "Resetar o roteador sem anotar as configurações pode derrubar a rede de toda a casa/empresa",
+      "Forçar o adaptador Wi-Fi interno pode danificar o conector na placa-mãe do notebook",
+    ],
+    diagnostico: `1. Verificação do Gerenciador de Dispositivos: status do adaptador de rede (exclamação amarela, desabilitado, ausente).
+
+2. Teste com outro dispositivo na mesma rede para confirmar se o problema é no PC ou no roteador/provedor.
+
+3. Teste de ping (ping 8.8.8.8) para diferenciar problema de DNS vs problema de conectividade.
+
+4. Verificação de configurações: IP, DNS, gateway, proxy e arquivo hosts.
+
+5. Teste com adaptador USB Wi-Fi externo para isolar se o problema é na placa interna.
+
+6. Scan por malware que possa ter alterado configurações de rede.`,
+    solucao: `**Driver**: Download e instalação do driver oficial do fabricante. Remoção do driver anterior via Gerenciador de Dispositivos.
+
+**Configuração**: Reset do TCP/IP stack (netsh int ip reset), flush de DNS (ipconfig /flushdns), configuração de DNS público (8.8.8.8 / 8.8.4.4).
+
+**Gerenciamento de energia**: Desativação de "O computador pode desligar este dispositivo para economizar energia" no adaptador de rede.
+
+**Hardware**: Substituição da placa Wi-Fi Mini PCIe/M.2 interna ou instalação de adaptador USB Wi-Fi AC/AX como alternativa.
+
+**Malware**: Remoção completa de vírus, restauração de configurações de proxy e DNS, limpeza do arquivo hosts.`,
+    quandoCompensa: "Na grande maioria dos casos é problema de software e tem solução rápida e barata. Mesmo troca de placa Wi-Fi é acessível.",
+    quandoNaoCompensa: "Raramente não compensa. Um adaptador USB Wi-Fi (R$ 40-120) resolve quando a placa interna falha e o reparo é caro.",
+    conteudoExtra: `## Soluções Rápidas de Internet
+
+### Checklist Antes do Técnico
+1. Reinicie o roteador (desligue, espere 30 segundos, ligue)
+2. Teste com outro dispositivo (celular) na mesma rede
+3. Verifique se o modo avião não está ativado
+4. Tente conectar com cabo Ethernet direto no roteador
+5. Execute no Prompt de Comando: \`ipconfig /flushdns\`
+
+### Comandos Úteis (Prompt como Administrador)
+\`\`\`
+ipconfig /flushdns
+ipconfig /release
+ipconfig /renew
+netsh winsock reset
+netsh int ip reset
+\`\`\`
+
+### DNS Público Recomendado
+- **Google**: 8.8.8.8 e 8.8.4.4
+- **Cloudflare**: 1.1.1.1 e 1.0.0.1
+- Configurar DNS público resolve muitos problemas de "conectado sem internet"`,
+    whatsappMessage: "Olá! Meu computador não está conectando na internet. Podem me ajudar?",
+    relatedPages: [
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // erro-registro-windows-curitiba
+  // ============================================================
+  {
+    slug: "erro-registro-windows-curitiba",
+    title: "Erro no Registro do Windows? Solução | Técnico em Curitiba",
+    metaDescription: "Erros no registro do Windows? Computador travando, programas não abrem? Reparo profissional do registro em Curitiba. Sem risco de perda de dados.",
+    h1: "Erro no Registro do Windows em Curitiba? Reparo Seguro e Profissional",
+    categoria: "Software",
+    intro: `O Registro do Windows é o banco de dados central que armazena todas as configurações do sistema operacional, programas e drivers. Quando o registro é corrompido, os efeitos são devastadores: programas param de funcionar, o sistema trava, configurações se perdem e erros aparecem constantemente. Em Curitiba, nosso técnico repara o registro com segurança, sem risco de perda de dados.`,
+    sintomas: [
+      { titulo: "Mensagem 'Erro no registro'", desc: "Windows exibe alertas como 'Registry error', 'Hive not loaded' ou erros com códigos do registro.", gravidade: "Médio" },
+      { titulo: "Programas não abrem ou fecham sozinhos", desc: "Softwares que funcionavam param de abrir. Chaves de registro corrompidas impedem a execução.", gravidade: "Simples a médio" },
+      { titulo: "Windows lento na inicialização", desc: "Boot demora muito porque o sistema tenta ler entradas corrompidas ou inválidas do registro.", gravidade: "Simples a médio" },
+      { titulo: "Associações de arquivo quebradas", desc: "Arquivos .pdf, .jpg etc. não abrem com duplo-clique ou abrem com o programa errado.", gravidade: "Simples" },
+      { titulo: "Tela azul com erro de registro", desc: "BSOD com erros como REGISTRY_ERROR ou SYSTEM_HIVE_ERROR indica corrupção grave.", gravidade: "Complexo" },
+      { titulo: "Configurações que não salvam", desc: "Você altera uma configuração e ela volta ao anterior após reiniciar. Permissões ou corrupção no registro.", gravidade: "Simples a médio" },
+    ],
+    causas: [
+      { titulo: "Desligamento forçado", desc: "Desligar o computador no botão durante operações de escrita no registro causa corrupção.", tipo: "erro-humano" },
+      { titulo: "Limpadores de registro agressivos", desc: "Programas como CCleaner podem remover chaves válidas, quebrando programas e recursos do sistema.", tipo: "erro-humano" },
+      { titulo: "Malware", desc: "Vírus alteram, adicionam ou corrompem chaves do registro para se manter no sistema.", tipo: "software" },
+      { titulo: "Instalação/desinstalação incorreta", desc: "Programas mal desinstalados deixam resíduos no registro que causam conflitos.", tipo: "software" },
+      { titulo: "Disco com setores defeituosos", desc: "Se os arquivos do registro (SAM, SYSTEM, SOFTWARE) estão em setores ruins do disco, a corrupção é inevitável.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reparo de associações de arquivo ou restauração de chaves específicas do registro", tempo: "30–60 min", custo: "R$ 80–130" },
+      { nivel: "Médio", desc: "Restauração do registro via ponto de restauração ou backup automático do Windows", tempo: "1–2 horas", custo: "R$ 120–200" },
+      { nivel: "Complexo", desc: "Reconstrução manual de hives corrompidos ou reinstalação preservando dados", tempo: "2–4 horas", custo: "R$ 200–350" },
+    ],
+    riscos: [
+      "Editar o registro manualmente sem conhecimento pode tornar o Windows não inicializável",
+      "Limpadores de registro podem remover chaves essenciais do sistema",
+      "Importar arquivos .reg de fontes não confiáveis pode injetar malware",
+      "Restaurar registro antigo pode reverter atualizações de segurança importantes",
+    ],
+    diagnostico: `1. Análise do Event Viewer para identificar erros específicos relacionados ao registro (Event ID 6008, Event Source: Registrar).
+
+2. Verificação de integridade com SFC (sfc /scannow) e DISM para reparar arquivos de sistema e registro.
+
+3. Verificação de saúde do disco — setores defeituosos na área do registro causam corrupção recorrente.
+
+4. Análise de pontos de restauração disponíveis para reverter a um estado funcional.
+
+5. Verificação de malware que possa estar alterando o registro continuamente.
+
+6. Backup do registro atual antes de qualquer intervenção de reparo.`,
+    solucao: `**Reparo automático**: Execução de SFC /scannow e DISM /Online /Cleanup-Image /RestoreHealth para corrigir automaticamente arquivos de sistema e registro corrompidos.
+
+**Restauração**: Uso de ponto de restauração do sistema para reverter o registro a um estado anterior funcional, sem perder documentos pessoais.
+
+**Reparo manual**: Edição específica de chaves corrompidas via Regedit, com backup prévio. Importação de chaves padrão quando necessário.
+
+**Reconstrução**: Em casos graves, cópia dos hives de backup (RegBack) para substituir os corrompidos. Se necessário, reinstalação do Windows preservando dados.
+
+**Prevenção**: Configuração de pontos de restauração automáticos e desinstalação de limpadores de registro agressivos.`,
+    quandoCompensa: "Na maioria dos casos, o reparo do registro resolve o problema sem necessidade de formatação. É rápido e preserva todos os dados.",
+    quandoNaoCompensa: "Se o registro está tão corrompido que o Windows nem inicia e não há backup, uma reinstalação limpa pode ser mais eficiente.",
+    conteudoExtra: `## O Que É o Registro do Windows
+
+### Entendendo o Registro
+O Registro do Windows é como o "cérebro" do sistema operacional. Ele armazena:
+- Configurações de todos os programas instalados
+- Preferências do usuário (papel de parede, tema, atalhos)
+- Informações de hardware e drivers
+- Associações de tipo de arquivo (.pdf, .docx, etc.)
+- Configurações de rede, segurança e atualizações
+
+### NUNCA Faça Isso
+1. **Não use limpadores de registro** — o próprio Microsoft desaconselha
+2. **Não edite o registro sem backup** — uma chave errada pode impedir o boot
+3. **Não importe .reg de sites desconhecidos** — pode ser malware
+4. **Não delete chaves que não conhece** — podem ser essenciais
+
+### Comando Útil
+- **regedit**: Editor do Registro (use com cuidado)
+- **sfc /scannow**: Verifica e repara arquivos de sistema
+- **DISM /Online /Cleanup-Image /RestoreHealth**: Reparo mais profundo`,
+    whatsappMessage: "Olá! Meu Windows está com erros de registro. Podem me ajudar?",
+    relatedPages: [
+      { to: "/windows-travando-na-atualizacao-curitiba", label: "Windows Travando" },
+      { to: "/erro-atualizacao-windows-11-curitiba", label: "Erro Windows 11" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // notebook-nao-carrega-curitiba
+  // ============================================================
+  {
+    slug: "notebook-nao-carrega-curitiba",
+    title: "Notebook Não Carrega? Bateria Não Carrega | Técnico Curitiba",
+    metaDescription: "Notebook não carrega a bateria? Carregador não funciona? LED não acende? Diagnóstico e reparo em Curitiba. Atendimento rápido a domicílio.",
+    h1: "Notebook Não Carrega em Curitiba? Diagnóstico e Solução Rápida",
+    categoria: "Hardware",
+    intro: `Notebook que não carrega é um problema urgente — sem bateria, sem mobilidade. As causas variam do simples (cabo do carregador com mau contato) ao complexo (circuito de carga da placa-mãe). Antes de comprar um carregador novo às cegas, é importante diagnosticar a causa real. Em Curitiba, nosso técnico testa carregador, bateria e circuito de carga para identificar exatamente o que precisa ser reparado ou substituído.`,
+    sintomas: [
+      { titulo: "LED do carregador não acende", desc: "O indicador do carregador fica apagado ao conectar na tomada. Pode ser carregador queimado, cabo rompido ou curto na placa.", gravidade: "Simples a médio" },
+      { titulo: "Carregador conectado mas bateria não carrega", desc: "LED acende, notebook funciona na tomada, mas bateria fica em 0% ou não aumenta. Bateria ou circuito de carga.", gravidade: "Médio" },
+      { titulo: "Carrega até certa porcentagem e para", desc: "Bateria carrega até 40%, 60% ou 80% e para. Células da bateria degradadas ou calibração necessária.", gravidade: "Simples a médio" },
+      { titulo: "Carregador esquenta muito", desc: "Fonte de alimentação fica extremamente quente. Pode indicar curto interno no carregador ou consumo excessivo.", gravidade: "Médio" },
+      { titulo: "Notebook só funciona na tomada", desc: "Sem o carregador conectado, desliga instantaneamente. Bateria completamente degradada ou não reconhecida.", gravidade: "Médio" },
+      { titulo: "Conector de carga solto", desc: "O plug do carregador não encaixa firme, cai ou precisa ficar em ângulo específico. Conector DC Jack com folga.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Carregador com defeito", desc: "Fonte de alimentação queimada, cabo rompido internamente ou plug com mau contato. É a causa mais comum.", tipo: "desgaste" },
+      { titulo: "Bateria degradada", desc: "Baterias de lítio perdem capacidade após 300-500 ciclos de carga. Após 2-3 anos, a degradação é significativa.", tipo: "desgaste" },
+      { titulo: "DC Jack (conector de carga) danificado", desc: "O conector onde o carregador encaixa pode soltar da placa-mãe ou ter soldas frias por uso repetido.", tipo: "hardware" },
+      { titulo: "Circuito de carga na placa-mãe", desc: "O CI controlador de carga (MOSFET, regulador) na placa-mãe pode queimar, impedindo a carga da bateria.", tipo: "hardware" },
+      { titulo: "Carregador incompatível", desc: "Usar carregador com voltagem ou amperagem diferente do original pode não carregar ou danificar o notebook.", tipo: "erro-humano" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Substituição do carregador por um compatível de qualidade", tempo: "Imediato", custo: "R$ 80–180" },
+      { nivel: "Médio", desc: "Troca da bateria ou resolda do DC Jack (conector de carga)", tempo: "1–2 horas", custo: "R$ 150–350" },
+      { nivel: "Complexo", desc: "Reparo do circuito de carga na placa-mãe (micro-solda de CI controlador)", tempo: "2–5 horas", custo: "R$ 250–500" },
+    ],
+    riscos: [
+      "Usar carregador genérico de baixa qualidade pode queimar a placa-mãe",
+      "Forçar o plug do carregador em conector solto pode romper trilhas na placa-mãe",
+      "Bateria estufada (inchada) é risco de incêndio — pare de usar imediatamente",
+      "Carregar com voltagem errada pode causar danos irreversíveis ao circuito de carga",
+    ],
+    diagnostico: `1. Teste do carregador com multímetro: verificação de voltagem e amperagem de saída vs especificações.
+
+2. Teste com outro carregador compatível para isolar se o problema é na fonte ou no notebook.
+
+3. Verificação do DC Jack: teste de continuidade, inspeção visual de soldas e firmeza do conector.
+
+4. Verificação da bateria: ciclos de carga, capacidade real vs nominal, presença de inchaço.
+
+5. Análise do circuito de carga: teste dos MOSFETs, reguladores e CI controlador de carga na placa-mãe.
+
+6. Verificação de software: drivers de gerenciamento de energia e BIOS atualizada.`,
+    solucao: `**Carregador**: Substituição por carregador original ou compatível de qualidade com voltagem e amperagem corretas para o modelo.
+
+**Bateria**: Substituição por bateria compatível. Calibração inicial (carga completa, descarga total, carga completa).
+
+**DC Jack**: Resolda do conector na placa-mãe com estação de solda profissional. Em alguns modelos, troca do módulo DC Jack (placa filha).
+
+**Circuito de carga**: Micro-solda para substituição do CI controlador de carga, MOSFETs ou reguladores de tensão na placa-mãe.
+
+**Software**: Atualização do BIOS e driver de gerenciamento de bateria do fabricante. Reset do EC (Embedded Controller) quando necessário.`,
+    quandoCompensa: "Troca de carregador e bateria sempre compensam. Resolda de DC Jack é viável e econômica. Reparo de circuito de carga compensa em notebooks de até 3-4 anos.",
+    quandoNaoCompensa: "Se o circuito de carga da placa-mãe falhou em notebook muito antigo (5+ anos), o custo do reparo pode se aproximar do valor de um notebook usado melhor.",
+    conteudoExtra: `## Guia de Carga do Notebook
+
+### Como Preservar a Bateria
+1. **Não deixe sempre na tomada** — manter em 100% constante degrada a bateria
+2. **Ideal**: manter entre 20% e 80% de carga no dia a dia
+3. **Não use até 0%** frequentemente — descargas profundas encurtam a vida útil
+4. **Evite calor** — bateria quente degrada mais rápido
+
+### Sinais de Bateria Estufada (URGENTE)
+- Touchpad levantado ou desnivelado
+- Base do notebook não fecha completamente
+- Teclado com teclas desniveladas
+- **PARE DE USAR IMEDIATAMENTE** — risco de incêndio
+
+### Como Verificar a Saúde da Bateria
+No Prompt de Comando como Administrador:
+\`\`\`
+powercfg /batteryreport
+\`\`\`
+Abre um relatório HTML com capacidade original vs atual e histórico de carga.`,
+    whatsappMessage: "Olá! Meu notebook não está carregando. Podem me ajudar?",
+    relatedPages: [
+      { to: "/notebook-bateria-nao-carrega-curitiba", label: "Bateria Não Carrega" },
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
+
+  // ============================================================
+  // pc-com-virus-ransomware-curitiba
+  // ============================================================
+  {
+    slug: "pc-com-virus-ransomware-curitiba",
+    title: "PC com Vírus Ransomware? Arquivos Criptografados | Técnico Curitiba",
+    metaDescription: "Computador infectado com ransomware? Arquivos criptografados e pedido de resgate? Diagnóstico e tentativa de recuperação em Curitiba. Atendimento urgente.",
+    h1: "PC com Ransomware em Curitiba? Ação Urgente Necessária",
+    categoria: "Segurança",
+    intro: `O ransomware é o tipo mais devastador de malware: ele criptografa todos os seus arquivos (documentos, fotos, vídeos) e exige pagamento de resgate para devolver o acesso. É uma emergência digital que exige ação imediata e profissional. Em Curitiba, nosso técnico atua com urgência para identificar a variante do ransomware, avaliar possibilidades de recuperação e proteger contra novos ataques.`,
+    sintomas: [
+      { titulo: "Arquivos com extensão estranha", desc: "Documentos renomeados com extensões como .locked, .encrypted, .crypt, .cerber, .wannacry. São os arquivos criptografados.", gravidade: "Complexo" },
+      { titulo: "Mensagem pedindo resgate", desc: "Tela ou arquivo de texto exigindo pagamento em Bitcoin para desbloquear os arquivos. NÃO PAGUE.", gravidade: "Complexo" },
+      { titulo: "Arquivos não abrem", desc: "Fotos, documentos e planilhas existem mas não abrem — conteúdo foi criptografado e é ilegível.", gravidade: "Complexo" },
+      { titulo: "Papel de parede alterado", desc: "Fundo de tela trocado por mensagem do ransomware com instruções de pagamento.", gravidade: "Complexo" },
+      { titulo: "Computador extremamente lento", desc: "Durante a criptografia, o ransomware consome todo o disco e CPU. Se pegar nessa fase, desligue IMEDIATAMENTE.", gravidade: "Médio a complexo" },
+      { titulo: "Programas e sistema funcionam", desc: "O Windows funciona mas seus arquivos pessoais estão inacessíveis. O ransomware foca em dados, não no sistema.", gravidade: "Complexo" },
+    ],
+    causas: [
+      { titulo: "E-mail com anexo infectado", desc: "Anexos .zip, .doc com macro, .exe disfarçado em e-mails falsos de bancos, correios ou empresas.", tipo: "erro-humano" },
+      { titulo: "Download de software pirata", desc: "Cracks, keygens e ativadores são os maiores vetores de ransomware. O 'software grátis' sai caríssimo.", tipo: "erro-humano" },
+      { titulo: "Site comprometido", desc: "Anúncios maliciosos (malvertising) em sites legítimos podem instalar ransomware via exploit do navegador.", tipo: "software" },
+      { titulo: "Acesso remoto exposto (RDP)", desc: "Porta 3389 aberta na internet permite que atacantes entrem no computador e executem o ransomware manualmente.", tipo: "software" },
+      { titulo: "Rede compartilhada infectada", desc: "Ransomware pode se espalhar por pastas compartilhadas na rede, infectando todos os computadores conectados.", tipo: "software" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Ransomware de tela (screen locker) sem criptografia real — remoção do malware restaura acesso", tempo: "1–2 horas", custo: "R$ 150–250" },
+      { nivel: "Médio", desc: "Ransomware com criptografia mas com ferramenta de descriptografia disponível (variante conhecida)", tempo: "2–5 horas", custo: "R$ 200–400" },
+      { nivel: "Complexo", desc: "Ransomware com criptografia forte sem ferramenta disponível — recuperação parcial de backups/shadow copies", tempo: "4–8 horas", custo: "R$ 300–600" },
+    ],
+    riscos: [
+      "NUNCA pague o resgate — não há garantia de que receberá a chave e você financia criminosos",
+      "Tentar descriptografar sem identificar a variante correta pode corromper os arquivos permanentemente",
+      "O ransomware pode estar ainda ativo e criptografar backups conectados ao computador",
+      "Reinstalar Windows sem análise forense destrói evidências e possíveis chaves na memória RAM",
+      "Conectar pendrives ou HDs externos no PC infectado pode criptografá-los também",
+    ],
+    diagnostico: `1. **ISOLAMENTO IMEDIATO**: Desconexão do computador da rede (Wi-Fi e cabo) para evitar propagação.
+
+2. Identificação da variante do ransomware: análise da extensão dos arquivos criptografados e da nota de resgate.
+
+3. Consulta em bancos de dados como ID Ransomware (id-ransomware.malwarehunterteam.com) e No More Ransom (nomoreransom.org).
+
+4. Verificação de Shadow Volume Copies (versões anteriores do Windows) que podem não ter sido deletadas.
+
+5. Análise de backups disponíveis: nuvem (OneDrive, Google Drive), HD externo, backups de rede.
+
+6. Scan completo com ferramentas anti-malware para garantir que o ransomware foi completamente removido antes de qualquer recuperação.`,
+    solucao: `**Identificação**: Determinação exata da família/variante do ransomware através da nota de resgate e extensão dos arquivos.
+
+**Descriptografia**: Se houver ferramenta disponível (No More Ransom, Emsisoft, Kaspersky), aplicação da ferramenta de descriptografia específica para a variante.
+
+**Recuperação**: Restauração de arquivos a partir de Shadow Copies, backups em nuvem, versões anteriores do OneDrive/Google Drive ou backups offline.
+
+**Remoção**: Eliminação completa do ransomware e backdoors associados. Verificação de persistência no sistema.
+
+**Proteção**: Instalação de anti-ransomware, configuração de backup automático (regra 3-2-1), fechamento de portas expostas, atualização do sistema e orientação sobre engenharia social.`,
+    quandoCompensa: "Sempre compensa tentar a recuperação profissional. Mesmo que os arquivos não possam ser descriptografados agora, novas ferramentas são lançadas regularmente.",
+    quandoNaoCompensa: "Se não havia backup e a variante não tem descriptografador disponível, a reinstalação limpa é o caminho mais rápido para voltar a usar o computador.",
+    conteudoExtra: `## Ransomware: O Que Fazer IMEDIATAMENTE
+
+### Primeiros 5 Minutos (Críticos)
+1. **DESLIGUE O WI-FI E DESCONECTE O CABO DE REDE** — impede propagação
+2. **NÃO desligue o computador** se estiver ligado — chaves podem estar na RAM
+3. **NÃO conecte pendrives ou HDs externos** — serão criptografados
+4. **Tire fotos da tela de resgate** — ajuda na identificação da variante
+5. **Ligue para o técnico IMEDIATAMENTE**
+
+### NUNCA Faça Isso
+- ❌ Pagar o resgate (você financia criminosos e não tem garantia)
+- ❌ Tentar descriptografar com ferramentas aleatórias
+- ❌ Formatar sem analisar antes (destrói possibilidades de recuperação)
+- ❌ Conectar dispositivos de backup no PC infectado
+
+### Prevenção (Regra 3-2-1 de Backup)
+- **3** cópias dos seus dados
+- **2** tipos de mídia diferentes (HD externo + nuvem)
+- **1** cópia offline (desconectada do computador)
+
+### Recursos Gratuitos
+- **No More Ransom** (nomoreransom.org): ferramentas gratuitas de descriptografia
+- **ID Ransomware**: identifica a variante pelo arquivo criptografado
+- **Emsisoft Decryptor**: ferramentas para dezenas de variantes`,
+    whatsappMessage: "Olá! Meu computador foi infectado com ransomware e meus arquivos estão criptografados. URGENTE!",
+    relatedPages: [
+      { to: "/pc-com-pop-ups-e-propagandas-curitiba", label: "PC com Pop-ups" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/backup-perdido-curitiba", label: "Backup Perdido" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
+    ]
+  },
 ];
 
 

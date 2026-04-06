@@ -7385,6 +7385,209 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+
+  // ——— notebook-tela-preta-curitiba ———
+  {
+    slug: "notebook-tela-preta-curitiba",
+    title: "Notebook com Tela Preta em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Notebook ligou mas a tela ficou preta? Técnico em Curitiba identifica se é backlight, flat cable, GPU ou placa-mãe. Diagnóstico profissional com orçamento transparente.",
+    h1: "Notebook com Tela Preta — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `Quando o notebook liga mas a tela permanece completamente preta, o problema pode variar de algo simples como brilho no mínimo até falhas graves na GPU ou placa-mãe. Muitos clientes confundem tela preta com notebook que não liga — mas se os LEDs acendem e o cooler gira, o sistema está funcionando; o problema está no vídeo.\n\nEsse é um dos defeitos mais comuns e mais frustrantes: você ouve o Windows iniciando, mas não vê nada. A causa pode ser o inverter/backlight, o flat cable da tela, a própria tela LCD/LED, a GPU dedicada com solda fria, ou até problemas de BIOS/firmware.\n\nO diagnóstico correto é essencial porque trocar peças sem saber a causa real resulta em desperdício de dinheiro. Conectar um monitor externo é o primeiro teste que separa falha de tela de falha de GPU.`,
+    sintomas: [
+      { titulo: "Tela totalmente preta mas LEDs acesos", desc: "O notebook liga normalmente (LEDs, cooler, sons do sistema), porém a tela não exibe absolutamente nada. Pode indicar falha no backlight, inverter ou flat cable.", gravidade: "Médio" },
+      { titulo: "Tela pisca e apaga após alguns segundos", desc: "A imagem aparece brevemente e depois a tela escurece. Geralmente relacionado a falha no inverter ou driver gráfico corrompido.", gravidade: "Médio" },
+      { titulo: "Imagem aparece no monitor externo mas não no notebook", desc: "Confirma que GPU e sistema estão funcionando. O defeito está na tela, flat cable ou conector interno.", gravidade: "Simples" },
+      { titulo: "Tela preta com linhas ou artefatos antes de apagar", desc: "Indica possível falha na GPU dedicada (solda fria) ou defeito na própria tela LCD/LED.", gravidade: "Complexo" },
+      { titulo: "Tela preta após atualização de driver ou Windows", desc: "Driver de vídeo incompatível ou atualização corrompida. Geralmente resolvido via modo seguro.", gravidade: "Simples" },
+      { titulo: "Notebook não exibe BIOS nem logo da fabricante", desc: "Se nem a BIOS aparece, o problema é anterior ao sistema operacional — flat cable, tela ou GPU com defeito severo.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Flat cable danificado ou desconectado", desc: "O cabo flexível que liga a placa-mãe à tela pode romper com o uso, especialmente em dobradiças desgastadas. É uma das causas mais comuns e de reparo acessível.", tipo: "desgaste" },
+      { titulo: "Backlight ou inverter queimado", desc: "O sistema de iluminação da tela falha, deixando a imagem 'invisível' — se você iluminar com lanterna, pode ver a imagem fraca. Troca de backlight/inverter resolve.", tipo: "hardware" },
+      { titulo: "GPU com solda fria (BGA)", desc: "Em notebooks com GPU dedicada (NVIDIA/AMD), o chip pode apresentar solda fria devido ao aquecimento constante. É o cenário mais complexo e caro.", tipo: "hardware" },
+      { titulo: "Driver de vídeo corrompido ou incompatível", desc: "Após atualizações do Windows ou instalação manual de drivers errados, a tela pode ficar preta. Boot em modo seguro e reinstalação do driver resolve.", tipo: "software" },
+      { titulo: "Tela LCD/LED com defeito interno", desc: "Painéis LCD podem falhar por impacto, pressão ou defeito de fabricação. Requer substituição completa do painel.", tipo: "hardware" },
+      { titulo: "Configuração de múltiplos monitores incorreta", desc: "O notebook pode estar configurado para enviar imagem apenas para monitor externo. Atalho Win+P ou reset de configuração resolve.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Driver corrompido, configuração de monitor, brilho no mínimo ou flat cable solto. Resolvido com software ou reconexão.", tempo: "1–2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Flat cable rompido, backlight/inverter queimado ou tela com defeito. Requer troca de componente.", tempo: "2–5 dias (peça)", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "GPU com solda fria (reballing), placa-mãe com trilha queimada. Reparo especializado em bancada.", tempo: "5–15 dias", custo: "R$350–R$800+" }
+    ],
+    riscos: [
+      "Forçar abertura do notebook sem experiência pode romper o flat cable permanentemente",
+      "Reballing caseiro (secador de cabelo/forno) pode destruir a placa-mãe",
+      "Trocar a tela sem verificar a GPU resulta em gasto desnecessário",
+      "Ignorar o problema pode indicar superaquecimento progressivo da GPU que danifica outros componentes",
+      "Drivers genéricos podem causar instabilidade mesmo que 'resolvam' temporariamente"
+    ],
+    diagnostico: `O diagnóstico começa conectando um monitor externo via HDMI/VGA. Se a imagem aparece no externo, descartamos GPU e focamos em tela/flat/backlight. Se não aparece em nenhum, o problema é GPU ou placa-mãe.\n\nTestamos o backlight com lanterna na tela (se a imagem fraca é visível, é backlight). Verificamos o flat cable com multímetro de continuidade. Para GPU, usamos software de stress test e análise térmica.\n\nO diagnóstico profissional evita que você gaste R$300+ trocando uma tela quando o problema é um cabo de R$30.`,
+    solucao: `Para problemas de software (driver), fazemos boot em modo seguro, removemos o driver problemático e instalamos a versão correta do fabricante. Flat cables são substituídos por peças compatíveis com o modelo exato.\n\nBacklight e inverter são trocados em bancada com peças testadas. Para GPU com solda fria, realizamos reballing profissional com estação BGA e esferas de solda adequadas, com garantia do serviço.\n\nEm casos onde o custo de reparo supera 60% do valor do notebook, orientamos sobre a melhor decisão econômica.`,
+    quandoCompensa: "Notebooks de até 3 anos com problema de flat cable, backlight ou driver — reparo rápido e econômico. Notebooks com GPU integrada Intel onde o problema é na tela também compensam.",
+    quandoNaoCompensa: "Notebooks com mais de 5 anos e GPU dedicada com solda fria — o custo de reballing pode ser alto e a recorrência é comum. Melhor investir em equipamento novo.",
+    conteudoExtra: `## Teste Rápido em Casa\n\n1. **Teste de brilho**: Pressione as teclas de brilho (Fn + tecla de sol) — pode estar no mínimo\n2. **Monitor externo**: Conecte via HDMI e pressione Win+P → selecione "Duplicar"\n3. **Teste de lanterna**: Com o notebook ligado, ilumine a tela com lanterna — se vir imagem fraca, é backlight\n4. **Hard reset**: Desligue, remova bateria (se possível), segure power 30s, religue\n\n## Modelos Mais Afetados\n\nNotebooks com GPU dedicada NVIDIA (séries GeForce GT/GTX mais antigas) são os mais propensos a solda fria. Modelos Dell, HP e Lenovo com dobradiças rígidas sofrem mais com flat cable. Acer e Samsung com telas finas são mais vulneráveis a danos no painel.`,
+    whatsappMessage: "Olá! Meu notebook está com a tela preta. Ele liga (LEDs acendem) mas não aparece nada na tela. Preciso de diagnóstico.",
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/monitor-piscando-curitiba", label: "Monitor Piscando" },
+      { to: "/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
+      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ——— erro-0x80240034-curitiba ———
+  {
+    slug: "erro-0x80240034-curitiba",
+    title: "Erro 0x80240034 Windows Update Curitiba — Solução Profissional",
+    metaDescription: "Erro 0x80240034 impedindo atualizações do Windows? Técnico em Curitiba resolve falhas do Windows Update com diagnóstico profissional. Atendimento rápido.",
+    h1: "Erro 0x80240034 no Windows Update — Solução em Curitiba",
+    categoria: "Software",
+    intro: `O erro 0x80240034 é uma das falhas mais frustrantes do Windows Update. Ele aparece quando uma atualização falha durante o download ou instalação, impedindo que o sistema se mantenha atualizado e seguro. O código indica que o Windows Update não conseguiu processar a atualização corretamente.\n\nEsse erro pode ser causado por arquivos de cache corrompidos, conflitos com software de terceiros, problemas nos serviços do Windows Update, ou até disco com setores defeituosos que impedem a gravação dos arquivos de atualização.\n\nIgnorar atualizações do Windows deixa o sistema vulnerável a malware e exploits conhecidos, além de causar incompatibilidades com software mais recente.`,
+    sintomas: [
+      { titulo: "Atualização falha com código 0x80240034", desc: "O Windows Update inicia o download, mas falha durante a instalação exibindo o código de erro. Pode afetar uma ou múltiplas atualizações.", gravidade: "Médio" },
+      { titulo: "Windows Update trava em porcentagem específica", desc: "A atualização para em 30%, 45% ou 99% e eventualmente falha. Indica corrupção no cache de download ou conflito de software.", gravidade: "Médio" },
+      { titulo: "Múltiplas atualizações pendentes acumuladas", desc: "O erro se repete em várias atualizações, acumulando pendências. O sistema fica cada vez mais desatualizado e vulnerável.", gravidade: "Complexo" },
+      { titulo: "Erro aparece após instalação limpa do Windows", desc: "Mesmo em instalações novas, o erro pode ocorrer se a imagem ISO está desatualizada ou se há problemas de hardware (disco/RAM).", gravidade: "Simples" },
+      { titulo: "Lentidão durante tentativas de atualização", desc: "O sistema fica lento enquanto tenta processar atualizações que vão falhar, consumindo CPU e disco sem resultado.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Cache do Windows Update corrompido", desc: "A pasta SoftwareDistribution contém arquivos de download parciais ou corrompidos que impedem novas instalações. Limpar o cache geralmente resolve.", tipo: "software" },
+      { titulo: "Componentes do Windows Update danificados", desc: "Os serviços BITS, wuauserv ou cryptsvc podem estar corrompidos. Requer reset completo dos componentes de atualização.", tipo: "software" },
+      { titulo: "Conflito com antivírus ou software de segurança", desc: "Antivírus de terceiros podem bloquear o download ou instalação de atualizações por falsos positivos ou proteção em tempo real.", tipo: "software" },
+      { titulo: "Disco com setores defeituosos", desc: "Se a área do disco onde as atualizações são gravadas tem defeitos físicos, o processo falha. Requer verificação com chkdsk e possível troca de disco.", tipo: "hardware" },
+      { titulo: "Perfil de usuário corrompido", desc: "Em alguns casos, a corrupção do perfil do usuário afeta permissões necessárias para o Windows Update funcionar.", tipo: "software" },
+      { titulo: "Espaço em disco insuficiente", desc: "Atualizações cumulativas do Windows 10/11 podem exigir 20GB+ de espaço livre. Disco cheio causa falha silenciosa.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Cache corrompido ou espaço insuficiente. Limpeza de SoftwareDistribution e liberação de espaço resolvem.", tempo: "1–2 horas", custo: "R$80–R$120" },
+      { nivel: "Médio", desc: "Componentes do Windows Update danificados. Reset via DISM, SFC e scripts de reparo. Pode exigir atualização manual.", tempo: "2–4 horas", custo: "R$120–R$200" },
+      { nivel: "Complexo", desc: "Disco com defeitos ou corrupção profunda do sistema. Pode exigir reparo de instalação (in-place upgrade) ou formatação.", tempo: "4–8 horas", custo: "R$200–R$350" }
+    ],
+    riscos: [
+      "Sistema desatualizado fica vulnerável a ransomware e malware conhecidos",
+      "Atualizações acumuladas podem tornar o reparo cada vez mais difícil",
+      "Tentativas repetidas de atualização sobrecarregam o disco e podem acelerar falhas",
+      "Edição incorreta do registro pode inutilizar o Windows",
+      "Forçar desligamento durante tentativa de atualização pode corromper arquivos do sistema"
+    ],
+    diagnostico: `Executamos uma sequência de diagnóstico: verificação de espaço em disco, integridade do sistema (SFC /scannow e DISM), estado dos serviços do Windows Update (BITS, wuauserv, cryptsvc), e logs detalhados em CBS.log e WindowsUpdate.log.\n\nAnalisamos se o erro é específico de uma atualização (KB) ou generalizado. Testamos o disco com SMART e chkdsk para descartar problemas físicos. Verificamos conflitos com software de segurança.\n\nO diagnóstico profissional identifica a causa raiz e evita a solução comum de "formatar por desespero" — na maioria dos casos, o problema é resolvível sem perder dados.`,
+    solucao: `Para cache corrompido: paramos os serviços do Windows Update, limpamos SoftwareDistribution e catroot2, e reiniciamos os serviços. Executamos SFC e DISM para reparar componentes do sistema.\n\nPara casos mais complexos: usamos o Windows Update Troubleshooter avançado, instalação manual de KBs específicas, ou repair upgrade (instalação por cima) que preserva dados e programas.\n\nSe o disco tem defeitos: substituímos por SSD (recomendado) e migramos o sistema. Para perfil corrompido: criamos novo perfil e migramos dados do usuário.`,
+    quandoCompensa: "Sempre compensa resolver — manter o Windows atualizado é essencial para segurança. O custo de reparo é muito menor que os danos de um ransomware.",
+    quandoNaoCompensa: "Se o Windows está muito desatualizado (versão sem suporte) e o hardware é antigo, pode compensar mais fazer instalação limpa com versão atual.",
+    conteudoExtra: `## Passo a Passo Básico (Antes de Chamar o Técnico)\n\n1. Verifique se tem pelo menos 20GB livres no disco C:\n2. Desative temporariamente o antivírus de terceiros\n3. Execute como admin: \`sfc /scannow\`\n4. Execute como admin: \`DISM /Online /Cleanup-Image /RestoreHealth\`\n5. Reinicie e tente atualizar novamente\n\nSe nenhum desses passos resolver, o problema requer análise profissional dos logs e componentes internos do Windows Update.`,
+    whatsappMessage: "Olá! Meu Windows está com o erro 0x80240034 no Windows Update. As atualizações não instalam. Preciso de ajuda profissional.",
+    relatedPages: [
+      { to: "/erro-0x800f081f-curitiba", label: "Erro 0x800f081f" },
+      { to: "/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ——— pc-nao-conecta-bluetooth-curitiba ———
+  {
+    slug: "pc-nao-conecta-bluetooth-curitiba",
+    title: "PC Não Conecta Bluetooth Curitiba — Diagnóstico e Solução",
+    metaDescription: "PC ou notebook não conecta Bluetooth em Curitiba? Técnico resolve problemas de driver, adaptador e pareamento. Diagnóstico profissional com atendimento rápido.",
+    h1: "PC Não Conecta Bluetooth — Diagnóstico e Solução em Curitiba",
+    categoria: "Hardware / Conectividade",
+    intro: `Problemas de Bluetooth são extremamente comuns e podem impedir o uso de fones de ouvido, teclados, mouses, caixas de som e até transferência de arquivos. Quando o Bluetooth não funciona, o ícone pode desaparecer da bandeja, o dispositivo pode não parear, ou a conexão pode cair constantemente.\n\nAs causas variam entre driver desatualizado, adaptador Bluetooth desativado no BIOS, conflito de software, interferência de sinal, ou falha física do módulo Bluetooth (que em notebooks geralmente é integrado à placa Wi-Fi).\n\nAntes de assumir que o hardware está com defeito, é importante verificar configurações de software, pois a grande maioria dos problemas de Bluetooth é resolvida sem troca de peças.`,
+    sintomas: [
+      { titulo: "Ícone do Bluetooth sumiu da bandeja do sistema", desc: "O Bluetooth não aparece nas configurações nem na bandeja. Pode indicar driver não instalado, adaptador desativado ou desabilitado no BIOS.", gravidade: "Simples" },
+      { titulo: "Dispositivo não é encontrado ao parear", desc: "O PC procura mas não encontra o dispositivo Bluetooth. Pode ser modo de pareamento incorreto, distância excessiva ou interferência.", gravidade: "Simples" },
+      { titulo: "Conexão Bluetooth cai constantemente", desc: "Dispositivo conecta mas desconecta após segundos ou minutos. Indica interferência, driver instável ou economia de energia desligando o adaptador.", gravidade: "Médio" },
+      { titulo: "Áudio Bluetooth com falhas e cortes", desc: "Fone ou caixa Bluetooth conecta mas o áudio tem cortes, delay ou qualidade ruim. Pode ser codec inadequado, interferência ou driver.", gravidade: "Médio" },
+      { titulo: "Bluetooth funciona mas transferência de arquivos falha", desc: "Pareamento funciona mas não consegue enviar/receber arquivos. Geralmente problema de permissões, firewall ou protocolo OBEX.", gravidade: "Simples" },
+      { titulo: "Erro 'Dispositivo Bluetooth não encontrado' no Gerenciador", desc: "O Gerenciador de Dispositivos mostra erro ou não lista o adaptador Bluetooth. Indica falha de driver ou hardware.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Driver Bluetooth ausente ou desatualizado", desc: "Após formatação ou atualização do Windows, o driver correto pode não ser instalado automaticamente. Requer download do site do fabricante.", tipo: "software" },
+      { titulo: "Bluetooth desativado no BIOS/UEFI", desc: "Alguns notebooks permitem desativar Bluetooth no BIOS. Se desativado, o Windows não detecta o hardware.", tipo: "erro-humano" },
+      { titulo: "Serviço Bluetooth parado no Windows", desc: "O serviço 'Bluetooth Support Service' pode estar parado ou desativado. Sem ele, nenhum dispositivo funciona.", tipo: "software" },
+      { titulo: "Interferência de sinal", desc: "Dispositivos USB 3.0, roteadores Wi-Fi no canal 2.4GHz e micro-ondas podem interferir no sinal Bluetooth.", tipo: "hardware" },
+      { titulo: "Módulo Bluetooth/Wi-Fi com defeito", desc: "Em notebooks, o módulo é geralmente uma placa combo Wi-Fi+Bluetooth. Se falhar, ambos param de funcionar.", tipo: "hardware" },
+      { titulo: "Economia de energia desligando o adaptador", desc: "O Windows pode configurar o adaptador para desligar automaticamente para economizar energia, causando desconexões.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Driver ausente, serviço parado, BIOS desativado ou configuração de energia. Resolvido com software.", tempo: "30min–1 hora", custo: "R$60–R$100" },
+      { nivel: "Médio", desc: "Conflito de driver, interferência de sinal ou codec inadequado. Requer diagnóstico e ajuste fino.", tempo: "1–2 horas", custo: "R$100–R$180" },
+      { nivel: "Complexo", desc: "Módulo Bluetooth/Wi-Fi com defeito. Requer troca do módulo interno ou adaptador USB externo.", tempo: "1–3 dias (peça)", custo: "R$150–R$300" }
+    ],
+    riscos: [
+      "Instalar drivers de fontes não oficiais pode trazer malware",
+      "Alterar configurações do BIOS sem conhecimento pode desativar outros componentes",
+      "Adaptadores USB Bluetooth genéricos podem ter compatibilidade ruim",
+      "Ignorar problemas de Bluetooth pode indicar falha maior na placa Wi-Fi",
+      "Forçar pareamento repetidamente pode corromper o perfil do dispositivo"
+    ],
+    diagnostico: `Verificamos no Gerenciador de Dispositivos se o adaptador Bluetooth aparece e seu estado. Checamos se o serviço Bluetooth Support Service está ativo. Testamos o BIOS para confirmar que o hardware está habilitado.\n\nInstalamos o driver correto do fabricante (não genérico do Windows). Verificamos configurações de economia de energia e desativamos o desligamento automático. Testamos com diferentes dispositivos Bluetooth para isolar se o problema é no PC ou no periférico.\n\nPara problemas de áudio, verificamos o codec utilizado (SBC vs aptX vs AAC) e otimizamos as configurações.`,
+    solucao: `Para problemas de software: instalamos o driver correto, habilitamos serviços, ajustamos economia de energia e resolvemos conflitos. Para interferência: reposicionamos dispositivos USB 3.0, alteramos canal do Wi-Fi ou usamos extensores Bluetooth.\n\nPara hardware defeituoso em notebooks: substituímos o módulo Wi-Fi+Bluetooth por um compatível (geralmente M.2). Em desktops: instalamos adaptador USB Bluetooth 5.0+ com antena externa para melhor alcance.\n\nConfiguramos todos os dispositivos do cliente e verificamos o pareamento de cada um antes de finalizar.`,
+    quandoCompensa: "Sempre compensa resolver — Bluetooth é essencial para periféricos modernos. Mesmo a troca do módulo é acessível (R$80–R$150 pela peça).",
+    quandoNaoCompensa: "Em PCs desktop muito antigos sem Bluetooth nativo, pode ser mais prático usar um adaptador USB do que tentar integrar ao hardware.",
+    conteudoExtra: `## Verificações Rápidas\n\n1. **Modo avião**: Verifique se não está ativado (desativa Bluetooth junto)\n2. **Tecla de atalho**: Muitos notebooks têm Fn+tecla para ligar/desligar Bluetooth\n3. **Serviço**: Win+R → services.msc → "Bluetooth Support Service" deve estar "Em execução"\n4. **Pareamento**: Coloque o dispositivo em modo de pareamento (geralmente segurando botão por 5s)\n\n## Bluetooth 4.0 vs 5.0 vs 5.3\n\nBluetooth 5.0+ oferece alcance 4x maior, velocidade 2x maior e consumo menor. Se seu adaptador é antigo (4.0 ou inferior), upgrade para 5.0+ pode resolver problemas de conexão instável e melhorar a qualidade de áudio.`,
+    whatsappMessage: "Olá! Meu PC/notebook não está conectando no Bluetooth. Os dispositivos não pareiam ou a conexão cai. Preciso de ajuda.",
+    relatedPages: [
+      { to: "/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
+      { to: "/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
+      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ——— hd-externo-nao-reconhece-curitiba ———
+  {
+    slug: "hd-externo-nao-reconhece-curitiba",
+    title: "HD Externo Não Reconhece Curitiba — Recuperação e Diagnóstico",
+    metaDescription: "HD externo não aparece no PC? Técnico em Curitiba faz diagnóstico profissional para recuperar dados e reparar unidades externas. Orçamento transparente.",
+    h1: "HD Externo Não Reconhece — Diagnóstico e Recuperação em Curitiba",
+    categoria: "Hardware / Armazenamento",
+    intro: `Quando o HD externo não é reconhecido pelo computador, a preocupação principal é sempre os dados. Fotos, documentos, trabalhos acadêmicos e backups podem estar em risco. O problema pode ser tão simples quanto um cabo defeituoso ou tão grave quanto falha mecânica do disco.\n\nAntes de tentar qualquer solução por conta própria, é fundamental entender que HDs externos com problemas mecânicos (cliques, ruídos) NÃO devem ser ligados repetidamente — cada tentativa pode piorar o dano e tornar a recuperação mais cara ou impossível.\n\nOs HDs externos são especialmente vulneráveis porque são transportados constantemente e podem sofrer quedas, vibrações e variações de temperatura que HDs internos não experimentam.`,
+    sintomas: [
+      { titulo: "HD externo não aparece no Explorador de Arquivos", desc: "O disco não é listado no Windows Explorer mas pode aparecer no Gerenciador de Discos. Pode ser problema de partição, letra de unidade ou formatação incompatível.", gravidade: "Simples" },
+      { titulo: "HD faz cliques ou ruídos ao conectar", desc: "Ruídos de clique repetitivo indicam falha mecânica na cabeça de leitura. DESLIGUE IMEDIATAMENTE — cada tentativa pode riscar os pratos e destruir dados.", gravidade: "Complexo" },
+      { titulo: "LED do HD acende mas não é detectado", desc: "O disco recebe energia mas o computador não o reconhece. Pode ser falha na placa controladora (PCB), cabo de dados ou porta USB insuficiente.", gravidade: "Médio" },
+      { titulo: "HD aparece como 'Não inicializado' no Gerenciador de Discos", desc: "O Windows detecta o disco mas mostra como não inicializado ou RAW. Tabela de partição corrompida — dados podem ser recuperáveis.", gravidade: "Médio" },
+      { titulo: "HD externo extremamente lento para acessar", desc: "Arquivos demoram minutos para abrir. Indica setores defeituosos (bad blocks) que o disco tenta ler repetidamente.", gravidade: "Médio" },
+      { titulo: "HD reconhece em um PC mas não em outro", desc: "Pode ser driver USB, formato de arquivo (ex: Mac HFS+ não lê no Windows) ou porta USB com defeito no PC específico.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Cabo USB defeituoso ou incompatível", desc: "Cabos USB podem parecer bons externamente mas ter fios rompidos internamente. HDs de 3.5\" precisam de fonte de alimentação externa — cabo USB sozinho não fornece energia suficiente.", tipo: "hardware" },
+      { titulo: "Porta USB com alimentação insuficiente", desc: "Portas USB frontais de desktops ou hubs USB sem alimentação podem não fornecer corrente suficiente para o HD girar.", tipo: "hardware" },
+      { titulo: "Tabela de partição corrompida (MBR/GPT)", desc: "Remoção insegura ('puxar o cabo') pode corromper a tabela de partição. O disco existe mas o Windows não consegue ler a estrutura de arquivos.", tipo: "erro-humano" },
+      { titulo: "Setores defeituosos (bad blocks)", desc: "Desgaste natural ou queda pode criar áreas ilegíveis no disco. O HD tenta ler repetidamente, ficando lento ou travando.", tipo: "desgaste" },
+      { titulo: "Falha mecânica (cabeça de leitura)", desc: "Queda ou impacto pode desalinhar a cabeça de leitura. O disco faz cliques e não consegue ler os pratos. Recuperação requer sala limpa.", tipo: "hardware" },
+      { titulo: "Placa controladora (PCB) queimada", desc: "Surtos de energia ou curto-circuito podem queimar a PCB do HD. O disco não liga ou não é detectado. Troca de PCB pode resolver.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Cabo defeituoso, porta USB fraca, partição sem letra de unidade ou formato incompatível. Sem perda de dados.", tempo: "30min–1 hora", custo: "R$60–R$120" },
+      { nivel: "Médio", desc: "Tabela de partição corrompida ou setores defeituosos. Recuperação de dados via software especializado.", tempo: "2–8 horas", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Falha mecânica ou PCB queimada. Recuperação em sala limpa ou troca de PCB. Dados críticos podem exigir laboratório.", tempo: "5–30 dias", custo: "R$400–R$2000+" }
+    ],
+    riscos: [
+      "Ligar repetidamente um HD com cliques pode riscar os pratos permanentemente",
+      "Usar software de recuperação em HD com falha mecânica piora o dano",
+      "Abrir o HD fora de sala limpa contamina os pratos com poeira",
+      "Formatar acidentalmente o HD para 'resolver' o problema destrói os dados",
+      "Inicializar disco 'Não inicializado' sem cuidado pode sobrescrever a tabela de partição"
+    ],
+    diagnostico: `Primeiro, verificamos o básico: cabo, porta USB, alimentação. Testamos com cabo e porta diferentes. Verificamos no Gerenciador de Discos se o HD é detectado em nível de hardware.\n\nSe o HD faz ruídos anormais, NÃO prosseguimos com tentativas — orientamos sobre recuperação profissional. Para HDs silenciosos que não são reconhecidos, analisamos a PCB e testamos com adaptador SATA direto.\n\nPara dados acessíveis mas disco lento: fazemos clone bit-a-bit para disco saudável antes de qualquer tentativa de reparo, garantindo que os dados estejam seguros.`,
+    solucao: `Para problemas simples: trocamos cabo, testamos alimentação adequada, atribuímos letra de unidade ou convertemos formato de arquivo. Para partição corrompida: usamos ferramentas profissionais (R-Studio, DMDE) para reconstruir a tabela e recuperar dados.\n\nPara setores defeituosos: clonamos o disco com ddrescue para mídia saudável antes de reparar. Para PCB queimada: localizamos PCB compatível e fazemos transplante do chip BIOS.\n\nPara falha mecânica grave: encaminhamos para laboratório parceiro com sala limpa, com orçamento prévio aprovado pelo cliente. Sempre priorizamos a segurança dos dados.`,
+    quandoCompensa: "Para dados importantes e insubstituíveis (fotos de família, trabalhos acadêmicos, documentos empresariais), o investimento em recuperação quase sempre compensa.",
+    quandoNaoCompensa: "Se o HD contém apenas dados que existem em outros backups ou são facilmente baixáveis novamente. HDs antigos com pouca capacidade também não justificam recuperação cara.",
+    conteudoExtra: `## O Que Fazer AGORA\n\n1. **HD com cliques**: DESLIGUE IMEDIATAMENTE. Não tente mais. Cada tentativa reduz as chances de recuperação\n2. **HD silencioso**: Teste com outro cabo USB e em porta traseira do PC (mais energia)\n3. **HD detectado mas sem arquivos**: NÃO formate. Os dados podem estar lá com partição corrompida\n4. **HD lento**: Não force acesso. Desligue e procure diagnóstico profissional\n\n## Prevenção\n\n- Sempre use "Remover Hardware com Segurança" antes de desconectar\n- Nunca transporte o HD ligado ou em funcionamento\n- Mantenha backup em pelo menos 2 locais diferentes (regra 3-2-1)\n- SSDs externos são mais resistentes a quedas que HDs mecânicos`,
+    whatsappMessage: "Olá! Meu HD externo não está sendo reconhecido pelo computador. Tenho dados importantes nele. Preciso de diagnóstico urgente.",
+    relatedPages: [
+      { to: "/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
+      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
+      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

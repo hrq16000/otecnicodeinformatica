@@ -340,6 +340,7 @@ const TecnicoInformaticaAraucaria = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="notebookReparo" secondaryImageKey="diagnostico" layout="duo" caption="Reparo de notebook em Araucária" secondaryCaption="Diagnóstico profissional com equipamento especializado" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

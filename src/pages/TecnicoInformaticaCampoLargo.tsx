@@ -339,6 +339,7 @@ const TecnicoInformaticaCampoLargo = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="placaMae" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico de placa-mãe em Campo Largo" secondaryCaption="Upgrade SSD e memória RAM" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

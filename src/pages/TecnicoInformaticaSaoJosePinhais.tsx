@@ -270,6 +270,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="ferramentas" layout="duo" caption="Técnico atendendo em São José dos Pinhais" secondaryCaption="Ferramentas profissionais para diagnóstico" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

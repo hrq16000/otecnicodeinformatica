@@ -189,6 +189,9 @@ const App = () => (
             <Route path="/tecnico-informatica-araucaria" element={<TecnicoInformaticaAraucaria />} />
             <Route path="/tecnico-informatica-campo-largo" element={<TecnicoInformaticaCampoLargo />} />
             <Route path="/tecnico-informatica-pinhais" element={<TecnicoInformaticaPinhais />} />
+            <Route path="/tecnico-informatica-colombo" element={<TecnicoInformaticaColombo />} />
+            <Route path="/tecnico-informatica-fazenda-rio-grande" element={<TecnicoInformaticaFazendaRioGrande />} />
+            <Route path="/tecnico-informatica-almirante-tamandare" element={<TecnicoInformaticaAlmiranteTamandare />} />
             
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />

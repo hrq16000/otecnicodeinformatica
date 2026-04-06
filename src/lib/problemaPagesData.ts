@@ -2487,6 +2487,369 @@ A: Fazemos a coleta do equipamento e devolvemos pronto. Sem custo adicional de t
 | Reparo placa-mãe | ❌ (coleta) | 3-7 dias |
 | Troca de tela notebook | ❌ (coleta) | 1-3 dias |
 | Reparo de TV | ❌ (coleta) | 3-10 dias |` },
+
+  // ========== NOVAS PÁGINAS — Impressora, Monitor, Periféricos ==========
+
+  {
+    slug: "impressora-nao-imprime-curitiba",
+    title: "Impressora Não Imprime em Curitiba | Diagnóstico e Soluções Reais",
+    metaDescription: "Impressora não imprime? Diagnóstico profissional em Curitiba e região. Problemas de driver, cabeçote, papel, Wi-Fi. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    h1: "Impressora Não Imprime — Diagnóstico e Soluções Reais",
+    categoria: "Problemas de Impressora",
+    intro: `Sua impressora parou de imprimir e você não sabe o motivo? Esse é um dos problemas mais frustrantes do dia a dia — especialmente quando você precisa imprimir um documento urgente para o trabalho, escola ou uma reunião.\n\nAs causas variam enormemente: pode ser algo simples como um driver desatualizado ou papel preso, ou algo mais complexo como cabeçote de impressão entupido, cartucho seco ou problema na placa lógica da impressora.\n\nEm Curitiba e região metropolitana, atendemos centenas de chamados relacionados a impressoras — HP, Epson, Canon, Brother, Samsung e outras marcas.`,
+    sintomas: [
+      { titulo: "Impressora não responde ao comando de impressão", desc: "Você manda imprimir mas nada acontece. A fila de impressão pode estar travada ou o driver corrompido.", gravidade: "Simples a Médio" },
+      { titulo: "Impressão sai em branco ou com falhas", desc: "Páginas saem completamente brancas ou com listras — indica problema no cartucho, toner ou cabeçote.", gravidade: "Médio" },
+      { titulo: "Impressora aparece offline no computador", desc: "O Windows mostra a impressora como offline mesmo estando ligada. Problema de conexão USB, rede ou driver.", gravidade: "Simples" },
+      { titulo: "Papel preso constantemente", desc: "Atolamento frequente de papel indica problema mecânico nos rolos de alimentação.", gravidade: "Médio" },
+      { titulo: "Impressora Wi-Fi não conecta", desc: "Impressora não se conecta à rede sem fio ou perde a conexão frequentemente.", gravidade: "Simples a Médio" },
+      { titulo: "Erro de cartucho ou toner não reconhecido", desc: "A impressora não reconhece o cartucho mesmo sendo novo — problema de chip ou compatibilidade.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Driver desatualizado ou corrompido", desc: "Após atualizações do Windows, o driver da impressora pode parar de funcionar.", tipo: "software" },
+      { titulo: "Cabeçote de impressão entupido", desc: "Impressoras jato de tinta que ficam sem uso por semanas têm o cabeçote ressecado.", tipo: "desgaste" },
+      { titulo: "Cartucho ou toner vazio/defeituoso", desc: "Cartuchos remanufaturados podem apresentar problemas de reconhecimento.", tipo: "hardware" },
+      { titulo: "Problema na conexão USB ou rede", desc: "Cabo USB defeituoso, porta USB com mau contato ou configuração incorreta de rede Wi-Fi.", tipo: "hardware" },
+      { titulo: "Fila de impressão travada", desc: "Documentos antigos travados na fila impedem novas impressões.", tipo: "software" },
+      { titulo: "Rolos de alimentação desgastados", desc: "Rolos de borracha desgastados não puxam o papel corretamente.", tipo: "desgaste" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver, limpeza de fila de impressão, reconfiguração Wi-Fi", tempo: "30min–1h", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Limpeza de cabeçote, troca de cartucho, ajuste mecânico dos rolos", tempo: "1–2h", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Reparo da placa lógica, troca de cabeçote fixo, problema eletrônico interno", tempo: "2–5 dias", custo: "R$300–R$500+" },
+    ],
+    riscos: [
+      "Tentar limpar cabeçote com álcool errado pode danificar permanentemente",
+      "Usar cartuchos incompatíveis pode queimar o chip da impressora",
+      "Forçar papel preso pode quebrar os rolos de alimentação",
+      "Ignorar o problema faz o cabeçote ressecar mais",
+    ],
+    diagnostico: "O diagnóstico começa identificando o tipo (jato de tinta, laser, tanque) e o sintoma. Testamos a conexão, verificamos drivers, inspecionamos cartuchos e realizamos testes de impressão internos.\n\nEm muitos casos, o problema é resolvido na primeira visita.",
+    solucao: "A solução varia: desde reinstalação de driver (30 min) até limpeza química do cabeçote ou troca de componentes. Sempre priorizamos o conserto mais econômico.\n\nPara laser, verificamos toner, fusor e tambor. Para jato de tinta, focamos no cabeçote e cartuchos.",
+    quandoCompensa: "Impressoras com menos de 3 anos e cujo reparo custa menos de 50% de uma nova. Impressoras laser compensam mais.",
+    quandoNaoCompensa: "Impressoras jato de tinta baratas (sub R$300) com cabeçote integrado ao cartucho. Também quando a placa lógica queima.",
+    whatsappMessage: "Olá! Minha impressora não está imprimindo. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Computador Lento", to: "/computador-lento-curitiba" },
+      { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Atendimento Domicílio", to: "/atendimento-domicilio" },
+    ],
+    conteudoExtra: `## Guia Completo: Impressora Não Imprime em Curitiba
+
+### Tipos de Impressora e Problemas Comuns
+
+**Jato de Tinta (HP, Epson, Canon):** Cabeçote entupido por falta de uso, cartuchos remanufaturados não reconhecidos, vazamento de tinta.
+
+**Laser (HP, Brother, Samsung):** Toner esgotado ou mal encaixado, fusor desgastado (impressão borrada), tambor riscado.
+
+**Tanque de Tinta (Epson EcoTank, HP Smart Tank):** Bolhas de ar no sistema, cabeçote entupido mesmo com tinta, erro de almofada cheia.
+
+### Tabela de Custos
+
+| Problema | Custo Médio | Tempo |
+|---|---|---|
+| Reinstalação de driver | R$80–R$120 | 30min |
+| Limpeza de cabeçote | R$100–R$200 | 1–2h |
+| Troca de cartucho/toner | R$50–R$300 (peça) | 15min |
+| Reparo de rolos | R$150–R$250 | 1–2h |
+| Placa lógica | R$300–R$500 | 3–5 dias |
+
+### Dicas de Prevenção
+
+1. **Use a impressora 1x/semana** — evita ressecamento
+2. **Use cartuchos de qualidade** — evita danos ao chip
+3. **Mantenha o driver atualizado**
+4. **Use papel adequado** — papel fino ou úmido causa atolamentos
+5. **Desligue pelo botão** — não puxe da tomada
+
+### Atendimento em Curitiba e Região
+
+Atendemos em toda Curitiba (Centro, Batel, Portão, CIC, Santa Felicidade) e região metropolitana (SJP, Araucária, Campo Largo, Pinhais, Colombo).`
+  },
+
+  {
+    slug: "monitor-sem-sinal-curitiba",
+    title: "Monitor Sem Sinal em Curitiba | Diagnóstico e Soluções Reais",
+    metaDescription: "Monitor sem sinal? Diagnóstico profissional em Curitiba. Problema na placa de vídeo, cabo, monitor ou configuração. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    h1: "Monitor Sem Sinal — Diagnóstico e Soluções Reais",
+    categoria: "Problemas de Monitor/Vídeo",
+    intro: `Ligar o computador e ver "Sem Sinal" ou "No Signal" no monitor é assustador. Você não sabe se o problema é no monitor, no cabo, na placa de vídeo ou na placa-mãe.\n\nA boa notícia: na maioria dos casos o problema é simples — cabo solto, entrada errada ou driver corrompido. Mas em casos graves, pode indicar falha na GPU ou placa-mãe.\n\nEm Curitiba, atendemos este problema diariamente. Nosso diagnóstico identifica a causa real e evita substituições desnecessárias.`,
+    sintomas: [
+      { titulo: "Monitor exibe 'Sem Sinal' ou 'No Signal'", desc: "O monitor liga mas não recebe sinal do computador.", gravidade: "Simples a Complexo" },
+      { titulo: "Tela preta mas o PC parece ligado", desc: "Ventoinhas giram, LEDs acendem, mas nenhuma imagem aparece.", gravidade: "Médio a Complexo" },
+      { titulo: "Imagem pisca e some", desc: "A imagem aparece por segundos e desaparece — cabo defeituoso ou GPU instável.", gravidade: "Médio" },
+      { titulo: "Monitor funciona em outro PC", desc: "Se funciona em outro PC, o problema está na saída de vídeo do seu computador.", gravidade: "Médio a Complexo" },
+      { titulo: "Resolução errada ou tela distorcida", desc: "Após atualização de driver ou troca de monitor, a resolução fica errada.", gravidade: "Simples" },
+    ],
+    causas: [
+      { titulo: "Cabo HDMI/VGA/DP solto ou defeituoso", desc: "Causa mais comum. Cabos com mau contato impedem transmissão de vídeo.", tipo: "hardware" },
+      { titulo: "Entrada errada selecionada no monitor", desc: "Monitor configurado para HDMI mas o cabo está no VGA.", tipo: "erro-humano" },
+      { titulo: "Driver de vídeo corrompido", desc: "Após atualizações do Windows, o driver da GPU pode corromper.", tipo: "software" },
+      { titulo: "Placa de vídeo com defeito", desc: "GPU superaquecida ou com defeito pode parar de enviar sinal.", tipo: "hardware" },
+      { titulo: "Memória RAM mal encaixada", desc: "RAM solta ou com oxidação impede o POST e gera tela preta.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de cabo, reencaixe de RAM, seleção de entrada correta", tempo: "15–30min", custo: "R$50–R$100" },
+      { nivel: "Médio", desc: "Reinstalação de driver, limpeza de contatos, teste com outra GPU", tempo: "1–2h", custo: "R$100–R$200" },
+      { nivel: "Complexo", desc: "Substituição de placa de vídeo, reparo de saída na placa-mãe", tempo: "1–3 dias", custo: "R$200–R$800+" },
+    ],
+    riscos: [
+      "Forçar cabo na porta errada pode danificar o conector",
+      "Ignorar superaquecimento da GPU causa dano permanente",
+      "Reinstalar driver errado pode causar tela preta no Windows",
+      "Trocar GPU sem conhecimento pode causar curto-circuito",
+    ],
+    diagnostico: "Sequência lógica: 1) Verificar cabos; 2) Testar monitor em outro PC; 3) Testar outra saída de vídeo; 4) Verificar RAM e POST; 5) Testar com outra GPU.\n\nUsamos equipamentos de teste para verificar o sinal antes de chegar ao monitor.",
+    solucao: "Na maioria dos casos: troca de cabo (R$20-50) ou reencaixe de componentes. Para driver, usamos Modo de Segurança para reinstalar.\n\nQuando a GPU está com defeito, avaliamos reparo vs. substituição com transparência.",
+    quandoCompensa: "Quando o problema é cabo, driver ou RAM — custo baixo e solução rápida.",
+    quandoNaoCompensa: "Quando a GPU dedicada queimou e custa mais de 60% do valor do PC.",
+    whatsappMessage: "Olá! Meu monitor está sem sinal. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Computador Sem Vídeo", to: "/computador-sem-video-curitiba" },
+      { label: "Tela Preta", to: "/computador-com-tela-preta-curitiba" },
+      { label: "GPU Desgastada", to: "/gpu-desgastada" },
+      { label: "PC Não Liga", to: "/computador-nao-liga-curitiba" },
+    ],
+    conteudoExtra: `## Guia Completo: Monitor Sem Sinal em Curitiba
+
+### Diagnóstico Rápido
+
+1. **Verifique o cabo** nas duas pontas
+2. **Pressione o botão de entrada** do monitor (HDMI/VGA/DP)
+3. **Teste com outro cabo**
+4. **Conecte em outro PC** para descartar defeito do monitor
+5. **Ouça se o PC emite bips** — indicam erro de hardware
+
+### Sintoma → Causa Provável
+
+| Sintoma | Causa | Custo |
+|---|---|---|
+| "No Signal" com PC ligado | Cabo ou entrada errada | R$50–R$100 |
+| Tela preta + bips | RAM solta | R$80–R$150 |
+| Imagem pisca e some | Cabo ou GPU instável | R$100–R$300 |
+| HDMI não funciona, VGA sim | Porta HDMI queimada | R$150–R$400 |
+| Nenhuma saída funciona | GPU ou placa-mãe | R$200–R$800 |
+
+### Tipos de Cabo e Problemas
+
+- **HDMI**: Sensível a mau contato. Versão importa (1.4/2.0/2.1)
+- **VGA**: Analógico, robusto mas qualidade inferior. Pinos entortados
+- **DisplayPort**: Confiável mas não puxe sem apertar a trava
+- **DVI**: Menos comum. Problemas com adaptadores
+
+### Atendimento em Curitiba e Região
+
+Diagnosticamos problemas de monitor/vídeo em toda Curitiba e região metropolitana. Levamos cabos de teste no atendimento a domicílio.`
+  },
+
+  {
+    slug: "internet-lenta-curitiba",
+    title: "Internet Lenta em Curitiba | Diagnóstico de Rede e Soluções",
+    metaDescription: "Internet lenta em Curitiba? Diagnóstico de rede profissional. Roteador, Wi-Fi, cabeamento, DNS. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    h1: "Internet Lenta — Diagnóstico de Rede e Soluções Profissionais",
+    categoria: "Problemas de Rede",
+    intro: `Internet lenta é uma das reclamações mais comuns em Curitiba. Antes de culpar o provedor, saiba que em mais de 60% dos casos o problema está na sua casa ou escritório.\n\nRoteador mal posicionado, canal Wi-Fi congestionado, cabeamento antigo, DNS lento ou malware consumindo banda — são dezenas de causas possíveis.\n\nNossa equipe utiliza ferramentas de análise de rede para identificar gargalos e interferências.`,
+    sintomas: [
+      { titulo: "Velocidade abaixo do contratado", desc: "Speedtest mostra velocidade muito inferior ao plano.", gravidade: "Médio" },
+      { titulo: "Wi-Fi cai frequentemente", desc: "Conexão desconecta várias vezes ao dia, especialmente em certos cômodos.", gravidade: "Simples a Médio" },
+      { titulo: "Alguns dispositivos lentos, outros normais", desc: "Indica problema no dispositivo, não na rede.", gravidade: "Simples" },
+      { titulo: "Páginas demoram mas download é rápido", desc: "Problema de DNS ou latência alta.", gravidade: "Simples" },
+      { titulo: "Lenta só em horários específicos", desc: "Congestionamento do provedor ou interferência Wi-Fi vizinha.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Roteador antigo ou mal configurado", desc: "Roteadores 802.11n não suportam velocidades acima de 100Mbps.", tipo: "hardware" },
+      { titulo: "Interferência de redes vizinhas", desc: "Em apartamentos, dezenas de redes no mesmo canal causam congestionamento.", tipo: "hardware" },
+      { titulo: "Cabeamento antigo", desc: "Cabos Cat5 limitam a 100Mbps. Cabos danificados causam perda de pacotes.", tipo: "desgaste" },
+      { titulo: "DNS lento do provedor", desc: "Trocar para Google DNS ou Cloudflare melhora significativamente.", tipo: "software" },
+      { titulo: "Malware consumindo banda", desc: "Vírus e mineradores consomem banda em segundo plano.", tipo: "software" },
+      { titulo: "Posição ruim do roteador", desc: "No chão, atrás de móveis ou longe dos dispositivos reduz o sinal.", tipo: "erro-humano" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reconfiguração de canal, troca de DNS, reposicionamento do roteador", tempo: "30min–1h", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Instalação de mesh/repetidor, substituição de cabeamento", tempo: "1–3h", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Cabeamento estruturado completo, access points empresariais", tempo: "1–2 dias", custo: "R$500–R$2000+" },
+    ],
+    riscos: [
+      "Repetidores baratos podem piorar a situação (meia velocidade)",
+      "Alterar configurações do roteador sem conhecimento pode derrubar a rede",
+      "Malware consumindo banda expõe dados a riscos de segurança",
+      "Cabo externo sem proteção pode queimar o roteador em tempestades",
+    ],
+    diagnostico: "Utilizamos analisadores Wi-Fi para identificar interferências, testamos velocidade em cada ponto, verificamos cabeamento e configuração do roteador.\n\nIdentificamos exatamente onde está o gargalo: provedor, roteador, cabeamento, Wi-Fi ou dispositivo.",
+    solucao: "Desde otimização de software (DNS, canal) até infraestrutura profissional (mesh, access points, Cat6). Sempre a solução mais econômica.\n\nPara empresas, projetos completos com garantia.",
+    quandoCompensa: "Quando a velocidade contratada é alta mas a experiência é ruim — o problema está na infraestrutura interna.",
+    quandoNaoCompensa: "Quando o provedor é o gargalo. Nesse caso, recomendamos trocar de provedor.",
+    whatsappMessage: "Olá! Minha internet está muito lenta. Preciso de diagnóstico de rede.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Computador com Vírus", to: "/computador-com-virus-curitiba" },
+      { label: "Computador Lento", to: "/computador-lento-curitiba" },
+      { label: "Suporte Empresas", to: "/suporte-empresas" },
+    ],
+    conteudoExtra: `## Guia: Internet Lenta em Curitiba
+
+### Diagnóstico Rápido
+
+1. **Speedtest via cabo** (fast.com) — se OK, problema é no Wi-Fi
+2. **Teste em horários diferentes** — piora à noite = congestionamento
+3. **Reinicie o roteador** — 30 segundos desligado
+
+### Tecnologias Wi-Fi
+
+| Padrão | Velocidade | Recomendação |
+|---|---|---|
+| Wi-Fi 4 (n) | 300 Mbps | Trocar urgente |
+| Wi-Fi 5 (ac) | 1.3 Gbps | Adequado |
+| Wi-Fi 6 (ax) | 9.6 Gbps | Ideal para 500Mbps+ |
+
+### Soluções Por Tamanho
+
+- **Apartamento (até 60m²):** Roteador Wi-Fi 5/6 (R$200–500)
+- **Casa média (60–150m²):** Mesh com 2 pontos (R$400–800)
+- **Casa grande/escritório (150m²+):** Mesh 3+ ou APs (R$800–2000+)
+
+### Atendimento em Curitiba e Região
+
+Configuramos redes em todos os bairros e cidades da região metropolitana. Projetos completos para empresas.`
+  },
+
+  {
+    slug: "teclado-mouse-nao-funciona-curitiba",
+    title: "Teclado ou Mouse Não Funciona em Curitiba | Diagnóstico Rápido",
+    metaDescription: "Teclado ou mouse não funcionam? Diagnóstico rápido em Curitiba. Porta USB, driver, Bluetooth. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    h1: "Teclado ou Mouse Não Funciona — Diagnóstico e Soluções Rápidas",
+    categoria: "Problemas de Periféricos",
+    intro: `Teclado ou mouse pararam de funcionar? Antes de comprar novos, saiba que em muitos casos o problema está no computador — não no periférico.\n\nPortas USB defeituosas, drivers corrompidos, conflitos de Bluetooth ou sujeira acumulada podem ser a causa real.\n\nEm Curitiba, diagnosticamos e resolvemos com rapidez, evitando gastos desnecessários.`,
+    sintomas: [
+      { titulo: "USB não é reconhecido", desc: "Windows não detecta o dispositivo. Pode ser porta ou driver.", gravidade: "Simples" },
+      { titulo: "Bluetooth desconecta frequentemente", desc: "Problema de bateria, driver ou interferência.", gravidade: "Simples a Médio" },
+      { titulo: "Teclas específicas não funcionam", desc: "Sujeira, líquido derramado ou desgaste mecânico.", gravidade: "Médio" },
+      { titulo: "Cursor travando ou pulando", desc: "Sensor sujo, superfície inadequada ou interferência.", gravidade: "Simples" },
+      { titulo: "Nenhuma porta USB funciona", desc: "Problema na placa-mãe ou no Windows.", gravidade: "Médio a Complexo" },
+    ],
+    causas: [
+      { titulo: "Porta USB com mau contato", desc: "Portas frontais do gabinete são propensas a mau contato.", tipo: "hardware" },
+      { titulo: "Driver USB corrompido", desc: "Windows Update pode corromper drivers USB.", tipo: "software" },
+      { titulo: "Sujeira ou líquido no teclado", desc: "Migalhas, poeira e líquido são as causas mais comuns.", tipo: "erro-humano" },
+      { titulo: "Hub USB sobrecarregado", desc: "Muitos dispositivos em um hub causam falta de energia.", tipo: "erro-humano" },
+      { titulo: "Bateria fraca em sem fio", desc: "Bateria baixa causa comportamento errático.", tipo: "desgaste" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de porta USB, reinstalação de driver, troca de pilhas", tempo: "15–30min", custo: "R$50–R$100" },
+      { nivel: "Médio", desc: "Limpeza de teclado, reparo de conector USB", tempo: "30min–1h", custo: "R$80–R$180" },
+      { nivel: "Complexo", desc: "Reparo de controlador USB na placa-mãe", tempo: "1–3 dias", custo: "R$200–R$400" },
+    ],
+    riscos: [
+      "Desmontar teclado sem experiência pode quebrar clipes",
+      "Forçar conector USB danifica a porta",
+      "Drivers genéricos podem causar conflitos",
+    ],
+    diagnostico: "Testamos periféricos em diferentes portas e em outro PC para isolar a causa. Verificamos drivers, hub USB e configurações de energia.\n\nPara teclados com teclas falhando, inspeção visual de sujeira ou dano.",
+    solucao: "Desde reinstalação de drivers (15 min) até limpeza profissional ou reparo de porta USB.\n\nPara Bluetooth, reconfiguramos pareamento e verificamos interferências.",
+    quandoCompensa: "Quando o problema é no PC (porta, driver) ou periférico de qualidade (mecânico, ergonômico).",
+    quandoNaoCompensa: "Teclados/mouses básicos (sub R$50) com defeito mecânico — substituir é mais econômico.",
+    whatsappMessage: "Olá! Meu teclado/mouse parou de funcionar. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "Notebook Teclado", to: "/notebook-teclado-nao-funciona-curitiba" },
+      { label: "PC Não Reconhece HD", to: "/pc-nao-reconhece-hd-curitiba" },
+      { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" },
+    ],
+    conteudoExtra: `## Guia: Teclado e Mouse em Curitiba
+
+### Checklist Rápido
+
+- [ ] Teste em outra porta USB (traseira)
+- [ ] Troque pilhas/carregue sem fio
+- [ ] Reinicie o computador
+- [ ] Teste em outro PC
+- [ ] Verifique sujeira visível
+
+### Quando o Problema é no PC
+
+Se funciona em outro PC, o problema é seu: controlador USB, driver, economia de energia ou hub sobrecarregado.
+
+### Atendimento Rápido em Curitiba
+
+Resolvemos no mesmo dia em toda Curitiba e região. Maioria dos casos em menos de 1 hora.`
+  },
+
+  {
+    slug: "hd-externo-nao-reconhece-curitiba",
+    title: "HD Externo Não Reconhece em Curitiba | Recuperação e Diagnóstico",
+    metaDescription: "HD externo não reconhece? Diagnóstico e recuperação de dados em Curitiba. USB, partição, firmware. Atendimento especializado. WhatsApp (41) 99745-2053.",
+    h1: "HD Externo Não Reconhece — Diagnóstico e Recuperação de Dados",
+    categoria: "Problemas de Armazenamento",
+    intro: `Seu HD externo ou pendrive parou de ser reconhecido? Isso pode ser desde um problema simples de cabo até perda iminente de dados.\n\nAntes de tentar qualquer solução caseira, entenda a causa — ações como formatar podem destruir seus arquivos permanentemente.\n\nEm Curitiba, oferecemos diagnóstico especializado com foco na preservação dos seus dados.`,
+    sintomas: [
+      { titulo: "HD não aparece no Explorador", desc: "Pode aparecer no Gerenciamento de Disco sem letra de unidade.", gravidade: "Simples a Médio" },
+      { titulo: "Windows pede para formatar", desc: "NÃO formate — seus dados podem ser recuperados.", gravidade: "Médio" },
+      { titulo: "HD faz barulho de clique", desc: "Falha mecânica grave. Desligue imediatamente.", gravidade: "Complexo" },
+      { titulo: "LED pisca mas não reconhece", desc: "Problema no controlador USB do case externo.", gravidade: "Médio" },
+      { titulo: "Pendrive pede formatação toda vez", desc: "Setores defeituosos ou firmware corrompido.", gravidade: "Médio" },
+    ],
+    causas: [
+      { titulo: "Cabo USB ou porta com pouca energia", desc: "Cabos finos ou portas frontais podem não fornecer energia suficiente.", tipo: "hardware" },
+      { titulo: "Tabela de partição corrompida", desc: "Queda de energia ou desconexão abrupta corrompe a partição.", tipo: "software" },
+      { titulo: "Setores defeituosos", desc: "Desgaste natural cria setores ilegíveis.", tipo: "desgaste" },
+      { titulo: "Controlador USB do case queimado", desc: "O circuito SATA-USB queimou mas o HD interno pode estar OK.", tipo: "hardware" },
+      { titulo: "Falha mecânica (cabeçote)", desc: "Cabeçote colidiu com o prato. Requer clean room.", tipo: "hardware" },
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de cabo, atribuição de letra, reparo de partição", tempo: "30min–1h", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Recuperação via software, troca do case, reparo de setores", tempo: "2–8h", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Recuperação em laboratório (falha mecânica)", tempo: "5–15 dias", custo: "R$500–R$3000+" },
+    ],
+    riscos: [
+      "FORMATAR destrói todos os dados",
+      "Continuar usando HD com cliques destrói os pratos",
+      "Software gratuito pode sobrescrever dados irrecuperáveis",
+      "Abrir HD fora de clean room contamina os pratos",
+    ],
+    diagnostico: "Conectamos com cabos testados, verificamos no Gerenciamento de Disco, analisamos saúde com ferramentas profissionais e avaliamos dados antes de qualquer ação.\n\nPara HDs com clique, NÃO ligamos — encaminhamos para laboratório.",
+    solucao: "Para problemas lógicos, ferramentas profissionais que preservam os dados. Para problemas do case, trocamos o circuito.\n\nPara falhas mecânicas, laboratório com clean room — com orçamento prévio.",
+    quandoCompensa: "Quando os dados são importantes. O custo de recuperação é menor que o valor dos dados.",
+    quandoNaoCompensa: "Quando o HD está vazio ou tem backup.",
+    whatsappMessage: "Olá! Meu HD externo/pendrive não é reconhecido. Preciso de diagnóstico.",
+    relatedPages: [
+      ...RELATED_BASE,
+      { label: "PC Não Reconhece HD", to: "/pc-nao-reconhece-hd-curitiba" },
+      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "Computador Não Liga", to: "/computador-nao-liga-curitiba" },
+    ],
+    conteudoExtra: `## Guia: HD Externo em Curitiba
+
+### O Que Fazer IMEDIATAMENTE
+
+1. **NÃO formate**
+2. **NÃO use software gratuito** sem orientação
+3. **Se faz clique, DESLIGUE**
+4. **Teste com outro cabo USB**
+5. **Teste em outra porta** (traseira)
+
+### Custos de Recuperação
+
+| Problema | Custo | Tempo | Sucesso |
+|---|---|---|---|
+| Partição corrompida | R$100–R$250 | 2–4h | 95%+ |
+| Setores defeituosos | R$200–R$400 | 4–12h | 80–90% |
+| Case queimado | R$80–R$150 | 1h | 99% |
+| Falha mecânica | R$800–R$3000 | 5–15 dias | 60–80% |
+
+### Prevenção
+
+- Sempre ejete antes de desconectar
+- Não desconecte durante transferências
+- Backup em 2+ locais
+- Substitua HDs com 4–5 anos
+
+### Atendimento em Curitiba
+
+Diagnóstico de armazenamento em toda Curitiba e região. Parceria com laboratórios certificados.`
+  },
 ];
 
 // Helper to get a page by slug

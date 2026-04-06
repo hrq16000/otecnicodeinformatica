@@ -19,6 +19,210 @@ const blogPostsContent: Record<string, {
   image?: string;
   content: React.ReactNode;
 }> = {
+  "computador-lento-causas-solucoes": {
+    title: "Computador Lento: 12 Causas Reais e Como Resolver (Guia Técnico 2026)",
+    excerpt: "Descubra as 12 causas mais comuns de lentidão e o que realmente funciona.",
+    date: "2026-04-06",
+    readTime: "12 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">Computador lento é o problema mais comum que recebemos em Curitiba e região. <strong>Na maioria dos casos, a causa não é uma só</strong> — são vários fatores acumulados. Neste guia, listamos as 12 causas reais que encontramos no dia a dia e o que fazer em cada situação.</p>
+
+        <h2>1. HD Antigo (Disco Rígido Mecânico)</h2>
+        <p>Se seu computador ainda usa HD mecânico, essa é provavelmente a causa número 1 da lentidão. O HD mecânico lê dados a 80-120 MB/s, enquanto um SSD alcança 500-3.500 MB/s. <strong>A troca de HD por SSD é o upgrade com maior impacto perceptível</strong> — o Windows inicia em 15 segundos em vez de 2 minutos.</p>
+
+        <h2>2. Memória RAM Insuficiente</h2>
+        <p>Windows 10/11 exige no mínimo 4 GB de RAM para funcionar, mas na prática <strong>8 GB é o mínimo recomendado</strong>. Com menos, o sistema usa o HD como memória virtual (swap), o que torna tudo extremamente lento. Se você abre o navegador com 5 abas e já trava, provavelmente é falta de RAM.</p>
+
+        <h2>3. Programas Iniciando com o Windows</h2>
+        <p>Muitos programas se configuram para iniciar junto com o sistema: antivírus, Spotify, Steam, OneDrive, Skype, atualizadores. Cada um consome RAM e processamento. Para verificar: <strong>Ctrl + Shift + Esc → Inicializar</strong>. Desative o que não precisa iniciar automaticamente.</p>
+
+        <h2>4. Vírus e Malwares</h2>
+        <p>Malwares consomem CPU e internet em segundo plano. Mineradores de criptomoeda, por exemplo, usam até 100% do processador sem você perceber. <strong>Um antivírus gratuito nem sempre detecta tudo</strong> — às vezes é necessário ferramentas específicas como Malwarebytes ou análise manual.</p>
+        <p><Link to="/servicos/remocao-virus" className="text-accent">→ Saiba mais sobre remoção de vírus</Link></p>
+
+        <h2>5. Windows Desatualizado ou Corrompido</h2>
+        <p>Atualizações pendentes podem travar o sistema. Por outro lado, uma atualização mal instalada também causa problemas. Em alguns casos, a formatação é a solução mais eficiente — reinstalar o Windows do zero elimina todos os problemas acumulados.</p>
+
+        <h2>6. Superaquecimento</h2>
+        <p>Quando o processador esquenta demais, ele reduz a velocidade automaticamente (thermal throttling) para não queimar. Causas comuns: <strong>pasta térmica ressecada, ventilador com poeira, notebook usado na cama</strong>. A limpeza interna resolve na maioria dos casos.</p>
+
+        <h2>7. HD com Setores Defeituosos</h2>
+        <p>HDs mecânicos se desgastam com o tempo. Setores defeituosos fazem o sistema travar ao tentar ler dados corrompidos. <strong>Se você ouve cliques ou estalos no computador, o HD pode estar morrendo</strong>. Nesse caso, a troca é urgente para não perder dados.</p>
+
+        <h2>8. Driver Desatualizado ou Incompatível</h2>
+        <p>Drivers são os programas que fazem o Windows se comunicar com o hardware. Drivers antigos ou genéricos podem causar lentidão, travamentos e tela azul. Após uma formatação profissional, sempre instalamos os drivers corretos do fabricante.</p>
+
+        <h2>9. Antivírus Pesado</h2>
+        <p>Ironicamente, alguns antivírus causam mais lentidão que os próprios vírus. Soluções como Norton e McAfee pré-instalados consomem muita RAM. <strong>O Windows Defender, que já vem no Windows, é suficiente para a maioria dos usuários</strong>.</p>
+
+        <h2>10. Disco Cheio</h2>
+        <p>Quando o disco está com mais de 90% de ocupação, o Windows não tem espaço para arquivos temporários e memória virtual. Isso torna tudo mais lento. Limpe a Lixeira, remova programas não usados e mova fotos/vídeos para HD externo ou nuvem.</p>
+
+        <h2>11. Navegador com Muitas Extensões</h2>
+        <p>Chrome é famoso por consumir muita RAM. Se você tem 10+ extensões, cada aba pode consumir 300 MB ou mais. Desative extensões que não usa e considere usar Edge ou Firefox se seu PC tem pouca RAM.</p>
+
+        <h2>12. Hardware Antigo (Processador Ultrapassado)</h2>
+        <p>Processadores com mais de 8-10 anos podem não dar conta do Windows atual. Um Celeron ou Pentium antigo, mesmo com SSD e RAM, terá limitações. <strong>Nesse caso, a melhor solução pode ser trocar o computador</strong> — e não gastar em upgrades que não vão resolver.</p>
+        <p><Link to="/quando-nao-compensa" className="text-accent">→ Saiba quando não compensa reparar</Link></p>
+
+        <h2>O Que Fazer Agora?</h2>
+        <p>Se seu computador está lento, o primeiro passo é um <strong>diagnóstico técnico</strong>. Sem saber a causa real, qualquer solução é um chute. Em muitos casos, um upgrade simples (SSD + limpeza) resolve completamente. Em outros, pode ser necessário formatação ou até troca de equipamento.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Computador Lento em Curitiba?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico vai até você, faz o diagnóstico no local e resolve na hora sempre que possível. Visita a partir de R$ 99,99. Atendemos Curitiba, São José dos Pinhais, Araucária, Campo Largo e Pinhais.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
+          <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de serviço</Link></li>
+          <li><Link to="/diagnostico-tecnico" className="text-accent">Por que o diagnóstico é pago</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Upgrade SSD e memória</Link></li>
+        </ul>
+      </>
+    ),
+  },
+  "como-saber-se-pc-tem-virus-malware": {
+    title: "Como Saber se Seu PC Tem Vírus ou Malware: Sinais, Testes e Soluções",
+    excerpt: "Aprenda a identificar infecções e o que fazer.",
+    date: "2026-04-05",
+    readTime: "10 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Nem todo computador lento tem vírus, mas <strong>todo computador com vírus fica lento</strong>. O problema é que muitos malwares modernos são silenciosos — roubam dados, mineram criptomoedas ou espionam sem dar sinais óbvios. Veja como identificar e o que fazer.</p>
+
+        <h2>8 Sinais de Que Seu PC Pode Estar Infectado</h2>
+        <ol>
+          <li><strong>Lentidão repentina</strong> — o PC estava normal e de repente ficou extremamente lento, sem motivo aparente</li>
+          <li><strong>Pop-ups e propagandas</strong> — janelas abrindo sozinhas, propagandas em sites que normalmente não têm</li>
+          <li><strong>Programas desconhecidos</strong> — softwares que você não instalou aparecem na lista de programas</li>
+          <li><strong>Navegador alterado</strong> — página inicial mudou, barra de ferramentas estranha, buscador diferente</li>
+          <li><strong>Antivírus desativado</strong> — o Windows Defender ou outro antivírus foi desligado sem sua autorização</li>
+          <li><strong>Disco e CPU sempre em 100%</strong> — mesmo sem programas abertos, o uso de recursos é alto</li>
+          <li><strong>Arquivos sumindo ou ficando estranhos</strong> — pastas renomeadas, extensões alteradas (sinal de ransomware)</li>
+          <li><strong>Emails enviados sem você saber</strong> — contatos recebem mensagens que você não mandou</li>
+        </ol>
+
+        <h2>Tipos de Ameaças Mais Comuns em 2026</h2>
+        <ul>
+          <li><strong>Adware:</strong> exibe propagandas invasivas e redireciona seu navegador</li>
+          <li><strong>Spyware:</strong> captura senhas, dados bancários e histórico de navegação</li>
+          <li><strong>Ransomware:</strong> criptografa seus arquivos e pede resgate em Bitcoin</li>
+          <li><strong>Cryptojacker:</strong> usa seu processador para minerar criptomoedas</li>
+          <li><strong>Trojan:</strong> se disfarça de programa legítimo e abre portas para invasores</li>
+          <li><strong>Rootkit:</strong> se esconde no sistema operacional, difícil de detectar</li>
+        </ul>
+
+        <h2>O Que Fazer se Suspeitar de Infecção</h2>
+        <h3>1. Não entre em pânico</h3>
+        <p>Desconecte da internet (puxe o cabo ou desative o Wi-Fi). Isso impede que o malware envie seus dados ou baixe mais ameaças.</p>
+
+        <h3>2. Não tente formatar sozinho</h3>
+        <p>Se você tem dados importantes (fotos, documentos, trabalho), <strong>formatar sem backup significa perder tudo</strong>. Um técnico pode remover o vírus preservando seus arquivos.</p>
+
+        <h3>3. Não baixe "antivírus milagrosos"</h3>
+        <p>Muitos sites oferecem "limpadores gratuitos" que na verdade instalam ainda mais malwares. <strong>Use apenas ferramentas conhecidas</strong> como Malwarebytes ou o próprio Windows Defender.</p>
+
+        <h3>4. Chame um técnico se não tiver certeza</h3>
+        <p>A remoção profissional garante que todos os vestígios sejam eliminados. Além de limpar, configuramos proteções para evitar reinfecção.</p>
+
+        <h2>Prevenção: Como Evitar Vírus</h2>
+        <ul>
+          <li>Mantenha o Windows sempre atualizado</li>
+          <li>Não baixe programas de sites desconhecidos</li>
+          <li>Desconfie de emails com anexos ou links estranhos</li>
+          <li>Use senhas diferentes para cada serviço</li>
+          <li>Mantenha o Windows Defender ativo</li>
+          <li>Faça backup regular dos seus dados importantes</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Suspeita de Vírus?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz a remoção completa a domicílio em Curitiba e região. Limpamos o sistema, recuperamos arquivos e configuramos proteção. Visita a partir de R$ 99,99.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/servicos/remocao-virus" className="text-accent">Serviço de remoção de vírus</Link></li>
+          <li><Link to="/blog/sinais-computador-com-virus" className="text-accent">5 sinais de computador com vírus</Link></li>
+          <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
+          <li><Link to="/precos-e-politicas" className="text-accent">Preços e condições</Link></li>
+        </ul>
+      </>
+    ),
+  },
+  "notebook-nao-liga-o-que-fazer": {
+    title: "Notebook Não Liga: O Que Pode Ser e O Que Fazer Antes de Desesperar",
+    excerpt: "Veja as causas mais comuns e quando levar ao técnico.",
+    date: "2026-04-04",
+    readTime: "9 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">Você aperta o botão de ligar e... nada. Ou talvez o LED pisque, o ventilador gire por um segundo e pare. <strong>Notebook que não liga é um dos problemas mais assustadores</strong>, mas nem sempre significa que ele está morto. Vamos analisar as possibilidades.</p>
+
+        <h2>Cenário 1: Tela Preta, Nenhuma Reação</h2>
+        <p>Se absolutamente nada acontece ao apertar o botão:</p>
+        <ul>
+          <li><strong>Bateria esgotada:</strong> conecte o carregador e espere 15 minutos antes de tentar ligar</li>
+          <li><strong>Carregador com defeito:</strong> verifique se o LED do carregador acende. Tente outro carregador compatível se possível</li>
+          <li><strong>Botão de liga com mau contato:</strong> em notebooks mais antigos, o botão pode perder o contato interno</li>
+          <li><strong>Placa-mãe com curto:</strong> pode ter ocorrido um curto por queda, líquido ou surto elétrico</li>
+        </ul>
+
+        <h2>Cenário 2: LED Acende, Ventilador Gira, Mas Sem Imagem</h2>
+        <p>Isso geralmente indica que o notebook está ligando, mas a imagem não chega na tela:</p>
+        <ul>
+          <li><strong>Tela queimada ou flat cable solto:</strong> conecte num monitor externo (HDMI). Se a imagem aparecer, o problema é na tela</li>
+          <li><strong>Memória RAM solta:</strong> se houve queda ou transporte brusco, a RAM pode ter se desencaixado</li>
+          <li><strong>GPU com defeito:</strong> em notebooks com placa de vídeo dedicada, o chip gráfico pode falhar (comum em notebooks gamer mais antigos)</li>
+        </ul>
+
+        <h2>Cenário 3: Liga e Desliga Rapidamente</h2>
+        <p>O notebook inicia por 1-3 segundos e desliga sozinho:</p>
+        <ul>
+          <li><strong>Superaquecimento:</strong> pasta térmica ressecada impede a dissipação de calor</li>
+          <li><strong>Curto-circuito:</strong> componente em curto faz a placa desligar por proteção</li>
+          <li><strong>Fonte/bateria com defeito:</strong> não entrega energia suficiente</li>
+        </ul>
+
+        <h2>Cenário 4: Aparece Tela Azul ou Fica em Loop</h2>
+        <p>Se o notebook liga mas não chega ao Windows:</p>
+        <ul>
+          <li><strong>HD/SSD com defeito:</strong> o sistema operacional não consegue carregar</li>
+          <li><strong>Windows corrompido:</strong> pode ser resolvido com formatação</li>
+          <li><strong>Atualização travada:</strong> uma atualização mal instalada pode impedir a inicialização</li>
+        </ul>
+
+        <h2>O Que NÃO Fazer</h2>
+        <ul>
+          <li><strong>Não abra o notebook sem experiência</strong> — parafusos mal encaixados, cabos puxados e estática podem piorar o problema</li>
+          <li><strong>Não tente "resetar a BIOS" por tutoriais genéricos</strong> — cada modelo tem procedimento diferente</li>
+          <li><strong>Não use secador de cabelo</strong> para "secar" notebook que caiu líquido — isso espalha o líquido internamente</li>
+        </ul>
+
+        <h2>Quando Chamar o Técnico?</h2>
+        <p>Se as verificações básicas (carregador, bateria, monitor externo) não resolveram, <strong>é hora de chamar um profissional</strong>. Tentar abrir e mexer no notebook sem conhecimento pode transformar um problema simples em um prejuízo grande.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Notebook Não Liga em Curitiba?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz diagnóstico a domicílio ou em bancada. Avaliamos o problema, explicamos as opções e você decide. Sem surpresas. Visita a partir de R$ 99,99.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/servicos/conserto-pc-notebook" className="text-accent">Conserto de notebook e PC</Link></li>
+          <li><Link to="/diagnostico-tecnico" className="text-accent">Por que o diagnóstico é pago</Link></li>
+          <li><Link to="/quando-nao-compensa" className="text-accent">Quando não compensa reparar</Link></li>
+          <li><Link to="/problemas-reais-e-casos" className="text-accent">Problemas reais e casos técnicos</Link></li>
+        </ul>
+      </>
+    ),
+  },
   "diferenca-camera-wifi-dvr-qual-escolher": {
     title: "Câmera Wi-Fi ou DVR: Qual a Diferença e Qual Escolher?",
     excerpt: "Entenda as diferenças técnicas entre câmeras Wi-Fi e sistemas DVR.",

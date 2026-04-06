@@ -52,6 +52,9 @@ const mainNavItems = [
       { label: "Araucária", to: "/tecnico-informatica-araucaria" },
       { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
       { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
+      { label: "Colombo", to: "/tecnico-informatica-colombo" },
+      { label: "Fazenda Rio Grande", to: "/tecnico-informatica-fazenda-rio-grande" },
+      { label: "Almirante Tamandaré", to: "/tecnico-informatica-almirante-tamandare" },
     ],
   },
   {

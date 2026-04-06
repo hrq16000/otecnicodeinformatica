@@ -71,7 +71,26 @@ const PinhaisCentro = lazy(() => import("./pages/bairros/PinhaisCentro"));
 const WeissopolisPinhais = lazy(() => import("./pages/bairros/WeissopolisPinhais"));
 const PinevillePinhais = lazy(() => import("./pages/bairros/PinevillePinhais"));
 
-// Landing Pages Ads
+// Novas cidades
+const TecnicoInformaticaColombo = lazy(() => import("./pages/TecnicoInformaticaColombo"));
+const TecnicoInformaticaFazendaRioGrande = lazy(() => import("./pages/TecnicoInformaticaFazendaRioGrande"));
+const TecnicoInformaticaAlmiranteTamandare = lazy(() => import("./pages/TecnicoInformaticaAlmiranteTamandare"));
+
+// Bairros Colombo
+const CentroColombo = lazy(() => import("./pages/bairros/CentroColombo"));
+const MaracanaColombo = lazy(() => import("./pages/bairros/MaracanaColombo"));
+const GuaraitubaColombo = lazy(() => import("./pages/bairros/GuaraitubaColombo"));
+
+// Bairros Fazenda Rio Grande
+const CentroFRG = lazy(() => import("./pages/bairros/CentroFRG"));
+const EucaliptosFRG = lazy(() => import("./pages/bairros/EucaliptosFRG"));
+const NacoesFRG = lazy(() => import("./pages/bairros/NacoesFRG"));
+
+// Bairros Almirante Tamandaré
+const CentroAlmiranteTamandare = lazy(() => import("./pages/bairros/CentroAlmiranteTamandare"));
+const JardimMontoSantoAT = lazy(() => import("./pages/bairros/JardimMontoSantoAT"));
+const CachoeiraAT = lazy(() => import("./pages/bairros/CachoeiraAT"));
+
 const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInformaticaCuritibaAds"));
 
 // Páginas de Serviços Individuais
@@ -170,6 +189,9 @@ const App = () => (
             <Route path="/tecnico-informatica-araucaria" element={<TecnicoInformaticaAraucaria />} />
             <Route path="/tecnico-informatica-campo-largo" element={<TecnicoInformaticaCampoLargo />} />
             <Route path="/tecnico-informatica-pinhais" element={<TecnicoInformaticaPinhais />} />
+            <Route path="/tecnico-informatica-colombo" element={<TecnicoInformaticaColombo />} />
+            <Route path="/tecnico-informatica-fazenda-rio-grande" element={<TecnicoInformaticaFazendaRioGrande />} />
+            <Route path="/tecnico-informatica-almirante-tamandare" element={<TecnicoInformaticaAlmiranteTamandare />} />
             
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
@@ -222,6 +244,21 @@ const App = () => (
             <Route path="/bairros/centro-pinhais" element={<PinhaisCentro />} />
             <Route path="/bairros/weissopolis" element={<WeissopolisPinhais />} />
             <Route path="/bairros/pineville" element={<PinevillePinhais />} />
+
+            {/* Bairros Colombo */}
+            <Route path="/bairros/centro-colombo" element={<CentroColombo />} />
+            <Route path="/bairros/maracana-colombo" element={<MaracanaColombo />} />
+            <Route path="/bairros/guaraituba-colombo" element={<GuaraitubaColombo />} />
+
+            {/* Bairros Fazenda Rio Grande */}
+            <Route path="/bairros/centro-fazenda-rio-grande" element={<CentroFRG />} />
+            <Route path="/bairros/eucaliptos-frg" element={<EucaliptosFRG />} />
+            <Route path="/bairros/nacoes-frg" element={<NacoesFRG />} />
+
+            {/* Bairros Almirante Tamandaré */}
+            <Route path="/bairros/centro-almirante-tamandare" element={<CentroAlmiranteTamandare />} />
+            <Route path="/bairros/jardim-monte-santo" element={<JardimMontoSantoAT />} />
+            <Route path="/bairros/cachoeira-at" element={<CachoeiraAT />} />
             
             {/* Landing Pages Ads */}
             <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />

@@ -155,6 +155,9 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
       case "Araucária": return "/tecnico-informatica-araucaria";
       case "Campo Largo": return "/tecnico-informatica-campo-largo";
       case "Pinhais": return "/tecnico-informatica-pinhais";
+      case "Colombo": return "/tecnico-informatica-colombo";
+      case "Fazenda Rio Grande": return "/tecnico-informatica-fazenda-rio-grande";
+      case "Almirante Tamandaré": return "/tecnico-informatica-almirante-tamandare";
       default: return "/";
     }
   };

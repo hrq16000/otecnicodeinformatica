@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
 import { Award, Users, Target, Heart } from "lucide-react";
@@ -153,6 +154,7 @@ const Sobre = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="clienteSatisfeito" layout="duo" caption="Nossa bancada de trabalho profissional" secondaryCaption="Clientes satisfeitos com nosso atendimento" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

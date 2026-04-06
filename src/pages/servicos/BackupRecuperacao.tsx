@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -221,6 +222,7 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

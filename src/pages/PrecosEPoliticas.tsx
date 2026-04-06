@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
 import { 
@@ -655,6 +656,7 @@ const PrecosEPoliticas = () => {
 
         <CTASection />
       </main>
+      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="ferramentas" layout="duo" caption="Bancada técnica profissional equipada" secondaryCaption="Ferramentas especializadas para cada serviço" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppChat />

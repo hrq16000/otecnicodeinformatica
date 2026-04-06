@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -210,6 +211,7 @@ const MontagemPc = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="desktopMontado" secondaryImageKey="placaMae" layout="duo" caption="PC gamer montado sob medida" secondaryCaption="Componentes de alta performance" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

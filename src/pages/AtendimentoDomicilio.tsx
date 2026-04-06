@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
+import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
@@ -224,6 +225,7 @@ const AtendimentoDomicilio = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="tecnicoTrabalhando" layout="duo" caption="Atendimento técnico diretamente na sua casa" secondaryCaption="Diagnóstico profissional a domicílio" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

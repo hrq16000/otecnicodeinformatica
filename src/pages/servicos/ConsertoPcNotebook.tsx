@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -233,6 +234,7 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

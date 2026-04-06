@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -244,6 +245,7 @@ const RemocaoVirus = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
       <InterlinkingBlock />
       <Footer />
       <WhatsAppFloat />

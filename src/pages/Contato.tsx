@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
+import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
@@ -219,6 +220,7 @@ const Contato = () => {
           </div>
         </section>
       </main>
+      <RealImageSection imageKey="clienteSatisfeito" caption="Atendimento humanizado e profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

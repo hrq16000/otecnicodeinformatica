@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
+import { RealImageSection } from "@/components/RealImageSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
@@ -269,6 +270,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="ferramentas" layout="duo" caption="Técnico atendendo em São José dos Pinhais" secondaryCaption="Ferramentas profissionais para diagnóstico" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

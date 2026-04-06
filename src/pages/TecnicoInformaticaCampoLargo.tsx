@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
+import { RealImageSection } from "@/components/RealImageSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
@@ -338,6 +339,7 @@ const TecnicoInformaticaCampoLargo = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="placaMae" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico de placa-mãe em Campo Largo" secondaryCaption="Upgrade SSD e memória RAM" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

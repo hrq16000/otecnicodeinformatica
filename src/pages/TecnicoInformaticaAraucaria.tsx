@@ -8,6 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
+import { RealImageSection } from "@/components/RealImageSection";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
@@ -339,6 +340,7 @@ const TecnicoInformaticaAraucaria = () => {
         <TrustSection />
         <CTASection />
       </main>
+      <RealImageSection imageKey="notebookReparo" secondaryImageKey="diagnostico" layout="duo" caption="Reparo de notebook em Araucária" secondaryCaption="Diagnóstico profissional com equipamento especializado" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

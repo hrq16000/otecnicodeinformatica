@@ -24,12 +24,13 @@ const mainNavItems = [
 ];
 
 const moreNavItems = [
-  { label: "Remoto", to: "/atendimento-remoto" },
-  { label: "Preços", to: "/precos-e-politicas" },
-  { label: "Diagnóstico", to: "/diagnostico-tecnico" },
   { label: "Equipamentos", to: "/equipamentos-atendidos" },
+  { label: "CFTV", to: "/cftv" },
+  { label: "Empresas", to: "/suporte-empresas" },
+  { label: "Remoto", to: "/atendimento-remoto" },
   { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
   { label: "Casos Reais", to: "/problemas-reais-e-casos" },
+  { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
   { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
   { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
   { label: "Blog", to: "/blog" },

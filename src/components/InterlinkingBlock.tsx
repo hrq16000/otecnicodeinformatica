@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, HelpCircle, DollarSign, Wrench, Search, Truck, AlertTriangle, Monitor, Cpu, Wifi, Shield, HardDrive, Tv, CircuitBoard, Server, Camera, MapPin, BookOpen, MessageCircle } from "lucide-react";
+import { ArrowRight, HelpCircle, DollarSign, Wrench, Search, Truck, AlertTriangle, Monitor, Cpu, Wifi, Shield, HardDrive, Tv, CircuitBoard, Server, Camera, MapPin, BookOpen, MessageCircle, AlertCircle } from "lucide-react";
 
 const atendimentoLinks = [
   { icon: HelpCircle, title: "Como Funciona", desc: "Passo a passo do atendimento", to: "/como-funciona" },
@@ -39,6 +39,27 @@ const regiaoLinks = [
   { title: "Piraquara", to: "/tecnico-informatica-piraquara" },
   { title: "Campo Magro", to: "/tecnico-informatica-campo-magro" },
   { title: "Quatro Barras", to: "/tecnico-informatica-quatro-barras" },
+];
+
+const problemaLinks = [
+  { title: "PC Não Liga", to: "/computador-nao-liga-curitiba" },
+  { title: "PC Lento", to: "/computador-lento-curitiba" },
+  { title: "PC Travando", to: "/computador-travando-curitiba" },
+  { title: "Tela Preta", to: "/computador-com-tela-preta-curitiba" },
+  { title: "Superaquecendo", to: "/pc-superaquecendo-curitiba" },
+  { title: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" },
+  { title: "Notebook Lento", to: "/notebook-lento-curitiba" },
+  { title: "Notebook com Água", to: "/notebook-com-agua-ou-liquido-curitiba" },
+  { title: "Tela Quebrada", to: "/notebook-com-tela-quebrada-curitiba" },
+  { title: "TV Não Liga", to: "/tv-nao-liga-curitiba" },
+  { title: "TV Sem Imagem", to: "/tv-com-som-sem-imagem-curitiba" },
+  { title: "Placa-Mãe Queimada", to: "/placa-mae-queimada" },
+  { title: "GPU Desgastada", to: "/gpu-desgastada" },
+  { title: "Erro de Upgrade", to: "/upgrade-deu-problema" },
+  { title: "Vírus no PC", to: "/computador-com-virus-curitiba" },
+  { title: "Windows Lento", to: "/windows-lento-curitiba" },
+  { title: "Vale Consertar?", to: "/vale-a-pena-consertar-computador" },
+  { title: "Técnico Urgente", to: "/assistencia-tecnica-urgente-curitiba" },
 ];
 
 export const InterlinkingBlock = () => {
@@ -116,6 +137,25 @@ export const InterlinkingBlock = () => {
                   className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 transition-all"
                 >
                   <MapPin className="h-3.5 w-3.5" />
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Problemas Comuns */}
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+              Problemas Mais Comuns
+            </h2>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {problemaLinks.map((item, i) => (
+                <Link
+                  key={i}
+                  to={item.to}
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 transition-all"
+                >
+                  <AlertCircle className="h-3.5 w-3.5" />
                   {item.title}
                 </Link>
               ))}

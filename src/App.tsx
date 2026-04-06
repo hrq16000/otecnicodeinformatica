@@ -157,6 +157,9 @@ const UpgradeSsdPinhais = lazy(() => import("./pages/servico-bairro/UpgradeSsdPi
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
 
+// Dynamic problem/intent pages (50 páginas de intenção de busca)
+const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
+
 // CFTV
 const CFTVPage = lazy(() => import("./pages/CFTV"));
 const CFTVCuritiba = lazy(() => import("./pages/cftv/CFTVCuritiba"));
@@ -343,6 +346,9 @@ const App = () => (
             
             {/* Dynamic service+city route (catches all new combinations) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
+            
+            {/* Páginas de Problema / Intenção de Busca (50 páginas dinâmicas) */}
+            <Route path="/:slug" element={<ProblemaPage />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

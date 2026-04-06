@@ -4508,6 +4508,214 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     conteudoExtra: `## Recuperação de Dados: Guia Completo\n\n### Regra 3-2-1 de Backup\n\n- **3** cópias dos seus dados\n- **2** tipos de mídia diferentes (ex: SSD + nuvem)\n- **1** cópia em local físico diferente (nuvem ou HD na casa de familiar)\n\n### O Que Fazer Imediatamente Após Perder Dados\n\n1. 🛑 **PARE** de usar o dispositivo imediatamente\n2. ❌ **NÃO** instale software de recuperação no mesmo disco\n3. ❌ **NÃO** formate o disco "para ver se resolve"\n4. ❌ **NÃO** abra HD mecânico em casa\n5. ✅ **DESLIGUE** o computador se o HD estiver fazendo cliques\n6. ✅ **PROCURE** ajuda profissional o mais rápido possível\n\n### Chances de Recuperação por Cenário\n\n| Cenário | Chance de Sucesso |\n|---|---|\n| Deletou da lixeira (sem uso após) | 90-95% |\n| Formatação rápida (sem uso após) | 80-90% |\n| Formatação completa | 40-70% |\n| HD com cliques/não reconhece | 60-80% (com câmara limpa) |\n| SSD com TRIM (após 24h) | 10-30% |\n| Ransomware (sem chave) | 30-60% (shadow copies) |\n| Dano por água/fogo | 20-50% |\n\n### Soluções de Backup Recomendadas\n\n| Solução | Custo Mensal | Espaço | Facilidade |\n|---|---|---|---|\n| Google Drive | Grátis-R$ 35 | 15GB-2TB | Muito fácil |\n| OneDrive | Grátis-R$ 45 | 5GB-1TB | Fácil (integrado ao Windows) |\n| HD Externo 1TB | R$ 0 (compra R$ 250) | 1TB | Médio |\n| NAS Synology | R$ 0 (compra R$ 1500+) | 2TB+ | Avançado |\n| Backblaze | ~R$ 35/mês | Ilimitado | Fácil |`
   },
 
+  // ==================== NOTEBOOK NÃO CONECTA BLUETOOTH ====================
+  {
+    slug: "notebook-nao-conecta-bluetooth-curitiba",
+    title: "Notebook Não Conecta Bluetooth em Curitiba | Técnico Especialista",
+    metaDescription: "Bluetooth do notebook não funciona, não pareia ou não aparece? Técnico em Curitiba resolve problemas de Bluetooth com diagnóstico rápido. Atendimento profissional.",
+    h1: "Notebook Não Conecta Bluetooth — Diagnóstico e Reparo em Curitiba",
+    categoria: "Conectividade — Bluetooth",
+    intro: `O Bluetooth do notebook parou de funcionar, não encontra dispositivos ou sumiu das configurações? Esse problema é cada vez mais impactante com a popularização de fones sem fio, mouses Bluetooth, teclados e caixas de som wireless.\n\nAs causas vão desde um simples driver desatualizado até falha no módulo Wi-Fi/Bluetooth (que geralmente é um chip combo). Em notebooks, o módulo Bluetooth compartilha a mesma placa do Wi-Fi — se um funciona e o outro não, geralmente é problema de software ou antena.\n\nEm Curitiba, atendemos muitos casos onde uma atualização do Windows desabilitou o Bluetooth ou corrompeu o driver. Também é comum o Bluetooth "sumir" após reinstalação do sistema sem os drivers corretos do fabricante.`,
+    sintomas: [
+      { titulo: "Ícone do Bluetooth sumiu da barra de tarefas", desc: "O Bluetooth desapareceu completamente das configurações e da bandeja do sistema. Pode ser driver removido, serviço desabilitado ou módulo desativado na BIOS.", gravidade: "Média" },
+      { titulo: "Bluetooth não encontra nenhum dispositivo", desc: "A busca roda mas nunca encontra fones, mouses ou outros dispositivos. Pode ser problema de antena, driver ou modo avião ativado parcialmente.", gravidade: "Média" },
+      { titulo: "Dispositivo pareia mas desconecta constantemente", desc: "O fone ou mouse conecta por alguns segundos e depois cai. Indica interferência, driver instável ou perfil Bluetooth incompatível.", gravidade: "Média" },
+      { titulo: "Áudio Bluetooth com atraso ou falhas", desc: "O som pelo fone Bluetooth chega com delay, engasga ou tem qualidade muito baixa. Pode ser codec inadequado (SBC vs AAC/aptX) ou interferência.", gravidade: "Baixa-Média" },
+      { titulo: "Erro 'Dispositivo Bluetooth desconhecido' no Gerenciador", desc: "O Windows mostra o módulo Bluetooth com triângulo amarelo no Gerenciador de Dispositivos. Driver ausente ou corrompido.", gravidade: "Média" },
+      { titulo: "Bluetooth funciona apenas após reiniciar", desc: "O Bluetooth para de funcionar após o notebook sair do modo de suspensão (sleep). Bug comum de gerenciamento de energia do Windows.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Driver Bluetooth corrompido ou desatualizado", desc: "Windows Update pode instalar driver genérico que não funciona bem com o módulo específico do notebook. O driver do fabricante é essencial.", tipo: "software" },
+      { titulo: "Serviço Bluetooth desabilitado no Windows", desc: "O serviço 'Bluetooth Support Service' pode estar parado ou desabilitado. Sem ele, nenhuma funcionalidade Bluetooth opera.", tipo: "software" },
+      { titulo: "Módulo Wi-Fi/Bluetooth com defeito", desc: "O chip combo Intel/Realtek/Qualcomm pode falhar parcialmente — Wi-Fi funciona mas Bluetooth não, ou vice-versa.", tipo: "hardware" },
+      { titulo: "Antena interna desconectada", desc: "Os cabos de antena que vão do módulo até a tampa do notebook podem se soltar após manutenção ou impacto. Sem antena, o sinal é praticamente zero.", tipo: "hardware" },
+      { titulo: "Configuração de energia desligando o módulo", desc: "O Windows pode desligar o Bluetooth para economizar energia durante suspensão e não religar ao acordar. Configuração em Gerenciador de Dispositivos.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver correto do fabricante + reconfiguração de serviços. Resolve 60% dos casos.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Troca do módulo Wi-Fi/Bluetooth interno (chip M.2) por modelo compatível.", tempo: "1-2 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Reparo de conector de antena + troca de módulo + reconfiguração completa de drivers.", tempo: "2-4 horas", custo: "R$ 250–450" }
+    ],
+    riscos: [
+      "Instalar driver Bluetooth de fonte não oficial pode trazer malware",
+      "Desabilitar serviços do Windows sem conhecimento pode afetar outras funcionalidades",
+      "Trocar módulo Wi-Fi/Bluetooth por modelo incompatível pode causar problemas de Wi-Fi também",
+      "Forçar pareamento com dispositivos incompatíveis pode travar o sistema Bluetooth",
+      "Mexer nas antenas internas sem experiência pode danificar os conectores frágeis"
+    ],
+    diagnostico: `Diagnóstico de Bluetooth:\n\n1. Verificação do módulo no Gerenciador de Dispositivos\n2. Teste de serviço Bluetooth Support Service\n3. Verificação de driver (versão, fabricante, compatibilidade)\n4. Teste com adaptador USB Bluetooth externo (para isolar hardware)\n5. Verificação de antena interna (conexão, integridade)\n6. Teste de pareamento com múltiplos dispositivos\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Driver**: Remoção completa do driver atual + instalação do driver oficial do fabricante\n- **Serviço**: Reativação e configuração do Bluetooth Support Service para início automático\n- **Módulo**: Troca do chip M.2 Wi-Fi/Bluetooth por modelo compatível (Intel AX200/AX210)\n- **Antena**: Reconexão dos cabos de antena internos + teste de sinal\n- **Energia**: Desabilitar gerenciamento de energia do módulo Bluetooth\n\nTeste completo de pareamento e estabilidade de conexão após o reparo.`,
+    quandoCompensa: "Sempre — resolver Bluetooth custa R$ 80-300 e é essencial para uso de periféricos sem fio modernos. Até troca de módulo é barata.",
+    quandoNaoCompensa: "Quando o notebook é tão antigo que só suporta Bluetooth 2.0 e o adaptador USB 5.0 por R$ 30 resolve melhor.",
+    whatsappMessage: "Olá! O Bluetooth do meu notebook não está funcionando. Podem me ajudar?",
+    relatedPages: [
+      { to: "/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
+      { to: "/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Bluetooth no Notebook: Guia Completo\n\n### Versões de Bluetooth e Compatibilidade\n\n| Versão | Alcance | Velocidade | Áudio | Dispositivos simultâneos |\n|---|---|---|---|---|\n| BT 4.0 | 50m | 1 Mbps | SBC | 3 |\n| BT 4.2 | 50m | 1 Mbps | SBC | 5 |\n| BT 5.0 | 200m | 2 Mbps | SBC/AAC | 7 |\n| BT 5.2 | 200m | 2 Mbps | LC3 (LE Audio) | 10+ |\n| BT 5.3 | 200m | 2 Mbps | LC3 | 10+ |\n\n### Como Verificar se o Bluetooth Está Funcionando\n\n1. **Win+I** → Dispositivos → Bluetooth → Deve estar "Ativado"\n2. **Gerenciador de Dispositivos** → Bluetooth → Sem triângulo amarelo\n3. **services.msc** → Bluetooth Support Service → Status: Em execução\n\n### Solução Rápida: Reset do Bluetooth\n\n1. Abra **Gerenciador de Dispositivos**\n2. Expanda **Bluetooth**\n3. Clique com botão direito no módulo → **Desinstalar dispositivo**\n4. Marque "Excluir driver" → OK\n5. Reinicie o notebook\n6. O Windows reinstalará o driver automaticamente`
+  },
+
+  // ==================== ERRO DE DRIVER WINDOWS ====================
+  {
+    slug: "erro-driver-windows-curitiba",
+    title: "Erro de Driver no Windows em Curitiba | Diagnóstico e Correção",
+    metaDescription: "Erro de driver no Windows? Tela azul, dispositivo não reconhecido, hardware sem funcionar? Técnico em Curitiba resolve problemas de drivers com diagnóstico profissional.",
+    h1: "Erro de Driver no Windows — Diagnóstico e Correção em Curitiba",
+    categoria: "Software — Drivers",
+    intro: `Drivers são os "tradutores" entre o hardware do seu computador e o sistema operacional. Quando um driver está ausente, corrompido, desatualizado ou incompatível, o resultado pode ir desde um dispositivo que não funciona até telas azuis constantes e instabilidade total do sistema.\n\nO Windows Update tenta instalar drivers automaticamente, mas frequentemente instala versões genéricas que não funcionam corretamente — especialmente para placas de vídeo, Wi-Fi, áudio e impressoras. Cada fabricante (Intel, NVIDIA, AMD, Realtek) tem drivers específicos otimizados para seus produtos.\n\nEm Curitiba, o problema mais comum que vemos é após formatação ou reinstalação do Windows: o técnico anterior instalou o sistema mas não colocou os drivers corretos, deixando dispositivos sem funcionar. Outro cenário frequente é o Windows Update forçar uma atualização de driver que causa conflito.`,
+    sintomas: [
+      { titulo: "Triângulo amarelo no Gerenciador de Dispositivos", desc: "Um ou mais dispositivos aparecem com ícone de alerta amarelo, indicando driver ausente, corrompido ou com conflito.", gravidade: "Média" },
+      { titulo: "Tela azul (BSOD) com erro de driver", desc: "Erros como DRIVER_IRQL_NOT_LESS_OR_EQUAL, SYSTEM_SERVICE_EXCEPTION ou VIDEO_TDR_FAILURE indicam driver problemático.", gravidade: "Alta" },
+      { titulo: "Dispositivo 'desconhecido' após formatação", desc: "Após reinstalar o Windows, vários dispositivos aparecem como 'Dispositivo Desconhecido' — sem áudio, sem rede, sem vídeo correto.", gravidade: "Média" },
+      { titulo: "Áudio não funciona após atualização", desc: "O Windows Update instalou driver de áudio genérico que não funciona com o chip Realtek/Conexant do seu notebook.", gravidade: "Média" },
+      { titulo: "Impressora ou scanner não é reconhecido", desc: "O dispositivo USB é detectado mas não funciona. Drivers específicos do fabricante (HP, Epson, Canon, Brother) são necessários.", gravidade: "Baixa-Média" },
+      { titulo: "Performance de vídeo muito baixa", desc: "Jogos ou vídeos rodam com lentidão extrema. O Windows está usando driver genérico 'Microsoft Basic Display Adapter' em vez do driver NVIDIA/AMD/Intel.", gravidade: "Média-Alta" }
+    ],
+    causas: [
+      { titulo: "Windows Update instalou driver incompatível", desc: "O Windows força atualizações de driver que podem ser versões genéricas ou beta instáveis. Muito comum com drivers de vídeo e áudio.", tipo: "software" },
+      { titulo: "Formatação sem instalação de drivers", desc: "Reinstalar o Windows remove todos os drivers. Sem instalar os drivers do fabricante, muitos dispositivos ficam sem funcionar.", tipo: "erro-humano" },
+      { titulo: "Driver corrompido por queda de energia", desc: "Picos elétricos ou desligamentos abruptos podem corromper arquivos de driver no disco, causando erro na inicialização do dispositivo.", tipo: "hardware" },
+      { titulo: "Conflito entre drivers", desc: "Dois drivers tentando controlar o mesmo dispositivo (ex: driver antigo + driver novo instalado por cima) causam instabilidade e telas azuis.", tipo: "software" },
+      { titulo: "Hardware novo sem driver disponível", desc: "Periféricos muito novos ou muito antigos podem não ter driver compatível com a versão atual do Windows.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Identificação e instalação do driver correto do fabricante. Resolve triângulos amarelos e dispositivos não reconhecidos.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Remoção de drivers conflitantes + instalação limpa + bloqueio de Windows Update para drivers específicos.", tempo: "1-3 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Diagnóstico de telas azuis causadas por driver + reparo de sistema + reinstalação completa de drivers.", tempo: "2-5 horas", custo: "R$ 250–450" }
+    ],
+    riscos: [
+      "Instalar drivers de sites não oficiais pode trazer vírus e malware junto",
+      "Programas 'atualizadores de driver automáticos' geralmente são scam ou instalam versões erradas",
+      "Forçar driver incompatível pode causar tela azul permanente (boot loop)",
+      "Desinstalar driver errado pode deixar o sistema sem rede, vídeo ou áudio",
+      "Ignorar erros de driver pode causar instabilidade progressiva e perda de dados",
+      "Reverter driver de chipset pode impedir o Windows de iniciar"
+    ],
+    diagnostico: `Diagnóstico de drivers:\n\n1. Varredura completa do Gerenciador de Dispositivos\n2. Identificação de hardware via IDs de dispositivo (VEN/DEV)\n3. Verificação de versão de cada driver crítico (vídeo, áudio, rede, chipset)\n4. Análise de logs de tela azul (BlueScreenView + WinDbg)\n5. Teste de estabilidade com drivers limpos\n6. Verificação de conflitos entre drivers\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução completa:\n\n- **Identificação**: Uso de ferramentas profissionais para identificar todo hardware e drivers necessários\n- **Remoção**: Desinstalação limpa de drivers problemáticos (DDU para vídeo, DriverStoreExplorer para outros)\n- **Instalação**: Download e instalação de drivers oficiais do fabricante do notebook/placa-mãe\n- **Bloqueio**: Configuração do Windows Update para não sobrescrever drivers específicos\n- **Teste**: Verificação de funcionamento de todos os dispositivos e estabilidade do sistema\n\nDocumentação entregue com lista de drivers instalados e fontes oficiais para futuras atualizações.`,
+    quandoCompensa: "Sempre — resolver problemas de driver custa R$ 80-300 e restaura toda a funcionalidade do hardware. É essencial após qualquer formatação.",
+    quandoNaoCompensa: "Quando o hardware é tão antigo que o fabricante nunca lançou driver para Windows 10/11 e não existe driver genérico funcional.",
+    whatsappMessage: "Olá! Meu computador está com erro de driver e dispositivos não funcionam. Podem me ajudar?",
+    relatedPages: [
+      { to: "/erro-tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/som-nao-funciona-curitiba", label: "Som Não Funciona" },
+      { to: "/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Drivers do Windows: Guia Completo\n\n### Drivers Essenciais Após Formatação\n\n| Prioridade | Driver | Por quê |\n|---|---|---|\n| 1º | Chipset (Intel/AMD) | Base para todos os outros drivers |\n| 2º | Rede (Ethernet/Wi-Fi) | Para baixar outros drivers |\n| 3º | Vídeo (NVIDIA/AMD/Intel) | Performance gráfica |\n| 4º | Áudio (Realtek/Conexant) | Som do sistema |\n| 5º | Bluetooth | Periféricos sem fio |\n| 6º | Touchpad (Synaptics/ELAN) | Gestos e funcionalidades |\n\n### Onde Baixar Drivers Seguros\n\n- **Intel**: intel.com/support\n- **NVIDIA**: nvidia.com.br/drivers\n- **AMD**: amd.com/support\n- **Realtek**: realtek.com/downloads\n- **Fabricante do notebook**: support.dell.com, support.lenovo.com, etc.\n\n⚠️ **NUNCA** use sites como "driverpack", "driverbooster" ou "driverupdate" — são fontes de malware.\n\n### Como Identificar Hardware Desconhecido\n\n1. Abra o **Gerenciador de Dispositivos**\n2. Clique com botão direito no dispositivo desconhecido → **Propriedades**\n3. Aba **Detalhes** → Propriedade: **IDs de Hardware**\n4. Copie o valor (ex: PCI\\VEN_8086&DEV_A370)\n5. Pesquise no Google: "VEN_8086 DEV_A370 driver"\n6. Baixe do site oficial do fabricante`
+  },
+
+  // ==================== PC SEM IMAGEM ====================
+  {
+    slug: "pc-sem-imagem-curitiba",
+    title: "PC Sem Imagem no Monitor em Curitiba | Diagnóstico Especializado",
+    metaDescription: "PC liga mas não aparece imagem no monitor? Técnico em Curitiba diagnostica e resolve problemas de vídeo, GPU, cabo e placa-mãe. Atendimento rápido.",
+    h1: "PC Sem Imagem no Monitor — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Vídeo",
+    intro: `O computador liga, os LEDs acendem, a ventoinha gira, mas o monitor fica preto sem nenhuma imagem? Esse é um dos problemas mais comuns e ao mesmo tempo mais difíceis de diagnosticar sem experiência, porque a causa pode estar em qualquer ponto da cadeia: monitor, cabo, placa de vídeo, memória RAM, processador ou placa-mãe.\n\nA primeira coisa a entender é: "sem imagem" é diferente de "tela preta com cursor". Se o monitor mostra "sem sinal" ou fica completamente apagado, o problema está antes do sistema operacional — é hardware. Se aparece o logo do Windows e depois fica preto, geralmente é software.\n\nEm Curitiba, atendemos esse problema diariamente. Na maioria dos casos, a causa é simples: cabo HDMI/VGA solto, RAM mal encaixada ou monitor na entrada errada. Mas também pode indicar GPU queimada ou placa-mãe com defeito, especialmente após quedas de energia.`,
+    sintomas: [
+      { titulo: "Monitor mostra 'Sem Sinal' (No Signal)", desc: "O monitor está funcionando mas não recebe sinal de vídeo do computador. Pode ser cabo, entrada errada, GPU ou RAM.", gravidade: "Média" },
+      { titulo: "PC liga mas monitor fica totalmente preto", desc: "Ventoinhas giram, LEDs acendem, mas nenhuma imagem aparece. O monitor pode estar desligado, em standby ou sem receber sinal.", gravidade: "Média-Alta" },
+      { titulo: "Imagem aparece por segundos e some", desc: "A imagem pisca brevemente durante o boot e depois desaparece. Pode indicar GPU com mau contato ou superaquecimento.", gravidade: "Alta" },
+      { titulo: "Bipes ao ligar sem imagem", desc: "O PC emite sequência de bipes ao ligar e não mostra imagem. Os bipes indicam o tipo de erro — geralmente RAM ou GPU.", gravidade: "Média-Alta" },
+      { titulo: "Monitor funciona em outro PC", desc: "Testou o monitor em outro computador e funciona. O problema está no PC — GPU, cabo, RAM ou placa-mãe.", gravidade: "Média" },
+      { titulo: "Ventoinhas giram forte mas sem imagem", desc: "O cooler da GPU gira no máximo e não há imagem. Indica que o POST não completa — o sistema trava antes de inicializar vídeo.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Cabo de vídeo solto ou defeituoso", desc: "Cabos HDMI, DisplayPort e VGA podem ter mau contato ou fio rompido internamente. É a causa mais simples e a primeira a verificar.", tipo: "hardware" },
+      { titulo: "Memória RAM mal encaixada ou com defeito", desc: "RAM fora do slot ou com oxidação nos contatos impede o POST. Sem completar o POST, não há sinal de vídeo. Solução: reencaixar ou limpar contatos.", tipo: "hardware" },
+      { titulo: "Placa de vídeo com defeito", desc: "GPU queimada, com solda BGA trincada ou superaquecimento. Pode falhar gradualmente (artefatos) ou de repente (sem imagem total).", tipo: "hardware" },
+      { titulo: "Saída de vídeo errada selecionada", desc: "PC com vídeo integrado e placa dedicada — o cabo pode estar na saída errada. Ao instalar GPU, o vídeo integrado geralmente é desabilitado.", tipo: "erro-humano" },
+      { titulo: "Placa-mãe com defeito no slot PCIe ou VRM", desc: "Problemas no slot da placa de vídeo ou nos reguladores de tensão da placa-mãe impedem a GPU de funcionar.", tipo: "hardware" },
+      { titulo: "Processador sem vídeo integrado", desc: "CPUs como Ryzen sem 'G' (ex: Ryzen 5 5600) não têm vídeo integrado. Sem GPU dedicada, não há saída de vídeo.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Troca de cabo, reencaixe de RAM ou ajuste de saída de vídeo. Resolve 50% dos casos.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Diagnóstico de GPU + teste com outra placa + limpeza de contatos oxidados.", tempo: "1-3 horas", custo: "R$ 150–300" },
+      { nivel: "Complexo", desc: "Troca de placa de vídeo ou reparo de placa-mãe (slot PCIe, VRM). Pode exigir peça nova.", tempo: "1-5 dias", custo: "R$ 300–1500+" }
+    ],
+    riscos: [
+      "Forçar cabo em entrada errada pode danificar os conectores",
+      "Ignorar bipes de erro e continuar ligando pode piorar danos na placa-mãe",
+      "Usar GPU em slot PCIe com defeito pode queimar a placa de vídeo nova",
+      "Tentar reballing caseiro de GPU com secador/forno causa mais dano",
+      "Comprar GPU nova sem diagnosticar pode ser desperdício se o problema é na placa-mãe",
+      "Desmontar notebook sem experiência pode romper cabos flat do display"
+    ],
+    diagnostico: `Diagnóstico de vídeo completo:\n\n1. Teste com outro cabo (HDMI, DP, VGA)\n2. Teste com outro monitor/TV\n3. Verificação de RAM (reencaixe, teste individual de cada pente)\n4. Teste de POST (beep codes)\n5. Teste com GPU alternativa\n6. Teste de vídeo integrado (remover GPU dedicada)\n7. Verificação de fonte (voltagem nos trilhos PCIe)\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Cabo**: Troca por cabo novo de qualidade certificada\n- **RAM**: Limpeza dos contatos com borracha + reencaixe firme\n- **GPU**: Troca da placa de vídeo ou reparo de solda BGA profissional\n- **Saída errada**: Redirecionamento do cabo para a saída correta + configuração de BIOS\n- **Placa-mãe**: Reparo do slot PCIe ou VRM (quando viável) ou troca\n\nTeste completo com monitor e resolução nativa após o reparo.`,
+    quandoCompensa: "Na maioria dos casos — problemas simples (cabo, RAM) custam R$ 80-150. Mesmo troca de GPU vale se o restante do PC é bom.",
+    quandoNaoCompensa: "Quando a placa-mãe e GPU precisam de troca e o PC tem mais de 8 anos — o custo de peças supera o valor de um PC usado equivalente.",
+    whatsappMessage: "Olá! Meu PC liga mas não aparece imagem no monitor. Podem me ajudar?",
+    relatedPages: [
+      { to: "/monitor-sem-sinal-curitiba", label: "Monitor Sem Sinal" },
+      { to: "/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/erro-bios-curitiba", label: "Erro de BIOS" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## PC Sem Imagem: Guia Completo de Diagnóstico\n\n### Fluxograma de Diagnóstico Rápido\n\n1. Monitor liga? → Se não, verifique cabo de força e botão do monitor\n2. Monitor mostra "sem sinal"? → Troque o cabo HDMI/DP\n3. PC emite bipes? → Consulte tabela de beep codes\n4. Tem GPU dedicada? → Teste na saída de vídeo integrada\n5. Reencaixe a RAM → Resolve 30% dos casos\n\n### Tipos de Cabo de Vídeo\n\n| Cabo | Resolução Máx | Áudio | Observação |\n|---|---|---|---|\n| VGA | 1920x1080 | Não | Analógico, evite |\n| DVI-D | 2560x1600 | Não | Digital, bom |\n| HDMI 2.0 | 4K 60Hz | Sim | Mais comum |\n| HDMI 2.1 | 4K 120Hz | Sim | Para gaming |\n| DisplayPort 1.4 | 4K 120Hz | Sim | Melhor para PC |\n\n### Beep Codes Relacionados a Vídeo\n\n| Fabricante | Padrão | Significado |\n|---|---|---|\n| Award | 1 longo + 2 curtos | Erro de GPU/vídeo |\n| AMI | 8 curtos | Erro de memória de vídeo |\n| Intel | 2 curtos | Erro de vídeo |\n| Phoenix | 1-2-2-3 | Verificação de ROM de vídeo falhou |`
+  },
+
+  // ==================== MEMÓRIA RAM COM DEFEITO ====================
+  {
+    slug: "memoria-ram-com-defeito-curitiba",
+    title: "Memória RAM com Defeito em Curitiba | Diagnóstico e Troca",
+    metaDescription: "Memória RAM com defeito? PC travando, tela azul ou reiniciando? Técnico em Curitiba diagnostica e troca RAM com teste MemTest86. Atendimento profissional.",
+    h1: "Memória RAM com Defeito — Diagnóstico e Troca em Curitiba",
+    categoria: "Hardware — Memória",
+    intro: `A memória RAM é o componente mais traiçoeiro quando apresenta defeito. Diferente de um HD que para de funcionar de vez ou uma GPU que mostra artefatos claros, RAM defeituosa causa problemas intermitentes e aparentemente aleatórios: telas azuis esporádicas, travamentos que somem após reiniciar, programas que crasham sem motivo e erros de corrupção de dados.\n\nO diagnóstico é especialmente difícil porque os sintomas imitam outros problemas — parece vírus, parece driver, parece superaquecimento. Muitos técnicos inexperientes formatam o computador ou trocam o HD sem nunca testar a RAM, e o cliente volta com o mesmo problema semanas depois.\n\nEm Curitiba, usamos MemTest86 com mínimo de 4 passes completos (2-4 horas de teste) para garantir detecção de erros intermitentes. Também testamos cada pente individualmente em cada slot para identificar se o defeito é no módulo de RAM ou no slot da placa-mãe.`,
+    sintomas: [
+      { titulo: "Telas azuis aleatórias com códigos variados", desc: "BSODs como MEMORY_MANAGEMENT, IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA. Diferentes erros em momentos diferentes = forte sinal de RAM.", gravidade: "Alta" },
+      { titulo: "PC reinicia sozinho sem tela azul", desc: "O computador reinicia abruptamente sem mensagem de erro. Pode ser RAM com erro que causa crash tão severo que o Windows nem grava o BSOD.", gravidade: "Alta" },
+      { titulo: "Programas fecham com 'erro de memória'", desc: "Aplicativos mostram mensagens como 'A instrução em 0x... referenciou memória em 0x...' ou simplesmente fecham sem aviso.", gravidade: "Média-Alta" },
+      { titulo: "Lentidão extrema mesmo com pouco uso", desc: "O PC fica muito lento mesmo com poucas janelas abertas. Pode indicar que o Windows está evitando setores defeituosos da RAM, usando menos memória.", gravidade: "Média" },
+      { titulo: "PC não liga ou dá bipes ao ligar", desc: "Bipes contínuos ou sequência de bipes ao ligar sem imagem. RAM não detectada ou completamente defeituosa.", gravidade: "Alta" },
+      { titulo: "Arquivos corrompidos aleatoriamente", desc: "Documentos, fotos ou programas ficam corrompidos sem motivo. A RAM defeituosa altera bits durante a gravação no disco.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Defeito de fabricação ou desgaste", desc: "Módulos de RAM podem ter defeito de fábrica que só se manifesta com o tempo, ou desgastar após anos de uso intenso (calor, ciclos de energia).", tipo: "desgaste" },
+      { titulo: "Pico de tensão elétrica", desc: "Raios, picos na rede elétrica ou fontes de alimentação instáveis podem danificar chips de memória instantaneamente.", tipo: "hardware" },
+      { titulo: "Contatos oxidados", desc: "Os contatos dourados do pente de RAM oxidam com o tempo, especialmente em ambientes úmidos. Causa mau contato intermitente.", tipo: "desgaste" },
+      { titulo: "Overclock ou XMP instável", desc: "Perfil XMP ativado na BIOS pode exigir mais do que os módulos suportam. Funciona em testes curtos mas falha sob carga prolongada.", tipo: "erro-humano" },
+      { titulo: "Incompatibilidade entre módulos", desc: "Misturar pentes de marcas, velocidades ou timings diferentes pode causar instabilidade. A placa-mãe opera na velocidade do mais lento.", tipo: "erro-humano" },
+      { titulo: "Slot de RAM da placa-mãe com defeito", desc: "O problema pode não ser no pente mas no slot. Trilha solta, sujeira no conector ou dano físico no encaixe.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de contatos + reencaixe + teste MemTest86. Resolve quando o problema é oxidação ou mau contato.", tempo: "2-4 horas", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Troca de pente defeituoso por módulo novo compatível + configuração de XMP/timings na BIOS.", tempo: "1-2 horas", custo: "R$ 150–400" },
+      { nivel: "Complexo", desc: "Diagnóstico de slot de placa-mãe + troca de RAM + teste extensivo de estabilidade (8h+).", tempo: "1-2 dias", custo: "R$ 300–600" }
+    ],
+    riscos: [
+      "RAM defeituosa pode corromper dados no HD/SSD silenciosamente por semanas antes de ser detectada",
+      "Formatar o PC sem testar RAM faz o cliente voltar com o mesmo problema",
+      "Comprar RAM incompatível pode causar instabilidade igual ou pior",
+      "Misturar pentes de velocidades diferentes causa degradação de performance",
+      "Ignorar o problema pode danificar o sistema de arquivos e causar perda de dados",
+      "Overclock de RAM sem conhecimento pode degradar a vida útil dos módulos"
+    ],
+    diagnostico: `Diagnóstico completo de memória RAM:\n\n1. Identificação dos módulos instalados (marca, velocidade, timings)\n2. Teste individual de cada pente com MemTest86 (mínimo 4 passes = ~2h por pente)\n3. Teste de cada slot da placa-mãe com pente sabidamente bom\n4. Verificação de configuração de XMP/DOCP na BIOS\n5. Teste de estabilidade sob carga (Prime95 modo Large FFTs)\n6. Verificação visual de contatos (oxidação, sujeira, dano)\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme o diagnóstico:\n\n- **Oxidação**: Limpeza dos contatos com borracha branca + álcool isopropílico\n- **Pente defeituoso**: Troca por módulo novo compatível (mesma velocidade e timings)\n- **Incompatibilidade**: Substituição de todos os módulos por kit pareado (dual channel)\n- **XMP instável**: Ajuste manual de frequência e timings na BIOS\n- **Slot defeituoso**: Uso de slots alternativos ou reparo da placa-mãe\n\nTeste MemTest86 completo (8+ passes) após a troca para garantir zero erros.`,
+    quandoCompensa: "Quase sempre — troca de RAM custa R$ 150-400 e pode dar anos de vida estável ao PC. É um dos upgrades com melhor custo-benefício.",
+    quandoNaoCompensa: "Quando a placa-mãe é tão antiga que usa DDR2 ou DDR3 cara e rara. Nesse caso, upgrade completo (placa + CPU + RAM DDR4/DDR5) faz mais sentido.",
+    whatsappMessage: "Olá! Meu PC está com suspeita de memória RAM defeituosa (telas azuis, travamentos). Podem diagnosticar?",
+    relatedPages: [
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/erro-tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Memória RAM: Guia Completo\n\n### Tipos de RAM por Geração\n\n| Geração | Velocidade Típica | Voltagem | Ano | Status |\n|---|---|---|---|---|\n| DDR3 | 1333-1866 MHz | 1.5V | 2007-2014 | Obsoleta |\n| DDR4 | 2400-3600 MHz | 1.2V | 2014-2022 | Atual |\n| DDR5 | 4800-7200 MHz | 1.1V | 2022+ | Nova geração |\n\n### Quanto de RAM Você Precisa?\n\n| Uso | Mínimo | Recomendado |\n|---|---|---|\n| Navegação/Office | 4 GB | 8 GB |\n| Multitarefa/Trabalho | 8 GB | 16 GB |\n| Gaming | 16 GB | 32 GB |\n| Edição de vídeo/3D | 32 GB | 64 GB |\n\n### Como Verificar a RAM no Windows\n\n1. **Gerenciador de Tarefas** (Ctrl+Shift+Esc) → Aba Desempenho → Memória\n2. **msinfo32** → Mostra tipo, velocidade e fabricante\n3. **CPU-Z** (gratuito) → Aba SPD mostra detalhes técnicos de cada slot\n\n### Dual Channel: Por Que Importa\n\nUsar 2 pentes idênticos em vez de 1 dobra a largura de banda da memória:\n- ❌ 1x 16GB = Single Channel = ~25 GB/s\n- ✅ 2x 8GB = Dual Channel = ~50 GB/s\n\nImpacto real: 10-30% mais performance em jogos e aplicações pesadas.`
+  },
+
 ];
 
 // Helper to get a page by slug

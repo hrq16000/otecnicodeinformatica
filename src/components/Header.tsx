@@ -18,9 +18,9 @@ const mainNavItems = [
   { label: "Início", to: "/" },
   { label: "Serviços", to: "/servicos" },
   { label: "Como Funciona", to: "/como-funciona" },
-  { label: "CFTV", to: "/cftv" },
+  { label: "Preços", to: "/precos-e-politicas" },
+  { label: "Diagnóstico", to: "/diagnostico-tecnico" },
   { label: "Domicílio", to: "/atendimento-domicilio" },
-  { label: "Empresas", to: "/suporte-empresas" },
 ];
 
 const moreNavItems = [

@@ -104,6 +104,8 @@ const Index = () => {
         <HomePricingBlock />
         <HomeDiagnosticoBlock />
         <HomeEquipamentosBlock />
+        <HomeParaQuemBlock />
+        <InterlinkingBlock />
 
         <FAQSection />
         <TrustSection />

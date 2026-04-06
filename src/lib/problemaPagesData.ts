@@ -4073,6 +4073,231 @@ Em Curitiba, tratamos HD barulhento como emergência: diagnóstico prioritário 
     conteudoExtra: `## URGENTE: O Que Fazer Agora Se Seu HD Está Barulhento\n\n### Ação Imediata\n\n1. **DESLIGUE o computador** — Não "normalmente", pode desligar direto no botão se necessário\n2. **NÃO ligue de novo** para "ver se melhorou" — cada tentativa pode ser a última\n3. **NÃO tente software de recuperação** — Em falha mecânica, isso piora o dano\n4. **NÃO congele o HD** — Mito perigoso. Condensação destrói os pratos\n5. **NÃO abra o HD** — Poeira microscópica inutiliza os dados\n6. **Ligue para um técnico** — Diagnóstico urgente\n\n### Guia Sonoro: O Que Cada Barulho Significa\n\n| Barulho | Significado | Gravidade | Ação |\n|---|---|---|---|\n| Click-click-click | Cabeça não posiciona | CRÍTICA | Desligue AGORA |\n| Rangido contínuo | Motor travando | ALTA | Desligue em breve |\n| Estalos esporádicos | Setores ruins | ALTA | Backup urgente |\n| Zumbido alto | Motor com esforço | MÉDIA | Agende diagnóstico |\n| Silêncio total | Motor não gira | CRÍTICA | HD já parou |\n\n### HD vs. SSD: Por Que Migrar\n\n| Característica | HD (mecânico) | SSD (estado sólido) |\n|---|---|---|\n| Partes móveis | Sim (motor, cabeças) | Não |\n| Risco de falha mecânica | Alto após 3-5 anos | Zero |\n| Barulho | Sim | Silencioso |\n| Velocidade | 80-150 MB/s | 500-3.500 MB/s |\n| Resistência a queda | Baixa | Alta |\n| Vida útil | 3-5 anos típicos | 5-10 anos típicos |\n\n### Quanto Valem Seus Dados?\n\nAntes de decidir se vale investir em recuperação, considere:\n\n- **Fotos de família** — Insubstituíveis. Qualquer custo justificado\n- **Documentos de trabalho** — Podem custar muito mais que a recuperação\n- **Downloads e programas** — Podem ser baixados de novo\n- **Sistema operacional** — Reinstalável\n\n### Prevenção: Como Evitar Perder Dados\n\n1. **Backup 3-2-1**: 3 cópias, 2 mídias diferentes, 1 fora de casa (nuvem)\n2. **Migre para SSD**: Sem partes mecânicas = sem risco de falha mecânica\n3. **Monitore o SMART**: CrystalDiskInfo (gratuito) avisa antes do HD falhar\n4. **Nobreak**: Protege contra queda de energia que pode danificar o HD\n5. **Não mova o PC ligado**: Vibrações danificam o HD em operação`
   },
 
+
+  // ===== impressora-nao-imprime-curitiba =====
+  {
+    slug: "impressora-nao-imprime-curitiba",
+    title: "Impressora Não Imprime em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Impressora não imprime em Curitiba? Técnico resolve erro de spooler, cabeça entupida, driver incompatível e fila travada. Atendimento rápido.",
+    h1: "Impressora Não Imprime — Diagnóstico e Solução em Curitiba",
+    categoria: "Periféricos — Impressão",
+    intro: `Mandou imprimir e nada saiu? Impressora que não imprime é um dos problemas mais comuns — e mais irritantes — do dia a dia. As causas vão desde fila de impressão travada (resolve em 2 minutos) até cabeça de impressão entupida (precisa de manutenção profissional).
+
+Antes de comprar uma impressora nova, vale a pena investigar: na maioria dos casos, o problema é resolvível e com custo baixo. Em Curitiba, fazemos diagnóstico e reparo de impressoras jato de tinta, laser e multifuncionais de todas as marcas.
+
+O segredo é não ficar tentando imprimir repetidamente — isso só gasta tinta e pode piorar o entupimento. Melhor diagnosticar primeiro.`,
+    sintomas: [
+      { titulo: "Manda imprimir e nada acontece", desc: "Documento fica na fila de impressão mas a impressora não responde.", gravidade: "Média" },
+      { titulo: "Impressão sai em branco", desc: "Papel sai mas sem nenhum conteúdo — cabeça entupida ou cartucho vazio.", gravidade: "Média" },
+      { titulo: "Impressão sai com falhas/listras", desc: "Cabeça de impressão parcialmente entupida ou toner mal distribuído.", gravidade: "Média" },
+      { titulo: "Erro 'Impressora offline'", desc: "O computador não consegue se comunicar com a impressora — driver, cabo ou Wi-Fi.", gravidade: "Média" },
+      { titulo: "Papel atolando repetidamente", desc: "Rolete de tração desgastado, papel úmido ou mecanismo com sujeira.", gravidade: "Média" },
+      { titulo: "Impressora liga mas não é reconhecida", desc: "Driver não instalado, porta USB com defeito ou problema de rede.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Fila de impressão travada (spooler)", desc: "O serviço de impressão do Windows travou — documentos ficam na fila sem imprimir.", tipo: "software" },
+      { titulo: "Cabeça de impressão entupida", desc: "Tinta secou nos bicos da cabeça — comum em impressoras jato de tinta pouco usadas.", tipo: "desgaste" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Após atualização do Windows, driver antigo pode parar de funcionar.", tipo: "software" },
+      { titulo: "Cartucho/toner vazio ou defeituoso", desc: "Cartucho remanufaturado pode não ser reconhecido ou ter chip com defeito.", tipo: "hardware" },
+      { titulo: "Conexão Wi-Fi instável", desc: "Impressora Wi-Fi perde conexão com a rede e fica 'offline'.", tipo: "software" },
+      { titulo: "Rolete de tração desgastado", desc: "A borracha que puxa o papel perdeu aderência — papel não entra ou atola.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpar fila de impressão, reinstalar driver ou reconectar Wi-Fi.", tempo: "30min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Médio", desc: "Limpeza de cabeça de impressão, troca de cartucho ou ajuste de rede.", tempo: "1h a 2h", custo: "R$ 120 a R$ 250" },
+      { nivel: "Complexo", desc: "Troca de cabeça de impressão, reparo mecânico ou troca de rolete.", tempo: "1 a 5 dias", custo: "R$ 200 a R$ 500" }
+    ],
+    riscos: [
+      "Ficar tentando imprimir com cabeça entupida pode danificar permanentemente os bicos",
+      "Cartuchos remanufaturados de baixa qualidade podem vazar e danificar a impressora",
+      "Impressora laser com toner vazando espalha pó tóxico dentro do equipamento",
+      "Papel atolado removido com força pode quebrar o mecanismo de tração",
+      "Usar driver genérico pode funcionar parcialmente mas limita recursos da impressora"
+    ],
+    diagnostico: `Diagnóstico completo de impressora:\n\n1. Verificação de status no Windows (fila, spooler, driver)\n2. Teste de impressão direto do painel da impressora (página de teste)\n3. Verificação de conexão (USB, Wi-Fi, rede)\n4. Inspeção de cartuchos/toner (nível, chip, vazamento)\n5. Teste de cabeça de impressão (padrão de bicos)\n6. Verificação mecânica (roletes, bandeja, sensores)\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução por causa:\n\n- **Spooler travado**: Reiniciar serviço + limpar fila + reinstalar driver\n- **Cabeça entupida**: Limpeza com solução específica (manual, não automática)\n- **Driver**: Desinstalar completamente + instalar versão atualizada do fabricante\n- **Wi-Fi**: Reconfigurar conexão + IP fixo para evitar desconexões\n- **Mecânico**: Limpeza ou troca de roletes, sensores e engrenagens\n\nTeste completo com impressão de página colorida e P&B após o reparo.`,
+    quandoCompensa: "Na maioria dos casos — especialmente impressoras laser que custam R$ 1.000+. Reparo de R$ 90-250 é muito mais barato que substituir.",
+    quandoNaoCompensa: "Impressoras jato de tinta baratas (R$ 300-500) com cabeça de impressão integrada queimada. O custo da cabeça nova se aproxima do valor da impressora.",
+    whatsappMessage: "Olá! Minha impressora não está imprimindo. Podem fazer um diagnóstico?",
+    relatedPages: [
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/suporte-empresas", label: "Suporte para Empresas" },
+      { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Guia: Resolva Problemas de Impressão\n\n### Passo a Passo: Fila de Impressão Travada\n\n1. Pressione **Win + R**, digite \`services.msc\`, Enter\n2. Encontre **"Spooler de Impressão"**\n3. Clique direito → **Parar**\n4. Abra \`C:\\Windows\\System32\\spool\\PRINTERS\` → delete tudo\n5. Volte em services.msc → **Iniciar** o Spooler\n6. Tente imprimir novamente\n\n### Impressora Jato de Tinta vs. Laser\n\n| Característica | Jato de Tinta | Laser |\n|---|---|---|\n| Custo inicial | Baixo (R$ 300-800) | Médio (R$ 800-2.500) |\n| Custo por página | Alto (R$ 0,30-1,00) | Baixo (R$ 0,05-0,15) |\n| Manutenção | Frequente (entupimento) | Rara |\n| Ideal para | Fotos, uso doméstico | Escritório, volume |\n| Problema mais comum | Cabeça entupida | Papel atolando |\n\n### Marcas e Problemas Mais Comuns\n\n| Marca | Problema Frequente | Dica |\n|---|---|---|\n| HP | Driver após update Windows | Usar HP Smart |\n| Epson | Cabeça entupida (EcoTank) | Imprimir 1x por semana |\n| Brother | Toner não reconhecido | Reset do chip |\n| Canon | Erro de cartucho | Limpar contatos |\n| Samsung | Papel atolando | Trocar roletes |`
+  },
+
+  // ===== monitor-sem-sinal-curitiba =====
+  {
+    slug: "monitor-sem-sinal-curitiba",
+    title: "Monitor Sem Sinal em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Monitor sem sinal, tela preta ou 'no signal' em Curitiba? Diagnóstico identifica se é cabo, placa de vídeo ou monitor. Atendimento rápido.",
+    h1: "Monitor Sem Sinal — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Vídeo",
+    intro: `Ligou o computador e o monitor mostra "Sem Sinal", "No Signal" ou "Check Signal Cable"? Esse é um dos problemas mais comuns — e felizmente, em muitos casos, a solução é simples.
+
+A mensagem "sem sinal" significa que o monitor está funcionando (senão não mostraria nada), mas não está recebendo imagem do computador. Pode ser um cabo solto, entrada errada, placa de vídeo ou até a RAM.
+
+Antes de entrar em pânico, verifique o básico: o cabo está bem conectado? O monitor está na entrada certa (HDMI vs VGA)? Se sim, é hora de um diagnóstico mais profundo.`,
+    sintomas: [
+      { titulo: "Mensagem 'Sem Sinal' ou 'No Signal'", desc: "Monitor funciona mas não recebe vídeo do PC. LED do monitor geralmente fica laranja.", gravidade: "Média" },
+      { titulo: "Monitor pisca e mostra 'No Signal' brevemente", desc: "Sinal intermitente — cabo com mau contato ou resolução incompatível.", gravidade: "Média" },
+      { titulo: "Sem sinal só no HDMI (VGA funciona)", desc: "Porta HDMI da placa de vídeo ou cabo HDMI com defeito.", gravidade: "Média" },
+      { titulo: "Sem sinal após trocar placa de vídeo", desc: "Driver não instalado ou placa de vídeo mal encaixada no slot PCIe.", gravidade: "Média" },
+      { titulo: "Sem sinal + PC não emite bipes", desc: "Possível problema grave: placa-mãe, processador ou fonte.", gravidade: "Alta" },
+      { titulo: "Funciona por alguns minutos e perde sinal", desc: "Superaquecimento da GPU ou mau contato térmico.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Cabo de vídeo solto ou defeituoso", desc: "Cabo HDMI, DisplayPort ou VGA com mau contato ou rompido internamente.", tipo: "hardware" },
+      { titulo: "Entrada de vídeo errada no monitor", desc: "Monitor configurado para HDMI mas o cabo está na VGA (ou vice-versa).", tipo: "erro-humano" },
+      { titulo: "RAM desencaixada", desc: "Pente de RAM solto impede o POST e nenhum sinal de vídeo é enviado.", tipo: "hardware" },
+      { titulo: "Placa de vídeo com defeito ou mal encaixada", desc: "GPU não encaixada completamente no slot PCIe ou com defeito.", tipo: "hardware" },
+      { titulo: "Resolução incompatível", desc: "PC configurado para resolução que o monitor não suporta.", tipo: "software" },
+      { titulo: "Fonte sem potência suficiente", desc: "Fonte não alimenta a placa de vídeo corretamente — GPU não inicializa.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reencaixe de cabo, troca de entrada no monitor ou reencaixe de RAM.", tempo: "15min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Médio", desc: "Troca de cabo, reencaixe de placa de vídeo ou ajuste de resolução.", tempo: "1h a 2h", custo: "R$ 90 a R$ 250" },
+      { nivel: "Complexo", desc: "Troca de placa de vídeo, reparo de porta HDMI ou troca de fonte.", tempo: "1 a 5 dias", custo: "R$ 200 a R$ 800" }
+    ],
+    riscos: [
+      "Ignorar 'sem sinal' intermitente pode indicar GPU morrendo — vai parar de vez em breve",
+      "Forçar resolução incompatível pode deixar o monitor em estado inutilizável temporariamente",
+      "Reencaixar placa de vídeo sem desligar o PC pode causar curto-circuito",
+      "Cabo HDMI barato pode funcionar para 1080p mas falhar em 4K",
+      "Fonte subdimensionada danifica a placa de vídeo progressivamente"
+    ],
+    diagnostico: `Diagnóstico para monitor sem sinal:\n\n1. Verificação de cabos e conexões\n2. Teste com outro cabo / outra entrada de vídeo\n3. Teste com outro monitor (para isolar se é PC ou monitor)\n4. Reencaixe de RAM e placa de vídeo\n5. Teste de vídeo integrado vs dedicado\n6. Verificação de bipes do POST\n7. Teste de fonte com multímetro\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução por causa:\n\n- **Cabo**: Troca por cabo de qualidade certificado\n- **Entrada errada**: Configuração correta no menu OSD do monitor\n- **RAM**: Limpeza de contatos e reencaixe\n- **Placa de vídeo**: Reencaixe, limpeza do slot PCIe ou substituição\n- **Resolução**: Boot em modo seguro e ajuste de resolução\n- **Fonte**: Upgrade para fonte com potência adequada\n\nTeste com múltiplas resoluções para garantir estabilidade.`,
+    quandoCompensa: "Na maioria dos casos — 70% das vezes é cabo ou RAM (custo mínimo). Até troca de placa de vídeo compensa se o PC é atual.",
+    quandoNaoCompensa: "Quando o monitor é antigo com entrada VGA apenas e o PC novo só tem HDMI/DP. Melhor investir em monitor novo.",
+    whatsappMessage: "Olá! Meu monitor está mostrando 'sem sinal'. Podem fazer um diagnóstico?",
+    relatedPages: [
+      { to: "/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Checklist Rápido: Monitor Sem Sinal\n\n### Antes de Chamar o Técnico\n\n1. ✅ Cabo está bem encaixado dos dois lados?\n2. ✅ Monitor está na entrada correta? (Botão Input/Source)\n3. ✅ Tentou outro cabo?\n4. ✅ PC está realmente ligado? (Ventoinhas giram? LEDs acesos?)\n5. ✅ Tentou outra porta de vídeo? (HDMI → VGA ou vice-versa)\n\nSe marcou tudo e ainda sem sinal → hora do técnico.\n\n### Guia de Cabos de Vídeo\n\n| Cabo | Resolução Máx | Áudio | Uso Ideal |\n|---|---|---|---|\n| VGA | 1080p (analógico) | Não | Monitores antigos |\n| DVI | 2560x1600 | Não | Monitores intermediários |\n| HDMI 2.0 | 4K 60Hz | Sim | Uso geral |\n| HDMI 2.1 | 4K 120Hz | Sim | Gaming |\n| DisplayPort 1.4 | 4K 120Hz | Sim | Monitores profissionais |\n| USB-C/Thunderbolt | 4K+ | Sim | Notebooks modernos |\n\n### Erro Comum: "Troquei o Cabo e Não Resolveu"\n\nSe trocar o cabo não resolveu, o problema está no PC (não no monitor). Teste conectando o monitor em outro computador ou notebook — se funcionar, confirmado que o defeito é no PC.`
+  },
+
+  // ===== teclado-nao-funciona-curitiba =====
+  {
+    slug: "teclado-nao-funciona-curitiba",
+    title: "Teclado Não Funciona em Curitiba — Diagnóstico e Reparo",
+    metaDescription: "Teclado do notebook ou PC não funciona em Curitiba? Diagnóstico de teclas travadas, líquido derramado, cabo flat e driver. Atendimento rápido.",
+    h1: "Teclado Não Funciona — Diagnóstico e Reparo em Curitiba",
+    categoria: "Periféricos — Entrada",
+    intro: `Teclado parou de funcionar? Seja do notebook ou do desktop, um teclado com defeito paralisa completamente o trabalho. As causas vão desde sujeira acumulada sob as teclas até líquido derramado que causou curto-circuito.
+
+No caso de notebooks, o problema pode ser ainda mais sério: o teclado está conectado à placa-mãe por um cabo flat frágil que pode romper, e líquidos derramados podem danificar componentes internos.
+
+Em Curitiba, fazemos diagnóstico para identificar a causa exata — e só então propomos o reparo mais adequado, seja limpeza, troca de teclado ou reparo de cabo.`,
+    sintomas: [
+      { titulo: "Nenhuma tecla funciona", desc: "Teclado completamente morto — pode ser cabo, USB, driver ou dano físico.", gravidade: "Alta" },
+      { titulo: "Algumas teclas não funcionam", desc: "Sujeira sob as teclas, membrana danificada ou teclas específicas com defeito.", gravidade: "Média" },
+      { titulo: "Teclado digita caracteres errados", desc: "Layout trocado (ABNT2 vs Internacional), driver corrompido ou tecla grudada.", gravidade: "Baixa" },
+      { titulo: "Teclas travadas ou repetindo", desc: "Sujeira, líquido seco ou membrana colando — tecla fica 'pressionada' sozinha.", gravidade: "Média" },
+      { titulo: "Teclado funciona às vezes", desc: "Mau contato no cabo flat (notebook) ou porta USB intermitente (desktop).", gravidade: "Alta" },
+      { titulo: "Líquido foi derramado no teclado", desc: "URGENTE — desligue imediatamente e vire de cabeça para baixo.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Líquido derramado", desc: "Café, água, refrigerante — o líquido penetra e causa curto-circuito ou oxidação.", tipo: "erro-humano" },
+      { titulo: "Cabo flat desconectado (notebook)", desc: "O cabo que liga o teclado à placa-mãe se soltou ou rompeu.", tipo: "hardware" },
+      { titulo: "Sujeira acumulada", desc: "Migalhas, pelos, poeira acumulam sob as teclas e impedem o contato.", tipo: "desgaste" },
+      { titulo: "Driver corrompido ou ausente", desc: "Após atualização do Windows, o driver do teclado pode falhar.", tipo: "software" },
+      { titulo: "Porta USB com defeito (desktop)", desc: "A porta USB onde o teclado está conectado não funciona mais.", tipo: "hardware" },
+      { titulo: "Membrana desgastada", desc: "A membrana de contato sob as teclas perde condutividade com o uso.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalar driver, trocar porta USB ou reconectar cabo flat.", tempo: "30min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Médio", desc: "Limpeza profunda do teclado ou troca de teclado de notebook.", tempo: "1h a 3h", custo: "R$ 150 a R$ 400" },
+      { nivel: "Complexo", desc: "Reparo de dano por líquido na placa-mãe do notebook.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800" }
+    ],
+    riscos: [
+      "Líquido derramado pode escorrer para a placa-mãe e causar dano permanente em minutos",
+      "Tentar abrir teclado de notebook sem experiência pode romper o cabo flat",
+      "Usar secador de cabelo para secar líquido pode empurrar umidade para dentro do notebook",
+      "Ignorar teclas grudando pode causar digitação indesejada (senhas, emails, documentos)",
+      "Teclado USB barato com defeito pode causar curto na porta USB do PC"
+    ],
+    diagnostico: `Diagnóstico de teclado:\n\n1. Teste com teclado externo USB (para isolar se é teclado ou sistema)\n2. Verificação de driver e layout de teclado no Windows\n3. Inspeção visual de dano por líquido ou sujeira\n4. Teste de cabo flat (notebook) — reencaixe e verificação de continuidade\n5. Teste de portas USB (desktop)\n6. Teste individual de teclas com software de diagnóstico\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução por causa:\n\n- **Líquido**: Desmontagem urgente, limpeza com álcool isopropílico, secagem\n- **Cabo flat**: Reencaixe ou substituição do cabo\n- **Sujeira**: Desmontagem e limpeza profunda tecla por tecla\n- **Driver**: Reinstalação do driver correto para o modelo\n- **Teclado danificado**: Troca por teclado compatível (notebook) ou novo (desktop)\n\nTeste completo de todas as teclas após o reparo.`,
+    quandoCompensa: "Na maioria dos casos — troca de teclado de notebook custa R$ 150-400, muito menos que um notebook novo. Limpeza custa ainda menos.",
+    quandoNaoCompensa: "Quando o líquido já danificou a placa-mãe do notebook e o reparo total ultrapassa 50% do valor do equipamento.",
+    whatsappMessage: "Olá! O teclado do meu computador/notebook parou de funcionar. Podem me ajudar?",
+    relatedPages: [
+      { to: "/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
+      { to: "/notebook-nao-carrega-curitiba", label: "Notebook Não Carrega" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## O Que Fazer Quando Derramar Líquido no Notebook\n\n### Ação Imediata (Primeiros 30 Segundos)\n\n1. **DESLIGUE imediatamente** — Segure o botão de energia por 5 segundos\n2. **Desconecte o carregador** — Remova da tomada\n3. **Vire de cabeça para baixo** — Apoie aberto em formato de "V invertido"\n4. **NÃO use secador** — Pode empurrar líquido para dentro\n5. **NÃO ligue de novo** — Espere pelo menos 48h ou leve ao técnico\n\n### Líquidos: Do Menos ao Mais Perigoso\n\n| Líquido | Perigo | Por Quê |\n|---|---|---|\n| Água | Médio | Pode causar curto, mas não corrói |\n| Café sem açúcar | Médio-Alto | Resíduos podem grudar componentes |\n| Café com açúcar | Alto | Açúcar corrói e gruda |\n| Refrigerante | Muito Alto | Ácido + açúcar = corrosão rápida |\n| Cerveja | Muito Alto | Açúcares + oxidação |\n\n### Troca de Teclado de Notebook: Como Funciona\n\n1. Identificamos o modelo exato (part number)\n2. Encomendamos teclado compatível\n3. Desmontamos o notebook com cuidado\n4. Desconectamos o cabo flat do teclado antigo\n5. Conectamos o novo e testamos todas as teclas\n6. Remontamos o notebook\n\nTempo total: 1-3 horas (se a peça estiver disponível).`
+  },
+
+  // ===== pc-nao-conecta-wifi-curitiba =====
+  {
+    slug: "pc-nao-conecta-wifi-curitiba",
+    title: "PC Não Conecta no Wi-Fi em Curitiba — Diagnóstico e Solução",
+    metaDescription: "Computador ou notebook não conecta no Wi-Fi em Curitiba? Técnico resolve driver, adaptador, configuração de rede e sinal fraco. Atendimento rápido.",
+    h1: "PC Não Conecta no Wi-Fi — Diagnóstico e Solução em Curitiba",
+    categoria: "Redes — Conectividade",
+    intro: `Seu computador não conecta no Wi-Fi? Ou conecta mas a internet não funciona? Problemas de conectividade Wi-Fi são extremamente comuns e podem ter causas simples (driver desatualizado) ou complexas (adaptador Wi-Fi queimado).
+
+O mais frustrante é quando outros dispositivos conectam normalmente — celular, tablet, smart TV — mas o computador se recusa a funcionar. Isso quase sempre indica problema no PC, não no roteador.
+
+Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na rede, garantindo que tudo funcione com estabilidade.`,
+    sintomas: [
+      { titulo: "Ícone de Wi-Fi não aparece", desc: "Adaptador Wi-Fi desativado, driver não instalado ou hardware com defeito.", gravidade: "Alta" },
+      { titulo: "Vê a rede mas não conecta", desc: "Senha errada, conflito de IP, protocolo de segurança incompatível.", gravidade: "Média" },
+      { titulo: "Conecta mas sem internet", desc: "DNS incorreto, gateway errado, proxy configurado ou problema no roteador.", gravidade: "Média" },
+      { titulo: "Wi-Fi cai a cada poucos minutos", desc: "Driver instável, interferência de sinal ou adaptador superaquecendo.", gravidade: "Alta" },
+      { titulo: "Velocidade muito baixa no Wi-Fi", desc: "Adaptador antigo (802.11n), canal congestionado ou distância do roteador.", gravidade: "Média" },
+      { titulo: "Erro 'Não foi possível conectar a esta rede'", desc: "Perfil de rede corrompido no Windows — precisa esquecer e reconectar.", gravidade: "Baixa" }
+    ],
+    causas: [
+      { titulo: "Driver Wi-Fi desatualizado ou corrompido", desc: "Após atualização do Windows, o driver do adaptador Wi-Fi pode ficar incompatível.", tipo: "software" },
+      { titulo: "Adaptador Wi-Fi desativado", desc: "Atalho de teclado (Fn+F2) ou modo avião podem desativar o Wi-Fi.", tipo: "erro-humano" },
+      { titulo: "Adaptador Wi-Fi com defeito", desc: "Adaptador interno do notebook queimou ou adaptador USB com defeito.", tipo: "hardware" },
+      { titulo: "Configuração de rede incorreta", desc: "IP fixo configurado, DNS errado ou proxy ativado sem necessidade.", tipo: "software" },
+      { titulo: "Roteador com problema", desc: "Roteador travado, firmware desatualizado ou muitos dispositivos conectados.", tipo: "hardware" },
+      { titulo: "Antena Wi-Fi do notebook desconectada", desc: "Após manutenção, os cabos da antena Wi-Fi podem ter ficado desconectados.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalar driver, resetar configurações de rede ou reconectar perfil.", tempo: "30min a 1h", custo: "R$ 90 a R$ 150" },
+      { nivel: "Médio", desc: "Instalar adaptador Wi-Fi USB, configurar roteador ou otimizar canal.", tempo: "1h a 2h", custo: "R$ 120 a R$ 300" },
+      { nivel: "Complexo", desc: "Trocar adaptador Wi-Fi interno (mini PCIe) ou reconectar antenas do notebook.", tempo: "1h a 3h", custo: "R$ 150 a R$ 400" }
+    ],
+    riscos: [
+      "Ficar sem atualizações de segurança por falta de internet deixa o PC vulnerável",
+      "Instalar drivers de fontes não oficiais pode trazer vírus",
+      "Adaptadores USB Wi-Fi baratos podem superaquecer e ter desempenho ruim",
+      "Configurar IP fixo incorretamente pode causar conflitos na rede toda",
+      "Resetar roteador sem anotar configurações pode derrubar a internet de todos os dispositivos"
+    ],
+    diagnostico: `Diagnóstico de conectividade Wi-Fi:\n\n1. Verificação de status do adaptador Wi-Fi (Gerenciador de Dispositivos)\n2. Teste com outros dispositivos na mesma rede\n3. Verificação de driver (versão, compatibilidade)\n4. Teste de ping e DNS\n5. Análise de sinal Wi-Fi (força, canal, interferência)\n6. Verificação de configurações de rede (IP, gateway, DNS)\n7. Teste com adaptador USB externo (para isolar hardware)\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Driver**: Atualização com driver oficial do fabricante\n- **Configuração**: Reset de rede do Windows + reconfiguração limpa\n- **Adaptador**: Instalação de adaptador USB Wi-Fi ou troca do módulo interno\n- **Roteador**: Atualização de firmware, otimização de canal e banda\n- **Antenas**: Reconexão dos cabos de antena internos do notebook\n\nTeste de velocidade e estabilidade (ping) por 30+ minutos após o reparo.`,
+    quandoCompensa: "Quase sempre — resolver Wi-Fi custa R$ 90-300 e é essencial para o uso do computador. Até troca de adaptador interno é acessível.",
+    quandoNaoCompensa: "Quando o notebook é tão antigo que só suporta Wi-Fi 802.11n e o adaptador USB 5GHz custa mais que um notebook usado.",
+    whatsappMessage: "Olá! Meu computador não está conectando no Wi-Fi. Podem me ajudar?",
+    relatedPages: [
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/internet-lenta-curitiba", label: "Internet Lenta" },
+      { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Resolva Problemas de Wi-Fi: Guia Completo\n\n### Reset Completo de Rede no Windows\n\n1. Abra **Configurações → Rede e Internet**\n2. Clique em **Redefinição de Rede** (no final da página)\n3. Clique em **Redefinir agora**\n4. O PC vai reiniciar — reconecte ao Wi-Fi com a senha\n\nIsso resolve 60% dos problemas de conectividade.\n\n### Diagnóstico via Prompt de Comando\n\n\`\`\`\nipconfig /all          → Mostra configuração de rede\nping 8.8.8.8          → Testa conexão com internet\nping google.com       → Testa DNS\nnetsh wlan show all   → Mostra redes e adaptador\n\`\`\`\n\n### Wi-Fi 5 GHz vs 2.4 GHz\n\n| Característica | 2.4 GHz | 5 GHz |\n|---|---|---|\n| Alcance | Longo (até 50m) | Curto (até 20m) |\n| Velocidade | Até 300 Mbps | Até 1.300+ Mbps |\n| Interferência | Alta (vizinhos, microondas) | Baixa |\n| Paredes | Atravessa bem | Perde sinal fácil |\n| Ideal para | Distância, IoT | Velocidade, jogos |\n\n### Adaptadores Wi-Fi USB Recomendados\n\n| Modelo | Padrão | Velocidade | Preço Médio |\n|---|---|---|---|\n| TP-Link Archer T3U | Wi-Fi 5 (AC) | Até 1.300 Mbps | R$ 100-150 |\n| TP-Link Archer TX20U | Wi-Fi 6 (AX) | Até 1.800 Mbps | R$ 150-250 |\n| Qualquer USB 2.0 N | Wi-Fi 4 (N) | Até 300 Mbps | R$ 40-70 |`
+  },
+
 ];
 
 // Helper to get a page by slug

@@ -104,27 +104,29 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5">
           {mainNavItems.map((item) => (
-            <NavLink key={item.to} to={item.to}>
-              {item.label}
-            </NavLink>
+            item.sub ? (
+              <DropdownMenu key={item.label}>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
+                  {item.label} <ChevronDown className="h-3.5 w-3.5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-52">
+                  {item.sub.map((sub) => (
+                    <DropdownMenuItem key={sub.to} asChild>
+                      <Link to={sub.to} className="w-full cursor-pointer">
+                        {sub.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <NavLink key={item.to} to={item.to}>
+                {item.label}
+              </NavLink>
+            )
           ))}
-          
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors">
-              Mais <ChevronDown className="h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              {moreNavItems.map((item) => (
-                <DropdownMenuItem key={item.to} asChild>
-                  <Link to={item.to} className="w-full cursor-pointer">
-                    {item.label}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
         </nav>
 
         {/* CTA Buttons */}

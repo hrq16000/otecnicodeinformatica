@@ -139,6 +139,13 @@ const localBusinessSchema = {
   "sameAs": [
     "https://wa.me/5541997452053"
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "347",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "knowsAbout": [
     "Manutenção de computadores",
     "Conserto de notebooks",
@@ -146,7 +153,10 @@ const localBusinessSchema = {
     "Remoção de vírus",
     "Upgrade de hardware",
     "Configuração de redes",
-    "Suporte técnico em informática"
+    "Suporte técnico em informática",
+    "Instalação de câmeras CFTV",
+    "Montagem de computadores",
+    "Backup e recuperação de dados"
   ]
 };
 

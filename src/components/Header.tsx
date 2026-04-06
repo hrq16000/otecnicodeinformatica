@@ -178,30 +178,37 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t">
-          <nav className="container mx-auto py-4 flex flex-col gap-3">
+        <div className="lg:hidden bg-background border-t max-h-[80vh] overflow-y-auto">
+          <nav className="container mx-auto py-4 flex flex-col gap-1">
             {mainNavItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 text-base"
-              >
-                {item.label}
-              </NavLink>
+              <div key={item.label}>
+                {!item.sub ? (
+                  <NavLink
+                    to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-2 text-base block"
+                  >
+                    {item.label}
+                  </NavLink>
+                ) : (
+                  <>
+                    <p className="py-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider mt-2">
+                      {item.label}
+                    </p>
+                    {item.sub.map((sub) => (
+                      <NavLink
+                        key={sub.to}
+                        to={sub.to}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="py-1.5 pl-3 text-base block"
+                      >
+                        {sub.label}
+                      </NavLink>
+                    ))}
+                  </>
+                )}
+              </div>
             ))}
-            <div className="border-t border-border pt-3 mt-1">
-              {moreNavItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 text-base block"
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </div>
           </nav>
         </div>
       )}

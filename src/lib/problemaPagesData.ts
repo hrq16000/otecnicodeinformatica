@@ -3679,6 +3679,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
       { to: "/como-funciona", label: "Como Funciona" }
     ]
   },
+];
 
 // Helper to get a page by slug
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {

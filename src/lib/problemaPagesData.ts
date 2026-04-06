@@ -4716,6 +4716,217 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     conteudoExtra: `## Memória RAM: Guia Completo\n\n### Tipos de RAM por Geração\n\n| Geração | Velocidade Típica | Voltagem | Ano | Status |\n|---|---|---|---|---|\n| DDR3 | 1333-1866 MHz | 1.5V | 2007-2014 | Obsoleta |\n| DDR4 | 2400-3600 MHz | 1.2V | 2014-2022 | Atual |\n| DDR5 | 4800-7200 MHz | 1.1V | 2022+ | Nova geração |\n\n### Quanto de RAM Você Precisa?\n\n| Uso | Mínimo | Recomendado |\n|---|---|---|\n| Navegação/Office | 4 GB | 8 GB |\n| Multitarefa/Trabalho | 8 GB | 16 GB |\n| Gaming | 16 GB | 32 GB |\n| Edição de vídeo/3D | 32 GB | 64 GB |\n\n### Como Verificar a RAM no Windows\n\n1. **Gerenciador de Tarefas** (Ctrl+Shift+Esc) → Aba Desempenho → Memória\n2. **msinfo32** → Mostra tipo, velocidade e fabricante\n3. **CPU-Z** (gratuito) → Aba SPD mostra detalhes técnicos de cada slot\n\n### Dual Channel: Por Que Importa\n\nUsar 2 pentes idênticos em vez de 1 dobra a largura de banda da memória:\n- ❌ 1x 16GB = Single Channel = ~25 GB/s\n- ✅ 2x 8GB = Dual Channel = ~50 GB/s\n\nImpacto real: 10-30% mais performance em jogos e aplicações pesadas.`
   },
 
+  // ==================== NOTEBOOK COM TELA PISCANDO ====================
+  {
+    slug: "notebook-com-tela-piscando-curitiba",
+    title: "Notebook com Tela Piscando em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Tela do notebook piscando, tremendo ou com flickering? Técnico em Curitiba diagnostica e resolve problemas de tela com reparo profissional. Atendimento rápido.",
+    h1: "Notebook com Tela Piscando — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Display",
+    intro: `A tela do notebook fica piscando, tremendo ou dando flicker? Esse problema pode ser desde algo simples como uma configuração de taxa de atualização errada até um defeito físico no cabo flat que conecta a tela à placa-mãe.\n\nO flickering de tela é especialmente incômodo porque causa fadiga visual, dor de cabeça e torna o notebook praticamente inutilizável para trabalho prolongado. Muitos usuários tentam conviver com o problema, mas ele tende a piorar progressivamente — o que era um piscar ocasional vira tela completamente apagando e voltando.\n\nEm Curitiba, o diagnóstico mais importante é determinar se o problema é de hardware (cabo flat, inversor, painel LCD) ou software (driver de vídeo, taxa de atualização, aplicativo conflitante). Um teste simples: conecte um monitor externo — se a imagem no monitor externo é estável, o problema é na tela/cabo do notebook.`,
+    sintomas: [
+      { titulo: "Tela pisca rapidamente (flickering constante)", desc: "A tela fica piscando em frequência rápida, como se estivesse sendo ligada e desligada várias vezes por segundo. Pode ser driver, taxa de atualização ou backlight.", gravidade: "Média" },
+      { titulo: "Tela pisca ao abrir/fechar a tampa", desc: "Mover a tampa do notebook causa piscar ou apagão momentâneo. Forte indicativo de cabo flat com mau contato na dobradiça.", gravidade: "Média-Alta" },
+      { titulo: "Linhas horizontais ou verticais piscando", desc: "Linhas coloridas aparecem e desaparecem na tela. Pode ser painel LCD com defeito, cabo flat danificado ou GPU com problema.", gravidade: "Alta" },
+      { titulo: "Brilho da tela oscila sozinho", desc: "O brilho sobe e desce sem controle do usuário. Pode ser sensor de luz ambiente com defeito ou problema no circuito de backlight.", gravidade: "Baixa-Média" },
+      { titulo: "Tela apaga por segundos e volta", desc: "A tela fica preta por 1-3 segundos e depois volta ao normal. Pode ser driver de vídeo crashando e reiniciando ou cabo flat intermitente.", gravidade: "Média-Alta" },
+      { titulo: "Flickering só em determinados programas", desc: "A tela só pisca ao usar Chrome, Excel ou jogos específicos. Indica problema de software — driver de vídeo, aceleração de hardware ou incompatibilidade.", gravidade: "Baixa" }
+    ],
+    causas: [
+      { titulo: "Cabo flat (LVDS/eDP) com mau contato", desc: "O cabo que conecta a tela à placa-mãe passa pela dobradiça e sofre flexão a cada abertura/fechamento. Com o tempo, fios internos se rompem parcialmente.", tipo: "desgaste" },
+      { titulo: "Driver de vídeo com problema", desc: "Driver de GPU desatualizado, corrompido ou incompatível pode causar flickering. Windows Update frequentemente instala drivers genéricos problemáticos.", tipo: "software" },
+      { titulo: "Taxa de atualização incompatível", desc: "Configurar a tela para uma taxa de atualização não suportada nativamente pode causar flickering. Comum após conectar/desconectar monitor externo.", tipo: "software" },
+      { titulo: "Painel LCD/LED com defeito", desc: "O próprio painel da tela pode ter defeito nos transistores (TFT) ou no circuito de backlight LED. Mais comum em telas com mais de 5 anos.", tipo: "hardware" },
+      { titulo: "Aplicativo com aceleração de hardware conflitante", desc: "Chrome, Discord e outros apps usam aceleração de hardware da GPU. Se o driver tem bug, esses apps causam flickering.", tipo: "software" },
+      { titulo: "Inversor de backlight com defeito (telas CCFL)", desc: "Em notebooks mais antigos com backlight CCFL (não LED), o inversor pode falhar, causando piscar ou escurecimento progressivo.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Atualização de driver de vídeo + ajuste de taxa de atualização + desabilitar aceleração de hardware em apps.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Troca do cabo flat (LVDS/eDP) + limpeza dos conectores. Resolve a maioria dos flickerings por hardware.", tempo: "1-3 horas", custo: "R$ 150–350" },
+      { nivel: "Complexo", desc: "Troca do painel LCD/LED completo ou reparo do circuito de backlight na placa-mãe.", tempo: "2-5 dias", custo: "R$ 350–900" }
+    ],
+    riscos: [
+      "Flickering prolongado causa fadiga visual, dor de cabeça e pode afetar a visão",
+      "Cabo flat com fio semi-rompido pode causar curto-circuito e danificar a placa-mãe",
+      "Ignorar o problema faz o cabo flat se romper completamente — tela apaga de vez",
+      "Trocar tela por modelo incompatível pode causar cores erradas ou resolução incorreta",
+      "Desmontar notebook sem experiência pode danificar a dobradiça ou romper outros cabos"
+    ],
+    diagnostico: `Diagnóstico de tela piscando:\n\n1. Teste com monitor externo (HDMI/VGA) — se estável, problema é na tela/cabo\n2. Teste de driver: boot em Modo de Segurança — se não pisca, é driver\n3. Verificação de cabo flat (movimentar tampa e observar)\n4. Teste de taxa de atualização e resolução\n5. Inspeção visual do cabo flat e conectores\n6. Teste com painel substituto (quando disponível)\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Driver**: DDU + instalação limpa do driver Intel/NVIDIA/AMD oficial\n- **Configuração**: Ajuste de taxa de atualização para nativa + desabilitar aceleração de hardware\n- **Cabo flat**: Troca do cabo LVDS/eDP por modelo original compatível\n- **Painel**: Substituição do LCD/LED por painel compatível (mesma resolução e conector)\n- **Backlight**: Reparo do circuito inversor ou troca de LEDs de backlight\n\nTeste de estabilidade por 1+ hora com abertura/fechamento da tampa.`,
+    quandoCompensa: "Na maioria dos casos — troca de cabo flat custa R$ 150-350 e resolve o problema. Até troca de tela (R$ 400-800) vale para notebooks de até 5 anos.",
+    quandoNaoCompensa: "Quando o painel é de resolução ou tamanho raro e o custo da peça + mão de obra supera 60% do valor do notebook.",
+    whatsappMessage: "Olá! A tela do meu notebook está piscando/tremendo. Podem me ajudar?",
+    relatedPages: [
+      { to: "/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Tela Piscando: Guia Completo\n\n### Teste Rápido: Software ou Hardware?\n\n| Teste | Resultado | Diagnóstico |\n|---|---|---|\n| Monitor externo estável? | Sim | Problema na tela/cabo do notebook |\n| Pisca no Modo de Segurança? | Não | Problema de driver/software |\n| Pisca ao mover a tampa? | Sim | Cabo flat com mau contato |\n| Pisca em tela preta (BIOS)? | Sim | Hardware (backlight/painel) |\n\n### Tipos de Cabo de Tela\n\n| Tipo | Uso | Pinos |\n|---|---|---|\n| LVDS | Notebooks até 2015 | 30 ou 40 pinos |\n| eDP | Notebooks modernos | 30 ou 40 pinos |\n| eDP 2.0 | Notebooks premium 4K | 40 pinos |\n\n### Como Desabilitar Aceleração de Hardware\n\n**Chrome**: Configurações → Sistema → Desativar "Usar aceleração de hardware"\n**Discord**: Configurações → Avançado → Desativar "Aceleração de hardware"\n**Excel/Office**: Arquivo → Opções → Avançado → Marcar "Desabilitar aceleração gráfica de hardware"`
+  },
+
+  // ==================== PC FAZENDO BARULHO ESTRANHO ====================
+  {
+    slug: "pc-fazendo-barulho-estranho-curitiba",
+    title: "PC Fazendo Barulho Estranho em Curitiba | Diagnóstico Profissional",
+    metaDescription: "Computador fazendo barulho estranho? Cliques, zumbido, chiado ou vibração? Técnico em Curitiba identifica a origem e resolve. Diagnóstico rápido e preciso.",
+    h1: "PC Fazendo Barulho Estranho — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware — Mecânico",
+    intro: `Seu computador começou a fazer barulhos estranhos — cliques, zumbidos, chiados, vibrações ou roncos? Qualquer ruído incomum é um sinal de alerta que não deve ser ignorado. O tipo de barulho indica exatamente qual componente está com problema e qual a urgência do reparo.\n\nCliques repetitivos podem indicar um HD mecânico em falha iminente (e seus dados em risco). Zumbido alto pode ser uma ventoinha com rolamento desgastado. Chiado elétrico (coil whine) geralmente vem da placa de vídeo ou fonte sob carga. Vibração excessiva pode ser uma ventoinha desbalanceada ou parafuso solto.\n\nEm Curitiba, o diagnóstico acústico é parte essencial do nosso atendimento. Com experiência, conseguimos identificar a origem do barulho sem sequer abrir o gabinete em muitos casos. Mas o diagnóstico completo envolve isolar cada componente para confirmar a fonte exata.`,
+    sintomas: [
+      { titulo: "Cliques rítmicos e repetitivos", desc: "Som de 'tec-tec-tec' em intervalos regulares. URGENTE: forte indicativo de HD mecânico com cabeça de leitura danificada. Risco de perda total de dados.", gravidade: "Crítica" },
+      { titulo: "Zumbido alto e constante", desc: "Ruído contínuo como de motor. Geralmente uma ventoinha (cooler de CPU, GPU ou gabinete) com rolamento desgastado girando com atrito.", gravidade: "Média" },
+      { titulo: "Chiado elétrico (coil whine)", desc: "Som agudo de alta frequência, como um 'iiiii' fino. Vem de indutores na placa de vídeo ou fonte sob carga pesada. Geralmente não é defeito.", gravidade: "Baixa" },
+      { titulo: "Vibração forte no gabinete", desc: "O gabinete inteiro treme ou vibra. Pode ser ventoinha desbalanceada, HD sem amortecedor de borracha ou parafuso solto.", gravidade: "Baixa-Média" },
+      { titulo: "Barulho de arranhar/raspar", desc: "Som de algo raspando dentro do gabinete. Pode ser cabo encostando em ventoinha, ventoinha batendo na grade ou HD com prato danificado.", gravidade: "Média-Alta" },
+      { titulo: "Estalidos ao ligar o PC", desc: "Sons de estalo quando o computador é ligado. Pode ser relé da fonte acionando, capacitor estufado ou arco elétrico em conexão frouxa.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "HD mecânico com falha", desc: "O disco rígido tem peças móveis que desgastam. Cliques indicam que a cabeça de leitura não consegue se posicionar — falha iminente e risco de perda de dados.", tipo: "desgaste" },
+      { titulo: "Ventoinha com rolamento desgastado", desc: "Coolers de CPU, GPU e gabinete têm rolamentos que desgastam após 3-5 anos. O barulho começa baixo e piora progressivamente.", tipo: "desgaste" },
+      { titulo: "Cabo encostando na ventoinha", desc: "Cabos de alimentação ou SATA podem cair e encostar nas pás da ventoinha, causando ruído de batida intermitente.", tipo: "erro-humano" },
+      { titulo: "Fonte de alimentação com problema", desc: "Fontes baratas ou velhas podem apresentar chiado (coil whine), estalidos ou zumbido. Ventoinhas de fonte também desgastam.", tipo: "hardware" },
+      { titulo: "Parafusos soltos ou gabinete vibrando", desc: "Parafusos de HD, SSD, ventoinha ou tampa do gabinete podem afrouxar com vibração, amplificando ruídos.", tipo: "desgaste" },
+      { titulo: "Placa de vídeo com coil whine", desc: "Indutores da GPU vibram microscopicamente sob carga pesada (jogos), emitindo som agudo. É normal em muitas GPUs, mas pode ser atenuado.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Organização de cabos + reaperto de parafusos + limpeza de ventoinhas. Resolve vibrações e barulhos mecânicos simples.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Troca de ventoinha defeituosa + lubrificação de rolamentos + amortecedores de HD.", tempo: "1-2 horas", custo: "R$ 120–300" },
+      { nivel: "Complexo", desc: "Backup emergencial de HD clicando + migração para SSD + troca de fonte. Quando múltiplos componentes estão barulhentos.", tempo: "1-3 dias", custo: "R$ 250–700" }
+    ],
+    riscos: [
+      "HD clicando pode falhar totalmente a qualquer momento — faça backup IMEDIATO",
+      "Ventoinha parada por rolamento travado causa superaquecimento e danos térmicos",
+      "Ignorar vibração pode afrouxar conexões internas e causar mau contato",
+      "Fonte com estalidos pode indicar arco elétrico — risco de curto-circuito",
+      "Continuar usando HD barulhento reduz drasticamente as chances de recuperação de dados",
+      "Cabo preso em ventoinha pode derreter por atrito e causar curto"
+    ],
+    diagnostico: `Diagnóstico acústico e mecânico:\n\n1. Identificação da origem do barulho com PC ligado (escuta técnica)\n2. Teste individual de cada ventoinha (parar uma por vez com segurança)\n3. Verificação de saúde do HD (SMART, CrystalDiskInfo)\n4. Inspeção de cabos e parafusos internos\n5. Teste de fonte com multímetro e sob carga\n6. Verificação de coil whine em GPU sob stress test\n\nCusto: R$ 80 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a origem:\n\n- **HD clicando**: Backup emergencial IMEDIATO + migração para SSD\n- **Ventoinha**: Troca por modelo silencioso ou lubrificação profissional\n- **Cabos**: Reorganização com abraçadeiras e afastamento de ventoinhas\n- **Parafusos**: Reaperto + uso de arruelas de borracha para amortecimento\n- **Fonte**: Troca por modelo silencioso com ventoinha de 120mm\n- **Coil whine**: Atenuação com ajuste de frame rate ou troca de fonte\n\nTeste de ruído comparativo antes e depois do reparo.`,
+    quandoCompensa: "Quase sempre — troca de ventoinha ou organização de cabos custa R$ 80-200. Migração de HD para SSD elimina o barulho e melhora a performance.",
+    quandoNaoCompensa: "Quando o coil whine é inerente ao design da GPU e não indica defeito — nesse caso, é característica do hardware.",
+    whatsappMessage: "Olá! Meu PC está fazendo barulho estranho. Podem diagnosticar a origem?",
+    relatedPages: [
+      { to: "/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Barulhos no PC: Guia de Identificação\n\n### Tabela de Sons e Causas\n\n| Som | Origem Provável | Urgência |\n|---|---|---|\n| Tec-tec-tec (clique) | HD mecânico | 🔴 Crítica |\n| Zumbido contínuo | Ventoinha | 🟡 Média |\n| Chiado agudo | Coil whine (GPU/fonte) | 🟢 Baixa |\n| Vibração/treme | Parafuso/HD solto | 🟡 Média |\n| Raspando/arranhando | Cabo na ventoinha | 🟠 Média-Alta |\n| Estalo ao ligar | Relé da fonte/capacitor | 🟡 Média |\n| Ronco intermitente | Ventoinha suja | 🟡 Média |\n\n### Como Reduzir Ruído do PC\n\n1. **Troque por ventoinhas silenciosas** (Noctua, Arctic, be quiet!)\n2. **Migre o HD para SSD** — elimina 100% do ruído do disco\n3. **Organize os cabos** — afaste de ventoinhas\n4. **Use amortecedores de borracha** em HDs e ventoinhas\n5. **Limpe as ventoinhas** a cada 6 meses\n6. **Considere gabinete com isolamento acústico**`
+  },
+
+  // ==================== ERRO DE PARTIÇÃO WINDOWS ====================
+  {
+    slug: "erro-particao-windows-curitiba",
+    title: "Erro de Partição no Windows em Curitiba | Reparo Profissional",
+    metaDescription: "Erro de partição no Windows? Disco não reconhecido, partição RAW ou corrompida? Técnico em Curitiba recupera partições e dados. Atendimento especializado.",
+    h1: "Erro de Partição no Windows — Reparo e Recuperação em Curitiba",
+    categoria: "Software — Disco",
+    intro: `Erros de partição são problemas na estrutura lógica do disco que impedem o Windows de acessar seus dados. O disco pode aparecer como RAW (sem sistema de arquivos), a partição pode sumir do Explorador de Arquivos, ou o Windows pode pedir para formatar o disco — mas NUNCA formate sem antes consultar um técnico.\n\nA tabela de partições (MBR ou GPT) é como um índice que diz ao sistema operacional onde cada partição começa e termina. Quando esse índice se corrompe — por queda de energia, vírus, erro de software ou operação incorreta — o Windows perde o acesso a todo o conteúdo, mesmo que os dados estejam intactos no disco.\n\nEm Curitiba, atendemos frequentemente casos de partição corrompida após queda de energia (especialmente em HDs mecânicos), tentativas fracassadas de redimensionar partições e erros causados por dual boot mal configurado.`,
+    sintomas: [
+      { titulo: "Disco aparece como RAW no Gerenciamento de Disco", desc: "A partição perdeu o sistema de arquivos e aparece como RAW. O Windows não consegue ler os dados mas eles geralmente ainda estão lá.", gravidade: "Alta" },
+      { titulo: "Windows pede para formatar o disco", desc: "Mensagem 'Você precisa formatar o disco antes de usá-lo'. NÃO FORMATE — os dados existem mas a tabela de partições está corrompida.", gravidade: "Alta" },
+      { titulo: "Partição sumiu do Explorador de Arquivos", desc: "O disco existe no Gerenciamento de Disco mas a partição não aparece. Pode ter perdido a letra de unidade ou a partição foi deletada acidentalmente.", gravidade: "Média-Alta" },
+      { titulo: "Erro 'Disco não inicializado' no Gerenciamento", desc: "O disco aparece como 'Não inicializado' e o Windows quer inicializar (apagar tudo). A tabela de partições MBR/GPT foi corrompida.", gravidade: "Alta" },
+      { titulo: "Windows não inicia após redimensionar partição", desc: "Tentou redimensionar, mover ou criar partição com software e agora o Windows não inicia. O bootloader ou partição EFI foram corrompidos.", gravidade: "Alta" },
+      { titulo: "Erro de boot: 'Operating System Not Found'", desc: "O BIOS/UEFI não encontra o sistema operacional. A partição de boot (EFI ou MBR) pode ter sido deletada ou corrompida.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Queda de energia durante gravação", desc: "Corte de luz enquanto o sistema gravava na tabela de partições corrompe a estrutura. Muito comum em Curitiba com HDs mecânicos.", tipo: "hardware" },
+      { titulo: "Software de particionamento causou erro", desc: "Programas como EaseUS, MiniTool ou GParted podem corromper partições se interrompidos, usados incorretamente ou com bugs.", tipo: "software" },
+      { titulo: "Vírus ou ransomware", desc: "Alguns malwares atacam diretamente a tabela de partições ou o MBR para impedir o boot e exigir resgate.", tipo: "software" },
+      { titulo: "Remoção incorreta de disco externo", desc: "Desconectar HD externo ou pen drive sem 'Remover com segurança' pode corromper a tabela de partições, especialmente durante gravação.", tipo: "erro-humano" },
+      { titulo: "Dual boot mal configurado", desc: "Instalar Linux ao lado do Windows sem configurar corretamente o GRUB ou redimensionar partições pode corromper o bootloader do Windows.", tipo: "erro-humano" },
+      { titulo: "Setores defeituosos na área da tabela de partições", desc: "Setores bad exatamente na região onde a tabela MBR/GPT está gravada tornam a partição inacessível.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Recuperação de partição deletada ou reassociação de letra de unidade. Ferramentas como TestDisk resolvem em minutos.", tempo: "30-90 min", custo: "R$ 100–200" },
+      { nivel: "Médio", desc: "Reparo de tabela de partições corrompida + reconstrução de MBR/GPT + recuperação de bootloader EFI.", tempo: "2-4 horas", custo: "R$ 200–400" },
+      { nivel: "Complexo", desc: "Recuperação de dados de partição RAW + reconstrução de sistema de arquivos NTFS + migração de dados.", tempo: "1-3 dias", custo: "R$ 350–800" }
+    ],
+    riscos: [
+      "Formatar o disco quando o Windows pede APAGA todos os dados permanentemente",
+      "Inicializar disco 'Não inicializado' destrói a tabela de partições existente",
+      "Usar chkdsk em partição RAW pode piorar a corrupção em alguns casos",
+      "Software gratuito de partição pode ter bugs que causam mais danos",
+      "Converter MBR para GPT sem backup pode perder todas as partições",
+      "Tentar reparar boot sem conhecimento pode tornar o Windows irrecuperável"
+    ],
+    diagnostico: `Diagnóstico de partição:\n\n1. Análise do Gerenciamento de Disco (estrutura atual)\n2. Verificação de tabela de partições com ferramentas profissionais (TestDisk, GParted)\n3. Verificação de saúde do disco (SMART, setores defeituosos)\n4. Identificação do tipo de tabela (MBR vs GPT)\n5. Scan de partições perdidas/deletadas\n6. Verificação de integridade do sistema de arquivos\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme o caso:\n\n- **Partição deletada**: Recuperação com TestDisk (restaura a partição original)\n- **Tabela corrompida**: Reconstrução de MBR/GPT com ferramentas profissionais\n- **Partição RAW**: Recuperação de dados + recriação da partição com sistema de arquivos correto\n- **Boot corrompido**: Reparo do bootloader Windows (bootrec, bcdboot) ou recriação da partição EFI\n- **Dual boot**: Reparação do GRUB/bootloader + configuração correta de partições\n\nTodos os dados são verificados e validados após a recuperação da partição.`,
+    quandoCompensa: "Sempre quando há dados importantes na partição. Recuperação custa R$ 100-400 na maioria dos casos — muito menos que perder os dados.",
+    quandoNaoCompensa: "Quando o disco tem dano físico severo (muitos setores defeituosos) e os dados já têm backup em outro lugar.",
+    whatsappMessage: "Olá! Meu disco está com erro de partição e não consigo acessar meus dados. Podem me ajudar?",
+    relatedPages: [
+      { to: "/erro-disco-cheio-curitiba", label: "Disco Cheio" },
+      { to: "/backup-perdido-curitiba", label: "Backup Perdido" },
+      { to: "/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## Partições no Windows: Guia Completo\n\n### MBR vs GPT — Qual a Diferença?\n\n| Característica | MBR | GPT |\n|---|---|---|\n| Limite de disco | 2 TB | 9.4 ZB |\n| Partições primárias | 4 | 128 |\n| Redundância | Nenhuma | Backup no final do disco |\n| Compatibilidade | BIOS + UEFI | Apenas UEFI |\n| Windows 11 | Não suporta | Obrigatório |\n\n### Estrutura de Partições do Windows\n\n| Partição | Tamanho | Função |\n|---|---|---|\n| EFI System (ESP) | 100-500 MB | Bootloader UEFI |\n| MSR (Microsoft Reserved) | 16-128 MB | Reservada pelo Windows |\n| Windows (C:) | Restante | Sistema operacional + dados |\n| Recovery | 500-1000 MB | Ambiente de recuperação |\n\n### Ferramentas Profissionais de Reparo\n\n- **TestDisk** (gratuito) — Recupera partições deletadas e repara tabela de partições\n- **GParted** (gratuito) — Gerenciamento de partições em Linux\n- **DMDE** — Recuperação avançada de dados e partições\n- **bootrec /fixmbr** — Repara MBR do Windows\n- **bcdboot** — Recria bootloader EFI do Windows`
+  },
+
+  // ==================== COMPUTADOR DESLIGANDO APÓS SEGUNDOS ====================
+  {
+    slug: "computador-desligando-apos-segundos-curitiba",
+    title: "Computador Desligando Após Poucos Segundos em Curitiba | Diagnóstico",
+    metaDescription: "Computador liga e desliga sozinho após poucos segundos? Técnico em Curitiba diagnostica problemas de fonte, processador, placa-mãe e superaquecimento. Atendimento rápido.",
+    h1: "Computador Desligando Após Poucos Segundos — Diagnóstico em Curitiba",
+    categoria: "Hardware — Energia",
+    intro: `O computador liga, as ventoinhas giram por 3 a 10 segundos e depois desliga sozinho? Esse comportamento indica um problema sério de hardware que impede o sistema de completar o POST (Power-On Self-Test). O computador detecta uma condição insegura e se desliga para proteger os componentes.\n\nAs causas mais comuns são: proteção térmica instantânea (cooler de CPU desencaixado ou sem pasta térmica), fonte de alimentação defeituosa, curto-circuito na placa-mãe ou memória RAM incompatível/defeituosa. Em casos raros, pode ser o processador com defeito.\n\nEsse é um dos problemas mais assustadores para o usuário, mas na maioria dos casos a causa é simples e o reparo é acessível. Em Curitiba, diagnosticamos com método de eliminação: testamos cada componente isoladamente para encontrar o culpado.`,
+    sintomas: [
+      { titulo: "Liga por 3-5 segundos e desliga", desc: "Ventoinhas giram brevemente e tudo apaga. Padrão clássico de proteção térmica — cooler de CPU não detectado ou não funcionando.", gravidade: "Alta" },
+      { titulo: "Liga e desliga em loop infinito", desc: "O PC tenta ligar, desliga, liga de novo, desliga... sem parar. Indica fonte com problema ou curto-circuito na placa-mãe.", gravidade: "Alta" },
+      { titulo: "Liga por 10-30 segundos sem imagem e desliga", desc: "Mais tempo ligado sugere que o POST progride parcialmente. Pode ser RAM defeituosa, GPU com problema ou erro de BIOS.", gravidade: "Média-Alta" },
+      { titulo: "Cheiro de queimado ao ligar", desc: "Odor de componente eletrônico queimado. DESLIGUE IMEDIATAMENTE. Pode ser capacitor, VRM da placa-mãe ou fonte com curto.", gravidade: "Crítica" },
+      { titulo: "LED da placa-mãe acende mas não liga", desc: "O LED standby da placa-mãe acende (indica que recebe energia) mas apertar o botão de power não faz nada ou liga por um instante.", gravidade: "Média-Alta" },
+      { titulo: "Funciona na segunda ou terceira tentativa", desc: "Desliga nas primeiras tentativas mas eventualmente liga. Indica capacitores desgastados na fonte ou placa-mãe com mau contato.", gravidade: "Média" }
+    ],
+    causas: [
+      { titulo: "Cooler de CPU desencaixado ou sem pasta térmica", desc: "A proteção térmica detecta que a CPU não está sendo refrigerada e desliga em segundos. Acontece após manutenção onde o cooler foi removido e recolocado incorretamente.", tipo: "erro-humano" },
+      { titulo: "Fonte de alimentação defeituosa", desc: "Fonte com capacitores estufados, trilha queimada ou ventilação entupida. Não consegue manter a alimentação estável e o sistema desliga.", tipo: "hardware" },
+      { titulo: "Curto-circuito na placa-mãe", desc: "Parafuso extra fazendo contato, standoff em posição errada ou trilha da placa-mãe com curto. O sistema de proteção desliga imediatamente.", tipo: "hardware" },
+      { titulo: "Memória RAM incompatível ou mal encaixada", desc: "RAM não suportada pela placa-mãe ou encaixada parcialmente. O POST falha e o sistema desliga após tentativas.", tipo: "erro-humano" },
+      { titulo: "Processador com defeito ou incompatível", desc: "CPU queimada por pico de tensão ou CPU de geração não suportada pela BIOS. Raro mas possível.", tipo: "hardware" },
+      { titulo: "Botão de power com mau contato", desc: "O botão liga/desliga do gabinete pode ter fio partido ou conector solto, enviando sinal intermitente.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reencaixe do cooler + nova pasta térmica + reencaixe de RAM. Resolve 40% dos casos.", tempo: "30-60 min", custo: "R$ 80–150" },
+      { nivel: "Médio", desc: "Troca de fonte de alimentação + verificação de curto-circuito + teste de componentes.", tempo: "1-3 horas", custo: "R$ 200–450" },
+      { nivel: "Complexo", desc: "Diagnóstico de placa-mãe com curto + reparo ou troca + verificação de todos os componentes.", tempo: "1-5 dias", custo: "R$ 350–900" }
+    ],
+    riscos: [
+      "Continuar tentando ligar com curto-circuito pode queimar mais componentes",
+      "Cheiro de queimado indica componente já danificado — desligar da tomada imediatamente",
+      "Fonte defeituosa pode enviar tensão errada e queimar placa-mãe, RAM e GPU",
+      "Ligar sem cooler de CPU pode danificar o processador em segundos",
+      "Ignorar loop de boot pode desgastar a fonte e piorar o problema",
+      "Trocar fonte por modelo muito barato pode causar o mesmo problema em semanas"
+    ],
+    diagnostico: `Diagnóstico de desligamento precoce:\n\n1. Verificação visual de componentes (queimados, estufados, mau contato)\n2. Teste de fonte com multímetro (voltagens e estabilidade)\n3. Teste bare-bones (placa + CPU + 1 pente de RAM — mínimo para POST)\n4. Verificação de cooler de CPU (encaixe, pasta térmica, rotação)\n5. Teste individual de cada pente de RAM\n6. Verificação de curto-circuito (standoffs, parafusos, gabinete)\n7. Teste com fonte alternativa\n\nCusto: R$ 90 (incorporado se aprovar o serviço).`,
+    solucao: `Solução conforme a causa:\n\n- **Cooler**: Reencaixe correto + nova pasta térmica + verificação de rotação\n- **Fonte**: Troca por fonte 80 Plus certificada com potência adequada\n- **Curto**: Remoção da causa do curto (parafuso, standoff, trilha) + teste de isolamento\n- **RAM**: Reencaixe ou troca por módulo compatível confirmado no QVL da placa-mãe\n- **Processador**: Teste com outro CPU compatível + verificação de socket\n- **Botão**: Reparo ou troca do cabo do botão power\n\nTeste de estabilidade por 30+ minutos após o reparo para garantir que não desliga.`,
+    quandoCompensa: "Na maioria dos casos — reencaixe de cooler ou troca de fonte custa R$ 80-400. O restante dos componentes geralmente está intacto.",
+    quandoNaoCompensa: "Quando placa-mãe e processador estão queimados e o PC é muito antigo — custo de peças equivale a um PC usado mais novo.",
+    whatsappMessage: "Olá! Meu computador liga e desliga sozinho após poucos segundos. Podem me ajudar?",
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "Computador Não Liga" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/fonte-queimada-curitiba", label: "Fonte Queimada" },
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/como-funciona", label: "Como Funciona" },
+      { to: "/precos-e-politicas", label: "Preços e Políticas" }
+    ],
+    conteudoExtra: `## PC Desligando Sozinho: Guia de Diagnóstico\n\n### Tempo Ligado vs Causa Provável\n\n| Tempo | Causa Mais Provável |\n|---|---|\n| 0-3 segundos | Curto-circuito ou proteção da fonte |\n| 3-5 segundos | Cooler de CPU não detectado |\n| 5-15 segundos | RAM defeituosa ou incompatível |\n| 15-60 segundos | Superaquecimento (sem pasta térmica) |\n| Minutos | Fonte subdimensionada sob carga |\n| Aleatório | Capacitor estufado / mau contato |\n\n### Teste Bare-Bones (Diagnóstico por Eliminação)\n\n1. Remova TUDO do gabinete: GPU, HDs, SSDs, ventoinhas extras\n2. Deixe apenas: placa-mãe + CPU + cooler + 1 pente de RAM\n3. Conecte a fonte e tente ligar\n4. Se funcionar: adicione um componente por vez até encontrar o culpado\n5. Se não funcionar: problema é na placa-mãe, CPU, RAM ou fonte\n\n### Sinais Visuais de Problemas\n\n| Sinal | Componente | Ação |\n|---|---|---|\n| Capacitor estufado (topo abaulado) | Placa-mãe/Fonte | Trocar componente |\n| Marca de queimado na placa | Placa-mãe | Avaliar reparo |\n| Pinos tortos no socket | Processador | Endireitar ou trocar |\n| Conector derretido | Fonte/GPU | Trocar imediatamente |`
+  },
+
 ];
 
 // Helper to get a page by slug

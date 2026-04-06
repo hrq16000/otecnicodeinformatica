@@ -314,6 +314,95 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
           subtitle="Atendimento profissional com foco em qualidade e agilidade"
         />
 
+        {/* Conteúdo Exclusivo Local — SEO 300+ palavras */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                Informática no {data.nome}: O Que Você Precisa Saber
+              </h2>
+
+              {data.conteudoExclusivo ? (
+                <div className="prose prose-lg text-muted-foreground mb-8" dangerouslySetInnerHTML={{ __html: "" }}>
+                </div>
+              ) : null}
+
+              <div className="prose prose-lg text-muted-foreground mb-8">
+                <p>
+                  Moradores e empresas do {data.nome} ({data.cidade}) enfrentam problemas de informática 
+                  que, quando ignorados, se transformam em prejuízo. Um computador lento pode significar 
+                  desde um HD desgastado até uma infecção silenciosa por malware. Um notebook que 
+                  superaquece pode estar com a pasta térmica ressecada — ou pode ser sinal de que o 
+                  componente está prestes a falhar.
+                </p>
+                <p>
+                  <strong>É por isso que o diagnóstico correto faz toda a diferença.</strong> Antes de trocar 
+                  peças ou formatar, é preciso entender o que realmente está acontecendo. Nosso técnico 
+                  atende o {data.nome} com equipamento profissional, faz a análise no local e explica 
+                  com clareza o que precisa ser feito — e o que não precisa.
+                </p>
+                <p>
+                  Quando o reparo pode ser feito na hora (como formatação, troca de SSD, limpeza interna 
+                  ou configuração de rede), resolvemos na primeira visita. Quando o caso exige bancada 
+                  (como reparo de placa-mãe ou troca de tela), informamos prazo e valor antes de retirar 
+                  o equipamento. <strong>Transparência total, sem surpresas.</strong>
+                </p>
+              </div>
+
+              {/* Problemas Comuns na Região */}
+              <div className="bg-secondary rounded-xl p-6 md:p-8 mb-8">
+                <h3 className="text-xl font-bold text-primary mb-4">
+                  Problemas Mais Comuns no {data.nome}
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {(data.problemasComuns || [
+                    "Computador lento que trava ao abrir programas",
+                    "Notebook superaquecendo e desligando sozinho",
+                    "Wi-Fi que cai ou fica lento em cômodos distantes",
+                    "Vírus, pop-ups e programas indesejados",
+                    "Tela azul ou computador que não liga",
+                    "Perda de arquivos e necessidade de backup urgente",
+                  ]).map((problema, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground text-sm">{problema}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-muted-foreground text-sm mt-4">
+                  Se você enfrenta algum desses problemas no {data.nome}, fale com nosso técnico. 
+                  Atendemos com horário agendado e resolvemos a maioria dos casos na primeira visita.
+                </p>
+              </div>
+
+              {/* Bloco educativo com links internos */}
+              <div className="grid md:grid-cols-3 gap-4">
+                <Link to="/como-funciona" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
+                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
+                  <p className="text-muted-foreground text-sm">Entenda o passo a passo do atendimento técnico a domicílio.</p>
+                  <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
+                    Ver detalhes <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+                <Link to="/precos-e-politicas" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
+                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
+                  <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. Visita a partir de R$ 99,99.</p>
+                  <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
+                    Ver preços <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+                <Link to="/diagnostico-tecnico" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
+                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
+                  <p className="text-muted-foreground text-sm">Por que o diagnóstico é pago e como ele protege você.</p>
+                  <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
+                    Entender <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Serviços Detalhados */}
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">

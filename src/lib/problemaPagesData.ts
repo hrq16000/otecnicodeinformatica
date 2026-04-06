@@ -6775,6 +6775,213 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
+
+  // ======= notebook-esquentando-muito-curitiba =======
+  {
+    slug: "notebook-esquentando-muito-curitiba",
+    title: "Notebook Esquentando Muito em Curitiba | Superaquecimento — Técnico Especializado",
+    metaDescription: "Notebook esquentando demais em Curitiba? Limpeza interna, troca de pasta térmica e reparo de cooler. Diagnóstico profissional com atendimento rápido.",
+    h1: "Notebook Esquentando Muito — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: "Quando o notebook esquenta além do normal, o desempenho cai drasticamente e há risco real de dano permanente aos componentes internos. Processadores modernos possuem proteção térmica (thermal throttling) que reduz a velocidade para evitar queima, mas isso transforma seu notebook em uma máquina lenta e instável.\n\nO superaquecimento é um dos problemas mais comuns e mais negligenciados. Poeira acumulada nos dutos de ventilação, pasta térmica ressecada e ventoinhas com rolamento desgastado são as causas mais frequentes. Em Curitiba, apesar do clima mais ameno, ambientes com carpete, cama e superfícies que bloqueiam a ventilação aceleram o problema.\n\nIgnorar o superaquecimento pode levar à queima do processador, da GPU ou até da placa-mãe — reparos que custam muito mais do que a manutenção preventiva. Nosso diagnóstico térmico identifica exatamente a causa e aplica a solução correta.",
+    sintomas: [
+      { titulo: "Base do notebook muito quente ao toque", desc: "A região do processador e GPU irradia calor excessivo, desconfortável para uso no colo.", gravidade: "Moderada" },
+      { titulo: "Ventoinha girando em alta rotação constantemente", desc: "O cooler trabalha no máximo o tempo todo, gerando ruído alto e indicando que não consegue dissipar o calor.", gravidade: "Moderada" },
+      { titulo: "Desligamentos repentinos durante uso intenso", desc: "O notebook desliga sozinho como proteção térmica quando a temperatura ultrapassa o limite seguro.", gravidade: "Alta" },
+      { titulo: "Lentidão progressiva após minutos de uso", desc: "O processador reduz a frequência (throttling) para se proteger, causando travamentos e lentidão.", gravidade: "Moderada" },
+      { titulo: "Tela congela durante jogos ou edição de vídeo", desc: "Tarefas que exigem GPU causam congelamento por superaquecimento do chip gráfico.", gravidade: "Alta" },
+      { titulo: "Ventoinha parou de funcionar", desc: "Ausência total de ruído do cooler indica falha mecânica — risco iminente de dano.", gravidade: "Crítica" }
+    ],
+    causas: [
+      { titulo: "Pasta térmica ressecada", desc: "A pasta térmica entre o processador e o dissipador perde eficiência após 2-3 anos, criando uma barreira de calor.", tipo: "desgaste" },
+      { titulo: "Dutos de ventilação obstruídos por poeira", desc: "Acúmulo de poeira e pelos nos dutos e aletas do dissipador bloqueia o fluxo de ar.", tipo: "desgaste" },
+      { titulo: "Ventoinha com rolamento desgastado", desc: "O motor do cooler perde eficiência ou para completamente, eliminando a refrigeração ativa.", tipo: "desgaste" },
+      { titulo: "Uso em superfícies que bloqueiam ventilação", desc: "Cama, almofada ou colo bloqueiam as entradas de ar na base do notebook.", tipo: "erro-humano" },
+      { titulo: "Thermal pad degradado na GPU", desc: "Os pads térmicos que transferem calor dos chips de memória e VRM para o dissipador se deterioram.", tipo: "desgaste" },
+      { titulo: "Dissipador de calor com mau contato", desc: "Parafusos soltos ou deformação no dissipador criam gaps que impedem a transferência de calor.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza interna completa com ar comprimido, remoção de poeira dos dutos e troca de pasta térmica.", tempo: "1-2 horas", custo: "R$120–R$180" },
+      { nivel: "Médio", desc: "Limpeza + troca de pasta térmica premium + substituição de thermal pads da GPU e VRM.", tempo: "2-3 horas", custo: "R$180–R$280" },
+      { nivel: "Complexo", desc: "Substituição completa do sistema de refrigeração (ventoinha + dissipador) + repaste com pasta de alta performance.", tempo: "3-5 horas", custo: "R$280–R$450" }
+    ],
+    riscos: [
+      "Queima permanente do processador por exposição prolongada a temperaturas acima de 100°C",
+      "Dano irreversível à GPU, especialmente em notebooks com chip soldado à placa-mãe",
+      "Degradação acelerada da bateria — calor excessivo reduz a vida útil em até 50%",
+      "Dessolda de componentes BGA (Ball Grid Array) causando falhas intermitentes",
+      "Perda de dados por desligamentos abruptos sem salvamento"
+    ],
+    diagnostico: "O diagnóstico térmico profissional utiliza software de monitoramento em tempo real (HWiNFO, ThrottleStop) para medir temperaturas de CPU, GPU e SSD sob carga controlada. Verificamos o funcionamento do cooler com RPM real, inspecionamos visualmente a pasta térmica e os dutos de ventilação.\n\nAnalisamos o histórico de throttling para determinar se houve dano térmico acumulado. O diagnóstico identifica se o problema é apenas manutenção preventiva ou se há componentes danificados que precisam de substituição.",
+    solucao: "A solução padrão envolve desmontagem completa do notebook, limpeza profunda de todos os componentes internos com ar comprimido e álcool isopropílico, remoção da pasta térmica antiga e aplicação de pasta de alta qualidade (Arctic MX-6 ou Thermal Grizzly Kryonaut).\n\nEm casos mais graves, substituímos thermal pads degradados por versões de maior condutividade térmica e trocamos ventoinhas com rolamento desgastado. Após a remontagem, realizamos teste de estresse térmico para validar que as temperaturas estão dentro dos parâmetros ideais (CPU abaixo de 85°C sob carga total).",
+    quandoCompensa: "Notebooks com menos de 4 anos que nunca fizeram manutenção térmica se beneficiam enormemente. Uma limpeza + repaste pode reduzir as temperaturas em 15-25°C e devolver o desempenho original.",
+    quandoNaoCompensa: "Se o processador ou GPU já apresentam danos por superaquecimento crônico (artefatos visuais permanentes, crashes mesmo em temperaturas normais), o custo de troca da placa-mãe pode não justificar em notebooks antigos.",
+    whatsappMessage: "Olá! Meu notebook está esquentando muito e preciso de diagnóstico térmico. Podem me ajudar?",
+    conteudoExtra: `## Temperaturas Ideais para Notebooks\n\n| Componente | Idle | Carga Leve | Carga Total | Limite Crítico |\n|---|---|---|---|---|\n| CPU | 35-50°C | 50-70°C | 70-85°C | 100°C |\n| GPU | 30-45°C | 45-65°C | 65-85°C | 95°C |\n| SSD NVMe | 30-40°C | 40-55°C | 55-70°C | 75°C |\n\n## Dicas de Prevenção\n\n- Use o notebook sempre em superfícies planas e rígidas\n- Invista em uma base com ventilação (cooler pad)\n- Faça limpeza interna preventiva a cada 12-18 meses\n- Evite bloquear as saídas de ar laterais e traseiras\n- Monitore temperaturas com HWiNFO64 (gratuito)`,
+    relatedPages: [
+      { to: "/computador-muito-barulhento-curitiba", label: "PC Barulhento" },
+      { to: "/pc-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
+      { to: "/pc-travando-em-jogos-curitiba", label: "PC Travando em Jogos" },
+      { to: "/notebook-lento-curitiba", label: "Notebook Lento" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ======= erro-0x80004005-curitiba =======
+  {
+    slug: "erro-0x80004005-curitiba",
+    title: "Erro 0x80004005 em Curitiba | Falha Não Especificada — Técnico Windows",
+    metaDescription: "Erro 0x80004005 no Windows em Curitiba? Diagnóstico profissional para resolver falhas de atualização, rede e registro. Atendimento rápido.",
+    h1: "Erro 0x80004005 no Windows — Diagnóstico e Correção em Curitiba",
+    categoria: "Erros Windows",
+    intro: "O código de erro 0x80004005 é um dos mais genéricos e frustrantes do Windows, significando literalmente 'Falha Não Especificada'. Ele pode aparecer em dezenas de contextos diferentes: ao tentar atualizar o Windows, acessar pastas compartilhadas na rede, extrair arquivos compactados, ou até ao iniciar máquinas virtuais.\n\nA natureza genérica desse erro torna o diagnóstico particularmente difícil para usuários comuns. Cada contexto em que ele aparece tem causas e soluções completamente diferentes. Um erro 0x80004005 durante o Windows Update tem causas totalmente distintas do mesmo código ao acessar uma pasta de rede.\n\nNosso diagnóstico identifica o contexto exato do erro, analisa os logs do sistema (Event Viewer, CBS.log, WindowsUpdate.log) e aplica a correção específica para o seu caso.",
+    sintomas: [
+      { titulo: "Erro ao instalar atualizações do Windows", desc: "O Windows Update falha repetidamente com código 0x80004005, impedindo a instalação de patches de segurança.", gravidade: "Moderada" },
+      { titulo: "Impossível acessar pastas compartilhadas na rede", desc: "Ao tentar abrir uma pasta de outro computador na rede, aparece 'Erro não especificado' com este código.", gravidade: "Moderada" },
+      { titulo: "Falha ao extrair arquivos ZIP ou RAR", desc: "Arquivos compactados não podem ser extraídos, exibindo erro 0x80004005 durante o processo.", gravidade: "Baixa" },
+      { titulo: "Máquina virtual não inicia (VirtualBox/Hyper-V)", desc: "VMs falham ao iniciar com este erro, geralmente relacionado a conflitos de virtualização.", gravidade: "Alta" },
+      { titulo: "Erro ao renomear ou mover arquivos", desc: "Operações simples de gerenciamento de arquivos falham com 'Erro não especificado'.", gravidade: "Moderada" }
+    ],
+    causas: [
+      { titulo: "Componentes do Windows Update corrompidos", desc: "A pasta SoftwareDistribution ou o cache do BITS contém dados corrompidos que bloqueiam atualizações.", tipo: "software" },
+      { titulo: "Protocolo SMBv1 desabilitado", desc: "Versões recentes do Windows desabilitam SMBv1 por segurança, mas dispositivos antigos na rede ainda o exigem.", tipo: "software" },
+      { titulo: "Chaves de registro corrompidas", desc: "Entradas inválidas no registro do Windows interferem com operações normais do sistema.", tipo: "software" },
+      { titulo: "Conflito Hyper-V e VirtualBox", desc: "Ambas as tecnologias de virtualização não podem coexistir ativas, causando falhas na inicialização de VMs.", tipo: "software" },
+      { titulo: "Permissões de arquivo incorretas", desc: "ACLs (Access Control Lists) corrompidas impedem operações legítimas sobre arquivos e pastas.", tipo: "software" },
+      { titulo: "Antivírus bloqueando operações", desc: "Software de segurança de terceiros pode interceptar e bloquear operações legítimas do Windows.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reset de componentes do Windows Update (SoftwareDistribution, catroot2) ou habilitação do protocolo de rede correto.", tempo: "30min–1 hora", custo: "R$80–R$130" },
+      { nivel: "Médio", desc: "Reparo de registro do Windows, correção de permissões NTFS e resolução de conflitos de virtualização.", tempo: "1-2 horas", custo: "R$130–R$200" },
+      { nivel: "Complexo", desc: "Reparo completo do Windows com DISM/SFC, reconstrução de perfil de usuário e restauração de componentes do sistema.", tempo: "2-4 horas", custo: "R$200–R$350" }
+    ],
+    riscos: [
+      "Atualizações de segurança não instaladas deixam o sistema vulnerável a malware",
+      "Edição incorreta do registro pode tornar o Windows não inicializável",
+      "Desabilitar proteções de segurança para contornar o erro expõe o sistema",
+      "Tentativas de reparo sem diagnóstico podem agravar a corrupção do sistema",
+      "Dados em pastas inacessíveis podem ser perdidos em tentativas de correção forçada"
+    ],
+    diagnostico: "O diagnóstico começa identificando o contexto exato em que o erro 0x80004005 ocorre. Analisamos os logs do Event Viewer, CBS.log e WindowsUpdate.log para rastrear a causa raiz.\n\nPara erros de rede, verificamos protocolos SMB, firewall e permissões de compartilhamento. Para erros de atualização, inspecionamos o estado dos componentes do Windows Update e a integridade do armazenamento de componentes (WinSxS). O diagnóstico preciso evita tentativas genéricas que podem piorar o problema.",
+    solucao: "A solução depende do contexto identificado no diagnóstico. Para Windows Update: reset completo dos componentes (parada de serviços BITS e wuauserv, limpeza de SoftwareDistribution e catroot2, re-registro de DLLs). Para rede: configuração correta de protocolos SMB e permissões de compartilhamento.\n\nPara erros de virtualização: resolução de conflitos entre Hyper-V, VBS e VirtualBox com configuração adequada de cada tecnologia. Em todos os casos, validamos a integridade do sistema com SFC /scannow e DISM /RestoreHealth após a correção.",
+    quandoCompensa: "Na maioria dos casos, o erro 0x80004005 é resolvível com diagnóstico correto. Compensa sempre investir no reparo, pois geralmente é um problema de software sem custo de peças.",
+    quandoNaoCompensa: "Raramente não compensa, exceto quando o erro é sintoma de corrupção profunda do Windows que exigiria reinstalação completa — nesse caso, o custo-benefício depende do tempo de backup e reinstalação vs. reparo.",
+    whatsappMessage: "Olá! Estou com o erro 0x80004005 no Windows e preciso de ajuda para resolver. Podem me atender?",
+    conteudoExtra: `## Contextos Comuns do Erro 0x80004005\n\n### Windows Update\nO erro durante atualizações geralmente indica corrupção no cache de downloads ou nos componentes do serviço de atualização. A solução envolve resetar esses componentes e, em casos graves, usar o DISM para reparar a imagem do sistema.\n\n### Rede e Compartilhamento\nEm ambientes de rede, o erro frequentemente está relacionado à desabilitação do SMBv1 nas versões recentes do Windows 10/11. Dispositivos mais antigos (NAS, impressoras de rede) podem exigir este protocolo.\n\n### Máquinas Virtuais\nO conflito entre Hyper-V (usado pelo WSL2, Docker e Windows Sandbox) e o VirtualBox é uma causa frequente. É necessário escolher uma tecnologia ou configurar o VirtualBox para usar o backend Hyper-V.`,
+    relatedPages: [
+      { to: "/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
+      { to: "/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
+      { to: "/erro-0xc00000e-curitiba", label: "Erro 0xc00000e" },
+      { to: "/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ======= pc-travando-em-jogos-curitiba =======
+  {
+    slug: "pc-travando-em-jogos-curitiba",
+    title: "PC Travando em Jogos em Curitiba | Freezes e Crashes — Técnico Gamer",
+    metaDescription: "PC travando em jogos em Curitiba? Diagnóstico de hardware e software para eliminar freezes, crashes e quedas de FPS. Atendimento especializado.",
+    h1: "PC Travando em Jogos — Diagnóstico e Otimização em Curitiba",
+    categoria: "Performance",
+    intro: "Travamentos durante jogos são um dos problemas mais frustrantes para gamers. Diferente de lentidão geral, os crashes em jogos podem ter causas muito específicas: desde drivers de GPU desatualizados até RAM com erros intermitentes que só aparecem sob carga pesada.\n\nO diagnóstico de travamentos em jogos exige uma abordagem metódica. É preciso distinguir entre problemas de hardware (superaquecimento, RAM defeituosa, fonte insuficiente) e software (drivers, DirectX, configurações do jogo, sistema operacional). Cada tipo de travamento — freeze completo, tela preta, crash to desktop, BSOD — aponta para causas diferentes.\n\nNosso técnico especializado realiza testes de estresse controlados em cada componente para identificar exatamente onde está o gargalo ou a falha, garantindo que você volte a jogar sem interrupções.",
+    sintomas: [
+      { titulo: "Jogo congela e o PC não responde", desc: "A tela fica estática, o áudio trava em loop e é necessário forçar reinicialização. Indica possível problema de GPU ou driver.", gravidade: "Alta" },
+      { titulo: "Crash to Desktop (CTD) sem mensagem de erro", desc: "O jogo fecha abruptamente voltando para a área de trabalho sem aviso, comum em problemas de RAM ou driver.", gravidade: "Moderada" },
+      { titulo: "Tela preta durante o jogo com som continuando", desc: "A GPU para de enviar sinal de vídeo mas o jogo continua rodando, típico de superaquecimento da placa de vídeo.", gravidade: "Alta" },
+      { titulo: "Quedas severas de FPS após minutos jogando", desc: "O jogo começa fluido mas degrada progressivamente, forte indicativo de throttling térmico.", gravidade: "Moderada" },
+      { titulo: "Tela azul (BSOD) durante jogos pesados", desc: "Crash do sistema com tela azul aparece apenas em jogos exigentes, pode indicar RAM defeituosa ou fonte instável.", gravidade: "Alta" },
+      { titulo: "Artefatos visuais (glitches, texturas corrompidas)", desc: "Blocos coloridos, texturas distorcidas ou flickering indicam problema na GPU ou VRAM.", gravidade: "Alta" }
+    ],
+    causas: [
+      { titulo: "Superaquecimento da GPU", desc: "A placa de vídeo atinge temperaturas acima de 90°C sob carga de jogos, causando throttling ou desligamento de proteção.", tipo: "hardware" },
+      { titulo: "Memória RAM com erros intermitentes", desc: "Módulos de RAM com setores defeituosos que só falham sob alta utilização, passando despercebidos em uso normal.", tipo: "hardware" },
+      { titulo: "Fonte de alimentação subdimensionada", desc: "A fonte não entrega potência suficiente nos picos de consumo da GPU, causando instabilidade.", tipo: "hardware" },
+      { titulo: "Driver de GPU desatualizado ou corrompido", desc: "Drivers antigos ou mal instalados causam incompatibilidade com jogos recentes.", tipo: "software" },
+      { titulo: "SSD/HD com setores defeituosos", desc: "Dados do jogo armazenados em setores ruins causam falhas ao carregar texturas ou níveis.", tipo: "hardware" },
+      { titulo: "Overclock instável", desc: "Configurações de overclock na CPU ou GPU que não são 100% estáveis falham sob carga prolongada de jogos.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação limpa de drivers (DDU), otimização de configurações do jogo e limpeza de arquivos temporários.", tempo: "1-2 horas", custo: "R$100–R$160" },
+      { nivel: "Médio", desc: "Diagnóstico térmico + limpeza/repaste da GPU, teste de RAM com MemTest86 e ajuste de fonte.", tempo: "2-4 horas", custo: "R$160–R$280" },
+      { nivel: "Complexo", desc: "Substituição de componente defeituoso (RAM, fonte ou GPU) + diagnóstico completo de estabilidade.", tempo: "4-8 horas", custo: "R$280–R$500+" }
+    ],
+    riscos: [
+      "Continuar jogando com GPU superaquecendo pode causar dano permanente ao chip gráfico",
+      "RAM defeituosa pode corromper saves de jogos e arquivos do sistema operacional",
+      "Fonte subdimensionada pode queimar componentes em picos de consumo",
+      "Ignorar artefatos visuais pode indicar GPU em estágio inicial de falha",
+      "Overclock instável pode degradar a vida útil do processador ou GPU"
+    ],
+    diagnostico: "O diagnóstico para travamentos em jogos segue uma sequência metódica: primeiro, monitoramento térmico em tempo real (GPU-Z, HWiNFO) durante execução de benchmarks (FurMark, 3DMark). Depois, teste de estresse de RAM com MemTest86 por múltiplos passes.\n\nVerificamos a saúde do SSD/HD com CrystalDiskInfo, testamos a estabilidade da fonte com multímetro e software de monitoramento de voltagens. Por fim, realizamos instalação limpa de drivers com DDU e teste em jogos específicos para validar a correção.",
+    solucao: "A solução é personalizada conforme o diagnóstico. Para problemas de driver: remoção completa com DDU em modo de segurança e instalação limpa da versão mais estável. Para superaquecimento: limpeza e repaste da GPU com pasta térmica de alta performance.\n\nPara RAM defeituosa: substituição dos módulos com falha. Para fonte insuficiente: upgrade para modelo com potência adequada e certificação 80 Plus. Após qualquer correção, realizamos teste prolongado de estabilidade em jogos para garantir que o problema foi completamente resolvido.",
+    quandoCompensa: "Na maioria dos casos, vale a pena investigar. Problemas de driver e térmicos são resolvidos com custo baixo. Mesmo substituição de RAM é acessível e resolve crashes frustrantes.",
+    quandoNaoCompensa: "Se a GPU apresenta artefatos permanentes mesmo em temperaturas normais, o chip está danificado e a substituição da placa é o caminho — o custo-benefício depende do valor do PC e da placa necessária.",
+    whatsappMessage: "Olá! Meu PC está travando durante jogos e preciso de diagnóstico. Podem me ajudar?",
+    conteudoExtra: `## Ferramentas de Diagnóstico para Gamers\n\n| Ferramenta | Finalidade | Gratuita |\n|---|---|---|\n| MSI Afterburner | Monitoramento de GPU em tempo real | Sim |\n| HWiNFO64 | Temperaturas e voltagens detalhadas | Sim |\n| MemTest86 | Teste completo de memória RAM | Sim |\n| FurMark | Stress test de GPU | Sim |\n| CrystalDiskInfo | Saúde do SSD/HD | Sim |\n| DDU (Display Driver Uninstaller) | Remoção limpa de drivers | Sim |\n\n## Temperaturas Ideais para Gaming\n\n- **CPU durante jogo**: 60-80°C (aceitável até 85°C)\n- **GPU durante jogo**: 65-83°C (aceitável até 90°C)\n- **Acima de 90°C**: Throttling ativo, desempenho comprometido\n- **Acima de 100°C**: Risco de dano permanente`,
+    relatedPages: [
+      { to: "/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
+      { to: "/computador-muito-barulhento-curitiba", label: "PC Barulhento" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
+      { to: "/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
+
+  // ======= impressora-nao-imprime-curitiba =======
+  {
+    slug: "impressora-nao-imprime-curitiba",
+    title: "Impressora Não Imprime em Curitiba | Diagnóstico e Reparo — Técnico Especializado",
+    metaDescription: "Impressora não imprime em Curitiba? Diagnóstico de driver, spooler, conexão e hardware. Atendimento profissional para todas as marcas.",
+    h1: "Impressora Não Imprime — Diagnóstico e Solução em Curitiba",
+    categoria: "Periféricos",
+    intro: "Uma impressora que para de funcionar pode paralisar a produtividade de um escritório inteiro. O problema pode ser tão simples quanto uma fila de impressão travada ou tão complexo quanto uma cabeça de impressão entupida ou placa lógica com defeito.\n\nO diagnóstico correto é essencial porque as causas variam enormemente: problemas de driver, serviço de spooler travado, conexão USB ou de rede instável, cartuchos incompatíveis, e falhas mecânicas internas. Cada marca (HP, Epson, Brother, Canon, Samsung) tem particularidades que exigem conhecimento específico.\n\nNosso técnico atende todas as marcas e modelos, incluindo impressoras a laser, jato de tinta, multifuncionais e tanque de tinta. Resolvemos desde problemas de software até reparos mecânicos.",
+    sintomas: [
+      { titulo: "Impressora aparece como offline no Windows", desc: "O sistema mostra a impressora como 'Offline' mesmo estando ligada e conectada, impedindo qualquer impressão.", gravidade: "Moderada" },
+      { titulo: "Documentos ficam presos na fila de impressão", desc: "Os trabalhos de impressão acumulam na fila mas nunca são impressos, e não podem ser cancelados.", gravidade: "Moderada" },
+      { titulo: "Impressão sai em branco ou com falhas", desc: "As folhas saem totalmente brancas ou com listras e falhas, indicando problema no cartucho ou cabeça de impressão.", gravidade: "Moderada" },
+      { titulo: "Impressora não é reconhecida pelo computador", desc: "O Windows não detecta a impressora ao conectar via USB, indicando problema de driver ou porta.", gravidade: "Moderada" },
+      { titulo: "Erro de 'papel preso' sem papel visível", desc: "Sensores de papel reportam obstrução mesmo sem papel preso, pode ser sensor sujo ou defeituoso.", gravidade: "Baixa" },
+      { titulo: "Impressora Wi-Fi desconecta constantemente", desc: "A conexão wireless cai frequentemente, impedindo impressão remota de outros dispositivos.", gravidade: "Moderada" }
+    ],
+    causas: [
+      { titulo: "Serviço Print Spooler travado", desc: "O serviço do Windows responsável por gerenciar a fila de impressão trava ou corrompe, bloqueando todas as impressões.", tipo: "software" },
+      { titulo: "Driver incompatível ou corrompido", desc: "Driver errado, desatualizado ou corrompido impede a comunicação correta entre o sistema e a impressora.", tipo: "software" },
+      { titulo: "Cabeça de impressão entupida", desc: "Tinta seca nos bicos da cabeça de impressão (jato de tinta) bloqueia a passagem de tinta, causando falhas.", tipo: "desgaste" },
+      { titulo: "Cartucho vazio ou incompatível", desc: "Cartuchos remanufaturados com chip incompatível ou toner esgotado não são reconhecidos pela impressora.", tipo: "hardware" },
+      { titulo: "Cabo USB ou porta defeituosa", desc: "Cabos danificados ou portas USB com mau contato impedem a comunicação estável.", tipo: "hardware" },
+      { titulo: "Configuração de rede incorreta", desc: "IP fixo alterado, rede Wi-Fi trocada ou firewall bloqueando a porta de impressão na rede.", tipo: "software" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reset do spooler de impressão, limpeza da fila, reinstalação de driver e verificação de conexão.", tempo: "30min–1 hora", custo: "R$80–R$130" },
+      { nivel: "Médio", desc: "Limpeza de cabeça de impressão, configuração de rede Wi-Fi, troca de cartucho e calibração.", tempo: "1-2 horas", custo: "R$130–R$220" },
+      { nivel: "Complexo", desc: "Reparo mecânico interno, substituição de cabeça de impressão ou placa lógica da impressora.", tempo: "2-5 horas", custo: "R$220–R$400" }
+    ],
+    riscos: [
+      "Tentativas de limpeza manual da cabeça de impressão podem danificá-la permanentemente",
+      "Usar cartuchos remanufaturados de baixa qualidade pode entupir os bicos de impressão",
+      "Forçar remoção de 'papel preso' pode danificar sensores e rolos internos",
+      "Reinstalar drivers incorretos pode causar conflitos com outros dispositivos",
+      "Ignorar vazamentos de tinta pode danificar componentes eletrônicos internos"
+    ],
+    diagnostico: "O diagnóstico avalia a impressora em múltiplas camadas: primeiro verificamos a conectividade (USB, rede, Wi-Fi) e o reconhecimento pelo sistema operacional. Depois, testamos o serviço de spooler, driver e fila de impressão.\n\nPara problemas de qualidade de impressão, executamos a página de teste interna da impressora (sem depender do PC) para isolar se o problema é no equipamento ou no software. Em impressoras jato de tinta, verificamos o estado dos bicos com teste de padrão de impressão.",
+    solucao: "Para problemas de software: reset completo do spooler (parada do serviço, limpeza de arquivos em C:\\Windows\\System32\\spool\\PRINTERS, reinstalação limpa do driver oficial). Para problemas de qualidade: ciclos de limpeza automática e manual da cabeça de impressão.\n\nPara impressoras de rede: reconfiguração de IP fixo, verificação de firewall e teste de porta. Em casos mecânicos: substituição de peças internas (rolos de alimentação, sensores, fusores em impressoras laser). Após o reparo, imprimimos página de teste e documento real para validação.",
+    quandoCompensa: "Impressoras laser e multifuncionais de médio/alto porte geralmente compensam o reparo. Problemas de software são resolvidos rapidamente e sem custo de peças.",
+    quandoNaoCompensa: "Impressoras jato de tinta de entrada (sub R$500 novas) com cabeça de impressão integrada geralmente não compensam reparo mecânico — o custo da peça se aproxima do valor de uma impressora nova.",
+    whatsappMessage: "Olá! Minha impressora não está imprimindo e preciso de ajuda para resolver. Podem me atender?",
+    conteudoExtra: `## Marcas que Atendemos\n\n- **HP**: LaserJet, DeskJet, OfficeJet, Smart Tank\n- **Epson**: EcoTank, WorkForce, Expression\n- **Brother**: HL (laser), DCP e MFC (multifuncionais)\n- **Canon**: PIXMA, MAXIFY, imageCLASS\n- **Samsung/Xerox**: Impressoras laser monocromáticas e coloridas\n\n## Dicas de Manutenção Preventiva\n\n1. **Imprima ao menos 1 página por semana** para evitar ressecamento da tinta\n2. **Use papel de boa qualidade** para evitar acúmulo de resíduos nos rolos\n3. **Mantenha o driver atualizado** através do site oficial do fabricante\n4. **Em impressoras Wi-Fi**, configure IP fixo para evitar perda de conexão\n5. **Nunca force a remoção de papel preso** — siga o procedimento do manual`,
+    relatedPages: [
+      { to: "/computador-sem-wifi-curitiba", label: "PC Sem Wi-Fi" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
+      { to: "/servicos", label: "Todos os Serviços" }
+    ]
+  },
 ];
 
 

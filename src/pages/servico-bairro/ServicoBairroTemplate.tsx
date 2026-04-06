@@ -180,7 +180,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
         </div>
       </section>
 
-      {/* Preço Destaque */}
+      <AnimatedSection>
       <section className="py-8 bg-accent/10 border-y border-accent/20">
         <div className="container mx-auto px-4 text-center">
           <p className="text-2xl font-bold text-primary">
@@ -189,8 +189,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           <p className="text-muted-foreground mt-2">{data.precoDescricao}</p>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* Descrição Local */}
+      <AnimatedSection>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -222,7 +223,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
               </div>
             </div>
             
-            {/* Pontos de Referência */}
             <div className="mt-8 p-6 bg-secondary rounded-xl">
               <h3 className="font-bold text-primary mb-4 flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-accent" />
@@ -242,8 +242,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* Benefícios */}
+      <AnimatedSection>
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
@@ -259,8 +260,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* Processo */}
+      <AnimatedSection>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
@@ -279,8 +281,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* FAQ Local */}
+      <AnimatedSection>
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
@@ -296,8 +299,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* CTA Final */}
+      <AnimatedSection>
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
@@ -316,8 +320,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </Button>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* Serviços Relacionados */}
+      <AnimatedSection>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
@@ -351,6 +356,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       <BlocoInteligencia />
       <Footer />

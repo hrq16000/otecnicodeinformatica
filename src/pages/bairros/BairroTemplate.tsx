@@ -229,7 +229,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
           </div>
         </section>
 
-        {/* Pricing Banner */}
+        <AnimatedSection>
         <section className="py-6 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
@@ -237,12 +237,12 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
 
-        {/* Conteúdo Local */}
+        <AnimatedSection>
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              {/* Imagem real de atendimento */}
               <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
                 <img 
                   src={IMAGES.atendimentoDomiciliar} 
@@ -267,26 +267,19 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                       com qualidade e pontualidade.
                     </p>
                   </div>
-
-                  {/* Pontos de Referência */}
                   <div className="mt-6">
                     <h3 className="text-lg font-semibold text-foreground mb-3">
                       Regiões Atendidas Próximas:
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {data.pontosReferencia.map((ponto, index) => (
-                        <span
-                          key={index}
-                          className="bg-secondary text-muted-foreground px-3 py-1 rounded-full text-sm"
-                        >
+                        <span key={index} className="bg-secondary text-muted-foreground px-3 py-1 rounded-full text-sm">
                           {ponto}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Sidebar - Serviços */}
                 <div className="lg:col-span-2">
                   <div className="bg-secondary rounded-xl p-6 sticky top-24">
                     <h3 className="text-xl font-bold text-primary mb-4">
@@ -314,14 +307,17 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
 
+        <AnimatedSection>
         <BenefitsGrid
           benefits={benefits}
           title={`Por Que Escolher o Técnico Curitiba em ${data.nome}?`}
           subtitle="Atendimento profissional com foco em qualidade e agilidade"
         />
+        </AnimatedSection>
 
-        {/* Conteúdo Exclusivo Local — SEO 300+ palavras */}
+        <AnimatedSection>
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
@@ -356,7 +352,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 </p>
               </div>
 
-              {/* Problemas Comuns na Região */}
               <div className="bg-secondary rounded-xl p-6 md:p-8 mb-8">
                 <h3 className="text-xl font-bold text-primary mb-4">
                   Problemas Mais Comuns no {data.nome}
@@ -382,7 +377,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 </p>
               </div>
 
-              {/* Bloco educativo com links internos */}
               <div className="grid md:grid-cols-3 gap-4">
                 <Link to="/como-funciona" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
                   <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
@@ -409,15 +403,15 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
 
-        {/* Serviços Detalhados */}
+        <AnimatedSection>
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
                 Principais Serviços no {data.nome}
               </h2>
-
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-background rounded-xl p-6 text-center">
                   <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
@@ -428,7 +422,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     Instalação limpa do Windows, drivers e programas. Computador como novo.
                   </p>
                 </div>
-
                 <div className="bg-background rounded-xl p-6 text-center">
                   <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
                     <Shield className="h-8 w-8 text-primary-foreground" />
@@ -438,7 +431,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     Limpeza completa de malwares, trojans e ransomware. Proteção instalada.
                   </p>
                 </div>
-
                 <div className="bg-background rounded-xl p-6 text-center">
                   <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
                     <HardDrive className="h-8 w-8 text-primary-foreground" />
@@ -452,8 +444,9 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </div>
         </section>
+        </AnimatedSection>
 
-        {/* FAQs Geo-específicas (se existirem) */}
+        <AnimatedSection>
         {bairroFAQs[data.slug] ? (
           <GeoSpecificFAQs
             bairroSlug={data.slug}
@@ -483,12 +476,14 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             ]}
           />
         )}
+        </AnimatedSection>
 
-        {/* Interlinking de Serviços */}
+        <AnimatedSection>
         <ServiceLocalLinks currentCity={data.cidade} currentNeighborhood={data.nome} />
+        </AnimatedSection>
 
-        <TrustSection />
-        <CTASection />
+        <AnimatedSection><TrustSection /></AnimatedSection>
+        <AnimatedSection><CTASection /></AnimatedSection>
       </main>
       <BlocoInteligencia compact />
       <Footer />

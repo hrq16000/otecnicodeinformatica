@@ -23,6 +23,8 @@ import { trackPageView } from "@/lib/analytics";
 import { HomePricingBlock } from "@/components/HomePricingBlock";
 import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
 import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
+import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 
 const Index = () => {
   useEffect(() => {
@@ -102,6 +104,8 @@ const Index = () => {
         <HomePricingBlock />
         <HomeDiagnosticoBlock />
         <HomeEquipamentosBlock />
+        <HomeParaQuemBlock />
+        <InterlinkingBlock />
 
         <FAQSection />
         <TrustSection />

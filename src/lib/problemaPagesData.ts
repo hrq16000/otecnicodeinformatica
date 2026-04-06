@@ -5137,6 +5137,349 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     conteudoExtra: `## Cheiro de Queimado no PC: Guia de Emergência\n\n### O Que Fazer IMEDIATAMENTE\n\n1. 🔴 **DESLIGUE DA TOMADA** (puxe o cabo, não use o botão)\n2. 🔴 **AFASTE-SE** se houver fumaça — ventile o ambiente\n3. ❌ **NÃO ABRA** o gabinete enquanto houver fumaça ou calor\n4. ❌ **NÃO RELIGUE** sem diagnóstico profissional\n5. ✅ **AGUARDE** esfriar completamente (30+ minutos)\n6. ✅ **PROCURE** técnico especializado\n\n### Identificando o Componente pelo Cheiro\n\n| Cheiro | Componente Provável |\n|---|---|\n| Plástico derretendo | Conector Molex/SATA, cabo |\n| Químico acre/vinagre | Capacitor estufado |\n| Metal quente | VRM, regulador, chip |\n| Borracha queimando | Fio de alimentação |\n| Poeira queimando | Dissipador sujo (menos grave) |\n\n### Prevenção: Como Proteger Seu PC\n\n| Proteção | Custo | Protege Contra |\n|---|---|---|\n| Filtro de linha básico | R$ 20-50 | Nada (não protege de verdade) |\n| Protetor de surto (DPS) | R$ 50-150 | Picos de tensão |\n| Estabilizador | R$ 100-300 | Oscilações leves |\n| Nobreak (UPS) | R$ 300-1000 | Queda + pico + estabilização |\n\n⚠️ **Filtro de linha NÃO É protetor de surto** — a maioria dos filtros baratos não tem proteção real contra picos.`
   },
 
+  // ─── notebook-bateria-nao-carrega-curitiba ───
+  {
+    slug: "notebook-bateria-nao-carrega-curitiba",
+    title: "Notebook Não Carrega a Bateria em Curitiba | Diagnóstico Especializado",
+    metaDescription: "Notebook não carrega a bateria? Técnico em Curitiba diagnostica problemas no carregador, conector DC, chip de carga e bateria com laudo profissional.",
+    h1: "Notebook Não Carrega a Bateria — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware",
+    intro: `Seu notebook está conectado na tomada, mostra "conectado, sem carregar" ou simplesmente não reconhece o carregador? Esse é um dos problemas mais comuns em notebooks com mais de 2 anos de uso e pode ter causas simples (cabo danificado) ou complexas (chip de gerenciamento de carga queimado).
+
+Em Curitiba, atendemos dezenas de casos por mês de notebooks que não carregam. O problema pode estar no carregador, no conector DC-in do notebook, na placa-mãe (circuito de carga) ou na própria bateria. Sem diagnóstico correto, muitos usuários trocam peças desnecessariamente.
+
+A bateria de íon-lítio tem vida útil de 300 a 500 ciclos completos. Após esse período, sua capacidade cai significativamente. Mas antes de trocar a bateria, é fundamental verificar se o problema não está no carregador ou no circuito de carga da placa-mãe — caso contrário, a bateria nova também não carregará.`,
+    whatsappMessage: "Olá! Meu notebook não está carregando a bateria. Gostaria de agendar um diagnóstico.",
+    sintomas: [
+      { titulo: "Mensagem 'Conectado, sem carregar'", desc: "O Windows reconhece o carregador mas a bateria não carrega. Pode indicar bateria no fim da vida útil, driver corrompido ou problema no chip de carga.", gravidade: "Médio" },
+      { titulo: "LED de carga não acende", desc: "O indicador luminoso de carregamento não liga ao conectar o carregador. Problema pode ser no carregador, cabo ou conector DC-in.", gravidade: "Médio" },
+      { titulo: "Bateria trava em percentual fixo", desc: "A bateria fica parada em 0%, 50% ou outro valor e não avança. Indica célula defeituosa ou controlador BMS com falha.", gravidade: "Alto" },
+      { titulo: "Notebook só funciona na tomada", desc: "Ao desconectar o carregador, o notebook desliga imediatamente. Bateria completamente degradada ou desconectada internamente.", gravidade: "Alto" },
+      { titulo: "Carregador esquenta excessivamente", desc: "A fonte de alimentação fica muito quente e para de fornecer energia. Pode indicar curto interno no carregador ou consumo anormal do notebook.", gravidade: "Alto" },
+      { titulo: "Carga intermitente", desc: "A bateria carrega e para, carrega e para, de forma aleatória. Conector DC-in com mau contato ou cabo do carregador danificado internamente.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Carregador defeituoso ou incompatível", desc: "Carregadores genéricos com voltagem/amperagem errada não fornecem energia suficiente. Cabos com rompimento interno são causa frequente.", tipo: "hardware" },
+      { titulo: "Conector DC-in danificado", desc: "O conector onde o carregador é plugado se desgasta com o tempo, causando mau contato. Em muitos modelos é soldado à placa-mãe.", tipo: "desgaste" },
+      { titulo: "Bateria com ciclos esgotados", desc: "Baterias de lítio perdem capacidade após 300-500 ciclos. Software como BatteryInfoView mostra o desgaste real (wear level).", tipo: "desgaste" },
+      { titulo: "Chip de gerenciamento de carga (BQ chip)", desc: "O CI responsável por controlar a carga da bateria na placa-mãe pode queimar por picos de energia ou uso de carregadores incompatíveis.", tipo: "hardware" },
+      { titulo: "Driver ACPI corrompido", desc: "O driver de gerenciamento de energia do Windows pode corromper e impedir o reconhecimento correto da bateria.", tipo: "software" },
+      { titulo: "Oxidação nos contatos da bateria", desc: "Umidade e tempo causam oxidação nos terminais de contato entre a bateria e a placa-mãe, interrompendo a comunicação.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema no carregador ou driver — substituição do carregador ou reinstalação do driver ACPI resolve.", tempo: "1-2 horas", custo: "R$80–R$200" },
+      { nivel: "Médio", desc: "Conector DC-in com mau contato — necessita dessoldar e ressoldar ou substituir o conector. Ou troca de bateria.", tempo: "2-4 horas", custo: "R$150–R$400" },
+      { nivel: "Complexo", desc: "Chip de gerenciamento de carga queimado na placa-mãe — reparo de micro-solda BGA com estação profissional.", tempo: "3-7 dias", custo: "R$300–R$700" }
+    ],
+    riscos: [
+      "Usar carregador genérico com especificações erradas pode queimar o chip de carga da placa-mãe",
+      "Bateria completamente degradada pode inchar e danificar o chassi ou a tela do notebook",
+      "Ignorar o problema pode causar desligamentos abruptos e perda de dados",
+      "Tentativas de reparo sem experiência podem danificar o conector soldado à placa-mãe"
+    ],
+    diagnostico: `O diagnóstico de carregamento envolve múltiplas etapas: teste do carregador com multímetro (voltagem e amperagem de saída), inspeção do conector DC-in com lupa e teste de continuidade, verificação do estado da bateria via software (ciclos, wear level, voltagem das células) e análise do circuito de carga na placa-mãe.
+
+Utilizamos carregadores de referência para isolar o problema e ferramentas de diagnóstico de bateria que mostram a saúde real das células. Em casos de suspeita de chip de carga, usamos osciloscópio para verificar os sinais de controle.`,
+    solucao: `A solução depende da causa raiz identificada no diagnóstico:
+
+Para carregadores defeituosos, recomendamos sempre fontes originais ou compatíveis homologadas com a voltagem e amperagem corretas para o modelo.
+
+Conectores DC-in são reparados com estação de solda — em modelos onde o conector é separado da placa, a troca é simples. Quando soldado à placa-mãe, requer micro-solda.
+
+Baterias degradadas são substituídas por células compatíveis. Verificamos o Part Number original para garantir compatibilidade física e elétrica.
+
+Problemas no chip de carga (BQ24xxx, ISL6xxx, etc.) exigem reballing ou substituição do componente SMD com estação BGA profissional.`,
+    quandoCompensa: "Notebooks com menos de 4 anos, quando o problema é carregador, conector ou bateria. Mesmo reparo de chip de carga compensa se o notebook vale mais de R$2.500.",
+    quandoNaoCompensa: "Notebooks muito antigos (7+ anos) com placa-mãe danificada em múltiplos pontos. O custo do reparo pode ultrapassar o valor do equipamento.",
+    conteudoExtra: `## Dicas para Preservar a Bateria do Notebook
+
+### Cuidados no Dia a Dia
+- Mantenha a carga entre 20% e 80% sempre que possível
+- Evite usar o notebook em superfícies que bloqueiem a ventilação
+- Use sempre carregadores originais ou homologados
+- Em uso fixo prolongado, alguns fabricantes oferecem modo de "carga limitada" na BIOS
+
+### Sinais de Bateria Inchada
+Se o touchpad começar a ficar alto, a base do notebook não fechar direito ou você notar uma protuberância na parte inferior, **desligue imediatamente** e procure assistência. Baterias inchadas são risco de incêndio.
+
+### Verificando a Saúde da Bateria
+No Windows, execute no Prompt de Comando como administrador:
+\`powercfg /batteryreport\`
+O relatório mostra a capacidade original vs. atual e o número de ciclos.`,
+    relatedPages: [
+      { to: "/computador-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
+      { to: "/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/computador-com-cheiro-de-queimado-curitiba", label: "Cheiro de Queimado" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
+    ]
+  },
+
+  // ─── pc-com-pop-ups-e-propagandas-curitiba ───
+  {
+    slug: "pc-com-pop-ups-e-propagandas-curitiba",
+    title: "PC com Pop-ups e Propagandas em Curitiba | Remoção de Adware",
+    metaDescription: "Computador cheio de pop-ups e propagandas? Técnico em Curitiba remove adware, browser hijackers e PUPs com limpeza profunda e proteção contra reinfecção.",
+    h1: "PC com Pop-ups e Propagandas — Remoção Profissional em Curitiba",
+    categoria: "Software / Segurança",
+    intro: `Seu computador abriu uma enxurrada de pop-ups, propagandas em sites que antes não tinham, barras de ferramentas estranhas no navegador ou a página inicial mudou sozinha? Esses são sintomas clássicos de adware e browser hijackers — softwares indesejados que se instalam silenciosamente e bombardeiam você com publicidade.
+
+Diferente de vírus tradicionais que danificam arquivos, adwares são projetados para gerar receita publicitária às custas do seu conforto e privacidade. Eles rastreiam seus hábitos de navegação, redirecionam buscas para sites patrocinados e podem abrir portas para ameaças mais graves como ransomware e trojans.
+
+Em Curitiba, esse é um dos problemas mais frequentes que atendemos. Muitas vezes o adware chega junto com programas "gratuitos" baixados da internet, extensões de navegador maliciosas ou cliques em links suspeitos. A remoção completa exige mais do que um antivírus — é necessário limpar registros, extensões, tarefas agendadas e políticas de grupo.`,
+    whatsappMessage: "Olá! Meu computador está cheio de pop-ups e propagandas. Preciso de ajuda para remover.",
+    sintomas: [
+      { titulo: "Pop-ups constantes mesmo sem navegador aberto", desc: "Janelas de propaganda aparecem na área de trabalho. Indica adware instalado como serviço do sistema ou tarefa agendada.", gravidade: "Alto" },
+      { titulo: "Página inicial do navegador alterada", desc: "O Google foi substituído por um buscador desconhecido (Hao123, Delta Search, etc.). Browser hijacker modificou as configurações.", gravidade: "Médio" },
+      { titulo: "Propagandas inseridas em sites limpos", desc: "Banners e links patrocinados aparecem em sites como Google e Wikipedia. Extensão maliciosa injetando anúncios nas páginas.", gravidade: "Alto" },
+      { titulo: "Navegador abrindo abas sozinho", desc: "Novas abas com sites de apostas, downloads ou conteúdo adulto abrem automaticamente. Redirecionamento por script malicioso.", gravidade: "Alto" },
+      { titulo: "Computador lento após infecção", desc: "O adware consome CPU e memória para exibir propagandas, tornando o sistema visivelmente mais lento.", gravidade: "Médio" },
+      { titulo: "Barras de ferramentas desconhecidas", desc: "Toolbars como Ask, Babylon ou Conduit aparecem no navegador sem terem sido instaladas conscientemente.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Download de programas com bundleware", desc: "Instaladores de programas gratuitos incluem adware nas opções 'Recomendado' ou 'Express'. Clicar em 'Avançar' sem ler instala tudo.", tipo: "erro-humano" },
+      { titulo: "Extensões maliciosas de navegador", desc: "Extensões que prometem funcionalidades úteis mas na verdade injetam propagandas e rastreiam navegação.", tipo: "software" },
+      { titulo: "Clique em anúncios enganosos", desc: "Botões falsos de 'Download' ou 'Fechar' em sites de pirataria que na verdade instalam adware.", tipo: "erro-humano" },
+      { titulo: "Cracks e keygens infectados", desc: "Ativadores piratas de software frequentemente contêm adware, spyware e trojans embutidos.", tipo: "software" },
+      { titulo: "Políticas de grupo (GPO) alteradas", desc: "Adwares avançados modificam políticas de grupo do Windows para impedir a remoção e forçar configurações do navegador.", tipo: "software" },
+      { titulo: "Notificações push aceitas acidentalmente", desc: "Sites que pedem para 'Permitir notificações' e depois enviam spam de propaganda pelo sistema de notificações do navegador.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Adware superficial — remoção de extensões, limpeza de navegadores e desinstalação de PUPs. Caso resolva.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Adware persistente com tarefas agendadas, GPO alterado e múltiplos navegadores infectados. Limpeza profunda necessária.", tempo: "2-4 horas", custo: "R$150–R$250" },
+      { nivel: "Complexo", desc: "Infecção combinada (adware + trojan + rootkit). Pode exigir formatação com backup seletivo e reinstalação limpa.", tempo: "4-8 horas", custo: "R$200–R$350" }
+    ],
+    riscos: [
+      "Adware pode evoluir para spyware que rouba senhas e dados bancários",
+      "Pop-ups podem redirecionar para sites de phishing e golpes financeiros",
+      "Extensões maliciosas têm acesso a tudo que você digita no navegador, incluindo senhas",
+      "Ignorar a infecção permite que mais malware seja baixado silenciosamente"
+    ],
+    diagnostico: `O diagnóstico de adware é minucioso e envolve: verificação de programas instalados (lista de PUPs conhecidos), análise de extensões em todos os navegadores (Chrome, Firefox, Edge), inspeção de tarefas agendadas no Windows, verificação de políticas de grupo (GPO), análise do arquivo HOSTS e das configurações de proxy.
+
+Utilizamos ferramentas especializadas como AdwCleaner, Malwarebytes, HitmanPro e FRST (Farbar Recovery Scan Tool) para identificar todos os componentes da infecção. O relatório do FRST mostra modificações em registros, serviços e tarefas que antivírus comuns não detectam.`,
+    solucao: `A remoção profissional de adware segue um protocolo rigoroso:
+
+1. Desinstalação de todos os PUPs (Programas Potencialmente Indesejados) pelo Painel de Controle e ferramentas especializadas.
+
+2. Remoção de extensões maliciosas de todos os navegadores instalados e reset das configurações (página inicial, buscador padrão, proxy).
+
+3. Limpeza de tarefas agendadas, serviços e entradas de registro criadas pelo adware.
+
+4. Restauração de políticas de grupo (GPO) ao padrão do Windows.
+
+5. Verificação e limpeza do arquivo HOSTS e configurações de DNS.
+
+6. Instalação de bloqueador de anúncios (uBlock Origin) e configuração de proteção contra notificações push indesejadas.
+
+7. Orientação ao usuário sobre práticas seguras de download e navegação para evitar reinfecção.`,
+    quandoCompensa: "Sempre compensa remover adware — o custo é baixo e os riscos de não agir são altos (roubo de dados, phishing, mais infecções).",
+    quandoNaoCompensa: "Se o sistema já está comprometido com múltiplos tipos de malware (rootkits, ransomware), pode ser mais eficiente formatar e reinstalar o Windows.",
+    conteudoExtra: `## Como Evitar Adware e Pop-ups
+
+### Regras de Ouro
+1. **Nunca clique em "Avançar" sem ler** — sempre escolha instalação "Personalizada" ou "Avançada"
+2. **Baixe apenas de fontes oficiais** — site do fabricante ou lojas de apps verificadas
+3. **Use uBlock Origin** — o melhor bloqueador de anúncios gratuito para navegadores
+4. **Nunca aceite notificações push** de sites desconhecidos
+5. **Evite cracks e keygens** — são a principal porta de entrada para malware
+
+### O Que Fazer se Já Está Infectado
+- Não clique em nenhum pop-up, nem no botão "X" — use o Gerenciador de Tarefas para fechar
+- Não insira senhas ou dados bancários até o computador ser limpo
+- Procure assistência técnica profissional para remoção completa`,
+    relatedPages: [
+      { to: "/remocao-virus-malware-curitiba", label: "Remoção de Vírus" },
+      { to: "/computador-lento-curitiba", label: "Computador Lento" },
+      { to: "/servicos/remocao-virus", label: "Serviço Remoção de Vírus" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
+    ]
+  },
+
+  // ─── erro-0x0000007b-curitiba ───
+  {
+    slug: "erro-0x0000007b-curitiba",
+    title: "Erro 0x0000007B (INACCESSIBLE_BOOT_DEVICE) Curitiba | Reparo Especializado",
+    metaDescription: "Erro 0x0000007B INACCESSIBLE_BOOT_DEVICE? Técnico em Curitiba resolve tela azul na inicialização com diagnóstico de disco, BIOS e drivers de armazenamento.",
+    h1: "Erro 0x0000007B (INACCESSIBLE_BOOT_DEVICE) — Reparo em Curitiba",
+    categoria: "Software / Hardware",
+    intro: `O erro 0x0000007B — também conhecido como INACCESSIBLE_BOOT_DEVICE — é uma das telas azuis (BSOD) mais temidas do Windows. Ele aparece durante a inicialização e impede completamente o carregamento do sistema operacional. A tela exibe a mensagem "Your PC ran into a problem" seguida do código de parada INACCESSIBLE_BOOT_DEVICE.
+
+Esse erro significa que o Windows não consegue acessar o dispositivo de armazenamento (HD ou SSD) onde está instalado. As causas vão desde configurações erradas na BIOS (modo AHCI/IDE) até falhas físicas no disco, cabo SATA danificado ou drivers de armazenamento corrompidos.
+
+Em Curitiba, esse é um erro frequente após atualizações do Windows, troca de placa-mãe, clonagem de disco mal-feita ou quando o HD/SSD começa a apresentar defeitos. Sem diagnóstico correto, tentativas de reparo podem piorar a situação e até causar perda de dados.`,
+    whatsappMessage: "Olá! Meu computador está dando erro 0x0000007B (INACCESSIBLE_BOOT_DEVICE). Preciso de ajuda.",
+    sintomas: [
+      { titulo: "Tela azul com código 0x0000007B na inicialização", desc: "O Windows não chega a carregar e exibe a BSOD com o código de parada. Sistema completamente inacessível.", gravidade: "Alto" },
+      { titulo: "Loop de reparo automático", desc: "O Windows tenta reparar a inicialização repetidamente sem sucesso, alternando entre tela azul e tela de reparo.", gravidade: "Alto" },
+      { titulo: "Erro após atualização do Windows", desc: "O sistema funcionava normalmente, atualizou e na próxima reinicialização deu o erro 0x0000007B.", gravidade: "Médio" },
+      { titulo: "Erro após troca de hardware", desc: "Trocou placa-mãe, adicionou SSD ou alterou configurações da BIOS e o erro começou.", gravidade: "Médio" },
+      { titulo: "Erro intermitente", desc: "O computador às vezes inicia normalmente e às vezes dá o erro. Indica problema físico no disco ou cabo SATA.", gravidade: "Alto" },
+      { titulo: "Disco não aparece na BIOS", desc: "Além do erro no Windows, a própria BIOS não detecta o HD/SSD. Indica falha física grave.", gravidade: "Alto" }
+    ],
+    causas: [
+      { titulo: "Modo SATA alterado na BIOS (AHCI/IDE/RAID)", desc: "A mudança do modo de operação SATA na BIOS sem preparar o Windows causa o erro porque os drivers de armazenamento são incompatíveis.", tipo: "software" },
+      { titulo: "Drivers de armazenamento corrompidos", desc: "O driver iaStorV, storahci ou outro driver de controladora de disco pode corromper após atualização falha ou malware.", tipo: "software" },
+      { titulo: "Cabo SATA defeituoso", desc: "Cabo SATA com mau contato ou rompimento interno impede a comunicação estável entre a placa-mãe e o disco.", tipo: "hardware" },
+      { titulo: "HD/SSD com setores defeituosos no boot", desc: "Setores ruins na área de inicialização do disco impedem a leitura dos arquivos de boot do Windows.", tipo: "hardware" },
+      { titulo: "BCD (Boot Configuration Data) corrompido", desc: "O registro de inicialização do Windows foi danificado, apontando para um dispositivo incorreto ou inexistente.", tipo: "software" },
+      { titulo: "Clonagem de disco mal-feita", desc: "Ao clonar um HD para SSD sem ajustar o modo SATA ou o esquema de partição (MBR/GPT), o boot falha.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Configuração BIOS incorreta (AHCI/IDE) — ajuste na BIOS e/ou ativação do driver correto via registro offline resolve.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "BCD corrompido ou drivers danificados — reparo via WinPE com bootrec, bcdedit e injeção de drivers.", tempo: "2-4 horas", custo: "R$150–R$300" },
+      { nivel: "Complexo", desc: "Disco com falha física — necessita substituição do disco, reinstalação do Windows e recuperação de dados.", tempo: "4-24 horas", custo: "R$250–R$600" }
+    ],
+    riscos: [
+      "Tentativas de reparo sem conhecimento podem sobrescrever o BCD e tornar a recuperação impossível",
+      "Alterar configurações na BIOS aleatoriamente pode agravar o problema",
+      "Se o disco tem defeito físico, cada tentativa de boot pode danificar mais setores",
+      "Formatação sem diagnóstico correto não resolve se o problema é hardware"
+    ],
+    diagnostico: `O diagnóstico do erro 0x0000007B segue uma sequência lógica:
+
+1. Verificação da BIOS: modo SATA (AHCI/IDE/RAID), ordem de boot e detecção do disco.
+
+2. Boot via WinPE ou Linux Live para acessar o disco sem depender do Windows instalado.
+
+3. Teste de integridade do disco: SMART (via CrystalDiskInfo), teste de superfície e verificação de setores na área de boot.
+
+4. Análise do BCD e dos drivers de armazenamento instalados no Windows offline.
+
+5. Teste de cabos SATA e portas SATA alternativas na placa-mãe.
+
+6. Verificação do dump de memória (minidump) quando disponível para confirmar o driver causador.`,
+    solucao: `A solução é aplicada conforme a causa identificada:
+
+**Modo SATA incorreto**: Ajuste na BIOS para o modo original (AHCI ou IDE). Se precisar mudar o modo, primeiro ativamos o driver correspondente via registro offline antes de alterar a BIOS.
+
+**BCD corrompido**: Usamos o ambiente de recuperação do Windows (WinRE) com os comandos bootrec /fixmbr, bootrec /fixboot, bootrec /rebuildbcd para reconstruir a configuração de inicialização.
+
+**Drivers corrompidos**: Injeção de drivers de armazenamento corretos via DISM offline ou modificação do registro para ativar o driver genérico storahci.
+
+**Falha no disco**: Substituição do HD/SSD defeituoso, reinstalação limpa do Windows e recuperação de dados do disco antigo (quando possível).
+
+**Cabo SATA**: Substituição do cabo e teste em porta SATA alternativa.`,
+    quandoCompensa: "Sempre compensa diagnosticar — o reparo de software (BIOS, BCD, drivers) é rápido e barato. Mesmo troca de disco compensa se os dados são importantes.",
+    quandoNaoCompensa: "Se o disco tem falha física grave E não há dados importantes, pode ser mais rápido substituir o disco e reinstalar tudo do zero.",
+    conteudoExtra: `## Entendendo o Erro 0x0000007B
+
+### O Que o Código Significa
+O código 0x0000007B traduz-se como INACCESSIBLE_BOOT_DEVICE. Em termos simples: o Windows encontrou o kernel na memória, mas quando tentou acessar o disco para continuar carregando, não conseguiu.
+
+### Diferença Entre AHCI e IDE
+- **AHCI** (Advanced Host Controller Interface): modo moderno, suporta NCQ, hot-swap e melhor desempenho com SSDs
+- **IDE** (Legacy): modo de compatibilidade antigo, mais lento, sem recursos avançados
+- O Windows instala drivers específicos para o modo selecionado. Mudar sem preparação causa o erro 0x0000007B
+
+### Prevenção
+- Antes de alterar a BIOS, crie um ponto de restauração
+- Ao clonar discos, use ferramentas que ajustam automaticamente o esquema de partição
+- Mantenha um pen drive de recuperação do Windows atualizado`,
+    relatedPages: [
+      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver" },
+      { to: "/hd-com-defeito-curitiba", label: "HD com Defeito" },
+      { to: "/erro-particao-windows-curitiba", label: "Erro de Partição" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
+    ]
+  },
+
+  // ─── computador-nao-reconhece-usb-curitiba ───
+  {
+    slug: "computador-nao-reconhece-usb-curitiba",
+    title: "Computador Não Reconhece USB em Curitiba | Diagnóstico e Reparo",
+    metaDescription: "Computador não reconhece pendrive, HD externo ou dispositivo USB? Técnico em Curitiba diagnostica portas, drivers, hub e controladora USB.",
+    h1: "Computador Não Reconhece USB — Diagnóstico e Reparo em Curitiba",
+    categoria: "Hardware / Software",
+    intro: `Você conecta um pendrive, HD externo, mouse, teclado ou impressora na porta USB e nada acontece? O Windows não emite o som de conexão, o dispositivo não aparece no Explorador de Arquivos ou surge a mensagem "Dispositivo USB não reconhecido"? Esse é um problema extremamente comum e pode ter causas simples ou complexas.
+
+As portas USB são os conectores mais utilizados em qualquer computador. Com o uso constante, elas podem sofrer desgaste mecânico, acumular poeira, ou ter problemas elétricos. Além disso, drivers USB corrompidos, conflitos de energia e falhas na controladora USB da placa-mãe também causam o problema.
+
+Em Curitiba, atendemos muitos casos de portas USB que param de funcionar — especialmente em notebooks, onde o reparo da porta exige micro-solda. Antes de trocar qualquer peça, nosso diagnóstico identifica se o problema está na porta, no cabo, no dispositivo ou no software.`,
+    whatsappMessage: "Olá! Meu computador não está reconhecendo dispositivos USB. Gostaria de agendar um diagnóstico.",
+    sintomas: [
+      { titulo: "'Dispositivo USB não reconhecido'", desc: "Mensagem do Windows indicando que o dispositivo conectado não foi identificado. Pode ser problema no dispositivo, driver ou porta.", gravidade: "Médio" },
+      { titulo: "Nenhuma reação ao conectar USB", desc: "Não há som, não há notificação, dispositivo não aparece em lugar nenhum. Porta pode estar desabilitada ou fisicamente danificada.", gravidade: "Alto" },
+      { titulo: "USB funciona e para intermitentemente", desc: "O dispositivo conecta, funciona por alguns segundos e desconecta. Mau contato na porta ou cabo defeituoso.", gravidade: "Médio" },
+      { titulo: "Apenas algumas portas USB não funcionam", desc: "Portas traseiras funcionam mas frontais não (ou vice-versa). Problema no cabo interno do painel frontal ou na controladora.", gravidade: "Médio" },
+      { titulo: "Todos os dispositivos USB falhando", desc: "Nenhum dispositivo é reconhecido em nenhuma porta. Indica problema no driver da controladora USB ou falha na placa-mãe.", gravidade: "Alto" },
+      { titulo: "USB fornece pouca energia", desc: "Dispositivos como HDs externos não ligam ou pendrives não são detectados, mas mouse funciona. Problema de fornecimento de energia USB.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Porta USB com desgaste mecânico", desc: "Conectar e desconectar dispositivos milhares de vezes causa folga nos contatos internos da porta. Comum em notebooks.", tipo: "desgaste" },
+      { titulo: "Driver de controladora USB corrompido", desc: "Atualizações do Windows, vírus ou remoção insegura podem corromper os drivers da controladora xHCI/EHCI.", tipo: "software" },
+      { titulo: "Gerenciamento de energia suspendendo USB", desc: "O Windows pode desativar portas USB para economizar energia. Configuração comum em notebooks que causa falhas.", tipo: "software" },
+      { titulo: "Hub USB interno sobrecarregado", desc: "Cada controladora USB tem limite de dispositivos e banda. Conectar muitos dispositivos pode exceder a capacidade.", tipo: "hardware" },
+      { titulo: "Cabo do painel frontal desconectado", desc: "O cabo que liga as portas USB frontais à placa-mãe pode se soltar com vibrações ou manutenções.", tipo: "hardware" },
+      { titulo: "Controladora USB da placa-mãe com defeito", desc: "O chipset responsável pelas portas USB pode falhar por pico de energia ou curto-circuito ao conectar dispositivos defeituosos.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Problema de driver ou configuração de energia — reinstalação de drivers e ajuste de gerenciamento de energia resolve.", tempo: "1-2 horas", custo: "R$80–R$150" },
+      { nivel: "Médio", desc: "Porta USB com mau contato ou cabo frontal desconectado — resolda da porta ou reconexão do cabo interno.", tempo: "2-3 horas", custo: "R$100–R$250" },
+      { nivel: "Complexo", desc: "Controladora USB na placa-mãe com defeito — reparo de componente SMD ou substituição da placa-mãe.", tempo: "3-7 dias", custo: "R$250–R$600" }
+    ],
+    riscos: [
+      "Forçar dispositivos em portas com mau contato pode causar curto-circuito e danificar o dispositivo",
+      "Conectar dispositivos em portas com defeito elétrico pode queimar pendrives e HDs externos",
+      "Ignorar o problema pode indicar falha progressiva na placa-mãe que vai afetar outras funções",
+      "Remoção insegura de pendrives com dados importantes pode causar corrupção de arquivos"
+    ],
+    diagnostico: `O diagnóstico de USB envolve testes sistemáticos:
+
+1. Teste cruzado: conectar dispositivos conhecidos (mouse, pendrive testado) em todas as portas para mapear quais funcionam.
+
+2. Verificação no Gerenciador de Dispositivos: buscar controladoras USB com erro (triângulo amarelo), dispositivos desconhecidos ou desabilitados.
+
+3. Teste de energia USB: medição da voltagem nas portas (devem fornecer 5V estáveis com corrente adequada para o padrão USB 2.0/3.0).
+
+4. Inspeção física: verificação de contatos oxidados, tortos ou com folga usando lupa e teste de continuidade.
+
+5. Teste de software: verificação de drivers, políticas de grupo e configurações de gerenciamento de energia.
+
+6. Análise da BIOS: verificação de portas USB desabilitadas na configuração do sistema.`,
+    solucao: `A solução varia conforme a causa identificada:
+
+**Drivers**: Reinstalação dos drivers da controladora USB via Gerenciador de Dispositivos, com remoção completa dos drivers antigos e instalação dos oficiais do fabricante da placa-mãe.
+
+**Gerenciamento de energia**: Desativação da opção "O computador pode desligar este dispositivo para economizar energia" em todas as controladoras USB e Root Hubs.
+
+**Porta física**: Resolda dos contatos da porta USB com estação de solda. Em notebooks, pode exigir troca do módulo USB (placa filha) ou micro-solda na placa-mãe.
+
+**Painel frontal**: Reconexão ou substituição do cabo que liga as portas frontais ao header USB da placa-mãe.
+
+**Controladora**: Quando a controladora USB integrada ao chipset falha, a solução é usar uma placa PCI-E USB ou, em casos graves, substituir a placa-mãe.`,
+    quandoCompensa: "Problemas de driver ou portas individuais sempre compensam reparar. Mesmo resolda de portas em notebooks é viável e econômica.",
+    quandoNaoCompensa: "Se a controladora USB do chipset falhou e o computador é antigo, o custo de reparo da placa-mãe pode não compensar. Uma placa PCI-E USB é alternativa para desktops.",
+    conteudoExtra: `## Guia Rápido de Problemas USB
+
+### Checklist Antes de Chamar o Técnico
+1. Teste o dispositivo em outro computador — pode ser o dispositivo e não a porta
+2. Teste com outro cabo USB — cabos são a causa mais frequente e barata
+3. Reinicie o computador — às vezes o driver trava e reiniciar resolve
+4. Teste em portas traseiras — portas frontais dependem de cabo interno que pode estar solto
+
+### USB 2.0 vs 3.0 vs USB-C
+- **USB 2.0** (preto): 480 Mbps, 500 mA de corrente
+- **USB 3.0** (azul): 5 Gbps, 900 mA de corrente
+- **USB-C**: conector reversível, pode ser USB 3.1/3.2 ou Thunderbolt
+- Dispositivos USB 3.0 em portas 2.0 funcionam mais lentos mas devem ser reconhecidos
+
+### Remoção Segura
+Sempre use "Remover hardware com segurança" antes de desconectar pendrives e HDs externos. A remoção sem ejetar pode corromper o sistema de arquivos do dispositivo.`,
+    relatedPages: [
+      { to: "/computador-nao-liga-curitiba", label: "PC Não Liga" },
+      { to: "/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
+      { to: "/servicos/redes-wifi", label: "Redes e Conectividade" },
+      { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
+    ]
+  },
 ];
 
 // Helper to get a page by slug

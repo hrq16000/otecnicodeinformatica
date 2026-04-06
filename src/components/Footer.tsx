@@ -15,6 +15,9 @@ export const Footer = () => {
               alt="Técnico Curitiba"
               className="h-10 brightness-0 invert object-fill"
               src="/lovable-uploads/c858cf99-e05f-4d8f-a05a-c741ebfabfea.webp"
+              width="200"
+              height="40"
+              loading="lazy"
             />
             <p className="text-white/60 text-sm max-w-xs">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.

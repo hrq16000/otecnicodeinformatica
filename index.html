@@ -92,24 +92,7 @@
       }
     </script>
 
-    <!-- Google Ads — deferred -->
-    <script>
-      if(typeof requestIdleCallback==='function'){
-        requestIdleCallback(function(){loadGAds()});
-      }else{
-        setTimeout(loadGAds,3000);
-      }
-      function loadGAds(){
-        var s=document.createElement('script');s.async=true;
-        s.src='https://www.googletagmanager.com/gtag/js?id=AW-17892118207';
-        document.head.appendChild(s);
-        s.onload=function(){
-          window.dataLayer=window.dataLayer||[];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js',new Date());gtag('config','AW-17892118207');
-        };
-      }
-    </script>
+    <!-- Google Ads now loaded via unified GA script above -->
 
     <!-- Google Tag Manager — loaded after interactive -->
     <script>

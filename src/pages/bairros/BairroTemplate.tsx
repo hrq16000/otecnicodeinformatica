@@ -397,29 +397,29 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 Principais Serviços no {data.nome}
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <Monitor className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <Monitor className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Formatação</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Formatação</h3>
                   <p className="text-muted-foreground text-sm">
                     Instalação limpa do Windows, drivers e programas. Computador como novo.
                   </p>
                 </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Remoção de Vírus</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Remoção de Vírus</h3>
                   <p className="text-muted-foreground text-sm">
                     Limpeza completa de malwares, trojans e ransomware. Proteção instalada.
                   </p>
                 </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <HardDrive className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <HardDrive className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Upgrade SSD</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Upgrade SSD</h3>
                   <p className="text-muted-foreground text-sm">
                     Troca de HD por SSD. Seu computador 10x mais rápido.
                   </p>

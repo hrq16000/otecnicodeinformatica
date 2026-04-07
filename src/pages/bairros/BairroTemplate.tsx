@@ -363,6 +363,17 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 </p>
               </div>
 
+              <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={IMAGES.notebookReparo} 
+                  alt={`Conserto de notebook e manutenção de computador no ${data.nome}, ${data.cidade}`}
+                  className="w-full h-48 md:h-56 object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="350"
+                />
+              </div>
+
               <div className="grid md:grid-cols-3 gap-4">
                 <Link to="/como-funciona" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
                   <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>

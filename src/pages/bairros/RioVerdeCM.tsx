@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "Rio Verde",
-  slug: "rio-verde-campo-magro",
+  slug: "rio-verde-cm",
   cidade: "Campo Magro",
   metaTitle: "Técnico de Informática no Rio Verde | Campo Magro | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no Rio Verde, Campo Magro. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

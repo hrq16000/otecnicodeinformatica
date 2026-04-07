@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "São Cristóvão",
-  slug: "sao-cristovao-piraquara",
+  slug: "sao-cristao-piraquara",
   cidade: "Piraquara",
   metaTitle: "Técnico de Informática no São Cristóvão | Piraquara | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no São Cristóvão, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

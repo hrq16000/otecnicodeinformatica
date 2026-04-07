@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "Botiatuva",
-  slug: "botiatuva-campo-magro",
+  slug: "botiatuva-cm",
   cidade: "Campo Magro",
   metaTitle: "Técnico de Informática no Botiatuva | Campo Magro | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no Botiatuva, Campo Magro. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

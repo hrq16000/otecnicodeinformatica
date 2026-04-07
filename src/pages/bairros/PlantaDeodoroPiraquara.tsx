@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "Planta Deodoro",
-  slug: "planta-deodoro",
+  slug: "planta-deodoro-piraquara",
   cidade: "Piraquara",
   metaTitle: "Técnico de Informática no Planta Deodoro | Piraquara | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no Planta Deodoro, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

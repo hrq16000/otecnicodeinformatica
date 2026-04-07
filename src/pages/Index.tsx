@@ -27,6 +27,7 @@ import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { ProblemasDestaque } from "@/components/ProblemasDestaque";
+import { TechBrandsMarquee } from "@/components/TechBrandsMarquee";
 
 const Index = () => {
   useEffect(() => {
@@ -61,6 +62,7 @@ const Index = () => {
           </div>
         </section>
 
+        <TechBrandsMarquee />
         <PainSection />
         <SchedulingSection />
         <ServicesSection />
@@ -70,29 +72,34 @@ const Index = () => {
         <NeighborhoodsSection />
         <SocialProofSection />
 
-        <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider">
-          <div className="container mx-auto">
+        <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay">
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
-                Como Funciona Nosso Atendimento
+                Como Funciona Nosso <span className="gradient-text">Atendimento</span>
               </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
+              <p className="text-muted-foreground mb-4 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Atendimento técnico simples, rápido e transparente em 3 passos
               </p>
+              <div className="glow-separator max-w-xs mx-auto mb-8" />
               <div className="grid md:grid-cols-3 gap-5 mb-8">
                 {[
                   { step: "1", title: "Chame no WhatsApp", desc: "Descreva o problema e receba orientação imediata do técnico" },
                   { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
                   { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
                 ].map((item, i) => (
-                  <div key={i} className="glass-card gradient-border rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
-                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3 shadow-sm">{item.step}</div>
-                    <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                  <div key={i} className="glass-card gradient-border rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover-streak animated-border slide-up-stagger group" style={{ animationDelay: `${i * 100}ms` }}>
+                    <div className="bg-accent text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mx-auto mb-3 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] transition-all duration-300">
+                      {item.step}
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-200">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors shadow-sm btn-feedback">
+              {/* Connecting line between steps (desktop only) */}
+              <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-sm btn-feedback elastic-click hover-streak hover:shadow-[var(--shadow-lg)]">
                 Entender Como Funciona
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </a>

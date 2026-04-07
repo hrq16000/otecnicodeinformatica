@@ -64,17 +64,18 @@ const problemaLinks = [
 
 export const InterlinkingBlock = () => {
   return (
-    <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-10 md:py-14 bg-secondary relative overflow-hidden noise-overlay">
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
+      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none morph-blob" />
       <div className="container mx-auto relative z-10">
         <div className="max-w-6xl mx-auto space-y-10">
 
           {/* Atendimento */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
-              Entenda Mais Sobre Nosso Atendimento
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-2 text-center reveal-text">
+              Entenda Mais Sobre Nosso <span className="gradient-text">Atendimento</span>
             </h2>
+            <div className="glow-separator max-w-xs mx-auto mb-5" />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {atendimentoLinks.map((item, i) => {
                 const Icon = item.icon;
@@ -82,10 +83,12 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.03] transition-all duration-300 group hover-streak slide-up-stagger"
+                    style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-5 w-5 text-primary-foreground" />
+                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 relative">
+                      <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
+                      <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
                     <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors duration-200 mb-1">
                       {item.title}
@@ -100,9 +103,10 @@ export const InterlinkingBlock = () => {
 
           {/* Serviços */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
-              Nossos Serviços
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-2 text-center reveal-text">
+              Nossos <span className="gradient-text">Serviços</span>
             </h2>
+            <div className="glow-separator max-w-xs mx-auto mb-5" />
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {servicoLinks.map((item, i) => {
                 const Icon = item.icon;
@@ -110,10 +114,12 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.03] transition-all duration-300 group hover-streak slide-up-stagger"
+                    style={{ animationDelay: `${i * 40}ms` }}
                   >
-                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <Icon className="h-5 w-5 text-accent-foreground" />
+                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                      <Icon className="h-5 w-5 text-accent-foreground icon-bounce" />
+                      <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
                     <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors duration-200 mb-1">
                       {item.title}
@@ -128,15 +134,16 @@ export const InterlinkingBlock = () => {
 
           {/* Regiões */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
-              Regiões Atendidas
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-2 text-center reveal-text">
+              Regiões <span className="gradient-text">Atendidas</span>
             </h2>
+            <div className="glow-separator max-w-xs mx-auto mb-5" />
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
               {regiaoLinks.map((item, i) => (
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200 elastic-click"
                 >
                   <MapPin className="h-3.5 w-3.5" />
                   {item.title}
@@ -147,15 +154,16 @@ export const InterlinkingBlock = () => {
 
           {/* Problemas Comuns */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
-              Problemas Mais Comuns
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-2 text-center reveal-text">
+              Problemas Mais <span className="gradient-text">Comuns</span>
             </h2>
+            <div className="glow-separator max-w-xs mx-auto mb-5" />
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
               {problemaLinks.map((item, i) => (
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200 elastic-click"
                 >
                   <AlertCircle className="h-3.5 w-3.5" />
                   {item.title}

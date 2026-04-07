@@ -184,7 +184,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+                <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                   {data.servico} no {data.bairro}: Por Que Nos Escolher?
                 </h2>
                 <div className="prose prose-lg text-muted-foreground">
@@ -211,7 +211,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
             </div>
             
             <div className="mt-8 p-6 bg-secondary rounded-xl">
-              <h3 className="font-bold text-primary mb-4 flex items-center gap-2">
+              <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-accent" />
                 Atendemos perto de:
               </h3>
@@ -234,7 +234,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       <AnimatedSection>
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Está Incluso?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -252,7 +252,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       <AnimatedSection>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Como Funciona o Atendimento no {data.bairro}?
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -261,7 +261,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                 <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {index + 1}
                 </div>
-                <h3 className="font-bold text-primary mb-2">{passo.titulo}</h3>
+                <h3 className="font-bold text-foreground mb-2">{passo.titulo}</h3>
                 <p className="text-muted-foreground text-sm">{passo.descricao}</p>
               </div>
             ))}
@@ -273,13 +273,13 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       <AnimatedSection>
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes: {data.servico} no {data.bairro}
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
             {data.faq.map((item, index) => (
               <div key={index} className="bg-background p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.pergunta}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.pergunta}</h3>
                 <p className="text-muted-foreground">{item.resposta}</p>
               </div>
             ))}
@@ -312,7 +312,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       <AnimatedSection>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Outros Serviços no {data.bairro}
           </h2>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -327,7 +327,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
             ))}
           </div>
           
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             {data.servico} em Bairros Próximos
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

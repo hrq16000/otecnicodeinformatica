@@ -79,13 +79,13 @@ const BackupRecuperacao = () => {
       {/* Serviços */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Nossos Serviços
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-secondary p-8 rounded-xl">
               <HardDrive className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">Recuperação de Dados</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Recuperação de Dados</h3>
               <ul className="space-y-3">
                 {[
                   "HD com defeito ou não reconhecido",
@@ -104,7 +104,7 @@ const BackupRecuperacao = () => {
             </div>
             <div className="bg-secondary p-8 rounded-xl">
               <Cloud className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">Configuração de Backup</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Configuração de Backup</h3>
               <ul className="space-y-3">
                 {[
                   "Backup automático em nuvem",
@@ -128,24 +128,24 @@ const BackupRecuperacao = () => {
       {/* Tipos de Recuperação */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Níveis de Recuperação
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-background p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-primary mb-2">Recuperação Lógica</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Recuperação Lógica</h3>
               <p className="text-muted-foreground mb-4">Arquivos deletados, formatação, corrupção de software</p>
               <p className="text-2xl font-bold text-accent">A partir de R$199</p>
               <p className="text-sm text-muted-foreground">Alta taxa de sucesso</p>
             </div>
             <div className="bg-background p-6 rounded-xl border-2 border-accent">
-              <h3 className="text-xl font-bold text-primary mb-2">Recuperação Avançada</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Recuperação Avançada</h3>
               <p className="text-muted-foreground mb-4">HD com setores defeituosos, SSD com falha</p>
               <p className="text-2xl font-bold text-accent">A partir de R$399</p>
               <p className="text-sm text-muted-foreground">Requer equipamento especializado</p>
             </div>
             <div className="bg-background p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-primary mb-2">Recuperação Física</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Recuperação Física</h3>
               <p className="text-muted-foreground mb-4">HD com ruído, cabeça travada, motor queimado</p>
               <p className="text-2xl font-bold text-accent">Sob consulta</p>
               <p className="text-sm text-muted-foreground">Encaminhamento para laboratório</p>
@@ -157,7 +157,7 @@ const BackupRecuperacao = () => {
       {/* FAQ */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -169,7 +169,7 @@ const BackupRecuperacao = () => {
               { q: "Como funciona o backup automático?", a: "Configuramos sincronização automática com serviços de nuvem ou HD externo. Seus arquivos são salvos sem você precisar fazer nada." },
             ].map((item, index) => (
               <div key={index} className="bg-secondary p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}
@@ -196,7 +196,7 @@ const BackupRecuperacao = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

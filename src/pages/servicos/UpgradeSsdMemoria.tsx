@@ -66,7 +66,7 @@ const UpgradeSsdMemoria = () => {
       {/* Comparativo de Performance */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Diferença de Performance: HD vs SSD
           </h2>
           <div className="max-w-4xl mx-auto">
@@ -99,27 +99,27 @@ const UpgradeSsdMemoria = () => {
       {/* Tipos de Upgrade */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Opções de Upgrade
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-background p-6 rounded-xl text-center">
               <HardDrive className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-primary mb-2">SSD SATA</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">SSD SATA</h3>
               <p className="text-muted-foreground mb-4">Ideal para notebooks e PCs mais antigos. Até 550MB/s de velocidade.</p>
               <p className="text-2xl font-bold text-accent">A partir de R$299</p>
               <p className="text-sm text-muted-foreground">SSD 240GB + instalação</p>
             </div>
             <div className="bg-background p-6 rounded-xl text-center border-2 border-accent">
               <HardDrive className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-primary mb-2">SSD NVMe</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">SSD NVMe</h3>
               <p className="text-muted-foreground mb-4">Máxima velocidade para notebooks e PCs modernos. Até 3.500MB/s.</p>
               <p className="text-2xl font-bold text-accent">A partir de R$399</p>
               <p className="text-sm text-muted-foreground">SSD NVMe 256GB + instalação</p>
             </div>
             <div className="bg-background p-6 rounded-xl text-center">
               <TrendingUp className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-primary mb-2">Memória RAM</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Memória RAM</h3>
               <p className="text-muted-foreground mb-4">Mais memória para multitarefas e programas pesados.</p>
               <p className="text-2xl font-bold text-accent">A partir de R$199</p>
               <p className="text-sm text-muted-foreground">8GB DDR4 + instalação</p>
@@ -131,7 +131,7 @@ const UpgradeSsdMemoria = () => {
       {/* Benefícios */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Benefícios do Upgrade
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -143,7 +143,7 @@ const UpgradeSsdMemoria = () => {
             ].map((item, index) => (
               <div key={index} className="text-center p-6 bg-secondary rounded-xl">
                 <Zap className="h-10 w-10 text-accent mx-auto mb-4" />
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -154,7 +154,7 @@ const UpgradeSsdMemoria = () => {
       {/* O que está incluso */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Está Incluso
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -180,7 +180,7 @@ const UpgradeSsdMemoria = () => {
       {/* FAQ */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -192,7 +192,7 @@ const UpgradeSsdMemoria = () => {
               { q: "Posso fazer upgrade de notebook antigo?", a: "Sim! Notebooks mais antigos podem receber SSD SATA e, dependendo do modelo, mais memória RAM." },
             ].map((item, index) => (
               <div key={index} className="bg-secondary p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}
@@ -219,7 +219,7 @@ const UpgradeSsdMemoria = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

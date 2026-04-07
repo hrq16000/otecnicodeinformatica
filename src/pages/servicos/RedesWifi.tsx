@@ -66,7 +66,7 @@ const RedesWifi = () => {
       {/* Serviços de Rede */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Nossos Serviços de Rede
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -96,7 +96,7 @@ const RedesWifi = () => {
       {/* Problemas Comuns */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Problemas que Resolvemos
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -122,22 +122,22 @@ const RedesWifi = () => {
       {/* Soluções */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Soluções para Cada Necessidade
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-secondary p-6 rounded-xl text-center">
-              <h3 className="text-xl font-bold text-primary mb-4">Casa Pequena</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Casa Pequena</h3>
               <p className="text-muted-foreground mb-4">Até 60m² - Roteador bem posicionado resolve</p>
               <p className="text-2xl font-bold text-accent">A partir de R$99</p>
             </div>
             <div className="bg-secondary p-6 rounded-xl text-center border-2 border-accent">
-              <h3 className="text-xl font-bold text-primary mb-4">Casa Média</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Casa Média</h3>
               <p className="text-muted-foreground mb-4">60-150m² - Roteador + repetidor</p>
               <p className="text-2xl font-bold text-accent">A partir de R$199</p>
             </div>
             <div className="bg-secondary p-6 rounded-xl text-center">
-              <h3 className="text-xl font-bold text-primary mb-4">Casa Grande</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Casa Grande</h3>
               <p className="text-muted-foreground mb-4">Acima de 150m² - Sistema Mesh recomendado</p>
               <p className="text-2xl font-bold text-accent">A partir de R$399</p>
             </div>
@@ -148,7 +148,7 @@ const RedesWifi = () => {
       {/* FAQ */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -160,7 +160,7 @@ const RedesWifi = () => {
               { q: "Qual a diferença entre 2.4GHz e 5GHz?", a: "2.4GHz tem maior alcance mas menor velocidade. 5GHz é mais rápido mas tem menor alcance. Configuramos ambas para uso ideal." },
             ].map((item, index) => (
               <div key={index} className="bg-background p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}

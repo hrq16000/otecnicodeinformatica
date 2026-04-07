@@ -66,13 +66,13 @@ const MontagemPc = () => {
       {/* Tipos de PC */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Montamos o PC Ideal Para Você
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-secondary p-8 rounded-xl text-center">
               <Gamepad2 className="h-16 w-16 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">PC Gamer</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">PC Gamer</h3>
               <p className="text-muted-foreground mb-6">Para jogos em alta performance, streaming e realidade virtual.</p>
               <ul className="text-left space-y-2 mb-6">
                 {["Placa de vídeo dedicada", "SSD NVMe rápido", "Memória RAM alta", "Gabinete com RGB", "Refrigeração eficiente"].map((item, i) => (
@@ -86,7 +86,7 @@ const MontagemPc = () => {
             </div>
             <div className="bg-secondary p-8 rounded-xl text-center border-2 border-accent">
               <Monitor className="h-16 w-16 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">Workstation</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Workstation</h3>
               <p className="text-muted-foreground mb-6">Para edição de vídeo, 3D, design e aplicações profissionais.</p>
               <ul className="text-left space-y-2 mb-6">
                 {["Processador multi-core", "32GB+ de RAM", "GPU profissional", "Armazenamento amplo", "Estabilidade total"].map((item, i) => (
@@ -100,7 +100,7 @@ const MontagemPc = () => {
             </div>
             <div className="bg-secondary p-8 rounded-xl text-center">
               <Briefcase className="h-16 w-16 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-primary mb-4">PC Trabalho</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">PC Trabalho</h3>
               <p className="text-muted-foreground mb-6">Para escritório, home office, navegação e tarefas do dia a dia.</p>
               <ul className="text-left space-y-2 mb-6">
                 {["Processador eficiente", "8-16GB RAM", "SSD rápido", "Silencioso", "Consumo baixo"].map((item, i) => (
@@ -119,7 +119,7 @@ const MontagemPc = () => {
       {/* O que está incluso */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Está Incluso no Serviço
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -130,7 +130,7 @@ const MontagemPc = () => {
               { title: "Testes", desc: "Testes de estresse e estabilidade" },
             ].map((item, index) => (
               <div key={index} className="text-center p-6 bg-background rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -141,7 +141,7 @@ const MontagemPc = () => {
       {/* Processo */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Como Funciona
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -155,7 +155,7 @@ const MontagemPc = () => {
                 <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -166,7 +166,7 @@ const MontagemPc = () => {
       {/* FAQ */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -178,7 +178,7 @@ const MontagemPc = () => {
               { q: "Vocês entregam?", a: "Sim! Entregamos o PC pronto na sua casa em toda Curitiba e região." },
             ].map((item, index) => (
               <div key={index} className="bg-background p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}

@@ -74,10 +74,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `${data.servicoSlug}-${data.bairroSlug}`);
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
 
   // Generate JSON-LD for local service
   const jsonLd = {

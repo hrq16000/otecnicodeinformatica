@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type AnimationType = "fade" | "fade-up" | "scale" | "slide-left" | "slide-right";
 
@@ -17,65 +17,48 @@ const animClassMap: Record<AnimationType, string> = {
   "slide-right": "anim-slide-right",
 };
 
-const hiddenStateMap: Record<AnimationType, CSSProperties> = {
-  fade: { opacity: 0, transform: "translateY(12px)" },
-  "fade-up": { opacity: 0, transform: "translateY(24px)" },
-  scale: { opacity: 0, transform: "scale(0.95)" },
-  "slide-left": { opacity: 0, transform: "translateX(-20px)" },
-  "slide-right": { opacity: 0, transform: "translateX(20px)" },
-};
-
 export const AnimatedSection = ({ children, className = "", delay = 0, animation = "fade" }: AnimatedSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      setIsVisible(true);
-      return;
-    }
+    const el = ref.current;
+    if (!el) return;
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const el = ref.current;
-
-    if (prefersReduced || !el || !("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      setShouldAnimate(false);
+    if (prefersReduced) {
+      el.classList.add("is-visible");
       return;
     }
-
-    setShouldAnimate(true);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           if (delay > 0) {
-            window.setTimeout(() => setIsVisible(true), delay);
+            setTimeout(() => el.classList.add("is-visible"), delay);
           } else {
-            setIsVisible(true);
+            el.classList.add("is-visible");
           }
           observer.unobserve(el);
         }
       },
-      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
+      { threshold: 0.02, rootMargin: "0px 0px -10px 0px" },
     );
 
     observer.observe(el);
 
-    const fallback = window.setTimeout(() => setIsVisible(true), 1200);
+    // Safety: always show after 800ms
+    const fallback = setTimeout(() => el.classList.add("is-visible"), 800);
 
     return () => {
       observer.disconnect();
-      window.clearTimeout(fallback);
+      clearTimeout(fallback);
     };
   }, [delay]);
 
-  const hiddenStyle = shouldAnimate && !isVisible ? hiddenStateMap[animation] : undefined;
-  const animClass = shouldAnimate && isVisible ? animClassMap[animation] : "";
+  const animClass = animClassMap[animation];
 
   return (
-    <div ref={ref} style={hiddenStyle} className={`${animClass} ${className}`.trim()}>
+    <div ref={ref} className={`${animClass} ${className}`.trim()}>
       {children}
     </div>
   );

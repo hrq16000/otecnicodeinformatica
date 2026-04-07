@@ -137,9 +137,32 @@
     box-shadow: 0 4px 14px 0 hsla(var(--whatsapp), 0.4);
   }
 
-  /* ── Animation Utilities ── */
+  /* ── Glow Effects ── */
+  .glow-accent {
+    box-shadow: 0 0 16px -2px hsl(var(--glow-accent) / 0.35);
+  }
+  .glow-primary {
+    box-shadow: 0 0 16px -2px hsl(var(--glow-primary) / 0.3);
+  }
+  .glow-whatsapp {
+    box-shadow: 0 0 16px -2px hsl(var(--glow-whatsapp) / 0.35);
+  }
 
-  /* Fade */
+  /* ── Glassmorphism ── */
+  .glass {
+    background: hsl(var(--background) / 0.6);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-dark {
+    background: hsl(var(--primary) / 0.7);
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+  }
+
+  /* ── Fade ── */
   .anim-fade {
     opacity: 0;
     transform: translateY(12px);
@@ -152,7 +175,7 @@
     transform: translateY(0);
   }
 
-  /* Fade Up (longer travel) */
+  /* Fade Up */
   .anim-fade-up {
     opacity: 0;
     transform: translateY(24px);
@@ -174,6 +197,21 @@
   .anim-scale.is-visible {
     opacity: 1;
     transform: scale(1);
+  }
+
+  /* Blur In */
+  .anim-blur-in {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(8px);
+    transition: opacity var(--anim-slow) var(--anim-ease-out),
+                filter var(--anim-slow) var(--anim-ease-out),
+                transform var(--anim-slow) var(--anim-ease-out);
+  }
+  .anim-blur-in.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
   }
 
   /* Slide from left */
@@ -200,31 +238,70 @@
     transform: translateX(0);
   }
 
-  /* Hover interactions */
+  /* ── Hover Interactions ── */
   .hover-lift {
     transition: transform var(--anim-fast) var(--anim-ease),
                 box-shadow var(--anim-fast) var(--anim-ease);
   }
   .hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px hsl(var(--foreground) / 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -8px hsl(var(--foreground) / 0.12);
   }
 
   .hover-scale {
     transition: transform var(--anim-fast) var(--anim-ease);
   }
   .hover-scale:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   .hover-glow {
     transition: box-shadow var(--anim-medium) var(--anim-ease);
   }
   .hover-glow:hover {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.25);
+    box-shadow: 0 0 24px hsl(var(--accent) / 0.3);
   }
 
-  /* Link underline animation */
+  .hover-glow-cta {
+    transition: box-shadow var(--anim-medium) var(--anim-ease),
+                transform var(--anim-fast) var(--anim-ease);
+  }
+  .hover-glow-cta:hover {
+    box-shadow: 0 0 28px hsl(var(--accent) / 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* ── Ripple Effect ── */
+  .ripple-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .ripple-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), hsl(var(--accent) / 0.2) 0%, transparent 60%);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s var(--anim-ease-out), opacity 0.5s var(--anim-ease-out);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .ripple-container:active::after {
+    transform: scale(2.5);
+    opacity: 1;
+    transition: transform 0s, opacity 0s;
+  }
+
+  /* ── Input Focus ── */
+  .input-glow:focus-within {
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.15);
+    border-color: hsl(var(--accent) / 0.5);
+    transition: box-shadow var(--anim-medium) var(--anim-ease),
+                border-color var(--anim-medium) var(--anim-ease);
+  }
+
+  /* ── Link underline animation ── */
   .link-underline {
     position: relative;
     display: inline-block;
@@ -246,13 +323,15 @@
     transform-origin: bottom left;
   }
 
-  /* Stagger delay helpers */
+  /* ── Stagger delay helpers ── */
   .anim-delay-1 { transition-delay: 75ms; }
   .anim-delay-2 { transition-delay: 150ms; }
   .anim-delay-3 { transition-delay: 225ms; }
   .anim-delay-4 { transition-delay: 300ms; }
   .anim-delay-5 { transition-delay: 375ms; }
   .anim-delay-6 { transition-delay: 450ms; }
+  .anim-delay-7 { transition-delay: 525ms; }
+  .anim-delay-8 { transition-delay: 600ms; }
 }
 
 /* ── Reduced Motion ── */

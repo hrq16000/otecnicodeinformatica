@@ -2,6 +2,7 @@ import {
   MapPin, UserCheck, FileText, Receipt, CreditCard, Shield
 } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { FloatingParticles } from "@/components/FloatingParticles";
 
 const trustItems = [
   { icon: MapPin, title: "Atendimento Local", description: "Presencial em toda Curitiba" },

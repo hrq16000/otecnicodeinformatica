@@ -20,51 +20,48 @@ const stats = [
 
 export const TrustSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-primary relative overflow-hidden">
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(hsl(0 0% 100% / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100% / 0.1) 1px, transparent 1px)',
-        backgroundSize: '48px 48px',
-      }} />
+    <section className="py-14 md:py-18 lg:py-24 premium-gradient relative overflow-hidden">
+      {/* Elegant ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto relative z-10">
-        {/* Stats row */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-10 md:mb-14">
+        {/* Stats */}
+        <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-12 md:mb-16">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center anim-scale" style={{ animationDelay: `${i * 150}ms` }}>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-white">
+            <div key={i} className="text-center anim-scale" style={{ animationDelay: `${i * 120}ms` }}>
+              <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-white/60 text-sm mt-1">{stat.label}</p>
+              <p className="text-white/50 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 tracking-tight">
             Por que escolher a gente?
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto">
             Compromisso com qualidade e transparência
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {trustItems.map((item, index) => {
             const Icon = item.icon;
             return (
               <div 
                 key={index}
-                className="text-center glass-dark rounded-xl p-4 md:p-5 hover-lift hover:glow-accent anim-fade-up"
-                style={{ animationDelay: `${index * 80}ms` }}
+                className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.1] hover:border-white/[0.15] transition-all duration-300 hover:-translate-y-0.5 anim-fade-up"
+                style={{ animationDelay: `${index * 70}ms` }}
               >
-                <div className="inline-flex items-center justify-center bg-accent rounded-full p-3 mb-3 hover-scale">
-                  <Icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                <div className="inline-flex items-center justify-center bg-accent/90 rounded-xl p-2.5 mb-3 shadow-sm">
+                  <Icon className="h-5 w-5 md:h-5 md:w-5 text-white" />
                 </div>
-                <h3 className="font-heading font-bold text-white text-sm md:text-base mb-1">
+                <h3 className="font-heading font-bold text-white text-sm md:text-[15px] mb-1">
                   {item.title}
                 </h3>
-                <p className="text-white/70 text-xs md:text-sm">
+                <p className="text-white/55 text-xs md:text-[13px] leading-relaxed">
                   {item.description}
                 </p>
               </div>

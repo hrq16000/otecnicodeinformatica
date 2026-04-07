@@ -14,38 +14,38 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary relative overflow-hidden">
-      {/* Subtle gradient accent */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] via-transparent to-primary/[0.03]" />
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden">
+      {/* Subtle radial gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.04)_0%,_transparent_70%)]" />
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <img 
             alt="Técnico Curitiba" 
-            className="h-16 md:h-20 mx-auto mb-6" 
+            className="h-16 md:h-20 mx-auto mb-7" 
             src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.webp"
             width="200"
             height="80"
             loading="lazy"
           />
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight">
             Precisa resolver agora?
           </h2>
           
-          <p className="text-lg md:text-xl text-accent font-semibold mb-8">
+          <p className="text-lg md:text-xl text-accent font-semibold mb-9">
             Fale direto com o técnico. Atendimento imediato!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container hover-glow-cta glow-whatsapp" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato
               </a>
             </Button>
             
-            <Button variant="heroCta" className="ripple-container hover-glow-cta" onClick={openChatbot}>
+            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl transition-shadow" onClick={openChatbot}>
               <Bot className="h-5 w-5 md:h-6 md:w-6" />
               Atendimento Rápido
             </Button>

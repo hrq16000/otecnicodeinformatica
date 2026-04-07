@@ -19,10 +19,10 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background">
+    <section className="py-14 md:py-18 lg:py-24 bg-background">
       <div className="container mx-auto">
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-3">
+        <div className="text-center mb-12 md:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight">
             Nossos Serviços
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -30,32 +30,32 @@ export const ServicesSection = () => {
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <Link 
                 key={index}
                 to={service.link}
-                className="group bg-secondary rounded-xl p-5 md:p-6 hover-lift ripple-container border border-transparent hover:border-accent/20 hover:glow-accent anim-fade-up"
-                style={{ animationDelay: `${index * 80}ms` }}
+                className="group bg-card rounded-xl p-5 md:p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] border border-border/60 hover:border-accent/25 transition-all duration-300 hover:-translate-y-0.5 anim-fade-up ripple-container"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors duration-300 hover-scale group-hover:glow-accent">
-                    <Icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent transition-colors duration-300 shadow-sm">
+                    <Icon className="h-5 w-5 text-primary-foreground" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-heading font-bold text-primary text-lg mb-1 group-hover:text-accent transition-colors duration-200">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-heading font-bold text-foreground text-[17px] mb-1 group-hover:text-accent transition-colors duration-200">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-2">
+                    <p className="text-muted-foreground text-sm mb-2.5 leading-relaxed">
                       {service.description}
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-accent font-semibold text-sm">
                         {service.preco}
                       </span>
-                      <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
+                      <ArrowRight className="h-4 w-4 text-accent opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                     </div>
                   </div>
                 </div>
@@ -64,10 +64,10 @@ export const ServicesSection = () => {
           })}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <Link
             to="/valores"
-            className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all link-underline"
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all link-underline text-[15px]"
           >
             Ver tabela completa de preços
             <ArrowRight className="h-4 w-4" />

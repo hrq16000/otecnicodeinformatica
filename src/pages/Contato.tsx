@@ -37,7 +37,7 @@ const Contato = () => {
       <PageSEO title="Contato | Técnico Curitiba - Fale Conosco" description="Entre em contato com a Técnico Curitiba. WhatsApp, telefone e atendimento rápido para suporte técnico em informática em Curitiba e região." path="/contato" />
       <JsonLdSchema />
       <Header />
-      <main>
+      <main className="pt-16">
         {/* Hero */}
         <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--glow-whatsapp)/0.12),transparent_60%)] pointer-events-none" />

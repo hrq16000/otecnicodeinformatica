@@ -225,6 +225,7 @@ export const Header = () => {
           </nav>
         </div>
       )}
+      <SmartSearch isOpen={searchOpen} onClose={closeSearch} />
     </header>
   );
 };

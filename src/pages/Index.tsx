@@ -9,7 +9,6 @@ import { NeighborhoodsSection } from "@/components/NeighborhoodsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
 import { FAQSection } from "@/components/FAQSection";
@@ -128,7 +127,6 @@ const Index = () => {
         </section>
       </main>
       <Footer />
-      <WhatsAppFloat />
       <WhatsAppChatbot />
       <SocialProofProvider />
       <SocialProofAdminPanel />

@@ -1,11 +1,10 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ExitIntentPopup } from "./ExitIntentPopup";
 import { X, Users, Clock, MapPin, Activity, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { useSocialProofSettings } from "@/hooks/useSocialProofSettings";
 
-// CDC-compliant activity messages
 const getActivityMessages = (city: string) => [
   { icon: Activity, text: `Solicitações recentes de atendimento em ${city}`, subtext: "Atividade registrada há poucos minutos" },
   { icon: Users, text: "Profissionais em atendimento neste momento", subtext: "Equipe técnica ativa na região" },
@@ -14,7 +13,6 @@ const getActivityMessages = (city: string) => [
   { icon: Activity, text: "Volume elevado de solicitações registradas", subtext: "Horário de pico identificado" },
 ];
 
-// Scarcity data based on time
 const getScarcityData = () => {
   const hour = new Date().getHours();
   const dayOfWeek = new Date().getDay();
@@ -38,73 +36,54 @@ export const SocialProofProvider = () => {
   const { settings } = useSocialProofSettings();
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cycleRef = useRef(0);
-  const settingsRef = useRef(settings);
   const cityRef = useRef(city);
-
-  // Keep refs in sync
-  settingsRef.current = settings;
   cityRef.current = city;
 
-  const clearScheduled = useCallback(() => {
+  const clearScheduled = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-  }, []);
+  };
 
-  const scheduleNext = useCallback((delay: number) => {
-    clearScheduled();
-    timeoutRef.current = setTimeout(() => {
-      const s = settingsRef.current;
-      if (!s.enabled) return;
+  useEffect(() => {
+    if (!settings.enabled) return;
+    if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
+    const showNext = () => {
       const cycle = cycleRef.current;
       cycleRef.current++;
 
-      const shouldShowNotification = cycle % 2 === 0 && s.showActivityNotifications;
-      const shouldShowScarcity = cycle % 2 === 1 && s.showScarcityMessages;
+      const shouldShowNotification = cycle % 2 === 0 && settings.showActivityNotifications;
+      const shouldShowScarcity = cycle % 2 === 1 && settings.showScarcityMessages;
 
-      if (shouldShowNotification) {
+      if (shouldShowNotification || (!shouldShowScarcity && settings.showActivityNotifications)) {
         setMessageIndex(prev => (prev + 1) % 5);
         setActiveType("notification");
-      } else if (shouldShowScarcity) {
-        setScarcityData(getScarcityData());
-        setActiveType("scarcity");
-      } else if (s.showActivityNotifications) {
-        setMessageIndex(prev => (prev + 1) % 5);
-        setActiveType("notification");
-      } else if (s.showScarcityMessages) {
+      } else if (shouldShowScarcity || settings.showScarcityMessages) {
         setScarcityData(getScarcityData());
         setActiveType("scarcity");
       } else {
         return;
       }
 
-      // Auto-hide after 5s, then schedule next
+      // Auto-hide after 5s
       timeoutRef.current = setTimeout(() => {
         setIsExiting(true);
         timeoutRef.current = setTimeout(() => {
           setActiveType(null);
           setIsExiting(false);
-          // Schedule next proof after 8-18s pause
-          const pause = 8000 + Math.random() * 10000;
-          scheduleNext(pause);
+          // Next proof after 8-18s
+          timeoutRef.current = setTimeout(showNext, 8000 + Math.random() * 10000);
         }, 400);
       }, 5000);
-    }, delay);
-  }, [clearScheduled]);
+    };
 
-  // Start the cycle once
-  useEffect(() => {
-    if (!settings.enabled) return;
-    if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
-
+    // Initial delay 5-8s
     const initialDelay = 5000 + Math.random() * 3000;
-    scheduleNext(initialDelay);
+    timeoutRef.current = setTimeout(showNext, initialDelay);
 
-    return clearScheduled;
-    // Only run on mount / settings toggle
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => clearScheduled();
   }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages]);
 
   const handleClose = () => {
@@ -113,7 +92,6 @@ export const SocialProofProvider = () => {
     setTimeout(() => {
       setActiveType(null);
       setIsExiting(false);
-      scheduleNext(25000 + Math.random() * 10000);
     }, 400);
   };
 
@@ -121,7 +99,6 @@ export const SocialProofProvider = () => {
 
   const messages = getActivityMessages(cityRef.current || "sua região");
 
-  // Render notification
   if (activeType === "notification") {
     const message = messages[messageIndex];
     const IconComponent = message.icon;
@@ -163,7 +140,6 @@ export const SocialProofProvider = () => {
     );
   }
 
-  // Render scarcity
   const { availableTechnicians, waitTime, isPeakHour } = scarcityData;
   return (
     <>

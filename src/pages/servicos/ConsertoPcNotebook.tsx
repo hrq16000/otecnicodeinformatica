@@ -231,5 +231,6 @@ const ConsertoPcNotebook = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default ConsertoPcNotebook;

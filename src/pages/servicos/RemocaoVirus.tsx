@@ -242,5 +242,6 @@ const RemocaoVirus = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default RemocaoVirus;

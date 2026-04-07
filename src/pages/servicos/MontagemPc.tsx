@@ -208,5 +208,6 @@ const MontagemPc = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default MontagemPc;

@@ -190,5 +190,6 @@ const RedesWifi = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default RedesWifi;

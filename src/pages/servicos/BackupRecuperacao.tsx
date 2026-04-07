@@ -219,5 +219,6 @@ const BackupRecuperacao = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default BackupRecuperacao;

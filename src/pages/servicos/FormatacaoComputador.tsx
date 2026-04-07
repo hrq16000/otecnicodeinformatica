@@ -215,5 +215,6 @@ const FormatacaoComputador = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default FormatacaoComputador;

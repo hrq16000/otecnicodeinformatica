@@ -242,5 +242,6 @@ const UpgradeSsdMemoria = () => {
       <WhatsAppFloat />
     </div>
   );
+};
 
 export default UpgradeSsdMemoria;

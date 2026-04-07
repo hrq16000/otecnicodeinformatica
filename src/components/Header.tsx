@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Menu, X, ChevronDown, Bot } from "lucide-react";
+import { useDarkMode } from "@/hooks/useDarkMode";
+import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import {
@@ -83,6 +85,7 @@ const mainNavItems = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDark, toggle: toggleDark } = useDarkMode();
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   useEffect(() => {
@@ -145,6 +148,7 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
+          <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
           <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <MessageCircle className="h-4 w-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
@@ -174,6 +178,10 @@ export const Header = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border max-h-[80vh] overflow-y-auto shadow-[var(--shadow-lg)]">
           <nav className="container mx-auto py-4 flex flex-col gap-1">
+            <div className="flex items-center justify-between py-2 px-1 mb-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Tema</span>
+              <DarkModeToggle isDark={isDark} toggle={toggleDark} />
+            </div>
             {mainNavItems.map((item) => (
               <div key={item.label}>
                 {!item.sub ? (

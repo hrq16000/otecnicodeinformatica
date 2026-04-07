@@ -93,13 +93,23 @@
     --secondary-foreground: 220 14% 95%;
     --muted: 215 35% 16%;
     --muted-foreground: 215 20% 60%;
-    --accent: 24 92% 52%;
+    --accent: 24 92% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 215 30% 20%;
     --input: 215 30% 20%;
     --ring: 215 50% 55%;
+
+    --hero-bg: 215 55% 10%;
+    --hero-bg-end: 220 45% 16%;
+
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.15), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 12px -2px hsl(0 0% 0% / 0.2), 0 2px 6px -2px hsl(0 0% 0% / 0.15);
+    --shadow-lg: 0 12px 32px -4px hsl(0 0% 0% / 0.25), 0 4px 12px -4px hsl(0 0% 0% / 0.15);
+    --shadow-xl: 0 20px 48px -8px hsl(0 0% 0% / 0.3), 0 8px 20px -6px hsl(0 0% 0% / 0.2);
+    --shadow-accent: 0 8px 24px -4px hsl(24 92% 55% / 0.3);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -561,6 +571,71 @@
   .animate-blink {
     animation: blink 1s step-end infinite;
   }
+
+  /* ── Parallax text reveal ── */
+  .reveal-text {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--anim-ease-out), transform 0.7s var(--anim-ease-out);
+  }
+  .reveal-text.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-text-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-text-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-text-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-text-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ── Dark mode transition ── */
+  html {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  .dark .glass-card {
+    background: hsl(var(--card) / 0.5);
+    border-color: hsl(var(--border) / 0.3);
+    box-shadow: 
+      0 4px 24px -4px hsl(0 0% 0% / 0.2),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.04);
+  }
+  .dark .glass-card:hover {
+    background: hsl(var(--card) / 0.7);
+    border-color: hsl(var(--accent) / 0.25);
+  }
+  .dark .gradient-border::before {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.25), hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.2));
+  }
+
+  /* ── Smooth color transition on theme change ── */
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+  }
 }
 
 /* ── Reduced Motion ── */
@@ -582,7 +657,11 @@
   .anim-slide-left,
   .anim-slide-right,
   .fade-up,
-  .fade-in {
+  .fade-in,
+  .reveal-text,
+  .reveal-text-left,
+  .reveal-text-right,
+  .reveal-scale {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

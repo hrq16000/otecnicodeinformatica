@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useParallax } from "@/hooks/useParallax";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -183,7 +184,7 @@ const PageLoader = () => (
 );
 
 /** Initializes global scroll animations + parallax on each route */
-const ScrollAnimationsInit = () => { useScrollAnimations(); useParallax(); return null; };
+const ScrollAnimationsInit = () => { useScrollAnimations(); useParallax(); useRevealOnScroll(); return null; };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

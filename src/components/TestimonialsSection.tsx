@@ -37,10 +37,10 @@ export const TestimonialsSection = () => {
       <div data-parallax="0.1" className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 reveal-text">
             O Que Nossos Clientes Dizem
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Centenas de clientes satisfeitos em Curitiba confiam no nosso trabalho
           </p>
         </div>

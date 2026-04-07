@@ -25,7 +25,6 @@ import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
 import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Index = () => {
   useEffect(() => {
@@ -45,95 +44,76 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <AnimatedSection>
-          <section className="py-6 bg-background">
-            <div className="container mx-auto">
-              <div className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <TechnicianAvailability />
-                  <div className="flex items-center">
-                    <PricingBanner />
+
+        <section className="py-6 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <TechnicianAvailability />
+                <div className="flex items-center">
+                  <PricingBanner />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <PainSection />
+        <SchedulingSection />
+        <ServicesSection />
+        <TopSearchedServicesSection />
+        <CoverageMapSection />
+        <CitiesSection />
+        <NeighborhoodsSection />
+        <SocialProofSection />
+
+        <section className="py-14 md:py-18 bg-muted">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight">
+                Como Funciona Nosso Atendimento
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Atendimento técnico simples, rápido e transparente em 3 passos
+              </p>
+              <div className="grid md:grid-cols-3 gap-5 mb-8">
+                {[
+                  { step: "1", title: "Chame no WhatsApp", desc: "Descreva o problema e receba orientação imediata do técnico" },
+                  { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
+                  { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
+                ].map((item, i) => (
+                  <div key={i} className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3 shadow-sm">{item.step}</div>
+                    <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
-                </div>
+                ))}
               </div>
+              <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                Entender Como Funciona
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </a>
             </div>
-          </section>
-        </AnimatedSection>
-        <AnimatedSection>
-          <PainSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <SchedulingSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <ServicesSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <TopSearchedServicesSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <CoverageMapSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <CitiesSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <NeighborhoodsSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <SocialProofSection />
-        </AnimatedSection>
+          </div>
+        </section>
 
-        <AnimatedSection>
-          <section className="py-14 md:py-18 bg-muted">
-            <div className="container mx-auto">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight">
-                  Como Funciona Nosso Atendimento
-                </h2>
-                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Atendimento técnico simples, rápido e transparente em 3 passos
-                </p>
-                <div className="grid md:grid-cols-3 gap-5 mb-8">
-                  {[
-                    { step: "1", title: "Chame no WhatsApp", desc: "Descreva o problema e receba orientação imediata do técnico" },
-                    { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
-                    { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
-                  ].map((item, i) => (
-                    <div key={i} className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300" style={{ animationDelay: `${i * 100}ms` }}>
-                      <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3 shadow-sm">{item.step}</div>
-                      <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-                <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors shadow-sm ripple-container">
-                  Entender Como Funciona
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </a>
-              </div>
-            </div>
-          </section>
-        </AnimatedSection>
+        <HomePricingBlock />
+        <HomeDiagnosticoBlock />
+        <HomeEquipamentosBlock />
+        <HomeParaQuemBlock />
+        <InterlinkingBlock />
+        <FAQSection />
+        <TrustSection />
+        <CTASection />
 
-        <AnimatedSection><HomePricingBlock /></AnimatedSection>
-        <AnimatedSection><HomeDiagnosticoBlock /></AnimatedSection>
-        <AnimatedSection><HomeEquipamentosBlock /></AnimatedSection>
-        <AnimatedSection><HomeParaQuemBlock /></AnimatedSection>
-        <AnimatedSection><InterlinkingBlock /></AnimatedSection>
-        <AnimatedSection><FAQSection /></AnimatedSection>
-        <AnimatedSection><TrustSection /></AnimatedSection>
-        <AnimatedSection><CTASection /></AnimatedSection>
-        <AnimatedSection>
-          <section className="py-8 bg-muted/30">
-            <div className="container mx-auto">
-              <div className="text-center mb-6">
-                <SecurityBadge />
-              </div>
-              <TrustBadges variant="card" />
+        <section className="py-8 bg-muted/30">
+          <div className="container mx-auto">
+            <div className="text-center mb-6">
+              <SecurityBadge />
             </div>
-          </section>
-        </AnimatedSection>
+            <TrustBadges variant="card" />
+          </div>
+        </section>
       </main>
       <Footer />
       <WhatsAppChatbot />

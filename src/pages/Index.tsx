@@ -72,10 +72,10 @@ const Index = () => {
         <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
                 Como Funciona Nosso Atendimento
               </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Atendimento técnico simples, rápido e transparente em 3 passos
               </p>
               <div className="grid md:grid-cols-3 gap-5 mb-8">

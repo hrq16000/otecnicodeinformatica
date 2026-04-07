@@ -33,16 +33,17 @@ export const LocalFAQSection = ({ title, faqs }: LocalFAQSectionProps) => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden">
       {/* Schema FAQPage (local) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none" />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center reveal-text">
             {title}
           </h2>
           
@@ -51,7 +52,8 @@ export const LocalFAQSection = ({ title, faqs }: LocalFAQSectionProps) => {
               <AccordionItem 
                 key={idx} 
                 value={`item-${idx}`}
-                className="bg-secondary rounded-lg border-none"
+                className="bg-secondary rounded-lg border-none stagger-item hover:shadow-sm transition-shadow"
+                style={{ animationDelay: `${idx * 80}ms` }}
               >
                 <AccordionTrigger className="px-5 py-4 text-left font-semibold text-foreground hover:text-accent hover:no-underline">
                   {item.question}

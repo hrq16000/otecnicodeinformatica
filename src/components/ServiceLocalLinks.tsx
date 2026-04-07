@@ -39,10 +39,11 @@ export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceL
   }
 
   return (
-    <section className="py-10 md:py-14 bg-muted/30">
-      <div className="container mx-auto">
+    <section className="py-10 md:py-14 bg-muted/30 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/3 pointer-events-none" />
+      <div className="container mx-auto relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl font-bold text-primary mb-6 text-center">
+          <h3 className="text-xl font-bold text-primary mb-6 text-center reveal-text">
             Serviços de Informática na Região Metropolitana
           </h3>
           
@@ -51,9 +52,10 @@ export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceL
               <Link
                 key={index}
                 to={link.url}
-                className="group flex items-center gap-2 bg-background rounded-lg px-4 py-3 border border-border/50 hover:border-accent/50 hover:shadow-md transition-all"
+                className="group flex items-center gap-2 bg-background rounded-lg px-4 py-3 border border-border/50 hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all stagger-item"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
-                <MapPin className="h-4 w-4 text-accent flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground truncate group-hover:text-accent transition-colors">
                     {link.service}
@@ -70,10 +72,10 @@ export const ServiceLocalLinks = ({ currentCity, currentNeighborhood }: ServiceL
           <div className="text-center mt-6">
             <Link
               to="/servicos"
-              className="inline-flex items-center gap-2 text-accent hover:underline font-medium text-sm"
+              className="inline-flex items-center gap-2 text-accent hover:underline font-medium text-sm group"
             >
               Ver todos os serviços
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

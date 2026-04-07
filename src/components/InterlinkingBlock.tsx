@@ -64,13 +64,15 @@ const problemaLinks = [
 
 export const InterlinkingBlock = () => {
   return (
-    <section className="py-10 md:py-14 bg-secondary">
-      <div className="container mx-auto">
+    <section className="py-10 md:py-14 bg-secondary relative overflow-hidden">
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container mx-auto relative z-10">
         <div className="max-w-6xl mx-auto space-y-10">
 
           {/* Atendimento */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
               Entenda Mais Sobre Nosso Atendimento
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
@@ -98,7 +100,7 @@ export const InterlinkingBlock = () => {
 
           {/* Serviços */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
               Nossos Serviços
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
@@ -126,7 +128,7 @@ export const InterlinkingBlock = () => {
 
           {/* Regiões */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
               Regiões Atendidas
             </h2>
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
@@ -145,7 +147,7 @@ export const InterlinkingBlock = () => {
 
           {/* Problemas Comuns */}
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-primary mb-5 text-center reveal-text">
               Problemas Mais Comuns
             </h2>
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">

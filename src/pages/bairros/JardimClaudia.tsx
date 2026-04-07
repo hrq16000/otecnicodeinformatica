@@ -1,0 +1,19 @@
+import { BairroTemplate } from "./BairroTemplate";
+
+const data = {
+  nome: "Jardim Cláudia",
+  slug: "jardim-claudia",
+  cidade: "Pinhais",
+  metaTitle: "Técnico de Informática no Jardim Cláudia | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaDescription: "Técnico de informática no Jardim Cláudia, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",
+  h1: "Técnico de Informática no Jardim Cláudia – Pinhais",
+  subtitulo: "Atendimento técnico profissional a domicílio no Jardim Cláudia. Diagnóstico no local, orçamento transparente e garantia.",
+  descricaoLonga: `O Jardim Cláudia é um bairro de Pinhais, cidade vizinha de Curitiba com acesso rápido pela região norte/leste. Com forte perfil residencial, o bairro conta com demanda constante por serviços de informática. Nosso técnico de informática atende o Jardim Cláudia a domicílio com equipamento profissional, realizando diagnóstico no local e resolvendo a maioria dos problemas na primeira visita. Para casos que exigem bancada, oferecemos coleta e entrega. Trabalhamos com transparência total: orçamento antes da execução, sem surpresas.`,
+  pontosReferencia: ["Centro de Pinhais", "Zona residencial", "Comércio local", "Bairros vizinhos de Pinhais", "Escolas da região", "Terminal de ônibus (próx.)"],
+  tempoDeslocamento: "Atendimento em 30-60 min",
+  servicosDestaque: ["Formatação de computador", "Remoção de vírus e malware", "Conserto de notebook", "Upgrade SSD e memória", "Configuração de rede Wi-Fi", "Backup e recuperação de dados"],
+};
+
+const JardimClaudia = () => <BairroTemplate data={data} />;
+
+export default JardimClaudia;

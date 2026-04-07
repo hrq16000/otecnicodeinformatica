@@ -180,6 +180,9 @@ const PageLoader = () => (
   </div>
 );
 
+/** Initializes global scroll animations on each route */
+const ScrollAnimationsInit = () => { useScrollAnimations(); return null; };
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -187,6 +190,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollAnimationsInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />

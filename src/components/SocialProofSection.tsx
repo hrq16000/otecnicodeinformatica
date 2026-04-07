@@ -1,5 +1,6 @@
 import { Star, Quote, Award, CheckCircle, ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const reviews = [
   { name: "Roberto Silva", location: "Centro, Curitiba", rating: 5, text: "Meu notebook estava travando muito e o técnico resolveu em menos de 2 horas. Atendimento excelente e preço justo. O profissional foi muito atencioso e explicou tudo que estava fazendo.", service: "Formatação e Upgrade SSD", date: "2024-01-15", verified: true },

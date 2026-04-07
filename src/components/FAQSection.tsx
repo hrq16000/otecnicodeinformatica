@@ -69,7 +69,8 @@ export const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-b border-border last:border-b-0"
+              className="border-b border-border last:border-b-0 stagger-item"
+              style={{ animationDelay: `${index * 60}ms` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}

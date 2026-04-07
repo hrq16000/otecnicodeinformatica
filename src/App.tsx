@@ -402,6 +402,132 @@ const App = () => (
             <Route path="/bairros/centro-almirante-tamandare" element={<CentroAlmiranteTamandare />} />
             <Route path="/bairros/jardim-monte-santo" element={<JardimMontoSantoAT />} />
             <Route path="/bairros/cachoeira-at" element={<CachoeiraAT />} />
+
+            {/* Novos Bairros Curitiba */}
+            <Route path="/bairros/agua-verde" element={<AguaVerde />} />
+            <Route path="/bairros/bigorrilho" element={<Bigorrilho />} />
+            <Route path="/bairros/merces" element={<Merces />} />
+            <Route path="/bairros/boa-vista" element={<BoaVista />} />
+            <Route path="/bairros/juveve" element={<Juveve />} />
+            <Route path="/bairros/cabral" element={<Cabral />} />
+            <Route path="/bairros/cristo-rei" element={<CristoRei />} />
+            <Route path="/bairros/cajuru" element={<Cajuru />} />
+            <Route path="/bairros/uberaba" element={<Uberaba />} />
+            <Route path="/bairros/pinheirinho" element={<Pinheirinho />} />
+            <Route path="/bairros/xaxim" element={<Xaxim />} />
+            <Route path="/bairros/boqueirao" element={<Boqueirao />} />
+            <Route path="/bairros/bacacheri" element={<Bacacheri />} />
+            <Route path="/bairros/tingui" element={<Tingui />} />
+
+            {/* Novos Bairros Araucária */}
+            <Route path="/bairros/chapada" element={<ChapadaAraucaria />} />
+            <Route path="/bairros/costeira-araucaria" element={<CosteiraAraucaria />} />
+            <Route path="/bairros/iguacu-araucaria" element={<IguacuAraucaria />} />
+            <Route path="/bairros/campina-da-barra" element={<CampinaDaBarra />} />
+            <Route path="/bairros/porto-das-laranjeiras" element={<PortoDasLaranjeiras />} />
+            <Route path="/bairros/tindiquera" element={<Tindiquera />} />
+            <Route path="/bairros/barigui-araucaria" element={<BariguiAraucaria />} />
+            <Route path="/bairros/fazenda-velha-araucaria" element={<FazendaVelhaAraucaria />} />
+            <Route path="/bairros/estacao-araucaria" element={<EstacaoAraucaria />} />
+            <Route path="/bairros/boqueirao-araucaria" element={<BoqueiraoAraucaria />} />
+            <Route path="/bairros/sabia" element={<SabiaAraucaria />} />
+            <Route path="/bairros/passauna" element={<PassaunaAraucaria />} />
+            <Route path="/bairros/guajuvira" element={<GuajuviraAraucaria />} />
+
+            {/* Novos Bairros Colombo */}
+            <Route path="/bairros/alto-maracana" element={<AltoMaracanaColombo />} />
+            <Route path="/bairros/atuba-colombo" element={<AtubaColombo />} />
+            <Route path="/bairros/campo-pequeno" element={<CampoPequenoColombo />} />
+            <Route path="/bairros/fatima-colombo" element={<FatimaColombo />} />
+            <Route path="/bairros/gabirobal" element={<GabirobalColombo />} />
+            <Route path="/bairros/jardim-osasco" element={<JardimOsascoColombo />} />
+            <Route path="/bairros/monza-colombo" element={<MonzaColombo />} />
+            <Route path="/bairros/palmital-colombo" element={<PalmitalColombo />} />
+            <Route path="/bairros/roca-grande" element={<RocaGrandeColombo />} />
+            <Route path="/bairros/sao-gabriel-colombo" element={<SaoGabrielColombo />} />
+            <Route path="/bairros/santa-terezinha-colombo" element={<SantaTerezinhaColombo />} />
+
+            {/* Novos Bairros Pinhais */}
+            <Route path="/bairros/emiliano-perneta" element={<EmilianoPerneta />} />
+            <Route path="/bairros/maria-antonieta" element={<MariaAntonieta />} />
+            <Route path="/bairros/vargem-grande" element={<VargemGrande />} />
+            <Route path="/bairros/estancia-pinhais" element={<EstanciaPinhais />} />
+            <Route path="/bairros/alto-taruma" element={<AltoTaruma />} />
+            <Route path="/bairros/graciosa" element={<GraciosaPinhais />} />
+            <Route path="/bairros/jardim-amelia" element={<JardimAmelia />} />
+            <Route path="/bairros/palmital-pinhais" element={<PalmitalPinhais />} />
+            <Route path="/bairros/atuba-pinhais" element={<AtubaPinhais />} />
+            <Route path="/bairros/sete-vilas" element={<SeteVilas />} />
+            <Route path="/bairros/vila-taruma" element={<VilaTaruma />} />
+            <Route path="/bairros/vale-das-aguas" element={<ValeDasAguas />} />
+            <Route path="/bairros/jardim-claudia" element={<JardimClaudia />} />
+
+            {/* Novos Bairros Campo Largo */}
+            <Route path="/bairros/jardim-america-campo-largo" element={<JardimAmericaCL />} />
+            <Route path="/bairros/botiatuva" element={<BotiatuvaCL />} />
+            <Route path="/bairros/rondinha" element={<RondinhaCL />} />
+            <Route path="/bairros/sao-silvestre" element={<SaoSilvestreCL />} />
+            <Route path="/bairros/tres-corregos" element={<TresCorregosCL />} />
+            <Route path="/bairros/itaqui" element={<ItaquiCL />} />
+            <Route path="/bairros/ouro-fino" element={<OuroFinoCL />} />
+            <Route path="/bairros/bateias" element={<BateiasCL />} />
+            <Route path="/bairros/palmital-campo-largo" element={<PalmitalCL />} />
+            <Route path="/bairros/santa-cruz-campo-largo" element={<SantaCruzCL />} />
+            <Route path="/bairros/correia-de-freitas" element={<CorreiaDeFreitasCL />} />
+            <Route path="/bairros/jardim-planalto-campo-largo" element={<JardimPlanaltoCL />} />
+            <Route path="/bairros/vila-solene" element={<VilaSoleneCL />} />
+
+            {/* Novos Bairros FRG */}
+            <Route path="/bairros/iguacu-frg" element={<IguacuFRG />} />
+            <Route path="/bairros/gralha-azul" element={<GralhaAzulFRG />} />
+            <Route path="/bairros/santa-terezinha-frg" element={<SantaTerezinhaFRG />} />
+            <Route path="/bairros/jardim-estados" element={<JardimEstadosFRG />} />
+            <Route path="/bairros/pioneiros-frg" element={<PioneirosFRG />} />
+            <Route path="/bairros/sao-lourenco-frg" element={<SaoLourencoFRG />} />
+            <Route path="/bairros/hortencia-frg" element={<HortenciaFRG />} />
+
+            {/* Novos Bairros AT */}
+            <Route path="/bairros/tangua-at" element={<TanguaAT />} />
+            <Route path="/bairros/sao-venancio" element={<SaoVenancioAT />} />
+            <Route path="/bairros/jardim-graziela" element={<JardimGrazielaAT />} />
+            <Route path="/bairros/jardim-roma" element={<JardimRomaAT />} />
+            <Route path="/bairros/colonia-antonio-prado" element={<ColoniaAntonioPradoAT />} />
+            <Route path="/bairros/tranqueira-at" element={<TranqueiraAT />} />
+            <Route path="/bairros/jardim-paraiso-at" element={<JardimParaisoAT />} />
+
+            {/* Novos Bairros Piraquara */}
+            <Route path="/bairros/centro-piraquara" element={<CentroPiraquara />} />
+            <Route path="/bairros/jardim-primavera-piraquara" element={<JardimPrimaveraPiraquara />} />
+            <Route path="/bairros/planta-deodoro" element={<PlantaDeodoroPiraquara />} />
+            <Route path="/bairros/vila-macedo" element={<VilaMacedoPiraquara />} />
+            <Route path="/bairros/guarituba-piraquara" element={<GuaritubaPiraquara />} />
+            <Route path="/bairros/prado-velho-piraquara" element={<PradoVelhoPiraquara />} />
+            <Route path="/bairros/sao-cristovao-piraquara" element={<SaoCristaoPiraquara />} />
+            <Route path="/bairros/jardim-bela-vista-piraquara" element={<JardimBelaVistaPiraquara />} />
+            <Route path="/bairros/caiua-piraquara" element={<CaiuaPiraquara />} />
+
+            {/* Novos Bairros Campo Magro */}
+            <Route path="/bairros/centro-campo-magro" element={<CentroCampoMagro />} />
+            <Route path="/bairros/sede-campo-magro" element={<SedeCampoMagro />} />
+            <Route path="/bairros/jardim-boa-vista-campo-magro" element={<JardimBoaVistaCM />} />
+            <Route path="/bairros/sao-sebastiao-campo-magro" element={<SaoSebastiaoCM />} />
+            <Route path="/bairros/rio-verde-campo-magro" element={<RioVerdeCM />} />
+            <Route path="/bairros/botiatuva-campo-magro" element={<BotiatuvaCM />} />
+
+            {/* Novos Bairros Quatro Barras */}
+            <Route path="/bairros/centro-quatro-barras" element={<CentroQuatroBarras />} />
+            <Route path="/bairros/jardim-menino-deus" element={<JardimMeninoDeusQB />} />
+            <Route path="/bairros/vila-sao-jose-qb" element={<VilaSaoJoseQB />} />
+            <Route path="/bairros/borda-do-campo-qb" element={<BordaDoCampoQB />} />
+            <Route path="/bairros/sao-lourenco-qb" element={<SaoLourencoQB />} />
+            <Route path="/bairros/vila-maria-qb" element={<VilaMariaQB />} />
+
+            {/* Novos Bairros SJP */}
+            <Route path="/bairros/cidade-jardim-sjp" element={<CidadeJardimSJP />} />
+            <Route path="/bairros/pedro-moro" element={<PedroMoroSJP />} />
+            <Route path="/bairros/ipe-sjp" element={<IpeSJP />} />
+            <Route path="/bairros/rio-pequeno-sjp" element={<RioPequenoSJP />} />
+            <Route path="/bairros/borda-do-campo-sjp" element={<BordaDoCampoSJP />} />
             
             {/* Landing Pages Ads */}
             <Route path="/ads/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritibaAds />} />

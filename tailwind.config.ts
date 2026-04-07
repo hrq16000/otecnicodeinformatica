@@ -80,12 +80,36 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: { height: "0", opacity: "0" },
+          to: { height: "var(--radix-accordion-content-height)", opacity: "1" },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          to: { height: "0", opacity: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(10px)" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.95)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "scale-out": {
+          from: { transform: "scale(1)", opacity: "1" },
+          to: { transform: "scale(0.95)", opacity: "0" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "slide-out-right": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
         },
         "pulse-soft": {
           "0%, 100%": { transform: "scale(1)" },
@@ -129,6 +153,14 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in var(--anim-medium, 300ms) var(--anim-ease-out, ease-out)",
+        "fade-out": "fade-out var(--anim-medium, 300ms) var(--anim-ease-out, ease-out)",
+        "scale-in": "scale-in var(--anim-fast, 150ms) var(--anim-ease-out, ease-out)",
+        "scale-out": "scale-out var(--anim-fast, 150ms) var(--anim-ease-out, ease-out)",
+        "slide-in-right": "slide-in-right var(--anim-medium, 300ms) var(--anim-ease-out, ease-out)",
+        "slide-out-right": "slide-out-right var(--anim-medium, 300ms) var(--anim-ease-out, ease-out)",
+        "enter": "fade-in var(--anim-medium, 300ms) ease-out, scale-in var(--anim-fast, 150ms) ease-out",
+        "exit": "fade-out var(--anim-medium, 300ms) ease-out, scale-out var(--anim-fast, 150ms) ease-out",
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "bounce-subtle": "bounce-subtle 3s ease-in-out infinite",
         "wa-bounce": "wa-bounce 2.5s ease-in-out infinite",

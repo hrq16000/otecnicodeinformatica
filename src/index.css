@@ -45,6 +45,15 @@
     --section-light: 0 0% 96%;
     --trust-green: 142 70% 40%;
 
+    /* Animation tokens */
+    --anim-fast: 150ms;
+    --anim-medium: 300ms;
+    --anim-slow: 500ms;
+    --anim-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --anim-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --anim-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --anim-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
     /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

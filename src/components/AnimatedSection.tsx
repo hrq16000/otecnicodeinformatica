@@ -19,18 +19,20 @@ const animClassMap: Record<AnimationType, string> = {
 
 export const AnimatedSection = ({ children, className = "", delay = 0, animation = "fade" }: AnimatedSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // Start visible by default so content is never hidden
+  const [isVisible, setIsVisible] = useState(true);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    // Respect prefers-reduced-motion
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) {
-      setIsVisible(true);
-      return;
-    }
+    if (prefersReduced) return;
 
     const el = ref.current;
     if (!el) return;
+
+    // Only hide and animate if IntersectionObserver is supported
+    setIsVisible(false);
+    setShouldAnimate(true);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -43,14 +45,21 @@ export const AnimatedSection = ({ children, className = "", delay = 0, animation
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety fallback: ensure visible after 2s no matter what
+    const fallback = setTimeout(() => setIsVisible(true), 2000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [delay]);
 
-  const animClass = animClassMap[animation];
+  const animClass = shouldAnimate ? animClassMap[animation] : "";
 
   return (
     <div

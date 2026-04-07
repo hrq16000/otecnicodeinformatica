@@ -45,7 +45,7 @@ export const CTASection = () => {
               </a>
             </Button>
             
-            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback" onClick={openChatbot}>
+            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 btn-feedback" onClick={openChatbot}>
               <Bot className="h-5 w-5 md:h-6 md:w-6" />
               Atendimento Rápido
             </Button>

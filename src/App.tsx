@@ -196,9 +196,10 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <ScrollProgressBar />
+        <CursorTrail />
         <ScrollAnimationsInit />
         <Suspense fallback={<PageLoader />}>
-          <Routes>
+        <PageTransition>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />
             <Route path="/servicos" element={<Servicos />} />

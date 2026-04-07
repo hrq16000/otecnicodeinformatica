@@ -82,13 +82,15 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo e Contato */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
-            <img
-              alt="Técnico Curitiba"
-              className="h-10 w-auto brightness-0 invert"
-              src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
-              width="200"
-              height="40"
-            />
+            <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1 shadow-[var(--shadow-sm)]">
+              <img
+                alt="Técnico Curitiba"
+                className="h-10 w-auto"
+                src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+                width="200"
+                height="40"
+              />
+            </div>
             <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.
             </p>

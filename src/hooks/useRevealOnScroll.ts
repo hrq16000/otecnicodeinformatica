@@ -1,47 +1,62 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const REVEAL_SELECTOR = ".reveal-text, .reveal-text-left, .reveal-text-right, .reveal-scale";
 
 /**
- * Hook that adds `.revealed` class to elements with reveal-* classes
- * when they enter the viewport, creating a scroll-driven text reveal effect.
+ * Re-initializes reveal elements on every route change so hero titles,
+ * subtitles and CTAs never stay invisible after navigation.
  */
 export function useRevealOnScroll() {
-  const initialized = useRef(false);
+  const location = useLocation();
 
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
+    if (!elements.length) return;
+
+    const revealElement = (el: HTMLElement) => {
+      const delay = Number.parseInt(el.dataset.revealDelay || "0", 10);
+      if (delay > 0) {
+        window.setTimeout(() => el.classList.add("revealed"), delay);
+      } else {
+        el.classList.add("revealed");
+      }
+    };
+
+    elements.forEach((el) => el.classList.remove("revealed"));
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) {
-      // Immediately reveal everything
-      document.querySelectorAll(".reveal-text, .reveal-text-left, .reveal-text-right, .reveal-scale").forEach((el) => {
-        el.classList.add("revealed");
-      });
+      elements.forEach(revealElement);
       return;
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Apply stagger delay based on data attribute
-            const delay = (entry.target as HTMLElement).dataset.revealDelay;
-            if (delay) {
-              setTimeout(() => entry.target.classList.add("revealed"), parseInt(delay));
-            } else {
-              entry.target.classList.add("revealed");
-            }
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          revealElement(entry.target as HTMLElement);
+          observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
 
-    document.querySelectorAll(".reveal-text, .reveal-text-left, .reveal-text-right, .reveal-scale").forEach((el) => {
-      observer.observe(el);
+    elements.forEach((el) => observer.observe(el));
+
+    const fallbackFrame = window.requestAnimationFrame(() => {
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          revealElement(el);
+          observer.unobserve(el);
+        }
+      });
     });
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      window.cancelAnimationFrame(fallbackFrame);
+      observer.disconnect();
+    };
+  }, [location.pathname]);
 }

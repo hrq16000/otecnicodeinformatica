@@ -34,7 +34,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
       </Helmet>
       <nav
         aria-label="Breadcrumb"
-        className="bg-muted/50 border-b border-border mt-[64px]"
+        className="bg-muted/50 border-b border-border"
       >
         <div className="container mx-auto px-4 py-3">
           <ol className="flex flex-wrap items-center gap-1 text-sm">

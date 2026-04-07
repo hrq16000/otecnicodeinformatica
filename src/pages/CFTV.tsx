@@ -75,7 +75,7 @@ const CFTVPage = () => {
 
       <Header />
 
-      <main className="pt-16">
+      <main>
         {/* HERO */}
         <section className="relative pt-10 md:pt-12 overflow-hidden">
           <div className="absolute inset-0 z-0">

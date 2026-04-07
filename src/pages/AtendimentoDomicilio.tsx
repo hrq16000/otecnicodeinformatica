@@ -82,7 +82,7 @@ const AtendimentoDomicilio = () => {
       <PageSEO title="Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba" description="Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável." path="/atendimento-domicilio" />
       <JsonLdSchema />
       <Header />
-      <main className="pt-16">
+      <main>
         <PageHero
           title="Técnico de Informática em Domicílio"
           subtitle="Atendimento técnico na sua casa ou escritório em Curitiba. Comodidade, rapidez e segurança sem você precisar sair de casa."

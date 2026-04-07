@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
 
-const footerLink = "text-white/70 hover:text-white text-sm transition-colors";
+const footerLink = "text-foreground/60 hover:text-neon-green text-sm transition-colors font-mono";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-primary py-10 md:py-12">
+    <footer className="bg-card border-t border-neon-green/10 py-10 md:py-12 relative cyber-grid">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
           {/* Logo e Contato */}
@@ -19,16 +19,16 @@ export const Footer = () => {
               height="40"
               loading="lazy"
             />
-            <p className="text-white/60 text-sm max-w-xs">
+            <p className="text-foreground/50 text-sm max-w-xs">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.
             </p>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
+            <div className="flex items-center gap-2 text-foreground/70 text-sm">
               <MapPin className="h-4 w-4 flex-shrink-0" />
               <span>Curitiba e Região Metropolitana, PR</span>
             </div>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
+            <div className="flex items-center gap-2 text-foreground/70 text-sm">
               <MessageCircle className="h-4 w-4 flex-shrink-0" />
-              <a href="https://wa.me/5541997452053" className="hover:text-white transition-colors">
+              <a href="https://wa.me/5541997452053" className="hover:text-foreground transition-colors">
                 (41) 9.9745-2053
               </a>
             </div>
@@ -36,7 +36,7 @@ export const Footer = () => {
 
           {/* Serviços */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Serviços</h3>
+            <h3 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Serviços</h3>
             <ul className="space-y-2">
               {[
                 { label: "Todos os Serviços", to: "/servicos" },
@@ -62,7 +62,7 @@ export const Footer = () => {
 
           {/* Atendimento */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Atendimento</h3>
+            <h3 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Atendimento</h3>
             <ul className="space-y-2">
               {[
                 { label: "Como Funciona", to: "/como-funciona" },
@@ -85,7 +85,7 @@ export const Footer = () => {
 
           {/* Regiões */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Regiões</h3>
+            <h3 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Regiões</h3>
             <ul className="space-y-2">
               {[
                 { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
@@ -106,7 +106,7 @@ export const Footer = () => {
               ))}
             </ul>
 
-            <h3 className="text-white font-semibold mb-3 mt-6 text-sm uppercase tracking-wider">Bairros</h3>
+            <h3 className="text-foreground font-semibold mb-3 mt-6 text-sm uppercase tracking-wider">Bairros</h3>
             <ul className="space-y-2">
               {[
                 { label: "Centro", to: "/bairros/centro" },
@@ -124,7 +124,7 @@ export const Footer = () => {
 
           {/* Institucional */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Saiba Mais</h3>
+            <h3 className="text-foreground font-semibold mb-4 text-sm uppercase tracking-wider">Saiba Mais</h3>
             <ul className="space-y-2">
               {[
                 { label: "Blog", to: "/blog" },
@@ -138,7 +138,7 @@ export const Footer = () => {
               ))}
             </ul>
 
-            <h3 className="text-white font-semibold mb-3 mt-6 text-sm uppercase tracking-wider">Blog</h3>
+            <h3 className="text-foreground font-semibold mb-3 mt-6 text-sm uppercase tracking-wider">Blog</h3>
             <ul className="space-y-2">
               {[
                 { label: "Computador Lento", to: "/blog/computador-lento-causas-solucoes" },
@@ -154,16 +154,16 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-6 text-center space-y-2">
-          <p className="text-white/60 text-sm">
+          <p className="text-foreground/50 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. Todos os direitos reservados.
           </p>
-          <p className="text-white/40 text-xs">
+          <p className="text-foreground/40 text-xs">
             Uma empresa do ecossistema{" "}
-            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline transition-colors">
+            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-foreground/50 hover:text-foreground underline transition-colors">
               Preciso de Um
             </a>
             {" · "}
-            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white underline transition-colors">
+            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-foreground/50 hover:text-foreground underline transition-colors">
               Mestre dos Serviços
             </a>
           </p>

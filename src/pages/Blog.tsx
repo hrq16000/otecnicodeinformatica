@@ -295,7 +295,7 @@ const Blog = () => {
       <PageSEO title="Blog | Dicas de Informática, Windows 11, Office 365 | Técnico Curitiba" description="Dicas de informática, tutoriais Windows 11, Office 365, segurança digital para empresas. Artigos técnicos e práticos do Técnico Curitiba." path="/blog" />
       <JsonLdSchema />
       <Header />
-      <main className="pt-16">
+      <main>
         {/* Hero */}
         <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto">

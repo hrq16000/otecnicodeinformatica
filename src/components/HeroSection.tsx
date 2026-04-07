@@ -60,8 +60,10 @@ export const HeroSection = () => {
           height="1080"
           style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-primary/30" />
+        {/* Extra mobile contrast layer */}
+        <div className="absolute inset-0 bg-primary/30 md:bg-transparent" />
       </div>
       <style>{`@keyframes kenBurns { 0% { transform: scale(1.05) translate(0,0); } 100% { transform: scale(1.12) translate(-1%,-1%); } }`}</style>
 
@@ -91,12 +93,12 @@ export const HeroSection = () => {
               Técnico de Informática
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/75 mt-2 tracking-normal">
-                <TypingEffect phrases={TYPING_PHRASES} className="text-white/75" />
+              <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 mt-2 tracking-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                <TypingEffect phrases={TYPING_PHRASES} className="text-white/90" />
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/85 mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-0 animate-[heroFadeUp_0.6s_ease-out_0.35s_forwards]">
+            <p className="text-lg md:text-xl text-white/95 mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-0 animate-[heroFadeUp_0.6s_ease-out_0.35s_forwards] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
               <strong className="text-white">Conserto de computadores e notebooks</strong> com atendimento 
               <strong className="text-white"> a domicílio</strong> no mesmo dia. Formatação, remoção de vírus, 
               upgrade SSD e mais.
@@ -107,15 +109,15 @@ export const HeroSection = () => {
               {trustSignals.map((signal, index) => (
                 <div key={index} className="flex items-center gap-1.5 bg-white/[0.07] backdrop-blur-sm border border-white/[0.08] rounded-full px-3 py-1.5 hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-300 hover:scale-105">
                   <signal.icon className="h-3.5 w-3.5 text-accent" />
-                  <span className="text-white/85 text-[13px]">{signal.text}</span>
+                  <span className="text-white/95 text-[13px] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">{signal.text}</span>
                 </div>
               ))}
             </div>
 
             {/* Areas served */}
-            <p className="text-white/60 text-sm mb-7 opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.55s_forwards]">
+            <p className="text-white/80 text-sm mb-7 opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.55s_forwards] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
               <MapPin className="inline h-3.5 w-3.5 mr-1 relative -top-px" />
-              Atendemos: <strong className="text-white/75">Curitiba</strong>, <strong className="text-white/75">São José dos Pinhais</strong>, <strong className="text-white/75">Araucária</strong>, <strong className="text-white/75">Campo Largo</strong> e <strong className="text-white/75">Pinhais</strong>
+              Atendemos: <strong className="text-white/95">Curitiba</strong>, <strong className="text-white/95">São José dos Pinhais</strong>, <strong className="text-white/95">Araucária</strong>, <strong className="text-white/95">Campo Largo</strong> e <strong className="text-white/95">Pinhais</strong>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start opacity-0 animate-[heroFadeUp_0.5s_ease-out_0.6s_forwards]">
@@ -136,7 +138,7 @@ export const HeroSection = () => {
               <TechnicianAvailabilityInline />
             </div>
 
-            <div className="flex items-center justify-center lg:justify-start gap-2 mt-3 text-white/60 text-sm opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.8s_forwards]">
+            <div className="flex items-center justify-center lg:justify-start gap-2 mt-3 text-white/80 text-sm opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.8s_forwards] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
               <CheckCircle className="h-3.5 w-3.5 text-trust" />
               <span>Resposta em até 5 minutos • Orçamento sem compromisso</span>
             </div>

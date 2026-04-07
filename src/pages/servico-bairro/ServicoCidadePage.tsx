@@ -114,7 +114,7 @@ const ServicoCidadePage = () => {
       />
 
       {/* Hero */}
-      <section className="pt-10 pb-10 bg-gradient-to-br from-[hsl(var(--primary))] via-[hsl(var(--primary))] to-[hsl(var(--primary)/0.9)]">
+      <section className="pt-10 pb-10 hero-gradient">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">

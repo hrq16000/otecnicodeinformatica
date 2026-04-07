@@ -40,7 +40,7 @@ const RemocaoVirus = () => {
       />
       
       {/* Hero Section */}
-      <section className="relative pt-10 pb-10 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
+      <section className="relative pt-10 pb-10 hero-gradient overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl animate-breathe" />
           <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-accent/8 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '2s' }} />

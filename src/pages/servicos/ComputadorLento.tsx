@@ -46,7 +46,7 @@ const ComputadorLento = () => {
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Computador Lento" }]} />
 
       {/* Hero */}
-      <section className="pt-10 pb-10 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+      <section className="pt-10 pb-10 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />

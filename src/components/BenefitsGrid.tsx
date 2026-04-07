@@ -14,8 +14,8 @@ interface BenefitsGridProps {
 
 export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) => {
   return (
-    <section className="py-14 md:py-18 bg-muted/40 relative overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-14 md:py-18 bg-muted/40 relative overflow-hidden mesh-gradient-warm noise-overlay">
+      <div className="absolute top-0 left-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
       <div className="container mx-auto relative z-10">
         {(title || subtitle) && (
           <div className="text-center mb-10">

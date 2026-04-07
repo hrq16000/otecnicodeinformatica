@@ -19,9 +19,11 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-background relative overflow-hidden spotlight-sweep">
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-14 md:py-18 lg:py-24 bg-background relative overflow-hidden spotlight-sweep mesh-gradient-warm noise-overlay">
+      {/* Animated orbs */}
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none orb-float-reverse" />
+      
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight reveal-text">
@@ -30,6 +32,8 @@ export const ServicesSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Soluções completas em informática para você e sua empresa
           </p>
+          {/* Glowing separator */}
+          <div className="glow-separator max-w-xs mx-auto mt-6" />
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -39,12 +43,14 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group glass-card gradient-border rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ripple-container card-shine animated-border stagger-item"
+                className="group glass-card gradient-border rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ripple-container card-shine animated-border hover-streak slide-up-stagger"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-sm">
+                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-sm relative">
                     <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
+                    {/* Subtle glow behind icon on hover */}
+                    <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-1 group-hover:text-accent transition-colors duration-200">
@@ -69,7 +75,7 @@ export const ServicesSection = () => {
         <div className="text-center mt-10">
           <Link
             to="/valores"
-            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all underline-grow text-[15px] group"
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all underline-grow text-[15px] group gradient-text-hover"
           >
             Ver tabela completa de preços
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

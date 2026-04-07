@@ -29,10 +29,11 @@ export const SocialProofSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-20 bg-background relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-background relative overflow-hidden mesh-gradient-warm noise-overlay">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
-      <div className="absolute top-0 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none orb-float-reverse" />
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-accent/[0.03] morph-blob pointer-events-none blur-[100px]" />
 
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
@@ -41,9 +42,11 @@ export const SocialProofSection = () => {
             <span className="font-medium text-sm">Assistência Técnica Mais Bem Avaliada de Curitiba</span>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-6 tracking-tight reveal-text">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
             O Que Nossos <span className="gradient-text">Clientes</span> Dizem
           </h2>
+          <div className="glow-separator max-w-xs mx-auto mb-6" />
+
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
             <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 card-shine stat-reveal" style={{ animationDelay: '0ms' }}>
@@ -74,7 +77,7 @@ export const SocialProofSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border stagger-item"
+              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border hover-streak slide-up-stagger"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <Quote className="h-7 w-7 text-accent/25 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />

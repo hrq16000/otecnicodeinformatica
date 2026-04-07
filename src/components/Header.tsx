@@ -103,12 +103,16 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'py-1 bg-background/95 backdrop-blur-md shadow-[var(--shadow-md)]'
           : 'py-2 bg-background shadow-[var(--shadow-sm)]'
       }`}
     >
+      {/* Bottom gradient line when scrolled */}
+      {isScrolled && (
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      )}
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img

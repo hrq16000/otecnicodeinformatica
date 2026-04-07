@@ -49,9 +49,9 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden spotlight-sweep" aria-labelledby="faq-heading">
-      <div data-parallax="0.06" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
-      <div className="container mx-auto">
+    <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden spotlight-sweep mesh-gradient-warm" aria-labelledby="faq-heading">
+      <div data-parallax="0.06" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none orb-float-reverse" />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4 shimmer-sweep float-badge">
             <HelpCircle className="h-5 w-5 text-primary" />
@@ -63,30 +63,27 @@ export const FAQSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Tire suas dúvidas sobre nossos serviços de informática, preços, garantia e formas de atendimento.
           </p>
+          <div className="glow-separator max-w-xs mx-auto mt-6" />
         </div>
 
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-b border-border last:border-b-0 stagger-item"
+              className="border-b border-border last:border-b-0 slide-up-stagger"
               style={{ animationDelay: `${index * 60}ms` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full py-5 flex items-start justify-between gap-4 text-left hover:bg-muted/30 transition-all duration-300 px-4 -mx-4 rounded-lg hover:scale-[1.01] hover:shadow-[var(--shadow-sm)]"
+                className="w-full py-5 flex items-start justify-between gap-4 text-left hover:bg-muted/30 transition-all duration-300 px-4 -mx-4 rounded-lg hover:scale-[1.01] hover:shadow-[var(--shadow-sm)] group"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="text-base md:text-lg font-semibold text-foreground pr-4">
+                <h3 className="text-base md:text-lg font-semibold text-foreground pr-4 group-hover:text-accent transition-colors duration-200">
                   {faq.question}
                 </h3>
-                <span className="flex-shrink-0 mt-1 text-primary">
-                  {openIndex === index ? (
-                    <ChevronUp className="h-5 w-5" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5" />
-                  )}
+                <span className={`flex-shrink-0 mt-1 text-primary transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                  <ChevronDown className="h-5 w-5" />
                 </span>
               </button>
               <div

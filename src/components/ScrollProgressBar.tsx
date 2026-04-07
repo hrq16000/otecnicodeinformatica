@@ -28,14 +28,30 @@ export const ScrollProgressBar = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-[3px] bg-transparent pointer-events-none">
+      {/* Main progress bar */}
       <div
-        className="h-full bg-gradient-to-r from-accent via-accent/80 to-accent rounded-r-full transition-[width] duration-100 ease-out"
-        style={{ width: `${progress}%` }}
+        className="h-full rounded-r-full transition-[width] duration-100 ease-out"
+        style={{
+          width: `${progress}%`,
+          background: `linear-gradient(90deg, hsl(var(--accent)), hsl(var(--accent) / 0.8), hsl(var(--primary)))`,
+        }}
       />
       {/* Glow effect at the tip */}
       <div
-        className="absolute top-0 h-[3px] w-8 rounded-full blur-sm bg-accent/60 transition-[left] duration-100 ease-out"
-        style={{ left: `calc(${progress}% - 16px)` }}
+        className="absolute top-0 h-[6px] w-12 rounded-full transition-[left] duration-100 ease-out"
+        style={{
+          left: `calc(${progress}% - 24px)`,
+          background: `radial-gradient(ellipse at center, hsl(var(--accent) / 0.7), transparent)`,
+          filter: "blur(3px)",
+        }}
+      />
+      {/* Shimmer trail */}
+      <div
+        className="absolute top-0 h-[3px] rounded-r-full transition-[width] duration-200 ease-out"
+        style={{
+          width: `${progress}%`,
+          background: `linear-gradient(90deg, transparent 80%, hsl(var(--accent) / 0.4))`,
+        }}
       />
     </div>
   );

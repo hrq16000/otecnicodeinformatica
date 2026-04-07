@@ -46,21 +46,24 @@ export const HeroSection = () => {
   return (
     <>
     <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
-    <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden" aria-label="Técnico de informática em Curitiba">
-      {/* Background image */}
+    <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
+      {/* Background image with ken burns effect */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroBg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-18 scale-105"
           loading="eager"
           decoding="async"
           width="1920"
           height="1080"
+          style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-primary/20" />
       </div>
+      <style>{`@keyframes kenBurns { 0% { transform: scale(1.05) translate(0,0); } 100% { transform: scale(1.12) translate(-1%,-1%); } }`}</style>
 
       {/* Floating particles */}
       <FloatingParticles count={40} />

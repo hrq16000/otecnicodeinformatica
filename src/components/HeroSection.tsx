@@ -60,10 +60,10 @@ export const HeroSection = () => {
           height="1080"
           style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,65%,22%)]/90 via-[hsl(215,65%,22%)]/80 to-[hsl(215,65%,22%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,65%,22%)]/40 via-transparent to-[hsl(215,65%,22%)]/30" />
         {/* Extra mobile contrast layer */}
-        <div className="absolute inset-0 bg-primary/30 md:bg-transparent" />
+        <div className="absolute inset-0 bg-[hsl(215,65%,22%)]/30 md:bg-transparent" />
       </div>
       <style>{`@keyframes kenBurns { 0% { transform: scale(1.05) translate(0,0); } 100% { transform: scale(1.12) translate(-1%,-1%); } }`}</style>
 
@@ -161,10 +161,10 @@ export const HeroSection = () => {
               <div className="absolute -bottom-3 -right-3 bg-accent text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg animate-bounce-subtle">
                 ✓ Atendimento Imediato
               </div>
-              <div className="absolute -top-3 -left-3 bg-white text-primary px-3 py-2 rounded-lg shadow-lg flex items-center gap-1 hover:scale-110 transition-transform duration-300">
+              <div className="absolute -top-3 -left-3 bg-white text-[hsl(215,65%,22%)] px-3 py-2 rounded-lg shadow-lg flex items-center gap-1 hover:scale-110 transition-transform duration-300">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                 <span className="font-bold text-sm">4.9</span>
-                <span className="text-xs text-muted-foreground">/5</span>
+                <span className="text-xs text-gray-500">/5</span>
               </div>
             </div>
           </div>

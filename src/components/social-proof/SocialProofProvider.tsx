@@ -19,7 +19,7 @@ const getScarcityData = () => {
   const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
   const isBusinessHours = hour >= 8 && hour < 20;
   const isPeakHour = !isWeekend && ((hour >= 9 && hour <= 11) || (hour >= 14 && hour <= 16));
-  if (!isBusinessHours) return { availableTechnicians: 0, waitTime: "Amanhã a partir das 8h", isPeakHour: false };
+  if (!isBusinessHours) return { availableTechnicians: 0, waitTime: hour < 8 ? "Hoje a partir das 8h" : "Amanhã a partir das 8h", isPeakHour: false };
   if (isPeakHour) return { availableTechnicians: Math.floor(Math.random() * 2) + 1, waitTime: `${Math.floor(Math.random() * 20) + 30} minutos`, isPeakHour: true };
   return { availableTechnicians: Math.floor(Math.random() * 3) + 2, waitTime: `${Math.floor(Math.random() * 15) + 15} minutos`, isPeakHour: false };
 };

@@ -239,7 +239,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
               <div className="grid lg:grid-cols-5 gap-8">
                 <div className="lg:col-span-3">
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                     Assistência Técnica em Informática no {data.nome}
                   </h2>
                   <div className="prose prose-lg text-muted-foreground">

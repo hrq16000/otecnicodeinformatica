@@ -26,6 +26,7 @@ import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
 import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { ProblemasDestaque } from "@/components/ProblemasDestaque";
 
 const Index = () => {
   useEffect(() => {

@@ -147,17 +147,18 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 2. RESUMO RÁPIDO ===== */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 Atendimento Simples, Rápido e Transparente
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 {resumoItems.map((item, i) => {
                   const Icon = item.icon;
                   return (
-                    <div key={i} className="bg-background rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div key={i} className="bg-background rounded-xl p-5 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
                       <div className="bg-primary rounded-lg p-3 w-fit mx-auto mb-3">
                         <Icon className="h-6 w-6 text-primary-foreground" />
                       </div>
@@ -172,13 +173,14 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 3. PASSO A PASSO DETALHADO ===== */}
-        <section className="py-12 md:py-20 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-20 bg-background relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
                 Passo a Passo: Do Primeiro Contato à Garantia
               </h2>
-              <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Conheça cada etapa do nosso processo de atendimento técnico em Curitiba. Transparência do início ao fim para você ter total segurança.
               </p>
 
@@ -265,12 +267,12 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 O Que Está Incluso no Atendimento
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {inclusosItems.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-secondary rounded-lg p-4">
+                  <div key={i} className="flex items-start gap-3 bg-secondary rounded-lg p-4 hover:-translate-y-0.5 hover:shadow-sm transition-all stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-primary">{item.title}</h3>
@@ -287,15 +289,15 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
                 O Que Pode Alterar o Valor do Serviço
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
+              <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto reveal-text" data-reveal-delay="100">
                 Prezamos pela transparência. Veja os fatores que podem influenciar o valor final do atendimento técnico:
               </p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {fatoresPreco.map((fator, i) => (
-                  <div key={i} className="bg-background rounded-xl p-5 flex items-start gap-3">
+                  <div key={i} className="bg-background rounded-xl p-5 flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-sm transition-all stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
                     <AlertCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-primary text-sm">{fator.title}</h3>
@@ -315,10 +317,10 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
                 Regiões Atendidas pelo Técnico de Informática
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Nosso atendimento técnico cobre Curitiba e toda a região metropolitana. Atendemos a domicílio ou remotamente, com agilidade e profissionalismo.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -326,9 +328,10 @@ const ComoFunciona = () => {
                   <Link
                     key={i}
                     to={r.link}
-                    className="bg-secondary rounded-xl p-4 text-center hover:bg-accent/10 hover:border-accent/30 border border-transparent transition-all group"
+                    className="bg-secondary rounded-xl p-4 text-center hover:bg-accent/10 hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
+                    style={{ animationDelay: `${i * 60}ms` }}
                   >
-                    <MapPin className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <MapPin className="h-5 w-5 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
                     <span className="font-semibold text-primary text-sm group-hover:text-accent transition-colors">{r.name}</span>
                   </Link>
                 ))}
@@ -341,13 +344,14 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 8. TIPOS DE SERVIÇOS ===== */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute top-1/3 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
                 Serviços de Informática Disponíveis
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Oferecemos uma gama completa de serviços técnicos para computadores, notebooks e redes. Cada serviço segue o mesmo processo transparente descrito acima.
               </p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -357,9 +361,10 @@ const ComoFunciona = () => {
                     <Link
                       key={i}
                       to={s.link}
-                      className="bg-background rounded-xl p-5 flex items-start gap-3 hover:shadow-md hover:border-accent/20 border border-transparent transition-all group"
+                      className="bg-background rounded-xl p-5 flex items-start gap-3 hover:shadow-md hover:border-accent/20 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
+                      style={{ animationDelay: `${i * 80}ms` }}
                     >
-                      <div className="bg-primary rounded-lg p-2 flex-shrink-0">
+                      <div className="bg-primary rounded-lg p-2 flex-shrink-0 group-hover:shadow-[0_0_12px_hsl(var(--primary)/0.3)] transition-shadow">
                         <Icon className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
@@ -386,15 +391,15 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 Por Que Confiar no Nosso Atendimento
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {confiancaItems.map((item, i) => {
                   const Icon = item.icon;
                   return (
-                    <div key={i} className="flex gap-4 items-start">
-                      <div className="bg-accent/10 rounded-lg p-3 flex-shrink-0">
+                    <div key={i} className="flex gap-4 items-start hover:-translate-y-0.5 transition-transform stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
+                      <div className="bg-accent/10 rounded-lg p-3 flex-shrink-0 group-hover:shadow-[0_0_16px_hsl(var(--accent)/0.2)] transition-shadow">
                         <Icon className="h-6 w-6 text-accent" />
                       </div>
                       <div>

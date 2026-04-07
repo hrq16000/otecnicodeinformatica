@@ -160,13 +160,14 @@ const FAQ = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">
-          <div className="container mx-auto">
+        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15),transparent_60%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
                 Perguntas Frequentes
               </h1>
-              <p className="text-lg md:text-xl text-white/90">
+              <p className="text-lg md:text-xl text-white/90 reveal-text" data-reveal-delay="100">
                 Tire suas dúvidas sobre nossos serviços de informática
               </p>
             </div>
@@ -174,12 +175,13 @@ const FAQ = () => {
         </section>
 
         {/* FAQ Content */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-1/4 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
               {faqCategories.map((category, catIndex) => (
-                <div key={catIndex} className="mb-10">
-                  <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
+                <div key={catIndex} className="mb-10 stagger-item" style={{ animationDelay: `${catIndex * 120}ms` }}>
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 reveal-text">
                     {category.category}
                   </h2>
                   <Accordion type="single" collapsible className="space-y-3">
@@ -187,7 +189,7 @@ const FAQ = () => {
                       <AccordionItem
                         key={qIndex}
                         value={`${catIndex}-${qIndex}`}
-                        className="bg-secondary rounded-xl border-none px-5"
+                        className="bg-secondary rounded-xl border-none px-5 hover:shadow-sm transition-shadow"
                       >
                         <AccordionTrigger className="text-left font-semibold text-foreground hover:text-accent hover:no-underline py-4">
                           {item.question}
@@ -205,13 +207,14 @@ const FAQ = () => {
         </section>
 
         {/* Não encontrou */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary)/0.06),transparent_60%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 reveal-text">
                 Não Encontrou Sua Dúvida?
               </h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6 reveal-text" data-reveal-delay="100">
                 Entre em contato pelo WhatsApp e tire suas dúvidas diretamente com nossa equipe
               </p>
             </div>

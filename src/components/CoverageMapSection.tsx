@@ -61,10 +61,10 @@ export const CoverageMapSection = () => {
             <Navigation className="h-4 w-4" />
             Atendimento Rápido em Toda Região
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 reveal-text">
             Área de Cobertura e Tempo de Chegada
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6 reveal-text" data-reveal-delay="100">
             Atendemos Curitiba e região metropolitana com agilidade. Confira o tempo estimado de chegada para sua localização.
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">

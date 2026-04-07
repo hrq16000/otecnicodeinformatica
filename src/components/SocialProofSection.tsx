@@ -39,7 +39,7 @@ export const SocialProofSection = () => {
             <span className="font-medium text-sm">Assistência Técnica Mais Bem Avaliada de Curitiba</span>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-6 tracking-tight reveal-text">
             O Que Nossos Clientes Dizem
           </h2>
 

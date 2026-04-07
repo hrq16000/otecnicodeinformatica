@@ -22,10 +22,10 @@ export const ServicesSection = () => {
     <section className="py-14 md:py-18 lg:py-24 bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight reveal-text">
             Nossos Serviços
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Soluções completas em informática para você e sua empresa
           </p>
         </div>

@@ -30,11 +30,11 @@ export const CTASection = () => {
             loading="lazy"
           />
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
             Precisa resolver agora?
           </h2>
           
-          <p className="text-lg md:text-xl text-accent font-semibold mb-9">
+          <p className="text-lg md:text-xl text-accent font-semibold mb-9 reveal-text" data-reveal-delay="100">
             Fale direto com o técnico. Atendimento imediato!
           </p>
           

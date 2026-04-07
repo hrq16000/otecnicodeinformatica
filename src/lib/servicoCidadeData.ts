@@ -102,6 +102,27 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
       { pergunta: "Precisa instalar algum programa?", resposta: "Enviamos um link seguro. O programa roda apenas durante o atendimento." },
       { pergunta: "Quanto custa?", resposta: "Entre em contato pelo WhatsApp para orçamento. Atendimento remoto geralmente é mais rápido e econômico." },
     ],
+    "conserto-pc": [
+      { pergunta: `Quanto custa consertar PC em ${cidadeNome}?`, resposta: `Entre em contato pelo WhatsApp para orçamento gratuito. Atendemos em ${cidadeNome} a domicílio.` },
+      { pergunta: "Quais defeitos vocês consertam?", resposta: "PC que não liga, tela azul, lentidão, superaquecimento, fontes queimadas, placas com defeito e mais." },
+      { pergunta: "Consertam PC gamer?", resposta: "Sim. Trabalhamos com diagnóstico e reparo de desktops gamers, incluindo placas de vídeo e refrigeração." },
+      { pergunta: `Atendem a domicílio em ${cidadeNome}?`, resposta: `Sim. O técnico vai até seu endereço em ${cidadeNome} com ferramentas profissionais.` },
+      { pergunta: "Tem garantia?", resposta: "Sim, todos os serviços contam com garantia por escrito." },
+    ],
+    "conserto-tv": [
+      { pergunta: `Vocês fazem visita técnica para TV em ${cidadeNome}?`, resposta: `Não. Para TVs, o equipamento precisa ser trazido à oficina ou podemos organizar coleta em ${cidadeNome}. Não realizamos visita técnica a domicílio para televisores.` },
+      { pergunta: "Quanto custa consertar TV?", resposta: "O valor depende do defeito e da peça necessária. Fazemos diagnóstico e informamos o orçamento antes de qualquer execução. Sem compromisso." },
+      { pergunta: "Consertam Smart TV?", resposta: "Sim. LED, LCD, OLED, Smart TV de todas as marcas: Samsung, LG, Sony, TCL, Philips e mais." },
+      { pergunta: "Quanto tempo leva?", resposta: "Depende do defeito e disponibilidade de peças. Em geral, de 3 a 10 dias úteis." },
+      { pergunta: "Consertam tela quebrada de TV?", resposta: "Avaliamos caso a caso. Em muitos modelos, a troca do painel custa quase o valor de uma TV nova. Orientamos com honestidade." },
+    ],
+    "conserto-celular": [
+      { pergunta: `Vocês fazem visita para celular em ${cidadeNome}?`, resposta: `Não. Para celulares, o aparelho precisa ser trazido à oficina. Não fazemos visita a domicílio para smartphones.` },
+      { pergunta: "Quanto custa trocar tela de celular?", resposta: "Depende do modelo. Fazemos diagnóstico e informamos o valor antes de executar. Sem compromisso." },
+      { pergunta: "Consertam iPhone?", resposta: "Sim. Trabalhamos com todos os modelos de iPhone, com telas originais e compatíveis de alta qualidade." },
+      { pergunta: "Quanto tempo leva o reparo?", resposta: "Reparos simples (tela, bateria) ficam prontos em poucas horas. Defeitos de placa podem levar 3 a 5 dias." },
+      { pergunta: "Trocam bateria?", resposta: "Sim. Substituímos baterias de todas as marcas para restaurar a autonomia original do aparelho." },
+    ],
   };
 
   return faqs[servicoSlug] || faqs["formatacao-computador"];

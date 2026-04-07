@@ -148,6 +148,7 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
+          <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
           <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <MessageCircle className="h-4 w-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />

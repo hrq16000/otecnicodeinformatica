@@ -388,8 +388,9 @@
     scroll-behavior: auto !important;
   }
 
-  .anim-fade,
   .anim-fade-up,
+  .anim-fade-in,
+  .anim-fade-soft,
   .anim-scale,
   .anim-blur-in,
   .anim-slide-left,
@@ -397,6 +398,19 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+    animation: none !important;
+  }
+
+  .anim-fade-up.anim-ready,
+  .anim-fade-in.anim-ready,
+  .anim-fade-soft.anim-ready {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .cta-pulse,
+  .wa-pulse {
     animation: none !important;
   }
 }

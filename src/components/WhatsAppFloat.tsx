@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -6,26 +5,7 @@ import { cn } from "@/lib/utils";
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Vi o site de vocês e preciso de um técnico de informática. Podem me atender hoje?";
 
-const ANIMATIONS = [
-  "animate-wa-bounce",
-  "animate-wa-pulse",
-  "animate-wa-wiggle",
-  "animate-wa-ring",
-] as const;
-
 export const WhatsAppFloat = () => {
-  const [animClass, setAnimClass] = useState<string>(ANIMATIONS[0]);
-
-  useEffect(() => {
-    const pick = () => {
-      const next = ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)];
-      setAnimClass(next);
-    };
-    pick();
-    const id = setInterval(pick, 5000 + Math.random() * 4000);
-    return () => clearInterval(id);
-  }, []);
-
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   return (
@@ -40,7 +20,7 @@ export const WhatsAppFloat = () => {
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",
         "transition-all duration-300 hover:scale-110 group",
-        animClass
+        "wa-pulse"
       )}
       aria-label="Falar com técnico pelo WhatsApp"
     >

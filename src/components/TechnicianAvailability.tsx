@@ -10,6 +10,12 @@ interface AvailabilityStatus {
 }
 
 // Simulates real-time availability - in production, this would connect to a backend
+const getNextOpenLabel = (): string => {
+  const hour = new Date().getHours();
+  // 0h-7h → "Hoje às 8h"  |  20h-23h → "Amanhã às 8h"
+  return hour < 8 ? "Hoje às 8h" : "Amanhã às 8h";
+};
+
 const getAvailabilityStatus = (): AvailabilityStatus => {
   const hour = new Date().getHours();
   const isBusinessHours = hour >= 8 && hour < 20;
@@ -20,7 +26,7 @@ const getAvailabilityStatus = (): AvailabilityStatus => {
     return {
       isOnline: false,
       technicianCount: 0,
-      waitTime: "Amanhã às 8h",
+      waitTime: getNextOpenLabel(),
       queueSize: 0,
     };
   }
@@ -151,7 +157,7 @@ export const TechnicianAvailabilityBadge = () => {
       {status.isOnline ? (
         <span>{status.technicianCount} técnico{status.technicianCount > 1 ? "s" : ""} online</span>
       ) : (
-        <span>Retornamos às 8h</span>
+        <span>Retornamos {getNextOpenLabel().toLowerCase()}</span>
       )}
     </div>
   );
@@ -172,7 +178,7 @@ export const TechnicianAvailabilityInline = () => {
     return (
       <div className="flex items-center justify-center gap-2 text-white/80 text-sm">
         <div className="w-2 h-2 rounded-full bg-yellow-400" />
-        <span>Atendimento retorna amanhã às 8h</span>
+        <span>Atendimento retorna {getNextOpenLabel().toLowerCase()}</span>
       </div>
     );
   }

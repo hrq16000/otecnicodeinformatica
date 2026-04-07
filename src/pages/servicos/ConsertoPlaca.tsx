@@ -108,6 +108,8 @@ const ConsertoPlaca = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="placaMae" secondaryImageKey="diagnostico" layout="duo" caption="Placa-mãe em diagnóstico" secondaryCaption="Reparo em nível de componente" />
+
       {/* Casos complexos */}
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">

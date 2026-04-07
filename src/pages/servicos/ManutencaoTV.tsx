@@ -107,6 +107,8 @@ const ManutencaoTV = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="smartTv" secondaryImageKey="diagnostico" layout="duo" caption="Smart TV em manutenção" secondaryCaption="Diagnóstico de placa eletrônica de TV" />
+
       {/* Como funciona TV */}
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">

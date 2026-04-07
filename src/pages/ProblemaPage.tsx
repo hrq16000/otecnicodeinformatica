@@ -115,7 +115,7 @@ const ProblemaPage = () => {
       <Breadcrumbs items={[{ label: data.categoria, href: "/servicos" }, { label: data.h1.split("—")[0].trim() }]} />
 
       {/* Hero */}
-      <section className="pt-10 pb-10 bg-gradient-to-br from-primary via-primary to-primary/90">
+      <section className="pt-10 pb-10 hero-gradient">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block bg-accent/20 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-4">{data.categoria}</span>

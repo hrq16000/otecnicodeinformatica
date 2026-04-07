@@ -84,7 +84,7 @@ const Index = () => {
                   { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
                   { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
                 ].map((item, i) => (
-                  <div key={i} className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div key={i} className="glass-card gradient-border rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
                     <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3 shadow-sm">{item.step}</div>
                     <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>

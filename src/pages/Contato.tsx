@@ -54,8 +54,7 @@ const Contato = () => {
         {/* Contatos Principais */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
+             <div className="max-w-2xl mx-auto">
                 {/* WhatsApp */}
                 <div className="bg-secondary rounded-2xl p-8 text-center border-2 border-transparent hover:border-whatsapp/30 transition-all">
                   <div className="bg-whatsapp rounded-full p-4 w-fit mx-auto mb-4">
@@ -65,7 +64,6 @@ const Contato = () => {
                   <p className="text-muted-foreground mb-4">
                     Resposta rápida e atendimento imediato
                   </p>
-                  <p className="text-xl font-bold text-foreground mb-4">(41) 9.9745-2053</p>
                   <Button variant="whatsapp" size="lg" className="w-full" asChild>
                     <a
                       href={whatsappUrl}
@@ -78,25 +76,6 @@ const Contato = () => {
                     </a>
                   </Button>
                 </div>
-
-                {/* Telefone */}
-                <div className="bg-secondary rounded-2xl p-8 text-center border-2 border-transparent hover:border-accent/30 transition-all">
-                  <div className="bg-accent rounded-full p-4 w-fit mx-auto mb-4">
-                    <Phone className="h-10 w-10 text-white" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-primary mb-2">Telefone</h2>
-                  <p className="text-muted-foreground mb-4">
-                    Ligue diretamente para o técnico
-                  </p>
-                  <p className="text-xl font-bold text-foreground mb-4">(41) 9.9745-2053</p>
-                  <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href={phoneUrl} onClick={handlePhoneClick}>
-                      <Phone className="h-5 w-5" />
-                      Ligar Agora
-                    </a>
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </section>

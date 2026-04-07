@@ -62,6 +62,7 @@ const Index = () => {
           </div>
         </section>
 
+        <TechBrandsMarquee />
         <PainSection />
         <SchedulingSection />
         <ServicesSection />

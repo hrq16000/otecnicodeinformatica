@@ -46,7 +46,7 @@ export const SocialProofSection = () => {
             O Que Nossos <span className="gradient-text">Clientes</span> Dizem
           </h2>
           <div className="glow-separator max-w-xs mx-auto mb-6" />
-          </h2>
+
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
             <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 card-shine stat-reveal" style={{ animationDelay: '0ms' }}>

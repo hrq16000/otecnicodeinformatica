@@ -5,7 +5,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
-import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { Button } from "@/components/ui/button";
 import { trackPageView } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
@@ -203,7 +202,6 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
       <RealImageSection imageKey="cameraSeguranca" caption="Instalação profissional de CFTV e monitoramento" />
       <BlocoInteligencia compact />
       <Footer />
-      <WhatsAppChatbot />
     </div>
   );
 };

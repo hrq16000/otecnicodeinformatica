@@ -5,7 +5,6 @@ import { Power, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Wrench, Shi
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -182,7 +181,6 @@ const ComputadorNaoLiga = () => {
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

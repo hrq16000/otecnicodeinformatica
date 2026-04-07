@@ -6,7 +6,6 @@ import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from 
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -193,7 +192,6 @@ const ConsertoPlaca = () => {
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

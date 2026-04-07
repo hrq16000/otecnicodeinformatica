@@ -3,7 +3,6 @@ import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
@@ -402,7 +401,6 @@ const Blog = () => {
       </main>
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

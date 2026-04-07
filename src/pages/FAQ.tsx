@@ -3,7 +3,6 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
@@ -227,7 +226,6 @@ const FAQ = () => {
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

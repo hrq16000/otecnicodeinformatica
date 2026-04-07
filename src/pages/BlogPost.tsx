@@ -3,7 +3,6 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
@@ -1078,7 +1077,6 @@ const BlogPost = () => {
         <CTASection />
       </main>
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

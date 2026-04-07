@@ -6,7 +6,6 @@ import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
@@ -231,7 +230,6 @@ const AtendimentoDomicilio = () => {
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

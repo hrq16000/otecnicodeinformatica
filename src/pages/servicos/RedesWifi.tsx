@@ -5,7 +5,6 @@ import { Wifi, CheckCircle, Router, Signal, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -190,7 +189,6 @@ const RedesWifi = () => {
       <RealImageSection imageKey="redesWifi" caption="Configuração profissional de redes e roteadores" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle } fr
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -249,7 +248,6 @@ const RemocaoVirus = () => {
       <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

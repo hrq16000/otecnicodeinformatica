@@ -5,7 +5,6 @@ import { Monitor, CheckCircle, Clock, Shield, ArrowRight, MessageCircle } from "
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -222,7 +221,6 @@ const FormatacaoComputador = () => {
       <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="desktopMontado" layout="duo" caption="Formatação profissional com backup completo" secondaryCaption="Computador pronto após formatação" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

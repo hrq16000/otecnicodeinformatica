@@ -4,7 +4,6 @@ import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -225,7 +224,6 @@ const ProblemasReaisCasos = () => {
 
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

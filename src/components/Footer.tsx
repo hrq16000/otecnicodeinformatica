@@ -81,7 +81,7 @@ export const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo e Contato */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4 anim-fade-up">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <img
               alt="Técnico Curitiba"
               className="h-10 brightness-0 invert opacity-90 object-fill"

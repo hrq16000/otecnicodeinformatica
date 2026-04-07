@@ -28,7 +28,7 @@ export const TrustSection = () => {
         {/* Stats */}
         <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-12 md:mb-16">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center anim-scale" style={{ animationDelay: `${i * 120}ms` }}>
+            <div key={i} className="text-center" style={{ animationDelay: `${i * 120}ms` }}>
               <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
@@ -52,7 +52,7 @@ export const TrustSection = () => {
             return (
               <div 
                 key={index}
-                className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.1] hover:border-white/[0.15] transition-all duration-300 hover:-translate-y-0.5 anim-fade-up"
+                className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.1] hover:border-white/[0.15] transition-all duration-300 hover:-translate-y-0.5"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="inline-flex items-center justify-center bg-accent/90 rounded-xl p-2.5 mb-3 shadow-sm">

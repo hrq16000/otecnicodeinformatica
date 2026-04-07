@@ -337,7 +337,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
 
               <div className="bg-secondary rounded-xl p-6 md:p-8 mb-8">
-                <h3 className="text-xl font-bold text-primary mb-4">
+                <h3 className="text-xl font-bold text-foreground mb-4">
                   Problemas Mais Comuns no {data.nome}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">

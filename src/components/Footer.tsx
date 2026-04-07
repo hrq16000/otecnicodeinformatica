@@ -95,8 +95,8 @@ export const Footer = () => {
             <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.
             </p>
-            <div className="flex items-center gap-2 text-white/65 text-sm hover:text-white/80 transition-colors">
-              <MapPin className="h-4 w-4 flex-shrink-0" />
+            <div className="flex items-center gap-2 text-white/65 text-sm hover:text-white/80 transition-all duration-300 group cursor-default">
+              <MapPin className="h-4 w-4 flex-shrink-0 group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
               <span>Curitiba e Região Metropolitana, PR</span>
             </div>
             <a 

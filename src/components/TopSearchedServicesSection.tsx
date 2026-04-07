@@ -144,7 +144,7 @@ export const TopSearchedServicesSection = () => {
           <div className="glow-separator max-w-xs mx-auto mt-5" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 stagger-grid">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 stagger-grid">
           {randomizedServices.map((service, index) => (
             <Link
               key={index}

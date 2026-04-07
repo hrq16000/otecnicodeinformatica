@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -349,7 +348,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
 
       <BlocoInteligencia />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

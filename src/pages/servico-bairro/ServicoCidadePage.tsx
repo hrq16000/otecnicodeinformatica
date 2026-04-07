@@ -7,7 +7,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { SERVICOS, CIDADES, getServico, getCidade, getFaqPorServico } from "@/lib/servicoCidadeData";
@@ -227,7 +226,6 @@ const ServicoCidadePage = () => {
       <ServiceCityLinks servicoSlug={servico.slug} cidadeSlug={cidade.slug} />
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

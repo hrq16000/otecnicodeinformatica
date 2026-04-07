@@ -5,7 +5,6 @@ import { Monitor, CheckCircle, Cpu, Gamepad2, Briefcase, MessageCircle } from "l
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -190,7 +189,6 @@ const MontagemPc = () => {
       <RealImageSection imageKey="desktopMontado" secondaryImageKey="placaMae" layout="duo" caption="PC gamer montado sob medida" secondaryCaption="Componentes de alta performance" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

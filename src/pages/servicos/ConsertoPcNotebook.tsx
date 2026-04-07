@@ -6,7 +6,6 @@ import { Wrench, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -248,7 +247,6 @@ const ConsertoPcNotebook = () => {
       <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

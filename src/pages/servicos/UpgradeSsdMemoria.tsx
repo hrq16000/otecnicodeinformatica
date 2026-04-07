@@ -5,7 +5,6 @@ import { HardDrive, CheckCircle, Zap, TrendingUp, MessageCircle } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -241,7 +240,6 @@ const UpgradeSsdMemoria = () => {
       <RealImageSection imageKey="componentesSsd" secondaryImageKey="placaMae" layout="duo" caption="SSD e memória RAM para upgrade" secondaryCaption="Diagnóstico de placa-mãe para compatibilidade" />
       <InterlinkingBlock />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

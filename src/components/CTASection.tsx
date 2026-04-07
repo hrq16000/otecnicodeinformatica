@@ -14,8 +14,11 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary">
-      <div className="container mx-auto">
+    <section className="py-12 md:py-16 lg:py-20 bg-secondary relative overflow-hidden">
+      {/* Subtle gradient accent */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] via-transparent to-primary/[0.03]" />
+
+      <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <img 
             alt="Técnico Curitiba" 
@@ -35,14 +38,14 @@ export const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container hover-glow-cta glow-whatsapp" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato
               </a>
             </Button>
             
-            <Button variant="heroCta" onClick={openChatbot}>
+            <Button variant="heroCta" className="ripple-container hover-glow-cta" onClick={openChatbot}>
               <Bot className="h-5 w-5 md:h-6 md:w-6" />
               Atendimento Rápido
             </Button>

@@ -1,4 +1,5 @@
-import { MapPin, Clock, Navigation } from "lucide-react";
+import { MapPin, Clock, Navigation, Users } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const regions = [
   {

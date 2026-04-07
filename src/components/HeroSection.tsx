@@ -161,10 +161,10 @@ export const HeroSection = () => {
               <div className="absolute -bottom-3 -right-3 bg-accent text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg animate-bounce-subtle">
                 ✓ Atendimento Imediato
               </div>
-              <div className="absolute -top-3 -left-3 bg-white text-primary px-3 py-2 rounded-lg shadow-lg flex items-center gap-1 hover:scale-110 transition-transform duration-300">
+              <div className="absolute -top-3 -left-3 bg-white text-[hsl(215,65%,22%)] px-3 py-2 rounded-lg shadow-lg flex items-center gap-1 hover:scale-110 transition-transform duration-300">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                 <span className="font-bold text-sm">4.9</span>
-                <span className="text-xs text-muted-foreground">/5</span>
+                <span className="text-xs text-gray-500">/5</span>
               </div>
             </div>
           </div>

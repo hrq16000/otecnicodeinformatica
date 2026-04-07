@@ -35,7 +35,7 @@ const BackupRecuperacao = () => {
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Backup e Recuperação" }]} />
       
       {/* Hero Section */}
-      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+      <section className="pt-10 pb-10 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl" />

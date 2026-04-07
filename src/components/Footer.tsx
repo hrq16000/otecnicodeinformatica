@@ -84,11 +84,10 @@ export const Footer = () => {
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <img
               alt="Técnico Curitiba"
-              className="h-10 brightness-0 invert opacity-90 object-fill"
+              className="h-10 w-auto brightness-0 invert opacity-90 object-contain"
               src="/lovable-uploads/c858cf99-e05f-4d8f-a05a-c741ebfabfea.webp"
               width="200"
               height="40"
-              loading="lazy"
             />
             <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.

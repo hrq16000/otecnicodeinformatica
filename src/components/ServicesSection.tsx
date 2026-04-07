@@ -106,7 +106,8 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group bg-secondary rounded-xl p-5 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20"
+                className="group bg-secondary rounded-xl p-5 md:p-6 hover-lift border border-transparent hover:border-accent/20 anim-fade-up"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors">

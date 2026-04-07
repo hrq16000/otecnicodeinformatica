@@ -116,10 +116,10 @@ export const CoverageMapSection = () => {
               {regions.map((region, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between p-3 rounded-lg border transition-all ${
+                  className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] ${
                     region.highlight
-                      ? "bg-accent/5 border-accent/30 shadow-sm"
-                      : "bg-background border-border hover:border-accent/20 hover:bg-accent/5"
+                      ? "bg-accent/5 border-accent/30 shadow-sm hover:shadow-[var(--shadow-md)]"
+                      : "bg-background border-border hover:border-accent/20 hover:bg-accent/5 hover:shadow-[var(--shadow-sm)]"
                   }`}
                 >
                   <div className="flex items-center gap-3">

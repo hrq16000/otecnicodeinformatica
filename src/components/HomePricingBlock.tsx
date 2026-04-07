@@ -28,7 +28,7 @@ export const HomePricingBlock = () => {
 
           <div className="grid sm:grid-cols-2 gap-3 mb-6">
             {precos.map((p, i) => (
-              <div key={i} className="flex items-center justify-between bg-secondary rounded-lg p-4">
+              <div key={i} className="flex items-center justify-between bg-secondary rounded-lg p-4 hover:shadow-[var(--shadow-sm)] hover:scale-[1.01] transition-all duration-200 border border-transparent hover:border-accent/15">
                 <div className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-accent flex-shrink-0" />
                   <span className="text-sm font-medium text-foreground">{p.servico}</span>

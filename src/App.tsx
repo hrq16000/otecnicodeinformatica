@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -179,6 +180,9 @@ const PageLoader = () => (
   </div>
 );
 
+/** Initializes global scroll animations on each route */
+const ScrollAnimationsInit = () => { useScrollAnimations(); return null; };
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -186,6 +190,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollAnimationsInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />

@@ -71,9 +71,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     trackCTAClick("whatsapp", `bairro_${data.slug}`);
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `bairro_${data.slug}`);
-  };
 
   const benefits = [
     {

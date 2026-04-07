@@ -1,4 +1,5 @@
-import { MapPin, Clock, Navigation } from "lucide-react";
+import { MapPin, Clock, Navigation, Users } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const regions = [
   {
@@ -63,9 +64,23 @@ export const CoverageMapSection = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
             Área de Cobertura e Tempo de Chegada
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
             Atendemos Curitiba e região metropolitana com agilidade. Confira o tempo estimado de chegada para sua localização.
           </p>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            <div className="text-center">
+              <p className="text-2xl md:text-3xl font-bold text-accent"><AnimatedCounter end={8} /> </p>
+              <p className="text-xs text-muted-foreground">Cidades atendidas</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={30} suffix="+" /></p>
+              <p className="text-xs text-muted-foreground">Bairros cobertos</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={30} suffix=" min" /></p>
+              <p className="text-xs text-muted-foreground">Tempo médio de chegada</p>
+            </div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">

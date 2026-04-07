@@ -1,5 +1,6 @@
 import { Star, Quote, Award, CheckCircle, ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const reviews = [
   { name: "Roberto Silva", location: "Centro, Curitiba", rating: 5, text: "Meu notebook estava travando muito e o técnico resolveu em menos de 2 horas. Atendimento excelente e preço justo. O profissional foi muito atencioso e explicou tudo que estava fazendo.", service: "Formatação e Upgrade SSD", date: "2024-01-15", verified: true },
@@ -42,8 +43,8 @@ export const SocialProofSection = () => {
             O Que Nossos Clientes Dizem
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)]">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center justify-center gap-1 mb-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-accent text-accent" />
@@ -52,12 +53,16 @@ export const SocialProofSection = () => {
               <p className="text-2xl font-bold text-foreground">{stats.rating}</p>
               <p className="text-xs text-muted-foreground">Nota Média</p>
             </div>
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)]">
-              <p className="text-2xl font-bold text-foreground">{stats.totalReviews}+</p>
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
+              <p className="text-2xl font-bold text-foreground">
+                <AnimatedCounter end={stats.totalReviews} suffix="+" />
+              </p>
               <p className="text-xs text-muted-foreground">Avaliações</p>
             </div>
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)]">
-              <p className="text-2xl font-bold text-accent">{stats.satisfaction}%</p>
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
+              <p className="text-2xl font-bold text-accent">
+                <AnimatedCounter end={stats.satisfaction} suffix="%" />
+              </p>
               <p className="text-xs text-muted-foreground">Satisfação</p>
             </div>
           </div>
@@ -67,10 +72,10 @@ export const SocialProofSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-6 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:border-accent/20 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+              className="bg-card rounded-xl p-6 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:border-accent/20 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] group"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              <Quote className="h-7 w-7 text-accent/25 mb-3" />
+              <Quote className="h-7 w-7 text-accent/25 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />
               
               <p className="text-foreground text-sm mb-4 leading-relaxed">
                 "{review.text}"

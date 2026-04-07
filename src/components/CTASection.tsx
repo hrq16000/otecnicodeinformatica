@@ -38,7 +38,7 @@ export const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback cta-pulse" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 btn-feedback cta-pulse" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato

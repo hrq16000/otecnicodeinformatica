@@ -1,6 +1,14 @@
 /* Fonts loaded via index.html – no duplicate @import */
 
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 @tailwind components;
 @tailwind utilities;
 

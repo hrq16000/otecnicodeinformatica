@@ -6,6 +6,7 @@ import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailabilit
 import { SchedulingModal } from "@/components/scheduling";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingEffect } from "@/components/TypingEffect";
+import { FloatingParticles } from "@/components/FloatingParticles";
 
 const TYPING_PHRASES = [
   "e Região Metropolitana",

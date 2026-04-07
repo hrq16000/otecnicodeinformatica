@@ -184,8 +184,8 @@
   }
   .anim-fade.is-visible,
   .anim-fade-in {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 
   /* Fade Up */
@@ -196,8 +196,8 @@
                 transform var(--anim-slow) var(--anim-ease-out);
   }
   .anim-fade-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 
   /* Scale */
@@ -208,8 +208,8 @@
                 transform var(--anim-medium) var(--anim-ease-out);
   }
   .anim-scale.is-visible {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 
   /* Blur In */
@@ -222,9 +222,9 @@
                 transform var(--anim-slow) var(--anim-ease-out);
   }
   .anim-blur-in.is-visible {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: translateY(0) !important;
   }
 
   /* Slide from left */
@@ -235,8 +235,8 @@
                 transform var(--anim-medium) var(--anim-ease-out);
   }
   .anim-slide-left.is-visible {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
   }
 
   /* Slide from right */
@@ -247,8 +247,8 @@
                 transform var(--anim-medium) var(--anim-ease-out);
   }
   .anim-slide-right.is-visible {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: translateX(0) !important;
   }
 
   /* ── Hover Interactions ── */

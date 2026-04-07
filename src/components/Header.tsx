@@ -152,9 +152,9 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="whatsapp" size="icon" className="sm:hidden" asChild>
+          <Button variant="whatsapp" size="icon" className="sm:hidden group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-              <MessageCircle className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
             </a>
           </Button>
 

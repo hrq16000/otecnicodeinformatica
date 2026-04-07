@@ -61,6 +61,7 @@ const MontagemPc = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="desktopMontado" caption="PC montado sob medida com componentes premium" />
 
       {/* Tipos de PC */}
       <section className="py-10 bg-background relative">
@@ -96,7 +97,7 @@ const MontagemPc = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="desktopMontado" secondaryImageKey="placaMae" layout="duo" caption="PC gamer montado sob medida" secondaryCaption="Componentes de alta performance" />
+      <RealImageSection imageKey="placaMae" caption="Componentes de alta performance selecionados" />
 
       {/* O que está incluso */}
       <section className="py-10 bg-secondary">

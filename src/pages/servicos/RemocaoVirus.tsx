@@ -66,6 +66,7 @@ const RemocaoVirus = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra ameaças digitais" />
 
       {/* Preço Destaque */}
       <section className="py-8 bg-accent/10 border-y border-accent/20">
@@ -105,7 +106,7 @@ const RemocaoVirus = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
+      <RealImageSection imageKey="diagnostico" caption="Análise e remoção completa de malware" />
 
       {/* Sinais de Infecção */}
       <section className="py-10 bg-secondary">

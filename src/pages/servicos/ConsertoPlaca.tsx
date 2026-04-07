@@ -68,6 +68,7 @@ const ConsertoPlaca = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="placaMae" caption="Reparo de placa-mãe em nível de componente" />
 
       {/* Aviso */}
       <section className="py-6 bg-accent/5 border-y border-accent/10">
@@ -109,7 +110,7 @@ const ConsertoPlaca = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="placaMae" secondaryImageKey="diagnostico" layout="duo" caption="Placa-mãe em diagnóstico" secondaryCaption="Reparo em nível de componente" />
+      <RealImageSection imageKey="diagnostico" caption="Diagnóstico técnico de placa eletrônica" />
 
       {/* Casos complexos */}
       <section className="py-12 md:py-16 bg-secondary">

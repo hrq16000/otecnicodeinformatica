@@ -66,6 +66,7 @@ const FormatacaoComputador = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="tecnicoTrabalhando" caption="Formatação profissional com backup dos seus dados" />
 
       {/* Preço Destaque */}
       <section className="py-8 bg-accent/10 border-y border-accent/20">
@@ -105,7 +106,7 @@ const FormatacaoComputador = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="desktopMontado" layout="duo" caption="Formatação profissional com backup completo" secondaryCaption="Computador pronto após formatação" />
+      <RealImageSection imageKey="desktopMontado" caption="Computador pronto e otimizado após formatação" />
 
       {/* Quando formatar */}
       <section className="py-10 bg-secondary">

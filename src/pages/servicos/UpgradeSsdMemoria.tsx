@@ -66,6 +66,7 @@ const UpgradeSsdMemoria = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="componentesSsd" caption="SSD e memória RAM para upgrade de desempenho" />
 
       {/* Comparativo de Performance */}
       <section className="relative py-16 bg-background overflow-hidden">
@@ -101,7 +102,7 @@ const UpgradeSsdMemoria = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="componentesSsd" secondaryImageKey="placaMae" layout="duo" caption="SSD e memória RAM para upgrade" secondaryCaption="Diagnóstico de placa-mãe para compatibilidade" />
+      <RealImageSection imageKey="placaMae" caption="Diagnóstico de compatibilidade para upgrade" />
 
       {/* Tipos de Upgrade */}
       <section className="py-10 bg-secondary">

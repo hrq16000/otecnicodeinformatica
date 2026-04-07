@@ -69,6 +69,7 @@ const ManutencaoTV = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="smartTv" caption="Manutenção profissional de Smart TV" />
 
       {/* Aviso importante */}
       <section className="py-6 bg-accent/5 border-y border-accent/10">
@@ -108,7 +109,7 @@ const ManutencaoTV = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="smartTv" secondaryImageKey="diagnostico" layout="duo" caption="Smart TV em manutenção" secondaryCaption="Diagnóstico de placa eletrônica de TV" />
+      <RealImageSection imageKey="diagnostico" caption="Diagnóstico de placa eletrônica de TV" />
 
       {/* Como funciona TV */}
       <section className="py-12 md:py-16 bg-secondary">

@@ -68,6 +68,7 @@ const ComputadorNaoLiga = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="bancadaTecnica" caption="Bancada técnica para diagnóstico completo" />
 
       {/* O que verificar antes */}
       <section className="py-12 md:py-16 bg-secondary">
@@ -98,7 +99,7 @@ const ComputadorNaoLiga = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="ferramentas" layout="duo" caption="Bancada técnica para diagnóstico" secondaryCaption="Ferramentas profissionais de reparo" />
+      <RealImageSection imageKey="ferramentas" caption="Ferramentas profissionais de reparo eletrônico" />
 
       {/* Sintomas */}
       <section className="py-12 md:py-16 bg-background relative">

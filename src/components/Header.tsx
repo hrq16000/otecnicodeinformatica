@@ -99,11 +99,12 @@ export const Header = () => {
 
   const openChatbot = () => {
     trackCTAClick('chatbot', 'header');
+    // Dispara evento customizado para abrir o chatbot
     window.dispatchEvent(new CustomEvent('openChatbot'));
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-neon-green/10 transition-all duration-300 ${isScrolled ? 'py-1 shadow-[0_2px_20px_hsl(160_100%_45%/0.08)]' : 'py-2'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-background shadow-sm transition-all duration-300 ${isScrolled ? 'py-1' : 'py-2'}`}>
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img
@@ -111,7 +112,7 @@ export const Header = () => {
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
             width="304"
             height="98"
-            className={`transition-all duration-300 w-auto object-scale-down brightness-110 ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`}
+            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`}
           />
         </Link>
 
@@ -120,12 +121,12 @@ export const Header = () => {
           {mainNavItems.map((item) => (
             item.sub ? (
               <DropdownMenu key={item.label}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-mono font-medium text-foreground hover:text-neon-green transition-colors outline-none neon-text">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none">
                   {item.label} <ChevronDown className="h-3.5 w-3.5" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 bg-card/95 backdrop-blur-md border border-neon-green/15 shadow-[0_8px_32px_hsl(160_100%_45%/0.1)] rounded-xl p-1.5">
+                <DropdownMenuContent align="start" className="w-56 bg-background border border-primary/10 shadow-lg rounded-xl p-1.5">
                   {item.sub.map((sub) => (
-                    <DropdownMenuItem key={sub.to} asChild className="rounded-lg px-3 py-2.5 text-sm text-foreground hover:bg-neon-green/10 hover:text-neon-green focus:bg-neon-green/10 focus:text-neon-green cursor-pointer transition-colors font-mono">
+                    <DropdownMenuItem key={sub.to} asChild className="rounded-lg px-3 py-2.5 text-sm text-foreground hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent cursor-pointer transition-colors">
                       <Link to={sub.to} className="w-full">
                         {sub.label}
                       </Link>
@@ -143,7 +144,7 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" className="hidden sm:flex neon-glow" asChild>
+          <Button variant="whatsapp" size="sm" className="hidden sm:flex" asChild>
             <a
               href={whatsappUrl}
               target="_blank"
@@ -166,7 +167,7 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" onClick={openChatbot} className="animate-neon-pulse">
+          <Button variant="cta" size="sm" onClick={openChatbot}>
             <Bot className="h-4 w-4" />
             <span className="hidden md:inline">Atendimento Rápido</span>
             <span className="md:hidden">Atender</span>
@@ -176,7 +177,7 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-neon-green"
+            className="lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -190,7 +191,7 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-card/95 backdrop-blur-md border-t border-neon-green/10 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-background border-t max-h-[80vh] overflow-y-auto">
           <nav className="container mx-auto py-4 flex flex-col gap-1">
             {mainNavItems.map((item) => (
               <div key={item.label}>
@@ -204,7 +205,7 @@ export const Header = () => {
                   </NavLink>
                 ) : (
                   <>
-                    <p className="py-2 text-sm font-semibold text-neon-green/60 uppercase tracking-wider mt-2 font-heading">
+                    <p className="py-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider mt-2">
                       {item.label}
                     </p>
                     {item.sub.map((sub) => (
@@ -212,7 +213,7 @@ export const Header = () => {
                         key={sub.to}
                         to={sub.to}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="py-1.5 pl-3 text-base block hover:text-neon-green"
+                        className="py-1.5 pl-3 text-base block"
                       >
                         {sub.label}
                       </NavLink>

@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["'Share Tech Mono'", "'JetBrains Mono'", "monospace"],
-        heading: ["'Orbitron'", "'Rajdhani'", "system-ui", "sans-serif"],
-        mono: ["'Share Tech Mono'", "'JetBrains Mono'", "monospace"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Poppins", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -72,12 +71,6 @@ export default {
         },
         trust: {
           DEFAULT: "hsl(var(--trust-green))",
-        },
-        neon: {
-          green: "hsl(var(--neon-green))",
-          cyan: "hsl(var(--neon-cyan))",
-          blue: "hsl(var(--neon-blue))",
-          purple: "hsl(var(--neon-purple))",
         },
       },
       borderRadius: {
@@ -156,18 +149,6 @@ export default {
           "40%": { transform: "scale(1) rotate(0deg)" },
           "100%": { transform: "scale(1) rotate(0deg)" },
         },
-        "neon-pulse": {
-          "0%, 100%": {
-            boxShadow: "0 0 5px hsl(160 100% 45% / 0.3), 0 0 20px hsl(160 100% 45% / 0.1)",
-          },
-          "50%": {
-            boxShadow: "0 0 10px hsl(160 100% 45% / 0.5), 0 0 40px hsl(160 100% 45% / 0.2)",
-          },
-        },
-        "glow-line": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -186,8 +167,6 @@ export default {
         "wa-pulse": "wa-pulse 2s ease-in-out infinite",
         "wa-wiggle": "wa-wiggle 3s ease-in-out infinite",
         "wa-ring": "wa-ring 2.5s ease-in-out infinite",
-        "neon-pulse": "neon-pulse 2s ease-in-out infinite",
-        "glow-line": "glow-line 3s linear infinite",
       },
     },
   },

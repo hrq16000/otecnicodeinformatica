@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { HardDrive, CheckCircle, Zap, TrendingUp, MessageCircle, Phone } from "lucide-react";
+import { HardDrive, CheckCircle, Zap, TrendingUp, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -11,7 +11,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541992671754";
-const PHONE_NUMBER = "5541992671754";
 
 const UpgradeSsdMemoria = () => {
   useEffect(() => {
@@ -29,10 +28,6 @@ const UpgradeSsdMemoria = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", "upgrade-ssd-memoria");
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,7 +58,6 @@ const UpgradeSsdMemoria = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Solicitar Orçamento
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" onClick={handlePhoneClick}>
                 <Phone className="mr-2 h-5 w-5" />
                 (41) 99267-1754
               </Button>
@@ -251,6 +245,5 @@ const UpgradeSsdMemoria = () => {
       <WhatsAppFloat />
     </div>
   );
-};
 
 export default UpgradeSsdMemoria;

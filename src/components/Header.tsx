@@ -145,9 +145,9 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm" asChild>
+          <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
               <span className="hidden md:inline">WhatsApp</span>
             </a>
           </Button>

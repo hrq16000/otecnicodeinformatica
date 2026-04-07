@@ -29,7 +29,6 @@ const UpgradeSsdMemoria = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title="Upgrade SSD e Memória RAM em Curitiba | Notebook e PC - Técnico Curitiba" description="Upgrade de SSD e memória RAM em Curitiba. Deixe seu notebook ou PC até 10x mais rápido. Instalação profissional com garantia. Atendimento domiciliar." path="/servicos/upgrade-ssd-memoria" />
@@ -42,21 +41,25 @@ const UpgradeSsdMemoria = () => {
       />
       
       {/* Hero Section */}
-      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-breathe" />
+          <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '2s' }} />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
               <Zap className="h-5 w-5" />
               <span className="font-medium">Performance Máxima</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
               Upgrade de SSD e Memória RAM em Curitiba
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto fade-section">
               Deixe seu computador ou notebook até 10x mais rápido com upgrade de SSD e memória RAM. Instalação profissional com migração de dados.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={handleWhatsAppClick}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-section">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Solicitar Orçamento
               </Button>
@@ -66,14 +69,15 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* Comparativo de Performance */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
+      <section className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
             Diferença de Performance: HD vs SSD
           </h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-secondary p-8 rounded-xl border-l-4 border-red-500">
+              <div className="group bg-secondary p-8 rounded-xl border-l-4 border-red-500 stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/10">
                 <h3 className="text-xl font-bold text-red-500 mb-4">Com HD Tradicional</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   <li>⏱️ Windows inicia em 2-3 minutos</li>
@@ -83,7 +87,7 @@ const UpgradeSsdMemoria = () => {
                   <li>🔊 Ruído mecânico do disco</li>
                 </ul>
               </div>
-              <div className="bg-secondary p-8 rounded-xl border-l-4 border-accent">
+              <div className="group bg-secondary p-8 rounded-xl border-l-4 border-accent stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10" style={{ animationDelay: '80ms' }}>
                 <h3 className="text-xl font-bold text-accent mb-4">Com SSD</h3>
                 <ul className="space-y-3 text-foreground">
                   <li>⚡ Windows inicia em 15-30 segundos</li>
@@ -101,39 +105,32 @@ const UpgradeSsdMemoria = () => {
       {/* Tipos de Upgrade */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
             Opções de Upgrade
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-background p-6 rounded-xl text-center">
-              <HardDrive className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-foreground mb-2">SSD SATA</h3>
-              <p className="text-muted-foreground mb-4">Ideal para notebooks e PCs mais antigos. Até 550MB/s de velocidade.</p>
-              <p className="text-2xl font-bold text-accent">A partir de R$299</p>
-              <p className="text-sm text-muted-foreground">SSD 240GB + instalação</p>
-            </div>
-            <div className="bg-background p-6 rounded-xl text-center border-2 border-accent">
-              <HardDrive className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-foreground mb-2">SSD NVMe</h3>
-              <p className="text-muted-foreground mb-4">Máxima velocidade para notebooks e PCs modernos. Até 3.500MB/s.</p>
-              <p className="text-2xl font-bold text-accent">A partir de R$399</p>
-              <p className="text-sm text-muted-foreground">SSD NVMe 256GB + instalação</p>
-            </div>
-            <div className="bg-background p-6 rounded-xl text-center">
-              <TrendingUp className="h-12 w-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-foreground mb-2">Memória RAM</h3>
-              <p className="text-muted-foreground mb-4">Mais memória para multitarefas e programas pesados.</p>
-              <p className="text-2xl font-bold text-accent">A partir de R$199</p>
-              <p className="text-sm text-muted-foreground">8GB DDR4 + instalação</p>
-            </div>
+            {[
+              { icon: HardDrive, title: "SSD SATA", desc: "Ideal para notebooks e PCs mais antigos. Até 550MB/s de velocidade.", price: "A partir de R$299", sub: "SSD 240GB + instalação", featured: false },
+              { icon: HardDrive, title: "SSD NVMe", desc: "Máxima velocidade para notebooks e PCs modernos. Até 3.500MB/s.", price: "A partir de R$399", sub: "SSD NVMe 256GB + instalação", featured: true },
+              { icon: TrendingUp, title: "Memória RAM", desc: "Mais memória para multitarefas e programas pesados.", price: "A partir de R$199", sub: "8GB DDR4 + instalação", featured: false },
+            ].map((item, index) => (
+              <div key={index} className={`group text-center p-6 bg-background rounded-xl stagger-item transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${item.featured ? 'border-2 border-accent shadow-[0_0_24px_hsl(var(--accent)/0.15)]' : ''}`} style={{ animationDelay: `${index * 80}ms` }}>
+                <item.icon className="h-12 w-12 text-accent mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground mb-4">{item.desc}</p>
+                <p className="text-2xl font-bold text-accent">{item.price}</p>
+                <p className="text-sm text-muted-foreground">{item.sub}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Benefícios */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
+      <section className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
             Benefícios do Upgrade
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -143,8 +140,8 @@ const UpgradeSsdMemoria = () => {
               { title: "Maior Durabilidade", desc: "SSD não tem peças móveis" },
               { title: "Economia de Energia", desc: "Mais autonomia no notebook" },
             ].map((item, index) => (
-              <div key={index} className="text-center p-6 bg-secondary rounded-xl">
-                <Zap className="h-10 w-10 text-accent mx-auto mb-4" />
+              <div key={index} className="group text-center p-6 bg-secondary rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg" style={{ animationDelay: `${index * 80}ms` }}>
+                <Zap className="h-10 w-10 text-accent mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
                 <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
@@ -156,7 +153,7 @@ const UpgradeSsdMemoria = () => {
       {/* O que está incluso */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
             O Que Está Incluso
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -170,8 +167,8 @@ const UpgradeSsdMemoria = () => {
               "Atendimento domiciliar",
               "Suporte pós-upgrade",
             ].map((item, index) => (
-              <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg">
-                <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+              <div key={index} className="group flex items-center gap-3 p-4 bg-background rounded-lg stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
+                <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-foreground">{item}</span>
               </div>
             ))}
@@ -182,7 +179,7 @@ const UpgradeSsdMemoria = () => {
       {/* FAQ */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -193,7 +190,7 @@ const UpgradeSsdMemoria = () => {
               { q: "Qual a diferença entre SATA e NVMe?", a: "O SSD NVMe é até 6x mais rápido que o SATA, mas requer slot M.2 disponível. Verificamos qual opção é melhor para seu equipamento." },
               { q: "Posso fazer upgrade de notebook antigo?", a: "Sim! Notebooks mais antigos podem receber SSD SATA e, dependendo do modelo, mais memória RAM." },
             ].map((item, index) => (
-              <div key={index} className="bg-secondary p-6 rounded-xl">
+              <div key={index} className="group bg-secondary p-6 rounded-xl stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
                 <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
@@ -203,15 +200,18 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-heading font-bold text-white mb-4">
+      <section className="relative py-16 bg-primary overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-breathe" />
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl font-heading font-bold text-white mb-4 reveal-text">
             Deixe Seu Computador Mais Rápido Hoje!
           </h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
             Solicite um orçamento sem compromisso e descubra como deixar seu computador voando!
           </p>
-          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={handleWhatsAppClick}>
+          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
             Solicitar Orçamento
           </Button>
@@ -221,17 +221,17 @@ const UpgradeSsdMemoria = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/servicos/conserto-pc-notebook" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+            <Link to="/servicos/conserto-pc-notebook" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
               Conserto de Hardware
             </Link>
-            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
               Formatação
             </Link>
-            <Link to="/servicos/montagem-pc" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-colors">
+            <Link to="/servicos/montagem-pc" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
               Montagem de PC
             </Link>
           </div>

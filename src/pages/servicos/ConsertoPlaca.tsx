@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -63,10 +64,11 @@ const ConsertoPlaca = () => {
       {/* Aviso */}
       <section className="py-6 bg-accent/5 border-y border-accent/10">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <PrecoVisitaTecnica tipo="coleta" />
             <p className="text-sm text-muted-foreground">
               <strong className="text-foreground">⚡ Serviço de laboratório:</strong> Conserto de placa exige bancada, equipamentos de precisão e tempo de análise. 
-              O prazo varia de 7 a 60 dias conforme a complexidade. Oferecemos <Link to="/coleta-e-entrega" className="text-accent hover:underline">coleta e entrega</Link>.
+              O prazo varia de 7 a 60 dias conforme a complexidade.
             </p>
           </div>
         </div>

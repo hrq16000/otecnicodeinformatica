@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Wrench, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -59,6 +60,15 @@ const ConsertoPcNotebook = () => {
                 Solicitar Orçamento
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Aviso Coleta */}
+      <section className="py-6 bg-accent/5 border-y border-accent/10">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
+            <PrecoVisitaTecnica tipo="coleta" />
           </div>
         </div>
       </section>

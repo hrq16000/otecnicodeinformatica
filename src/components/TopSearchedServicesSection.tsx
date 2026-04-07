@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server, Cpu, Tv, Smartphone, Database, Zap } from "lucide-react";
 
 interface ServiceLink {
@@ -112,7 +113,10 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export const TopSearchedServicesSection = () => {
-  const randomizedServices = useMemo(() => shuffleArray(allServices).slice(0, 6), []);
+  const isMobile = useIsMobile();
+  // Mobile: 3 items (1 col × 3 rows), Desktop: 6 items (3 cols × 2 rows)
+  const serviceCount = isMobile ? 3 : 6;
+  const randomizedServices = useMemo(() => shuffleArray(allServices).slice(0, serviceCount), [serviceCount]);
   const randomizedCities = useMemo(() =>
     cityLinks.map(city => ({
       ...city,
@@ -140,7 +144,7 @@ export const TopSearchedServicesSection = () => {
           <div className="glow-separator max-w-xs mx-auto mt-5" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 stagger-grid">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 stagger-grid">
           {randomizedServices.map((service, index) => (
             <Link
               key={index}

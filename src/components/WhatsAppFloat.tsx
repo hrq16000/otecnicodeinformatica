@@ -4,7 +4,7 @@ import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico. Podem me atender hoje?";
+const WHATSAPP_MESSAGE = "Olá! Vi o site de vocês e preciso de um técnico de informática. Podem me atender hoje?";
 
 const ANIMATIONS = [
   "animate-wa-bounce",
@@ -17,13 +17,12 @@ export const WhatsAppFloat = () => {
   const [animClass, setAnimClass] = useState<string>(ANIMATIONS[0]);
 
   useEffect(() => {
-    // Switch animation randomly every 6-10 seconds
     const pick = () => {
       const next = ANIMATIONS[Math.floor(Math.random() * ANIMATIONS.length)];
       setAnimClass(next);
     };
     pick();
-    const id = setInterval(pick, 6000 + Math.random() * 4000);
+    const id = setInterval(pick, 5000 + Math.random() * 4000);
     return () => clearInterval(id);
   }, []);
 
@@ -39,14 +38,14 @@ export const WhatsAppFloat = () => {
         "fixed bottom-6 left-6 z-50 flex items-center gap-2",
         "bg-whatsapp hover:bg-whatsapp-hover text-white",
         "pl-4 pr-5 py-3 rounded-full",
-        "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.4)] hover:shadow-[0_6px_30px_hsl(var(--whatsapp)/0.6)]",
+        "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",
         "transition-all duration-300 hover:scale-110 group",
         animClass
       )}
-      aria-label="Falar pelo WhatsApp"
+      aria-label="Falar com técnico pelo WhatsApp"
     >
       <MessageCircle className="h-6 w-6 transition-transform group-hover:rotate-12" />
-      <span className="text-sm font-semibold hidden sm:inline">WhatsApp</span>
+      <span className="text-sm font-semibold hidden sm:inline">Fale com Técnico</span>
     </a>
   );
 };

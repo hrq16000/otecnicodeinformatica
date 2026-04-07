@@ -77,6 +77,54 @@ const JardimGuilherminaCampoLargo = lazy(() => import("./pages/bairros/JardimGui
 // Bairros Pinhais
 const PinhaisCentro = lazy(() => import("./pages/bairros/PinhaisCentro"));
 const WeissopolisPinhais = lazy(() => import("./pages/bairros/WeissopolisPinhais"));
+const AltoGloria = lazy(() => import("./pages/bairros/AltoGloria"));
+const Reboucas = lazy(() => import("./pages/bairros/Reboucas"));
+const VilaIzabel = lazy(() => import("./pages/bairros/VilaIzabel"));
+const Seminario = lazy(() => import("./pages/bairros/Seminario"));
+const HugoLange = lazy(() => import("./pages/bairros/HugoLange"));
+const JardimSocial = lazy(() => import("./pages/bairros/JardimSocial"));
+const JardimAmericas = lazy(() => import("./pages/bairros/JardimAmericas"));
+const Taruma = lazy(() => import("./pages/bairros/Taruma"));
+const CapaoImbuia = lazy(() => import("./pages/bairros/CapaoImbuia"));
+const Hauer = lazy(() => import("./pages/bairros/Hauer"));
+const AltoBoqueiraoCtba = lazy(() => import("./pages/bairros/AltoBoqueiraoCtba"));
+const SitioCercado = lazy(() => import("./pages/bairros/SitioCercado"));
+const NovoMundo = lazy(() => import("./pages/bairros/NovoMundo"));
+const Fazendinha = lazy(() => import("./pages/bairros/Fazendinha"));
+const AguaVerdeBairro = lazy(() => import("./pages/bairros/AguaVerdeBairro"));
+const QuissisanaSJP = lazy(() => import("./pages/bairros/QuissisanaSJP"));
+const AcademiaSJP = lazy(() => import("./pages/bairros/AcademiaSJP"));
+const ColoniaMurcySJP = lazy(() => import("./pages/bairros/ColoniaMurcySJP"));
+const BonecaSJP = lazy(() => import("./pages/bairros/BonecaSJP"));
+const OuroFinoSJP = lazy(() => import("./pages/bairros/OuroFinoSJP"));
+const AgricolareSJP = lazy(() => import("./pages/bairros/AgricolareSJP"));
+const CampoLargoSJP = lazy(() => import("./pages/bairros/CampoLargoSJP"));
+const ItaliaSJP = lazy(() => import("./pages/bairros/ItaliaSJP"));
+const BordoDoCampoSJP2 = lazy(() => import("./pages/bairros/BordoDoCampoSJP2"));
+const IndependenciaSJP = lazy(() => import("./pages/bairros/IndependenciaSJP"));
+const OswaldoCruzColombo = lazy(() => import("./pages/bairros/OswaldoCruzColombo"));
+const ColareColombo = lazy(() => import("./pages/bairros/ColareColombo"));
+const CampinaGrandeColombo = lazy(() => import("./pages/bairros/CampinaGrandeColombo"));
+const TaxiqueiraColomboo = lazy(() => import("./pages/bairros/TaxiqueiraColomboo"));
+const EmbuColombo = lazy(() => import("./pages/bairros/EmbuColombo"));
+const JardimUniaoPiraquara = lazy(() => import("./pages/bairros/JardimUniaoPiraquara"));
+const JardimSantoAntonioPiraquara = lazy(() => import("./pages/bairros/JardimSantoAntonioPiraquara"));
+const JardimSaoPauloPiraquara = lazy(() => import("./pages/bairros/JardimSaoPauloPiraquara"));
+const IraiPiraquara = lazy(() => import("./pages/bairros/IraiPiraquara"));
+const BoaVistaTamandare = lazy(() => import("./pages/bairros/BoaVistaTamandare"));
+const CampoDoTenenteTamandare = lazy(() => import("./pages/bairros/CampoDoTenenteTamandare"));
+const JardimParanaguaTamandare = lazy(() => import("./pages/bairros/JardimParanaguaTamandare"));
+const JardimSaoJorgeTamandare = lazy(() => import("./pages/bairros/JardimSaoJorgeTamandare"));
+const EucaliptosFRG2 = lazy(() => import("./pages/bairros/EucaliptosFRG2"));
+const JardimCondorFRG = lazy(() => import("./pages/bairros/JardimCondorFRG"));
+const JardimIperigoFRG = lazy(() => import("./pages/bairros/JardimIperigoFRG"));
+const JardimDasPedrasFRG = lazy(() => import("./pages/bairros/JardimDasPedrasFRG"));
+const JoqueiFRCM = lazy(() => import("./pages/bairros/JoqueiFRCM"));
+const AntonioOliveraCM = lazy(() => import("./pages/bairros/AntonioOliveraCM"));
+const EspigoAlegreCM = lazy(() => import("./pages/bairros/EspigoAlegreCM"));
+const JardimFlorestalQB = lazy(() => import("./pages/bairros/JardimFlorestalQB"));
+const JardimJaponeQB = lazy(() => import("./pages/bairros/JardimJaponeQB"));
+const GraciosaMirQB = lazy(() => import("./pages/bairros/GraciosaMirQB"));
 const PinevillePinhais = lazy(() => import("./pages/bairros/PinevillePinhais"));
 
 // Novas cidades
@@ -415,6 +463,54 @@ const App = () => (
             <Route path="/bairros/uberaba" element={<Uberaba />} />
             <Route path="/bairros/pinheirinho" element={<Pinheirinho />} />
             <Route path="/bairros/xaxim" element={<Xaxim />} />
+            <Route path="/bairros/alto-da-gloria" element={<AltoGloria />} />
+            <Route path="/bairros/reboucas" element={<Reboucas />} />
+            <Route path="/bairros/vila-izabel" element={<VilaIzabel />} />
+            <Route path="/bairros/seminario" element={<Seminario />} />
+            <Route path="/bairros/hugo-lange" element={<HugoLange />} />
+            <Route path="/bairros/jardim-social" element={<JardimSocial />} />
+            <Route path="/bairros/jardim-das-americas" element={<JardimAmericas />} />
+            <Route path="/bairros/taruma" element={<Taruma />} />
+            <Route path="/bairros/capao-da-imbuia" element={<CapaoImbuia />} />
+            <Route path="/bairros/hauer" element={<Hauer />} />
+            <Route path="/bairros/alto-boqueirao" element={<AltoBoqueiraoCtba />} />
+            <Route path="/bairros/sitio-cercado" element={<SitioCercado />} />
+            <Route path="/bairros/novo-mundo" element={<NovoMundo />} />
+            <Route path="/bairros/fazendinha" element={<Fazendinha />} />
+            <Route path="/bairros/jardim-botanico" element={<AguaVerdeBairro />} />
+            <Route path="/bairros/quississana-sjp" element={<QuissisanaSJP />} />
+            <Route path="/bairros/academia-sjp" element={<AcademiaSJP />} />
+            <Route path="/bairros/colonia-murici-sjp" element={<ColoniaMurcySJP />} />
+            <Route path="/bairros/boneca-do-iguacu-sjp" element={<BonecaSJP />} />
+            <Route path="/bairros/ouro-fino-sjp" element={<OuroFinoSJP />} />
+            <Route path="/bairros/agricola-sjp" element={<AgricolareSJP />} />
+            <Route path="/bairros/campo-largo-roseira-sjp" element={<CampoLargoSJP />} />
+            <Route path="/bairros/italia-sjp" element={<ItaliaSJP />} />
+            <Route path="/bairros/borda-campo-sjp" element={<BordoDoCampoSJP2 />} />
+            <Route path="/bairros/independencia-sjp" element={<IndependenciaSJP />} />
+            <Route path="/bairros/osvaldo-cruz-colombo" element={<OswaldoCruzColombo />} />
+            <Route path="/bairros/sao-dimas-colombo" element={<ColareColombo />} />
+            <Route path="/bairros/campina-grande-colombo" element={<CampinaGrandeColombo />} />
+            <Route path="/bairros/taxiqueira-colombo" element={<TaxiqueiraColomboo />} />
+            <Route path="/bairros/embu-colombo" element={<EmbuColombo />} />
+            <Route path="/bairros/jardim-uniao-piraquara" element={<JardimUniaoPiraquara />} />
+            <Route path="/bairros/jardim-santo-antonio-piraquara" element={<JardimSantoAntonioPiraquara />} />
+            <Route path="/bairros/jardim-sao-paulo-piraquara" element={<JardimSaoPauloPiraquara />} />
+            <Route path="/bairros/irai-piraquara" element={<IraiPiraquara />} />
+            <Route path="/bairros/boa-vista-at" element={<BoaVistaTamandare />} />
+            <Route path="/bairros/campo-tenente-at" element={<CampoDoTenenteTamandare />} />
+            <Route path="/bairros/jardim-paranagua-at" element={<JardimParanaguaTamandare />} />
+            <Route path="/bairros/jardim-sao-jorge-at" element={<JardimSaoJorgeTamandare />} />
+            <Route path="/bairros/parque-industrial-frg" element={<EucaliptosFRG2 />} />
+            <Route path="/bairros/jardim-condor-frg" element={<JardimCondorFRG />} />
+            <Route path="/bairros/jardim-ipe-frg" element={<JardimIperigoFRG />} />
+            <Route path="/bairros/jardim-das-pedras-frg" element={<JardimDasPedrasFRG />} />
+            <Route path="/bairros/joquei-clube-cm" element={<JoqueiFRCM />} />
+            <Route path="/bairros/antonio-olivero-cm" element={<AntonioOliveraCM />} />
+            <Route path="/bairros/espigao-alegre-cm" element={<EspigoAlegreCM />} />
+            <Route path="/bairros/jardim-florestal-qb" element={<JardimFlorestalQB />} />
+            <Route path="/bairros/jardim-japao-qb" element={<JardimJaponeQB />} />
+            <Route path="/bairros/graciosa-qb" element={<GraciosaMirQB />} />
             <Route path="/bairros/boqueirao" element={<Boqueirao />} />
             <Route path="/bairros/bacacheri" element={<Bacacheri />} />
             <Route path="/bairros/tingui" element={<Tingui />} />

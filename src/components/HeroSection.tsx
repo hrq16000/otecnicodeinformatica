@@ -51,7 +51,7 @@ export const HeroSection = () => {
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Premium badge */}
             <div
-              className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.1] rounded-full px-4 py-2 mb-5 opacity-0 animate-[heroFadeIn_0.6s_ease-out_0.1s_forwards]"
+              className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.1] rounded-full px-4 py-2 mb-5 shimmer opacity-0 animate-[heroFadeIn_0.6s_ease-out_0.1s_forwards]"
             >
               <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
               <span className="text-white/90 text-sm font-medium tracking-wide">

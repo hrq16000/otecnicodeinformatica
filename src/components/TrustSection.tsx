@@ -55,7 +55,7 @@ export const TrustSection = () => {
             return (
               <div 
                 key={index}
-                className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.12] hover:border-white/[0.18] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03]"
+              className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.12] hover:border-white/[0.18] transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.04] shimmer stagger-item"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="inline-flex items-center justify-center bg-accent/90 rounded-xl p-2.5 mb-3 shadow-sm">

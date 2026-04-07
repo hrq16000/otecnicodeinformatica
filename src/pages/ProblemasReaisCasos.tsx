@@ -134,7 +134,7 @@ const ProblemasReaisCasos = () => {
         </section>
 
         {/* INTRO */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -159,7 +159,7 @@ const ProblemasReaisCasos = () => {
         {casos.map((caso, i) => {
           const Icon = caso.icon;
           return (
-            <section key={i} className={`py-12 md:py-16 ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}>
+            <section key={i} className={`py-8 md:py-10 ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}>
               <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                   <div className="flex items-start gap-4 mb-6">
@@ -198,7 +198,7 @@ const ProblemasReaisCasos = () => {
         })}
 
         {/* CTA FINAL */}
-        <section className="py-14 md:py-20 bg-primary">
+        <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Está Com um Problema Parecido?

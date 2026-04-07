@@ -158,7 +158,7 @@ const Servicos = () => {
           ctaText="Solicitar Orçamento"
         />
 
-        <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden">
+        <section className="py-8 md:py-10 lg:py-20 bg-background relative overflow-hidden">
           {/* Ambient glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />

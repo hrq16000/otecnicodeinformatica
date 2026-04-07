@@ -180,7 +180,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* VISITA TÉCNICA — Serviços Rápidos */}
-        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -208,7 +208,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* VISITA TÉCNICA — Serviços com Execução no Local */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -240,7 +240,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* EXCEÇÃO — Coleta e Entrega */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -268,7 +268,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* DIAGNÓSTICO COM COMPROMISSO */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -315,7 +315,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* Tabela Completa de Serviços */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
@@ -369,7 +369,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* Políticas */}
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -517,7 +517,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* Laboratório */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -564,7 +564,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* Casos Complexos */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -599,7 +599,7 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-12 md:py-16 bg-primary">
+        <section className="py-8 md:py-10 bg-primary">
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">

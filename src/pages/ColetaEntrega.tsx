@@ -80,7 +80,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* QUANDO É NECESSÁRIO */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -111,7 +111,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* COMO FUNCIONA */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -151,7 +151,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* SEGURANÇA */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -183,7 +183,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* REGIÕES */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -205,7 +205,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* VALORES */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -234,7 +234,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -262,7 +262,7 @@ const ColetaEntrega = () => {
         </section>
 
         {/* CTA FINAL */}
-        <section className="py-14 md:py-20 bg-primary">
+        <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Precisa de Coleta e Entrega?

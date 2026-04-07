@@ -97,7 +97,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* O QUE É DIAGNÓSTICO */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -119,7 +119,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* POR QUE É PAGO */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -154,7 +154,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* DIFERENÇA DIAGNÓSTICO vs EXECUÇÃO */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -204,7 +204,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* RISCOS DE NÃO DIAGNOSTICAR */}
-        <section className="py-12 md:py-16 bg-accent/5">
+        <section className="py-8 md:py-10 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -234,7 +234,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* EXEMPLOS REAIS */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -267,7 +267,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* VALORES */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <div className="bg-secondary rounded-2xl p-8 border-2 border-accent/20">
@@ -303,7 +303,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* TÉCNICO AMADOR vs PROFISSIONAL */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -352,7 +352,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -375,7 +375,7 @@ const DiagnosticoTecnico = () => {
         </section>
 
         {/* CTA FINAL */}
-        <section className="py-14 md:py-20 bg-primary">
+        <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Precisa de um Diagnóstico Profissional?

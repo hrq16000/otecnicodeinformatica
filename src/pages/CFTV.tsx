@@ -130,7 +130,7 @@ const CFTVPage = () => {
         {/* DOR / PROBLEMAS */}
         <section className="py-12 md:py-20 bg-muted/50">
           <div className="container mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
                 Você Ainda Deixa Seu Imóvel <span className="text-destructive">Desprotegido?</span>
               </h2>
@@ -160,7 +160,7 @@ const CFTVPage = () => {
         {/* SOLUÇÃO - O KIT */}
         <section id="oferta" className="py-12 md:py-20 bg-background">
           <div className="container mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
                 Kit Completo de Segurança <span className="text-accent">Intelbras</span>
               </h2>
@@ -169,7 +169,7 @@ const CFTVPage = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-6">
               {[
                 { icon: Camera, title: "4 Câmeras HD Intelbras", desc: "Câmeras de alta definição da marca líder de mercado no Brasil. Imagem nítida em qualquer condição." },
                 { icon: Moon, title: "Visão Noturna Infravermelho", desc: "Enxergue tudo mesmo no escuro total. As câmeras captam imagens de alta qualidade em até 30 metros." },
@@ -226,9 +226,9 @@ const CFTVPage = () => {
         </section>
 
         {/* PÚBLICO-ALVO */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-6">
               Para Quem É Este Kit?
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -251,7 +251,7 @@ const CFTVPage = () => {
         {/* PROVA SOCIAL */}
         <section className="py-12 md:py-20 bg-background">
           <div className="container mx-auto">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
                 O Que Dizem Nossos Clientes
               </h2>
@@ -302,7 +302,7 @@ const CFTVPage = () => {
         </section>
 
         {/* COBERTURA */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
               Onde Atendemos
@@ -322,7 +322,7 @@ const CFTVPage = () => {
         </section>
 
         {/* Cidades Atendidas */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-4">
               CFTV na Sua Cidade
@@ -350,7 +350,7 @@ const CFTVPage = () => {
         </section>
 
         {/* Artigos Relacionados */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-4">
               Artigos Sobre Segurança Eletrônica
@@ -379,7 +379,7 @@ const CFTVPage = () => {
         <ArticleSection />
 
         {/* CTA FINAL */}
-        <section className="py-16 md:py-24 hero-gradient">
+        <section className="py-10 md:py-24 hero-gradient">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-4">
               Não Espere Acontecer Para Agir
@@ -420,7 +420,7 @@ const FAQSection = () => {
   return (
     <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto max-w-3xl">
-        <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-6">
           Perguntas Frequentes
         </h2>
         <div className="space-y-3">

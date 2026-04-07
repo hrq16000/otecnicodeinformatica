@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
   CheckCircle, Clock, Shield, MessageCircle, 
-  MapPin, Star, ChevronDown
+  MapPin, Star, ChevronDown, AlertTriangle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";

@@ -170,7 +170,7 @@ export const SocialProofProvider = () => {
           "bg-card border rounded-xl shadow-lg",
           "transform transition-all duration-400 ease-out",
           isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
-          isPeakHour ? "border-accent/50 bg-accent/5" : "border-border",
+          isPeakHour ? "border-accent/50 bg-card" : "border-border",
           "w-[calc(100vw-2rem)] sm:w-auto"
         )}
         role="complementary"

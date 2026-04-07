@@ -162,6 +162,8 @@ const TecnicoInformaticaSaoJosePinhais = () => {
           subtitle="Atendimento presencial e remoto para toda a cidade"
         />
 
+        <RealImageSection imageKey="tecnicoTrabalhando" caption="Técnico atendendo em São José dos Pinhais" />
+
         {/* Sobre a Cidade */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -271,12 +273,12 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         </section>
 
         <ServiceLocalLinks currentCity="São José dos Pinhais" />
+        <RealImageSection imageKey="ferramentas" caption="Ferramentas profissionais para diagnóstico" />
         <LocalFAQSection title="Perguntas Frequentes - São José dos Pinhais" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="ferramentas" layout="duo" caption="Técnico atendendo em São José dos Pinhais" secondaryCaption="Ferramentas profissionais para diagnóstico" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

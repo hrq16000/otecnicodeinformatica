@@ -188,6 +188,8 @@ const TecnicoInformaticaPinhais = () => {
           subtitle="Atendimento ágil para toda a cidade"
         />
 
+        <RealImageSection imageKey="desktopMontado" caption="Montagem e reparo de PC em Pinhais" />
+
         {/* Sobre a Cidade - SEO Rich Content */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -332,12 +334,12 @@ const TecnicoInformaticaPinhais = () => {
 
         {/* FAQ Local */}
         <ServiceLocalLinks currentCity="Pinhais" />
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento domiciliar profissional" />
         <LocalFAQSection title="Perguntas Frequentes - Pinhais" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="desktopMontado" secondaryImageKey="atendimentoDomiciliar" layout="duo" caption="Montagem e reparo de PC em Pinhais" secondaryCaption="Atendimento domiciliar profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

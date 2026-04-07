@@ -162,6 +162,8 @@ const TecnicoInformaticaCuritiba = () => {
           subtitle="Atendimento local com qualidade, confiança e preço justo"
         />
 
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento a domicílio em Curitiba" />
+
         {/* Sobre Curitiba */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -281,12 +283,12 @@ const TecnicoInformaticaCuritiba = () => {
         </section>
 
         <ServiceLocalLinks currentCity="Curitiba" />
+        <RealImageSection imageKey="bancadaTecnica" caption="Laboratório técnico profissional" />
         <LocalFAQSection title="Perguntas Frequentes - Curitiba" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="bancadaTecnica" layout="duo" caption="Atendimento a domicílio em Curitiba" secondaryCaption="Laboratório técnico profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

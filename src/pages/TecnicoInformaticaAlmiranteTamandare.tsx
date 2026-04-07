@@ -15,6 +15,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
+import { RealImageSection } from "@/components/RealImageSection";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
 const benefits = [
@@ -119,6 +120,8 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
 
         <BenefitsGrid benefits={benefits} title="Suporte Técnico em Almirante Tamandaré" subtitle="Atendimento profissional para toda a cidade" />
 
+        <RealImageSection imageKey="tecnicoTrabalhando" caption="Técnico em atendimento em Almirante Tamandaré" />
+
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto relative z-10">
@@ -211,6 +214,8 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
             </div>
           </div>
         </section>
+
+        <RealImageSection imageKey="ferramentas" caption="Ferramentas profissionais para diagnóstico" />
 
         <ServiceLocalLinks currentCity="Almirante Tamandaré" />
         <LocalFAQSection title="Perguntas Frequentes - Almirante Tamandaré" faqs={localFaqs} />

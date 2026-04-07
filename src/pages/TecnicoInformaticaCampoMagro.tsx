@@ -15,6 +15,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
+import { RealImageSection } from "@/components/RealImageSection";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
 const benefits = [
@@ -72,6 +73,8 @@ const TecnicoInformaticaCampoMagro = () => {
         <PageHero title="Técnico de Informática em Campo Magro" subtitle="Assistência técnica profissional em Campo Magro e região. Atendimento a domicílio com garantia." ctaText="Falar com Técnico" />
         <BenefitsGrid benefits={benefits} title="Suporte Técnico em Campo Magro" subtitle="Atendimento para toda a cidade" />
 
+        <RealImageSection imageKey="notebookReparo" caption="Conserto de notebook em Campo Magro" />
+
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto relative z-10"><div className="max-w-4xl mx-auto">
@@ -116,6 +119,8 @@ const TecnicoInformaticaCampoMagro = () => {
             </div>
           </div></div>
         </section>
+
+        <RealImageSection imageKey="componentesSsd" caption="Upgrade SSD e memória RAM" />
 
         <ServiceLocalLinks currentCity="Campo Magro" />
         <LocalFAQSection title="Perguntas Frequentes - Campo Magro" faqs={localFaqs} />

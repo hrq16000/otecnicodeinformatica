@@ -188,6 +188,8 @@ const TecnicoInformaticaCampoLargo = () => {
           subtitle="Atendimento profissional para toda a cidade"
         />
 
+        <RealImageSection imageKey="placaMae" caption="Diagnóstico de placa-mãe em Campo Largo" />
+
         {/* Sobre a Cidade - SEO Rich Content */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -332,12 +334,12 @@ const TecnicoInformaticaCampoLargo = () => {
 
         {/* FAQ Local */}
         <ServiceLocalLinks currentCity="Campo Largo" />
+        <RealImageSection imageKey="componentesSsd" caption="Upgrade SSD e memória RAM" />
         <LocalFAQSection title="Perguntas Frequentes - Campo Largo" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="placaMae" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico de placa-mãe em Campo Largo" secondaryCaption="Upgrade SSD e memória RAM" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

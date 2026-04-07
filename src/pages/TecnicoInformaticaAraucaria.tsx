@@ -189,6 +189,8 @@ const TecnicoInformaticaAraucaria = () => {
           subtitle="Atendimento presencial e remoto para toda a cidade"
         />
 
+        <RealImageSection imageKey="notebookReparo" caption="Reparo de notebook em Araucária" />
+
         {/* Sobre a Cidade - SEO Rich Content */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -341,12 +343,12 @@ const TecnicoInformaticaAraucaria = () => {
 
         {/* FAQ Local */}
         <ServiceLocalLinks currentCity="Araucária" />
+        <RealImageSection imageKey="diagnostico" caption="Diagnóstico profissional com equipamento especializado" />
         <LocalFAQSection title="Perguntas Frequentes - Araucária" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="notebookReparo" secondaryImageKey="diagnostico" layout="duo" caption="Reparo de notebook em Araucária" secondaryCaption="Diagnóstico profissional com equipamento especializado" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

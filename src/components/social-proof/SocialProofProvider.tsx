@@ -97,8 +97,8 @@ export const SocialProofProvider = () => {
     if (!settings.enabled || isLoading) return;
     if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
-    // Initial delay: 15-20 seconds before first proof
-    const initialDelay = 15000 + Math.random() * 5000;
+    // Initial delay: 5-8 seconds before first proof
+    const initialDelay = 5000 + Math.random() * 3000;
     timeoutRef.current = setTimeout(showNextProof, initialDelay);
 
     return clearScheduled;

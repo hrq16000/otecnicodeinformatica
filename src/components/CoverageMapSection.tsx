@@ -1,19 +1,86 @@
-import { MapPin, Clock, Navigation, Users } from "lucide-react";
+import { MapPin, Clock, Navigation } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MouseGlow } from "@/components/MouseGlow";
 
 const regions = [
-  { name: "Curitiba - Centro", time: "20-30 min", neighborhoods: ["Centro", "Batel", "Água Verde", "Rebouças", "Alto da XV"], highlight: true },
-  { name: "Curitiba - Norte", time: "25-40 min", neighborhoods: ["Santa Felicidade", "Boa Vista", "Bacacheri", "Cabral"], highlight: false },
-  { name: "Curitiba - Sul", time: "25-40 min", neighborhoods: ["Portão", "Novo Mundo", "Xaxim", "Pinheirinho"], highlight: false },
-  { name: "Curitiba - Oeste", time: "30-45 min", neighborhoods: ["CIC", "Campo Comprido", "Mossunguê", "Fazendinha"], highlight: false },
-  { name: "São José dos Pinhais", time: "35-50 min", neighborhoods: ["Centro SJP", "Afonso Pena", "Costeira", "Aviação"], highlight: false },
-  { name: "Araucária", time: "40-55 min", neighborhoods: ["Centro", "Capela Velha", "Thomaz Coelho"], highlight: false },
-  { name: "Campo Largo", time: "45-60 min", neighborhoods: ["Centro", "Ferraria", "Jardim Guilhermina"], highlight: false },
-  { name: "Pinhais", time: "30-45 min", neighborhoods: ["Centro", "Weissópolis", "Pineville"], highlight: false },
+  { name: "Curitiba - Centro", baseMin: 20, baseMax: 30, neighborhoods: ["Centro", "Batel", "Água Verde", "Rebouças", "Alto da XV"] },
+  { name: "Curitiba - Norte", baseMin: 25, baseMax: 40, neighborhoods: ["Santa Felicidade", "Boa Vista", "Bacacheri", "Cabral"] },
+  { name: "Curitiba - Sul", baseMin: 25, baseMax: 40, neighborhoods: ["Portão", "Novo Mundo", "Xaxim", "Pinheirinho"] },
+  { name: "Curitiba - Oeste", baseMin: 30, baseMax: 45, neighborhoods: ["CIC", "Campo Comprido", "Mossunguê", "Fazendinha"] },
+  { name: "São José dos Pinhais", baseMin: 35, baseMax: 50, neighborhoods: ["Centro SJP", "Afonso Pena", "Costeira", "Aviação"] },
+  { name: "Araucária", baseMin: 40, baseMax: 55, neighborhoods: ["Centro", "Capela Velha", "Thomaz Coelho"] },
+  { name: "Campo Largo", baseMin: 45, baseMax: 60, neighborhoods: ["Centro", "Ferraria", "Jardim Guilhermina"] },
+  { name: "Pinhais", baseMin: 30, baseMax: 45, neighborhoods: ["Centro", "Weissópolis", "Pineville"] },
 ];
 
+function getTimeMultiplier(): { multiplier: number; label: string } {
+  const hour = new Date().getHours();
+  // Horário de pico manhã (7-9h) e tarde (17-19h)
+  if ((hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 19)) {
+    return { multiplier: 1.8, label: "Horário de pico – trânsito intenso" };
+  }
+  // Horário moderado (10-12h, 14-16h)
+  if ((hour >= 10 && hour <= 12) || (hour >= 14 && hour <= 16)) {
+    return { multiplier: 1.2, label: "Trânsito moderado" };
+  }
+  // Almoço (12-14h)
+  if (hour >= 12 && hour <= 14) {
+    return { multiplier: 1.0, label: "Trânsito leve" };
+  }
+  // Fora do horário comercial
+  if (hour < 7 || hour >= 20) {
+    return { multiplier: 1.0, label: "Trânsito livre" };
+  }
+  return { multiplier: 1.0, label: "Trânsito normal" };
+}
+
+function calcTime(baseMin: number, baseMax: number, multiplier: number): string {
+  const min = Math.round(baseMin * multiplier);
+  const max = Math.round(baseMax * multiplier);
+  if (max >= 60) {
+    const minH = Math.floor(min / 60);
+    const minM = min % 60;
+    const maxH = Math.floor(max / 60);
+    const maxM = max % 60;
+    if (minH >= 1 && maxH >= 1) {
+      return `${minH}h${minM > 0 ? minM : ''} - ${maxH}h${maxM > 0 ? maxM : ''}`;
+    }
+    return `${min} - ${maxH}h${maxM > 0 ? maxM : ''}`;
+  }
+  return `${min}-${max} min`;
+}
+
 export const CoverageMapSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [trafficInfo, setTrafficInfo] = useState(getTimeMultiplier);
+
+  // Atualiza o trânsito a cada 60s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTrafficInfo(getTimeMultiplier());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-alterna a região selecionada a cada 3s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % regions.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const computedRegions = useMemo(() =>
+    regions.map(r => ({
+      ...r,
+      time: calcTime(r.baseMin, r.baseMax, trafficInfo.multiplier),
+    })),
+  [trafficInfo.multiplier]);
+
+  const currentHour = new Date().getHours();
+  const isBusinessHours = currentHour >= 8 && currentHour < 20;
+
   return (
     <section className="py-12 md:py-16 bg-secondary relative overflow-hidden mesh-gradient-warm noise-overlay">
       <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
@@ -71,10 +138,12 @@ export const CoverageMapSection = () => {
                       <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 pulse-dot" />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-accent" />
                     </span>
-                    <span className="font-medium text-foreground">Atendimento no mesmo dia</span>
+                    <span className="font-medium text-foreground">
+                      {isBusinessHours ? "Atendimento no mesmo dia" : "Próximo atendimento às 8h"}
+                    </span>
                   </div>
                   <span className="text-muted-foreground">•</span>
-                  <span className="text-muted-foreground">Curitiba e Região Metropolitana</span>
+                  <span className="text-muted-foreground">{trafficInfo.label}</span>
                 </div>
               </div>
             </div>
@@ -90,53 +159,58 @@ export const CoverageMapSection = () => {
                     Tempo médio de chegada após confirmação
                   </p>
                   <p className="text-muted-foreground text-xs mt-1">
-                    Os tempos podem variar conforme disponibilidade e trânsito
+                    ⏱ Agora: <span className="font-medium text-foreground">{trafficInfo.label}</span> — tempos ajustados em tempo real
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="grid gap-2">
-              {regions.map((region, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] card-shine hover-streak slide-up-stagger ${
-                    region.highlight
-                      ? "glass-card border-accent/30 shadow-sm shimmer-sweep"
-                      : "glass-card hover:border-accent/20"
-                  }`}
-                  style={{ animationDelay: `${index * 60}ms` }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
-                        region.highlight ? "bg-accent text-accent-foreground" : "bg-secondary text-muted-foreground"
-                      }`}
-                    >
-                      <MapPin className="h-4 w-4" />
+              {computedRegions.map((region, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] card-shine hover-streak ${
+                      isActive
+                        ? "glass-card border-accent/40 shadow-md bg-accent/5 scale-[1.01]"
+                        : "glass-card hover:border-accent/20"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          isActive ? "bg-accent text-accent-foreground scale-110" : "bg-secondary text-muted-foreground"
+                        }`}
+                      >
+                        <MapPin className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className={`font-medium text-sm transition-colors duration-300 ${isActive ? "text-accent" : "text-foreground"}`}>
+                          {region.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {region.neighborhoods.slice(0, 3).join(", ")}
+                          {region.neighborhoods.length > 3 && "..."}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-foreground text-sm">{region.name}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {region.neighborhoods.slice(0, 3).join(", ")}
-                        {region.neighborhoods.length > 3 && "..."}
-                      </p>
+                    <div className="text-right">
+                      <div
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-500 ${
+                          isActive
+                            ? "bg-accent text-accent-foreground shadow-sm"
+                            : "bg-secondary text-foreground"
+                        }`}
+                      >
+                        <Clock className="h-3 w-3" />
+                        {region.time}
+                      </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${
-                        region.highlight
-                          ? "bg-accent text-accent-foreground"
-                          : "bg-secondary text-foreground"
-                      }`}
-                    >
-                      <Clock className="h-3 w-3" />
-                      {region.time}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="mt-4 p-4 bg-primary/5 rounded-lg border border-primary/10 hover:border-primary/20 transition-colors duration-300">

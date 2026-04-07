@@ -64,6 +64,15 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
+      {/* Aviso Coleta */}
+      <section className="py-6 bg-accent/5 border-y border-accent/10">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
+            <PrecoVisitaTecnica tipo="coleta" />
+          </div>
+        </div>
+      </section>
+
       {/* Tipos de Conserto */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">

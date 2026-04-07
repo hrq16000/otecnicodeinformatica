@@ -63,12 +63,13 @@ const ManutencaoTV = () => {
       </section>
 
       {/* Aviso importante */}
-      <section className="py-8 bg-accent/5 border-y border-accent/10">
+      <section className="py-6 bg-accent/5 border-y border-accent/10">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center space-y-3">
+            <PrecoVisitaTecnica tipo="coleta" />
             <p className="text-sm text-muted-foreground">
               <strong className="text-foreground">⚠️ Importante:</strong> A maioria dos reparos de TV exige <strong className="text-foreground">bancada (laboratório)</strong>. 
-              Não é possível resolver no local na maioria dos casos. Oferecemos <Link to="/coleta-e-entrega" className="text-accent hover:underline">coleta e entrega</Link> para sua comodidade.
+              Não é possível resolver no local na maioria dos casos.
             </p>
           </div>
         </div>

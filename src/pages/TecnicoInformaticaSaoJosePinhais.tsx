@@ -271,12 +271,12 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         </section>
 
         <ServiceLocalLinks currentCity="São José dos Pinhais" />
+        <RealImageSection imageKey="ferramentas" caption="Ferramentas profissionais para diagnóstico" />
         <LocalFAQSection title="Perguntas Frequentes - São José dos Pinhais" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="ferramentas" layout="duo" caption="Técnico atendendo em São José dos Pinhais" secondaryCaption="Ferramentas profissionais para diagnóstico" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

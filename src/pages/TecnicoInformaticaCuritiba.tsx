@@ -281,12 +281,12 @@ const TecnicoInformaticaCuritiba = () => {
         </section>
 
         <ServiceLocalLinks currentCity="Curitiba" />
+        <RealImageSection imageKey="bancadaTecnica" caption="Laboratório técnico profissional" />
         <LocalFAQSection title="Perguntas Frequentes - Curitiba" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="bancadaTecnica" layout="duo" caption="Atendimento a domicílio em Curitiba" secondaryCaption="Laboratório técnico profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

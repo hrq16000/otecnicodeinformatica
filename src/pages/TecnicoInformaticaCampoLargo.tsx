@@ -332,12 +332,12 @@ const TecnicoInformaticaCampoLargo = () => {
 
         {/* FAQ Local */}
         <ServiceLocalLinks currentCity="Campo Largo" />
+        <RealImageSection imageKey="componentesSsd" caption="Upgrade SSD e memória RAM" />
         <LocalFAQSection title="Perguntas Frequentes - Campo Largo" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="placaMae" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico de placa-mãe em Campo Largo" secondaryCaption="Upgrade SSD e memória RAM" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

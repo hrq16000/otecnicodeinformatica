@@ -332,12 +332,12 @@ const TecnicoInformaticaPinhais = () => {
 
         {/* FAQ Local */}
         <ServiceLocalLinks currentCity="Pinhais" />
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento domiciliar profissional" />
         <LocalFAQSection title="Perguntas Frequentes - Pinhais" faqs={localFaqs} />
         <SocialProofSection />
         <TrustSection />
         <CTASection />
       </main>
-      <RealImageSection imageKey="desktopMontado" secondaryImageKey="atendimentoDomiciliar" layout="duo" caption="Montagem e reparo de PC em Pinhais" secondaryCaption="Atendimento domiciliar profissional" />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

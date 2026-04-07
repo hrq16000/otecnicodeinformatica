@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "São Sebastião",
-  slug: "sao-sebastiao-campo-magro",
+  slug: "sao-sebastiao-cm",
   cidade: "Campo Magro",
   metaTitle: "Técnico de Informática no São Sebastião | Campo Magro | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no São Sebastião, Campo Magro. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "Jardim Menino Deus",
-  slug: "jardim-menino-deus",
+  slug: "jardim-menino-deus-qb",
   cidade: "Quatro Barras",
   metaTitle: "Técnico de Informática no Jardim Menino Deus | Quatro Barras | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no Jardim Menino Deus, Quatro Barras. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

@@ -2,7 +2,7 @@ import { BairroTemplate } from "./BairroTemplate";
 
 const data = {
   nome: "Pedro Moro",
-  slug: "pedro-moro",
+  slug: "pedro-moro-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Pedro Moro | São José dos Pinhais | Atendimento Domicílio | Técnico Curitiba",
   metaDescription: "Técnico de informática no Pedro Moro, São José dos Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",

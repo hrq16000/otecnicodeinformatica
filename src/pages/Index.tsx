@@ -17,7 +17,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { CoverageMapSection } from "@/components/CoverageMapSection";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { SchedulingSection } from "@/components/scheduling";
-import { SocialProofProvider, TrustBadges, SecurityBadge } from "@/components/social-proof";
+import { TrustBadges, SecurityBadge } from "@/components/social-proof";
 import { SocialProofAdminPanel } from "@/components/social-proof/AdminPanel";
 import { trackPageView } from "@/lib/analytics";
 import { HomePricingBlock } from "@/components/HomePricingBlock";
@@ -126,7 +126,6 @@ const Index = () => {
         </section>
       </main>
       <Footer />
-      <SocialProofProvider />
       <SocialProofAdminPanel />
     </div>
   );

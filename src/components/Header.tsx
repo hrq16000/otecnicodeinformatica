@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Menu, X, ChevronDown, Bot } from "lucide-react";
+import { MessageCircle, Menu, X, ChevronDown, Bot, Search } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
+import { SmartSearch } from "@/components/SmartSearch";
 import {
   DropdownMenu,
   DropdownMenuContent,

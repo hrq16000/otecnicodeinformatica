@@ -50,7 +50,7 @@ export const HeroSection = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroTechBg}
+          src={heroBg}
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover opacity-15"

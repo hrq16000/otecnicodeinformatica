@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
   CheckCircle, Clock, Shield, MessageCircle, 
-  MapPin, Star, ChevronDown
+  MapPin, Star, ChevronDown, AlertTriangle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
@@ -44,6 +44,8 @@ const ServicoCidadePage = () => {
   }, [servico, cidade, servicoSlug, cidadeSlug]);
 
   if (!servico || !cidade) return <NotFound />;
+
+  const isSemVisita = servico.slug === "conserto-tv" || servico.slug === "conserto-celular";
 
   const faqs = getFaqPorServico(servico.slug, cidade.nome);
 
@@ -90,7 +92,12 @@ const ServicoCidadePage = () => {
     ]
   };
 
-  const beneficios = [
+  const beneficios = isSemVisita ? [
+    { icon: CheckCircle, titulo: "Orçamento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
+    { icon: Clock, titulo: "Prazo Transparente", descricao: "Informamos o prazo desde o início. Atualizações por WhatsApp" },
+    { icon: Shield, titulo: "Garantia no Serviço", descricao: "Todo reparo conta com garantia. Peças de qualidade" },
+    { icon: Star, titulo: "Atendimento Humanizado", descricao: "Explicamos o problema com clareza, sem jargão técnico" },
+  ] : [
     { icon: MapPin, titulo: `Atendimento Local em ${cidade.nome}`, descricao: "Técnico vai até seu endereço com todas as ferramentas" },
     { icon: Clock, titulo: "Atendimento no Mesmo Dia", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
     { icon: Shield, titulo: "Garantia em Todos os Serviços", descricao: "Serviço garantido. Se precisar, voltamos sem custo" },
@@ -123,23 +130,48 @@ const ServicoCidadePage = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
-              {servico.nome} em {cidade.nome} – Técnico a Domicílio
+              {servico.nome} em {cidade.nome}{isSemVisita ? " – Orçamento sem Compromisso" : " – Técnico a Domicílio"}
             </h1>
 
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-              Atendemos no seu endereço em {cidade.nome} ainda hoje
+              {isSemVisita 
+                ? `Orçamento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
+                : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
+              }
             </p>
 
+            {isSemVisita && (
+              <div className="bg-white/10 rounded-xl p-4 mb-6 max-w-lg mx-auto">
+                <div className="flex items-center gap-2 text-accent mb-2">
+                  <AlertTriangle className="h-5 w-5" />
+                  <span className="font-bold text-sm">IMPORTANTE</span>
+                </div>
+                <p className="text-white/90 text-sm">
+                  Para {servico.slug === "conserto-tv" ? "TVs" : "celulares"}, <strong>não realizamos visita técnica a domicílio</strong>. O equipamento precisa ser trazido à oficina ou podemos organizar coleta.
+                </p>
+              </div>
+            )}
+
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Mesmo dia</span>
-              <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Sem sair de casa</span>
-              <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Orçamento grátis</span>
+              {isSemVisita ? (
+                <>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Sem compromisso</span>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Todas as marcas</span>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Garantia</span>
+                </>
+              ) : (
+                <>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Mesmo dia</span>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Sem sair de casa</span>
+                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Orçamento grátis</span>
+                </>
+              )}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Chamar pelo WhatsApp
+                {isSemVisita ? "Solicitar Orçamento" : "Chamar pelo WhatsApp"}
               </Button>
             </div>
           </div>

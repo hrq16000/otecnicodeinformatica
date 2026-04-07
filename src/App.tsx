@@ -271,6 +271,8 @@ const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
 const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
 const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
 const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
+const ConsertoTV = lazy(() => import("./pages/servicos/ConsertoTV"));
+const ConsertoCelular = lazy(() => import("./pages/servicos/ConsertoCelular"));
 const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
 
 // Novas cidades
@@ -649,6 +651,8 @@ const App = () => (
             <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
             <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
             <Route path="/servicos/manutencao-tv" element={<ManutencaoTV />} />
+            <Route path="/servicos/conserto-tv" element={<ConsertoTV />} />
+            <Route path="/servicos/conserto-celular" element={<ConsertoCelular />} />
             <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}

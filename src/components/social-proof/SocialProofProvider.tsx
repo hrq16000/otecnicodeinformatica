@@ -97,8 +97,8 @@ export const SocialProofProvider = () => {
     if (!settings.enabled || isLoading) return;
     if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
-    // Initial delay: 15-20 seconds before first proof
-    const initialDelay = 15000 + Math.random() * 5000;
+    // Initial delay: 5-8 seconds before first proof
+    const initialDelay = 5000 + Math.random() * 3000;
     timeoutRef.current = setTimeout(showNextProof, initialDelay);
 
     return clearScheduled;
@@ -122,7 +122,7 @@ export const SocialProofProvider = () => {
         <ExitIntentPopup />
         <div
           className={cn(
-            "fixed bottom-20 left-4 z-40 max-w-sm",
+            "fixed bottom-28 left-4 z-40 max-w-sm",
             "bg-card border border-border rounded-xl shadow-lg",
             "transform transition-all duration-400 ease-out",
             isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",
@@ -162,7 +162,7 @@ export const SocialProofProvider = () => {
       <ExitIntentPopup />
       <div
         className={cn(
-          "fixed bottom-20 left-4 z-40 max-w-xs",
+          "fixed bottom-28 left-4 z-40 max-w-xs",
           "bg-card border rounded-xl shadow-lg",
           "transform transition-all duration-400 ease-out",
           isExiting ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100",

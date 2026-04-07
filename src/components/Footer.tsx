@@ -84,7 +84,7 @@ export const Footer = () => {
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
             <img
               alt="Técnico Curitiba"
-              className="h-10 w-auto brightness-0 invert opacity-90"
+              className="h-10 w-auto brightness-0 invert"
               src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
               width="200"
               height="40"

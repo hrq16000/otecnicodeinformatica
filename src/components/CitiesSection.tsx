@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight, Building2, Home, Sparkles } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 interface CityData {
   name: string;
@@ -43,35 +44,53 @@ const cities: CityData[] = [
 
 export const CitiesSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary relative overflow-hidden" aria-labelledby="cities-heading">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
+    <section className="py-12 md:py-16 lg:py-20 bg-secondary relative overflow-hidden ambient-glow noise-overlay" aria-labelledby="cities-heading">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none orb-float" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none liquid-blob" />
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4 shimmer">
+          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4 shimmer-sweep float-badge">
             <MapPin className="h-5 w-5 text-primary" />
             <span className="text-primary font-medium text-sm">Área de Atendimento</span>
           </div>
           <h2 id="cities-heading" className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
-            Técnico de Informática em Curitiba e Região
+            Técnico de Informática em Curitiba e <span className="gradient-text">Região</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto reveal-text" data-reveal-delay="100">
             Oferecemos <strong>assistência técnica de informática a domicílio</strong> em toda a região metropolitana de Curitiba. 
             Atendimento rápido no mesmo dia para residências e empresas.
           </p>
+          <div className="glow-separator max-w-xs mx-auto mt-5" />
+          
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-8 mt-6">
+            <div className="text-center slide-up-stagger" style={{ animationDelay: '0ms' }}>
+              <p className="text-2xl md:text-3xl font-bold text-accent glow-pulse-text"><AnimatedCounter end={5} /></p>
+              <p className="text-xs text-muted-foreground">Cidades principais</p>
+            </div>
+            <div className="text-center slide-up-stagger" style={{ animationDelay: '100ms' }}>
+              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={25} suffix="+" /></p>
+              <p className="text-xs text-muted-foreground">Bairros cobertos</p>
+            </div>
+            <div className="text-center slide-up-stagger" style={{ animationDelay: '200ms' }}>
+              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={347} suffix="+" /></p>
+              <p className="text-xs text-muted-foreground">Clientes atendidos</p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-grid">
           {cities.map((city, index) => (
             <article 
               key={city.slug} 
-              className="glass-card gradient-border rounded-xl p-6 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 group stagger-item"
+              className="glass-card gradient-border rounded-xl p-6 hover:shadow-[var(--shadow-lg)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 group hover-streak animated-border slide-up-stagger"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Building2 className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
+                <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
+                  <Building2 className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300 icon-bounce" />
+                  <div className="absolute inset-0 rounded-xl bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
                 <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-accent transition-colors duration-200">
                   {city.name}
@@ -92,7 +111,7 @@ export const CitiesSection = () => {
                   {city.neighborhoods.map((neighborhood) => (
                     <span 
                       key={neighborhood}
-                      className="bg-muted text-muted-foreground text-xs px-2.5 py-1 rounded-full border border-border/50 group-hover:border-accent/20 transition-colors duration-300"
+                      className="bg-muted text-muted-foreground text-xs px-2.5 py-1 rounded-full border border-border/50 group-hover:border-accent/20 group-hover:bg-accent/5 transition-all duration-300"
                     >
                       {neighborhood}
                     </span>
@@ -107,20 +126,20 @@ export const CitiesSection = () => {
               {city.hasPage ? (
                 <Link 
                   to={`/tecnico-informatica-${city.slug}`}
-                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200 underline-grow"
                 >
                   Ver todos os bairros em {city.name}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               ) : (
                 <a 
                   href={`https://wa.me/5541997452053?text=Olá! Preciso de técnico em ${city.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200 underline-grow"
                 >
                   Solicitar atendimento em {city.name}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               )}
             </article>
@@ -128,9 +147,9 @@ export const CitiesSection = () => {
         </div>
 
         {/* SEO content */}
-        <div className="mt-12 glass-card gradient-border rounded-2xl p-6 md:p-8">
+        <div className="mt-12 glass-card gradient-border rounded-2xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] transition-shadow duration-300 hover-streak">
           <h3 className="text-xl font-heading font-bold text-foreground mb-4">
-            Por que escolher nosso serviço de assistência técnica?
+            Por que escolher nosso serviço de <span className="gradient-text">assistência técnica</span>?
           </h3>
           <div className="prose prose-sm text-muted-foreground max-w-none">
             <p>

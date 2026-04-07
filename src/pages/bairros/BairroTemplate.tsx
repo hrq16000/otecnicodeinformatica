@@ -364,21 +364,21 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
-                <Link to="/como-funciona" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                <Link to="/como-funciona" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
                   <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
                   <p className="text-muted-foreground text-sm">Entenda o passo a passo do atendimento técnico a domicílio.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver detalhes <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/valores" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                <Link to="/valores" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
                   <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
                   <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. A partir de R$ 69,99.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver preços <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/diagnostico-tecnico" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                <Link to="/diagnostico-tecnico" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
                   <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
                   <p className="text-muted-foreground text-sm">Por que o diagnóstico é pago e como ele protege você.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
@@ -399,7 +399,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 Principais Serviços no {data.nome}
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
                   <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
                     <Monitor className="h-8 w-8 text-accent" />
                   </div>
@@ -408,7 +408,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     Instalação limpa do Windows, drivers e programas. Computador como novo.
                   </p>
                 </div>
-                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
                   <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
                     <Shield className="h-8 w-8 text-accent" />
                   </div>
@@ -417,7 +417,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     Limpeza completa de malwares, trojans e ransomware. Proteção instalada.
                   </p>
                 </div>
-                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
                   <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
                     <HardDrive className="h-8 w-8 text-accent" />
                   </div>

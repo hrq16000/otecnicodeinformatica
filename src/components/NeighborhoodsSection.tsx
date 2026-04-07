@@ -48,7 +48,7 @@ export const NeighborhoodsSection = () => {
               <Link
                 key={neighborhood.slug}
                 to={`/bairros/${neighborhood.slug}`}
-                className="flex items-center gap-1.5 bg-background px-3 py-1.5 rounded-full text-sm border border-primary/10 hover:border-accent hover:bg-accent/5 transition-colors group"
+                className="flex items-center gap-1.5 bg-background px-3 py-1.5 rounded-full text-sm border border-primary/10 hover:border-accent hover:bg-accent/5 hover:scale-105 transition-all duration-200 group"
               >
                 <MapPin className="h-3.5 w-3.5 text-accent" />
                 <span className="text-foreground/80 group-hover:text-accent transition-colors">{neighborhood.name}</span>

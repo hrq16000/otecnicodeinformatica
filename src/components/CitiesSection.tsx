@@ -63,7 +63,7 @@ export const CitiesSection = () => {
           {cities.map((city) => (
             <article 
               key={city.slug} 
-              className="bg-background rounded-xl shadow-sm border border-border p-6 hover:shadow-md transition-shadow"
+              className="bg-background rounded-xl shadow-sm border border-border p-6 hover:shadow-[var(--shadow-lg)] hover:border-accent/20 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-primary/10 p-2 rounded-lg">

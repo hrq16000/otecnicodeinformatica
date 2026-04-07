@@ -37,7 +37,7 @@ export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) =
             return (
               <div
                 key={index}
-                className="bg-card rounded-xl p-6 border border-border/50 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:border-accent/20 transition-all duration-300 hover:-translate-y-0.5 text-center ripple-container"
+                className="bg-card rounded-xl p-6 border border-border/50 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:border-accent/20 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] text-center ripple-container"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="w-13 h-13 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors duration-300">

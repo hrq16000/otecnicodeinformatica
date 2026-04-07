@@ -3,51 +3,83 @@
  * Auto-applies .fade-up / .fade-in to sections, cards, and content blocks.
  * Uses IntersectionObserver for performant reveal on scroll.
  * Respects prefers-reduced-motion.
+ *
+ * REGRA: Toda página nova herda animações automaticamente via este sistema.
  */
 
 const SELECTORS = [
-  'main > section',
-  'main > div > section',
-  '[class*="container"] > [class*="grid"] > div',
-  '[class*="container"] > [class*="max-w"] > [class*="grid"] > div',
-  'main [class*="card"]',
-  'main [class*="rounded-xl"]',
-  'main [class*="rounded-lg"]',
-  'main img[loading="lazy"]',
-  'main picture',
+  // Sections em qualquer nível
+  'section',
+  // Cards e blocos de conteúdo
+  '[class*="grid"] > div',
+  '[class*="grid"] > article',
+  '[class*="grid"] > a',
+  // Rounded containers (cards)
+  '[class*="rounded-xl"]:not(button):not(a):not(input):not(select)',
+  '[class*="rounded-2xl"]:not(button):not(a):not(input):not(select)',
+  // Content blocks
+  '[class*="max-w-"] > div > div',
+  '[class*="container"] > div > h2',
+  '[class*="container"] > div > h3',
+  // Images
+  'img[loading="lazy"]',
+  'picture',
+  // Flex wrap items (neighborhood pills, badges)
+  '[class*="flex-wrap"] > a',
+  '[class*="flex-wrap"] > div',
+  // Prose / text blocks
+  '[class*="prose"]',
 ].join(', ');
 
 const EXCLUDE_SELECTORS = [
   'header', 'nav', '[role="navigation"]',
-  'button', 'a[href]', 'input', 'textarea', 'select', 'label',
+  'button', 'input', 'textarea', 'select', 'label',
   '[class*="fixed"]', '[class*="sticky"]',
   '[class*="WhatsApp"]', '[class*="whatsapp"]',
   '[class*="modal"]', '[class*="dialog"]', '[class*="popup"]',
   '[class*="toast"]', '[class*="sonner"]',
+  '[class*="Breadcrumb"]', '[class*="breadcrumb"]',
+  'script', 'style', 'noscript',
+];
+
+// Elements that should NOT be animated even if matched
+const EXCLUDE_PARENT_SELECTORS = [
+  'header', 'nav', '[role="navigation"]',
+  '[class*="fixed"]', '[class*="sticky"]',
 ];
 
 function shouldExclude(el: Element): boolean {
+  // Direct match
   for (const sel of EXCLUDE_SELECTORS) {
-    if (el.matches(sel) || el.closest(sel)) return true;
+    try { if (el.matches(sel)) return true; } catch { /* skip invalid selector */ }
   }
-  // Skip elements already animated by AnimatedSection
+  // Parent match
+  for (const sel of EXCLUDE_PARENT_SELECTORS) {
+    try { if (el.closest(sel)) return true; } catch { /* skip */ }
+  }
+  // Skip elements already animated by AnimatedSection or previous run
   if (el.classList.contains('anim-fade-up') ||
       el.classList.contains('anim-fade-in') ||
-      el.classList.contains('anim-fade-soft')) return true;
-  // Skip very small elements (buttons, icons)
+      el.classList.contains('anim-fade-soft') ||
+      el.classList.contains('fade-up') ||
+      el.classList.contains('fade-in')) return true;
+  // Skip very small elements (icons, small badges)
   const rect = el.getBoundingClientRect();
-  if (rect.height < 30) return true;
+  if (rect.height < 24 || rect.width < 24) return true;
+  // Skip invisible / hidden
+  if (rect.height === 0 || rect.width === 0) return true;
   return false;
 }
 
 let observer: IntersectionObserver | null = null;
+const animatedElements: Set<Element> = new Set();
 
 export function initScrollAnimations(): void {
   // Respect reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Clean up previous observer if any
-  if (observer) observer.disconnect();
+  // Clean up previous run
+  cleanupScrollAnimations();
 
   observer = new IntersectionObserver(
     (entries) => {
@@ -58,7 +90,7 @@ export function initScrollAnimations(): void {
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
   );
 
   const elements = document.querySelectorAll(SELECTORS);
@@ -66,13 +98,23 @@ export function initScrollAnimations(): void {
 
   elements.forEach((el) => {
     if (shouldExclude(el)) return;
-    // Already has animation class
-    if (el.classList.contains('fade-up') || el.classList.contains('fade-in')) return;
+    if (animatedElements.has(el)) return;
 
     // 70% fade-up, 30% fade-in
     const cls = index % 10 < 7 ? 'fade-up' : 'fade-in';
     el.classList.add(cls);
+    animatedElements.add(el);
     index++;
+
+    // Add stagger delay for grid children
+    const parent = el.parentElement;
+    if (parent) {
+      const siblings = Array.from(parent.children);
+      const siblingIndex = siblings.indexOf(el);
+      if (siblingIndex > 0 && siblingIndex < 12) {
+        (el as HTMLElement).style.transitionDelay = `${siblingIndex * 60}ms`;
+      }
+    }
 
     // If already in viewport, reveal immediately
     const rect = el.getBoundingClientRect();
@@ -89,4 +131,10 @@ export function cleanupScrollAnimations(): void {
     observer.disconnect();
     observer = null;
   }
+  // Remove animation classes from previous run so they re-apply on new routes
+  animatedElements.forEach((el) => {
+    el.classList.remove('fade-up', 'fade-in', 'fade-visible');
+    (el as HTMLElement).style.transitionDelay = '';
+  });
+  animatedElements.clear();
 }

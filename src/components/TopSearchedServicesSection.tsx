@@ -47,7 +47,7 @@ export const TopSearchedServicesSection = () => {
             <Link
               key={index}
               to={service.url}
-              className="group bg-card border border-border rounded-xl p-5 hover:border-accent/30 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-0.5 hover-lift anim-fade-up ripple-container"
+              className="group bg-card border border-border rounded-xl p-5 hover:border-accent/30 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-0.5 hover-lift ripple-container"
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start gap-4">

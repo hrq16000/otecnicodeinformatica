@@ -114,7 +114,7 @@ export const SocialProofSection = () => {
             <p className="text-white/75 mb-6 max-w-2xl mx-auto leading-relaxed">
               Junte-se às centenas de curitibanos que confiam no Técnico Curitiba para resolver seus problemas de informática.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button variant="heroWhatsapp" size="lg" className="ripple-container shadow-lg" asChild>
                 <a 
                   href="https://wa.me/5541997452053?text=Olá!%20Vi%20as%20avaliações%20e%20gostaria%20de%20agendar%20um%20atendimento%20técnico." 
@@ -123,12 +123,6 @@ export const SocialProofSection = () => {
                 >
                   <MessageCircle className="h-5 w-5" />
                   Solicitar Atendimento
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" className="border-white/25 text-white hover:bg-white/10 ripple-container" asChild>
-                <a href="https://g.page/r/tecnicocuritiba/review" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Avaliar no Google
                 </a>
               </Button>
             </div>

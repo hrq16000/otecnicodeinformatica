@@ -170,10 +170,10 @@ export const TopSearchedServicesSection = () => {
               <div key={index} className="text-center group slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
                 <Link
                   to={city.url}
-                  className="inline-flex items-center gap-2 text-lg font-bold text-accent hover:text-accent/80 transition-all mb-3 group-hover:scale-105 underline-grow"
+                  className="inline-flex items-center justify-center gap-1.5 text-lg font-bold text-accent hover:text-accent/80 transition-all mb-3 group-hover:scale-105 underline-grow whitespace-nowrap"
                 >
-                  <MapPin className="h-4 w-4 group-hover:animate-bounce" />
-                  {city.name}
+                  <MapPin className="h-4 w-4 flex-shrink-0" />
+                  <span>{city.name}</span>
                 </Link>
                 <div className="space-y-1.5">
                   {city.bairros.map((bairro, idx) => (

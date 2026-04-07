@@ -29,11 +29,11 @@ export const HomeEquipamentosBlock = () => {
             {equipamentos.map((eq, i) => {
               const Icon = eq.icon;
               return (
-                <div key={i} className="bg-secondary rounded-xl p-4 text-center hover:shadow-sm transition-shadow">
-                  <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2">
+                <div key={i} className="bg-secondary rounded-xl p-4 text-center border border-transparent hover:border-accent/15 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group">
+                  <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                     <Icon className="h-5 w-5 text-primary-foreground" />
                   </div>
-                  <h3 className="font-bold text-primary text-sm mb-1">{eq.nome}</h3>
+                  <h3 className="font-bold text-primary text-sm mb-1 group-hover:text-accent transition-colors duration-200">{eq.nome}</h3>
                   <p className="text-xs text-muted-foreground">{eq.desc}</p>
                 </div>
               );
@@ -41,7 +41,7 @@ export const HomeEquipamentosBlock = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="outline" asChild>
+            <Button variant="outline" className="hover:scale-[1.03] transition-transform duration-200" asChild>
               <Link to="/servicos">
                 Ver Todos os Serviços
                 <ArrowRight className="h-4 w-4 ml-1" />

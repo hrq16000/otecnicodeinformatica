@@ -41,8 +41,8 @@ export const ServicesSection = () => {
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent transition-colors duration-300 shadow-sm">
-                    <Icon className="h-5 w-5 text-primary-foreground" />
+                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">
+                    <Icon className="h-5 w-5 text-primary-foreground transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-1 group-hover:text-accent transition-colors duration-200">

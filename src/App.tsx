@@ -198,8 +198,9 @@ const App = () => (
         <ScrollProgressBar />
         <CursorTrail />
         <ScrollAnimationsInit />
-        <Suspense fallback={<PageLoader />}>
         <PageTransition>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />
             <Route path="/servicos" element={<Servicos />} />

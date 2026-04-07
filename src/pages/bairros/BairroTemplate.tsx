@@ -362,22 +362,22 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
-                <Link to="/como-funciona" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
+                <Link to="/como-funciona" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
                   <p className="text-muted-foreground text-sm">Entenda o passo a passo do atendimento técnico a domicílio.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver detalhes <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/valores" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
+                <Link to="/valores" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
                   <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. A partir de R$ 69,99.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver preços <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/diagnostico-tecnico" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
+                <Link to="/diagnostico-tecnico" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
                   <p className="text-muted-foreground text-sm">Por que o diagnóstico é pago e como ele protege você.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Entender <ArrowRight className="h-3 w-3" />

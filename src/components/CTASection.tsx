@@ -38,14 +38,14 @@ export const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback cta-pulse" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato
               </a>
             </Button>
             
-            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl transition-shadow" onClick={openChatbot}>
+            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback" onClick={openChatbot}>
               <Bot className="h-5 w-5 md:h-6 md:w-6" />
               Atendimento Rápido
             </Button>

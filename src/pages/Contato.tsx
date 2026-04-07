@@ -27,14 +27,9 @@ const Contato = () => {
   }, []);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
 
   const handleWhatsAppClick = () => {
     trackCTAClick("whatsapp", "contato-principal");
-  };
-
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", "contato-principal");
   };
 
   return (

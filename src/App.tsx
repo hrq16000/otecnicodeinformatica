@@ -192,6 +192,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollProgressBar />
         <ScrollAnimationsInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>

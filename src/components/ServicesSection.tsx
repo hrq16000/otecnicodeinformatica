@@ -37,8 +37,8 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group bg-card rounded-xl p-5 md:p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] border border-border hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ripple-container"
-                style={{ animationDelay: `${index * 60}ms` }}
+                className="group glass-card gradient-border rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] ripple-container stagger-item"
+                style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">

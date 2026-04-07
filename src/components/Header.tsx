@@ -158,8 +158,8 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" className="shadow-sm" onClick={openChatbot}>
-            <Bot className="h-4 w-4" />
+          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot}>
+            <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
             <span className="hidden md:inline">Atendimento Rápido</span>
             <span className="md:hidden">Atender</span>
           </Button>

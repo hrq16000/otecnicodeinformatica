@@ -80,16 +80,16 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center hover:shadow-md hover:border-accent/20 border border-transparent transition-all group"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                   >
-                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2">
+                    <div className="bg-primary rounded-lg p-2 w-fit mx-auto mb-2 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-5 w-5 text-primary-foreground" />
                     </div>
-                    <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors mb-1">
+                    <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors duration-200 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-xs text-muted-foreground hidden md:block">{item.desc}</p>
-                    <ArrowRight className="h-3 w-3 text-accent mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="h-3 w-3 text-accent mx-auto mt-2 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200" />
                   </Link>
                 );
               })}
@@ -108,16 +108,16 @@ export const InterlinkingBlock = () => {
                   <Link
                     key={i}
                     to={item.to}
-                    className="bg-background rounded-xl p-4 text-center hover:shadow-md hover:border-accent/20 border border-transparent transition-all group"
+                    className="bg-background rounded-xl p-4 text-center border border-transparent hover:border-accent/20 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                   >
-                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2">
+                    <div className="bg-accent rounded-lg p-2 w-fit mx-auto mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       <Icon className="h-5 w-5 text-accent-foreground" />
                     </div>
-                    <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors mb-1">
+                    <h3 className="font-semibold text-primary text-sm group-hover:text-accent transition-colors duration-200 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-xs text-muted-foreground hidden md:block">{item.desc}</p>
-                    <ArrowRight className="h-3 w-3 text-accent mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="h-3 w-3 text-accent mx-auto mt-2 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200" />
                   </Link>
                 );
               })}
@@ -134,7 +134,7 @@ export const InterlinkingBlock = () => {
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 transition-all"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-accent hover:text-accent-foreground border border-transparent hover:border-accent/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
                 >
                   <MapPin className="h-3.5 w-3.5" />
                   {item.title}
@@ -153,7 +153,7 @@ export const InterlinkingBlock = () => {
                 <Link
                   key={i}
                   to={item.to}
-                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 transition-all"
+                  className="inline-flex items-center gap-1.5 bg-background rounded-full px-4 py-2 text-sm font-medium text-primary hover:bg-destructive/10 hover:text-destructive border border-transparent hover:border-destructive/20 hover:scale-105 hover:shadow-[var(--shadow-sm)] transition-all duration-200"
                 >
                   <AlertCircle className="h-3.5 w-3.5" />
                   {item.title}

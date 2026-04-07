@@ -38,11 +38,11 @@ export const HomeDiagnosticoBlock = () => {
             {pontos.map((p, i) => {
               const Icon = p.icon;
               return (
-                <div key={i} className="bg-background rounded-xl p-5">
-                  <div className="bg-primary rounded-lg p-2 w-fit mb-3">
+                <div key={i} className="bg-background rounded-xl p-5 border border-transparent hover:border-accent/15 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group">
+                  <div className="bg-primary rounded-lg p-2 w-fit mb-3 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                     <Icon className="h-5 w-5 text-primary-foreground" />
                   </div>
-                  <h3 className="font-bold text-primary mb-2">{p.title}</h3>
+                  <h3 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors duration-200">{p.title}</h3>
                   <p className="text-sm text-muted-foreground">{p.desc}</p>
                 </div>
               );
@@ -50,7 +50,7 @@ export const HomeDiagnosticoBlock = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="outline" asChild>
+            <Button variant="outline" className="hover:scale-[1.03] transition-transform duration-200" asChild>
               <Link to="/como-funciona">
                 Entender o Processo Completo
                 <ArrowRight className="h-4 w-4 ml-1" />

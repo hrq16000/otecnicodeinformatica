@@ -67,7 +67,7 @@ const FormatacaoComputador = () => {
       <section className="py-8 bg-accent/10 border-y border-accent/20">
         <div className="container mx-auto px-4 text-center">
           <p className="text-2xl font-bold text-primary">
-            Formatação completa a partir de <span className="text-accent">R$ 99,99</span>
+            Formatação completa a partir de <span className="text-accent">R$ 69,99</span>
           </p>
           <p className="text-muted-foreground mt-2">Inclui Windows, drivers e programas básicos</p>
         </div>

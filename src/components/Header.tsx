@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Menu, X, ChevronDown, Bot } from "lucide-react";
+import { MessageCircle, Menu, X, ChevronDown, Bot, Search } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
+import { SmartSearch } from "@/components/SmartSearch";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -84,14 +85,24 @@ const mainNavItems = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isDark, toggle: toggleDark } = useDarkMode();
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Listen for Ctrl+K global event from SmartSearch
+  useEffect(() => {
+    const handler = () => setSearchOpen(true);
+    window.addEventListener("openSmartSearch", handler);
+    return () => window.removeEventListener("openSmartSearch", handler);
   }, []);
 
   const handleWhatsAppClick = () => trackCTAClick('whatsapp', 'header');
@@ -153,6 +164,11 @@ export const Header = () => {
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
           <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
+
+          <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">
+            <Search className="h-5 w-5" />
+          </Button>
+
           <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <MessageCircle className="h-4 w-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
@@ -209,6 +225,7 @@ export const Header = () => {
           </nav>
         </div>
       )}
+      <SmartSearch isOpen={searchOpen} onClose={closeSearch} />
     </header>
   );
 };

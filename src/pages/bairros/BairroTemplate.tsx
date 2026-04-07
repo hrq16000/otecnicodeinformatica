@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import { 
   MessageCircle, 
   MapPin, 
-  MapPin, 
   Clock, 
   Shield, 
   CheckCircle,

@@ -24,7 +24,7 @@ export const RealImageSection = ({
     const src2 = IMAGES[secondaryImageKey];
     const alt2 = IMAGES[`${secondaryImageKey}Alt` as keyof typeof IMAGES] as string;
     return (
-      <section className="py-8 md:py-12 bg-background">
+      <section className="py-6 md:py-8 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
             <figure>
@@ -62,7 +62,7 @@ export const RealImageSection = ({
   }
 
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-6 md:py-8 bg-background">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <figure>

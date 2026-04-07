@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
+import { FloatingParticles } from "@/components/FloatingParticles";
 
 const footerLink = "text-white/60 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
 
@@ -78,12 +79,13 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="premium-gradient py-12 md:py-14 relative overflow-hidden">
+      <FloatingParticles count={15} />
       <div data-parallax="0.06" className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none" />
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo e Contato */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
-            <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1 shadow-[var(--shadow-sm)]">
+            <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow duration-300">
               <img
                 alt="Técnico Curitiba"
                 className="h-10 w-auto"
@@ -103,9 +105,9 @@ export const Footer = () => {
               href="https://wa.me/5541997452053?text=Olá!%20Encontrei%20vocês%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors group"
+              className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] hover:scale-105 hover:shadow-[var(--shadow-whatsapp)] text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 group"
             >
-              <MessageCircle className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <MessageCircle className="h-4 w-4 flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
               <span>Chamar no WhatsApp</span>
             </a>
           </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, ArrowRight, Building2, Home } from "lucide-react";
+import { MapPin, ArrowRight, Building2, Home, Sparkles } from "lucide-react";
 
 interface CityData {
   name: string;
@@ -43,33 +43,37 @@ const cities: CityData[] = [
 
 export const CitiesSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary" aria-labelledby="cities-heading">
-      <div className="container mx-auto">
+    <section className="py-12 md:py-16 lg:py-20 bg-secondary relative overflow-hidden" aria-labelledby="cities-heading">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
+      
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4 shimmer">
             <MapPin className="h-5 w-5 text-primary" />
             <span className="text-primary font-medium text-sm">Área de Atendimento</span>
           </div>
-          <h2 id="cities-heading" className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+          <h2 id="cities-heading" className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
             Técnico de Informática em Curitiba e Região
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto reveal-text" data-reveal-delay="100">
             Oferecemos <strong>assistência técnica de informática a domicílio</strong> em toda a região metropolitana de Curitiba. 
             Atendimento rápido no mesmo dia para residências e empresas.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cities.map((city) => (
+          {cities.map((city, index) => (
             <article 
               key={city.slug} 
-              className="bg-background rounded-xl shadow-sm border border-border p-6 hover:shadow-[var(--shadow-lg)] hover:border-accent/20 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300"
+              className="glass-card gradient-border rounded-xl p-6 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 group stagger-item"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <Building2 className="h-5 w-5 text-primary" />
+                <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <Building2 className="h-5 w-5 text-primary group-hover:text-accent transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-foreground">
+                <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-accent transition-colors duration-200">
                   {city.name}
                 </h3>
               </div>
@@ -88,19 +92,22 @@ export const CitiesSection = () => {
                   {city.neighborhoods.map((neighborhood) => (
                     <span 
                       key={neighborhood}
-                      className="bg-muted text-muted-foreground text-xs px-2 py-1 rounded"
+                      className="bg-muted text-muted-foreground text-xs px-2.5 py-1 rounded-full border border-border/50 group-hover:border-accent/20 transition-colors duration-300"
                     >
                       {neighborhood}
                     </span>
                   ))}
-                  <span className="text-xs text-primary font-medium">+ outros</span>
+                  <span className="text-xs text-accent font-medium flex items-center gap-0.5">
+                    <Sparkles className="h-3 w-3" />
+                    + outros
+                  </span>
                 </div>
               </div>
 
               {city.hasPage ? (
                 <Link 
                   to={`/tecnico-informatica-${city.slug}`}
-                  className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:underline"
+                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200"
                 >
                   Ver todos os bairros em {city.name}
                   <ArrowRight className="h-4 w-4" />
@@ -110,7 +117,7 @@ export const CitiesSection = () => {
                   href={`https://wa.me/5541997452053?text=Olá! Preciso de técnico em ${city.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:underline"
+                  className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200"
                 >
                   Solicitar atendimento em {city.name}
                   <ArrowRight className="h-4 w-4" />
@@ -121,7 +128,7 @@ export const CitiesSection = () => {
         </div>
 
         {/* SEO content */}
-        <div className="mt-12 bg-background rounded-xl p-6 md:p-8 border border-border">
+        <div className="mt-12 glass-card gradient-border rounded-2xl p-6 md:p-8">
           <h3 className="text-xl font-heading font-bold text-foreground mb-4">
             Por que escolher nosso serviço de assistência técnica?
           </h3>

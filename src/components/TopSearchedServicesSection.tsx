@@ -27,17 +27,19 @@ const cityLinks = [
 
 export const TopSearchedServicesSection = () => {
   return (
-    <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background">
-      <div className="container mx-auto">
+    <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
+      
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4 shimmer">
             <TrendingUp className="h-4 w-4" />
             <span className="font-medium text-sm">Mais Buscados em Curitiba</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight reveal-text">
             Serviços de Informática Mais Procurados
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Encontre o serviço que você precisa com atendimento local especializado em cada região
           </p>
         </div>
@@ -47,15 +49,15 @@ export const TopSearchedServicesSection = () => {
             <Link
               key={index}
               to={service.url}
-              className="group bg-card border border-border rounded-xl p-5 hover:border-accent/30 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] ripple-container"
+              className="group glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover-glow-ring ripple-container stagger-item"
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 transition-colors duration-300">
-                  <service.icon className="h-6 w-6 text-primary group-hover:text-accent transition-colors" />
+                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <service.icon className="h-6 w-6 text-primary group-hover:text-accent transition-colors duration-300" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-foreground group-hover:text-accent transition-colors mb-1">
+                  <h3 className="font-bold text-foreground group-hover:text-accent transition-colors duration-200 mb-1">
                     {service.title}
                   </h3>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -69,23 +71,23 @@ export const TopSearchedServicesSection = () => {
           ))}
         </div>
 
-        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-[var(--shadow-sm)]">
-          <h3 className="text-xl font-bold text-foreground mb-6 text-center">
+        <div className="glass-card gradient-border rounded-2xl p-6 md:p-8">
+          <h3 className="text-xl font-bold text-foreground mb-6 text-center reveal-text">
             Atendimento por Região
           </h3>
           <div className="grid md:grid-cols-5 gap-6">
             {cityLinks.map((city, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center group stagger-item" style={{ animationDelay: `${index * 60}ms` }}>
                 <Link
                   to={city.url}
-                  className="inline-flex items-center gap-2 text-lg font-bold text-accent hover:underline mb-3"
+                  className="inline-flex items-center gap-2 text-lg font-bold text-accent hover:text-accent/80 transition-colors mb-3 group-hover:scale-105 transition-transform"
                 >
-                  <MapPin className="h-4 w-4" />
+                  <MapPin className="h-4 w-4 group-hover:animate-bounce" />
                   {city.name}
                 </Link>
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   {city.bairros.map((bairro, idx) => (
-                    <p key={idx} className="text-sm text-muted-foreground">
+                    <p key={idx} className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
                       {bairro}
                     </p>
                   ))}
@@ -100,7 +102,7 @@ export const TopSearchedServicesSection = () => {
             </p>
             <Link
               to="/contato"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 transition-colors shadow-sm ripple-container"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold hover:bg-accent/90 hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300 ripple-container"
             >
               Consultar Disponibilidade
               <ArrowRight className="h-4 w-4" />

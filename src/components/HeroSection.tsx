@@ -5,6 +5,14 @@ import { trackCTAClick } from "@/lib/analytics";
 import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
 import { SchedulingModal } from "@/components/scheduling";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { TypingEffect } from "@/components/TypingEffect";
+
+const TYPING_PHRASES = [
+  "e Região Metropolitana",
+  "São José dos Pinhais",
+  "Araucária e Campo Largo",
+  "Pinhais e Colombo",
+];
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
@@ -52,7 +60,7 @@ export const HeroSection = () => {
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
               <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/75 mt-2 tracking-normal">
-                e Região Metropolitana
+                <TypingEffect phrases={TYPING_PHRASES} className="text-white/75" />
               </span>
             </h1>
             

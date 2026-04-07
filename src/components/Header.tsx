@@ -122,8 +122,8 @@ export const Header = () => {
           {mainNavItems.map((item) => (
             item.sub ? (
               <DropdownMenu key={item.label}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none">
-                  {item.label} <ChevronDown className="h-3.5 w-3.5" />
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none group">
+                  {item.label} <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-56 bg-background border border-border shadow-[var(--shadow-lg)] rounded-xl p-1.5">
                   {item.sub.map((sub) => (
@@ -145,27 +145,27 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm" asChild>
+          <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
               <span className="hidden md:inline">WhatsApp</span>
             </a>
           </Button>
 
-          <Button variant="whatsapp" size="icon" className="sm:hidden" asChild>
+          <Button variant="whatsapp" size="icon" className="sm:hidden group" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-              <MessageCircle className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" className="shadow-sm" onClick={openChatbot}>
-            <Bot className="h-4 w-4" />
+          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot}>
+            <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
             <span className="hidden md:inline">Atendimento Rápido</span>
             <span className="md:hidden">Atender</span>
           </Button>
 
           <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? <X className="h-5 w-5 rotate-0 transition-transform duration-300" /> : <Menu className="h-5 w-5 hover:scale-110 transition-transform duration-300" />}
           </Button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
@@ -107,6 +108,8 @@ const ConsertoPlaca = () => {
           </div>
         </div>
       </section>
+
+      <RealImageSection imageKey="placaMae" secondaryImageKey="diagnostico" layout="duo" caption="Placa-mãe em diagnóstico" secondaryCaption="Reparo em nível de componente" />
 
       {/* Casos complexos */}
       <section className="py-12 md:py-16 bg-secondary">

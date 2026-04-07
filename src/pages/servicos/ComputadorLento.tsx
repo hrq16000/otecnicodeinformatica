@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { RealImageSection } from "@/components/RealImageSection";
 import { Link } from "react-router-dom";
 import { Gauge, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock, Shield, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -106,6 +107,8 @@ const ComputadorLento = () => {
           </div>
         </div>
       </section>
+
+      <RealImageSection imageKey="diagnostico" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico profissional de desempenho" secondaryCaption="SSD: a solução nº 1 para PC lento" />
 
       {/* Quando vale / não vale */}
       <section className="py-12 md:py-16 bg-secondary">

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Tv, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
@@ -106,6 +107,8 @@ const ManutencaoTV = () => {
           </div>
         </div>
       </section>
+
+      <RealImageSection imageKey="smartTv" secondaryImageKey="diagnostico" layout="duo" caption="Smart TV em manutenção" secondaryCaption="Diagnóstico de placa eletrônica de TV" />
 
       {/* Como funciona TV */}
       <section className="py-12 md:py-16 bg-secondary">

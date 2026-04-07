@@ -81,7 +81,7 @@ const ConsertoPcNotebook = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             O Que Consertamos
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -108,10 +108,12 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
+
       {/* Problemas Comuns */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Problemas Comuns que Resolvemos
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -138,7 +140,7 @@ const ConsertoPcNotebook = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Como Funciona o Conserto
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -161,9 +163,9 @@ const ConsertoPcNotebook = () => {
       </section>
 
       {/* Diferenciais */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Por Que Escolher a Técnico Curitiba?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -183,9 +185,9 @@ const ConsertoPcNotebook = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -225,26 +227,16 @@ const ConsertoPcNotebook = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-16 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
-            Serviços Relacionados
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/servicos/upgrade-ssd-memoria" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Upgrade SSD/Memória
-            </Link>
-            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Formatação
-            </Link>
-            <Link to="/atendimento-domicilio" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Atendimento Domiciliar
-            </Link>
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">Serviços Relacionados</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/servicos/upgrade-ssd-memoria" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Upgrade SSD/Memória</Link>
+            <Link to="/servicos/formatacao-computador" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Formatação</Link>
+            <Link to="/atendimento-domicilio" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Atendimento Domiciliar</Link>
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
       <InterlinkingBlock />
       <Footer />
     </div>

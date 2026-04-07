@@ -76,12 +76,12 @@ const BackupRecuperacao = () => {
       </section>
 
       {/* Serviços */}
-      <section className="py-16 bg-background relative">
+      <section className="py-10 bg-background relative">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Nossos Serviços
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -113,10 +113,12 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
+
       {/* Tipos de Recuperação */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Níveis de Recuperação
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -137,9 +139,9 @@ const BackupRecuperacao = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -160,7 +162,7 @@ const BackupRecuperacao = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-primary relative overflow-hidden">
+      <section className="py-10 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-breathe" />
           <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-white/5 rounded-full blur-3xl" />
@@ -180,26 +182,24 @@ const BackupRecuperacao = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-16 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">
             Serviços Relacionados
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {[
               { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
               { to: "/servicos/formatacao-computador", label: "Formatação" },
               { to: "/servicos/conserto-pc-notebook", label: "Conserto de Hardware" },
             ].map((link) => (
-              <Link key={link.to} to={link.to} className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+              <Link key={link.to} to={link.to} className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-sm">
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
       <InterlinkingBlock />
       <Footer />
     </div>

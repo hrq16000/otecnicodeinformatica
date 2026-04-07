@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { RealImageSection } from "@/components/RealImageSection";
 import { Link } from "react-router-dom";
 import { Power, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Wrench, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -96,6 +97,8 @@ const ComputadorNaoLiga = () => {
           </div>
         </div>
       </section>
+
+      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="ferramentas" layout="duo" caption="Bancada técnica para diagnóstico" secondaryCaption="Ferramentas profissionais de reparo" />
 
       {/* Sintomas */}
       <section className="py-12 md:py-16 bg-background relative">

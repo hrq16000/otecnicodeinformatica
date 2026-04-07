@@ -40,10 +40,11 @@ const Contato = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">
-          <div className="container mx-auto">
+        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--glow-whatsapp)/0.12),transparent_60%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
                 Fale Conosco
               </h1>
               <p className="text-lg md:text-xl text-white/90">
@@ -54,12 +55,13 @@ const Contato = () => {
         </section>
 
         {/* Contatos Principais */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-10 right-0 w-80 h-80 bg-[hsl(var(--glow-whatsapp)/0.06)] rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
              <div className="max-w-2xl mx-auto">
                 {/* WhatsApp */}
-                <div className="bg-secondary rounded-2xl p-8 text-center border-2 border-transparent hover:border-whatsapp/30 transition-all">
-                  <div className="bg-whatsapp rounded-full p-4 w-fit mx-auto mb-4">
+                <div className="group bg-secondary rounded-2xl p-8 text-center border-2 border-border/50 hover:border-[hsl(var(--whatsapp)/0.4)] hover:shadow-xl transition-all duration-300">
+                  <div className="bg-[hsl(var(--whatsapp))] rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_28px_hsl(var(--glow-whatsapp)/0.4)] transition-all duration-300">
                     <MessageCircle className="h-10 w-10 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">WhatsApp</h2>
@@ -83,58 +85,54 @@ const Contato = () => {
         </section>
 
         {/* Informações Adicionais */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 Informações de Atendimento
               </h2>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-background rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Clock className="h-6 w-6 text-accent" />
-                    <h3 className="font-semibold text-foreground">Horário</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Segunda a Sexta: 8h às 18h<br />
-                    Sábado: 8h às 12h<br />
-                    <span className="text-accent font-medium">Urgências via WhatsApp</span>
-                  </p>
-                </div>
-
-                <div className="bg-background rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <MapPin className="h-6 w-6 text-accent" />
-                    <h3 className="font-semibold text-foreground">Área de Atendimento</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Curitiba e toda região metropolitana<br />
-                    São José dos Pinhais<br />
-                    <span className="text-accent font-medium">Atendimento remoto para todo Brasil</span>
-                  </p>
-                </div>
-
-                <div className="bg-background rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Mail className="h-6 w-6 text-accent" />
-                    <h3 className="font-semibold text-foreground">Resposta Rápida</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Respondemos em até 30 minutos durante o horário comercial.<br />
-                    <span className="text-accent font-medium">WhatsApp é o canal mais rápido</span>
-                  </p>
-                </div>
+                {[
+                  {
+                    icon: Clock,
+                    title: "Horário",
+                    content: <>Segunda a Sexta: 8h às 18h<br />Sábado: 8h às 12h<br /><span className="text-accent font-medium">Urgências via WhatsApp</span></>,
+                  },
+                  {
+                    icon: MapPin,
+                    title: "Área de Atendimento",
+                    content: <>Curitiba e toda região metropolitana<br />São José dos Pinhais<br /><span className="text-accent font-medium">Atendimento remoto para todo Brasil</span></>,
+                  },
+                  {
+                    icon: Mail,
+                    title: "Resposta Rápida",
+                    content: <>Respondemos em até 30 minutos durante o horário comercial.<br /><span className="text-accent font-medium">WhatsApp é o canal mais rápido</span></>,
+                  },
+                ].map((item, i) => {
+                  const IconComp = item.icon;
+                  return (
+                    <div key={i} className="group bg-background rounded-xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
+                      <div className="flex items-center gap-3 mb-3">
+                        <IconComp className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
+                        <h3 className="font-semibold text-foreground">{item.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{item.content}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
 
         {/* Por que entrar em contato */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
                 Por Que Falar Conosco?
               </h2>
 
@@ -147,8 +145,8 @@ const Contato = () => {
                   "Agendamento flexível conforme sua disponibilidade",
                   "Serviços a partir de R$ 69,99",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 bg-secondary rounded-lg p-4">
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                  <div key={index} className="group flex items-center gap-3 bg-secondary rounded-lg p-4 border border-border/50 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 stagger-item" style={{ animationDelay: `${index * 50}ms` }}>
+                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-foreground">{item}</span>
                   </div>
                 ))}
@@ -158,8 +156,9 @@ const Contato = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-12 md:py-16 bg-primary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--glow-accent)/0.15),transparent_70%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Pronto para Resolver seu Problema?

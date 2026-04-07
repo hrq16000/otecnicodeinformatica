@@ -54,10 +54,11 @@ const Sobre = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">
-          <div className="container mx-auto">
+        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--glow-accent)/0.15),transparent_60%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
                 Sobre a Técnico Curitiba
               </h1>
               <p className="text-lg md:text-xl text-white/90">
@@ -68,10 +69,11 @@ const Sobre = () => {
         </section>
 
         {/* Nossa História */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
                 Nossa História
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -93,10 +95,11 @@ const Sobre = () => {
         </section>
 
         {/* Valores */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 reveal-text">
                 Nossos Valores
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -110,12 +113,13 @@ const Sobre = () => {
                 return (
                   <div
                     key={index}
-                    className="bg-background rounded-xl p-6 text-center hover:shadow-lg transition-all"
+                    className="group bg-background rounded-xl p-6 text-center border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 stagger-item"
+                    style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
+                    <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_24px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
                       <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{valor.title}</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{valor.title}</h3>
                     <p className="text-muted-foreground text-sm">{valor.description}</p>
                   </div>
                 );
@@ -125,29 +129,25 @@ const Sobre = () => {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
                 Por Que Somos Diferentes?
               </h2>
               <div className="space-y-4 text-muted-foreground">
-                <div className="bg-secondary rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Você fala direto com o técnico</h3>
-                  <p className="text-sm">Nada de call center ou atendentes que não entendem seu problema. Você conversa diretamente com quem vai resolver.</p>
-                </div>
-                <div className="bg-secondary rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Orçamento transparente</h3>
-                  <p className="text-sm">Antes de qualquer serviço, você sabe exatamente quanto vai pagar. Sem surpresas, sem taxas escondidas.</p>
-                </div>
-                <div className="bg-secondary rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Garantia em todos os serviços</h3>
-                  <p className="text-sm">Confiamos no nosso trabalho. Por isso, oferecemos garantia por escrito em cada serviço realizado.</p>
-                </div>
-                <div className="bg-secondary rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-2">Atendimento para pessoa física e empresas</h3>
-                  <p className="text-sm">Residências, profissionais liberais, pequenas e médias empresas. Emitimos nota fiscal e aceitamos pagamento faturado.</p>
-                </div>
+                {[
+                  { title: "Você fala direto com o técnico", desc: "Nada de call center ou atendentes que não entendem seu problema. Você conversa diretamente com quem vai resolver." },
+                  { title: "Orçamento transparente", desc: "Antes de qualquer serviço, você sabe exatamente quanto vai pagar. Sem surpresas, sem taxas escondidas." },
+                  { title: "Garantia em todos os serviços", desc: "Confiamos no nosso trabalho. Por isso, oferecemos garantia por escrito em cada serviço realizado." },
+                  { title: "Atendimento para pessoa física e empresas", desc: "Residências, profissionais liberais, pequenas e médias empresas. Emitimos nota fiscal e aceitamos pagamento faturado." },
+                ].map((item, i) => (
+                  <div key={i} className="group bg-secondary rounded-xl p-5 border border-border/50 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
+                    <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.title}</h3>
+                    <p className="text-sm">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

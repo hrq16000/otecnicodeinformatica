@@ -159,10 +159,14 @@ const Servicos = () => {
           ctaText="Solicitar Orçamento"
         />
 
-        <section className="py-12 md:py-16 lg:py-20 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden">
+          {/* Ambient glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="container mx-auto relative z-10">
             <div className="text-center mb-10 md:mb-14">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
                 Todos os Nossos Serviços de Informática
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -170,22 +174,23 @@ const Servicos = () => {
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
                   <article
                     key={index}
-                    className="bg-secondary rounded-xl p-6 md:p-8 border border-transparent hover:border-accent/20 transition-all"
+                    className="group bg-secondary rounded-xl p-6 md:p-8 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 stagger-item"
+                    style={{ animationDelay: `${index * 40}ms` }}
                   >
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="flex-shrink-0">
-                        <div className="bg-primary rounded-lg p-4 w-fit">
+                        <div className="bg-primary rounded-lg p-4 w-fit group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">
+                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                           {service.title}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed mb-4">
@@ -195,13 +200,13 @@ const Servicos = () => {
                           {service.keywords.map((keyword, idx) => (
                             <span
                               key={idx}
-                              className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full"
+                              className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full group-hover:bg-accent/10 group-hover:text-accent transition-colors duration-300"
                             >
                               {keyword}
                             </span>
                           ))}
                         </div>
-                        <Button variant="whatsapp" size="sm" asChild>
+                        <Button variant="whatsapp" size="sm" className="opacity-80 group-hover:opacity-100 transition-opacity duration-300" asChild>
                           <a
                             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre ${service.title}.`)}`}
                             target="_blank"
@@ -221,7 +226,7 @@ const Servicos = () => {
 
             {/* Blocos por tipo de problema */}
             <div className="mt-16">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center reveal-text">
                 Qual o Seu Problema?
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -282,37 +287,18 @@ const Servicos = () => {
                     ],
                   },
                 ].map((item, i) => (
-                  <div key={i} className="bg-secondary rounded-xl p-6 border border-transparent hover:border-accent/20 transition-all">
-                    <h3 className="text-lg font-bold text-foreground mb-2">{item.problema}</h3>
+                  <div key={i} className="group bg-secondary rounded-xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.problema}</h3>
                     <p className="text-muted-foreground text-sm mb-4">{item.descricao}</p>
                     <div className="flex flex-wrap gap-2">
                       {item.links.map((link) => (
-                        <Link key={link.to} to={link.to} className="text-xs bg-accent/10 text-accent px-3 py-1.5 rounded-full hover:bg-accent/20 transition-colors">
+                        <Link key={link.to} to={link.to} className="text-xs bg-accent/10 text-accent px-3 py-1.5 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-200">
                           {link.label} →
                         </Link>
                       ))}
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Links para decisão */}
-            <div className="mt-12 bg-secondary rounded-xl p-6 md:p-8">
-              <h3 className="text-xl font-bold text-foreground mb-4 text-center">Antes de Solicitar um Serviço</h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <Link to="/como-funciona" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
-                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Como Funciona</p>
-                  <p className="text-xs text-muted-foreground mt-1">Entenda o passo a passo do atendimento</p>
-                </Link>
-                <Link to="/valores" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
-                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Preços e Condições</p>
-                  <p className="text-xs text-muted-foreground mt-1">Valores claros e transparentes</p>
-                </Link>
-                <Link to="/diagnostico-tecnico" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
-                  <p className="font-semibold text-primary group-hover:text-accent transition-colors">Diagnóstico Técnico</p>
-                  <p className="text-xs text-muted-foreground mt-1">Por que o diagnóstico é pago</p>
-                </Link>
               </div>
             </div>
           </div>

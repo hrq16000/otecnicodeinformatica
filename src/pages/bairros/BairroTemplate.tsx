@@ -226,7 +226,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         </AnimatedSection>
 
         <AnimatedSection>
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
@@ -304,7 +304,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         </AnimatedSection>
 
         <AnimatedSection>
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
@@ -392,7 +392,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         </AnimatedSection>
 
         <AnimatedSection>
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">

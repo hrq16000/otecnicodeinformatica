@@ -164,10 +164,11 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         />
 
         {/* Sobre a Cidade */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">
                 Assistência Técnica em São José dos Pinhais
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground">
@@ -189,10 +190,10 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">
                 Bairros Atendidos em São José dos Pinhais
               </h2>
-              <p className="text-center text-muted-foreground mb-8">
+              <p className="text-center text-muted-foreground mb-8 reveal-text" data-reveal-delay="100">
                 Clique no bairro para ver serviços específicos e solicitar atendimento
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -201,15 +202,17 @@ const TecnicoInformaticaSaoJosePinhais = () => {
                     <Link
                       key={index}
                       to={`/bairros/${bairro.slug}`}
-                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors group flex items-center justify-center gap-2"
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground hover:-translate-y-0.5 transition-all group flex items-center justify-center gap-2 stagger-item"
+                      style={{ animationDelay: `${index * 40}ms` }}
                     >
-                      <MapPin className="h-4 w-4 text-accent group-hover:text-accent-foreground" />
+                      <MapPin className="h-4 w-4 text-accent group-hover:text-accent-foreground transition-colors" />
                       {bairro.name}
                     </Link>
                   ) : (
                     <div
                       key={index}
-                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item"
+                      style={{ animationDelay: `${index * 40}ms` }}
                     >
                       <MapPin className="h-4 w-4 text-muted-foreground" />
                       {bairro.name}
@@ -225,10 +228,11 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         </section>
 
         {/* Serviços com Links */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center reveal-text">
                 Serviços de Informática em São José dos Pinhais
               </h2>
 
@@ -237,9 +241,10 @@ const TecnicoInformaticaSaoJosePinhais = () => {
                   <Link 
                     key={index} 
                     to="/servicos"
-                    className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent transition-all group"
+                    className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
+                    style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                         {servico.title}
@@ -248,7 +253,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
                         {servico.description}
                       </p>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors mt-1" />
+                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all mt-1" />
                   </Link>
                 ))}
               </div>
@@ -256,10 +261,10 @@ const TecnicoInformaticaSaoJosePinhais = () => {
               <div className="text-center mt-8">
                 <Link 
                   to="/servicos"
-                  className="inline-flex items-center gap-2 text-accent hover:underline font-medium"
+                  className="inline-flex items-center gap-2 text-accent hover:underline font-medium group"
                 >
                   Ver lista completa de serviços
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

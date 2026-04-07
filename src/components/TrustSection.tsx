@@ -21,7 +21,7 @@ const stats = [
 
 export const TrustSection = () => {
   return (
-    <section className="py-14 md:py-18 lg:py-24 premium-gradient relative overflow-hidden noise-overlay">
+    <section className="py-10 md:py-14 premium-gradient relative overflow-hidden noise-overlay">
       {/* Floating particles */}
       <FloatingParticles count={20} />
       {/* Morphing ambient glow */}

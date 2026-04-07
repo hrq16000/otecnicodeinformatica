@@ -19,7 +19,7 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: Pag
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 pt-10 pb-10 md:pt-12 md:pb-12 overflow-hidden">
       <div data-parallax="0.12" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.05] blur-[100px] pointer-events-none orb-float" />
       <div data-parallax="0.08" className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-white/[0.03] blur-[80px] pointer-events-none liquid-blob" />
       <div className="absolute top-1/3 left-1/4 w-[200px] h-[200px] rounded-full bg-accent/[0.04] blur-[60px] pointer-events-none orb-float-reverse" />

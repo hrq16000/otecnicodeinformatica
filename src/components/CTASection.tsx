@@ -14,7 +14,7 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 section-divider group/cta spotlight-sweep noise-overlay">
+    <section className="py-10 md:py-14 bg-muted relative overflow-hidden transition-all duration-500 section-divider group/cta spotlight-sweep noise-overlay">
       {/* Morphing blob backgrounds */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/[0.05] morph-blob pointer-events-none blur-[80px]" />
       <div data-parallax="0.15" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none orb-float" />

@@ -19,9 +19,12 @@ export const PainSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden spotlight-sweep" aria-labelledby="pain-heading">
-      <div data-parallax="0.08" className="absolute -top-10 -left-10 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[80px] pointer-events-none" />
-      <div className="container mx-auto">
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden spotlight-sweep mesh-gradient-warm noise-overlay" aria-labelledby="pain-heading">
+      {/* Morphing blob */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />
+      <div data-parallax="0.08" className="absolute -top-10 -left-10 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[80px] pointer-events-none orb-float" />
+      
+      <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 
             id="pain-heading"
@@ -39,16 +42,20 @@ export const PainSection = () => {
             Atendimento a <strong className="text-foreground">domicílio</strong> para <strong className="text-foreground">conserto de computador</strong>, 
             <strong className="text-foreground"> formatação</strong>, <strong className="text-foreground">remoção de vírus</strong> e muito mais.
           </p>
+
+          {/* Glowing separator */}
+          <div className="glow-separator max-w-xs mx-auto mb-8" />
           
           <div className="grid sm:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover:-translate-y-1.5 hover:scale-[1.03] card-shine animated-border transition-all duration-300 group stagger-item"
+                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover:-translate-y-2 hover:scale-[1.03] card-shine animated-border hover-streak transition-all duration-300 group slide-up-stagger"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
                   <benefit.icon className="h-5 w-5 text-accent icon-bounce" />
+                  <div className="absolute inset-0 rounded-xl bg-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                 </div>
                 <div>
                   <span className="text-foreground font-semibold block text-[15px]">{benefit.text}</span>
@@ -61,7 +68,7 @@ export const PainSection = () => {
           <Button 
             variant="whatsapp" 
             size="xl"
-            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse"
+            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse elastic-click hover-streak"
             asChild
             onClick={handleWhatsAppClick}
           >

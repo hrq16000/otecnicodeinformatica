@@ -8,10 +8,9 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
+import { MessageCircle, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
 
 const Contato = () => {

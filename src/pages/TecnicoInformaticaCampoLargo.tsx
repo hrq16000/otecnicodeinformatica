@@ -58,6 +58,16 @@ const bairros = [
   { name: "Correia de Freitas", slug: "correia-de-freitas", hasPage: true },
   { name: "Jardim Planalto", slug: "jardim-planalto-campo-largo", hasPage: true },
   { name: "Vila Solene", slug: "vila-solene", hasPage: true },
+  { name: "Jardim das Laranjeiras", slug: "jardim-laranjeiras-cl", hasPage: true },
+  { name: "São Marcos", slug: "sao-marcos-campo-largo", hasPage: true },
+  { name: "São José", slug: "sao-jose-campo-largo", hasPage: true },
+  { name: "Jardim Esperança", slug: "jardim-esperanca-cl", hasPage: true },
+  { name: "Colônia Malhada", slug: "colonia-malhada-cl", hasPage: true },
+  { name: "Lamenha Grande", slug: "lamenha-grande-cl", hasPage: true },
+  { name: "Vila Cândida", slug: "vila-candida-cl", hasPage: true },
+  { name: "Jardim Novo Horizonte", slug: "jardim-novo-horizonte-cl", hasPage: true },
+  { name: "Timbotuva", slug: "timbotuva-cl", hasPage: true },
+  { name: "Jardim Planalto II", slug: "jardim-planalto-ii-cl", hasPage: true },
 ];
 
 const servicos = [

@@ -58,6 +58,16 @@ const bairros = [
   { name: "Sabiá", slug: "sabia", hasPage: true },
   { name: "Passaúna", slug: "passauna", hasPage: true },
   { name: "Guajuvira", slug: "guajuvira", hasPage: true },
+  { name: "Cachoeira", slug: "cachoeira-araucaria", hasPage: true },
+  { name: "Thomaz Coelho II", slug: "thomaz-coelho-ii", hasPage: true },
+  { name: "Jardim Boa Vista", slug: "jardim-boa-vista-araucaria", hasPage: true },
+  { name: "São Miguel", slug: "sao-miguel-araucaria", hasPage: true },
+  { name: "Califórnia", slug: "california-araucaria", hasPage: true },
+  { name: "Vila Nova", slug: "vila-nova-araucaria", hasPage: true },
+  { name: "Industrial", slug: "industrial-araucaria", hasPage: true },
+  { name: "Jardim Iguaçu", slug: "jardim-iguacu-araucaria", hasPage: true },
+  { name: "Planta São Tiago", slug: "planta-sao-tiago-araucaria", hasPage: true },
+  { name: "Jardim Shangri-lá", slug: "jardim-shangrila-araucaria", hasPage: true },
 ];
 
 const servicos = [

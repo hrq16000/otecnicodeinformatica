@@ -1,4 +1,4 @@
-import { Star, Quote, Award, CheckCircle, ExternalLink, MessageCircle } from "lucide-react";
+import { Star, Quote, Award, CheckCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 

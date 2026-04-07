@@ -98,6 +98,13 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Listen for Ctrl+K global event from SmartSearch
+  useEffect(() => {
+    const handler = () => setSearchOpen(true);
+    window.addEventListener("openSmartSearch", handler);
+    return () => window.removeEventListener("openSmartSearch", handler);
+  }, []);
+
   const handleWhatsAppClick = () => trackCTAClick('whatsapp', 'header');
 
   const openChatbot = () => {

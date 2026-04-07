@@ -62,6 +62,21 @@ const bairros = [
   { name: "Boqueirão", slug: "boqueirao", hasPage: true },
   { name: "Bacacheri", slug: "bacacheri", hasPage: true },
   { name: "Tingui", slug: "tingui", hasPage: true },
+  { name: "Alto da Glória", slug: "alto-da-gloria", hasPage: true },
+  { name: "Rebouças", slug: "reboucas", hasPage: true },
+  { name: "Vila Izabel", slug: "vila-izabel", hasPage: true },
+  { name: "Seminário", slug: "seminario", hasPage: true },
+  { name: "Hugo Lange", slug: "hugo-lange", hasPage: true },
+  { name: "Jardim Social", slug: "jardim-social", hasPage: true },
+  { name: "Jardim das Américas", slug: "jardim-das-americas", hasPage: true },
+  { name: "Tarumã", slug: "taruma", hasPage: true },
+  { name: "Capão da Imbuia", slug: "capao-da-imbuia", hasPage: true },
+  { name: "Hauer", slug: "hauer", hasPage: true },
+  { name: "Alto Boqueirão", slug: "alto-boqueirao", hasPage: true },
+  { name: "Sítio Cercado", slug: "sitio-cercado", hasPage: true },
+  { name: "Novo Mundo", slug: "novo-mundo", hasPage: true },
+  { name: "Fazendinha", slug: "fazendinha", hasPage: true },
+  { name: "Jardim Botânico", slug: "jardim-botanico", hasPage: true },
 ];
 
 const servicos = [

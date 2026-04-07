@@ -31,6 +31,10 @@ const bairros = [
   { name: "Guarituba", slug: "guarituba-piraquara", hasPage: true }, { name: "Prado Velho", slug: "prado-velho-piraquara", hasPage: true },
   { name: "São Cristóvão", slug: "sao-cristao-piraquara", hasPage: true }, { name: "Vila São Cristóvão", hasPage: false },
   { name: "Jardim Bela Vista", slug: "jardim-bela-vista-piraquara", hasPage: true }, { name: "Caiuá", slug: "caiua-piraquara", hasPage: true },
+  { name: "Jardim União", slug: "jardim-uniao-piraquara", hasPage: true },
+  { name: "Jardim Santo Antônio", slug: "jardim-santo-antonio-piraquara", hasPage: true },
+  { name: "Jardim São Paulo", slug: "jardim-sao-paulo-piraquara", hasPage: true },
+  { name: "Iraí", slug: "irai-piraquara", hasPage: true },
 ];
 
 const servicos = [

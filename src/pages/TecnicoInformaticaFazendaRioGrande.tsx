@@ -52,6 +52,10 @@ const bairros = [
   { name: "Pioneiros", slug: "pioneiros-frg", hasPage: true },
   { name: "São Lourenço", slug: "sao-lourenco-frg", hasPage: true },
   { name: "Hortência", slug: "hortencia-frg", hasPage: true },
+  { name: "Parque Industrial", slug: "parque-industrial-frg", hasPage: true },
+  { name: "Jardim Condor", slug: "jardim-condor-frg", hasPage: true },
+  { name: "Jardim Ipê", slug: "jardim-ipe-frg", hasPage: true },
+  { name: "Jardim das Pedras", slug: "jardim-das-pedras-frg", hasPage: true },
 ];
 
 const servicos = [

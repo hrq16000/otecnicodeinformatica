@@ -6,6 +6,7 @@ import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailabilit
 import { SchedulingModal } from "@/components/scheduling";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingEffect } from "@/components/TypingEffect";
+import { FloatingParticles } from "@/components/FloatingParticles";
 
 const TYPING_PHRASES = [
   "e Região Metropolitana",
@@ -36,6 +37,9 @@ export const HeroSection = () => {
     <>
     <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
     <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden" aria-label="Técnico de informática em Curitiba">
+      {/* Floating particles */}
+      <FloatingParticles count={40} />
+      
       {/* Parallax ambient lights */}
       <div data-parallax="0.12" className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-accent/[0.06] blur-[120px] pointer-events-none animate-breathe" />
       <div data-parallax="0.08" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.03] blur-[100px] pointer-events-none" />
@@ -47,7 +51,7 @@ export const HeroSection = () => {
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Premium badge */}
             <div
-              className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.1] rounded-full px-4 py-2 mb-5 opacity-0 animate-[heroFadeIn_0.6s_ease-out_0.1s_forwards]"
+              className="inline-flex items-center gap-2 bg-white/[0.08] backdrop-blur-md border border-white/[0.1] rounded-full px-4 py-2 mb-5 shimmer opacity-0 animate-[heroFadeIn_0.6s_ease-out_0.1s_forwards]"
             >
               <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
               <span className="text-white/90 text-sm font-medium tracking-wide">

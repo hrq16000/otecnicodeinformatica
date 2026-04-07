@@ -636,6 +636,69 @@
   .theme-transition *::after {
     transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
   }
+
+  /* ── Animated gradient text ── */
+  .gradient-text-animated {
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--primary)), hsl(var(--accent)));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 200% center; }
+  }
+
+  /* ── Shimmer effect for badges ── */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.08), transparent);
+    animation: shimmerSlide 3s ease-in-out infinite;
+  }
+  @keyframes shimmerSlide {
+    0% { left: -100%; }
+    100% { left: 200%; }
+  }
+
+  /* ── Hover glow ring on cards ── */
+  .hover-glow-ring {
+    position: relative;
+  }
+  .hover-glow-ring::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    opacity: 0;
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.3), hsl(var(--primary) / 0.2));
+    filter: blur(8px);
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+  .hover-glow-ring:hover::after {
+    opacity: 1;
+  }
+
+  /* ── Number counter bounce ── */
+  @keyframes countBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  .count-bounce {
+    animation: countBounce 0.4s ease;
+  }
 }
 
 /* ── Reduced Motion ── */

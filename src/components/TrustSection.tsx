@@ -2,6 +2,7 @@ import {
   MapPin, UserCheck, FileText, Receipt, CreditCard, Shield
 } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { FloatingParticles } from "@/components/FloatingParticles";
 
 const trustItems = [
   { icon: MapPin, title: "Atendimento Local", description: "Presencial em toda Curitiba" },
@@ -21,6 +22,8 @@ const stats = [
 export const TrustSection = () => {
   return (
     <section className="py-14 md:py-18 lg:py-24 premium-gradient relative overflow-hidden">
+      {/* Floating particles */}
+      <FloatingParticles count={20} />
       {/* Elegant ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none" />
 
@@ -52,7 +55,7 @@ export const TrustSection = () => {
             return (
               <div 
                 key={index}
-                className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.12] hover:border-white/[0.18] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03]"
+              className="text-center bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-xl p-4 md:p-5 hover:bg-white/[0.12] hover:border-white/[0.18] transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.04] shimmer stagger-item"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="inline-flex items-center justify-center bg-accent/90 rounded-xl p-2.5 mb-3 shadow-sm">

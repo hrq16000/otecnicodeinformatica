@@ -45,6 +45,11 @@
     --section-light: 0 0% 96%;
     --trust-green: 142 70% 40%;
 
+    /* Glow / accent tokens */
+    --glow-primary: 205 78% 50%;
+    --glow-accent: 27 100% 55%;
+    --glow-whatsapp: 142 70% 45%;
+
     /* Animation tokens */
     --anim-fast: 150ms;
     --anim-medium: 300ms;
@@ -53,6 +58,7 @@
     --anim-ease-in: cubic-bezier(0.4, 0, 1, 1);
     --anim-ease-out: cubic-bezier(0, 0, 0.2, 1);
     --anim-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --anim-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;

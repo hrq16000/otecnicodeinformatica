@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Conserto de Notebook na CIC – Curitiba",
   subtitulo: "Reparo profissional para notebooks e computadores na Cidade Industrial. Atendimento para empresas e residências.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Visita técnica + diagnóstico. Atendimento para empresas com nota fiscal.",
   
   descricaoLonga: `A Cidade Industrial de Curitiba (CIC) é uma das maiores áreas industriais da 

@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Remoção de Vírus em Campo Largo",
   subtitulo: "Computador com vírus em Campo Largo? Removemos todas as ameaças com técnico especializado local.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Inclui diagnóstico, remoção completa e antivírus profissional.",
   
   descricaoLonga: `Se seu computador em Campo Largo está lento, com pop-ups ou comportamento estranho, pode estar 

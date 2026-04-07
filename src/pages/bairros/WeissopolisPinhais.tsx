@@ -7,7 +7,7 @@ const WeissopolisPinhais = () => {
     cidade: "Pinhais",
     metaTitle: "Técnico de Informática no Weissópolis (Pinhais) | Conserto e Formatação",
     metaDescription:
-      "Técnico de informática no Weissópolis, Pinhais. Conserto de notebook e PC, formatação, vírus, upgrade SSD e redes Wi‑Fi. Atendimento a domicílio rápido. Visita a partir de R$ 99,99.",
+      "Técnico de informática no Weissópolis, Pinhais. Conserto de notebook e PC, formatação, vírus, upgrade SSD e redes Wi‑Fi. Atendimento a domicílio rápido. A partir de R$ 69,99.",
     h1: "Técnico de Informática no Weissópolis – Pinhais",
     subtitulo:
       "Atendimento a domicílio no Weissópolis com suporte técnico rápido, confiável e com garantia.",

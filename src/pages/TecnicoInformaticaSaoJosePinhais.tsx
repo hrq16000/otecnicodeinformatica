@@ -116,7 +116,7 @@ const localFaqs = [
   {
     question: "Quanto custa a visita do técnico em São José dos Pinhais?",
     answer:
-      "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de realizar qualquer procedimento.",
+      "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o orçamento antes de realizar qualquer procedimento.",
   },
   {
     question: "Quais serviços vocês fazem em São José dos Pinhais?",

@@ -69,7 +69,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Fazenda Rio Grande?",
-    answer: "A visita técnica começa em R$ 99,99 (30 minutos). O diagnóstico é feito no local e apresentamos o orçamento antes de qualquer serviço.",
+    answer: "A visita técnica começa em R$ 69,99. O diagnóstico é feito no local e apresentamos o orçamento antes de qualquer serviço.",
   },
   {
     question: "Fazem coleta e entrega em Fazenda Rio Grande?",
@@ -88,7 +88,7 @@ const frgSchema = {
   "description": "Assistência técnica de computadores em Fazenda Rio Grande PR. Formatação, conserto, upgrade, redes. Atendimento a domicílio.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Fazenda Rio Grande", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaFazendaRioGrande = () => {
@@ -97,7 +97,7 @@ const TecnicoInformaticaFazendaRioGrande = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática em Fazenda Rio Grande PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 99,99."
+        "Técnico de informática em Fazenda Rio Grande PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99."
       );
     }
     trackPageView("/tecnico-informatica-fazenda-rio-grande", "Técnico Fazenda Rio Grande");

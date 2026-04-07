@@ -5,7 +5,7 @@ const data = {
   slug: "santa-felicidade",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática em Santa Felicidade Curitiba | Técnico Curitiba",
-  metaDescription: "Técnico de informática em Santa Felicidade, Curitiba. Atendimento para residências e restaurantes. Conserto de PC e notebook. Visita a partir de R$99,99.",
+  metaDescription: "Técnico de informática em Santa Felicidade, Curitiba. Atendimento para residências e restaurantes. Conserto de PC e notebook. A partir de R$ 69,99.",
   h1: "Técnico de Informática em Santa Felicidade",
   subtitulo: "Atendimento técnico no tradicional bairro italiano de Curitiba",
   descricaoLonga: `Santa Felicidade é um dos bairros mais tradicionais e encantadores de Curitiba, 

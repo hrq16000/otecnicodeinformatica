@@ -62,7 +62,7 @@ const ComputadorLento = () => {
                 <MessageCircle className="mr-2 h-5 w-5" /> Meu PC Está Lento
               </Button>
               <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10" asChild>
-                <Link to="/precos-e-politicas">Ver Preços</Link>
+                <Link to="/valores">Ver Preços</Link>
               </Button>
             </div>
           </div>

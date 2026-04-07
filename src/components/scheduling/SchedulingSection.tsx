@@ -127,10 +127,10 @@ export const SchedulingSection = () => {
 
                 <div className="pt-4 border-t border-border">
                   <p className="text-sm text-muted-foreground">
-                    💰 <strong>Visita técnica:</strong> R$ 99,99 a cada 30 minutos
+                    💰 <strong>Visita técnica:</strong> A partir de R$ 69,99
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Orçamento transparente • Sem surpresas
+                    Orçamento transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline">Ver detalhes</a>
                   </p>
                 </div>
               </div>

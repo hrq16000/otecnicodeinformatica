@@ -6,7 +6,7 @@ const SaoFrancisco = () => {
     slug: "sao-francisco",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no São Francisco SJP | Técnico Curitiba",
-    metaDescription: "Técnico de informática no São Francisco, São José dos Pinhais. Manutenção, conserto de PC e notebook. Atendimento domiciliar. R$ 99,99.",
+    metaDescription: "Técnico de informática no São Francisco, São José dos Pinhais. Manutenção, conserto de PC e notebook. Atendimento domiciliar. A partir de R$ 69,99.",
     h1: "Técnico de Informática no São Francisco – São José dos Pinhais",
     subtitulo: "Serviços de informática no São Francisco com atendimento profissional e preços justos.",
     descricaoLonga: `O bairro São Francisco em São José dos Pinhais é uma região residencial com boa qualidade de vida e acesso a serviços essenciais. Nossa equipe de técnicos de informática atende toda a região do São Francisco, proporcionando serviços de alta qualidade com atendimento humanizado.

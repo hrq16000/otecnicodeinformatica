@@ -3,7 +3,7 @@ import { DollarSign, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const precos = [
-  { servico: "Visita Técnica Presencial", valor: "R$ 99,99 / 30 min" },
+  { servico: "Visita Técnica", valor: "A partir de R$ 69,99" },
   { servico: "Formatação Completa", valor: "A partir de R$ 150" },
   { servico: "Suporte Remoto", valor: "A partir de R$ 79,99" },
   { servico: "Remoção de Vírus", valor: "A partir de R$ 99,99" },
@@ -47,8 +47,8 @@ export const HomePricingBlock = () => {
 
           <div className="text-center">
             <Button variant="cta" size="lg" asChild>
-              <Link to="/precos-e-politicas">
-                Ver Tabela Completa de Preços
+              <Link to="/valores">
+                Ver Tabela Completa de Valores
                 <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </Button>

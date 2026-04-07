@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Campo Comprido Curitiba | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Campo Comprido, Curitiba. Windows 10/11 original, backup completo e programas. A partir de R$ 99,99.",
+  metaDescription: "Formatação de computador e notebook no Campo Comprido, Curitiba. Windows 10/11 original, backup completo e programas. A partir de A partir de R$ 69,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",
@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Formatação de Computador no Campo Comprido",
   subtitulo: "Formatação completa com backup seguro e instalação de Windows original. Atendimento a domicílio no Campo Comprido.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio.",
   
   descricaoLonga: `Precisa formatar seu computador ou notebook no Campo Comprido? Atendemos toda a região com 

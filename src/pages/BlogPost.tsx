@@ -72,13 +72,13 @@ const blogPostsContent: Record<string, {
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Computador Lento em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico vai até você, faz o diagnóstico no local e resolve na hora sempre que possível. Visita a partir de R$ 99,99. Atendemos Curitiba, São José dos Pinhais, Araucária, Campo Largo e Pinhais.</p>
+          <p className="text-muted-foreground mb-0">Nosso técnico vai até você, faz o diagnóstico no local e resolve na hora sempre que possível. A partir de R$ 69,99. Atendemos Curitiba, São José dos Pinhais, Araucária, Campo Largo e Pinhais.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>
         <ul>
           <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
-          <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de serviço</Link></li>
+          <li><Link to="/valores" className="text-accent">Preços e políticas de serviço</Link></li>
           <li><Link to="/diagnostico-tecnico" className="text-accent">Por que o diagnóstico é pago</Link></li>
           <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Upgrade SSD e memória</Link></li>
         </ul>
@@ -142,7 +142,7 @@ const blogPostsContent: Record<string, {
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Suspeita de Vírus?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz a remoção completa a domicílio em Curitiba e região. Limpamos o sistema, recuperamos arquivos e configuramos proteção. Visita a partir de R$ 99,99.</p>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz a remoção completa a domicílio em Curitiba e região. Limpamos o sistema, recuperamos arquivos e configuramos proteção. A partir de R$ 69,99.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>
@@ -150,7 +150,7 @@ const blogPostsContent: Record<string, {
           <li><Link to="/servicos/remocao-virus" className="text-accent">Serviço de remoção de vírus</Link></li>
           <li><Link to="/blog/sinais-computador-com-virus" className="text-accent">5 sinais de computador com vírus</Link></li>
           <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
-          <li><Link to="/precos-e-politicas" className="text-accent">Preços e condições</Link></li>
+          <li><Link to="/valores" className="text-accent">Preços e condições</Link></li>
         </ul>
       </>
     ),
@@ -210,7 +210,7 @@ const blogPostsContent: Record<string, {
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Notebook Não Liga em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz diagnóstico a domicílio ou em bancada. Avaliamos o problema, explicamos as opções e você decide. Sem surpresas. Visita a partir de R$ 99,99.</p>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz diagnóstico a domicílio ou em bancada. Avaliamos o problema, explicamos as opções e você decide. Sem surpresas. A partir de R$ 69,99.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>

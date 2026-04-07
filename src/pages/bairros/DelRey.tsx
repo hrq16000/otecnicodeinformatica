@@ -6,7 +6,7 @@ const DelRey = () => {
     slug: "del-rey",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no Del Rey SJP | Atendimento Domicílio | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Del Rey, São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento rápido em domicílio. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática no Del Rey, São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento rápido em domicílio. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no Del Rey – São José dos Pinhais",
     subtitulo: "Assistência técnica de qualidade no Del Rey. Atendimento domiciliar para sua comodidade.",
     descricaoLonga: `O bairro Del Rey em São José dos Pinhais é uma região com boa estrutura residencial e comercial. Nossa equipe de técnicos de informática atende toda a região do Del Rey, oferecendo serviços especializados com a praticidade do atendimento em domicílio.

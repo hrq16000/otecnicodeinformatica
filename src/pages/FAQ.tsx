@@ -21,7 +21,7 @@ const faqCategories = [
     questions: [
       {
         question: "Quanto custa o atendimento técnico?",
-        answer: "Nossos serviços começam a partir de R$ 99,99. O valor varia conforme a complexidade do problema. Para problemas simples resolvidos em até 30 minutos, cobramos o valor base. Serviços mais complexos são orçados individualmente antes de iniciar."
+        answer: "Nossos serviços começam a partir de R$ 69,99. O valor varia conforme a complexidade do problema. Serviços mais complexos são orçados individualmente antes de iniciar."
       },
       {
         question: "Vocês fazem orçamento gratuito?",

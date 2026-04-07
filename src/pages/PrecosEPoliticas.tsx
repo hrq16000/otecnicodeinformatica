@@ -26,22 +26,14 @@ import {
   MapPin,
   Star,
   BadgeCheck,
-  MessageCircle
+  MessageCircle,
+  Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_NUMBER = "5541997452053";
 
 const servicosPrecos = [
-  {
-    categoria: "Atendimento Presencial",
-    icon: MapPin,
-    servicos: [
-      { nome: "Visita Técnica Presencial", valor: "R$ 99,99 / 30 min", obs: "Cobrança proporcional ao tempo" },
-      { nome: "Visita Técnica - Sem Compromisso", valor: "R$ 100,00", obs: "Até 30 min, não obriga reparo" },
-      { nome: "Visita Técnica - Com Compromisso", valor: "Incluso no reparo", obs: "Se problema identificado e aprovado" },
-    ]
-  },
   {
     categoria: "Formatação e Sistema",
     icon: Monitor,
@@ -76,8 +68,7 @@ const servicosPrecos = [
     categoria: "Conserto e Reparo",
     icon: Wrench,
     servicos: [
-      { nome: "Diagnóstico Presencial", valor: "R$ 99,99", obs: "Abatido do reparo" },
-      { nome: "Diagnóstico com Coleta", valor: "R$ 90-100", obs: "Coleta + entrega inclusas" },
+      { nome: "Diagnóstico com Coleta", valor: "R$ 90", obs: "Coleta + entrega inclusas" },
       { nome: "Reparo de Notebook", valor: "A partir de R$ 150", obs: "Depende do defeito" },
       { nome: "Troca de Tela Notebook", valor: "Sob orçamento", obs: "Peça + mão de obra" },
       { nome: "Troca de Teclado Notebook", valor: "A partir de R$ 120", obs: "Peça não inclusa" },
@@ -124,59 +115,20 @@ const servicosPrecos = [
   },
 ];
 
-const modalidades = [
-  {
-    titulo: "Visita Técnica - Sem Compromisso",
-    valor: "R$ 100,00",
-    descricao: "Ideal quando você só quer saber o que está acontecendo",
-    itens: [
-      "Duração: até 30 minutos",
-      "Diagnóstico no local",
-      "Não obriga reparo",
-      "Se não aprovar, paga apenas a visita"
-    ],
-    destaque: false
-  },
-  {
-    titulo: "Visita Técnica - Com Compromisso",
-    valor: "Incluído no reparo",
-    descricao: "Para quando você já quer resolver o problema",
-    itens: [
-      "Problema identificado = reparo realizado",
-      "Você define limite de valor",
-      "Orçamento acima do limite = consulta prévia",
-      "Paga apenas o reparo aprovado"
-    ],
-    destaque: true
-  },
-  {
-    titulo: "Diagnóstico com Coleta",
-    valor: "Até R$ 300 pré-aprovado",
-    descricao: "Para problemas que precisam de bancada",
-    itens: [
-      "Coleta e entrega inclusas",
-      "Diagnóstico completo em laboratório",
-      "Reparos até R$ 300 executados automaticamente",
-      "Acima de R$ 300 = consulta prévia"
-    ],
-    destaque: false
-  }
-];
-
 const PrecosEPoliticas = () => {
   useEffect(() => {
-    document.title = "Tabela de Preços | Técnico de Informática Curitiba";
+    document.title = "Tabela de Valores | Técnico de Informática Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Tabela completa de preços de serviços de informática em Curitiba. Visita técnica R$99,99/30min, formatação a partir de R$150. Transparência total nos valores."
+        "Tabela completa de valores de serviços de informática em Curitiba. Visita técnica a partir de R$ 69,99. Transparência total nos valores."
       );
     }
-    trackPageView("/precos-e-politicas", "Preços e Políticas");
+    trackPageView("/valores", "Valores e Condições");
   }, []);
 
-  const whatsappMessage = "Olá! Vi a tabela de preços no site e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
+  const whatsappMessage = "Olá! Vi a tabela de valores no site e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -189,7 +141,7 @@ const PrecosEPoliticas = () => {
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-                Tabela de Preços
+                Tabela de Valores
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6">
                 Transparência total nos valores • Sem surpresas na hora de pagar
@@ -197,7 +149,7 @@ const PrecosEPoliticas = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2">
                   <BadgeCheck className="h-5 w-5 text-accent" />
-                  <span className="text-white text-sm">Preços fixos</span>
+                  <span className="text-white text-sm">Valores fixos</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2">
                   <Star className="h-5 w-5 text-accent" />
@@ -226,41 +178,26 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* Modalidades de Atendimento */}
-        <section className="py-12 md:py-16 bg-secondary">
+        {/* VISITA TÉCNICA — Serviços Rápidos */}
+        <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
-                Modalidades de Atendimento
+                ⚡ Visita Técnica — Serviços Rápidos
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Escolha a modalidade que melhor se encaixa na sua necessidade
+                Ideal para serviços rápidos como formatação, upgrade, configuração de rede e remoção de vírus.
               </p>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                {modalidades.map((mod, index) => (
-                  <div
-                    key={index}
-                    className={`bg-background rounded-xl p-6 ${
-                      mod.destaque ? "ring-2 ring-accent shadow-lg" : ""
-                    }`}
-                  >
-                    {mod.destaque && (
-                      <div className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
-                        MAIS POPULAR
-                      </div>
-                    )}
-                    <h3 className="text-xl font-bold text-primary mb-2">{mod.titulo}</h3>
-                    <div className="text-2xl font-bold text-accent mb-2">{mod.valor}</div>
-                    <p className="text-sm text-muted-foreground mb-4">{mod.descricao}</p>
-                    <ul className="space-y-2">
-                      {mod.itens.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  { tempo: "até 15 minutos", valor: "R$ 69,99" },
+                  { tempo: "até 30 minutos", valor: "R$ 99,99" },
+                ].map((t, i) => (
+                  <div key={i} className={`bg-secondary rounded-xl p-6 text-center ${i === 0 ? "ring-2 ring-accent" : ""}`}>
+                    <Zap className="h-6 w-6 text-accent mx-auto mb-2" />
+                    <span className="text-sm text-muted-foreground block mb-1">{t.tempo}</span>
+                    <div className="text-2xl font-bold text-accent">{t.valor}</div>
+                    {i === 0 && <span className="text-xs text-accent mt-1 block">Mais popular</span>}
                   </div>
                 ))}
               </div>
@@ -268,7 +205,114 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* Tabela Completa de Preços */}
+        {/* VISITA TÉCNICA — Serviços com Execução no Local */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                🛠️ Serviços com Execução no Local
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Para serviços que exigem mais tempo no local: formatações complexas, configurações de rede, montagem e manutenção.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {[
+                  { tempo: "até 1 hora", valor: "R$ 168,99" },
+                  { tempo: "até 2 horas", valor: "R$ 199,99" },
+                  { tempo: "até 3 horas", valor: "R$ 249,99" },
+                ].map((t, i) => (
+                  <div key={i} className="bg-background rounded-xl p-6 text-center">
+                    <Clock className="h-6 w-6 text-primary mx-auto mb-2" />
+                    <span className="text-sm text-muted-foreground block mb-1">{t.tempo}</span>
+                    <div className="text-2xl font-bold text-accent">{t.valor}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-accent/5 rounded-xl p-4 mt-6 border border-accent/20">
+                <p className="text-sm text-muted-foreground text-center">
+                  <strong className="text-foreground">Como funciona:</strong> O técnico permanece o tempo necessário para resolver. A cobrança é pelo tempo contratado. O foco é na resolução rápida e eficiente do problema.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* EXCEÇÃO — Coleta e Entrega */}
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                🚚 Equipamentos com Coleta e Entrega
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Para estes equipamentos, <strong className="text-foreground">não há cobrança de visita técnica</strong>. O serviço é realizado em laboratório com coleta e entrega no seu endereço.
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {["TV (LED, LCD, Smart)", "Notebook (reparo de placa)", "PC (reparo complexo)", "Monitor", "Rádio", "Caixa de Som"].map((item, i) => (
+                  <div key={i} className="bg-secondary rounded-xl p-4 flex items-center gap-3">
+                    <Truck className="h-5 w-5 text-accent flex-shrink-0" />
+                    <span className="text-foreground font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-accent/5 rounded-xl p-4 mt-6 border border-accent/20">
+                <p className="text-sm text-muted-foreground text-center">
+                  Diagnóstico em caso de desistência: <strong className="text-accent">R$ 90</strong>. Coleta e entrega inclusas.
+                  <Link to="/coleta-e-entrega" className="text-accent hover:underline ml-1">Saiba mais →</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* DIAGNÓSTICO COM COMPROMISSO */}
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+                Diagnóstico com Compromisso
+              </h2>
+              <div className="bg-background rounded-2xl p-6 md:p-8 border-2 border-accent/20">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-primary mb-3">Como funciona:</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Diagnóstico custa <strong>R$ 90</strong> em caso de desistência
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        <strong>NÃO</strong> existe orçamento gratuito presencial
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Valor mínimo pré-aprovado: <strong>R$ 300 a R$ 400</strong>
+                      </li>
+                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        Se o reparo estiver dentro do pré-aprovado, é realizado automaticamente
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-accent/10 rounded-xl p-5">
+                    <h3 className="font-bold text-accent mb-2">Importante entender:</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Estimativas gratuitas são feitas somente via WhatsApp. O diagnóstico presencial envolve deslocamento, tempo técnico e ferramentas profissionais — por isso tem custo. Se o reparo for aprovado, o valor do diagnóstico é abatido do total.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center mt-4">
+                <Link to="/diagnostico-tecnico" className="text-accent text-sm hover:underline font-medium">
+                  Entenda tudo sobre o diagnóstico técnico →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Tabela Completa de Serviços */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
@@ -342,11 +386,11 @@ const PrecosEPoliticas = () => {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Cobrança de R$ 99,99 a cada 30 minutos de atendimento</span>
+                      <span className="text-muted-foreground">A partir de R$ 69,99 (serviços rápidos de até 15 minutos)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Serviços rápidos (formatação, vírus) geralmente 30-60 min</span>
+                      <span className="text-muted-foreground">Serviços rápidos (formatação, vírus) geralmente 15-30 min</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
@@ -391,15 +435,15 @@ const PrecosEPoliticas = () => {
                     <div className="bg-accent/10 rounded-lg p-4">
                       <p className="font-semibold text-foreground mb-2">Desistência após agendamento de coleta:</p>
                       <p className="text-muted-foreground">
-                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 90 a R$ 100</strong>, 
+                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 90</strong>, 
                         que inclui logística de coleta e entrega do equipamento.
                       </p>
                     </div>
                     <div className="bg-accent/10 rounded-lg p-4">
                       <p className="font-semibold text-foreground mb-2">Visita técnica presencial:</p>
                       <p className="text-muted-foreground">
-                        Cobrança proporcional ao tempo decorrido 
-                        (<strong className="text-accent">R$ 99,99 por cada 30 minutos</strong>).
+                        Cobrança proporcional ao tempo de atendimento 
+                        (a partir de <strong className="text-accent">R$ 69,99</strong>).
                       </p>
                     </div>
                   </div>
@@ -469,92 +513,12 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* MODALIDADE: VISITA POR TEMPO */}
+        {/* Laboratório */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
-                Modalidade 1 — Visita Técnica por Tempo
-              </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Ideal para serviços rápidos como formatação, upgrade, configuração de rede e remoção de vírus.
-              </p>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-                {[
-                  { tempo: "15 min", valor: "R$ 69" },
-                  { tempo: "30 min", valor: "R$ 99" },
-                  { tempo: "1 hora", valor: "R$ 169" },
-                  { tempo: "2 horas", valor: "R$ 199" },
-                  { tempo: "3 horas", valor: "R$ 369" },
-                ].map((t, i) => (
-                  <div key={i} className="bg-secondary rounded-xl p-4 text-center">
-                    <span className="text-sm text-muted-foreground">{t.tempo}</span>
-                    <div className="text-xl font-bold text-accent mt-1">{t.valor}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-accent/5 rounded-xl p-4 mt-6 border border-accent/20">
-                <p className="text-sm text-muted-foreground text-center">
-                  <strong className="text-foreground">Como funciona:</strong> O técnico permanece o tempo necessário para resolver. A cobrança é pelo tempo contratado. O foco é na resolução rápida e eficiente do problema.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* MODALIDADE: DIAGNÓSTICO COM COMPROMISSO */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
-                Modalidade 2 — Diagnóstico com Compromisso
-              </h2>
-              <div className="bg-background rounded-2xl p-6 md:p-8 border-2 border-accent/20">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-bold text-primary mb-3">Como funciona:</h3>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        Diagnóstico custa <strong>R$ 90</strong> em caso de desistência
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <strong>NÃO</strong> existe orçamento gratuito presencial
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        Valor mínimo pré-aprovado: <strong>R$ 300 a R$ 400</strong>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        Se o reparo estiver dentro do pré-aprovado, é realizado automaticamente
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-accent/10 rounded-xl p-5">
-                    <h3 className="font-bold text-accent mb-2">Importante entender:</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Estimativas gratuitas são feitas somente via WhatsApp. O diagnóstico presencial envolve deslocamento, tempo técnico e ferramentas profissionais — por isso tem custo. Se o reparo for aprovado, o valor do diagnóstico é abatido do total.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <p className="text-center mt-4">
-                <Link to="/diagnostico-tecnico" className="text-accent text-sm hover:underline font-medium">
-                  Entenda tudo sobre o diagnóstico técnico →
-                </Link>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* MODALIDADE: LABORATÓRIO */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
-                Modalidade 3 — Laboratório (Coleta e Entrega)
+                Laboratório (Coleta e Entrega)
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Para reparos que exigem bancada, peças específicas ou tempo estendido de análise.
@@ -596,15 +560,15 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* MODALIDADE: CASOS COMPLEXOS */}
+        {/* Casos Complexos */}
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
-                Modalidade 4 — Casos Complexos
+                Casos Complexos
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Alguns problemas exigem análise profunda e conhecimento avançado. Entenda o que são casos complexos e por que o prazo pode ser maior.
+                Alguns problemas exigem análise profunda e conhecimento avançado.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[

@@ -43,7 +43,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Piraquara a domicílio?", answer: "Sim. Atendemos todos os bairros de Piraquara com visita agendada. O deslocamento leva de 40 a 60 minutos dependendo do bairro." },
-  { question: "Qual o valor da visita técnica em Piraquara?", answer: "A visita começa em R$ 99,99 (30 minutos). Diagnóstico no local com orçamento antes da execução." },
+  { question: "Qual o valor da visita técnica em Piraquara?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com orçamento antes da execução." },
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços de bancada (reparo de placa, troca de tela), coletamos e devolvemos no seu endereço." },
   { question: "Atendem empresas em Piraquara?", answer: "Sim. Suporte para escritórios, comércios e pequenas empresas com manutenção de rede, backup e suporte contínuo." },
 ];
@@ -54,14 +54,14 @@ const schema = {
   "description": "Assistência técnica de computadores em Piraquara PR. Atendimento a domicílio.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Piraquara", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaPiraquara = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 99,99.");
+    if (meta) meta.setAttribute("content", "Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.");
     trackPageView("/tecnico-informatica-piraquara", "Técnico Piraquara");
   }, []);
 

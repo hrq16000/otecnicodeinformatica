@@ -117,7 +117,7 @@ const localFaqs = [
   {
     question: "Quanto custa a visita do técnico em Araucária?",
     answer:
-      "A visita técnica parte de R$ 99,99 (30 minutos). Antes de executar qualquer serviço adicional, fazemos diagnóstico e informamos o valor com transparência.",
+      "A visita técnica começa em R$ 69,99. Antes de executar qualquer serviço adicional, fazemos diagnóstico e informamos o valor com transparência.",
   },
   {
     question: "Vocês fazem formatação e remoção de vírus em Araucária?",
@@ -142,7 +142,7 @@ const araucariaSchema = {
       "name": "Paraná"
     }
   },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Serviços de Informática",
@@ -163,7 +163,7 @@ const TecnicoInformaticaAraucaria = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. Visita a partir de R$ 99,99. Polo industrial e residencial."
+        "Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. A partir de R$ 69,99. Polo industrial e residencial."
       );
     }
     trackPageView("/tecnico-informatica-araucaria", "Técnico Araucária");

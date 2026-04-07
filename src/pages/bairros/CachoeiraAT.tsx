@@ -6,7 +6,7 @@ const CachoeiraAT = () => {
     slug: "cachoeira-at",
     cidade: "Almirante Tamandaré",
     metaTitle: "Técnico de Informática na Cachoeira (Almirante Tamandaré) | Técnico Curitiba",
-    metaDescription: "Técnico de informática na Cachoeira, Almirante Tamandaré. Formatação, conserto de notebook, vírus, upgrade SSD. Atendimento a domicílio. R$ 99,99.",
+    metaDescription: "Técnico de informática na Cachoeira, Almirante Tamandaré. Formatação, conserto de notebook, vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",
     h1: "Técnico de Informática na Cachoeira – Almirante Tamandaré",
     subtitulo: "Assistência técnica na Cachoeira com atendimento domiciliar profissional e garantia.",
     descricaoLonga: `A Cachoeira é uma região importante de Almirante Tamandaré, com acesso pela BR-476 e proximidade com a divisa norte de Curitiba. A região tem forte perfil residencial e demanda constante por serviços de informática.

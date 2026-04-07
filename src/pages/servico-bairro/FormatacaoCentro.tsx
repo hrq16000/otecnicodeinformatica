@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Centro de Curitiba | Atendimento Rápido | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Centro de Curitiba. Windows 10/11, backup completo, drivers e programas. Atendimento no mesmo dia. A partir de R$ 99,99.",
+  metaDescription: "Formatação de computador e notebook no Centro de Curitiba. Windows 10/11, backup completo, drivers e programas. Atendimento no mesmo dia. A partir de A partir de R$ 69,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",
@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Formatação de Computador no Centro de Curitiba",
   subtitulo: "Reinstalação completa do Windows com backup de dados. Técnico especializado no Centro com atendimento no mesmo dia.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio ou no local.",
   
   descricaoLonga: `Precisa formatar seu computador ou notebook no Centro de Curitiba? Nossa equipe técnica 

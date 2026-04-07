@@ -140,7 +140,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     {
       question: `Qual o valor da visita técnica no ${data.nome}?`,
       answer:
-        "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+        "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
     },
   ];
 
@@ -206,7 +206,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
               <div className="bg-white/10 rounded-xl p-4 inline-block">
                 <p className="text-white/90 text-sm">
-                  ⚡ Serviços a partir de <strong className="text-accent">R$ 99,99</strong> (30 min) • Atendimento hoje mesmo
+                  ⚡ Serviços a partir de <strong className="text-accent">R$ 69,99</strong> • Atendimento hoje mesmo
                 </p>
               </div>
             </div>
@@ -369,9 +369,9 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                     Ver detalhes <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/precos-e-politicas" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
+                <Link to="/valores" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
                   <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
-                  <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. Visita a partir de R$ 99,99.</p>
+                  <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. A partir de R$ 69,99.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver preços <ArrowRight className="h-3 w-3" />
                   </span>
@@ -455,7 +455,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               },
               {
                 question: `Qual o valor da visita técnica no ${data.nome}?`,
-                answer: "A visita técnica parte de R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
+                answer: "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional.",
               },
             ]}
           />

@@ -73,7 +73,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Colombo?",
-    answer: "A visita técnica começa em R$ 99,99 (30 minutos). O diagnóstico é feito no local e o orçamento é apresentado antes de qualquer execução.",
+    answer: "A visita técnica começa em R$ 69,99. O diagnóstico é feito no local e o orçamento é apresentado antes de qualquer execução.",
   },
   {
     question: "Atendem empresas em Colombo?",
@@ -92,7 +92,7 @@ const colomboSchema = {
   "description": "Assistência técnica de computadores em Colombo PR. Atendimento a domicílio. Formatação, conserto, upgrade e redes.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Colombo", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaColombo = () => {
@@ -101,7 +101,7 @@ const TecnicoInformaticaColombo = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 99,99."
+        "Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 69,99."
       );
     }
     trackPageView("/tecnico-informatica-colombo", "Técnico Colombo");

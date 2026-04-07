@@ -7,7 +7,7 @@ const CampoLargoCentro = () => {
     cidade: "Campo Largo",
     metaTitle: "Técnico de Informática no Centro de Campo Largo | Técnico Curitiba",
     metaDescription:
-      "Técnico de informática no Centro de Campo Largo. Conserto de PC e notebook, formatação, vírus, upgrade SSD e configuração de rede. Atendimento a domicílio com agendamento. A partir de R$ 99,99.",
+      "Técnico de informática no Centro de Campo Largo. Conserto de PC e notebook, formatação, vírus, upgrade SSD e configuração de rede. Atendimento a domicílio com agendamento. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no Centro de Campo Largo",
     subtitulo:
       "Assistência técnica no Centro de Campo Largo com atendimento a domicílio e suporte profissional para PC e notebook.",

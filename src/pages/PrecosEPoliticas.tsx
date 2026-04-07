@@ -648,7 +648,7 @@ const PrecosEPoliticas = () => {
                 </a>
               </Button>
               <p className="text-primary-foreground/60 text-sm mt-4">
-                WhatsApp: (41) 99745-2053
+                Fale conosco pelo WhatsApp
               </p>
             </div>
           </div>

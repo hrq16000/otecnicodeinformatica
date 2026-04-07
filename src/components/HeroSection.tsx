@@ -108,9 +108,9 @@ export const HeroSection = () => {
                 alt="Técnico de informática profissional realizando conserto de computador em Curitiba" 
                 className="relative w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]" 
                 loading="eager"
-                fetchpriority="high"
                 decoding="async"
                 width="400"
+                height="400"
                 height="400"
                 src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.webp" 
               />

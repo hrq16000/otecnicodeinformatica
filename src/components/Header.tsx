@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Menu, X, ChevronDown, Bot } from "lucide-react";
+import { useDarkMode } from "@/hooks/useDarkMode";
+import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import {

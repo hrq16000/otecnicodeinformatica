@@ -580,42 +580,21 @@
     animation: blink 1s step-end infinite;
   }
 
-  /* ── Parallax text reveal ── */
-  .reveal-text {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s var(--anim-ease-out), transform 0.7s var(--anim-ease-out);
-  }
-  .reveal-text.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-text-left {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
-  }
-  .reveal-text-left.revealed {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .reveal-text-right {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
-  }
-  .reveal-text-right.revealed {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  /* ── Safe reveal system ── */
+  /* Content stays visible by default so heroes never render empty if JS/observer timing fails. */
+  .reveal-text,
+  .reveal-text-left,
+  .reveal-text-right,
   .reveal-scale {
-    opacity: 0;
-    transform: scale(0.92);
-    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+    opacity: 1;
+    transform: none;
   }
+  .reveal-text.revealed,
+  .reveal-text-left.revealed,
+  .reveal-text-right.revealed,
   .reveal-scale.revealed {
     opacity: 1;
-    transform: scale(1);
+    transform: none;
   }
 
   /* ── Dark mode transition ── */

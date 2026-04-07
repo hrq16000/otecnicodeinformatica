@@ -31,8 +31,8 @@ export const TrustSection = () => {
         {/* Stats */}
         <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-12 md:mb-16">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center" style={{ animationDelay: `${i * 120}ms` }}>
-              <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">
+            <div key={i} className="text-center stagger-item" style={{ animationDelay: `${i * 120}ms` }}>
+              <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight glow-pulse-text">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-white/50 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{stat.label}</p>
@@ -41,10 +41,10 @@ export const TrustSection = () => {
         </div>
 
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 tracking-tight reveal-text">
             Por que escolher a gente?
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Compromisso com qualidade e transparência
           </p>
         </div>

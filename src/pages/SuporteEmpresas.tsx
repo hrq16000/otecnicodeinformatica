@@ -82,7 +82,7 @@ const SuporteEmpresas = () => {
       <PageSEO title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com planos mensais, nota fiscal e pagamento faturado. Manutenção de computadores corporativos." path="/suporte-empresas" />
       <JsonLdSchema />
       <Header />
-      <main>
+      <main className="pt-16">
         <PageHero
           title="Suporte Técnico para Empresas"
           subtitle="Soluções de TI para pequenas e médias empresas em Curitiba. Planos mensais, atendimento prioritário e nota fiscal garantida."

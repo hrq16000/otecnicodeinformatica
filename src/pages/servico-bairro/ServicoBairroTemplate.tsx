@@ -121,7 +121,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       />
       
       {/* Hero Section */}
-      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
+      <section className="pt-10 pb-10 bg-gradient-to-br from-primary via-primary to-primary/90">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Location Badge */}

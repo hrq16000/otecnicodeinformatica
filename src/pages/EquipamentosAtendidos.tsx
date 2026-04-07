@@ -107,7 +107,7 @@ const EquipamentosAtendidos = () => {
 
       <main>
         {/* HERO */}
-        <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 pt-24 pb-14 md:pt-32 md:pb-20">
+        <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">

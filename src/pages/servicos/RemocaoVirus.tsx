@@ -105,6 +105,8 @@ const RemocaoVirus = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
+
       {/* Sinais de Infecção */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
@@ -226,26 +228,24 @@ const RemocaoVirus = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-10 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">
             Serviços Relacionados
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/servicos/formatacao-computador" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Formatação
             </Link>
-            <Link to="/servicos/backup-recuperacao" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+            <Link to="/servicos/backup-recuperacao" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Backup de Dados
             </Link>
-            <Link to="/atendimento-remoto" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+            <Link to="/atendimento-remoto" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Suporte Remoto
             </Link>
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="segurancaDigital" caption="Proteção profissional contra vírus e malware" />
       <InterlinkingBlock />
       <Footer />
     </div>

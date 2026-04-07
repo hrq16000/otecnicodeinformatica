@@ -63,12 +63,12 @@ const MontagemPc = () => {
       </section>
 
       {/* Tipos de PC */}
-      <section className="py-16 bg-background relative">
+      <section className="py-10 bg-background relative">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Montamos o PC Ideal Para Você
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -97,9 +97,9 @@ const MontagemPc = () => {
       </section>
 
       {/* O que está incluso */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             O Que Está Incluso no Serviço
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -119,9 +119,9 @@ const MontagemPc = () => {
       </section>
 
       {/* Processo */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Como Funciona
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -144,9 +144,9 @@ const MontagemPc = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -167,7 +167,7 @@ const MontagemPc = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-primary relative overflow-hidden">
+      <section className="py-10 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-breathe" />
           <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-white/5 rounded-full blur-3xl" />

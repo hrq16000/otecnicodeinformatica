@@ -71,7 +71,7 @@ const UpgradeSsdMemoria = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Diferença de Performance: HD vs SSD
           </h2>
           <div className="max-w-4xl mx-auto">
@@ -102,9 +102,9 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* Tipos de Upgrade */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Opções de Upgrade
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -129,7 +129,7 @@ const UpgradeSsdMemoria = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Benefícios do Upgrade
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -150,9 +150,9 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* O que está incluso */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             O Que Está Incluso
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -176,9 +176,9 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -218,7 +218,7 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
             Serviços Relacionados

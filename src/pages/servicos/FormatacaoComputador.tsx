@@ -81,7 +81,7 @@ const FormatacaoComputador = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             O Que Está Incluso na Formatação?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -106,9 +106,9 @@ const FormatacaoComputador = () => {
       </section>
 
       {/* Quando formatar */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Quando Devo Formatar Meu Computador?
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -134,7 +134,7 @@ const FormatacaoComputador = () => {
       <section className="relative py-16 bg-background overflow-hidden">
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Como Funciona o Serviço?
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -157,9 +157,9 @@ const FormatacaoComputador = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12 reveal-text">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
             Perguntas Frequentes sobre Formatação
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -199,7 +199,7 @@ const FormatacaoComputador = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-16 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
             Serviços Relacionados

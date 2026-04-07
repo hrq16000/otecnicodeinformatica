@@ -7,6 +7,7 @@ import { SchedulingModal } from "@/components/scheduling";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingEffect } from "@/components/TypingEffect";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import heroTechBg from "@/assets/hero-tech-bg.jpg";
 
 const TYPING_PHRASES = [
   "e Região Metropolitana",
@@ -37,6 +38,21 @@ export const HeroSection = () => {
     <>
     <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
     <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden" aria-label="Técnico de informática em Curitiba">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroTechBg}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-15"
+          loading="eager"
+          decoding="async"
+          width="1920"
+          height="1080"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--primary))]/80 via-[hsl(var(--primary))]/60 to-[hsl(var(--primary))]" />
+      </div>
+
       {/* Floating particles */}
       <FloatingParticles count={40} />
       

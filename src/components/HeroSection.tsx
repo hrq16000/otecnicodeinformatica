@@ -60,10 +60,10 @@ export const HeroSection = () => {
           height="1080"
           style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,65%,22%)]/90 via-[hsl(215,65%,22%)]/80 to-[hsl(215,65%,22%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,65%,22%)]/40 via-transparent to-[hsl(215,65%,22%)]/30" />
         {/* Extra mobile contrast layer */}
-        <div className="absolute inset-0 bg-primary/30 md:bg-transparent" />
+        <div className="absolute inset-0 bg-[hsl(215,65%,22%)]/30 md:bg-transparent" />
       </div>
       <style>{`@keyframes kenBurns { 0% { transform: scale(1.05) translate(0,0); } 100% { transform: scale(1.12) translate(-1%,-1%); } }`}</style>
 

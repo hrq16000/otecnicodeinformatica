@@ -19,7 +19,7 @@ export const PainSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden" aria-labelledby="pain-heading">
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden spotlight-sweep" aria-labelledby="pain-heading">
       <div data-parallax="0.08" className="absolute -top-10 -left-10 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[80px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
@@ -44,11 +44,11 @@ export const PainSection = () => {
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover-lift hover-glow-ring ripple-container transition-all duration-300 stagger-item"
+                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover:-translate-y-1.5 hover:scale-[1.03] card-shine animated-border transition-all duration-300 group stagger-item"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0">
-                  <benefit.icon className="h-5 w-5 text-accent" />
+                <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0 group-hover:bg-accent/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <benefit.icon className="h-5 w-5 text-accent icon-bounce" />
                 </div>
                 <div>
                   <span className="text-foreground font-semibold block text-[15px]">{benefit.text}</span>
@@ -61,7 +61,7 @@ export const PainSection = () => {
           <Button 
             variant="whatsapp" 
             size="xl"
-            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback cta-pulse"
+            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse"
             asChild
             onClick={handleWhatsAppClick}
           >

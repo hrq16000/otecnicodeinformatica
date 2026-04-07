@@ -31,7 +31,7 @@ const neighborhoods = [
 
 export const NeighborhoodsSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-muted/30 relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-muted/30 relative overflow-hidden spotlight-sweep">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-accent/[0.02] blur-[100px] pointer-events-none" />
       
       <div className="container mx-auto relative z-10">

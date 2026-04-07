@@ -14,7 +14,7 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 section-divider group/cta">
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 section-divider group/cta spotlight-sweep">
       {/* Parallax ambient glow */}
       <div data-parallax="0.1" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.06)_0%,_transparent_70%)]" />
       <div data-parallax="0.15" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none animate-breathe" />
@@ -22,7 +22,7 @@ export const CTASection = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-4 py-2 mb-6 shimmer">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-4 py-2 mb-6 shimmer-sweep float-badge">
             <Sparkles className="h-4 w-4" />
             <span className="text-sm font-medium">Atendimento Imediato</span>
           </div>
@@ -36,7 +36,7 @@ export const CTASection = () => {
             loading="lazy"
           />
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text neon-accent">
             Precisa resolver agora?
           </h2>
           
@@ -45,7 +45,7 @@ export const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 btn-feedback cta-pulse" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato

@@ -49,18 +49,18 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden" aria-labelledby="faq-heading">
+    <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden spotlight-sweep" aria-labelledby="faq-heading">
       <div data-parallax="0.06" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4 shimmer-sweep float-badge">
             <HelpCircle className="h-5 w-5 text-primary" />
             <span className="text-primary font-medium text-sm">Perguntas Frequentes</span>
           </div>
-          <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+          <h2 id="faq-heading" className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
             Dúvidas sobre Assistência Técnica em Curitiba
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Tire suas dúvidas sobre nossos serviços de informática, preços, garantia e formas de atendimento.
           </p>
         </div>

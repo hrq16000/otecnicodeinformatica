@@ -25,21 +25,23 @@ export const SchedulingSection = () => {
   return (
     <section 
       id="agendamento" 
-      className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5"
+      className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden"
       aria-labelledby="scheduling-title"
     >
-      <div className="container mx-auto px-4">
+      <div className="absolute top-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 shimmer-sweep float-badge">
               <CalendarDays className="h-4 w-4" />
               Agendamento Online
             </span>
-            <h2 id="scheduling-title" className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Agende seu <span className="text-primary">Atendimento Técnico</span> em Curitiba
+            <h2 id="scheduling-title" className="text-3xl md:text-4xl font-bold text-foreground mb-4 reveal-text">
+              Agende seu <span className="gradient-text">Atendimento Técnico</span> em Curitiba
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               Assistência técnica em informática a domicílio. Técnico de computador e notebook 
               com atendimento rápido em Curitiba e região metropolitana.
             </p>
@@ -52,14 +54,15 @@ export const SchedulingSection = () => {
               {/* Benefits */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {benefits.map((benefit, index) => (
-                  <div
+                   <div
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-primary/30 transition-colors"
+                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] transition-all duration-300 group card-shine stagger-item"
+                    style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <benefit.icon className="h-5 w-5 text-primary" />
+                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                      <benefit.icon className="h-5 w-5 text-primary group-hover:text-accent icon-bounce transition-colors duration-300" />
                     </div>
-                    <span className="font-medium text-foreground">{benefit.text}</span>
+                    <span className="font-medium text-foreground group-hover:text-accent transition-colors duration-200">{benefit.text}</span>
                   </div>
                 ))}
               </div>
@@ -98,7 +101,7 @@ export const SchedulingSection = () => {
             </div>
 
             {/* Right - CTA Card */}
-            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl">
+            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl animated-border hover:shadow-[var(--shadow-lg)] transition-all duration-300">
               <div className="text-center space-y-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full">
                   <CalendarDays className="h-8 w-8 text-primary" />
@@ -116,7 +119,7 @@ export const SchedulingSection = () => {
                 <div className="space-y-3">
                   <Button
                     size="lg"
-                    className="w-full text-lg py-6"
+                    className="w-full text-lg py-6 ring-pulse hover:scale-[1.02] transition-transform"
                     onClick={() => setIsModalOpen(true)}
                   >
                     <CalendarDays className="mr-2 h-5 w-5" />

@@ -6,7 +6,7 @@ const footerLink = "text-foreground/60 hover:text-neon-green text-sm transition-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-primary py-10 md:py-12">
+    <footer className="bg-card border-t border-neon-green/10 py-10 md:py-12 relative cyber-grid">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
           {/* Logo e Contato */}

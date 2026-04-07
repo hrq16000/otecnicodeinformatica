@@ -26,11 +26,11 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro", hasPage: false }, { name: "Jardim Primavera", hasPage: false },
-  { name: "Planta Deodoro", hasPage: false }, { name: "Vila Macedo", hasPage: false },
-  { name: "Guarituba", hasPage: false }, { name: "Prado Velho", hasPage: false },
-  { name: "São Cristóvão", hasPage: false }, { name: "Vila São Cristóvão", hasPage: false },
-  { name: "Jardim Bela Vista", hasPage: false }, { name: "Caiuá", hasPage: false },
+  { name: "Centro", slug: "centro-piraquara", hasPage: true }, { name: "Jardim Primavera", slug: "jardim-primavera-piraquara", hasPage: true },
+  { name: "Planta Deodoro", slug: "planta-deodoro-piraquara", hasPage: true }, { name: "Vila Macedo", slug: "vila-macedo-piraquara", hasPage: true },
+  { name: "Guarituba", slug: "guarituba-piraquara", hasPage: true }, { name: "Prado Velho", slug: "prado-velho-piraquara", hasPage: true },
+  { name: "São Cristóvão", slug: "sao-cristao-piraquara", hasPage: true }, { name: "Vila São Cristóvão", hasPage: false },
+  { name: "Jardim Bela Vista", slug: "jardim-bela-vista-piraquara", hasPage: true }, { name: "Caiuá", slug: "caiua-piraquara", hasPage: true },
 ];
 
 const servicos = [

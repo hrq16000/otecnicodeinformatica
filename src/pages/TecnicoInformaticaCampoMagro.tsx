@@ -26,8 +26,8 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro" }, { name: "Sede" }, { name: "Jardim Boa Vista" },
-  { name: "São Sebastião" }, { name: "Rio Verde" }, { name: "Botiatuva" },
+  { name: "Centro", slug: "centro-campo-magro", hasPage: true }, { name: "Sede", slug: "sede-campo-magro", hasPage: true }, { name: "Jardim Boa Vista", slug: "jardim-boa-vista-cm", hasPage: true },
+  { name: "São Sebastião", slug: "sao-sebastiao-cm", hasPage: true }, { name: "Rio Verde", slug: "rio-verde-cm", hasPage: true }, { name: "Botiatuva", slug: "botiatuva-cm", hasPage: true },
 ];
 
 const servicos = [

@@ -1,4 +1,4 @@
-import { MessageCircle, Bot } from "lucide-react";
+import { MessageCircle, Bot, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 
@@ -18,12 +18,18 @@ export const CTASection = () => {
       {/* Parallax ambient glow */}
       <div data-parallax="0.1" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.06)_0%,_transparent_70%)]" />
       <div data-parallax="0.15" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none animate-breathe" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-4 py-2 mb-6 shimmer">
+            <Sparkles className="h-4 w-4" />
+            <span className="text-sm font-medium">Atendimento Imediato</span>
+          </div>
+          
           <img 
             alt="Técnico Curitiba" 
-            className="h-16 md:h-20 mx-auto mb-7" 
+            className="h-16 md:h-20 mx-auto mb-7 hover:scale-105 transition-transform duration-300" 
             src="/lovable-uploads/b702f033-fd78-4d1e-ae32-2ad60f672710.webp"
             width="200"
             height="80"

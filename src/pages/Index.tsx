@@ -27,6 +27,7 @@ import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
 import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { ProblemasDestaque } from "@/components/ProblemasDestaque";
+import { TechBrandsMarquee } from "@/components/TechBrandsMarquee";
 
 const Index = () => {
   useEffect(() => {

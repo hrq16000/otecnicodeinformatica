@@ -15,6 +15,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
+import { RealImageSection } from "@/components/RealImageSection";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
 const benefits = [
@@ -119,6 +120,8 @@ const TecnicoInformaticaFazendaRioGrande = () => {
 
         <BenefitsGrid benefits={benefits} title="Suporte Técnico em Fazenda Rio Grande" subtitle="Atendimento profissional para toda a cidade" />
 
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento técnico a domicílio em Fazenda Rio Grande" />
+
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto relative z-10">
@@ -214,6 +217,8 @@ const TecnicoInformaticaFazendaRioGrande = () => {
             </div>
           </div>
         </section>
+
+        <RealImageSection imageKey="placaMae" caption="Diagnóstico de placa-mãe profissional" />
 
         <ServiceLocalLinks currentCity="Fazenda Rio Grande" />
         <LocalFAQSection title="Perguntas Frequentes - Fazenda Rio Grande" faqs={localFaqs} />

@@ -15,6 +15,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
+import { RealImageSection } from "@/components/RealImageSection";
 import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home, Zap } from "lucide-react";
 
 const benefits = [
@@ -122,6 +123,8 @@ const TecnicoInformaticaColombo = () => {
         />
 
         <BenefitsGrid benefits={benefits} title="Suporte Técnico em Colombo" subtitle="Atendimento profissional para toda a cidade" />
+
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Técnico em atendimento a domicílio em Colombo" />
 
         {/* Conteúdo SEO */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
@@ -232,6 +235,8 @@ const TecnicoInformaticaColombo = () => {
             </div>
           </div>
         </section>
+
+        <RealImageSection imageKey="diagnostico" caption="Diagnóstico profissional de hardware" />
 
         <ServiceLocalLinks currentCity="Colombo" />
         <LocalFAQSection title="Perguntas Frequentes - Colombo" faqs={localFaqs} />

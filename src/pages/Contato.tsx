@@ -165,8 +165,7 @@ const Contato = () => {
               <p className="text-white/80 mb-6">
                 Não perca mais tempo. Fale agora com um técnico de informática e volte a usar seu computador.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
+              <Button
                   variant="heroWhatsapp"
                   size="lg"
                   className="animate-pulse-soft"
@@ -182,13 +181,6 @@ const Contato = () => {
                     WhatsApp Agora
                   </a>
                 </Button>
-                <Button variant="heroCta" size="lg" asChild>
-                  <a href={phoneUrl} onClick={handlePhoneClick}>
-                    <Phone className="h-5 w-5" />
-                    Ligar Agora
-                  </a>
-                </Button>
-              </div>
             </div>
           </div>
         </section>

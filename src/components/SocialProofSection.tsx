@@ -29,10 +29,11 @@ export const SocialProofSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-20 bg-background relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-background relative overflow-hidden mesh-gradient-warm noise-overlay">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
-      <div className="absolute top-0 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none orb-float-reverse" />
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-accent/[0.03] morph-blob pointer-events-none blur-[100px]" />
 
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">

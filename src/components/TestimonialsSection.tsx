@@ -33,25 +33,28 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-background relative overflow-hidden">
-      <div data-parallax="0.1" className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
-      <div className="container mx-auto">
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden ambient-glow noise-overlay">
+      <div data-parallax="0.1" className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none orb-float" />
+      <div className="absolute bottom-0 left-0 w-[250px] h-[250px] rounded-full bg-accent/[0.04] blur-[80px] pointer-events-none liquid-blob" />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 reveal-text">
-            O Que Nossos Clientes Dizem
+            O Que Nossos Clientes <span className="gradient-text">Dizem</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Centenas de clientes satisfeitos em Curitiba confiam no nosso trabalho
           </p>
+          <div className="glow-separator max-w-xs mx-auto mt-5" />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-grid">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="glass-card gradient-border rounded-xl p-5 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] group stagger-item"
+              className="glass-card gradient-border rounded-xl p-5 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[var(--shadow-lg)] group hover-streak animated-border slide-up-stagger"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
-              <Quote className="h-8 w-8 text-accent/30 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />
+              <Quote className="h-8 w-8 text-accent/30 mb-3 group-hover:text-accent/60 group-hover:scale-110 transition-all duration-300 quote-glow" />
               
               <p className="text-foreground/80 text-sm mb-4 leading-relaxed">
                 "{testimonial.text}"
@@ -64,13 +67,13 @@ export const TestimonialsSection = () => {
               </div>
               
               <div className="border-t border-primary/10 pt-3">
-                <p className="font-semibold text-foreground text-sm">
+                <p className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors duration-200">
                   {testimonial.name}
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {testimonial.location}
                 </p>
-                <p className="text-xs text-accent mt-1">
+                <p className="text-xs text-accent mt-1 font-medium">
                   {testimonial.service}
                 </p>
               </div>

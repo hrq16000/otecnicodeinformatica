@@ -25,11 +25,11 @@ export const SchedulingSection = () => {
   return (
     <section 
       id="agendamento" 
-      className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden"
+      className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden mesh-gradient-warm noise-overlay"
       aria-labelledby="scheduling-title"
     >
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none orb-float" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none liquid-blob" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
@@ -45,6 +45,7 @@ export const SchedulingSection = () => {
               Assistência técnica em informática a domicílio. Técnico de computador e notebook 
               com atendimento rápido em Curitiba e região metropolitana.
             </p>
+            <div className="glow-separator max-w-xs mx-auto mt-5" />
           </div>
 
           {/* Main Content Grid */}
@@ -52,15 +53,16 @@ export const SchedulingSection = () => {
             {/* Left - Benefits & Services */}
             <div className="space-y-8">
               {/* Benefits */}
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4 stagger-grid">
                 {benefits.map((benefit, index) => (
                    <div
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] transition-all duration-300 group card-shine stagger-item"
+                    className="flex items-center gap-3 p-4 bg-background rounded-xl border border-border hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 group card-shine hover-streak slide-up-stagger"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
-                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
+                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-accent/15 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative">
                       <benefit.icon className="h-5 w-5 text-primary group-hover:text-accent icon-bounce transition-colors duration-300" />
+                      <div className="absolute inset-0 rounded-lg bg-accent/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                     </div>
                     <span className="font-medium text-foreground group-hover:text-accent transition-colors duration-200">{benefit.text}</span>
                   </div>
@@ -75,8 +77,8 @@ export const SchedulingSection = () => {
                 </h3>
                 <ul className="grid sm:grid-cols-2 gap-2">
                   {services.map((service, index) => (
-                    <li key={index} className="flex items-center gap-2 text-muted-foreground">
-                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                    <li key={index} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 group-hover:text-accent transition-colors duration-200" />
                       <span>{service}</span>
                     </li>
                   ))}
@@ -84,9 +86,9 @@ export const SchedulingSection = () => {
               </div>
 
               {/* Trust Badge */}
-              <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl">
+              <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl hover:bg-accent/15 transition-colors duration-300 hover-streak">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-accent">4.9</div>
+                  <div className="text-2xl font-bold text-accent glow-pulse-text">4.9</div>
                   <div className="flex text-accent">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="h-3 w-3 fill-current" />
@@ -101,9 +103,9 @@ export const SchedulingSection = () => {
             </div>
 
             {/* Right - CTA Card */}
-            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl animated-border hover:shadow-[var(--shadow-lg)] transition-all duration-300">
+            <div className="bg-background rounded-2xl border-2 border-primary/20 p-8 shadow-xl animated-border hover:shadow-[var(--shadow-xl)] transition-all duration-300 hover:-translate-y-1 glass-card">
               <div className="text-center space-y-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full pulse-ring">
                   <CalendarDays className="h-8 w-8 text-primary" />
                 </div>
                 
@@ -119,7 +121,7 @@ export const SchedulingSection = () => {
                 <div className="space-y-3">
                   <Button
                     size="lg"
-                    className="w-full text-lg py-6 ring-pulse hover:scale-[1.02] transition-transform"
+                    className="w-full text-lg py-6 ring-pulse hover:scale-[1.03] transition-all duration-300 elastic-click hover-streak"
                     onClick={() => setIsModalOpen(true)}
                   >
                     <CalendarDays className="mr-2 h-5 w-5" />
@@ -133,7 +135,7 @@ export const SchedulingSection = () => {
                     💰 <strong>Visita técnica:</strong> A partir de R$ 69,99
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Orçamento transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline">Ver detalhes</a>
+                    Orçamento transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline underline-grow">Ver detalhes</a>
                   </p>
                 </div>
               </div>

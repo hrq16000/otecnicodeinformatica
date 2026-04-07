@@ -45,13 +45,13 @@ const bairros = [
   { name: "Centro", slug: "centro-almirante-tamandare", hasPage: true },
   { name: "Jardim Monte Santo", slug: "jardim-monte-santo", hasPage: true },
   { name: "Cachoeira", slug: "cachoeira-at", hasPage: true },
-  { name: "Tanguá", slug: "tangua-at", hasPage: false },
-  { name: "São Venâncio", slug: "sao-venancio", hasPage: false },
-  { name: "Jardim Graziela", slug: "jardim-graziela", hasPage: false },
-  { name: "Jardim Roma", slug: "jardim-roma", hasPage: false },
-  { name: "Colônia Antônio Prado", slug: "colonia-antonio-prado", hasPage: false },
-  { name: "Tranqueira", slug: "tranqueira-at", hasPage: false },
-  { name: "Jardim Paraíso", slug: "jardim-paraiso-at", hasPage: false },
+  { name: "Tanguá", slug: "tangua-at", hasPage: true },
+  { name: "São Venâncio", slug: "sao-venancio", hasPage: true },
+  { name: "Jardim Graziela", slug: "jardim-graziela", hasPage: true },
+  { name: "Jardim Roma", slug: "jardim-roma", hasPage: true },
+  { name: "Colônia Antônio Prado", slug: "colonia-antonio-prado", hasPage: true },
+  { name: "Tranqueira", slug: "tranqueira-at", hasPage: true },
+  { name: "Jardim Paraíso", slug: "jardim-paraiso-at", hasPage: true },
 ];
 
 const servicos = [

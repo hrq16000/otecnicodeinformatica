@@ -57,11 +57,11 @@ const bairros = [
   { name: "São Francisco", slug: "sao-francisco", hasPage: true },
   { name: "Del Rey", slug: "del-rey", hasPage: true },
   { name: "Barro Preto", slug: "barro-preto", hasPage: true },
-  { name: "Cidade Jardim", slug: null, hasPage: false },
-  { name: "Pedro Moro", slug: null, hasPage: false },
-  { name: "Ipê", slug: null, hasPage: false },
-  { name: "Rio Pequeno", slug: null, hasPage: false },
-  { name: "Borda do Campo", slug: null, hasPage: false },
+  { name: "Cidade Jardim", slug: "cidade-jardim-sjp", hasPage: true },
+  { name: "Pedro Moro", slug: "pedro-moro-sjp", hasPage: true },
+  { name: "Ipê", slug: "ipe-sjp", hasPage: true },
+  { name: "Rio Pequeno", slug: "rio-pequeno-sjp", hasPage: true },
+  { name: "Borda do Campo", slug: "borda-do-campo-sjp", hasPage: true },
 ];
 
 const servicos = [

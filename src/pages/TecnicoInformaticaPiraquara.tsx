@@ -26,11 +26,11 @@ const benefits = [
 ];
 
 const bairros = [
-  { name: "Centro", hasPage: false }, { name: "Jardim Primavera", hasPage: false },
-  { name: "Planta Deodoro", hasPage: false }, { name: "Vila Macedo", hasPage: false },
-  { name: "Guarituba", hasPage: false }, { name: "Prado Velho", hasPage: false },
-  { name: "São Cristóvão", hasPage: false }, { name: "Vila São Cristóvão", hasPage: false },
-  { name: "Jardim Bela Vista", hasPage: false }, { name: "Caiuá", hasPage: false },
+  { name: "Centro", slug: "centro-piraquara", hasPage: true }, { name: "Jardim Primavera", slug: "jardim-primavera-piraquara", hasPage: true },
+  { name: "Planta Deodoro", slug: "planta-deodoro-piraquara", hasPage: true }, { name: "Vila Macedo", slug: "vila-macedo-piraquara", hasPage: true },
+  { name: "Guarituba", slug: "guarituba-piraquara", hasPage: true }, { name: "Prado Velho", slug: "prado-velho-piraquara", hasPage: true },
+  { name: "São Cristóvão", slug: "sao-cristao-piraquara", hasPage: true }, { name: "Vila São Cristóvão", hasPage: false },
+  { name: "Jardim Bela Vista", slug: "jardim-bela-vista-piraquara", hasPage: true }, { name: "Caiuá", slug: "caiua-piraquara", hasPage: true },
 ];
 
 const servicos = [
@@ -100,9 +100,15 @@ const TecnicoInformaticaPiraquara = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">Bairros Atendidos em Piraquara</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {bairros.map((b, i) => (
-                <div key={b.name} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
-                  <MapPin className="h-4 w-4 text-accent" />{b.name}
-                </div>
+                b.hasPage && b.slug ? (
+                  <Link key={b.name} to={`/bairros/${b.slug}`} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 hover:bg-accent/20 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
+                    <MapPin className="h-4 w-4 text-accent" />{b.name}
+                  </Link>
+                ) : (
+                  <div key={b.name} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
+                    <MapPin className="h-4 w-4 text-accent" />{b.name}
+                  </div>
+                )
               ))}
             </div>
           </div></div>

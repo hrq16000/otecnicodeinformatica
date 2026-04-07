@@ -8852,7 +8852,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "mouse-nao-funciona-curitiba",
     title: "Mouse Não Funciona em Curitiba — Diagnóstico e Reparo | Técnico Curitiba",
-    metaDescription: "Mouse parou de funcionar? Técnico em Curitiba resolve mouse com fio, sem fio e Bluetooth. Diagnóstico rápido, atendimento em domicílio. Ligue agora!",
+    metaDescription: "Mouse parou de funcionar? Técnico em Curitiba resolve mouse com fio, sem fio e Bluetooth. Diagnóstico rápido, atendimento em domicílio. WhatsApp agora!",
     h1: "Mouse Não Funciona — Diagnóstico e Reparo em Curitiba",
     categoria: "Periféricos",
     intro: `Seu mouse parou de funcionar e você não consegue trabalhar? Esse é um dos problemas mais comuns enfrentados por usuários de computador em Curitiba e região metropolitana. Apesar de parecer simples, a causa pode variar desde uma pilha descarregada até uma falha na porta USB da placa-mãe.\n\nAntes de comprar um mouse novo, vale a pena investigar a causa real. Muitos casos são resolvidos em minutos com ajuste de driver ou troca de porta USB. Já em situações mais complexas, o problema pode estar na controladora USB da placa-mãe ou em interferência de sinal no caso de mouses sem fio.\n\nNosso técnico em Curitiba faz o diagnóstico completo: testa portas, drivers, receptor wireless e estado interno do periférico. Atendemos em domicílio e também em bancada, garantindo que você volte a trabalhar o mais rápido possível.`,
@@ -9002,7 +9002,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "notebook-tela-escura-curitiba",
     title: "Notebook com Tela Escura em Curitiba — Diagnóstico e Reparo | Técnico Curitiba",
-    metaDescription: "Notebook com tela escura ou apagada? Técnico em Curitiba diagnostica backlight, flat cable e placa de vídeo. Atendimento em domicílio. Ligue agora!",
+    metaDescription: "Notebook com tela escura ou apagada? Técnico em Curitiba diagnostica backlight, flat cable e placa de vídeo. Atendimento em domicílio. WhatsApp agora!",
     h1: "Notebook com Tela Escura — Diagnóstico e Reparo em Curitiba",
     categoria: "Notebooks",
     intro: `Seu notebook liga mas a tela fica escura ou muito fraca? Esse é um dos problemas mais frustrantes para usuários de notebook em Curitiba. Você ouve o sistema iniciando, os LEDs acendem, mas a tela não exibe nada — ou exibe uma imagem tão fraca que só é visível em ambiente completamente escuro.\n\nA causa mais comum é falha no backlight (iluminação de fundo) da tela, mas pode também ser o flat cable que conecta a tela à placa-mãe, a própria placa de vídeo integrada ou até uma configuração de brilho no BIOS.\n\nÉ importante não confundir tela escura com tela quebrada: na tela escura, o painel está intacto mas sem iluminação. Nosso técnico em Curitiba faz o diagnóstico preciso usando monitor externo, lanterna e ferramentas específicas para identificar exatamente onde está a falha.`,

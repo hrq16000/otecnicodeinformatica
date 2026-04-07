@@ -657,7 +657,7 @@ const ComoFunciona = () => {
                 </Button>
               </div>
               <p className="text-primary-foreground/60 text-sm mt-6">
-                WhatsApp: (41) 99745-2053 • Atendimento de segunda a sábado
+                Atendimento de segunda a sábado via WhatsApp
               </p>
             </div>
           </div>
@@ -685,7 +685,7 @@ const etapas = [
     icon: MessageCircle,
     title: "Primeiro Contato via WhatsApp",
     items: [
-      "Você entra em contato pelo WhatsApp (41) 99745-2053",
+      "Você entra em contato pelo WhatsApp",
       "Descreve o problema ou necessidade do seu computador",
       "Recebe orientação inicial e possíveis soluções imediatas",
     ],

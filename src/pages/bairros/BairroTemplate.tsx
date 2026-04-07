@@ -19,7 +19,6 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { 
   MessageCircle, 
-  Phone, 
   MapPin, 
   Clock, 
   Shield, 
@@ -56,7 +55,7 @@ interface BairroTemplateProps {
 export const BairroTemplate = ({ data }: BairroTemplateProps) => {
   const whatsappMessage = `Olá! Preciso de um técnico de informática em ${data.nome}. Serviço: [DESCREVA O PROBLEMA]`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-  const phoneUrl = `tel:+${WHATSAPP_NUMBER}`;
+  
 
   useEffect(() => {
     document.title = data.metaTitle;
@@ -71,9 +70,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     trackCTAClick("whatsapp", `bairro_${data.slug}`);
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `bairro_${data.slug}`);
-  };
 
   const benefits = [
     {
@@ -206,18 +202,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                   </a>
                 </Button>
 
-                <Button
-                  variant="heroCta"
-                  size="lg"
-                  className="text-base md:text-lg px-8"
-                  asChild
-                  onClick={handlePhoneClick}
-                >
-                  <a href={phoneUrl}>
-                    <Phone className="h-5 w-5" />
-                    Ligar Agora
-                  </a>
-                </Button>
               </div>
 
               <div className="bg-white/10 rounded-xl p-4 inline-block">

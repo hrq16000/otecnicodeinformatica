@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
 
 const footerLink = "text-white/70 hover:text-white text-sm transition-colors";
 
@@ -29,12 +29,6 @@ export const Footer = () => {
             <div className="flex items-center gap-2 text-white/80 text-sm">
               <MessageCircle className="h-4 w-4 flex-shrink-0" />
               <a href="https://wa.me/5541997452053" className="hover:text-white transition-colors">
-                (41) 9.9745-2053
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
-              <Phone className="h-4 w-4 flex-shrink-0" />
-              <a href="tel:+5541997452053" className="hover:text-white transition-colors">
                 (41) 9.9745-2053
               </a>
             </div>

@@ -8,10 +8,9 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
+import { MessageCircle, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
 
 const Contato = () => {
@@ -28,14 +27,9 @@ const Contato = () => {
   }, []);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
 
   const handleWhatsAppClick = () => {
     trackCTAClick("whatsapp", "contato-principal");
-  };
-
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", "contato-principal");
   };
 
   return (
@@ -60,8 +54,7 @@ const Contato = () => {
         {/* Contatos Principais */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
+             <div className="max-w-2xl mx-auto">
                 {/* WhatsApp */}
                 <div className="bg-secondary rounded-2xl p-8 text-center border-2 border-transparent hover:border-whatsapp/30 transition-all">
                   <div className="bg-whatsapp rounded-full p-4 w-fit mx-auto mb-4">
@@ -71,7 +64,6 @@ const Contato = () => {
                   <p className="text-muted-foreground mb-4">
                     Resposta rápida e atendimento imediato
                   </p>
-                  <p className="text-xl font-bold text-foreground mb-4">(41) 9.9745-2053</p>
                   <Button variant="whatsapp" size="lg" className="w-full" asChild>
                     <a
                       href={whatsappUrl}
@@ -84,25 +76,6 @@ const Contato = () => {
                     </a>
                   </Button>
                 </div>
-
-                {/* Telefone */}
-                <div className="bg-secondary rounded-2xl p-8 text-center border-2 border-transparent hover:border-accent/30 transition-all">
-                  <div className="bg-accent rounded-full p-4 w-fit mx-auto mb-4">
-                    <Phone className="h-10 w-10 text-white" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-primary mb-2">Telefone</h2>
-                  <p className="text-muted-foreground mb-4">
-                    Ligue diretamente para o técnico
-                  </p>
-                  <p className="text-xl font-bold text-foreground mb-4">(41) 9.9745-2053</p>
-                  <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href={phoneUrl} onClick={handlePhoneClick}>
-                      <Phone className="h-5 w-5" />
-                      Ligar Agora
-                    </a>
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -192,8 +165,7 @@ const Contato = () => {
               <p className="text-white/80 mb-6">
                 Não perca mais tempo. Fale agora com um técnico de informática e volte a usar seu computador.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
+              <Button
                   variant="heroWhatsapp"
                   size="lg"
                   className="animate-pulse-soft"
@@ -209,13 +181,6 @@ const Contato = () => {
                     WhatsApp Agora
                   </a>
                 </Button>
-                <Button variant="heroCta" size="lg" asChild>
-                  <a href={phoneUrl} onClick={handlePhoneClick}>
-                    <Phone className="h-5 w-5" />
-                    Ligar Agora
-                  </a>
-                </Button>
-              </div>
             </div>
           </div>
         </section>

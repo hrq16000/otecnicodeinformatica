@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
-  CheckCircle, Clock, Shield, MessageCircle, Phone, 
+  CheckCircle, Clock, Shield, MessageCircle, 
   MapPin, Star, ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -57,10 +57,6 @@ const ServicoCidadePage = () => {
     window.open(waLink, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `${servico.slug}-${cidade.slug}`);
-    window.location.href = `tel:+${WHATSAPP_NUMBER}`;
-  };
 
   // JSON-LD
   const jsonLd = {
@@ -144,15 +140,6 @@ const ServicoCidadePage = () => {
               <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Chamar pelo WhatsApp
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-                onClick={handlePhoneClick}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99745-2053
               </Button>
             </div>
           </div>

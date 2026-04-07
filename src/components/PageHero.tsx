@@ -1,9 +1,8 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 interface PageHeroProps {
@@ -14,14 +13,9 @@ interface PageHeroProps {
 
 export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: PageHeroProps) => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-  const phoneUrl = `tel:+${PHONE_NUMBER}`;
 
   const handleWhatsAppClick = () => {
     trackCTAClick('whatsapp', 'page_hero');
-  };
-
-  const handlePhoneClick = () => {
-    trackCTAClick('phone', 'page_hero');
   };
 
   return (
@@ -37,33 +31,18 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: Pag
             {subtitle}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="heroWhatsapp"
-              size="lg"
-              className="text-base md:text-lg px-8"
-              asChild
-              onClick={handleWhatsAppClick}
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                {ctaText}
-              </a>
-            </Button>
-            
-            <Button
-              variant="heroCta"
-              size="lg"
-              className="text-base md:text-lg px-8"
-              asChild
-              onClick={handlePhoneClick}
-            >
-              <a href={phoneUrl}>
-                <Phone className="h-5 w-5" />
-                Ligar Agora
-              </a>
-            </Button>
-          </div>
+          <Button
+            variant="heroWhatsapp"
+            size="lg"
+            className="text-base md:text-lg px-8"
+            asChild
+            onClick={handleWhatsAppClick}
+          >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-5 w-5" />
+              {ctaText}
+            </a>
+          </Button>
         </div>
       </div>
     </section>

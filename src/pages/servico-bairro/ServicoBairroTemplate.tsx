@@ -3,7 +3,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { 
-  CheckCircle, Clock, Shield, ArrowRight, MessageCircle, Phone, 
+  CheckCircle, Clock, Shield, ArrowRight, MessageCircle, 
   MapPin, Star, Award, Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
-const PHONE_NUMBER = "5541997452053";
+
 
 export interface ServicoBairroData {
   // SEO
@@ -74,10 +74,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `${data.servicoSlug}-${data.bairroSlug}`);
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
 
   // Generate JSON-LD for local service
   const jsonLd = {
@@ -165,15 +161,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Agendar no {data.bairro}
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10" 
-                onClick={handlePhoneClick}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99745-2053
               </Button>
             </div>
           </div>

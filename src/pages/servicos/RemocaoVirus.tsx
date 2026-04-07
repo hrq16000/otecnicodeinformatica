@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -11,7 +11,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541992671754";
-const PHONE_NUMBER = "5541992671754";
 
 const RemocaoVirus = () => {
   useEffect(() => {
@@ -29,10 +28,6 @@ const RemocaoVirus = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", "remocao-virus");
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -62,10 +57,6 @@ const RemocaoVirus = () => {
               <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Remover Vírus Agora
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" onClick={handlePhoneClick}>
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
               </Button>
             </div>
           </div>

@@ -104,7 +104,7 @@ export const FAQSection = () => {
         {/* SEO text block */}
         <div className="mt-12 max-w-4xl mx-auto text-center">
           <p className="text-sm text-muted-foreground">
-            Não encontrou sua dúvida? Entre em contato pelo WhatsApp <strong>(41) 99745-2053</strong> e 
+            Não encontrou sua dúvida? Entre em contato pelo <strong>WhatsApp</strong> e 
             fale diretamente com nosso técnico. Atendemos em toda <strong>Curitiba</strong>, <strong>São José dos Pinhais</strong>, 
             <strong> Araucária</strong>, <strong>Campo Largo</strong>, <strong>Pinhais</strong> e região metropolitana.
           </p>

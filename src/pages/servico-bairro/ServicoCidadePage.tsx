@@ -45,6 +45,8 @@ const ServicoCidadePage = () => {
 
   if (!servico || !cidade) return <NotFound />;
 
+  const isSemVisita = servico.slug === "conserto-tv" || servico.slug === "conserto-celular";
+
   const faqs = getFaqPorServico(servico.slug, cidade.nome);
 
   const waMessage = encodeURIComponent(

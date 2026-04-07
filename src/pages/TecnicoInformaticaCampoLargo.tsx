@@ -188,6 +188,8 @@ const TecnicoInformaticaCampoLargo = () => {
           subtitle="Atendimento profissional para toda a cidade"
         />
 
+        <RealImageSection imageKey="placaMae" caption="Diagnóstico de placa-mãe em Campo Largo" />
+
         {/* Sobre a Cidade - SEO Rich Content */}
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />

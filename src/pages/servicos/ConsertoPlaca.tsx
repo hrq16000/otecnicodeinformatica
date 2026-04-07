@@ -43,22 +43,28 @@ const ConsertoPlaca = () => {
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Conserto de Placa" }]} />
 
-      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
-        <div className="container mx-auto px-4">
+      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 -right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
               <Cpu className="h-5 w-5" />
               <span className="font-medium">Reparo em Nível de Componente</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
               Conserto de Placa Eletrônica em Curitiba
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               Reparo profissional de placas-mãe, GPU, fontes e eletrônica em geral. Diagnóstico com equipamento especializado e técnico experiente.
             </p>
-            <Button size="lg" variant="cta" onClick={handleWhatsApp}>
-              <MessageCircle className="mr-2 h-5 w-5" /> Preciso Consertar uma Placa
-            </Button>
+            <div className="reveal-text" data-reveal-delay="200">
+              <Button size="lg" variant="cta" onClick={handleWhatsApp}>
+                <MessageCircle className="mr-2 h-5 w-5" /> Preciso Consertar uma Placa
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -77,15 +83,18 @@ const ConsertoPlaca = () => {
       </section>
 
       {/* Tipos */}
-      <section className="py-12 md:py-16 bg-background">
-        <div className="container mx-auto">
+      <section className="py-12 md:py-16 bg-background relative">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
               Tipos de Placas que Consertamos
             </h2>
             <div className="space-y-4">
               {tiposPlaca.map((tipo, i) => (
-                <div key={i} className="bg-secondary rounded-xl p-5 border border-border flex flex-col sm:flex-row gap-4">
+                <div key={i} className="bg-secondary rounded-xl p-5 border border-border flex flex-col sm:flex-row gap-4 hover:-translate-y-0.5 hover:shadow-lg hover:border-accent/20 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground mb-2">{tipo.titulo}</h3>
                     <p className="text-sm text-muted-foreground">{tipo.desc}</p>
@@ -104,7 +113,7 @@ const ConsertoPlaca = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Casos Complexos que Atendemos</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6 text-center reveal-text">Casos Complexos que Atendemos</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
               {[
                 "Reballing de chip BGA",
@@ -116,8 +125,8 @@ const ConsertoPlaca = () => {
                 "Dano por upgrade mal executado",
                 "Placa pós-mineração (desgaste)",
                 "Substituição de chip BIOS",
-              ].map((caso) => (
-                <div key={caso} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm border border-border">
+              ].map((caso, i) => (
+                <div key={caso} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm border border-border hover:-translate-y-0.5 hover:shadow-md hover:border-accent/20 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 50}ms` }}>
                   <CheckCircle className="h-4 w-4 text-accent flex-shrink-0" />
                   <span className="text-foreground">{caso}</span>
                 </div>
@@ -159,7 +168,7 @@ const ConsertoPlaca = () => {
                 { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
                 { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
               ].map((link) => (
-                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all">
+                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                   <ArrowRight className="h-4 w-4 text-accent" />{link.label}
                 </Link>
               ))}
@@ -168,9 +177,12 @@ const ConsertoPlaca = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-primary text-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Placa Com Defeito?</h2>
+      <section className="py-12 bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/3 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-breathe" />
+        </div>
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 reveal-text">Placa Com Defeito?</h2>
           <p className="text-white/80 mb-6">Envie fotos e descrição do problema. Orientamos pelo WhatsApp sobre viabilidade e prazo.</p>
           <Button size="lg" variant="cta" onClick={handleWhatsApp}>
             <MessageCircle className="mr-2 h-5 w-5" /> Enviar Detalhes para Avaliação

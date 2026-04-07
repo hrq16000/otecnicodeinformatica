@@ -21,6 +21,6 @@ const data = {
   ]
 };
 
-const Sitio Cercado = () => <BairroTemplate data={data} />;
+const SitioCercado = () => <BairroTemplate data={data} />;
 
-export default Sitio Cercado;
+export default SitioCercado;

@@ -11,8 +11,9 @@ const precos = [
 
 export const HomePricingBlock = () => {
   return (
-    <section className="py-12 md:py-16 bg-background relative overflow-hidden spotlight-sweep">
-      <div className="absolute -top-20 right-0 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none" />
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden spotlight-sweep mesh-gradient-warm">
+      <div className="absolute -top-20 right-0 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none orb-float" />
+      <div className="absolute bottom-0 left-0 w-[250px] h-[250px] bg-primary/[0.04] morph-blob pointer-events-none blur-[80px]" />
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -21,23 +22,25 @@ export const HomePricingBlock = () => {
               <DollarSign className="h-7 w-7 text-accent" />
             </div>
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 reveal-text neon-accent">
-              Preços Transparentes e Sem Surpresas
+              Preços <span className="gradient-text">Transparentes</span> e Sem Surpresas
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto reveal-text" data-reveal-delay="100">
               Valores claros desde o primeiro contato. Diagnóstico é pago — serviço só é executado com sua aprovação.
             </p>
+            <div className="glow-separator max-w-xs mx-auto mt-5" />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-3 mb-6">
             {precos.map((p, i) => (
               <div 
                 key={i} 
-                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 group card-shine stagger-item"
+                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
                 style={{ animationDelay: `${i * 70}ms` }}
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="bg-accent/10 rounded-full p-1 group-hover:bg-accent/20 transition-colors duration-300">
+                  <div className="bg-accent/10 rounded-full p-1 group-hover:bg-accent/20 transition-colors duration-300 relative">
                     <Check className="h-4 w-4 text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="absolute inset-0 rounded-full bg-accent/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </div>
                   <span className="text-sm font-medium text-foreground">{p.servico}</span>
                 </div>
@@ -46,7 +49,7 @@ export const HomePricingBlock = () => {
             ))}
           </div>
 
-          <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300">
+          <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300 hover-streak">
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               <Sparkles className="h-4 w-4 text-accent flex-shrink-0" />
               <span>
@@ -57,7 +60,7 @@ export const HomePricingBlock = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="cta" size="lg" className="hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300" asChild>
+            <Button variant="cta" size="lg" className="hover:scale-[1.03] hover:shadow-[var(--shadow-accent)] transition-all duration-300 elastic-click hover-streak" asChild>
               <Link to="/valores">
                 Ver Tabela Completa de Valores
                 <ArrowRight className="h-4 w-4 ml-1" />

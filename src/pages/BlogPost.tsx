@@ -998,7 +998,7 @@ const BlogPost = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">
+        <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
               <Link

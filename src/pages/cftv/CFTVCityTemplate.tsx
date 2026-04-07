@@ -52,7 +52,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative pt-20 md:pt-24 overflow-hidden">
+        <section className="relative pt-10 md:pt-12 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img src={cftvHero} alt={`Câmeras de segurança em ${city}`} className="w-full h-full object-cover" loading="eager" decoding="async" />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />

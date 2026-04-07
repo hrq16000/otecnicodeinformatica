@@ -86,25 +86,26 @@ export const Header = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleWhatsAppClick = () => {
-    trackCTAClick('whatsapp', 'header');
-  };
+  const handleWhatsAppClick = () => trackCTAClick('whatsapp', 'header');
 
   const openChatbot = () => {
     trackCTAClick('chatbot', 'header');
-    // Dispara evento customizado para abrir o chatbot
     window.dispatchEvent(new CustomEvent('openChatbot'));
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-background shadow-sm transition-all duration-300 ${isScrolled ? 'py-1' : 'py-2'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'py-1 bg-background/95 backdrop-blur-md shadow-[var(--shadow-md)]'
+          : 'py-2 bg-background shadow-[var(--shadow-sm)]'
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img
@@ -124,9 +125,9 @@ export const Header = () => {
                 <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none">
                   {item.label} <ChevronDown className="h-3.5 w-3.5" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 bg-background border border-primary/10 shadow-lg rounded-xl p-1.5">
+                <DropdownMenuContent align="start" className="w-56 bg-background border border-border shadow-[var(--shadow-lg)] rounded-xl p-1.5">
                   {item.sub.map((sub) => (
-                    <DropdownMenuItem key={sub.to} asChild className="rounded-lg px-3 py-2.5 text-sm text-foreground hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent cursor-pointer transition-colors">
+                    <DropdownMenuItem key={sub.to} asChild className="rounded-lg px-3 py-2.5 text-sm text-foreground hover:bg-accent/8 hover:text-accent focus:bg-accent/8 focus:text-accent cursor-pointer transition-colors">
                       <Link to={sub.to} className="w-full">
                         {sub.label}
                       </Link>
@@ -144,63 +145,39 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-2">
-          <Button variant="whatsapp" size="sm" className="hidden sm:flex" asChild>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
-            >
+          <Button variant="whatsapp" size="sm" className="hidden sm:flex shadow-sm" asChild>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <MessageCircle className="h-4 w-4" />
               <span className="hidden md:inline">WhatsApp</span>
             </a>
           </Button>
 
           <Button variant="whatsapp" size="icon" className="sm:hidden" asChild>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
               <MessageCircle className="h-5 w-5" />
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" onClick={openChatbot}>
+          <Button variant="cta" size="sm" className="shadow-sm" onClick={openChatbot}>
             <Bot className="h-4 w-4" />
             <span className="hidden md:inline">Atendimento Rápido</span>
             <span className="md:hidden">Atender</span>
           </Button>
 
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+          <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-background border-t border-border max-h-[80vh] overflow-y-auto shadow-[var(--shadow-lg)]">
           <nav className="container mx-auto py-4 flex flex-col gap-1">
             {mainNavItems.map((item) => (
               <div key={item.label}>
                 {!item.sub ? (
-                  <NavLink
-                    to={item.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="py-2 text-base block"
-                  >
+                  <NavLink to={item.to} onClick={() => setMobileMenuOpen(false)} className="py-2 text-base block">
                     {item.label}
                   </NavLink>
                 ) : (
@@ -209,12 +186,7 @@ export const Header = () => {
                       {item.label}
                     </p>
                     {item.sub.map((sub) => (
-                      <NavLink
-                        key={sub.to}
-                        to={sub.to}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="py-1.5 pl-3 text-base block"
-                      >
+                      <NavLink key={sub.to} to={sub.to} onClick={() => setMobileMenuOpen(false)} className="py-1.5 pl-3 text-base block">
                         {sub.label}
                       </NavLink>
                     ))}

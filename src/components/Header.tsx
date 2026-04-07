@@ -122,8 +122,8 @@ export const Header = () => {
           {mainNavItems.map((item) => (
             item.sub ? (
               <DropdownMenu key={item.label}>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none">
-                  {item.label} <ChevronDown className="h-3.5 w-3.5" />
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-accent transition-colors outline-none group">
+                  {item.label} <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-56 bg-background border border-border shadow-[var(--shadow-lg)] rounded-xl p-1.5">
                   {item.sub.map((sub) => (

@@ -8,6 +8,14 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingEffect } from "@/components/TypingEffect";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
+import heroBgHardware from "@/assets/hero-bg-hardware.jpg";
+import heroBgRedes from "@/assets/hero-bg-redes.jpg";
+import heroBgPlacamae from "@/assets/hero-bg-placamae.jpg";
+import heroBgReparo from "@/assets/hero-bg-reparo.jpg";
+
+const HERO_BACKGROUNDS = [heroTechBg, heroBgHardware, heroBgRedes, heroBgPlacamae, heroBgReparo];
+
+const getRandomBg = () => HERO_BACKGROUNDS[Math.floor(Math.random() * HERO_BACKGROUNDS.length)];
 
 const TYPING_PHRASES = [
   "e Região Metropolitana",
@@ -27,6 +35,7 @@ const trustSignals = [
 
 export const HeroSection = () => {
   const [isSchedulingOpen, setIsSchedulingOpen] = useState(false);
+  const [heroBg] = useState(getRandomBg);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   
   const openChatbot = () => {
@@ -41,7 +50,7 @@ export const HeroSection = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroTechBg}
+          src={heroBg}
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover opacity-15"

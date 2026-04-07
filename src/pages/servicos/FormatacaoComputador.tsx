@@ -105,6 +105,8 @@ const FormatacaoComputador = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="desktopMontado" layout="duo" caption="Formatação profissional com backup completo" secondaryCaption="Computador pronto após formatação" />
+
       {/* Quando formatar */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
@@ -199,26 +201,24 @@ const FormatacaoComputador = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-10 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">
             Serviços Relacionados
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/servicos/remocao-virus" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/servicos/remocao-virus" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Remoção de Vírus
             </Link>
-            <Link to="/servicos/upgrade-ssd-memoria" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+            <Link to="/servicos/upgrade-ssd-memoria" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Upgrade SSD
             </Link>
-            <Link to="/servicos/backup-recuperacao" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+            <Link to="/servicos/backup-recuperacao" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">
               Backup de Dados
             </Link>
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="desktopMontado" layout="duo" caption="Formatação profissional com backup completo" secondaryCaption="Computador pronto após formatação" />
       <InterlinkingBlock />
       <Footer />
     </div>

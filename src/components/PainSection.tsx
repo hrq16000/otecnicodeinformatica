@@ -60,7 +60,7 @@ export const PainSection = () => {
           <Button 
             variant="whatsapp" 
             size="xl"
-            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow"
+            className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback cta-pulse"
             asChild
             onClick={handleWhatsAppClick}
           >

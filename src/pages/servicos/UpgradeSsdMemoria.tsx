@@ -101,6 +101,8 @@ const UpgradeSsdMemoria = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="placaMae" layout="duo" caption="SSD e memória RAM para upgrade" secondaryCaption="Diagnóstico de placa-mãe para compatibilidade" />
+
       {/* Tipos de Upgrade */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
@@ -218,26 +220,16 @@ const UpgradeSsdMemoria = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-10 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
-            Serviços Relacionados
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/servicos/conserto-pc-notebook" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Conserto de Hardware
-            </Link>
-            <Link to="/servicos/formatacao-computador" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Formatação
-            </Link>
-            <Link to="/servicos/montagem-pc" className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Montagem de PC
-            </Link>
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">Serviços Relacionados</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/servicos/conserto-pc-notebook" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Conserto de Hardware</Link>
+            <Link to="/servicos/formatacao-computador" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Formatação</Link>
+            <Link to="/servicos/montagem-pc" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Montagem de PC</Link>
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="componentesSsd" secondaryImageKey="placaMae" layout="duo" caption="SSD e memória RAM para upgrade" secondaryCaption="Diagnóstico de placa-mãe para compatibilidade" />
       <InterlinkingBlock />
       <Footer />
     </div>

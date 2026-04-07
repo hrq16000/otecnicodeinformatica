@@ -95,6 +95,8 @@ const RedesWifi = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="redesWifi" caption="Configuração profissional de redes e roteadores" />
+
       {/* Problemas Comuns */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
@@ -186,7 +188,8 @@ const RedesWifi = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="redesWifi" caption="Configuração profissional de redes e roteadores" />
+
+
       <InterlinkingBlock />
       <Footer />
     </div>

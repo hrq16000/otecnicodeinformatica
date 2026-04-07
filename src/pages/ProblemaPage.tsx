@@ -271,14 +271,14 @@ const ProblemaPage = () => {
       <section className="py-12 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-            <div className="bg-background rounded-xl p-6 border border-green-200">
-              <h3 className="font-bold text-green-700 mb-3 flex items-center gap-2">
+            <div className="bg-background rounded-xl p-6 border border-green-500/20">
+              <h3 className="font-bold text-green-600 dark:text-green-400 mb-3 flex items-center gap-2">
                 <CheckCircle className="h-5 w-5" /> Quando Compensa Reparar
               </h3>
               <p className="text-sm text-muted-foreground">{data.quandoCompensa}</p>
             </div>
-            <div className="bg-background rounded-xl p-6 border border-red-200">
-              <h3 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+            <div className="bg-background rounded-xl p-6 border border-red-500/20">
+              <h3 className="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
                 <TrendingDown className="h-5 w-5" /> Quando Não Compensa
               </h3>
               <p className="text-sm text-muted-foreground">{data.quandoNaoCompensa}</p>

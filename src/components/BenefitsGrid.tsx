@@ -14,17 +14,18 @@ interface BenefitsGridProps {
 
 export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) => {
   return (
-    <section className="py-14 md:py-18 bg-muted/40">
-      <div className="container mx-auto">
+    <section className="py-14 md:py-18 bg-muted/40 relative overflow-hidden">
+      <div className="absolute top-0 left-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container mx-auto relative z-10">
         {(title || subtitle) && (
           <div className="text-center mb-10">
             {title && (
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 tracking-tight reveal-text">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 {subtitle}
               </p>
             )}
@@ -37,11 +38,11 @@ export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) =
             return (
               <div
                 key={index}
-                className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] text-center ripple-container stagger-item"
+                className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] text-center ripple-container stagger-item group"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="w-13 h-13 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-                  <Icon className="h-6 w-6 text-accent" />
+                <div className="w-13 h-13 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:bg-accent/20 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.2)]">
+                  <Icon className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2 text-[15px]">
                   {benefit.title}

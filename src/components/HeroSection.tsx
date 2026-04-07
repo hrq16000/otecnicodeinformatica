@@ -60,7 +60,7 @@ export const HeroSection = () => {
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
               <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/75 mt-2 tracking-normal">
-                e Região Metropolitana
+                <TypingEffect phrases={TYPING_PHRASES} className="text-white/75" />
               </span>
             </h1>
             

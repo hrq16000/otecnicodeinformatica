@@ -69,6 +69,36 @@ const AraucariaCentro = lazy(() => import("./pages/bairros/AraucariaCentro"));
 const CapelaVelhaAraucaria = lazy(() => import("./pages/bairros/CapelaVelhaAraucaria"));
 const ThomazCoelhoAraucaria = lazy(() => import("./pages/bairros/ThomazCoelhoAraucaria"));
 
+const CacheiraAraucaria = lazy(() => import("./pages/bairros/CacheiraAraucaria"));
+const ThomazCoelhoIIAraucaria = lazy(() => import("./pages/bairros/ThomazCoelhoIIAraucaria"));
+const JardimBoaVistaAraucaria = lazy(() => import("./pages/bairros/JardimBoaVistaAraucaria"));
+const SaoMiguelAraucaria = lazy(() => import("./pages/bairros/SaoMiguelAraucaria"));
+const CaliforniaAraucaria = lazy(() => import("./pages/bairros/CaliforniaAraucaria"));
+const VilaNovaAraucaria = lazy(() => import("./pages/bairros/VilaNovaAraucaria"));
+const IndustrialAraucaria = lazy(() => import("./pages/bairros/IndustrialAraucaria"));
+const JardimIguacuAraucaria = lazy(() => import("./pages/bairros/JardimIguacuAraucaria"));
+const PlantaSaoTiagoAraucaria = lazy(() => import("./pages/bairros/PlantaSaoTiagoAraucaria"));
+const JardimShangrilaAraucaria = lazy(() => import("./pages/bairros/JardimShangrilaAraucaria"));
+const JardimLaranjeirasCL = lazy(() => import("./pages/bairros/JardimLaranjeirasCL"));
+const SaoMarcosCampoLargo = lazy(() => import("./pages/bairros/SaoMarcosCampoLargo"));
+const SaoJoseCampoLargo = lazy(() => import("./pages/bairros/SaoJoseCampoLargo"));
+const JardimEsperancaCL = lazy(() => import("./pages/bairros/JardimEsperancaCL"));
+const ColoniaMalhadaCL = lazy(() => import("./pages/bairros/ColoniaMalhadaCL"));
+const LamenhaGrandeCL = lazy(() => import("./pages/bairros/LamenhaGrandeCL"));
+const VilaCandidaCL = lazy(() => import("./pages/bairros/VilaCandidaCL"));
+const JardimNovoHorizonteCL = lazy(() => import("./pages/bairros/JardimNovoHorizonteCL"));
+const TimbotuvaCL = lazy(() => import("./pages/bairros/TimbotuvaCL"));
+const JardimPlanaltoIICL = lazy(() => import("./pages/bairros/JardimPlanaltoIICL"));
+const JardimPedroDemeterco = lazy(() => import("./pages/bairros/JardimPedroDemeterco"));
+const JardimKarlaPinhais = lazy(() => import("./pages/bairros/JardimKarlaPinhais"));
+const JardimClaudiaIIPinhais = lazy(() => import("./pages/bairros/JardimClaudiaIIPinhais"));
+const JardimWissingerPinhais = lazy(() => import("./pages/bairros/JardimWissingerPinhais"));
+const VilaAmeliaPinhais = lazy(() => import("./pages/bairros/VilaAmeliaPinhais"));
+const JardimEsplanadaPinhais = lazy(() => import("./pages/bairros/JardimEsplanadaPinhais"));
+const VilaMariaAntonietaPinhais = lazy(() => import("./pages/bairros/VilaMariaAntonietaPinhais"));
+const JardimDonaRosaPinhais = lazy(() => import("./pages/bairros/JardimDonaRosaPinhais"));
+const ParqueNascentesPinhais = lazy(() => import("./pages/bairros/ParqueNascentesPinhais"));
+const JardimTropicalPinhais = lazy(() => import("./pages/bairros/JardimTropicalPinhais"));
 // Bairros Campo Largo
 const CampoLargoCentro = lazy(() => import("./pages/bairros/CampoLargoCentro"));
 const FerrariaCampoLargo = lazy(() => import("./pages/bairros/FerrariaCampoLargo"));
@@ -428,6 +458,36 @@ const App = () => (
             <Route path="/bairros/capela-velha" element={<CapelaVelhaAraucaria />} />
             <Route path="/bairros/thomaz-coelho" element={<ThomazCoelhoAraucaria />} />
 
+            <Route path="/bairros/cachoeira-araucaria" element={<CacheiraAraucaria />} />
+            <Route path="/bairros/thomaz-coelho-ii" element={<ThomazCoelhoIIAraucaria />} />
+            <Route path="/bairros/jardim-boa-vista-araucaria" element={<JardimBoaVistaAraucaria />} />
+            <Route path="/bairros/sao-miguel-araucaria" element={<SaoMiguelAraucaria />} />
+            <Route path="/bairros/california-araucaria" element={<CaliforniaAraucaria />} />
+            <Route path="/bairros/vila-nova-araucaria" element={<VilaNovaAraucaria />} />
+            <Route path="/bairros/industrial-araucaria" element={<IndustrialAraucaria />} />
+            <Route path="/bairros/jardim-iguacu-araucaria" element={<JardimIguacuAraucaria />} />
+            <Route path="/bairros/planta-sao-tiago-araucaria" element={<PlantaSaoTiagoAraucaria />} />
+            <Route path="/bairros/jardim-shangrila-araucaria" element={<JardimShangrilaAraucaria />} />
+            <Route path="/bairros/jardim-laranjeiras-cl" element={<JardimLaranjeirasCL />} />
+            <Route path="/bairros/sao-marcos-campo-largo" element={<SaoMarcosCampoLargo />} />
+            <Route path="/bairros/sao-jose-campo-largo" element={<SaoJoseCampoLargo />} />
+            <Route path="/bairros/jardim-esperanca-cl" element={<JardimEsperancaCL />} />
+            <Route path="/bairros/colonia-malhada-cl" element={<ColoniaMalhadaCL />} />
+            <Route path="/bairros/lamenha-grande-cl" element={<LamenhaGrandeCL />} />
+            <Route path="/bairros/vila-candida-cl" element={<VilaCandidaCL />} />
+            <Route path="/bairros/jardim-novo-horizonte-cl" element={<JardimNovoHorizonteCL />} />
+            <Route path="/bairros/timbotuva-cl" element={<TimbotuvaCL />} />
+            <Route path="/bairros/jardim-planalto-ii-cl" element={<JardimPlanaltoIICL />} />
+            <Route path="/bairros/jardim-pedro-demeterco" element={<JardimPedroDemeterco />} />
+            <Route path="/bairros/jardim-karla-pinhais" element={<JardimKarlaPinhais />} />
+            <Route path="/bairros/jardim-claudia-ii-pinhais" element={<JardimClaudiaIIPinhais />} />
+            <Route path="/bairros/jardim-wissinger-pinhais" element={<JardimWissingerPinhais />} />
+            <Route path="/bairros/vila-amelia-pinhais" element={<VilaAmeliaPinhais />} />
+            <Route path="/bairros/jardim-esplanada-pinhais" element={<JardimEsplanadaPinhais />} />
+            <Route path="/bairros/vila-maria-antonieta-pinhais" element={<VilaMariaAntonietaPinhais />} />
+            <Route path="/bairros/jardim-dona-rosa-pinhais" element={<JardimDonaRosaPinhais />} />
+            <Route path="/bairros/parque-nascentes-pinhais" element={<ParqueNascentesPinhais />} />
+            <Route path="/bairros/jardim-tropical-pinhais" element={<JardimTropicalPinhais />} />
             {/* Bairros Campo Largo */}
             <Route path="/bairros/centro-campo-largo" element={<CampoLargoCentro />} />
             <Route path="/bairros/ferraria" element={<FerrariaCampoLargo />} />

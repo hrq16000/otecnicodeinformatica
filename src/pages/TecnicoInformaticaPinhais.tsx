@@ -58,6 +58,16 @@ const bairros = [
   { name: "Vila Tarumã", slug: "vila-taruma", hasPage: true },
   { name: "Vale das Águas", slug: "vale-das-aguas", hasPage: true },
   { name: "Jardim Claudia", slug: "jardim-claudia", hasPage: true },
+  { name: "Jardim Pedro Demeterco", slug: "jardim-pedro-demeterco", hasPage: true },
+  { name: "Jardim Karla", slug: "jardim-karla-pinhais", hasPage: true },
+  { name: "Jardim Cláudia II", slug: "jardim-claudia-ii-pinhais", hasPage: true },
+  { name: "Jardim Wissinger", slug: "jardim-wissinger-pinhais", hasPage: true },
+  { name: "Vila Amélia", slug: "vila-amelia-pinhais", hasPage: true },
+  { name: "Jardim Esplanada", slug: "jardim-esplanada-pinhais", hasPage: true },
+  { name: "Vila Maria Antonieta", slug: "vila-maria-antonieta-pinhais", hasPage: true },
+  { name: "Jardim Dona Rosa", slug: "jardim-dona-rosa-pinhais", hasPage: true },
+  { name: "Parque das Nascentes", slug: "parque-nascentes-pinhais", hasPage: true },
+  { name: "Jardim Tropical", slug: "jardim-tropical-pinhais", hasPage: true },
 ];
 
 const servicos = [

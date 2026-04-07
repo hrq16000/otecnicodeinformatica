@@ -35,6 +35,7 @@ const trustSignals = [
 
 export const HeroSection = () => {
   const [isSchedulingOpen, setIsSchedulingOpen] = useState(false);
+  const [heroBg] = useState(getRandomBg);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   
   const openChatbot = () => {

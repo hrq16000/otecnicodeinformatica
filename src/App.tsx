@@ -355,6 +355,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <MatrixBackground opacity={0.04} density={25} />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

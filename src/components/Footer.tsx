@@ -99,10 +99,12 @@ export const Footer = () => {
             </div>
             <a 
               href="https://wa.me/5541997452053?text=Olá!%20Encontrei%20vocês%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
-              className="flex items-center gap-2 text-white/65 text-sm hover:text-white/90 transition-colors group"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors group"
             >
               <MessageCircle className="h-4 w-4 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span>(41) 9.9745-2053</span>
+              <span>Chamar no WhatsApp</span>
             </a>
           </div>
 

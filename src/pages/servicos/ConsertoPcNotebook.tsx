@@ -67,6 +67,7 @@ const ConsertoPcNotebook = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="notebookReparo" caption="Reparo profissional de notebooks e PCs" />
 
       {/* Aviso Coleta */}
       <section className="py-6 bg-accent/5 border-y border-accent/10">
@@ -108,7 +109,7 @@ const ConsertoPcNotebook = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="notebookReparo" secondaryImageKey="ferramentas" layout="duo" caption="Reparo de notebook com ferramentas profissionais" secondaryCaption="Ferramentas especializadas para conserto" />
+      <RealImageSection imageKey="ferramentas" caption="Ferramentas especializadas para conserto de hardware" />
 
       {/* Problemas Comuns */}
       <section className="py-10 bg-secondary">

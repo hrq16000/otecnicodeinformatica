@@ -62,10 +62,12 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" caption="HD e SSD — recuperamos seus dados com segurança" />
+
       {/* Alerta Importante */}
-      <section className="py-8 bg-red-500/10 border-y border-red-500/20">
+      <section className="py-6 bg-destructive/10 border-y border-destructive/20">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 text-red-500 mb-2">
+          <div className="flex items-center justify-center gap-3 text-destructive mb-2">
             <AlertTriangle className="h-6 w-6 animate-pulse" />
             <p className="text-xl font-bold">Importante!</p>
           </div>
@@ -113,7 +115,7 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
+      <RealImageSection imageKey="diagnostico" caption="Diagnóstico técnico para backup e recuperação segura" />
 
       {/* Tipos de Recuperação */}
       <section className="py-10 bg-secondary">

@@ -74,6 +74,7 @@ const ComputadorLento = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="diagnostico" caption="Diagnóstico profissional de desempenho" />
 
       {/* Causas */}
       <section className="py-12 md:py-16 bg-background relative">
@@ -108,7 +109,7 @@ const ComputadorLento = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="diagnostico" secondaryImageKey="componentesSsd" layout="duo" caption="Diagnóstico profissional de desempenho" secondaryCaption="SSD: a solução nº 1 para PC lento" />
+      <RealImageSection imageKey="componentesSsd" caption="SSD: a solução nº 1 para computador lento" />
 
       {/* Quando vale / não vale */}
       <section className="py-12 md:py-16 bg-secondary">

@@ -61,6 +61,7 @@ const RedesWifi = () => {
           </div>
         </div>
       </section>
+      <RealImageSection imageKey="redesWifi" caption="Infraestrutura de rede profissional" />
 
       {/* Serviços de Rede */}
       <section className="py-10 bg-background relative">
@@ -95,7 +96,7 @@ const RedesWifi = () => {
         </div>
       </section>
 
-      <RealImageSection imageKey="redesWifi" caption="Configuração profissional de redes e roteadores" />
+      <RealImageSection imageKey="servidores" caption="Rack de rede e equipamentos configurados profissionalmente" />
 
       {/* Problemas Comuns */}
       <section className="py-10 bg-secondary">

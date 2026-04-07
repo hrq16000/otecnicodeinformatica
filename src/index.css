@@ -175,9 +175,42 @@
     border: 1px solid hsl(0 0% 100% / 0.1);
   }
 
-  /* ── All content is visible by default ── */
-  /* Animation classes are purely decorative enhancements */
-  .anim-fade-in {
+  /* ── Scroll-triggered animation system ── */
+  /* All elements are visible by default; animations are progressive enhancement */
+
+  /* Base: elements start visible, observer adds .anim-ready then .anim-visible */
+  .anim-fade-up,
+  .anim-fade-in,
+  .anim-fade-soft {
+    will-change: opacity, transform;
+  }
+
+  .anim-fade-up.anim-ready {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .anim-fade-in.anim-ready {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .anim-fade-soft.anim-ready {
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  .anim-fade-up.anim-visible,
+  .anim-fade-in.anim-visible,
+  .anim-fade-soft.anim-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: opacity 0.5s var(--anim-ease-out),
+                transform 0.5s var(--anim-ease-out),
+                filter 0.5s var(--anim-ease-out);
+  }
+
+  /* Legacy class kept for compatibility */
+  .anim-fade-in-legacy {
     animation: fadeIn var(--anim-medium) var(--anim-ease-out);
   }
 
@@ -194,6 +227,15 @@
   .hover-lift:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px -8px hsl(var(--foreground) / 0.12);
+  }
+
+  .hover-soft {
+    transition: transform var(--anim-medium) var(--anim-ease),
+                box-shadow var(--anim-medium) var(--anim-ease);
+  }
+  .hover-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -4px hsl(var(--foreground) / 0.08);
   }
 
   .hover-scale {
@@ -219,6 +261,38 @@
     transform: translateY(-1px);
   }
 
+  /* ── Button Feedback ── */
+  .btn-feedback {
+    transition: transform var(--anim-fast) var(--anim-ease);
+  }
+  .btn-feedback:active {
+    transform: scale(0.97);
+  }
+
+  /* ── CTA Pulse ── */
+  @keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+  .cta-pulse {
+    animation: ctaPulse 4s var(--anim-ease-in-out) infinite;
+  }
+  .cta-pulse:hover {
+    animation-play-state: paused;
+  }
+
+  /* ── WhatsApp Float Pulse ── */
+  @keyframes waPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  .wa-pulse {
+    animation: waPulse 5s var(--anim-ease-in-out) infinite;
+  }
+  .wa-pulse:hover {
+    animation-play-state: paused;
+  }
+
   /* ── Ripple Effect ── */
   .ripple-container {
     position: relative;
@@ -242,11 +316,15 @@
   }
 
   /* ── Input Focus ── */
+  .input-focus,
+  .input-glow:focus-within {
+    transition: box-shadow var(--anim-medium) var(--anim-ease),
+                border-color var(--anim-medium) var(--anim-ease);
+  }
+  .input-focus:focus-within,
   .input-glow:focus-within {
     box-shadow: 0 0 0 3px hsl(var(--accent) / 0.15);
     border-color: hsl(var(--accent) / 0.5);
-    transition: box-shadow var(--anim-medium) var(--anim-ease),
-                border-color var(--anim-medium) var(--anim-ease);
   }
 
   /* ── Link underline animation ── */
@@ -269,6 +347,23 @@
   .link-underline:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+
+  /* ── Skeleton loading ── */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 25%,
+      hsl(var(--muted-foreground) / 0.08) 50%,
+      hsl(var(--muted)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius);
   }
 
   /* ── Stagger delay helpers ── */

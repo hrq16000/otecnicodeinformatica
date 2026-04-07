@@ -29,89 +29,97 @@ const getScarcityData = () => {
 
 type ProofType = "notification" | "scarcity";
 
-/**
- * Orchestrated social proof - only ONE element visible at a time.
- * Notifications and scarcity indicators alternate with fluid intervals.
- */
 export const SocialProofProvider = () => {
   const [activeType, setActiveType] = useState<ProofType | null>(null);
   const [isExiting, setIsExiting] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
   const [scarcityData, setScarcityData] = useState(getScarcityData());
-  const { city, isLoading } = useGeolocation();
+  const { city } = useGeolocation();
   const { settings } = useSocialProofSettings();
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cycleRef = useRef(0);
+  const settingsRef = useRef(settings);
+  const cityRef = useRef(city);
 
-  const messages = getActivityMessages(city || "sua região");
+  // Keep refs in sync
+  settingsRef.current = settings;
+  cityRef.current = city;
 
   const clearScheduled = useCallback(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  }, []);
-
-  const hideCurrentProof = useCallback(() => {
-    setIsExiting(true);
-    timeoutRef.current = setTimeout(() => {
-      setActiveType(null);
-      setIsExiting(false);
-    }, 400);
-  }, []);
-
-  const showNextProof = useCallback(() => {
-    if (!settings.enabled) return;
-
-    const cycle = cycleRef.current;
-    cycleRef.current++;
-
-    // Alternate: notification, scarcity, notification, scarcity...
-    const shouldShowNotification = cycle % 2 === 0 && settings.showActivityNotifications;
-    const shouldShowScarcity = cycle % 2 === 1 && settings.showScarcityMessages;
-
-    if (shouldShowNotification) {
-      setMessageIndex(prev => (prev + 1) % messages.length);
-      setActiveType("notification");
-    } else if (shouldShowScarcity) {
-      setScarcityData(getScarcityData());
-      setActiveType("scarcity");
-    } else if (settings.showActivityNotifications) {
-      setMessageIndex(prev => (prev + 1) % messages.length);
-      setActiveType("notification");
-    } else if (settings.showScarcityMessages) {
-      setScarcityData(getScarcityData());
-      setActiveType("scarcity");
-    } else {
-      return;
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
+  }, []);
 
-    // Auto-hide after 5 seconds
+  const scheduleNext = useCallback((delay: number) => {
+    clearScheduled();
     timeoutRef.current = setTimeout(() => {
-      hideCurrentProof();
+      const s = settingsRef.current;
+      if (!s.enabled) return;
 
-      // Schedule next proof after a random pause (8-18s)
-      const pause = 8000 + Math.random() * 10000;
-      timeoutRef.current = setTimeout(showNextProof, pause);
-    }, 5000);
-  }, [settings, messages.length, hideCurrentProof]);
+      const cycle = cycleRef.current;
+      cycleRef.current++;
 
+      const shouldShowNotification = cycle % 2 === 0 && s.showActivityNotifications;
+      const shouldShowScarcity = cycle % 2 === 1 && s.showScarcityMessages;
+
+      if (shouldShowNotification) {
+        setMessageIndex(prev => (prev + 1) % 5);
+        setActiveType("notification");
+      } else if (shouldShowScarcity) {
+        setScarcityData(getScarcityData());
+        setActiveType("scarcity");
+      } else if (s.showActivityNotifications) {
+        setMessageIndex(prev => (prev + 1) % 5);
+        setActiveType("notification");
+      } else if (s.showScarcityMessages) {
+        setScarcityData(getScarcityData());
+        setActiveType("scarcity");
+      } else {
+        return;
+      }
+
+      // Auto-hide after 5s, then schedule next
+      timeoutRef.current = setTimeout(() => {
+        setIsExiting(true);
+        timeoutRef.current = setTimeout(() => {
+          setActiveType(null);
+          setIsExiting(false);
+          // Schedule next proof after 8-18s pause
+          const pause = 8000 + Math.random() * 10000;
+          scheduleNext(pause);
+        }, 400);
+      }, 5000);
+    }, delay);
+  }, [clearScheduled]);
+
+  // Start the cycle once
   useEffect(() => {
-    if (!settings.enabled || isLoading) return;
+    if (!settings.enabled) return;
     if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
-    // Initial delay: 5-8 seconds before first proof
     const initialDelay = 5000 + Math.random() * 3000;
-    timeoutRef.current = setTimeout(showNextProof, initialDelay);
+    scheduleNext(initialDelay);
 
     return clearScheduled;
-  }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages, isLoading, showNextProof, clearScheduled]);
+    // Only run on mount / settings toggle
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages]);
 
   const handleClose = () => {
     clearScheduled();
-    hideCurrentProof();
-    // Resume cycle after longer pause
-    timeoutRef.current = setTimeout(showNextProof, 25000 + Math.random() * 10000);
+    setIsExiting(true);
+    setTimeout(() => {
+      setActiveType(null);
+      setIsExiting(false);
+      scheduleNext(25000 + Math.random() * 10000);
+    }, 400);
   };
 
   if (!activeType) return <ExitIntentPopup />;
+
+  const messages = getActivityMessages(cityRef.current || "sua região");
 
   // Render notification
   if (activeType === "notification") {
@@ -184,7 +192,7 @@ export const SocialProofProvider = () => {
               <Users className="h-4 w-4 text-primary" />
               <span className="text-sm">
                 {availableTechnicians > 0 ? (
-                  <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{city && ` em ${city}`}</>
+                  <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{cityRef.current && ` em ${cityRef.current}`}</>
                 ) : "Atendimento retorna amanhã"}
               </span>
             </div>

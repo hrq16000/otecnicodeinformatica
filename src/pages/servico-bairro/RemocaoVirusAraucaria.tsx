@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Remoção de Vírus em Araucária",
   subtitulo: "Computador infectado? Removemos vírus, malware e ransomware com técnico especializado em Araucária.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Inclui diagnóstico, remoção completa, antivírus profissional e visita domiciliar.",
   
   descricaoLonga: `Vírus e malware podem comprometer dados pessoais e empresariais em Araucária. Nossa equipe 

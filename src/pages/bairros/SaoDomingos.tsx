@@ -6,7 +6,7 @@ const SaoDomingos = () => {
     slug: "sao-domingos",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no São Domingos SJP | Técnico Curitiba",
-    metaDescription: "Técnico de informática no São Domingos, São José dos Pinhais. Manutenção, formatação, conserto. Atendimento em domicílio rápido. R$ 99,99.",
+    metaDescription: "Técnico de informática no São Domingos, São José dos Pinhais. Manutenção, formatação, conserto. Atendimento em domicílio rápido. A partir de R$ 69,99.",
     h1: "Técnico de Informática no São Domingos – São José dos Pinhais",
     subtitulo: "Serviços de informática profissionais no São Domingos. Atendimento rápido e de qualidade.",
     descricaoLonga: `O bairro São Domingos em São José dos Pinhais é uma região residencial com boa infraestrutura e acesso facilitado. Nossa equipe de técnicos de informática atende toda a região do São Domingos e bairros vizinhos, oferecendo serviços completos de manutenção e suporte.

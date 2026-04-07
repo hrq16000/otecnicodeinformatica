@@ -223,7 +223,7 @@ const ColetaEntrega = () => {
                   </p>
                 </div>
                 <Button variant="cta" size="lg" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     Ver Tabela de Preços <ArrowRight className="h-4 w-4 ml-1" />
                   </Link>
                 </Button>

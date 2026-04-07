@@ -40,7 +40,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Campo Magro a domicílio?", answer: "Sim. Atendemos Campo Magro com visita agendada. O deslocamento pela PR-090 leva de 35 a 55 minutos." },
-  { question: "Qual o valor da visita?", answer: "A visita começa em R$ 99,99 (30 minutos). Diagnóstico no local com orçamento transparente." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com orçamento transparente." },
   { question: "Atendem na zona rural?", answer: "Sim, desde que haja acesso por via pavimentada. Consulte pelo WhatsApp para confirmar cobertura no seu endereço." },
 ];
 
@@ -50,14 +50,14 @@ const schema = {
   "description": "Assistência técnica em Campo Magro PR. Atendimento a domicílio.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Campo Magro", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaCampoMagro = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Campo Magro PR | Atendimento Domicílio | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 99,99.");
+    if (meta) meta.setAttribute("content", "Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.");
     trackPageView("/tecnico-informatica-campo-magro", "Técnico Campo Magro");
   }, []);
 

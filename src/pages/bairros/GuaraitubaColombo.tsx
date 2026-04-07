@@ -6,7 +6,7 @@ const GuaraitubaColombo = () => {
     slug: "guaraituba-colombo",
     cidade: "Colombo",
     metaTitle: "Técnico de Informática no Guaraituba (Colombo) | Atendimento Domicílio | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Guaraituba, Colombo PR. Formatação, conserto, vírus, upgrade e redes. Atendimento a domicílio. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática no Guaraituba, Colombo PR. Formatação, conserto, vírus, upgrade e redes. Atendimento a domicílio. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no Guaraituba – Colombo",
     subtitulo: "Assistência técnica no Guaraituba com atendimento domiciliar, diagnóstico preciso e preços justos.",
     descricaoLonga: `O Guaraituba é um bairro extenso e populoso de Colombo, com perfil predominantemente residencial. Muitos moradores dependem do computador para trabalho remoto, estudos e comunicação.

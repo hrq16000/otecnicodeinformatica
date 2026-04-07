@@ -7,7 +7,7 @@ const ThomazCoelhoAraucaria = () => {
     cidade: "Araucária",
     metaTitle: "Técnico de Informática no Thomaz Coelho (Araucária) | Atendimento Rápido",
     metaDescription:
-      "Técnico de informática no Thomaz Coelho, Araucária. Assistência técnica para PC e notebook: formatação, vírus, conserto, upgrade e redes. Atendimento a domicílio. R$ 99,99.",
+      "Técnico de informática no Thomaz Coelho, Araucária. Assistência técnica para PC e notebook: formatação, vírus, conserto, upgrade e redes. Atendimento a domicílio. A partir de R$ 69,99.",
     h1: "Técnico de Informática no Thomaz Coelho – Araucária",
     subtitulo:
       "Suporte técnico no Thomaz Coelho com diagnóstico rápido, orçamento transparente e atendimento a domicílio.",

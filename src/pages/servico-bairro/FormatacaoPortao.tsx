@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Portão Curitiba | Rápido e Seguro | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Portão, Curitiba. Windows 10/11, backup completo e drivers. Atendimento a domicílio no mesmo dia. A partir de R$ 99,99.",
+  metaDescription: "Formatação de computador e notebook no Portão, Curitiba. Windows 10/11, backup completo e drivers. Atendimento a domicílio no mesmo dia. A partir de A partir de R$ 69,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",
@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Formatação de Computador no Portão",
   subtitulo: "Reinstalação completa do Windows com backup seguro. Técnico no Portão com atendimento rápido a domicílio.",
   
-  precoBase: "R$ 99,99",
+  precoBase: "R$ 69,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio.",
   
   descricaoLonga: `Precisa formatar seu computador no Portão? Nossa equipe atende toda a região com rapidez e 

@@ -7,7 +7,7 @@ const FerrariaCampoLargo = () => {
     cidade: "Campo Largo",
     metaTitle: "Técnico de Informática na Ferraria (Campo Largo) | Atendimento a Domicílio",
     metaDescription:
-      "Técnico de informática na Ferraria, Campo Largo. Assistência técnica para computadores e notebooks: formatação, conserto, vírus, upgrade e redes. Atendimento a domicílio. A partir de R$ 99,99.",
+      "Técnico de informática na Ferraria, Campo Largo. Assistência técnica para computadores e notebooks: formatação, conserto, vírus, upgrade e redes. Atendimento a domicílio. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática na Ferraria – Campo Largo",
     subtitulo:
       "Atendimento em domicílio na Ferraria com suporte técnico completo e agendamento flexível.",

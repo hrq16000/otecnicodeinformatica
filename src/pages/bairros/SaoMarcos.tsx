@@ -6,7 +6,7 @@ const SaoMarcos = () => {
     slug: "sao-marcos",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no São Marcos SJP | Assistência Técnica | Técnico Curitiba",
-    metaDescription: "Técnico de informática no São Marcos, São José dos Pinhais. Formatação, conserto, upgrade. Visita técnica em domicílio. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática no São Marcos, São José dos Pinhais. Formatação, conserto, upgrade. Visita técnica em domicílio. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no São Marcos – São José dos Pinhais",
     subtitulo: "Assistência técnica completa no São Marcos. Técnico especializado vai até sua casa ou empresa.",
     descricaoLonga: `O bairro São Marcos em São José dos Pinhais é uma região bem localizada, com características residenciais e comerciais equilibradas. Nossa equipe de técnicos de informática atende toda a região do São Marcos, oferecendo serviços profissionais com a comodidade do atendimento em domicílio.

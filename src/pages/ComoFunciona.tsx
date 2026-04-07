@@ -123,7 +123,7 @@ const ComoFunciona = () => {
                   </a>
                 </Button>
                 <Button variant="heroCta" size="lg" className="text-base md:text-lg px-8" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     <DollarSign className="h-5 w-5" />
                     Ver Preços e Condições
                   </Link>
@@ -242,13 +242,13 @@ const ComoFunciona = () => {
                   Quanto Custa o Atendimento?
                 </h2>
                 <p className="text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto">
-                  Os valores iniciais são simples e transparentes. A visita técnica presencial custa <strong className="text-accent">R$ 99,99 por cada 30 minutos</strong> de atendimento. Formatação a partir de <strong className="text-accent">R$ 150</strong>. Suporte remoto a partir de <strong className="text-accent">R$ 79,99</strong>.
+                  Os valores iniciais são simples e transparentes. A visita técnica presencial começa em <strong className="text-accent">R$ 69,99</strong>. Formatação a partir de <strong className="text-accent">R$ 150</strong>. Suporte remoto a partir de <strong className="text-accent">R$ 79,99</strong>.
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
                   Os valores podem variar conforme a complexidade do serviço, necessidade de peças e localização. Veja todos os detalhes na nossa tabela completa de preços.
                 </p>
                 <Button variant="cta" size="lg" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     <FileText className="h-5 w-5" />
                     Ver Preços e Políticas Completas
                     <ArrowRight className="h-4 w-4" />
@@ -478,7 +478,7 @@ const ComoFunciona = () => {
                     exemplo: "Computador lento → SSD cheio + muitos programas na inicialização",
                     tempo: "30-60 minutos",
                     solucao: "Limpeza de disco, otimização de inicialização, upgrade de SSD se necessário",
-                    custo: "R$ 99,99 a R$ 200",
+                    custo: "A partir de R$ 69,99",
                   },
                   {
                     nivel: "Médio",
@@ -650,7 +650,7 @@ const ComoFunciona = () => {
                   </Link>
                 </Button>
                 <Button variant="heroCta" size="lg" className="text-base px-8" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     <DollarSign className="h-5 w-5" />
                     Ver Preços
                   </Link>
@@ -787,7 +787,7 @@ const confiancaItems = [
 ];
 
 const faqItems = [
-  { question: "Quanto custa a visita técnica?", answer: "A visita técnica presencial custa R$ 99,99 por cada 30 minutos de atendimento. O tempo é cronometrado a partir da chegada do técnico. Serviços rápidos como formatação geralmente levam de 30 a 60 minutos. Também temos a modalidade de visita sem compromisso por R$ 100,00 (até 30 min), onde você apenas recebe o diagnóstico sem obrigação de reparo." },
+  { question: "Quanto custa a visita técnica?", answer: "A visita técnica presencial custa a partir de R$ 69,99 de atendimento. O tempo é cronometrado a partir da chegada do técnico. Serviços rápidos como formatação geralmente levam de 30 a 60 minutos. Também temos a modalidade de visita sem compromisso por R$ 100,00 (até 30 min), onde você apenas recebe o diagnóstico sem obrigação de reparo." },
   { question: "O valor pode mudar depois do orçamento?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
   { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },
   { question: "Atende no mesmo dia?", answer: "Na maioria dos casos, sim. Nosso objetivo é atender no mesmo dia da solicitação, dependendo da disponibilidade de agenda e da sua localização. Entre em contato via WhatsApp para verificar a disponibilidade." },

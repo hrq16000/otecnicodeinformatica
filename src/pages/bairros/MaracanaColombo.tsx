@@ -6,7 +6,7 @@ const MaracanaColombo = () => {
     slug: "maracana-colombo",
     cidade: "Colombo",
     metaTitle: "Técnico de Informática no Maracanã (Colombo) | Conserto e Formatação | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Maracanã, Colombo PR. Conserto de notebook, formatação, vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática no Maracanã, Colombo PR. Conserto de notebook, formatação, vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 69,99.",
     h1: "Técnico de Informática no Maracanã – Colombo",
     subtitulo: "Atendimento a domicílio no Maracanã com suporte técnico completo e garantia.",
     descricaoLonga: `O Maracanã é um dos bairros mais populosos de Colombo, com grande concentração residencial e comércio local ativo. A região tem acesso fácil pela Estrada da Ribeira e pela divisa com o bairro Atuba de Curitiba.

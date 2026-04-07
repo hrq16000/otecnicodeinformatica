@@ -7,7 +7,7 @@ const PinhaisCentro = () => {
     cidade: "Pinhais",
     metaTitle: "Técnico de Informática no Centro de Pinhais | Atendimento Rápido | Técnico Curitiba",
     metaDescription:
-      "Técnico de informática no Centro de Pinhais. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio rápido (divisa com Curitiba). A partir de R$ 99,99.",
+      "Técnico de informática no Centro de Pinhais. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio rápido (divisa com Curitiba). A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no Centro de Pinhais",
     subtitulo:
       "Assistência técnica em Pinhais com atendimento rápido a domicílio e suporte completo para computadores e notebooks.",

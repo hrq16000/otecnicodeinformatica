@@ -303,7 +303,7 @@ const Servicos = () => {
                   <p className="font-semibold text-primary group-hover:text-accent transition-colors">Como Funciona</p>
                   <p className="text-xs text-muted-foreground mt-1">Entenda o passo a passo do atendimento</p>
                 </Link>
-                <Link to="/precos-e-politicas" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
+                <Link to="/valores" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
                   <p className="font-semibold text-primary group-hover:text-accent transition-colors">Preços e Condições</p>
                   <p className="text-xs text-muted-foreground mt-1">Valores claros e transparentes</p>
                 </Link>

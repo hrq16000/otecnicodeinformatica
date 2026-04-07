@@ -75,7 +75,7 @@ const DiagnosticoTecnico = () => {
                   </a>
                 </Button>
                 <Button variant="heroCta" size="lg" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     <DollarSign className="h-5 w-5" /> Ver Valores
                   </Link>
                 </Button>
@@ -292,7 +292,7 @@ const DiagnosticoTecnico = () => {
                   O valor do diagnóstico é <strong>abatido do reparo</strong> quando aprovado. Se não aprovar, paga apenas o diagnóstico.
                 </p>
                 <Button variant="cta" size="lg" asChild>
-                  <Link to="/precos-e-politicas">
+                  <Link to="/valores">
                     Ver Tabela Completa <ArrowRight className="h-4 w-4 ml-1" />
                   </Link>
                 </Button>

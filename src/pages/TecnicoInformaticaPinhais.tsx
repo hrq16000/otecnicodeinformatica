@@ -117,7 +117,7 @@ const localFaqs = [
   {
     question: "Quanto custa a visita técnica em Pinhais?",
     answer:
-      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, informamos o orçamento antes de realizar qualquer serviço.",
+      "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o orçamento antes de realizar qualquer serviço.",
   },
   {
     question: "Vocês fazem suporte remoto para clientes de Pinhais?",
@@ -142,7 +142,7 @@ const pinhaisSchema = {
       "name": "Paraná"
     }
   },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Serviços de Informática",
@@ -162,7 +162,7 @@ const TecnicoInformaticaPinhais = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. R$ 99,99."
+        "Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. A partir de R$ 69,99."
       );
     }
     trackPageView("/tecnico-informatica-pinhais", "Técnico Pinhais");

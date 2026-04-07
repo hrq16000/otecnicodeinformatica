@@ -6,7 +6,7 @@ const Costeira = () => {
     slug: "costeira",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática na Costeira SJP | Atendimento Domicílio | Técnico Curitiba",
-    metaDescription: "Técnico de informática na Costeira, São José dos Pinhais. Formatação, conserto, upgrade SSD. Visita técnica em domicílio. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática na Costeira, São José dos Pinhais. Formatação, conserto, upgrade SSD. Visita técnica em domicílio. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática na Costeira – São José dos Pinhais",
     subtitulo: "Serviços de informática na Costeira com atendimento rápido e profissional. Técnico vai até você.",
     descricaoLonga: `A Costeira é um dos bairros mais tradicionais de São José dos Pinhais, conhecido por sua forte identidade comunitária e boa estrutura comercial. Nossa equipe de técnicos atende toda a região da Costeira e arredores, oferecendo serviços completos de manutenção e suporte em informática.

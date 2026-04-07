@@ -101,7 +101,7 @@ const localFaqs = [
   {
     question: "Quanto custa um técnico de informática em Curitiba?",
     answer:
-      "A visita técnica começa em R$ 99,99 (30 minutos). Este valor inclui deslocamento, diagnóstico e pequenos ajustes. Serviços adicionais são orçados antes da execução, sem surpresas.",
+      "A visita técnica começa em R$ 69,99. Este valor inclui deslocamento, diagnóstico e pequenos ajustes. Serviços adicionais são orçados antes da execução, sem surpresas.",
   },
   {
     question: "Vocês atendem em todos os bairros de Curitiba?",

@@ -5,7 +5,7 @@ const data = {
   slug: "sao-jose-dos-pinhais",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática em São José dos Pinhais | Atendimento Rápido | Técnico Curitiba",
-  metaDescription: "Técnico de informática em São José dos Pinhais. Atendimento em domicílio para PC e notebook. Formatação, vírus, upgrade. Visita a partir de R$99,99.",
+  metaDescription: "Técnico de informática em São José dos Pinhais. Atendimento em domicílio para PC e notebook. Formatação, vírus, upgrade. A partir de R$ 69,99.",
   h1: "Técnico de Informática em São José dos Pinhais",
   subtitulo: "Atendimento profissional em toda São José dos Pinhais e região metropolitana",
   descricaoLonga: `São José dos Pinhais é um dos maiores municípios da região metropolitana de Curitiba, 

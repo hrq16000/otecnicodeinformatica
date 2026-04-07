@@ -6,7 +6,7 @@ const EucaliptosFRG = () => {
     slug: "eucaliptos-frg",
     cidade: "Fazenda Rio Grande",
     metaTitle: "Técnico de Informática no Eucaliptos (Fazenda Rio Grande) | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Eucaliptos, Fazenda Rio Grande. Conserto de PC/notebook, formatação, upgrade e redes. Atendimento a domicílio. R$ 99,99.",
+    metaDescription: "Técnico de informática no Eucaliptos, Fazenda Rio Grande. Conserto de PC/notebook, formatação, upgrade e redes. Atendimento a domicílio. A partir de R$ 69,99.",
     h1: "Técnico de Informática no Eucaliptos – Fazenda Rio Grande",
     subtitulo: "Atendimento técnico a domicílio no Eucaliptos com diagnóstico profissional e soluções práticas.",
     descricaoLonga: `O Eucaliptos é um dos bairros mais conhecidos de Fazenda Rio Grande, com grande concentração residencial e comércio de bairro ativo. Muitas famílias dependem do computador para trabalho, estudos e lazer.

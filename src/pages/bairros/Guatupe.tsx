@@ -6,7 +6,7 @@ const Guatupe = () => {
     slug: "guatupe",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no Guatupê SJP | Atendimento Rápido | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Guatupê, São José dos Pinhais. Formatação, conserto, upgrade de hardware. Visita técnica domiciliar. A partir de R$ 99,99.",
+    metaDescription: "Técnico de informática no Guatupê, São José dos Pinhais. Formatação, conserto, upgrade de hardware. Visita técnica domiciliar. A partir de A partir de R$ 69,99.",
     h1: "Técnico de Informática no Guatupê – São José dos Pinhais",
     subtitulo: "Assistência técnica profissional no Guatupê e região. Soluções rápidas para problemas de informática.",
     descricaoLonga: `O Guatupê é um bairro tradicional e bem estruturado de São José dos Pinhais, com forte presença residencial e comercial. Nossa equipe de técnicos de informática atende toda a região do Guatupê, oferecendo serviços de alta qualidade com foco na satisfação do cliente.

@@ -7,7 +7,7 @@ const PinevillePinhais = () => {
     cidade: "Pinhais",
     metaTitle: "Técnico de Informática no Pineville (Pinhais) | Atendimento a Domicílio",
     metaDescription:
-      "Técnico de informática no Pineville, Pinhais. Formatação, conserto, vírus, upgrade e configuração de internet/Wi‑Fi. Atendimento a domicílio rápido. A partir de R$ 99,99.",
+      "Técnico de informática no Pineville, Pinhais. Formatação, conserto, vírus, upgrade e configuração de internet/Wi‑Fi. Atendimento a domicílio rápido. A partir de R$ 69,99.",
     h1: "Técnico de Informática no Pineville – Pinhais",
     subtitulo:
       "Assistência técnica no Pineville com atendimento rápido, diagnóstico preciso e soluções que funcionam.",

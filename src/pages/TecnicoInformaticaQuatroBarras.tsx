@@ -40,7 +40,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Quatro Barras a domicílio?", answer: "Sim. Atendemos Quatro Barras com visita agendada. Deslocamento de 40 a 55 minutos pela BR-116." },
-  { question: "Qual o valor da visita?", answer: "A visita começa em R$ 99,99 (30 minutos). Diagnóstico no local e orçamento antes de qualquer execução." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local e orçamento antes de qualquer execução." },
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços que exigem bancada, coletamos e devolvemos no seu endereço." },
 ];
 
@@ -50,14 +50,14 @@ const schema = {
   "description": "Assistência técnica em Quatro Barras PR. Atendimento a domicílio.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Quatro Barras", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaQuatroBarras = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Quatro Barras PR | Atendimento Domicílio | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 99,99.");
+    if (meta) meta.setAttribute("content", "Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.");
     trackPageView("/tecnico-informatica-quatro-barras", "Técnico Quatro Barras");
   }, []);
 

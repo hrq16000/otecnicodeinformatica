@@ -75,7 +75,7 @@ const services = [
     title: "Atendimento Domiciliar",
     description: "Vamos até você em Curitiba e região",
     link: "/atendimento-domicilio",
-    preco: "R$ 99,99 / 30 min"
+    preco: "A partir de R$ 69,99"
   },
   {
     icon: Camera,
@@ -135,7 +135,7 @@ export const ServicesSection = () => {
         {/* Link para tabela completa */}
         <div className="text-center mt-8">
           <Link
-            to="/precos-e-politicas"
+            to="/valores"
             className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all"
           >
             Ver tabela completa de preços

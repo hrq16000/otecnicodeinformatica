@@ -82,7 +82,7 @@ const chatFlow = {
 
   // ===== CLASSIFICAÇÃO POR COMPLEXIDADE =====
   triagem_lentidao: {
-    mensagem: "**Computador lento** — vamos classificar a complexidade:\n\n📋 **Perguntas rápidas:**\n• Há quanto tempo o equipamento está assim?\n• Qual a idade do equipamento?\n• Já tentou alguma solução?\n\n🟢 **Classificação provável: SIMPLES**\nGeralmente resolvido com limpeza de sistema, upgrade SSD ou otimização.\n\n**💰 Valores:**\n• Visita técnica: R$ 99,99/30min\n• Upgrade SSD (mão de obra): a partir de R$ 80\n\nComo prefere ser atendido?",
+    mensagem: "**Computador lento** — vamos classificar a complexidade:\n\n📋 **Perguntas rápidas:**\n• Há quanto tempo o equipamento está assim?\n• Qual a idade do equipamento?\n• Já tentou alguma solução?\n\n🟢 **Classificação provável: SIMPLES**\nGeralmente resolvido com limpeza de sistema, upgrade SSD ou otimização.\n\n**💰 Valores:**\n• Visita técnica: A partir de R$ 69,99\n• Upgrade SSD (mão de obra): a partir de R$ 80\n\nComo prefere ser atendido?",
     opcoes: [
       { label: "Agendar visita presencial", proximo: "perguntas_obrigatorias" },
       { label: "Tentar suporte remoto", proximo: "suporte_remoto" },
@@ -212,7 +212,7 @@ const chatFlow = {
 
   // ===== PERGUNTAS OBRIGATÓRIAS =====
   perguntas_obrigatorias: {
-    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: R$ 99,99/30min\n• Diagnóstico é pago e abatido do reparo\n• Não existe orçamento gratuito presencial",
+    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: A partir de R$ 69,99\n• Diagnóstico é pago e abatido do reparo\n• Não existe orçamento gratuito presencial",
     opcoes: [
       { label: "Enviar dados pelo WhatsApp", proximo: "whatsapp_visita" },
     ]
@@ -331,7 +331,7 @@ const chatFlow = {
   },
 
   // ===== ESTADOS FINAIS (REDIRECT WHATSAPP) =====
-  whatsapp_visita: { redirect: true, mensagem: "Olá! Gostaria de agendar uma visita técnica.\n\nNome: [NOME]\nEndereço: [ENDEREÇO/BAIRRO]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\nPreferência: [DATA/HORÁRIO]\n\nEstou ciente da política de preços (R$99,99/30min)." },
+  whatsapp_visita: { redirect: true, mensagem: "Olá! Gostaria de agendar uma visita técnica.\n\nNome: [NOME]\nEndereço: [ENDEREÇO/BAIRRO]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\nPreferência: [DATA/HORÁRIO]\n\nEstou ciente da política de preços (A partir de R$ 69,99)." },
   whatsapp_coleta: { redirect: true, mensagem: "Olá! Gostaria de agendar diagnóstico com coleta.\n\nNome: [NOME]\nEndereço: [ENDEREÇO COMPLETO + CEP]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nOrigem: [NOVO/USADO]\nProblema: [DESCREVA]\nHistórico: [REPAROS ANTERIORES?]\n\nEstou ciente da taxa de R$90-100 (desistência) e pré-aprovado até R$300-400." },
   whatsapp_remoto: { redirect: true, mensagem: "Olá! Preciso de suporte remoto.\n\nNome: [NOME]\nEquipamento: [MARCA/MODELO]\nProblema: [DESCREVA]\n\nEstou disponível agora." },
   whatsapp_geral: { redirect: true, mensagem: "Olá! Vim pelo site e gostaria de mais informações sobre os serviços de informática." },

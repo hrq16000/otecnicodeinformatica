@@ -117,7 +117,7 @@ const localFaqs = [
   {
     question: "Quanto custa a visita técnica em Campo Largo?",
     answer:
-      "A visita técnica começa em R$ 99,99 (30 minutos). Após o diagnóstico, o orçamento é informado antes de qualquer execução.",
+      "A visita técnica começa em R$ 69,99. Após o diagnóstico, o orçamento é informado antes de qualquer execução.",
   },
   {
     question: "Quais serviços são mais comuns em Campo Largo?",
@@ -142,7 +142,7 @@ const campoLargoSchema = {
       "name": "Paraná"
     }
   },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Serviços de Informática",
@@ -162,7 +162,7 @@ const TecnicoInformaticaCampoLargo = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. Visita a partir de R$ 99,99. Capital da Louça."
+        "Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. A partir de R$ 69,99. Capital da Louça."
       );
     }
     trackPageView("/tecnico-informatica-campo-largo", "Técnico Campo Largo");

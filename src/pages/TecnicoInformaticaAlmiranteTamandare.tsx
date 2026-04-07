@@ -69,7 +69,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Almirante Tamandaré?",
-    answer: "A visita começa em R$ 99,99 (30 minutos). Fazemos diagnóstico no local e apresentamos o orçamento antes de qualquer execução.",
+    answer: "A visita técnica começa em R$ 69,99. Fazemos diagnóstico no local e apresentamos o orçamento antes de qualquer execução.",
   },
   {
     question: "Atendem no mesmo dia?",
@@ -88,7 +88,7 @@ const atSchema = {
   "description": "Assistência técnica de computadores em Almirante Tamandaré PR. Atendimento a domicílio. Formatação, conserto, upgrade.",
   "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Almirante Tamandaré", "containedInPlace": { "@type": "State", "name": "Paraná" } },
-  "priceRange": "R$ 99,99 - R$ 500",
+  "priceRange": "$$",
 };
 
 const TecnicoInformaticaAlmiranteTamandare = () => {
@@ -97,7 +97,7 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. A partir de R$ 99,99."
+        "Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. A partir de A partir de R$ 69,99."
       );
     }
     trackPageView("/tecnico-informatica-almirante-tamandare", "Técnico Almirante Tamandaré");

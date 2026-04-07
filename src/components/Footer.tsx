@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
 
 const footerLink = "text-white/70 hover:text-white text-sm transition-colors";
 

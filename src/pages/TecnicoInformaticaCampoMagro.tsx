@@ -96,9 +96,15 @@ const TecnicoInformaticaCampoMagro = () => {
             <h2 className="text-2xl font-bold text-primary mb-6 text-center reveal-text">Bairros e Regiões Atendidas</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {bairros.map((b, i) => (
-                <div key={b.name} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
-                  <MapPin className="h-4 w-4 text-accent" />{b.name}
-                </div>
+                b.hasPage && b.slug ? (
+                  <Link key={b.name} to={`/bairros/${b.slug}`} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 hover:bg-accent/20 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
+                    <MapPin className="h-4 w-4 text-accent" />{b.name}
+                  </Link>
+                ) : (
+                  <div key={b.name} className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item hover:-translate-y-0.5 transition-all" style={{ animationDelay: `${i * 50}ms` }}>
+                    <MapPin className="h-4 w-4 text-accent" />{b.name}
+                  </div>
+                )
               ))}
             </div>
           </div></div>

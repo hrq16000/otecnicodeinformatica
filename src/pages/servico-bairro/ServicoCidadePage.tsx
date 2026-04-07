@@ -57,10 +57,6 @@ const ServicoCidadePage = () => {
     window.open(waLink, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    trackCTAClick("phone", `${servico.slug}-${cidade.slug}`);
-    window.location.href = `tel:+${WHATSAPP_NUMBER}`;
-  };
 
   // JSON-LD
   const jsonLd = {

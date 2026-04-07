@@ -528,7 +528,7 @@ export const WhatsAppChatbot = () => {
           {/* Footer */}
           <div className="p-3 bg-secondary/50 border-t border-border flex-shrink-0">
             <p className="text-xs text-center text-muted-foreground">
-              Atendimento humano via <span className="text-whatsapp font-medium">WhatsApp</span> • (41) 99745-2053
+              Atendimento humano via <span className="text-whatsapp font-medium">WhatsApp</span>
             </p>
           </div>
         </div>

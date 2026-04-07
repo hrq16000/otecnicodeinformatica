@@ -32,12 +32,6 @@ export const Footer = () => {
                 (41) 9.9745-2053
               </a>
             </div>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
-              <Phone className="h-4 w-4 flex-shrink-0" />
-              <a href="tel:+5541997452053" className="hover:text-white transition-colors">
-                (41) 9.9745-2053
-              </a>
-            </div>
           </div>
 
           {/* Serviços */}

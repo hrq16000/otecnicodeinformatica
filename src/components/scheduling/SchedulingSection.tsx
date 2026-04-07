@@ -123,13 +123,6 @@ export const SchedulingSection = () => {
                     Agendar Atendimento
                   </Button>
                   
-                  <a
-                    href="tel:+5541997452053"
-                    className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Ou ligue: (41) 99745-2053
-                  </a>
                 </div>
 
                 <div className="pt-4 border-t border-border">

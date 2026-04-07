@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { 
   Monitor, ShieldCheck, Wrench, HardDrive, Wifi, Database, 
   Building2, Headphones, MapPin, ArrowRight, Camera,
 } from "lucide-react";
 
-const services = [
+const allServices = [
   { icon: Monitor, title: "Formatação de Computador", description: "Windows, drivers e programas configurados", link: "/servicos/formatacao-computador", preco: "A partir de R$ 150" },
   { icon: ShieldCheck, title: "Remoção de Vírus", description: "Limpeza completa de malwares e ameaças", link: "/servicos/remocao-virus", preco: "A partir de R$ 99,99" },
   { icon: Wrench, title: "Conserto de PC e Notebook", description: "Diagnóstico e reparo de hardware", link: "/servicos/conserto-pc-notebook", preco: "Sob orçamento" },
@@ -17,7 +19,21 @@ const services = [
   { icon: Camera, title: "CFTV - Câmeras de Segurança", description: "Kit 4 câmeras Intelbras com instalação", link: "/cftv", preco: "R$ 1.350 completo" },
 ];
 
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export const ServicesSection = () => {
+  const isMobile = useIsMobile();
+  // Mobile: 3 items (1 col × 3 rows), Desktop: 9 items (3 cols × 3 rows)
+  const count = isMobile ? 3 : 9;
+  const services = useMemo(() => shuffleArray(allServices).slice(0, count), [count]);
+
   return (
     <section className="py-14 md:py-18 lg:py-24 bg-background relative overflow-hidden spotlight-sweep mesh-gradient-warm noise-overlay">
       {/* Animated orbs */}
@@ -36,7 +52,7 @@ export const ServicesSection = () => {
           <div className="glow-separator max-w-xs mx-auto mt-6" />
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

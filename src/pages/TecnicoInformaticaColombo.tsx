@@ -56,6 +56,11 @@ const bairros = [
   { name: "Roça Grande", slug: "roca-grande", hasPage: true },
   { name: "São Gabriel", slug: "sao-gabriel-colombo", hasPage: true },
   { name: "Santa Terezinha", slug: "santa-terezinha-colombo", hasPage: true },
+  { name: "Osvaldo Cruz", slug: "osvaldo-cruz-colombo", hasPage: true },
+  { name: "São Dimas", slug: "sao-dimas-colombo", hasPage: true },
+  { name: "Campina Grande", slug: "campina-grande-colombo", hasPage: true },
+  { name: "Taxiqueira", slug: "taxiqueira-colombo", hasPage: true },
+  { name: "Embu", slug: "embu-colombo", hasPage: true },
 ];
 
 const servicos = [

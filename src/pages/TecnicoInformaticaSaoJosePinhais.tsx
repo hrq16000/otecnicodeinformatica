@@ -62,6 +62,16 @@ const bairros = [
   { name: "Ipê", slug: "ipe-sjp", hasPage: true },
   { name: "Rio Pequeno", slug: "rio-pequeno-sjp", hasPage: true },
   { name: "Borda do Campo", slug: "borda-do-campo-sjp", hasPage: true },
+  { name: "Quississana", slug: "quississana-sjp", hasPage: true },
+  { name: "Academia", slug: "academia-sjp", hasPage: true },
+  { name: "Colônia Murici", slug: "colonia-murici-sjp", hasPage: true },
+  { name: "Boneca do Iguaçu", slug: "boneca-do-iguacu-sjp", hasPage: true },
+  { name: "Ouro Fino", slug: "ouro-fino-sjp", hasPage: true },
+  { name: "Agrícola", slug: "agricola-sjp", hasPage: true },
+  { name: "Campo Largo da Roseira", slug: "campo-largo-roseira-sjp", hasPage: true },
+  { name: "Itália", slug: "italia-sjp", hasPage: true },
+  { name: "Borda do Campo", slug: "borda-campo-sjp", hasPage: true },
+  { name: "Independência", slug: "independencia-sjp", hasPage: true },
 ];
 
 const servicos = [

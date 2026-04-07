@@ -28,6 +28,9 @@ const benefits = [
 const bairros = [
   { name: "Centro", slug: "centro-quatro-barras", hasPage: true }, { name: "Jardim Menino Deus", slug: "jardim-menino-deus-qb", hasPage: true }, { name: "Vila São José", slug: "vila-sao-jose-qb", hasPage: true },
   { name: "Borda do Campo", slug: "borda-do-campo-qb", hasPage: true }, { name: "São Lourenço", slug: "sao-lourenco-qb", hasPage: true }, { name: "Vila Maria", slug: "vila-maria-qb", hasPage: true },
+  { name: "Jardim Florestal", slug: "jardim-florestal-qb", hasPage: true },
+  { name: "Jardim Japão", slug: "jardim-japao-qb", hasPage: true },
+  { name: "Graciosa", slug: "graciosa-qb", hasPage: true },
 ];
 
 const servicos = [

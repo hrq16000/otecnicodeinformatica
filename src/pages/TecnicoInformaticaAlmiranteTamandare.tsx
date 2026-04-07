@@ -52,6 +52,10 @@ const bairros = [
   { name: "Colônia Antônio Prado", slug: "colonia-antonio-prado", hasPage: true },
   { name: "Tranqueira", slug: "tranqueira-at", hasPage: true },
   { name: "Jardim Paraíso", slug: "jardim-paraiso-at", hasPage: true },
+  { name: "Boa Vista", slug: "boa-vista-at", hasPage: true },
+  { name: "Campo do Tenente", slug: "campo-tenente-at", hasPage: true },
+  { name: "Jardim Paranaguá", slug: "jardim-paranagua-at", hasPage: true },
+  { name: "Jardim São Jorge", slug: "jardim-sao-jorge-at", hasPage: true },
 ];
 
 const servicos = [

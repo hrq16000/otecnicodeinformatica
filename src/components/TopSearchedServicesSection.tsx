@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server } from "lucide-react";
 
 interface ServiceLink {
@@ -18,14 +19,100 @@ const topServices: ServiceLink[] = [
 ];
 
 const cityLinks = [
-  { name: "Curitiba", url: "/tecnico-informatica-curitiba", bairros: ["Centro", "Batel", "Portão", "CIC"] },
-  { name: "São José dos Pinhais", url: "/tecnico-informatica-sao-jose-pinhais", bairros: ["Centro", "Afonso Pena", "Costeira"] },
-  { name: "Araucária", url: "/tecnico-informatica-araucaria", bairros: ["Centro", "Capela Velha", "Thomaz Coelho"] },
-  { name: "Campo Largo", url: "/tecnico-informatica-campo-largo", bairros: ["Centro", "Ferraria", "Jardim Guilhermina"] },
-  { name: "Pinhais", url: "/tecnico-informatica-pinhais", bairros: ["Centro", "Weissópolis", "Pineville"] },
+  {
+    name: "Curitiba", url: "/tecnico-informatica-curitiba",
+    bairros: [
+      { name: "Centro", slug: "centro" }, { name: "Batel", slug: "batel" }, { name: "Portão", slug: "portao" },
+      { name: "CIC", slug: "cic" }, { name: "Santa Felicidade", slug: "santa-felicidade" }, { name: "Água Verde", slug: "agua-verde" },
+      { name: "Bigorrilho", slug: "bigorrilho" }, { name: "Mercês", slug: "merces" }, { name: "Boa Vista", slug: "boa-vista" },
+      { name: "Juvevê", slug: "juveve" }, { name: "Cabral", slug: "cabral" }, { name: "Cristo Rei", slug: "cristo-rei" },
+      { name: "Cajuru", slug: "cajuru" }, { name: "Uberaba", slug: "uberaba" }, { name: "Pinheirinho", slug: "pinheirinho" },
+      { name: "Xaxim", slug: "xaxim" }, { name: "Boqueirão", slug: "boqueirao" }, { name: "Bacacheri", slug: "bacacheri" },
+      { name: "Tingui", slug: "tingui" }, { name: "Campo Comprido", slug: "campo-comprido" }, { name: "Alto da Glória", slug: "alto-da-gloria" },
+      { name: "Rebouças", slug: "reboucas" }, { name: "Vila Izabel", slug: "vila-izabel" }, { name: "Seminário", slug: "seminario" },
+      { name: "Hugo Lange", slug: "hugo-lange" }, { name: "Jardim Social", slug: "jardim-social" }, { name: "Tarumã", slug: "taruma" },
+      { name: "Hauer", slug: "hauer" }, { name: "Fazendinha", slug: "fazendinha" }, { name: "Novo Mundo", slug: "novo-mundo" },
+      { name: "Sítio Cercado", slug: "sitio-cercado" }, { name: "Alto Boqueirão", slug: "alto-boqueirao" },
+      { name: "Capão da Imbuia", slug: "capao-da-imbuia" }, { name: "Jardim das Américas", slug: "jardim-das-americas" },
+    ],
+  },
+  {
+    name: "São José dos Pinhais", url: "/tecnico-informatica-sao-jose-pinhais",
+    bairros: [
+      { name: "Centro SJP", slug: "sao-jose-dos-pinhais" }, { name: "Afonso Pena", slug: "afonso-pena" },
+      { name: "Cruzeiro", slug: "cruzeiro" }, { name: "Aristocrata", slug: "aristocrata" }, { name: "Braga", slug: "braga" },
+      { name: "Costeira", slug: "costeira" }, { name: "Aviação", slug: "aviacao" }, { name: "Guatupê", slug: "guatupe" },
+      { name: "São Cristóvão", slug: "sao-cristovao" }, { name: "São Domingos", slug: "sao-domingos" },
+      { name: "São Marcos", slug: "sao-marcos" }, { name: "Del Rey", slug: "del-rey" }, { name: "Barro Preto", slug: "barro-preto" },
+      { name: "Cidade Jardim", slug: "cidade-jardim-sjp" }, { name: "Pedro Moro", slug: "pedro-moro-sjp" },
+      { name: "Ipê", slug: "ipe-sjp" }, { name: "Quississana", slug: "quississana-sjp" }, { name: "Ouro Fino", slug: "ouro-fino-sjp" },
+      { name: "Independência", slug: "independencia-sjp" }, { name: "Parque da Fonte", slug: "parque-da-fonte" },
+    ],
+  },
+  {
+    name: "Araucária", url: "/tecnico-informatica-araucaria",
+    bairros: [
+      { name: "Centro", slug: "centro-araucaria" }, { name: "Capela Velha", slug: "capela-velha" },
+      { name: "Thomaz Coelho", slug: "thomaz-coelho" }, { name: "Chapada", slug: "chapada" },
+      { name: "Iguaçu", slug: "iguacu-araucaria" }, { name: "Campina da Barra", slug: "campina-da-barra" },
+      { name: "Guajuvira", slug: "guajuvira" }, { name: "Cachoeira", slug: "cachoeira-araucaria" },
+      { name: "Thomaz Coelho II", slug: "thomaz-coelho-ii" }, { name: "Jd. Boa Vista", slug: "jardim-boa-vista-araucaria" },
+      { name: "São Miguel", slug: "sao-miguel-araucaria" }, { name: "Califórnia", slug: "california-araucaria" },
+      { name: "Vila Nova", slug: "vila-nova-araucaria" }, { name: "Industrial", slug: "industrial-araucaria" },
+      { name: "Barigui", slug: "barigui-araucaria" }, { name: "Fazenda Velha", slug: "fazenda-velha-araucaria" },
+      { name: "Estação", slug: "estacao-araucaria" }, { name: "Sabiá", slug: "sabia" },
+      { name: "Passaúna", slug: "passauna" }, { name: "Tindiquera", slug: "tindiquera" },
+    ],
+  },
+  {
+    name: "Campo Largo", url: "/tecnico-informatica-campo-largo",
+    bairros: [
+      { name: "Centro", slug: "centro-campo-largo" }, { name: "Ferraria", slug: "ferraria" },
+      { name: "Jd. Guilhermina", slug: "jardim-guilhermina" }, { name: "Jd. América", slug: "jardim-america-campo-largo" },
+      { name: "Botiatuva", slug: "botiatuva" }, { name: "Rondinha", slug: "rondinha" },
+      { name: "Ouro Fino", slug: "ouro-fino" }, { name: "Itaqui", slug: "itaqui" },
+      { name: "Bateias", slug: "bateias" }, { name: "Três Córregos", slug: "tres-corregos" },
+      { name: "São Silvestre", slug: "sao-silvestre" }, { name: "Santa Cruz", slug: "santa-cruz-campo-largo" },
+      { name: "Jd. Laranjeiras", slug: "jardim-laranjeiras-cl" }, { name: "São Marcos", slug: "sao-marcos-campo-largo" },
+      { name: "São José", slug: "sao-jose-campo-largo" }, { name: "Jd. Esperança", slug: "jardim-esperanca-cl" },
+      { name: "Lamenha Grande", slug: "lamenha-grande-cl" }, { name: "Vila Cândida", slug: "vila-candida-cl" },
+      { name: "Timbotuva", slug: "timbotuva-cl" }, { name: "Vila Solene", slug: "vila-solene" },
+    ],
+  },
+  {
+    name: "Pinhais", url: "/tecnico-informatica-pinhais",
+    bairros: [
+      { name: "Centro", slug: "centro-pinhais" }, { name: "Weissópolis", slug: "weissopolis" },
+      { name: "Pineville", slug: "pineville" }, { name: "Emiliano Perneta", slug: "emiliano-perneta" },
+      { name: "Estância", slug: "estancia-pinhais" }, { name: "Alto Tarumã", slug: "alto-taruma" },
+      { name: "Palmital", slug: "palmital-pinhais" }, { name: "Jardim Cláudia", slug: "jardim-claudia" },
+      { name: "Jd. Pedro Demeterco", slug: "jardim-pedro-demeterco" }, { name: "Jd. Karla", slug: "jardim-karla-pinhais" },
+      { name: "Jd. Wissinger", slug: "jardim-wissinger-pinhais" }, { name: "Vila Amélia", slug: "vila-amelia-pinhais" },
+      { name: "Jd. Esplanada", slug: "jardim-esplanada-pinhais" }, { name: "Jd. Dona Rosa", slug: "jardim-dona-rosa-pinhais" },
+      { name: "Jd. Tropical", slug: "jardim-tropical-pinhais" }, { name: "Vargem Grande", slug: "vargem-grande" },
+      { name: "Sete Vilas", slug: "sete-vilas" }, { name: "Maria Antonieta", slug: "maria-antonieta" },
+      { name: "Graciosa", slug: "graciosa" }, { name: "Jardim Amélia", slug: "jardim-amelia" },
+    ],
+  },
 ];
 
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export const TopSearchedServicesSection = () => {
+  const randomizedCities = useMemo(() =>
+    cityLinks.map(city => ({
+      ...city,
+      bairros: shuffleArray(city.bairros).slice(0, 4),
+    })),
+  []);
+
   return (
     <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background relative overflow-hidden noise-overlay">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none orb-float" />
@@ -79,7 +166,7 @@ export const TopSearchedServicesSection = () => {
             Atendimento por <span className="gradient-text">Região</span>
           </h3>
           <div className="grid md:grid-cols-5 gap-6">
-            {cityLinks.map((city, index) => (
+            {randomizedCities.map((city, index) => (
               <div key={index} className="text-center group slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
                 <Link
                   to={city.url}
@@ -90,9 +177,13 @@ export const TopSearchedServicesSection = () => {
                 </Link>
                 <div className="space-y-1.5">
                   {city.bairros.map((bairro, idx) => (
-                    <p key={idx} className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
-                      {bairro}
-                    </p>
+                    <Link
+                      key={idx}
+                      to={`/bairros/${bairro.slug}`}
+                      className="block text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
+                    >
+                      {bairro.name}
+                    </Link>
                   ))}
                 </div>
               </div>

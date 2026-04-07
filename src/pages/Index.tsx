@@ -128,6 +128,7 @@ const Index = () => {
         </section>
       </main>
       <Footer />
+      <WhatsAppFloat />
       <WhatsAppChatbot />
       <SocialProofProvider />
       <SocialProofAdminPanel />

@@ -72,7 +72,7 @@ const TecnicoInformaticaCampoMagro = () => {
         <PageHero title="Técnico de Informática em Campo Magro" subtitle="Assistência técnica profissional em Campo Magro e região. Atendimento a domicílio com garantia." ctaText="Falar com Técnico" />
         <BenefitsGrid benefits={benefits} title="Suporte Técnico em Campo Magro" subtitle="Atendimento para toda a cidade" />
 
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto relative z-10"><div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">Assistência Técnica em Campo Magro</h2>
@@ -88,7 +88,7 @@ const TecnicoInformaticaCampoMagro = () => {
           </div></div>
         </section>
 
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto"><div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-primary mb-6 text-center reveal-text">Bairros e Regiões Atendidas</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -101,7 +101,7 @@ const TecnicoInformaticaCampoMagro = () => {
           </div></div>
         </section>
 
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto relative z-10"><div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-primary mb-8 text-center reveal-text">Serviços em Campo Magro</h2>

@@ -363,6 +363,84 @@
     transform-origin: bottom left;
   }
 
+  /* ── Parallax layers ── */
+  [data-parallax] {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* ── Floating/breathing animations ── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+  .animate-breathe {
+    animation: breathe 5s ease-in-out infinite;
+  }
+
+  /* ── Gradient shift for backgrounds ── */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  /* ── Text shimmer highlight ── */
+  @keyframes textShimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--accent)) 0%,
+      hsl(var(--accent) / 0.6) 40%,
+      hsl(var(--accent)) 80%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 3s ease-in-out infinite;
+  }
+
+  /* ── Bounce subtle ── */
+  @keyframes bounceSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .animate-bounce-subtle {
+    animation: bounceSoft 2.5s ease-in-out infinite;
+  }
+
+  /* ── Section divider wave ── */
+  .section-divider {
+    position: relative;
+    overflow: hidden;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: hsl(var(--background));
+    clip-path: ellipse(55% 100% at 50% 0%);
+    z-index: 1;
+  }
+
   /* ── Skeleton loading ── */
   @keyframes shimmer {
     0% { background-position: -200% 0; }

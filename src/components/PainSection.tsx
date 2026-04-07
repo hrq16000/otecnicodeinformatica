@@ -19,7 +19,8 @@ export const PainSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted" aria-labelledby="pain-heading">
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden" aria-labelledby="pain-heading">
+      <div data-parallax="0.08" className="absolute -top-10 -left-10 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[80px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           <h2 

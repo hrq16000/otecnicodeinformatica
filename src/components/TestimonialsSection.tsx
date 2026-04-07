@@ -33,7 +33,8 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+      <div data-parallax="0.1" className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">

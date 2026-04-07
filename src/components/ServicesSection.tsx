@@ -19,11 +19,13 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-background">
-      <div className="container mx-auto">
+    <section className="py-14 md:py-18 lg:py-24 bg-background relative overflow-hidden spotlight-sweep">
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 tracking-tight reveal-text">
-            Nossos Serviços
+            Nossos <span className="gradient-text">Serviços</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Soluções completas em informática para você e sua empresa
@@ -37,12 +39,12 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group glass-card gradient-border rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] ripple-container stagger-item"
+                className="group glass-card gradient-border rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ripple-container card-shine animated-border stagger-item"
                 style={{ animationDelay: `${index * 70}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm">
-                    <Icon className="h-5 w-5 text-primary-foreground transition-transform duration-300 group-hover:scale-110" />
+                  <div className="bg-primary rounded-xl p-3 flex-shrink-0 group-hover:bg-accent group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-sm">
+                    <Icon className="h-5 w-5 text-primary-foreground icon-bounce" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-1 group-hover:text-accent transition-colors duration-200">
@@ -55,7 +57,7 @@ export const ServicesSection = () => {
                       <span className="text-accent font-bold text-sm">
                         {service.preco}
                       </span>
-                      <ArrowRight className="h-4 w-4 text-accent opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                      <ArrowRight className="h-4 w-4 text-accent opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     </div>
                   </div>
                 </div>
@@ -67,10 +69,10 @@ export const ServicesSection = () => {
         <div className="text-center mt-10">
           <Link
             to="/valores"
-            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all link-underline text-[15px]"
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all underline-grow text-[15px] group"
           >
             Ver tabela completa de preços
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

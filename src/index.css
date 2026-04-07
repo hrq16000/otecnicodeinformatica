@@ -832,6 +832,135 @@
     text-shadow: 0 0 7px hsl(var(--accent) / 0.4),
                  0 0 14px hsl(var(--accent) / 0.2);
   }
+
+  /* ── Gradient text animation ── */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .gradient-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--accent)),
+      hsl(var(--primary)),
+      hsl(var(--accent))
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  /* ── Shimmer sweep on badges ── */
+  @keyframes shimmerSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  .shimmer-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--accent) / 0.12),
+      transparent
+    );
+    animation: shimmerSweep 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* ── Floating badge wobble ── */
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(0.5deg); }
+    75% { transform: translateY(2px) rotate(-0.5deg); }
+  }
+  .float-badge {
+    animation: floatBadge 4s ease-in-out infinite;
+  }
+
+  /* ── Ring pulse on CTA ── */
+  @keyframes ringPulse {
+    0% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4); }
+    70% { box-shadow: 0 0 0 12px hsl(var(--accent) / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0); }
+  }
+  .ring-pulse {
+    animation: ringPulse 2.5s ease-out infinite;
+  }
+
+  /* ── Spotlight sweep on section ── */
+  @keyframes spotlightSweep {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .spotlight-sweep {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--accent) / 0.04) 45%,
+      hsl(var(--accent) / 0.08) 50%,
+      hsl(var(--accent) / 0.04) 55%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: spotlightSweep 6s ease-in-out infinite;
+  }
+
+  /* ── Stat counter slide-up ── */
+  @keyframes statReveal {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .stat-reveal {
+    animation: statReveal 0.6s var(--anim-ease-out) both;
+  }
+
+  /* ── Hover card shine ── */
+  .card-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      hsl(var(--accent) / 0.06) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .card-shine:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Icon bounce on group hover ── */
+  @keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    40% { transform: scale(1.2); }
+    60% { transform: scale(0.95); }
+    80% { transform: scale(1.05); }
+  }
+  .group:hover .icon-bounce {
+    animation: iconBounce 0.5s ease;
+  }
 }
 
 /* ── Reduced Motion ── */

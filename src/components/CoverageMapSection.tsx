@@ -54,8 +54,10 @@ const regions = [
 
 export const CoverageMapSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-secondary">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Navigation className="h-4 w-4" />
@@ -68,15 +70,15 @@ export const CoverageMapSection = () => {
             Atendemos Curitiba e região metropolitana com agilidade. Confira o tempo estimado de chegada para sua localização.
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-            <div className="text-center">
-              <p className="text-2xl md:text-3xl font-bold text-accent"><AnimatedCounter end={8} /> </p>
+            <div className="text-center stat-reveal" style={{ animationDelay: '0ms' }}>
+              <p className="text-2xl md:text-3xl font-bold text-accent glow-pulse-text"><AnimatedCounter end={8} /> </p>
               <p className="text-xs text-muted-foreground">Cidades atendidas</p>
             </div>
-            <div className="text-center">
+            <div className="text-center stat-reveal" style={{ animationDelay: '100ms' }}>
               <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={30} suffix="+" /></p>
               <p className="text-xs text-muted-foreground">Bairros cobertos</p>
             </div>
-            <div className="text-center">
+            <div className="text-center stat-reveal" style={{ animationDelay: '200ms' }}>
               <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={30} suffix=" min" /></p>
               <p className="text-xs text-muted-foreground">Tempo médio de chegada</p>
             </div>
@@ -131,9 +133,9 @@ export const CoverageMapSection = () => {
               {regions.map((region, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] stagger-item ${
+                  className={`flex items-center justify-between p-3 rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] card-shine stagger-item ${
                     region.highlight
-                      ? "glass-card border-accent/30 shadow-sm"
+                      ? "glass-card border-accent/30 shadow-sm shimmer-sweep"
                       : "glass-card hover:border-accent/20"
                   }`}
                 >

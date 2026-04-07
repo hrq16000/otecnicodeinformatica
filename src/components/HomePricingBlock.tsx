@@ -11,7 +11,7 @@ const precos = [
 
 export const HomePricingBlock = () => {
   return (
-    <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden spotlight-sweep">
       <div className="absolute -top-20 right-0 w-[350px] h-[350px] rounded-full bg-accent/[0.03] blur-[100px] pointer-events-none" />
       
       <div className="container mx-auto relative z-10">
@@ -20,7 +20,7 @@ export const HomePricingBlock = () => {
             <div className="bg-accent/10 rounded-full p-3 w-fit mx-auto mb-3 shimmer">
               <DollarSign className="h-7 w-7 text-accent" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 reveal-text">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 reveal-text neon-accent">
               Preços Transparentes e Sem Surpresas
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto reveal-text" data-reveal-delay="100">
@@ -32,7 +32,7 @@ export const HomePricingBlock = () => {
             {precos.map((p, i) => (
               <div 
                 key={i} 
-                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 group stagger-item"
+                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 group card-shine stagger-item"
                 style={{ animationDelay: `${i * 70}ms` }}
               >
                 <div className="flex items-center gap-2.5">

@@ -167,7 +167,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/[0.08] pt-7 text-center space-y-2">
+        <div className="border-t border-white/[0.08] pt-7 text-center space-y-2 spotlight-sweep">
           <p className="text-white/45 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. Todos os direitos reservados.
           </p>

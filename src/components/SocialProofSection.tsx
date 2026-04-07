@@ -29,37 +29,39 @@ export const SocialProofSection = () => {
   };
 
   return (
-    <section className="py-14 md:py-20 bg-background">
+    <section className="py-14 md:py-20 bg-background relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+      <div className="absolute top-0 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4 shimmer-sweep float-badge">
             <Award className="h-4 w-4" />
             <span className="font-medium text-sm">Assistência Técnica Mais Bem Avaliada de Curitiba</span>
           </div>
           
           <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-6 tracking-tight reveal-text">
-            O Que Nossos Clientes Dizem
+            O Que Nossos <span className="gradient-text">Clientes</span> Dizem
           </h2>
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 card-shine stat-reveal" style={{ animationDelay: '0ms' }}>
               <div className="flex items-center justify-center gap-1 mb-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-2xl font-bold text-foreground">{stats.rating}</p>
+              <p className="text-2xl font-bold text-foreground glow-pulse-text">{stats.rating}</p>
               <p className="text-xs text-muted-foreground">Nota Média</p>
             </div>
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 card-shine stat-reveal" style={{ animationDelay: '100ms' }}>
               <p className="text-2xl font-bold text-foreground">
                 <AnimatedCounter end={stats.totalReviews} suffix="+" />
               </p>
               <p className="text-xs text-muted-foreground">Avaliações</p>
             </div>
-            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-card rounded-xl px-6 py-4 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 transition-all duration-300 card-shine stat-reveal" style={{ animationDelay: '200ms' }}>
               <p className="text-2xl font-bold text-accent">
                 <AnimatedCounter end={stats.satisfaction} suffix="%" />
               </p>
@@ -72,7 +74,7 @@ export const SocialProofSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] group stagger-item"
+              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border stagger-item"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <Quote className="h-7 w-7 text-accent/25 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />

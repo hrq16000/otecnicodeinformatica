@@ -74,7 +74,7 @@ export const TechnicianAvailability = () => {
           )} />
           <span className={cn(
             "font-semibold text-sm",
-            status.isOnline ? "text-green-600" : "text-yellow-600"
+            status.isOnline ? "text-green-600 dark:text-green-400" : "text-yellow-600 dark:text-yellow-400"
           )}>
             {status.isOnline ? "Técnicos Disponíveis" : "Fora do Horário"}
           </span>
@@ -114,16 +114,16 @@ export const TechnicianAvailability = () => {
       )}
 
       {status.isOnline && status.queueSize <= 2 && (
-        <div className="mt-3 bg-green-50 border border-green-200 rounded-lg p-2 text-center">
-          <p className="text-green-700 text-sm font-medium">
+        <div className="mt-3 bg-green-500/10 border border-green-500/20 rounded-lg p-2 text-center">
+          <p className="text-green-600 dark:text-green-400 text-sm font-medium">
             ⚡ Poucos atendimentos na fila - Resposta rápida garantida!
           </p>
         </div>
       )}
 
       {status.isOnline && status.queueSize > 2 && (
-        <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-2 text-center">
-          <p className="text-amber-700 text-sm font-medium">
+        <div className="mt-3 bg-amber-500/10 border border-amber-500/20 rounded-lg p-2 text-center">
+          <p className="text-amber-600 dark:text-amber-400 text-sm font-medium">
             🔥 Alta demanda agora - Garanta seu horário!
           </p>
         </div>
@@ -147,8 +147,8 @@ export const TechnicianAvailabilityBadge = () => {
     <div className={cn(
       "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium",
       status.isOnline 
-        ? "bg-green-100 text-green-700 border border-green-200" 
-        : "bg-yellow-100 text-yellow-700 border border-yellow-200"
+        ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20" 
+        : "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border border-yellow-500/20"
     )}>
       <div className={cn(
         "w-2 h-2 rounded-full",

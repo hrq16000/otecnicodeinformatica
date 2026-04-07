@@ -488,8 +488,8 @@ const ComoFunciona = () => {
                   },
                   {
                     nivel: "Médio",
-                    cor: "text-yellow-600",
-                    bgCor: "bg-yellow-50",
+                    cor: "text-yellow-600 dark:text-yellow-400",
+                    bgCor: "bg-yellow-500/10",
                     exemplo: "Notebook não liga → Fonte defeituosa + bateria viciada",
                     tempo: "1-3 horas ou coleta para bancada",
                     solucao: "Diagnóstico detalhado, troca de fonte/carregador, avaliação de bateria",

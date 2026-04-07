@@ -961,6 +961,193 @@
   .group:hover .icon-bounce {
     animation: iconBounce 0.5s ease;
   }
+
+  /* ── Morphing blob background ── */
+  @keyframes morphBlob {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+    75% { border-radius: 60% 30% 60% 40% / 70% 40% 50% 60%; }
+  }
+  .morph-blob {
+    animation: morphBlob 8s ease-in-out infinite;
+  }
+
+  /* ── Typewriter cursor ── */
+  @keyframes cursorPulse {
+    0%, 100% { border-color: hsl(var(--accent)); }
+    50% { border-color: transparent; }
+  }
+  .cursor-pulse {
+    border-right: 2px solid hsl(var(--accent));
+    animation: cursorPulse 0.8s step-end infinite;
+  }
+
+  /* ── Slide up stagger for list items ── */
+  @keyframes slideUpStagger {
+    from { opacity: 0; transform: translateY(24px) scale(0.96); filter: blur(2px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  }
+  .slide-up-stagger {
+    animation: slideUpStagger 0.6s var(--anim-ease-out) both;
+  }
+
+  /* ── Gradient glow orb ── */
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -20px) scale(1.1); }
+    50% { transform: translate(-10px, 20px) scale(0.95); }
+    75% { transform: translate(-30px, -10px) scale(1.05); }
+  }
+  .orb-float {
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .orb-float-reverse {
+    animation: orbFloat 15s ease-in-out infinite reverse;
+  }
+
+  /* ── Hover card 3D depth ── */
+  .card-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s var(--anim-ease);
+  }
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateZ(10px) translateY(-6px);
+    box-shadow: 
+      8px 8px 32px -8px hsl(var(--foreground) / 0.1),
+      0 0 0 1px hsl(var(--accent) / 0.08);
+  }
+
+  /* ── Text reveal letter by letter ── */
+  @keyframes revealLetter {
+    from { opacity: 0; transform: translateY(12px) rotateX(-40deg); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
+  }
+
+  /* ── Noise texture overlay ── */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Glowing separator line ── */
+  .glow-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.4), hsl(var(--accent) / 0.6), hsl(var(--accent) / 0.4), transparent);
+    position: relative;
+  }
+  .glow-separator::after {
+    content: '';
+    position: absolute;
+    inset: -2px 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.15), hsl(var(--accent) / 0.2), hsl(var(--accent) / 0.15), transparent);
+    filter: blur(4px);
+  }
+
+  /* ── Hover streak ── */
+  @keyframes hoverStreak {
+    0% { left: -100%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { left: 200%; opacity: 0; }
+  }
+  .hover-streak {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-streak::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.15), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .hover-streak:hover::after {
+    animation: hoverStreak 0.7s ease-out;
+  }
+
+  /* ── Pulsing dot indicator ── */
+  @keyframes dotPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.8); opacity: 0; }
+  }
+  .pulse-dot {
+    position: relative;
+  }
+  .pulse-dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: dotPulse 2s ease-out infinite;
+  }
+
+  /* ── Gradient text with hover shift ── */
+  .gradient-text-hover {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-position: 0% 50%;
+    transition: background-position 0.6s ease;
+  }
+  .gradient-text-hover:hover {
+    background-position: 100% 50%;
+  }
+
+  /* ── Section mesh gradient ── */
+  .mesh-gradient-warm {
+    background: 
+      radial-gradient(at 0% 0%, hsl(var(--accent) / 0.07) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsl(var(--primary) / 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(var(--accent) / 0.04) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(var(--primary) / 0.06) 0px, transparent 50%);
+  }
+
+  /* ── Elastic scale on click ── */
+  .elastic-click {
+    transition: transform 0.3s var(--anim-bounce);
+  }
+  .elastic-click:active {
+    transform: scale(0.93);
+  }
+
+  /* ── Number ticker ── */
+  @keyframes tickUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .tick-up {
+    animation: tickUp 0.5s var(--anim-ease-out) both;
+    display: inline-block;
+  }
+
+  /* ── Marquee scroll ── */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }
 
 /* ── Reduced Motion ── */

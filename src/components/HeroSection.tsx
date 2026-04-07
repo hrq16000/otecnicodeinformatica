@@ -111,7 +111,6 @@ export const HeroSection = () => {
                 decoding="async"
                 width="400"
                 height="400"
-                height="400"
                 src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.webp" 
               />
               <div className="absolute -bottom-3 -right-3 bg-accent text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg animate-bounce-subtle">

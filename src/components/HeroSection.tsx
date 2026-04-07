@@ -37,6 +37,9 @@ export const HeroSection = () => {
     <>
     <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
     <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden" aria-label="Técnico de informática em Curitiba">
+      {/* Floating particles */}
+      <FloatingParticles count={40} />
+      
       {/* Parallax ambient lights */}
       <div data-parallax="0.12" className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-accent/[0.06] blur-[120px] pointer-events-none animate-breathe" />
       <div data-parallax="0.08" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.03] blur-[100px] pointer-events-none" />

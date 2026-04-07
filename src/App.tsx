@@ -370,6 +370,7 @@ const App = () => (
           </Routes>
         </Suspense>
         </PageTransition>
+        <WhatsAppChatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

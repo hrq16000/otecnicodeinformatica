@@ -38,10 +38,13 @@ export const useGeolocation = (): GeoData => {
     const timer = setTimeout(() => {
       const fetchLocation = async () => {
         try {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 4000);
           const response = await fetch("https://ipapi.co/json/", {
-            signal: AbortSignal.timeout(5000),
+            signal: controller.signal,
           });
-          
+          clearTimeout(timeout);
+
           if (!response.ok) {
             throw new Error("Failed to fetch location");
           }

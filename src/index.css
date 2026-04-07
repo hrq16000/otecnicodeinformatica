@@ -657,7 +657,11 @@
   .anim-slide-left,
   .anim-slide-right,
   .fade-up,
-  .fade-in {
+  .fade-in,
+  .reveal-text,
+  .reveal-text-left,
+  .reveal-text-right,
+  .reveal-scale {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

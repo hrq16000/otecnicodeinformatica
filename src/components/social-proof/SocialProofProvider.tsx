@@ -19,7 +19,6 @@ const getScarcityData = () => {
   const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
   const isBusinessHours = hour >= 8 && hour < 20;
   const isPeakHour = !isWeekend && ((hour >= 9 && hour <= 11) || (hour >= 14 && hour <= 16));
-
   if (!isBusinessHours) return { availableTechnicians: 0, waitTime: "Amanhã a partir das 8h", isPeakHour: false };
   if (isPeakHour) return { availableTechnicians: Math.floor(Math.random() * 2) + 1, waitTime: `${Math.floor(Math.random() * 20) + 30} minutos`, isPeakHour: true };
   return { availableTechnicians: Math.floor(Math.random() * 3) + 2, waitTime: `${Math.floor(Math.random() * 15) + 15} minutos`, isPeakHour: false };
@@ -34,65 +33,86 @@ export const SocialProofProvider = () => {
   const [scarcityData, setScarcityData] = useState(getScarcityData());
   const { city } = useGeolocation();
   const { settings } = useSocialProofSettings();
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mountTime = useRef(Date.now());
   const cycleRef = useRef(0);
+  const dismissedUntil = useRef(0);
   const cityRef = useRef(city);
   cityRef.current = city;
 
-  const clearScheduled = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  };
-
+  // Tick every second to manage show/hide
   useEffect(() => {
     if (!settings.enabled) return;
     if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
-    const showNext = () => {
-      const cycle = cycleRef.current;
-      cycleRef.current++;
+    const INITIAL_DELAY = 3000; // 3s before first
+    const SHOW_DURATION = 5000; // show for 5s
+    const HIDE_DURATION = 12000; // pause 12s between
+    const CYCLE_TOTAL = SHOW_DURATION + HIDE_DURATION;
 
-      const shouldShowNotification = cycle % 2 === 0 && settings.showActivityNotifications;
-      const shouldShowScarcity = cycle % 2 === 1 && settings.showScarcityMessages;
-
-      if (shouldShowNotification || (!shouldShowScarcity && settings.showActivityNotifications)) {
-        setMessageIndex(prev => (prev + 1) % 5);
-        setActiveType("notification");
-      } else if (shouldShowScarcity || settings.showScarcityMessages) {
-        setScarcityData(getScarcityData());
-        setActiveType("scarcity");
-      } else {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      if (now < dismissedUntil.current) {
+        setActiveType(null);
         return;
       }
 
-      // Auto-hide after 5s
-      timeoutRef.current = setTimeout(() => {
-        setIsExiting(true);
-        timeoutRef.current = setTimeout(() => {
-          setActiveType(null);
+      const elapsed = now - mountTime.current;
+      if (elapsed < INITIAL_DELAY) return;
+
+      const cycleTime = (elapsed - INITIAL_DELAY) % CYCLE_TOTAL;
+
+      if (cycleTime < SHOW_DURATION) {
+        // Should be showing
+        const newCycle = Math.floor((elapsed - INITIAL_DELAY) / CYCLE_TOTAL);
+        if (newCycle !== cycleRef.current) {
+          cycleRef.current = newCycle;
+          const isNotification = newCycle % 2 === 0 && settings.showActivityNotifications;
+          const isScarcity = newCycle % 2 === 1 && settings.showScarcityMessages;
+
+          if (isNotification || (!isScarcity && settings.showActivityNotifications)) {
+            setMessageIndex(prev => (prev + 1) % 5);
+            setActiveType("notification");
+          } else if (isScarcity || settings.showScarcityMessages) {
+            setScarcityData(getScarcityData());
+            setActiveType("scarcity");
+          }
           setIsExiting(false);
-          // Next proof after 8-18s
-          timeoutRef.current = setTimeout(showNext, 8000 + Math.random() * 10000);
-        }, 400);
-      }, 5000);
+        }
+      } else if (cycleTime >= SHOW_DURATION && cycleTime < SHOW_DURATION + 400) {
+        // Exit animation
+        setIsExiting(true);
+      } else {
+        // Hidden
+        setActiveType(null);
+        setIsExiting(false);
+      }
+    }, 500);
+
+    // Trigger first show
+    const firstTimer = setTimeout(() => {
+      cycleRef.current = 0;
+      if (settings.showActivityNotifications) {
+        setMessageIndex(0);
+        setActiveType("notification");
+      } else if (settings.showScarcityMessages) {
+        setScarcityData(getScarcityData());
+        setActiveType("scarcity");
+      }
+    }, INITIAL_DELAY);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(firstTimer);
     };
-
-    // Initial delay 2-4s
-    const initialDelay = 2000 + Math.random() * 2000;
-    timeoutRef.current = setTimeout(showNext, initialDelay);
-
-    return () => clearScheduled();
   }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages]);
 
   const handleClose = () => {
-    clearScheduled();
     setIsExiting(true);
     setTimeout(() => {
       setActiveType(null);
       setIsExiting(false);
-    }, 400);
+    }, 300);
+    dismissedUntil.current = Date.now() + 30000; // suppress for 30s
   };
 
   if (!activeType) return <ExitIntentPopup />;

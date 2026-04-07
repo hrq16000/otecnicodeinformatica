@@ -191,10 +191,11 @@ const TecnicoInformaticaAraucaria = () => {
         />
 
         {/* Sobre a Cidade - SEO Rich Content */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">
                 Assistência Técnica de Informática em Araucária
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground">
@@ -215,20 +216,19 @@ const TecnicoInformaticaAraucaria = () => {
                 </p>
               </div>
 
-              {/* Destaque para segmentos */}
               <div className="grid sm:grid-cols-3 gap-4 mt-8">
-                <div className="bg-background rounded-lg p-4 text-center border border-border">
-                  <Home className="h-8 w-8 text-accent mx-auto mb-2" />
+                <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
+                  <Home className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <h3 className="font-semibold text-foreground">Residências</h3>
                   <p className="text-sm text-muted-foreground">Atendimento em casa com horário agendado</p>
                 </div>
-                <div className="bg-background rounded-lg p-4 text-center border border-border">
-                  <Building2 className="h-8 w-8 text-accent mx-auto mb-2" />
+                <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
+                  <Building2 className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <h3 className="font-semibold text-foreground">Comércios</h3>
                   <p className="text-sm text-muted-foreground">Suporte para lojas e escritórios</p>
                 </div>
-                <div className="bg-background rounded-lg p-4 text-center border border-border">
-                  <Factory className="h-8 w-8 text-accent mx-auto mb-2" />
+                <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group">
+                  <Factory className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <h3 className="font-semibold text-foreground">Indústrias</h3>
                   <p className="text-sm text-muted-foreground">Suporte técnico para o polo industrial</p>
                 </div>
@@ -241,29 +241,31 @@ const TecnicoInformaticaAraucaria = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">
                 Bairros Atendidos em Araucária
               </h2>
-              <p className="text-center text-muted-foreground mb-8">
+              <p className="text-center text-muted-foreground mb-8 reveal-text" data-reveal-delay="100">
                 Técnico de informática com atendimento a domicílio em todos os bairros de Araucária
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {bairros.map((bairro) =>
+                {bairros.map((bairro, index) =>
                   bairro.hasPage ? (
                     <Link
                       key={bairro.slug}
                       to={`/bairros/${bairro.slug}`}
-                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:bg-accent/10 hover:text-accent transition-colors"
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground hover:-translate-y-0.5 transition-all stagger-item"
+                      style={{ animationDelay: `${index * 40}ms` }}
                     >
-                      <MapPin className="h-4 w-4 text-accent" />
+                      <MapPin className="h-4 w-4 text-accent group-hover:text-accent-foreground" />
                       {bairro.name}
                     </Link>
                   ) : (
                     <div
                       key={bairro.slug}
-                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2"
+                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground flex items-center justify-center gap-2 stagger-item"
+                      style={{ animationDelay: `${index * 40}ms` }}
                     >
-                      <MapPin className="h-4 w-4 text-accent" />
+                      <MapPin className="h-4 w-4 text-muted-foreground" />
                       {bairro.name}
                     </div>
                   )
@@ -277,10 +279,11 @@ const TecnicoInformaticaAraucaria = () => {
         </section>
 
         {/* Serviços */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center reveal-text">
                 Serviços de Informática em Araucária
               </h2>
 
@@ -290,9 +293,10 @@ const TecnicoInformaticaAraucaria = () => {
                     <Link 
                       key={index} 
                       to={`/servicos/${servico.slug}`}
-                      className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent transition-all group"
+                      className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
+                      style={{ animationDelay: `${index * 80}ms` }}
                     >
-                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                       <div className="flex-1">
                         <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                           {servico.title}
@@ -301,12 +305,13 @@ const TecnicoInformaticaAraucaria = () => {
                           {servico.description}
                         </p>
                       </div>
-                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent transition-colors mt-1" />
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all mt-1" />
                     </Link>
                   ) : (
                     <div 
                       key={index} 
-                      className="flex items-start gap-3 bg-background rounded-lg p-4 border border-transparent"
+                      className="flex items-start gap-3 bg-background rounded-lg p-4 border border-transparent stagger-item"
+                      style={{ animationDelay: `${index * 80}ms` }}
                     >
                       <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
@@ -325,10 +330,10 @@ const TecnicoInformaticaAraucaria = () => {
               <div className="text-center mt-8">
                 <Link 
                   to="/servicos"
-                  className="inline-flex items-center gap-2 text-accent hover:underline font-medium"
+                  className="inline-flex items-center gap-2 text-accent hover:underline font-medium group"
                 >
                   Ver lista completa de serviços
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

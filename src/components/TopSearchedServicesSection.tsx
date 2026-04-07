@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
-import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server } from "lucide-react";
+import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server, Cpu, Tv, Smartphone, Database, Zap } from "lucide-react";
 
 interface ServiceLink {
   title: string;
@@ -9,13 +9,19 @@ interface ServiceLink {
   location: string;
 }
 
-const topServices: ServiceLink[] = [
+const allServices: ServiceLink[] = [
   { title: "Formatação de Computador", url: "/servicos/formatacao-computador", icon: Monitor, location: "Centro de Curitiba" },
   { title: "Conserto de Notebook", url: "/servicos/conserto-pc-notebook", icon: Wrench, location: "Batel" },
   { title: "Remoção de Vírus", url: "/servicos/remocao-virus", icon: Shield, location: "Água Verde" },
-  { title: "Upgrade SSD", url: "/servicos/upgrade-ssd-memoria", icon: HardDrive, location: "São José dos Pinhais" },
+  { title: "Upgrade SSD e Memória", url: "/servicos/upgrade-ssd-memoria", icon: HardDrive, location: "São José dos Pinhais" },
   { title: "Configuração de Redes", url: "/servicos/redes-wifi", icon: Wifi, location: "CIC" },
   { title: "Suporte para Empresas", url: "/suporte-empresas", icon: Server, location: "Santa Felicidade" },
+  { title: "Montagem de PC", url: "/servicos/montagem-pc", icon: Cpu, location: "Portão" },
+  { title: "Conserto de TV", url: "/servicos/conserto-tv", icon: Tv, location: "Pinhais" },
+  { title: "Conserto de Celular", url: "/servicos/conserto-celular", icon: Smartphone, location: "Araucária" },
+  { title: "Backup e Recuperação", url: "/servicos/backup-recuperacao", icon: Database, location: "Campo Largo" },
+  { title: "Computador Lento", url: "/servicos/computador-lento", icon: Zap, location: "Colombo" },
+  { title: "Computador Não Liga", url: "/servicos/computador-nao-liga", icon: Monitor, location: "Xaxim" },
 ];
 
 const cityLinks = [
@@ -106,6 +112,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export const TopSearchedServicesSection = () => {
+  const randomizedServices = useMemo(() => shuffleArray(allServices).slice(0, 6), []);
   const randomizedCities = useMemo(() =>
     cityLinks.map(city => ({
       ...city,
@@ -134,7 +141,7 @@ export const TopSearchedServicesSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 stagger-grid">
-          {topServices.map((service, index) => (
+          {randomizedServices.map((service, index) => (
             <Link
               key={index}
               to={service.url}

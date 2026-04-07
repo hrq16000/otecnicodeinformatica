@@ -92,7 +92,12 @@ const ServicoCidadePage = () => {
     ]
   };
 
-  const beneficios = [
+  const beneficios = isSemVisita ? [
+    { icon: CheckCircle, titulo: "Orçamento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
+    { icon: Clock, titulo: "Prazo Transparente", descricao: "Informamos o prazo desde o início. Atualizações por WhatsApp" },
+    { icon: Shield, titulo: "Garantia no Serviço", descricao: "Todo reparo conta com garantia. Peças de qualidade" },
+    { icon: Star, titulo: "Atendimento Humanizado", descricao: "Explicamos o problema com clareza, sem jargão técnico" },
+  ] : [
     { icon: MapPin, titulo: `Atendimento Local em ${cidade.nome}`, descricao: "Técnico vai até seu endereço com todas as ferramentas" },
     { icon: Clock, titulo: "Atendimento no Mesmo Dia", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
     { icon: Shield, titulo: "Garantia em Todos os Serviços", descricao: "Serviço garantido. Se precisar, voltamos sem custo" },

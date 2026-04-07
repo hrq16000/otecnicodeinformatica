@@ -58,9 +58,6 @@ const RedesWifi = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Melhorar Meu Wi-Fi
               </Button>
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
-              </Button>
             </div>
           </div>
         </div>

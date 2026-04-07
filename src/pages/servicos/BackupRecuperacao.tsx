@@ -58,9 +58,6 @@ const BackupRecuperacao = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Recuperar Meus Dados
               </Button>
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
-              </Button>
             </div>
           </div>
         </div>

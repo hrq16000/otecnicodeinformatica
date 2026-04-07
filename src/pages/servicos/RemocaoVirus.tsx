@@ -58,9 +58,6 @@ const RemocaoVirus = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Remover Vírus Agora
               </Button>
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99267-1754
-              </Button>
             </div>
           </div>
         </div>

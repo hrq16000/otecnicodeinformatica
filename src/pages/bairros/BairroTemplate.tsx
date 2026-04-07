@@ -266,7 +266,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 </div>
                 <div className="lg:col-span-2">
                   <div className="bg-secondary rounded-xl p-6 sticky top-24">
-                    <h3 className="text-xl font-bold text-primary mb-4">
+                     <h3 className="text-xl font-bold text-foreground mb-4">
                       Serviços em {data.nome}
                     </h3>
                     <ul className="space-y-3">

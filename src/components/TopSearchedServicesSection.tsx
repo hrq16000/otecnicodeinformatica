@@ -117,6 +117,7 @@ export const TopSearchedServicesSection = () => {
   // Mobile: 3 items (1 col × 3 rows), Desktop: 6 items (3 cols × 2 rows)
   const serviceCount = isMobile ? 3 : 6;
   const randomizedServices = useMemo(() => shuffleArray(allServices).slice(0, serviceCount), [serviceCount]);
+  const randomizedCities = useMemo(() =>
     cityLinks.map(city => ({
       ...city,
       bairros: shuffleArray(city.bairros).slice(0, 4),

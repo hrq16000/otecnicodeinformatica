@@ -43,22 +43,28 @@ const ComputadorNaoLiga = () => {
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Computador Não Liga" }]} />
 
-      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90">
-        <div className="container mx-auto px-4">
+      <section className="pt-12 pb-12 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 -left-20 w-80 h-80 bg-destructive/10 rounded-full blur-3xl animate-pulse-soft" />
+          <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-destructive/20 text-white px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-destructive/20 text-white px-4 py-2 rounded-full mb-6 shimmer">
               <Power className="h-5 w-5" />
               <span className="font-medium">Diagnóstico Urgente</span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
               Computador Não Liga? Calma — Tem Solução
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               Antes de desesperar, saiba que a maioria dos casos tem solução. Nosso técnico diagnostica a causa real e resolve — sem achismo.
             </p>
-            <Button size="lg" variant="cta" onClick={handleWhatsApp}>
-              <MessageCircle className="mr-2 h-5 w-5" /> Meu PC Não Liga — Preciso de Ajuda
-            </Button>
+            <div className="reveal-text" data-reveal-delay="200">
+              <Button size="lg" variant="cta" onClick={handleWhatsApp}>
+                <MessageCircle className="mr-2 h-5 w-5" /> Meu PC Não Liga — Preciso de Ajuda
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -67,7 +73,7 @@ const ComputadorNaoLiga = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
               O Que Verificar Antes de Chamar o Técnico
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -79,7 +85,7 @@ const ComputadorNaoLiga = () => {
                 "Desconecte periféricos USB e tente novamente",
                 "Se desligou após queda de energia, espere 5 minutos e tente",
               ].map((dica, i) => (
-                <div key={i} className="flex items-start gap-3 bg-background rounded-lg p-4 border border-border">
+                <div key={i} className="flex items-start gap-3 bg-background rounded-lg p-4 border border-border hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
                   <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-sm text-foreground">{dica}</span>
                 </div>
@@ -93,16 +99,19 @@ const ComputadorNaoLiga = () => {
       </section>
 
       {/* Sintomas */}
-      <section className="py-12 md:py-16 bg-background">
-        <div className="container mx-auto">
+      <section className="py-12 md:py-16 bg-background relative">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
               Qual é o Sintoma do Seu Computador?
             </h2>
             <p className="text-center text-muted-foreground mb-10">Identifique o comportamento para entender o nível de complexidade</p>
             <div className="grid md:grid-cols-2 gap-4">
               {sintomas.map((s, i) => (
-                <div key={i} className="bg-secondary rounded-xl p-5 border border-border">
+                <div key={i} className="bg-secondary rounded-xl p-5 border border-border hover:border-accent/30 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
                   <h3 className="font-semibold text-foreground mb-2">{s.titulo}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
                   <span className="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">Complexidade: {s.gravidade}</span>
@@ -118,7 +127,7 @@ const ComputadorNaoLiga = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto bg-destructive/5 border border-destructive/20 rounded-xl p-6">
             <h2 className="text-xl font-bold text-destructive mb-3 flex items-center gap-2">
-              <AlertCircle className="h-5 w-5" /> Cuidado com Tentativas Amadoras
+              <AlertCircle className="h-5 w-5 animate-pulse" /> Cuidado com Tentativas Amadoras
             </h2>
             <div className="text-sm text-muted-foreground space-y-2">
               <p>Abrir o computador sem conhecimento pode piorar o problema. Riscos comuns:</p>
@@ -148,7 +157,7 @@ const ComputadorNaoLiga = () => {
                 { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
                 { label: "Como Funciona", to: "/como-funciona" },
               ].map((link) => (
-                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-secondary rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all">
+                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-secondary rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                   <ArrowRight className="h-4 w-4 text-accent" />{link.label}
                 </Link>
               ))}
@@ -157,9 +166,12 @@ const ComputadorNaoLiga = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-primary text-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Seu Computador Não Liga?</h2>
+      <section className="py-12 bg-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-breathe" />
+        </div>
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 reveal-text">Seu Computador Não Liga?</h2>
           <p className="text-white/80 mb-6">Nosso técnico identifica o problema com diagnóstico preciso. Atendimento em Curitiba e região.</p>
           <Button size="lg" variant="cta" onClick={handleWhatsApp}>
             <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora

@@ -79,8 +79,8 @@ export const SocialProofProvider = () => {
       }, 5000);
     };
 
-    // Initial delay 5-8s
-    const initialDelay = 5000 + Math.random() * 3000;
+    // Initial delay 2-4s
+    const initialDelay = 2000 + Math.random() * 2000;
     timeoutRef.current = setTimeout(showNext, initialDelay);
 
     return () => clearScheduled();

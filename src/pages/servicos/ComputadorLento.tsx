@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Gauge, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock, Shield, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,7 @@ const ComputadorLento = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Computador Lento? Causas e Soluções Profissionais | Técnico Curitiba" description="Seu computador está lento? Conheça as 8 causas mais comuns e as soluções profissionais. Upgrade SSD, limpeza de vírus, formatação. Atendimento em Curitiba e região." path="/servicos/computador-lento" />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Computador Lento" }]} />
 

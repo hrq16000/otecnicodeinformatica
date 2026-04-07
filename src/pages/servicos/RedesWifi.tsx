@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Wifi, CheckCircle, Router, Signal, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ const RedesWifi = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Configuração de Redes e Wi-Fi em Curitiba | Técnico Curitiba" description="Configuração de redes Wi-Fi em Curitiba. Instalação de roteadores, repetidores, extensores. Internet lenta? Resolvemos! Atendimento domiciliar." path="/servicos/redes-wifi" />
       <Header />
       <Breadcrumbs
         items={[

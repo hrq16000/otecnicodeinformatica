@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle, Shield, Clock, MapPin, Star } from "lucide-react";
@@ -27,6 +28,7 @@ const TecnicoInformaticaCuritibaAds = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Curitiba | Atendimento Hoje | R$ 69,99" description="Técnico de informática em Curitiba com atendimento hoje. Serviços a partir de R$ 69,99. Formatação, remoção de vírus, conserto. Chame no WhatsApp!" path="/tecnico-informatica-curitiba-ads" />
       {/* Minimal Header - No Navigation */}
       <header className="bg-primary py-4">
         <div className="container mx-auto text-center">

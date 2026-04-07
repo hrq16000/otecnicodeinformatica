@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -105,6 +106,7 @@ const TecnicoInformaticaFazendaRioGrande = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Fazenda Rio Grande | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Fazenda Rio Grande PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-fazenda-rio-grande" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(frgSchema) }} />
       <JsonLdSchema />
       <Header />

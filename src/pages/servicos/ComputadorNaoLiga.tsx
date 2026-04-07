@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Power, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Wrench, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ const ComputadorNaoLiga = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Computador Não Liga? Causas e Soluções | Técnico em Curitiba" description="Computador ou notebook não liga? Veja as causas mais comuns e quando procurar um técnico. Diagnóstico profissional em Curitiba e região. Atendimento a domicílio." path="/servicos/computador-nao-liga" />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Computador Não Liga" }]} />
 

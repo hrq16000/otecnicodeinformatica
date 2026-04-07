@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -37,6 +38,7 @@ const DiagnosticoTecnico = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona" description="Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba." path="/diagnostico-tecnico" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",

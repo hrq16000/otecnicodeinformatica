@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
@@ -164,6 +165,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} />
       <JsonLdSchema />
       <script
         type="application/ld+json"

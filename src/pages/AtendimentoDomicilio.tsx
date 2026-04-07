@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
@@ -79,6 +80,7 @@ const AtendimentoDomicilio = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba" description="Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável." path="/atendimento-domicilio" />
       <JsonLdSchema />
       <Header />
       <main>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
@@ -79,6 +80,7 @@ const SuporteEmpresas = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com planos mensais, nota fiscal e pagamento faturado. Manutenção de computadores corporativos." path="/suporte-empresas" />
       <JsonLdSchema />
       <Header />
       <main>

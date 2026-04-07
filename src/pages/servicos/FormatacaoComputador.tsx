@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, Clock, Shield, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ const FormatacaoComputador = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Formatação de Computador em Curitiba | Windows 10/11 - Técnico Curitiba" description="Formatação de computador e notebook em Curitiba. Instalação Windows 10/11, drivers, programas essenciais. Atendimento domiciliar. A partir de A partir de R$ 69,99." path="/servicos/formatacao-computador" />
       <Header />
       <Breadcrumbs
         items={[

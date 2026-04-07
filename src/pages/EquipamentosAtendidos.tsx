@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -93,6 +94,7 @@ const EquipamentosAtendidos = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Equipamentos Atendidos | Assistência Técnica Curitiba - Computadores, Notebooks, TVs" description="Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia." path="/equipamentos-atendidos" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [

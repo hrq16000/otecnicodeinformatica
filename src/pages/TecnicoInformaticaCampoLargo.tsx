@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -170,6 +171,7 @@ const TecnicoInformaticaCampoLargo = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Campo Largo | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. A partir de R$ 69,99. Capital da Louça." path="/tecnico-informatica-campo-largo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(campoLargoSchema) }} />
       <JsonLdSchema />
       <Header />

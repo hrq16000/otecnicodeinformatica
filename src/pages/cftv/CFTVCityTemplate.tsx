@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -39,6 +40,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title={metaTitle} description={metaDescription} path={`/cftv/${slug}`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",

@@ -411,7 +411,9 @@
   .anim-scale,
   .anim-blur-in,
   .anim-slide-left,
-  .anim-slide-right {
+  .anim-slide-right,
+  .fade-up,
+  .fade-in {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

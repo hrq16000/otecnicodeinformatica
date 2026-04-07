@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
 
-const footerLink = "text-white/60 hover:text-white/90 text-sm transition-colors duration-200";
+const footerLink = "text-white/60 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
 
 const footerSections = [
   {

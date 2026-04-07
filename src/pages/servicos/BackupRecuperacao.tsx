@@ -113,6 +113,8 @@ const BackupRecuperacao = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
+
       {/* Tipos de Recuperação */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
@@ -180,26 +182,24 @@ const BackupRecuperacao = () => {
       </section>
 
       {/* Serviços Relacionados */}
-      <section className="py-10 bg-background">
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">
             Serviços Relacionados
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {[
               { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
               { to: "/servicos/formatacao-computador", label: "Formatação" },
               { to: "/servicos/conserto-pc-notebook", label: "Conserto de Hardware" },
             ].map((link) => (
-              <Link key={link.to} to={link.to} className="px-6 py-3 bg-secondary rounded-lg hover:bg-accent/20 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+              <Link key={link.to} to={link.to} className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-sm">
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
       </section>
-
-      <RealImageSection imageKey="componentesSsd" secondaryImageKey="diagnostico" layout="duo" caption="HD e SSD para recuperação de dados" secondaryCaption="Diagnóstico técnico para backup seguro" />
       <InterlinkingBlock />
       <Footer />
     </div>

@@ -44,7 +44,7 @@ export const PainSection = () => {
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-3 bg-card rounded-xl px-4 py-4 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] border border-border/50 text-left hover-lift ripple-container transition-all duration-300"
+                className="flex items-start gap-3 glass-card gradient-border rounded-xl px-4 py-4 text-left hover-lift ripple-container transition-all duration-300 stagger-item"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="bg-accent/10 p-2.5 rounded-xl flex-shrink-0">

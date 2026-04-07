@@ -77,7 +77,7 @@ export const SocialProofSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border hover-streak slide-up-stagger"
+              className="bg-card border border-border gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border hover-streak slide-up-stagger shadow-sm"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <Quote className="h-7 w-7 text-accent/25 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />

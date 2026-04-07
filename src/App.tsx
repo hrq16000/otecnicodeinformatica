@@ -498,25 +498,25 @@ const App = () => (
             {/* Novos Bairros Piraquara */}
             <Route path="/bairros/centro-piraquara" element={<CentroPiraquara />} />
             <Route path="/bairros/jardim-primavera-piraquara" element={<JardimPrimaveraPiraquara />} />
-            <Route path="/bairros/planta-deodoro" element={<PlantaDeodoroPiraquara />} />
-            <Route path="/bairros/vila-macedo" element={<VilaMacedoPiraquara />} />
+            <Route path="/bairros/planta-deodoro-piraquara" element={<PlantaDeodoroPiraquara />} />
+            <Route path="/bairros/vila-macedo-piraquara" element={<VilaMacedoPiraquara />} />
             <Route path="/bairros/guarituba-piraquara" element={<GuaritubaPiraquara />} />
             <Route path="/bairros/prado-velho-piraquara" element={<PradoVelhoPiraquara />} />
-            <Route path="/bairros/sao-cristovao-piraquara" element={<SaoCristaoPiraquara />} />
+            <Route path="/bairros/sao-cristao-piraquara" element={<SaoCristaoPiraquara />} />
             <Route path="/bairros/jardim-bela-vista-piraquara" element={<JardimBelaVistaPiraquara />} />
             <Route path="/bairros/caiua-piraquara" element={<CaiuaPiraquara />} />
 
             {/* Novos Bairros Campo Magro */}
             <Route path="/bairros/centro-campo-magro" element={<CentroCampoMagro />} />
             <Route path="/bairros/sede-campo-magro" element={<SedeCampoMagro />} />
-            <Route path="/bairros/jardim-boa-vista-campo-magro" element={<JardimBoaVistaCM />} />
-            <Route path="/bairros/sao-sebastiao-campo-magro" element={<SaoSebastiaoCM />} />
-            <Route path="/bairros/rio-verde-campo-magro" element={<RioVerdeCM />} />
-            <Route path="/bairros/botiatuva-campo-magro" element={<BotiatuvaCM />} />
+            <Route path="/bairros/jardim-boa-vista-cm" element={<JardimBoaVistaCM />} />
+            <Route path="/bairros/sao-sebastiao-cm" element={<SaoSebastiaoCM />} />
+            <Route path="/bairros/rio-verde-cm" element={<RioVerdeCM />} />
+            <Route path="/bairros/botiatuva-cm" element={<BotiatuvaCM />} />
 
             {/* Novos Bairros Quatro Barras */}
             <Route path="/bairros/centro-quatro-barras" element={<CentroQuatroBarras />} />
-            <Route path="/bairros/jardim-menino-deus" element={<JardimMeninoDeusQB />} />
+            <Route path="/bairros/jardim-menino-deus-qb" element={<JardimMeninoDeusQB />} />
             <Route path="/bairros/vila-sao-jose-qb" element={<VilaSaoJoseQB />} />
             <Route path="/bairros/borda-do-campo-qb" element={<BordaDoCampoQB />} />
             <Route path="/bairros/sao-lourenco-qb" element={<SaoLourencoQB />} />
@@ -524,7 +524,7 @@ const App = () => (
 
             {/* Novos Bairros SJP */}
             <Route path="/bairros/cidade-jardim-sjp" element={<CidadeJardimSJP />} />
-            <Route path="/bairros/pedro-moro" element={<PedroMoroSJP />} />
+            <Route path="/bairros/pedro-moro-sjp" element={<PedroMoroSJP />} />
             <Route path="/bairros/ipe-sjp" element={<IpeSJP />} />
             <Route path="/bairros/rio-pequeno-sjp" element={<RioPequenoSJP />} />
             <Route path="/bairros/borda-do-campo-sjp" element={<BordaDoCampoSJP />} />

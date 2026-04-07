@@ -141,15 +141,6 @@ const ServicoCidadePage = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Chamar pelo WhatsApp
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-                onClick={handlePhoneClick}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                (41) 99745-2053
-              </Button>
             </div>
           </div>
         </div>

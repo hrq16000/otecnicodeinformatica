@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
 
-const footerLink = "text-white/70 hover:text-white text-sm transition-colors";
+const footerLink = "text-foreground/60 hover:text-neon-green text-sm transition-colors font-mono";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

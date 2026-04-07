@@ -3,7 +3,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { 
-  CheckCircle, Clock, Shield, ArrowRight, MessageCircle, Phone, 
+  CheckCircle, Clock, Shield, ArrowRight, MessageCircle, 
   MapPin, Star, Award, Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
+import { SocialProofProvider } from "@/components/social-proof";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { CursorTrail } from "@/components/CursorTrail";
 import { PageTransition } from "@/components/PageTransition";
@@ -371,6 +372,7 @@ const App = () => (
         </Suspense>
         </PageTransition>
         <WhatsAppChatbot />
+        <SocialProofProvider />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

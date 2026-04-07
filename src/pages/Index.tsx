@@ -126,7 +126,6 @@ const Index = () => {
         </section>
       </main>
       <Footer />
-      <SocialProofProvider />
       <SocialProofAdminPanel />
     </div>
   );

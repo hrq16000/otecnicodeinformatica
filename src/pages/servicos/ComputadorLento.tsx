@@ -73,7 +73,7 @@ const ComputadorLento = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
               As 8 Causas Mais Comuns de Computador Lento
             </h2>
             <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
@@ -103,7 +103,7 @@ const ComputadorLento = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               Vale a Pena Resolver ou Trocar o Computador?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -143,7 +143,7 @@ const ComputadorLento = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               Como Resolvemos
             </h2>
             <div className="grid md:grid-cols-4 gap-4">
@@ -168,7 +168,7 @@ const ComputadorLento = () => {
       <section className="py-12 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-primary mb-6 text-center">Serviços Relacionados</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6 text-center">Serviços Relacionados</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
                 { label: "Upgrade SSD e Memória", to: "/servicos/upgrade-ssd-memoria" },

@@ -98,7 +98,7 @@ const AtendimentoDomicilio = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Como Funciona o Atendimento em Domicílio?
               </h2>
 
@@ -161,7 +161,7 @@ const AtendimentoDomicilio = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Para Quem é o Atendimento em Domicílio?
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -180,7 +180,7 @@ const AtendimentoDomicilio = () => {
                     <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
                       <Icon className="h-8 w-8 text-primary-foreground" />
                     </div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
                 );
@@ -193,7 +193,7 @@ const AtendimentoDomicilio = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 O Que Podemos Resolver na Sua Casa?
               </h2>
 

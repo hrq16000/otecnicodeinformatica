@@ -76,7 +76,7 @@ const RemocaoVirus = () => {
       {/* Tipos de Ameaças */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Tipos de Ameaças que Removemos
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -103,7 +103,7 @@ const RemocaoVirus = () => {
       {/* Sinais de Infecção */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Sinais de que Seu Computador Está Infectado
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -129,7 +129,7 @@ const RemocaoVirus = () => {
       {/* Nosso Processo */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Nosso Processo de Remoção
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -143,7 +143,7 @@ const RemocaoVirus = () => {
                 <div className="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -154,7 +154,7 @@ const RemocaoVirus = () => {
       {/* O que inclui */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Está Incluso no Serviço
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -180,7 +180,7 @@ const RemocaoVirus = () => {
       {/* FAQ */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -192,7 +192,7 @@ const RemocaoVirus = () => {
               { q: "Qual antivírus vocês instalam?", a: "Instalamos antivírus profissional gratuito ou pago, de acordo com sua preferência e necessidade." },
             ].map((item, index) => (
               <div key={index} className="bg-secondary p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}
@@ -219,7 +219,7 @@ const RemocaoVirus = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

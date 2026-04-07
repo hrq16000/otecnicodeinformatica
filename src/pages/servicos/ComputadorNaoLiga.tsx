@@ -65,7 +65,7 @@ const ComputadorNaoLiga = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
               O Que Verificar Antes de Chamar o Técnico
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -94,7 +94,7 @@ const ComputadorNaoLiga = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
               Qual é o Sintoma do Seu Computador?
             </h2>
             <p className="text-center text-muted-foreground mb-10">Identifique o comportamento para entender o nível de complexidade</p>
@@ -136,7 +136,7 @@ const ComputadorNaoLiga = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-primary mb-6 text-center">Páginas Relacionadas</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
                 { label: "Conserto de PC/Notebook", to: "/servicos/conserto-pc-notebook" },

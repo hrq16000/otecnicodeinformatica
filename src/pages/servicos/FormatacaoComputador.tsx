@@ -76,7 +76,7 @@ const FormatacaoComputador = () => {
       {/* O que está incluso */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Está Incluso na Formatação?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -103,7 +103,7 @@ const FormatacaoComputador = () => {
       {/* Quando formatar */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Quando Devo Formatar Meu Computador?
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -128,7 +128,7 @@ const FormatacaoComputador = () => {
       {/* Processo */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Como Funciona o Serviço?
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -142,7 +142,7 @@ const FormatacaoComputador = () => {
                 <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -153,7 +153,7 @@ const FormatacaoComputador = () => {
       {/* FAQ */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes sobre Formatação
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -165,7 +165,7 @@ const FormatacaoComputador = () => {
               { q: "Vocês atendem em domicílio?", a: "Sim! Atendemos em toda Curitiba e região metropolitana. Também oferecemos coleta e entrega." },
             ].map((item, index) => (
               <div key={index} className="bg-background p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}
@@ -192,7 +192,7 @@ const FormatacaoComputador = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

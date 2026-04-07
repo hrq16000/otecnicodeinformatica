@@ -99,7 +99,7 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 O Que É o Diagnóstico Técnico?
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -121,7 +121,7 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Por Que o Diagnóstico Tem Custo?
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -141,7 +141,7 @@ const DiagnosticoTecnico = () => {
                         <Icon className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-primary mb-1">{item.title}</h3>
+                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                       </div>
                     </div>
@@ -156,13 +156,13 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Diagnóstico ≠ Execução do Reparo
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-secondary rounded-xl p-6 border-l-4 border-accent">
                   <Search className="h-8 w-8 text-accent mb-3" />
-                  <h3 className="text-xl font-bold text-primary mb-3">Diagnóstico</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Diagnóstico</h3>
                   <ul className="space-y-2">
                     {[
                       "Identifica a causa do problema",
@@ -179,7 +179,7 @@ const DiagnosticoTecnico = () => {
                 </div>
                 <div className="bg-secondary rounded-xl p-6 border-l-4 border-primary">
                   <Wrench className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="text-xl font-bold text-primary mb-3">Execução do Reparo</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Execução do Reparo</h3>
                   <ul className="space-y-2">
                     {[
                       "Somente após diagnóstico aprovado",
@@ -206,7 +206,7 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Riscos de Não Fazer um Diagnóstico Profissional
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -236,7 +236,7 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Exemplos Reais: Quando o Diagnóstico Salvou o Equipamento
               </h2>
               <div className="space-y-4">
@@ -247,7 +247,7 @@ const DiagnosticoTecnico = () => {
                   { caso: "Computador lento", aparente: "Precisa trocar tudo", real: "HD com setores defeituosos — upgrade para SSD por R$ 200 deixou o PC como novo." },
                 ].map((ex, i) => (
                   <div key={i} className="bg-background rounded-xl p-5">
-                    <h3 className="font-bold text-primary mb-2">{ex.caso}</h3>
+                    <h3 className="font-bold text-foreground mb-2">{ex.caso}</h3>
                     <div className="grid sm:grid-cols-2 gap-3">
                       <div className="bg-destructive/5 rounded-lg p-3">
                         <span className="text-xs font-semibold text-destructive">❌ Aparência:</span>
@@ -271,7 +271,7 @@ const DiagnosticoTecnico = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="bg-secondary rounded-2xl p-8 border-2 border-accent/20">
                 <CircleDollarSign className="h-10 w-10 text-accent mx-auto mb-4" />
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                   Quanto Custa o Diagnóstico?
                 </h2>
                 <div className="space-y-3 mb-6 text-left max-w-md mx-auto">
@@ -305,13 +305,13 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Técnico Amador vs Técnico Profissional
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-background rounded-xl p-6 border-2 border-destructive/20">
                   <Ban className="h-8 w-8 text-destructive mb-3" />
-                  <h3 className="text-lg font-bold text-primary mb-3">Técnico Amador</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-3">Técnico Amador</h3>
                   <ul className="space-y-2">
                     {[
                       "Tenta adivinhar o problema",
@@ -329,7 +329,7 @@ const DiagnosticoTecnico = () => {
                 </div>
                 <div className="bg-background rounded-xl p-6 border-2 border-accent/20">
                   <ShieldCheck className="h-8 w-8 text-accent mb-3" />
-                  <h3 className="text-lg font-bold text-primary mb-3">Técnico Profissional</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-3">Técnico Profissional</h3>
                   <ul className="space-y-2">
                     {[
                       "Diagnostica com método e precisão",
@@ -354,7 +354,7 @@ const DiagnosticoTecnico = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Perguntas Frequentes Sobre Diagnóstico Técnico
               </h2>
               <Accordion type="single" collapsible className="space-y-3">

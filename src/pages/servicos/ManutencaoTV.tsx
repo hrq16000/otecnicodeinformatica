@@ -79,7 +79,7 @@ const ManutencaoTV = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               Defeitos Mais Comuns em TVs
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -101,7 +101,7 @@ const ManutencaoTV = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
               Como Funciona o Reparo de TV
             </h2>
             <div className="space-y-4">
@@ -129,7 +129,7 @@ const ManutencaoTV = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary mb-6 text-center">Quando Compensa Consertar a TV?</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Quando Compensa Consertar a TV?</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-secondary rounded-xl p-6">
                 <h3 className="font-bold text-accent mb-3 flex items-center gap-2"><CheckCircle className="h-5 w-5" /> Geralmente Compensa</h3>

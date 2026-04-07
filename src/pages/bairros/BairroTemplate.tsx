@@ -239,7 +239,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
               <div className="grid lg:grid-cols-5 gap-8">
                 <div className="lg:col-span-3">
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                     Assistência Técnica em Informática no {data.nome}
                   </h2>
                   <div className="prose prose-lg text-muted-foreground">
@@ -266,7 +266,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 </div>
                 <div className="lg:col-span-2">
                   <div className="bg-secondary rounded-xl p-6 sticky top-24">
-                    <h3 className="text-xl font-bold text-primary mb-4">
+                     <h3 className="text-xl font-bold text-foreground mb-4">
                       Serviços em {data.nome}
                     </h3>
                     <ul className="space-y-3">
@@ -305,7 +305,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                 Informática no {data.nome}: O Que Você Precisa Saber
               </h2>
 
@@ -337,7 +337,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
 
               <div className="bg-secondary rounded-xl p-6 md:p-8 mb-8">
-                <h3 className="text-xl font-bold text-primary mb-4">
+                <h3 className="text-xl font-bold text-foreground mb-4">
                   Problemas Mais Comuns no {data.nome}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -362,22 +362,22 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
-                <Link to="/como-funciona" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
+                <Link to="/como-funciona" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Como Funciona</h4>
                   <p className="text-muted-foreground text-sm">Entenda o passo a passo do atendimento técnico a domicílio.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver detalhes <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/valores" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
+                <Link to="/valores" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Preços e Condições</h4>
                   <p className="text-muted-foreground text-sm">Valores claros, sem surpresas. A partir de R$ 69,99.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Ver preços <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
-                <Link to="/diagnostico-tecnico" className="bg-secondary rounded-xl p-5 hover:shadow-md transition-all group">
-                  <h4 className="font-bold text-primary mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
+                <Link to="/diagnostico-tecnico" className="bg-card rounded-xl p-5 border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 group">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors">Diagnóstico Técnico</h4>
                   <p className="text-muted-foreground text-sm">Por que o diagnóstico é pago e como ele protege você.</p>
                   <span className="inline-flex items-center gap-1 text-accent text-sm mt-2 group-hover:gap-2 transition-all">
                     Entender <ArrowRight className="h-3 w-3" />
@@ -393,33 +393,33 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Principais Serviços no {data.nome}
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <Monitor className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <Monitor className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Formatação</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Formatação</h3>
                   <p className="text-muted-foreground text-sm">
                     Instalação limpa do Windows, drivers e programas. Computador como novo.
                   </p>
                 </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Remoção de Vírus</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Remoção de Vírus</h3>
                   <p className="text-muted-foreground text-sm">
                     Limpeza completa de malwares, trojans e ransomware. Proteção instalada.
                   </p>
                 </div>
-                <div className="bg-background rounded-xl p-6 text-center">
-                  <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
-                    <HardDrive className="h-8 w-8 text-primary-foreground" />
+                <div className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="bg-accent/10 rounded-full p-4 w-fit mx-auto mb-4">
+                    <HardDrive className="h-8 w-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-bold text-primary mb-2">Upgrade SSD</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">Upgrade SSD</h3>
                   <p className="text-muted-foreground text-sm">
                     Troca de HD por SSD. Seu computador 10x mais rápido.
                   </p>

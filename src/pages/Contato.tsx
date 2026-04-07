@@ -60,7 +60,7 @@ const Contato = () => {
                   <div className="bg-whatsapp rounded-full p-4 w-fit mx-auto mb-4">
                     <MessageCircle className="h-10 w-10 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-primary mb-2">WhatsApp</h2>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">WhatsApp</h2>
                   <p className="text-muted-foreground mb-4">
                     Resposta rápida e atendimento imediato
                   </p>
@@ -84,7 +84,7 @@ const Contato = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Informações de Atendimento
               </h2>
 
@@ -132,7 +132,7 @@ const Contato = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Por Que Falar Conosco?
               </h2>
 

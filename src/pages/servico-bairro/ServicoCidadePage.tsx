@@ -164,7 +164,7 @@ const ServicoCidadePage = () => {
       {/* Como Funciona */}
       <section className="py-14 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-10">
             Como Funciona o Atendimento em {cidade.nome}
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -188,7 +188,7 @@ const ServicoCidadePage = () => {
       {/* FAQ */}
       <section className="py-14 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-10">
             Perguntas Frequentes: {servico.nome} em {cidade.nome}
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">

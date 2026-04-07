@@ -76,7 +76,7 @@ const ConsertoPcNotebook = () => {
       {/* Tipos de Conserto */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             O Que Consertamos
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -106,7 +106,7 @@ const ConsertoPcNotebook = () => {
       {/* Problemas Comuns */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Problemas Comuns que Resolvemos
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -132,7 +132,7 @@ const ConsertoPcNotebook = () => {
       {/* Processo */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Como Funciona o Conserto
           </h2>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -146,7 +146,7 @@ const ConsertoPcNotebook = () => {
                 <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -157,7 +157,7 @@ const ConsertoPcNotebook = () => {
       {/* Diferenciais */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Por Que Escolher a Técnico Curitiba?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -168,7 +168,7 @@ const ConsertoPcNotebook = () => {
               { title: "Coleta e Entrega", desc: "Buscamos e entregamos na sua casa" },
             ].map((item, index) => (
               <div key={index} className="text-center p-6 bg-background rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
@@ -179,7 +179,7 @@ const ConsertoPcNotebook = () => {
       {/* FAQ */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-primary text-center mb-12">
+          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Perguntas Frequentes
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
@@ -191,7 +191,7 @@ const ConsertoPcNotebook = () => {
               { q: "Qual a garantia do serviço?", a: "Oferecemos garantia de 90 dias no serviço e nas peças substituídas." },
             ].map((item, index) => (
               <div key={index} className="bg-secondary p-6 rounded-xl">
-                <h3 className="font-bold text-primary mb-2">{item.q}</h3>
+                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
                 <p className="text-muted-foreground">{item.a}</p>
               </div>
             ))}
@@ -218,7 +218,7 @@ const ConsertoPcNotebook = () => {
       {/* Serviços Relacionados */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-primary text-center mb-8">
+          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-8">
             Serviços Relacionados
           </h2>
           <div className="flex flex-wrap justify-center gap-4">

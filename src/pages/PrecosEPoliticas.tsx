@@ -182,7 +182,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 ⚡ Visita Técnica — Serviços Rápidos
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -209,7 +209,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 🛠️ Serviços com Execução no Local
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -241,7 +241,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 🚚 Equipamentos com Coleta e Entrega
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -269,13 +269,13 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Diagnóstico com Compromisso
               </h2>
               <div className="bg-background rounded-2xl p-6 md:p-8 border-2 border-accent/20">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-bold text-primary mb-3">Como funciona:</h3>
+                    <h3 className="font-bold text-foreground mb-3">Como funciona:</h3>
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
@@ -316,7 +316,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Tabela Completa de Serviços
               </h2>
 
@@ -370,7 +370,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Políticas de Atendimento
               </h2>
 
@@ -517,7 +517,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Laboratório (Coleta e Entrega)
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -525,7 +525,7 @@ const PrecosEPoliticas = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-secondary rounded-xl p-6">
-                  <h3 className="font-bold text-primary mb-3">Aplicável para:</h3>
+                  <h3 className="font-bold text-foreground mb-3">Aplicável para:</h3>
                   <ul className="space-y-2">
                     {["TVs (LED, OLED, Smart)", "Placas mãe de notebooks", "Notebooks com defeito grave", "Equipamentos complexos", "Recuperação de dados em HD danificado"].map((t, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -535,7 +535,7 @@ const PrecosEPoliticas = () => {
                   </ul>
                 </div>
                 <div className="bg-secondary rounded-xl p-6">
-                  <h3 className="font-bold text-primary mb-3">Detalhes:</h3>
+                  <h3 className="font-bold text-foreground mb-3">Detalhes:</h3>
                   <ul className="space-y-2">
                     {[
                       "Prazo médio: 15 a 60 dias",
@@ -564,7 +564,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Casos Complexos
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">

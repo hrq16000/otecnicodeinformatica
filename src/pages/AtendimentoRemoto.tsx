@@ -61,7 +61,7 @@ const AtendimentoRemoto = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Como Funciona o Atendimento Remoto?
               </h2>
               

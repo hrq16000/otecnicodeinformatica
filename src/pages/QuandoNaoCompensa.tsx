@@ -131,7 +131,7 @@ const QuandoNaoCompensa = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 A Regra de Ouro: 40% do Valor de Um Novo
               </h2>
               <div className="bg-background rounded-2xl p-6 md:p-8 border-2 border-accent/20">
@@ -192,7 +192,7 @@ const QuandoNaoCompensa = () => {
         <section className="py-12 md:py-16 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 E Quando COMPENSA Reparar?
               </h2>
               <div className="grid md:grid-cols-2 gap-4">

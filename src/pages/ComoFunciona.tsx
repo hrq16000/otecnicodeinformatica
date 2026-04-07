@@ -148,7 +148,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Atendimento Simples, Rápido e Transparente
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -173,7 +173,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-20 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Passo a Passo: Do Primeiro Contato à Garantia
               </h2>
               <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
@@ -238,7 +238,7 @@ const ComoFunciona = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="bg-background rounded-2xl p-8 md:p-10 shadow-lg border-2 border-accent/20">
                 <DollarSign className="h-12 w-12 text-accent mx-auto mb-4" />
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                   Quanto Custa o Atendimento?
                 </h2>
                 <p className="text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto">
@@ -263,7 +263,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 O Que Está Incluso no Atendimento
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -285,7 +285,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 O Que Pode Alterar o Valor do Serviço
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -313,7 +313,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Regiões Atendidas pelo Técnico de Informática
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -342,7 +342,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Serviços de Informática Disponíveis
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -384,7 +384,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Por Que Confiar no Nosso Atendimento
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -396,7 +396,7 @@ const ComoFunciona = () => {
                         <Icon className="h-6 w-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-primary mb-1">{item.title}</h3>
+                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
@@ -411,7 +411,7 @@ const ComoFunciona = () => {
         <section id="diagnostico" className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Tipos de Atendimento Disponíveis
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -463,7 +463,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Cenários Reais: Do Simples ao Complexo
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -523,7 +523,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Riscos Técnicos: O Que Pode Dar Errado
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -539,7 +539,7 @@ const ComoFunciona = () => {
                   <div key={i} className="bg-background rounded-xl p-5 flex gap-4">
                     <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-bold text-primary mb-1 text-sm">{r.title}</h3>
+                      <h3 className="font-bold text-foreground mb-1 text-sm">{r.title}</h3>
                       <p className="text-xs text-muted-foreground">{r.desc}</p>
                     </div>
                   </div>
@@ -556,7 +556,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Quando Compensa Reparar — E Quando Não
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -604,7 +604,7 @@ const ComoFunciona = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Perguntas Frequentes Sobre o Atendimento
               </h2>
               <p className="text-center text-muted-foreground mb-8">

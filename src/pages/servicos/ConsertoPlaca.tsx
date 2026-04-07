@@ -78,7 +78,7 @@ const ConsertoPlaca = () => {
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               Tipos de Placas que Consertamos
             </h2>
             <div className="space-y-4">
@@ -102,7 +102,7 @@ const ConsertoPlaca = () => {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary mb-6 text-center">Casos Complexos que Atendemos</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">Casos Complexos que Atendemos</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
               {[
                 "Reballing de chip BGA",
@@ -147,7 +147,7 @@ const ConsertoPlaca = () => {
       <section className="py-12 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-primary mb-6 text-center">Páginas Relacionadas</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
                 { label: "Conserto de PC/Notebook", to: "/servicos/conserto-pc-notebook" },

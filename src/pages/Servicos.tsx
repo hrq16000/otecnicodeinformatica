@@ -160,7 +160,7 @@ const Servicos = () => {
         <section className="py-12 md:py-16 lg:py-20 bg-background">
           <div className="container mx-auto">
             <div className="text-center mb-10 md:mb-14">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
                 Todos os Nossos Serviços de Informática
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -183,7 +183,7 @@ const Servicos = () => {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-heading font-bold text-primary mb-3">
+                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">
                           {service.title}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed mb-4">
@@ -219,7 +219,7 @@ const Servicos = () => {
 
             {/* Blocos por tipo de problema */}
             <div className="mt-16">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center">
                 Qual o Seu Problema?
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -281,7 +281,7 @@ const Servicos = () => {
                   },
                 ].map((item, i) => (
                   <div key={i} className="bg-secondary rounded-xl p-6 border border-transparent hover:border-accent/20 transition-all">
-                    <h3 className="text-lg font-bold text-primary mb-2">{item.problema}</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{item.problema}</h3>
                     <p className="text-muted-foreground text-sm mb-4">{item.descricao}</p>
                     <div className="flex flex-wrap gap-2">
                       {item.links.map((link) => (
@@ -297,7 +297,7 @@ const Servicos = () => {
 
             {/* Links para decisão */}
             <div className="mt-12 bg-secondary rounded-xl p-6 md:p-8">
-              <h3 className="text-xl font-bold text-primary mb-4 text-center">Antes de Solicitar um Serviço</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4 text-center">Antes de Solicitar um Serviço</h3>
               <div className="grid md:grid-cols-3 gap-4">
                 <Link to="/como-funciona" className="bg-background rounded-lg p-4 text-center hover:shadow-md transition-all group">
                   <p className="font-semibold text-primary group-hover:text-accent transition-colors">Como Funciona</p>

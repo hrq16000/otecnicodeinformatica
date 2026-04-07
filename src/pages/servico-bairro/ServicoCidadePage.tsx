@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
-  CheckCircle, Clock, Shield, MessageCircle, Phone, 
+  CheckCircle, Clock, Shield, MessageCircle, 
   MapPin, Star, ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

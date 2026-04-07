@@ -19,7 +19,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { 
   MessageCircle, 
-  Phone, 
+  MapPin, 
   MapPin, 
   Clock, 
   Shield, 

@@ -1,11 +1,10 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ExitIntentPopup } from "./ExitIntentPopup";
 import { X, Users, Clock, MapPin, Activity, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { useSocialProofSettings } from "@/hooks/useSocialProofSettings";
 
-// CDC-compliant activity messages
 const getActivityMessages = (city: string) => [
   { icon: Activity, text: `Solicitações recentes de atendimento em ${city}`, subtext: "Atividade registrada há poucos minutos" },
   { icon: Users, text: "Profissionais em atendimento neste momento", subtext: "Equipe técnica ativa na região" },
@@ -14,14 +13,12 @@ const getActivityMessages = (city: string) => [
   { icon: Activity, text: "Volume elevado de solicitações registradas", subtext: "Horário de pico identificado" },
 ];
 
-// Scarcity data based on time
 const getScarcityData = () => {
   const hour = new Date().getHours();
   const dayOfWeek = new Date().getDay();
   const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
   const isBusinessHours = hour >= 8 && hour < 20;
   const isPeakHour = !isWeekend && ((hour >= 9 && hour <= 11) || (hour >= 14 && hour <= 16));
-
   if (!isBusinessHours) return { availableTechnicians: 0, waitTime: "Amanhã a partir das 8h", isPeakHour: false };
   if (isPeakHour) return { availableTechnicians: Math.floor(Math.random() * 2) + 1, waitTime: `${Math.floor(Math.random() * 20) + 30} minutos`, isPeakHour: true };
   return { availableTechnicians: Math.floor(Math.random() * 3) + 2, waitTime: `${Math.floor(Math.random() * 15) + 15} minutos`, isPeakHour: false };
@@ -29,91 +26,99 @@ const getScarcityData = () => {
 
 type ProofType = "notification" | "scarcity";
 
-/**
- * Orchestrated social proof - only ONE element visible at a time.
- * Notifications and scarcity indicators alternate with fluid intervals.
- */
 export const SocialProofProvider = () => {
   const [activeType, setActiveType] = useState<ProofType | null>(null);
   const [isExiting, setIsExiting] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
   const [scarcityData, setScarcityData] = useState(getScarcityData());
-  const { city, isLoading } = useGeolocation();
+  const { city } = useGeolocation();
   const { settings } = useSocialProofSettings();
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mountTime = useRef(Date.now());
   const cycleRef = useRef(0);
+  const dismissedUntil = useRef(0);
+  const cityRef = useRef(city);
+  cityRef.current = city;
 
-  const messages = getActivityMessages(city || "sua região");
-
-  const clearScheduled = useCallback(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  }, []);
-
-  const hideCurrentProof = useCallback(() => {
-    setIsExiting(true);
-    timeoutRef.current = setTimeout(() => {
-      setActiveType(null);
-      setIsExiting(false);
-    }, 400);
-  }, []);
-
-  const showNextProof = useCallback(() => {
-    if (!settings.enabled) return;
-
-    const cycle = cycleRef.current;
-    cycleRef.current++;
-
-    // Alternate: notification, scarcity, notification, scarcity...
-    const shouldShowNotification = cycle % 2 === 0 && settings.showActivityNotifications;
-    const shouldShowScarcity = cycle % 2 === 1 && settings.showScarcityMessages;
-
-    if (shouldShowNotification) {
-      setMessageIndex(prev => (prev + 1) % messages.length);
-      setActiveType("notification");
-    } else if (shouldShowScarcity) {
-      setScarcityData(getScarcityData());
-      setActiveType("scarcity");
-    } else if (settings.showActivityNotifications) {
-      setMessageIndex(prev => (prev + 1) % messages.length);
-      setActiveType("notification");
-    } else if (settings.showScarcityMessages) {
-      setScarcityData(getScarcityData());
-      setActiveType("scarcity");
-    } else {
-      return;
-    }
-
-    // Auto-hide after 5 seconds
-    timeoutRef.current = setTimeout(() => {
-      hideCurrentProof();
-
-      // Schedule next proof after a random pause (8-18s)
-      const pause = 8000 + Math.random() * 10000;
-      timeoutRef.current = setTimeout(showNextProof, pause);
-    }, 5000);
-  }, [settings, messages.length, hideCurrentProof]);
-
+  // Tick every second to manage show/hide
   useEffect(() => {
-    if (!settings.enabled || isLoading) return;
+    if (!settings.enabled) return;
     if (!settings.showActivityNotifications && !settings.showScarcityMessages) return;
 
-    // Initial delay: 5-8 seconds before first proof
-    const initialDelay = 5000 + Math.random() * 3000;
-    timeoutRef.current = setTimeout(showNextProof, initialDelay);
+    const INITIAL_DELAY = 3000; // 3s before first
+    const SHOW_DURATION = 5000; // show for 5s
+    const HIDE_DURATION = 12000; // pause 12s between
+    const CYCLE_TOTAL = SHOW_DURATION + HIDE_DURATION;
 
-    return clearScheduled;
-  }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages, isLoading, showNextProof, clearScheduled]);
+    const interval = setInterval(() => {
+      const now = Date.now();
+      if (now < dismissedUntil.current) {
+        setActiveType(null);
+        return;
+      }
+
+      const elapsed = now - mountTime.current;
+      if (elapsed < INITIAL_DELAY) return;
+
+      const cycleTime = (elapsed - INITIAL_DELAY) % CYCLE_TOTAL;
+
+      if (cycleTime < SHOW_DURATION) {
+        // Should be showing
+        const newCycle = Math.floor((elapsed - INITIAL_DELAY) / CYCLE_TOTAL);
+        if (newCycle !== cycleRef.current) {
+          cycleRef.current = newCycle;
+          const isNotification = newCycle % 2 === 0 && settings.showActivityNotifications;
+          const isScarcity = newCycle % 2 === 1 && settings.showScarcityMessages;
+
+          if (isNotification || (!isScarcity && settings.showActivityNotifications)) {
+            setMessageIndex(prev => (prev + 1) % 5);
+            setActiveType("notification");
+          } else if (isScarcity || settings.showScarcityMessages) {
+            setScarcityData(getScarcityData());
+            setActiveType("scarcity");
+          }
+          setIsExiting(false);
+        }
+      } else if (cycleTime >= SHOW_DURATION && cycleTime < SHOW_DURATION + 400) {
+        // Exit animation
+        setIsExiting(true);
+      } else {
+        // Hidden
+        setActiveType(null);
+        setIsExiting(false);
+      }
+    }, 500);
+
+    // Trigger first show
+    const firstTimer = setTimeout(() => {
+      cycleRef.current = 0;
+      if (settings.showActivityNotifications) {
+        setMessageIndex(0);
+        setActiveType("notification");
+      } else if (settings.showScarcityMessages) {
+        setScarcityData(getScarcityData());
+        setActiveType("scarcity");
+      }
+    }, INITIAL_DELAY);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(firstTimer);
+    };
+  }, [settings.enabled, settings.showActivityNotifications, settings.showScarcityMessages]);
 
   const handleClose = () => {
-    clearScheduled();
-    hideCurrentProof();
-    // Resume cycle after longer pause
-    timeoutRef.current = setTimeout(showNextProof, 25000 + Math.random() * 10000);
+    setIsExiting(true);
+    setTimeout(() => {
+      setActiveType(null);
+      setIsExiting(false);
+    }, 300);
+    dismissedUntil.current = Date.now() + 30000; // suppress for 30s
   };
 
   if (!activeType) return <ExitIntentPopup />;
 
-  // Render notification
+  const messages = getActivityMessages(cityRef.current || "sua região");
+
   if (activeType === "notification") {
     const message = messages[messageIndex];
     const IconComponent = message.icon;
@@ -155,7 +160,6 @@ export const SocialProofProvider = () => {
     );
   }
 
-  // Render scarcity
   const { availableTechnicians, waitTime, isPeakHour } = scarcityData;
   return (
     <>
@@ -184,7 +188,7 @@ export const SocialProofProvider = () => {
               <Users className="h-4 w-4 text-primary" />
               <span className="text-sm">
                 {availableTechnicians > 0 ? (
-                  <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{city && ` em ${city}`}</>
+                  <><strong className="text-primary">{availableTechnicians}</strong> técnico{availableTechnicians > 1 ? "s" : ""} disponíve{availableTechnicians > 1 ? "is" : "l"}{cityRef.current && ` em ${cityRef.current}`}</>
                 ) : "Atendimento retorna amanhã"}
               </span>
             </div>

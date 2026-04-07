@@ -37,7 +37,8 @@ export const BenefitsGrid = ({ benefits, title, subtitle }: BenefitsGridProps) =
             return (
               <div
                 key={index}
-                className="bg-background rounded-xl p-6 border border-primary/5 hover:border-accent/30 transition-all hover:shadow-md text-center"
+                className="bg-background rounded-xl p-6 border border-primary/5 hover:border-accent/30 hover-lift text-center anim-scale"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Icon className="h-7 w-7 text-accent" />

@@ -110,7 +110,7 @@ export const ServicesSection = () => {
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors">
+                  <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors hover-scale">
                     <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">

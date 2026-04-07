@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { SERVICOS, CIDADES, getServico, getCidade, getFaqPorServico } from "@/lib/servicoCidadeData";
@@ -146,7 +147,7 @@ const ServicoCidadePage = () => {
       </section>
 
       {/* Benefícios */}
-      <section className="py-14 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {beneficios.map((b, i) => (
@@ -160,10 +161,12 @@ const ServicoCidadePage = () => {
         </div>
       </section>
 
+      <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="tecnicoTrabalhando" layout="duo" caption={`Técnico em atendimento a domicílio em ${cidade.nome}`} secondaryCaption="Diagnóstico profissional no local" />
+
       {/* Como Funciona */}
-      <section className="py-14 bg-secondary">
+      <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-6">
             Como Funciona o Atendimento em {cidade.nome}
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -185,9 +188,9 @@ const ServicoCidadePage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-14 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-6">
             Perguntas Frequentes: {servico.nome} em {cidade.nome}
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -207,7 +210,7 @@ const ServicoCidadePage = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-14 bg-primary">
+      <section className="py-10 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
             Precisa de {servico.nome} em {cidade.nome}?

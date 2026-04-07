@@ -8,12 +8,12 @@ export const PricingBanner = () => {
         <Info className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
         <div>
           <p className="text-foreground font-semibold mb-1">
-            Serviços rápidos a partir de <span className="text-accent">R$ 99,99</span> (30 min)
+            Visita técnica a partir de <span className="text-accent">R$ 69,99</span>
           </p>
           <p className="text-muted-foreground text-sm">
-            Diagnóstico com coleta: taxa de R$ 99 em caso de desistência. 
-            <Link to="/precos-e-politicas" className="text-accent hover:underline ml-1">
-              Ver política completa →
+            Diagnóstico com coleta: taxa de R$ 90 em caso de desistência. 
+            <Link to="/valores" className="text-accent hover:underline ml-1">
+              Ver detalhes →
             </Link>
           </p>
         </div>

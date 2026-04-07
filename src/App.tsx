@@ -194,6 +194,7 @@ const App = () => (
             <Route path="/atendimento-remoto" element={<AtendimentoRemoto />} />
             <Route path="/suporte-empresas" element={<SuporteEmpresas />} />
             <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
+            <Route path="/valores" element={<PrecosEPoliticas />} />
             
             {/* Páginas de Cidades */}
             <Route path="/tecnico-informatica-curitiba" element={<TecnicoInformaticaCuritiba />} />

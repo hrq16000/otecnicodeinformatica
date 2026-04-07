@@ -42,8 +42,10 @@ export const SocialProofSection = () => {
             <span className="font-medium text-sm">Assistência Técnica Mais Bem Avaliada de Curitiba</span>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-6 tracking-tight reveal-text">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">
             O Que Nossos <span className="gradient-text">Clientes</span> Dizem
+          </h2>
+          <div className="glow-separator max-w-xs mx-auto mb-6" />
           </h2>
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
@@ -75,7 +77,7 @@ export const SocialProofSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border stagger-item"
+              className="glass-card gradient-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group card-shine animated-border hover-streak slide-up-stagger"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <Quote className="h-7 w-7 text-accent/25 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />

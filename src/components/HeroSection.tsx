@@ -8,6 +8,14 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingEffect } from "@/components/TypingEffect";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
+import heroBgHardware from "@/assets/hero-bg-hardware.jpg";
+import heroBgRedes from "@/assets/hero-bg-redes.jpg";
+import heroBgPlacamae from "@/assets/hero-bg-placamae.jpg";
+import heroBgReparo from "@/assets/hero-bg-reparo.jpg";
+
+const HERO_BACKGROUNDS = [heroTechBg, heroBgHardware, heroBgRedes, heroBgPlacamae, heroBgReparo];
+
+const getRandomBg = () => HERO_BACKGROUNDS[Math.floor(Math.random() * HERO_BACKGROUNDS.length)];
 
 const TYPING_PHRASES = [
   "e Região Metropolitana",

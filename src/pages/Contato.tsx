@@ -54,7 +54,7 @@ const Contato = () => {
         </section>
 
         {/* Contatos Principais */}
-        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-10 right-0 w-80 h-80 bg-[hsl(var(--glow-whatsapp)/0.06)] rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
              <div className="max-w-2xl mx-auto">
@@ -84,7 +84,7 @@ const Contato = () => {
         </section>
 
         {/* Informações Adicionais */}
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -127,7 +127,7 @@ const Contato = () => {
         </section>
 
         {/* Por que entrar em contato */}
-        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
@@ -155,7 +155,7 @@ const Contato = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-12 md:py-16 bg-primary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--glow-accent)/0.15),transparent_70%)] pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-2xl mx-auto text-center">

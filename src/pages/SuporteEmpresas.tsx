@@ -96,7 +96,7 @@ const SuporteEmpresas = () => {
         />
 
         {/* O Que Está Incluso */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -197,9 +197,9 @@ const SuporteEmpresas = () => {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Por Que Empresas Escolhem a Técnico Curitiba?
               </h2>
@@ -243,7 +243,7 @@ const SuporteEmpresas = () => {
         </section>
 
         {/* Tipos de Atendimento */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">

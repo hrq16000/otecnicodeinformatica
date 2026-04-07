@@ -129,7 +129,7 @@ const QuandoNaoCompensa = () => {
         </section>
 
         {/* REGRA GERAL */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
@@ -154,7 +154,7 @@ const QuandoNaoCompensa = () => {
         {cenarios.map((cenario, i) => {
           const Icon = cenario.icon;
           return (
-            <section key={i} className={`py-12 md:py-16 ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}>
+            <section key={i} className={`py-8 md:py-10 ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}>
               <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                   <div className="flex items-start gap-4 mb-6">
@@ -190,7 +190,7 @@ const QuandoNaoCompensa = () => {
         })}
 
         {/* QUANDO COMPENSA */}
-        <section className="py-12 md:py-16 bg-accent/5">
+        <section className="py-8 md:py-10 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
@@ -219,7 +219,7 @@ const QuandoNaoCompensa = () => {
         </section>
 
         {/* CTA FINAL */}
-        <section className="py-14 md:py-20 bg-primary">
+        <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Não Sabe Se Compensa Reparar?

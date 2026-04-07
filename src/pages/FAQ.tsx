@@ -174,7 +174,7 @@ const FAQ = () => {
         </section>
 
         {/* FAQ Content */}
-        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-1/4 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto">
@@ -206,7 +206,7 @@ const FAQ = () => {
         </section>
 
         {/* Não encontrou */}
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary)/0.06),transparent_60%)] pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-2xl mx-auto text-center">

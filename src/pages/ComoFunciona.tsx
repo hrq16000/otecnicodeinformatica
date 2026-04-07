@@ -146,7 +146,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 2. RESUMO RÁPIDO ===== */}
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-5xl mx-auto">
@@ -236,7 +236,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 4. BLOCO DE PREÇOS ===== */}
-        <section className="py-12 md:py-16 bg-accent/5">
+        <section className="py-8 md:py-10 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <div className="bg-background rounded-2xl p-8 md:p-10 shadow-lg border-2 border-accent/20">
@@ -263,7 +263,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 5. O QUE ESTÁ INCLUSO ===== */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
@@ -285,7 +285,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 6. O QUE PODE ALTERAR O VALOR ===== */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
@@ -313,7 +313,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 7. REGIÕES ATENDIDAS ===== */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
@@ -343,7 +343,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 8. TIPOS DE SERVIÇOS ===== */}
-        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-1/3 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -387,7 +387,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 9. PROVA DE CONFIANÇA ===== */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
@@ -414,7 +414,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== TIPOS DE ATENDIMENTO ===== */}
-        <section id="diagnostico" className="py-12 md:py-16 bg-background">
+        <section id="diagnostico" className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -466,7 +466,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== CENÁRIOS REAIS ===== */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -526,7 +526,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== RISCOS TÉCNICOS ===== */}
-        <section className="py-12 md:py-16 bg-accent/5">
+        <section className="py-8 md:py-10 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -559,7 +559,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== QUANDO COMPENSA REPARAR ===== */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -607,7 +607,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 10. FAQ ===== */}
-        <section className="py-12 md:py-16 bg-secondary">
+        <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -633,7 +633,7 @@ const ComoFunciona = () => {
         </section>
 
         {/* ===== 11. CTA FINAL ===== */}
-        <section className="py-14 md:py-20 bg-primary">
+        <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">

@@ -84,7 +84,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* Local Info */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 text-center">
               Segurança Eletrônica em {city}
@@ -112,7 +112,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* Bairros */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6">
               Bairros Atendidos em {city}
@@ -128,7 +128,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* Testimonial */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto max-w-2xl">
             <div className="bg-background rounded-xl p-8 border border-primary/5 text-center">
               <div className="flex justify-center gap-0.5 mb-4">
@@ -142,7 +142,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* Authority */}
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto max-w-3xl">
             <div className="flex flex-col md:flex-row items-center gap-6 bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/10">
               <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
@@ -160,7 +160,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* Artigos Relacionados */}
-        <section className="py-12 md:py-16 bg-muted/50">
+        <section className="py-8 md:py-10 bg-muted/50">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-8 text-center">
               Artigos Sobre Segurança Eletrônica
@@ -182,7 +182,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         </section>
 
         {/* CTA Final */}
-        <section className="py-16 md:py-24 hero-gradient">
+        <section className="py-10 md:py-24 hero-gradient">
           <div className="container mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-4">
               Proteja Seu Imóvel em {city} Hoje

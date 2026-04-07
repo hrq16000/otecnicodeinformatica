@@ -88,13 +88,13 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background">
-      <div className="container mx-auto">
+    <section className="py-12 md:py-16 lg:py-20 bg-background cyber-grid relative">
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-primary mb-3 neon-text">
             Nossos Serviços
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-mono">
             Soluções completas em informática para você e sua empresa
           </p>
         </div>
@@ -106,25 +106,25 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group bg-secondary rounded-xl p-5 md:p-6 hover-lift border border-transparent hover:border-accent/20 anim-fade-up"
+                className="group bg-card rounded-xl p-5 md:p-6 hover-lift neon-border anim-fade-up"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary rounded-lg p-3 flex-shrink-0 group-hover:bg-accent transition-colors hover-scale">
-                    <Icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="bg-neon-green/10 rounded-lg p-3 flex-shrink-0 group-hover:bg-neon-green/20 transition-colors group-hover:shadow-[0_0_15px_hsl(160_100%_45%/0.2)]">
+                    <Icon className="h-6 w-6 text-neon-green" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-heading font-bold text-primary text-lg mb-1 group-hover:text-accent transition-colors">
+                    <h3 className="font-heading font-bold text-foreground text-lg mb-1 group-hover:text-neon-green transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-2">
+                    <p className="text-muted-foreground text-sm mb-2 font-mono">
                       {service.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-accent font-semibold text-sm">
+                      <span className="text-neon-cyan font-semibold text-sm font-mono">
                         {service.preco}
                       </span>
-                      <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowRight className="h-4 w-4 text-neon-green opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export const ServicesSection = () => {
         <div className="text-center mt-8">
           <Link
             to="/valores"
-            className="inline-flex items-center gap-2 text-accent font-medium hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-neon-green font-mono font-medium hover:gap-3 transition-all link-underline"
           >
             Ver tabela completa de preços
             <ArrowRight className="h-4 w-4" />

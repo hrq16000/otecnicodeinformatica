@@ -45,13 +45,13 @@ const bairros = [
   { name: "Centro", slug: "centro-fazenda-rio-grande", hasPage: true },
   { name: "Eucaliptos", slug: "eucaliptos-frg", hasPage: true },
   { name: "Nações", slug: "nacoes-frg", hasPage: true },
-  { name: "Iguaçu", slug: "iguacu-frg", hasPage: false },
-  { name: "Gralha Azul", slug: "gralha-azul", hasPage: false },
-  { name: "Santa Terezinha", slug: "santa-terezinha-frg", hasPage: false },
-  { name: "Jardim Estados", slug: "jardim-estados", hasPage: false },
-  { name: "Pioneiros", slug: "pioneiros-frg", hasPage: false },
-  { name: "São Lourenço", slug: "sao-lourenco-frg", hasPage: false },
-  { name: "Hortência", slug: "hortencia-frg", hasPage: false },
+  { name: "Iguaçu", slug: "iguacu-frg", hasPage: true },
+  { name: "Gralha Azul", slug: "gralha-azul", hasPage: true },
+  { name: "Santa Terezinha", slug: "santa-terezinha-frg", hasPage: true },
+  { name: "Jardim Estados", slug: "jardim-estados", hasPage: true },
+  { name: "Pioneiros", slug: "pioneiros-frg", hasPage: true },
+  { name: "São Lourenço", slug: "sao-lourenco-frg", hasPage: true },
+  { name: "Hortência", slug: "hortencia-frg", hasPage: true },
 ];
 
 const servicos = [

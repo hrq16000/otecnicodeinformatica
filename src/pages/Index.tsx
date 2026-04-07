@@ -85,33 +85,29 @@ const Index = () => {
         </AnimatedSection>
 
         <AnimatedSection>
-          <section className="py-12 md:py-16 bg-secondary">
+          <section className="py-14 md:py-18 bg-muted">
             <div className="container mx-auto">
               <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight">
                   Como Funciona Nosso Atendimento
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
                   Atendimento técnico simples, rápido e transparente em 3 passos
                 </p>
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="bg-background rounded-xl p-6 text-center">
-                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">1</div>
-                    <h3 className="font-bold text-primary mb-2">Chame no WhatsApp</h3>
-                    <p className="text-sm text-muted-foreground">Descreva o problema e receba orientação imediata do técnico</p>
-                  </div>
-                  <div className="bg-background rounded-xl p-6 text-center">
-                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">2</div>
-                    <h3 className="font-bold text-primary mb-2">Diagnóstico e Orçamento</h3>
-                    <p className="text-sm text-muted-foreground">Avaliação profissional com orçamento transparente antes da execução</p>
-                  </div>
-                  <div className="bg-background rounded-xl p-6 text-center">
-                    <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3">3</div>
-                    <h3 className="font-bold text-primary mb-2">Execução com Garantia</h3>
-                    <p className="text-sm text-muted-foreground">Serviço realizado com aprovação e garantia por escrito</p>
-                  </div>
+                <div className="grid md:grid-cols-3 gap-5 mb-8">
+                  {[
+                    { step: "1", title: "Chame no WhatsApp", desc: "Descreva o problema e receba orientação imediata do técnico" },
+                    { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
+                    { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-card rounded-xl p-6 text-center border border-border shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-300 anim-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
+                      <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold mx-auto mb-3 shadow-sm">{item.step}</div>
+                      <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
                 </div>
-                <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors shadow-sm ripple-container">
                   Entender Como Funciona
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </a>

@@ -37,7 +37,7 @@ export const ServicesSection = () => {
               <Link 
                 key={index}
                 to={service.link}
-                className="group bg-card rounded-xl p-5 md:p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] border border-border/60 hover:border-accent/25 transition-all duration-300 hover:-translate-y-0.5 anim-fade-up ripple-container"
+                className="group bg-card rounded-xl p-5 md:p-6 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-lg)] border border-border hover:border-accent/30 transition-all duration-300 hover:-translate-y-0.5 anim-fade-up ripple-container"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <div className="flex items-start gap-4">
@@ -45,14 +45,14 @@ export const ServicesSection = () => {
                     <Icon className="h-5 w-5 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-heading font-bold text-foreground text-[17px] mb-1 group-hover:text-accent transition-colors duration-200">
+                    <h3 className="font-heading font-bold text-foreground text-base md:text-lg mb-1 group-hover:text-accent transition-colors duration-200">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground text-sm mb-2.5 leading-relaxed">
                       {service.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-accent font-semibold text-sm">
+                      <span className="text-accent font-bold text-sm">
                         {service.preco}
                       </span>
                       <ArrowRight className="h-4 w-4 text-accent opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";

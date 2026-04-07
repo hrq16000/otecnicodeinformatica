@@ -99,6 +99,117 @@ const CentroAlmiranteTamandare = lazy(() => import("./pages/bairros/CentroAlmira
 const JardimMontoSantoAT = lazy(() => import("./pages/bairros/JardimMontoSantoAT"));
 const CachoeiraAT = lazy(() => import("./pages/bairros/CachoeiraAT"));
 
+// Novos bairros Curitiba
+const AguaVerde = lazy(() => import("./pages/bairros/AguaVerde"));
+const Bigorrilho = lazy(() => import("./pages/bairros/Bigorrilho"));
+const Merces = lazy(() => import("./pages/bairros/Merces"));
+const BoaVista = lazy(() => import("./pages/bairros/BoaVista"));
+const Juveve = lazy(() => import("./pages/bairros/Juveve"));
+const Cabral = lazy(() => import("./pages/bairros/Cabral"));
+const CristoRei = lazy(() => import("./pages/bairros/CristoRei"));
+const Cajuru = lazy(() => import("./pages/bairros/Cajuru"));
+const Uberaba = lazy(() => import("./pages/bairros/Uberaba"));
+const Pinheirinho = lazy(() => import("./pages/bairros/Pinheirinho"));
+const Xaxim = lazy(() => import("./pages/bairros/Xaxim"));
+const Boqueirao = lazy(() => import("./pages/bairros/Boqueirao"));
+const Bacacheri = lazy(() => import("./pages/bairros/Bacacheri"));
+const Tingui = lazy(() => import("./pages/bairros/Tingui"));
+// Novos bairros Araucária
+const ChapadaAraucaria = lazy(() => import("./pages/bairros/ChapadaAraucaria"));
+const CosteiraAraucaria = lazy(() => import("./pages/bairros/CosteiraAraucaria"));
+const IguacuAraucaria = lazy(() => import("./pages/bairros/IguacuAraucaria"));
+const CampinaDaBarra = lazy(() => import("./pages/bairros/CampinaDaBarra"));
+const PortoDasLaranjeiras = lazy(() => import("./pages/bairros/PortoDasLaranjeiras"));
+const Tindiquera = lazy(() => import("./pages/bairros/Tindiquera"));
+const BariguiAraucaria = lazy(() => import("./pages/bairros/BariguiAraucaria"));
+const FazendaVelhaAraucaria = lazy(() => import("./pages/bairros/FazendaVelhaAraucaria"));
+const EstacaoAraucaria = lazy(() => import("./pages/bairros/EstacaoAraucaria"));
+const BoqueiraoAraucaria = lazy(() => import("./pages/bairros/BoqueiraoAraucaria"));
+const SabiaAraucaria = lazy(() => import("./pages/bairros/SabiaAraucaria"));
+const PassaunaAraucaria = lazy(() => import("./pages/bairros/PassaunaAraucaria"));
+const GuajuviraAraucaria = lazy(() => import("./pages/bairros/GuajuviraAraucaria"));
+// Novos bairros Colombo
+const AltoMaracanaColombo = lazy(() => import("./pages/bairros/AltoMaracanaColombo"));
+const AtubaColombo = lazy(() => import("./pages/bairros/AtubaColombo"));
+const CampoPequenoColombo = lazy(() => import("./pages/bairros/CampoPequenoColombo"));
+const FatimaColombo = lazy(() => import("./pages/bairros/FatimaColombo"));
+const GabirobalColombo = lazy(() => import("./pages/bairros/GabirobalColombo"));
+const JardimOsascoColombo = lazy(() => import("./pages/bairros/JardimOsascoColombo"));
+const MonzaColombo = lazy(() => import("./pages/bairros/MonzaColombo"));
+const PalmitalColombo = lazy(() => import("./pages/bairros/PalmitalColombo"));
+const RocaGrandeColombo = lazy(() => import("./pages/bairros/RocaGrandeColombo"));
+const SaoGabrielColombo = lazy(() => import("./pages/bairros/SaoGabrielColombo"));
+const SantaTerezinhaColombo = lazy(() => import("./pages/bairros/SantaTerezinhaColombo"));
+// Novos bairros Pinhais
+const EmilianoPerneta = lazy(() => import("./pages/bairros/EmilianoPerneta"));
+const MariaAntonieta = lazy(() => import("./pages/bairros/MariaAntonieta"));
+const VargemGrande = lazy(() => import("./pages/bairros/VargemGrande"));
+const EstanciaPinhais = lazy(() => import("./pages/bairros/EstanciaPinhais"));
+const AltoTaruma = lazy(() => import("./pages/bairros/AltoTaruma"));
+const GraciosaPinhais = lazy(() => import("./pages/bairros/GraciosaPinhais"));
+const JardimAmelia = lazy(() => import("./pages/bairros/JardimAmelia"));
+const PalmitalPinhais = lazy(() => import("./pages/bairros/PalmitalPinhais"));
+const AtubaPinhais = lazy(() => import("./pages/bairros/AtubaPinhais"));
+const SeteVilas = lazy(() => import("./pages/bairros/SeteVilas"));
+const VilaTaruma = lazy(() => import("./pages/bairros/VilaTaruma"));
+const ValeDasAguas = lazy(() => import("./pages/bairros/ValeDasAguas"));
+const JardimClaudia = lazy(() => import("./pages/bairros/JardimClaudia"));
+// Novos bairros Campo Largo
+const JardimAmericaCL = lazy(() => import("./pages/bairros/JardimAmericaCL"));
+const BotiatuvaCL = lazy(() => import("./pages/bairros/BotiatuvaCL"));
+const RondinhaCL = lazy(() => import("./pages/bairros/RondinhaCL"));
+const SaoSilvestreCL = lazy(() => import("./pages/bairros/SaoSilvestreCL"));
+const TresCorregosCL = lazy(() => import("./pages/bairros/TresCorregosCL"));
+const ItaquiCL = lazy(() => import("./pages/bairros/ItaquiCL"));
+const OuroFinoCL = lazy(() => import("./pages/bairros/OuroFinoCL"));
+const BateiasCL = lazy(() => import("./pages/bairros/BateiasCL"));
+const PalmitalCL = lazy(() => import("./pages/bairros/PalmitalCL"));
+const SantaCruzCL = lazy(() => import("./pages/bairros/SantaCruzCL"));
+const CorreiaDeFreitasCL = lazy(() => import("./pages/bairros/CorreiaDeFreitasCL"));
+const JardimPlanaltoCL = lazy(() => import("./pages/bairros/JardimPlanaltoCL"));
+const VilaSoleneCL = lazy(() => import("./pages/bairros/VilaSoleneCL"));
+// Novos bairros FRG, AT, Piraquara, Campo Magro, Quatro Barras, SJP
+const IguacuFRG = lazy(() => import("./pages/bairros/IguacuFRG"));
+const GralhaAzulFRG = lazy(() => import("./pages/bairros/GralhaAzulFRG"));
+const SantaTerezinhaFRG = lazy(() => import("./pages/bairros/SantaTerezinhaFRG"));
+const JardimEstadosFRG = lazy(() => import("./pages/bairros/JardimEstadosFRG"));
+const PioneirosFRG = lazy(() => import("./pages/bairros/PioneirosFRG"));
+const SaoLourencoFRG = lazy(() => import("./pages/bairros/SaoLourencoFRG"));
+const HortenciaFRG = lazy(() => import("./pages/bairros/HortenciaFRG"));
+const TanguaAT = lazy(() => import("./pages/bairros/TanguaAT"));
+const SaoVenancioAT = lazy(() => import("./pages/bairros/SaoVenancioAT"));
+const JardimGrazielaAT = lazy(() => import("./pages/bairros/JardimGrazielaAT"));
+const JardimRomaAT = lazy(() => import("./pages/bairros/JardimRomaAT"));
+const ColoniaAntonioPradoAT = lazy(() => import("./pages/bairros/ColoniaAntonioPradoAT"));
+const TranqueiraAT = lazy(() => import("./pages/bairros/TranqueiraAT"));
+const JardimParaisoAT = lazy(() => import("./pages/bairros/JardimParaisoAT"));
+const CentroPiraquara = lazy(() => import("./pages/bairros/CentroPiraquara"));
+const JardimPrimaveraPiraquara = lazy(() => import("./pages/bairros/JardimPrimaveraPiraquara"));
+const PlantaDeodoroPiraquara = lazy(() => import("./pages/bairros/PlantaDeodoroPiraquara"));
+const VilaMacedoPiraquara = lazy(() => import("./pages/bairros/VilaMacedoPiraquara"));
+const GuaritubaPiraquara = lazy(() => import("./pages/bairros/GuaritubaPiraquara"));
+const PradoVelhoPiraquara = lazy(() => import("./pages/bairros/PradoVelhoPiraquara"));
+const SaoCristaoPiraquara = lazy(() => import("./pages/bairros/SaoCristaoPiraquara"));
+const JardimBelaVistaPiraquara = lazy(() => import("./pages/bairros/JardimBelaVistaPiraquara"));
+const CaiuaPiraquara = lazy(() => import("./pages/bairros/CaiuaPiraquara"));
+const CentroCampoMagro = lazy(() => import("./pages/bairros/CentroCampoMagro"));
+const SedeCampoMagro = lazy(() => import("./pages/bairros/SedeCampoMagro"));
+const JardimBoaVistaCM = lazy(() => import("./pages/bairros/JardimBoaVistaCM"));
+const SaoSebastiaoCM = lazy(() => import("./pages/bairros/SaoSebastiaoCM"));
+const RioVerdeCM = lazy(() => import("./pages/bairros/RioVerdeCM"));
+const BotiatuvaCM = lazy(() => import("./pages/bairros/BotiatuvaCM"));
+const CentroQuatroBarras = lazy(() => import("./pages/bairros/CentroQuatroBarras"));
+const JardimMeninoDeusQB = lazy(() => import("./pages/bairros/JardimMeninoDeusQB"));
+const VilaSaoJoseQB = lazy(() => import("./pages/bairros/VilaSaoJoseQB"));
+const BordaDoCampoQB = lazy(() => import("./pages/bairros/BordaDoCampoQB"));
+const SaoLourencoQB = lazy(() => import("./pages/bairros/SaoLourencoQB"));
+const VilaMariaQB = lazy(() => import("./pages/bairros/VilaMariaQB"));
+const CidadeJardimSJP = lazy(() => import("./pages/bairros/CidadeJardimSJP"));
+const PedroMoroSJP = lazy(() => import("./pages/bairros/PedroMoroSJP"));
+const IpeSJP = lazy(() => import("./pages/bairros/IpeSJP"));
+const RioPequenoSJP = lazy(() => import("./pages/bairros/RioPequenoSJP"));
+const BordaDoCampoSJP = lazy(() => import("./pages/bairros/BordaDoCampoSJP"));
+
 const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInformaticaCuritibaAds"));
 
 // Páginas de Serviços Individuais

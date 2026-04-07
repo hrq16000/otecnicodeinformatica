@@ -139,28 +139,27 @@ const PrecosEPoliticas = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16">
-          <div className="container mx-auto">
+        <section className="hero-gradient pt-24 pb-12 md:pt-28 md:pb-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15),transparent_60%)] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
                 Tabela de Valores
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-6">
+              <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
                 Transparência total nos valores • Sem surpresas na hora de pagar
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2">
-                  <BadgeCheck className="h-5 w-5 text-accent" />
-                  <span className="text-white text-sm">Valores fixos</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2">
-                  <Star className="h-5 w-5 text-accent" />
-                  <span className="text-white text-sm">Garantia por escrito</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-accent" />
-                  <span className="text-white text-sm">Nota fiscal</span>
-                </div>
+                {[
+                  { icon: BadgeCheck, text: "Valores fixos" },
+                  { icon: Star, text: "Garantia por escrito" },
+                  { icon: FileText, text: "Nota fiscal" },
+                ].map((badge, i) => (
+                  <div key={i} className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2 stagger-item hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
+                    <badge.icon className="h-5 w-5 text-accent" />
+                    <span className="text-white text-sm">{badge.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -181,13 +180,14 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* VISITA TÉCNICA — Serviços Rápidos */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center reveal-text">
                 ⚡ Visita Técnica — Serviços Rápidos
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
                 Ideal para serviços rápidos como formatação, upgrade, configuração de rede e remoção de vírus.
               </p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -195,11 +195,11 @@ const PrecosEPoliticas = () => {
                   { tempo: "até 15 minutos", valor: "R$ 69,99" },
                   { tempo: "até 30 minutos", valor: "R$ 99,99" },
                 ].map((t, i) => (
-                  <div key={i} className={`bg-secondary rounded-xl p-6 text-center ${i === 0 ? "ring-2 ring-accent" : ""}`}>
+                  <div key={i} className={`bg-secondary rounded-xl p-6 text-center hover:-translate-y-1 transition-all stagger-item ${i === 0 ? "ring-2 ring-accent shadow-[0_0_20px_hsl(var(--accent)/0.15)]" : ""}`} style={{ animationDelay: `${i * 100}ms` }}>
                     <Zap className="h-6 w-6 text-accent mx-auto mb-2" />
                     <span className="text-sm text-muted-foreground block mb-1">{t.tempo}</span>
                     <div className="text-2xl font-bold text-accent">{t.valor}</div>
-                    {i === 0 && <span className="text-xs text-accent mt-1 block">Mais popular</span>}
+                    {i === 0 && <span className="text-xs text-accent mt-1 block shimmer">Mais popular</span>}
                   </div>
                 ))}
               </div>
@@ -318,7 +318,7 @@ const PrecosEPoliticas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 Tabela Completa de Serviços
               </h2>
 
@@ -326,7 +326,7 @@ const PrecosEPoliticas = () => {
                 {servicosPrecos.map((categoria, catIndex) => {
                   const Icon = categoria.icon;
                   return (
-                    <div key={catIndex} className="bg-secondary rounded-xl overflow-hidden">
+                    <div key={catIndex} className="bg-secondary rounded-xl overflow-hidden stagger-item hover:shadow-lg transition-shadow" style={{ animationDelay: `${catIndex * 100}ms` }}>
                       <div className="bg-primary px-6 py-4 flex items-center gap-3">
                         <Icon className="h-6 w-6 text-primary-foreground" />
                         <h3 className="text-lg font-bold text-primary-foreground">
@@ -369,10 +369,11 @@ const PrecosEPoliticas = () => {
         </section>
 
         {/* Políticas */}
-        <section className="py-12 md:py-16 bg-secondary">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-secondary relative overflow-hidden">
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
                 Políticas de Atendimento
               </h2>
 

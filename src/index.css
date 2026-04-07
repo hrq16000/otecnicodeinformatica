@@ -571,6 +571,71 @@
   .animate-blink {
     animation: blink 1s step-end infinite;
   }
+
+  /* ── Parallax text reveal ── */
+  .reveal-text {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--anim-ease-out), transform 0.7s var(--anim-ease-out);
+  }
+  .reveal-text.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-text-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-text-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-text-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-text-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.6s var(--anim-ease-out), transform 0.6s var(--anim-ease-out);
+  }
+  .reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ── Dark mode transition ── */
+  html {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  .dark .glass-card {
+    background: hsl(var(--card) / 0.5);
+    border-color: hsl(var(--border) / 0.3);
+    box-shadow: 
+      0 4px 24px -4px hsl(0 0% 0% / 0.2),
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.04);
+  }
+  .dark .glass-card:hover {
+    background: hsl(var(--card) / 0.7);
+    border-color: hsl(var(--accent) / 0.25);
+  }
+  .dark .gradient-border::before {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.25), hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.2));
+  }
+
+  /* ── Smooth color transition on theme change ── */
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+  }
 }
 
 /* ── Reduced Motion ── */

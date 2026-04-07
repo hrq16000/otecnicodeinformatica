@@ -177,7 +177,7 @@ const FAQ = () => {
             <div className="max-w-3xl mx-auto">
               {faqCategories.map((category, catIndex) => (
                 <div key={catIndex} className="mb-10">
-                  <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
                     {category.category}
                   </h2>
                   <Accordion type="single" collapsible className="space-y-3">
@@ -206,7 +206,7 @@ const FAQ = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Não Encontrou Sua Dúvida?
               </h2>
               <p className="text-muted-foreground mb-6">

@@ -69,7 +69,7 @@ const Sobre = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Nossa História
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -94,7 +94,7 @@ const Sobre = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Nossos Valores
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -113,7 +113,7 @@ const Sobre = () => {
                     <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4">
                       <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
-                    <h3 className="text-lg font-bold text-primary mb-2">{valor.title}</h3>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{valor.title}</h3>
                     <p className="text-muted-foreground text-sm">{valor.description}</p>
                   </div>
                 );
@@ -126,7 +126,7 @@ const Sobre = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Por Que Somos Diferentes?
               </h2>
               <div className="space-y-4 text-muted-foreground">

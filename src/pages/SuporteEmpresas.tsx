@@ -98,7 +98,7 @@ const SuporteEmpresas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 O Que Está Incluso no Suporte Empresarial?
               </h2>
 
@@ -199,7 +199,7 @@ const SuporteEmpresas = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Por Que Empresas Escolhem a Técnico Curitiba?
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -218,7 +218,7 @@ const SuporteEmpresas = () => {
                     <div className="bg-accent rounded-full p-4 w-fit mx-auto mb-4">
                       <Icon className="h-8 w-8 text-accent-foreground" />
                     </div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm">{item.description}</p>
                   </div>
                 );
@@ -245,7 +245,7 @@ const SuporteEmpresas = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
                 Atendimento Avulso ou Plano Mensal
               </h2>
               <p className="text-muted-foreground mb-8">
@@ -254,7 +254,7 @@ const SuporteEmpresas = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-secondary rounded-xl p-6 border-2 border-transparent hover:border-accent/30 transition-all">
-                  <h3 className="text-xl font-bold text-primary mb-3">Atendimento Avulso</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Atendimento Avulso</h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Ideal para empresas que precisam de suporte esporádico. Você chama quando precisa e paga apenas pelo serviço realizado.
                   </p>
@@ -265,7 +265,7 @@ const SuporteEmpresas = () => {
                   <div className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full w-fit mx-auto mb-3">
                     RECOMENDADO
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">Plano Mensal</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Plano Mensal</h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Valor fixo mensal com suporte ilimitado, manutenção preventiva inclusa e atendimento prioritário para sua empresa.
                   </p>

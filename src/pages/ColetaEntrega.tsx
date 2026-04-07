@@ -82,7 +82,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Quando a Coleta e Entrega É Necessária?
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -113,7 +113,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Como Funciona o Processo
               </h2>
               <div className="space-y-0">
@@ -153,7 +153,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Segurança no Transporte
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -170,7 +170,7 @@ const ColetaEntrega = () => {
                         <Icon className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-primary mb-1">{item.title}</h3>
+                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                       </div>
                     </div>
@@ -185,7 +185,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
                 Regiões Atendidas para Coleta e Entrega
               </h2>
               <p className="text-center text-muted-foreground mb-8">
@@ -207,7 +207,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Quanto Custa a Coleta e Entrega?
               </h2>
               <div className="bg-secondary rounded-2xl p-6 md:p-8 border-2 border-accent/20 text-center">
@@ -236,7 +236,7 @@ const ColetaEntrega = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Perguntas Frequentes
               </h2>
               <Accordion type="single" collapsible className="space-y-3">

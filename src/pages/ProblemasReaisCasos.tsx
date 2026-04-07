@@ -136,7 +136,7 @@ const ProblemasReaisCasos = () => {
         <section className="py-12 md:py-16 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
                 Por Que Compartilhamos Esses Casos?
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
@@ -174,15 +174,15 @@ const ProblemasReaisCasos = () => {
 
                   <div className="space-y-4">
                     <div className="bg-destructive/5 rounded-xl p-5 border-l-4 border-destructive">
-                      <h3 className="font-bold text-primary mb-2">❌ O Problema</h3>
+                      <h3 className="font-bold text-foreground mb-2">❌ O Problema</h3>
                       <p className="text-sm text-muted-foreground">{caso.problema}</p>
                     </div>
                     <div className="bg-accent/5 rounded-xl p-5 border-l-4 border-accent">
-                      <h3 className="font-bold text-primary mb-2">🔍 Diagnóstico Profissional</h3>
+                      <h3 className="font-bold text-foreground mb-2">🔍 Diagnóstico Profissional</h3>
                       <p className="text-sm text-muted-foreground">{caso.diagnostico}</p>
                     </div>
                     <div className="bg-primary/5 rounded-xl p-5 border-l-4 border-primary">
-                      <h3 className="font-bold text-primary mb-2">✅ Solução</h3>
+                      <h3 className="font-bold text-foreground mb-2">✅ Solução</h3>
                       <p className="text-sm text-muted-foreground">{caso.solucao}</p>
                     </div>
                     <div className="bg-secondary rounded-xl p-5 border-2 border-accent/20">

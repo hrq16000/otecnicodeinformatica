@@ -154,7 +154,7 @@ const EquipamentosAtendidos = () => {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-bold text-primary mb-3">Serviços disponíveis:</h3>
+                      <h3 className="font-bold text-foreground mb-3">Serviços disponíveis:</h3>
                       <ul className="space-y-2">
                         {eq.servicos.map((s, j) => (
                           <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -164,7 +164,7 @@ const EquipamentosAtendidos = () => {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="font-bold text-primary mb-3">Cenários comuns:</h3>
+                      <h3 className="font-bold text-foreground mb-3">Cenários comuns:</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{eq.cenarios}</p>
                     </div>
                   </div>
@@ -178,7 +178,7 @@ const EquipamentosAtendidos = () => {
         <section className="py-12 md:py-16 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                 Entenda Antes de Solicitar Atendimento
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -195,7 +195,7 @@ const EquipamentosAtendidos = () => {
                         <Icon className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-primary mb-1">{item.title}</h3>
+                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                       </div>
                     </div>

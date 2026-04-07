@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";

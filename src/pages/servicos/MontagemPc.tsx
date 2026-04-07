@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, Cpu, Gamepad2, Briefcase, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ const MontagemPc = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba" description="Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu orçamento." path="/servicos/montagem-pc" />
       <Header />
       <Breadcrumbs
         items={[

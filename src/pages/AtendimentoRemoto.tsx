@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
@@ -43,6 +44,7 @@ const AtendimentoRemoto = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" description="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" path="/atendimento-remoto" />
       <JsonLdSchema />
       <Header />
       <main>

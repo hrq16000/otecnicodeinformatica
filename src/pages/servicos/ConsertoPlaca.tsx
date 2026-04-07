@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
@@ -38,6 +39,7 @@ const ConsertoPlaca = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Conserto de Placa Eletrônica em Curitiba | Placa-mãe, GPU, Fonte | Técnico Curitiba" description="Conserto de placa-mãe, placa de vídeo, placa-fonte e eletrônica em geral. Reparo em nível de componente em Curitiba. Diagnóstico profissional com coleta e entrega." path="/servicos/conserto-placa" />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Conserto de Placa" }]} />
 

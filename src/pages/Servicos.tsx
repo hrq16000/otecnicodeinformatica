@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -147,6 +148,7 @@ const Servicos = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Serviços de Informática em Curitiba | Assistência Técnica Completa | Técnico Curitiba" description="Conheça todos os serviços de informática: formatação, remoção de vírus, backup, upgrade, suporte empresarial e muito mais. Técnico especializado em Curitiba." path="/servicos" />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />

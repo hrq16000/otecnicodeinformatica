@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -34,6 +35,7 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Contato | Técnico Curitiba - Fale Conosco" description="Entre em contato com a Técnico Curitiba. WhatsApp, telefone e atendimento rápido para suporte técnico em informática em Curitiba e região." path="/contato" />
       <JsonLdSchema />
       <Header />
       <main>

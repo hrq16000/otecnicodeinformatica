@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -85,6 +86,7 @@ const QuandoNaoCompensa = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Quando NÃO Compensa Reparar | Guia Técnico - Curitiba" description="Guia completo sobre quando compensa e quando NÃO compensa reparar computadores, notebooks, TVs e outros equipamentos. Dicas de um técnico profissional em Curitiba." path="/quando-nao-compensa" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -105,6 +106,7 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Almirante Tamandaré | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-almirante-tamandare" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(atSchema) }} />
       <JsonLdSchema />
       <Header />

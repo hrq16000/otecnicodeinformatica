@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -63,6 +64,7 @@ const TecnicoInformaticaQuatroBarras = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Quatro Barras PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-quatro-barras" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />

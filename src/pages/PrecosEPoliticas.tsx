@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
@@ -133,6 +134,7 @@ const PrecosEPoliticas = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Tabela de Valores | Técnico de Informática Curitiba" description="Tabela completa de valores de serviços de informática em Curitiba. Visita técnica a partir de R$ 69,99. Transparência total nos valores." path="/valores" />
       <JsonLdSchema />
       <Header />
       <main>

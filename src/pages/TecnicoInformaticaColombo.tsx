@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -109,6 +110,7 @@ const TecnicoInformaticaColombo = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Técnico de Informática em Colombo PR | Atendimento a Domicílio | Técnico Curitiba" description="Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 69,99." path="/tecnico-informatica-colombo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(colomboSchema) }} />
       <JsonLdSchema />
       <Header />

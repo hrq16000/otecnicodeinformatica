@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -292,6 +293,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Blog | Dicas de Informática, Windows 11, Office 365 | Técnico Curitiba" description="Dicas de informática, tutoriais Windows 11, Office 365, segurança digital para empresas. Artigos técnicos e práticos do Técnico Curitiba." path="/blog" />
       <JsonLdSchema />
       <Header />
       <main>

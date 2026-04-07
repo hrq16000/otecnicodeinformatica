@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ const RemocaoVirus = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Remoção de Vírus em Curitiba | Malware, Ransomware - Técnico Curitiba" description="Remoção de vírus, malware, ransomware e spyware em Curitiba. Limpeza completa do computador. Atendimento domiciliar. Suporte remoto disponível." path="/servicos/remocao-virus" />
       <Header />
       <Breadcrumbs
         items={[

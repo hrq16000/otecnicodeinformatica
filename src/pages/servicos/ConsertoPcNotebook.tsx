@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Wrench, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
@@ -32,6 +33,7 @@ const ConsertoPcNotebook = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Conserto de PC e Notebook em Curitiba | Hardware - Técnico Curitiba" description="Conserto de computador e notebook em Curitiba. Reparo de hardware, placa-mãe, fonte, tela, teclado. Diagnóstico com coleta e entrega. Garantia." path="/servicos/conserto-pc-notebook" />
       <Header />
       <Breadcrumbs
         items={[

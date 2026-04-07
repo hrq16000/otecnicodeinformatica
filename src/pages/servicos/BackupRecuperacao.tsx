@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Database, CheckCircle, HardDrive, Cloud, MessageCircle, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ const BackupRecuperacao = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSEO title="Backup e Recuperação de Dados em Curitiba | Técnico Curitiba" description="Backup e recuperação de dados em Curitiba. Resgate de arquivos de HD, SSD, pendrive. Recuperação de dados deletados. Atendimento especializado." path="/servicos/backup-recuperacao" />
       <Header />
       <Breadcrumbs
         items={[

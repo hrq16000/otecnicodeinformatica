@@ -51,8 +51,8 @@ export const HomeParaQuemBlock = () => {
             {perfis.map((p, i) => {
               const Icon = p.icon;
               return (
-                <div key={i} className="bg-secondary rounded-xl p-4 md:p-5 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-accent/15">
-                  <div className="bg-accent/10 rounded-lg p-2 w-fit mb-3">
+                <div key={i} className="bg-secondary rounded-xl p-4 md:p-5 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 hover:scale-[1.03] transition-all duration-300 border border-transparent hover:border-accent/20 group">
+                  <div className="bg-accent/10 rounded-lg p-2 w-fit mb-3 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
                   <h3 className="font-bold text-primary text-sm mb-1">{p.titulo}</h3>

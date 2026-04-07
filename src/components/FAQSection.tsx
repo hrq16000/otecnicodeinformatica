@@ -90,13 +90,15 @@ export const FAQSection = () => {
               </button>
               <div
                 id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96 pb-5" : "max-h-0"
+                className={`grid transition-all duration-400 ease-out ${
+                  openIndex === index ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0"
                 }`}
               >
-                <p className="text-muted-foreground leading-relaxed px-4 -mx-4">
-                  {faq.answer}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="text-muted-foreground leading-relaxed px-4 -mx-4">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

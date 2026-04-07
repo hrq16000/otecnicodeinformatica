@@ -30,7 +30,7 @@ export const HomePricingBlock = () => {
             {precos.map((p, i) => (
               <div key={i} className="flex items-center justify-between bg-secondary rounded-lg p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 border border-transparent hover:border-accent/15 group">
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-accent flex-shrink-0" />
+                  <Check className="h-4 w-4 text-accent flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
                   <span className="text-sm font-medium text-foreground">{p.servico}</span>
                 </div>
                 <span className="text-sm font-bold text-accent whitespace-nowrap ml-2">{p.valor}</span>

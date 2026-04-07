@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
+import { CursorTrail } from "@/components/CursorTrail";
+import { PageTransition } from "@/components/PageTransition";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useParallax } from "@/hooks/useParallax";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";

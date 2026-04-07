@@ -14,7 +14,7 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden">
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 hover:bg-muted/80">
       {/* Subtle radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.04)_0%,_transparent_70%)]" />
 
@@ -38,14 +38,14 @@ export const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback cta-pulse" asChild>
+            <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 btn-feedback cta-pulse" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato
               </a>
             </Button>
             
-            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl transition-shadow btn-feedback" onClick={openChatbot}>
+            <Button variant="heroCta" className="ripple-container shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 btn-feedback" onClick={openChatbot}>
               <Bot className="h-5 w-5 md:h-6 md:w-6" />
               Atendimento Rápido
             </Button>

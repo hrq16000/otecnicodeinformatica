@@ -178,6 +178,10 @@ export const Header = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border max-h-[80vh] overflow-y-auto shadow-[var(--shadow-lg)]">
           <nav className="container mx-auto py-4 flex flex-col gap-1">
+            <div className="flex items-center justify-between py-2 px-1 mb-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Tema</span>
+              <DarkModeToggle isDark={isDark} toggle={toggleDark} />
+            </div>
             {mainNavItems.map((item) => (
               <div key={item.label}>
                 {!item.sub ? (

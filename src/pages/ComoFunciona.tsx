@@ -657,7 +657,7 @@ const ComoFunciona = () => {
                 </Button>
               </div>
               <p className="text-primary-foreground/60 text-sm mt-6">
-                WhatsApp: (41) 99745-2053 • Atendimento de segunda a sábado
+                Atendimento de segunda a sábado via WhatsApp
               </p>
             </div>
           </div>

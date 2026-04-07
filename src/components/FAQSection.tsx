@@ -49,7 +49,8 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background" aria-labelledby="faq-heading">
+    <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden" aria-labelledby="faq-heading">
+      <div data-parallax="0.06" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">

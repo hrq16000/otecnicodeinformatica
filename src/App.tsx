@@ -181,8 +181,8 @@ const PageLoader = () => (
   </div>
 );
 
-/** Initializes global scroll animations on each route */
-const ScrollAnimationsInit = () => { useScrollAnimations(); return null; };
+/** Initializes global scroll animations + parallax on each route */
+const ScrollAnimationsInit = () => { useScrollAnimations(); useParallax(); return null; };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

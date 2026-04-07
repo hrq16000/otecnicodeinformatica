@@ -77,7 +77,8 @@ const infoLinks = [
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="premium-gradient py-12 md:py-14">
+    <footer className="premium-gradient py-12 md:py-14 relative overflow-hidden">
+      <div data-parallax="0.06" className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
           {/* Logo e Contato */}

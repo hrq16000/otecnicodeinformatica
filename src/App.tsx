@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
+import { useParallax } from "@/hooks/useParallax";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -180,8 +181,8 @@ const PageLoader = () => (
   </div>
 );
 
-/** Initializes global scroll animations on each route */
-const ScrollAnimationsInit = () => { useScrollAnimations(); return null; };
+/** Initializes global scroll animations + parallax on each route */
+const ScrollAnimationsInit = () => { useScrollAnimations(); useParallax(); return null; };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

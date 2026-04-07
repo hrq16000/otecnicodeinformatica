@@ -14,9 +14,10 @@ export const CTASection = () => {
   };
 
   return (
-    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 hover:bg-muted/80">
-      {/* Subtle radial gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.04)_0%,_transparent_70%)]" />
+    <section className="py-14 md:py-18 lg:py-24 bg-muted relative overflow-hidden transition-all duration-500 hover:bg-muted/80 section-divider">
+      {/* Parallax ambient glow */}
+      <div data-parallax="0.1" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--accent)/0.06)_0%,_transparent_70%)]" />
+      <div data-parallax="0.15" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[100px] pointer-events-none animate-breathe" />
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">

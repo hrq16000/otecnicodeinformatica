@@ -33,7 +33,8 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+      <div data-parallax="0.1" className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[80px] pointer-events-none" />
       <div className="container mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
@@ -48,9 +49,9 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-muted/30 rounded-xl p-5 border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02]"
+              className="bg-muted/30 rounded-xl p-5 border border-primary/5 hover:border-primary/20 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 hover:scale-[1.02] group"
             >
-              <Quote className="h-8 w-8 text-accent/30 mb-3" />
+              <Quote className="h-8 w-8 text-accent/30 mb-3 group-hover:text-accent/50 group-hover:scale-110 transition-all duration-300" />
               
               <p className="text-foreground/80 text-sm mb-4 leading-relaxed">
                 "{testimonial.text}"

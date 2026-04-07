@@ -56,7 +56,7 @@ interface BairroTemplateProps {
 export const BairroTemplate = ({ data }: BairroTemplateProps) => {
   const whatsappMessage = `Olá! Preciso de um técnico de informática em ${data.nome}. Serviço: [DESCREVA O PROBLEMA]`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-  const phoneUrl = `tel:+${WHATSAPP_NUMBER}`;
+  
 
   useEffect(() => {
     document.title = data.metaTitle;

@@ -3,10 +3,11 @@ import { DollarSign, Check, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const precos = [
-  { servico: "Visita Técnica", valor: "A partir de R$ 69,99" },
-  { servico: "Formatação Completa", valor: "A partir de R$ 150" },
-  { servico: "Suporte Remoto", valor: "A partir de R$ 79,99" },
-  { servico: "Remoção de Vírus", valor: "A partir de R$ 99,99" },
+  { servico: "Atendimento Flash (15min)", valor: "R$ 69,99" },
+  { servico: "Visita Técnica (30min)", valor: "R$ 99,99" },
+  { servico: "Formatação Completa (1h)", valor: "R$ 168,99" },
+  { servico: "Remoção de Vírus", valor: "A partir de R$ 69,99" },
+  { servico: "Suporte Remoto", valor: "A partir de R$ 69,99" },
 ];
 
 export const HomePricingBlock = () => {
@@ -30,12 +31,30 @@ export const HomePricingBlock = () => {
             <div className="glow-separator max-w-xs mx-auto mt-5" />
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-3 mb-6">
-            {precos.map((p, i) => (
+          {/* Top row: 3 columns on desktop, 1 on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+            {precos.slice(0, 3).map((p, i) => (
               <div 
                 key={i} 
-                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
+                className="flex flex-col items-center text-center glass-card gradient-border rounded-xl p-5 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
                 style={{ animationDelay: `${i * 70}ms` }}
+              >
+                <div className="bg-accent/10 rounded-full p-1.5 mb-2 group-hover:bg-accent/20 transition-colors duration-300 relative">
+                  <Check className="h-4 w-4 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-accent/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                </div>
+                <span className="text-sm font-medium text-foreground mb-1">{p.servico}</span>
+                <span className="text-base font-bold text-accent">{p.valor}</span>
+              </div>
+            ))}
+          </div>
+          {/* Bottom row: 2 columns centered */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-6">
+            {precos.slice(3).map((p, i) => (
+              <div 
+                key={i + 3} 
+                className="flex items-center justify-between glass-card gradient-border rounded-xl p-4 hover:shadow-[var(--shadow-md)] hover:scale-[1.03] hover:-translate-y-1.5 transition-all duration-300 group card-shine hover-streak slide-up-stagger"
+                style={{ animationDelay: `${(i + 3) * 70}ms` }}
               >
                 <div className="flex items-center gap-2.5">
                   <div className="bg-accent/10 rounded-full p-1 group-hover:bg-accent/20 transition-colors duration-300 relative">

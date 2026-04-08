@@ -33,6 +33,14 @@
   <url><loc>https://tecnicocuritiba.com.br/servicos/manutencao-tv</loc><lastmod>2026-04-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/servicos/conserto-placa</loc><lastmod>2026-04-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- ======== Procedimentos Técnicos em Placa ======== -->
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos-placa</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos/reflow-bga-curitiba</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos/reballing-bga-curitiba</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos/troca-chip-bga-curitiba</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos/microsoldagem-celular-curitiba</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/procedimentos/recapacitacao-placa-eletronica-curitiba</loc><lastmod>2026-04-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- ======== CFTV ======== -->
   <url><loc>https://tecnicocuritiba.com.br/cftv</loc><lastmod>2026-04-06</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/cftv/curitiba</loc><lastmod>2026-04-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -475,10 +483,10 @@
   <url><loc>https://tecnicocuritiba.com.br/ssd-nao-reconhece-curitiba</loc><lastmod>2026-04-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/notebook-teclado-nao-funciona-curitiba</loc><lastmod>2026-04-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://tecnicocuritiba.lovable.app/fonte-queimada-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
-  <url><loc>https://tecnicocuritiba.lovable.app/computador-nao-desliga-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
-  <url><loc>https://tecnicocuritiba.lovable.app/erro-ao-instalar-windows-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
-  <url><loc>https://tecnicocuritiba.lovable.app/notebook-touchpad-nao-funciona-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/fonte-queimada-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/computador-nao-desliga-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/erro-ao-instalar-windows-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://tecnicocuritiba.com.br/notebook-touchpad-nao-funciona-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/notebook-nao-carrega-bateria-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/pc-travando-jogos-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/erro-driver-windows-curitiba</loc><lastmod>2026-04-06</lastmod><priority>0.7</priority></url>
@@ -584,567 +592,567 @@
   <url><loc>https://tecnicocuritiba.com.br/impressora-erro-conexao-usb-wifi-curitiba</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://tecnicocuritiba.com.br/impressora-cartucho-nao-reconhece-curitiba</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/alto-da-gloria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/alto-da-gloria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/reboucas</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/reboucas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/vila-izabel</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/vila-izabel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/seminario</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/seminario</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/hugo-lange</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/hugo-lange</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-social</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-social</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-das-americas</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-das-americas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/capao-da-imbuia</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/capao-da-imbuia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/hauer</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/hauer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/alto-boqueirao</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/alto-boqueirao</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/sitio-cercado</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/sitio-cercado</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/novo-mundo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/novo-mundo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/fazendinha</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/fazendinha</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-botanico</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-botanico</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/quississana-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/quississana-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/academia-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/academia-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/colonia-murici-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/colonia-murici-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/boneca-do-iguacu-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/boneca-do-iguacu-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/ouro-fino-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/ouro-fino-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/agricola-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/agricola-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/campo-largo-roseira-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/campo-largo-roseira-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/italia-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/italia-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/borda-campo-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/borda-campo-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/independencia-sjp</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/independencia-sjp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/osvaldo-cruz-colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/osvaldo-cruz-colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/sao-dimas-colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/sao-dimas-colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/campina-grande-colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/campina-grande-colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/taxiqueira-colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/taxiqueira-colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/embu-colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/embu-colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-uniao-piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-uniao-piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-santo-antonio-piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-santo-antonio-piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-sao-paulo-piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-sao-paulo-piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/irai-piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/irai-piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/boa-vista-at</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/boa-vista-at</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/campo-tenente-at</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/campo-tenente-at</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-paranagua-at</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-paranagua-at</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-sao-jorge-at</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-sao-jorge-at</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/parque-industrial-frg</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/parque-industrial-frg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-condor-frg</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-condor-frg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-ipe-frg</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-ipe-frg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-das-pedras-frg</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-das-pedras-frg</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/joquei-clube-cm</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/joquei-clube-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/antonio-olivero-cm</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/antonio-olivero-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/espigao-alegre-cm</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/espigao-alegre-cm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-florestal-qb</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-florestal-qb</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-japao-qb</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-japao-qb</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/graciosa-qb</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/graciosa-qb</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/taruma</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/taruma</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/curitiba</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/curitiba</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/sao-jose-dos-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/sao-jose-dos-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/campo-largo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/campo-largo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/fazenda-rio-grande</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/fazenda-rio-grande</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/almirante-tamandare</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/almirante-tamandare</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/campo-magro</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/campo-magro</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv/quatro-barras</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv/quatro-barras</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/curitiba</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/curitiba</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/sao-jose-dos-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/sao-jose-dos-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/campo-largo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/campo-largo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/fazenda-rio-grande</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/fazenda-rio-grande</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/almirante-tamandare</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/almirante-tamandare</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/campo-magro</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/campo-magro</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular/quatro-barras</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular/quatro-barras</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/curitiba</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/curitiba</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/sao-jose-dos-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/sao-jose-dos-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/colombo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/colombo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/campo-largo</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/campo-largo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/fazenda-rio-grande</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/fazenda-rio-grande</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/almirante-tamandare</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/almirante-tamandare</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/piraquara</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/piraquara</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/campo-magro</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/campo-magro</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-pc/quatro-barras</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-pc/quatro-barras</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-tv</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-tv</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/servicos/conserto-celular</loc>
+    <loc>https://tecnicocuritiba.com.br/servicos/conserto-celular</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/cachoeira-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/cachoeira-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/thomaz-coelho-ii</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/thomaz-coelho-ii</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-boa-vista-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-boa-vista-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/sao-miguel-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/sao-miguel-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/california-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/california-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/vila-nova-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/vila-nova-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/industrial-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/industrial-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-iguacu-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-iguacu-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/planta-sao-tiago-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/planta-sao-tiago-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-shangrila-araucaria</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-shangrila-araucaria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-laranjeiras-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-laranjeiras-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/sao-marcos-campo-largo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/sao-marcos-campo-largo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/sao-jose-campo-largo</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/sao-jose-campo-largo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-esperanca-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-esperanca-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/colonia-malhada-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/colonia-malhada-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/lamenha-grande-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/lamenha-grande-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/vila-candida-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/vila-candida-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-novo-horizonte-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-novo-horizonte-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/timbotuva-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/timbotuva-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-planalto-ii-cl</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-planalto-ii-cl</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-pedro-demeterco</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-pedro-demeterco</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-karla-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-karla-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-claudia-ii-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-claudia-ii-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-wissinger-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-wissinger-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/vila-amelia-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/vila-amelia-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-esplanada-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-esplanada-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/vila-maria-antonieta-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/vila-maria-antonieta-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-dona-rosa-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-dona-rosa-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/parque-nascentes-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/parque-nascentes-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.lovable.app/bairros/jardim-tropical-pinhais</loc>
+    <loc>https://tecnicocuritiba.com.br/bairros/jardim-tropical-pinhais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

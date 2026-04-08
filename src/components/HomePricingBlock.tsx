@@ -49,8 +49,8 @@ export const HomePricingBlock = () => {
               </div>
             ))}
           </div>
-          {/* Bottom row: 2 columns centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-6">
+          {/* Bottom row: 3 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
             {precos.slice(3).map((p, i) => (
               <div 
                 key={i + 3} 

@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { SocialProofProvider } from "@/components/social-proof";
@@ -359,6 +359,9 @@ const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidad
 
 // Dynamic problem/intent pages (50 páginas de intenção de busca)
 const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
+
+// Procedimentos Técnicos hub
+const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 
 // CFTV
 const CFTVPage = lazy(() => import("./pages/CFTV"));
@@ -762,6 +765,17 @@ const App = () => (
             
             {/* Dynamic service+city route (catches all new combinations) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
+            
+            {/* Procedimentos Técnicos em Placa */}
+            <Route path="/procedimentos-placa" element={<ProcedimentosPlaca />} />
+            <Route path="/procedimentos/:slug" element={<ProblemaPage />} />
+            
+            {/* Redirects das URLs antigas de procedimentos */}
+            <Route path="/reflow-bga-curitiba" element={<Navigate to="/procedimentos/reflow-bga-curitiba" replace />} />
+            <Route path="/reballing-bga-curitiba" element={<Navigate to="/procedimentos/reballing-bga-curitiba" replace />} />
+            <Route path="/troca-chip-bga-curitiba" element={<Navigate to="/procedimentos/troca-chip-bga-curitiba" replace />} />
+            <Route path="/microsoldagem-celular-curitiba" element={<Navigate to="/procedimentos/microsoldagem-celular-curitiba" replace />} />
+            <Route path="/recapacitacao-placa-eletronica-curitiba" element={<Navigate to="/procedimentos/recapacitacao-placa-eletronica-curitiba" replace />} />
             
             {/* Páginas de Problema / Intenção de Busca (50 páginas dinâmicas) */}
             <Route path="/:slug" element={<ProblemaPage />} />

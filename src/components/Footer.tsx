@@ -35,11 +35,11 @@ const servicosLinks = [
 ];
 
 const procedimentosTvLinks = [
-  { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
-  { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
-  { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
-  { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
-  { label: "Recapacitação", to: "/recapacitacao-placa-eletronica-curitiba" },
+  { label: "Reflow BGA", to: "/procedimentos/reflow-bga-curitiba" },
+  { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
+  { label: "Troca de Chip BGA", to: "/procedimentos/troca-chip-bga-curitiba" },
+  { label: "Microsoldagem Celular", to: "/procedimentos/microsoldagem-celular-curitiba" },
+  { label: "Recapacitação", to: "/procedimentos/recapacitacao-placa-eletronica-curitiba" },
   { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
   { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
   { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },

@@ -66,11 +66,18 @@ const ColetaEntrega = () => {
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Não pode trazer seu equipamento? Nós buscamos na sua casa ou empresa, realizamos o serviço em laboratório e devolvemos funcionando. Comodidade total com segurança.
               </p>
-              <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("hero")}>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" /> Agendar Coleta
-                </a>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("hero")}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" /> Agendar Coleta
+                  </a>
+                </Button>
+                <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90 font-bold gap-2">
+                  <Link to="/coleta-formulario">
+                    <Clipboard className="h-5 w-5" /> Preencher Formulário Online
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

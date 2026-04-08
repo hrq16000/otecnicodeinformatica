@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { DollarSign, Check, ArrowRight, Sparkles } from "lucide-react";
+import { DollarSign, Check, ArrowRight, Sparkles, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const precos = [

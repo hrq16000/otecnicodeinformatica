@@ -7,6 +7,8 @@ import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
 import { Award, Users, Target, Heart } from "lucide-react";
 
@@ -53,17 +55,35 @@ const Sobre = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--glow-accent)/0.15),transparent_60%)] pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Sobre a Técnico Curitiba
-              </h1>
-              <p className="text-lg md:text-xl text-white/90">
-                Assistência técnica em informática com compromisso, transparência e paixão por resolver problemas
-              </p>
-            </div>
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 premium-gradient" />
+          <FloatingParticles count={25} />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
+            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+          </div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
+          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
+            <AnimatedSection animation="fade-up">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
+                  <Heart className="h-4 w-4 text-accent" />
+                  <span>Desde 2018 em Curitiba</span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
+                  Sobre a <span className="gradient-text-animated">Técnico Curitiba</span>
+                </h1>
+                <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                  Assistência técnica em informática com compromisso, transparência e paixão por resolver problemas
+                </p>
+                <div className="glow-separator max-w-[200px] mx-auto mt-6" />
+              </div>
+            </AnimatedSection>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+            </svg>
           </div>
         </section>
 
@@ -110,17 +130,15 @@ const Sobre = () => {
               {valores.map((valor, index) => {
                 const Icon = valor.icon;
                 return (
-                  <div
-                    key={index}
-                    className="group bg-background rounded-xl p-6 text-center border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 stagger-item"
-                    style={{ animationDelay: `${index * 80}ms` }}
-                  >
-                    <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_24px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
-                      <Icon className="h-6 w-6 text-primary-foreground" />
+                  <AnimatedSection key={index} delay={100 * index}>
+                    <div className="group glass-card gradient-border rounded-xl p-6 text-center hover:-translate-y-2 hover:shadow-[var(--shadow-lg)] transition-all duration-300 animated-border">
+                      <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_24px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
+                        <Icon className="h-6 w-6 text-primary-foreground icon-spin-hover" />
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{valor.title}</h3>
+                      <p className="text-muted-foreground text-sm">{valor.description}</p>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{valor.title}</h3>
-                    <p className="text-muted-foreground text-sm">{valor.description}</p>
-                  </div>
+                  </AnimatedSection>
                 );
               })}
             </div>
@@ -142,10 +160,12 @@ const Sobre = () => {
                   { title: "Garantia em todos os serviços", desc: "Confiamos no nosso trabalho. Por isso, oferecemos garantia por escrito em cada serviço realizado." },
                   { title: "Atendimento para pessoa física e empresas", desc: "Residências, profissionais liberais, pequenas e médias empresas. Emitimos nota fiscal e aceitamos pagamento faturado." },
                 ].map((item, i) => (
-                  <div key={i} className="group bg-secondary rounded-xl p-5 border border-border/50 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
-                    <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.title}</h3>
-                    <p className="text-sm">{item.desc}</p>
-                  </div>
+                  <AnimatedSection key={i} delay={80 * i}>
+                    <div className="group glass-card gradient-border rounded-xl p-5 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak">
+                      <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </AnimatedSection>
                 ))}
               </div>
             </div>

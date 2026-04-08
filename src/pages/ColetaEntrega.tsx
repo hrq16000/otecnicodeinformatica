@@ -74,7 +74,7 @@ const ColetaEntrega = () => {
                 </Button>
                 <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90 font-bold gap-2">
                   <Link to="/coleta-formulario">
-                    <Clipboard className="h-5 w-5" /> Preencher Formulário Online
+                    <ClipboardList className="h-5 w-5" /> Preencher Formulário Online
                   </Link>
                 </Button>
               </div>

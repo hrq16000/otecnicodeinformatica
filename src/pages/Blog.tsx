@@ -114,7 +114,8 @@ const SERVICO_PAGES: ContentItem[] = [
   { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: getUniqueImage("svc-coleta") },
 ];
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE_OPTIONS = [10, 12, 15, 20, 30];
+const DEFAULT_ITEMS_PER_PAGE = 12;
 
 // ─── Animated Counter Hook ───
 function useAnimatedCounter(target: number, duration = 1200) {
@@ -239,6 +240,11 @@ const Blog = () => {
   const [activeTab, setActiveTab] = useState<"todos" | "artigos" | "problemas" | "servicos">("todos");
   const [activeCat, setActiveCat] = useState("Todos");
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    if (typeof window === "undefined") return DEFAULT_ITEMS_PER_PAGE;
+    const stored = localStorage.getItem("blog_items_per_page");
+    return stored ? Number(stored) : DEFAULT_ITEMS_PER_PAGE;
+  });
   const [searchFocused, setSearchFocused] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -307,8 +313,14 @@ const Blog = () => {
     return items;
   }, [allContent, activeTab, activeCat, searchTerm]);
 
-  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
-  const displayed = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  const displayed = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handleItemsPerPageChange = useCallback((value: number) => {
+    setItemsPerPage(value);
+    setCurrentPage(1);
+    localStorage.setItem("blog_items_per_page", String(value));
+  }, []);
 
   const featured = useMemo(() => pickRandom(
     allContent.filter((c) => c.type === "problema" && c.excerpt.length > 100),
@@ -596,7 +608,7 @@ const Blog = () => {
             ) : (
               <>
                 {/* Results bar */}
-                <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
+                <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
                   <p className="text-sm text-muted-foreground">
                     <span className="font-semibold text-foreground">{filtered.length}</span> resultado{filtered.length !== 1 ? "s" : ""}
                     {totalPages > 1 && (
@@ -605,12 +617,26 @@ const Blog = () => {
                       </span>
                     )}
                   </p>
-                  {totalPages > 1 && (
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <span>{(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)}</span>
-                      <span>de {filtered.length}</span>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <label htmlFor="perPage" className="text-xs text-muted-foreground whitespace-nowrap">Exibir:</label>
+                      <select
+                        id="perPage"
+                        value={itemsPerPage}
+                        onChange={(e) => handleItemsPerPageChange(Number(e.target.value))}
+                        className="text-xs bg-muted border border-border rounded-lg px-2 py-1.5 text-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all cursor-pointer"
+                      >
+                        {ITEMS_PER_PAGE_OPTIONS.map((n) => (
+                          <option key={n} value={n}>{n} por página</option>
+                        ))}
+                      </select>
                     </div>
-                  )}
+                    {totalPages > 1 && (
+                      <span className="text-xs text-muted-foreground">
+                        {(currentPage - 1) * itemsPerPage + 1}–{Math.min(currentPage * itemsPerPage, filtered.length)} de {filtered.length}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">

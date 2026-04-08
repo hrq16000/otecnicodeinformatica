@@ -67,6 +67,7 @@ const Index = () => {
         <SchedulingSection />
         <ServicesSection />
         <TopSearchedServicesSection />
+        <GeolocationTrigger />
         <CoverageMapSection />
         <CitiesSection />
         <NeighborhoodsSection />

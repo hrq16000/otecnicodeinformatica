@@ -20,6 +20,19 @@ const headlines = [
   "Computador não liga? Fazendo barulho? Lento demais?",
   "Notebook caiu? Teclado parou? Bateria viciada?",
   "Smart TV sem sinal? Celular travando? Monitor apagou?",
+  "Tela quebrada? Placa queimou? HD com defeito?",
+  "Computador reiniciando sozinho? Desligando do nada?",
+  "Wi-Fi caindo toda hora? Internet lenta demais?",
+  "Impressora não imprime? Rede fora do ar?",
+  "Notebook não carrega? Fonte queimou? Conector solto?",
+  "PC com erro de Windows? Sistema corrompido?",
+  "Arquivos sumiram? HD fazendo barulho estranho?",
+  "Câmera de segurança parou? DVR sem imagem?",
+  "Computador pegando vírus toda hora? Sem proteção?",
+  "Tela azul da morte? Erro crítico no sistema?",
+  "PC novo e já está lento? Muitos programas?",
+  "Notebook superaquecendo? Ventilador barulhento?",
+  "Mouse e teclado sem funcionar? USB com defeito?",
 ];
 
 export const PainSection = () => {

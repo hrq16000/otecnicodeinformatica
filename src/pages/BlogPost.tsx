@@ -1550,6 +1550,311 @@ const blogPostsContent: Record<string, {
       </>
     ),
   },
+
+  // ═══════════════════════════════════════════════════════════════
+  // ARTIGOS — PLATAFORMA PRECISO DE UM
+  // ═══════════════════════════════════════════════════════════════
+
+  "preciso-de-um-plataforma-prestadores": {
+    title: "Preciso de Um: A Plataforma Que Conecta Prestadores de Serviços a Clientes",
+    excerpt: "Conheça a plataforma que está revolucionando a forma como profissionais autônomos encontram clientes em todo o Brasil.",
+    date: "2026-04-08",
+    readTime: "8 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Se você é profissional autônomo ou prestador de serviço, sabe como é difícil conseguir clientes de forma constante. O <strong><a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a></strong> surgiu exatamente para resolver esse problema: <strong>conectar quem precisa de um serviço ao profissional certo, de forma rápida e gratuita</strong>.</p>
+
+        <h2>O Que é o Preciso de Um?</h2>
+        <p>O <strong>Preciso de Um</strong> é uma plataforma digital que funciona como um marketplace de serviços. Clientes buscam profissionais por categoria e localização, comparam perfis, avaliações e portfólios, e entram em contato direto — sem intermediários, sem comissão e sem burocracia.</p>
+        <p>A plataforma já conta com <strong>mais de 2.800 serviços cadastrados</strong> e atende profissionais de diversas cidades do Brasil, com destaque para Curitiba e região metropolitana, São Paulo, Rio de Janeiro e Belém.</p>
+
+        <h2>Como Funciona na Prática?</h2>
+        <p>O processo é simples e transparente, tanto para clientes quanto para profissionais:</p>
+        <ol>
+          <li><strong>🔍 Busca:</strong> O cliente digita o serviço que precisa (ex: "eletricista", "pintor", "técnico em informática") e sua localização.</li>
+          <li><strong>⭐ Comparação:</strong> A plataforma exibe profissionais verificados com avaliações, experiência e faixas de preço.</li>
+          <li><strong>💬 Contato direto:</strong> O cliente fala diretamente com o profissional via WhatsApp ou formulário — sem taxas.</li>
+        </ol>
+
+        <h2>Quem Pode Participar?</h2>
+        <p>A grande força do Preciso de Um é a <strong>diversidade de categorias</strong>. A plataforma aceita profissionais de praticamente qualquer ramo:</p>
+        <ul>
+          <li>⚡ Eletricistas</li>
+          <li>🏗️ Construção Civil (pedreiros, mestres de obras)</li>
+          <li>🎨 Pintores</li>
+          <li>🛠️ Marido de Aluguel</li>
+          <li>💻 Técnicos em Informática</li>
+          <li>🧹 Diaristas e serviços de limpeza</li>
+          <li>🎉 Profissionais de eventos</li>
+          <li>📲 Social Media e marketing digital</li>
+          <li>📦 Fretistas e mudanças</li>
+          <li>❄️ Instalação e manutenção de ar-condicionado</li>
+          <li>E muito mais...</li>
+        </ul>
+
+        <h2>Parceiros de Peso</h2>
+        <p>O Preciso de Um já conta com parceiros e patrocinadores de renome como <strong>Balaroti Home Center</strong>, <strong>Philips do Brasil</strong> e <strong>Leroy Merlin</strong>. Isso comprova a credibilidade e o potencial de crescimento da plataforma.</p>
+
+        <h2>Quanto Custa?</h2>
+        <p><strong>O cadastro é 100% gratuito.</strong> O profissional cria seu perfil, adiciona seus serviços, define sua área de atuação e começa a receber contatos. Não há comissão sobre os serviços fechados.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Cadastre-se Agora no Preciso de Um</h3>
+          <p className="text-muted-foreground mb-4">Crie seu perfil gratuitamente e comece a receber clientes na sua região. É rápido, gratuito e sem comissão.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Faça seu cadastro grátis →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "como-cadastrar-preciso-de-um": {
+    title: "Como Se Cadastrar no Preciso de Um e Começar a Receber Clientes Hoje",
+    excerpt: "Passo a passo completo para profissionais de qualquer ramo se cadastrarem gratuitamente na plataforma.",
+    date: "2026-04-08",
+    readTime: "6 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Se você é prestador de serviço e quer ampliar sua carteira de clientes, <strong>cadastrar-se no <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> é o primeiro passo</strong>. O processo é simples, leva poucos minutos e é completamente gratuito.</p>
+
+        <h2>Passo 1: Acesse a Plataforma</h2>
+        <p>Entre em <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="text-accent font-semibold">precisodeum.com.br/cadastro</a>. Você pode acessar pelo celular ou computador — a plataforma é responsiva e funciona como um app instalável.</p>
+
+        <h2>Passo 2: Crie Seu Perfil Profissional</h2>
+        <p>Preencha seus dados básicos:</p>
+        <ul>
+          <li><strong>Nome completo ou nome da empresa</strong></li>
+          <li><strong>Categoria de serviço</strong> (eletricista, pintor, técnico, diarista, etc.)</li>
+          <li><strong>Cidade e região de atuação</strong></li>
+          <li><strong>Anos de experiência</strong></li>
+          <li><strong>Foto de perfil</strong> (profissionais com foto recebem até 3x mais contatos)</li>
+          <li><strong>WhatsApp para contato direto</strong></li>
+        </ul>
+
+        <h2>Passo 3: Adicione Seus Serviços</h2>
+        <p>Descreva os serviços que você oferece. Quanto mais detalhado, melhor sua visibilidade nas buscas. Você pode incluir:</p>
+        <ul>
+          <li>Descrição do serviço</li>
+          <li>Faixa de preço estimada</li>
+          <li>Fotos de trabalhos realizados (portfólio)</li>
+          <li>Área de atendimento</li>
+        </ul>
+
+        <h2>Passo 4: Comece a Receber Clientes</h2>
+        <p>Assim que seu perfil estiver ativo, clientes da sua região poderão encontrá-lo ao buscar pelo serviço que você oferece. O contato é feito diretamente via WhatsApp — <strong>sem intermediários e sem comissão</strong>.</p>
+
+        <h2>Dicas Para Se Destacar</h2>
+        <ol>
+          <li><strong>Use foto profissional:</strong> Perfis com foto transmitem mais confiança.</li>
+          <li><strong>Descreva seus diferenciais:</strong> Experiência, certificações, garantia de serviço.</li>
+          <li><strong>Mantenha o perfil atualizado:</strong> Adicione novos trabalhos e atualize preços.</li>
+          <li><strong>Responda rápido:</strong> Clientes priorizam profissionais que respondem com agilidade.</li>
+          <li><strong>Peça avaliações:</strong> Boas avaliações são seu melhor marketing na plataforma.</li>
+        </ol>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Comece Agora — É Grátis!</h3>
+          <p className="text-muted-foreground mb-4">Não perca mais tempo esperando clientes. Cadastre-se no Preciso de Um e seja encontrado por quem precisa do seu serviço.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Criar meu perfil grátis →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "preciso-de-um-todos-os-ramos": {
+    title: "Preciso de Um Aceita Todos os Ramos: Eletricista, Pintor, Diarista e Muito Mais",
+    excerpt: "De construção civil a eventos, veja como profissionais de qualquer área podem participar e lucrar.",
+    date: "2026-04-08",
+    readTime: "7 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Uma dúvida comum entre prestadores de serviço é: <strong>"Minha área de atuação é aceita na plataforma?"</strong>. A resposta é simples: <strong>sim</strong>. O <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> foi criado para abranger todos os ramos profissionais.</p>
+
+        <h2>Categorias Disponíveis na Plataforma</h2>
+        <p>Atualmente, o Preciso de Um já possui profissionais cadastrados em dezenas de categorias. Veja algumas:</p>
+
+        <h3>🏠 Serviços Residenciais</h3>
+        <ul>
+          <li><strong>Eletricista:</strong> Instalações elétricas, troca de fiação, disjuntores</li>
+          <li><strong>Encanador:</strong> Vazamentos, desentupimento, instalação hidráulica</li>
+          <li><strong>Pintor:</strong> Pintura residencial e comercial</li>
+          <li><strong>Marido de Aluguel:</strong> Pequenos reparos, montagem de móveis</li>
+          <li><strong>Diarista:</strong> Limpeza residencial e comercial</li>
+          <li><strong>Ar-condicionado:</strong> Instalação, limpeza e manutenção</li>
+        </ul>
+
+        <h3>🏗️ Construção e Reformas</h3>
+        <ul>
+          <li><strong>Construção Civil:</strong> Pedreiros, mestres de obras, reformas</li>
+          <li><strong>Serralheiro:</strong> Portões, grades, estruturas metálicas</li>
+          <li><strong>Drywall:</strong> Divisórias, forros, acabamentos</li>
+          <li><strong>Montagem de Móveis:</strong> Planejados e modulados</li>
+        </ul>
+
+        <h3>💻 Tecnologia</h3>
+        <ul>
+          <li><strong>Técnico em Informática:</strong> Manutenção de PCs, notebooks, redes</li>
+          <li><strong>Suporte Técnico:</strong> Configuração, instalação de software</li>
+          <li><strong>Social Media:</strong> Gestão de redes sociais, marketing digital</li>
+        </ul>
+
+        <h3>🎉 Outros</h3>
+        <ul>
+          <li><strong>Eventos:</strong> Decoração, buffet, animação</li>
+          <li><strong>Fretista:</strong> Mudanças e transporte</li>
+          <li><strong>Produção Musical:</strong> Gravação, mixagem, masterização</li>
+        </ul>
+
+        <h2>Não Encontrou Sua Categoria?</h2>
+        <p>Novas categorias são adicionadas constantemente. Se a sua área ainda não aparece na lista, basta se cadastrar e solicitar a inclusão. A plataforma está em constante expansão para atender todos os tipos de profissionais.</p>
+
+        <h2>Por Que a Diversidade Importa?</h2>
+        <p>Quanto mais categorias a plataforma oferece, mais clientes ela atrai. E quanto mais clientes buscam serviços, <strong>mais oportunidades surgem para todos os profissionais cadastrados</strong>. É um ciclo virtuoso onde todos ganham.</p>
+
+        <h2>Exemplos Reais de Profissionais na Plataforma</h2>
+        <ul>
+          <li><strong>Eletricistas em Curitiba e Araucária</strong> com 6 a 20+ anos de experiência</li>
+          <li><strong>Pintores em Curitiba</strong> com 21+ anos de experiência</li>
+          <li><strong>Construtores em Fazenda Rio Grande</strong> com 10+ anos no mercado</li>
+          <li><strong>Serralheiros em Araucária</strong> com 31+ anos de experiência</li>
+          <li><strong>Diaristas, fretistas, profissionais de eventos</strong> e muito mais</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Seu Ramo Também Tem Espaço!</h3>
+          <p className="text-muted-foreground mb-4">Não importa qual seja seu serviço — o Preciso de Um é para você. Cadastre-se gratuitamente e amplie seus clientes.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Cadastrar meu serviço →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "preciso-de-um-vagas-oportunidades": {
+    title: "Vagas e Oportunidades no Preciso de Um: Como Encontrar Trabalho Rápido",
+    excerpt: "A plataforma também oferece vagas de emprego e oportunidades de serviço. Veja como aproveitar.",
+    date: "2026-04-08",
+    readTime: "5 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Além de conectar prestadores a clientes, o <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> também funciona como um <strong>painel de vagas e oportunidades de serviço</strong>. Empresas e particulares podem publicar vagas gratuitamente, e profissionais podem se candidatar com um clique.</p>
+
+        <h2>Como Funciona o Painel de Vagas?</h2>
+        <p>O Preciso de Um possui uma seção dedicada a vagas, onde empregadores publicam oportunidades e profissionais podem encontrá-las filtradas por:</p>
+        <ul>
+          <li><strong>Tipo:</strong> Serviço avulso, emprego presencial, freelance</li>
+          <li><strong>Localização:</strong> Cidade e bairro</li>
+          <li><strong>Categoria:</strong> Área profissional</li>
+          <li><strong>Urgência:</strong> Vagas recentes com destaque</li>
+        </ul>
+
+        <h2>Exemplos de Vagas Publicadas</h2>
+        <p>Veja alguns exemplos reais de vagas disponíveis na plataforma:</p>
+        <ul>
+          <li>📌 <strong>Assistente Administrativo</strong> — Curitiba</li>
+          <li>📌 <strong>Operador de Empilhadeira</strong> — Curitiba, Bairro Xaxim</li>
+          <li>📌 <strong>Representante Comercial</strong> — Toledo/PR</li>
+        </ul>
+        <p>As vagas são atualizadas diariamente e os profissionais recebem notificações de novas oportunidades na sua área.</p>
+
+        <h2>Como Publicar Uma Vaga</h2>
+        <p>Se você é empresário ou precisa contratar alguém rapidamente:</p>
+        <ol>
+          <li>Acesse <a href="https://precisodeum.com.br/dashboard/vagas" target="_blank" rel="noopener noreferrer" className="text-accent font-semibold">precisodeum.com.br/dashboard/vagas</a></li>
+          <li>Descreva a vaga (cargo, requisitos, localização)</li>
+          <li>Publique gratuitamente</li>
+          <li>Receba candidatos diretamente no WhatsApp</li>
+        </ol>
+
+        <h2>Vantagens Para Quem Busca Trabalho</h2>
+        <ul>
+          <li>✅ Vagas verificadas e atualizadas</li>
+          <li>✅ Contato direto com o contratante</li>
+          <li>✅ Sem intermediários ou taxas</li>
+          <li>✅ Vagas de serviço avulso e emprego formal</li>
+          <li>✅ Filtros por região para encontrar oportunidades perto de você</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Encontre Vagas Agora</h3>
+          <p className="text-muted-foreground mb-4">Acesse o painel de vagas do Preciso de Um e encontre oportunidades na sua região.</p>
+          <a href="https://precisodeum.com.br/vagas" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Ver vagas disponíveis →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "por-que-todo-prestador-deve-estar-preciso-de-um": {
+    title: "Por Que Todo Prestador de Serviço Deve Estar no Preciso de Um",
+    excerpt: "Visibilidade, credibilidade e clientes: os motivos para todo profissional se cadastrar agora.",
+    date: "2026-04-07",
+    readTime: "9 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">O mercado de prestação de serviços é competitivo. <strong>Depender apenas de indicação boca a boca não é mais suficiente.</strong> Profissionais que investem em presença digital conseguem mais clientes, cobram melhor e crescem mais rápido. O <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> é a ferramenta ideal para essa transformação.</p>
+
+        <h2>1. Visibilidade Imediata</h2>
+        <p>Ao se cadastrar, seu perfil aparece nas buscas da plataforma. Clientes que precisam exatamente do seu serviço na sua região <strong>vão te encontrar</strong>. Sem precisar gastar com anúncios ou ter um site próprio.</p>
+
+        <h2>2. Credibilidade Profissional</h2>
+        <p>Ter um perfil verificado em uma plataforma com parceiros como <strong>Balaroti, Philips e Leroy Merlin</strong> transmite confiança. Clientes preferem contratar profissionais que estão em plataformas organizadas — parece mais seguro do que um anúncio aleatório no Facebook.</p>
+
+        <h2>3. Zero Custo Para Começar</h2>
+        <p>Diferente de outras plataformas que cobram mensalidade ou comissão, o <strong>Preciso de Um permite cadastro gratuito</strong>. Você cria seu perfil, adiciona seus serviços e começa a receber contatos sem pagar nada.</p>
+
+        <h2>4. Contato Direto Via WhatsApp</h2>
+        <p>O cliente fala diretamente com você pelo WhatsApp. <strong>Sem intermediários, sem chat da plataforma, sem espera.</strong> Isso agiliza o fechamento e permite um atendimento personalizado.</p>
+
+        <h2>5. Vagas e Oportunidades Extra</h2>
+        <p>Além dos clientes que buscam serviços, a plataforma tem um <strong>painel de vagas</strong> onde empresas e particulares publicam oportunidades. É uma fonte adicional de trabalho para quem está cadastrado.</p>
+
+        <h2>6. App Disponível (PWA)</h2>
+        <p>O Preciso de Um pode ser instalado no celular como um app — sem ocupar espaço. Assim você recebe notificações e acessa seu perfil de qualquer lugar, com avaliação de <strong>4.8 estrelas</strong>.</p>
+
+        <h2>7. Presente em Diversas Cidades</h2>
+        <p>A plataforma já atende profissionais em Curitiba, São José dos Pinhais, Araucária, Pinhais, Campo Largo, Fazenda Rio Grande, São Paulo, Rio de Janeiro, Belém e outras cidades. <strong>E está em constante expansão.</strong></p>
+
+        <h2>O Que Você Perde ao NÃO Estar na Plataforma?</h2>
+        <ul>
+          <li>❌ Clientes que estão buscando exatamente o seu serviço — e encontrando o concorrente</li>
+          <li>❌ Oportunidade de construir reputação online com avaliações</li>
+          <li>❌ Vagas de serviço publicadas na sua região</li>
+          <li>❌ Presença digital sem investimento</li>
+        </ul>
+
+        <h2>Não Importa Seu Ramo</h2>
+        <p>Eletricista, pintor, pedreiro, técnico em informática, diarista, fretista, profissional de eventos, social media, serralheiro, montador de móveis, instalador de ar-condicionado — <strong>a plataforma é para todos</strong>.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Não Fique de Fora</h3>
+          <p className="text-muted-foreground mb-4">Enquanto você não está na plataforma, seus concorrentes estão recebendo os clientes que poderiam ser seus. Cadastre-se agora — é grátis e leva 5 minutos.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Quero me cadastrar →
+          </a>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/preciso-de-um-plataforma-prestadores" className="text-accent">O que é o Preciso de Um?</Link></li>
+          <li><Link to="/blog/como-cadastrar-preciso-de-um" className="text-accent">Como se cadastrar passo a passo</Link></li>
+          <li><Link to="/blog/preciso-de-um-todos-os-ramos" className="text-accent">Quais ramos são aceitos?</Link></li>
+          <li><Link to="/blog/preciso-de-um-vagas-oportunidades" className="text-accent">Vagas e oportunidades na plataforma</Link></li>
+          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da Técnico Curitiba</Link></li>
+        </ul>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

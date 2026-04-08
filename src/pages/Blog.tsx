@@ -21,6 +21,11 @@ import { Button } from "@/components/ui/button";
 
 // ─── Blog Posts Data (each with its own unique image slug) ───
 const blogPosts = [
+  { slug: "preciso-de-um-plataforma-prestadores", title: "Preciso de Um: A Plataforma Que Conecta Prestadores de Serviços a Clientes", excerpt: "Conheça a plataforma que está revolucionando a forma como profissionais autônomos encontram clientes em todo o Brasil.", date: "2026-04-08", readTime: "8 min", category: "Plataformas" },
+  { slug: "como-cadastrar-preciso-de-um", title: "Como Se Cadastrar no Preciso de Um e Começar a Receber Clientes Hoje", excerpt: "Passo a passo completo para profissionais de qualquer ramo se cadastrarem gratuitamente na plataforma.", date: "2026-04-08", readTime: "6 min", category: "Plataformas" },
+  { slug: "preciso-de-um-todos-os-ramos", title: "Preciso de Um Aceita Todos os Ramos: Eletricista, Pintor, Diarista e Muito Mais", excerpt: "De construção civil a eventos, veja como profissionais de qualquer área podem participar e lucrar.", date: "2026-04-08", readTime: "7 min", category: "Plataformas" },
+  { slug: "preciso-de-um-vagas-oportunidades", title: "Vagas e Oportunidades no Preciso de Um: Como Encontrar Trabalho Rápido", excerpt: "A plataforma também oferece vagas de emprego e oportunidades de serviço. Veja como aproveitar.", date: "2026-04-08", readTime: "5 min", category: "Plataformas" },
+  { slug: "por-que-todo-prestador-deve-estar-preciso-de-um", title: "Por Que Todo Prestador de Serviço Deve Estar no Preciso de Um", excerpt: "Visibilidade, credibilidade e clientes: os motivos para todo profissional se cadastrar agora.", date: "2026-04-07", readTime: "9 min", category: "Plataformas" },
   { slug: "quando-trocar-computador-ou-reparar", title: "Quando Trocar o Computador e Quando Vale a Pena Reparar (Guia Técnico)", excerpt: "PC antigo, lento ou com defeito? Descubra os critérios técnicos que definem se vale investir no reparo ou se é hora de partir para um equipamento novo.", date: "2026-04-06", readTime: "11 min", category: "Manutenção" },
   { slug: "erros-comuns-upgrade-computador", title: "5 Erros Comuns ao Fazer Upgrade no Computador (e Como Evitar Prejuízo)", excerpt: "Comprar RAM incompatível, instalar SSD errado, forçar peças no slot — veja os erros que causam prejuízo.", date: "2026-04-06", readTime: "8 min", category: "Manutenção" },
   { slug: "manutencao-preventiva-computador-guia", title: "Manutenção Preventiva do Computador: O Guia Que Evita 80% dos Problemas", excerpt: "Rotinas simples que prolongam a vida útil do seu PC e evitam chamados técnicos.", date: "2026-04-06", readTime: "9 min", category: "Manutenção" },
@@ -71,6 +76,8 @@ const CATEGORY_MAP: Record<string, { label: string; icon: typeof Cpu; color: str
   "Redes": { label: "Redes", icon: Wifi, color: "from-sky-600 to-blue-500" },
   "Segurança": { label: "Segurança", icon: Shield, color: "from-green-600 to-emerald-500" },
   "Periféricos": { label: "Periféricos", icon: HardDrive, color: "from-zinc-600 to-slate-500" },
+};
+  "Plataformas": { label: "Plataformas", icon: TrendingUp, color: "from-emerald-600 to-teal-500" },
 };
 const DEFAULT_CAT = { label: "Outros", icon: Wrench, color: "from-gray-600 to-slate-500" };
 

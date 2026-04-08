@@ -36,6 +36,7 @@ const DiagnosticoTecnico = lazy(() => import("./pages/DiagnosticoTecnico"));
 const EquipamentosAtendidos = lazy(() => import("./pages/EquipamentosAtendidos"));
 const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));
+const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -426,6 +427,7 @@ const App = () => (
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
+            <Route path="/coleta-formulario" element={<ColetaFormulario />} />
             <Route path="/quando-nao-compensa" element={<QuandoNaoCompensa />} />
             
             {/* Bairros Curitiba */}

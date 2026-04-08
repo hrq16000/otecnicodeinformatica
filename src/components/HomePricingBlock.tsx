@@ -3,12 +3,12 @@ import { DollarSign, Check, ArrowRight, Sparkles, MapPin, Clock } from "lucide-r
 import { Button } from "@/components/ui/button";
 
 const precos = [
-  { servico: "Atendimento Flash (15min)", valor: "R$ 69,99" },
-  { servico: "Visita Técnica (30min)", valor: "R$ 99,99" },
-  { servico: "Formatação Completa (1h)", valor: "R$ 168,99" },
+  { servico: "Atendimento Flash (15min)", valor: "A partir de R$ 69,99" },
+  { servico: "Visita Técnica (30min)", valor: "A partir de R$ 99,99" },
+  { servico: "Formatação Completa (1h)", valor: "A partir de R$ 168,99" },
   { servico: "Remoção de Vírus", valor: "A partir de R$ 69,99" },
   { servico: "Suporte Remoto", valor: "A partir de R$ 69,99" },
-  { servico: "Reparo Placa de Vídeo", valor: "A partir de R$ 289" },
+  { servico: "Hora Técnica Remota", valor: "A partir de R$ 79/hora" },
 ];
 
 export const HomePricingBlock = () => {

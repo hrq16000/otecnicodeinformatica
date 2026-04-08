@@ -136,14 +136,6 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h3 className="text-white/90 font-semibold mb-3 mt-6 text-xs uppercase tracking-widest">Bairros</h3>
-            <ul className="space-y-2">
-              {bairroLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Saiba Mais */}

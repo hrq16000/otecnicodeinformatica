@@ -6985,7 +6985,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/formatacao-computador-curitiba", label: "Formatação" },
       { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
-      { to: "/servicos", label: "Todos os Serviços" }
+      { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ]
   },
@@ -7641,7 +7641,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
       { to: "/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
-      { to: "/servicos", label: "Todos os Serviços" }
+      { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ]
   },

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { DollarSign, Check, ArrowRight, Sparkles } from "lucide-react";
+import { DollarSign, Check, ArrowRight, Sparkles, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const precos = [
@@ -66,6 +66,22 @@ export const HomePricingBlock = () => {
                 <span className="text-sm font-bold text-accent whitespace-nowrap ml-2">{p.valor}</span>
               </div>
             ))}
+          </div>
+
+          {/* Aviso de custo por região */}
+          <div className="bg-primary/5 border border-primary/15 rounded-xl p-4 mb-3 hover:border-primary/25 transition-colors duration-300 hover-streak">
+            <div className="flex items-start gap-3">
+              <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
+                <MapPin className="h-4 w-4 text-primary" />
+                <Clock className="h-4 w-4 text-primary" />
+              </div>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Valor mínimo por região:</strong> O custo do atendimento varia conforme a 
+                <strong className="text-foreground"> distância</strong> até o local e o <strong className="text-foreground">horário</strong> da solicitação. 
+                Regiões mais distantes e horários de pico podem ter acréscimo no valor mínimo.{" "}
+                <Link to="/valores" className="text-accent hover:underline font-medium">Ver detalhes →</Link>
+              </p>
+            </div>
           </div>
 
           <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300 hover-streak">

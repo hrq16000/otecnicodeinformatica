@@ -4,6 +4,8 @@ import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -1575,41 +1577,58 @@ const BlogPost = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
-          <div className="container mx-auto">
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 premium-gradient" />
+          <FloatingParticles count={20} />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
+            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+          </div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
+          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
             <div className="max-w-3xl mx-auto">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors"
+                className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-6 transition-colors group"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                 Voltar ao Blog
               </Link>
               
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-medium bg-white/20 text-white px-3 py-1 rounded-full">
-                  {post.category}
-                </span>
-                <div className="flex items-center gap-1 text-white/70 text-xs">
-                  <Calendar className="h-3 w-3" />
-                  <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
+              <AnimatedSection animation="fade-up">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-medium bg-white/15 backdrop-blur-md text-white px-3 py-1.5 rounded-full border border-white/20 shimmer">
+                    {post.category}
+                  </span>
+                  <div className="flex items-center gap-1 text-white/60 text-xs">
+                    <Calendar className="h-3 w-3" />
+                    <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-white/60 text-xs">
+                    <Clock className="h-3 w-3" />
+                    <span>{post.readTime} de leitura</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-white/70 text-xs">
-                  <Clock className="h-3 w-3" />
-                  <span>{post.readTime} de leitura</span>
-                </div>
-              </div>
-              
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white leading-tight">
-                {post.title}
-              </h1>
+                
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight">
+                  {post.title}
+                </h1>
+                <div className="glow-separator max-w-[160px] mt-6" />
+              </AnimatedSection>
             </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+            </svg>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="container mx-auto">
+        <section className="py-12 md:py-16 bg-background relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[100px] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
             {post.image && (
               <div className="max-w-3xl mx-auto mb-8">
                 <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden">

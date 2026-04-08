@@ -3,6 +3,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import {
   Users, CheckCircle, ArrowRight, MessageCircle, Wrench, MapPin,
@@ -104,6 +105,7 @@ const SejaParceiro = () => {
         {/* ═══ Hero ═══ */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 premium-gradient" />
+          <FloatingParticles count={25} />
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
             <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />

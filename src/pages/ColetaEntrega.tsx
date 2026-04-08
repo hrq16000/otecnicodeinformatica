@@ -119,9 +119,9 @@ const ColetaEntrega = () => {
               </h2>
               <div className="space-y-0">
                 {[
-                  { icon: Phone, title: "1. Contato Inicial", desc: "Você descreve o problema via WhatsApp. O técnico avalia se é necessário levar para laboratório e informa o valor pré-aprovado." },
+                  { icon: Phone, title: "1. Contato Inicial", desc: "Você descreve o problema via WhatsApp. O técnico faz uma estimativa gratuita e informa as condições. Orçamento preciso somente com compromisso (taxa mínima R$ 300 pré-aprovada)." },
                   { icon: Truck, title: "2. Coleta no Local", desc: "Agendamos a coleta no seu endereço, em horário conveniente. O equipamento é embalado com proteção profissional para transporte seguro." },
-                  { icon: Shield, title: "3. Diagnóstico e Aprovação", desc: "Em laboratório, o técnico realiza diagnóstico completo. Se estiver dentro do valor pré-aprovado (R$ 300 a R$ 400), o reparo é realizado. Acima disso, consultamos antes." },
+                  { icon: Shield, title: "3. Diagnóstico e Aprovação", desc: "Em laboratório, o técnico realiza diagnóstico completo. Se estiver dentro do valor pré-aprovado (R$ 300), o reparo é realizado. Acima disso, consultamos antes." },
                   { icon: Package, title: "4. Entrega com Garantia", desc: "Equipamento reparado, testado e devolvido no seu endereço. Garantia por escrito de todo o serviço realizado." },
                 ].map((step, i) => {
                   const Icon = step.icon;
@@ -161,7 +161,7 @@ const ColetaEntrega = () => {
                 {[
                   { icon: Shield, title: "Embalagem Profissional", desc: "Cada equipamento é embalado com proteção anti-impacto, espuma e plástico bolha profissional." },
                   { icon: MapPin, title: "Transporte Dedicado", desc: "O equipamento vai direto do seu endereço ao laboratório, sem escalas ou depósitos intermediários." },
-                  { icon: Clock, title: "Prazo Informado", desc: "O prazo médio é de 15 a 60 dias, dependendo da complexidade. Mantemos você informado em cada etapa." },
+                  { icon: Clock, title: "Prazo Informado", desc: "Celular, rádio e caixa de som: 2 a 3 dias úteis. TV, monitor, notebook e PC: 15 a 60 dias úteis, dependendo da complexidade." },
                   { icon: CheckCircle2, title: "Recibo de Entrega", desc: "Emitimos recibo detalhado na coleta com descrição do equipamento, acessórios e estado de conservação." },
                 ].map((item, i) => {
                   const Icon = item.icon;
@@ -213,15 +213,25 @@ const ColetaEntrega = () => {
               </h2>
               <div className="bg-secondary rounded-2xl p-6 md:p-8 border-2 border-accent/20 text-center">
                 <p className="text-muted-foreground mb-4">
-                  A coleta e entrega está <strong className="text-accent">inclusa no valor do reparo</strong> quando o serviço é aprovado. Em caso de desistência do reparo, o custo do diagnóstico (R$ 90 a R$ 100) cobre também a logística.
+                  A coleta e entrega está <strong className="text-accent">inclusa no valor do reparo</strong> quando o serviço é aprovado. Orçamento gratuito somente estimado via WhatsApp. Orçamento preciso somente com compromisso.
                 </p>
-                <div className="bg-accent/10 rounded-xl p-4 mb-6">
+                <div className="bg-accent/10 rounded-xl p-4 mb-4">
                   <p className="text-sm text-foreground font-medium">
-                    Valor pré-aprovado padrão: <strong className="text-accent">R$ 300 a R$ 400</strong>
+                    Taxa mínima pré-aprovada: <strong className="text-accent">R$ 300</strong>
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
                     Reparos dentro desse valor são executados automaticamente. Acima, consultamos antes.
                   </p>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                  <div className="bg-background rounded-lg p-3 text-center border border-border/50">
+                    <span className="text-xs text-muted-foreground block mb-1">Celular / Rádio / Caixa de Som</span>
+                    <span className="text-sm font-bold text-accent">Prazo: 2 a 3 dias úteis</span>
+                  </div>
+                  <div className="bg-background rounded-lg p-3 text-center border border-border/50">
+                    <span className="text-xs text-muted-foreground block mb-1">TV / Monitor / Notebook / PC</span>
+                    <span className="text-sm font-bold text-accent">Prazo: 15 a 60 dias úteis</span>
+                  </div>
                 </div>
                 <Button variant="cta" size="lg" asChild>
                   <Link to="/valores">
@@ -242,8 +252,8 @@ const ColetaEntrega = () => {
               </h2>
               <Accordion type="single" collapsible className="space-y-3">
                 {[
-                  { q: "A coleta é gratuita?", a: "A coleta está inclusa quando o reparo é aprovado. Se desistir, paga apenas o valor do diagnóstico." },
-                  { q: "Quanto tempo demora o reparo?", a: "O prazo médio é de 15 a 60 dias, dependendo da complexidade e disponibilidade de peças." },
+                  { q: "A coleta é gratuita?", a: "A coleta está inclusa quando o reparo é aprovado. Taxa mínima pré-aprovada de R$ 300." },
+                  { q: "Quanto tempo demora o reparo?", a: "Celular, rádio e caixa de som: 2 a 3 dias úteis. TV, monitor, notebook e PC: 15 a 60 dias úteis, dependendo da complexidade e disponibilidade de peças." },
                   { q: "Meu equipamento está seguro?", a: "Sim. Emitimos recibo detalhado na coleta e o transporte é feito com proteção profissional." },
                   { q: "Posso acompanhar o andamento?", a: "Sim! Mantemos contato via WhatsApp com atualizações sobre cada etapa do processo." },
                   { q: "E se eu desistir do reparo?", a: "Você paga apenas o valor do diagnóstico (R$ 90 a R$ 100) e devolvemos o equipamento." },

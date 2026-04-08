@@ -68,20 +68,32 @@ export const HomePricingBlock = () => {
             ))}
           </div>
 
-          {/* Aviso de custo por região */}
-          <div className="bg-primary/5 border border-primary/15 rounded-xl p-4 mb-3 hover:border-primary/25 transition-colors duration-300 hover-streak">
-            <div className="flex items-start gap-3">
-              <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
-                <MapPin className="h-4 w-4 text-primary" />
-                <Clock className="h-4 w-4 text-primary" />
-              </div>
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Valor mínimo por região:</strong> O custo do atendimento varia conforme a 
-                <strong className="text-foreground"> distância</strong> até o local e o <strong className="text-foreground">horário</strong> da solicitação. 
-                Regiões mais distantes e horários de pico podem ter acréscimo no valor mínimo.{" "}
-                <Link to="/valores" className="text-accent hover:underline font-medium">Ver detalhes →</Link>
-              </p>
+          {/* Custo mínimo por região */}
+          <div className="bg-primary/5 border border-primary/15 rounded-xl p-5 mb-3 hover:border-primary/25 transition-colors duration-300 hover-streak">
+            <div className="flex items-center gap-2 mb-3">
+              <MapPin className="h-4 w-4 text-primary" />
+              <Clock className="h-4 w-4 text-primary" />
+              <strong className="text-sm text-foreground">Valor mínimo por região e horário</strong>
             </div>
+            <p className="text-xs text-muted-foreground mb-3">
+              O custo do atendimento inclui deslocamento. Regiões mais distantes e horários de pico podem ter acréscimo.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {[
+                { regiao: "Curitiba Centro", min: "R$ 69,99" },
+                { regiao: "SJP / Pinhais", min: "R$ 89,99" },
+                { regiao: "Araucária", min: "R$ 99,99" },
+                { regiao: "Campo Largo", min: "R$ 119,99" },
+              ].map((r, i) => (
+                <div key={i} className="bg-background/80 rounded-lg p-2.5 text-center border border-border/50">
+                  <span className="text-xs text-muted-foreground block mb-0.5">{r.regiao}</span>
+                  <span className="text-sm font-bold text-accent">{r.min}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mt-2 text-center">
+              <Link to="/valores" className="text-accent hover:underline font-medium">Ver tabela completa por região →</Link>
+            </p>
           </div>
 
           <div className="bg-accent/5 border border-accent/20 rounded-xl p-4 text-center mb-6 hover:border-accent/30 transition-colors duration-300 hover-streak">

@@ -42,7 +42,7 @@ export const PainSection = () => {
             id="pain-heading"
             className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text"
           >
-            Computador lento? Não liga? Travando ou com vírus?
+            {headline}
           </h2>
           
           <p className="text-lg md:text-xl text-accent font-semibold mb-3 reveal-text" data-reveal-delay="100">

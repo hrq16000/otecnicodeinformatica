@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { SocialProofProvider } from "@/components/social-proof";
@@ -359,6 +359,9 @@ const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidad
 
 // Dynamic problem/intent pages (50 páginas de intenção de busca)
 const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
+
+// Procedimentos Técnicos hub
+const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 
 // CFTV
 const CFTVPage = lazy(() => import("./pages/CFTV"));

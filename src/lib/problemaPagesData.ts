@@ -10680,6 +10680,241 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }
     ],
   },
+  // ===== PÁGINAS DE PROCEDIMENTOS TÉCNICOS =====
+  {
+    slug: "reflow-bga-curitiba",
+    title: "Reflow BGA em Curitiba — O Que É, Funciona? Tem Garantia?",
+    metaDescription: "Reflow BGA: solução temporária ou definitiva? Entenda o procedimento, por que NÃO tem garantia, taxa de sucesso e quando é indicado. Curitiba.",
+    h1: "Reflow BGA — O Que É, Por Que Não Tem Garantia e Quando É Indicado",
+    categoria: "Procedimentos Técnicos",
+    intro: `O reflow é o procedimento mais controverso em eletrônica. Consiste em **reaquecer as soldas BGA de um chip** para que se refundam e restabeleçam o contato elétrico. É rápido, barato — e **temporário**.\n\n**Por que não tem garantia?** Porque o reflow **não resolve a causa raiz do problema**. Se o chip falhou por solda fria (trincas nas microesferas de solda), o reflow apenas re-derrete as esferas existentes. Elas voltam a trincar em semanas, meses ou, com sorte, 1-2 anos.\n\n**Dados reais:**\n- Taxa de sucesso imediato: 60-80%\n- Duração média do reparo: 1 a 6 meses (pode durar mais, pode durar dias)\n- Custo: R$ 150 a R$ 350\n- Garantia: **NÃO oferecemos garantia** em reflow — e desconfie de quem oferece\n\n**Comparação direta:**\n- Reflow: R$ 150-350, sem garantia, temporário\n- Reballing: R$ 400-800, com garantia de 90 dias, mais duradouro\n- Troca de chip: R$ 500-1.200, com garantia de 90 dias, definitivo\n\n**Somos transparentes:** informamos que o reflow é um "tapa-buraco". Alguns clientes optam por ele conscientemente quando o equipamento é antigo ou o orçamento é limitado.`,
+    sintomas: [
+      { titulo: "Notebook/console com artefatos na tela", desc: "Quadrados coloridos, linhas, imagem distorcida. GPU com solda BGA trincada — candidato clássico a reflow (temporário) ou reballing (mais duradouro).", gravidade: "Complexo" },
+      { titulo: "Equipamento não dá vídeo após aquecer", desc: "Liga, ventilador gira, mas sem imagem. Melhora após esfriar. Solda BGA da GPU expandindo com calor = contato intermitente.", gravidade: "Complexo" },
+      { titulo: "Notebook reinicia ao forçar GPU", desc: "Funciona em tarefas leves mas desliga/reinicia em jogos ou vídeo pesado. GPU com solda comprometida sob estresse térmico.", gravidade: "Complexo" },
+      { titulo: "Console com tela preta (PS4, Xbox)", desc: "Problema clássico de GPU/APU com solda BGA deteriorada. Reflow é comum mas temporário. Reballing é a solução correta.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Solda BGA trincada por ciclos térmicos", desc: "Ligar/desligar = aquecer/resfriar = expandir/contrair. Após milhares de ciclos, microesferas de solda lead-free (sem chumbo) trincam. É um problema de fadiga mecânica da solda.", tipo: "desgaste" },
+      { titulo: "Solda lead-free (sem chumbo) mais frágil", desc: "Desde a diretiva RoHS (2006), eletrônicos usam solda sem chumbo (SAC305). Esta solda é mais rígida e forma trincas mais facilmente que a antiga solda com chumbo (Sn63Pb37).", tipo: "desgaste" },
+      { titulo: "Dissipação térmica insuficiente", desc: "Pasta térmica seca, ventilador obstruído ou design térmico ruim (notebook fino demais) = temperaturas mais altas = degradação mais rápida da solda.", tipo: "hardware" },
+      { titulo: "Defeito de projeto (design flaw)", desc: "Alguns modelos têm defeito de projeto reconhecido: MacBook Pro 2011 (GPU Radeon), Xbox 360 (RROD), PS3 (YLOD). A solda BGA falha sistematicamente.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reflow com ar quente / estação infravermelha. Rápido, barato, temporário.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 350" },
+      { nivel: "Médio", desc: "Reballing — remoção do chip, limpeza, novas esferas, recolocação. Mais duradouro.", tempo: "3 a 7 dias", custo: "R$ 400 a R$ 800" },
+      { nivel: "Complexo", desc: "Troca do chip por um novo/funcional. Solução definitiva quando o chip em si falhou.", tempo: "7 a 15 dias", custo: "R$ 500 a R$ 1.200" }
+    ],
+    riscos: [
+      "Reflow é TEMPORÁRIO — pode durar de dias a meses, raramente anos",
+      "Cada reflow subsequente tem menor chance de sucesso",
+      "Calor excessivo pode danificar componentes próximos ao chip",
+      "Reflow com soprador de calor comum (sem controle) é perigoso para a placa",
+      "Técnicos inescrupulosos vendem reflow como 'reballing' — peça para ver o processo",
+      "Após 2-3 reflows sem sucesso, os pads podem estar danificados demais para reballing"
+    ],
+    diagnostico: `**Como identificamos se o problema é solda BGA:**\n\n**1. Sintomas típicos:** artefatos, sem vídeo, reinício sob carga — padrão de GPU/CPU com solda fria.\n\n**2. Teste térmico:** Aquecer a região do chip com ar quente. Se o problema melhora temporariamente, confirma solda BGA.\n\n**3. Teste de flexão (cuidadoso):** Leve pressão na região do chip. Se a imagem volta, é solda.\n\n**4. Histórico do modelo:** Verificar se é um modelo com defeito conhecido de BGA.\n\n**Custo do diagnóstico: R$ 60-100, abatido do serviço.**`,
+    solucao: `**O procedimento de reflow passo a passo:**\n\n1. **Desmontagem completa** — remover placa-mãe do equipamento\n2. **Proteção** — cobrir componentes sensíveis com fita kapton\n3. **Aplicação de flux** — flux líquido ou em pasta ao redor do chip BGA\n4. **Pré-aquecimento** — placa aquecida por baixo a 100-150°C\n5. **Reflow** — ar quente ou infravermelho no chip a 220-250°C por 30-90 segundos\n6. **Resfriamento controlado** — diminuir temperatura gradualmente (2-3°C/segundo)\n7. **Limpeza** — remover resíduos de flux\n8. **Teste funcional** — religar e testar por 2-4 horas\n\n**Por que NÃO damos garantia:**\n- O reflow não substitui as esferas de solda — apenas re-derrete as trincadas\n- As mesmas trincas se reformam com novos ciclos térmicos\n- Não há como prever se durará 1 semana ou 1 ano\n- Seria desonesto garantir um procedimento sabidamente temporário\n\n**Somos transparentes:** Explicamos ao cliente que é uma solução paliativa e deixamos ele decidir.`,
+    quandoCompensa: "Equipamentos antigos (5+ anos) onde o investimento em reballing não se justifica. Quando o cliente precisa extrair dados urgentes e depois vai trocar o equipamento. Como teste diagnóstico — se o reflow funciona, confirma que o problema é solda BGA e o reballing é viável.",
+    quandoNaoCompensa: "Equipamentos que o cliente pretende usar por mais 2+ anos — reballing é melhor investimento. Quando já foram feitos 2+ reflows anteriores. Em chips com defeito interno (não é a solda, é o silício).",
+    whatsappMessage: "Olá! Quero saber sobre reflow BGA. Meu equipamento tem problema de vídeo/placa.",
+    conteudoExtra: `## Reflow vs Reballing — Comparação Honesta\n\n| Aspecto | Reflow | Reballing |\n|---------|--------|-----------|\n| **O que faz** | Re-derrete soldas existentes | Remove chip, troca todas as esferas, recoloca |\n| **Temperatura** | 220-250°C no chip | 220-250°C (remoção) + reballing + recolocação |\n| **Tempo** | 30-90 segundos de calor | 2-4 horas de processo completo |\n| **Custo** | R$ 150-350 | R$ 400-800 |\n| **Taxa de sucesso** | 60-80% imediato | 75-90% imediato |\n| **Duração** | Dias a meses (imprevisível) | 1-5+ anos |\n| **Garantia** | ❌ NÃO | ✅ 90 dias |\n| **Resolve a causa?** | ❌ Paliativo | ✅ Troca as esferas |\n| **Equipamento necessário** | Ar quente / IR | Estação BGA (R$ 5.000-35.000) |\n\n## Por Que o Reflow É Temporário — Explicação Técnica\n\n### O Problema Raiz\nAs esferas de solda BGA trincam por **fadiga termomecânica**. Cada ciclo liga/desliga causa:\n- Aquecimento: chip expande mais que a placa (coeficientes térmicos diferentes)\n- Resfriamento: chip contrai, placa contrai em velocidade diferente\n- Resultado: microtrincas nas esferas de solda\n\n### O Que o Reflow Faz\nAquece as esferas até o ponto de fusão (~217°C para SAC305). As trincas se fecham temporariamente. Mas:\n- As esferas não recuperam a forma esférica original\n- A geometria deformada concentra estresse nos mesmos pontos\n- As trincas se reformam mais rapidamente que da primeira vez\n\n### O Que o Reballing Faz\nRemove o chip, **limpa todas as esferas antigas** e aplica **esferas novas** com stencil. A geometria é restaurada completamente. Por isso dura mais.\n\n## Casos Clássicos de BGA\n\n### Xbox 360 — Red Ring of Death (RROD)\n- GPU com solda BGA falha em massa (2005-2009)\n- Microsoft gastou US$ 1 bilhão em reparos/trocas\n- Reflow era "solução" caseira com toalha (mito)\n- Reballing era a solução real\n\n### MacBook Pro 2011 — GPU Radeon\n- AMD Radeon HD 6750M/6770M com solda BGA falha\n- Apple lançou programa de reparo (encerrado em 2016)\n- Reflow funcionava por 1-3 meses\n- Reballing ou troca de chip é a solução\n\n### PS3 — Yellow Light of Death (YLOD)\n- RSX (GPU) com solda BGA\n- Mesmo problema do Xbox 360\n\n### PS4 — Sem vídeo HDMI\n- Chip HDMI com solda BGA\n- Reballing do chip HDMI resolve\n\n## Nosso Compromisso\n\n**Nunca fazemos reflow dizendo que é reballing.** Se o procedimento indicado é reflow (por custo-benefício), informamos claramente:\n- É temporário\n- Não tem garantia\n- O reballing é a opção mais segura\n- O cliente decide`,
+    relatedPages: [
+      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+      { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" },
+      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" }
+    ],
+  },
+  {
+    slug: "reballing-bga-curitiba",
+    title: "Reballing BGA em Curitiba — Procedimento Definitivo com Garantia",
+    metaDescription: "Reballing BGA profissional em Curitiba. Troca completa das esferas de solda. Garantia de 90 dias. GPU, CPU, chipsets. Notebooks, consoles, placas de vídeo.",
+    h1: "Reballing BGA — Troca de Esferas de Solda com Garantia em Curitiba",
+    categoria: "Procedimentos Técnicos",
+    intro: `O reballing é o procedimento **correto e definitivo** para problemas de solda BGA. Diferente do reflow (que apenas re-derrete), o reballing **remove o chip, descarta as esferas antigas e aplica esferas novas** usando stencil de precisão.\n\n**Por que TEM garantia (90 dias):**\n- As esferas de solda são **100% novas** — sem trincas, sem deformações\n- A geometria esférica é restaurada pelo stencil — distribuição uniforme de estresse\n- O processo é controlado com perfil térmico preciso\n- Se o chip em si estiver funcional, o reballing resolve de forma duradoura\n\n**Equipamento necessário (investimento real):**\n- Estação BGA infravermelha (Achi IR6000, Scotle IR360 Pro): R$ 3.000 a R$ 35.000\n- Stencils BGA por chip (centenas de modelos): R$ 30-150 cada, acervo de R$ 2.000-5.000\n- Esferas de solda (0.3mm a 0.76mm, SAC305 ou Sn63Pb37): R$ 20-60/frasco\n- Flux profissional (Amtech, Kingbo): R$ 30-80/seringa\n- Jigs de fixação: R$ 50-300 cada\n\n**Por que é mais caro que reflow:** O processo leva 2-4 horas vs 30 minutos do reflow, exige equipamento 10x mais caro e consumíveis específicos.`,
+    sintomas: [
+      { titulo: "GPU com solda fria (sem vídeo/artefatos)", desc: "O candidato #1 para reballing. Chips NVIDIA e AMD em notebooks, consoles e placas de vídeo. Esferas BGA trincam após 2-5 anos de uso intenso.", gravidade: "Complexo" },
+      { titulo: "Chipset/ponte norte com defeito", desc: "Notebook não reconhece HD, USB falha, rede para. Chipset Intel/AMD com solda BGA deteriorada.", gravidade: "Complexo" },
+      { titulo: "CPU com contato intermitente", desc: "Raro em desktops (soquete LGA) mas comum em notebooks (CPU soldada BGA). Reinícios aleatórios, travamentos.", gravidade: "Complexo" },
+      { titulo: "Console após reflow fracassado", desc: "PS3/PS4/Xbox que passou por reflow e voltou a falhar. Reballing é o próximo passo antes de trocar o chip.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Fadiga termomecânica das esferas", desc: "O coeficiente de expansão térmica (CTE) do chip de silício é diferente da placa FR-4. A cada ciclo térmico, as esferas sofrem estresse de cisalhamento. Após 10.000-50.000 ciclos, trincam.", tipo: "desgaste" },
+      { titulo: "Solda lead-free (RoHS) mais frágil", desc: "Solda SAC305 (Sn96.5/Ag3.0/Cu0.5) tem ponto de fusão de 217-221°C vs 183°C da Sn63Pb37. É mais rígida, forma trincas mais facilmente. Muitos técnicos fazem reballing com solda com chumbo para maior durabilidade.", tipo: "hardware" },
+      { titulo: "Design térmico inadequado", desc: "Notebooks ultrafinos, consoles compactos — pouco espaço para dissipação. GPUs operam a 80-95°C constantemente.", tipo: "hardware" },
+      { titulo: "Reflow anterior mal feito", desc: "Reflows repetidos deformam as esferas, oxidam pads e pioram progressivamente o contato.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reballing de chip com stencil disponível. Pads limpos, sem danos anteriores.", tempo: "3 a 5 dias", custo: "R$ 400 a R$ 600" },
+      { nivel: "Médio", desc: "Reballing após reflow anterior. Pads precisam de limpeza extra. Stencil raro.", tempo: "5 a 10 dias", custo: "R$ 500 a R$ 800" },
+      { nivel: "Complexo", desc: "Reballing com troca de pasta térmica do die + recuperação de pads danificados.", tempo: "7 a 15 dias", custo: "R$ 600 a R$ 1.000" }
+    ],
+    riscos: [
+      "Se o chip de silício tem defeito interno, o reballing não resolve (gasto sem resultado)",
+      "Pads da placa danificados por reflows anteriores podem não segurar novas esferas",
+      "Stencil errado = esferas fora de posição = curto-circuito",
+      "Temperatura incorreta pode delaminar a placa PCB",
+      "Chips com underfill (cola epóxi) são muito mais difíceis de remover"
+    ],
+    diagnostico: `**Antes do reballing, confirmamos que o problema é solda:**\n\n1. **Teste térmico** — aquecimento localizado na GPU/chipset. Se funciona temporariamente, é solda.\n2. **Teste de flexão** — leve pressão no chip. Melhora = solda.\n3. **Histórico** — modelo com defeito BGA conhecido?\n4. **Descartamos** — fonte, memória RAM, HD/SSD, BIOS como causas.\n5. **Informamos** — taxa de sucesso estimada para o modelo específico.\n\n**Só procedemos ao reballing quando temos confiança de que é solda BGA.**`,
+    solucao: `**Processo completo de reballing — 10 etapas:**\n\n**Etapa 1 — Preparação:**\nDesmontagem completa. Remoção de dissipador, pasta térmica antiga.\n\n**Etapa 2 — Proteção:**\nCobrir componentes sensíveis com fita kapton e folha de alumínio.\n\n**Etapa 3 — Pré-aquecimento:**\nPlaca aquecida por baixo a 100-150°C para evitar choque térmico.\n\n**Etapa 4 — Remoção do chip:**\nAr quente ou infravermelho a 220-250°C. Flux aplicado. Chip removido com ventosa ou pinça quando a solda flui.\n\n**Etapa 5 — Limpeza da placa:**\nRemoção de resíduos de solda dos pads com malha dessoldadora e ferro. Inspeção com microscópio.\n\n**Etapa 6 — Limpeza do chip:**\nMesmo processo no chip — remoção de esferas antigas dos pads do BGA.\n\n**Etapa 7 — Reballing:**\nStencil BGA posicionado sobre o chip. Esferas de solda (0.3-0.76mm) aplicadas nos furos do stencil. Aquecimento com ar quente para fixar as esferas. Remoção do stencil.\n\n**Etapa 8 — Recolocação:**\nChip com esferas novas posicionado na placa. Alinhamento preciso. Reflow controlado com perfil térmico.\n\n**Etapa 9 — Limpeza final:**\nRemoção de flux residual. Inspeção com microscópio.\n\n**Etapa 10 — Teste:**\nMontagem, teste funcional, teste de estresse por 4-8 horas.\n\n**GARANTIA DE 90 DIAS** — Se o problema retornar no período, refazemos sem custo.`,
+    quandoCompensa: "Notebooks gamers / workstations com GPU dedicada (R$ 4.000-15.000 novos). Consoles (PS4 Pro, Xbox One X). Placas de vídeo desktop de valor (RTX 3060+). MacBooks com GPU dedicada.",
+    quandoNaoCompensa: "Notebooks com mais de 6 anos e GPU integrada (chip não é substituível separadamente). Quando o chip de silício tem defeito interno (não é a solda). Após 3+ tentativas de reflow com pads destruídos.",
+    whatsappMessage: "Olá! Preciso de reballing BGA. Meu notebook/console tem problema de GPU/vídeo.",
+    conteudoExtra: `## Reballing: O Que Ninguém Te Conta\n\n### Lead-Free vs Leaded: A Escolha do Técnico\n\nUm segredo da indústria: **muitos técnicos fazem reballing com solda COM chumbo** (Sn63Pb37) mesmo em equipamentos que vieram com solda sem chumbo (SAC305).\n\n**Por quê?**\n- Solda com chumbo funde a 183°C (vs 217°C sem chumbo) — menos estresse térmico\n- É mais maleável — absorve melhor os ciclos de expansão/contração\n- Forma juntas mais confiáveis — menos trincas\n- É a mesma solda usada em equipamentos militares e aeroespaciais\n\n**É seguro?** Sim, o chumbo está encapsulado dentro do chip. Não há exposição ao usuário.\n\n**O resultado é melhor?** Na maioria dos casos, sim. Reballing com solda leaded tende a durar mais.\n\n### Stencils: A Precisão do Processo\n\nO stencil é uma placa fina de aço inoxidável com furos microscopicamente posicionados — cada furo corresponde a um pad do chip BGA.\n\n- Stencil direto (1:1): posicionado diretamente sobre o chip\n- Stencil universal: ajustável para vários chips similares\n- Precisão dos furos: ±0.02mm\n- Custo: R$ 30-150 cada (precisamos de centenas em estoque)\n\n### Taxa de Sucesso por Tipo de Chip\n\n| Chip | Taxa de Sucesso | Observação |\n|------|----------------|------------|\n| GPU notebook (NVIDIA) | 75-85% | Depende se o silício está bom |\n| GPU console (PS4/Xbox) | 80-90% | Chips mais robustos |\n| Chipset Intel | 85-90% | Geralmente é só a solda |\n| CPU BGA notebook | 70-80% | Alto risco, alto valor |\n| GPU desktop (placa de vídeo) | 80-90% | Mais espaço, melhor acesso |\n\n### Quanto Dura um Reballing?\n\n- **Com solda sem chumbo:** 1-5 anos (mesma durabilidade do original)\n- **Com solda com chumbo:** 2-7+ anos (mais durável)\n- **Depende de:** ventilação do equipamento, pasta térmica, uso (games vs escritório)\n\n### Manutenção Pós-Reballing\n\n1. **Troque pasta térmica** a cada 1-2 anos\n2. **Limpe ventiladores** a cada 6 meses\n3. **Use base refrigerada** em notebooks\n4. **Evite bloquear saídas de ar** (cama, sofá)\n5. **Monitore temperaturas** com HWMonitor ou similar`,
+    relatedPages: [
+      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
+      { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
+      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
+    ],
+  },
+  {
+    slug: "troca-chip-bga-curitiba",
+    title: "Troca de Chip BGA em Curitiba — GPU, CPU, Chipset | Solução Definitiva",
+    metaDescription: "Troca completa de chip BGA (GPU, CPU, chipset) em Curitiba. Solução definitiva quando reflow e reballing não resolvem. Garantia de 90 dias.",
+    h1: "Troca de Chip BGA — Quando Reballing Não É Suficiente",
+    categoria: "Procedimentos Técnicos",
+    intro: `Quando o chip em si está com **defeito interno no silício**, nem reflow nem reballing resolvem. A solução é a **troca completa do chip** por um novo ou funcional testado.\n\n**Por que TEM garantia (90 dias):**\n- O chip é novo ou testado e funcional\n- As esferas de solda são novas (reballing no chip novo)\n- O processo é o mesmo do reballing + um chip comprovadamente bom\n\n**É o procedimento mais caro mas também o mais definitivo:**\n- Custo do chip: R$ 100 a R$ 800 dependendo do modelo\n- Mão de obra: R$ 300 a R$ 500\n- Total: R$ 500 a R$ 1.200\n\n**Chips mais comuns que trocamos:**\n- GPU NVIDIA: GeForce MX, GTX, RTX Mobile — R$ 150 a R$ 600\n- GPU AMD: Radeon RX Mobile — R$ 100 a R$ 400\n- Chipset Intel: HM370, HM470 — R$ 80 a R$ 200\n- APU AMD: Ryzen com Vega — R$ 200 a R$ 500\n- HDMI IC (consoles): Panasonic MN864729 — R$ 30 a R$ 80`,
+    sintomas: [
+      { titulo: "Artefatos persistem após reballing", desc: "Se o reballing foi feito corretamente e os artefatos voltaram rapidamente, o chip de silício tem defeito interno. Troca é necessária.", gravidade: "Complexo" },
+      { titulo: "Chip esquenta excessivamente", desc: "Consumo anormal de energia no chip = curto interno no silício. Reballing não resolve curto interno.", gravidade: "Complexo" },
+      { titulo: "Sem vídeo com chip novo verificado", desc: "Testamos com chip sabidamente bom. Se funciona, o chip original estava defeituoso internamente.", gravidade: "Complexo" },
+      { titulo: "Defeito de fabricação conhecido", desc: "Lotes de chips com defeito (ex: NVIDIA GT 330M, AMD Radeon HD 6770M). Troca por revisão corrigida quando disponível.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Defeito interno no silício (die)", desc: "Eletromigração, degradação de óxido de gate, latch-up — problemas no nível do transistor dentro do chip. Nenhum processo de solda resolve.", tipo: "hardware" },
+      { titulo: "Dano por sobretensão/surto", desc: "Picos de tensão podem queimar circuitos internos do chip permanentemente.", tipo: "erro-humano" },
+      { titulo: "Superaquecimento prolongado", desc: "Operação acima de 100°C por períodos extensos degrada o silício. Comum em notebooks com ventilação entupida.", tipo: "desgaste" },
+      { titulo: "Defeito de lote/fabricação", desc: "Alguns lotes de chips saem da fábrica com defeito. NVIDIA e AMD já reconheceram lotes problemáticos.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Chip HDMI de console (Panasonic MN864729). Peça barata, soldagem acessível.", tempo: "3 a 5 dias", custo: "R$ 300 a R$ 500" },
+      { nivel: "Médio", desc: "GPU mobile (NVIDIA MX/GTX). Chip R$ 150-400 + reballing + soldagem.", tempo: "5 a 10 dias", custo: "R$ 500 a R$ 900" },
+      { nivel: "Complexo", desc: "GPU de alto desempenho (RTX) ou CPU/APU. Chip caro, processo de alto risco.", tempo: "7 a 15 dias", custo: "R$ 700 a R$ 1.200" }
+    ],
+    riscos: [
+      "Chip de reposição pode ser reciclado/usado — verificamos antes",
+      "Chips falsificados existem no mercado — compramos de fornecedores confiáveis",
+      "Remoção do chip antigo pode danificar pads se mal executada",
+      "Compatibilidade de revisão — mesma GPU pode ter revisões diferentes",
+      "Em notebooks com GPU + CPU no mesmo package (APU), troca é mais arriscada"
+    ],
+    diagnostico: `**Como determinamos que é necessária troca de chip:**\n\n1. **Reballing foi feito corretamente** e o problema retornou em < 30 dias\n2. **Chip apresenta curto interno** — consumo de corrente anormal medido com fonte\n3. **Teste com chip funcional** — se um chip bom resolve, confirma defeito do original\n4. **Análise do modelo** — verificar se há defeito de lote conhecido\n\n**Só indicamos troca de chip quando temos certeza** de que reballing não é suficiente.`,
+    solucao: `**Processo de troca de chip BGA:**\n\n1. **Sourcing do chip** — localizar chip novo ou testado compatível (modelo exato + revisão)\n2. **Remoção do chip antigo** — estação BGA, perfil térmico, ventosa\n3. **Limpeza dos pads** — remoção de solda antiga, inspeção de integridade\n4. **Reballing do chip novo** — esferas de solda novas via stencil\n5. **Soldagem** — chip novo posicionado e soldado com perfil controlado\n6. **Teste funcional** — boot, drivers, teste de estresse (FurMark, Prime95)\n7. **Teste de durabilidade** — 8-12 horas de uso intenso antes de liberar\n\n**GARANTIA DE 90 DIAS** em todo o processo.`,
+    quandoCompensa: "Notebooks de alto valor (R$ 5.000+), placas de vídeo desktop (RTX 3060+), MacBooks, consoles de última geração. Quando o equipamento está em bom estado geral e só o chip falhou.",
+    quandoNaoCompensa: "Notebooks com mais de 5 anos onde o custo do chip + mão de obra ultrapassa 50% do valor do equipamento. Quando há múltiplos problemas além do chip.",
+    whatsappMessage: "Olá! Preciso de troca de chip BGA. Meu notebook/console não funciona após reballing.",
+    conteudoExtra: `## Chips Mais Comuns e Preços de Referência\n\n| Chip | Aplicação | Preço da peça |\n|------|----------|---------------|\n| NVIDIA MX150 (N17S-G1-A1) | Notebooks intermediários | R$ 150-250 |\n| NVIDIA GTX 1650 Mobile | Notebooks gamers entrada | R$ 200-350 |\n| NVIDIA RTX 3050 Mobile | Notebooks gamers | R$ 300-500 |\n| AMD Radeon RX 5500M | Notebooks gamers | R$ 200-350 |\n| Intel HM370/HM470 | Chipset de notebook | R$ 80-180 |\n| Panasonic MN864729 | HDMI PS4/PS5 | R$ 30-80 |\n| AMD APU Ryzen 5 (BGA) | Notebooks AMD | R$ 250-500 |\n| Apple T2 | MacBook 2018-2020 | R$ 300-600 |\n\n## Fontes de Chips — Onde Compramos\n\n- **Distribuidores especializados** — chips novos com procedência\n- **Chips de placas doadoras** — extraídos de placas com outros defeitos, testados individualmente\n- **Importação direta** — AliExpress (fornecedores verificados), Mouser, DigiKey\n\n**NUNCA usamos chips sem testar.** Todo chip passa por verificação visual (microscópio) e teste elétrico antes de instalar.\n\n## Hierarquia de Procedimentos\n\n**Problema de solda BGA detectado:**\n\n**1. REFLOW (R$ 150-350)** — Temporário, sem garantia. Se não resolver ou voltar:\n\n**2. REBALLING (R$ 400-800)** — Troca de esferas, com garantia 90 dias. Se não resolver:\n\n**3. TROCA DE CHIP (R$ 500-1.200)** — Chip novo, com garantia 90 dias. Se não resolver:\n\n**4. PROBLEMA NA PLACA (não no chip)** — Trilha interna rompida, pad destruído = Troca de placa-mãe ou descarte`,
+    relatedPages: [
+      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
+      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
+    ],
+  },
+  {
+    slug: "microsoldagem-celular-curitiba",
+    title: "Microsoldagem de Celular em Curitiba — Procedimento, Equipamento e Custos",
+    metaDescription: "Microsoldagem profissional de celular em Curitiba. Reparo de componentes de 0.3mm sob microscópio. iPhone, Samsung, Motorola. Garantia de 90 dias.",
+    h1: "Microsoldagem de Celular — Precisão Cirúrgica em Curitiba",
+    categoria: "Procedimentos Técnicos",
+    intro: `Microsoldagem é o reparo de **componentes menores que um grão de areia** na placa-mãe do celular. É feito sob **microscópio com aumento de 20x-50x**, com ferro de solda de ponta de 0.1mm e estação de ar quente com controle digital.\n\n**Por que TEM garantia (90 dias):**\n- Componentes novos são soldados (não reutilizados)\n- O processo é controlado com precisão de temperatura (±5°C)\n- Teste funcional extenso após o reparo\n- Se o componente novo falhar, refazemos\n\n**Quando NÃO tem garantia:**\n- Placas com oxidação extensa por líquido — podemos reparar, mas a oxidação pode progredir em outras áreas\n- Placas com múltiplas trilhas rompidas — jumpers podem se soltar com o tempo\n- Quando informamos que é reparo paliativo (como reflow)\n\n**O investimento do técnico:**\n- Microscópio + câmera: R$ 3.000-7.000\n- Estação JBC + pontas: R$ 3.000-6.000\n- Ar quente profissional: R$ 800-2.000\n- Programadoras (NAND, NOR): R$ 1.500-3.000\n- Consumíveis mensais: R$ 300-500\n- Stencils (acervo): R$ 2.000-5.000`,
+    sintomas: [
+      { titulo: "Celular não liga (totalmente morto)", desc: "Diagnóstico com fonte regulável. Se consome 0mA = circuito aberto. Se consome demais = curto. Microsoldagem identifica e troca o componente.", gravidade: "Complexo" },
+      { titulo: "Não carrega / carrega lento", desc: "IC de carga (Tristar em iPhone 6/7, Hydra em iPhone 8+). Microsoldagem do IC com ar quente e stencil.", gravidade: "Médio" },
+      { titulo: "Sem serviço / sem sinal", desc: "Chip de baseband ou componentes de RF. Microsoldagem BGA delicada na área de antena.", gravidade: "Complexo" },
+      { titulo: "Touch fantasma / sem touch", desc: "IC de touch desconectado ou defeituoso. Cumulus (iPhone 6), Meson (iPhone 8+). Microsoldagem com ar quente.", gravidade: "Médio" },
+      { titulo: "Sem áudio / microfone", desc: "IC de áudio (338S00248 em iPhone 7 — famoso 'loop disease'). Microsoldagem + jumper em alguns casos.", gravidade: "Médio" },
+      { titulo: "Celular com líquido — resgate urgente", desc: "Desmontagem, limpeza ultrassônica, microsoldagem de trilhas corroídas. Cada hora conta.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "Componente BGA com solda fria", desc: "Mesma causa que em notebooks mas em escala menor. ICs de 3-5mm com pads de 0.15mm.", tipo: "desgaste" },
+      { titulo: "Trilha rompida por impacto", desc: "Placas multicamada (8-12 layers) podem ter trilhas internas rompidas por queda. Reparo com jumper de fio 0.02mm.", tipo: "erro-humano" },
+      { titulo: "Componente passivo queimado", desc: "Capacitores 0201 (0.6mm) e resistores podem entrar em curto. Identificação com câmera térmica + remoção com pinça.", tipo: "hardware" },
+      { titulo: "Oxidação por líquido", desc: "Corrosão verde/branca nos pads e trilhas. Limpeza com ultrassônica + reconstrução de conexões com microsoldagem.", tipo: "erro-humano" },
+      { titulo: "IC NAND/NOR corrompido", desc: "Memória flash com erro. Leitura com programadora, correção ou troca. Em iPhone requer pareamento.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Componente passivo (capacitor/resistor) ou IC de carga. Troca direta.", tempo: "1 a 3 dias", custo: "R$ 200 a R$ 400" },
+      { nivel: "Médio", desc: "IC BGA (touch, Wi-Fi, áudio). Remoção + stencil + recolocação.", tempo: "3 a 7 dias", custo: "R$ 400 a R$ 700" },
+      { nivel: "Complexo", desc: "PMIC, baseband, NAND + jumpers. Alto risco, componentes caros.", tempo: "7 a 15 dias", custo: "R$ 600 a R$ 1.200" }
+    ],
+    riscos: [
+      "Componentes adjacentes podem ser danificados pelo calor durante a microsoldagem",
+      "Trilhas internas (camadas 3-8 da placa) não são acessíveis externamente",
+      "Jumpers de fio 0.02mm são frágeis — podem se romper com impacto forte",
+      "Placas com Face ID (iPhone) — danos no módulo podem desativar Face ID permanentemente",
+      "Componentes falsificados são comuns — verificamos cada IC antes de instalar"
+    ],
+    diagnostico: `**Diagnóstico de microsoldagem — etapas:**\n\n1. **Fonte regulável + amperímetro** — perfil de consumo durante boot\n2. **Câmera térmica** — componente em curto esquenta (identificação exata)\n3. **Microscópio** — inspeção visual de todos os ICs e passivos\n4. **Multímetro modo diodo** — verificar linhas de alimentação (VCC, PP_BATT, etc.)\n5. **Esquemático** — comparar valores medidos com referência\n6. **Laudo** — componente identificado, custo, probabilidade de sucesso\n\n**Custo: R$ 50-100, abatido do serviço.**`,
+    solucao: `**Tipos de microsoldagem que realizamos:**\n\n### 1. Troca de componente passivo (capacitor/resistor)\n- Ferro de solda com ponta 0.1mm\n- Pinça antiestática\n- Componente novo (R$ 0,20-2,00)\n- Tempo: 5-15 minutos por componente\n- **Garantia: 90 dias**\n\n### 2. Troca de IC BGA\n- Ar quente a 360-380°C com bocal direcionado\n- Remoção do IC defeituoso\n- Limpeza de pads com malha e ferro\n- Reballing do IC novo com stencil\n- Recolocação com ar quente\n- Tempo: 30 min - 2 horas\n- **Garantia: 90 dias**\n\n### 3. Reparo de trilha (jumper)\n- Fio de cobre esmaltado 0.02-0.05mm\n- Soldado nos pads de origem e destino\n- Fixado com UV glue (cola UV)\n- Tempo: 15-60 minutos por trilha\n- **Garantia: 60 dias** (jumpers são mais frágeis)\n\n### 4. Resgate de placa com líquido\n- Desmontagem + limpeza ultrassônica (5-10 min em solução)\n- Inspeção com microscópio de CADA componente\n- Microsoldagem de trilhas/pads corroídos\n- Teste extenso\n- **Garantia: 30 dias** (oxidação pode progredir)`,
+    quandoCompensa: "Celulares de até 2 anos com valor > R$ 2.000. iPhones (placa de reposição: R$ 2.000-4.000 — microsoldagem de R$ 300-700 é muito mais barato). Celulares com dados sem backup.",
+    quandoNaoCompensa: "Celulares com valor < R$ 800 novos. Oxidação extensa (>48h sem atendimento). Quando 3+ componentes principais falharam.",
+    whatsappMessage: "Olá! Meu celular precisa de microsoldagem. Podem diagnosticar?",
+    conteudoExtra: `## Procedimentos Especiais\n\n### Jumper Wire (Reconstrução de Trilha)\nQuando uma trilha da placa está rompida (por impacto, oxidação ou reparo anterior), usamos **fio de cobre esmaltado de 0.02-0.05mm** para reconstruir a conexão.\n\n**O processo:**\n1. Identificar trilha rompida (multímetro + esquemático)\n2. Raspar isolamento dos pads de origem e destino\n3. Estanhar os pads\n4. Cortar fio no comprimento exato\n5. Soldar com ferro de ponta fina sob microscópio\n6. Fixar com cola UV para proteção mecânica\n\n**É um dos procedimentos mais delicados** — o fio tem espessura de um fio de cabelo.\n\n### Underfill — O Desafio Extra\nAlguns chips BGA vêm com **underfill** — uma resina epóxi aplicada entre o chip e a placa para reforçar a soldagem. O underfill:\n- Dificulta a remoção do chip (precisa de mais calor + tempo)\n- Pode danificar pads ao ser removido\n- Exige solvente específico + paciência\n- Aumenta o tempo e custo do serviço\n\nChips da Apple (A-series, M-series) e alguns Qualcomm têm underfill pesado.\n\n### Programação de NAND/NOR\nEm iPhones, a memória NAND é **pareada com o processador** (vínculo criptográfico). Trocar a NAND exige:\n1. Ler a NAND original (se possível)\n2. Programar a NAND nova com dados do processador\n3. Soldar e testar\n\nEquipamento: JC P7, iRepair P10, JCID — R$ 1.500-3.000\n\n## Tabela de Garantias por Procedimento\n\n| Procedimento | Garantia | Por quê? |\n|-------------|---------|----------|\n| Troca de IC (componente novo) | 90 dias | Componente novo + soldagem controlada |\n| Troca de capacitor/resistor | 90 dias | Componente novo, processo simples |\n| Reballing de IC | 90 dias | Esferas novas, processo controlado |\n| Jumper wire | 60 dias | Fio frágil, pode romper com impacto |\n| Resgate de líquido | 30 dias | Oxidação pode progredir internamente |\n| Reflow | ❌ Sem garantia | Temporário por natureza |\n| Reparo paliativo informado | ❌ Sem garantia | Cliente ciente do risco |\n\n**A garantia é proporcional à confiabilidade do procedimento.** Somos transparentes.`,
+    relatedPages: [
+      { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
+      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
+      { label: "Troca de Chip", to: "/troca-chip-bga-curitiba" },
+      { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
+      { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
+    ],
+  },
+  {
+    slug: "recapacitacao-placa-eletronica-curitiba",
+    title: "Recapacitação de Placa Eletrônica em Curitiba — Capacitores Novos",
+    metaDescription: "Recapacitação: troca de todos os capacitores eletrolíticos de uma placa. Restauração de TVs, amplificadores, fontes. Garantia de 90 dias.",
+    h1: "Recapacitação — Troca Completa de Capacitores em Curitiba",
+    categoria: "Procedimentos Técnicos",
+    intro: `A recapacitação é a **troca de todos os capacitores eletrolíticos** de uma placa. É o procedimento mais comum em restauração de equipamentos com 5-20+ anos.\n\n**Por que TEM garantia (90 dias):**\n- Todos os capacitores são novos (marcas confiáveis: Nichicon, Rubycon, Panasonic)\n- O procedimento é simples e controlado\n- Taxa de sucesso: 90-95% quando o diagnóstico aponta capacitores\n\n**Por que é necessário:**\nCapacitores eletrolíticos contêm um **eletrólito líquido** que evapora lentamente ao longo dos anos. Após 5-15 anos, perdem capacitância, aumentam a resistência série (ESR) e podem:\n- Inchar (topo abaulado — sinal visual claro)\n- Vazar eletrólito (marca marrom na placa)\n- Explodir (raro, mas acontece com sobretensão)\n\n**É o reparo com melhor custo-benefício em eletrônica:**\n- Custo dos capacitores: R$ 20 a R$ 100 (kit completo para uma placa)\n- Mão de obra: R$ 100 a R$ 300\n- Resultado: equipamento volta a funcionar como novo`,
+    sintomas: [
+      { titulo: "TV/amplificador não liga ou demora", desc: "Capacitores de filtro secos na fonte. Não sustentam a tensão necessária para o arranque.", gravidade: "Simples" },
+      { titulo: "Ronco / hum audível", desc: "Em amplificadores: capacitores de filtro não filtram mais o ripple de 60Hz da rede. Som de 'ronco' constante.", gravidade: "Simples" },
+      { titulo: "Equipamento esquenta mais que o normal", desc: "Capacitores com ESR alta dissipam energia como calor em vez de armazená-la.", gravidade: "Médio" },
+      { titulo: "Instabilidade / comportamento errático", desc: "Tensões instáveis por capacitores degradados causam comportamento imprevisível.", gravidade: "Médio" },
+      { titulo: "Capacitores visivelmente inchados", desc: "Topo abaulado ou vazamento visível. O sinal mais óbvio — se você abrir o equipamento e ver, é hora de recapacitar.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Evaporação natural do eletrólito", desc: "Processo inevitável ao longo de 5-20 anos. Acelerado por calor (TVs em nichos, amplificadores potentes).", tipo: "desgaste" },
+      { titulo: "Capacitores de baixa qualidade", desc: "Muitos eletrônicos usam capacitores baratos (CapXon, Teapo de baixa série). Falham em 3-5 anos vs 10-15 de marcas premium (Nichicon, Rubycon).", tipo: "hardware" },
+      { titulo: "Sobretensão na rede elétrica", desc: "Picos acima da tensão nominal do capacitor aceleram a degradação drasticamente.", tipo: "erro-humano" },
+      { titulo: "Ventilação inadequada", desc: "Calor é o inimigo #1 dos capacitores. Cada 10°C acima de 85°C reduz a vida útil pela metade.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Placa fonte de TV (5-10 capacitores). Componentes THT de fácil acesso.", tempo: "2 a 5 dias", custo: "R$ 150 a R$ 300" },
+      { nivel: "Médio", desc: "Amplificador / receiver (20-40 capacitores). Inclui capacitores de filtro grandes.", tempo: "5 a 10 dias", custo: "R$ 250 a R$ 500" },
+      { nivel: "Complexo", desc: "Recapacitação completa de equipamento vintage (50-100+ capacitores). Restauração.", tempo: "10 a 20 dias", custo: "R$ 400 a R$ 800" }
+    ],
+    riscos: [
+      "Capacitores podem estar soldados em locais de difícil acesso (SMD em placas dupla face)",
+      "Trocar capacitor com polaridade invertida = explosão imediata",
+      "Em equipamentos muito antigos, outros componentes também podem estar degradados",
+      "Capacitores genéricos sem marca podem falhar em poucos anos — usamos apenas marcas confiáveis"
+    ],
+    diagnostico: `**Diagnóstico de capacitores:**\n\n1. **Inspeção visual** — capacitores inchados ou com vazamento são óbvios\n2. **Medidor de ESR** — mede a resistência série equivalente sem dessoldar\n3. **Capacímetro** — mede a capacitância real vs nominal\n4. **Osciloscópio** — verifica ripple nas saídas da fonte (alto ripple = filtro ruim)\n\n**Custo: R$ 60-100, abatido do serviço.**`,
+    solucao: `**Processo de recapacitação:**\n\n1. **Mapear todos os capacitores** — anotar valores (µF, tensão, temperatura)\n2. **Encomendar kit de capacitores** — marcas premium (Nichicon, Rubycon, Panasonic)\n3. **Dessoldar capacitores antigos** — um por um, anotando polaridade\n4. **Limpar pads** — remover resíduos de solda antiga\n5. **Soldar capacitores novos** — verificar polaridade (banda = negativo)\n6. **Teste de tensões** — verificar se todas as saídas estão corretas\n7. **Teste funcional** — ligar equipamento e testar 2-4 horas\n\n**GARANTIA DE 90 DIAS** — Capacitores novos de marca têm vida útil de 5.000-10.000 horas (5-10+ anos).`,
+    quandoCompensa: "Sempre quando o diagnóstico aponta capacitores. É o reparo mais barato em eletrônica. TVs de R$ 1.000+, amplificadores de R$ 500+, fontes de computador.",
+    quandoNaoCompensa: "Quando há outros problemas além dos capacitores (queima extensa por surto). Equipamentos extremamente baratos (caixa bluetooth de R$ 50).",
+    whatsappMessage: "Olá! Meu equipamento precisa de troca de capacitores. Podem diagnosticar?",
+    conteudoExtra: `## Capacitores: O Componente Mais Importante (e Mais Frágil)\n\n### Marcas Confiáveis vs Genéricas\n\n| Marca | Qualidade | Vida útil | Preço |\n|-------|----------|----------|-------|\n| Nichicon | Premium | 10.000+ horas | R$ 2-8/cada |\n| Rubycon | Premium | 10.000+ horas | R$ 2-8/cada |\n| Panasonic | Premium | 8.000+ horas | R$ 2-6/cada |\n| United Chemi-Con | Muito boa | 8.000+ horas | R$ 2-5/cada |\n| Vishay | Muito boa | 8.000+ horas | R$ 2-6/cada |\n| CapXon | Regular | 3.000-5.000 horas | R$ 1-3/cada |\n| Teapo | Regular | 3.000-5.000 horas | R$ 1-3/cada |\n| Sem marca / genérico | Ruim | 1.000-3.000 horas | R$ 0,50-1/cada |\n\n### Como Identificar Capacitor Ruim (Visual)\n\n**Sinais visuais:**\n- **Topo abaulado** — o mais comum. O topo deve ser plano com linhas em X ou K\n- **Vazamento marrom** — eletrólito escapando pela base ou topo\n- **Mancha na placa** — resíduo de vazamento ao redor do capacitor\n- **Inchaço lateral** — capa de plástico estufada\n\n### A Regra dos 10°C\n\nPara cada 10°C acima da temperatura nominal:\n- Capacitor de 85°C em ambiente de 95°C = **metade** da vida útil\n- Capacitor de 85°C em ambiente de 105°C = **1/4** da vida útil\n\nPor isso TVs em nichos sem ventilação e amplificadores em racks fechados falham muito mais rápido.\n\n### Equipamentos Que Mais Precisam de Recapacitação\n\n1. **TVs LCD/LED** (fonte) — 4-8 anos\n2. **Amplificadores de áudio** — 8-15 anos\n3. **Receivers home theater** — 6-12 anos\n4. **Fontes de computador** — 5-10 anos\n5. **Monitores** — 5-10 anos\n6. **Consoles (PS3/Xbox 360)** — 8-15 anos\n7. **Equipamentos vintage** — 20-40+ anos`,
+    relatedPages: [
+      { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
+      { label: "Reparo Placa Som", to: "/reparo-placa-som-amplificador-curitiba" },
+      { label: "TV Não Liga", to: "/tv-nao-liga-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "TV Demora Ligar", to: "/tv-demora-ligar-curitiba" },
+      { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
+    ],
+  },
 ];
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {
   return problemaPagesData.find(p => p.slug === slug);

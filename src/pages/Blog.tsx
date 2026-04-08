@@ -279,7 +279,7 @@ const Blog = () => {
       type: "problema" as const,
       slug: p.slug,
       path: p.slug.startsWith("reflow-") || p.slug.startsWith("reballing-") || p.slug.startsWith("troca-chip-") || p.slug.startsWith("microsoldagem-") || p.slug.startsWith("recapacitacao-")
-        ? `/procedimentos/${p.slug}` : `/${p.slug}`,
+        ? `/procedimentos/${p.slug}` : `/problemas/${p.slug}`,
       title: p.h1,
       excerpt: p.intro.slice(0, 180).replace(/\*\*/g, "").replace(/\n/g, " ").trim() + "…",
       category: p.categoria,

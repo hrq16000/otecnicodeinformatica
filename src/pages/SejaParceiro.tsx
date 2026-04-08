@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,19 +8,7 @@ import {
   Users, CheckCircle, ArrowRight, MessageCircle, Wrench, MapPin,
   Shield, TrendingUp, Clock, Star, Briefcase, Award, Zap,
 } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const WHATSAPP = "5541997452053";
 
 const beneficios = [
   { icon: TrendingUp, title: "Demanda constante", desc: "Receba chamados técnicos de clientes qualificados na sua região, sem precisar investir em marketing." },
@@ -54,42 +42,10 @@ const especialidades = [
 ];
 
 const SejaParceiro = () => {
-  const [form, setForm] = useState({
-    nome: "",
-    cidade: "",
-    especialidade: "",
-    experiencia: "",
-    temFerramentas: "",
-    observacoes: "",
-  });
-
   useEffect(() => {
     document.title = "Seja Técnico Parceiro | Técnico Curitiba";
     trackPageView("/seja-parceiro", "Seja Parceiro");
   }, []);
-
-  const handleChange = useCallback((field: string, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-  }, []);
-
-  const buildWhatsAppMessage = useCallback(() => {
-    const lines = [
-      "🔧 *QUERO SER TÉCNICO PARCEIRO*",
-      "",
-      `👤 *Nome:* ${form.nome || "(não informado)"}`,
-      `📍 *Cidade/Região:* ${form.cidade || "(não informado)"}`,
-      `🛠️ *Especialidade:* ${form.especialidade || "(não informado)"}`,
-      `⏱️ *Experiência:* ${form.experiencia || "(não informado)"}`,
-      `🔧 *Tem ferramentas próprias:* ${form.temFerramentas || "(não informado)"}`,
-    ];
-    if (form.observacoes.trim()) {
-      lines.push(`📝 *Observações:* ${form.observacoes}`);
-    }
-    lines.push("", "Gostaria de saber mais sobre a parceria!");
-    return encodeURIComponent(lines.join("\n"));
-  }, [form]);
-
-  const isFormValid = form.nome.trim() && form.cidade.trim() && form.especialidade;
 
   return (
     <div className="min-h-screen bg-background">

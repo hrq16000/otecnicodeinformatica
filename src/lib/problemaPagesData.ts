@@ -2538,6 +2538,7 @@ A: Fazemos a coleta do equipamento e devolvemos pronto. Sem custo adicional de t
       { label: "Computador Lento", to: "/computador-lento-curitiba" },
       { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" },
       { label: "Atendimento Domicílio", to: "/atendimento-domicilio" },
+      { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ],
     conteudoExtra: `## Guia Completo: Impressora Não Imprime em Curitiba
 
@@ -4129,6 +4130,7 @@ O segredo é não ficar tentando imprimir repetidamente — isso só gasta tinta
       { to: "/suporte-empresas", label: "Suporte para Empresas" },
       { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
       { to: "/como-funciona", label: "Como Funciona" },
+      { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
     conteudoExtra: `## Guia: Resolva Problemas de Impressão\n\n### Passo a Passo: Fila de Impressão Travada\n\n1. Pressione **Win + R**, digite \`services.msc\`, Enter\n2. Encontre **"Spooler de Impressão"**\n3. Clique direito → **Parar**\n4. Abra \`C:\\Windows\\System32\\spool\\PRINTERS\` → delete tudo\n5. Volte em services.msc → **Iniciar** o Spooler\n6. Tente imprimir novamente\n\n### Impressora Jato de Tinta vs. Laser\n\n| Característica | Jato de Tinta | Laser |\n|---|---|---|\n| Custo inicial | Baixo (R$ 300-800) | Médio (R$ 800-2.500) |\n| Custo por página | Alto (R$ 0,30-1,00) | Baixo (R$ 0,05-0,15) |\n| Manutenção | Frequente (entupimento) | Rara |\n| Ideal para | Fotos, uso doméstico | Escritório, volume |\n| Problema mais comum | Cabeça entupida | Papel atolando |\n\n### Marcas e Problemas Mais Comuns\n\n| Marca | Problema Frequente | Dica |\n|---|---|---|\n| HP | Driver após update Windows | Usar HP Smart |\n| Epson | Cabeça entupida (EcoTank) | Imprimir 1x por semana |\n| Brother | Toner não reconhecido | Reset do chip |\n| Canon | Erro de cartucho | Limpar contatos |\n| Samsung | Papel atolando | Trocar roletes |`

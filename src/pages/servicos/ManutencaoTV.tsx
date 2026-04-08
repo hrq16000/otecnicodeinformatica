@@ -4,6 +4,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Tv, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
+import { COLETA_TAXA_MINIMA_LABEL, PRAZO_LONGO, DIAGNOSTICO_VALOR_LABEL } from "@/lib/coletaConfig";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -123,7 +124,7 @@ const ManutencaoTV = () => {
                 { step: "1", titulo: "Contato pelo WhatsApp", desc: "Descreva o defeito, modelo e marca da TV. Envie fotos ou vídeos se possível — ajuda muito no pré-diagnóstico." },
                 { step: "2", titulo: "Coleta do equipamento", desc: "Agendamos a coleta no seu endereço. O técnico transporta com cuidado profissional." },
                 { step: "3", titulo: "Diagnóstico em bancada", desc: "Análise detalhada da placa-fonte, T-CON, mainboard e backlight. Identificação precisa do componente defeituoso." },
-                { step: "4", titulo: "Orçamento e aprovação", desc: "Valor informado antes de qualquer reparo. Se não aprovar, paga apenas o diagnóstico (R$ 90)." },
+                { step: "4", titulo: "Orçamento e aprovação", desc: `Valor informado antes de qualquer reparo. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada. Prazo: ${PRAZO_LONGO}.` },
                 { step: "5", titulo: "Reparo e devolução", desc: "Após aprovação, executamos o reparo e devolvemos a TV no seu endereço com garantia." },
               ].map((s, i) => (
                 <div key={s.step} className="flex items-start gap-4 bg-background rounded-lg p-5 border border-border hover:-translate-y-0.5 hover:shadow-lg hover:border-accent/20 transition-all duration-300 group stagger-item" style={{ animationDelay: `${i * 100}ms` }}>

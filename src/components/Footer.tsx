@@ -1,28 +1,52 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import { useMemo } from "react";
 
 const footerLink = "text-white/60 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
 
-const footerSections = [
-  {
-    title: "Serviços",
-    links: [
-      { label: "Todos os Serviços", to: "/servicos" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
-      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
-      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
-      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
-      { label: "Computador Lento", to: "/servicos/computador-lento" },
-      { label: "Computador Não Liga", to: "/servicos/computador-nao-liga" },
-      { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
-      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-      { label: "Montagem de PC", to: "/servicos/montagem-pc" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
-      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
-      { label: "CFTV / Câmeras", to: "/cftv" },
-    ],
-  },
+function pickRandom<T>(arr: T[], n: number): T[] {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, n);
+}
+
+const informaticaLinks = [
+  { label: "Formatação", to: "/servicos/formatacao-computador" },
+  { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+  { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+  { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+  { label: "Computador Lento", to: "/servicos/computador-lento" },
+  { label: "Computador Não Liga", to: "/servicos/computador-nao-liga" },
+  { label: "Montagem de PC", to: "/servicos/montagem-pc" },
+  { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+  { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+  { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
+];
+
+const servicosLinks = [
+  { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
+  { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+  { label: "CFTV / Câmeras", to: "/cftv" },
+  { label: "Suporte Empresas", to: "/suporte-empresas" },
+  { label: "Atendimento Remoto", to: "/atendimento-remoto" },
+  { label: "Domicílio", to: "/atendimento-domicilio" },
+  { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
+  { label: "Conserto de TV", to: "/servicos/conserto-tv" },
+];
+
+const procedimentosTvLinks = [
+  { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
+  { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+  { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
+  { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
+  { label: "Recapacitação", to: "/recapacitacao-placa-eletronica-curitiba" },
+  { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
+  { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+  { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
+  { label: "TV Listras na Tela", to: "/tv-listras-na-tela-curitiba" },
+  { label: "TV Listras H/V", to: "/tv-listras-horizontais-verticais-conserto-curitiba" },
+  { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" },
+];
   {
     title: "Atendimento",
     links: [

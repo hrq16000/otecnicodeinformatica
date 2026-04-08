@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef, useCallback } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -13,6 +13,7 @@ import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
   Smartphone, Tv, Wrench, Shield, Wifi, HardDrive, Printer,
   Radio, Zap, TrendingUp, BookOpen, ChevronDown, Layers, Star,
+  Eye, Flame, Filter, X,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -53,7 +54,7 @@ const blogPosts = [
   { slug: "wifi-lento-como-melhorar", title: "Wi-Fi Lento em Casa? Veja Como Melhorar o Sinal", excerpt: "Dicas práticas para melhorar cobertura e velocidade.", date: "2023-12-25", readTime: "5 min", category: "Redes" },
 ];
 
-// ─── Category config for problem pages ───
+// ─── Category config ───
 const CATEGORY_MAP: Record<string, { label: string; icon: typeof Cpu; image: string; color: string }> = {
   "Hardware": { label: "Hardware", icon: Cpu, image: IMAGES.placaMae, color: "from-blue-600 to-cyan-500" },
   "Problemas de Celular": { label: "Celular", icon: Smartphone, image: IMAGES.microsoldagem, color: "from-purple-600 to-pink-500" },
@@ -85,7 +86,6 @@ function pickRandom<T>(arr: T[], n: number): T[] {
   return shuffled.slice(0, n);
 }
 
-// Consolidated content items
 type ContentItem = {
   type: "blog" | "problema" | "servico";
   slug: string;
@@ -114,19 +114,62 @@ const SERVICO_PAGES: ContentItem[] = [
   { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: IMAGES.coletaEntrega },
 ];
 
+// ─── Animated Counter Hook ───
+function useAnimatedCounter(target: number, duration = 1200) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        const start = performance.now();
+        const animate = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setValue(Math.floor(eased * target));
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return { value, ref };
+}
+
+// ─── Stat Card Component ───
+const StatCard = ({ icon: Icon, label, targetValue, color }: { icon: typeof Cpu; label: string; targetValue: number; color: string }) => {
+  const { value, ref } = useAnimatedCounter(targetValue);
+  return (
+    <div ref={ref} className="glass-card gradient-border rounded-xl p-4 text-center hover-lift group cursor-default">
+      <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br ${color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+        <Icon className="h-5 w-5 text-white" />
+      </div>
+      <p className="text-3xl font-bold text-foreground tabular-nums count-bounce">{value}+</p>
+      <p className="text-xs text-muted-foreground font-medium mt-0.5">{label}</p>
+    </div>
+  );
+};
+
 // ─── The component ───
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState<"todos" | "artigos" | "problemas" | "servicos">("todos");
   const [activeCat, setActiveCat] = useState("Todos");
   const [showAll, setShowAll] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
 
   useEffect(() => {
     document.title = "Explorar Conteúdo — Blog, Serviços, Problemas e Soluções | Técnico Curitiba";
     trackPageView("/blog", "Blog — Explorar Conteúdo");
   }, []);
 
-  // Build consolidated list
   const allContent = useMemo<ContentItem[]>(() => {
     const blogItems: ContentItem[] = blogPosts.map((p) => ({
       type: "blog" as const,
@@ -155,23 +198,18 @@ const Blog = () => {
     return [...blogItems, ...problemaItems, ...SERVICO_PAGES];
   }, []);
 
-  // Categories for filter
   const categories = useMemo(() => {
     const cats = new Set<string>();
     allContent.forEach((c) => cats.add(c.category));
     return ["Todos", ...Array.from(cats).sort()];
   }, [allContent]);
 
-  // Filter
   const filtered = useMemo(() => {
     let items = allContent;
-
     if (activeTab === "artigos") items = items.filter((c) => c.type === "blog");
     else if (activeTab === "problemas") items = items.filter((c) => c.type === "problema");
     else if (activeTab === "servicos") items = items.filter((c) => c.type === "servico");
-
     if (activeCat !== "Todos") items = items.filter((c) => c.category === activeCat);
-
     if (searchTerm.trim()) {
       const q = searchTerm.toLowerCase();
       items = items.filter((c) =>
@@ -180,25 +218,37 @@ const Blog = () => {
         c.category.toLowerCase().includes(q)
       );
     }
-
     return items;
   }, [allContent, activeTab, activeCat, searchTerm]);
 
   const displayed = showAll ? filtered : filtered.slice(0, 24);
 
-  // Featured hero — random problem page with rich content
   const featured = useMemo(() => pickRandom(
     allContent.filter((c) => c.type === "problema" && c.excerpt.length > 100),
     3
   ), [allContent]);
 
-  // Stats
+  // Editor's picks from blog
+  const editorPicks = useMemo(() => pickRandom(
+    allContent.filter((c) => c.type === "blog"),
+    4
+  ), [allContent]);
+
   const stats = useMemo(() => ({
     artigos: allContent.filter((c) => c.type === "blog").length,
     problemas: allContent.filter((c) => c.type === "problema").length,
     servicos: allContent.filter((c) => c.type === "servico").length,
     total: allContent.length,
   }), [allContent]);
+
+  const clearFilters = useCallback(() => {
+    setSearchTerm("");
+    setActiveCat("Todos");
+    setActiveTab("todos");
+    setShowAll(false);
+  }, []);
+
+  const hasActiveFilters = searchTerm.trim() || activeCat !== "Todos" || activeTab !== "todos";
 
   return (
     <div className="min-h-screen bg-background">
@@ -214,107 +264,160 @@ const Blog = () => {
         {/* ═══════════ HERO ═══════════ */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 premium-gradient" />
-          <FloatingParticles count={25} />
-          <div className="absolute inset-0">
-            <div className="absolute top-20 left-1/4 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px] animate-pulse" />
-            <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <FloatingParticles count={30} />
+
+          {/* Animated orbs */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
+            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent/[0.04] blur-[80px] animate-float" />
           </div>
 
-          <div className="container mx-auto relative z-10 pt-12 pb-16 md:pt-16 md:pb-20 px-4">
-            <AnimatedSection>
-              <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium text-white/90 mb-4 border border-white/10">
-                  <Sparkles className="h-4 w-4 text-accent" />
+          {/* Mesh pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
+          }} />
+
+          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-28 px-4">
+            <AnimatedSection animation="fade-up">
+              <div className="text-center mb-12">
+                {/* Badge shimmer */}
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
+                  <Sparkles className="h-4 w-4 text-accent animate-bounce-subtle" />
                   <span>{stats.total}+ conteúdos técnicos</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-4">
-                  Explore Todo o{" "}
-                  <span className="bg-gradient-to-r from-accent via-orange-400 to-accent bg-clip-text text-transparent">
+
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-[1.1] mb-5">
+                  <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>
+                    Explore Todo o
+                  </span>
+                  <span
+                    className="block gradient-text-animated text-5xl md:text-7xl lg:text-8xl"
+                    style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}
+                  >
                     Conhecimento
                   </span>
                 </h1>
-                <p className="text-lg md:text-xl text-white/75 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed" style={{ animation: 'heroFadeUp 0.7s ease-out 0.3s both' }}>
                   Artigos, guias de problemas, procedimentos técnicos e serviços especializados — tudo num só lugar.
                 </p>
+
+                {/* Glow separator */}
+                <div className="glow-separator max-w-[200px] mx-auto mt-6" style={{ animation: 'heroFadeIn 1s ease-out 0.5s both' }} />
               </div>
             </AnimatedSection>
 
             {/* Search */}
-            <AnimatedSection delay={0.15}>
-              <div className="max-w-xl mx-auto relative mb-10">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/50 pointer-events-none" />
-                <Input
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Buscar conteúdo — ex: notebook não liga, formatação, vírus..."
-                  className="pl-12 py-6 text-base bg-white/10 backdrop-blur-md border-white/20 text-white placeholder:text-white/40 focus:bg-white/15 focus:border-accent/50 rounded-xl"
-                />
+            <AnimatedSection delay={200}>
+              <div className={`max-w-xl mx-auto relative mb-12 transition-all duration-500 ${searchFocused ? 'scale-[1.02]' : ''}`}>
+                <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent/30 via-primary/20 to-accent/30 blur-md transition-opacity duration-500 ${searchFocused ? 'opacity-100' : 'opacity-0'}`} />
+                <div className="relative">
+                  <Search className={`absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 transition-colors duration-300 pointer-events-none ${searchFocused ? 'text-accent' : 'text-white/40'}`} />
+                  <Input
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onFocus={() => setSearchFocused(true)}
+                    onBlur={() => setSearchFocused(false)}
+                    placeholder="Buscar conteúdo — ex: notebook não liga, formatação, vírus..."
+                    className="pl-12 pr-10 py-6 text-base bg-white/10 backdrop-blur-xl border-white/15 text-white placeholder:text-white/35 focus:bg-white/15 focus:border-accent/50 rounded-xl shadow-lg"
+                  />
+                  {searchTerm && (
+                    <button onClick={() => setSearchTerm("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors">
+                      <X className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
               </div>
             </AnimatedSection>
 
             {/* Stats */}
-            <AnimatedSection delay={0.25}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
-                {[
-                  { icon: BookOpen, label: "Artigos", value: stats.artigos, color: "text-blue-400" },
-                  { icon: Wrench, label: "Problemas", value: stats.problemas, color: "text-orange-400" },
-                  { icon: TrendingUp, label: "Serviços", value: stats.servicos, color: "text-green-400" },
-                  { icon: Layers, label: "Total", value: stats.total, color: "text-accent" },
-                ].map((s) => (
-                  <div key={s.label} className="glass-card rounded-xl p-3 text-center border border-white/10 backdrop-blur-sm bg-white/5">
-                    <s.icon className={`h-5 w-5 mx-auto mb-1 ${s.color}`} />
-                    <p className="text-2xl font-bold text-white">{s.value}</p>
-                    <p className="text-xs text-white/50">{s.label}</p>
-                  </div>
-                ))}
+            <AnimatedSection delay={350}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <StatCard icon={BookOpen} label="Artigos" targetValue={stats.artigos} color="from-blue-500 to-cyan-500" />
+                <StatCard icon={Wrench} label="Problemas" targetValue={stats.problemas} color="from-orange-500 to-amber-500" />
+                <StatCard icon={TrendingUp} label="Serviços" targetValue={stats.servicos} color="from-green-500 to-emerald-500" />
+                <StatCard icon={Layers} label="Total" targetValue={stats.total} color="from-accent to-orange-600" />
               </div>
             </AnimatedSection>
+          </div>
+
+          {/* Bottom wave */}
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+            </svg>
           </div>
         </section>
 
         {/* ═══════════ FEATURED HIGHLIGHTS ═══════════ */}
-        <section className="py-10 bg-secondary/50">
+        <section className="py-14 bg-background relative overflow-hidden">
+          {/* Background texture */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-[100px]" />
+
           <div className="container mx-auto px-4">
             <AnimatedSection>
-              <h2 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-accent" /> Destaques do Dia
-              </h2>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-accent/10">
+                    <Flame className="h-5 w-5 text-accent" />
+                  </span>
+                  Destaques do Dia
+                </h2>
+                <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                  Atualiza a cada visita
+                </span>
+              </div>
             </AnimatedSection>
-            <div className="grid md:grid-cols-3 gap-5">
+
+            <div className="grid md:grid-cols-3 gap-6">
               {featured.map((item, i) => {
                 const cat = getCat(item.category);
                 return (
-                  <AnimatedSection key={item.slug} delay={0.1 * i}>
+                  <AnimatedSection key={item.slug} delay={120 * i}>
                     <Link to={item.path} className="group block h-full">
-                      <div className="relative rounded-2xl overflow-hidden h-full border border-border hover:border-accent/30 transition-all hover:shadow-xl bg-card">
-                        {/* Cover image */}
-                        <div className="relative h-48 overflow-hidden">
+                      <div className="relative rounded-2xl overflow-hidden h-full gradient-border hover-glow-ring hover-lift bg-card">
+                        {/* Cover image with parallax-like zoom */}
+                        <div className="relative h-52 overflow-hidden">
                           <img
                             src={item.image + "&w=800&h=400"}
                             alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
                             loading="lazy"
                           />
-                          <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-60 mix-blend-multiply`} />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                          <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-50 mix-blend-multiply`} />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                          {/* Shimmer sweep on hover */}
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                          </div>
+
                           <div className="absolute top-3 left-3">
-                            <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full border border-white/20">
+                            <span className="px-3 py-1.5 bg-white/15 backdrop-blur-xl text-white text-xs font-semibold rounded-full border border-white/20 shadow-lg">
                               {cat.label}
                             </span>
                           </div>
-                          <div className="absolute bottom-3 left-3 right-3">
-                            <h3 className="text-white font-bold text-lg leading-tight line-clamp-2 group-hover:text-accent transition-colors">
+
+                          <div className="absolute top-3 right-3">
+                            <span className="px-2 py-1 bg-accent/80 text-white text-[10px] font-bold rounded-md shadow-md">
+                              DESTAQUE
+                            </span>
+                          </div>
+
+                          <div className="absolute bottom-4 left-4 right-4">
+                            <h3 className="text-white font-bold text-lg leading-tight line-clamp-2 drop-shadow-md group-hover:text-accent transition-colors duration-300">
                               {item.title}
                             </h3>
                           </div>
                         </div>
-                        {/* Content */}
-                        <div className="p-4">
-                          <p className="text-muted-foreground text-sm line-clamp-3 mb-3">
+
+                        <div className="p-5">
+                          <p className="text-muted-foreground text-sm line-clamp-3 mb-4 leading-relaxed">
                             {item.excerpt}
                           </p>
-                          <span className="inline-flex items-center gap-1.5 text-accent text-sm font-medium group-hover:gap-2.5 transition-all">
-                            Explorar <ArrowRight className="h-3.5 w-3.5" />
+                          <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+                            <Eye className="h-4 w-4" /> Ler agora <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                           </span>
                         </div>
                       </div>
@@ -326,35 +429,77 @@ const Blog = () => {
           </div>
         </section>
 
+        {/* ═══════════ EDITOR'S PICKS MARQUEE ═══════════ */}
+        <section className="py-8 border-y border-border bg-muted/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection>
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
+                <Star className="h-4 w-4 text-accent" /> Escolhas do Editor
+              </h3>
+            </AnimatedSection>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {editorPicks.map((item, i) => (
+                <AnimatedSection key={item.slug} delay={80 * i}>
+                  <Link to={item.path} className="group flex items-center gap-3 p-3 rounded-xl bg-card border border-border hover:border-accent/30 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                    <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
+                      <img src={item.image + "&w=120&h=120"} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-bold text-foreground line-clamp-2 group-hover:text-accent transition-colors">{item.title}</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">{item.readTime}</p>
+                    </div>
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-accent flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all" />
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ═══════════ TABS + FILTERS ═══════════ */}
-        <section className="py-8 bg-background border-b border-border sticky top-0 z-30 backdrop-blur-xl bg-background/95">
+        <section className="py-6 bg-background border-b border-border sticky top-0 z-30 backdrop-blur-xl bg-background/95">
           <div className="container mx-auto px-4">
             {/* Tabs */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {([
-                { key: "todos", label: "Tudo", count: allContent.length },
-                { key: "artigos", label: "Artigos", count: stats.artigos },
-                { key: "problemas", label: "Problemas & Soluções", count: stats.problemas },
-                { key: "servicos", label: "Serviços", count: stats.servicos },
+                { key: "todos", label: "Tudo", count: allContent.length, icon: Layers },
+                { key: "artigos", label: "Artigos", count: stats.artigos, icon: BookOpen },
+                { key: "problemas", label: "Problemas & Soluções", count: stats.problemas, icon: Wrench },
+                { key: "servicos", label: "Serviços", count: stats.servicos, icon: TrendingUp },
               ] as const).map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => { setActiveTab(tab.key); setActiveCat("Todos"); setShowAll(false); }}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
+                  className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-full transition-all duration-300 btn-feedback ${
                     activeTab === tab.key
-                      ? "bg-accent text-accent-foreground shadow-md"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      ? "bg-accent text-accent-foreground shadow-[var(--shadow-accent)] scale-[1.02]"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
                   }`}
                 >
+                  <tab.icon className="h-3.5 w-3.5" />
                   {tab.label}
-                  <span className="ml-1.5 text-xs opacity-70">({tab.count})</span>
+                  <span className={`ml-0.5 text-xs px-1.5 py-0.5 rounded-full ${
+                    activeTab === tab.key ? "bg-white/20" : "bg-foreground/5"
+                  }`}>
+                    {tab.count}
+                  </span>
                 </button>
               ))}
+
+              {hasActiveFilters && (
+                <button
+                  onClick={clearFilters}
+                  className="inline-flex items-center gap-1 px-3 py-2 text-xs font-medium text-destructive hover:text-destructive/80 rounded-full bg-destructive/10 hover:bg-destructive/15 transition-all"
+                >
+                  <X className="h-3 w-3" /> Limpar filtros
+                </button>
+              )}
             </div>
 
-            {/* Category pills — only show when not "servicos" */}
+            {/* Category pills */}
             {activeTab !== "servicos" && (
               <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1">
+                <Filter className="h-3.5 w-3.5 text-muted-foreground self-center mr-1 flex-shrink-0" />
                 {categories
                   .filter((c) => {
                     if (activeTab === "artigos") return ["Todos", "Manutenção", "Segurança", "CFTV", "Windows 11", "Office 365", "Hardware", "Dicas", "Redes", "Atendimento"].includes(c);
@@ -365,10 +510,10 @@ const Blog = () => {
                     <button
                       key={cat}
                       onClick={() => { setActiveCat(cat); setShowAll(false); }}
-                      className={`px-3 py-1 text-xs font-medium rounded-full transition-all whitespace-nowrap ${
+                      className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 whitespace-nowrap btn-feedback ${
                         activeCat === cat
-                          ? "bg-accent/15 text-accent border border-accent/30"
-                          : "bg-muted/50 text-muted-foreground hover:bg-muted border border-transparent"
+                          ? "bg-accent/15 text-accent border border-accent/30 shadow-sm"
+                          : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent"
                       }`}
                     >
                       {cat}
@@ -380,68 +525,83 @@ const Blog = () => {
         </section>
 
         {/* ═══════════ CONTENT GRID ═══════════ */}
-        <section className="py-10 bg-background">
+        <section className="py-10 bg-background relative">
           <div className="container mx-auto px-4">
             {filtered.length === 0 ? (
-              <div className="text-center py-20">
-                <Search className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
-                <p className="text-muted-foreground text-lg">Nenhum conteúdo encontrado para "{searchTerm}"</p>
-                <Button variant="outline" className="mt-4" onClick={() => { setSearchTerm(""); setActiveCat("Todos"); }}>
-                  Limpar filtros
+              <div className="text-center py-24">
+                <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mx-auto mb-5">
+                  <Search className="h-10 w-10 text-muted-foreground/30" />
+                </div>
+                <p className="text-muted-foreground text-lg mb-1">Nenhum conteúdo encontrado</p>
+                <p className="text-muted-foreground/60 text-sm mb-5">Tente outro termo ou limpe os filtros</p>
+                <Button variant="outline" onClick={clearFilters} className="gap-2 rounded-full">
+                  <X className="h-3.5 w-3.5" /> Limpar filtros
                 </Button>
               </div>
             ) : (
               <>
-                <p className="text-sm text-muted-foreground mb-6">
-                  {filtered.length} resultado{filtered.length !== 1 ? "s" : ""} encontrado{filtered.length !== 1 ? "s" : ""}
-                </p>
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-semibold text-foreground">{filtered.length}</span> resultado{filtered.length !== 1 ? "s" : ""}
+                  </p>
+                </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                   {displayed.map((item, i) => {
                     const cat = getCat(item.category);
                     const Icon = cat.icon;
                     const typeBadge = item.type === "blog" ? "Artigo" : item.type === "servico" ? "Serviço" : "Solução";
-                    const typeBadgeColor = item.type === "blog" ? "bg-blue-500/15 text-blue-600 dark:text-blue-400" : item.type === "servico" ? "bg-green-500/15 text-green-600 dark:text-green-400" : "bg-orange-500/15 text-orange-600 dark:text-orange-400";
+                    const typeBadgeColor = item.type === "blog"
+                      ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/20"
+                      : item.type === "servico"
+                      ? "bg-green-500/15 text-green-600 dark:text-green-400 border border-green-500/20"
+                      : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/20";
 
                     return (
-                      <AnimatedSection key={`${item.type}-${item.slug}-${i}`} delay={Math.min(0.05 * (i % 8), 0.4)}>
+                      <div
+                        key={`${item.type}-${item.slug}-${i}`}
+                        className="stagger-item"
+                        style={{ animationDelay: `${Math.min(60 * (i % 12), 700)}ms` }}
+                      >
                         <Link to={item.path} className="group block h-full">
-                          <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card">
+                          <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 bg-card hover-streak">
                             {/* Image */}
                             <div className="relative h-36 overflow-hidden">
                               <img
                                 src={item.image + "&w=500&h=280"}
                                 alt={item.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 loading="lazy"
                               />
-                              <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-40 mix-blend-multiply`} />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                              <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-35 mix-blend-multiply`} />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
                               {/* Badges */}
                               <div className="absolute top-2 left-2 flex gap-1.5">
-                                <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${typeBadgeColor}`}>
+                                <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md ${typeBadgeColor} backdrop-blur-sm`}>
                                   {typeBadge}
                                 </span>
                               </div>
                               <div className="absolute top-2 right-2">
-                                <Icon className="h-4 w-4 text-white/70" />
+                                <div className="w-7 h-7 rounded-md bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
+                                  <Icon className="h-3.5 w-3.5 text-white/80" />
+                                </div>
                               </div>
                               <div className="absolute bottom-2 left-2 right-2">
-                                <span className="text-[10px] text-white/70 font-medium">{item.category}</span>
+                                <span className="text-[10px] text-white/70 font-medium bg-black/30 px-2 py-0.5 rounded-md backdrop-blur-sm">{item.category}</span>
                               </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-3.5">
-                              <h3 className="font-bold text-sm text-foreground leading-snug mb-1.5 line-clamp-2 group-hover:text-accent transition-colors">
+                            <div className="p-4">
+                              <h3 className="font-bold text-sm text-foreground leading-snug mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-200">
                                 {item.title}
                               </h3>
-                              <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+                              <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
                                 {item.excerpt}
                               </p>
 
-                              <div className="flex items-center justify-between">
+                              <div className="flex items-center justify-between pt-2 border-t border-border/50">
                                 <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
                                   {item.readTime && (
                                     <span className="flex items-center gap-0.5">
@@ -454,33 +614,36 @@ const Blog = () => {
                                     </span>
                                   )}
                                   {item.gravidade && (
-                                    <span className={`px-1.5 py-0.5 rounded text-[9px] font-medium ${
+                                    <span className={`px-1.5 py-0.5 rounded text-[9px] font-semibold ${
                                       item.gravidade === "Complexo" ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400" :
                                       item.gravidade === "Médio" ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400" :
                                       "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
                                     }`}>{item.gravidade}</span>
                                   )}
                                 </div>
-                                <ArrowRight className="h-3.5 w-3.5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="flex items-center gap-1 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 -translate-x-1">
+                                  <span className="text-[10px] font-semibold">Ver</span>
+                                  <ArrowRight className="h-3 w-3" />
+                                </div>
                               </div>
                             </div>
                           </article>
                         </Link>
-                      </AnimatedSection>
+                      </div>
                     );
                   })}
                 </div>
 
                 {/* Load more */}
                 {!showAll && filtered.length > 24 && (
-                  <div className="text-center mt-8">
+                  <div className="text-center mt-10">
                     <Button
                       variant="outline"
                       size="lg"
                       onClick={() => setShowAll(true)}
-                      className="gap-2 rounded-full px-8"
+                      className="gap-2 rounded-full px-8 hover-glow-cta btn-feedback"
                     >
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-4 w-4 animate-bounce-subtle" />
                       Ver todos os {filtered.length} conteúdos
                     </Button>
                   </div>
@@ -491,28 +654,35 @@ const Blog = () => {
         </section>
 
         {/* ═══════════ CTA ═══════════ */}
-        <AnimatedSection>
-          <section className="py-12 bg-secondary/50">
-            <div className="container mx-auto px-4">
+        <AnimatedSection animation="fade-up">
+          <section className="py-16 relative overflow-hidden">
+            <div className="absolute inset-0 premium-gradient opacity-95" />
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.06] rounded-full blur-[120px] animate-breathe" />
+            </div>
+            <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-2xl mx-auto text-center">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm text-white/80 mb-5 border border-white/10">
+                  <Sparkles className="h-3.5 w-3.5 text-accent" /> Atendimento especializado
+                </div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                   Não encontrou o que procura?
                 </h2>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-white/60 mb-8 text-lg">
                   Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.
                 </p>
-                <div className="flex flex-wrap justify-center gap-3">
+                <div className="flex flex-wrap justify-center gap-4">
                   <a
                     href="https://wa.me/5541997452053?text=Olá! Preciso de ajuda técnica."
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-6">
+                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">
                       WhatsApp
                     </Button>
                   </a>
                   <Link to="/contato">
-                    <Button variant="outline" className="gap-2 rounded-full px-6">
+                    <Button variant="outline" className="gap-2 rounded-full px-8 py-6 text-base border-white/20 text-white hover:bg-white/10 hover-glow-cta">
                       Contato <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>

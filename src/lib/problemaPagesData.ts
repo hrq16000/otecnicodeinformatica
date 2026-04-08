@@ -10915,6 +10915,193 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
     ],
   },
+  // ===== PÁGINAS DE IMPRESSORA =====
+  {
+    slug: "impressora-papel-preso-curitiba",
+    title: "Impressora com Papel Preso em Curitiba | Atolamento de Papel",
+    metaDescription: "Impressora atolando papel? Causas reais: rolos de tração gastos, sensor de papel sujo, papel úmido ou fora do padrão. Diagnóstico e reparo em Curitiba.",
+    h1: "Impressora com Papel Preso — Diagnóstico e Reparo em Curitiba",
+    categoria: "Problemas de Impressora",
+    intro: `O atolamento de papel (paper jam) é o problema mecânico mais comum em impressoras. Pode parecer simples, mas **atolamentos recorrentes indicam desgaste mecânico** que não se resolve apenas puxando o papel.\\n\\n**Dados reais do mercado:**\\n- 34% dos chamados de impressora são por atolamento de papel (fonte: Lexmark Service Reports 2023)\\n- Impressoras laser atolam menos que jato de tinta (mecanismo de tração mais robusto)\\n- Rolos de borracha (pickup rollers) duram em média 50.000 a 100.000 páginas\\n- Após essa vida útil, perdem aderência e o papel escorrega ou entra torto\\n\\n**Marcas mais afetadas por atolamento:**\\n- HP LaserJet série P/M (rolos de borracha ressecam após 3-4 anos)\\n- Epson L-series (sistema de tração do papel mais sensível)\\n- Brother DCP/MFC (guias laterais frágeis)\\n\\n**Custo de reparo:**\\n- Troca de rolos de tração: R$ 80-200\\n- Limpeza + ajuste mecânico: R$ 60-120\\n- Troca de sensor de papel: R$ 100-250\\n- Reparo do mecanismo de fusão (laser): R$ 150-350`,
+    sintomas: [
+      { titulo: "Papel atola sempre no mesmo ponto", desc: "Se o papel atola sempre na mesma posição (entrada, meio ou saída), indica componente específico desgastado naquela região.", gravidade: "Médio" },
+      { titulo: "Papel entra torto e amassa", desc: "Rolos de tração com borracha gasta ou suja perdem aderência em um lado. O papel puxa desigual e entra inclinado.", gravidade: "Simples" },
+      { titulo: "Impressora puxa múltiplas folhas", desc: "Pad de separação (separation pad) gasto. É uma peça de borracha que separa as folhas — custa R$ 15-40 e resolve o problema.", gravidade: "Simples" },
+      { titulo: "Papel atola na saída (laser)", desc: "Em impressoras laser, atolamento na saída indica problema no fusor (unidade de fusão). O rolo de pressão pode estar danificado ou sujo.", gravidade: "Médio" },
+      { titulo: "Erro de atolamento sem papel preso visível", desc: "Sensor de papel sujo ou defeituoso. A impressora 'acha' que tem papel preso quando não tem. Limpeza ou troca do sensor.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Rolos de tração (pickup rollers) gastos", desc: "Borracha dos rolos perde aderência com o tempo. Superfície fica lisa e brilhante em vez de fosca. Vida útil: 50.000-100.000 páginas.", tipo: "desgaste" },
+      { titulo: "Papel de má qualidade ou úmido", desc: "Papel reciclado fino, papel úmido (armazenado em local sem climatização) ou papel fora da gramatura recomendada causa atolamento frequente.", tipo: "erro-humano" },
+      { titulo: "Pad de separação desgastado", desc: "Peça de borracha que impede múltiplas folhas de entrar. Após 30.000-50.000 páginas, perde fricção.", tipo: "desgaste" },
+      { titulo: "Sujeira acumulada no caminho do papel", desc: "Poeira, pedaços de papel, clipes, grampos — qualquer detrito no caminho do papel causa atolamento.", tipo: "erro-humano" },
+      { titulo: "Guias laterais mal posicionadas", desc: "Guias da bandeja apertadas ou frouxas demais fazem o papel entrar desalinhado.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza dos rolos + ajuste de guias + orientação sobre papel correto.", tempo: "1 a 2 dias", custo: "R$ 60 a R$ 120" },
+      { nivel: "Médio", desc: "Troca de rolos de tração e pad de separação. Peças de reposição.", tempo: "2 a 5 dias", custo: "R$ 100 a R$ 250" },
+      { nivel: "Complexo", desc: "Troca de unidade de fusão (laser) ou reparo mecânico do mecanismo de tração.", tempo: "5 a 10 dias", custo: "R$ 200 a R$ 400" }
+    ],
+    riscos: [
+      "Puxar papel atolado com força pode rasgar e deixar pedaços dentro do mecanismo",
+      "Peças genéricas de baixa qualidade podem causar atolamento pior que o original",
+      "Em impressoras laser, NUNCA toque no fusor logo após uso — temperatura de 200°C",
+      "Impressoras multifuncionais têm mecanismo do scanner integrado — desmontagem requer cuidado extra"
+    ],
+    diagnostico: `**Diagnóstico de atolamento recorrente:**\\n\\n1. **Identificar o ponto exato** — entrada, meio ou saída do papel\\n2. **Inspecionar rolos** — verificar se a borracha está lisa, rachada ou suja\\n3. **Testar com papel novo** (75g/m², marca confiável) — descartar problema no papel\\n4. **Verificar sensores** — limpar com ar comprimido e cotonete com álcool\\n5. **Testar pad de separação** — verificar se puxa múltiplas folhas\\n\\n**Custo do diagnóstico: R$ 50-80, abatido do serviço.**`,
+    solucao: `**Soluções por causa:**\\n\\n**1. Rolos gastos:** Troca por rolos originais ou compatíveis de qualidade. Limpeza com álcool isopropílico pode prolongar a vida em 3-6 meses.\\n\\n**2. Papel inadequado:** Orientação sobre gramatura correta (75g/m² para uso geral), armazenamento em local seco.\\n\\n**3. Pad de separação:** Troca simples — peça barata (R$ 15-40) com grande impacto.\\n\\n**4. Sujeira:** Limpeza completa do caminho do papel com ar comprimido e pano antiestático.\\n\\n**5. Fusor (laser):** Substituição da unidade de fusão — peça mais cara mas com vida útil de 100.000+ páginas.`,
+    quandoCompensa: "Impressoras com menos de 4 anos. Equipamentos corporativos de médio/alto volume. Quando o custo do reparo é menor que 30% de uma nova.",
+    quandoNaoCompensa: "Impressoras jato de tinta básicas com mais de 3 anos (custo do reparo pode superar o de uma nova). Modelos descontinuados sem peças.",
+    whatsappMessage: "Olá! Minha impressora está atolando papel constantemente. Preciso de diagnóstico.",
+    conteudoExtra: `## Tipos de Atolamento por Tipo de Impressora\\n\\n| Tipo | Causa mais comum | Peça a trocar | Custo da peça |\\n|------|-----------------|---------------|---------------|\\n| Laser HP | Pickup roller gasto | RL1-xxxx | R$ 25-60 |\\n| Laser Brother | Pad de separação | LU9244001 | R$ 20-40 |\\n| Jato de tinta Epson L | Rolos de borracha sujos | Kit de limpeza | R$ 30-50 |\\n| Jato de tinta HP | Mecanismo de carro preso | Correia + motor | R$ 80-150 |\\n| Multifuncional | Sensor de papel sujo | Limpeza | R$ 50-80 |\\n\\n## Dicas para Evitar Atolamento\\n\\n1. **Use papel 75g/m²** de marca conhecida (Chamex, Report, Suzano)\\n2. **Abane o papel** antes de colocar na bandeja — separa as folhas\\n3. **Não encha a bandeja além do limite** — marcação MAX existe por um motivo\\n4. **Guarde o papel em local seco** — umidade é o inimigo nº1\\n5. **Limpe os rolos** a cada 6 meses com pano levemente úmido\\n6. **Ajuste as guias laterais** — devem encostar no papel sem apertar`,
+    relatedPages: [
+      { label: "Impressora Não Imprime", to: "/impressora-nao-imprime-curitiba" },
+      { label: "Impressora Erro USB/Wi-Fi", to: "/impressora-erro-conexao-usb-wifi-curitiba" },
+      { label: "Impressora Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" },
+      { label: "Impressora Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+    ],
+  },
+  {
+    slug: "impressora-tinta-nao-sai-curitiba",
+    title: "Impressora Não Sai Tinta em Curitiba | Cabeçote Entupido | Reparo",
+    metaDescription: "Impressora jato de tinta não imprime? Cabeçote entupido, cartucho seco, tinta ressecada. Diagnóstico e reparo em Curitiba. HP, Epson, Canon.",
+    h1: "Impressora Não Sai Tinta — Cabeçote Entupido e Soluções em Curitiba",
+    categoria: "Problemas de Impressora",
+    intro: `Sua impressora jato de tinta imprime em branco, com falhas ou cores erradas? O problema quase sempre está no **cabeçote de impressão** — a peça que joga microgotas de tinta no papel.\\n\\n**Por que o cabeçote entope?**\\nA tinta à base de água ou pigmento **seca quando a impressora fica parada**. Os micro-bicos (nozzles) do cabeçote têm diâmetro de 20-30 micrômetros (mais fino que um fio de cabelo). Basta dias sem uso para começar a entupir.\\n\\n**Dados reais:**\\n- Impressoras Epson EcoTank (L-series): cabeçote embutido na impressora (não removível). Se entupir demais, pode exigir troca da impressora inteira\\n- Impressoras HP: cabeçote integrado ao cartucho (séries 664, 667) — trocar cartucho = trocar cabeçote\\n- Impressoras Canon: cabeçote removível em alguns modelos (QY6-xxxx) — pode ser limpo ou substituído\\n\\n**Custo de reparo:**\\n- Limpeza de cabeçote (manual + ultrassônica): R$ 80-180\\n- Troca de cabeçote (quando disponível): R$ 150-400\\n- Head cleaning profissional com solução específica: R$ 100-200\\n\\n**Prevenção:** Imprima pelo menos 1 página por semana. É o conselho mais importante para jato de tinta.`,
+    sintomas: [
+      { titulo: "Imprime em branco", desc: "Nenhuma tinta sai. Cabeçote completamente entupido ou cartucho vazio/não reconhecido.", gravidade: "Médio" },
+      { titulo: "Imprime com listras/falhas", desc: "Linhas horizontais em branco no meio da impressão. Alguns bicos do cabeçote estão entupidos.", gravidade: "Simples" },
+      { titulo: "Cores erradas ou misturadas", desc: "Azul sai como verde, vermelho sai como laranja. Canais de cor do cabeçote contaminados entre si.", gravidade: "Médio" },
+      { titulo: "Tinta borra no papel", desc: "Excesso de tinta por cabeçote parcialmente entupido — bicos abertos compensam os fechados ejetando mais.", gravidade: "Simples" },
+      { titulo: "Teste de nozzle com muitas falhas", desc: "A página de teste de bicos (nozzle check) mostra blocos com falhas extensas. Mais de 30% de falha = limpeza profunda necessária.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Impressora ficou parada por semanas/meses", desc: "A causa nº1. Tinta seca nos micro-bicos. Impressoras Epson EcoTank são especialmente vulneráveis — o sistema pressurizado empurra tinta para o cabeçote que seca nos bicos.", tipo: "desgaste" },
+      { titulo: "Tinta de má qualidade (genérica barata)", desc: "Tintas sem controle de qualidade têm partículas que entopem os bicos. Economia de R$ 20 na tinta pode custar R$ 200+ no cabeçote.", tipo: "erro-humano" },
+      { titulo: "Bolha de ar no sistema de tinta", desc: "Em impressoras com tanque (EcoTank/MegaTank), bolhas de ar no tubo entre o tanque e o cabeçote impedem o fluxo de tinta.", tipo: "hardware" },
+      { titulo: "Cabeçote com vida útil esgotada", desc: "Após 20.000-50.000 páginas, os resistores térmicos do cabeçote degradam. Os bicos não aquecem o suficiente para ejetar a gota.", tipo: "desgaste" },
+      { titulo: "Cartucho remanufaturado com defeito", desc: "Cartuchos recarregados artesanalmente podem ter chip incompatível, tinta inadequada ou vedação ruim.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de cabeçote via software + manual com cotonete e solução. Poucas falhas no nozzle check.", tempo: "1 a 2 dias", custo: "R$ 60 a R$ 120" },
+      { nivel: "Médio", desc: "Limpeza ultrassônica do cabeçote (remoção + imersão em solução específica por 12-24h).", tempo: "2 a 5 dias", custo: "R$ 120 a R$ 250" },
+      { nivel: "Complexo", desc: "Troca de cabeçote (se disponível) ou limpeza profunda com desmontagem completa do sistema de tinta.", tempo: "5 a 10 dias", custo: "R$ 200 a R$ 450" }
+    ],
+    riscos: [
+      "Muitas limpezas via software desperdiçam tinta e podem não resolver (bombeia tinta pelo cabeçote)",
+      "Cabeçotes Epson EcoTank NÃO são removíveis — limpeza deve ser feita na própria impressora",
+      "Usar álcool puro pode danificar o cabeçote — use solução específica ou água destilada",
+      "Forçar tinta com seringa pode estourar os bicos do cabeçote"
+    ],
+    diagnostico: `**Diagnóstico passo a passo:**\\n\\n1. **Nozzle check** (teste de bicos) — imprime padrão de teste para ver quais bicos estão entupidos\\n2. **Verificar nível de tinta** — tanque/cartucho pode estar vazio\\n3. **Verificar reconhecimento** — computador reconhece a impressora? Cartucho reconhecido?\\n4. **Histórico de uso** — quanto tempo ficou parada? Qual tinta usa?\\n5. **Limpeza de cabeçote (1x)** — via software. Se melhorar parcialmente, segunda limpeza. Se não melhorar nada, limpeza manual\\n\\n**Custo: R$ 50-80, abatido do serviço.**`,
+    solucao: `**Métodos de limpeza que utilizamos:**\\n\\n### Nível 1 — Limpeza via Software\\nUsamos a ferramenta de limpeza do driver da impressora. Funciona em entupimentos leves (1-2 semanas parada).\\n\\n### Nível 2 — Limpeza Manual\\nRemoção do cabeçote (quando possível), imersão da base em solução de limpeza específica por 2-4 horas. Secagem e teste.\\n\\n### Nível 3 — Limpeza Ultrassônica\\nCabeçote imerso em cuba ultrassônica com solução aquecida a 40°C. Vibração ultrassônica dissolve tinta seca nos micro-bicos. 12-24 horas de imersão.\\n\\n### Nível 4 — Troca de Cabeçote\\nQuando a limpeza não resolve (cabeçote com resistores queimados ou bicos permanentemente obstruídos). Peça original ou compatível de qualidade.`,
+    quandoCompensa: "Impressoras EcoTank/MegaTank (investimento alto no equipamento). Impressoras com menos de 3 anos. Modelos corporativos com cabeçote substituível.",
+    quandoNaoCompensa: "Impressoras jato de tinta básicas (R$ 300-500 novas) onde o custo de limpeza profunda se aproxima de 50% do valor. Modelos muito antigos sem peças.",
+    whatsappMessage: "Olá! Minha impressora não está saindo tinta. Preciso de limpeza de cabeçote.",
+    conteudoExtra: `## Cabeçotes por Marca — Guia Rápido\\n\\n| Marca | Tipo de Cabeçote | Removível? | Limpeza | Troca |\\n|-------|-----------------|------------|---------|-------|\\n| Epson EcoTank (L) | Embutido (Micro Piezo) | ❌ | R$ 120-250 | Inviável |\\n| HP DeskJet (664/667) | Integrado ao cartucho | ✅ (trocar cartucho) | N/A | R$ 50-90 |\\n| HP OfficeJet Pro | Cabeçote separado | ✅ | R$ 100-200 | R$ 200-400 |\\n| Canon PIXMA | Cabeçote removível (QY6) | ✅ | R$ 100-180 | R$ 150-350 |\\n| Brother DCP | Cabeçote embutido | ❌ | R$ 120-200 | Inviável |\\n\\n## A Regra de Ouro: Imprima 1x por Semana\\n\\nEste conselho vale mais que qualquer reparo. Uma simples página colorida por semana mantém todos os bicos do cabeçote desobstruídos.\\n\\nSe você viaja ou não usa por mais de 2 semanas:\\n1. Imprima uma página de teste antes de sair\\n2. Desligue a impressora pelo botão (não puxe da tomada) — ela estaciona o cabeçote na posição de proteção\\n3. Ao voltar, imprima o nozzle check antes de qualquer documento importante`,
+    relatedPages: [
+      { label: "Impressora Não Imprime", to: "/impressora-nao-imprime-curitiba" },
+      { label: "Impressora Papel Preso", to: "/impressora-papel-preso-curitiba" },
+      { label: "Impressora Erro USB/Wi-Fi", to: "/impressora-erro-conexao-usb-wifi-curitiba" },
+      { label: "Impressora Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+    ],
+  },
+  {
+    slug: "impressora-erro-conexao-usb-wifi-curitiba",
+    title: "Impressora Não Conecta USB ou Wi-Fi em Curitiba | Erro de Conexão",
+    metaDescription: "Impressora offline, não conecta USB ou Wi-Fi? Driver incompatível, IP errado, cabo defeituoso. Diagnóstico e reparo em Curitiba e região.",
+    h1: "Impressora Não Conecta — Erro USB, Wi-Fi e Rede em Curitiba",
+    categoria: "Problemas de Impressora",
+    intro: `A impressora aparece offline, não é reconhecida ou perdeu a conexão Wi-Fi? Problemas de conectividade representam **28% dos chamados de impressora** e frequentemente são os mais frustrantes porque o equipamento funciona mas o computador não consegue se comunicar.\\n\\n**Tipos de conexão e problemas mais comuns:**\\n\\n**USB:**\\n- Cabo USB defeituoso (fio interno rompido) — muito mais comum do que parece\\n- Porta USB do computador com mau contato\\n- Driver incompatível após atualização do Windows\\n- Hub USB sem alimentação suficiente\\n\\n**Wi-Fi:**\\n- Impressora perdeu a senha da rede após queda de luz\\n- IP dinâmico mudou e o computador procura o IP antigo\\n- Impressora fora do alcance do roteador\\n- Rede 2.4GHz vs 5GHz (maioria das impressoras só conecta em 2.4GHz)\\n\\n**Rede cabeada (Ethernet):**\\n- Cabo de rede defeituoso ou mal crimpado\\n- Conflito de IP na rede\\n- Porta do switch/roteador com defeito\\n\\n**Custo de reparo:**\\n- Configuração USB + driver: R$ 60-100\\n- Configuração Wi-Fi/rede: R$ 80-150\\n- Troca de placa de rede Wi-Fi da impressora: R$ 150-350\\n- Configuração em rede corporativa: R$ 100-250`,
+    sintomas: [
+      { titulo: "Impressora aparece como 'Offline'", desc: "O Windows mostra a impressora instalada mas com status 'Offline'. Pode ser driver, cabo, rede ou configuração do spooler de impressão.", gravidade: "Simples" },
+      { titulo: "Impressora não é encontrada na rede Wi-Fi", desc: "Ao tentar adicionar a impressora, o computador não encontra. Impressora perdeu conexão ou está em rede/frequência diferente.", gravidade: "Médio" },
+      { titulo: "Erro 'Não foi possível conectar à impressora'", desc: "Windows não consegue instalar ou reconectar. Driver corrompido, permissões ou serviço de spooler parado.", gravidade: "Simples" },
+      { titulo: "Imprime de um computador mas não de outro", desc: "Configuração de compartilhamento incorreta ou driver faltando no segundo computador. Comum em escritórios.", gravidade: "Simples" },
+      { titulo: "Impressora conectava por Wi-Fi e parou", desc: "Após troca de roteador, mudança de senha ou queda de luz, a impressora perde as configurações de rede.", gravidade: "Simples" },
+      { titulo: "USB não reconhecido (código 43)", desc: "Windows não reconhece o dispositivo USB. Pode ser cabo, porta, driver ou a placa USB da impressora.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Driver incompatível ou corrompido", desc: "Atualizações do Windows 10/11 frequentemente quebram drivers de impressora. Microsoft remove drivers antigos ou instala versão genérica que não funciona.", tipo: "software" },
+      { titulo: "Cabo USB defeituoso", desc: "Cabos USB de impressora sofrem muito com dobras e puxões. Fio interno rompe e a conexão fica intermitente ou inexistente.", tipo: "desgaste" },
+      { titulo: "Impressora perdeu config Wi-Fi", desc: "Queda de energia, reset acidental, troca de roteador — qualquer um destes faz a impressora perder a rede salva.", tipo: "erro-humano" },
+      { titulo: "IP dinâmico mudou", desc: "Roteador atribuiu um IP diferente à impressora. O computador ainda procura pelo IP antigo. Solução: IP fixo na impressora.", tipo: "software" },
+      { titulo: "Serviço de Spooler parado", desc: "O serviço Print Spooler do Windows travou ou parou. Todos os jobs de impressão ficam na fila sem sair.", tipo: "software" },
+      { titulo: "Rede 5GHz incompatível", desc: "Roteadores dual-band com mesmo SSID para 2.4GHz e 5GHz confundem a impressora. Ela só conecta em 2.4GHz.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Reinstalação de driver + configuração de conexão USB ou Wi-Fi.", tempo: "1 dia", custo: "R$ 60 a R$ 120" },
+      { nivel: "Médio", desc: "Configuração de IP fixo + compartilhamento em rede para múltiplos computadores.", tempo: "1 a 2 dias", custo: "R$ 100 a R$ 200" },
+      { nivel: "Complexo", desc: "Troca de módulo Wi-Fi interno da impressora ou configuração em ambiente corporativo.", tempo: "3 a 7 dias", custo: "R$ 150 a R$ 350" }
+    ],
+    riscos: [
+      "Desinstalar driver errado pode afetar outras impressoras configuradas",
+      "Reset de fábrica na impressora apaga todas as configurações incluindo calibragem",
+      "Módulos Wi-Fi genéricos podem não ser compatíveis com o firmware da impressora",
+      "Em redes corporativas, configurar IP fixo sem coordenar com TI pode causar conflito"
+    ],
+    diagnostico: `**Diagnóstico de conexão:**\\n\\n**USB:**\\n1. Testar com outro cabo USB\\n2. Testar em outra porta USB (preferencialmente traseira, direto na placa-mãe)\\n3. Verificar Gerenciador de Dispositivos (dispositivo desconhecido?)\\n4. Reinstalar driver do site do fabricante\\n\\n**Wi-Fi:**\\n1. Verificar se a impressora está conectada (painel LCD ou relatório de configuração)\\n2. Imprimir relatório de rede da impressora\\n3. Verificar se está na mesma faixa de rede (2.4GHz)\\n4. Ping no IP da impressora\\n5. Reconectar à rede via WPS ou configuração manual\\n\\n**Custo: R$ 50-80, abatido do serviço.**`,
+    solucao: `**Soluções que aplicamos:**\\n\\n### USB\\n- Troca de cabo USB (compatível com a impressora)\\n- Instalação de driver oficial do fabricante\\n- Limpeza do spooler de impressão\\n- Teste em porta USB diferente\\n\\n### Wi-Fi\\n- Reconfiguração da rede na impressora (via painel ou WPS)\\n- Atribuição de IP fixo (reserva de DHCP no roteador)\\n- Separação de redes 2.4GHz e 5GHz com SSIDs diferentes\\n- Configuração de impressão via Wi-Fi Direct (quando a rede não funciona)\\n\\n### Rede Corporativa\\n- Configuração de servidor de impressão\\n- Instalação de driver em todos os computadores da rede\\n- Compartilhamento via Windows ou CUPS (Linux)\\n- Documentação da configuração para futuras manutenções`,
+    quandoCompensa: "Sempre — problemas de conexão geralmente são baratos de resolver (R$ 60-200) comparado ao custo de uma impressora nova.",
+    quandoNaoCompensa: "Quando o módulo Wi-Fi interno queimou e a peça custa mais de 50% de uma impressora nova equivalente.",
+    whatsappMessage: "Olá! Minha impressora não conecta (USB/Wi-Fi). Preciso de ajuda.",
+    conteudoExtra: `## Checklist Antes de Chamar o Técnico\\n\\n**Tente isso primeiro (USB):**\\n1. Desligue a impressora e o computador\\n2. Desconecte o cabo USB\\n3. Ligue o computador\\n4. Conecte o cabo USB\\n5. Ligue a impressora\\n6. Aguarde o Windows tentar instalar\\n\\n**Tente isso primeiro (Wi-Fi):**\\n1. Reinicie o roteador\\n2. Reinicie a impressora\\n3. No painel da impressora, vá em Configurações > Rede > Sem Fio > Assistente de configuração\\n4. Reconecte à sua rede\\n\\n**Se nada resolver, aí sim nos chame!**\\n\\n## IP Fixo — A Solução Definitiva para Wi-Fi\\n\\nSe sua impressora perde conexão Wi-Fi periodicamente, a causa provável é IP dinâmico mudando.\\n\\n**Solução:** Configurar IP fixo (reserva de DHCP) no roteador:\\n1. Anotar o MAC Address da impressora (relatório de rede)\\n2. Acessar o roteador (192.168.0.1 ou 192.168.1.1)\\n3. Em DHCP > Reserva de endereço, vincular o MAC a um IP fixo\\n4. Reiniciar a impressora\\n\\nIsso garante que a impressora sempre receba o mesmo IP.`,
+    relatedPages: [
+      { label: "Impressora Não Imprime", to: "/impressora-nao-imprime-curitiba" },
+      { label: "Impressora Papel Preso", to: "/impressora-papel-preso-curitiba" },
+      { label: "Impressora Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "PC Não Conecta Wi-Fi", to: "/pc-nao-conecta-wifi-curitiba" }
+    ],
+  },
+  {
+    slug: "impressora-cartucho-nao-reconhece-curitiba",
+    title: "Impressora Não Reconhece Cartucho ou Toner em Curitiba | Reparo",
+    metaDescription: "Impressora não reconhece cartucho ou toner? Chip incompatível, contato sujo, cartucho remanufaturado com defeito. Diagnóstico em Curitiba.",
+    h1: "Impressora Não Reconhece Cartucho ou Toner — Soluções em Curitiba",
+    categoria: "Problemas de Impressora",
+    intro: `Sua impressora mostra erro de "cartucho não reconhecido", "toner inválido" ou "suprimento não compatível"? Este problema explodiu nos últimos anos por causa da **guerra dos fabricantes contra cartuchos compatíveis e remanufaturados**.\\n\\n**O que está acontecendo:**\\nFabricantes como HP, Epson e Canon usam **chips com firmware atualizado** nos cartuchos originais. Quando você instala um cartucho compatível, a impressora pode rejeitá-lo — não porque é defeituoso, mas porque o chip não passa na validação do firmware.\\n\\n**Dados reais:**\\n- HP implementou "Dynamic Security" em 2016 — atualizações de firmware bloqueiam cartuchos de terceiros\\n- Epson usa chips com criptografia que muda a cada lote de cartuchos\\n- Canon tem sistema de detecção de nível que não funciona com chips genéricos\\n- A HP foi multada em R$ 50 milhões na Europa por bloquear cartuchos compatíveis (2023)\\n\\n**Custo de reparo:**\\n- Limpeza de contatos + reset: R$ 50-80\\n- Troca de chip do cartucho: R$ 30-60\\n- Downgrade de firmware: R$ 80-150\\n- Cartucho original (referência): R$ 60-200 dependendo do modelo`,
+    sintomas: [
+      { titulo: "Erro 'Cartucho não reconhecido'", desc: "Mensagem no painel ou no computador. Pode ser chip, contato sujo, firmware ou cartucho realmente defeituoso.", gravidade: "Simples" },
+      { titulo: "Erro 'Suprimento não HP / não original'", desc: "HP Dynamic Security bloqueando cartucho compatível. Firmware atualizado rejeita chips de terceiros.", gravidade: "Médio" },
+      { titulo: "Nível de tinta não detectado", desc: "Impressora funciona mas mostra nível desconhecido. Comum com cartuchos recarregados — chip não reseta o contador.", gravidade: "Simples" },
+      { titulo: "Erro após trocar cartucho/toner novo", desc: "Cartucho novo (original) não reconhecido. Pode ser defeito de fábrica, contato oxidado ou proteção de transporte não removida.", gravidade: "Simples" },
+      { titulo: "Impressora parou após atualização de firmware", desc: "Fabricante enviou atualização que bloqueia cartuchos compatíveis que funcionavam antes. Muito comum com HP.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Firmware anti-compatível", desc: "Fabricantes atualizam o firmware para rejeitar chips de cartuchos não-originais. A HP é a mais agressiva nessa prática.", tipo: "software" },
+      { titulo: "Contatos elétricos sujos ou oxidados", desc: "Os contatos dourados do cartucho e do slot da impressora acumulam tinta, poeira e oxidação. Perdem contato.", tipo: "desgaste" },
+      { titulo: "Chip do cartucho defeituoso", desc: "Chips de cartuchos compatíveis podem vir com defeito de fábrica ou programação incorreta para o modelo.", tipo: "hardware" },
+      { titulo: "Proteção de transporte não removida", desc: "Cartuchos novos têm fita adesiva, lacre ou trava de transporte. Se não remover tudo, a impressora não reconhece.", tipo: "erro-humano" },
+      { titulo: "Cartucho incompatível com o modelo", desc: "Cartuchos podem parecer iguais mas ter chips diferentes para modelos diferentes da mesma série.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Limpeza de contatos com álcool isopropílico + verificação de compatibilidade.", tempo: "1 dia", custo: "R$ 50 a R$ 100" },
+      { nivel: "Médio", desc: "Troca de chip do cartucho ou downgrade de firmware para aceitar compatíveis.", tempo: "1 a 3 dias", custo: "R$ 80 a R$ 180" },
+      { nivel: "Complexo", desc: "Reparo na placa lógica da impressora (conector de cartucho com defeito).", tempo: "5 a 10 dias", custo: "R$ 150 a R$ 350" }
+    ],
+    riscos: [
+      "Downgrade de firmware pode causar outros problemas (a HP tenta bloquear o downgrade)",
+      "Cartuchos muito baratos podem vazar tinta e danificar o cabeçote",
+      "Resetar chip manualmente pode invalidar a garantia do cartucho",
+      "Forçar cartucho incompatível pode danificar o slot da impressora"
+    ],
+    diagnostico: `**Diagnóstico de cartucho não reconhecido:**\\n\\n1. **Verificar compatibilidade** — modelo exato do cartucho vs modelo da impressora\\n2. **Inspecionar contatos** — sujos? Oxidados? Riscados?\\n3. **Testar com cartucho original** — para descartar problema na impressora\\n4. **Verificar firmware** — versão atual vs versão que bloqueou compatíveis\\n5. **Inspecionar slot** — pinos de contato da impressora limpos e alinhados?\\n\\n**Custo: R$ 50-80, abatido do serviço.**`,
+    solucao: `**Soluções por causa:**\\n\\n### Contatos sujos\\nLimpeza com cotonete embebido em álcool isopropílico 99%. Tanto no cartucho quanto no slot da impressora. Secar completamente antes de reinstalar.\\n\\n### Firmware bloqueando compatível\\nEm HP: desativar "HP Cartridge Policy" e "HP Cartridge Protection" nas configurações (quando disponível). Downgrade de firmware via modo de serviço.\\n\\n### Chip incompatível\\nTroca do chip por versão compatível com o firmware atual. Chips custam R$ 10-30 e podem ser substituídos.\\n\\n### Cartucho defeituoso\\nSe for original: acionar garantia do fabricante. Se for compatível: trocar por outro do mesmo fornecedor (pode ser defeito de lote).`,
+    quandoCompensa: "Sempre vale investigar antes de comprar cartucho original (que pode custar R$ 100-200). Muitas vezes é só limpeza de contato (R$ 50-80).",
+    quandoNaoCompensa: "Quando a impressora tem mais de 5 anos e o slot de cartucho está fisicamente danificado.",
+    whatsappMessage: "Olá! Minha impressora não reconhece o cartucho/toner. Podem diagnosticar?",
+    conteudoExtra: `## A Guerra dos Cartuchos — Entenda\\n\\nFabricantes de impressoras vendem o equipamento barato e lucram com os cartuchos (modelo "razor and blades"). Por isso:\\n\\n1. **Cartuchos originais custam caro** — R$ 60-200 por cartucho\\n2. **Impressoras são baratas** — R$ 300-600 (às vezes o kit de cartuchos custa mais que a impressora)\\n3. **Fabricantes bloqueiam compatíveis** — firmware com DRM para forçar uso de originais\\n4. **Compatíveis são 50-70% mais baratos** — mas podem ser bloqueados\\n\\n## Dica: Desativar Atualizações Automáticas de Firmware\\n\\nSe você usa cartuchos compatíveis:\\n1. No painel da impressora: Configurações > Ferramentas > Atualizações\\n2. Desativar "Atualização automática de firmware"\\n3. Isso evita que uma atualização bloqueie seus cartuchos\\n\\n**ATENÇÃO:** Desativar atualizações significa perder correções de segurança. É uma escolha de custo-benefício.\\n\\n## Quanto Gasta uma Impressora por Mês?\\n\\n| Uso | Páginas/mês | Original | Compatível |\\n|-----|------------|----------|------------|\\n| Residencial leve | 50 | R$ 15-25 | R$ 5-10 |\\n| Home office | 200 | R$ 50-100 | R$ 20-40 |\\n| Escritório | 500 | R$ 120-250 | R$ 40-80 |\\n| Alto volume | 1000+ | R$ 200-500 | R$ 80-150 |`,
+    relatedPages: [
+      { label: "Impressora Não Imprime", to: "/impressora-nao-imprime-curitiba" },
+      { label: "Impressora Papel Preso", to: "/impressora-papel-preso-curitiba" },
+      { label: "Impressora Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" },
+      { label: "Impressora Erro USB/Wi-Fi", to: "/impressora-erro-conexao-usb-wifi-curitiba" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+    ],
+  },
 ];
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {
   return problemaPagesData.find(p => p.slug === slug);

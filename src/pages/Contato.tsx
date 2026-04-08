@@ -6,6 +6,8 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
@@ -39,17 +41,36 @@ const Contato = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--glow-whatsapp)/0.12),transparent_60%)] pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Fale Conosco
-              </h1>
-              <p className="text-lg md:text-xl text-white/90">
-                Precisa de suporte técnico? Entre em contato agora mesmo e resolva seu problema rapidamente.
-              </p>
-            </div>
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 premium-gradient" />
+          <FloatingParticles count={25} />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-[hsl(var(--glow-whatsapp)/0.08)] blur-[120px] animate-breathe" />
+            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-accent/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+          </div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
+          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
+            <AnimatedSection animation="fade-up">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
+                  <MessageCircle className="h-4 w-4 text-accent" />
+                  <span>Resposta rápida via WhatsApp</span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
+                  <span className="block">Fale</span>
+                  <span className="block gradient-text-animated">Conosco</span>
+                </h1>
+                <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                  Precisa de suporte técnico? Entre em contato agora mesmo e resolva seu problema rapidamente.
+                </p>
+                <div className="glow-separator max-w-[200px] mx-auto mt-6" />
+              </div>
+            </AnimatedSection>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+            </svg>
           </div>
         </section>
 
@@ -59,7 +80,7 @@ const Contato = () => {
           <div className="container mx-auto relative z-10">
              <div className="max-w-2xl mx-auto">
                 {/* WhatsApp */}
-                <div className="group bg-secondary rounded-2xl p-8 text-center border-2 border-border/50 hover:border-[hsl(var(--whatsapp)/0.4)] hover:shadow-xl transition-all duration-300">
+                <div className="group glass-card gradient-border rounded-2xl p-8 text-center hover:shadow-[var(--shadow-xl)] transition-all duration-300 animated-border">
                   <div className="bg-[hsl(var(--whatsapp))] rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_28px_hsl(var(--glow-whatsapp)/0.4)] transition-all duration-300">
                     <MessageCircle className="h-10 w-10 text-white" />
                   </div>
@@ -112,7 +133,7 @@ const Contato = () => {
                 ].map((item, i) => {
                   const IconComp = item.icon;
                   return (
-                    <div key={i} className="group bg-background rounded-xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 80}ms` }}>
+                    <div key={i} className="group glass-card gradient-border rounded-xl p-6 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak" style={{ animationDelay: `${i * 80}ms` }}>
                       <div className="flex items-center gap-3 mb-3">
                         <IconComp className="h-6 w-6 text-accent group-hover:scale-110 transition-transform duration-300" />
                         <h3 className="font-semibold text-foreground">{item.title}</h3>
@@ -144,7 +165,7 @@ const Contato = () => {
                   "Agendamento flexível conforme sua disponibilidade",
                   "Serviços a partir de R$ 69,99",
                 ].map((item, index) => (
-                  <div key={index} className="group flex items-center gap-3 bg-secondary rounded-lg p-4 border border-border/50 hover:border-accent/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 stagger-item" style={{ animationDelay: `${index * 50}ms` }}>
+                  <div key={index} className="group flex items-center gap-3 glass-card gradient-border rounded-lg p-4 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 stagger-item" style={{ animationDelay: `${index * 50}ms` }}>
                     <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-foreground">{item}</span>
                   </div>

@@ -27,6 +27,7 @@ import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { ProblemasDestaque } from "@/components/ProblemasDestaque";
 import { TechBrandsMarquee } from "@/components/TechBrandsMarquee";
+import { GeolocationTrigger } from "@/components/GeolocationTrigger";
 
 const Index = () => {
   useEffect(() => {
@@ -66,6 +67,7 @@ const Index = () => {
         <SchedulingSection />
         <ServicesSection />
         <TopSearchedServicesSection />
+        <GeolocationTrigger />
         <CoverageMapSection />
         <CitiesSection />
         <NeighborhoodsSection />

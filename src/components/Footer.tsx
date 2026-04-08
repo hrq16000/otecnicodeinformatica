@@ -49,19 +49,13 @@ const procedimentosTvLinks = [
 ];
   {
     title: "Atendimento",
-    links: [
-      { label: "Como Funciona", to: "/como-funciona" },
-      { label: "Preços e Políticas", to: "/precos-e-politicas" },
-      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
-      { label: "Domicílio", to: "/atendimento-domicilio" },
-      { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
-      { label: "Remoto", to: "/atendimento-remoto" },
-      { label: "Empresas", to: "/suporte-empresas" },
-      { label: "Equipamentos", to: "/equipamentos-atendidos" },
-      { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
-      { label: "Casos Reais", to: "/problemas-reais-e-casos" },
-    ],
-  },
+const atendimentoLinks = [
+  { label: "Como Funciona", to: "/como-funciona" },
+  { label: "Preços e Políticas", to: "/precos-e-politicas" },
+  { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+  { label: "Equipamentos", to: "/equipamentos-atendidos" },
+  { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
+  { label: "Casos Reais", to: "/problemas-reais-e-casos" },
 ];
 
 const regionLinks = [

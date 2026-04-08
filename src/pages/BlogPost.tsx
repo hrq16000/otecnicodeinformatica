@@ -1855,6 +1855,676 @@ const blogPostsContent: Record<string, {
       </>
     ),
   },
+
+  // ═══════════════════════════════════════════════════════════════
+  // ARTIGOS — PROCEDIMENTOS TÉCNICOS
+  // ═══════════════════════════════════════════════════════════════
+
+  "como-trocar-pasta-termica-notebook": {
+    title: "Como Trocar a Pasta Térmica do Notebook: Guia Técnico Completo",
+    excerpt: "Passo a passo profissional para substituir a pasta térmica e resolver superaquecimento.",
+    date: "2026-04-08",
+    readTime: "10 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A pasta térmica é o composto que fica entre o processador e o dissipador de calor. Com o tempo, ela resseca e perde a capacidade de conduzir calor, causando <strong>superaquecimento, throttling e desligamentos</strong>. A troca é um dos procedimentos mais comuns em manutenção de notebooks.</p>
+
+        <h2>Quando Trocar a Pasta Térmica?</h2>
+        <ul>
+          <li>Notebook superaquecendo (acima de 85°C em uso normal)</li>
+          <li>Ventilador girando constantemente em velocidade máxima</li>
+          <li>Desempenho caindo após alguns minutos de uso (thermal throttling)</li>
+          <li>Notebook com mais de 2-3 anos sem manutenção</li>
+          <li>Desligamentos aleatórios durante jogos ou tarefas pesadas</li>
+        </ul>
+
+        <h2>Ferramentas Necessárias</h2>
+        <ul>
+          <li><strong>Chave Phillips #0 e #1</strong> (ou kit de precisão)</li>
+          <li><strong>Espátula plástica</strong> (spudger) para desencaixar conectores</li>
+          <li><strong>Álcool isopropílico 99%</strong> (nunca use álcool 70%)</li>
+          <li><strong>Papel toalha sem fiapos</strong> ou filtro de café</li>
+          <li><strong>Pasta térmica de qualidade</strong> (Arctic MX-4, Thermal Grizzly Kryonaut, Noctua NT-H1)</li>
+          <li><strong>Pulseira antiestática</strong> (recomendado)</li>
+        </ul>
+
+        <h2>Procedimento Passo a Passo</h2>
+
+        <h3>1. Preparação</h3>
+        <p>Desligue o notebook completamente (não apenas suspender). Remova o carregador e, se possível, a bateria. Pressione o botão de power por 10 segundos para descarregar a energia residual.</p>
+
+        <h3>2. Abertura do Notebook</h3>
+        <p>Remova os parafusos da tampa inferior. Atenção: <strong>nem todos os parafusos têm o mesmo comprimento</strong> — organize-os por posição. Use a espátula plástica para soltar as travas de encaixe, começando pelas laterais. Nunca force com chave de fenda metálica.</p>
+
+        <h3>3. Localização do Dissipador</h3>
+        <p>Identifique o conjunto de heatpipes (tubos de cobre) que conectam o processador (CPU) e, em alguns modelos, a GPU ao ventilador. Os parafusos do dissipador geralmente são numerados (1, 2, 3, 4) — <strong>solte-os na ordem inversa e aperte na ordem numérica</strong>.</p>
+
+        <h3>4. Remoção do Dissipador</h3>
+        <p>Desparafuse na sequência correta e puxe o dissipador suavemente, fazendo um leve movimento de torção. Se estiver grudado, não force — aqueça ligeiramente com secador de cabelo para amolecer a pasta antiga.</p>
+
+        <h3>5. Limpeza</h3>
+        <p>Aplique álcool isopropílico 99% no chip (CPU/GPU) e na base do dissipador. Limpe com movimentos circulares usando papel sem fiapos até que as superfícies fiquem brilhantes, sem resíduos.</p>
+
+        <h3>6. Aplicação da Nova Pasta</h3>
+        <p>Aplique uma <strong>quantidade do tamanho de um grão de arroz</strong> no centro do chip. Não espalhe manualmente — a pressão do dissipador fará a distribuição uniforme. Para GPUs maiores, use o padrão "X" fino.</p>
+
+        <h3>7. Remontagem</h3>
+        <p>Reposicione o dissipador com cuidado. Aperte os parafusos <strong>na ordem numérica e de forma cruzada</strong> (como trocar pneu), aplicando pressão gradual e uniforme.</p>
+
+        <h2>Resultados Esperados</h2>
+        <ul>
+          <li>Redução de 10-25°C na temperatura do processador</li>
+          <li>Ventilador girando em velocidade mais baixa</li>
+          <li>Fim dos desligamentos por superaquecimento</li>
+          <li>Recuperação do desempenho original</li>
+        </ul>
+
+        <h2>Erros Comuns</h2>
+        <ul>
+          <li>❌ Usar pasta térmica demais (causa vazamento para os componentes ao redor)</li>
+          <li>❌ Usar álcool 70% (contém água que pode danificar componentes)</li>
+          <li>❌ Forçar o dissipador sem alinhar corretamente</li>
+          <li>❌ Esquecer de reconectar o cabo do ventilador</li>
+          <li>❌ Apertar os parafusos fora de ordem (pressão desigual)</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Notebook Superaquecendo em Curitiba?</h3>
+          <p className="text-muted-foreground mb-0">Fazemos a troca de pasta térmica com pasta premium no local. Diagnóstico + limpeza completa a partir de R$ 69,99. Atendimento em domicílio.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-limpar-notebook-por-dentro" className="text-accent">Como limpar o notebook por dentro</Link></li>
+          <li><Link to="/blog/notebook-superaquecendo-o-que-fazer" className="text-accent">Notebook superaquecendo: o que fazer?</Link></li>
+          <li><Link to="/servicos/conserto-pc-notebook" className="text-accent">Conserto de PC e Notebook</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-clonar-hd-para-ssd": {
+    title: "Como Clonar HD Para SSD Sem Perder Dados: Procedimento Técnico",
+    excerpt: "Migração segura de disco com clonagem setor a setor usando ferramentas profissionais.",
+    date: "2026-04-08",
+    readTime: "12 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A clonagem de HD para SSD é o upgrade com <strong>maior impacto perceptível</strong> em qualquer computador. Em vez de reinstalar o Windows e todos os programas do zero, a clonagem copia tudo — sistema, arquivos, configurações — para o novo SSD. O computador liga exatamente como antes, mas até <strong>10x mais rápido</strong>.</p>
+
+        <h2>Pré-Requisitos</h2>
+        <ul>
+          <li><strong>SSD com capacidade suficiente</strong> para os dados existentes (não precisa ser maior que o HD, apenas maior que o espaço usado)</li>
+          <li><strong>Adaptador USB para SATA</strong> ou dock para conectar o SSD externamente</li>
+          <li><strong>Software de clonagem:</strong> Macrium Reflect Free, Clonezilla, Samsung Data Migration (para SSDs Samsung) ou Acronis True Image</li>
+          <li>HD original em bom estado (sem setores defeituosos graves)</li>
+        </ul>
+
+        <h2>Procedimento Completo</h2>
+
+        <h3>1. Verificação do HD Original</h3>
+        <p>Antes de clonar, verifique a saúde do HD com <strong>CrystalDiskInfo</strong>. Se o status for "Caution" ou "Bad", faça backup manual dos dados importantes antes — a clonagem pode falhar em discos com muitos setores defeituosos.</p>
+
+        <h3>2. Limpeza Pré-Clonagem</h3>
+        <p>Reduza o tamanho dos dados para acelerar o processo:</p>
+        <ul>
+          <li>Limpe a Lixeira</li>
+          <li>Execute a Limpeza de Disco do Windows (cleanmgr)</li>
+          <li>Desinstale programas não utilizados</li>
+          <li>Mova arquivos grandes (fotos, vídeos) para HD externo temporariamente</li>
+        </ul>
+
+        <h3>3. Conexão do SSD</h3>
+        <p>Conecte o SSD novo via adaptador USB. O Windows deve reconhecê-lo automaticamente. Se não aparecer no Explorer, abra o <strong>Gerenciamento de Disco</strong> (diskmgmt.msc) e inicialize o disco como GPT (para UEFI) ou MBR (para BIOS legado).</p>
+
+        <h3>4. Clonagem com Macrium Reflect</h3>
+        <ol>
+          <li>Abra o Macrium Reflect e selecione o disco de origem (HD)</li>
+          <li>Clique em <strong>"Clone this disk"</strong></li>
+          <li>Selecione o disco de destino (SSD)</li>
+          <li>Ajuste o tamanho das partições (se o SSD for menor, redimensione)</li>
+          <li>Inicie a clonagem — o processo leva de 30 min a 2 horas dependendo do volume de dados</li>
+        </ol>
+
+        <h3>5. Verificação Pós-Clonagem</h3>
+        <p>Antes de trocar o disco fisicamente:</p>
+        <ul>
+          <li>Verifique se todas as partições foram clonadas (inclusive EFI/Recovery)</li>
+          <li>Se possível, faça boot pelo SSD via USB para testar</li>
+        </ul>
+
+        <h3>6. Troca Física do Disco</h3>
+        <p>Desligue o computador, remova o HD antigo e instale o SSD no mesmo slot. Em notebooks, geralmente é um compartimento acessível pela tampa inferior.</p>
+
+        <h3>7. Ajustes Pós-Instalação</h3>
+        <ul>
+          <li>Verifique se o modo AHCI está ativo na BIOS (essencial para performance do SSD)</li>
+          <li>Confirme que o TRIM está habilitado: <code>fsutil behavior query DisableDeleteNotify</code> (resultado 0 = TRIM ativo)</li>
+          <li>Desative a desfragmentação para o SSD</li>
+        </ul>
+
+        <h2>Problemas Comuns e Soluções</h2>
+        <ul>
+          <li><strong>SSD não dá boot:</strong> Verifique a ordem de boot na BIOS e se o modo (UEFI/Legacy) está correto</li>
+          <li><strong>Partição não cabe no SSD:</strong> Reduza a partição no HD antes de clonar usando o Gerenciamento de Disco</li>
+          <li><strong>Erro durante clonagem:</strong> HD com setores defeituosos — tente com Clonezilla em modo de "rescue" que pula setores ruins</li>
+          <li><strong>Windows não ativa:</strong> A ativação está vinculada à placa-mãe, não ao disco — reinicie e a ativação deve reconectar automaticamente</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Upgrade de SSD em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Fazemos a clonagem completa do seu HD para SSD com garantia. Seu computador liga em 15 segundos. Atendimento em domicílio.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
+          <li><Link to="/blog/como-instalar-segundo-ssd-notebook" className="text-accent">Como instalar segundo SSD no notebook</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-testar-fonte-de-alimentacao-pc": {
+    title: "Como Testar a Fonte de Alimentação do PC com Multímetro",
+    excerpt: "Procedimento técnico para diagnosticar defeitos na fonte ATX usando multímetro.",
+    date: "2026-04-08",
+    readTime: "9 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A fonte de alimentação é um dos componentes que mais falham — e que mais causam danos a outros componentes quando defeituosa. <strong>Uma fonte instável pode queimar placa-mãe, processador e até SSDs.</strong> Saber testar é fundamental para qualquer diagnóstico.</p>
+
+        <h2>Sintomas de Fonte Defeituosa</h2>
+        <ul>
+          <li>PC não liga de jeito nenhum (nenhum LED, nenhum ventilador)</li>
+          <li>PC liga e desliga imediatamente (ciclo de power)</li>
+          <li>Reinicializações aleatórias, especialmente sob carga</li>
+          <li>Tela azul frequente sem causa aparente</li>
+          <li>Cheiro de queimado vindo do gabinete</li>
+          <li>Ventilador da fonte não gira</li>
+        </ul>
+
+        <h2>Teste 1: Teste do Clip (Paperclip Test)</h2>
+        <p>Este teste verifica se a fonte liga sem estar conectada à placa-mãe:</p>
+        <ol>
+          <li>Desconecte a fonte de <strong>todos</strong> os componentes</li>
+          <li>Localize o conector ATX 24 pinos</li>
+          <li>Com um clip de papel, conecte o <strong>fio verde (PS_ON)</strong> a qualquer <strong>fio preto (GND)</strong></li>
+          <li>Conecte a fonte na tomada e ligue</li>
+          <li>Se o ventilador da fonte girar, ela está recebendo energia. Se não girar, a fonte está morta</li>
+        </ol>
+        <p><strong>⚠️ Atenção:</strong> Este teste só confirma se a fonte liga — não garante que as tensões estão corretas.</p>
+
+        <h2>Teste 2: Medição com Multímetro</h2>
+        <p>Com a fonte ligada (conectada à placa-mãe ou com o teste do clip ativo), meça as tensões nos conectores:</p>
+
+        <h3>Tensões Esperadas (Padrão ATX)</h3>
+        <ul>
+          <li><strong>+3.3V (fio laranja):</strong> 3.14V a 3.47V (tolerância ±5%)</li>
+          <li><strong>+5V (fio vermelho):</strong> 4.75V a 5.25V (tolerância ±5%)</li>
+          <li><strong>+12V (fio amarelo):</strong> 11.40V a 12.60V (tolerância ±5%)</li>
+          <li><strong>-12V (fio azul):</strong> -10.80V a -13.20V (tolerância ±10%)</li>
+          <li><strong>+5VSB (fio roxo):</strong> 4.75V a 5.25V (stand-by, sempre presente)</li>
+        </ul>
+
+        <h3>Como Medir</h3>
+        <ol>
+          <li>Configure o multímetro em <strong>tensão DC (VDC)</strong></li>
+          <li>Coloque a ponta preta em qualquer fio <strong>preto (GND)</strong> do conector</li>
+          <li>Toque a ponta vermelha nos fios coloridos correspondentes</li>
+          <li>Anote as leituras e compare com os valores esperados</li>
+        </ol>
+
+        <h2>Teste 3: Teste Sob Carga</h2>
+        <p>Uma fonte pode fornecer tensões corretas em repouso mas falhar sob carga. Para testar:</p>
+        <ul>
+          <li>Conecte a fonte ao PC normalmente</li>
+          <li>Meça as tensões durante uso pesado (jogo, benchmark)</li>
+          <li>Se a tensão de 12V cair abaixo de 11.4V sob carga, a fonte é insuficiente ou defeituosa</li>
+        </ul>
+
+        <h2>Quando Trocar a Fonte</h2>
+        <ul>
+          <li>Tensões fora da tolerância de ±5%</li>
+          <li>Oscilação (ripple) excessiva — valores instáveis no multímetro</li>
+          <li>Não liga no teste do clip</li>
+          <li>Capacitores estufados visíveis na inspeção visual</li>
+          <li>Mais de 5 anos de uso sem troca</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">PC Não Liga? Pode Ser a Fonte</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz o diagnóstico completo no local com equipamento profissional. Se for a fonte, trocamos na hora. Atendimento em Curitiba e região.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-diagnosticar-placa-mae-defeituosa" className="text-accent">Como diagnosticar placa-mãe defeituosa</Link></li>
+          <li><Link to="/servicos/computador-nao-liga" className="text-accent">Computador não liga: causas e soluções</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-limpar-notebook-por-dentro": {
+    title: "Como Limpar o Notebook Por Dentro: Desmontagem e Limpeza Profissional",
+    excerpt: "Procedimento completo de abertura, limpeza de cooler, dissipador e placa-mãe.",
+    date: "2026-04-08",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Poeira acumulada é a <strong>causa número 1 de superaquecimento</strong> em notebooks. A limpeza interna profissional — com abertura do equipamento, remoção de poeira do cooler e dissipador, e troca de pasta térmica — pode reduzir a temperatura em até 20°C e devolver o desempenho original.</p>
+
+        <h2>Sinais de Que Seu Notebook Precisa de Limpeza</h2>
+        <ul>
+          <li>Ventilador fazendo barulho excessivo</li>
+          <li>Saída de ar quente mais fraca que o normal</li>
+          <li>Notebook esquentando demais na base</li>
+          <li>Travamentos durante uso prolongado</li>
+          <li>Desligamentos por superaquecimento</li>
+          <li>Mais de 1 ano sem manutenção preventiva</li>
+        </ul>
+
+        <h2>Ferramentas Necessárias</h2>
+        <ul>
+          <li>Kit de chaves de precisão (Phillips #0, #1, Torx T5/T6)</li>
+          <li>Espátula plástica (spudger)</li>
+          <li>Pincel antiestático de cerdas macias</li>
+          <li>Ar comprimido em lata (ou mini compressor)</li>
+          <li>Álcool isopropílico 99%</li>
+          <li>Pasta térmica nova</li>
+          <li>Pulseira antiestática</li>
+        </ul>
+
+        <h2>Procedimento de Limpeza</h2>
+
+        <h3>1. Desligamento e Preparação</h3>
+        <p>Desligue completamente. Remova carregador e bateria (se removível). Pressione power por 15 segundos. Trabalhe em superfície limpa e bem iluminada.</p>
+
+        <h3>2. Abertura da Tampa Inferior</h3>
+        <p>Remova todos os parafusos da tampa. <strong>Fotografe antes de começar</strong> para lembrar a posição de cada parafuso. Use a espátula plástica para soltar as travas de encaixe — comece por um canto e vá circundando.</p>
+
+        <h3>3. Desconectar a Bateria Interna</h3>
+        <p>Se o notebook tem bateria interna (não removível), <strong>desconecte o flat cable da bateria antes de qualquer outra coisa</strong>. Isso evita curtos-circuitos acidentais.</p>
+
+        <h3>4. Limpeza do Ventilador (Cooler)</h3>
+        <p>O cooler é onde mais acumula poeira. Use o pincel para soltar a poeira das pás e o ar comprimido para soprar os detritos. <strong>Segure as pás do ventilador</strong> enquanto sopra ar — girar em alta velocidade pode danificar o rolamento.</p>
+
+        <h3>5. Limpeza do Dissipador e Heatpipes</h3>
+        <p>As aletas do dissipador (na saída de ar) ficam completamente entupidas de poeira compactada. Use o pincel e ar comprimido para desobstruir todas as aletas. Se necessário, remova o dissipador para limpar por completo.</p>
+
+        <h3>6. Limpeza Geral da Placa-Mãe</h3>
+        <p>Com o pincel antiestático, remova poeira acumulada sobre a placa-mãe, slots de RAM, conectores e ao redor dos capacitores. <strong>Nunca use aspirador de pó</strong> — a eletricidade estática pode danificar componentes.</p>
+
+        <h3>7. Troca da Pasta Térmica (Opcional mas Recomendado)</h3>
+        <p>Se já abriu o notebook, aproveite para trocar a pasta térmica. Veja nosso <Link to="/blog/como-trocar-pasta-termica-notebook" className="text-accent">guia completo de troca de pasta térmica</Link>.</p>
+
+        <h3>8. Remontagem</h3>
+        <p>Reconecte a bateria, recoloque a tampa e aperte os parafusos. Ligue e verifique se o ventilador funciona normalmente e as temperaturas caíram.</p>
+
+        <h2>Frequência Recomendada</h2>
+        <ul>
+          <li><strong>Uso doméstico:</strong> A cada 12-18 meses</li>
+          <li><strong>Ambientes com pets ou poeira:</strong> A cada 6-8 meses</li>
+          <li><strong>Uso profissional intenso:</strong> A cada 6 meses</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Limpeza Profissional de Notebook em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Abrimos, limpamos e trocamos a pasta térmica do seu notebook no local. Sem necessidade de deixar o equipamento. A partir de R$ 69,99.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "como-recuperar-dados-hd-defeituoso": {
+    title: "Como Recuperar Dados de HD Defeituoso: Métodos e Ferramentas",
+    excerpt: "Técnicas profissionais para recuperar arquivos de discos com setores defeituosos.",
+    date: "2026-04-07",
+    readTime: "13 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Um HD pode falhar sem aviso. Cliques, travamentos, arquivos corrompidos — quando isso acontece, a prioridade é <strong>recuperar os dados antes que o disco pare de vez</strong>. Este guia cobre os métodos técnicos que usamos para recuperar dados em diferentes cenários de falha.</p>
+
+        <h2>Tipos de Falha em HDs</h2>
+
+        <h3>Falha Lógica (Software)</h3>
+        <p>O disco funciona fisicamente, mas os dados estão inacessíveis por corrupção do sistema de arquivos, formatação acidental, exclusão de partição ou ataque de vírus/ransomware. <strong>Taxa de recuperação: 80-95%.</strong></p>
+
+        <h3>Falha Física (Hardware)</h3>
+        <p>Componentes internos do disco estão danificados: cabeças de leitura, motor do spindle, placa controladora ou superfície magnética. Sintomas: cliques rítmicos, HD não gira, não é reconhecido na BIOS. <strong>Taxa de recuperação: 40-70%</strong> (requer sala limpa em casos graves).</p>
+
+        <h3>Setores Defeituosos (Bad Sectors)</h3>
+        <p>Áreas do disco que não conseguem mais ser lidas. O HD ainda funciona, mas fica lento e alguns arquivos ficam inacessíveis. <strong>Taxa de recuperação: 70-90%.</strong></p>
+
+        <h2>Procedimento de Recuperação — Falha Lógica</h2>
+
+        <h3>Método 1: Recuva (Gratuito)</h3>
+        <ol>
+          <li>Conecte o HD como disco secundário (nunca instale programas no disco defeituoso)</li>
+          <li>Instale o Recuva em outro disco</li>
+          <li>Execute varredura profunda na partição afetada</li>
+          <li>Selecione os arquivos encontrados e recupere para outro disco</li>
+        </ol>
+
+        <h3>Método 2: TestDisk + PhotoRec (Gratuito, Open Source)</h3>
+        <p>Para casos mais complexos como partição excluída:</p>
+        <ol>
+          <li><strong>TestDisk:</strong> Analisa e reconstrói a tabela de partições</li>
+          <li><strong>PhotoRec:</strong> Recupera arquivos por assinatura (file carving), ignorando o sistema de arquivos</li>
+        </ol>
+
+        <h3>Método 3: R-Studio (Profissional)</h3>
+        <p>Ferramenta profissional que suporta reconstrução de RAID, recuperação de partições formatadas e varredura por assinatura de arquivo. É o software que usamos para casos complexos.</p>
+
+        <h2>Procedimento de Recuperação — Setores Defeituosos</h2>
+
+        <h3>Clonagem com ddrescue</h3>
+        <p>Antes de tentar recuperar dados de um HD com bad sectors, <strong>clone-o primeiro</strong> usando ddrescue (Linux):</p>
+        <ol>
+          <li>Crie um boot USB com Linux</li>
+          <li>Execute: <code>ddrescue /dev/sdX /dev/sdY rescue.log</code></li>
+          <li>O ddrescue faz múltiplas passagens, priorizando áreas legíveis e retornando às áreas difíceis depois</li>
+          <li>Trabalhe a recuperação de dados sobre o clone, não sobre o disco original</li>
+        </ol>
+
+        <h2>O Que NÃO Fazer</h2>
+        <ul>
+          <li>❌ <strong>Não formate o disco</strong> achando que vai resolver</li>
+          <li>❌ <strong>Não instale programas no disco defeituoso</strong> — pode sobrescrever dados recuperáveis</li>
+          <li>❌ <strong>Não abra o HD</strong> — a contaminação por poeira destrói a superfície</li>
+          <li>❌ <strong>Não coloque no freezer</strong> — mito que causa condensação e mais danos</li>
+          <li>❌ <strong>Não continue usando o disco</strong> se ouvir cliques — cada hora de uso reduz as chances de recuperação</li>
+        </ul>
+
+        <h2>Quando Procurar Ajuda Profissional</h2>
+        <ul>
+          <li>HD fazendo cliques ou não sendo reconhecido</li>
+          <li>Dados críticos (fotos de família, documentos empresariais)</li>
+          <li>Tentativas iniciais de recuperação falharam</li>
+          <li>Suspeita de ransomware</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Perdeu Dados? Podemos Ajudar</h3>
+          <p className="text-muted-foreground mb-0">Fazemos diagnóstico e recuperação de dados em HD, SSD e pen drives. Atendimento em Curitiba e região com orçamento prévio.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Backup: como proteger seus arquivos</Link></li>
+          <li><Link to="/servicos/backup-recuperacao" className="text-accent">Serviço de Backup e Recuperação</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-configurar-rede-wifi-empresarial": {
+    title: "Como Configurar Rede Wi-Fi Empresarial: VLANs, QoS e Segurança",
+    excerpt: "Procedimento técnico para montar rede corporativa com segmentação e priorização de tráfego.",
+    date: "2026-04-07",
+    readTime: "14 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Uma rede Wi-Fi empresarial é completamente diferente de uma rede doméstica. Não basta colocar um roteador potente — é preciso <strong>segmentação, segurança, priorização de tráfego e escalabilidade</strong>. Este guia cobre o procedimento técnico que aplicamos em empresas de 5 a 200 funcionários.</p>
+
+        <h2>Planejamento: Antes de Instalar Qualquer Coisa</h2>
+
+        <h3>1. Levantamento de Requisitos</h3>
+        <ul>
+          <li><strong>Quantidade de dispositivos simultâneos</strong> (computadores, celulares, impressoras, câmeras)</li>
+          <li><strong>Tipos de uso:</strong> Navegação, VoIP, videoconferência, transferência de arquivos</li>
+          <li><strong>Área de cobertura:</strong> Planta do imóvel, número de andares, paredes</li>
+          <li><strong>Rede de visitantes:</strong> Necessidade de rede separada para clientes</li>
+          <li><strong>Largura de banda contratada</strong> do provedor</li>
+        </ul>
+
+        <h3>2. Site Survey (Análise do Local)</h3>
+        <p>Antes de posicionar access points, fazemos um site survey para mapear:</p>
+        <ul>
+          <li>Interferências de redes vizinhas (canais congestionados)</li>
+          <li>Obstáculos físicos (paredes de concreto, vidro, metal)</li>
+          <li>Pontos ideais para instalação de APs</li>
+          <li>Necessidade de cabeamento estruturado</li>
+        </ul>
+
+        <h2>Arquitetura Recomendada</h2>
+
+        <h3>Equipamentos</h3>
+        <ul>
+          <li><strong>Firewall/Router:</strong> pfSense, MikroTik ou Ubiquiti EdgeRouter</li>
+          <li><strong>Switch gerenciável:</strong> TP-Link JetStream, Ubiquiti USW ou MikroTik CRS</li>
+          <li><strong>Access Points:</strong> Ubiquiti UniFi, TP-Link Omada ou Aruba Instant On</li>
+          <li><strong>Controlador:</strong> UniFi Controller ou Omada Controller (centraliza configuração)</li>
+        </ul>
+
+        <h3>VLANs (Segmentação de Rede)</h3>
+        <p>VLANs separam o tráfego em redes virtuais independentes:</p>
+        <ul>
+          <li><strong>VLAN 10 — Corporativa:</strong> Computadores e servidores da empresa</li>
+          <li><strong>VLAN 20 — VoIP:</strong> Telefones IP com prioridade de tráfego</li>
+          <li><strong>VLAN 30 — Visitantes:</strong> Acesso limitado à internet (sem acesso à rede interna)</li>
+          <li><strong>VLAN 40 — IoT/Câmeras:</strong> Dispositivos IoT isolados por segurança</li>
+        </ul>
+
+        <h3>QoS (Quality of Service)</h3>
+        <p>Priorização de tráfego para evitar que downloads pesados prejudiquem videoconferências:</p>
+        <ul>
+          <li><strong>Prioridade Alta:</strong> VoIP, videoconferência (Zoom, Teams, Meet)</li>
+          <li><strong>Prioridade Média:</strong> Navegação web, email, ERP</li>
+          <li><strong>Prioridade Baixa:</strong> Downloads, atualizações, streaming</li>
+        </ul>
+
+        <h2>Segurança</h2>
+        <ul>
+          <li><strong>WPA3-Enterprise</strong> com autenticação RADIUS (ou WPA2-Enterprise como mínimo)</li>
+          <li><strong>Portal Captive</strong> para rede de visitantes (aceite de termos de uso)</li>
+          <li><strong>Firewall rules</strong> entre VLANs (visitantes não acessam rede corporativa)</li>
+          <li><strong>DNS filtering</strong> (bloqueio de sites maliciosos via Pi-hole ou OpenDNS)</li>
+          <li><strong>Atualização de firmware</strong> em todos os equipamentos de rede</li>
+        </ul>
+
+        <h2>Monitoramento</h2>
+        <p>Após a instalação, configuramos monitoramento contínuo:</p>
+        <ul>
+          <li>Dashboard centralizado (UniFi Controller / Omada)</li>
+          <li>Alertas de dispositivos offline</li>
+          <li>Gráficos de uso de banda por VLAN</li>
+          <li>Logs de segurança e tentativas de acesso</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Rede Wi-Fi Empresarial em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Projetamos, instalamos e configuramos redes empresariais com VLANs, QoS e segurança. Atendemos empresas de 5 a 200 funcionários em Curitiba e região.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/wifi-lento-como-melhorar" className="text-accent">Wi-Fi lento: como melhorar o sinal</Link></li>
+          <li><Link to="/servicos/redes-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
+          <li><Link to="/suporte-empresas" className="text-accent">Suporte técnico para empresas</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-diagnosticar-placa-mae-defeituosa": {
+    title: "Como Diagnosticar Placa-Mãe Defeituosa: Testes e Sinais",
+    excerpt: "Procedimentos de diagnóstico visual, elétrico e lógico para identificar defeitos em placas-mãe.",
+    date: "2026-04-07",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A placa-mãe é o componente mais complexo do computador — e o mais difícil de diagnosticar. <strong>Muitos sintomas que parecem ser de outros componentes (RAM, fonte, processador) são, na verdade, falhas da placa-mãe.</strong> Este guia cobre os procedimentos que usamos para identificar defeitos.</p>
+
+        <h2>Sintomas de Placa-Mãe Defeituosa</h2>
+        <ul>
+          <li>PC não liga de jeito nenhum (sem LEDs, sem ventiladores)</li>
+          <li>Liga mas não dá imagem (POST falha)</li>
+          <li>Bips contínuos ou em padrão específico</li>
+          <li>Reinicializações aleatórias</li>
+          <li>Tela azul frequente (BSOD) com códigos variados</li>
+          <li>Portas USB, áudio ou rede não funcionam</li>
+          <li>Não reconhece RAM, HD ou placa de vídeo</li>
+          <li>Cheiro de queimado ou marcas de carbonização</li>
+        </ul>
+
+        <h2>Diagnóstico Visual (Primeiro Passo)</h2>
+        <p>Antes de qualquer teste elétrico, faça uma inspeção visual minuciosa:</p>
+        <ul>
+          <li><strong>Capacitores estufados ou vazando:</strong> Capacitores com topo arredondado ou líquido marrom são defeituosos</li>
+          <li><strong>Marcas de queimado:</strong> Trilhas escurecidas ou componentes carbonizados</li>
+          <li><strong>Solda fria:</strong> Pontos de solda rachados ou opacos, especialmente no soquete do processador</li>
+          <li><strong>Corrosão:</strong> Manchas verdes ou brancas causadas por umidade ou líquidos derramados</li>
+          <li><strong>Danos mecânicos:</strong> Trilhas rompidas, slot de RAM quebrado, soquete com pinos tortos</li>
+        </ul>
+
+        <h2>Teste de Eliminação (Método Sistemático)</h2>
+        <p>A forma mais confiável de diagnosticar placa-mãe é por eliminação:</p>
+
+        <h3>1. Teste Mínimo (Barebone)</h3>
+        <ol>
+          <li>Remova <strong>tudo</strong> exceto: placa-mãe, processador, 1 pente de RAM e cooler</li>
+          <li>Desconecte HD, SSD, placa de vídeo, periféricos USB</li>
+          <li>Conecte apenas fonte e monitor (use saída de vídeo integrada se disponível)</li>
+          <li>Tente ligar — se o PC chegar à BIOS, a placa-mãe está funcional no nível básico</li>
+        </ol>
+
+        <h3>2. Teste de RAM</h3>
+        <ul>
+          <li>Teste cada pente individualmente em cada slot</li>
+          <li>Use MemTest86 para verificar erros de memória</li>
+          <li>Se um slot específico falha com qualquer pente, o slot da placa-mãe está defeituoso</li>
+        </ul>
+
+        <h3>3. Teste de Fonte</h3>
+        <p>Teste a fonte com multímetro (veja nosso <Link to="/blog/como-testar-fonte-de-alimentacao-pc" className="text-accent">guia de teste de fonte</Link>) ou substitua por uma fonte sabidamente boa.</p>
+
+        <h3>4. Códigos de Bip (Beep Codes)</h3>
+        <p>Se a placa tem speaker interno, os bips indicam o problema:</p>
+        <ul>
+          <li><strong>1 bip curto:</strong> POST OK (placa funcionando)</li>
+          <li><strong>Bips contínuos:</strong> Problema de RAM</li>
+          <li><strong>1 longo + 2 curtos:</strong> Problema de vídeo</li>
+          <li><strong>1 longo + 3 curtos:</strong> Falha no teste de memória</li>
+          <li><strong>Sem bip nenhum:</strong> Falha na placa-mãe, processador ou fonte</li>
+        </ul>
+
+        <h3>5. Cartão POST (Debug Card)</h3>
+        <p>Para diagnóstico profissional, usamos um cartão POST — placa que se conecta ao slot PCI/PCIe e exibe códigos hexadecimais indicando em qual etapa do boot a placa-mãe parou.</p>
+
+        <h2>Quando a Placa-Mãe Precisa Ser Substituída</h2>
+        <ul>
+          <li>Capacitores estufados (pode ser reparado por técnico em eletrônica)</li>
+          <li>Trilhas queimadas</li>
+          <li>Soquete do processador com pinos tortos (em alguns casos, recuperável)</li>
+          <li>Chipset defeituoso (inviável reparar)</li>
+          <li>Falha após surto elétrico</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Diagnóstico de Placa-Mãe em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Fazemos diagnóstico completo com equipamento profissional. Se for caso de reparo de placa, temos técnico especializado em eletrônica.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-testar-fonte-de-alimentacao-pc" className="text-accent">Como testar a fonte de alimentação</Link></li>
+          <li><Link to="/servicos/conserto-placa" className="text-accent">Conserto de placa-mãe</Link></li>
+          <li><Link to="/servicos/computador-nao-liga" className="text-accent">Computador não liga: causas</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-instalar-segundo-ssd-notebook": {
+    title: "Como Instalar um Segundo SSD no Notebook (Caddy ou M.2)",
+    excerpt: "Procedimento técnico para adicionar armazenamento extra substituindo o drive óptico ou via slot M.2.",
+    date: "2026-04-07",
+    readTime: "8 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Muitos notebooks permitem a instalação de um <strong>segundo disco de armazenamento</strong> — seja substituindo o drive de DVD por um SSD via caddy, seja utilizando um slot M.2 livre. É uma forma econômica de ter SSD para o sistema e HD/SSD para armazenamento.</p>
+
+        <h2>Método 1: Caddy de HD (Substituindo o Drive de DVD)</h2>
+        <p>Se seu notebook tem leitor de CD/DVD que você não usa, pode substituí-lo por um <strong>caddy (adaptador)</strong> que aceita um HD ou SSD SATA de 2.5".</p>
+
+        <h3>Material Necessário</h3>
+        <ul>
+          <li><strong>Caddy SATA 9.5mm ou 12.7mm</strong> (meça a espessura do drive de DVD do seu notebook)</li>
+          <li>SSD ou HD SATA 2.5"</li>
+          <li>Chave Phillips pequena</li>
+        </ul>
+
+        <h3>Procedimento</h3>
+        <ol>
+          <li>Desligue o notebook e remova a bateria</li>
+          <li>Localize o parafuso que prende o drive de DVD (geralmente na parte inferior, próximo ao drive)</li>
+          <li>Remova o parafuso e puxe o drive de DVD deslizando para fora</li>
+          <li>Remova a <strong>moldura frontal (bezel)</strong> do drive antigo e encaixe no caddy</li>
+          <li>Remova o <strong>suporte metálico de fixação</strong> do drive antigo e parafuse no caddy</li>
+          <li>Insira o SSD no caddy</li>
+          <li>Deslize o caddy com SSD no slot do notebook</li>
+          <li>Parafuse no lugar</li>
+        </ol>
+
+        <h2>Método 2: Slot M.2 (NVMe ou SATA)</h2>
+        <p>Notebooks mais recentes têm um slot M.2 que aceita SSDs no formato de "chiclete" — muito mais rápidos que SATA.</p>
+
+        <h3>Verificações Prévias</h3>
+        <ul>
+          <li><strong>Tipo de slot:</strong> M.2 SATA (key B+M) ou M.2 NVMe (key M) — não são compatíveis entre si</li>
+          <li><strong>Tamanho:</strong> 2230, 2242, 2260 ou 2280 (o mais comum é 2280)</li>
+          <li><strong>Slot livre:</strong> Consulte o manual do notebook ou abra para verificar</li>
+        </ul>
+
+        <h3>Procedimento</h3>
+        <ol>
+          <li>Desligue e abra a tampa inferior do notebook</li>
+          <li>Localize o slot M.2 na placa-mãe</li>
+          <li>Insira o SSD M.2 em ângulo de 30° no slot</li>
+          <li>Pressione para baixo e fixe com o parafuso M2x3mm</li>
+          <li>Feche o notebook e ligue</li>
+          <li>No Windows, acesse <strong>Gerenciamento de Disco</strong> para inicializar e formatar o novo SSD</li>
+        </ol>
+
+        <h2>Configuração Ideal (Dois Discos)</h2>
+        <ul>
+          <li><strong>SSD principal (slot original ou M.2):</strong> Windows + programas (mínimo 240 GB)</li>
+          <li><strong>Segundo disco (caddy ou M.2):</strong> Arquivos pessoais, fotos, vídeos, jogos</li>
+        </ul>
+
+        <h2>Compatibilidade</h2>
+        <p>Nem todos os notebooks suportam segundo disco. Verifique:</p>
+        <ul>
+          <li>Se tem drive de DVD removível (para caddy)</li>
+          <li>Se tem slot M.2 livre (para SSD M.2)</li>
+          <li>Modelo exato do notebook no site do fabricante ou em fóruns</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Instalação de SSD em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Verificamos a compatibilidade do seu notebook, fornecemos e instalamos o SSD no local. Com clonagem do sistema se necessário.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-clonar-hd-para-ssd" className="text-accent">Como clonar HD para SSD</Link></li>
+          <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
+        </ul>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

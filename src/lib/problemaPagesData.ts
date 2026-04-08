@@ -6986,6 +6986,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
+      { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ]
   },
 
@@ -7641,6 +7642,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
       { to: "/servicos", label: "Todos os Serviços" }
+      { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ]
   },
   // ===================== NOTEBOOK DESLIGA SOZINHO =====================
@@ -8702,6 +8704,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/redes-wifi-curitiba", label: "Redes WiFi" },
       { to: "/cabo-rede-nao-funciona-curitiba", label: "Cabo de Rede" },
       { to: "/servicos", label: "Todos os Serviços" },
+      { label: "Papel Preso", to: "/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/impressora-cartucho-nao-reconhece-curitiba" },
     ],
   },
 

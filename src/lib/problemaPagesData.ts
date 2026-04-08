@@ -10432,6 +10432,254 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Celular com Listras", to: "/celular-listras-na-tela-curitiba" }
     ],
   },
+  // ===== PÁGINAS DE REPARO DE PLACA-MÃE =====
+  {
+    slug: "reparo-placa-mae-notebook-curitiba",
+    title: "Reparo de Placa-Mãe de Notebook em Curitiba | Microsoldagem BGA",
+    metaDescription: "Reparo de placa-mãe de notebook com microsoldagem BGA em Curitiba. Entenda por que o serviço custa caro: equipamentos de R$ 5.000 a R$ 50.000+.",
+    h1: "Reparo de Placa-Mãe de Notebook — Por Que Custa Caro e Quando Vale a Pena",
+    categoria: "Reparo de Placa-Mãe",
+    intro: `O reparo de placa-mãe de notebook é um dos serviços mais complexos da eletrônica de consumo. Não é um reparo que qualquer técnico faz — exige **equipamentos que custam de R$ 5.000 a R$ 50.000+**, treinamento especializado e anos de experiência.\n\n**Dados reais de equipamentos:**\n- Estação de retrabalho BGA (Achi IR6000): R$ 2.800 a R$ 5.000\n- Estação BGA profissional (Pro-660/Pro-880): R$ 15.000 a R$ 35.000\n- Microscópio trinocular (7x-50x): R$ 1.500 a R$ 4.000\n- Multímetro de bancada profissional: R$ 800 a R$ 3.000\n- Estação de solda com controle digital: R$ 500 a R$ 2.000\n- Osciloscópio digital: R$ 2.000 a R$ 8.000\n- Fonte de alimentação regulável: R$ 300 a R$ 1.500\n- Ultrassônica para limpeza de placas: R$ 400 a R$ 1.500\n\n**Investimento total de uma bancada profissional: R$ 20.000 a R$ 60.000+**\n\nPor isso, o reparo de placa-mãe custa entre R$ 300 e R$ 1.500 — o técnico precisa amortizar dezenas de milhares de reais em equipamento, além de cobrar pela expertise que levou anos para adquirir.`,
+    sintomas: [
+      { titulo: "Notebook não liga (sem reação)", desc: "Sem LEDs, sem ventilador. Pode ser MOSFET queimado na seção de energia, chip regulador de tensão ou curto-circuito na placa. Diagnóstico com multímetro e injeção de corrente.", gravidade: "Complexo" },
+      { titulo: "Liga mas não dá vídeo", desc: "Ventilador gira mas tela preta. Clássico problema de GPU (chip gráfico BGA) com solda fria ou defeito. Afeta muito notebooks com GPU dedicada NVIDIA/AMD.", gravidade: "Complexo" },
+      { titulo: "Reinicia sozinho / desliga", desc: "Superaquecimento de VRM (reguladores de tensão) ou GPU. Pode ser pasta térmica seca, MOSFET em curto ou problema no BIOS.", gravidade: "Médio a Complexo" },
+      { titulo: "Não carrega bateria", desc: "Chip controlador de carga (ISL6251, BQ24780) com defeito. Comum após uso de carregador genérico ou surto elétrico.", gravidade: "Médio" },
+      { titulo: "Curto-circuito (consome muita corrente)", desc: "Ao conectar na fonte, a corrente dispara. Indica capacitor em curto, MOSFET queimado ou trilha comprometida. Diagnóstico com câmera térmica.", gravidade: "Complexo" },
+      { titulo: "Notebook com líquido (água/café/refrigerante)", desc: "Oxidação progressiva destrói trilhas e componentes. Cada hora conta — quanto antes levar, maior a chance de salvar.", gravidade: "Complexo" }
+    ],
+    causas: [
+      { titulo: "GPU com solda BGA fria (defeito mais comum)", desc: "Os chips gráficos NVIDIA e AMD são soldados com centenas de micro-esferas de solda (BGA — Ball Grid Array). Com ciclos térmicos (aquecer/resfriar), as esferas trincam e perdem contato. Notebooks gamers e workstations são os mais afetados.", tipo: "desgaste" },
+      { titulo: "MOSFET queimado na seção de energia", desc: "MOSFETs são transistores que regulam a tensão. Surtos, curtos e carregadores genéricos podem queimá-los. Componentes SMD minúsculos (3-5mm) que exigem microsoldagem.", tipo: "hardware" },
+      { titulo: "Chip controlador de carga defeituoso", desc: "ICs como ISL6251, BQ24780, RT8223 controlam carga da bateria, tensões do processador e gerenciamento de energia. Falha causa sintomas variados.", tipo: "hardware" },
+      { titulo: "Oxidação por líquido", desc: "Água, café, refrigerante corroem trilhas de cobre e pads dos componentes. A oxidação é progressiva — começa no ponto de contato e se espalha em horas/dias.", tipo: "erro-humano" },
+      { titulo: "BIOS/firmware corrompido", desc: "Chip BIOS (SPI Flash) com firmware corrompido. Pode ser regravado com programador CH341 (R$ 30-50) se o chip estiver funcional.", tipo: "software" },
+      { titulo: "Trilha rompida por estresse mecânico", desc: "Flexão do notebook ao transportar ou quedas podem romper trilhas internas da PCB (Printed Circuit Board). Diagnóstico com multímetro e reparo com jumper.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "BIOS corrompido (regravação), conector de carga solto, MOSFET isolado. Componentes baratos, mão de obra moderada.", tempo: "1 a 3 dias", custo: "R$ 200 a R$ 450" },
+      { nivel: "Médio", desc: "Chip controlador de carga, regulador de tensão, capacitor em curto. Microsoldagem com componentes específicos.", tempo: "3 a 7 dias", custo: "R$ 400 a R$ 800" },
+      { nivel: "Complexo", desc: "Reballing de GPU/CPU (BGA), recuperação de placa com oxidação extensa, troca de chip gráfico.", tempo: "7 a 15 dias", custo: "R$ 600 a R$ 1.500" }
+    ],
+    riscos: [
+      "Reballing de GPU tem taxa de sucesso de 70-85% — não é garantido",
+      "Placas com oxidação extensa podem ter danos irreversíveis em trilhas internas",
+      "Componentes BGA específicos nem sempre estão disponíveis no Brasil",
+      "Reparo por técnico não qualificado pode danificar pads e inviabilizar reparo futuro",
+      "Notebooks muito finos (ultrabooks) têm placas com componentes soldados dos dois lados — mais difícil",
+      "Custo do reparo pode se aproximar do valor de uma placa usada (R$ 800-2.000)"
+    ],
+    diagnostico: `**Protocolo profissional de diagnóstico de placa-mãe:**\n\n**1. Inspeção visual com microscópio (7x-50x):**\nBusca por componentes visivelmente queimados, capacitores inchados, trilhas rompidas, oxidação.\n\n**2. Teste de curto-circuito com multímetro:**\nMedição de resistência nas linhas de alimentação (3.3V, 5V, 12V, VCORE). Valores próximos de 0Ω indicam curto.\n\n**3. Injeção de corrente controlada:**\nFonte regulável fornece tensão baixa (1-3V) com limite de corrente. Câmera térmica identifica o componente em curto pelo aquecimento.\n\n**4. Teste de BIOS/firmware:**\nLeitura do chip SPI Flash com programador CH341. Verifica integridade do firmware.\n\n**5. Teste funcional progressivo:**\nAlimentar a placa com fonte externa, monitorando tensões em cada estágio de power-on.\n\n**Custo do diagnóstico: R$ 80-150 (placas exigem mais tempo). Abatido do serviço.**`,
+    solucao: `**Nível 1 — Componentes discretos (40% dos casos):**\n- Troca de MOSFET, capacitores, resistores, diodos\n- Microsoldagem com estação de ar quente e ferro de solda com ponta fina\n- Componentes custam R$ 0,50 a R$ 30 cada — o valor está na mão de obra\n\n**Nível 2 — Chips IC / controladores (35% dos casos):**\n- Troca de chips BGA de gerenciamento de energia\n- Requer estação BGA ou ar quente com perfil térmico controlado\n- Chips custam R$ 20 a R$ 150 — importados da China em 15-30 dias\n\n**Nível 3 — Reballing / troca de GPU ou CPU (25% dos casos):**\n- Processo: remoção do chip com estação BGA → limpeza dos pads → aplicação de novas esferas de solda (reballing) → recolocação com perfil térmico\n- Temperatura: 220-250°C controlada por 60-180 segundos\n- Equipamento: estação BGA infravermelha (R$ 5.000-35.000)\n- Taxa de sucesso: 70-85%\n\n**IMPORTANTE:** Todo reparo de placa-mãe é feito sob **microscópio trinocular** com aumento de 7x a 50x. Componentes têm 1-3mm — é impossível trabalhar a olho nu.`,
+    quandoCompensa: "Notebooks de até 4 anos com valor acima de R$ 3.000 quando novos. Notebooks com dados importantes que não foram backup (o reparo permite recuperar dados). MacBooks e notebooks empresariais (Dell Latitude, Lenovo ThinkPad) — placas de reposição custam R$ 1.500-4.000.",
+    quandoNaoCompensa: "Notebooks com mais de 5 anos ou valor de mercado abaixo de R$ 1.500. Quando o custo do reparo (R$ 800+) se aproxima do preço de uma placa usada ou notebook usado equivalente. Notebooks de entrada (Celeron/Pentium) onde o reparo custa mais que o aparelho.",
+    whatsappMessage: "Olá! Meu notebook tem problema na placa-mãe. Quero saber se tem conserto e quanto custa.",
+    conteudoExtra: `## Por Que o Reparo de Placa-Mãe Custa Caro?\n\n### O Investimento do Técnico\n\nUm técnico especializado em microsoldagem BGA investe:\n\n| Equipamento | Preço Médio |\n|-------------|------------|\n| Estação BGA infravermelha (Achi IR6000) | R$ 2.800 - 5.000 |\n| Estação BGA profissional (Pro-660/880) | R$ 15.000 - 35.000 |\n| Microscópio trinocular 7x-50x | R$ 1.500 - 4.000 |\n| Câmera para microscópio (37MP HDMI) | R$ 800 - 2.000 |\n| Estação de solda digital (JBC/Hakko) | R$ 1.500 - 4.000 |\n| Osciloscópio digital 4 canais | R$ 2.000 - 8.000 |\n| Fonte regulável de bancada | R$ 300 - 1.500 |\n| Multímetro de bancada (Fluke) | R$ 800 - 3.000 |\n| Câmera térmica (FLIR/Uni-T) | R$ 1.500 - 5.000 |\n| Cuba ultrassônica | R$ 400 - 1.500 |\n| Programador CH341 + adaptadores | R$ 50 - 200 |\n| **TOTAL estimado** | **R$ 20.000 - 65.000+** |\n\nAlém disso, o técnico investiu **2-5 anos de treinamento** em cursos de microsoldagem, eletrônica SMD e diagnóstico avançado.\n\n### Comparação com Outros Reparos\n\n| Serviço | Equipamento necessário | Custo do equipamento |\n|---------|----------------------|---------------------|\n| Formatação | Pendrive + software | R$ 50 |\n| Troca de HD/SSD | Chave Phillips | R$ 20 |\n| Troca de tela | Kit abertura | R$ 100 |\n| **Microsoldagem BGA** | **Bancada completa** | **R$ 20.000-65.000** |\n\nPor isso, cobrar R$ 400-1.500 por um reparo de placa-mãe é justo — o técnico precisa amortizar o investimento e cobrar pela expertise.\n\n## O Processo de Reballing BGA — Passo a Passo\n\n1. **Desmontagem completa** do notebook\n2. **Limpeza da placa** em cuba ultrassônica\n3. **Inspeção com microscópio** — identificar o chip problemático\n4. **Aplicação de flux** ao redor do chip\n5. **Remoção do chip** com estação BGA infravermelha (220-250°C por 60-120s)\n6. **Limpeza dos pads** na placa e no chip com malha dessoldadora\n7. **Reballing** — aplicação de novas esferas de solda com stencil BGA\n8. **Recolocação do chip** com estação BGA e perfil térmico controlado\n9. **Teste funcional** — ligar a placa e verificar todas as funções\n10. **Teste de estresse** — 2-4 horas de uso intenso para garantir estabilidade\n\n## Modelos Mais Afetados\n\n### GPU com Solda BGA Fria (problema clássico)\n- **NVIDIA GeForce MX150/MX250/MX350** — muito comum em notebooks intermediários\n- **AMD Radeon RX 5500M/6500M** — notebooks gamers de entrada\n- **NVIDIA RTX 3050/3060 Mobile** — notebooks gamers, alto custo de reparo\n\n### Problemas de Energia\n- **Dell Inspiron série 3000/5000** — MOSFET de carga\n- **Lenovo IdeaPad** — chip ISL controlador de carga\n- **HP Pavilion** — reguladores de tensão\n- **MacBook Pro 2016-2020** — chip T2 e controlador USB-C\n\n### Oxidação por Líquido\n- **Qualquer modelo** — taxa de recuperação: 50-70% se levado em até 24h\n- **MacBook** — placa mais densa, mais difícil, recuperação 40-60%`,
+    relatedPages: [
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Notebook Não Liga", to: "/notebook-nao-liga-curitiba" },
+      { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
+      { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }
+    ],
+  },
+  {
+    slug: "reparo-placa-mae-celular-curitiba",
+    title: "Reparo de Placa-Mãe de Celular em Curitiba | Microsoldagem Especializada",
+    metaDescription: "Conserto de placa-mãe de celular com microsoldagem em Curitiba. Equipamentos de R$ 15.000+. iPhone, Samsung, Motorola. Custos reais e quando compensa.",
+    h1: "Reparo de Placa-Mãe de Celular — Microsoldagem Especializada em Curitiba",
+    categoria: "Reparo de Placa-Mãe",
+    intro: `A placa-mãe do celular é menor que um cartão de crédito, mas contém **mais de 1.000 componentes** soldados em ambos os lados. Reparar um componente de 0.3mm exige microscópio com aumento de 20x-50x, estação de solda com ponta de 0.1mm e mãos extremamente firmes.\n\n**O investimento para microsoldagem de celular:**\n- Microscópio trinocular (7x-50x com câmera): R$ 2.000 a R$ 5.000\n- Estação de solda JBC ou equivalente: R$ 2.000 a R$ 6.000\n- Estação de ar quente com controle digital: R$ 500 a R$ 2.000\n- Separador de tela com vácuo: R$ 300 a R$ 1.500\n- Stencils BGA por modelo (iPhone, Samsung): R$ 30 a R$ 150 cada (dezenas necessários)\n- Fonte regulável com amperímetro: R$ 300 a R$ 1.000\n- Programadora de NAND/NOR Flash: R$ 500 a R$ 3.000\n- Jigs e fixtures por modelo: R$ 50 a R$ 300 cada\n- Fluxo, estanho, fios, malhas, pontas: R$ 200-500/mês de consumíveis\n\n**Investimento total: R$ 15.000 a R$ 40.000+**\n\nPor isso, microsoldagem de celular custa de R$ 200 a R$ 1.200+ — é um serviço altamente especializado.`,
+    sintomas: [
+      { titulo: "Celular não liga (morto)", desc: "Sem reação ao botão power. Pode ser PMIC (Power Management IC) queimado, trilha rompida ou curto-circuito. Diagnóstico com fonte regulável + câmera térmica.", gravidade: "Complexo" },
+      { titulo: "Sem sinal / sem rede (baseband)", desc: "Chip de baseband (modem) com defeito. Em iPhones é o Qualcomm MDM, em Samsung é o Exynos Modem. Microsoldagem delicada.", gravidade: "Complexo" },
+      { titulo: "Não carrega / porta USB-C defeituosa", desc: "Chip Tristar (iPhone) ou controlador de carga danificado. Comum após uso de cabos genéricos ou entrada de líquido.", gravidade: "Médio" },
+      { titulo: "Touch não funciona (tela OK)", desc: "IC de touch (Cumulus em iPhone, touch IC em Samsung) com solda fria ou defeituoso. Microsoldagem do IC.", gravidade: "Médio" },
+      { titulo: "Celular reinicia em loop", desc: "NAND Flash corrompida, CPU com solda fria ou curto no circuito de alimentação. Requer diagnóstico aprofundado.", gravidade: "Complexo" },
+      { titulo: "Sem Wi-Fi / sem Bluetooth", desc: "Chip de comunicação wireless (BCM em iPhone, WCN em Qualcomm) com defeito. Troca do IC específico.", gravidade: "Médio" }
+    ],
+    causas: [
+      { titulo: "Chip PMIC (Power Management) queimado", desc: "O PMIC gerencia todas as tensões do celular. Um curto em qualquer linha pode queimá-lo. É o chip mais caro e complexo de trocar — em iPhones (Qualcomm PM8150) custa R$ 100-300 só a peça.", tipo: "hardware" },
+      { titulo: "Oxidação por entrada de líquido", desc: "Mesmo celulares IP68 podem ter entrada de líquido pela porta USB ou SIM. A oxidação corrói trilhas de 0.05mm em horas. Limpeza ultrassônica + microsoldagem das trilhas afetadas.", tipo: "erro-humano" },
+      { titulo: "Solda BGA fria por ciclos térmicos", desc: "Games pesados, carregamento rápido e uso intenso causam ciclos de temperatura que deterioram soldas BGA dos chips principais.", tipo: "desgaste" },
+      { titulo: "Dano por queda/impacto", desc: "Impacto pode deslocar chips BGA ou romper trilhas internas da placa multicamada (8-12 layers nos celulares modernos).", tipo: "erro-humano" },
+      { titulo: "Curto por carregador genérico", desc: "Carregadores sem certificação podem enviar picos de tensão que queimam o chip Tristar (iPhone) ou controlador USB (Samsung).", tipo: "erro-humano" },
+      { titulo: "NAND Flash defeituosa", desc: "Memória de armazenamento com setores defeituosos. Pode ser reprogramada ou trocada. Em iPhones, requer programadora NAND específica.", tipo: "hardware" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "IC de carga (Tristar/Tigris), capacitor em curto, conector de bateria. Componentes acessíveis.", tempo: "1 a 3 dias", custo: "R$ 200 a R$ 450" },
+      { nivel: "Médio", desc: "IC de touch, Wi-Fi, áudio. Microsoldagem BGA com stencil. Componentes R$ 50-200.", tempo: "3 a 7 dias", custo: "R$ 400 a R$ 800" },
+      { nivel: "Complexo", desc: "PMIC, baseband, CPU, NAND. Chips caros (R$ 100-500), processo de alto risco.", tempo: "7 a 20 dias", custo: "R$ 600 a R$ 1.500" }
+    ],
+    riscos: [
+      "Microsoldagem em placa de celular tem taxa de sucesso de 65-85%",
+      "Placas multicamada (8-12 camadas) — dano em camada interna é irreparável",
+      "Chips de celular são menores que os de notebook — margem de erro é mínima",
+      "Componentes originais nem sempre disponíveis — pode usar compatível/reciclado",
+      "Calor excessivo durante o reparo pode danificar chips adjacentes",
+      "Em iPhones, troca de NAND requer pareamento com CPU — processo complexo"
+    ],
+    diagnostico: `**Protocolo para diagnóstico de placa de celular:**\n\n**1. Teste com fonte regulável (DC Power Supply):**\nConecta-se a placa diretamente à fonte (sem bateria). O consumo de corrente no momento do boot indica:\n- 0mA = circuito aberto / chip morto\n- 50-200mA = boot parcial\n- 500mA+ = curto-circuito\n\n**2. Câmera térmica / toque:**\nIdentifica o componente em curto pelo aquecimento anormal.\n\n**3. Microscópio trinocular:**\nInspeção visual de todos os componentes em busca de queimados, oxidação, trilhas rompidas.\n\n**4. Multímetro em modo diodo:**\nTeste de todas as linhas de alimentação (VCC_MAIN, PP_BATT_VCC, PP1V8, PP_GPU, etc.).\n\n**5. Esquemático (quando disponível):**\nComparação de valores medidos com valores de referência do esquemático.\n\n**Custo do diagnóstico: R$ 60-100, abatido do serviço.**`,
+    solucao: `**Microsoldagem de celular é trabalho de precisão cirúrgica:**\n\n**Nível 1 — Componentes passivos (30% dos casos):**\n- Capacitores, resistores, bobinas de filtro\n- Tamanho: 0201 a 0402 (0.5mm a 1mm)\n- Solda com ferro de ponta cônica 0.1mm sob microscópio\n\n**Nível 2 — ICs secundários (40% dos casos):**\n- Touch IC, Wi-Fi IC, áudio IC, IC de carga\n- Remoção com ar quente (360-380°C)\n- Limpeza de pads com malha\n- Aplicação de stencil BGA + esferas de solda\n- Recolocação com ar quente e perfil controlado\n\n**Nível 3 — Chips principais (30% dos casos):**\n- PMIC, CPU, baseband, NAND\n- Processo igual ao Nível 2, mas com risco maior\n- NAND em iPhone requer pareamento via programadora\n- CPU requer reballing perfeito — uma esfera fora de posição = placa morta\n\n**Cada microsoldagem leva de 30 minutos a 4 horas dependendo do componente.**`,
+    quandoCompensa: "Celulares de até 2 anos com valor acima de R$ 2.000. iPhones e Samsung Galaxy S/Note — placa de reposição custa R$ 1.500-4.000, então reparo de R$ 400-800 compensa. Celulares com dados importantes sem backup.",
+    quandoNaoCompensa: "Celulares com mais de 3 anos ou valor abaixo de R$ 1.000 quando novos. Danos por líquido com mais de 48h sem atendimento (oxidação extensa). Quando o custo do reparo ultrapassa 50% do valor de um celular novo equivalente.",
+    whatsappMessage: "Olá! Meu celular tem problema na placa-mãe. Quero saber se tem conserto e quanto custa.",
+    conteudoExtra: `## O Universo da Microsoldagem de Celular\n\n### Tamanho dos Componentes\n\nPara ter noção da escala:\n- **Capacitor 0201:** 0.6mm x 0.3mm — menor que um grão de areia\n- **Resistor 0402:** 1mm x 0.5mm — visível mas impossível de soldar sem microscópio\n- **IC de carga:** 3mm x 3mm com 20-40 pads\n- **PMIC:** 5mm x 5mm com 100+ pads BGA\n- **CPU:** 8mm x 8mm com 500+ pads BGA de 0.15mm\n\n### Ferramentas Essenciais e Preços Reais\n\n| Ferramenta | Função | Preço Médio |\n|-----------|--------|------------|\n| Microscópio trinocular 7x-50x | Visualizar componentes | R$ 2.000-5.000 |\n| Câmera 37MP HDMI | Filmar reparo no monitor | R$ 800-2.000 |\n| Estação de solda JBC CD-2BE | Soldagem precisa | R$ 3.000-5.000 |\n| Pontas JBC C210/C245 | Pontas de solda finas | R$ 100-300/cada |\n| Estação de ar quente Quick 861DW | Remoção de BGA | R$ 800-1.500 |\n| Stencils BGA (por modelo) | Reballing de chips | R$ 30-150/cada |\n| Preheater (pré-aquecedor) | Aquecer placa uniformemente | R$ 500-1.500 |\n| Programadora NAND (JC/iRepair) | iPhone NAND | R$ 1.500-3.000 |\n| Jigs de fixação | Segurar placa | R$ 50-300/cada |\n\n### Modelos e Problemas Mais Comuns\n\n**iPhone:**\n- iPhone 7/7 Plus: IC de áudio (doença conhecida como "loop disease")\n- iPhone 8/X: Tristar / Hydra (não carrega)\n- iPhone 11-15: Baseband, Wi-Fi, NAND\n- iPhone com Face ID: módulo dot projector (pareamento)\n\n**Samsung:**\n- Galaxy S20/S21/S22: eMMC / UFS com setores defeituosos\n- Galaxy A série: PMIC após surto elétrico\n- Galaxy Z Flip/Fold: flex cable da dobradiça + placa\n\n**Motorola:**\n- Moto G série: IC de carga USB\n- Moto Edge: problemas de baseband\n\n**Xiaomi:**\n- Redmi Note série: PMIC e reguladores de tensão\n- Poco: GPU com superaquecimento\n\n## Direitos do Consumidor\n\n- Se o celular está na **garantia** e o defeito é de fabricação, o fabricante DEVE reparar sem custo\n- Vício oculto (CDC Art. 18/26): prazo conta da descoberta do defeito\n- Se a assistência autorizada demora mais de 30 dias, você pode exigir troca ou devolução`,
+    relatedPages: [
+      { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
+      { label: "Celular Não Liga", to: "/celular-nao-liga-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Celular com Listras", to: "/celular-listras-na-tela-curitiba" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }
+    ],
+  },
+  {
+    slug: "reparo-placa-principal-tv-curitiba",
+    title: "Reparo de Placa Principal de TV em Curitiba | Componentes e Custos",
+    metaDescription: "Reparo de placa principal, fonte e T-CON de TV em Curitiba. Conserto a nível de componente. Custos reais: R$ 150 a R$ 1.200.",
+    h1: "Reparo de Placa Principal de TV — Conserto a Nível de Componente em Curitiba",
+    categoria: "Reparo de Placa-Mãe",
+    intro: `Uma TV moderna tem 3-4 placas principais: **placa fonte** (alimentação), **placa principal** (processamento), **placa T-CON** (controle do painel) e **placa inverter/LED driver** (iluminação). Cada uma pode falhar independentemente.\n\n**Muitas assistências condenam a placa inteira** e cobram R$ 500-1.500 pela troca. Nós reparamos a **nível de componente** — identificamos o capacitor, MOSFET ou IC específico que falhou e trocamos apenas ele. Resultado: **reparo de R$ 150-600 em vez de R$ 500-1.500.**\n\n**Dados reais de custos de placas (troca completa vs reparo):**\n- Placa fonte Samsung UN55: placa nova R$ 400-700 / reparo R$ 150-350\n- Placa principal LG 50": placa nova R$ 500-900 / reparo R$ 200-500\n- T-CON Samsung 43": placa nova R$ 200-400 / reparo de chip R$ 150-300\n- LED driver Philco 32": placa nova R$ 250-500 / reparo R$ 100-250\n\n**O reparo a nível de componente economiza 40-70% em relação à troca da placa.**`,
+    sintomas: [
+      { titulo: "TV não liga (LED standby apagado)", desc: "Problema na placa fonte. Capacitores eletrolíticos inchados são a causa #1 — componentes de R$ 1-5 que custam centenas se for trocar a placa inteira.", gravidade: "Médio" },
+      { titulo: "TV liga e desliga sozinha", desc: "Proteção ativando por defeito na fonte, backlight ou placa principal. Diagnóstico em bancada identifica qual.", gravidade: "Médio" },
+      { titulo: "Sem imagem mas com som", desc: "Backlight (LEDs) queimados ou LED driver defeituoso. Teste com lanterna no painel confirma.", gravidade: "Médio" },
+      { titulo: "Imagem distorcida / travando", desc: "Placa principal com eMMC cheia/defeituosa ou processador com solda fria.", gravidade: "Médio a Complexo" },
+      { titulo: "HDMI / USB não funciona", desc: "Chip HDMI ou controlador USB na placa principal com defeito. Microsoldagem.", gravidade: "Médio" },
+      { titulo: "TV faz estalo e não liga", desc: "Relé da fonte não segura. Capacitores ou MOSFET da fonte queimados. Reparo de componente.", gravidade: "Simples a Médio" }
+    ],
+    causas: [
+      { titulo: "Capacitores eletrolíticos inchados/secos", desc: "A causa #1 de falha em TVs com 3-8 anos. Capacitores da placa fonte perdem capacitância com o tempo. Custam R$ 1-5 cada mas muitas assistências trocam a placa inteira por R$ 400-700.", tipo: "desgaste" },
+      { titulo: "MOSFET queimado na fonte", desc: "Transistores de potência que regulam a tensão AC/DC. Queimam por surtos elétricos ou desgaste. Componente: R$ 3-15. Reparo: R$ 150-300.", tipo: "hardware" },
+      { titulo: "LEDs do backlight queimados", desc: "TVs LED usam barras de LEDs como retroiluminação. Quando 1 LED queima, a barra inteira para (em série). Barra: R$ 30-80. Mão de obra de desmontagem do painel: R$ 150-400.", tipo: "desgaste" },
+      { titulo: "eMMC corrompida na placa principal", desc: "A memória flash da Smart TV fica cheia ou com setores defeituosos. TV trava, reinicia ou não carrega o sistema. Regravação ou troca da eMMC.", tipo: "hardware" },
+      { titulo: "Surto elétrico (raio/oscilação)", desc: "Queima MOSFETs, diodos e ICs da fonte e placa principal de uma vez. Dano pode ser extenso.", tipo: "erro-humano" },
+      { titulo: "Solda fria em conectores", desc: "Conectores entre placas com mau contato por vibração térmica. Ressoldagem resolve.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Capacitores inchados, fusível, solda fria. Componentes de centavos a poucos reais.", tempo: "2 a 5 dias", custo: "R$ 150 a R$ 300" },
+      { nivel: "Médio", desc: "MOSFET, LED driver, barras de LED, eMMC. Desmontagem do painel quando necessário.", tempo: "5 a 10 dias", custo: "R$ 300 a R$ 700" },
+      { nivel: "Complexo", desc: "Chip processador da placa principal, dano extenso por surto. Múltiplos componentes.", tempo: "10 a 20 dias", custo: "R$ 500 a R$ 1.200" }
+    ],
+    riscos: [
+      "Desmontagem do painel para troca de LEDs é delicada — risco de quebrar a tela",
+      "Placas de TVs antigas (8+ anos) podem ter múltiplos componentes degradados",
+      "Componentes SMD de TVs baratas (Philco, Semp) são difíceis de encontrar",
+      "Surto elétrico pode ter danificado todas as placas simultaneamente",
+      "eMMC de reposição pode exigir gravação de firmware específico por modelo/região"
+    ],
+    diagnostico: `**Diagnóstico de placas de TV — protocolo:**\n\n**1. Teste da fonte com multímetro:**\nMedir tensões de saída (5V standby, 12V, 24V, VLED). Valores fora da faixa indicam componente na fonte.\n\n**2. Inspeção visual:**\nCapacitores inchados (topo abaulado) são visíveis a olho nu. É a causa mais fácil de identificar e mais barata de resolver.\n\n**3. Teste de backlight:**\nLanterna no painel com TV ligada — se a imagem aparece fraca, backlight falhou.\n\n**4. Teste de T-CON:**\nSubstituição por T-CON compatível para isolar o problema.\n\n**5. Teste da placa principal:**\nVerificar se HDMI, USB, rede e sistema operacional (WebOS/Tizen) respondem.\n\n**Custo: R$ 80-120, abatido do serviço.**`,
+    solucao: `**Reparo a nível de componente — a diferença está aqui:**\n\n**Placa Fonte (40% dos casos de TV):**\n- Troca de capacitores eletrolíticos: R$ 1-5/cada, solda convencional\n- Troca de MOSFET: R$ 3-15, solda com ar quente\n- Troca de diodo/retificador: R$ 2-10\n- Troca de transformador (raro): R$ 30-80\n\n**Backlight / LED Driver (25%):**\n- Troca de barras de LED: R$ 30-80/barra, desmontagem total do painel\n- Reparo do LED driver IC: microsoldagem\n\n**Placa Principal (20%):**\n- Regravação de eMMC: programador + firmware\n- Troca de eMMC (8-32GB): R$ 20-50, BGA\n- Reparo de chip HDMI: microsoldagem\n\n**T-CON (15%):**\n- Troca da placa inteira: R$ 80-200\n- Reparo de componente na T-CON: R$ 100-250\n\n**ECONOMIA REAL:** Um cliente traria TV com "fonte queimada". Outra assistência: placa nova R$ 600. Nosso reparo: 3 capacitores (R$ 12 em peças) + mão de obra = R$ 200. Economia de R$ 400.`,
+    quandoCompensa: "Quase sempre quando é fonte ou T-CON (reparo barato). Backlight compensa em TVs de 43\"+. Placa principal compensa em TVs de R$ 2.000+ com menos de 5 anos.",
+    quandoNaoCompensa: "TVs de 32\" básicas (TV nova custa R$ 900-1.200). Múltiplas placas queimadas por surto. TVs com painel danificado além da placa.",
+    whatsappMessage: "Olá! Minha TV tem problema na placa. Quero saber se tem conserto a nível de componente.",
+    conteudoExtra: `## Reparo a Nível de Componente vs Troca de Placa\n\n### O Problema da Maioria das Assistências\n\nA maioria das assistências técnicas trabalha no modelo de **troca de placa**: identifica qual placa falhou e troca por uma nova ou recondicionada. É mais rápido, mas muito mais caro para o cliente.\n\n**Exemplo real — Samsung UN55TU8000:**\n- Sintoma: TV não liga\n- Causa: 2 capacitores inchados na placa fonte\n- Troca de placa fonte: R$ 450-700\n- Reparo dos capacitores: R$ 180 (peças: R$ 8)\n- **Economia: R$ 270-520**\n\n### Custos Reais de Componentes vs Placas\n\n| Componente | Preço da peça | Reparo total | Placa nova |\n|-----------|--------------|-------------|------------|\n| Capacitor eletrolítico | R$ 1-5 | R$ 150-250 | R$ 400-700 |\n| MOSFET IRF540/840 | R$ 3-15 | R$ 180-350 | R$ 400-700 |\n| LED barra (1 unid) | R$ 30-80 | R$ 250-500 | R$ 300-600 |\n| eMMC 8GB | R$ 20-40 | R$ 250-450 | R$ 500-900 |\n| T-CON (placa) | R$ 80-200 | R$ 200-350 | R$ 200-400 |\n| Chip HDMI | R$ 40-100 | R$ 300-500 | R$ 500-900 |\n\n## Marcas e Modelos — O Que Esperar\n\n### Samsung\n- Séries TU/AU/BU: capacitores da fonte são o ponto fraco\n- QLED: backlight e T-CON robustos, placa principal pode falhar\n- Neo QLED: Mini-LED driver sofisticado, reparo mais caro\n\n### LG\n- Séries UK/UM/UP: LEDs do backlight queimam com frequência\n- Smart TV WebOS: eMMC cheia após 3-4 anos de uso\n- OLED: placa de alimentação OLED é cara (R$ 600-1.200)\n\n### Philco / Semp TCL / AOC\n- Componentes de qualidade inferior = falham mais cedo\n- Peças de reposição mais difíceis de encontrar\n- Reparo a nível de componente é a melhor opção (placas inteiras escassas)\n\n### Sony / Panasonic\n- Qualidade superior = falham menos\n- Quando falham, peças originais são mais caras\n- Reparo a nível de componente compensa ainda mais`,
+    relatedPages: [
+      { label: "Conserto de TV", to: "/servicos/conserto-tv" },
+      { label: "TV Não Liga", to: "/tv-nao-liga-curitiba" },
+      { label: "TV com Listras", to: "/tv-listras-na-tela-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "TV Cheiro Queimado", to: "/tv-cheiro-queimado-curitiba" }
+    ],
+  },
+  {
+    slug: "reparo-placa-som-amplificador-curitiba",
+    title: "Reparo de Placa de Som, Amplificador e Receiver em Curitiba",
+    metaDescription: "Conserto de amplificador, receiver, caixa de som e rádio em Curitiba. Reparo de placa a nível de componente. Transistores, capacitores, ICs de áudio.",
+    h1: "Reparo de Amplificador, Receiver e Equipamento de Som em Curitiba",
+    categoria: "Reparo de Placa-Mãe",
+    intro: `Amplificadores, receivers, caixas de som amplificadas e rádios têm algo em comum: **placas com componentes discretos que podem ser reparadas individualmente**. Diferente de celulares e notebooks (microsoldagem), equipamentos de áudio usam componentes maiores e mais acessíveis.\n\n**Porém, equipamentos de som de qualidade são caros** — receivers Yamaha, Denon e Marantz custam de R$ 2.000 a R$ 15.000. Amplificadores valvulados vintage podem valer R$ 5.000-30.000. O reparo quase sempre compensa.\n\n**Componentes comuns em reparo de áudio:**\n- Transistores de potência (TIP41/42, MJL21193/4): R$ 5-30/par\n- Capacitores eletrolíticos de filtro (10.000-22.000µF): R$ 15-60/cada\n- ICs de áudio (TDA7293, LM3886, STK): R$ 15-80/cada\n- Potenciômetros: R$ 5-30\n- Relés de proteção: R$ 10-40\n- Válvulas (EL34, 6L6, 12AX7): R$ 80-300/cada\n\n**O reparo de áudio exige ouvido treinado** — além de medir com instrumentos, o técnico precisa ouvir se o som está limpo, sem ruídos, distorções ou desequilíbrios entre canais.`,
+    sintomas: [
+      { titulo: "Amplificador não liga", desc: "Fusível queimado, fonte com defeito ou relé de proteção ativado. Geralmente capacitores ou transistores da fonte.", gravidade: "Simples a Médio" },
+      { titulo: "Som distorcido / chiado", desc: "Transistores de saída degradados, capacitores secos ou IC de áudio com defeito. Comum em amplificadores com 5+ anos.", gravidade: "Médio" },
+      { titulo: "Um canal não funciona", desc: "Transistor de saída queimado, relé de proteção do canal, solda fria no conector de saída. Teste comparativo entre canais.", gravidade: "Simples a Médio" },
+      { titulo: "Ronco / hum de 60Hz", desc: "Capacitores de filtro da fonte secos. O filtro não consegue mais alisar a tensão retificada. Capacitores de R$ 15-60.", gravidade: "Simples" },
+      { titulo: "Receiver entra em proteção", desc: "Um ou mais transistores de saída em curto. O circuito de proteção desliga para evitar dano nas caixas. Diagnóstico de par de saída.", gravidade: "Médio" },
+      { titulo: "Ruído ao girar volume", desc: "Potenciômetro sujo ou desgastado. Limpeza com spray de contato ou troca do componente.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Capacitores eletrolíticos secos", desc: "Após 10-20 anos, o eletrólito dos capacitores evapora. Perdem capacitância e ESR aumenta. É a causa #1 em equipamentos de áudio vintage e semi-vintage.", tipo: "desgaste" },
+      { titulo: "Transistores de potência em curto", desc: "Uso em volume alto, curto na saída (caixa com fio encostando) ou sobrecarga queimam os transistores do estágio de saída.", tipo: "hardware" },
+      { titulo: "Válvulas esgotadas (amplificadores valvulados)", desc: "Válvulas têm vida útil de 2.000-10.000 horas. Perdem emissão gradualmente. Troca de válvulas é manutenção normal.", tipo: "desgaste" },
+      { titulo: "Soldas frias por vibração", desc: "A vibração do próprio som (especialmente graves potentes) pode trincar soldas ao longo de anos.", tipo: "desgaste" },
+      { titulo: "Surto elétrico", desc: "Queima transistores, ICs e até transformador. Sem proteção (estabilizador/filtro de linha), é questão de tempo.", tipo: "erro-humano" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Fusível, capacitores secos, potenciômetro, solda fria. Componentes baratos.", tempo: "2 a 5 dias", custo: "R$ 150 a R$ 350" },
+      { nivel: "Médio", desc: "Transistores de saída, IC de áudio, relé, válvulas. Par de transistores + biasagem.", tempo: "5 a 10 dias", custo: "R$ 300 a R$ 700" },
+      { nivel: "Complexo", desc: "Transformador queimado, múltiplos estágios danificados, restauração completa de vintage.", tempo: "10 a 30 dias", custo: "R$ 500 a R$ 1.500+" }
+    ],
+    riscos: [
+      "Amplificadores valvulados operam com tensões de 300-500V — risco de choque",
+      "Transistores de saída de modelos antigos podem estar fora de fabricação",
+      "Receivers multicanal têm 7-11 estágios de amplificação — diagnóstico complexo",
+      "Equipamentos vintage podem precisar de recapacitação completa (todos os capacitores)",
+      "Caixas de som com falante queimado podem parecer problema do amplificador"
+    ],
+    diagnostico: `**Diagnóstico de equipamento de áudio:**\n\n**1. Teste visual:**\nCapacitores inchados, resistores queimados (escurecidos), soldas frias visíveis.\n\n**2. Teste de tensões da fonte:**\nMultímetro nas saídas do transformador retificado. Valores fora indicam fonte.\n\n**3. Teste de transistores de saída:**\nMultímetro em modo diodo. Junção base-emissor e base-coletor. Curto = queimado.\n\n**4. Teste funcional com carga resistiva:**\nConectar resistor de carga (8Ω/50W) em vez de caixa. Oscilar com gerador de sinal. Verificar saída no osciloscópio.\n\n**5. Teste de escuta:**\nApós reparo, ouvir com música de referência em volume baixo, médio e alto. Verificar ambos os canais.\n\n**Custo: R$ 60-100, abatido do serviço.**`,
+    solucao: `**Reparo de áudio a nível de componente:**\n\n**Fonte de alimentação (35% dos casos):**\n- Troca de capacitores de filtro (R$ 15-60)\n- Troca de diodos retificadores (R$ 2-10)\n- Fusível térmico (R$ 2-5)\n\n**Estágio de saída (30%):**\n- Troca de par de transistores de potência (R$ 10-60/par)\n- Ajuste de bias (polarização)\n- Teste de simetria entre canais\n\n**Pré-amplificador / processamento (20%):**\n- IC de áudio (TDA, LM, STK): R$ 15-80\n- Potenciômetros: limpeza ou troca\n- Chaves seletoras: limpeza de contatos\n\n**Amplificadores valvulados (15%):**\n- Troca de válvulas: R$ 80-300/cada\n- Ajuste de bias\n- Recapacitação se necessário\n\n**Todo reparo inclui teste de escuta com música de referência.**`,
+    quandoCompensa: "Quase sempre. Receivers Yamaha/Denon/Marantz de R$ 2.000-15.000 — reparo de R$ 300-700 é muito vantajoso. Amplificadores valvulados vintage — além do valor funcional, têm valor de colecionador.",
+    quandoNaoCompensa: "Caixas de som bluetooth baratas (R$ 100-300). Rádios simples de R$ 50-150. Quando o transformador queimou em equipamento barato.",
+    whatsappMessage: "Olá! Tenho um equipamento de som/amplificador com defeito. Podem diagnosticar?",
+    conteudoExtra: `## O Mundo do Reparo de Áudio\n\n### Por Que Equipamento de Som Premium Vale Reparar\n\n| Equipamento | Valor novo | Reparo médio | Economia |\n|------------|-----------|-------------|----------|\n| Receiver Yamaha RX-V6A | R$ 4.500 | R$ 300-600 | 85-93% |\n| Receiver Denon AVR-X2800H | R$ 6.000 | R$ 350-700 | 88-94% |\n| Receiver Marantz SR6015 | R$ 9.000 | R$ 400-800 | 91-96% |\n| Amplificador Marantz PM6007 | R$ 5.500 | R$ 250-500 | 91-95% |\n| Amplificador valvulado (vintage) | R$ 5.000-30.000 | R$ 400-1.200 | 92-97% |\n\n### Componentes e Preços Reais\n\n| Componente | Aplicação | Preço |\n|-----------|----------|-------|\n| Transistor TIP41C/42C | Saída de potência | R$ 3-8/par |\n| Transistor MJL21193/21194 | Saída alta potência | R$ 20-40/par |\n| Capacitor 10.000µF/50V | Filtro da fonte | R$ 15-30 |\n| Capacitor 22.000µF/80V | Filtro (alta potência) | R$ 40-60 |\n| IC TDA7293 | Amplificador integrado | R$ 20-40 |\n| IC LM3886 | Amplificador audiófilo | R$ 30-60 |\n| IC STK4050 | Amplificador de potência | R$ 40-80 |\n| Válvula EL34 (par casado) | Amplificador valvulado | R$ 200-500/par |\n| Válvula 12AX7 | Pré-amplificador | R$ 80-200 |\n| Potenciômetro ALPS | Volume de qualidade | R$ 15-40 |\n| Relé de proteção | Circuito de proteção | R$ 10-30 |\n\n### Dicas de Manutenção Preventiva\n\n1. **Use estabilizador ou filtro de linha** — protege contra surtos\n2. **Não empilhe equipamentos** — calor degrada capacitores mais rápido\n3. **Ligue em volume baixo** e aumente gradualmente\n4. **Verifique impedância das caixas** — caixas de 2Ω em receiver de 6Ω = queima garantida\n5. **Amplificadores valvulados** — troque válvulas a cada 2.000-5.000 horas de uso`,
+    relatedPages: [
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Equipamentos Atendidos", to: "/equipamentos-atendidos" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
+      { label: "Preços e Políticas", to: "/precos-e-politicas" }
+    ],
+  },
+  {
+    slug: "por-que-conserto-placa-mae-custa-caro-curitiba",
+    title: "Por Que Conserto de Placa-Mãe Custa Caro? | Entenda os Custos Reais",
+    metaDescription: "Entenda por que o reparo de placa-mãe custa R$ 300-1.500. Equipamentos de R$ 20.000-65.000, anos de treinamento e componentes importados.",
+    h1: "Por Que o Conserto de Placa-Mãe Custa Caro? — A Verdade Sobre os Custos",
+    categoria: "Educacional",
+    intro: `**"Por que vocês cobram R$ 500 para trocar um componentezinho?"** — Essa é uma das perguntas mais comuns. A resposta envolve entender o **investimento brutal** que um técnico de microsoldagem faz para poder oferecer esse serviço.\n\n**O "componentezinho" custa R$ 3. O equipamento para trocá-lo custa R$ 30.000.**\n\nUm técnico especializado em reparo de placas-mãe investe:\n- **R$ 20.000 a R$ 65.000** em equipamentos\n- **2 a 5 anos** de treinamento e prática\n- **R$ 500 a R$ 1.500/mês** em consumíveis (flux, estanho, pontas, stencils)\n- **R$ 200-500/mês** em componentes de estoque (ICs, MOSFETs, capacitores)\n\nAlém disso, nem todo reparo dá certo. A taxa de sucesso varia de 60% a 90% dependendo do tipo de defeito. Nos reparos que não funcionam, o técnico investiu tempo e material sem retorno.\n\n**É como um cirurgião:** você não paga pelo corte — paga pelos anos de estudo e pelo equipamento de R$ 500.000 da sala de cirurgia.`,
+    sintomas: [
+      { titulo: "Cliente acha caro o orçamento", desc: "Compara com o preço do componente (R$ 3-30) sem considerar equipamento, treinamento e risco.", gravidade: "Simples" },
+      { titulo: "Busca técnico mais barato", desc: "Técnicos baratos sem equipamento adequado podem danificar a placa irreversivelmente.", gravidade: "Complexo" },
+      { titulo: "Quer consertar sozinho (YouTube)", desc: "Sem microscópio e estação adequada, chance de sucesso é mínima e risco de piorar é alto.", gravidade: "Complexo" },
+      { titulo: "Compara com preço de formatação", desc: "Formatação usa R$ 50 em equipamento. Microsoldagem usa R$ 30.000+. São serviços incomparáveis.", gravidade: "Simples" }
+    ],
+    causas: [
+      { titulo: "Equipamentos custam R$ 20.000-65.000", desc: "Estação BGA (R$ 5.000-35.000), microscópio (R$ 2.000-5.000), osciloscópio (R$ 2.000-8.000), estação de solda profissional (R$ 1.500-5.000), câmera térmica (R$ 1.500-5.000).", tipo: "hardware" },
+      { titulo: "Treinamento leva 2-5 anos", desc: "Cursos de eletrônica, microsoldagem, diagnóstico BGA. Prática diária. Não se aprende em 1 curso de fim de semana.", tipo: "erro-humano" },
+      { titulo: "Componentes são importados", desc: "ICs, chips BGA e componentes específicos vêm da China com frete + impostos. Prazo de 15-30 dias. Estoque mínimo: R$ 2.000-5.000.", tipo: "hardware" },
+      { titulo: "Taxa de sucesso não é 100%", desc: "Em reballing BGA, taxa é 70-85%. O técnico investe 2-4 horas de trabalho que pode não ter resultado. Isso é embutido no preço.", tipo: "desgaste" }
+    ],
+    cenarios: [
+      { nivel: "Simples", desc: "Componentes discretos (capacitor, resistor, MOSFET). Equipamento básico suficiente.", tempo: "1 a 3 dias", custo: "R$ 200 a R$ 450" },
+      { nivel: "Médio", desc: "ICs de gerenciamento, controladores. Estação BGA necessária.", tempo: "3 a 7 dias", custo: "R$ 400 a R$ 800" },
+      { nivel: "Complexo", desc: "CPU, GPU, NAND, PMIC. Estação BGA profissional + stencils específicos.", tempo: "7 a 20 dias", custo: "R$ 600 a R$ 1.500" }
+    ],
+    riscos: [
+      "Técnico barato sem equipamento pode destruir a placa",
+      "Componentes falsificados/reciclados podem falhar em semanas",
+      "Reparo DIY sem microscópio tem taxa de sucesso próxima de 0%",
+      "Cada tentativa fracassada dificulta a próxima (pads danificados)",
+      "Aquecimento incorreto destrói chips adjacentes ao componente alvo"
+    ],
+    diagnostico: `**O que está incluso no custo do diagnóstico:**\n\n1. **Desmontagem completa** do equipamento\n2. **Inspeção visual com microscópio** (R$ 2.000-5.000 de equipamento)\n3. **Medições com multímetro e osciloscópio** (R$ 3.000-10.000)\n4. **Teste com fonte regulável** (R$ 300-1.500)\n5. **Identificação do componente defeituoso**\n6. **Orçamento detalhado** com probabilidade de sucesso\n7. **Remontagem** se o cliente não aprovar\n\n**Tempo médio: 30 minutos a 2 horas de trabalho técnico.**\n\n**Custo: R$ 50-150, abatido do serviço aprovado.**`,
+    solucao: `**Entendendo a composição do preço:**\n\n**R$ 500 de reparo de placa = isso:**\n- R$ 5-30 em componente\n- R$ 50-100 em amortização de equipamento\n- R$ 30-50 em consumíveis (flux, estanho, ponta)\n- R$ 200-300 em mão de obra especializada (2-4 horas)\n- R$ 50-100 em risco (% de reparos sem sucesso)\n- R$ 20-30 em energia, aluguel, impostos\n\n**Comparação internacional:**\n- EUA: reparo de placa-mãe custa US$ 150-500 (R$ 750-2.500)\n- Europa: €120-400 (R$ 660-2.200)\n- Brasil: R$ 300-1.500\n\n**O Brasil pratica preços menores que o mercado internacional.**`,
+    quandoCompensa: "Sempre que o equipamento vale mais que o dobro do custo do reparo. Notebooks de R$ 3.000+, celulares de R$ 2.000+, TVs de R$ 2.500+, receivers de R$ 3.000+.",
+    quandoNaoCompensa: "Quando o custo do reparo ultrapassa 50% do valor de um equipamento novo equivalente. Nesse caso, o investimento é melhor direcionado para um aparelho novo com garantia.",
+    whatsappMessage: "Olá! Quero entender melhor sobre reparo de placa-mãe. Podem me orientar?",
+    conteudoExtra: `## Investimento Total de Uma Bancada Profissional\n\n### Bancada de Microsoldagem de Celular\n\n| Equipamento | Marca/Modelo Referência | Preço Médio |\n|------------|------------------------|------------|\n| Microscópio trinocular 7x-50x | Simul-focal com LED | R$ 2.500 |\n| Câmera 37MP HDMI | Para monitor externo | R$ 1.200 |\n| Monitor 22" | Para câmera do microscópio | R$ 800 |\n| Estação de solda | JBC CD-2BE | R$ 4.000 |\n| Pontas de solda (kit) | JBC C210 (5 pontas) | R$ 500 |\n| Ar quente | Quick 861DW | R$ 1.200 |\n| Pré-aquecedor | Placa inferior | R$ 800 |\n| Fonte regulável | 30V/5A com display | R$ 600 |\n| Multímetro | Fluke 117 | R$ 1.200 |\n| Programadora NAND | JC P7 / iRepair P10 | R$ 2.500 |\n| Ultrassônica | 3L digital | R$ 500 |\n| Stencils (acervo) | 50+ modelos | R$ 3.000 |\n| Consumíveis iniciais | Flux, estanho, fios, etc. | R$ 1.500 |\n| **SUBTOTAL** | | **~R$ 20.300** |\n\n### Bancada de BGA para Notebook\n\n| Equipamento | Marca/Modelo Referência | Preço Médio |\n|------------|------------------------|------------|\n| Estação BGA IR | Achi IR6000 | R$ 4.500 |\n| OU Estação BGA Pro | Pro-660/Pro-880 | R$ 18.000-30.000 |\n| Osciloscópio 4ch | Rigol DS1054Z | R$ 3.000 |\n| Câmera térmica | Uni-T UTi120S | R$ 2.500 |\n| Programador BIOS | CH341A + adaptadores | R$ 150 |\n| **SUBTOTAL** | | **~R$ 10.000-36.000** |\n\n### Bancada de Reparo de TV\n\n| Equipamento | Marca/Modelo Referência | Preço Médio |\n|------------|------------------------|------------|\n| Máquina TAB | Para flat cables | R$ 5.000-15.000 |\n| Estação de solda | Para componentes THT/SMD | R$ 1.000 |\n| Multímetro de bancada | Para medições precisas | R$ 1.500 |\n| Fonte regulável | Para teste de placas | R$ 600 |\n| Lâmpada série | Para teste de fonte | R$ 50 |\n| **SUBTOTAL** | | **~R$ 8.000-18.000** |\n\n### TOTAL de uma oficina completa (celular + notebook + TV):\n**R$ 38.000 a R$ 75.000+**\n\n## A Realidade do Técnico\n\n### Formação\n- Curso técnico em eletrônica: 1-2 anos\n- Curso de microsoldagem BGA: 40-80 horas + prática\n- Curso de diagnóstico de placas: 40-60 horas\n- Prática diária: 2-5 anos até se tornar proficiente\n- Atualização constante: novos modelos, novos chips, novos processos\n\n### Por Que Poucos Técnicos Fazem Microsoldagem\n- Investimento alto (R$ 20.000-75.000)\n- Curva de aprendizado longa (2-5 anos)\n- Risco financeiro (reparos sem sucesso)\n- Demanda por precisão extrema\n- Estresse (componentes de R$ 2.000 na mão)\n\n## Conclusão: Valor vs Preço\n\nO cliente não está pagando por um "componentezinho de R$ 3".\nEstá pagando por:\n- **R$ 30.000-75.000** em equipamento\n- **3-5 anos** de treinamento\n- **2-4 horas** de trabalho especializado\n- **A chance de salvar um equipamento** que de outra forma iria para o lixo\n\nPense assim: um médico não cobra pelo esparadrapo. Cobra pelo diagnóstico correto.`,
+    relatedPages: [
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
+      { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
+      { label: "Reparo Placa Som", to: "/reparo-placa-som-amplificador-curitiba" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }
+    ],
+  },
 ];
 export const getProblemaPageBySlug = (slug: string): ProblemaPageData | undefined => {
   return problemaPagesData.find(p => p.slug === slug);

@@ -69,4 +69,20 @@ export const IMAGES = {
   // Pessoa satisfeita / cliente feliz
   clienteSatisfeito: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=600&q=70",
   clienteSatisfeitoAlt: "Cliente satisfeito após reparo de computador",
+
+  // Microsoldagem / BGA rework — placa com chip BGA
+  microsoldagem: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=70",
+  microsoldagemAlt: "Microsoldagem BGA em placa-mãe com estação de retrabalho profissional",
+
+  // Estação de solda / retrabalho
+  estacaoSolda: "https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=600&q=70",
+  estacaoSoldaAlt: "Estação de solda e retrabalho BGA para reparo de placas eletrônicas",
+
+  // Microscópio trinocular — reparo de celular
+  microscopio: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=70",
+  microscopioAlt: "Microscópio trinocular profissional para microsoldagem de componentes",
+
+  // Amplificador / receiver / som
+  amplificadorSom: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=70",
+  amplificadorSomAlt: "Amplificador de áudio aberto para reparo de componentes eletrônicos",
 } as const;

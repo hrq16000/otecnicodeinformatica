@@ -95,6 +95,17 @@ const infoLinks = [
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const servicosFooter = useMemo(() => {
+    const info = pickRandom(informaticaLinks, 3);
+    const serv = pickRandom(servicosLinks, 3);
+    const proc = pickRandom(procedimentosTvLinks, 3);
+    return [
+      { label: "Todos os Serviços", to: "/servicos" },
+      ...info, ...serv, ...proc,
+    ];
+  }, []);
+
   return (
     <footer className="premium-gradient py-12 md:py-14 relative overflow-hidden noise-overlay">
       <FloatingParticles count={15} />
@@ -130,19 +141,29 @@ export const Footer = () => {
             </a>
           </div>
 
-          {/* Dynamic sections */}
-          {footerSections.map((section) => (
-            <div key={section.title} className="anim-fade-up">
-              <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((item) => (
-                  <li key={item.to}>
-                    <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Serviços (randomizado) */}
+          <div className="anim-fade-up">
+            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Serviços</h3>
+            <ul className="space-y-2">
+              {servicosFooter.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Atendimento */}
+          <div className="anim-fade-up">
+            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Atendimento</h3>
+            <ul className="space-y-2">
+              {atendimentoLinks.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Regiões */}
           <div className="anim-fade-up">

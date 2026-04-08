@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect, useCallback } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server, Cpu, Tv, Smartphone, Database, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, MapPin, Monitor, Shield, HardDrive, Wifi, Wrench, Server, Cpu, Tv, Smartphone, Database, Zap, LocateFixed, ChevronDown } from "lucide-react";
 
 interface ServiceLink {
   title: string;
@@ -27,7 +27,7 @@ const allServices: ServiceLink[] = [
 
 const cityLinks = [
   {
-    name: "Curitiba", url: "/tecnico-informatica-curitiba",
+    name: "Curitiba", url: "/tecnico-informatica-curitiba", lat: -25.4284, lng: -49.2733,
     bairros: [
       { name: "Centro", slug: "centro" }, { name: "Batel", slug: "batel" }, { name: "Portão", slug: "portao" },
       { name: "CIC", slug: "cic" }, { name: "Santa Felicidade", slug: "santa-felicidade" }, { name: "Água Verde", slug: "agua-verde" },
@@ -44,7 +44,7 @@ const cityLinks = [
     ],
   },
   {
-    name: "São José dos Pinhais", url: "/tecnico-informatica-sao-jose-pinhais",
+    name: "São José dos Pinhais", url: "/tecnico-informatica-sao-jose-pinhais", lat: -25.5365, lng: -49.2085,
     bairros: [
       { name: "Centro SJP", slug: "sao-jose-dos-pinhais" }, { name: "Afonso Pena", slug: "afonso-pena" },
       { name: "Cruzeiro", slug: "cruzeiro" }, { name: "Aristocrata", slug: "aristocrata" }, { name: "Braga", slug: "braga" },
@@ -57,7 +57,7 @@ const cityLinks = [
     ],
   },
   {
-    name: "Araucária", url: "/tecnico-informatica-araucaria",
+    name: "Araucária", url: "/tecnico-informatica-araucaria", lat: -25.5926, lng: -49.4103,
     bairros: [
       { name: "Centro", slug: "centro-araucaria" }, { name: "Capela Velha", slug: "capela-velha" },
       { name: "Thomaz Coelho", slug: "thomaz-coelho" }, { name: "Chapada", slug: "chapada" },
@@ -72,7 +72,7 @@ const cityLinks = [
     ],
   },
   {
-    name: "Campo Largo", url: "/tecnico-informatica-campo-largo",
+    name: "Campo Largo", url: "/tecnico-informatica-campo-largo", lat: -25.4596, lng: -49.5317,
     bairros: [
       { name: "Centro", slug: "centro-campo-largo" }, { name: "Ferraria", slug: "ferraria" },
       { name: "Jd. Guilhermina", slug: "jardim-guilhermina" }, { name: "Jd. América", slug: "jardim-america-campo-largo" },
@@ -87,7 +87,7 @@ const cityLinks = [
     ],
   },
   {
-    name: "Pinhais", url: "/tecnico-informatica-pinhais",
+    name: "Pinhais", url: "/tecnico-informatica-pinhais", lat: -25.4427, lng: -49.1927,
     bairros: [
       { name: "Centro", slug: "centro-pinhais" }, { name: "Weissópolis", slug: "weissopolis" },
       { name: "Pineville", slug: "pineville" }, { name: "Emiliano Perneta", slug: "emiliano-perneta" },
@@ -112,17 +112,92 @@ function shuffleArray<T>(arr: T[]): T[] {
   return shuffled;
 }
 
+function getDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+type GeoState = "idle" | "prompting" | "loading" | "granted" | "denied";
+
 export const TopSearchedServicesSection = () => {
   const isMobile = useIsMobile();
-  // Mobile: 3 items (1 col × 3 rows), Desktop: 6 items (3 cols × 2 rows)
   const serviceCount = isMobile ? 3 : 6;
   const randomizedServices = useMemo(() => shuffleArray(allServices).slice(0, serviceCount), [serviceCount]);
-  const randomizedCities = useMemo(() =>
-    cityLinks.map(city => ({
+
+  const [geoState, setGeoState] = useState<GeoState>("idle");
+  const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const [detectedCity, setDetectedCity] = useState<string | null>(null);
+
+  // Find closest city based on user coords
+  const closestCity = useMemo(() => {
+    if (!userCoords) return null;
+    let minDist = Infinity;
+    let closest = cityLinks[0];
+    for (const city of cityLinks) {
+      const d = getDistance(userCoords.lat, userCoords.lng, city.lat, city.lng);
+      if (d < minDist) { minDist = d; closest = city; }
+    }
+    // Only match if within 30km
+    return minDist <= 30 ? closest : null;
+  }, [userCoords]);
+
+  const requestLocation = useCallback(() => {
+    if (!navigator.geolocation) {
+      setGeoState("denied");
+      return;
+    }
+    setGeoState("loading");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setGeoState("granted");
+      },
+      () => {
+        setGeoState("denied");
+      },
+      { timeout: 8000, maximumAge: 300000 }
+    );
+  }, []);
+
+  // Auto-prompt when section comes into view
+  useEffect(() => {
+    if (geoState !== "idle") return;
+    const timer = setTimeout(() => setGeoState("prompting"), 500);
+    return () => clearTimeout(timer);
+  }, [geoState]);
+
+  // Set detected city name
+  useEffect(() => {
+    if (closestCity) setDetectedCity(closestCity.name);
+  }, [closestCity]);
+
+  // Determine which cities to show
+  const citiesToShow = useMemo(() => {
+    if (geoState === "granted" && closestCity && !showAll) {
+      // Show matched city with more bairros + 1-2 nearby
+      const sorted = [...cityLinks].sort((a, b) => {
+        if (!userCoords) return 0;
+        return getDistance(userCoords.lat, userCoords.lng, a.lat, a.lng) -
+               getDistance(userCoords.lat, userCoords.lng, b.lat, b.lng);
+      });
+      const nearby = sorted.slice(0, 3);
+      return nearby.map((city, i) => ({
+        ...city,
+        bairros: shuffleArray(city.bairros).slice(0, i === 0 ? 6 : 4),
+      }));
+    }
+    // Show all with randomized bairros
+    return cityLinks.map(city => ({
       ...city,
       bairros: shuffleArray(city.bairros).slice(0, 4),
-    })),
-  []);
+    }));
+  }, [geoState, closestCity, showAll, userCoords]);
+
+  const gridCols = citiesToShow.length <= 3 ? "md:grid-cols-3" : "md:grid-cols-5";
 
   return (
     <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background relative overflow-hidden noise-overlay">
@@ -173,12 +248,53 @@ export const TopSearchedServicesSection = () => {
         </div>
 
         <div className="glass-card gradient-border rounded-2xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] transition-shadow duration-300">
-          <h3 className="text-xl font-bold text-foreground mb-6 text-center reveal-text">
-            Atendimento por <span className="gradient-text">Região</span>
-          </h3>
-          <div className="grid md:grid-cols-5 gap-6">
-            {randomizedCities.map((city, index) => (
-              <div key={index} className="text-center group slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-foreground mb-2 reveal-text">
+              Atendimento por <span className="gradient-text">Região</span>
+            </h3>
+
+            {/* Geo prompt / status */}
+            {geoState === "prompting" && (
+              <div className="mt-4 animate-fade-in">
+                <p className="text-sm text-muted-foreground mb-3">
+                  Quer ver os bairros mais próximos de você?
+                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <button
+                    onClick={requestLocation}
+                    className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent/90 hover:scale-105 transition-all duration-200 elastic-click"
+                  >
+                    <LocateFixed className="h-4 w-4" />
+                    Usar minha localização
+                  </button>
+                  <button
+                    onClick={() => setGeoState("denied")}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
+                  >
+                    Ver todas as regiões
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {geoState === "loading" && (
+              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground animate-pulse">
+                <LocateFixed className="h-4 w-4 animate-spin" />
+                Detectando sua localização...
+              </div>
+            )}
+
+            {geoState === "granted" && detectedCity && !showAll && (
+              <div className="mt-3 inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium">
+                <LocateFixed className="h-3.5 w-3.5" />
+                Mostrando resultados perto de <strong>{detectedCity}</strong>
+              </div>
+            )}
+          </div>
+
+          <div className={`grid ${gridCols} gap-6`}>
+            {citiesToShow.map((city, index) => (
+              <div key={city.name} className="text-center group slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
                 <Link
                   to={city.url}
                   className="inline-flex items-center justify-center gap-1.5 text-lg font-bold text-accent hover:text-accent/80 transition-all mb-3 group-hover:scale-105 underline-grow whitespace-nowrap"
@@ -200,6 +316,30 @@ export const TopSearchedServicesSection = () => {
               </div>
             ))}
           </div>
+
+          {/* Ver mais / Ver todas */}
+          {geoState === "granted" && !showAll && (
+            <div className="text-center mt-6">
+              <button
+                onClick={() => setShowAll(true)}
+                className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-medium text-sm transition-all hover:gap-3"
+              >
+                <ChevronDown className="h-4 w-4" />
+                Ver todas as regiões atendidas
+              </button>
+            </div>
+          )}
+
+          {showAll && (
+            <div className="text-center mt-4">
+              <button
+                onClick={() => setShowAll(false)}
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent font-medium text-sm transition-all"
+              >
+                Mostrar apenas minha região
+              </button>
+            </div>
+          )}
           
           <div className="text-center mt-8 pt-6 border-t border-border">
             <p className="text-muted-foreground mb-4">

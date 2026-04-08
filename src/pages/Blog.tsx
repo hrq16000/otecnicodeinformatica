@@ -740,7 +740,7 @@ const Blog = () => {
                     <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">WhatsApp</Button>
                   </a>
                   <Link to="/contato">
-                    <Button variant="outline" className="gap-2 rounded-full px-8 py-6 text-base border-white/20 text-white hover:bg-white/10 hover-glow-cta">
+                    <Button variant="outline" className="gap-2 rounded-full px-8 py-6 text-base border-white/40 text-white bg-white/10 hover:bg-white/20 hover:border-white/60 hover-glow-cta font-semibold backdrop-blur-sm">
                       Contato <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>

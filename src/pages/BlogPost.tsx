@@ -4,6 +4,8 @@ import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";

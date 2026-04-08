@@ -179,7 +179,7 @@ const Servicos = () => {
                 return (
                   <article
                     key={index}
-                    className="group bg-secondary rounded-xl p-6 md:p-8 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 stagger-item"
+                    className="group glass-card gradient-border rounded-xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-300 hover-streak animated-border stagger-item"
                     style={{ animationDelay: `${index * 40}ms` }}
                   >
                     <div className="flex flex-col md:flex-row gap-6">
@@ -286,7 +286,7 @@ const Servicos = () => {
                     ],
                   },
                 ].map((item, i) => (
-                  <div key={i} className="group bg-secondary rounded-xl p-6 border border-border/50 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
+                  <div key={i} className="group glass-card gradient-border rounded-xl p-6 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak animated-border stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
                     <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.problema}</h3>
                     <p className="text-muted-foreground text-sm mb-4">{item.descricao}</p>
                     <div className="flex flex-wrap gap-2">

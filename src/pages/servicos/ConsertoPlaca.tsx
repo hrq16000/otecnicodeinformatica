@@ -4,6 +4,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
 import { Cpu, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
+import { DIAGNOSTICO_VALOR_LABEL, COLETA_TAXA_MINIMA_LABEL } from "@/lib/coletaConfig";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -148,8 +149,8 @@ const ConsertoPlaca = () => {
               <p>Reparar placas eletrônicas é um serviço especializado. Alguns pontos importantes:</p>
               <ul className="list-disc list-inside space-y-1 ml-2">
                 <li><strong className="text-foreground">Nem toda placa é reparável.</strong> Se o dano for extenso ou o custo superar o valor de reposição, avisamos antes.</li>
-                <li><strong className="text-foreground">Diagnóstico é sempre pago</strong> (R$ 90). Se não houver viabilidade, você paga apenas o diagnóstico.</li>
-                <li><strong className="text-foreground">Prazos variam muito.</strong> Peças importadas, componentes raros ou reballing podem levar semanas.</li>
+                <li><strong className="text-foreground">Diagnóstico é sempre pago</strong> ({DIAGNOSTICO_VALOR_LABEL}). Taxa mínima {COLETA_TAXA_MINIMA_LABEL} pré-aprovada com coleta e entrega.</li>
+                <li><strong className="text-foreground">Prazos variam muito.</strong> Peças importadas, componentes raros ou reballing podem levar de 15 a 60 dias úteis.</li>
                 <li><strong className="text-foreground">Garantia limitada ao componente.</strong> Placas reparadas têm garantia do reparo, mas componentes adjacentes podem falhar depois.</li>
               </ul>
             </div>

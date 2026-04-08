@@ -513,7 +513,7 @@ const ColetaFormulario = () => {
                       </div>
                       <div>
                         <Label>Telefone de quem recebe</Label>
-                        <Input value={form.receiverPhone} onChange={(e) => updateField("receiverPhone", e.target.value)} placeholder="(41) 99999-9999" />
+                        <Input value={form.receiverPhone || form.phone} onChange={(e) => updateField("receiverPhone", e.target.value)} placeholder="(41) 99999-9999" />
                       </div>
                     </div>
                     <div>

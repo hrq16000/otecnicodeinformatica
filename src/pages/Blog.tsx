@@ -8,17 +8,18 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
+import { getUniqueImage } from "@/lib/blogImages";
 import { problemaPagesData } from "@/lib/problemaPagesData";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
   Smartphone, Tv, Wrench, Shield, Wifi, HardDrive, Printer,
   Radio, Zap, TrendingUp, BookOpen, ChevronDown, Layers, Star,
-  Eye, Flame, Filter, X,
+  Eye, Flame, Filter, X, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, ArrowUp,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-// ─── Blog Posts Data ───
+// ─── Blog Posts Data (each with its own unique image slug) ───
 const blogPosts = [
   { slug: "quando-trocar-computador-ou-reparar", title: "Quando Trocar o Computador e Quando Vale a Pena Reparar (Guia Técnico)", excerpt: "PC antigo, lento ou com defeito? Descubra os critérios técnicos que definem se vale investir no reparo ou se é hora de partir para um equipamento novo.", date: "2026-04-06", readTime: "11 min", category: "Manutenção" },
   { slug: "erros-comuns-upgrade-computador", title: "5 Erros Comuns ao Fazer Upgrade no Computador (e Como Evitar Prejuízo)", excerpt: "Comprar RAM incompatível, instalar SSD errado, forçar peças no slot — veja os erros que causam prejuízo.", date: "2026-04-06", readTime: "8 min", category: "Manutenção" },
@@ -55,24 +56,23 @@ const blogPosts = [
 ];
 
 // ─── Category config ───
-const CATEGORY_MAP: Record<string, { label: string; icon: typeof Cpu; image: string; color: string }> = {
-  "Hardware": { label: "Hardware", icon: Cpu, image: IMAGES.placaMae, color: "from-blue-600 to-cyan-500" },
-  "Problemas de Celular": { label: "Celular", icon: Smartphone, image: IMAGES.microsoldagem, color: "from-purple-600 to-pink-500" },
-  "Problemas de TV": { label: "TV", icon: Tv, image: IMAGES.smartTv, color: "from-red-600 to-orange-500" },
-  "Problemas de Computador": { label: "Computador", icon: Monitor, image: IMAGES.desktopMontado, color: "from-indigo-600 to-blue-500" },
-  "Notebook": { label: "Notebook", icon: Monitor, image: IMAGES.notebookReparo, color: "from-teal-600 to-emerald-500" },
-  "Problemas de Rádio / Som": { label: "Rádio & Som", icon: Radio, image: IMAGES.amplificadorSom, color: "from-amber-600 to-yellow-500" },
-  "Software / Sistema": { label: "Software", icon: Layers, image: IMAGES.suporteRemoto, color: "from-violet-600 to-purple-500" },
-  "Procedimentos Técnicos": { label: "Procedimentos", icon: Zap, image: IMAGES.estacaoSolda, color: "from-orange-600 to-red-500" },
-  "Problemas de Impressora": { label: "Impressora", icon: Printer, image: IMAGES.ferramentas, color: "from-slate-600 to-gray-500" },
-  "Erros e Casos Reais": { label: "Casos Reais", icon: Star, image: IMAGES.bancadaTecnica, color: "from-rose-600 to-pink-500" },
-  "Reparo de Placa-Mãe": { label: "Placa-Mãe", icon: Cpu, image: IMAGES.microsoldagem, color: "from-emerald-600 to-teal-500" },
-  "Redes": { label: "Redes", icon: Wifi, image: IMAGES.redesWifi, color: "from-sky-600 to-blue-500" },
-  "Segurança": { label: "Segurança", icon: Shield, image: IMAGES.segurancaDigital, color: "from-green-600 to-emerald-500" },
-  "Periféricos": { label: "Periféricos", icon: HardDrive, image: IMAGES.componentesSsd, color: "from-zinc-600 to-slate-500" },
+const CATEGORY_MAP: Record<string, { label: string; icon: typeof Cpu; color: string }> = {
+  "Hardware": { label: "Hardware", icon: Cpu, color: "from-blue-600 to-cyan-500" },
+  "Problemas de Celular": { label: "Celular", icon: Smartphone, color: "from-purple-600 to-pink-500" },
+  "Problemas de TV": { label: "TV", icon: Tv, color: "from-red-600 to-orange-500" },
+  "Problemas de Computador": { label: "Computador", icon: Monitor, color: "from-indigo-600 to-blue-500" },
+  "Notebook": { label: "Notebook", icon: Monitor, color: "from-teal-600 to-emerald-500" },
+  "Problemas de Rádio / Som": { label: "Rádio & Som", icon: Radio, color: "from-amber-600 to-yellow-500" },
+  "Software / Sistema": { label: "Software", icon: Layers, color: "from-violet-600 to-purple-500" },
+  "Procedimentos Técnicos": { label: "Procedimentos", icon: Zap, color: "from-orange-600 to-red-500" },
+  "Problemas de Impressora": { label: "Impressora", icon: Printer, color: "from-slate-600 to-gray-500" },
+  "Erros e Casos Reais": { label: "Casos Reais", icon: Star, color: "from-rose-600 to-pink-500" },
+  "Reparo de Placa-Mãe": { label: "Placa-Mãe", icon: Cpu, color: "from-emerald-600 to-teal-500" },
+  "Redes": { label: "Redes", icon: Wifi, color: "from-sky-600 to-blue-500" },
+  "Segurança": { label: "Segurança", icon: Shield, color: "from-green-600 to-emerald-500" },
+  "Periféricos": { label: "Periféricos", icon: HardDrive, color: "from-zinc-600 to-slate-500" },
 };
-
-const DEFAULT_CAT = { label: "Outros", icon: Wrench, image: IMAGES.tecnicoTrabalhando, color: "from-gray-600 to-slate-500" };
+const DEFAULT_CAT = { label: "Outros", icon: Wrench, color: "from-gray-600 to-slate-500" };
 
 function getCat(cat: string) {
   for (const [key, val] of Object.entries(CATEGORY_MAP)) {
@@ -93,33 +93,34 @@ type ContentItem = {
   title: string;
   excerpt: string;
   category: string;
-  image: string;
+  image: string; // now unique per item
   readTime?: string;
   date?: string;
   gravidade?: string;
 };
 
 const SERVICO_PAGES: ContentItem[] = [
-  { type: "servico", slug: "formatacao", path: "/servicos/formatacao-computador", title: "Formatação de Computador", excerpt: "Formatação profissional com backup, instalação de drivers e programas essenciais.", category: "Serviços", image: IMAGES.suporteRemoto },
-  { type: "servico", slug: "remocao-virus", path: "/servicos/remocao-virus", title: "Remoção de Vírus e Malware", excerpt: "Limpeza completa de vírus, trojans, ransomware e adware com ferramentas profissionais.", category: "Serviços", image: IMAGES.segurancaDigital },
-  { type: "servico", slug: "upgrade-ssd", path: "/servicos/upgrade-ssd-memoria", title: "Upgrade de SSD e Memória RAM", excerpt: "Deixe seu PC até 10x mais rápido com SSD NVMe e mais memória RAM.", category: "Serviços", image: IMAGES.componentesSsd },
-  { type: "servico", slug: "conserto-pc", path: "/servicos/conserto-pc-notebook", title: "Conserto de PC e Notebook", excerpt: "Reparo profissional de hardware e software para computadores e notebooks.", category: "Serviços", image: IMAGES.notebookReparo },
-  { type: "servico", slug: "redes-wifi", path: "/servicos/redes-wifi", title: "Redes e Wi-Fi", excerpt: "Instalação, configuração e otimização de redes domésticas e empresariais.", category: "Serviços", image: IMAGES.redesWifi },
-  { type: "servico", slug: "conserto-placa", path: "/servicos/conserto-placa", title: "Conserto de Placa Eletrônica", excerpt: "Reparo de placa-mãe, GPU e componentes com microsoldagem profissional.", category: "Serviços", image: IMAGES.microsoldagem },
-  { type: "servico", slug: "manutencao-tv", path: "/servicos/manutencao-tv", title: "Manutenção de TV", excerpt: "Reparo de TV LED, LCD, Smart TV e OLED com diagnóstico profissional.", category: "Serviços", image: IMAGES.smartTv },
-  { type: "servico", slug: "cftv", path: "/cftv", title: "CFTV — Câmeras de Segurança", excerpt: "Instalação e manutenção de sistemas de câmeras de segurança.", category: "Serviços", image: IMAGES.cameraSeguranca },
-  { type: "servico", slug: "montagem-pc", path: "/servicos/montagem-pc", title: "Montagem de PC", excerpt: "Montagem personalizada de computadores para jogos, trabalho e estudo.", category: "Serviços", image: IMAGES.desktopMontado },
-  { type: "servico", slug: "backup", path: "/servicos/backup-recuperacao", title: "Backup e Recuperação de Dados", excerpt: "Recuperação de arquivos perdidos e backup profissional em nuvem ou HD externo.", category: "Serviços", image: IMAGES.componentesSsd },
-  { type: "servico", slug: "procedimentos", path: "/procedimentos-placa", title: "Procedimentos Técnicos em Placa", excerpt: "Reflow, Reballing, Troca de Chip BGA, Microsoldagem e Recapacitação.", category: "Serviços", image: IMAGES.estacaoSolda },
-  { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: IMAGES.coletaEntrega },
+  { type: "servico", slug: "formatacao", path: "/servicos/formatacao-computador", title: "Formatação de Computador", excerpt: "Formatação profissional com backup, instalação de drivers e programas essenciais.", category: "Serviços", image: getUniqueImage("svc-formatacao") },
+  { type: "servico", slug: "remocao-virus", path: "/servicos/remocao-virus", title: "Remoção de Vírus e Malware", excerpt: "Limpeza completa de vírus, trojans, ransomware e adware com ferramentas profissionais.", category: "Serviços", image: getUniqueImage("svc-remocao-virus") },
+  { type: "servico", slug: "upgrade-ssd", path: "/servicos/upgrade-ssd-memoria", title: "Upgrade de SSD e Memória RAM", excerpt: "Deixe seu PC até 10x mais rápido com SSD NVMe e mais memória RAM.", category: "Serviços", image: getUniqueImage("svc-upgrade-ssd") },
+  { type: "servico", slug: "conserto-pc", path: "/servicos/conserto-pc-notebook", title: "Conserto de PC e Notebook", excerpt: "Reparo profissional de hardware e software para computadores e notebooks.", category: "Serviços", image: getUniqueImage("svc-conserto-pc") },
+  { type: "servico", slug: "redes-wifi", path: "/servicos/redes-wifi", title: "Redes e Wi-Fi", excerpt: "Instalação, configuração e otimização de redes domésticas e empresariais.", category: "Serviços", image: getUniqueImage("svc-redes-wifi") },
+  { type: "servico", slug: "conserto-placa", path: "/servicos/conserto-placa", title: "Conserto de Placa Eletrônica", excerpt: "Reparo de placa-mãe, GPU e componentes com microsoldagem profissional.", category: "Serviços", image: getUniqueImage("svc-conserto-placa") },
+  { type: "servico", slug: "manutencao-tv", path: "/servicos/manutencao-tv", title: "Manutenção de TV", excerpt: "Reparo de TV LED, LCD, Smart TV e OLED com diagnóstico profissional.", category: "Serviços", image: getUniqueImage("svc-manutencao-tv") },
+  { type: "servico", slug: "cftv", path: "/cftv", title: "CFTV — Câmeras de Segurança", excerpt: "Instalação e manutenção de sistemas de câmeras de segurança.", category: "Serviços", image: getUniqueImage("svc-cftv") },
+  { type: "servico", slug: "montagem-pc", path: "/servicos/montagem-pc", title: "Montagem de PC", excerpt: "Montagem personalizada de computadores para jogos, trabalho e estudo.", category: "Serviços", image: getUniqueImage("svc-montagem-pc") },
+  { type: "servico", slug: "backup", path: "/servicos/backup-recuperacao", title: "Backup e Recuperação de Dados", excerpt: "Recuperação de arquivos perdidos e backup profissional em nuvem ou HD externo.", category: "Serviços", image: getUniqueImage("svc-backup") },
+  { type: "servico", slug: "procedimentos", path: "/procedimentos-placa", title: "Procedimentos Técnicos em Placa", excerpt: "Reflow, Reballing, Troca de Chip BGA, Microsoldagem e Recapacitação.", category: "Serviços", image: getUniqueImage("svc-procedimentos") },
+  { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: getUniqueImage("svc-coleta") },
 ];
+
+const ITEMS_PER_PAGE = 20;
 
 // ─── Animated Counter Hook ───
 function useAnimatedCounter(target: number, duration = 1200) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -139,11 +140,9 @@ function useAnimatedCounter(target: number, duration = 1200) {
     observer.observe(el);
     return () => observer.disconnect();
   }, [target, duration]);
-
   return { value, ref };
 }
 
-// ─── Stat Card Component ───
 const StatCard = ({ icon: Icon, label, targetValue, color }: { icon: typeof Cpu; label: string; targetValue: number; color: string }) => {
   const { value, ref } = useAnimatedCounter(targetValue);
   return (
@@ -157,19 +156,106 @@ const StatCard = ({ icon: Icon, label, targetValue, color }: { icon: typeof Cpu;
   );
 };
 
+// ─── Pagination component ───
+const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: number; totalPages: number; onPageChange: (p: number) => void }) => {
+  const pages = useMemo(() => {
+    const items: (number | "...")[] = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) items.push(i);
+    } else {
+      items.push(1);
+      if (currentPage > 3) items.push("...");
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+      for (let i = start; i <= end; i++) items.push(i);
+      if (currentPage < totalPages - 2) items.push("...");
+      items.push(totalPages);
+    }
+    return items;
+  }, [currentPage, totalPages]);
+
+  if (totalPages <= 1) return null;
+
+  return (
+    <nav aria-label="Paginação" className="flex items-center justify-center gap-1 mt-10 flex-wrap">
+      <button
+        onClick={() => onPageChange(1)}
+        disabled={currentPage === 1}
+        className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Primeira página"
+      >
+        <ChevronsLeft className="h-4 w-4" />
+      </button>
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Página anterior"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </button>
+
+      {pages.map((p, i) =>
+        p === "..." ? (
+          <span key={`dots-${i}`} className="px-2 text-muted-foreground text-sm">…</span>
+        ) : (
+          <button
+            key={p}
+            onClick={() => onPageChange(p)}
+            className={`min-w-[36px] h-9 rounded-lg text-sm font-medium transition-all duration-300 btn-feedback ${
+              currentPage === p
+                ? "bg-accent text-accent-foreground shadow-[var(--shadow-accent)] scale-105"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            }`}
+          >
+            {p}
+          </button>
+        )
+      )}
+
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Próxima página"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </button>
+      <button
+        onClick={() => onPageChange(totalPages)}
+        disabled={currentPage === totalPages}
+        className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Última página"
+      >
+        <ChevronsRight className="h-4 w-4" />
+      </button>
+    </nav>
+  );
+};
+
 // ─── The component ───
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState<"todos" | "artigos" | "problemas" | "servicos">("todos");
   const [activeCat, setActiveCat] = useState("Todos");
-  const [showAll, setShowAll] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchFocused, setSearchFocused] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     document.title = "Explorar Conteúdo — Blog, Serviços, Problemas e Soluções | Técnico Curitiba";
     trackPageView("/blog", "Blog — Explorar Conteúdo");
   }, []);
 
+  // Back to top visibility
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 800);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Build content with UNIQUE images per item
   const allContent = useMemo<ContentItem[]>(() => {
     const blogItems: ContentItem[] = blogPosts.map((p) => ({
       type: "blog" as const,
@@ -178,7 +264,7 @@ const Blog = () => {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
-      image: getCat(p.category).image,
+      image: getUniqueImage(`blog-${p.slug}`),
       readTime: p.readTime,
       date: p.date,
     }));
@@ -189,9 +275,9 @@ const Blog = () => {
       path: p.slug.startsWith("reflow-") || p.slug.startsWith("reballing-") || p.slug.startsWith("troca-chip-") || p.slug.startsWith("microsoldagem-") || p.slug.startsWith("recapacitacao-")
         ? `/procedimentos/${p.slug}` : `/${p.slug}`,
       title: p.h1,
-      excerpt: p.intro.slice(0, 180).replace(/\*\*/g, "").replace(/\n/g, " ") + "…",
+      excerpt: p.intro.slice(0, 180).replace(/\*\*/g, "").replace(/\n/g, " ").trim() + "…",
       category: p.categoria,
-      image: getCat(p.categoria).image,
+      image: getUniqueImage(`prob-${p.slug}`),
       gravidade: p.sintomas[0]?.gravidade,
     }));
 
@@ -221,14 +307,14 @@ const Blog = () => {
     return items;
   }, [allContent, activeTab, activeCat, searchTerm]);
 
-  const displayed = showAll ? filtered : filtered.slice(0, 24);
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const displayed = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   const featured = useMemo(() => pickRandom(
     allContent.filter((c) => c.type === "problema" && c.excerpt.length > 100),
     3
   ), [allContent]);
 
-  // Editor's picks from blog
   const editorPicks = useMemo(() => pickRandom(
     allContent.filter((c) => c.type === "blog"),
     4
@@ -245,8 +331,30 @@ const Blog = () => {
     setSearchTerm("");
     setActiveCat("Todos");
     setActiveTab("todos");
-    setShowAll(false);
+    setCurrentPage(1);
   }, []);
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    // Smooth scroll to grid
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const handleTabChange = useCallback((tab: typeof activeTab) => {
+    setActiveTab(tab);
+    setActiveCat("Todos");
+    setCurrentPage(1);
+  }, []);
+
+  const handleCatChange = useCallback((cat: string) => {
+    setActiveCat(cat);
+    setCurrentPage(1);
+  }, []);
+
+  // Reset page when search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const hasActiveFilters = searchTerm.trim() || activeCat !== "Todos" || activeTab !== "todos";
 
@@ -265,45 +373,27 @@ const Blog = () => {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 premium-gradient" />
           <FloatingParticles count={30} />
-
-          {/* Animated orbs */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
             <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent/[0.04] blur-[80px] animate-float" />
           </div>
-
-          {/* Mesh pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-            backgroundSize: '32px 32px'
-          }} />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
 
           <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-28 px-4">
             <AnimatedSection animation="fade-up">
               <div className="text-center mb-12">
-                {/* Badge shimmer */}
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
                   <Sparkles className="h-4 w-4 text-accent animate-bounce-subtle" />
                   <span>{stats.total}+ conteúdos técnicos</span>
                 </div>
-
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-[1.1] mb-5">
-                  <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>
-                    Explore Todo o
-                  </span>
-                  <span
-                    className="block gradient-text-animated text-5xl md:text-7xl lg:text-8xl"
-                    style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}
-                  >
-                    Conhecimento
-                  </span>
+                  <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>Explore Todo o</span>
+                  <span className="block gradient-text-animated text-5xl md:text-7xl lg:text-8xl" style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}>Conhecimento</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed" style={{ animation: 'heroFadeUp 0.7s ease-out 0.3s both' }}>
                   Artigos, guias de problemas, procedimentos técnicos e serviços especializados — tudo num só lugar.
                 </p>
-
-                {/* Glow separator */}
                 <div className="glow-separator max-w-[200px] mx-auto mt-6" style={{ animation: 'heroFadeIn 1s ease-out 0.5s both' }} />
               </div>
             </AnimatedSection>
@@ -341,8 +431,6 @@ const Blog = () => {
               </div>
             </AnimatedSection>
           </div>
-
-          {/* Bottom wave */}
           <div className="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
               <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
@@ -352,9 +440,7 @@ const Blog = () => {
 
         {/* ═══════════ FEATURED HIGHLIGHTS ═══════════ */}
         <section className="py-14 bg-background relative overflow-hidden">
-          {/* Background texture */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-[100px]" />
-
           <div className="container mx-auto px-4">
             <AnimatedSection>
               <div className="flex items-center justify-between mb-8">
@@ -364,9 +450,7 @@ const Blog = () => {
                   </span>
                   Destaques do Dia
                 </h2>
-                <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">
-                  Atualiza a cada visita
-                </span>
+                <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded-full">Atualiza a cada visita</span>
               </div>
             </AnimatedSection>
 
@@ -377,45 +461,25 @@ const Blog = () => {
                   <AnimatedSection key={item.slug} delay={120 * i}>
                     <Link to={item.path} className="group block h-full">
                       <div className="relative rounded-2xl overflow-hidden h-full gradient-border hover-glow-ring hover-lift bg-card">
-                        {/* Cover image with parallax-like zoom */}
                         <div className="relative h-52 overflow-hidden">
-                          <img
-                            src={item.image + "&w=800&h=400"}
-                            alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
-                            loading="lazy"
-                          />
+                          <img src={item.image + "&w=800&h=400"} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out" loading="lazy" />
                           <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-50 mix-blend-multiply`} />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                          {/* Shimmer sweep on hover */}
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                           </div>
-
                           <div className="absolute top-3 left-3">
-                            <span className="px-3 py-1.5 bg-white/15 backdrop-blur-xl text-white text-xs font-semibold rounded-full border border-white/20 shadow-lg">
-                              {cat.label}
-                            </span>
+                            <span className="px-3 py-1.5 bg-white/15 backdrop-blur-xl text-white text-xs font-semibold rounded-full border border-white/20 shadow-lg">{cat.label}</span>
                           </div>
-
                           <div className="absolute top-3 right-3">
-                            <span className="px-2 py-1 bg-accent/80 text-white text-[10px] font-bold rounded-md shadow-md">
-                              DESTAQUE
-                            </span>
+                            <span className="px-2 py-1 bg-accent/80 text-white text-[10px] font-bold rounded-md shadow-md">DESTAQUE</span>
                           </div>
-
                           <div className="absolute bottom-4 left-4 right-4">
-                            <h3 className="text-white font-bold text-lg leading-tight line-clamp-2 drop-shadow-md group-hover:text-accent transition-colors duration-300">
-                              {item.title}
-                            </h3>
+                            <h3 className="text-white font-bold text-lg leading-tight line-clamp-2 drop-shadow-md group-hover:text-accent transition-colors duration-300">{item.title}</h3>
                           </div>
                         </div>
-
                         <div className="p-5">
-                          <p className="text-muted-foreground text-sm line-clamp-3 mb-4 leading-relaxed">
-                            {item.excerpt}
-                          </p>
+                          <p className="text-muted-foreground text-sm line-clamp-3 mb-4 leading-relaxed">{item.excerpt}</p>
                           <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all duration-300">
                             <Eye className="h-4 w-4" /> Ler agora <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                           </span>
@@ -429,7 +493,7 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* ═══════════ EDITOR'S PICKS MARQUEE ═══════════ */}
+        {/* ═══════════ EDITOR'S PICKS ═══════════ */}
         <section className="py-8 border-y border-border bg-muted/30">
           <div className="container mx-auto px-4">
             <AnimatedSection>
@@ -456,10 +520,9 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* ═══════════ TABS + FILTERS ═══════════ */}
-        <section className="py-6 bg-background border-b border-border sticky top-0 z-30 backdrop-blur-xl bg-background/95">
+        {/* ═══════════ TABS + FILTERS (sticky) ═══════════ */}
+        <section ref={gridRef} className="py-6 bg-background border-b border-border sticky top-0 z-30 backdrop-blur-xl bg-background/95">
           <div className="container mx-auto px-4">
-            {/* Tabs */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {([
                 { key: "todos", label: "Tudo", count: allContent.length, icon: Layers },
@@ -469,7 +532,7 @@ const Blog = () => {
               ] as const).map((tab) => (
                 <button
                   key={tab.key}
-                  onClick={() => { setActiveTab(tab.key); setActiveCat("Todos"); setShowAll(false); }}
+                  onClick={() => handleTabChange(tab.key)}
                   className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-full transition-all duration-300 btn-feedback ${
                     activeTab === tab.key
                       ? "bg-accent text-accent-foreground shadow-[var(--shadow-accent)] scale-[1.02]"
@@ -478,25 +541,17 @@ const Blog = () => {
                 >
                   <tab.icon className="h-3.5 w-3.5" />
                   {tab.label}
-                  <span className={`ml-0.5 text-xs px-1.5 py-0.5 rounded-full ${
-                    activeTab === tab.key ? "bg-white/20" : "bg-foreground/5"
-                  }`}>
-                    {tab.count}
-                  </span>
+                  <span className={`ml-0.5 text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? "bg-white/20" : "bg-foreground/5"}`}>{tab.count}</span>
                 </button>
               ))}
 
               {hasActiveFilters && (
-                <button
-                  onClick={clearFilters}
-                  className="inline-flex items-center gap-1 px-3 py-2 text-xs font-medium text-destructive hover:text-destructive/80 rounded-full bg-destructive/10 hover:bg-destructive/15 transition-all"
-                >
+                <button onClick={clearFilters} className="inline-flex items-center gap-1 px-3 py-2 text-xs font-medium text-destructive hover:text-destructive/80 rounded-full bg-destructive/10 hover:bg-destructive/15 transition-all">
                   <X className="h-3 w-3" /> Limpar filtros
                 </button>
               )}
             </div>
 
-            {/* Category pills */}
             {activeTab !== "servicos" && (
               <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1">
                 <Filter className="h-3.5 w-3.5 text-muted-foreground self-center mr-1 flex-shrink-0" />
@@ -509,7 +564,7 @@ const Blog = () => {
                   .map((cat) => (
                     <button
                       key={cat}
-                      onClick={() => { setActiveCat(cat); setShowAll(false); }}
+                      onClick={() => handleCatChange(cat)}
                       className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-300 whitespace-nowrap btn-feedback ${
                         activeCat === cat
                           ? "bg-accent/15 text-accent border border-accent/30 shadow-sm"
@@ -524,7 +579,7 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* ═══════════ CONTENT GRID ═══════════ */}
+        {/* ═══════════ CONTENT GRID + PAGINATION ═══════════ */}
         <section className="py-10 bg-background relative">
           <div className="container mx-auto px-4">
             {filtered.length === 0 ? (
@@ -540,10 +595,22 @@ const Blog = () => {
               </div>
             ) : (
               <>
-                <div className="flex items-center justify-between mb-6">
+                {/* Results bar */}
+                <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
                   <p className="text-sm text-muted-foreground">
                     <span className="font-semibold text-foreground">{filtered.length}</span> resultado{filtered.length !== 1 ? "s" : ""}
+                    {totalPages > 1 && (
+                      <span className="ml-2 text-xs bg-muted px-2 py-0.5 rounded-full">
+                        Página {currentPage} de {totalPages}
+                      </span>
+                    )}
                   </p>
+                  {totalPages > 1 && (
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <span>{(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)}</span>
+                      <span>de {filtered.length}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -565,7 +632,6 @@ const Blog = () => {
                       >
                         <Link to={item.path} className="group block h-full">
                           <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 bg-card hover-streak">
-                            {/* Image */}
                             <div className="relative h-36 overflow-hidden">
                               <img
                                 src={item.image + "&w=500&h=280"}
@@ -575,12 +641,8 @@ const Blog = () => {
                               />
                               <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-35 mix-blend-multiply`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-
-                              {/* Badges */}
                               <div className="absolute top-2 left-2 flex gap-1.5">
-                                <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md ${typeBadgeColor} backdrop-blur-sm`}>
-                                  {typeBadge}
-                                </span>
+                                <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md ${typeBadgeColor} backdrop-blur-sm`}>{typeBadge}</span>
                               </div>
                               <div className="absolute top-2 right-2">
                                 <div className="w-7 h-7 rounded-md bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
@@ -591,28 +653,13 @@ const Blog = () => {
                                 <span className="text-[10px] text-white/70 font-medium bg-black/30 px-2 py-0.5 rounded-md backdrop-blur-sm">{item.category}</span>
                               </div>
                             </div>
-
-                            {/* Content */}
                             <div className="p-4">
-                              <h3 className="font-bold text-sm text-foreground leading-snug mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                                {item.title}
-                              </h3>
-                              <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
-                                {item.excerpt}
-                              </p>
-
+                              <h3 className="font-bold text-sm text-foreground leading-snug mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-200">{item.title}</h3>
+                              <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">{item.excerpt}</p>
                               <div className="flex items-center justify-between pt-2 border-t border-border/50">
                                 <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
-                                  {item.readTime && (
-                                    <span className="flex items-center gap-0.5">
-                                      <Clock className="h-3 w-3" /> {item.readTime}
-                                    </span>
-                                  )}
-                                  {item.date && (
-                                    <span className="flex items-center gap-0.5">
-                                      <Calendar className="h-3 w-3" /> {new Date(item.date).toLocaleDateString("pt-BR", { month: "short", year: "2-digit" })}
-                                    </span>
-                                  )}
+                                  {item.readTime && <span className="flex items-center gap-0.5"><Clock className="h-3 w-3" /> {item.readTime}</span>}
+                                  {item.date && <span className="flex items-center gap-0.5"><Calendar className="h-3 w-3" /> {new Date(item.date).toLocaleDateString("pt-BR", { month: "short", year: "2-digit" })}</span>}
                                   {item.gravidade && (
                                     <span className={`px-1.5 py-0.5 rounded text-[9px] font-semibold ${
                                       item.gravidade === "Complexo" ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400" :
@@ -634,19 +681,14 @@ const Blog = () => {
                   })}
                 </div>
 
-                {/* Load more */}
-                {!showAll && filtered.length > 24 && (
-                  <div className="text-center mt-10">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      onClick={() => setShowAll(true)}
-                      className="gap-2 rounded-full px-8 hover-glow-cta btn-feedback"
-                    >
-                      <ChevronDown className="h-4 w-4 animate-bounce-subtle" />
-                      Ver todos os {filtered.length} conteúdos
-                    </Button>
-                  </div>
+                {/* Pagination */}
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+
+                {/* Page info below pagination */}
+                {totalPages > 1 && (
+                  <p className="text-center text-xs text-muted-foreground mt-3">
+                    Mostrando {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)} de {filtered.length} conteúdos
+                  </p>
                 )}
               </>
             )}
@@ -665,21 +707,11 @@ const Blog = () => {
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm text-white/80 mb-5 border border-white/10">
                   <Sparkles className="h-3.5 w-3.5 text-accent" /> Atendimento especializado
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
-                  Não encontrou o que procura?
-                </h2>
-                <p className="text-white/60 mb-8 text-lg">
-                  Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.
-                </p>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Não encontrou o que procura?</h2>
+                <p className="text-white/60 mb-8 text-lg">Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.</p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a
-                    href="https://wa.me/5541997452053?text=Olá! Preciso de ajuda técnica."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">
-                      WhatsApp
-                    </Button>
+                  <a href="https://wa.me/5541997452053?text=Olá! Preciso de ajuda técnica." target="_blank" rel="noopener noreferrer">
+                    <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">WhatsApp</Button>
                   </a>
                   <Link to="/contato">
                     <Button variant="outline" className="gap-2 rounded-full px-8 py-6 text-base border-white/20 text-white hover:bg-white/10 hover-glow-cta">
@@ -692,7 +724,19 @@ const Blog = () => {
           </section>
         </AnimatedSection>
       </main>
+
       <Footer />
+
+      {/* Back to top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`fixed bottom-20 right-5 z-40 w-11 h-11 rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-accent)] flex items-center justify-center transition-all duration-300 hover:scale-110 btn-feedback ${
+          showBackToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+        aria-label="Voltar ao topo"
+      >
+        <ArrowUp className="h-5 w-5" />
+      </button>
     </div>
   );
 };

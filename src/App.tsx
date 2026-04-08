@@ -38,6 +38,7 @@ const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));
 const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
+const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Bairros Curitiba

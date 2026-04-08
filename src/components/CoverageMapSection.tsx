@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MouseGlow } from "@/components/MouseGlow";
 import { supabase } from "@/integrations/supabase/client";
+import { useGeolocation } from "@/hooks/useGeolocation";
 
 interface RegionData {
   name: string;
@@ -24,6 +25,28 @@ const regions: RegionData[] = [
   { name: "Pinhais", baseMin: 30, baseMax: 45, neighborhoods: ["Centro", "Weissópolis", "Pineville"], lat: -25.4428, lng: -49.1927 },
 ];
 
+// Map detected city names to region indices
+const cityToRegionMap: Record<string, number[]> = {
+  "curitiba": [0, 1, 2, 3],
+  "são josé dos pinhais": [4],
+  "araucária": [5],
+  "campo largo": [6],
+  "pinhais": [7],
+  "colombo": [1], // closest to north
+  "almirante tamandaré": [1],
+  "fazenda rio grande": [2],
+  "piraquara": [4],
+};
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 interface RouteResult {
   id: string;
   durationSeconds: number;
@@ -40,7 +63,6 @@ function formatDuration(seconds: number): string {
   return `${minutes} min`;
 }
 
-// Fallback based on time of day
 function getTimeMultiplier(): { multiplier: number; label: string } {
   const hour = new Date().getHours();
   if ((hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 19)) {
@@ -74,13 +96,34 @@ function calcFallbackTime(baseMin: number, baseMax: number, multiplier: number):
   return `${min}-${max} min`;
 }
 
+const MAX_VISIBLE = 4;
+
 export const CoverageMapSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [trafficInfo, setTrafficInfo] = useState(getTimeMultiplier);
   const [routeData, setRouteData] = useState<RouteResult[] | null>(null);
   const [isLoadingRoutes, setIsLoadingRoutes] = useState(true);
+  const { city } = useGeolocation();
 
-  // Fetch real route data from ORS
+  // Pick which regions to show based on detected city
+  const visibleIndices = useMemo(() => {
+    const cityKey = city.toLowerCase();
+    const matched = cityToRegionMap[cityKey] || [];
+
+    if (matched.length > 0) {
+      const remaining = Array.from({ length: regions.length }, (_, i) => i)
+        .filter(i => !matched.includes(i));
+      const shuffled = shuffleArray(remaining);
+      const needed = MAX_VISIBLE - matched.length;
+      return [...matched, ...shuffled.slice(0, Math.max(0, needed))];
+    }
+
+    // No match — pick 4 random, always include one Curitiba
+    const curitibaIdx = Math.floor(Math.random() * 4); // 0-3
+    const others = shuffleArray([4, 5, 6, 7]).slice(0, MAX_VISIBLE - 1);
+    return shuffleArray([curitibaIdx, ...others]);
+  }, [city]);
+
   const fetchRoutes = useCallback(async () => {
     try {
       const destinations = regions.map((r, i) => ({
@@ -109,7 +152,6 @@ export const CoverageMapSection = () => {
     fetchRoutes();
   }, [fetchRoutes]);
 
-  // Update traffic info every 60s (fallback only)
   useEffect(() => {
     const interval = setInterval(() => {
       setTrafficInfo(getTimeMultiplier());
@@ -117,16 +159,17 @@ export const CoverageMapSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-cycle active region
+  // Auto-cycle through visible regions only
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % regions.length);
+      setActiveIndex(prev => (prev + 1) % visibleIndices.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [visibleIndices.length]);
 
   const computedRegions = useMemo(() =>
-    regions.map((r, i) => {
+    visibleIndices.map(i => {
+      const r = regions[i];
       const route = routeData?.find(rd => rd.id === String(i));
       if (route) {
         return {
@@ -134,6 +177,7 @@ export const CoverageMapSection = () => {
           time: formatDuration(route.durationSeconds),
           distance: `${route.distanceKm} km`,
           isReal: true,
+          originalIndex: i,
         };
       }
       return {
@@ -141,9 +185,10 @@ export const CoverageMapSection = () => {
         time: calcFallbackTime(r.baseMin, r.baseMax, trafficInfo.multiplier),
         distance: null,
         isReal: false,
+        originalIndex: i,
       };
     }),
-  [routeData, trafficInfo.multiplier]);
+  [visibleIndices, routeData, trafficInfo.multiplier]);
 
   const currentHour = new Date().getHours();
   const isBusinessHours = currentHour >= 8 && currentHour < 20;

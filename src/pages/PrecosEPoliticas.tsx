@@ -31,6 +31,13 @@ import {
   Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  COLETA_TAXA_MINIMA_LABEL,
+  DIAGNOSTICO_VALOR_LABEL,
+  EQUIPAMENTOS_COLETA,
+  PRAZOS,
+  REGRA_ORCAMENTO_GRATIS,
+} from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997452053";
 
@@ -255,7 +262,7 @@ const PrecosEPoliticas = () => {
                   Para estes equipamentos, <strong className="text-foreground">não há cobrança de visita técnica</strong>. O serviço é realizado em laboratório com coleta e entrega no seu endereço.
                 </p>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {["TV (LED, LCD, Smart)", "Notebook (reparo de placa)", "PC (reparo complexo)", "Monitor", "Rádio", "Caixa de Som", "Celular"].map((item, i) => (
+                  {EQUIPAMENTOS_COLETA.map((item, i) => (
                     <div key={i} className="bg-secondary rounded-xl p-4 flex items-center gap-3">
                       <Truck className="h-5 w-5 text-accent flex-shrink-0" />
                       <span className="text-foreground font-medium">{item}</span>
@@ -264,17 +271,15 @@ const PrecosEPoliticas = () => {
                 </div>
                 <div className="bg-accent/5 rounded-xl p-5 mt-6 border border-accent/20 space-y-3">
                   <p className="text-sm text-muted-foreground text-center">
-                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">R$ 300</strong> com coleta e entrega inclusa. Orçamento gratuito somente estimado via WhatsApp.
+                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">{COLETA_TAXA_MINIMA_LABEL}</strong> com coleta e entrega inclusa. {REGRA_ORCAMENTO_GRATIS}.
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 mt-3">
-                    <div className="bg-background rounded-lg p-3 text-center border border-border/50">
-                      <span className="text-xs text-muted-foreground block mb-1">Celular / Rádio / Caixa de Som</span>
-                      <span className="text-sm font-bold text-accent">Prazo: 2 a 3 dias úteis</span>
-                    </div>
-                    <div className="bg-background rounded-lg p-3 text-center border border-border/50">
-                      <span className="text-xs text-muted-foreground block mb-1">TV / Monitor / Notebook / PC</span>
-                      <span className="text-sm font-bold text-accent">Prazo: 15 a 60 dias úteis</span>
-                    </div>
+                    {PRAZOS.map((p, i) => (
+                      <div key={i} className="bg-background rounded-lg p-3 text-center border border-border/50">
+                        <span className="text-xs text-muted-foreground block mb-1">{p.equipamentos}</span>
+                        <span className="text-sm font-bold text-accent">Prazo: {p.prazo}</span>
+                      </div>
+                    ))}
                   </div>
                   <p className="text-xs text-muted-foreground text-center">
                     <Link to="/coleta-e-entrega" className="text-accent hover:underline">Saiba mais sobre Coleta e Entrega →</Link>
@@ -298,15 +303,15 @@ const PrecosEPoliticas = () => {
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        Diagnóstico custa <strong>R$ 90</strong> em caso de desistência
+                        Diagnóstico custa <strong>{DIAGNOSTICO_VALOR_LABEL}</strong> em caso de desistência
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <strong>NÃO</strong> existe orçamento gratuito presencial — estimativas grátis somente via WhatsApp
+                        <strong>NÃO</strong> existe orçamento gratuito presencial — {REGRA_ORCAMENTO_GRATIS.toLowerCase()}
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        Taxa mínima pré-aprovada: <strong>R$ 300</strong> (somente com coleta e entrega)
+                        Taxa mínima pré-aprovada: <strong>{COLETA_TAXA_MINIMA_LABEL}</strong> (somente com coleta e entrega)
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />

@@ -713,7 +713,7 @@ const Blog = () => {
                 {/* Page info below pagination */}
                 {totalPages > 1 && (
                   <p className="text-center text-xs text-muted-foreground mt-3">
-                    Mostrando {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)} de {filtered.length} conteúdos
+                    Mostrando {(currentPage - 1) * itemsPerPage + 1}–{Math.min(currentPage * itemsPerPage, filtered.length)} de {filtered.length} conteúdos
                   </p>
                 )}
               </>

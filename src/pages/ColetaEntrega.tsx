@@ -16,6 +16,13 @@ import {
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  COLETA_TAXA_MINIMA_LABEL,
+  DIAGNOSTICO_VALOR_LABEL,
+  EQUIPAMENTOS_COLETA,
+  PRAZOS,
+  REGRA_ORCAMENTO_GRATIS,
+} from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997452053";
 

@@ -80,6 +80,7 @@ const mainNavItems = [
       { label: "FAQ", to: "/faq" },
       { label: "Sobre", to: "/sobre" },
       { label: "Contato", to: "/contato" },
+      { label: "Seja Parceiro", to: "/seja-parceiro" },
     ],
   },
 ];

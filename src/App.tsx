@@ -363,6 +363,9 @@ const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 // Procedimentos Técnicos hub
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 
+// Marcas
+const MarcaPage = lazy(() => import("./pages/MarcaPage"));
+
 // CFTV
 const CFTVPage = lazy(() => import("./pages/CFTV"));
 const CFTVCuritiba = lazy(() => import("./pages/cftv/CFTVCuritiba"));
@@ -769,6 +772,9 @@ const App = () => (
             {/* Procedimentos Técnicos em Placa */}
             <Route path="/procedimentos-placa" element={<ProcedimentosPlaca />} />
             <Route path="/procedimentos/:slug" element={<ProblemaPage />} />
+
+            {/* Páginas de Marcas */}
+            <Route path="/marcas/:slug" element={<MarcaPage />} />
             
             {/* Redirects das URLs antigas de procedimentos */}
             <Route path="/reflow-bga-curitiba" element={<Navigate to="/procedimentos/reflow-bga-curitiba" replace />} />

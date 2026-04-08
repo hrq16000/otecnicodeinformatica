@@ -62,7 +62,7 @@ const servicosPrecos = [
       { nome: "Upgrade SSD (só mão de obra)", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
       { nome: "Upgrade Memória RAM", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
       { nome: "Troca de HD por SSD", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Clonagem até 1h R$168,99" },
-      { nome: "Limpeza Interna + Pasta Térmica", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Notebook ou desktop" },
+      { nome: "Limpeza Interna + Pasta Térmica", valor: "A partir de R$ 169", obs: "Mínimo 1h R$169 • Notebook ou desktop" },
     ]
   },
   {
@@ -70,10 +70,14 @@ const servicosPrecos = [
     icon: Wrench,
     servicos: [
       { nome: "Diagnóstico com Coleta", valor: "R$ 90", obs: "Coleta + entrega inclusas" },
-      { nome: "Reparo de Notebook", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Depende do defeito" },
+      { nome: "Reparo de Notebook", valor: "A partir de R$ 300", obs: "Com coleta e entrega • Depende do defeito" },
       { nome: "Reparo de Placa de Vídeo", valor: "A partir de R$ 289", obs: "Diagnóstico + reballing/reflow • Peça não inclusa" },
       { nome: "Troca de Tela Notebook", valor: "Sob orçamento", obs: "Peça + mão de obra" },
-      { nome: "Troca de Teclado Notebook", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Peça não inclusa" },
+      { nome: "Troca de Teclado Notebook", valor: "Sob orçamento", obs: "Depende do modelo do notebook" },
+      { nome: "Conserto de Celular", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
+      { nome: "Reparo de Placa-mãe", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
+      { nome: "Conserto de TV", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
+      { nome: "Reparo de Ferramentas", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
     ]
   },
   {
@@ -83,15 +87,15 @@ const servicosPrecos = [
       { nome: "Configuração de Roteador", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Wi-Fi + segurança" },
       { nome: "Instalação Rede Cabeada", valor: "Sob orçamento", obs: "Por ponto de rede" },
       { nome: "Extensão de Sinal Wi-Fi", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Repetidor/mesh" },
-      { nome: "Configuração VPN", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Empresarial ou residencial" },
+      { nome: "Configuração VPN", valor: "Sob orçamento", obs: "Empresarial ou residencial" },
     ]
   },
   {
     categoria: "Backup e Dados",
     icon: Database,
     servicos: [
-      { nome: "Backup de Dados", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 100GB" },
-      { nome: "Recuperação de Dados", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • HD funcionando" },
+      { nome: "Backup de Dados", valor: "A partir de R$ 168,99", obs: "Mínimo 1-3h • R$168,99 (1h) a R$249,99 (3h)" },
+      { nome: "Recuperação de Dados", valor: "A partir de R$ 300", obs: "Somente com coleta e entrega • HD funcionando" },
       { nome: "Recuperação Dados HD Danificado", valor: "Sob orçamento", obs: "Análise prévia" },
       { nome: "Configuração Backup Nuvem", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • OneDrive, Google Drive" },
     ]
@@ -102,7 +106,7 @@ const servicosPrecos = [
     servicos: [
       { nome: "Suporte Remoto Básico", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Problemas simples" },
       { nome: "Suporte Remoto Avançado", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Configurações complexas" },
-      { nome: "Hora Técnica Remota", valor: "R$ 168,99 / hora", obs: "Para empresas" },
+      { nome: "Hora Técnica Remota", valor: "A partir de R$ 79 / hora", obs: "Para empresas e particulares" },
     ]
   },
   {
@@ -111,7 +115,7 @@ const servicosPrecos = [
     servicos: [
       { nome: "Contrato Mensal - Básico", valor: "A partir de R$ 300/mês", obs: "Até 5 equipamentos" },
       { nome: "Contrato Mensal - Profissional", valor: "A partir de R$ 600/mês", obs: "Até 15 equipamentos" },
-      { nome: "Hora Técnica Empresarial", valor: "R$ 168,99/hora", obs: "Sem contrato" },
+      { nome: "Hora Técnica Empresarial", valor: "A partir de R$ 79/hora", obs: "Sem contrato" },
       { nome: "Consultoria TI", valor: "Sob orçamento", obs: "Projetos específicos" },
     ]
   },

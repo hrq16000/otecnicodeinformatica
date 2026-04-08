@@ -766,6 +766,17 @@ const App = () => (
             {/* Dynamic service+city route (catches all new combinations) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
             
+            {/* Procedimentos Técnicos em Placa */}
+            <Route path="/procedimentos-placa" element={<ProcedimentosPlaca />} />
+            <Route path="/procedimentos/:slug" element={<ProblemaPage />} />
+            
+            {/* Redirects das URLs antigas de procedimentos */}
+            <Route path="/reflow-bga-curitiba" element={<Navigate to="/procedimentos/reflow-bga-curitiba" replace />} />
+            <Route path="/reballing-bga-curitiba" element={<Navigate to="/procedimentos/reballing-bga-curitiba" replace />} />
+            <Route path="/troca-chip-bga-curitiba" element={<Navigate to="/procedimentos/troca-chip-bga-curitiba" replace />} />
+            <Route path="/microsoldagem-celular-curitiba" element={<Navigate to="/procedimentos/microsoldagem-celular-curitiba" replace />} />
+            <Route path="/recapacitacao-placa-eletronica-curitiba" element={<Navigate to="/procedimentos/recapacitacao-placa-eletronica-curitiba" replace />} />
+            
             {/* Páginas de Problema / Intenção de Busca (50 páginas dinâmicas) */}
             <Route path="/:slug" element={<ProblemaPage />} />
             

@@ -44,7 +44,10 @@ export const ProblemasDestaque = () => {
                     <h3 className="font-semibold text-foreground text-sm mb-1 group-hover:text-accent transition-colors line-clamp-2">
                       {p.h1.replace(/\s*[—–-]\s*Causas.*$/i, "").replace(/\s*em Curitiba$/i, "")}
                     </h3>
-                    <span className="text-xs text-muted-foreground">{p.categoria}</span>
+                    <p className="text-xs text-muted-foreground line-clamp-2 mb-1 leading-relaxed">
+                      {p.intro.slice(0, 120).replace(/\*\*/g, "").replace(/\n/g, " ").trim()}…
+                    </p>
+                    <span className="text-[10px] text-accent/70 font-medium">{p.categoria}</span>
                   </div>
                   <ArrowRight className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
                 </div>

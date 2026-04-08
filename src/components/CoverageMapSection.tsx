@@ -1,41 +1,64 @@
-import { MapPin, Clock, Navigation } from "lucide-react";
-import { useState, useEffect, useMemo } from "react";
+import { MapPin, Clock, Navigation, Loader2 } from "lucide-react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MouseGlow } from "@/components/MouseGlow";
+import { supabase } from "@/integrations/supabase/client";
 
-const regions = [
-  { name: "Curitiba - Centro", baseMin: 20, baseMax: 30, neighborhoods: ["Centro", "Batel", "Água Verde", "Rebouças", "Alto da XV"] },
-  { name: "Curitiba - Norte", baseMin: 25, baseMax: 40, neighborhoods: ["Santa Felicidade", "Boa Vista", "Bacacheri", "Cabral"] },
-  { name: "Curitiba - Sul", baseMin: 25, baseMax: 40, neighborhoods: ["Portão", "Novo Mundo", "Xaxim", "Pinheirinho"] },
-  { name: "Curitiba - Oeste", baseMin: 30, baseMax: 45, neighborhoods: ["CIC", "Campo Comprido", "Mossunguê", "Fazendinha"] },
-  { name: "São José dos Pinhais", baseMin: 35, baseMax: 50, neighborhoods: ["Centro SJP", "Afonso Pena", "Costeira", "Aviação"] },
-  { name: "Araucária", baseMin: 40, baseMax: 55, neighborhoods: ["Centro", "Capela Velha", "Thomaz Coelho"] },
-  { name: "Campo Largo", baseMin: 45, baseMax: 60, neighborhoods: ["Centro", "Ferraria", "Jardim Guilhermina"] },
-  { name: "Pinhais", baseMin: 30, baseMax: 45, neighborhoods: ["Centro", "Weissópolis", "Pineville"] },
+interface RegionData {
+  name: string;
+  baseMin: number;
+  baseMax: number;
+  neighborhoods: string[];
+  lat: number;
+  lng: number;
+}
+
+const regions: RegionData[] = [
+  { name: "Curitiba - Centro", baseMin: 20, baseMax: 30, neighborhoods: ["Centro", "Batel", "Água Verde", "Rebouças", "Alto da XV"], lat: -25.4284, lng: -49.2733 },
+  { name: "Curitiba - Norte", baseMin: 25, baseMax: 40, neighborhoods: ["Santa Felicidade", "Boa Vista", "Bacacheri", "Cabral"], lat: -25.3800, lng: -49.2700 },
+  { name: "Curitiba - Sul", baseMin: 25, baseMax: 40, neighborhoods: ["Portão", "Novo Mundo", "Xaxim", "Pinheirinho"], lat: -25.4800, lng: -49.2800 },
+  { name: "Curitiba - Oeste", baseMin: 30, baseMax: 45, neighborhoods: ["CIC", "Campo Comprido", "Mossunguê", "Fazendinha"], lat: -25.4500, lng: -49.3400 },
+  { name: "São José dos Pinhais", baseMin: 35, baseMax: 50, neighborhoods: ["Centro SJP", "Afonso Pena", "Costeira", "Aviação"], lat: -25.5313, lng: -49.2060 },
+  { name: "Araucária", baseMin: 40, baseMax: 55, neighborhoods: ["Centro", "Capela Velha", "Thomaz Coelho"], lat: -25.5926, lng: -49.4103 },
+  { name: "Campo Largo", baseMin: 45, baseMax: 60, neighborhoods: ["Centro", "Ferraria", "Jardim Guilhermina"], lat: -25.4596, lng: -49.5299 },
+  { name: "Pinhais", baseMin: 30, baseMax: 45, neighborhoods: ["Centro", "Weissópolis", "Pineville"], lat: -25.4428, lng: -49.1927 },
 ];
 
+interface RouteResult {
+  id: string;
+  durationSeconds: number;
+  distanceKm: number;
+}
+
+function formatDuration(seconds: number): string {
+  const minutes = Math.round(seconds / 60);
+  if (minutes >= 60) {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return `${h}h${m > 0 ? m : ''}`;
+  }
+  return `${minutes} min`;
+}
+
+// Fallback based on time of day
 function getTimeMultiplier(): { multiplier: number; label: string } {
   const hour = new Date().getHours();
-  // Horário de pico manhã (7-9h) e tarde (17-19h)
   if ((hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 19)) {
     return { multiplier: 1.8, label: "Horário de pico – trânsito intenso" };
   }
-  // Horário moderado (10-12h, 14-16h)
   if ((hour >= 10 && hour <= 12) || (hour >= 14 && hour <= 16)) {
     return { multiplier: 1.2, label: "Trânsito moderado" };
   }
-  // Almoço (12-14h)
   if (hour >= 12 && hour <= 14) {
     return { multiplier: 1.0, label: "Trânsito leve" };
   }
-  // Fora do horário comercial
   if (hour < 7 || hour >= 20) {
     return { multiplier: 1.0, label: "Trânsito livre" };
   }
   return { multiplier: 1.0, label: "Trânsito normal" };
 }
 
-function calcTime(baseMin: number, baseMax: number, multiplier: number): string {
+function calcFallbackTime(baseMin: number, baseMax: number, multiplier: number): string {
   const min = Math.round(baseMin * multiplier);
   const max = Math.round(baseMax * multiplier);
   if (max >= 60) {
@@ -54,8 +77,39 @@ function calcTime(baseMin: number, baseMax: number, multiplier: number): string 
 export const CoverageMapSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [trafficInfo, setTrafficInfo] = useState(getTimeMultiplier);
+  const [routeData, setRouteData] = useState<RouteResult[] | null>(null);
+  const [isLoadingRoutes, setIsLoadingRoutes] = useState(true);
 
-  // Atualiza o trânsito a cada 60s
+  // Fetch real route data from ORS
+  const fetchRoutes = useCallback(async () => {
+    try {
+      const destinations = regions.map((r, i) => ({
+        id: String(i),
+        lng: r.lng,
+        lat: r.lat,
+      }));
+
+      const { data, error } = await supabase.functions.invoke('ors-route', {
+        body: { destinations },
+      });
+
+      if (error) throw error;
+
+      if (data?.results) {
+        setRouteData(data.results);
+      }
+    } catch (err) {
+      console.warn('ORS route fetch failed, using estimates:', err);
+    } finally {
+      setIsLoadingRoutes(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchRoutes();
+  }, [fetchRoutes]);
+
+  // Update traffic info every 60s (fallback only)
   useEffect(() => {
     const interval = setInterval(() => {
       setTrafficInfo(getTimeMultiplier());
@@ -63,7 +117,7 @@ export const CoverageMapSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-alterna a região selecionada a cada 3s
+  // Auto-cycle active region
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex(prev => (prev + 1) % regions.length);
@@ -72,14 +126,28 @@ export const CoverageMapSection = () => {
   }, []);
 
   const computedRegions = useMemo(() =>
-    regions.map(r => ({
-      ...r,
-      time: calcTime(r.baseMin, r.baseMax, trafficInfo.multiplier),
-    })),
-  [trafficInfo.multiplier]);
+    regions.map((r, i) => {
+      const route = routeData?.find(rd => rd.id === String(i));
+      if (route) {
+        return {
+          ...r,
+          time: formatDuration(route.durationSeconds),
+          distance: `${route.distanceKm} km`,
+          isReal: true,
+        };
+      }
+      return {
+        ...r,
+        time: calcFallbackTime(r.baseMin, r.baseMax, trafficInfo.multiplier),
+        distance: null,
+        isReal: false,
+      };
+    }),
+  [routeData, trafficInfo.multiplier]);
 
   const currentHour = new Date().getHours();
   const isBusinessHours = currentHour >= 8 && currentHour < 20;
+  const hasRealData = routeData !== null && routeData.length > 0;
 
   return (
     <section className="py-12 md:py-16 bg-secondary relative overflow-hidden mesh-gradient-warm noise-overlay">
@@ -95,7 +163,7 @@ export const CoverageMapSection = () => {
             Área de Cobertura e Tempo de Chegada
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-6 reveal-text" data-reveal-delay="100">
-            Atendemos Curitiba e região metropolitana com agilidade. Confira o tempo estimado de chegada para sua localização.
+            Atendemos Curitiba e região metropolitana com agilidade. Tempos calculados com base em rotas reais de trânsito.
           </p>
           <div className="glow-separator max-w-xs mx-auto mb-6" />
           <div className="flex flex-wrap justify-center gap-6 md:gap-10">
@@ -143,7 +211,9 @@ export const CoverageMapSection = () => {
                     </span>
                   </div>
                   <span className="text-muted-foreground">•</span>
-                  <span className="text-muted-foreground">{trafficInfo.label}</span>
+                  <span className="text-muted-foreground">
+                    {hasRealData ? "Rotas reais via ORS" : trafficInfo.label}
+                  </span>
                 </div>
               </div>
             </div>
@@ -156,11 +226,23 @@ export const CoverageMapSection = () => {
                 <Clock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground text-sm">
-                    Tempo médio de chegada após confirmação
+                    {hasRealData
+                      ? "Tempo real de deslocamento (rota calculada)"
+                      : "Tempo médio de chegada após confirmação"}
                   </p>
                   <p className="text-muted-foreground text-xs mt-1">
-                    ⏱ Agora: <span className="font-medium text-foreground">{trafficInfo.label}</span> — tempos ajustados em tempo real
+                    {hasRealData ? (
+                      <>📍 Saindo de: <span className="font-medium text-foreground">CEP 83020-256 (São José dos Pinhais)</span></>
+                    ) : (
+                      <>⏱ Agora: <span className="font-medium text-foreground">{trafficInfo.label}</span> — tempos ajustados em tempo real</>
+                    )}
                   </p>
+                  {isLoadingRoutes && (
+                    <div className="flex items-center gap-1.5 mt-1.5 text-xs text-muted-foreground">
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                      Calculando rotas reais...
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -193,6 +275,9 @@ export const CoverageMapSection = () => {
                         <p className="text-xs text-muted-foreground">
                           {region.neighborhoods.slice(0, 3).join(", ")}
                           {region.neighborhoods.length > 3 && "..."}
+                          {region.distance && (
+                            <span className="ml-1 text-accent">• {region.distance}</span>
+                          )}
                         </p>
                       </div>
                     </div>
@@ -207,6 +292,9 @@ export const CoverageMapSection = () => {
                         <Clock className="h-3 w-3" />
                         {region.time}
                       </div>
+                      {region.isReal && (
+                        <p className="text-[10px] text-muted-foreground mt-0.5">rota real</p>
+                      )}
                     </div>
                   </div>
                 );

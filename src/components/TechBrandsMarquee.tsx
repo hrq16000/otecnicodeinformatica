@@ -1,10 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-
-const brands = [
-  "Dell", "HP", "Lenovo", "ASUS", "Acer", "Samsung", "LG", "Apple",
-  "Positivo", "Microsoft", "Intel", "AMD", "NVIDIA", "Kingston",
-  "Corsair", "TP-Link", "Intelbras", "Motorola", "Xiaomi", "Sony",
-];
+import { Link } from "react-router-dom";
+import { brandsData } from "@/lib/brandsData";
 
 const animations = [
   "animate-brand-flip",
@@ -28,17 +24,20 @@ function shuffle<T>(arr: T[]): T[] {
 
 export const TechBrandsMarquee = () => {
   const [visibleBrands, setVisibleBrands] = useState<
-    { name: string; anim: string; key: number }[]
+    { slug: string; name: string; logoPath: string; color: string; anim: string; key: number }[]
   >([]);
   const keyRef = useRef(0);
   const intervalRef = useRef<ReturnType<typeof setInterval>>();
 
   const generate = useCallback(() => {
-    const shuffled = shuffle(brands).slice(0, 8);
+    const shuffled = shuffle(brandsData).slice(0, 8);
     keyRef.current++;
     setVisibleBrands(
-      shuffled.map((name, i) => ({
-        name,
+      shuffled.map((brand, i) => ({
+        slug: brand.slug,
+        name: brand.name,
+        logoPath: brand.logoPath,
+        color: brand.color,
         anim: animations[Math.floor(Math.random() * animations.length)],
         key: keyRef.current * 100 + i,
       }))
@@ -61,14 +60,28 @@ export const TechBrandsMarquee = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 items-center justify-items-center min-h-[60px]">
           {visibleBrands.map((b) => (
-            <div
+            <Link
               key={b.key}
-              className={`${b.anim} select-none cursor-default group`}
+              to={`/marcas/${b.slug}`}
+              className={`${b.anim} select-none group flex flex-col items-center gap-1.5 hover:scale-110 transition-transform duration-300`}
+              title={`Assistência Técnica ${b.name}`}
             >
-              <span className="text-muted-foreground/60 font-heading font-bold text-lg md:text-xl tracking-wide group-hover:text-accent transition-colors duration-300 group-hover:drop-shadow-[0_0_8px_hsl(var(--accent)/0.5)]">
+              <svg
+                viewBox="0 0 24 24"
+                className="w-8 h-8 md:w-9 md:h-9 transition-all duration-300 group-hover:drop-shadow-[0_0_10px_var(--brand-shadow)]"
+                fill="currentColor"
+                stroke="none"
+                style={{
+                  color: b.color === "#000000" ? "hsl(var(--muted-foreground))" : b.color,
+                  ["--brand-shadow" as string]: `${b.color}80`,
+                }}
+              >
+                <path d={b.logoPath} />
+              </svg>
+              <span className="text-muted-foreground/60 font-heading font-bold text-[11px] md:text-xs tracking-wide group-hover:text-accent transition-colors duration-300 text-center leading-tight">
                 {b.name}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

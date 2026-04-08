@@ -39,30 +39,30 @@ const servicosPrecos = [
     categoria: "Formatação e Sistema",
     icon: Monitor,
     servicos: [
-      { nome: "Formatação Completa", valor: "A partir de R$ 150", obs: "Windows + drivers + programas" },
-      { nome: "Instalação Windows 11", valor: "A partir de R$ 150", obs: "Licença não inclusa" },
-      { nome: "Reinstalação de Sistema", valor: "A partir de R$ 120", obs: "Mantendo dados do usuário" },
-      { nome: "Configuração Inicial PC Novo", valor: "A partir de R$ 80", obs: "Programas + conta + backup" },
+      { nome: "Formatação Completa", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 1h R$168,99 • +1h consultar" },
+      { nome: "Instalação Windows 11", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 1h R$168,99 • Licença não inclusa" },
+      { nome: "Reinstalação de Sistema", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Até 1h R$168,99 • Mantendo dados do usuário" },
+      { nome: "Configuração Inicial PC Novo", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 30min R$99,99" },
     ]
   },
   {
     categoria: "Segurança e Vírus",
     icon: Shield,
     servicos: [
-      { nome: "Remoção de Vírus Simples", valor: "A partir de R$ 99,99", obs: "Malwares comuns" },
-      { nome: "Remoção Vírus Complexo", valor: "A partir de R$ 150", obs: "Ransomware, rootkits" },
-      { nome: "Instalação Antivírus", valor: "A partir de R$ 50", obs: "Gratuito ou licenciado" },
-      { nome: "Limpeza Completa + Proteção", valor: "A partir de R$ 180", obs: "Formatação + antivírus" },
+      { nome: "Remoção de Vírus Simples", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 30min R$99,99" },
+      { nome: "Remoção Vírus Complexo", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Até 2h R$199,99 • Ransomware, rootkits" },
+      { nome: "Instalação Antivírus", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Gratuito ou licenciado" },
+      { nome: "Limpeza Completa + Proteção", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Formatação + antivírus" },
     ]
   },
   {
     categoria: "Hardware e Upgrades",
     icon: HardDrive,
     servicos: [
-      { nome: "Upgrade SSD (só mão de obra)", valor: "A partir de R$ 80", obs: "Peça não inclusa" },
-      { nome: "Upgrade Memória RAM", valor: "A partir de R$ 60", obs: "Peça não inclusa" },
-      { nome: "Troca de HD por SSD", valor: "A partir de R$ 120", obs: "Clonagem incluída" },
-      { nome: "Limpeza Interna + Pasta Térmica", valor: "A partir de R$ 100", obs: "Notebook ou desktop" },
+      { nome: "Upgrade SSD (só mão de obra)", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
+      { nome: "Upgrade Memória RAM", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
+      { nome: "Troca de HD por SSD", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Clonagem até 1h R$168,99" },
+      { nome: "Limpeza Interna + Pasta Térmica", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Notebook ou desktop" },
     ]
   },
   {
@@ -70,38 +70,38 @@ const servicosPrecos = [
     icon: Wrench,
     servicos: [
       { nome: "Diagnóstico com Coleta", valor: "R$ 90", obs: "Coleta + entrega inclusas" },
-      { nome: "Reparo de Notebook", valor: "A partir de R$ 150", obs: "Depende do defeito" },
+      { nome: "Reparo de Notebook", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Depende do defeito" },
       { nome: "Troca de Tela Notebook", valor: "Sob orçamento", obs: "Peça + mão de obra" },
-      { nome: "Troca de Teclado Notebook", valor: "A partir de R$ 120", obs: "Peça não inclusa" },
+      { nome: "Troca de Teclado Notebook", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Peça não inclusa" },
     ]
   },
   {
     categoria: "Redes e Internet",
     icon: Wifi,
     servicos: [
-      { nome: "Configuração de Roteador", valor: "A partir de R$ 80", obs: "Wi-Fi + segurança" },
+      { nome: "Configuração de Roteador", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Wi-Fi + segurança" },
       { nome: "Instalação Rede Cabeada", valor: "Sob orçamento", obs: "Por ponto de rede" },
-      { nome: "Extensão de Sinal Wi-Fi", valor: "A partir de R$ 100", obs: "Repetidor/mesh" },
-      { nome: "Configuração VPN", valor: "A partir de R$ 100", obs: "Empresarial ou residencial" },
+      { nome: "Extensão de Sinal Wi-Fi", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Repetidor/mesh" },
+      { nome: "Configuração VPN", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Empresarial ou residencial" },
     ]
   },
   {
     categoria: "Backup e Dados",
     icon: Database,
     servicos: [
-      { nome: "Backup de Dados", valor: "A partir de R$ 80", obs: "Até 100GB" },
-      { nome: "Recuperação de Dados", valor: "A partir de R$ 150", obs: "HD funcionando" },
+      { nome: "Backup de Dados", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Até 100GB" },
+      { nome: "Recuperação de Dados", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • HD funcionando" },
       { nome: "Recuperação Dados HD Danificado", valor: "Sob orçamento", obs: "Análise prévia" },
-      { nome: "Configuração Backup Nuvem", valor: "A partir de R$ 80", obs: "OneDrive, Google Drive" },
+      { nome: "Configuração Backup Nuvem", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • OneDrive, Google Drive" },
     ]
   },
   {
     categoria: "Suporte Remoto",
     icon: Headphones,
     servicos: [
-      { nome: "Suporte Remoto Básico", valor: "A partir de R$ 79,99", obs: "Problemas simples" },
-      { nome: "Suporte Remoto Avançado", valor: "A partir de R$ 120", obs: "Configurações complexas" },
-      { nome: "Hora Técnica Remota", valor: "R$ 99,99 / hora", obs: "Para empresas" },
+      { nome: "Suporte Remoto Básico", valor: "A partir de R$ 69,99", obs: "⚡ Flash 15min R$69,99 • Problemas simples" },
+      { nome: "Suporte Remoto Avançado", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Configurações complexas" },
+      { nome: "Hora Técnica Remota", valor: "R$ 168,99 / hora", obs: "Para empresas" },
     ]
   },
   {
@@ -110,7 +110,7 @@ const servicosPrecos = [
     servicos: [
       { nome: "Contrato Mensal - Básico", valor: "A partir de R$ 300/mês", obs: "Até 5 equipamentos" },
       { nome: "Contrato Mensal - Profissional", valor: "A partir de R$ 600/mês", obs: "Até 15 equipamentos" },
-      { nome: "Hora Técnica Empresarial", valor: "R$ 120/hora", obs: "Sem contrato" },
+      { nome: "Hora Técnica Empresarial", valor: "R$ 168,99/hora", obs: "Sem contrato" },
       { nome: "Consultoria TI", valor: "Sob orçamento", obs: "Projetos específicos" },
     ]
   },

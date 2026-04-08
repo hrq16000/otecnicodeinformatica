@@ -81,9 +81,9 @@ export const HomePricingBlock = () => {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {[
-                { regiao: "Curitiba Centro", min: "R$ 69,99" },
-                { regiao: "SJP / Pinhais", min: "R$ 79,99" },
-                { regiao: "Colombo", min: "R$ 89,99" },
+                { regiao: "São José dos Pinhais", min: "R$ 69,99" },
+                { regiao: "Curitiba Centro", min: "R$ 99,99" },
+                { regiao: "Pinhais / Colombo", min: "R$ 99,99" },
                 { regiao: "Araucária", min: "R$ 99,99" },
                 { regiao: "Fazenda Rio Grande", min: "R$ 109,99" },
                 { regiao: "Campo Largo", min: "R$ 119,99" },

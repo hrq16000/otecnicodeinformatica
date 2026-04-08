@@ -71,6 +71,7 @@ const servicosPrecos = [
     servicos: [
       { nome: "Diagnóstico com Coleta", valor: "R$ 90", obs: "Coleta + entrega inclusas" },
       { nome: "Reparo de Notebook", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Depende do defeito" },
+      { nome: "Reparo de Placa de Vídeo", valor: "A partir de R$ 289", obs: "Diagnóstico + reballing/reflow • Peça não inclusa" },
       { nome: "Troca de Tela Notebook", valor: "Sob orçamento", obs: "Peça + mão de obra" },
       { nome: "Troca de Teclado Notebook", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Peça não inclusa" },
     ]

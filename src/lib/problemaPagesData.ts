@@ -109,7 +109,7 @@ Existe um valor mínimo pré-aprovado: se o reparo estiver dentro desse limite, 
       { label: "Computador Sem Vídeo", to: "/computador-sem-video-curitiba" },
       { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+      { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
       { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
     ],
     conteudoExtra: `### Diferença Entre "Não Liga" e "Não Exibe Imagem"
@@ -694,7 +694,7 @@ Atendemos notebooks de todas as marcas (Dell, Lenovo, HP, Acer, Asus, Samsung, A
       { label: "Notebook Sem Imagem", to: "/notebook-sem-imagem-curitiba" },
       { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
       { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
-      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
+      { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
     ],
     conteudoExtra: `### Antes de Chamar o Técnico
 
@@ -10724,12 +10724,12 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     whatsappMessage: "Olá! Quero saber sobre reflow BGA. Meu equipamento tem problema de vídeo/placa.",
     conteudoExtra: `## Reflow vs Reballing — Comparação Honesta\n\n| Aspecto | Reflow | Reballing |\n|---------|--------|-----------|\n| **O que faz** | Re-derrete soldas existentes | Remove chip, troca todas as esferas, recoloca |\n| **Temperatura** | 220-250°C no chip | 220-250°C (remoção) + reballing + recolocação |\n| **Tempo** | 30-90 segundos de calor | 2-4 horas de processo completo |\n| **Custo** | R$ 150-350 | R$ 400-800 |\n| **Taxa de sucesso** | 60-80% imediato | 75-90% imediato |\n| **Duração** | Dias a meses (imprevisível) | 1-5+ anos |\n| **Garantia** | ❌ NÃO | ✅ 90 dias |\n| **Resolve a causa?** | ❌ Paliativo | ✅ Troca as esferas |\n| **Equipamento necessário** | Ar quente / IR | Estação BGA (R$ 5.000-35.000) |\n\n## Por Que o Reflow É Temporário — Explicação Técnica\n\n### O Problema Raiz\nAs esferas de solda BGA trincam por **fadiga termomecânica**. Cada ciclo liga/desliga causa:\n- Aquecimento: chip expande mais que a placa (coeficientes térmicos diferentes)\n- Resfriamento: chip contrai, placa contrai em velocidade diferente\n- Resultado: microtrincas nas esferas de solda\n\n### O Que o Reflow Faz\nAquece as esferas até o ponto de fusão (~217°C para SAC305). As trincas se fecham temporariamente. Mas:\n- As esferas não recuperam a forma esférica original\n- A geometria deformada concentra estresse nos mesmos pontos\n- As trincas se reformam mais rapidamente que da primeira vez\n\n### O Que o Reballing Faz\nRemove o chip, **limpa todas as esferas antigas** e aplica **esferas novas** com stencil. A geometria é restaurada completamente. Por isso dura mais.\n\n## Casos Clássicos de BGA\n\n### Xbox 360 — Red Ring of Death (RROD)\n- GPU com solda BGA falha em massa (2005-2009)\n- Microsoft gastou US$ 1 bilhão em reparos/trocas\n- Reflow era "solução" caseira com toalha (mito)\n- Reballing era a solução real\n\n### MacBook Pro 2011 — GPU Radeon\n- AMD Radeon HD 6750M/6770M com solda BGA falha\n- Apple lançou programa de reparo (encerrado em 2016)\n- Reflow funcionava por 1-3 meses\n- Reballing ou troca de chip é a solução\n\n### PS3 — Yellow Light of Death (YLOD)\n- RSX (GPU) com solda BGA\n- Mesmo problema do Xbox 360\n\n### PS4 — Sem vídeo HDMI\n- Chip HDMI com solda BGA\n- Reballing do chip HDMI resolve\n\n## Nosso Compromisso\n\n**Nunca fazemos reflow dizendo que é reballing.** Se o procedimento indicado é reflow (por custo-benefício), informamos claramente:\n- É temporário\n- Não tem garantia\n- O reballing é a opção mais segura\n- O cliente decide`,
     relatedPages: [
-      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
-      { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
+      { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
+      { label: "Troca de Chip BGA", to: "/procedimentos/troca-chip-bga-curitiba" },
       { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" },
-      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" }
+      { label: "Microsoldagem Celular", to: "/procedimentos/microsoldagem-celular-curitiba" }
     ],
   },
   {
@@ -10770,9 +10770,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     whatsappMessage: "Olá! Preciso de reballing BGA. Meu notebook/console tem problema de GPU/vídeo.",
     conteudoExtra: `## Reballing: O Que Ninguém Te Conta\n\n### Lead-Free vs Leaded: A Escolha do Técnico\n\nUm segredo da indústria: **muitos técnicos fazem reballing com solda COM chumbo** (Sn63Pb37) mesmo em equipamentos que vieram com solda sem chumbo (SAC305).\n\n**Por quê?**\n- Solda com chumbo funde a 183°C (vs 217°C sem chumbo) — menos estresse térmico\n- É mais maleável — absorve melhor os ciclos de expansão/contração\n- Forma juntas mais confiáveis — menos trincas\n- É a mesma solda usada em equipamentos militares e aeroespaciais\n\n**É seguro?** Sim, o chumbo está encapsulado dentro do chip. Não há exposição ao usuário.\n\n**O resultado é melhor?** Na maioria dos casos, sim. Reballing com solda leaded tende a durar mais.\n\n### Stencils: A Precisão do Processo\n\nO stencil é uma placa fina de aço inoxidável com furos microscopicamente posicionados — cada furo corresponde a um pad do chip BGA.\n\n- Stencil direto (1:1): posicionado diretamente sobre o chip\n- Stencil universal: ajustável para vários chips similares\n- Precisão dos furos: ±0.02mm\n- Custo: R$ 30-150 cada (precisamos de centenas em estoque)\n\n### Taxa de Sucesso por Tipo de Chip\n\n| Chip | Taxa de Sucesso | Observação |\n|------|----------------|------------|\n| GPU notebook (NVIDIA) | 75-85% | Depende se o silício está bom |\n| GPU console (PS4/Xbox) | 80-90% | Chips mais robustos |\n| Chipset Intel | 85-90% | Geralmente é só a solda |\n| CPU BGA notebook | 70-80% | Alto risco, alto valor |\n| GPU desktop (placa de vídeo) | 80-90% | Mais espaço, melhor acesso |\n\n### Quanto Dura um Reballing?\n\n- **Com solda sem chumbo:** 1-5 anos (mesma durabilidade do original)\n- **Com solda com chumbo:** 2-7+ anos (mais durável)\n- **Depende de:** ventilação do equipamento, pasta térmica, uso (games vs escritório)\n\n### Manutenção Pós-Reballing\n\n1. **Troque pasta térmica** a cada 1-2 anos\n2. **Limpe ventiladores** a cada 6 meses\n3. **Use base refrigerada** em notebooks\n4. **Evite bloquear saídas de ar** (cama, sofá)\n5. **Monitore temperaturas** com HWMonitor ou similar`,
     relatedPages: [
-      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
-      { label: "Troca de Chip BGA", to: "/troca-chip-bga-curitiba" },
-      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
+      { label: "Reflow BGA", to: "/procedimentos/reflow-bga-curitiba" },
+      { label: "Troca de Chip BGA", to: "/procedimentos/troca-chip-bga-curitiba" },
+      { label: "Microsoldagem Celular", to: "/procedimentos/microsoldagem-celular-curitiba" },
       { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
@@ -10816,9 +10816,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     whatsappMessage: "Olá! Preciso de troca de chip BGA. Meu notebook/console não funciona após reballing.",
     conteudoExtra: `## Chips Mais Comuns e Preços de Referência\n\n| Chip | Aplicação | Preço da peça |\n|------|----------|---------------|\n| NVIDIA MX150 (N17S-G1-A1) | Notebooks intermediários | R$ 150-250 |\n| NVIDIA GTX 1650 Mobile | Notebooks gamers entrada | R$ 200-350 |\n| NVIDIA RTX 3050 Mobile | Notebooks gamers | R$ 300-500 |\n| AMD Radeon RX 5500M | Notebooks gamers | R$ 200-350 |\n| Intel HM370/HM470 | Chipset de notebook | R$ 80-180 |\n| Panasonic MN864729 | HDMI PS4/PS5 | R$ 30-80 |\n| AMD APU Ryzen 5 (BGA) | Notebooks AMD | R$ 250-500 |\n| Apple T2 | MacBook 2018-2020 | R$ 300-600 |\n\n## Fontes de Chips — Onde Compramos\n\n- **Distribuidores especializados** — chips novos com procedência\n- **Chips de placas doadoras** — extraídos de placas com outros defeitos, testados individualmente\n- **Importação direta** — AliExpress (fornecedores verificados), Mouser, DigiKey\n\n**NUNCA usamos chips sem testar.** Todo chip passa por verificação visual (microscópio) e teste elétrico antes de instalar.\n\n## Hierarquia de Procedimentos\n\n**Problema de solda BGA detectado:**\n\n**1. REFLOW (R$ 150-350)** — Temporário, sem garantia. Se não resolver ou voltar:\n\n**2. REBALLING (R$ 400-800)** — Troca de esferas, com garantia 90 dias. Se não resolver:\n\n**3. TROCA DE CHIP (R$ 500-1.200)** — Chip novo, com garantia 90 dias. Se não resolver:\n\n**4. PROBLEMA NA PLACA (não no chip)** — Trilha interna rompida, pad destruído = Troca de placa-mãe ou descarte`,
     relatedPages: [
-      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
-      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
-      { label: "Microsoldagem Celular", to: "/microsoldagem-celular-curitiba" },
+      { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
+      { label: "Reflow BGA", to: "/procedimentos/reflow-bga-curitiba" },
+      { label: "Microsoldagem Celular", to: "/procedimentos/microsoldagem-celular-curitiba" },
       { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
@@ -10866,9 +10866,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Procedimentos Especiais\n\n### Jumper Wire (Reconstrução de Trilha)\nQuando uma trilha da placa está rompida (por impacto, oxidação ou reparo anterior), usamos **fio de cobre esmaltado de 0.02-0.05mm** para reconstruir a conexão.\n\n**O processo:**\n1. Identificar trilha rompida (multímetro + esquemático)\n2. Raspar isolamento dos pads de origem e destino\n3. Estanhar os pads\n4. Cortar fio no comprimento exato\n5. Soldar com ferro de ponta fina sob microscópio\n6. Fixar com cola UV para proteção mecânica\n\n**É um dos procedimentos mais delicados** — o fio tem espessura de um fio de cabelo.\n\n### Underfill — O Desafio Extra\nAlguns chips BGA vêm com **underfill** — uma resina epóxi aplicada entre o chip e a placa para reforçar a soldagem. O underfill:\n- Dificulta a remoção do chip (precisa de mais calor + tempo)\n- Pode danificar pads ao ser removido\n- Exige solvente específico + paciência\n- Aumenta o tempo e custo do serviço\n\nChips da Apple (A-series, M-series) e alguns Qualcomm têm underfill pesado.\n\n### Programação de NAND/NOR\nEm iPhones, a memória NAND é **pareada com o processador** (vínculo criptográfico). Trocar a NAND exige:\n1. Ler a NAND original (se possível)\n2. Programar a NAND nova com dados do processador\n3. Soldar e testar\n\nEquipamento: JC P7, iRepair P10, JCID — R$ 1.500-3.000\n\n## Tabela de Garantias por Procedimento\n\n| Procedimento | Garantia | Por quê? |\n|-------------|---------|----------|\n| Troca de IC (componente novo) | 90 dias | Componente novo + soldagem controlada |\n| Troca de capacitor/resistor | 90 dias | Componente novo, processo simples |\n| Reballing de IC | 90 dias | Esferas novas, processo controlado |\n| Jumper wire | 60 dias | Fio frágil, pode romper com impacto |\n| Resgate de líquido | 30 dias | Oxidação pode progredir internamente |\n| Reflow | ❌ Sem garantia | Temporário por natureza |\n| Reparo paliativo informado | ❌ Sem garantia | Cliente ciente do risco |\n\n**A garantia é proporcional à confiabilidade do procedimento.** Somos transparentes.`,
     relatedPages: [
       { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
-      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
-      { label: "Reflow BGA", to: "/reflow-bga-curitiba" },
-      { label: "Troca de Chip", to: "/troca-chip-bga-curitiba" },
+      { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
+      { label: "Reflow BGA", to: "/procedimentos/reflow-bga-curitiba" },
+      { label: "Troca de Chip", to: "/procedimentos/troca-chip-bga-curitiba" },
       { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
       { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" }
     ],

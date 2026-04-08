@@ -1,25 +1,41 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { CalendarDays, Clock, MapPin, CheckCircle, Shield, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SchedulingModal } from "./SchedulingModal";
 
+const allServices = [
+  "Formatação de computador",
+  "Conserto de notebook",
+  "Remoção de vírus",
+  "Upgrade SSD e memória",
+  "Instalação de rede WiFi",
+  "Suporte técnico empresarial",
+  "Conserto de TV (LED, LCD, Smart)",
+  "Conserto de celular",
+  "Reparo de caixa de som",
+  "Limpeza interna + pasta térmica",
+  "Recuperação de dados",
+  "Configuração de roteador",
+  "Reparo de placa de vídeo",
+  "Backup de dados",
+  "Montagem de PC gamer",
+  "Conserto de monitor",
+];
+
+const shuffleAndPick = (arr: string[], count: number) => {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+};
+
 export const SchedulingSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const services = useMemo(() => shuffleAndPick(allServices, 6), []);
 
   const benefits = [
     { icon: Clock, text: "Atendimento no mesmo dia" },
     { icon: MapPin, text: "Técnico vai até você" },
     { icon: Shield, text: "Garantia em todos os serviços" },
     { icon: CheckCircle, text: "Orçamento sem compromisso" },
-  ];
-
-  const services = [
-    "Formatação de computador",
-    "Conserto de notebook",
-    "Remoção de vírus",
-    "Upgrade SSD e memória",
-    "Instalação de rede WiFi",
-    "Suporte técnico empresarial",
   ];
 
   return (

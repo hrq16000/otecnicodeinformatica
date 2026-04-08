@@ -10,8 +10,15 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Link } from "react-router-dom";
 import {
   MessageCircle, Smartphone, Shield, Clock, CheckCircle,
-  AlertTriangle, Wrench, Users
+  AlertTriangle, Wrench, Users, Truck
 } from "lucide-react";
+import {
+  COLETA_TAXA_MINIMA_LABEL,
+  PRAZO_RAPIDO,
+  REGRA_ORCAMENTO_GRATIS,
+  REGRA_COLETA_SEM_VISITA,
+  MSG_COLETA_RESUMO,
+} from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997452053";
 
@@ -93,16 +100,16 @@ const ConsertoCelular = () => {
               Conserto de Celular em Curitiba e Região Metropolitana
             </h1>
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-              Troca de tela, bateria, conector e mais. Orçamento humanizado, sem compromisso. Traga seu aparelho para avaliação.
+              Troca de tela, bateria, conector e mais. {REGRA_ORCAMENTO_GRATIS}. Coleta e entrega disponível.
             </p>
 
             <div className="bg-white/10 rounded-xl p-4 mb-8 max-w-lg mx-auto">
               <div className="flex items-center gap-2 text-accent mb-2">
-                <AlertTriangle className="h-5 w-5" />
-                <span className="font-bold text-sm">IMPORTANTE</span>
+                <Truck className="h-5 w-5" />
+                <span className="font-bold text-sm">COLETA E ENTREGA</span>
               </div>
               <p className="text-white/90 text-sm">
-                Para celulares, <strong>não realizamos visita técnica a domicílio</strong>. O aparelho precisa ser trazido até nossa oficina. O orçamento é feito após avaliação presencial.
+                {MSG_COLETA_RESUMO} Prazo para celular: <strong>{PRAZO_RAPIDO}</strong>.
               </p>
             </div>
 
@@ -123,10 +130,10 @@ const ConsertoCelular = () => {
             </h2>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { step: "1", titulo: "Contato pelo WhatsApp", desc: "Descreva o problema do celular, modelo e envie fotos se possível." },
-                { step: "2", titulo: "Traga o Aparelho", desc: "Traga o celular até nossa oficina para avaliação. Sem visita a domicílio para celulares." },
-                { step: "3", titulo: "Diagnóstico e Orçamento", desc: "Avaliamos o aparelho e informamos o valor do reparo. Sem compromisso — você decide." },
-                { step: "4", titulo: "Reparo Rápido", desc: "Após aprovação, realizamos o conserto. Muitos reparos ficam prontos no mesmo dia." },
+                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema do celular, modelo e envie fotos. ${REGRA_ORCAMENTO_GRATIS}.` },
+                { step: "2", titulo: "Coleta do Aparelho", desc: `Organizamos a coleta no seu endereço ou você traz à oficina. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
+                { step: "3", titulo: "Diagnóstico e Orçamento", desc: "Avaliamos o aparelho e informamos o valor do reparo. Orçamento preciso somente após coleta." },
+                { step: "4", titulo: "Reparo Rápido", desc: `Após aprovação, realizamos o conserto. Prazo: ${PRAZO_RAPIDO}.` },
               ].map((p, i) => (
                 <div key={i} className="text-center p-6 bg-secondary rounded-xl">
                   <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
@@ -193,7 +200,7 @@ const ConsertoCelular = () => {
                 { icon: Users, titulo: "Atendimento Humanizado", desc: "Explicamos o problema com clareza. Sem jargão técnico, sem pressão para aprovar." },
                 { icon: Shield, titulo: "Garantia no Serviço", desc: "Todo reparo conta com garantia. Peças de qualidade e mão de obra profissional." },
                 { icon: CheckCircle, titulo: "Orçamento Transparente", desc: "Valor informado antes de qualquer execução. Você só paga se aprovar o serviço." },
-                { icon: Clock, titulo: "Agilidade", desc: "Muitos reparos ficam prontos no mesmo dia. Informamos o prazo desde o início." },
+                { icon: Clock, titulo: "Prazo Rápido", desc: `Prazo para celular: ${PRAZO_RAPIDO}. Informamos desde o início.` },
               ].map((d, i) => (
                 <div key={i} className="text-center p-6 bg-background rounded-xl">
                   <d.icon className="h-10 w-10 text-accent mx-auto mb-4" />
@@ -215,10 +222,10 @@ const ConsertoCelular = () => {
             </h2>
             <div className="max-w-3xl mx-auto space-y-4">
               {[
-                { q: "Vocês fazem visita técnica para celular?", a: "Não. Para celulares, o aparelho precisa ser trazido até nossa oficina. Não realizamos visita a domicílio para smartphones." },
-                { q: "Quanto custa o conserto?", a: "O valor depende do modelo e do defeito. Fazemos o diagnóstico e informamos o orçamento antes de executar. Sem compromisso." },
+                { q: "Vocês fazem visita técnica para celular?", a: `Não. ${REGRA_COLETA_SEM_VISITA} Organizamos coleta e entrega com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL}.` },
+                { q: "Quanto custa o conserto?", a: `${REGRA_ORCAMENTO_GRATIS}. Orçamento preciso somente após coleta do aparelho, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { q: "Trocam tela de iPhone?", a: "Sim. Trabalhamos com telas originais e compatíveis de alta qualidade para todos os modelos de iPhone." },
-                { q: "Quanto tempo leva o reparo?", a: "Reparos simples (tela, bateria) ficam prontos em poucas horas. Defeitos de placa podem levar 3 a 5 dias." },
+                { q: "Quanto tempo leva o reparo?", a: `Prazo padrão para celular: ${PRAZO_RAPIDO}.` },
                 { q: "Quais formas de pagamento?", a: "PIX, dinheiro e cartão. Consulte condições pelo WhatsApp." },
                 { q: "A garantia cobre o quê?", a: "Cobre o serviço realizado e a peça trocada pelo prazo informado no orçamento." },
               ].map((faq, i) => (

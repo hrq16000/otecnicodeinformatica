@@ -73,6 +73,7 @@ const mainNavItems = [
     to: "/blog",
     sub: [
       { label: "Blog", to: "/blog" },
+      { label: "Procedimentos Técnicos", to: "/procedimentos-placa" },
       { label: "Equipamentos Atendidos", to: "/equipamentos-atendidos" },
       { label: "Casos Reais", to: "/problemas-reais-e-casos" },
       { label: "Quando Não Compensa", to: "/quando-nao-compensa" },

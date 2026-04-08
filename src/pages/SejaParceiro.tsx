@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -6,9 +6,21 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
 import {
   Users, CheckCircle, ArrowRight, MessageCircle, Wrench, MapPin,
-  Shield, TrendingUp, Clock, Star, Briefcase, Award, Zap,
+  Shield, TrendingUp, Clock, Star, Briefcase, Award, Zap, ExternalLink,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const WHATSAPP = "5541997452053";
 
 const beneficios = [
   { icon: TrendingUp, title: "Demanda constante", desc: "Receba chamados técnicos de clientes qualificados na sua região, sem precisar investir em marketing." },
@@ -42,10 +54,42 @@ const especialidades = [
 ];
 
 const SejaParceiro = () => {
+  const [form, setForm] = useState({
+    nome: "",
+    cidade: "",
+    especialidade: "",
+    experiencia: "",
+    temFerramentas: "",
+    observacoes: "",
+  });
+
   useEffect(() => {
     document.title = "Seja Técnico Parceiro | Técnico Curitiba";
     trackPageView("/seja-parceiro", "Seja Parceiro");
   }, []);
+
+  const handleChange = useCallback((field: string, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  }, []);
+
+  const buildWhatsAppMessage = useCallback(() => {
+    const lines = [
+      "🔧 *QUERO SER TÉCNICO PARCEIRO*",
+      "",
+      `👤 *Nome:* ${form.nome || "(não informado)"}`,
+      `📍 *Cidade/Região:* ${form.cidade || "(não informado)"}`,
+      `🛠️ *Especialidade:* ${form.especialidade || "(não informado)"}`,
+      `⏱️ *Experiência:* ${form.experiencia || "(não informado)"}`,
+      `🔧 *Tem ferramentas próprias:* ${form.temFerramentas || "(não informado)"}`,
+    ];
+    if (form.observacoes.trim()) {
+      lines.push(`📝 *Observações:* ${form.observacoes}`);
+    }
+    lines.push("", "Gostaria de saber mais sobre a parceria!");
+    return encodeURIComponent(lines.join("\n"));
+  }, [form]);
+
+  const isFormValid = form.nome.trim() && form.cidade.trim() && form.especialidade;
 
   return (
     <div className="min-h-screen bg-background">
@@ -175,7 +219,7 @@ const SejaParceiro = () => {
           </div>
         </section>
 
-        {/* ═══ Cadastro ═══ */}
+        {/* ═══ Formulário WhatsApp ═══ */}
         <section id="formulario" className="py-16 bg-muted/30 border-y border-border scroll-mt-20">
           <div className="container mx-auto px-4">
             <AnimatedSection>
@@ -184,37 +228,139 @@ const SejaParceiro = () => {
                 Cadastre-se Como Parceiro
               </h2>
               <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
-                Faça seu cadastro na nossa plataforma de prestadores. É rápido, gratuito e você começa a receber chamados na sua região.
+                Preencha o formulário e envie pelo WhatsApp. Nossa equipe retorna em até 24 horas.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={150}>
-              <div className="max-w-md mx-auto">
-                <div className="glass-card gradient-border rounded-2xl p-8 md:p-10 text-center space-y-6">
-                  <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto">
-                    <Briefcase className="h-8 w-8 text-accent" />
+              <div className="max-w-xl mx-auto">
+                <div className="glass-card gradient-border rounded-2xl p-6 md:p-8 space-y-5">
+                  {/* Nome */}
+                  <div className="space-y-2">
+                    <Label htmlFor="nome" className="text-foreground font-medium">Nome completo *</Label>
+                    <Input
+                      id="nome"
+                      value={form.nome}
+                      onChange={(e) => handleChange("nome", e.target.value)}
+                      placeholder="Seu nome completo"
+                      className="bg-background"
+                    />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Plataforma Preciso de Um</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Nosso ecossistema conecta técnicos qualificados a clientes que precisam de assistência. Cadastre-se e comece a atender.
-                    </p>
+
+                  {/* Cidade */}
+                  <div className="space-y-2">
+                    <Label htmlFor="cidade" className="text-foreground font-medium">Cidade / Região de atuação *</Label>
+                    <Input
+                      id="cidade"
+                      value={form.cidade}
+                      onChange={(e) => handleChange("cidade", e.target.value)}
+                      placeholder="Ex: Curitiba, São José dos Pinhais, Araucária..."
+                      className="bg-background"
+                    />
                   </div>
+
+                  {/* Especialidade */}
+                  <div className="space-y-2">
+                    <Label className="text-foreground font-medium">Principal especialidade *</Label>
+                    <Select value={form.especialidade} onValueChange={(v) => handleChange("especialidade", v)}>
+                      <SelectTrigger className="bg-background">
+                        <SelectValue placeholder="Selecione sua especialidade" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {especialidades.map((e) => (
+                          <SelectItem key={e} value={e}>{e}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Experiência */}
+                  <div className="space-y-2">
+                    <Label className="text-foreground font-medium">Tempo de experiência</Label>
+                    <Select value={form.experiencia} onValueChange={(v) => handleChange("experiencia", v)}>
+                      <SelectTrigger className="bg-background">
+                        <SelectValue placeholder="Quanto tempo de experiência?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Menos de 1 ano">Menos de 1 ano</SelectItem>
+                        <SelectItem value="1 a 3 anos">1 a 3 anos</SelectItem>
+                        <SelectItem value="3 a 5 anos">3 a 5 anos</SelectItem>
+                        <SelectItem value="5 a 10 anos">5 a 10 anos</SelectItem>
+                        <SelectItem value="Mais de 10 anos">Mais de 10 anos</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Ferramentas */}
+                  <div className="space-y-2">
+                    <Label className="text-foreground font-medium">Possui ferramentas próprias?</Label>
+                    <Select value={form.temFerramentas} onValueChange={(v) => handleChange("temFerramentas", v)}>
+                      <SelectTrigger className="bg-background">
+                        <SelectValue placeholder="Selecione" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Sim, completas">Sim, completas</SelectItem>
+                        <SelectItem value="Sim, básicas">Sim, básicas</SelectItem>
+                        <SelectItem value="Não, preciso adquirir">Não, preciso adquirir</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Observações */}
+                  <div className="space-y-2">
+                    <Label htmlFor="obs" className="text-foreground font-medium">Observações (opcional)</Label>
+                    <Textarea
+                      id="obs"
+                      value={form.observacoes}
+                      onChange={(e) => handleChange("observacoes", e.target.value)}
+                      placeholder="Conte mais sobre você, sua experiência, certificações, etc."
+                      className="bg-background min-h-[100px]"
+                    />
+                  </div>
+
+                  {/* Enviar pelo WhatsApp */}
                   <a
-                    href="https://precisodeum.com.br"
+                    href={isFormValid ? `https://wa.me/${WHATSAPP}?text=${buildWhatsAppMessage()}` : undefined}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => { if (!isFormValid) e.preventDefault(); }}
                   >
                     <Button
-                      className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg hover:scale-[1.02] transition-all duration-300 cta-pulse btn-feedback elastic-click font-semibold"
+                      disabled={!isFormValid}
+                      className="w-full gap-3 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-xl px-8 py-6 text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] transition-all duration-300 cta-pulse btn-feedback elastic-click"
                     >
-                      <ArrowRight className="h-5 w-5" />
-                      Cadastrar como Prestador
+                      <MessageCircle className="h-5 w-5" />
+                      Enviar Cadastro pelo WhatsApp
                     </Button>
                   </a>
-                  <p className="text-xs text-muted-foreground">
-                    Você será redirecionado para a plataforma Preciso de Um
+
+                  <p className="text-xs text-muted-foreground text-center">
+                    * Campos obrigatórios. Ao enviar, você será redirecionado ao WhatsApp com os dados preenchidos.
                   </p>
+                </div>
+
+                {/* ═══ Botão Preciso de Um ═══ */}
+                <div className="mt-8 text-center">
+                  <div className="glass-card gradient-border rounded-2xl p-6 space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      Ou cadastre-se diretamente na nossa plataforma de prestadores:
+                    </p>
+                    <a
+                      href="https://precisodeum.com.br"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        className="w-full gap-3 bg-accent text-accent-foreground rounded-xl px-8 py-6 text-base shadow-lg hover:scale-[1.02] transition-all duration-300 font-semibold btn-feedback elastic-click"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                        Faça o seu cadastro
+                      </Button>
+                    </a>
+                    <p className="text-[11px] text-muted-foreground/70">
+                      Plataforma Preciso de Um — conectando prestadores a clientes em todo o Brasil
+                    </p>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

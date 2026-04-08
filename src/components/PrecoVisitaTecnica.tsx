@@ -42,7 +42,7 @@ export const PrecoVisitaTecnica = ({ tipo, className = "", showLink = true, comp
 };
 
 // Helper to determine if a service/page should use "coleta" pricing
-export const CATEGORIAS_COLETA = ["tv", "notebook", "pc", "rádio", "radio", "caixa de som", "monitor", "manutencao-tv", "conserto-placa"];
+export const CATEGORIAS_COLETA = ["tv", "notebook", "pc", "rádio", "radio", "caixa de som", "monitor", "celular", "manutencao-tv", "conserto-placa", "conserto-celular"];
 
 export const isColetaCategory = (slug: string): boolean => {
   const lower = slug.toLowerCase();

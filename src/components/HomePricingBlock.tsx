@@ -103,8 +103,8 @@ export const HomePricingBlock = () => {
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               <Sparkles className="h-4 w-4 text-accent flex-shrink-0" />
               <span>
-                <strong className="text-foreground">Importante:</strong> Não existe orçamento sem compromisso presencial. 
-                Estimativas gratuitas somente via WhatsApp. Diagnóstico presencial é pago e valores podem variar conforme complexidade.
+                <strong className="text-foreground">Importante:</strong> Orçamento gratuito somente estimado via WhatsApp. 
+                Orçamento preciso somente com compromisso. Para celular, TV, placa e ferramentas: orçamento somente após coleta (taxa mínima R$ 300).
               </span>
             </p>
           </div>

@@ -297,7 +297,7 @@ export const CoverageMapSection = () => {
                 const isActive = index === activeIndex;
                 return (
                   <div
-                    key={index}
+                    key={region.originalIndex}
                     onClick={() => setActiveIndex(index)}
                     className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] card-shine hover-streak ${
                       isActive

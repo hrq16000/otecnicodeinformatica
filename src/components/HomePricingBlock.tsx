@@ -8,6 +8,7 @@ const precos = [
   { servico: "Formatação Completa (1h)", valor: "R$ 168,99" },
   { servico: "Remoção de Vírus", valor: "A partir de R$ 69,99" },
   { servico: "Suporte Remoto", valor: "A partir de R$ 69,99" },
+  { servico: "Reparo Placa de Vídeo", valor: "A partir de R$ 289" },
 ];
 
 export const HomePricingBlock = () => {
@@ -48,8 +49,8 @@ export const HomePricingBlock = () => {
               </div>
             ))}
           </div>
-          {/* Bottom row: 2 columns centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-6">
+          {/* Bottom row: 3 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
             {precos.slice(3).map((p, i) => (
               <div 
                 key={i + 3} 

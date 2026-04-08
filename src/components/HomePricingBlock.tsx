@@ -8,6 +8,7 @@ const precos = [
   { servico: "Formatação Completa (1h)", valor: "R$ 168,99" },
   { servico: "Remoção de Vírus", valor: "A partir de R$ 69,99" },
   { servico: "Suporte Remoto", valor: "A partir de R$ 69,99" },
+  { servico: "Reparo Placa de Vídeo", valor: "A partir de R$ 289" },
 ];
 
 export const HomePricingBlock = () => {

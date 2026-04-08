@@ -76,7 +76,6 @@ const CATEGORY_MAP: Record<string, { label: string; icon: typeof Cpu; color: str
   "Redes": { label: "Redes", icon: Wifi, color: "from-sky-600 to-blue-500" },
   "Segurança": { label: "Segurança", icon: Shield, color: "from-green-600 to-emerald-500" },
   "Periféricos": { label: "Periféricos", icon: HardDrive, color: "from-zinc-600 to-slate-500" },
-};
   "Plataformas": { label: "Plataformas", icon: TrendingUp, color: "from-emerald-600 to-teal-500" },
 };
 const DEFAULT_CAT = { label: "Outros", icon: Wrench, color: "from-gray-600 to-slate-500" };

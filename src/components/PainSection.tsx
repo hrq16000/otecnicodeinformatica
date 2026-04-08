@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { MessageCircle, CheckCircle, Zap, Shield, Clock, ThumbsUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
@@ -11,7 +12,18 @@ const benefits = [
   { icon: Zap, text: "Atendimento rápido e sem enrolação", description: "Resolução no primeiro contato" },
 ];
 
+const headlines = [
+  "Computador lento? Não liga? Travando ou com vírus?",
+  "Notebook esquentando? Tela preta? Sem Wi-Fi?",
+  "PC travou de vez? Perdeu arquivos? Tela azul?",
+  "Vírus no computador? Pop-ups? Dados em risco?",
+  "Computador não liga? Fazendo barulho? Lento demais?",
+  "Notebook caiu? Teclado parou? Bateria viciada?",
+  "Smart TV sem sinal? Celular travando? Monitor apagou?",
+];
+
 export const PainSection = () => {
+  const headline = useMemo(() => headlines[Math.floor(Math.random() * headlines.length)], []);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Meu computador está com problema e preciso de ajuda técnica urgente.")}`;
 
   const handleWhatsAppClick = () => {

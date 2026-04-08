@@ -78,11 +78,13 @@ export const HomePricingBlock = () => {
             <p className="text-xs text-muted-foreground mb-3">
               O custo do atendimento inclui deslocamento. Regiões mais distantes e horários de pico podem ter acréscimo.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {[
                 { regiao: "Curitiba Centro", min: "R$ 69,99" },
-                { regiao: "SJP / Pinhais", min: "R$ 89,99" },
+                { regiao: "SJP / Pinhais", min: "R$ 79,99" },
+                { regiao: "Colombo", min: "R$ 89,99" },
                 { regiao: "Araucária", min: "R$ 99,99" },
+                { regiao: "Fazenda Rio Grande", min: "R$ 109,99" },
                 { regiao: "Campo Largo", min: "R$ 119,99" },
               ].map((r, i) => (
                 <div key={i} className="bg-background/80 rounded-lg p-2.5 text-center border border-border/50">

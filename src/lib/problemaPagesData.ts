@@ -108,6 +108,8 @@ Existe um valor mínimo pré-aprovado: se o reparo estiver dentro desse limite, 
       { label: "Computador Liga e Desliga", to: "/computador-liga-e-desliga-curitiba" },
       { label: "Computador Sem Vídeo", to: "/computador-sem-video-curitiba" },
       { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
+      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
       { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
     ],
     conteudoExtra: `### Diferença Entre "Não Liga" e "Não Exibe Imagem"
@@ -691,6 +693,8 @@ Atendemos notebooks de todas as marcas (Dell, Lenovo, HP, Acer, Asus, Samsung, A
       { label: "Notebook Lento", to: "/notebook-lento-curitiba" },
       { label: "Notebook Sem Imagem", to: "/notebook-sem-imagem-curitiba" },
       { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
+      { label: "Reballing BGA", to: "/reballing-bga-curitiba" },
     ],
     conteudoExtra: `### Antes de Chamar o Técnico
 

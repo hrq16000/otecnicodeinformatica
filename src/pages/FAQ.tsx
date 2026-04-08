@@ -7,7 +7,10 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
+import { HelpCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -159,17 +162,35 @@ const FAQ = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="hero-gradient pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15),transparent_60%)] pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Perguntas Frequentes
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 reveal-text" data-reveal-delay="100">
-                Tire suas dúvidas sobre nossos serviços de informática
-              </p>
-            </div>
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 premium-gradient" />
+          <FloatingParticles count={20} />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
+            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+          </div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
+          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
+            <AnimatedSection animation="fade-up">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
+                  <HelpCircle className="h-4 w-4 text-accent" />
+                  <span>Tire suas dúvidas</span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
+                  Perguntas <span className="gradient-text-animated">Frequentes</span>
+                </h1>
+                <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                  Tire suas dúvidas sobre nossos serviços de informática
+                </p>
+                <div className="glow-separator max-w-[200px] mx-auto mt-6" />
+              </div>
+            </AnimatedSection>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+            </svg>
           </div>
         </section>
 
@@ -188,7 +209,7 @@ const FAQ = () => {
                       <AccordionItem
                         key={qIndex}
                         value={`${catIndex}-${qIndex}`}
-                        className="bg-secondary rounded-xl border-none px-5 hover:shadow-sm transition-shadow"
+                        className="glass-card gradient-border rounded-xl border-none px-5 hover:shadow-[var(--shadow-md)] transition-all duration-300"
                       >
                         <AccordionTrigger className="text-left font-semibold text-foreground hover:text-accent hover:no-underline py-4">
                           {item.question}

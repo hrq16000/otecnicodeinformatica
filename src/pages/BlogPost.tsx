@@ -971,6 +971,583 @@ const blogPostsContent: Record<string, {
       </>
     ),
   },
+
+  "erros-comuns-upgrade-computador": {
+    title: "5 Erros Comuns ao Fazer Upgrade no Computador (e Como Evitar Prejuízo)",
+    excerpt: "Comprar RAM incompatível, instalar SSD errado, forçar peças no slot — veja os erros que causam prejuízo.",
+    date: "2026-04-06",
+    readTime: "8 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">Fazer upgrade no computador pode ser a solução mais inteligente para ganhar desempenho sem trocar a máquina. Mas quando feito sem conhecimento técnico, o resultado pode ser <strong>prejuízo financeiro e até danos permanentes</strong>. Veja os 5 erros mais comuns que encontramos no dia a dia.</p>
+
+        <h2>1. Comprar RAM Incompatível</h2>
+        <p>Nem toda memória RAM serve em qualquer computador. É preciso verificar o <strong>tipo (DDR3, DDR4, DDR5)</strong>, a frequência suportada pela placa-mãe e o número máximo de slots. Muita gente compra DDR4 para um notebook que só aceita DDR3 — e descobre tarde demais que não encaixa.</p>
+        <p><strong>Como evitar:</strong> Consulte o manual da placa-mãe ou use ferramentas como CPU-Z para verificar as especificações antes de comprar.</p>
+
+        <h2>2. Instalar SSD Sem Verificar a Interface</h2>
+        <p>Existem SSDs SATA (2.5") e SSDs NVMe (M.2). Nem toda placa-mãe tem slot M.2, e mesmo as que têm podem suportar apenas SATA no slot M.2, não NVMe. Instalar o tipo errado significa que o SSD simplesmente <strong>não será reconhecido</strong>.</p>
+        <p><strong>Como evitar:</strong> Verifique no manual se há slot M.2 e se ele suporta NVMe ou apenas SATA.</p>
+
+        <h2>3. Forçar Peças no Slot Errado</h2>
+        <p>Memória DDR4 não encaixa em slot DDR3 — os encaixes são diferentes propositalmente. Mas vemos casos de clientes que <strong>forçaram a peça e quebraram o slot ou a própria memória</strong>. O mesmo vale para conectores de energia, cabos SATA e até ventoinhas.</p>
+        <p><strong>Regra de ouro:</strong> Se não encaixou com pressão leve, está errado. Nunca force.</p>
+
+        <h2>4. Não Reinstalar o Windows Após Trocar HD por SSD</h2>
+        <p>Alguns usuários copiam o HD antigo para o SSD novo usando programas de clonagem — mas o Windows pode não iniciar corretamente ou ficar instável. A clonagem funciona em muitos casos, mas em outros traz <strong>erros de driver, tela azul e lentidão inesperada</strong>.</p>
+        <p><strong>Recomendação:</strong> Sempre que possível, faça uma instalação limpa do Windows no SSD novo. É mais rápido e confiável.</p>
+
+        <h2>5. Ignorar a Fonte de Alimentação</h2>
+        <p>Ao adicionar uma placa de vídeo potente, é preciso uma fonte que suporte a potência necessária. Uma fonte fraca causa <strong>desligamentos aleatórios, travamentos e pode até queimar componentes</strong>. Muitos PCs de fábrica vêm com fontes de 300W — insuficiente para GPUs dedicadas.</p>
+        <p><strong>Dica:</strong> Calcule a potência necessária antes e invista em uma fonte de qualidade (80 Plus certificada).</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer Fazer Upgrade Com Segurança?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico analisa seu equipamento, indica as peças compatíveis e faz a instalação profissional. Sem risco de prejuízo. Atendemos em Curitiba e região.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Upgrade de SSD e Memória RAM</Link></li>
+          <li><Link to="/quando-nao-compensa" className="text-accent">Quando não compensa reparar</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "quando-trocar-computador-ou-reparar": {
+    title: "Quando Trocar o Computador e Quando Vale a Pena Reparar (Guia Técnico)",
+    excerpt: "PC antigo, lento ou com defeito? Descubra os critérios técnicos que definem se vale investir no reparo ou se é hora de partir para um equipamento novo.",
+    date: "2026-04-06",
+    readTime: "11 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">Essa é a dúvida mais comum dos nossos clientes: <strong>"Vale a pena consertar ou é melhor comprar outro?"</strong>. A resposta depende de critérios técnicos e financeiros que vamos detalhar neste guia.</p>
+
+        <h2>Quando Vale a Pena Reparar</h2>
+        <ul>
+          <li><strong>Processador de até 5 anos:</strong> Intel Core i3/i5/i7 de 8ª geração pra cima ainda são muito úteis</li>
+          <li><strong>Custo do reparo até 40% do valor de um novo:</strong> Se o conserto fica abaixo desse limite, compensa</li>
+          <li><strong>Problema é específico:</strong> Tela, teclado, SSD, RAM — peças que se trocam facilmente</li>
+          <li><strong>O equipamento atende suas necessidades:</strong> Se faz o que você precisa, não há motivo para trocar</li>
+        </ul>
+
+        <h2>Quando NÃO Compensa Reparar</h2>
+        <ul>
+          <li><strong>Processador muito antigo:</strong> Celeron, Pentium ou Core de 2ª/3ª geração</li>
+          <li><strong>Placa-mãe com defeito em equipamento antigo:</strong> Placa-mãe nova pode não existir para modelos descontinuados</li>
+          <li><strong>Custo do reparo acima de 50-60% do novo:</strong> O investimento não se justifica</li>
+          <li><strong>Múltiplos problemas simultâneos:</strong> Placa-mãe + tela + bateria = melhor trocar</li>
+        </ul>
+
+        <h2>Análise Custo-Benefício na Prática</h2>
+        <p>Notebook i5 de 2019 com HD lento e 4 GB de RAM: trocar por SSD (R$ 200) + 8 GB de RAM (R$ 150) = R$ 350 + mão de obra. Resultado: notebook rodando como novo por menos de R$ 500. <strong>Compensa muito.</strong></p>
+        <p>Notebook Celeron de 2015 com tela quebrada: tela nova R$ 400 + mão de obra R$ 150 = R$ 550. E o desempenho continuará ruim. <strong>Não compensa.</strong></p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Dúvida Se Vale Reparar?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz o diagnóstico e dá a opinião honesta: se não compensa, a gente avisa. Diagnóstico a partir de R$ 69,99.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "manutencao-preventiva-computador-guia": {
+    title: "Manutenção Preventiva do Computador: O Guia Que Evita 80% dos Problemas",
+    excerpt: "Rotinas simples que prolongam a vida útil do seu PC e evitam chamados técnicos.",
+    date: "2026-04-06",
+    readTime: "9 min",
+    category: "Manutenção",
+    content: (
+      <>
+        <p className="lead">A maioria dos problemas que resolvemos diariamente poderiam ter sido evitados com <strong>manutenção preventiva simples</strong>. Veja o que fazer para manter seu computador funcionando bem por anos.</p>
+
+        <h2>1. Limpeza Física (a cada 6 meses)</h2>
+        <p>Poeira acumulada causa superaquecimento, travamentos e reduz a vida útil dos componentes. Use ar comprimido para limpar as saídas de ar e ventoinhas. Em notebooks, uma limpeza interna profissional a cada 1-2 anos é ideal.</p>
+
+        <h2>2. Mantenha o Windows Atualizado</h2>
+        <p>Atualizações corrigem falhas de segurança e melhoram o desempenho. Configure para atualizar automaticamente, mas evite versões major no primeiro mês (espere a estabilização).</p>
+
+        <h2>3. Faça Backup Regularmente</h2>
+        <p>HD externo, nuvem (OneDrive, Google Drive) ou ambos. A regra 3-2-1: 3 cópias, em 2 mídias diferentes, 1 fora de casa. <strong>Sem backup, qualquer problema vira catástrofe.</strong></p>
+
+        <h2>4. Use Antivírus Confiável</h2>
+        <p>O Windows Defender já é suficiente para a maioria. Mantenha-o ativo e atualizado. Evite instalar dois antivírus ao mesmo tempo — eles conflitam.</p>
+
+        <h2>5. Desinstale Programas Não Usados</h2>
+        <p>Programas desnecessários ocupam espaço, consomem recursos e podem ter vulnerabilidades. Remova pelo Painel de Controle o que não usa há mais de 3 meses.</p>
+
+        <h2>6. Monitore a Temperatura</h2>
+        <p>Programas como HWMonitor mostram a temperatura em tempo real. CPU acima de 85°C sob carga é preocupante. Acima de 95°C, desligue e procure um técnico.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Manutenção Preventiva Profissional</h3>
+          <p className="text-muted-foreground mb-0">Fazemos limpeza interna, troca de pasta térmica, otimização do sistema e verificação completa. Atendimento a domicílio em Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "diagnostico-tecnico-por-que-e-pago": {
+    title: "Por Que o Diagnóstico Técnico é Pago? Entenda de Uma Vez",
+    excerpt: "Explicamos por que o diagnóstico tem custo, o que ele envolve e como evita prejuízos maiores.",
+    date: "2026-04-05",
+    readTime: "7 min",
+    category: "Atendimento",
+    content: (
+      <>
+        <p className="lead">Muitos clientes perguntam: <strong>"Por que cobram pelo diagnóstico?"</strong>. A resposta é simples: diagnóstico técnico é um serviço especializado que exige conhecimento, ferramentas e tempo.</p>
+
+        <h2>O Que Envolve um Diagnóstico</h2>
+        <ul>
+          <li>Testes de hardware: memória, HD/SSD, processador, placa de vídeo</li>
+          <li>Análise de software: sistema operacional, drivers, malwares</li>
+          <li>Verificação de temperatura e voltagem</li>
+          <li>Identificação da causa raiz, não apenas do sintoma</li>
+          <li>Orçamento detalhado com opções de solução</li>
+        </ul>
+
+        <h2>Por Que Não é Grátis?</h2>
+        <p>O diagnóstico é a parte mais importante do atendimento. Um diagnóstico errado leva a reparos desnecessários e prejuízo. O técnico usa anos de experiência e ferramentas especializadas para chegar à causa correta.</p>
+        <p><strong>Analogia:</strong> Você não espera que um médico faça exames de graça. O diagnóstico técnico segue a mesma lógica.</p>
+
+        <h2>E Se Eu Aprovar o Serviço?</h2>
+        <p>Na maioria dos casos, <strong>o valor do diagnóstico é abatido do serviço</strong>. Ou seja, se você aprovar o reparo, o diagnóstico sai "grátis" na prática.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Diagnóstico Profissional</h3>
+          <p className="text-muted-foreground mb-0">A partir de R$ 69,99. Atendimento a domicílio em Curitiba e região metropolitana. Valor abatido em caso de aprovação do serviço.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "como-proteger-computador-golpes-internet": {
+    title: "Como Proteger Seu Computador Contra Golpes e Fraudes na Internet",
+    excerpt: "Links falsos, phishing, extensões maliciosas — aprenda a se proteger.",
+    date: "2026-04-05",
+    readTime: "10 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Golpes online estão cada vez mais sofisticados. E-mails que parecem reais, sites clonados, ligações falsas. Veja como se proteger.</p>
+
+        <h2>1. Desconfie de Links em E-mails e SMS</h2>
+        <p>Bancos e empresas nunca pedem senhas por e-mail. Antes de clicar, <strong>passe o mouse sobre o link e veja o endereço real</strong>. Se não for o site oficial, não clique.</p>
+
+        <h2>2. Verifique o Cadeado HTTPS</h2>
+        <p>Sites legítimos usam HTTPS (cadeado na barra de endereço). Mas atenção: golpistas também podem ter HTTPS. O cadeado significa que a conexão é segura, não que o site é confiável.</p>
+
+        <h2>3. Não Instale Extensões Desconhecidas</h2>
+        <p>Extensões de navegador podem ler tudo que você digita, incluindo senhas. Instale apenas extensões de desenvolvedores conhecidos e com boas avaliações.</p>
+
+        <h2>4. Use Senhas Fortes e Únicas</h2>
+        <p>Nada de "123456" ou "senha". Use um gerenciador de senhas (Bitwarden é gratuito e seguro) para criar senhas únicas para cada site.</p>
+
+        <h2>5. Ative a Autenticação em Dois Fatores</h2>
+        <p>Mesmo que descubram sua senha, o invasor não consegue entrar sem o segundo fator (código no celular). Ative em todas as contas importantes.</p>
+
+        <h2>6. Mantenha Tudo Atualizado</h2>
+        <p>Windows, navegador, antivírus. Atualizações corrigem vulnerabilidades que golpistas exploram.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Computador Infectado?</h3>
+          <p className="text-muted-foreground mb-0">Se você caiu em um golpe ou suspeita de infecção, nosso técnico remove vírus e malwares e configura proteção adequada.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "como-instalar-windows-11-pc-antigo": {
+    title: "Como Instalar Windows 11 em PC Antigo Sem TPM 2.0",
+    excerpt: "Método seguro e testado por técnicos.",
+    date: "2024-01-14",
+    readTime: "10 min",
+    category: "Windows 11",
+    content: (
+      <>
+        <p className="lead">O Windows 11 exige TPM 2.0 e Secure Boot, mas muitos PCs bons não têm esses recursos. Veja como instalar mesmo assim, <strong>de forma segura e testada</strong>.</p>
+
+        <h2>Por Que o Windows 11 Exige TPM 2.0?</h2>
+        <p>A Microsoft quer garantir segurança mínima no hardware. O TPM (Trusted Platform Module) é um chip de segurança que protege chaves de criptografia. Mas muitos processadores de 6ª e 7ª geração Intel rodam Windows 11 perfeitamente — só não têm TPM 2.0.</p>
+
+        <h2>Método Oficial (Modificação no Registro)</h2>
+        <p>A própria Microsoft disponibiliza uma forma de contornar a verificação:</p>
+        <ul>
+          <li>Abra o Regedit e navegue até <code>HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup</code></li>
+          <li>Crie um valor DWORD chamado <code>AllowUpgradesWithUnsupportedTPMOrCPU</code> = 1</li>
+          <li>Execute a instalação normalmente pela ISO montada</li>
+        </ul>
+
+        <h2>Método via Rufus (Instalação Limpa)</h2>
+        <p>O programa Rufus permite criar um pendrive de instalação que já remove as verificações de TPM, Secure Boot e RAM. É o método mais usado por técnicos.</p>
+
+        <h2>Riscos e Considerações</h2>
+        <p>A Microsoft alerta que PCs sem TPM 2.0 podem não receber todas as atualizações futuras. Na prática, até o momento todas as atualizações funcionam normalmente. O risco é baixo, mas existe.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer Atualizar Para o Windows 11?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico verifica se seu PC é compatível, faz a instalação segura e configura tudo. Atendimento a domicílio.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "windows-11-lento-como-resolver": {
+    title: "Windows 11 Lento? 10 Soluções Para Acelerar",
+    excerpt: "10 dicas práticas para otimizar o desempenho.",
+    date: "2024-01-12",
+    readTime: "7 min",
+    category: "Windows 11",
+    content: (
+      <>
+        <p className="lead">O Windows 11 pode ficar lento por vários motivos. Veja <strong>10 soluções práticas</strong> que realmente funcionam.</p>
+
+        <h2>1. Desative Efeitos Visuais</h2>
+        <p>Configurações → Sistema → Sobre → Configurações avançadas → Desempenho → Ajustar para melhor desempenho. Isso desativa animações e transparências que consomem recursos.</p>
+
+        <h2>2. Desative Apps de Inicialização</h2>
+        <p>Configurações → Aplicativos → Inicialização. Desative tudo que não precisa iniciar com o Windows.</p>
+
+        <h2>3. Limpe Arquivos Temporários</h2>
+        <p>Configurações → Sistema → Armazenamento → Arquivos temporários. Limpe cache, lixeira e arquivos de atualização antigos.</p>
+
+        <h2>4. Atualize os Drivers</h2>
+        <p>Drivers genéricos podem causar lentidão. Baixe os drivers corretos do site do fabricante.</p>
+
+        <h2>5. Verifique Se Há Vírus</h2>
+        <p>Windows Defender → Verificação completa. Malwares consomem recursos em segundo plano.</p>
+
+        <h2>6. Troque HD por SSD</h2>
+        <p>Se ainda usa HD mecânico, essa é a mudança com maior impacto. O Windows 11 fica praticamente inutilizável em HD.</p>
+
+        <h2>7. Aumente a Memória RAM</h2>
+        <p>8 GB é o mínimo recomendado. Com 4 GB, o Windows 11 sofre constantemente.</p>
+
+        <h2>8. Desative Dicas e Sugestões</h2>
+        <p>Configurações → Sistema → Notificações → Desative "Obter dicas e sugestões".</p>
+
+        <h2>9. Use o Plano de Energia "Alto Desempenho"</h2>
+        <p>Painel de Controle → Opções de Energia → Alto desempenho.</p>
+
+        <h2>10. Considere uma Instalação Limpa</h2>
+        <p>Se nada resolver, uma formatação elimina anos de lixo acumulado.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Windows 11 Lento?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico otimiza ou formata seu PC com Windows 11. Atendimento rápido em Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "windows-11-vale-a-pena-atualizar": {
+    title: "Windows 11: Vale a Pena Atualizar?",
+    excerpt: "Requisitos, novidades, vantagens e desvantagens.",
+    date: "2026-01-15",
+    readTime: "8 min",
+    category: "Windows 11",
+    content: (
+      <>
+        <p className="lead">O Windows 11 já está maduro e estável. Mas <strong>será que vale a pena atualizar?</strong> Depende do seu hardware e do que você faz no computador.</p>
+
+        <h2>Vantagens do Windows 11</h2>
+        <ul>
+          <li>Interface moderna e mais organizada</li>
+          <li>Melhor gerenciamento de múltiplas janelas (Snap Layouts)</li>
+          <li>Desempenho superior em jogos (DirectStorage, Auto HDR)</li>
+          <li>Integração com Android (apps no PC)</li>
+          <li>Segurança aprimorada com TPM 2.0</li>
+        </ul>
+
+        <h2>Desvantagens</h2>
+        <ul>
+          <li>Requisitos de hardware mais exigentes</li>
+          <li>Barra de tarefas com menos opções de personalização</li>
+          <li>Alguns programas antigos podem ter incompatibilidade</li>
+          <li>Menu Iniciar centralizado (nem todos gostam)</li>
+        </ul>
+
+        <h2>Quando Atualizar</h2>
+        <p>Se seu PC atende os requisitos e você usa Windows 10, <strong>vale atualizar</strong>. O Windows 10 perde suporte em outubro de 2025. Após isso, não recebe mais atualizações de segurança.</p>
+
+        <h2>Quando NÃO Atualizar</h2>
+        <p>Se seu PC não tem TPM 2.0 nativamente, se você usa softwares específicos que podem não ser compatíveis, ou se está satisfeito e não quer arriscar instabilidades.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer Atualizar Com Segurança?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico verifica compatibilidade, faz backup e atualiza sem risco de perder dados.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "office-365-guia-completo-empresas": {
+    title: "Office 365 Para Empresas: Guia Completo",
+    excerpt: "Teams, SharePoint, OneDrive e todas as ferramentas.",
+    date: "2024-01-11",
+    readTime: "12 min",
+    category: "Office 365",
+    content: (
+      <>
+        <p className="lead">O Microsoft 365 (antigo Office 365) é muito mais do que Word, Excel e PowerPoint. É uma plataforma completa de produtividade e colaboração. Veja como aproveitar ao máximo.</p>
+
+        <h2>O Que Inclui o Microsoft 365 Business</h2>
+        <ul>
+          <li><strong>Word, Excel, PowerPoint, Outlook:</strong> Aplicativos clássicos, sempre atualizados</li>
+          <li><strong>Teams:</strong> Videoconferência, chat e colaboração</li>
+          <li><strong>OneDrive:</strong> 1 TB de armazenamento na nuvem por usuário</li>
+          <li><strong>SharePoint:</strong> Intranet e compartilhamento de documentos</li>
+          <li><strong>Exchange:</strong> E-mail profissional com seu domínio</li>
+        </ul>
+
+        <h2>Planos e Preços</h2>
+        <p>O plano Business Basic (só web + Teams) começa em torno de R$ 30/mês por usuário. O Business Standard (apps desktop + web) fica em torno de R$ 60/mês. Para a maioria das empresas pequenas, o Standard é a melhor escolha.</p>
+
+        <h2>Benefícios Para Empresas</h2>
+        <ul>
+          <li>Sempre atualizado — sem precisar comprar nova versão</li>
+          <li>Acesso de qualquer lugar (web, celular, tablet)</li>
+          <li>Backup automático na nuvem</li>
+          <li>Controle administrativo centralizado</li>
+          <li>Conformidade e segurança corporativa</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Implantação de Microsoft 365</h3>
+          <p className="text-muted-foreground mb-0">Configuramos e-mails, Teams, OneDrive e treinamos sua equipe. Suporte técnico para empresas em Curitiba.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "office-365-vs-office-tradicional": {
+    title: "Office 365 vs Office Tradicional: Qual Escolher?",
+    excerpt: "Comparativo completo entre assinatura e licença perpétua.",
+    date: "2024-01-10",
+    readTime: "6 min",
+    category: "Office 365",
+    content: (
+      <>
+        <p className="lead"><strong>Assinatura mensal ou licença vitalícia?</strong> Essa é a dúvida de muitos. Vamos comparar os dois modelos.</p>
+
+        <h2>Office 365 (Assinatura)</h2>
+        <ul>
+          <li>Pagamento mensal ou anual</li>
+          <li>Sempre na última versão</li>
+          <li>Inclui 1 TB de OneDrive</li>
+          <li>Inclui Teams, SharePoint e mais</li>
+          <li>Suporte da Microsoft incluso</li>
+        </ul>
+
+        <h2>Office Tradicional (Licença Perpétua)</h2>
+        <ul>
+          <li>Pagamento único</li>
+          <li>Versão fixa — não recebe novos recursos</li>
+          <li>Sem armazenamento na nuvem incluso</li>
+          <li>Suporte limitado (5 anos de atualizações)</li>
+          <li>Não inclui Teams e serviços online</li>
+        </ul>
+
+        <h2>Qual Escolher?</h2>
+        <p><strong>Para empresas:</strong> Microsoft 365 sem dúvida. A colaboração em tempo real, backup na nuvem e e-mail profissional justificam o custo mensal.</p>
+        <p><strong>Para uso pessoal básico:</strong> Se você só precisa de Word e Excel esporadicamente, a licença perpétua pode bastar. Mas considere que ela fica desatualizada.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Precisa de Ajuda Para Decidir?</h3>
+          <p className="text-muted-foreground mb-0">Analisamos seu uso e indicamos o melhor plano. Instalação e configuração profissional.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "configurar-email-outlook-office-365": {
+    title: "Como Configurar Email Empresarial no Outlook 365",
+    excerpt: "Tutorial com sincronização celular e backup automático.",
+    date: "2024-01-09",
+    readTime: "5 min",
+    category: "Office 365",
+    content: (
+      <>
+        <p className="lead">E-mail com domínio próprio (seunome@suaempresa.com.br) transmite profissionalismo. Veja como configurar no Outlook 365.</p>
+
+        <h2>1. Configure o Domínio no Microsoft 365</h2>
+        <p>Acesse o painel administrativo do Microsoft 365, adicione seu domínio e configure os registros DNS (MX, CNAME, TXT) no seu provedor de hospedagem.</p>
+
+        <h2>2. Crie as Caixas de E-mail</h2>
+        <p>No painel admin, crie os usuários e atribua licenças. Cada usuário recebe 50 GB de caixa postal e 1 TB de OneDrive.</p>
+
+        <h2>3. Configure o Outlook no PC</h2>
+        <p>Abra o Outlook, faça login com o e-mail corporativo. O Outlook detecta automaticamente as configurações do Exchange Online. Em segundos, tudo está sincronizado.</p>
+
+        <h2>4. Sincronize no Celular</h2>
+        <p>Instale o app Outlook no celular (iOS ou Android), faça login e pronto. E-mails, calendário e contatos sincronizados em tempo real.</p>
+
+        <h2>5. Configure Assinaturas</h2>
+        <p>Crie uma assinatura profissional com logo, cargo e telefone. No Outlook: Arquivo → Opções → Email → Assinaturas.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Configuração Profissional de E-mail</h3>
+          <p className="text-muted-foreground mb-0">Configuramos tudo para você: domínio, DNS, Outlook no PC e celular, assinaturas e backup. Suporte para empresas em Curitiba.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "seguranca-digital-empresas-guia-2024": {
+    title: "Segurança Digital Para Empresas: Guia Essencial",
+    excerpt: "Firewall, antivírus corporativo, backup e políticas.",
+    date: "2024-01-08",
+    readTime: "15 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Empresas são alvos cada vez mais frequentes de ataques cibernéticos. <strong>PMEs são as mais vulneráveis</strong> porque geralmente não investem em segurança. Veja o mínimo necessário.</p>
+
+        <h2>1. Firewall Configurado</h2>
+        <p>O firewall do Windows deve estar ativo em todos os computadores. Para empresas maiores, um firewall dedicado (hardware) no roteador é recomendado.</p>
+
+        <h2>2. Antivírus Corporativo</h2>
+        <p>O Windows Defender é bom para uso pessoal, mas empresas se beneficiam de soluções como Bitdefender GravityZone ou Kaspersky Small Office, que oferecem gestão centralizada.</p>
+
+        <h2>3. Backup Automatizado</h2>
+        <p>Regra 3-2-1: 3 cópias, 2 mídias diferentes, 1 fora do local. Use backup na nuvem (OneDrive, Google Workspace) + backup local em HD externo ou NAS.</p>
+
+        <h2>4. Senhas e Autenticação</h2>
+        <p>Política de senhas fortes + autenticação em dois fatores (2FA) em todos os acessos críticos. Use gerenciadores de senha corporativos.</p>
+
+        <h2>5. Treinamento da Equipe</h2>
+        <p>O maior risco é o fator humano. Treine funcionários para reconhecer phishing, não usar pen drives desconhecidos e não compartilhar senhas.</p>
+
+        <h2>6. Atualizações em Dia</h2>
+        <p>Mantenha Windows, Office, navegadores e todos os softwares atualizados. Vulnerabilidades conhecidas são as mais exploradas.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Segurança Para Sua Empresa</h3>
+          <p className="text-muted-foreground mb-0">Fazemos auditoria de segurança, configuração de backup, antivírus e políticas. Suporte empresarial em Curitiba.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "ransomware-como-proteger-empresa": {
+    title: "Ransomware: Como Proteger Sua Empresa",
+    excerpt: "Como funcionam os ataques e medidas preventivas.",
+    date: "2024-01-07",
+    readTime: "10 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Ransomware é um tipo de malware que <strong>criptografa seus arquivos e exige resgate</strong> para devolvê-los. Empresas de todos os portes são alvo. Veja como se proteger.</p>
+
+        <h2>Como Funciona o Ataque</h2>
+        <p>O ransomware geralmente chega por e-mail (anexo ou link malicioso), downloads de sites comprometidos ou vulnerabilidades em softwares desatualizados. Uma vez executado, ele criptografa todos os arquivos acessíveis — inclusive em rede.</p>
+
+        <h2>Devo Pagar o Resgate?</h2>
+        <p><strong>Não.</strong> Pagar não garante que você terá os arquivos de volta. Além disso, financia o crime e te coloca como alvo preferencial para futuros ataques.</p>
+
+        <h2>Como Se Proteger</h2>
+        <ul>
+          <li><strong>Backup offline:</strong> Backup em HD externo que fica desconectado do PC. Ransomware não alcança o que não está conectado</li>
+          <li><strong>Backup na nuvem com versionamento:</strong> OneDrive e Google Drive mantêm versões anteriores dos arquivos</li>
+          <li><strong>E-mail com filtro anti-phishing:</strong> Microsoft 365 e Google Workspace filtram ameaças</li>
+          <li><strong>Não abrir anexos suspeitos:</strong> Mesmo de remetentes conhecidos (a conta pode ter sido invadida)</li>
+          <li><strong>Manter tudo atualizado:</strong> Windows, Office, navegadores, Java, Adobe</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Empresa Atacada por Ransomware?</h3>
+          <p className="text-muted-foreground mb-0">Não pague o resgate. Entre em contato conosco para avaliar as opções de recuperação e implementar proteção contra futuros ataques.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "phishing-como-identificar-golpes": {
+    title: "Phishing: Como Identificar e Evitar Golpes por Email",
+    excerpt: "Reconheça tentativas de phishing e proteja seus dados.",
+    date: "2024-01-06",
+    readTime: "7 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Phishing é a técnica de golpe mais comum na internet. O criminoso se passa por uma empresa ou pessoa confiável para <strong>roubar seus dados</strong>. Veja como identificar.</p>
+
+        <h2>Sinais de Um E-mail de Phishing</h2>
+        <ul>
+          <li><strong>Urgência exagerada:</strong> "Sua conta será bloqueada em 24 horas!"</li>
+          <li><strong>Erros de português:</strong> Empresas grandes revisam seus textos</li>
+          <li><strong>Remetente suspeito:</strong> banco@seguranca-atualizar.com não é do banco</li>
+          <li><strong>Links estranhos:</strong> Passe o mouse sobre o link (sem clicar) e veja o endereço real</li>
+          <li><strong>Pedido de dados pessoais:</strong> Bancos nunca pedem senha por e-mail</li>
+        </ul>
+
+        <h2>O Que Fazer Se Receber</h2>
+        <ul>
+          <li>Não clique em nenhum link</li>
+          <li>Não baixe anexos</li>
+          <li>Marque como spam/phishing no seu e-mail</li>
+          <li>Se tiver dúvida, acesse o site oficial digitando o endereço no navegador</li>
+        </ul>
+
+        <h2>Caí No Golpe. E Agora?</h2>
+        <p>Troque imediatamente a senha da conta comprometida. Ative 2FA. Se informou dados bancários, entre em contato com o banco. Se instalou algum programa, procure um técnico para limpar o computador.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Caiu em Um Golpe?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico verifica se seu computador foi comprometido, remove ameaças e configura proteção adequada.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "backup-nuvem-empresas-qual-escolher": {
+    title: "Backup na Nuvem Para Empresas: Qual Escolher?",
+    excerpt: "Comparativo entre OneDrive, Google Drive e soluções profissionais.",
+    date: "2024-01-05",
+    readTime: "8 min",
+    category: "Segurança",
+    content: (
+      <>
+        <p className="lead">Backup na nuvem é essencial para qualquer empresa. Mas qual solução escolher? Vamos comparar as principais opções.</p>
+
+        <h2>OneDrive for Business (Microsoft 365)</h2>
+        <ul>
+          <li>1 TB por usuário</li>
+          <li>Integração total com Office (Word, Excel salvam direto na nuvem)</li>
+          <li>Versionamento de arquivos (recupere versões anteriores)</li>
+          <li>Sincronização automática</li>
+          <li>Ideal para quem já usa Microsoft 365</li>
+        </ul>
+
+        <h2>Google Drive (Google Workspace)</h2>
+        <ul>
+          <li>15 GB gratuito, planos a partir de 30 GB</li>
+          <li>Integração com Google Docs, Sheets, Gmail</li>
+          <li>Busca poderosa nos arquivos</li>
+          <li>Ideal para equipes que usam Gmail corporativo</li>
+        </ul>
+
+        <h2>Soluções Profissionais (Acronis, Veeam)</h2>
+        <ul>
+          <li>Backup completo do sistema (bare-metal)</li>
+          <li>Agendamento e automação avançada</li>
+          <li>Criptografia de ponta</li>
+          <li>Ideal para servidores e dados críticos</li>
+        </ul>
+
+        <h2>Nossa Recomendação</h2>
+        <p>Para PMEs: <strong>Microsoft 365 (OneDrive)</strong> é a melhor relação custo-benefício. Já inclui Office, e-mail e 1 TB de backup. Para dados críticos, adicione um backup local em NAS.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Configuração de Backup Empresarial</h3>
+          <p className="text-muted-foreground mb-0">Implementamos backup na nuvem + local para sua empresa. Configuração, automação e monitoramento. Suporte em Curitiba.</p>
+        </div>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

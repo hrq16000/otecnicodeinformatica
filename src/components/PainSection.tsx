@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { MessageCircle, CheckCircle, Zap, Shield, Clock, ThumbsUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
@@ -12,27 +13,27 @@ const benefits = [
   { icon: Zap, text: "Atendimento rápido e sem enrolação", description: "Resolução no primeiro contato" },
 ];
 
-const headlines = [
-  "Computador lento? Não liga? Travando ou com vírus?",
-  "Notebook esquentando? Tela preta? Sem Wi-Fi?",
-  "PC travou de vez? Perdeu arquivos? Tela azul?",
-  "Vírus no computador? Pop-ups? Dados em risco?",
-  "Computador não liga? Fazendo barulho? Lento demais?",
-  "Notebook caiu? Teclado parou? Bateria viciada?",
-  "Smart TV sem sinal? Celular travando? Monitor apagou?",
-  "Tela quebrada? Placa queimou? HD com defeito?",
-  "Computador reiniciando sozinho? Desligando do nada?",
-  "Wi-Fi caindo toda hora? Internet lenta demais?",
-  "Impressora não imprime? Rede fora do ar?",
-  "Notebook não carrega? Fonte queimou? Conector solto?",
-  "PC com erro de Windows? Sistema corrompido?",
-  "Arquivos sumiram? HD fazendo barulho estranho?",
-  "Câmera de segurança parou? DVR sem imagem?",
-  "Computador pegando vírus toda hora? Sem proteção?",
-  "Tela azul da morte? Erro crítico no sistema?",
-  "PC novo e já está lento? Muitos programas?",
-  "Notebook superaquecendo? Ventilador barulhento?",
-  "Mouse e teclado sem funcionar? USB com defeito?",
+const headlines: { text: string; path: string }[] = [
+  { text: "Computador lento? Não liga? Travando ou com vírus?", path: "/servicos/computador-lento" },
+  { text: "Notebook esquentando? Tela preta? Sem Wi-Fi?", path: "/notebook-superaquecendo-o-que-fazer" },
+  { text: "PC travou de vez? Perdeu arquivos? Tela azul?", path: "/tela-azul-da-morte-causas-e-solucoes" },
+  { text: "Vírus no computador? Pop-ups? Dados em risco?", path: "/servicos/remocao-virus" },
+  { text: "Computador não liga? Fazendo barulho? Lento demais?", path: "/servicos/computador-nao-liga" },
+  { text: "Notebook caiu? Teclado parou? Bateria viciada?", path: "/servicos/conserto-pc-notebook" },
+  { text: "Smart TV sem sinal? Celular travando? Monitor apagou?", path: "/servicos/manutencao-tv" },
+  { text: "Tela quebrada? Placa queimou? HD com defeito?", path: "/servicos/conserto-placa" },
+  { text: "Computador reiniciando sozinho? Desligando do nada?", path: "/computador-reiniciando-sozinho" },
+  { text: "Wi-Fi caindo toda hora? Internet lenta demais?", path: "/servicos/redes-wifi" },
+  { text: "Impressora não imprime? Rede fora do ar?", path: "/servicos/redes-wifi" },
+  { text: "Notebook não carrega? Fonte queimou? Conector solto?", path: "/servicos/conserto-pc-notebook" },
+  { text: "PC com erro de Windows? Sistema corrompido?", path: "/servicos/formatacao-computador" },
+  { text: "Arquivos sumiram? HD fazendo barulho estranho?", path: "/servicos/backup-recuperacao" },
+  { text: "Câmera de segurança parou? DVR sem imagem?", path: "/cftv" },
+  { text: "Computador pegando vírus toda hora? Sem proteção?", path: "/servicos/remocao-virus" },
+  { text: "Tela azul da morte? Erro crítico no sistema?", path: "/tela-azul-da-morte-causas-e-solucoes" },
+  { text: "PC novo e já está lento? Muitos programas?", path: "/servicos/computador-lento" },
+  { text: "Notebook superaquecendo? Ventilador barulhento?", path: "/notebook-superaquecendo-o-que-fazer" },
+  { text: "Mouse e teclado sem funcionar? USB com defeito?", path: "/servicos/conserto-pc-notebook" },
 ];
 
 export const PainSection = () => {
@@ -55,7 +56,9 @@ export const PainSection = () => {
             id="pain-heading"
             className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text"
           >
-            {headline}
+            <Link to={headline.path} className="hover:text-accent transition-colors duration-300 underline-grow">
+              {headline.text}
+            </Link>
           </h2>
           
           <p className="text-lg md:text-xl text-accent font-semibold mb-3 reveal-text" data-reveal-delay="100">

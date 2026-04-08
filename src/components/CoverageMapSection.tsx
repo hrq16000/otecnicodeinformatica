@@ -172,9 +172,10 @@ export const CoverageMapSection = () => {
       const r = regions[i];
       const route = routeData?.find(rd => rd.id === String(i));
       if (route) {
+        const adjustedSeconds = route.durationSeconds + 25 * 60;
         return {
           ...r,
-          time: formatDuration(route.durationSeconds),
+          time: formatDuration(adjustedSeconds),
           distance: `${route.distanceKm} km`,
           isReal: true,
           originalIndex: i,
@@ -277,7 +278,7 @@ export const CoverageMapSection = () => {
                   </p>
                   <p className="text-muted-foreground text-xs mt-1">
                     {hasRealData ? (
-                      <>📍 Saindo de: <span className="font-medium text-foreground">CEP 83020-256 (São José dos Pinhais)</span></>
+                      <>⏱ Tempo estimado inclui preparo e deslocamento</>
                     ) : (
                       <>⏱ Agora: <span className="font-medium text-foreground">{trafficInfo.label}</span> — tempos ajustados em tempo real</>
                     )}

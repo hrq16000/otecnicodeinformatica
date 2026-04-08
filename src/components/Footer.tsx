@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, MessageCircle } from "lucide-react";
+import { MapPin, MessageCircle, Users, ArrowRight } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { useMemo } from "react";
 

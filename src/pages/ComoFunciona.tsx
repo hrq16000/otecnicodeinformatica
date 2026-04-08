@@ -493,7 +493,7 @@ const ComoFunciona = () => {
                     exemplo: "Notebook não liga → Fonte defeituosa + bateria viciada",
                     tempo: "1-3 horas ou coleta para bancada",
                     solucao: "Diagnóstico detalhado, troca de fonte/carregador, avaliação de bateria",
-                    custo: "R$ 150 a R$ 400",
+                    custo: "R$ 168,99 a R$ 400",
                   },
                   {
                     nivel: "Complexo",

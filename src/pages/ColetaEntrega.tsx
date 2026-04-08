@@ -11,7 +11,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import {
   MessageCircle, ArrowRight, Truck, Shield, Clock, CheckCircle2,
-  MapPin, Package, AlertTriangle, Phone,
+  MapPin, Package, AlertTriangle, Phone, ClipboardList,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,

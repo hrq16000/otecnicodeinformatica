@@ -198,6 +198,21 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Chamada parceiro */}
+        <div className="border-t border-white/[0.08] pt-6 pb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <span className="text-white/50 text-sm">É técnico de informática?</span>
+            <Link
+              to="/seja-parceiro"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/15 text-accent text-sm font-semibold border border-accent/25 hover:bg-accent/25 hover:border-accent/40 transition-all duration-300 hover:scale-105 group"
+            >
+              <Users className="h-4 w-4 group-hover:scale-110 transition-transform" />
+              Quer ser técnico parceiro?
+              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+
         <div className="border-t border-white/[0.08] pt-7 text-center space-y-2 spotlight-sweep">
           <p className="text-white/45 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. Todos os direitos reservados.

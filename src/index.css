@@ -1116,17 +1116,58 @@
     display: inline-block;
   }
 
-  /* ── Marquee scroll ── */
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  /* ── Brand radical animations ── */
+  @keyframes brand-flip {
+    0% { opacity: 0; transform: rotateY(90deg) scale(0.5); }
+    60% { opacity: 1; transform: rotateY(-10deg) scale(1.1); }
+    100% { opacity: 1; transform: rotateY(0deg) scale(1); }
   }
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
+  @keyframes brand-zoom {
+    0% { opacity: 0; transform: scale(0) rotate(180deg); }
+    70% { opacity: 1; transform: scale(1.2) rotate(-10deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
   }
-  .animate-marquee:hover {
-    animation-play-state: paused;
+  @keyframes brand-slide-up {
+    0% { opacity: 0; transform: translateY(40px) skewX(-8deg); }
+    70% { opacity: 1; transform: translateY(-5px) skewX(2deg); }
+    100% { opacity: 1; transform: translateY(0) skewX(0); }
   }
+  @keyframes brand-slide-down {
+    0% { opacity: 0; transform: translateY(-40px) skewX(8deg); }
+    70% { opacity: 1; transform: translateY(5px) skewX(-2deg); }
+    100% { opacity: 1; transform: translateY(0) skewX(0); }
+  }
+  @keyframes brand-rotate {
+    0% { opacity: 0; transform: rotate(-180deg) scale(0.3); }
+    60% { opacity: 1; transform: rotate(15deg) scale(1.15); }
+    100% { opacity: 1; transform: rotate(0deg) scale(1); }
+  }
+  @keyframes brand-blur-in {
+    0% { opacity: 0; filter: blur(20px); transform: scale(1.5); }
+    100% { opacity: 1; filter: blur(0); transform: scale(1); }
+  }
+  @keyframes brand-bounce-in {
+    0% { opacity: 0; transform: scale(0.3) translateY(30px); }
+    50% { opacity: 1; transform: scale(1.15) translateY(-10px); }
+    70% { transform: scale(0.9) translateY(5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes brand-glitch {
+    0% { opacity: 0; transform: translate(-10px, 5px) skew(20deg); filter: hue-rotate(90deg); }
+    25% { opacity: 0.8; transform: translate(8px, -3px) skew(-15deg); filter: hue-rotate(180deg); }
+    50% { opacity: 0.6; transform: translate(-5px, 2px) skew(10deg); filter: hue-rotate(270deg); }
+    75% { opacity: 0.9; transform: translate(3px, -1px) skew(-5deg); filter: hue-rotate(0deg); }
+    100% { opacity: 1; transform: translate(0) skew(0); filter: hue-rotate(0deg); }
+  }
+
+  .animate-brand-flip { animation: brand-flip 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-zoom { animation: brand-zoom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-slide-up { animation: brand-slide-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-slide-down { animation: brand-slide-down 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-rotate { animation: brand-rotate 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-blur-in { animation: brand-blur-in 0.6s ease-out both; }
+  .animate-brand-bounce-in { animation: brand-bounce-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .animate-brand-glitch { animation: brand-glitch 0.5s steps(4) both; }
 
   /* ── Staggered blur reveal ── */
   @keyframes blurReveal {

@@ -47,8 +47,8 @@ const procedimentosTvLinks = [
   { label: "TV Listras H/V", to: "/tv-listras-horizontais-verticais-conserto-curitiba" },
   { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" },
 ];
-  {
-    title: "Atendimento",
+
+
 const atendimentoLinks = [
   { label: "Como Funciona", to: "/como-funciona" },
   { label: "Preços e Políticas", to: "/precos-e-politicas" },

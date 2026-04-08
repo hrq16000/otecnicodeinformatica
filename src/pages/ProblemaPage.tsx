@@ -263,7 +263,7 @@ const ProblemaPage = () => {
             </div>
 
             {/* Guia passo a passo visual */}
-            <div className="grid sm:grid-cols-5 gap-3 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
               {diagnosticoSteps.map((step, i) => (
                 <div key={i} className="relative bg-background rounded-xl p-4 border border-border text-center hover:-translate-y-1 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-accent text-white rounded-full flex items-center justify-center text-xs font-bold">

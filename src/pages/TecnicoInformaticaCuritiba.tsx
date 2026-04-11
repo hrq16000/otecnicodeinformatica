@@ -218,7 +218,7 @@ const TecnicoInformaticaCuritiba = () => {
                     <Link
                       key={index}
                       to={`/bairros/${bairro.slug}`}
-                      className="bg-secondary rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground hover:-translate-y-0.5 transition-all group flex items-center justify-center gap-2 stagger-item"
+                      className="glass-card gradient-border rounded-lg px-4 py-3 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground hover:-translate-y-1 transition-all group flex items-center justify-center gap-2 stagger-item hover:shadow-[var(--shadow-md)]"
                       style={{ animationDelay: `${index * 40}ms` }}
                     >
                       <MapPin className="h-4 w-4 text-accent group-hover:text-accent-foreground transition-colors" />
@@ -267,7 +267,7 @@ const TecnicoInformaticaCuritiba = () => {
                   <Link 
                     key={index} 
                     to={`/servicos/${servico.slug}`}
-                    className="flex items-start gap-3 bg-background rounded-lg p-4 hover:shadow-md hover:border-accent/30 border border-transparent hover:-translate-y-1 transition-all group stagger-item"
+                    className="flex items-start gap-3 glass-card gradient-border rounded-lg p-4 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all group stagger-item hover-streak"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />

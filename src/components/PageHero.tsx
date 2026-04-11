@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
@@ -19,32 +20,29 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: Pag
   };
 
   return (
-    <section className="relative hero-gradient pt-10 pb-10 md:pt-12 md:pb-12 overflow-hidden">
-      <div data-parallax="0.12" className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/[0.05] blur-[100px] pointer-events-none orb-float" />
-      <div data-parallax="0.08" className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-white/[0.03] blur-[80px] pointer-events-none liquid-blob" />
-      <div className="absolute top-1/3 left-1/4 w-[200px] h-[200px] rounded-full bg-accent/[0.04] blur-[60px] pointer-events-none orb-float-reverse" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.12),transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50"></div>
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 premium-gradient" />
+      <FloatingParticles count={20} />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
+        <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
+      </div>
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
       
-      {/* Animated particles */}
-      <div className="absolute top-10 left-10 w-2 h-2 bg-accent/20 rounded-full particle" style={{ animationDelay: '0s' }} />
-      <div className="absolute top-20 right-20 w-1.5 h-1.5 bg-white/10 rounded-full particle" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-20 left-1/3 w-2 h-2 bg-accent/15 rounded-full particle" style={{ animationDelay: '4s' }} />
-      <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white/15 rounded-full particle" style={{ animationDelay: '1s' }} />
-      
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight reveal-text">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 reveal-text" data-reveal-delay="100">
+          <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl mx-auto">
             {subtitle}
           </p>
+          <div className="glow-separator max-w-[160px] mx-auto mb-8" />
           
           <Button
             variant="heroWhatsapp"
             size="lg"
-            className="text-base md:text-lg px-8 animate-pulse-soft shadow-[0_0_30px_rgba(37,211,102,0.25)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:scale-[1.03] transition-all duration-300 elastic-click"
+            className="text-base md:text-lg px-8 shadow-[0_0_30px_rgba(37,211,102,0.25)] hover:shadow-[0_0_40px_rgba(37,211,102,0.4)] hover:scale-[1.03] transition-all duration-300 elastic-click"
             asChild
             onClick={handleWhatsAppClick}
           >
@@ -54,6 +52,11 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: Pag
             </a>
           </Button>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+          <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+        </svg>
       </div>
     </section>
   );

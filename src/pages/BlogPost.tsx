@@ -2525,6 +2525,624 @@ const blogPostsContent: Record<string, {
       </>
     ),
   },
+
+  "como-crimpar-cabo-de-rede-rj45": {
+    title: "Como Crimpar Cabo de Rede RJ45: Padrão T568A e T568B",
+    excerpt: "Procedimento técnico completo para crimpar cabos de rede Cat5e e Cat6 com testagem.",
+    date: "2026-04-08",
+    readTime: "8 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Crimpar cabos de rede é uma habilidade fundamental para qualquer técnico. Um cabo mal crimpado causa conexão intermitente, lentidão e perda de pacotes. Este guia cobre o procedimento correto com os padrões <strong>T568A e T568B</strong>.</p>
+
+        <h2>Material Necessário</h2>
+        <ul>
+          <li><strong>Cabo UTP Cat5e ou Cat6</strong> (na metragem desejada, máximo 100m por trecho)</li>
+          <li><strong>Conectores RJ45</strong> (use Cat6 se o cabo for Cat6)</li>
+          <li><strong>Alicate de crimpagem RJ45</strong></li>
+          <li><strong>Decapador de cabo</strong> (ou estilete com cuidado)</li>
+          <li><strong>Testador de cabo de rede</strong></li>
+        </ul>
+
+        <h2>Padrões de Cores</h2>
+        <h3>T568B (Mais Usado no Brasil)</h3>
+        <ol>
+          <li>Branco/Laranja</li>
+          <li>Laranja</li>
+          <li>Branco/Verde</li>
+          <li>Azul</li>
+          <li>Branco/Azul</li>
+          <li>Verde</li>
+          <li>Branco/Marrom</li>
+          <li>Marrom</li>
+        </ol>
+
+        <h3>T568A</h3>
+        <ol>
+          <li>Branco/Verde</li>
+          <li>Verde</li>
+          <li>Branco/Laranja</li>
+          <li>Azul</li>
+          <li>Branco/Azul</li>
+          <li>Laranja</li>
+          <li>Branco/Marrom</li>
+          <li>Marrom</li>
+        </ol>
+
+        <p><strong>Cabo direto (patch cable):</strong> Use o mesmo padrão nas duas pontas (B-B ou A-A).<br />
+        <strong>Cabo crossover:</strong> Use T568A em uma ponta e T568B na outra (raramente necessário hoje).</p>
+
+        <h2>Procedimento Passo a Passo</h2>
+
+        <h3>1. Decape o Cabo</h3>
+        <p>Remova cerca de <strong>3 cm da capa externa</strong>, tomando cuidado para não cortar os fios internos. Gire o decapador ao redor do cabo sem pressionar demais.</p>
+
+        <h3>2. Separe e Organize os Pares</h3>
+        <p>Destrança cada par e organize os 8 fios na ordem correta do padrão escolhido. Mantenha-os paralelos e retos — <strong>não cruze os fios</strong>.</p>
+
+        <h3>3. Corte Reto</h3>
+        <p>Com o alicate, corte os fios retos a aproximadamente <strong>12-14mm</strong> de comprimento. Todos devem ter o mesmo tamanho. A capa do cabo deve entrar pelo menos 5mm dentro do conector.</p>
+
+        <h3>4. Insira no Conector RJ45</h3>
+        <p>Segure o conector com a trava para baixo e o lado dos contatos de cobre para cima. Insira os fios mantendo a ordem. <strong>Empurre até que todos os fios toquem a parede frontal do conector</strong> — se algum ficar curto, não haverá contato.</p>
+
+        <h3>5. Crimpe</h3>
+        <p>Insira o conector no alicate de crimpagem e pressione com firmeza. Os pinos de cobre devem perfurar o isolamento de cada fio, criando contato elétrico.</p>
+
+        <h3>6. Teste</h3>
+        <p>Use o testador de cabo. Todos os 8 LEDs devem acender em sequência (1-8). Se algum não acender ou acender fora de ordem, recorte e refaça.</p>
+
+        <h2>Erros Comuns</h2>
+        <ul>
+          <li>❌ Fios não encostam no fundo do conector</li>
+          <li>❌ Capa do cabo não entra no conector (cabo solto com o tempo)</li>
+          <li>❌ Ordem dos fios trocada</li>
+          <li>❌ Usar conector Cat5e em cabo Cat6 (diâmetro diferente)</li>
+          <li>❌ Decapar demais (fios expostos fora do conector)</li>
+        </ul>
+
+        <h2>Cat5e vs Cat6: Qual Usar?</h2>
+        <ul>
+          <li><strong>Cat5e:</strong> Suporta até 1 Gbps, frequência de 100 MHz. Suficiente para 90% das instalações residenciais e pequenas empresas.</li>
+          <li><strong>Cat6:</strong> Suporta até 10 Gbps (em até 55m), frequência de 250 MHz. Recomendado para instalações novas e redes empresariais.</li>
+          <li><strong>Cat6a:</strong> 10 Gbps em até 100m. Para data centers e instalações de alta performance.</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Instalação de Rede em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Fazemos cabeamento estruturado, crimpagem, certificação e passagem de cabos em residências e empresas. Orçamento sem compromisso.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-configurar-rede-wifi-empresarial" className="text-accent">Como configurar rede Wi-Fi empresarial</Link></li>
+          <li><Link to="/servicos/redes-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-configurar-bios-uefi-corretamente": {
+    title: "Como Configurar BIOS/UEFI Corretamente: Guia Para Técnicos",
+    excerpt: "Boot order, XMP, Secure Boot, CSM, TPM — todas as configurações essenciais explicadas.",
+    date: "2026-04-08",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A BIOS/UEFI é o primeiro software que roda quando o computador liga. <strong>Configurações incorretas causam desde lentidão até impossibilidade de dar boot.</strong> Este guia cobre as configurações essenciais que todo técnico precisa conhecer.</p>
+
+        <h2>BIOS vs UEFI: Qual a Diferença?</h2>
+        <ul>
+          <li><strong>BIOS (Basic Input/Output System):</strong> Interface legada, texto em tela azul, suporta discos MBR até 2TB, boot lento</li>
+          <li><strong>UEFI (Unified Extensible Firmware Interface):</strong> Interface gráfica moderna, suporta discos GPT maiores que 2TB, Secure Boot, boot rápido. Todo PC fabricado após 2012 usa UEFI</li>
+        </ul>
+
+        <h2>Como Acessar a BIOS/UEFI</h2>
+        <p>Pressione a tecla correta durante a inicialização (antes do logo do Windows):</p>
+        <ul>
+          <li><strong>Del / Delete:</strong> Maioria das placas desktop (ASUS, Gigabyte, MSI, ASRock)</li>
+          <li><strong>F2:</strong> Notebooks (Dell, Acer, Lenovo, ASUS)</li>
+          <li><strong>F10:</strong> HP</li>
+          <li><strong>F1:</strong> Lenovo ThinkPad</li>
+          <li><strong>ESC:</strong> Menu de boot em muitos fabricantes</li>
+        </ul>
+
+        <h2>Configurações Essenciais</h2>
+
+        <h3>1. Boot Order (Ordem de Boot)</h3>
+        <p>Define qual dispositivo o PC tenta iniciar primeiro:</p>
+        <ul>
+          <li><strong>Para uso normal:</strong> 1º SSD/HD → 2º USB (para emergências)</li>
+          <li><strong>Para instalação do Windows:</strong> 1º USB → 2º SSD</li>
+          <li><strong>Após instalação:</strong> Voltar para 1º SSD</li>
+        </ul>
+
+        <h3>2. AHCI vs IDE (Modo SATA)</h3>
+        <p><strong>Sempre use AHCI</strong> para SSDs e HDs modernos. O modo IDE é para compatibilidade com sistemas antigos. Trocar após instalar o Windows causa tela azul — configure antes da formatação.</p>
+
+        <h3>3. XMP / DOCP (Perfil de Memória)</h3>
+        <p>A RAM DDR4/DDR5 roda na velocidade base (2133 MHz para DDR4) até que você ative o perfil XMP/DOCP. Se comprou RAM de 3200 MHz e ela roda a 2133 MHz, <strong>ative o XMP na BIOS</strong>.</p>
+
+        <h3>4. Secure Boot</h3>
+        <ul>
+          <li><strong>Ativado:</strong> Necessário para Windows 11 e impede boot de sistemas não assinados</li>
+          <li><strong>Desativado:</strong> Necessário para instalar Linux em algumas configurações ou dar boot por pendrives não UEFI</li>
+        </ul>
+
+        <h3>5. CSM (Compatibility Support Module)</h3>
+        <ul>
+          <li><strong>Desativado:</strong> Para Windows 11 e sistemas UEFI puros (recomendado)</li>
+          <li><strong>Ativado:</strong> Para compatibilidade com sistemas legados e hardware antigo</li>
+        </ul>
+
+        <h3>6. TPM 2.0</h3>
+        <p><strong>Obrigatório para Windows 11.</strong> Em processadores AMD, ative "fTPM" na BIOS. Em Intel, ative "Intel PTT". Geralmente está na seção Security ou Advanced.</p>
+
+        <h3>7. Virtualização (VT-x / AMD-V)</h3>
+        <p>Ative se usar máquinas virtuais (VirtualBox, VMware, WSL2, Docker). Geralmente em Advanced → CPU Configuration.</p>
+
+        <h3>8. Fan Control (Controle de Ventiladores)</h3>
+        <p>Configure as curvas de ventoinha para equilíbrio entre silêncio e refrigeração. Perfis comuns: Silent (silencioso), Standard (equilibrado), Performance (máxima refrigeração).</p>
+
+        <h2>Configurações Para Evitar Problemas</h2>
+        <ul>
+          <li>✅ Sempre salve e anote as alterações feitas</li>
+          <li>✅ Use "Load Optimized Defaults" se algo der errado</li>
+          <li>✅ Atualize a BIOS apenas quando necessário (e nunca durante queda de energia)</li>
+          <li>❌ Nunca altere voltagens sem conhecimento (pode queimar componentes)</li>
+          <li>❌ Nunca desative o Secure Boot sem motivo</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">PC Não Está Dando Boot?</h3>
+          <p className="text-muted-foreground mb-0">Configurações incorretas na BIOS causam vários problemas. Nosso técnico resolve no local em Curitiba e região.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-diagnosticar-placa-mae-defeituosa" className="text-accent">Como diagnosticar placa-mãe defeituosa</Link></li>
+          <li><Link to="/blog/como-montar-pc-do-zero-guia-completo" className="text-accent">Como montar um PC do zero</Link></li>
+          <li><Link to="/servicos/computador-nao-liga" className="text-accent">Computador não liga: causas e soluções</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-montar-pc-do-zero-guia-completo": {
+    title: "Como Montar um PC do Zero: Guia Técnico Passo a Passo",
+    excerpt: "Da escolha de componentes à primeira inicialização, com dicas para evitar erros comuns.",
+    date: "2026-04-08",
+    readTime: "15 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Montar um PC é mais simples do que parece — mas <strong>erros na montagem podem custar caro</strong>. Um componente incompatível, um cabo esquecido ou um cooler mal instalado podem causar desde mau desempenho até danos permanentes. Este guia cobre todo o processo do zero.</p>
+
+        <h2>1. Compatibilidade de Componentes</h2>
+        <p>Antes de comprar qualquer peça, verifique a compatibilidade:</p>
+        <ul>
+          <li><strong>CPU + Placa-mãe:</strong> O soquete deve ser compatível (ex: Intel LGA 1700, AMD AM5)</li>
+          <li><strong>RAM + Placa-mãe:</strong> DDR4 não encaixa em slot DDR5 e vice-versa</li>
+          <li><strong>Fonte + GPU:</strong> A fonte precisa ter potência e conectores suficientes</li>
+          <li><strong>Gabinete + Placa-mãe:</strong> ATX, Micro-ATX ou Mini-ITX devem combinar</li>
+          <li><strong>Cooler + Soquete:</strong> Verifique se o cooler suporta o soquete da CPU</li>
+        </ul>
+
+        <h2>2. Preparação do Ambiente</h2>
+        <ul>
+          <li>Superfície limpa, ampla e bem iluminada</li>
+          <li>Pulseira antiestática (ou toque no gabinete frequentemente)</li>
+          <li>Chave Phillips #1 e #2</li>
+          <li>Manuais das peças abertos para consulta</li>
+        </ul>
+
+        <h2>3. Ordem de Montagem</h2>
+
+        <h3>Passo 1: Instalar CPU na Placa-Mãe</h3>
+        <p>Abra o mecanismo de retenção do soquete. Alinhe o triângulo dourado da CPU com a marca no soquete. <strong>Não force — a CPU encaixa por gravidade.</strong> Feche a trava.</p>
+
+        <h3>Passo 2: Instalar a RAM</h3>
+        <p>Abra as travas dos slots. Alinhe o encaixe (notch) do pente com o slot. Pressione firmemente até ouvir o clique nas duas extremidades. <strong>Para 2 pentes, use os slots alternados</strong> (geralmente 2 e 4) para ativar dual-channel.</p>
+
+        <h3>Passo 3: Instalar o SSD M.2 (se aplicável)</h3>
+        <p>Localize o slot M.2 na placa-mãe. Insira em ângulo de 30°, pressione e fixe com o parafuso.</p>
+
+        <h3>Passo 4: Instalar o Cooler</h3>
+        <p>Aplique pasta térmica (grão de arroz no centro). Monte o cooler seguindo as instruções do fabricante. <strong>Conecte o cabo do fan no header CPU_FAN</strong> — sem isso, o PC pode não ligar.</p>
+
+        <h3>Passo 5: Instalar Placa-Mãe no Gabinete</h3>
+        <p>Coloque o I/O shield (espelho traseiro). Posicione a placa sobre os standoffs (espaçadores). Parafuse sem apertar demais.</p>
+
+        <h3>Passo 6: Instalar a Fonte</h3>
+        <p>Fixe a fonte no gabinete. Conecte os cabos: ATX 24 pinos (placa-mãe), EPS 8 pinos (CPU), SATA power (HDs/SSDs).</p>
+
+        <h3>Passo 7: Instalar a Placa de Vídeo</h3>
+        <p>Remova as tampas traseiras necessárias. Insira no slot PCIe x16 até ouvir o clique. Conecte os cabos de energia (6+2 pinos). <strong>Não use adaptadores Molex → PCIe</strong>.</p>
+
+        <h3>Passo 8: Conectar Cabos do Painel Frontal</h3>
+        <p>Power SW, Reset SW, Power LED, HDD LED — consulte o manual da placa-mãe para a posição exata dos pinos. USB 3.0 frontal conecta no header interno.</p>
+
+        <h3>Passo 9: Gerenciamento de Cabos</h3>
+        <p>Organize os cabos atrás da bandeja do gabinete para melhor fluxo de ar.</p>
+
+        <h2>4. Primeira Inicialização</h2>
+        <ol>
+          <li>Conecte monitor, teclado e mouse</li>
+          <li>Ligue a fonte (chave traseira)</li>
+          <li>Pressione o botão power</li>
+          <li>Entre na BIOS e verifique se CPU, RAM e discos são reconhecidos</li>
+          <li>Configure boot order para USB e instale o Windows</li>
+        </ol>
+
+        <h2>Checklist de Problemas Comuns</h2>
+        <ul>
+          <li><strong>PC não liga:</strong> Verifique cabo ATX 24 pinos e EPS 8 pinos. Chave da fonte está ligada?</li>
+          <li><strong>Sem imagem:</strong> RAM encaixada corretamente? GPU com energia? Monitor no cabo certo?</li>
+          <li><strong>Apenas ventiladores giram:</strong> RAM incompatível ou mal encaixada é a causa mais comum</li>
+          <li><strong>Reinicia em loop:</strong> CPU sem cooler ou pasta térmica</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Montagem de PC em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Montamos seu PC gamer, workstation ou escritório com componentes de sua escolha. Teste de estresse incluso. Atendimento em Curitiba.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/como-configurar-bios-uefi-corretamente" className="text-accent">Como configurar BIOS/UEFI corretamente</Link></li>
+          <li><Link to="/blog/erros-comuns-upgrade-computador" className="text-accent">5 erros comuns ao fazer upgrade</Link></li>
+          <li><Link to="/servicos/montagem-pc" className="text-accent">Serviço de Montagem de PC</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-instalar-linux-dual-boot-windows": {
+    title: "Como Instalar Linux em Dual Boot com Windows: Procedimento Seguro",
+    excerpt: "Ubuntu, Mint ou Fedora ao lado do Windows sem perder dados. Procedimento passo a passo.",
+    date: "2026-04-08",
+    readTime: "10 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Dual boot permite ter <strong>Windows e Linux no mesmo computador</strong>, escolhendo qual sistema usar a cada inicialização. É ideal para quem quer experimentar Linux sem abandonar o Windows. O procedimento exige cuidado para não perder dados.</p>
+
+        <h2>Pré-Requisitos</h2>
+        <ul>
+          <li><strong>Backup completo dos dados importantes</strong> (essencial!)</li>
+          <li>Pen drive de 8 GB ou mais</li>
+          <li>Pelo menos 50 GB de espaço livre no disco</li>
+          <li>Distribuição Linux escolhida (Ubuntu, Linux Mint, Fedora)</li>
+          <li>Software para criar USB bootável: <strong>Rufus</strong> (Windows) ou <strong>Balena Etcher</strong></li>
+        </ul>
+
+        <h2>Passo 1: Escolha a Distribuição</h2>
+        <ul>
+          <li><strong>Ubuntu:</strong> Mais popular, maior comunidade, ideal para iniciantes</li>
+          <li><strong>Linux Mint:</strong> Interface similar ao Windows, muito amigável</li>
+          <li><strong>Fedora:</strong> Mais atual, bom para desenvolvedores</li>
+          <li><strong>Pop!_OS:</strong> Excelente para hardware NVIDIA</li>
+        </ul>
+
+        <h2>Passo 2: Criar Espaço no Disco</h2>
+        <p>No Windows, abra <strong>Gerenciamento de Disco</strong> (diskmgmt.msc):</p>
+        <ol>
+          <li>Clique com botão direito na partição do Windows (geralmente C:)</li>
+          <li>Selecione "Diminuir Volume"</li>
+          <li>Insira o tamanho a reduzir (mínimo 50.000 MB = 50 GB)</li>
+          <li>O espaço ficará como "Não Alocado" — deixe assim</li>
+        </ol>
+
+        <h2>Passo 3: Criar USB Bootável</h2>
+        <ol>
+          <li>Baixe a ISO da distribuição escolhida (site oficial)</li>
+          <li>Abra o Rufus, selecione o pen drive e a ISO</li>
+          <li>Esquema de partição: <strong>GPT</strong> (para UEFI)</li>
+          <li>Clique em Iniciar e aguarde</li>
+        </ol>
+
+        <h2>Passo 4: Desativar Fast Startup e Secure Boot</h2>
+        <ul>
+          <li><strong>Fast Startup:</strong> Painel de Controle → Opções de Energia → "Alterar o que os botões de energia fazem" → Desmarque "Ligar inicialização rápida"</li>
+          <li><strong>Secure Boot:</strong> Desative na BIOS (pode ser reativado depois em algumas distros)</li>
+          <li><strong>BitLocker:</strong> Se ativo, suspenda antes de mexer nas partições</li>
+        </ul>
+
+        <h2>Passo 5: Boot pelo Pen Drive</h2>
+        <p>Reinicie e entre no menu de boot (geralmente F12, F8 ou ESC). Selecione o pen drive USB UEFI.</p>
+
+        <h2>Passo 6: Instalação do Linux</h2>
+        <ol>
+          <li>Escolha "Instalar ao lado do Windows" (opção mais segura)</li>
+          <li>O instalador reconhece o espaço não alocado automaticamente</li>
+          <li>Se preferir particionamento manual: crie partição <strong>EXT4</strong> para / (raiz) e opcionalmente uma partição <strong>swap</strong> (igual à RAM)</li>
+          <li>Selecione o bootloader no disco principal (sda ou nvme0n1)</li>
+          <li>Prossiga com a instalação normalmente</li>
+        </ol>
+
+        <h2>Passo 7: GRUB (Menu de Boot)</h2>
+        <p>Após reiniciar, o <strong>GRUB</strong> aparecerá oferecendo a escolha entre Linux e Windows. Se o GRUB não aparecer, entre na BIOS e altere a ordem de boot para o Linux primeiro.</p>
+
+        <h2>Problemas Comuns</h2>
+        <ul>
+          <li><strong>Windows não aparece no GRUB:</strong> Execute <code>sudo update-grub</code> no Linux</li>
+          <li><strong>Horário errado alternando entre sistemas:</strong> No Linux, execute <code>timedatectl set-local-rtc 1</code></li>
+          <li><strong>Wi-Fi não funciona no Linux:</strong> Alguns chips Realtek e Broadcom precisam de drivers adicionais</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Instalação de Linux em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Instalamos e configuramos Linux (Ubuntu, Mint, Fedora) em dual boot com Windows, com drivers e aplicativos. Atendimento em domicílio.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "como-configurar-backup-automatizado": {
+    title: "Como Configurar Backup Automatizado: Local e Nuvem",
+    excerpt: "Procedimento técnico para implementar backup 3-2-1 com agendamento automático.",
+    date: "2026-04-08",
+    readTime: "9 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">A regra de ouro do backup é a <strong>estratégia 3-2-1</strong>: 3 cópias dos dados, em 2 tipos de mídia diferentes, com 1 cópia off-site (fora do local). Este guia mostra como implementar backup automatizado para residências e empresas.</p>
+
+        <h2>A Regra 3-2-1 Na Prática</h2>
+        <ul>
+          <li><strong>Cópia 1:</strong> Dados originais no computador (SSD/HD principal)</li>
+          <li><strong>Cópia 2:</strong> Backup local — HD externo, NAS ou outro disco</li>
+          <li><strong>Cópia 3:</strong> Backup na nuvem — Google Drive, OneDrive, Backblaze, etc.</li>
+        </ul>
+
+        <h2>Backup Local Automatizado no Windows</h2>
+
+        <h3>Método 1: Histórico de Arquivos (Windows 10/11)</h3>
+        <ol>
+          <li>Conecte um HD externo</li>
+          <li>Configurações → Atualização e Segurança → Backup</li>
+          <li>Ative "Fazer backup automaticamente dos meus arquivos"</li>
+          <li>Em "Mais opções", configure intervalo (a cada 1 hora é ideal) e quais pastas incluir</li>
+        </ol>
+
+        <h3>Método 2: Imagem do Sistema (Backup Completo)</h3>
+        <ol>
+          <li>Painel de Controle → Backup e Restauração (Windows 7)</li>
+          <li>Clique em "Criar uma imagem do sistema"</li>
+          <li>Selecione o disco de destino</li>
+          <li>Inclua todas as partições do sistema</li>
+          <li>Para automatizar, crie uma tarefa no <strong>Agendador de Tarefas</strong> usando <code>wbAdmin</code></li>
+        </ol>
+
+        <h3>Método 3: Robocopy (Para Técnicos)</h3>
+        <p>Script batch automatizado com Robocopy para backup incremental:</p>
+        <p><code>robocopy "C:\Users\Dados" "D:\Backup" /MIR /R:3 /W:10 /LOG:D:\backup.log</code></p>
+        <p>Agende no <strong>Agendador de Tarefas</strong> para rodar diariamente às 2h da manhã.</p>
+
+        <h2>Backup na Nuvem</h2>
+
+        <h3>Opções Gratuitas</h3>
+        <ul>
+          <li><strong>Google Drive:</strong> 15 GB grátis. App Desktop sincroniza pastas automaticamente</li>
+          <li><strong>OneDrive:</strong> 5 GB grátis (15 GB com Microsoft 365). Integrado ao Windows</li>
+          <li><strong>Mega:</strong> 20 GB grátis com criptografia de ponta a ponta</li>
+        </ul>
+
+        <h3>Opções Profissionais (Ilimitado)</h3>
+        <ul>
+          <li><strong>Backblaze:</strong> US$ 7/mês, backup ilimitado, ideal para empresas pequenas</li>
+          <li><strong>Acronis Cyber Protect:</strong> Backup + antivírus + anti-ransomware integrado</li>
+          <li><strong>Veeam:</strong> Solução empresarial, suporta servidores e máquinas virtuais</li>
+        </ul>
+
+        <h2>Backup Para Empresas (NAS)</h2>
+        <p>Para empresas com múltiplos computadores, o ideal é um <strong>NAS (Network Attached Storage)</strong>:</p>
+        <ul>
+          <li><strong>Synology DS220+:</strong> 2 baias, interface web intuitiva, apps de backup automático</li>
+          <li><strong>QNAP TS-251D:</strong> 2 baias, suporte a RAID 1 (espelhamento)</li>
+          <li>Configure <strong>RAID 1</strong> para que se um HD falhar, o outro mantém os dados</li>
+          <li>Sincronize o NAS com nuvem (Synology C2 ou Backblaze B2) para backup off-site</li>
+        </ul>
+
+        <h2>Testando o Backup</h2>
+        <p><strong>Um backup que nunca foi testado não é um backup.</strong> Periodicamente:</p>
+        <ul>
+          <li>Tente restaurar um arquivo aleatório do backup</li>
+          <li>Verifique se o backup mais recente está sendo feito (veja data e hora)</li>
+          <li>Teste a restauração completa do sistema em uma máquina separada</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Configuração de Backup em Curitiba</h3>
+          <p className="text-muted-foreground mb-0">Implementamos backup automatizado para sua casa ou empresa. Local + nuvem com monitoramento. Nunca mais perca arquivos importantes.</p>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Backup: como proteger seus arquivos</Link></li>
+          <li><Link to="/blog/backup-nuvem-empresas-qual-escolher" className="text-accent">Backup na nuvem para empresas</Link></li>
+          <li><Link to="/servicos/backup-recuperacao" className="text-accent">Serviço de Backup e Recuperação</Link></li>
+        </ul>
+      </>
+    ),
+  },
+
+  "preciso-de-um-para-eletricistas": {
+    title: "Preciso de Um Para Eletricistas: Como Conseguir Mais Clientes",
+    excerpt: "Guia completo para eletricistas se cadastrarem e se destacarem na plataforma.",
+    date: "2026-04-08",
+    readTime: "7 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Se você é eletricista e ainda depende só de indicação, está perdendo clientes para colegas que já estão online. O <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> é a plataforma onde clientes buscam eletricistas por região — e <strong>os profissionais cadastrados recebem contatos diretos via WhatsApp</strong>.</p>
+
+        <h2>Por Que Eletricistas Devem Estar na Plataforma?</h2>
+        <p>Eletricista é uma das <strong>categorias mais procuradas</strong> no Preciso de Um. Serviços elétricos são urgentes por natureza — quando uma tomada para de funcionar ou um curto-circuito acontece, o cliente precisa de alguém <strong>agora</strong>. Quem aparece primeiro, fecha o serviço.</p>
+
+        <h2>Serviços Que Você Pode Oferecer</h2>
+        <ul>
+          <li>⚡ Instalação e troca de fiação elétrica</li>
+          <li>⚡ Troca de disjuntores e quadro de distribuição</li>
+          <li>⚡ Instalação de tomadas, interruptores e luminárias</li>
+          <li>⚡ Instalação de chuveiro elétrico</li>
+          <li>⚡ Laudo técnico e adequação de instalações</li>
+          <li>⚡ Instalação de geradores e nobreaks</li>
+          <li>⚡ Projetos elétricos residenciais e comerciais</li>
+        </ul>
+
+        <h2>Faixa de Preço na Plataforma</h2>
+        <p>Serviços elétricos no Preciso de Um têm faixa de <strong>R$ 120 a R$ 216</strong> para serviços básicos. Projetos maiores como adequação de quadro ou troca completa de fiação podem chegar a R$ 2.000+. Você define seus preços.</p>
+
+        <h2>Como Se Destacar Como Eletricista</h2>
+        <ol>
+          <li><strong>Destaque certificações:</strong> NR-10, NR-35, CREA se tiver</li>
+          <li><strong>Fotos de trabalhos:</strong> Quadros organizados, instalações limpas</li>
+          <li><strong>Resposta rápida:</strong> Clientes com problema elétrico não esperam</li>
+          <li><strong>Área de atendimento clara:</strong> Defina bairros e cidades que atende</li>
+          <li><strong>Ofereça garantia:</strong> Diferencial que transmite segurança</li>
+        </ol>
+
+        <h2>Exemplo de Sucesso</h2>
+        <p>Eletricistas como <strong>Angel Americo</strong> (Araucária, 6+ anos de experiência) e <strong>Eloiza Kirach</strong> (Pinhais) já estão na plataforma recebendo contatos diários. Você pode ser o próximo.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Cadastre-se Como Eletricista</h3>
+          <p className="text-muted-foreground mb-4">Crie seu perfil gratuito no Preciso de Um e comece a receber clientes que precisam de serviços elétricos na sua região.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Cadastrar agora →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "preciso-de-um-para-pintores-pedreiros": {
+    title: "Preciso de Um Para Pintores e Pedreiros: Sua Vitrine Digital",
+    excerpt: "Como profissionais de construção e pintura podem atrair clientes pela plataforma.",
+    date: "2026-04-08",
+    readTime: "7 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">Pintores e pedreiros são profissionais com altíssima demanda — mas que frequentemente dependem apenas do boca a boca. O <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> funciona como sua <strong>vitrine digital</strong>: clientes buscam profissionais de construção e pintura, veem seu portfólio e entram em contato direto.</p>
+
+        <h2>Construção Civil: A Categoria Mais Forte</h2>
+        <p><strong>Construção Civil é a categoria com mais profissionais</strong> no Preciso de Um — o que comprova a demanda. Profissionais como <strong>Rodrigo Macariu</strong> (Fazenda Rio Grande, 10+ anos) e <strong>Sidnei Santos de Paula</strong> (Araucária, serralheiro com 31+ anos) já estão presentes e recebendo contatos.</p>
+
+        <h2>Serviços de Pintura</h2>
+        <ul>
+          <li>🎨 Pintura residencial interna e externa</li>
+          <li>🎨 Pintura comercial</li>
+          <li>🎨 Textura e efeitos decorativos</li>
+          <li>🎨 Pintura de fachadas</li>
+          <li>🎨 Impermeabilização</li>
+          <li>🎨 Pintura epóxi para pisos</li>
+        </ul>
+
+        <h2>Serviços de Construção</h2>
+        <ul>
+          <li>🏗️ Reformas residenciais e comerciais</li>
+          <li>🏗️ Alvenaria e reboco</li>
+          <li>🏗️ Pisos e revestimentos</li>
+          <li>🏗️ Construção de muros e portões</li>
+          <li>🏗️ Telhados e coberturas</li>
+          <li>🏗️ Acabamento e gesso</li>
+        </ul>
+
+        <h2>O Poder do Portfólio Visual</h2>
+        <p>Para pintores e pedreiros, <strong>fotos de trabalhos anteriores são o melhor argumento de venda</strong>. Na plataforma, você pode adicionar fotos do antes e depois, mostrando a qualidade do seu trabalho.</p>
+
+        <h3>Dicas Para Fotos de Portfólio</h3>
+        <ul>
+          <li>📸 Tire fotos do <strong>antes e depois</strong></li>
+          <li>📸 Fotografe com boa iluminação (luz natural)</li>
+          <li>📸 Mostre detalhes de acabamento</li>
+          <li>📸 Inclua obras de diferentes tamanhos (apartamento, casa, comercial)</li>
+        </ul>
+
+        <h2>Por Que o Digital é Essencial</h2>
+        <p>O cliente moderno pesquisa antes de contratar. Se você não está online, ele vai contratar quem está. Com um perfil no Preciso de Um, você:</p>
+        <ul>
+          <li>✅ É encontrado por clientes que precisam do seu serviço AGORA</li>
+          <li>✅ Mostra experiência e portfólio</li>
+          <li>✅ Recebe contato direto no WhatsApp</li>
+          <li>✅ Não paga nada — o cadastro é gratuito</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Mostre Seu Trabalho ao Mundo</h3>
+          <p className="text-muted-foreground mb-4">Cadastre-se no Preciso de Um, monte seu portfólio e receba clientes que precisam de pintores e pedreiros na sua região.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Criar meu perfil grátis →
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  "preciso-de-um-para-tecnicos-informatica": {
+    title: "Preciso de Um Para Técnicos em Informática: Amplie Sua Atuação",
+    excerpt: "Como técnicos de TI podem usar a plataforma para expandir a carteira de clientes.",
+    date: "2026-04-08",
+    readTime: "7 min",
+    category: "Plataformas",
+    content: (
+      <>
+        <p className="lead">O mercado de assistência técnica em informática é competitivo — e a maioria dos técnicos depende apenas de indicação e redes sociais. O <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-accent">Preciso de Um</a> oferece um canal adicional de captação de clientes que <strong>funciona 24 horas, é gratuito e traz clientes que já estão procurando exatamente o que você faz</strong>.</p>
+
+        <h2>Por Que Técnicos de Informática São Essenciais na Plataforma</h2>
+        <p><strong>"Técnico em Informática"</strong> está entre as categorias mais buscadas no Preciso de Um, com profissionais cadastrados em Curitiba, São Paulo, Rio de Janeiro e Belém. A demanda é constante porque computadores quebram todos os dias.</p>
+
+        <h2>Serviços Que Você Pode Anunciar</h2>
+        <ul>
+          <li>💻 Formatação de computador e notebook</li>
+          <li>💻 Remoção de vírus e malware</li>
+          <li>💻 Upgrade de SSD e memória RAM</li>
+          <li>💻 Conserto de hardware (tela, teclado, placa-mãe)</li>
+          <li>💻 Configuração de redes Wi-Fi</li>
+          <li>💻 Backup e recuperação de dados</li>
+          <li>💻 Montagem de PC gamer e workstation</li>
+          <li>💻 Suporte remoto para empresas</li>
+          <li>💻 Instalação de câmeras CFTV</li>
+        </ul>
+
+        <h2>Estratégia Para Se Destacar</h2>
+        <ol>
+          <li><strong>Especialize-se:</strong> "Técnico em informática" é genérico. Destaque especialidades: "Especialista em notebook", "Recuperação de dados", "Redes empresariais"</li>
+          <li><strong>Defina sua região:</strong> Clientes buscam por proximidade. Quanto mais específico, melhor</li>
+          <li><strong>Preço transparente:</strong> Indique faixas de preço. Clientes não gostam de surpresas</li>
+          <li><strong>Tempo de resposta:</strong> Seja rápido no WhatsApp. O primeiro que responde geralmente fecha</li>
+          <li><strong>Peça avaliações:</strong> Após cada serviço, peça ao cliente para avaliar na plataforma</li>
+        </ol>
+
+        <h2>Vantagem Sobre Outras Plataformas</h2>
+        <ul>
+          <li>✅ <strong>Sem comissão:</strong> Você recebe 100% do valor do serviço</li>
+          <li>✅ <strong>Contato direto:</strong> WhatsApp, sem chat intermediário</li>
+          <li>✅ <strong>Cadastro gratuito:</strong> Sem mensalidade ou taxa de adesão</li>
+          <li>✅ <strong>Parceiros de peso:</strong> Balaroti, Philips e Leroy Merlin validam a credibilidade</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Expanda Sua Carteira de Clientes</h3>
+          <p className="text-muted-foreground mb-4">Cadastre-se gratuitamente no Preciso de Um e comece a receber chamados de clientes que precisam de técnico em informática na sua região.</p>
+          <a href="https://precisodeum.com.br/cadastro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+            Quero me cadastrar →
+          </a>
+        </div>
+
+        <p><strong>Leia também:</strong></p>
+        <ul>
+          <li><Link to="/blog/preciso-de-um-plataforma-prestadores" className="text-accent">O que é o Preciso de Um?</Link></li>
+          <li><Link to="/blog/como-cadastrar-preciso-de-um" className="text-accent">Como se cadastrar passo a passo</Link></li>
+          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da Técnico Curitiba</Link></li>
+        </ul>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

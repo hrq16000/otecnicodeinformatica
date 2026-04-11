@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, Clock, Shield, ArrowRight, MessageCircle } from "lucide-react";
+import { FloatingParticles } from "@/components/FloatingParticles";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -39,12 +40,14 @@ const FormatacaoComputador = () => {
         ]}
       />
       
-      {/* Hero Section */}
-      <section className="relative pt-10 pb-10 hero-gradient overflow-hidden">
+      <section className="relative pt-14 pb-20 overflow-hidden">
+        <div className="absolute inset-0 premium-gradient" />
+        <FloatingParticles count={18} />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-breathe" />
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[120px] animate-breathe" />
+          <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] bg-primary/[0.05] rounded-full blur-[100px] animate-breathe" style={{ animationDelay: '2s' }} />
         </div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
@@ -64,6 +67,12 @@ const FormatacaoComputador = () => {
               </Button>
             </div>
           </div>
+          <div className="glow-separator max-w-[160px] mx-auto mt-6" />
+        </div>
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+            <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
+          </svg>
         </div>
       </section>
       <RealImageSection imageKey="tecnicoTrabalhando" caption="Formatação profissional com backup dos seus dados" />
@@ -94,7 +103,7 @@ const FormatacaoComputador = () => {
               { title: "Otimização do Sistema", desc: "Configurações para máximo desempenho" },
               { title: "Restauração de Dados", desc: "Seus arquivos de volta no lugar certo" },
             ].map((item, index) => (
-              <div key={index} className="group flex gap-4 p-4 bg-secondary rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10" style={{ animationDelay: `${index * 60}ms` }}>
+              <div key={index} className="group flex gap-4 p-4 glass-card gradient-border rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)]" style={{ animationDelay: `${index * 60}ms` }}>
                 <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                 <div>
                   <h3 className="font-bold text-primary">{item.title}</h3>

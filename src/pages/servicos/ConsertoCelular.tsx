@@ -83,6 +83,7 @@ const ConsertoCelular = () => {
         title="Conserto de Celular em Curitiba e Região | Orçamento sem Compromisso"
         description="Conserto de celular e smartphone. iPhone, Samsung, Motorola, Xiaomi. Orçamento humanizado sem compromisso."
         path="/servicos/conserto-celular"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Conserto de Celular", path: "/servicos/conserto-celular" }]}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />

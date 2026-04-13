@@ -84,6 +84,7 @@ const ConsertoTV = () => {
         title="Conserto de TV em Curitiba e Região | Orçamento sem Compromisso"
         description="Conserto de TV LED, LCD, OLED e Smart TV. Orçamento humanizado. Samsung, LG, Sony, TCL e todas as marcas."
         path="/servicos/conserto-tv"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Conserto de TV", path: "/servicos/conserto-tv" }]}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />

@@ -98,6 +98,7 @@ const SejaParceiro = () => {
         title="Seja Técnico Parceiro | Trabalhe Conosco | Técnico Curitiba"
         description="Quer ser técnico parceiro? Cadastre-se e receba chamados técnicos na sua região. Flexibilidade, demanda constante e suporte profissional."
         path="/seja-parceiro"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Seja Parceiro", path: "/seja-parceiro" }]}
       />
       <Header />
 

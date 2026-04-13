@@ -30,7 +30,11 @@ const BackupRecuperacao = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Backup e Recuperação de Dados em Curitiba | Técnico Curitiba" description="Backup e recuperação de dados em Curitiba. Resgate de arquivos de HD, SSD, pendrive. Recuperação de dados deletados. Atendimento especializado." path="/servicos/backup-recuperacao" />
+      <PageSEO title="Backup e Recuperação de Dados em Curitiba | Técnico Curitiba" description="Backup e recuperação de dados em Curitiba. Resgate de arquivos de HD, SSD, pendrive. Recuperação de dados deletados. Atendimento especializado." path="/servicos/backup-recuperacao"  breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Backup e Recuperação", path: "/servicos/backup-recuperacao" }
+      ]} />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Backup e Recuperação" }]} />
       

@@ -155,7 +155,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em São José dos Pinhais | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em São José dos Pinhais. Atendimento em domicílio e empresas. Conserto de computador, formatação, remoção de vírus na região metropolitana de Curitiba." path="/tecnico-informatica-sao-jose-pinhais" />
+      <PageSEO title="Técnico de Informática em São José dos Pinhais | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em São José dos Pinhais. Atendimento em domicílio e empresas. Conserto de computador, formatação, remoção de vírus na região metropolitana de Curitiba." path="/tecnico-informatica-sao-jose-pinhais" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "São José dos Pinhais", path: "/tecnico-informatica-sao-jose-pinhais" }]} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em São José dos Pinhais" }]} />

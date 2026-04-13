@@ -67,7 +67,7 @@ const ComoFunciona = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia." path="/como-funciona" />
+      <PageSEO title="Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
       {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"

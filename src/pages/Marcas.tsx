@@ -79,6 +79,7 @@ const Marcas = () => {
         title="Marcas Atendidas | Assistência Técnica Especializada em Curitiba"
         description="Assistência técnica especializada nas principais marcas: Dell, HP, Lenovo, ASUS, Samsung, LG, Apple, Intel, AMD, NVIDIA e mais. Atendimento a domicílio em Curitiba e região."
         path="/marcas"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Marcas", path: "/marcas" }]}
       />
       <Header />
 

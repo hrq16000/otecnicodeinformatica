@@ -416,6 +416,7 @@ const Blog = () => {
         title="Explorar Conteúdo — Blog, Serviços e Soluções | Técnico Curitiba"
         description="Explore todos os artigos, guias de problemas, serviços e soluções técnicas. Mais de 200 páginas de conteúdo especializado em informática."
         path="/blog"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Blog", path: "/blog" }]}
       />
       <JsonLdSchema />
       <Header />

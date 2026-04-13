@@ -181,7 +181,7 @@ const TecnicoInformaticaAraucaria = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Araucária | Assistência Técnica a Domicílio | Técnico Curitiba" description="Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. A partir de R$ 69,99. Polo industrial e residencial." path="/tecnico-informatica-araucaria" />
+      <PageSEO title="Técnico de Informática em Araucária | Assistência Técnica a Domicílio | Técnico Curitiba" description="Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. A partir de R$ 69,99. Polo industrial e residencial." path="/tecnico-informatica-araucaria" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Araucária", path: "/tecnico-informatica-araucaria" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(araucariaSchema) }} />
       <JsonLdSchema />
       <Header />

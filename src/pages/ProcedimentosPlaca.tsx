@@ -81,6 +81,7 @@ const ProcedimentosPlaca = () => {
         title="Procedimentos Técnicos em Placa — Reflow, Reballing, Microsoldagem | Curitiba"
         description="Conheça os procedimentos técnicos de reparo em placa: reflow BGA, reballing, troca de chip, microsoldagem para celular e recapacitação. Curitiba e região."
         path="/procedimentos-placa"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Conserto de Placa", path: "/servicos/conserto-placa" }, { name: "Procedimentos", path: "/procedimentos-placa" }]}
       />
       <Header />
       <Breadcrumbs items={[

@@ -180,7 +180,7 @@ const TecnicoInformaticaPinhais = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Pinhais | Assistência Técnica Rápida | Técnico Curitiba" description="Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. A partir de R$ 69,99." path="/tecnico-informatica-pinhais" />
+      <PageSEO title="Técnico de Informática em Pinhais | Assistência Técnica Rápida | Técnico Curitiba" description="Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. A partir de R$ 69,99." path="/tecnico-informatica-pinhais" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Pinhais", path: "/tecnico-informatica-pinhais" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pinhaisSchema) }} />
       <JsonLdSchema />
       <Header />

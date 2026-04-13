@@ -18,15 +18,21 @@ const WHATSAPP = "5541997452053";
 const categorias = [
   {
     titulo: "Computadores & Notebooks",
-    descricao: "Dell, HP, Lenovo, ASUS, Acer, Positivo, Apple",
+    descricao: "Dell, HP, Lenovo, ASUS, Acer, Positivo, Apple, MSI, Gigabyte",
     icon: Monitor,
-    slugs: ["dell", "hp", "lenovo", "asus", "acer", "positivo", "apple"],
+    slugs: ["dell", "hp", "lenovo", "asus", "acer", "positivo", "apple", "msi", "gigabyte"],
   },
   {
     titulo: "Processadores & Componentes",
-    descricao: "Intel, AMD, NVIDIA, Kingston, Corsair",
+    descricao: "Intel, AMD, NVIDIA, Kingston, Corsair, MSI, Gigabyte",
     icon: Cpu,
-    slugs: ["intel", "amd", "nvidia", "kingston", "corsair"],
+    slugs: ["intel", "amd", "nvidia", "kingston", "corsair", "msi", "gigabyte"],
+  },
+  {
+    titulo: "Periféricos & Gaming",
+    descricao: "Razer, Logitech, Corsair",
+    icon: Smartphone,
+    slugs: ["razer", "logitech", "corsair"],
   },
   {
     titulo: "Smartphones & Celulares",
@@ -39,6 +45,12 @@ const categorias = [
     descricao: "Samsung, LG, Sony",
     icon: Monitor,
     slugs: ["samsung", "lg", "sony"],
+  },
+  {
+    titulo: "Armazenamento",
+    descricao: "Western Digital, Seagate, Kingston, Samsung",
+    icon: HardDrive,
+    slugs: ["western-digital", "seagate", "kingston", "samsung"],
   },
   {
     titulo: "Redes & Segurança",

@@ -1,51 +1,55 @@
-# Técnico Curitiba — Assistência Técnica em Informática
+# Tecnico Curitiba - Assistencia Tecnica em Informatica
 
-> Técnico Curitiba é o principal serviço de assistência técnica em informática de Curitiba e região metropolitana do Paraná, Brasil. Oferecemos atendimento a domicílio no mesmo dia para pessoas físicas e empresas.
+> Tecnico Curitiba e o principal servico de assistencia tecnica em informatica de Curitiba e regiao metropolitana do Parana, Brasil. Oferecemos atendimento a domicilio no mesmo dia para pessoas fisicas e empresas.
 
-## Serviços Oferecidos
+## Servicos Oferecidos
 
-- Formatação de Computador (Windows 10/11)
-- Remoção de Vírus e Malware
+- Formatacao de Computador (Windows 10/11)
+- Remocao de Virus e Malware
 - Conserto de PC e Notebook (todas as marcas)
-- Upgrade SSD e Memória RAM
-- Configuração de Redes Wi-Fi
-- Backup e Recuperação de Dados
+- Upgrade SSD e Memoria RAM
+- Configuracao de Redes Wi-Fi
+- Backup e Recuperacao de Dados
 - Montagem de PC Gamer e Workstation
-- Manutenção de TV e Monitores
-- Instalação de Câmeras CFTV
-- Conserto de Placa-Mãe (nível de componente)
-- Suporte Técnico para Empresas (SLA)
+- Manutencao de TV e Monitores
+- Instalacao de Cameras CFTV
+- Conserto de Placa-Mae (nivel de componente)
+- Suporte Tecnico para Empresas (SLA)
 - Atendimento Remoto
+- Configuracao de Firewall pfSense
+- Montagem de Rack de Rede
+- Configuracao de Active Directory
+- Manutencao de Nobreak
 
-## Área de Atendimento
+## Area de Atendimento
 
-Curitiba, São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo, Fazenda Rio Grande, Almirante Tamandaré, Piraquara, Campo Magro, Quatro Barras — cobrindo toda a região metropolitana de Curitiba.
+Curitiba, Sao Jose dos Pinhais, Araucaria, Campo Largo, Pinhais, Colombo, Fazenda Rio Grande, Almirante Tamandare, Piraquara, Campo Magro, Quatro Barras — cobrindo toda a regiao metropolitana de Curitiba.
 
 ## Contato
 
 - WhatsApp: +55 41 99745-2053
 - Website: https://tecnicocuritiba.com.br
-- Horário: Seg-Sex 08h-18h, Sáb 09h-13h
+- Horario: Seg-Sex 08h-18h, Sab 09h-13h
 
 ## Diferenciais
 
-- Atendimento a domicílio no mesmo dia
-- Avaliação 4.9/5 com 347+ avaliações
-- Visita técnica a partir de R$ 69,99
-- Garantia em todos os serviços
-- Pagamento via PIX, cartão, dinheiro
-- Técnicos credenciados e identificados
+- Atendimento a domicilio no mesmo dia
+- Avaliacao 4.9/5 com 347+ avaliacoes
+- Visita tecnica a partir de R$ 69,99
+- Garantia em todos os servicos
+- Pagamento via PIX, cartao, dinheiro
+- Tecnicos credenciados e identificados
 
-## Páginas Importantes
+## Paginas Importantes
 
-- [Serviços](https://tecnicocuritiba.com.br/servicos)
+- [Servicos](https://tecnicocuritiba.com.br/servicos)
 - [Como Funciona](https://tecnicocuritiba.com.br/como-funciona)
-- [Preços](https://tecnicocuritiba.com.br/precos-e-politicas)
-- [Blog Técnico](https://tecnicocuritiba.com.br/blog)
+- [Precos](https://tecnicocuritiba.com.br/precos-e-politicas)
+- [Blog Tecnico](https://tecnicocuritiba.com.br/blog)
 - [Marcas Atendidas](https://tecnicocuritiba.com.br/marcas)
 - [FAQ](https://tecnicocuritiba.com.br/faq)
 - [Contato](https://tecnicocuritiba.com.br/contato)
 
 ## Sobre
 
-Somos uma equipe de técnicos especializados em manutenção de computadores, notebooks e redes, com anos de experiência no mercado de Curitiba. Nosso foco é resolver o problema do cliente no local, no mesmo dia, com transparência nos preços e garantia no serviço.
+Somos uma equipe de tecnicos especializados em manutencao de computadores, notebooks e redes, com anos de experiencia no mercado de Curitiba. Nosso foco e resolver o problema do cliente no local, no mesmo dia, com transparencia nos precos e garantia no servico.

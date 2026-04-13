@@ -226,6 +226,10 @@ export const Footer = () => {
             <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
               Mestre dos Serviços
             </a>
+            {" · "}
+            <a href="https://tamonaweb.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
+              TamoNaWeb
+            </a>
           </p>
         </div>
       </div>

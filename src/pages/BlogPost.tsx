@@ -514,6 +514,638 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
       </>
     ),
   },
+  "como-configurar-servidor-web-apache-nginx-linux": {
+    title: "Como Configurar Servidor Web Apache e Nginx no Linux: Guia Completo",
+    excerpt: "Passo a passo para instalar e configurar Apache e Nginx no Ubuntu/Debian e CentOS/Fedora.",
+    date: "2026-04-13",
+    readTime: "15 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">Hospedar sites e aplicações web no Linux é uma das tarefas mais comuns para administradores de sistemas. Neste guia, cobrimos <strong>Apache e Nginx</strong> — os dois servidores web mais usados no mundo — com instalação, configuração, virtual hosts, SSL e otimização de performance.</p>
+
+        <h2>Apache vs Nginx: Qual Escolher?</h2>
+        <p>Ambos são excelentes, mas têm perfis diferentes:</p>
+        <ul>
+          <li><strong>Apache:</strong> Mais antigo, altamente configurável via .htaccess, ideal para hospedagem compartilhada e aplicações PHP tradicionais (WordPress, Laravel)</li>
+          <li><strong>Nginx:</strong> Mais leve, orientado a eventos, excelente como proxy reverso e para servir conteúdo estático. Usado por Netflix, Cloudflare e WordPress.com</li>
+          <li><strong>Recomendação:</strong> para sites PHP simples, Apache. Para alta performance e proxy reverso, Nginx. Para o melhor dos dois mundos, Nginx como proxy + Apache como backend</li>
+        </ul>
+
+        <h2>Instalando Apache no Ubuntu/Debian</h2>
+        <pre><code>{`sudo apt update
+sudo apt install apache2 -y
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+# Verificar status
+sudo systemctl status apache2
+
+# Testar no navegador: http://IP-DO-SERVIDOR
+# Deve aparecer a página padrão do Apache`}</code></pre>
+
+        <h2>Configurando Virtual Hosts no Apache</h2>
+        <p>Virtual Hosts permitem hospedar múltiplos sites no mesmo servidor:</p>
+        <pre><code>{`# Criar diretório do site
+sudo mkdir -p /var/www/meusite.com.br/html
+sudo chown -R $USER:$USER /var/www/meusite.com.br
+
+# Criar arquivo de configuração
+sudo nano /etc/apache2/sites-available/meusite.com.br.conf`}</code></pre>
+        <pre><code>{`<VirtualHost *:80>
+    ServerName meusite.com.br
+    ServerAlias www.meusite.com.br
+    DocumentRoot /var/www/meusite.com.br/html
+    ErrorLog \${APACHE_LOG_DIR}/meusite-error.log
+    CustomLog \${APACHE_LOG_DIR}/meusite-access.log combined
+    
+    <Directory /var/www/meusite.com.br/html>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>`}</code></pre>
+        <pre><code>{`# Ativar o site e desativar o padrão
+sudo a2ensite meusite.com.br.conf
+sudo a2dissite 000-default.conf
+sudo a2enmod rewrite
+sudo systemctl reload apache2`}</code></pre>
+
+        <h2>Instalando Nginx no Ubuntu/Debian</h2>
+        <pre><code>{`sudo apt update
+sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+# Verificar: http://IP-DO-SERVIDOR
+# Página "Welcome to nginx!" deve aparecer`}</code></pre>
+
+        <h2>Configurando Server Blocks no Nginx</h2>
+        <pre><code>{`sudo mkdir -p /var/www/meusite.com.br/html
+sudo nano /etc/nginx/sites-available/meusite.com.br`}</code></pre>
+        <pre><code>{`server {
+    listen 80;
+    server_name meusite.com.br www.meusite.com.br;
+    root /var/www/meusite.com.br/html;
+    index index.html index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Para PHP (com php-fpm)
+    location ~ \\.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+    }
+
+    # Bloquear acesso a .htaccess
+    location ~ /\\.ht {
+        deny all;
+    }
+}`}</code></pre>
+        <pre><code>{`sudo ln -s /etc/nginx/sites-available/meusite.com.br /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx`}</code></pre>
+
+        <h2>SSL Gratuito com Let's Encrypt</h2>
+        <pre><code>{`# Instalar Certbot
+sudo apt install certbot python3-certbot-apache -y  # Para Apache
+sudo apt install certbot python3-certbot-nginx -y   # Para Nginx
+
+# Gerar certificado
+sudo certbot --apache -d meusite.com.br -d www.meusite.com.br
+# ou
+sudo certbot --nginx -d meusite.com.br -d www.meusite.com.br
+
+# Renovação automática (já configurada via cron/timer)
+sudo certbot renew --dry-run`}</code></pre>
+
+        <h2>Nginx como Proxy Reverso (Node.js, Python, etc.)</h2>
+        <pre><code>{`server {
+    listen 80;
+    server_name app.meusite.com.br;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
+}`}</code></pre>
+
+        <h2>Otimização de Performance</h2>
+        <ul>
+          <li><strong>Gzip:</strong> comprima respostas para reduzir tráfego em 60-80%</li>
+          <li><strong>Cache de arquivos estáticos:</strong> configure headers Expires e Cache-Control</li>
+          <li><strong>Worker processes (Nginx):</strong> ajuste para o número de cores da CPU</li>
+          <li><strong>KeepAlive:</strong> mantenha conexões abertas para múltiplas requisições</li>
+          <li><strong>HTTP/2:</strong> ative para multiplexação e melhor performance</li>
+        </ul>
+
+        <h2>Segurança Essencial</h2>
+        <ul>
+          <li>Desabilite listagem de diretórios (<code>Options -Indexes</code> no Apache)</li>
+          <li>Oculte a versão do servidor (<code>ServerTokens Prod</code> / <code>server_tokens off</code>)</li>
+          <li>Configure headers de segurança: X-Frame-Options, X-Content-Type-Options, CSP</li>
+          <li>Use fail2ban para proteger contra brute-force</li>
+          <li>Mantenha tudo atualizado: <code>sudo apt update && sudo apt upgrade</code></li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Precisa Configurar um Servidor Web?</h3>
+          <p className="text-muted-foreground mb-0">Configuramos servidores Apache e Nginx para empresas em Curitiba e região. Desde a instalação até SSL, proxy reverso e otimização de performance.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-gerenciar-pacotes-apt-dnf-linux": {
+    title: "Como Gerenciar Pacotes no Linux com APT e DNF: Guia Completo",
+    excerpt: "Domine os gerenciadores de pacotes APT (Debian/Ubuntu) e DNF (Fedora/RHEL) com exemplos práticos.",
+    date: "2026-04-13",
+    readTime: "12 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">No Linux, instalar, atualizar e remover programas é feito pelo <strong>gerenciador de pacotes</strong>. Entender APT e DNF é fundamental para qualquer administrador Linux. Neste guia, cobrimos desde o básico até técnicas avançadas como pinning, repositórios de terceiros e resolução de dependências.</p>
+
+        <h2>APT — Debian, Ubuntu, Mint e Derivados</h2>
+        <p>O APT (Advanced Package Tool) é o gerenciador padrão das distribuições baseadas em Debian — as mais populares do mundo.</p>
+
+        <h3>Comandos Essenciais do APT</h3>
+        <pre><code>{`# Atualizar lista de pacotes disponíveis
+sudo apt update
+
+# Atualizar todos os pacotes instalados
+sudo apt upgrade -y
+
+# Atualização completa (inclui remoção de pacotes obsoletos)
+sudo apt full-upgrade -y
+
+# Instalar um pacote
+sudo apt install nome-do-pacote -y
+
+# Instalar múltiplos pacotes
+sudo apt install nginx php mysql-server -y
+
+# Remover pacote (mantém configs)
+sudo apt remove nome-do-pacote
+
+# Remover pacote + configurações
+sudo apt purge nome-do-pacote
+
+# Remover dependências órfãs
+sudo apt autoremove -y
+
+# Buscar pacotes
+apt search "servidor web"
+
+# Ver informações de um pacote
+apt show nginx
+
+# Listar pacotes instalados
+apt list --installed
+
+# Ver pacotes atualizáveis
+apt list --upgradable`}</code></pre>
+
+        <h3>Gerenciando Repositórios</h3>
+        <pre><code>{`# Adicionar repositório PPA (Ubuntu)
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+
+# Adicionar repositório manualmente
+echo "deb http://repo.exemplo.com/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/exemplo.list
+
+# Adicionar chave GPG do repositório
+curl -fsSL https://repo.exemplo.com/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/exemplo.gpg
+
+# Remover PPA
+sudo add-apt-repository --remove ppa:ondrej/php`}</code></pre>
+
+        <h3>APT Pinning — Prioridade de Versões</h3>
+        <pre><code>{`# /etc/apt/preferences.d/firefox
+Package: firefox
+Pin: release a=jammy-security
+Pin-Priority: 1000`}</code></pre>
+        <p>O pinning permite forçar uma versão específica de um pacote, útil quando você precisa manter uma versão estável mesmo com repositórios mais novos adicionados.</p>
+
+        <h2>DNF — Fedora, RHEL, CentOS Stream, AlmaLinux</h2>
+        <p>O DNF (Dandified YUM) é o gerenciador padrão da família Red Hat — dominante em servidores corporativos.</p>
+
+        <h3>Comandos Essenciais do DNF</h3>
+        <pre><code>{`# Atualizar lista + instalar atualizações
+sudo dnf upgrade -y
+
+# Instalar pacote
+sudo dnf install nginx -y
+
+# Remover pacote
+sudo dnf remove nginx
+
+# Buscar pacotes
+dnf search "servidor web"
+
+# Ver informações
+dnf info nginx
+
+# Listar instalados
+dnf list installed
+
+# Ver histórico de transações
+dnf history
+
+# Desfazer última transação
+sudo dnf history undo last
+
+# Limpar cache
+sudo dnf clean all
+
+# Instalar grupo de pacotes
+sudo dnf groupinstall "Development Tools"
+
+# Listar grupos disponíveis
+dnf grouplist`}</code></pre>
+
+        <h3>Repositórios no DNF</h3>
+        <pre><code>{`# Habilitar repositório EPEL (Enterprise Linux)
+sudo dnf install epel-release -y
+
+# Adicionar RPM Fusion (codecs e drivers)
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+# Listar repositórios
+dnf repolist
+
+# Desabilitar um repositório temporariamente
+sudo dnf --disablerepo=epel install pacote`}</code></pre>
+
+        <h2>Comparativo APT vs DNF</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Ação</th><th className="text-left p-2 border-b">APT</th><th className="text-left p-2 border-b">DNF</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Atualizar lista</td><td className="p-2 border-b">apt update</td><td className="p-2 border-b">(automático)</td></tr>
+              <tr><td className="p-2 border-b">Atualizar tudo</td><td className="p-2 border-b">apt upgrade</td><td className="p-2 border-b">dnf upgrade</td></tr>
+              <tr><td className="p-2 border-b">Instalar</td><td className="p-2 border-b">apt install pkg</td><td className="p-2 border-b">dnf install pkg</td></tr>
+              <tr><td className="p-2 border-b">Remover</td><td className="p-2 border-b">apt remove pkg</td><td className="p-2 border-b">dnf remove pkg</td></tr>
+              <tr><td className="p-2 border-b">Buscar</td><td className="p-2 border-b">apt search</td><td className="p-2 border-b">dnf search</td></tr>
+              <tr><td className="p-2 border-b">Desfazer</td><td className="p-2 border-b">❌</td><td className="p-2 border-b">dnf history undo</td></tr>
+              <tr><td className="p-2 border-b">Formato</td><td className="p-2 border-b">.deb</td><td className="p-2 border-b">.rpm</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Flatpak e Snap — Alternativas Universais</h2>
+        <p>Além de APT e DNF, existem formatos universais que funcionam em qualquer distro:</p>
+        <ul>
+          <li><strong>Flatpak:</strong> sandbox seguro, usado pelo GNOME Software. Ideal para apps desktop (Firefox, LibreOffice, VLC)</li>
+          <li><strong>Snap:</strong> desenvolvido pela Canonical. Atualizações automáticas, mas mais pesado que Flatpak</li>
+          <li><strong>AppImage:</strong> executável portátil sem instalação. Basta dar permissão e executar</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Suporte Linux Para Sua Empresa</h3>
+          <p className="text-muted-foreground mb-0">Gerenciamos servidores Linux, configuramos repositórios e mantemos seus sistemas atualizados e seguros. Atendimento em Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-configurar-ssh-seguro-linux": {
+    title: "Como Configurar SSH Seguro no Linux: Guia Anti-Invasão",
+    excerpt: "Hardening completo do SSH: chaves, fail2ban, porta customizada e autenticação de dois fatores.",
+    date: "2026-04-13",
+    readTime: "13 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">O SSH (Secure Shell) é a porta de entrada para administrar servidores Linux remotamente — e também o alvo número 1 de atacantes. Neste guia, mostramos como configurar o SSH de forma <strong>realmente segura</strong>, com autenticação por chaves, fail2ban, porta customizada e MFA.</p>
+
+        <h2>Por Que a Configuração Padrão do SSH é Insegura?</h2>
+        <ul>
+          <li>Porta 22 é escaneada automaticamente por bots 24/7</li>
+          <li>Login por senha permite ataques de força bruta</li>
+          <li>Root com acesso direto é um risco crítico</li>
+          <li>Sem rate-limiting, um bot pode testar milhares de senhas por minuto</li>
+        </ul>
+        <p>Um servidor na internet sem hardening recebe <strong>centenas de tentativas de login por hora</strong>. Veja como se proteger:</p>
+
+        <h2>Passo 1: Gerar Par de Chaves SSH</h2>
+        <p>Autenticação por chaves é infinitamente mais segura que senhas:</p>
+        <pre><code>{`# No seu computador local (não no servidor!)
+ssh-keygen -t ed25519 -C "seu-email@exemplo.com"
+
+# Vai gerar:
+# ~/.ssh/id_ed25519       (chave privada - NUNCA compartilhe!)
+# ~/.ssh/id_ed25519.pub   (chave pública - copie para o servidor)
+
+# Copiar chave pública para o servidor
+ssh-copy-id usuario@IP-DO-SERVIDOR
+
+# Testar conexão com chave
+ssh usuario@IP-DO-SERVIDOR
+# Deve conectar sem pedir senha`}</code></pre>
+
+        <h2>Passo 2: Hardening do sshd_config</h2>
+        <pre><code>{`sudo nano /etc/ssh/sshd_config
+
+# Altere as seguintes linhas:
+Port 2222                          # Porta customizada (evita 99% dos bots)
+PermitRootLogin no                 # Bloqueia login como root
+PasswordAuthentication no          # Desabilita login por senha
+PubkeyAuthentication yes           # Somente chaves SSH
+MaxAuthTries 3                     # Máximo de tentativas
+LoginGraceTime 30                  # Tempo máximo para autenticar
+ClientAliveInterval 300            # Desconecta sessões ociosas
+ClientAliveCountMax 2              # Após 2 pings sem resposta
+AllowUsers seuusuario              # Somente usuários específicos
+Protocol 2                         # Somente protocolo SSH2
+X11Forwarding no                   # Desabilita X11 (desnecessário)
+PermitEmptyPasswords no            # Bloqueia senhas vazias
+
+# Reiniciar SSH (mantenha a sessão atual aberta!)
+sudo systemctl restart sshd`}</code></pre>
+        <p className="text-sm text-muted-foreground"><strong>⚠️ IMPORTANTE:</strong> Antes de reiniciar o SSH, abra uma segunda sessão SSH para testar. Se algo der errado, você ainda terá acesso pela sessão original.</p>
+
+        <h2>Passo 3: Instalar fail2ban</h2>
+        <p>O fail2ban monitora logs e bane IPs que tentam força bruta:</p>
+        <pre><code>{`sudo apt install fail2ban -y  # Debian/Ubuntu
+sudo dnf install fail2ban -y  # Fedora/RHEL
+
+# Criar configuração local
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local`}</code></pre>
+        <pre><code>{`[sshd]
+enabled = true
+port = 2222
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 3600
+findtime = 600`}</code></pre>
+        <pre><code>{`sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+# Ver IPs banidos
+sudo fail2ban-client status sshd`}</code></pre>
+
+        <h2>Passo 4: Firewall (UFW)</h2>
+        <pre><code>{`# Permitir apenas a porta SSH customizada
+sudo ufw allow 2222/tcp
+sudo ufw enable
+
+# Verificar regras
+sudo ufw status verbose`}</code></pre>
+
+        <h2>Passo 5: Autenticação de Dois Fatores (MFA)</h2>
+        <pre><code>{`sudo apt install libpam-google-authenticator -y
+
+# Configurar para seu usuário
+google-authenticator
+# Responda: y, y, y, n, y
+# Escaneie o QR code com Google Authenticator ou Authy
+
+# Editar PAM
+sudo nano /etc/pam.d/sshd
+# Adicionar no final:
+auth required pam_google_authenticator.so
+
+# Editar sshd_config
+sudo nano /etc/ssh/sshd_config
+# Alterar:
+ChallengeResponseAuthentication yes
+AuthenticationMethods publickey,keyboard-interactive
+
+sudo systemctl restart sshd`}</code></pre>
+
+        <h2>Checklist de Segurança SSH</h2>
+        <ul>
+          <li>✅ Porta customizada (não 22)</li>
+          <li>✅ Autenticação somente por chaves</li>
+          <li>✅ Root login desabilitado</li>
+          <li>✅ fail2ban ativo e configurado</li>
+          <li>✅ Firewall permitindo apenas portas necessárias</li>
+          <li>✅ MFA habilitado (para ambientes críticos)</li>
+          <li>✅ Logs monitorados regularmente</li>
+          <li>✅ Atualizações de segurança automáticas</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Precisa Proteger Seu Servidor?</h3>
+          <p className="text-muted-foreground mb-0">Fazemos hardening completo de servidores Linux: SSH, firewall, fail2ban, atualizações automáticas e monitoramento. Consultoria técnica em Curitiba e remoto.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-usar-docker-linux-guia-completo": {
+    title: "Como Usar Docker no Linux: Guia Completo Para Iniciantes e Técnicos",
+    excerpt: "Instalação, containers, Docker Compose, volumes, redes e boas práticas para ambientes de produção.",
+    date: "2026-04-13",
+    readTime: "16 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">O Docker revolucionou a forma como deployamos aplicações. Em vez de instalar tudo diretamente no servidor, você empacota a aplicação + dependências em um <strong>container</strong> isolado e portátil. Neste guia, cobrimos desde a instalação até Docker Compose para ambientes de produção.</p>
+
+        <h2>O Que é Docker e Por Que Usar?</h2>
+        <ul>
+          <li><strong>Isolamento:</strong> cada container tem seu próprio sistema de arquivos, rede e processos</li>
+          <li><strong>Portabilidade:</strong> "funciona na minha máquina" vira "funciona em qualquer lugar"</li>
+          <li><strong>Reprodutibilidade:</strong> Dockerfile define exatamente o ambiente necessário</li>
+          <li><strong>Eficiência:</strong> containers são mais leves que VMs — inicializam em segundos</li>
+          <li><strong>Versionamento:</strong> imagens têm tags, permitindo rollback fácil</li>
+        </ul>
+
+        <h2>Instalando Docker no Ubuntu/Debian</h2>
+        <pre><code>{`# Remover versões antigas
+sudo apt remove docker docker-engine docker.io containerd runc
+
+# Instalar dependências
+sudo apt update
+sudo apt install ca-certificates curl gnupg -y
+
+# Adicionar repositório oficial Docker
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Instalar Docker
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+# Adicionar usuário ao grupo docker (evita sudo)
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Verificar instalação
+docker --version
+docker run hello-world`}</code></pre>
+
+        <h2>Instalando Docker no Fedora/RHEL</h2>
+        <pre><code>{`sudo dnf install dnf-plugins-core -y
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER`}</code></pre>
+
+        <h2>Comandos Essenciais do Docker</h2>
+        <pre><code>{`# Baixar imagem
+docker pull nginx:latest
+
+# Listar imagens
+docker images
+
+# Rodar container
+docker run -d --name meu-nginx -p 8080:80 nginx
+
+# Listar containers rodando
+docker ps
+
+# Listar todos (incluindo parados)
+docker ps -a
+
+# Ver logs do container
+docker logs meu-nginx
+
+# Acessar terminal do container
+docker exec -it meu-nginx bash
+
+# Parar container
+docker stop meu-nginx
+
+# Remover container
+docker rm meu-nginx
+
+# Remover imagem
+docker rmi nginx
+
+# Limpar tudo não utilizado
+docker system prune -a`}</code></pre>
+
+        <h2>Criando Seu Próprio Dockerfile</h2>
+        <pre><code>{`# Dockerfile para aplicação Node.js
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copiar package.json primeiro (cache de camadas)
+COPY package*.json ./
+RUN npm ci --production
+
+# Copiar código
+COPY . .
+
+# Expor porta
+EXPOSE 3000
+
+# Comando de inicialização
+CMD ["node", "server.js"]`}</code></pre>
+        <pre><code>{`# Buildar a imagem
+docker build -t minha-app:1.0 .
+
+# Rodar
+docker run -d -p 3000:3000 --name app minha-app:1.0`}</code></pre>
+
+        <h2>Docker Compose — Múltiplos Containers</h2>
+        <p>Docker Compose orquestra múltiplos containers com um único arquivo:</p>
+        <pre><code>{`# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./site:/usr/share/nginx/html
+    depends_on:
+      - app
+    restart: unless-stopped
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db:5432/mydb
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: mydb
+    restart: unless-stopped
+
+volumes:
+  postgres_data:`}</code></pre>
+        <pre><code>{`# Subir todos os serviços
+docker compose up -d
+
+# Ver status
+docker compose ps
+
+# Ver logs
+docker compose logs -f
+
+# Parar tudo
+docker compose down
+
+# Parar e remover volumes (⚠️ apaga dados)
+docker compose down -v`}</code></pre>
+
+        <h2>Volumes — Persistência de Dados</h2>
+        <pre><code>{`# Volume nomeado (gerenciado pelo Docker)
+docker run -d -v meus-dados:/var/lib/mysql mysql
+
+# Bind mount (mapeamento direto)
+docker run -d -v /home/user/site:/usr/share/nginx/html nginx
+
+# Listar volumes
+docker volume ls
+
+# Inspecionar volume
+docker volume inspect meus-dados`}</code></pre>
+
+        <h2>Redes no Docker</h2>
+        <pre><code>{`# Criar rede customizada
+docker network create minha-rede
+
+# Rodar containers na mesma rede
+docker run -d --name app --network minha-rede minha-app
+docker run -d --name db --network minha-rede postgres
+
+# Containers na mesma rede se comunicam pelo nome!
+# app pode acessar db via: postgresql://db:5432`}</code></pre>
+
+        <h2>Boas Práticas Para Produção</h2>
+        <ul>
+          <li><strong>Use imagens Alpine:</strong> muito menores (5 MB vs 100+ MB)</li>
+          <li><strong>Multi-stage build:</strong> compile em uma imagem, rode em outra menor</li>
+          <li><strong>Não rode como root:</strong> use <code>USER</code> no Dockerfile</li>
+          <li><strong>Limite recursos:</strong> <code>--memory=512m --cpus=1</code></li>
+          <li><strong>Use .dockerignore:</strong> evite copiar node_modules, .git, etc.</li>
+          <li><strong>Tags específicas:</strong> use <code>nginx:1.25-alpine</code> em vez de <code>nginx:latest</code></li>
+          <li><strong>Health checks:</strong> configure <code>HEALTHCHECK</code> no Dockerfile</li>
+          <li><strong>Logs centralizados:</strong> use driver de log do Docker ou ferramenta externa</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Precisa de Ajuda com Docker?</h3>
+          <p className="text-muted-foreground mb-0">Configuramos ambientes Docker para empresas em Curitiba: desde a instalação até orquestração com Compose, redes customizadas e deploy em produção.</p>
+        </div>
+      </>
+    ),
+  },
   "inteligencia-artificial-evolucao-historia": {
     title: "A Evolução da Inteligência Artificial: De Turing ao ChatGPT",
     excerpt: "Uma jornada pela história da IA.",

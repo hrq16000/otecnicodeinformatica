@@ -3143,6 +3143,288 @@ const blogPostsContent: Record<string, {
       </>
     ),
   },
+
+  "como-configurar-servidor-de-arquivos": {
+    title: "Como Configurar Servidor de Arquivos em Rede Local (Windows e Linux)",
+    excerpt: "Procedimento técnico completo para montar um file server com permissões, mapeamento e backup.",
+    date: "2026-04-13",
+    readTime: "14 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Um servidor de arquivos centraliza o armazenamento e o compartilhamento de documentos em uma rede local, eliminando pen drives e pastas duplicadas. Neste guia, mostramos como configurar um file server tanto no <strong>Windows</strong> quanto no <strong>Linux</strong>, com permissões, mapeamento automático e rotina de backup.</p>
+
+        <h2>Quando Vale a Pena Ter um Servidor de Arquivos</h2>
+        <ul>
+          <li>Escritórios com 3+ computadores que precisam compartilhar documentos</li>
+          <li>Empresas que precisam de controle de acesso por usuário/departamento</li>
+          <li>Ambientes que exigem backup centralizado e versionamento</li>
+          <li>Substituição de soluções em nuvem por questões de privacidade ou velocidade</li>
+        </ul>
+
+        <h2>Opção 1: Windows — Compartilhamento com Permissões</h2>
+
+        <h3>Passo 1: Preparar o Computador Servidor</h3>
+        <ul>
+          <li>Use Windows 10/11 Pro ou Windows Server (o Home tem limitação de 20 conexões)</li>
+          <li>Defina IP fixo: <code>Configurações → Rede → Ethernet → Editar → Manual → IPv4</code></li>
+          <li>Exemplo: IP <code>192.168.1.100</code>, Máscara <code>255.255.255.0</code>, Gateway <code>192.168.1.1</code></li>
+        </ul>
+
+        <h3>Passo 2: Criar a Estrutura de Pastas</h3>
+        <pre><code>{"D:\\SERVIDOR\\\n├── Financeiro\\\n├── Comercial\\\n├── RH\\\n├── TI\\\n└── Público\\"}</code></pre>
+
+        <h3>Passo 3: Criar Usuários e Grupos</h3>
+        <ol>
+          <li>Abra <code>lusrmgr.msc</code> (Gerenciamento de Usuários Locais)</li>
+          <li>Crie usuários: <code>joao.silva</code>, <code>maria.rh</code>, etc.</li>
+          <li>Crie grupos: <code>GRP_Financeiro</code>, <code>GRP_Comercial</code>, <code>GRP_RH</code></li>
+          <li>Adicione cada usuário ao grupo correspondente</li>
+        </ol>
+
+        <h3>Passo 4: Compartilhar e Definir Permissões</h3>
+        <ol>
+          <li>Clique com botão direito na pasta → Propriedades → Compartilhamento Avançado</li>
+          <li>Marque "Compartilhar esta pasta"</li>
+          <li>Em Permissões: remova "Todos", adicione o grupo com Controle Total</li>
+          <li>Na aba Segurança (NTFS): configure permissões granulares</li>
+        </ol>
+
+        <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl p-4 my-6">
+          <p className="text-sm"><strong>⚠️ Regra de ouro:</strong> As permissões de Compartilhamento e NTFS são cumulativas — a mais restritiva prevalece. Configure ambas corretamente.</p>
+        </div>
+
+        <h3>Passo 5: Mapear nos Clientes</h3>
+        <pre><code>{"net use S: \\\\192.168.1.100\\Financeiro /user:joao.silva Senha123! /persistent:yes"}</code></pre>
+
+        <h2>Opção 2: Linux — Samba File Server</h2>
+
+        <h3>Instalação do Samba</h3>
+        <pre><code>{"sudo apt update\nsudo apt install samba samba-common-bin -y"}</code></pre>
+
+        <h3>Criar Estrutura e Usuários</h3>
+        <pre><code>{"sudo mkdir -p /srv/samba/financeiro\nsudo mkdir -p /srv/samba/publico\nsudo groupadd grp_financeiro\nsudo useradd -M -s /usr/sbin/nologin joao\nsudo smbpasswd -a joao\nsudo chown -R root:grp_financeiro /srv/samba/financeiro\nsudo chmod -R 2770 /srv/samba/financeiro"}</code></pre>
+
+        <h3>Configurar smb.conf</h3>
+        <pre><code>{"[Financeiro]\n   path = /srv/samba/financeiro\n   browseable = yes\n   read only = no\n   valid users = @grp_financeiro\n   create mask = 0660\n\n[Publico]\n   path = /srv/samba/publico\n   browseable = yes\n   read only = no\n   guest ok = yes"}</code></pre>
+
+        <h2>Opção 3: NAS Dedicado</h2>
+        <ul>
+          <li><strong>Synology DS224+</strong> — ideal para até 20 usuários, interface web intuitiva</li>
+          <li><strong>QNAP TS-264</strong> — com saída HDMI e virtualização</li>
+          <li>Configure RAID 1 (espelhamento) para proteção contra falha de disco</li>
+          <li>Habilite snapshots automáticos para versionamento</li>
+        </ul>
+
+        <h2>Backup do Servidor</h2>
+        <pre><code>{"# Windows (Robocopy)\nrobocopy D:\\SERVIDOR\\ E:\\BACKUP\\ /MIR /LOG:C:\\Logs\\backup.log\n\n# Linux (rsync + cron)\n0 23 * * * rsync -avz --delete /srv/samba/ /mnt/backup/"}</code></pre>
+
+        <h2>Checklist Final</h2>
+        <ul>
+          <li>✅ IP fixo configurado no servidor</li>
+          <li>✅ Pastas com estrutura departamental</li>
+          <li>✅ Usuários e grupos com permissões NTFS + compartilhamento</li>
+          <li>✅ Mapeamento automático nos clientes</li>
+          <li>✅ Backup agendado (local + off-site)</li>
+          <li>✅ Firewall configurado e antivírus ativo</li>
+        </ul>
+      </>
+    ),
+  },
+
+  "como-fazer-manutencao-impressora": {
+    title: "Como Fazer Manutenção em Impressora: Jato de Tinta e Laser",
+    excerpt: "Limpeza de cabeçote, troca de toner, reset de contador e diagnóstico de falhas comuns.",
+    date: "2026-04-13",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Impressoras exigem manutenção preventiva regular. Sem ela, entupimento de cabeçote, manchas e atolamento se tornam frequentes. Este guia cobre os dois tipos mais comuns: <strong>jato de tinta</strong> e <strong>laser</strong>.</p>
+
+        <h2>Manutenção de Impressora Jato de Tinta</h2>
+
+        <h3>Cabeçote Entupido (Impressão com Falhas)</h3>
+        <p>O problema mais comum — acontece quando a impressora fica sem uso por mais de 7-10 dias.</p>
+
+        <h4>Limpeza Via Software</h4>
+        <ol>
+          <li>Abra o painel da impressora (HP Smart, Epson Utility, Canon IJ)</li>
+          <li>Execute "Limpeza de Cabeçote" — força tinta pelos bicos</li>
+          <li>Imprima página de teste de bicos (nozzle check)</li>
+          <li>Se persistir, execute "Limpeza Profunda" (consome mais tinta)</li>
+          <li>Repita no máximo 3 vezes — mais pode danificar o cabeçote</li>
+        </ol>
+
+        <h4>Limpeza Manual do Cabeçote</h4>
+        <ol>
+          <li>Remova os cartuchos de tinta</li>
+          <li>Se o cabeçote for removível (HP, Canon): retire com cuidado</li>
+          <li>Coloque com os bicos para baixo em água destilada morna (~50°C)</li>
+          <li>Deixe de molho por 2-4 horas</li>
+          <li>Seque com papel toalha sem esfregar</li>
+          <li>Reinstale e execute 2 ciclos de limpeza via software</li>
+        </ol>
+
+        <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl p-4 my-6">
+          <p className="text-sm"><strong>⚠️ Epson:</strong> O cabeçote é fixo (não removível). Use seringa sem agulha com água destilada para injetar lentamente pelos encaixes dos cartuchos.</p>
+        </div>
+
+        <h3>Impressora Puxa Múltiplas Folhas</h3>
+        <ul>
+          <li>Limpe os rolos com pano úmido e álcool isopropílico</li>
+          <li>Verifique se o papel não está úmido</li>
+          <li>Abanem a resma antes de colocar na bandeja</li>
+          <li>Rolos gastos (lisos) precisam ser substituídos</li>
+        </ul>
+
+        <h3>Não Reconhece Cartucho</h3>
+        <ul>
+          <li>Limpe contatos elétricos com cotonete e álcool isopropílico</li>
+          <li>Limpe também os contatos dentro da impressora</li>
+          <li>Cartuchos remanufaturados podem ter chip incompatível</li>
+        </ul>
+
+        <h2>Manutenção de Impressora Laser</h2>
+
+        <h3>Impressão com Manchas ou Listras</h3>
+        <ul>
+          <li><strong>Listras verticais:</strong> Toner com defeito ou cilindro riscado — substitua</li>
+          <li><strong>Manchas repetitivas:</strong> Fusor sujo — limpe com pano seco quando frio</li>
+          <li><strong>Fundo cinza:</strong> Toner vazando — verifique vedação</li>
+          <li><strong>Pontos pretos:</strong> Cilindro com marca — troca do drum</li>
+        </ul>
+
+        <h3>Atolamento Frequente</h3>
+        <ol>
+          <li>Remova papel atolado puxando na direção do fluxo</li>
+          <li>Verifique pedaços de papel presos nos rolos</li>
+          <li>Limpe os rolos de alimentação</li>
+          <li>Use papel 75g/m² ou 80g/m²</li>
+        </ol>
+
+        <h3>Trocar o Toner</h3>
+        <ol>
+          <li>Desligue a impressora e abra a tampa frontal</li>
+          <li>Retire o cartucho antigo pelo puxador</li>
+          <li>Balance o novo toner horizontalmente 5-6 vezes</li>
+          <li>Remova a fita de proteção</li>
+          <li>Insira até ouvir o clique</li>
+        </ol>
+
+        <h3>Reset do Contador de Toner</h3>
+        <pre><code>{"Brother HL-L2350DW:\n1. Abra a tampa frontal\n2. Segure botão OK\n3. Navegue até Reset Toner → Confirme\n\nSamsung M2020/M2070:\n1. Ligue segurando Menu\n2. Configurações → Manutenção → Vida do Toner\n3. Selecione Reset"}</code></pre>
+
+        <h2>Cronograma de Manutenção Preventiva</h2>
+        <ul>
+          <li><strong>Semanal:</strong> Imprimir 1 página colorida (jato de tinta)</li>
+          <li><strong>Mensal:</strong> Limpeza de cabeçote via software / limpar exterior</li>
+          <li><strong>Trimestral:</strong> Limpar rolos de alimentação</li>
+          <li><strong>Anual:</strong> Troca de almofada de resíduos / kit fusor</li>
+        </ul>
+
+        <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-xl p-4 my-6">
+          <p className="text-sm"><strong>🚫 NUNCA use aspirador de pó comum em impressora laser.</strong> O pó de toner passa pelo filtro, danifica o motor e espalha partículas tóxicas. Use apenas aspiradores com filtro HEPA para toner.</p>
+        </div>
+      </>
+    ),
+  },
+
+  "como-configurar-vpn-empresarial": {
+    title: "Como Configurar VPN Empresarial: Acesso Remoto Seguro",
+    excerpt: "Procedimento técnico para implementar VPN com WireGuard, OpenVPN e Windows Server.",
+    date: "2026-04-13",
+    readTime: "13 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Uma VPN permite que colaboradores acessem a rede interna da empresa de forma segura pela internet. Essencial para home office, filiais e acesso remoto a servidores. Mostramos 3 abordagens: <strong>WireGuard</strong>, <strong>OpenVPN</strong> e <strong>Windows Server RRAS</strong>.</p>
+
+        <h2>Quando Sua Empresa Precisa de VPN</h2>
+        <ul>
+          <li>Home office com acesso a arquivos do servidor</li>
+          <li>Filiais se comunicando com a matriz</li>
+          <li>Acesso remoto a ERP, câmeras CFTV ou servidores</li>
+          <li>Proteção de dados em redes Wi-Fi públicas</li>
+          <li>Conformidade com LGPD — criptografia em trânsito</li>
+        </ul>
+
+        <h2>Opção 1: WireGuard (Recomendada)</h2>
+        <p>Protocolo mais moderno: rápido, leve e com criptografia state-of-the-art.</p>
+
+        <h3>Instalação no Servidor Linux</h3>
+        <pre><code>{"sudo apt update && sudo apt install wireguard -y\n\n# Gerar chaves\nwg genkey | tee /etc/wireguard/server_private.key | wg pubkey > /etc/wireguard/server_public.key\nchmod 600 /etc/wireguard/server_private.key"}</code></pre>
+
+        <h3>Configuração do Servidor (wg0.conf)</h3>
+        <pre><code>{"[Interface]\nAddress = 10.0.0.1/24\nListenPort = 51820\nPrivateKey = SERVER_PRIVATE_KEY\nPostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE\nPostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE\n\n[Peer]\nPublicKey = CLIENTE_PUBLIC_KEY\nAllowedIPs = 10.0.0.2/32"}</code></pre>
+
+        <h3>Ativar</h3>
+        <pre><code>{"echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf\nsudo sysctl -p\nsudo wg-quick up wg0\nsudo systemctl enable wg-quick@wg0"}</code></pre>
+
+        <h3>Configuração do Cliente</h3>
+        <pre><code>{"[Interface]\nAddress = 10.0.0.2/32\nPrivateKey = CLIENTE_PRIVATE_KEY\nDNS = 8.8.8.8\n\n[Peer]\nPublicKey = SERVER_PUBLIC_KEY\nEndpoint = IP_PUBLICO:51820\nAllowedIPs = 192.168.1.0/24, 10.0.0.0/24\nPersistentKeepalive = 25"}</code></pre>
+
+        <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-xl p-4 my-6">
+          <p className="text-sm"><strong>✅ Split Tunnel vs Full Tunnel:</strong> Use <code>AllowedIPs = 192.168.1.0/24</code> para acessar apenas a rede interna, ou <code>0.0.0.0/0</code> para rotear todo o tráfego pela VPN.</p>
+        </div>
+
+        <h2>Opção 2: OpenVPN</h2>
+        <p>Protocolo mais estabelecido — funciona em praticamente qualquer dispositivo e firewall.</p>
+
+        <h3>Instalação Rápida</h3>
+        <pre><code>{"curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh\nchmod +x openvpn-install.sh\nsudo ./openvpn-install.sh"}</code></pre>
+        <p>O script interativo configura tudo e gera um arquivo <code>.ovpn</code> para importar no OpenVPN Connect do colaborador.</p>
+
+        <h3>Adicionar Novos Usuários</h3>
+        <pre><code>{"sudo ./openvpn-install.sh\n# Selecione 'Add a new client'\n# O .ovpn será gerado em /root/"}</code></pre>
+
+        <h2>Opção 3: Windows Server RRAS</h2>
+        <ol>
+          <li>Server Manager → Add Roles → Remote Access → RRAS</li>
+          <li>Configure SSTP ou IKEv2 (mais seguros que PPTP)</li>
+          <li>Defina pool de IPs para clientes VPN</li>
+          <li>Configure NPS para controle de acesso via Active Directory</li>
+        </ol>
+
+        <h2>Portas e Firewall</h2>
+        <ul>
+          <li><strong>WireGuard:</strong> UDP 51820</li>
+          <li><strong>OpenVPN:</strong> UDP 1194</li>
+          <li><strong>IKEv2:</strong> UDP 500, 4500</li>
+          <li><strong>SSTP:</strong> TCP 443</li>
+        </ul>
+        <p>Configure port forwarding no roteador e libere no firewall do servidor.</p>
+
+        <h2>Comparativo</h2>
+        <ul>
+          <li><strong>WireGuard:</strong> Mais rápido e simples. Ideal para PMEs sem AD</li>
+          <li><strong>OpenVPN:</strong> Mais compatível. Funciona atrás de proxies e firewalls restritivos</li>
+          <li><strong>RRAS:</strong> Integração nativa com Active Directory. Requer licença Windows Server</li>
+        </ul>
+
+        <h2>Segurança</h2>
+        <ul>
+          <li>Use certificados + senha (two-factor) quando possível</li>
+          <li>Ative logging para auditoria de conexões</li>
+          <li>Limite acesso VPN apenas aos recursos necessários</li>
+          <li>Revogue acesso imediatamente ao desligar colaborador</li>
+          <li>Mantenha o software VPN sempre atualizado</li>
+        </ul>
+
+        <h2>Checklist de Implementação</h2>
+        <ul>
+          <li>✅ Protocolo escolhido adequado ao cenário</li>
+          <li>✅ IP fixo ou DDNS configurado</li>
+          <li>✅ Port forwarding no roteador</li>
+          <li>✅ Firewall configurado</li>
+          <li>✅ Chaves/certificados para cada usuário</li>
+          <li>✅ Teste de conexão externa (4G do celular)</li>
+          <li>✅ Documentação entregue aos colaboradores</li>
+          <li>✅ Procedimento de revogação documentado</li>
+        </ul>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

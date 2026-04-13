@@ -21,6 +21,9 @@ import { Button } from "@/components/ui/button";
 
 // ─── Blog Posts Data (each with its own unique image slug) ───
 const blogPosts = [
+  { slug: "como-configurar-servidor-de-arquivos", title: "Como Configurar Servidor de Arquivos em Rede Local (Windows e Linux)", excerpt: "Procedimento técnico completo para montar um file server com permissões, mapeamento e backup.", date: "2026-04-13", readTime: "14 min", category: "Procedimentos Técnicos" },
+  { slug: "como-fazer-manutencao-impressora", title: "Como Fazer Manutenção em Impressora: Jato de Tinta e Laser", excerpt: "Limpeza de cabeçote, troca de toner, reset de contador e diagnóstico de falhas comuns.", date: "2026-04-13", readTime: "11 min", category: "Procedimentos Técnicos" },
+  { slug: "como-configurar-vpn-empresarial", title: "Como Configurar VPN Empresarial: Acesso Remoto Seguro", excerpt: "Procedimento técnico para implementar VPN com WireGuard, OpenVPN e Windows Server.", date: "2026-04-13", readTime: "13 min", category: "Procedimentos Técnicos" },
   { slug: "preciso-de-um-plataforma-prestadores", title: "Preciso de Um: A Plataforma Que Conecta Prestadores de Serviços a Clientes", excerpt: "Conheça a plataforma que está revolucionando a forma como profissionais autônomos encontram clientes em todo o Brasil.", date: "2026-04-08", readTime: "8 min", category: "Plataformas" },
   { slug: "como-cadastrar-preciso-de-um", title: "Como Se Cadastrar no Preciso de Um e Começar a Receber Clientes Hoje", excerpt: "Passo a passo completo para profissionais de qualquer ramo se cadastrarem gratuitamente na plataforma.", date: "2026-04-08", readTime: "6 min", category: "Plataformas" },
   { slug: "preciso-de-um-todos-os-ramos", title: "Preciso de Um Aceita Todos os Ramos: Eletricista, Pintor, Diarista e Muito Mais", excerpt: "De construção civil a eventos, veja como profissionais de qualquer área podem participar e lucrar.", date: "2026-04-08", readTime: "7 min", category: "Plataformas" },

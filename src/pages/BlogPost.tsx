@@ -4237,6 +4237,588 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
       </>
     ),
   },
+
+  "como-configurar-firewall-pfsense": {
+    title: "Como Configurar Firewall pfSense: Guia Completo Para Redes Empresariais",
+    excerpt: "Instalação, regras de firewall, NAT, VPN e monitoramento com pfSense.",
+    date: "2026-04-13",
+    readTime: "16 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">O <strong>pfSense</strong> é o firewall open-source mais utilizado no mundo corporativo. Baseado em FreeBSD, ele oferece recursos de nível enterprise — NAT, VPN, IDS/IPS, proxy, balanceamento de carga — sem custo de licenciamento. Neste guia, cobrimos desde a instalação até configurações avançadas.</p>
+
+        <h2>1. O Que é o pfSense e Por Que Usar?</h2>
+        <p>O pfSense transforma qualquer computador com duas placas de rede em um firewall de alto desempenho. Ele é usado em empresas de todos os tamanhos por oferecer:</p>
+        <ul>
+          <li><strong>Firewall stateful</strong> com inspeção de pacotes e filtragem por porta, protocolo e IP</li>
+          <li><strong>NAT avançado</strong> — port forwarding, 1:1 NAT, outbound NAT customizado</li>
+          <li><strong>VPN integrada</strong> — OpenVPN e IPsec nativos</li>
+          <li><strong>Proxy e filtro de conteúdo</strong> — Squid + SquidGuard para controle de acesso web</li>
+          <li><strong>IDS/IPS</strong> — Snort ou Suricata para detecção de intrusão</li>
+          <li><strong>Dashboard em tempo real</strong> — monitoramento de tráfego, conexões ativas, logs</li>
+          <li><strong>Alta disponibilidade</strong> — CARP para failover entre dois firewalls</li>
+        </ul>
+
+        <h2>2. Requisitos de Hardware</h2>
+        <p>O pfSense roda em hardware modesto, mas o dimensionamento depende do throughput desejado:</p>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Cenário</th><th>CPU</th><th>RAM</th><th>Disco</th><th>NICs</th></tr></thead>
+            <tbody>
+              <tr><td>Escritório pequeno (até 20 usuários)</td><td>Dual-core 1.5 GHz</td><td>2 GB</td><td>16 GB SSD</td><td>2x Gigabit</td></tr>
+              <tr><td>Empresa média (20-100 usuários)</td><td>Quad-core 2.0 GHz</td><td>4 GB</td><td>32 GB SSD</td><td>3-4x Gigabit</td></tr>
+              <tr><td>Empresa grande (100+ usuários, VPN, IDS)</td><td>Xeon / Ryzen</td><td>8-16 GB</td><td>64 GB SSD</td><td>4-6x Gigabit</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Dica:</strong> placas de rede Intel (i210, i350) são as mais compatíveis e estáveis com pfSense. Evite Realtek em produção.</p>
+
+        <h2>3. Instalação Passo a Passo</h2>
+        <ol>
+          <li>Baixe a ISO oficial em <strong>pfsense.org/download</strong> (AMD64, USB Memstick Installer)</li>
+          <li>Grave no pendrive com <strong>Rufus</strong> (Windows) ou <code>dd</code> (Linux): <code>dd if=pfSense.img of=/dev/sdX bs=4M status=progress</code></li>
+          <li>Configure o BIOS para boot por USB e inicie a instalação</li>
+          <li>Aceite o layout de teclado e selecione <strong>Install pfSense</strong></li>
+          <li>Escolha o disco de destino (ZFS recomendado para ambientes de produção)</li>
+          <li>Após reiniciar, atribua as interfaces: <strong>WAN</strong> (internet) e <strong>LAN</strong> (rede interna)</li>
+          <li>Acesse o painel web em <code>https://192.168.1.1</code> (usuário: <code>admin</code>, senha: <code>pfsense</code>)</li>
+        </ol>
+
+        <h2>4. Configuração Inicial (Wizard)</h2>
+        <p>O assistente de configuração cobre os pontos essenciais:</p>
+        <ul>
+          <li><strong>Hostname e domínio</strong> — ex: <code>fw01.empresa.local</code></li>
+          <li><strong>DNS</strong> — configure servidores confiáveis (1.1.1.1, 8.8.8.8 ou DNS interno)</li>
+          <li><strong>Fuso horário</strong> — importante para logs corretos</li>
+          <li><strong>WAN</strong> — DHCP (provedor), PPPoE ou IP estático</li>
+          <li><strong>LAN</strong> — defina a sub-rede interna (ex: 10.0.1.0/24)</li>
+          <li><strong>Senha do admin</strong> — troque imediatamente!</li>
+        </ul>
+
+        <h2>5. Regras de Firewall</h2>
+        <p>O pfSense processa regras de cima para baixo, com a primeira regra correspondente vencendo:</p>
+        <ul>
+          <li><strong>LAN → WAN</strong>: por padrão, tudo é permitido. Recomendamos restringir:</li>
+          <li>Bloquear portas conhecidas de malware (445, 135-139 para internet)</li>
+          <li>Permitir apenas DNS para servidores específicos (evita DNS leak)</li>
+          <li>Criar aliases para agrupar IPs e portas (facilita manutenção)</li>
+        </ul>
+        <p>Exemplo de regra restritiva:</p>
+        <pre><code>{`Action: Pass
+Interface: LAN
+Source: LAN net
+Destination: any
+Port: 80, 443, 53
+Protocol: TCP/UDP
+Description: Navegação web + DNS`}</code></pre>
+
+        <h2>6. NAT e Port Forwarding</h2>
+        <p>Para expor serviços internos (câmeras, servidores):</p>
+        <ol>
+          <li>Vá em <strong>Firewall → NAT → Port Forward</strong></li>
+          <li>Crie uma regra: Interface WAN, porta externa 8080 → IP interno 10.0.1.50, porta 80</li>
+          <li>O pfSense cria automaticamente a regra de firewall correspondente</li>
+        </ol>
+
+        <h2>7. VPN com OpenVPN</h2>
+        <p>O pfSense tem um assistente de VPN que simplifica muito a configuração:</p>
+        <ol>
+          <li>Vá em <strong>VPN → OpenVPN → Wizards</strong></li>
+          <li>Crie uma CA (Autoridade Certificadora) interna</li>
+          <li>Crie o certificado do servidor</li>
+          <li>Configure: protocolo UDP, porta 1194, túnel 10.8.0.0/24</li>
+          <li>Instale o pacote <strong>openvpn-client-export</strong> para gerar configs prontas para download</li>
+          <li>Distribua os arquivos .ovpn para os colaboradores</li>
+        </ol>
+
+        <h2>8. Proxy com Squid + SquidGuard</h2>
+        <p>Para controle de acesso à internet:</p>
+        <ul>
+          <li>Instale os pacotes <strong>Squid</strong> e <strong>SquidGuard</strong> em System → Package Manager</li>
+          <li>Configure o Squid em modo transparente (intercepta HTTP sem configurar navegadores)</li>
+          <li>Use listas de bloqueio do SquidGuard para categorias (redes sociais, streaming, adult)</li>
+          <li>Gere relatórios de acesso com <strong>LightSquid</strong></li>
+        </ul>
+
+        <h2>9. IDS/IPS com Suricata</h2>
+        <p>Detecção e prevenção de intrusão em tempo real:</p>
+        <ul>
+          <li>Instale o pacote <strong>Suricata</strong></li>
+          <li>Configure na interface WAN para monitorar tráfego de entrada</li>
+          <li>Ative as regras <strong>ET Open</strong> (gratuitas) ou <strong>Snort VRT</strong> (com registro)</li>
+          <li>Modo IDS = apenas alerta; modo IPS = bloqueia automaticamente</li>
+        </ul>
+
+        <h2>10. Monitoramento e Logs</h2>
+        <ul>
+          <li><strong>Dashboard</strong> — widgets de tráfego em tempo real, uso de CPU/RAM, conexões ativas</li>
+          <li><strong>Status → System Logs</strong> — logs detalhados de firewall, DHCP, VPN</li>
+          <li><strong>Pacote ntopng</strong> — análise profunda de tráfego por host, protocolo e aplicação</li>
+          <li><strong>Exportar logs</strong> — envie para um servidor syslog centralizado</li>
+        </ul>
+
+        <h2>11. Backup e Restauração</h2>
+        <p>Sempre mantenha backup da configuração:</p>
+        <ul>
+          <li><strong>Diagnostics → Backup & Restore</strong> — exporta arquivo XML com todas as configurações</li>
+          <li>Configure backup automático com o pacote <strong>AutoConfigBackup</strong></li>
+          <li>Armazene backups em local seguro fora do pfSense</li>
+        </ul>
+
+        <h2>Checklist de Segurança do pfSense</h2>
+        <ul>
+          <li>✅ Senha do admin alterada</li>
+          <li>✅ Acesso ao painel web apenas pela LAN (ou VPN)</li>
+          <li>✅ HTTPS habilitado no painel com certificado válido</li>
+          <li>✅ Regras de firewall restritivas (deny by default na WAN)</li>
+          <li>✅ Atualizações de firmware aplicadas regularmente</li>
+          <li>✅ Backup da configuração salvo externamente</li>
+          <li>✅ Logs monitorados periodicamente</li>
+        </ul>
+
+        <h2>Precisa de Ajuda com Firewall Empresarial?</h2>
+        <p>A <strong>Helptec</strong> configura e mantém firewalls pfSense para empresas em Curitiba e região metropolitana. Desde a escolha do hardware até a configuração de VPN e IDS — cuidamos de toda a infraestrutura de segurança da sua rede.</p>
+      </>
+    ),
+  },
+
+  "como-montar-rack-de-rede": {
+    title: "Como Montar um Rack de Rede Profissional: Guia Técnico Completo",
+    excerpt: "Escolha do rack, organização de cabos, patch panel, switch e ventilação.",
+    date: "2026-04-13",
+    readTime: "14 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">Um rack de rede bem montado é a espinha dorsal de qualquer infraestrutura de TI profissional. Organização, ventilação e identificação corretas evitam problemas futuros e facilitam a manutenção. Neste guia, mostramos como montar um rack do zero seguindo as melhores práticas.</p>
+
+        <h2>1. Tipos de Rack</h2>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Tipo</th><th>Tamanho (U)</th><th>Ideal Para</th><th>Preço Médio</th></tr></thead>
+            <tbody>
+              <tr><td>Rack de parede (aberto)</td><td>5U - 12U</td><td>Escritórios pequenos, SOHO</td><td>R$ 200 - 600</td></tr>
+              <tr><td>Rack de parede (fechado)</td><td>6U - 18U</td><td>Escritórios médios, segurança física</td><td>R$ 400 - 1.200</td></tr>
+              <tr><td>Rack de piso (torre)</td><td>20U - 44U</td><td>Data centers, salas de TI</td><td>R$ 1.500 - 5.000</td></tr>
+              <tr><td>Rack aberto (two-post)</td><td>20U - 45U</td><td>Patch panels, switches leves</td><td>R$ 800 - 2.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Regra prática:</strong> compre um rack com pelo menos 30% de espaço livre para expansão futura.</p>
+
+        <h2>2. Componentes Essenciais</h2>
+        <ul>
+          <li><strong>Patch Panel (24 ou 48 portas)</strong> — centraliza todas as conexões de cabeamento estruturado</li>
+          <li><strong>Switch gerenciável</strong> — distribui a rede com VLANs e QoS</li>
+          <li><strong>Organizador de cabos (1U)</strong> — mantém cabos alinhados entre patch panel e switch</li>
+          <li><strong>Régua de energia (PDU)</strong> — alimentação com proteção contra surtos</li>
+          <li><strong>Nobreak (UPS)</strong> — autonomia em caso de queda de energia</li>
+          <li><strong>Bandeja para equipamentos</strong> — suporte para modem, roteador, firewall</li>
+          <li><strong>Ventilador de teto</strong> — exaustão do ar quente acumulado</li>
+          <li><strong>Kit de parafusos e porcas gaiola</strong> — fixação dos equipamentos</li>
+        </ul>
+
+        <h2>3. Planejamento da Distribuição (Layout)</h2>
+        <p>A ordem dos equipamentos no rack segue uma lógica de peso e fluxo de ar:</p>
+        <ol>
+          <li><strong>Topo:</strong> Patch panel + organizador de cabos (cabos sobem)</li>
+          <li><strong>Meio-superior:</strong> Switches e firewall (equipamentos ativos leves)</li>
+          <li><strong>Meio:</strong> Servidores (se houver)</li>
+          <li><strong>Base:</strong> Nobreak e PDU (equipamentos pesados embaixo)</li>
+          <li><strong>Teto do rack:</strong> Ventiladores de exaustão</li>
+        </ol>
+        <p>Deixe 1U de espaço vazio entre grupos de equipamentos para circulação de ar.</p>
+
+        <h2>4. Cabeamento Estruturado</h2>
+        <h3>Padrão de Cores (TIA/EIA-568)</h3>
+        <p>Use o padrão <strong>T568B</strong> (mais comum no Brasil):</p>
+        <pre><code>{`Pino 1: Branco-Laranja
+Pino 2: Laranja
+Pino 3: Branco-Verde
+Pino 4: Azul
+Pino 5: Branco-Azul
+Pino 6: Verde
+Pino 7: Branco-Marrom
+Pino 8: Marrom`}</code></pre>
+
+        <h3>Categorias de Cabo</h3>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Categoria</th><th>Velocidade</th><th>Distância Máx.</th><th>Uso Recomendado</th></tr></thead>
+            <tbody>
+              <tr><td>Cat5e</td><td>1 Gbps</td><td>100m</td><td>Escritórios básicos</td></tr>
+              <tr><td>Cat6</td><td>10 Gbps (até 55m)</td><td>100m (1G)</td><td>Empresas, CFTV IP</td></tr>
+              <tr><td>Cat6a</td><td>10 Gbps</td><td>100m</td><td>Data centers, alta performance</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Montagem Passo a Passo</h2>
+        <ol>
+          <li><strong>Fixe o rack</strong> — em parede (use buchas metálicas para concreto) ou posicione no piso com nivelamento</li>
+          <li><strong>Instale a PDU</strong> na lateral ou na base do rack</li>
+          <li><strong>Monte o patch panel</strong> — conecte os cabos que vêm dos pontos de rede usando ferramenta de impacto (punch-down)</li>
+          <li><strong>Instale o organizador de cabos</strong> logo abaixo do patch panel</li>
+          <li><strong>Posicione o switch</strong> — conecte patch cords do patch panel ao switch</li>
+          <li><strong>Adicione bandeja</strong> para modem/roteador/firewall</li>
+          <li><strong>Instale ventiladores</strong> no topo do rack</li>
+          <li><strong>Posicione o nobreak</strong> na base</li>
+          <li><strong>Organize os cabos</strong> — use velcro (nunca abraçadeiras plásticas que apertam os cabos)</li>
+          <li><strong>Identifique tudo</strong> — etiquetas em cada cabo, porta do patch panel e porta do switch</li>
+        </ol>
+
+        <h2>6. Identificação e Documentação</h2>
+        <p>Um rack sem identificação é uma bomba-relógio. Padrão de etiquetagem recomendado:</p>
+        <pre><code>{`Formato: ANDAR-SALA-PONTO
+Exemplo: 2F-RH-P01 = 2º andar, sala RH, ponto 01
+
+Patch Panel porta 01 → Switch porta 01 → Ponto 2F-RH-P01
+Patch Panel porta 02 → Switch porta 02 → Ponto 2F-RH-P02`}</code></pre>
+        <p>Mantenha um mapa de portas atualizado em planilha ou sistema de documentação.</p>
+
+        <h2>7. Ventilação e Temperatura</h2>
+        <ul>
+          <li>Temperatura ideal: <strong>18-27°C</strong> (ASHRAE recomendação)</li>
+          <li>Fluxo de ar: <strong>frente para trás</strong> (cold aisle / hot aisle em data centers)</li>
+          <li>Monitore com sensor de temperatura (disponível em switches gerenciáveis ou sensores USB)</li>
+          <li>Em racks fechados, ventiladores de exaustão no topo são obrigatórios</li>
+        </ul>
+
+        <h2>8. Testes Pós-Montagem</h2>
+        <ul>
+          <li>✅ Teste de continuidade em todos os pontos com <strong>testador de cabos</strong></li>
+          <li>✅ Certificação de cabos com <strong>Fluke</strong> ou similar (para garantias)</li>
+          <li>✅ Teste de velocidade em cada ponto (iperf3 entre estações)</li>
+          <li>✅ Verificação de energia — nobreak segurando a carga estimada</li>
+          <li>✅ Documentação fotográfica do rack montado</li>
+        </ul>
+
+        <h2>9. Erros Comuns a Evitar</h2>
+        <ul>
+          <li>❌ Usar abraçadeiras de nylon que esmagam os cabos</li>
+          <li>❌ Não deixar folga nos cabos (dificulta manutenção)</li>
+          <li>❌ Misturar cabos de energia com cabos de dados no mesmo caminho</li>
+          <li>❌ Não identificar cabos e portas</li>
+          <li>❌ Rack sem ventilação em ambiente fechado</li>
+          <li>❌ Comprar rack sem espaço para expansão</li>
+        </ul>
+
+        <h2>Montagem Profissional de Rack em Curitiba</h2>
+        <p>A <strong>Helptec</strong> realiza montagem de rack, cabeamento estruturado e certificação de pontos de rede para empresas em Curitiba e região metropolitana. Garantimos organização, documentação e testes completos.</p>
+      </>
+    ),
+  },
+
+  "como-configurar-active-directory": {
+    title: "Como Configurar Active Directory no Windows Server: Passo a Passo",
+    excerpt: "Instalação do AD DS, criação de domínio, GPOs e integração com estações.",
+    date: "2026-04-13",
+    readTime: "15 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">O <strong>Active Directory (AD)</strong> é o coração da infraestrutura de TI corporativa baseada em Windows. Ele centraliza autenticação, políticas de segurança, gerenciamento de computadores e permissões de acesso. Neste guia, configuramos um domínio AD do zero no Windows Server 2022.</p>
+
+        <h2>1. O Que é o Active Directory?</h2>
+        <p>O AD é um serviço de diretório da Microsoft que funciona como uma base de dados hierárquica de objetos de rede:</p>
+        <ul>
+          <li><strong>Usuários</strong> — contas de login com senhas, permissões e dados de perfil</li>
+          <li><strong>Computadores</strong> — máquinas ingressadas no domínio, gerenciáveis remotamente</li>
+          <li><strong>Grupos</strong> — agrupamento lógico para aplicar permissões em lote</li>
+          <li><strong>GPOs (Group Policy Objects)</strong> — políticas de configuração aplicadas automaticamente</li>
+          <li><strong>Unidades Organizacionais (OUs)</strong> — pastas lógicas para organizar objetos</li>
+        </ul>
+
+        <h2>2. Requisitos</h2>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Componente</th><th>Mínimo</th><th>Recomendado</th></tr></thead>
+            <tbody>
+              <tr><td>Windows Server</td><td>2016</td><td>2022 Standard/Datacenter</td></tr>
+              <tr><td>CPU</td><td>Dual-core 1.4 GHz</td><td>Quad-core 2.0 GHz+</td></tr>
+              <tr><td>RAM</td><td>2 GB</td><td>8 GB+</td></tr>
+              <tr><td>Disco</td><td>40 GB</td><td>100 GB SSD</td></tr>
+              <tr><td>Rede</td><td>1x Gigabit (IP fixo)</td><td>2x Gigabit (teaming)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Importante:</strong> o servidor AD DEVE ter IP fixo e ser o DNS primário da rede.</p>
+
+        <h2>3. Instalação do AD DS (Active Directory Domain Services)</h2>
+        <ol>
+          <li>Abra o <strong>Server Manager</strong> → <strong>Add Roles and Features</strong></li>
+          <li>Selecione <strong>Role-based installation</strong></li>
+          <li>Marque <strong>Active Directory Domain Services</strong></li>
+          <li>Aceite os recursos dependentes (inclui ferramentas de gerenciamento)</li>
+          <li>Conclua a instalação e clique em <strong>"Promote this server to a domain controller"</strong></li>
+        </ol>
+
+        <h2>4. Criação do Domínio (Promoção do DC)</h2>
+        <p>No assistente de promoção:</p>
+        <ol>
+          <li>Selecione <strong>"Add a new forest"</strong> (primeiro domínio da empresa)</li>
+          <li>Defina o nome do domínio raiz: ex: <code>empresa.local</code> ou <code>corp.empresa.com.br</code></li>
+          <li>Nível funcional da floresta: <strong>Windows Server 2016</strong> (compatibilidade) ou superior</li>
+          <li>Marque <strong>DNS Server</strong> (será configurado automaticamente)</li>
+          <li>Defina a senha de <strong>DSRM</strong> (Directory Services Restore Mode) — guarde com segurança!</li>
+          <li>Aceite os caminhos padrão (NTDS, SYSVOL) ou personalize</li>
+          <li>Revise e clique em <strong>Install</strong> — o servidor reiniciará como Domain Controller</li>
+        </ol>
+
+        <h2>5. Configuração do DNS</h2>
+        <p>O AD depende fortemente do DNS. Após a promoção:</p>
+        <ul>
+          <li>Verifique se a zona de pesquisa direta (<code>empresa.local</code>) foi criada automaticamente</li>
+          <li>Adicione um <strong>forwarder</strong> para resolução externa: DNS → Properties → Forwarders → 1.1.1.1, 8.8.8.8</li>
+          <li>Configure as estações para usar o IP do servidor AD como DNS primário</li>
+          <li>Teste com <code>nslookup empresa.local</code> de uma estação</li>
+        </ul>
+
+        <h2>6. Estrutura de Unidades Organizacionais (OUs)</h2>
+        <p>Organize objetos por departamento ou localidade:</p>
+        <pre><code>{`empresa.local
+├── OU=Curitiba
+│   ├── OU=TI
+│   │   ├── OU=Usuarios
+│   │   └── OU=Computadores
+│   ├── OU=Financeiro
+│   │   ├── OU=Usuarios
+│   │   └── OU=Computadores
+│   └── OU=RH
+│       ├── OU=Usuarios
+│       └── OU=Computadores
+├── OU=Servidores
+└── OU=Grupos`}</code></pre>
+
+        <h2>7. Criação de Usuários e Grupos</h2>
+        <h3>Via Interface (ADUC)</h3>
+        <ol>
+          <li>Abra <strong>Active Directory Users and Computers</strong></li>
+          <li>Navegue até a OU desejada → Botão direito → <strong>New → User</strong></li>
+          <li>Preencha: nome, sobrenome, logon name (ex: <code>joao.silva</code>)</li>
+          <li>Defina senha e políticas (trocar no primeiro login, não expira, etc.)</li>
+        </ol>
+        <h3>Via PowerShell (em massa)</h3>
+        <pre><code>{`# Criar usuário individual
+New-ADUser -Name "João Silva" -SamAccountName "joao.silva" \\
+  -UserPrincipalName "joao.silva@empresa.local" \\
+  -Path "OU=Usuarios,OU=TI,OU=Curitiba,DC=empresa,DC=local" \\
+  -AccountPassword (ConvertTo-SecureString "Senha@123" -AsPlainText -Force) \\
+  -Enabled $true
+
+# Importar usuários de CSV
+Import-Csv "C:\\usuarios.csv" | ForEach-Object {
+  New-ADUser -Name $_.Nome -SamAccountName $_.Login \\
+    -Path $_.OU -AccountPassword (ConvertTo-SecureString $_.Senha -AsPlainText -Force) \\
+    -Enabled $true
+}`}</code></pre>
+
+        <h2>8. Ingressar Estações no Domínio</h2>
+        <ol>
+          <li>Na estação, configure o DNS para apontar ao IP do servidor AD</li>
+          <li><strong>Configurações → Sistema → Sobre → Ingressar em um domínio</strong></li>
+          <li>Digite o nome do domínio: <code>empresa.local</code></li>
+          <li>Informe credenciais de administrador do domínio</li>
+          <li>Reinicie a estação — ela aparecerá em <strong>Computers</strong> no ADUC</li>
+          <li>Mova o objeto para a OU correta</li>
+        </ol>
+
+        <h2>9. Group Policy Objects (GPOs)</h2>
+        <p>GPOs são o recurso mais poderoso do AD — permitem configurar centenas de políticas remotamente:</p>
+        <h3>GPOs Essenciais Para Empresas</h3>
+        <ul>
+          <li><strong>Política de senha</strong> — mínimo 8 caracteres, complexidade, expiração a cada 90 dias</li>
+          <li><strong>Bloqueio de conta</strong> — bloquear após 5 tentativas incorretas por 30 minutos</li>
+          <li><strong>Mapeamento de unidades de rede</strong> — drives compartilhados por departamento</li>
+          <li><strong>Restrição de Painel de Controle</strong> — impedir alterações em configurações de rede</li>
+          <li><strong>Configuração de proxy</strong> — forçar uso do proxy corporativo</li>
+          <li><strong>Papel de parede corporativo</strong> — identidade visual nos desktops</li>
+          <li><strong>Instalação de software</strong> — distribuir programas automaticamente</li>
+          <li><strong>Windows Update (WSUS)</strong> — controlar atualizações centralizadamente</li>
+        </ul>
+
+        <h2>10. Segundo Domain Controller (Redundância)</h2>
+        <p>Nunca opere com um único DC. Para adicionar um segundo:</p>
+        <ol>
+          <li>Instale Windows Server no segundo servidor (IP fixo, DNS apontando ao DC1)</li>
+          <li>Instale a role AD DS</li>
+          <li>Na promoção, selecione <strong>"Add a domain controller to an existing domain"</strong></li>
+          <li>Informe o nome do domínio e credenciais de admin</li>
+          <li>O AD replicará automaticamente todos os objetos</li>
+        </ol>
+
+        <h2>Checklist de Implantação do AD</h2>
+        <ul>
+          <li>✅ Servidor com IP fixo e DNS configurado</li>
+          <li>✅ AD DS instalado e domínio promovido</li>
+          <li>✅ Estrutura de OUs criada por departamento</li>
+          <li>✅ Usuários e grupos criados</li>
+          <li>✅ Estações ingressadas no domínio</li>
+          <li>✅ GPOs essenciais aplicadas</li>
+          <li>✅ Segundo DC configurado para redundância</li>
+          <li>✅ Backup do System State agendado</li>
+          <li>✅ Senha DSRM armazenada em cofre seguro</li>
+        </ul>
+
+        <h2>Implantação de Active Directory em Curitiba</h2>
+        <p>A <strong>Helptec</strong> implanta e gerencia ambientes Active Directory para empresas em Curitiba e região metropolitana. Do planejamento à migração de usuários, GPOs e políticas de segurança — sua infraestrutura Windows em mãos experientes.</p>
+      </>
+    ),
+  },
+
+  "como-fazer-manutencao-nobreak": {
+    title: "Como Fazer Manutenção em Nobreak: Testes, Troca de Bateria e Calibração",
+    excerpt: "Procedimento para manter nobreaks funcionando: testes, troca de bateria e calibração.",
+    date: "2026-04-13",
+    readTime: "12 min",
+    category: "Procedimentos Técnicos",
+    content: (
+      <>
+        <p className="lead">O <strong>nobreak (UPS)</strong> é a última linha de defesa contra perda de dados e danos em equipamentos causados por quedas e oscilações de energia. Mas um nobreak sem manutenção é um nobreak que vai falhar na hora que mais precisa. Neste guia, cobrimos testes, troca de bateria, calibração e cuidados preventivos.</p>
+
+        <h2>1. Como Funciona um Nobreak</h2>
+        <p>Existem três topologias principais:</p>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Tipo</th><th>Funcionamento</th><th>Tempo de Comutação</th><th>Uso Ideal</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Standby (Offline)</strong></td><td>Alimenta pela rede; baterias ativam na queda</td><td>5-12 ms</td><td>PCs domésticos, impressoras</td></tr>
+              <tr><td><strong>Line-Interactive</strong></td><td>Regula tensão (AVR); baterias na queda</td><td>2-4 ms</td><td>Escritórios, servidores pequenos</td></tr>
+              <tr><td><strong>Online (Dupla Conversão)</strong></td><td>Sempre alimenta pela bateria (AC→DC→AC)</td><td>0 ms</td><td>Servidores, data centers, equipamentos críticos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>2. Sinais de Que o Nobreak Precisa de Manutenção</h2>
+        <ul>
+          <li>🔴 <strong>Bip contínuo ou intermitente</strong> mesmo com energia normal</li>
+          <li>🔴 <strong>Autonomia reduzida</strong> — desliga em poucos segundos sem energia</li>
+          <li>🔴 <strong>Bateria estufada</strong> — risco de vazamento ácido</li>
+          <li>🔴 <strong>Cheiro de queimado</strong> — possível curto ou sobreaquecimento</li>
+          <li>🔴 <strong>Falha ao ligar em modo bateria</strong> — circuito inversor com defeito</li>
+          <li>🟡 <strong>LED de bateria fraca</strong> — hora de trocar</li>
+          <li>🟡 <strong>Mais de 2 anos sem troca de bateria</strong> — preventiva recomendada</li>
+        </ul>
+
+        <h2>3. Teste de Autonomia</h2>
+        <p>Procedimento para verificar a capacidade real da bateria:</p>
+        <ol>
+          <li>Conecte a carga típica ao nobreak (PC + monitor, ou o que ele protege normalmente)</li>
+          <li>Certifique-se de que a bateria está 100% carregada (mínimo 8h conectado à rede)</li>
+          <li>Desconecte o nobreak da tomada (simule uma queda de energia)</li>
+          <li>Cronometre quanto tempo ele mantém os equipamentos ligados</li>
+          <li>Compare com a especificação do fabricante</li>
+        </ol>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Resultado</th><th>Diagnóstico</th><th>Ação</th></tr></thead>
+            <tbody>
+              <tr><td>Autonomia acima de 70% do especificado</td><td>Bateria em bom estado</td><td>Manter monitoramento</td></tr>
+              <tr><td>Autonomia entre 40-70%</td><td>Bateria degradada</td><td>Planejar troca em 1-3 meses</td></tr>
+              <tr><td>Autonomia abaixo de 40%</td><td>Bateria esgotada</td><td>Trocar imediatamente</td></tr>
+              <tr><td>Desliga instantaneamente</td><td>Bateria morta ou defeito</td><td>Trocar bateria; se persistir, avaliar circuito</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Troca de Bateria</h2>
+        <h3>Tipos de Bateria</h3>
+        <p>A maioria dos nobreaks usa baterias <strong>VRLA (Valve Regulated Lead-Acid)</strong>, também chamadas de seladas ou "estacionárias":</p>
+        <ul>
+          <li><strong>12V 7Ah</strong> — nobreaks de 600-1400 VA (mais comum)</li>
+          <li><strong>12V 9Ah</strong> — nobreaks de 1500-2200 VA</li>
+          <li><strong>12V 12Ah ou maior</strong> — nobreaks de alta capacidade</li>
+          <li>Modelos maiores usam <strong>baterias em série</strong> (24V, 36V, 48V)</li>
+        </ul>
+
+        <h3>Procedimento de Troca</h3>
+        <ol>
+          <li><strong>Desligue</strong> o nobreak e desconecte da tomada</li>
+          <li><strong>Abra a tampa</strong> — geralmente parafusos Phillips na traseira ou lateral</li>
+          <li><strong>Identifique a bateria</strong> — anote a especificação (V, Ah, dimensões)</li>
+          <li><strong>Desconecte os cabos</strong> — primeiro o negativo (preto), depois o positivo (vermelho)</li>
+          <li><strong>Remova a bateria velha</strong> — cuidado com o peso (bateria de 7Ah pesa ~2.5 kg)</li>
+          <li><strong>Instale a nova</strong> — conecte primeiro o positivo, depois o negativo</li>
+          <li><strong>Feche a tampa</strong> e ligue o nobreak na tomada</li>
+          <li><strong>Deixe carregar por 8-12 horas</strong> antes do primeiro teste de autonomia</li>
+        </ol>
+        <p><strong>⚠️ Descarte correto:</strong> baterias de chumbo-ácido são resíduos perigosos. Devolva ao fabricante, revenda ou ponto de coleta autorizado. Nunca descarte no lixo comum!</p>
+
+        <h2>5. Calibração do Nobreak</h2>
+        <p>Após trocar a bateria, é importante calibrar o circuito de monitoramento:</p>
+        <ol>
+          <li>Carregue a bateria nova completamente (8-12h)</li>
+          <li>Desconecte da tomada e deixe descarregar até o nobreak desligar sozinho</li>
+          <li>Reconecte à tomada e carregue novamente por 8-12h sem interrupção</li>
+          <li>Repita o ciclo uma vez para "ensinar" o circuito a capacidade real da nova bateria</li>
+        </ol>
+        <p>Alguns modelos têm software próprio para calibração automática (APC PowerChute, SMS Manager).</p>
+
+        <h2>6. Manutenção com Multímetro</h2>
+        <p>Testes que podem ser feitos com um multímetro digital básico:</p>
+        <ul>
+          <li><strong>Tensão da bateria:</strong> posicione na escala 20V DC — bateria 12V saudável marca 12.4-13.2V em repouso</li>
+          <li><strong>Tensão de saída:</strong> escala 200V AC — deve marcar entre 110-120V ou 220-230V dependendo do modelo</li>
+          <li><strong>Tensão de carga:</strong> com nobreak ligado na tomada, a bateria deve marcar 13.5-14.2V (carga float)</li>
+        </ul>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Leitura da Bateria 12V</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td>12.7V ou mais</td><td>100% carregada</td></tr>
+              <tr><td>12.4V</td><td>~75%</td></tr>
+              <tr><td>12.0V</td><td>~50%</td></tr>
+              <tr><td>11.8V</td><td>~25%</td></tr>
+              <tr><td>Abaixo de 11.5V</td><td>Descarregada / defeituosa</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>7. Dimensionamento Correto</h2>
+        <p>Um nobreak subdimensionado é tão ruim quanto nenhum nobreak. Calcule:</p>
+        <pre><code>{`Potência necessária = Soma das potências dos equipamentos × 1.3 (margem)
+
+Exemplo:
+- PC desktop: 300W
+- Monitor: 40W
+- Roteador: 15W
+Total: 355W × 1.3 = ~460W
+
+Nobreak recomendado: 600VA / 480W (mínimo)
+Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
+
+        <h2>8. Manutenção Preventiva — Cronograma</h2>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Frequência</th><th>Ação</th></tr></thead>
+            <tbody>
+              <tr><td>Mensal</td><td>Verificar LEDs, ventilação, limpeza externa</td></tr>
+              <tr><td>Trimestral</td><td>Teste de autonomia rápido (desligar da tomada por 2 min)</td></tr>
+              <tr><td>Semestral</td><td>Teste de autonomia completo com carga real</td></tr>
+              <tr><td>Anual</td><td>Medir tensão da bateria com multímetro, limpeza interna</td></tr>
+              <tr><td>A cada 2 anos</td><td>Trocar bateria preventivamente (mesmo se ainda funciona)</td></tr>
+              <tr><td>A cada 5 anos</td><td>Avaliar troca do nobreak completo</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>9. Cuidados Importantes</h2>
+        <ul>
+          <li>✅ Mantenha o nobreak em local ventilado (calor reduz vida útil da bateria)</li>
+          <li>✅ Não conecte impressoras laser ou ar-condicionado ao nobreak</li>
+          <li>✅ Use régua com filtro de linha antes do nobreak (proteção extra)</li>
+          <li>✅ Mantenha firmware/software do nobreak atualizado</li>
+          <li>❌ Não empilhe objetos sobre o nobreak</li>
+          <li>❌ Não opere com tampa aberta</li>
+          <li>❌ Não descarte baterias no lixo comum</li>
+        </ul>
+
+        <h2>Manutenção de Nobreak em Curitiba</h2>
+        <p>A <strong>Helptec</strong> realiza manutenção preventiva e corretiva de nobreaks para empresas em Curitiba e região metropolitana. Teste de autonomia, troca de bateria com descarte correto e dimensionamento adequado para sua infraestrutura.</p>
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

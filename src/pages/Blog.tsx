@@ -88,6 +88,10 @@ const blogPosts = [
   { slug: "backup-como-proteger-seus-arquivos", title: "Backup: Como Proteger Seus Arquivos Importantes", excerpt: "Melhores práticas para manter seus arquivos seguros.", date: "2024-01-01", readTime: "5 min", category: "Segurança" },
   { slug: "notebook-superaquecendo-o-que-fazer", title: "Notebook Superaquecendo: O Que Fazer?", excerpt: "Causas do superaquecimento e como resolver.", date: "2023-12-28", readTime: "4 min", category: "Manutenção" },
   { slug: "wifi-lento-como-melhorar", title: "Wi-Fi Lento em Casa? Veja Como Melhorar o Sinal", excerpt: "Dicas práticas para melhorar cobertura e velocidade.", date: "2023-12-25", readTime: "5 min", category: "Redes" },
+  { slug: "como-configurar-firewall-pfsense", title: "Como Configurar Firewall pfSense: Guia Completo Para Redes Empresariais", excerpt: "Instalação, regras de firewall, NAT, VPN, Squid e monitoramento com pfSense — o firewall open-source mais usado do mundo.", date: "2026-04-13", readTime: "16 min", category: "Procedimentos Técnicos" },
+  { slug: "como-montar-rack-de-rede", title: "Como Montar um Rack de Rede Profissional: Guia Técnico Completo", excerpt: "Escolha do rack, organização de cabos, patch panel, switch, ventilação e identificação — tudo o que você precisa saber.", date: "2026-04-13", readTime: "14 min", category: "Procedimentos Técnicos" },
+  { slug: "como-configurar-active-directory", title: "Como Configurar Active Directory no Windows Server: Passo a Passo", excerpt: "Instalação do AD DS, criação de domínio, GPOs, unidades organizacionais e integração com estações de trabalho.", date: "2026-04-13", readTime: "15 min", category: "Procedimentos Técnicos" },
+  { slug: "como-fazer-manutencao-nobreak", title: "Como Fazer Manutenção em Nobreak: Testes, Troca de Bateria e Calibração", excerpt: "Procedimento técnico para manter nobreaks funcionando: testes de autonomia, troca de bateria selada e calibração do circuito.", date: "2026-04-13", readTime: "12 min", category: "Procedimentos Técnicos" },
 ];
 
 // ─── Category config ───

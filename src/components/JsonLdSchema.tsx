@@ -12,8 +12,11 @@ const localBusinessSchema = {
   "email": "contato@tecnicocuritiba.com.br",
   "image": "https://tecnicocuritiba.com.br/og-image.jpg",
   "logo": "https://tecnicocuritiba.com.br/logo.png",
-  "priceRange": "R$ 99 - R$ 500",
+  "priceRange": "R$ 69,99 - R$ 500",
   "currenciesAccepted": "BRL",
+  "foundingDate": "1999",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+  "slogan": "Assistência Técnica Nº1 de Curitiba e Região",
   "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, PIX, Transferência Bancária",
   "address": {
     "@type": "PostalAddress",
@@ -28,31 +31,17 @@ const localBusinessSchema = {
     "longitude": "-49.2733"
   },
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Curitiba",
-      "sameAs": "https://pt.wikipedia.org/wiki/Curitiba"
-    },
-    {
-      "@type": "City",
-      "name": "São José dos Pinhais",
-      "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Jos%C3%A9_dos_Pinhais"
-    },
-    {
-      "@type": "City",
-      "name": "Araucária",
-      "sameAs": "https://pt.wikipedia.org/wiki/Arauc%C3%A1ria"
-    },
-    {
-      "@type": "City",
-      "name": "Campo Largo",
-      "sameAs": "https://pt.wikipedia.org/wiki/Campo_Largo_(Paran%C3%A1)"
-    },
-    {
-      "@type": "City",
-      "name": "Pinhais",
-      "sameAs": "https://pt.wikipedia.org/wiki/Pinhais"
-    }
+    { "@type": "City", "name": "Curitiba", "sameAs": "https://pt.wikipedia.org/wiki/Curitiba" },
+    { "@type": "City", "name": "São José dos Pinhais", "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Jos%C3%A9_dos_Pinhais" },
+    { "@type": "City", "name": "Araucária", "sameAs": "https://pt.wikipedia.org/wiki/Arauc%C3%A1ria" },
+    { "@type": "City", "name": "Campo Largo", "sameAs": "https://pt.wikipedia.org/wiki/Campo_Largo_(Paran%C3%A1)" },
+    { "@type": "City", "name": "Pinhais", "sameAs": "https://pt.wikipedia.org/wiki/Pinhais" },
+    { "@type": "City", "name": "Colombo", "sameAs": "https://pt.wikipedia.org/wiki/Colombo_(Paran%C3%A1)" },
+    { "@type": "City", "name": "Almirante Tamandaré", "sameAs": "https://pt.wikipedia.org/wiki/Almirante_Tamandar%C3%A9" },
+    { "@type": "City", "name": "Fazenda Rio Grande", "sameAs": "https://pt.wikipedia.org/wiki/Fazenda_Rio_Grande" },
+    { "@type": "City", "name": "Piraquara", "sameAs": "https://pt.wikipedia.org/wiki/Piraquara" },
+    { "@type": "City", "name": "Quatro Barras", "sameAs": "https://pt.wikipedia.org/wiki/Quatro_Barras" },
+    { "@type": "City", "name": "Campo Magro", "sameAs": "https://pt.wikipedia.org/wiki/Campo_Magro" }
   ],
   "openingHoursSpecification": [
     {

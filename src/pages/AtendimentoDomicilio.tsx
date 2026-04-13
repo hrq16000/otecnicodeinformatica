@@ -79,7 +79,7 @@ const AtendimentoDomicilio = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba" description="Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável." path="/atendimento-domicilio" />
+      <PageSEO title="Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba" description="Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável." path="/atendimento-domicilio" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento a Domicílio", path: "/atendimento-domicilio" }]} />
       <JsonLdSchema />
       <Header />
       <main>

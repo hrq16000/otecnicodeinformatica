@@ -153,7 +153,7 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Perguntas Frequentes (FAQ) | Técnico Curitiba" description="Perguntas frequentes sobre os serviços de informática do Técnico Curitiba. Preços, formas de pagamento, área de atendimento, garantia e mais." path="/faq" />
+      <PageSEO title="Perguntas Frequentes (FAQ) | Técnico Curitiba" description="Perguntas frequentes sobre os serviços de informática do Técnico Curitiba. Preços, formas de pagamento, área de atendimento, garantia e mais." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
       <JsonLdSchema />
       <script
         type="application/ld+json"

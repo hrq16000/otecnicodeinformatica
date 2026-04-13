@@ -43,7 +43,7 @@ const AtendimentoRemoto = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" description="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" path="/atendimento-remoto" />
+      <PageSEO title="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" description="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" path="/atendimento-remoto" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento Remoto", path: "/atendimento-remoto" }]} />
       <JsonLdSchema />
       <Header />
       <main>

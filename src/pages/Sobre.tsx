@@ -50,7 +50,7 @@ const Sobre = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Sobre Nós | Técnico Curitiba - Assistência Técnica em Informática" description="Conheça a Técnico Curitiba. Assistência técnica em informática com experiência, compromisso e atendimento humanizado em Curitiba e região." path="/sobre" />
+      <PageSEO title="Sobre Nós | Técnico Curitiba - Assistência Técnica em Informática" description="Conheça a Técnico Curitiba. Assistência técnica em informática com experiência, compromisso e atendimento humanizado em Curitiba e região." path="/sobre" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]} />
       <JsonLdSchema />
       <Header />
       <main>

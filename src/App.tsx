@@ -365,6 +365,7 @@ const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 
 // Marcas
+const Marcas = lazy(() => import("./pages/Marcas"));
 const MarcaPage = lazy(() => import("./pages/MarcaPage"));
 
 // CFTV
@@ -776,6 +777,7 @@ const App = () => (
             <Route path="/procedimentos/:slug" element={<ProblemaPage />} />
 
             {/* Páginas de Marcas */}
+            <Route path="/marcas" element={<Marcas />} />
             <Route path="/marcas/:slug" element={<MarcaPage />} />
             
             {/* Redirects das URLs antigas de procedimentos */}

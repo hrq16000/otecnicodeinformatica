@@ -215,7 +215,7 @@ export const Footer = () => {
 
         <div className="border-t border-white/[0.08] pt-7 text-center space-y-2 spotlight-sweep">
           <p className="text-white/45 text-sm">
-            © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. Todos os direitos reservados.
+            © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. CNPJ: 41.723.708/0001-58. Todos os direitos reservados.
           </p>
           <p className="text-white/30 text-xs">
             Uma empresa do ecossistema{" "}

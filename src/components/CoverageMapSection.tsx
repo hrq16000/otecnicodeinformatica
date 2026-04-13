@@ -300,46 +300,44 @@ export const CoverageMapSection = () => {
                   <div
                     key={region.originalIndex}
                     onClick={() => setActiveIndex(index)}
-                    className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] card-shine hover-streak ${
+                    className={`flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all duration-500 hover:-translate-y-0.5 ${
                       isActive
-                        ? "glass-card border-accent/40 shadow-md bg-accent/5 scale-[1.01]"
+                        ? "glass-card border-accent/40 shadow-md bg-accent/5"
                         : "glass-card hover:border-accent/20"
                     }`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isActive ? "bg-accent text-accent-foreground scale-110" : "bg-secondary text-muted-foreground"
+                        className={`w-2 h-2 rounded-full flex-shrink-0 transition-all duration-500 ${
+                          isActive ? "bg-accent scale-125 shadow-[0_0_8px_hsl(var(--accent)/0.5)]" : "bg-muted-foreground/30"
                         }`}
-                      >
-                        <MapPin className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className={`font-medium text-sm transition-colors duration-300 ${isActive ? "text-accent" : "text-foreground"}`}>
+                      />
+                      <div className="min-w-0">
+                        <p className={`font-semibold text-sm transition-colors duration-300 ${isActive ? "text-accent" : "text-foreground"}`}>
                           {region.name}
                         </p>
-                        <p className="text-xs text-muted-foreground">
-                          {region.neighborhoods.slice(0, 3).join(", ")}
-                          {region.neighborhoods.length > 3 && "..."}
+                        <p className="text-xs text-muted-foreground truncate">
+                          {region.neighborhoods.slice(0, 3).join(" · ")}
+                          {region.neighborhoods.length > 3 && " …"}
                           {region.distance && (
-                            <span className="ml-1 text-accent">• {region.distance}</span>
+                            <span className="ml-1.5 text-accent font-medium">({region.distance})</span>
                           )}
                         </p>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="flex items-center gap-2 flex-shrink-0 ml-3">
                       <div
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-500 ${
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-500 ${
                           isActive
                             ? "bg-accent text-accent-foreground shadow-sm"
-                            : "bg-secondary text-foreground"
+                            : "bg-muted text-foreground"
                         }`}
                       >
                         <Clock className="h-3 w-3" />
                         {region.time}
                       </div>
                       {region.isReal && (
-                        <p className="text-[10px] text-muted-foreground mt-0.5">rota real</p>
+                        <span className="text-[9px] text-accent font-medium bg-accent/10 px-1.5 py-0.5 rounded">real</span>
                       )}
                     </div>
                   </div>

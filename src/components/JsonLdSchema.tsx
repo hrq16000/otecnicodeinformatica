@@ -12,8 +12,11 @@ const localBusinessSchema = {
   "email": "contato@tecnicocuritiba.com.br",
   "image": "https://tecnicocuritiba.com.br/og-image.jpg",
   "logo": "https://tecnicocuritiba.com.br/logo.png",
-  "priceRange": "R$ 99 - R$ 500",
+  "priceRange": "R$ 69,99 - R$ 500",
   "currenciesAccepted": "BRL",
+  "foundingDate": "1999",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+  "slogan": "Assistência Técnica Nº1 de Curitiba e Região",
   "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, PIX, Transferência Bancária",
   "address": {
     "@type": "PostalAddress",
@@ -28,31 +31,17 @@ const localBusinessSchema = {
     "longitude": "-49.2733"
   },
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Curitiba",
-      "sameAs": "https://pt.wikipedia.org/wiki/Curitiba"
-    },
-    {
-      "@type": "City",
-      "name": "São José dos Pinhais",
-      "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Jos%C3%A9_dos_Pinhais"
-    },
-    {
-      "@type": "City",
-      "name": "Araucária",
-      "sameAs": "https://pt.wikipedia.org/wiki/Arauc%C3%A1ria"
-    },
-    {
-      "@type": "City",
-      "name": "Campo Largo",
-      "sameAs": "https://pt.wikipedia.org/wiki/Campo_Largo_(Paran%C3%A1)"
-    },
-    {
-      "@type": "City",
-      "name": "Pinhais",
-      "sameAs": "https://pt.wikipedia.org/wiki/Pinhais"
-    }
+    { "@type": "City", "name": "Curitiba", "sameAs": "https://pt.wikipedia.org/wiki/Curitiba" },
+    { "@type": "City", "name": "São José dos Pinhais", "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Jos%C3%A9_dos_Pinhais" },
+    { "@type": "City", "name": "Araucária", "sameAs": "https://pt.wikipedia.org/wiki/Arauc%C3%A1ria" },
+    { "@type": "City", "name": "Campo Largo", "sameAs": "https://pt.wikipedia.org/wiki/Campo_Largo_(Paran%C3%A1)" },
+    { "@type": "City", "name": "Pinhais", "sameAs": "https://pt.wikipedia.org/wiki/Pinhais" },
+    { "@type": "City", "name": "Colombo", "sameAs": "https://pt.wikipedia.org/wiki/Colombo_(Paran%C3%A1)" },
+    { "@type": "City", "name": "Almirante Tamandaré", "sameAs": "https://pt.wikipedia.org/wiki/Almirante_Tamandar%C3%A9" },
+    { "@type": "City", "name": "Fazenda Rio Grande", "sameAs": "https://pt.wikipedia.org/wiki/Fazenda_Rio_Grande" },
+    { "@type": "City", "name": "Piraquara", "sameAs": "https://pt.wikipedia.org/wiki/Piraquara" },
+    { "@type": "City", "name": "Quatro Barras", "sameAs": "https://pt.wikipedia.org/wiki/Quatro_Barras" },
+    { "@type": "City", "name": "Campo Magro", "sameAs": "https://pt.wikipedia.org/wiki/Campo_Magro" }
   ],
   "openingHoursSpecification": [
     {
@@ -157,6 +146,19 @@ const localBusinessSchema = {
     "Instalação de câmeras CFTV",
     "Montagem de computadores",
     "Backup e recuperação de dados"
+  ],
+  "hasMap": "https://www.google.com/maps?cid=tecnicocuritiba",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Visita Técnica",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "69.99",
+        "priceCurrency": "BRL",
+        "minPrice": "69.99"
+      }
+    }
   ]
 };
 
@@ -221,32 +223,52 @@ const websiteSchema = {
   }
 };
 
+// Organization schema for knowledge panel
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://tecnicocuritiba.com.br/#organization",
+  "name": "Técnico Curitiba",
+  "alternateName": "Técnico de Informática Curitiba",
+  "url": "https://tecnicocuritiba.com.br",
+  "logo": "https://tecnicocuritiba.com.br/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-41-99745-2053",
+    "contactType": "customer service",
+    "availableLanguage": "Portuguese",
+    "areaServed": "BR-PR"
+  },
+  "sameAs": ["https://wa.me/5541997452053"]
+};
+
+// SiteNavigationElement for sitelinks
+const navigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    { "@type": "SiteNavigationElement", "position": 1, "name": "Serviços", "url": "https://tecnicocuritiba.com.br/servicos" },
+    { "@type": "SiteNavigationElement", "position": 2, "name": "Como Funciona", "url": "https://tecnicocuritiba.com.br/como-funciona" },
+    { "@type": "SiteNavigationElement", "position": 3, "name": "Valores", "url": "https://tecnicocuritiba.com.br/valores" },
+    { "@type": "SiteNavigationElement", "position": 4, "name": "Contato", "url": "https://tecnicocuritiba.com.br/contato" },
+    { "@type": "SiteNavigationElement", "position": 5, "name": "Blog", "url": "https://tecnicocuritiba.com.br/blog" },
+    { "@type": "SiteNavigationElement", "position": 6, "name": "FAQ", "url": "https://tecnicocuritiba.com.br/faq" }
+  ]
+};
+
 export const JsonLdSchema = () => {
   useEffect(() => {
-    // Remove existing schemas
     const existingScripts = document.querySelectorAll('script[data-schema="true"]');
     existingScripts.forEach(script => script.remove());
 
-    // Add LocalBusiness schema
-    const businessScript = document.createElement('script');
-    businessScript.type = 'application/ld+json';
-    businessScript.setAttribute('data-schema', 'true');
-    businessScript.text = JSON.stringify(localBusinessSchema);
-    document.head.appendChild(businessScript);
-
-    // Add FAQ schema
-    const faqScript = document.createElement('script');
-    faqScript.type = 'application/ld+json';
-    faqScript.setAttribute('data-schema', 'true');
-    faqScript.text = JSON.stringify(faqSchema);
-    document.head.appendChild(faqScript);
-
-    // Add WebSite schema
-    const websiteScript = document.createElement('script');
-    websiteScript.type = 'application/ld+json';
-    websiteScript.setAttribute('data-schema', 'true');
-    websiteScript.text = JSON.stringify(websiteSchema);
-    document.head.appendChild(websiteScript);
+    const schemas = [localBusinessSchema, faqSchema, websiteSchema, organizationSchema, navigationSchema];
+    schemas.forEach(schema => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-schema', 'true');
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
     
     return () => {
       const scripts = document.querySelectorAll('script[data-schema="true"]');

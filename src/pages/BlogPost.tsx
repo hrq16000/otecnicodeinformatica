@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -4836,12 +4837,101 @@ const BlogPost = () => {
     }
   }, [post, slug]);
 
+  // Inject BlogPosting + BreadcrumbList structured data
+  useEffect(() => {
+    if (!post || !slug) return;
+    const existingSchemas = document.querySelectorAll('script[data-blog-schema="true"]');
+    existingSchemas.forEach(s => s.remove());
+
+    const blogPostingSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "dateModified": post.date,
+      "author": {
+        "@type": "Organization",
+        "name": "Técnico Curitiba",
+        "url": "https://tecnicocuritiba.com.br"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Técnico Curitiba",
+        "url": "https://tecnicocuritiba.com.br",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tecnicocuritiba.com.br/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://tecnicocuritiba.com.br/blog/${slug}`
+      },
+      "url": `https://tecnicocuritiba.com.br/blog/${slug}`,
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "Blog Técnico Curitiba",
+        "url": "https://tecnicocuritiba.com.br/blog"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": post.category
+      },
+      "wordCount": 1500,
+      "articleSection": post.category,
+      "keywords": `${post.title}, ${post.category}, técnico curitiba, assistência técnica`
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnicocuritiba.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnicocuritiba.com.br/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://tecnicocuritiba.com.br/blog/${slug}` }
+      ]
+    };
+
+    [blogPostingSchema, breadcrumbSchema].forEach(schema => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-blog-schema', 'true');
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
+
+    return () => {
+      document.querySelectorAll('script[data-blog-schema="true"]').forEach(s => s.remove());
+    };
+  }, [post, slug]);
+
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{post.title} | Blog | Técnico Curitiba</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <meta property="og:site_name" content="Técnico Curitiba" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:modified_time" content={post.date} />
+        <meta property="article:section" content={post.category} />
+        <meta property="article:author" content="Técnico Curitiba" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="author" content="Técnico Curitiba" />
+      </Helmet>
       <JsonLdSchema />
       <Header />
       <main>

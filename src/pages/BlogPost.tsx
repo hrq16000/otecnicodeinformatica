@@ -20,6 +20,818 @@ const blogPostsContent: Record<string, {
   image?: string;
   content: React.ReactNode;
 }> = {
+
+  "linux-vs-windows-diferencas-qual-escolher": {
+    title: "Linux vs Windows: Diferenças Reais e Qual Escolher em 2026",
+    excerpt: "Comparativo técnico completo entre Linux e Windows.",
+    date: "2026-04-13",
+    readTime: "14 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">A eterna batalha entre Linux e Windows não é sobre qual é "melhor" — é sobre <strong>qual é melhor para o seu caso</strong>. Neste comparativo técnico, analisamos desempenho, segurança, compatibilidade, custo e facilidade de uso para ajudá-lo a decidir.</p>
+
+        <h2>O Que é Linux, Afinal?</h2>
+        <p>Linux não é um sistema operacional único — é um <strong>kernel</strong> (núcleo) sobre o qual centenas de distribuições foram criadas. Ubuntu, Mint, Fedora, Debian, Arch — todas usam o kernel Linux, mas oferecem experiências diferentes. É como dizer que "Android é Linux" — tecnicamente correto, mas a experiência é completamente diferente de um desktop Ubuntu.</p>
+
+        <h2>Desempenho: Linux Leva Vantagem</h2>
+        <p>Em hardware idêntico, o Linux geralmente é mais rápido que o Windows. Motivos:</p>
+        <ul>
+          <li><strong>Menos processos em segundo plano</strong> — o Windows roda dezenas de serviços de telemetria, Cortana, indexação, etc.</li>
+          <li><strong>Menos consumo de RAM</strong> — Ubuntu com GNOME usa ~1.2 GB de RAM; Windows 11 usa ~3-4 GB em repouso</li>
+          <li><strong>Melhor gerenciamento de I/O</strong> — o sistema de arquivos ext4/btrfs é mais eficiente que NTFS para leitura/escrita intensiva</li>
+          <li><strong>Sem antivírus pesado</strong> — o modelo de segurança do Linux dispensa antivírus na maioria dos cenários</li>
+        </ul>
+        <p>Para PCs antigos, a diferença é brutal: um Celeron com 2 GB de RAM roda Lubuntu fluentemente, mas mal consegue iniciar o Windows 10.</p>
+
+        <h2>Segurança: Linux é Mais Seguro (Mas Não Invulnerável)</h2>
+        <p>O modelo de permissões do Linux é mais robusto por design:</p>
+        <ul>
+          <li>Usuário comum <strong>nunca tem acesso root</strong> por padrão</li>
+          <li>Instalação de software via repositórios oficiais verificados</li>
+          <li>Menos de 1% dos malwares no mundo são feitos para Linux desktop</li>
+          <li>Atualizações de segurança geralmente são mais rápidas no ecossistema open-source</li>
+        </ul>
+        <p>No entanto, servidores Linux são alvos frequentes. A segurança depende sempre de configuração adequada.</p>
+
+        <h2>Compatibilidade de Software</h2>
+        <p>Aqui o Windows ainda domina:</p>
+        <ul>
+          <li><strong>Jogos:</strong> Steam Proton melhorou muito, mas nem todos os títulos AAA rodam perfeitamente no Linux</li>
+          <li><strong>Adobe Suite:</strong> Photoshop, Premiere, Illustrator — não há versão nativa para Linux. Alternativas como GIMP e DaVinci Resolve existem, mas a curva de aprendizado é real</li>
+          <li><strong>Microsoft Office:</strong> LibreOffice é compatível, mas formatação avançada pode quebrar. Office 365 Web funciona em qualquer navegador</li>
+          <li><strong>Drivers:</strong> impressoras e periféricos nem sempre têm driver Linux. Antes de migrar, verifique compatibilidade</li>
+        </ul>
+
+        <h2>Custo: Linux é Gratuito</h2>
+        <p>Uma licença do Windows 11 Pro custa R$ 1.099 (preço oficial). O Linux é <strong>100% gratuito</strong> — sistema, atualizações e a maioria dos softwares. Para empresas com dezenas de máquinas, a economia é significativa.</p>
+
+        <h2>Facilidade de Uso em 2026</h2>
+        <p>O mito de que "Linux é difícil" está desatualizado. Distribuições como <strong>Linux Mint</strong> e <strong>Ubuntu</strong> oferecem experiência tão intuitiva quanto o Windows. A instalação leva 15 minutos, o gerenciador de software é uma "loja de apps" e a maioria das tarefas não exige terminal.</p>
+
+        <h2>Tabela Comparativa</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Critério</th><th className="text-left p-2 border-b">Windows</th><th className="text-left p-2 border-b">Linux</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Custo</td><td className="p-2 border-b">R$ 1.099+</td><td className="p-2 border-b">Gratuito</td></tr>
+              <tr><td className="p-2 border-b">Desempenho</td><td className="p-2 border-b">Bom</td><td className="p-2 border-b">Excelente</td></tr>
+              <tr><td className="p-2 border-b">Segurança</td><td className="p-2 border-b">Requer antivírus</td><td className="p-2 border-b">Nativo robusto</td></tr>
+              <tr><td className="p-2 border-b">Jogos</td><td className="p-2 border-b">Excelente</td><td className="p-2 border-b">Bom (Proton)</td></tr>
+              <tr><td className="p-2 border-b">Software profissional</td><td className="p-2 border-b">Excelente</td><td className="p-2 border-b">Limitado</td></tr>
+              <tr><td className="p-2 border-b">PC antigo</td><td className="p-2 border-b">Pesado</td><td className="p-2 border-b">Ideal</td></tr>
+              <tr><td className="p-2 border-b">Privacidade</td><td className="p-2 border-b">Telemetria ativa</td><td className="p-2 border-b">Total controle</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Quando Usar Windows?</h2>
+        <ul>
+          <li>Jogos AAA com anti-cheat (Valorant, Fortnite)</li>
+          <li>Adobe Creative Suite</li>
+          <li>Softwares empresariais específicos (SAP, AutoCAD)</li>
+          <li>Usuários que não querem aprender nada novo</li>
+        </ul>
+
+        <h2>Quando Usar Linux?</h2>
+        <ul>
+          <li>Servidores e infraestrutura</li>
+          <li>Desenvolvimento e programação</li>
+          <li>PCs antigos que precisam "renascer"</li>
+          <li>Quem prioriza privacidade e controle total</li>
+          <li>Empresas que querem reduzir custos com licenças</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer Instalar Linux ou Dual Boot?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico configura Linux, dual boot ou migração completa no seu computador. Atendemos em Curitiba e região metropolitana.</p>
+        </div>
+      </>
+    ),
+  },
+  "comandos-linux-essenciais-iniciantes": {
+    title: "50 Comandos Linux Essenciais Para Iniciantes e Técnicos",
+    excerpt: "Guia definitivo de comandos do terminal.",
+    date: "2026-04-13",
+    readTime: "16 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">O terminal do Linux pode parecer intimidador, mas dominar os comandos básicos transforma sua produtividade. Este guia reúne <strong>50 comandos essenciais</strong> organizados por categoria, com exemplos práticos.</p>
+
+        <h2>Navegação e Arquivos</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`pwd          # Mostra o diretório atual
+ls           # Lista arquivos e pastas
+ls -la       # Lista com detalhes e ocultos
+cd /caminho  # Navega para um diretório
+cd ..        # Volta um nível
+cd ~         # Vai para o home do usuário
+mkdir pasta  # Cria diretório
+rmdir pasta  # Remove diretório vazio
+rm arquivo   # Remove arquivo
+rm -rf pasta # Remove pasta e conteúdo (CUIDADO!)
+cp orig dest # Copia arquivo
+mv orig dest # Move ou renomeia
+touch arq    # Cria arquivo vazio
+cat arquivo  # Mostra conteúdo do arquivo
+less arquivo # Mostra com paginação
+head -n 20 arq # Primeiras 20 linhas
+tail -f log  # Acompanha arquivo em tempo real`}</code></pre>
+
+        <h2>Busca e Filtros</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`find / -name "*.log"        # Busca arquivos por nome
+find . -size +100M          # Arquivos maiores que 100MB
+grep "texto" arquivo        # Busca texto em arquivo
+grep -r "texto" /pasta/     # Busca recursiva
+grep -i "texto" arq         # Ignora maiúsculas
+wc -l arquivo               # Conta linhas
+sort arquivo                # Ordena conteúdo
+uniq                        # Remove duplicatas
+diff arq1 arq2              # Compara dois arquivos`}</code></pre>
+
+        <h2>Permissões e Usuários</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`chmod 755 arquivo    # Define permissões (rwxr-xr-x)
+chmod +x script.sh   # Torna executável
+chown user:grupo arq # Altera dono do arquivo
+sudo comando         # Executa como root
+whoami               # Mostra usuário atual
+id                   # Mostra UID, GID e grupos
+passwd               # Altera senha
+adduser nome         # Cria novo usuário
+usermod -aG grupo user # Adiciona user ao grupo`}</code></pre>
+
+        <h2>Processos e Sistema</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`ps aux           # Lista todos os processos
+top              # Monitor em tempo real
+htop             # Monitor interativo (instalar)
+kill PID         # Encerra processo por PID
+kill -9 PID      # Força encerramento
+systemctl status serviço  # Status de serviço
+systemctl restart serviço # Reinicia serviço
+df -h            # Espaço em disco
+du -sh /pasta    # Tamanho de uma pasta
+free -h          # Uso de memória RAM
+uname -a         # Info do kernel
+uptime           # Tempo ligado`}</code></pre>
+
+        <h2>Rede</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`ip a             # Mostra interfaces de rede
+ping google.com  # Testa conectividade
+curl url         # Faz requisição HTTP
+wget url         # Baixa arquivo da web
+ss -tulnp        # Portas em uso
+traceroute host  # Rota até o destino
+nslookup domínio # Consulta DNS
+scp arq user@host:/path  # Copia via SSH
+ssh user@host    # Acesso remoto seguro`}</code></pre>
+
+        <h2>Compactação</h2>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`tar -czf backup.tar.gz /pasta  # Compacta com gzip
+tar -xzf backup.tar.gz        # Descompacta
+zip -r backup.zip /pasta       # Compacta em ZIP
+unzip backup.zip               # Descompacta ZIP`}</code></pre>
+
+        <h2>Dicas de Produtividade no Terminal</h2>
+        <ul>
+          <li><strong>Tab</strong> — autocompleta comandos e caminhos</li>
+          <li><strong>Ctrl+R</strong> — busca no histórico de comandos</li>
+          <li><strong>!!</strong> — repete o último comando (útil: <code>sudo !!</code>)</li>
+          <li><strong>Ctrl+C</strong> — cancela comando em execução</li>
+          <li><strong>Ctrl+L</strong> — limpa a tela</li>
+          <li><strong>comando1 | comando2</strong> — pipe: saída de um vira entrada do outro</li>
+          <li><strong>comando &gt; arquivo</strong> — redireciona saída para arquivo</li>
+          <li><strong>comando &gt;&gt; arquivo</strong> — adiciona ao final do arquivo</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Precisa de Ajuda com Linux?</h3>
+          <p className="text-muted-foreground mb-0">Instalamos, configuramos e damos suporte a Linux em Curitiba e região. De servidores a desktops.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-instalar-ubuntu-do-zero": {
+    title: "Como Instalar Ubuntu do Zero: Guia Completo 2026",
+    excerpt: "Passo a passo desde o pendrive bootável até a configuração pós-instalação.",
+    date: "2026-04-13",
+    readTime: "12 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">O Ubuntu é a distribuição Linux mais popular do mundo — e por bons motivos. É gratuito, seguro, leve e fácil de usar. Este guia mostra <strong>como instalar o Ubuntu do zero</strong>, desde a criação do pendrive bootável até as configurações essenciais pós-instalação.</p>
+
+        <h2>Requisitos Mínimos</h2>
+        <ul>
+          <li>Processador dual-core de 2 GHz ou superior</li>
+          <li>4 GB de RAM (recomendado 8 GB)</li>
+          <li>25 GB de espaço em disco (recomendado 50 GB)</li>
+          <li>Pendrive USB de 4 GB ou mais</li>
+          <li>Conexão com internet (recomendado)</li>
+        </ul>
+
+        <h2>Passo 1: Baixar a ISO do Ubuntu</h2>
+        <p>Acesse <strong>ubuntu.com/download</strong> e baixe a versão LTS mais recente (Ubuntu 24.04 LTS). A versão LTS tem suporte de 5 anos — ideal para estabilidade.</p>
+
+        <h2>Passo 2: Criar Pendrive Bootável</h2>
+        <p>No Windows, use o <strong>Rufus</strong> (gratuito):</p>
+        <ol>
+          <li>Baixe e abra o Rufus</li>
+          <li>Selecione o pendrive USB</li>
+          <li>Em "Seleção de Boot", escolha a ISO do Ubuntu</li>
+          <li>Partição: GPT (para UEFI) ou MBR (para BIOS legado)</li>
+          <li>Clique em "Iniciar" e aguarde</li>
+        </ol>
+
+        <h2>Passo 3: Configurar Boot pelo Pendrive</h2>
+        <p>Reinicie o computador e acesse o menu de boot:</p>
+        <ul>
+          <li><strong>Dell/Lenovo:</strong> F12</li>
+          <li><strong>HP:</strong> F9</li>
+          <li><strong>ASUS/Acer:</strong> F2 ou ESC</li>
+          <li><strong>MSI:</strong> F11</li>
+        </ul>
+        <p>Selecione o pendrive USB na lista de dispositivos de boot.</p>
+
+        <h2>Passo 4: Instalação</h2>
+        <ol>
+          <li>Selecione "Instalar Ubuntu" (não "Experimentar")</li>
+          <li>Escolha o idioma: <strong>Português do Brasil</strong></li>
+          <li>Marque "Instalar software de terceiros" (codecs, drivers Wi-Fi)</li>
+          <li>Tipo de instalação: "Apagar disco e instalar Ubuntu" (para instalação limpa)</li>
+          <li>Selecione fuso horário: <strong>São Paulo</strong></li>
+          <li>Crie seu usuário e senha</li>
+          <li>Aguarde a instalação (10-20 minutos)</li>
+          <li>Reinicie e remova o pendrive quando solicitado</li>
+        </ol>
+
+        <h2>Passo 5: Configurações Pós-Instalação</h2>
+        <p>Após o primeiro boot, execute no terminal:</p>
+        <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm"><code>{`# Atualizar tudo
+sudo apt update && sudo apt upgrade -y
+
+# Instalar codecs multimídia
+sudo apt install ubuntu-restricted-extras -y
+
+# Instalar ferramentas essenciais
+sudo apt install git curl wget htop neofetch -y
+
+# Instalar navegador alternativo (ex: Chrome)
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+# Instalar Flatpak (mais apps)
+sudo apt install flatpak gnome-software-plugin-flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`}</code></pre>
+
+        <h2>Softwares Essenciais Para Instalar</h2>
+        <ul>
+          <li><strong>LibreOffice</strong> — já vem instalado (equivalente ao Office)</li>
+          <li><strong>VLC</strong> — player de mídia universal</li>
+          <li><strong>GIMP</strong> — editor de imagens (alternativa ao Photoshop)</li>
+          <li><strong>Visual Studio Code</strong> — editor de código</li>
+          <li><strong>Timeshift</strong> — backup/restauração do sistema</li>
+          <li><strong>Flameshot</strong> — captura de tela avançada</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Instalação Profissional de Linux</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico instala Ubuntu, Mint ou qualquer distribuição no seu computador com todos os drivers e softwares configurados. Atendemos em Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+  "distribuicoes-linux-qual-melhor-para-voce": {
+    title: "Distribuições Linux: Qual a Melhor Para Você?",
+    excerpt: "Comparativo entre as principais distros.",
+    date: "2026-04-13",
+    readTime: "11 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">Existem centenas de distribuições Linux, mas <strong>5-6 dominam o mercado desktop</strong>. Cada uma tem um foco diferente. Veja qual combina com seu perfil.</p>
+
+        <h2>Ubuntu — O Mais Popular</h2>
+        <p><strong>Para quem:</strong> iniciantes, escritório, uso geral.</p>
+        <ul>
+          <li>Interface GNOME moderna e polida</li>
+          <li>Maior comunidade e mais tutoriais em português</li>
+          <li>Loja de apps com milhares de opções</li>
+          <li>Versão LTS com 5 anos de suporte</li>
+          <li><strong>Requisitos:</strong> 4 GB RAM, 25 GB disco</li>
+        </ul>
+
+        <h2>Linux Mint — O Mais Parecido com Windows</h2>
+        <p><strong>Para quem:</strong> quem vem do Windows e quer transição suave.</p>
+        <ul>
+          <li>Interface Cinnamon: barra de tarefas, menu Iniciar, desktop familiar</li>
+          <li>Tudo funciona "out of the box" (codecs, drivers)</li>
+          <li>Baseado no Ubuntu, mas sem as polêmicas (Snap)</li>
+          <li><strong>Requisitos:</strong> 2 GB RAM, 20 GB disco</li>
+        </ul>
+
+        <h2>Fedora — O Mais Atualizado</h2>
+        <p><strong>Para quem:</strong> desenvolvedores e entusiastas.</p>
+        <ul>
+          <li>Sempre com as versões mais recentes do kernel e GNOME</li>
+          <li>Patrocinado pela Red Hat (líder em servidores)</li>
+          <li>Excelente para desenvolvimento de software</li>
+          <li><strong>Requisitos:</strong> 4 GB RAM, 20 GB disco</li>
+        </ul>
+
+        <h2>Debian — O Mais Estável</h2>
+        <p><strong>Para quem:</strong> servidores e quem prioriza estabilidade absoluta.</p>
+        <ul>
+          <li>Base do Ubuntu e dezenas de outras distros</li>
+          <li>Testes rigorosos antes de cada release</li>
+          <li>Ideal para servidores que não podem falhar</li>
+          <li><strong>Requisitos:</strong> 1 GB RAM, 10 GB disco</li>
+        </ul>
+
+        <h2>Arch Linux — Para Avançados</h2>
+        <p><strong>Para quem:</strong> quem quer controle total e aprender Linux a fundo.</p>
+        <ul>
+          <li>Instalação manual via terminal (sem interface gráfica por padrão)</li>
+          <li>Rolling release: sempre na última versão</li>
+          <li>AUR: o maior repositório de pacotes do mundo Linux</li>
+          <li>Documentação (Arch Wiki) considerada a melhor da comunidade Linux</li>
+        </ul>
+
+        <h2>Tabela Comparativa</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Distro</th><th className="text-left p-2 border-b">Nível</th><th className="text-left p-2 border-b">RAM Mín.</th><th className="text-left p-2 border-b">Melhor Para</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Ubuntu</td><td className="p-2 border-b">Iniciante</td><td className="p-2 border-b">4 GB</td><td className="p-2 border-b">Uso geral</td></tr>
+              <tr><td className="p-2 border-b">Mint</td><td className="p-2 border-b">Iniciante</td><td className="p-2 border-b">2 GB</td><td className="p-2 border-b">Ex-Windows</td></tr>
+              <tr><td className="p-2 border-b">Fedora</td><td className="p-2 border-b">Intermediário</td><td className="p-2 border-b">4 GB</td><td className="p-2 border-b">Desenvolvimento</td></tr>
+              <tr><td className="p-2 border-b">Debian</td><td className="p-2 border-b">Intermediário</td><td className="p-2 border-b">1 GB</td><td className="p-2 border-b">Servidores</td></tr>
+              <tr><td className="p-2 border-b">Arch</td><td className="p-2 border-b">Avançado</td><td className="p-2 border-b">512 MB</td><td className="p-2 border-b">Controle total</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Não Sabe Qual Escolher?</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico avalia seu hardware e necessidades para recomendar e instalar a melhor distribuição. Atendemos em Curitiba e região.</p>
+        </div>
+      </>
+    ),
+  },
+  "trocar-windows-por-linux-vale-a-pena": {
+    title: "Trocar o Windows Por Linux: Vale a Pena?",
+    excerpt: "O que funciona, o que não funciona e como migrar.",
+    date: "2026-04-13",
+    readTime: "10 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">Você está cansado de lentidão, vírus e atualizações forçadas do Windows? A migração para Linux pode ser a solução — mas <strong>não é para todos</strong>. Veja quando vale a pena e como fazer a transição.</p>
+
+        <h2>Quando Vale a Pena Trocar</h2>
+        <ul>
+          <li><strong>PC antigo/lento</strong> — Linux roda bem em máquinas com 2 GB de RAM</li>
+          <li><strong>Uso básico</strong> — internet, e-mail, documentos, vídeos</li>
+          <li><strong>Desenvolvimento</strong> — terminal nativo, Docker sem WSL, melhor para programação</li>
+          <li><strong>Privacidade</strong> — sem telemetria, sem conta Microsoft obrigatória</li>
+          <li><strong>Economia</strong> — sem custo de licença</li>
+        </ul>
+
+        <h2>Quando NÃO Vale a Pena</h2>
+        <ul>
+          <li><strong>Jogos competitivos</strong> — Valorant, Fortnite e outros com anti-cheat não rodam</li>
+          <li><strong>Adobe</strong> — sem Photoshop, Premiere, After Effects nativos</li>
+          <li><strong>Software específico</strong> — AutoCAD, SAP, softwares contábeis brasileiros</li>
+          <li><strong>Impressoras/scanners antigos</strong> — alguns não têm driver Linux</li>
+        </ul>
+
+        <h2>Alternativa: Dual Boot</h2>
+        <p>Não precisa escolher um ou outro. O <strong>dual boot</strong> permite ter Windows e Linux no mesmo computador. Ao ligar, você escolhe qual sistema iniciar. Assim, você pode usar Linux no dia a dia e Windows quando precisar de um software específico.</p>
+
+        <h2>Equivalências de Software</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Windows</th><th className="text-left p-2 border-b">Linux</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Microsoft Office</td><td className="p-2 border-b">LibreOffice / OnlyOffice</td></tr>
+              <tr><td className="p-2 border-b">Photoshop</td><td className="p-2 border-b">GIMP / Krita</td></tr>
+              <tr><td className="p-2 border-b">Premiere</td><td className="p-2 border-b">DaVinci Resolve / Kdenlive</td></tr>
+              <tr><td className="p-2 border-b">Outlook</td><td className="p-2 border-b">Thunderbird / Evolution</td></tr>
+              <tr><td className="p-2 border-b">Notepad++</td><td className="p-2 border-b">VS Code / Kate</td></tr>
+              <tr><td className="p-2 border-b">WinRAR</td><td className="p-2 border-b">File Roller (nativo)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Passo a Passo da Migração</h2>
+        <ol>
+          <li><strong>Faça backup</strong> de todos os seus arquivos (HD externo ou nuvem)</li>
+          <li><strong>Liste</strong> todos os programas que você usa e verifique equivalentes</li>
+          <li><strong>Teste antes</strong> — rode o Ubuntu pelo pendrive (Live USB) sem instalar</li>
+          <li><strong>Instale em dual boot</strong> para período de adaptação</li>
+          <li>Após 30 dias confortável, <strong>remova o Windows</strong> se quiser</li>
+        </ol>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Migração Assistida</h3>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz backup dos seus dados, instala Linux, configura dual boot e transfere seus arquivos. Sem risco de perder nada.</p>
+        </div>
+      </>
+    ),
+  },
+  "linux-para-pc-antigo-leve-rapido": {
+    title: "Linux Para PC Antigo: 5 Distros Leves Que Ressuscitam Seu Computador",
+    excerpt: "Distros leves para máquinas com pouca RAM.",
+    date: "2026-04-13",
+    readTime: "9 min",
+    category: "Linux",
+    content: (
+      <>
+        <p className="lead">Seu computador antigo está jogado no canto porque "não roda mais nada"? Antes de jogá-lo fora, experimente <strong>instalar Linux</strong>. Com a distribuição certa, máquinas com 1-2 GB de RAM voltam a funcionar perfeitamente para tarefas do dia a dia.</p>
+
+        <h2>1. Lubuntu — O Ubuntu Ultraleve</h2>
+        <ul>
+          <li><strong>Interface:</strong> LXQt (leve e funcional)</li>
+          <li><strong>RAM mínima:</strong> 1 GB (recomendado 2 GB)</li>
+          <li><strong>Disco mínimo:</strong> 8 GB</li>
+          <li>Baseado no Ubuntu — mesmos repositórios e suporte</li>
+          <li>Ideal para netbooks e PCs com Celeron/Atom</li>
+        </ul>
+
+        <h2>2. Linux Lite — Feito Para Ex-Usuários Windows</h2>
+        <ul>
+          <li><strong>Interface:</strong> Xfce customizada (parece Windows)</li>
+          <li><strong>RAM mínima:</strong> 1 GB (recomendado 2 GB)</li>
+          <li>Já vem com Chrome, LibreOffice e VLC</li>
+          <li>Atualizações simples com interface gráfica</li>
+          <li>Documentação toda em linguagem acessível</li>
+        </ul>
+
+        <h2>3. Xubuntu — Equilíbrio Perfeito</h2>
+        <ul>
+          <li><strong>Interface:</strong> Xfce (leve mas bonita)</li>
+          <li><strong>RAM mínima:</strong> 1.5 GB (recomendado 2 GB)</li>
+          <li>Mais bonito que Lubuntu, mais leve que Ubuntu</li>
+          <li>Excelente para escritório e navegação</li>
+        </ul>
+
+        <h2>4. Peppermint OS — Focado em Web Apps</h2>
+        <ul>
+          <li><strong>Interface:</strong> Xfce com integração web</li>
+          <li><strong>RAM mínima:</strong> 1 GB</li>
+          <li>Transforma sites em "apps" (Gmail, Google Docs, etc.)</li>
+          <li>Ideal para quem usa tudo no navegador</li>
+        </ul>
+
+        <h2>5. antiX — O Mais Leve de Todos</h2>
+        <ul>
+          <li><strong>Interface:</strong> IceWM / Fluxbox</li>
+          <li><strong>RAM mínima:</strong> 256 MB (!)</li>
+          <li><strong>Disco mínimo:</strong> 3 GB</li>
+          <li>Roda em Pentium III e Pentium 4</li>
+          <li>Interface minimalista, mas totalmente funcional</li>
+        </ul>
+
+        <h2>Comparativo de Consumo de RAM</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Sistema</th><th className="text-left p-2 border-b">RAM em Repouso</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Windows 11</td><td className="p-2 border-b">3.5 - 4.5 GB</td></tr>
+              <tr><td className="p-2 border-b">Windows 10</td><td className="p-2 border-b">2.5 - 3.5 GB</td></tr>
+              <tr><td className="p-2 border-b">Ubuntu (GNOME)</td><td className="p-2 border-b">1.2 - 1.8 GB</td></tr>
+              <tr><td className="p-2 border-b">Xubuntu (Xfce)</td><td className="p-2 border-b">600 - 900 MB</td></tr>
+              <tr><td className="p-2 border-b">Lubuntu (LXQt)</td><td className="p-2 border-b">400 - 600 MB</td></tr>
+              <tr><td className="p-2 border-b">antiX (IceWM)</td><td className="p-2 border-b">150 - 250 MB</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Ressuscite Seu PC Antigo</h3>
+          <p className="text-muted-foreground mb-0">Instalamos a melhor distro Linux para o seu hardware antigo. Seu computador volta a funcionar sem gastar com equipamento novo.</p>
+        </div>
+      </>
+    ),
+  },
+  "inteligencia-artificial-evolucao-historia": {
+    title: "A Evolução da Inteligência Artificial: De Turing ao ChatGPT",
+    excerpt: "Uma jornada pela história da IA.",
+    date: "2026-04-13",
+    readTime: "13 min",
+    category: "Inteligência Artificial",
+    content: (
+      <>
+        <p className="lead">A Inteligência Artificial não nasceu com o ChatGPT. São <strong>mais de 70 anos de pesquisa</strong>, desde os primeiros conceitos teóricos até os modelos generativos que transformam o mundo em 2026. Conheça essa história fascinante.</p>
+
+        <h2>1950 — O Teste de Turing</h2>
+        <p>Alan Turing publicou o artigo "Computing Machinery and Intelligence", propondo a pergunta: <strong>"As máquinas podem pensar?"</strong>. O Teste de Turing propõe que uma máquina é "inteligente" se um humano não conseguir distinguir suas respostas das de outro humano. Esse conceito guia a pesquisa em IA até hoje.</p>
+
+        <h2>1956 — Nasce o Termo "Inteligência Artificial"</h2>
+        <p>Na conferência de Dartmouth, John McCarthy cunhou oficialmente o termo. Pesquisadores acreditavam que em 20 anos teríamos máquinas tão inteligentes quanto humanos. Estavam otimistas demais — mas a semente foi plantada.</p>
+
+        <h2>1960-1970 — Primeiros Sistemas Especialistas</h2>
+        <p>Programas como ELIZA (1966) simulavam conversas terapêuticas. DENDRAL (1969) analisava estruturas moleculares. Eram sistemas baseados em regras — "se X, então Y" — sem aprendizado real.</p>
+
+        <h2>1980-1990 — O Inverno da IA</h2>
+        <p>Expectativas irreais levaram a cortes de financiamento. A IA ficou "adormecida" por quase duas décadas, com avanços lentos em redes neurais e processamento de linguagem natural.</p>
+
+        <h2>1997 — Deep Blue Vence Kasparov</h2>
+        <p>O computador da IBM derrotou o campeão mundial de xadrez Garry Kasparov. Não era IA no sentido moderno (era força bruta computacional), mas mostrou ao mundo que <strong>máquinas podiam superar humanos em tarefas complexas</strong>.</p>
+
+        <h2>2012 — A Revolução do Deep Learning</h2>
+        <p>A rede neural AlexNet venceu a competição ImageNet com precisão inédita. Isso inaugurou a era do <strong>deep learning</strong> — redes neurais profundas treinadas com grandes volumes de dados. GPU (placas de vídeo) se tornaram essenciais para treinar modelos.</p>
+
+        <h2>2017 — Transformers Mudam Tudo</h2>
+        <p>O artigo "Attention Is All You Need" do Google introduziu a arquitetura <strong>Transformer</strong>, base de todos os grandes modelos de linguagem atuais: GPT, BERT, LLaMA, Gemini. Essa arquitetura permitiu processar texto de forma paralela, acelerando o treinamento exponencialmente.</p>
+
+        <h2>2022-2026 — A Era Generativa</h2>
+        <ul>
+          <li><strong>ChatGPT (2022)</strong> — democratizou o acesso à IA conversacional</li>
+          <li><strong>GPT-4 (2023)</strong> — multimodal (texto + imagem), raciocínio avançado</li>
+          <li><strong>Midjourney / DALL-E</strong> — geração de imagens por texto</li>
+          <li><strong>GPT-5 (2025)</strong> — agentes autônomos, raciocínio longo</li>
+          <li><strong>Gemini 2.5 (2026)</strong> — contexto de 1 milhão de tokens, multimodal nativo</li>
+          <li><strong>IA em dispositivos</strong> — modelos rodando localmente em celulares e PCs</li>
+        </ul>
+
+        <h2>O Que Vem Pela Frente</h2>
+        <p>A tendência aponta para <strong>agentes de IA</strong> que executam tarefas complexas de forma autônoma: navegar na web, escrever código, gerenciar e-mails. A IA está saindo do "responder perguntas" para "executar ações no mundo real".</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Quer Usar IA no Seu Negócio?</h3>
+          <p className="text-muted-foreground mb-0">Ajudamos empresas de Curitiba a implementar ferramentas de IA para produtividade, atendimento e automação.</p>
+        </div>
+      </>
+    ),
+  },
+  "como-usar-ia-no-dia-a-dia-dicas-praticas": {
+    title: "Como Usar IA no Dia a Dia: 15 Dicas Práticas Para Trabalho e Estudo",
+    excerpt: "Dicas práticas de IA para o cotidiano.",
+    date: "2026-04-13",
+    readTime: "12 min",
+    category: "Inteligência Artificial",
+    content: (
+      <>
+        <p className="lead">A IA já não é coisa do futuro — é ferramenta do presente. <strong>Quem não usa, está ficando para trás.</strong> Veja 15 formas práticas de usar inteligência artificial no trabalho, nos estudos e no dia a dia.</p>
+
+        <h2>No Trabalho</h2>
+        <h3>1. Resumir Documentos Longos</h3>
+        <p>Cole um PDF, relatório ou artigo no ChatGPT ou Gemini e peça: "Resuma este documento em 5 pontos principais". Economiza horas de leitura.</p>
+
+        <h3>2. Escrever E-mails Profissionais</h3>
+        <p>"Escreva um e-mail educado recusando uma proposta comercial, agradecendo o interesse." A IA ajusta tom, formalidade e estrutura.</p>
+
+        <h3>3. Criar Planilhas e Fórmulas</h3>
+        <p>"Crie uma fórmula Excel que calcule a comissão de 5% sobre vendas acima de R$ 10.000." Funciona com PROCV, SE, SOMASES e qualquer complexidade.</p>
+
+        <h3>4. Analisar Dados</h3>
+        <p>O ChatGPT com Code Interpreter analisa arquivos CSV, cria gráficos e identifica tendências. "Analise esta planilha de vendas e mostre os 3 melhores meses."</p>
+
+        <h3>5. Automatizar Tarefas Repetitivas</h3>
+        <p>Use o Microsoft Copilot no Word, Excel e PowerPoint para gerar conteúdo, formatar documentos e criar apresentações com um clique.</p>
+
+        <h2>Nos Estudos</h2>
+        <h3>6. Explicar Conceitos Difíceis</h3>
+        <p>"Explique cálculo integral como se eu tivesse 15 anos." A IA adapta a explicação ao seu nível de conhecimento.</p>
+
+        <h3>7. Criar Flashcards e Resumos</h3>
+        <p>"Crie 20 flashcards sobre a Segunda Guerra Mundial para vestibular." Perfeito para revisão rápida.</p>
+
+        <h3>8. Corrigir e Melhorar Textos</h3>
+        <p>Cole sua redação e peça: "Corrija erros gramaticais, melhore a coesão e sugira vocabulário mais sofisticado."</p>
+
+        <h3>9. Simular Entrevistas e Provas</h3>
+        <p>"Faça 10 perguntas de entrevista para vaga de analista financeiro." Ou: "Crie uma prova de biologia sobre genética."</p>
+
+        <h2>No Dia a Dia</h2>
+        <h3>10. Planejar Viagens</h3>
+        <p>"Monte um roteiro de 5 dias em Lisboa com orçamento de R$ 5.000 incluindo passagens." A IA sugere voos, hotéis, restaurantes e pontos turísticos.</p>
+
+        <h3>11. Receitas com o Que Tem na Geladeira</h3>
+        <p>"Tenho frango, batata, cebola e creme de leite. Qual receita posso fazer?" Personalizado e instantâneo.</p>
+
+        <h3>12. Tradução Contextual</h3>
+        <p>Muito superior ao Google Tradutor para textos longos. A IA entende contexto, gírias e expressões idiomáticas.</p>
+
+        <h3>13. Gerar Imagens</h3>
+        <p>DALL-E, Midjourney e Gemini geram imagens a partir de descrições textuais. Útil para posts de redes sociais, apresentações e projetos criativos.</p>
+
+        <h3>14. Assistente de Saúde (Informativo)</h3>
+        <p>"Quais alimentos ajudam a reduzir colesterol?" A IA não substitui médico, mas é excelente para informação inicial e educação em saúde.</p>
+
+        <h3>15. Programação e Automação</h3>
+        <p>Mesmo sem saber programar, você pode pedir: "Crie um script Python que renomeie todos os arquivos de uma pasta adicionando a data." A IA gera código funcional em segundos.</p>
+
+        <h2>Melhores Ferramentas Gratuitas</h2>
+        <ul>
+          <li><strong>ChatGPT</strong> — versão gratuita com GPT-4o mini</li>
+          <li><strong>Google Gemini</strong> — integrado ao Google Workspace</li>
+          <li><strong>Microsoft Copilot</strong> — integrado ao Edge e Office</li>
+          <li><strong>Claude</strong> — excelente para textos longos e análise</li>
+          <li><strong>Perplexity</strong> — pesquisa com fontes citadas</li>
+        </ul>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Treinamento de IA Para Empresas</h3>
+          <p className="text-muted-foreground mb-0">Oferecemos consultoria e treinamento para equipes que querem integrar IA na rotina de trabalho. Presencial em Curitiba ou remoto.</p>
+        </div>
+      </>
+    ),
+  },
+  "melhores-ferramentas-ia-gratuitas-2026": {
+    title: "Melhores Ferramentas de IA Gratuitas em 2026",
+    excerpt: "Lista curada de IAs gratuitas.",
+    date: "2026-04-13",
+    readTime: "10 min",
+    category: "Inteligência Artificial",
+    content: (
+      <>
+        <p className="lead">Você não precisa pagar para usar IA de qualidade. Em 2026, as melhores ferramentas oferecem planos gratuitos surpreendentemente capazes. Aqui está a <strong>lista definitiva organizada por categoria</strong>.</p>
+
+        <h2>Texto e Conversação</h2>
+        <ul>
+          <li><strong>ChatGPT (OpenAI)</strong> — GPT-4o mini gratuito, com limite generoso. O mais versátil.</li>
+          <li><strong>Google Gemini</strong> — Gemini 2.5 Flash gratuito. Excelente para pesquisa e textos longos.</li>
+          <li><strong>Microsoft Copilot</strong> — Baseado em GPT-4, gratuito no Edge. Gera imagens também.</li>
+          <li><strong>Claude (Anthropic)</strong> — Janela de contexto enorme. Melhor para análise de documentos longos.</li>
+          <li><strong>Perplexity AI</strong> — Pesquisa com IA que cita fontes. Substitui o Google para pesquisas complexas.</li>
+        </ul>
+
+        <h2>Geração de Imagens</h2>
+        <ul>
+          <li><strong>Microsoft Designer (DALL-E 3)</strong> — Gratuito via Copilot. Qualidade profissional.</li>
+          <li><strong>Leonardo.ai</strong> — 150 créditos/dia gratuitos. Modelos diversos.</li>
+          <li><strong>Ideogram</strong> — Excelente para texto em imagens (logotipos, banners).</li>
+          <li><strong>Stable Diffusion (local)</strong> — 100% gratuito, roda no seu PC com GPU.</li>
+        </ul>
+
+        <h2>Código e Programação</h2>
+        <ul>
+          <li><strong>GitHub Copilot Free</strong> — Autocomplete de código em VS Code. Gratuito para uso pessoal.</li>
+          <li><strong>Codeium</strong> — Alternativa gratuita ao Copilot, sem limitações.</li>
+          <li><strong>Replit AI</strong> — IDE online com IA integrada para prototipar rápido.</li>
+          <li><strong>ChatGPT / Claude</strong> — Excelentes para explicar código, debugar e converter entre linguagens.</li>
+        </ul>
+
+        <h2>Áudio e Vídeo</h2>
+        <ul>
+          <li><strong>ElevenLabs</strong> — Síntese de voz com qualidade humana. 10.000 caracteres/mês grátis.</li>
+          <li><strong>Whisper (OpenAI)</strong> — Transcrição de áudio para texto. Open source e gratuito.</li>
+          <li><strong>CapCut</strong> — Edição de vídeo com legendas automáticas por IA.</li>
+          <li><strong>Suno.ai</strong> — Geração de músicas com IA a partir de texto.</li>
+        </ul>
+
+        <h2>Produtividade</h2>
+        <ul>
+          <li><strong>Notion AI</strong> — Resumos, brainstorm e organização integrados ao Notion.</li>
+          <li><strong>Gamma.app</strong> — Gera apresentações profissionais a partir de um prompt.</li>
+          <li><strong>Canva Magic</strong> — IA integrada para design (remover fundo, gerar imagens, redimensionar).</li>
+          <li><strong>Otter.ai</strong> — Transcreve reuniões em tempo real.</li>
+        </ul>
+
+        <h2>Tabela Resumo</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Ferramenta</th><th className="text-left p-2 border-b">Categoria</th><th className="text-left p-2 border-b">Limite Gratuito</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">ChatGPT</td><td className="p-2 border-b">Texto</td><td className="p-2 border-b">Ilimitado (GPT-4o mini)</td></tr>
+              <tr><td className="p-2 border-b">Gemini</td><td className="p-2 border-b">Texto</td><td className="p-2 border-b">Ilimitado (Flash)</td></tr>
+              <tr><td className="p-2 border-b">Leonardo.ai</td><td className="p-2 border-b">Imagem</td><td className="p-2 border-b">150 créditos/dia</td></tr>
+              <tr><td className="p-2 border-b">Copilot Free</td><td className="p-2 border-b">Código</td><td className="p-2 border-b">2000 completions/mês</td></tr>
+              <tr><td className="p-2 border-b">ElevenLabs</td><td className="p-2 border-b">Áudio</td><td className="p-2 border-b">10k chars/mês</td></tr>
+              <tr><td className="p-2 border-b">Gamma.app</td><td className="p-2 border-b">Apresentação</td><td className="p-2 border-b">10 decks</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Configuração de IA no Seu Computador</h3>
+          <p className="text-muted-foreground mb-0">Instalamos e configuramos ferramentas de IA no seu PC, incluindo modelos locais como Stable Diffusion e LLMs via Ollama.</p>
+        </div>
+      </>
+    ),
+  },
+  "ia-para-pequenas-empresas-como-comecar": {
+    title: "IA Para Pequenas Empresas: Como Começar Sem Gastar Muito",
+    excerpt: "Automação e IA acessível para pequenos negócios.",
+    date: "2026-04-13",
+    readTime: "11 min",
+    category: "Inteligência Artificial",
+    content: (
+      <>
+        <p className="lead">Você não precisa ser uma big tech para usar IA. <strong>Pequenas empresas de Curitiba</strong> já estão usando inteligência artificial para atender clientes, criar conteúdo e analisar dados — muitas vezes de graça.</p>
+
+        <h2>1. Atendimento ao Cliente com Chatbots</h2>
+        <p>Ferramentas como <strong>Tidio</strong>, <strong>ManyChat</strong> e <strong>Chatfuel</strong> permitem criar chatbots para WhatsApp e Instagram que respondem perguntas frequentes 24/7. Resultado: menos tempo respondendo as mesmas perguntas, mais tempo vendendo.</p>
+        <p><strong>Custo:</strong> Gratuito até certo volume, planos a partir de R$ 50/mês.</p>
+
+        <h2>2. Geração de Conteúdo Para Redes Sociais</h2>
+        <p>Use ChatGPT ou Gemini para criar legendas, carrosséis e ideias de posts. Combine com Canva (que tem IA integrada) para gerar artes profissionais em minutos. Uma semana de conteúdo que levava 8 horas agora leva 2.</p>
+
+        <h2>3. E-mail Marketing Inteligente</h2>
+        <p>Plataformas como <strong>Mailchimp</strong> e <strong>Brevo</strong> usam IA para otimizar horários de envio, segmentar listas e escrever assuntos que aumentam a taxa de abertura.</p>
+
+        <h2>4. Análise de Dados e Relatórios</h2>
+        <p>Cole sua planilha de vendas no ChatGPT e peça: "Identifique os 5 produtos mais vendidos, o mês com maior faturamento e a tendência dos últimos 6 meses." Insights que custariam horas com um analista.</p>
+
+        <h2>5. Transcrição de Reuniões</h2>
+        <p><strong>Otter.ai</strong> e <strong>Fireflies.ai</strong> transcrevem reuniões do Zoom/Google Meet automaticamente, geram resumos e listam tarefas pendentes.</p>
+
+        <h2>6. Automatização de Processos</h2>
+        <p>Use <strong>Zapier</strong> ou <strong>Make</strong> com módulos de IA para automatizar fluxos: "Quando receber um e-mail com fatura, extraia o valor e adicione à planilha automaticamente."</p>
+
+        <h2>Quanto Custa Implementar IA?</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr><th className="text-left p-2 border-b">Solução</th><th className="text-left p-2 border-b">Investimento</th><th className="text-left p-2 border-b">Economia Estimada</th></tr></thead>
+            <tbody>
+              <tr><td className="p-2 border-b">Chatbot WhatsApp</td><td className="p-2 border-b">R$ 0-150/mês</td><td className="p-2 border-b">4-6h/semana</td></tr>
+              <tr><td className="p-2 border-b">IA para conteúdo</td><td className="p-2 border-b">R$ 0-100/mês</td><td className="p-2 border-b">6-10h/semana</td></tr>
+              <tr><td className="p-2 border-b">Transcrição de reuniões</td><td className="p-2 border-b">R$ 0-80/mês</td><td className="p-2 border-b">2-3h/semana</td></tr>
+              <tr><td className="p-2 border-b">Automação (Zapier)</td><td className="p-2 border-b">R$ 0-200/mês</td><td className="p-2 border-b">5-8h/semana</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Por Onde Começar?</h2>
+        <ol>
+          <li><strong>Identifique tarefas repetitivas</strong> — o que consome mais tempo da equipe?</li>
+          <li><strong>Comece com gratuitos</strong> — ChatGPT, Gemini, Canva Free</li>
+          <li><strong>Meça resultados</strong> — horas economizadas, leads gerados, satisfação do cliente</li>
+          <li><strong>Escale gradualmente</strong> — invista em planos pagos apenas quando o ROI for claro</li>
+        </ol>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Consultoria de IA Para Sua Empresa</h3>
+          <p className="text-muted-foreground mb-0">Ajudamos pequenas empresas de Curitiba a implementar IA de forma prática e acessível. Do diagnóstico à execução.</p>
+        </div>
+      </>
+    ),
+  },
+  "ia-substituir-empregos-mitos-verdades": {
+    title: "A IA Vai Substituir Empregos? Mitos, Verdades e Como Se Preparar",
+    excerpt: "O que a pesquisa mostra sobre IA e empregos.",
+    date: "2026-04-13",
+    readTime: "10 min",
+    category: "Inteligência Artificial",
+    content: (
+      <>
+        <p className="lead">"A IA vai tirar meu emprego?" é a pergunta mais comum de 2026. A resposta honesta: <strong>depende</strong>. Alguns empregos vão desaparecer, outros vão se transformar, e muitos novos serão criados. Veja o que sabemos.</p>
+
+        <h2>O Que a IA Já Substituiu</h2>
+        <ul>
+          <li><strong>Atendentes de telemarketing</strong> — chatbots e URAs inteligentes já lidam com 60-80% dos chamados</li>
+          <li><strong>Tradutores de textos simples</strong> — DeepL e Google Tradutor são suficientes para documentos padrão</li>
+          <li><strong>Digitadores e data entry</strong> — OCR e automação eliminaram boa parte dessas funções</li>
+          <li><strong>Caixas de supermercado</strong> — self-checkout e apps de compra</li>
+        </ul>
+
+        <h2>O Que a IA NÃO Vai Substituir (Tão Cedo)</h2>
+        <ul>
+          <li><strong>Trabalhos manuais especializados</strong> — eletricistas, encanadores, técnicos de manutenção</li>
+          <li><strong>Profissões de empatia</strong> — enfermeiros, psicólogos, assistentes sociais</li>
+          <li><strong>Criatividade estratégica</strong> — diretores criativos, designers de experiência, estrategistas</li>
+          <li><strong>Tomada de decisão complexa</strong> — gestores, advogados, médicos (IA ajuda, mas não decide)</li>
+          <li><strong>Trabalhos físicos não-padronizados</strong> — construção civil, jardinagem, manutenção predial</li>
+        </ul>
+
+        <h2>O Que Está se Transformando</h2>
+        <p>A maioria das profissões não será substituída — será <strong>aumentada</strong> pela IA:</p>
+        <ul>
+          <li><strong>Programadores</strong> — Copilot gera código, mas o desenvolvedor ainda arquiteta, revisa e decide</li>
+          <li><strong>Designers</strong> — IA gera rascunhos, mas o designer refina, ajusta e cria identidade</li>
+          <li><strong>Contadores</strong> — IA automatiza lançamentos, mas o contador interpreta, planeja e orienta</li>
+          <li><strong>Jornalistas</strong> — IA redige notícias factuais, mas investigação e análise permanecem humanas</li>
+        </ul>
+
+        <h2>Novas Profissões Criadas pela IA</h2>
+        <ul>
+          <li><strong>Engenheiro de Prompts</strong> — especialista em extrair o melhor das IAs</li>
+          <li><strong>Treinador de IA</strong> — prepara e valida dados para modelos</li>
+          <li><strong>Auditor de IA</strong> — verifica viés, ética e conformidade</li>
+          <li><strong>Consultor de Automação com IA</strong> — implementa soluções em empresas</li>
+          <li><strong>Curador de Conteúdo IA</strong> — edita e valida conteúdo gerado por IA</li>
+        </ul>
+
+        <h2>Como Se Preparar</h2>
+        <ol>
+          <li><strong>Aprenda a usar IA como ferramenta</strong> — quem usa IA produz 2-3x mais que quem não usa</li>
+          <li><strong>Desenvolva habilidades complementares</strong> — pensamento crítico, comunicação, liderança</li>
+          <li><strong>Especialize-se</strong> — conhecimento profundo é mais difícil de automatizar que tarefas genéricas</li>
+          <li><strong>Fique atualizado</strong> — a tecnologia muda rápido, quem para de aprender fica para trás</li>
+          <li><strong>Foque em resolver problemas</strong> — a IA executa tarefas, mas entender o problema ainda é humano</li>
+        </ol>
+
+        <h2>A Perspectiva Realista</h2>
+        <p>A cada revolução tecnológica (máquina a vapor, eletricidade, internet), empregos desapareceram e novos surgiram. Com a IA não será diferente. A diferença é a <strong>velocidade</strong> — a adaptação precisa ser mais rápida do que nunca.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Atualize Seus Conhecimentos</h3>
+          <p className="text-muted-foreground mb-0">Oferecemos treinamentos práticos de IA para profissionais e empresas em Curitiba. Aprenda a usar as ferramentas que estão transformando o mercado.</p>
+        </div>
+      </>
+    ),
+  },
   "computador-lento-causas-solucoes": {
     title: "Computador Lento: 12 Causas Reais e Como Resolver (Guia Técnico 2026)",
     excerpt: "Descubra as 12 causas mais comuns de lentidão e o que realmente funciona.",

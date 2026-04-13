@@ -146,6 +146,19 @@ const localBusinessSchema = {
     "Instalação de câmeras CFTV",
     "Montagem de computadores",
     "Backup e recuperação de dados"
+  ],
+  "hasMap": "https://www.google.com/maps?cid=tecnicocuritiba",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Visita Técnica",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "69.99",
+        "priceCurrency": "BRL",
+        "minPrice": "69.99"
+      }
+    }
   ]
 };
 

@@ -11,7 +11,7 @@ export const PricingBanner = () => {
             Visita técnica a partir de <span className="text-accent">R$ 69,99</span>
           </p>
           <p className="text-muted-foreground text-sm">
-            Diagnóstico com coleta: taxa de R$ 90 em caso de desistência. 
+            Orçamento estimado grátis pelo WhatsApp — rápido e sem compromisso.
             <Link to="/valores" className="text-accent hover:underline ml-1">
               Ver detalhes →
             </Link>

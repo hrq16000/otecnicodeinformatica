@@ -30,7 +30,11 @@ const UpgradeSsdMemoria = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Upgrade SSD e Memória RAM em Curitiba | Notebook e PC - Técnico Curitiba" description="Upgrade de SSD e memória RAM em Curitiba. Deixe seu notebook ou PC até 10x mais rápido. Instalação profissional com garantia. Atendimento domiciliar." path="/servicos/upgrade-ssd-memoria" />
+      <PageSEO title="Upgrade SSD e Memória RAM em Curitiba | Notebook e PC - Técnico Curitiba" description="Upgrade de SSD e memória RAM em Curitiba. Deixe seu notebook ou PC até 10x mais rápido. Instalação profissional com garantia. Atendimento domiciliar." path="/servicos/upgrade-ssd-memoria"  breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Upgrade SSD/Memória", path: "/servicos/upgrade-ssd-memoria" }
+      ]} />
       <Header />
       <Breadcrumbs
         items={[

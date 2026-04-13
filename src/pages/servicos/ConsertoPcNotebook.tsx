@@ -31,7 +31,11 @@ const ConsertoPcNotebook = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Conserto de PC e Notebook em Curitiba | Hardware - Técnico Curitiba" description="Conserto de computador e notebook em Curitiba. Reparo de hardware, placa-mãe, fonte, tela, teclado. Diagnóstico com coleta e entrega. Garantia." path="/servicos/conserto-pc-notebook" />
+      <PageSEO title="Conserto de PC e Notebook em Curitiba | Hardware - Técnico Curitiba" description="Conserto de computador e notebook em Curitiba. Reparo de hardware, placa-mãe, fonte, tela, teclado. Diagnóstico com coleta e entrega. Garantia." path="/servicos/conserto-pc-notebook"  breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Conserto PC/Notebook", path: "/servicos/conserto-pc-notebook" }
+      ]} />
       <Header />
       <Breadcrumbs
         items={[

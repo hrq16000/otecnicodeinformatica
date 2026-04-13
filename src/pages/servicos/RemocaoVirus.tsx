@@ -30,7 +30,11 @@ const RemocaoVirus = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Remoção de Vírus em Curitiba | Malware, Ransomware - Técnico Curitiba" description="Remoção de vírus, malware, ransomware e spyware em Curitiba. Limpeza completa do computador. Atendimento domiciliar. Suporte remoto disponível." path="/servicos/remocao-virus" />
+      <PageSEO title="Remoção de Vírus em Curitiba | Malware, Ransomware - Técnico Curitiba" description="Remoção de vírus, malware, ransomware e spyware em Curitiba. Limpeza completa do computador. Atendimento domiciliar. Suporte remoto disponível." path="/servicos/remocao-virus"  breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Remoção de Vírus", path: "/servicos/remocao-virus" }
+      ]} />
       <Header />
       <Breadcrumbs
         items={[

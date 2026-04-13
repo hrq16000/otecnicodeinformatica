@@ -30,7 +30,11 @@ const RedesWifi = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Configuração de Redes e Wi-Fi em Curitiba | Técnico Curitiba" description="Configuração de redes Wi-Fi em Curitiba. Instalação de roteadores, repetidores, extensores. Internet lenta? Resolvemos! Atendimento domiciliar." path="/servicos/redes-wifi" />
+      <PageSEO title="Configuração de Redes e Wi-Fi em Curitiba | Técnico Curitiba" description="Configuração de redes Wi-Fi em Curitiba. Instalação de roteadores, repetidores, extensores. Internet lenta? Resolvemos! Atendimento domiciliar." path="/servicos/redes-wifi"  breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Redes e Wi-Fi", path: "/servicos/redes-wifi" }
+      ]} />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Redes e Wi-Fi" }]} />
       

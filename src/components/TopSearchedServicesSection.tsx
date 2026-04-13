@@ -197,7 +197,7 @@ export const TopSearchedServicesSection = () => {
     }));
   }, [geoState, closestCity, showAll, userCoords]);
 
-  const gridCols = citiesToShow.length <= 3 ? "md:grid-cols-3" : "md:grid-cols-5";
+  const gridCols = citiesToShow.length <= 3 ? "md:grid-cols-3" : "md:grid-cols-3 lg:grid-cols-4";
 
   return (
     <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background relative overflow-hidden noise-overlay">

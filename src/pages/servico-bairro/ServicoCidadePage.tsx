@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
   CheckCircle, Clock, Shield, MessageCircle, 
-  MapPin, Star, ChevronDown, AlertTriangle
+  MapPin, Star, ChevronDown, AlertTriangle, Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
@@ -31,7 +31,6 @@ const ServicoCidadePage = () => {
         `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio no mesmo dia. Sem sair de casa. WhatsApp: (41) 99745-2053.`
       );
     }
-    // Set canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
       canonical = document.createElement("link");
@@ -39,19 +38,14 @@ const ServicoCidadePage = () => {
       document.head.appendChild(canonical);
     }
     canonical.href = `https://tecnicocuritiba.com.br/servicos/${servicoSlug}/${cidadeSlug}`;
-
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
   }, [servico, cidade, servicoSlug, cidadeSlug]);
 
   if (!servico || !cidade) return <NotFound />;
 
   const isSemVisita = servico.slug === "conserto-tv" || servico.slug === "conserto-celular";
-
   const faqs = getFaqPorServico(servico.slug, cidade.nome);
-
-  const waMessage = encodeURIComponent(
-    `Olá! Preciso de ${servico.nome} em ${cidade.nome}. Podem me atender hoje?`
-  );
+  const waMessage = encodeURIComponent(`Olá! Preciso de ${servico.nome} em ${cidade.nome}. Podem me atender hoje?`);
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
 
   const handleWhatsAppClick = () => {
@@ -59,8 +53,6 @@ const ServicoCidadePage = () => {
     window.open(waLink, "_blank");
   };
 
-
-  // JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -71,22 +63,14 @@ const ServicoCidadePage = () => {
         "url": "https://tecnicocuritiba.com.br",
         "areaServed": cidade.nome,
         "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": cidade.nome,
-          "addressRegion": "PR",
-          "addressCountry": "BR"
-        }
+        "address": { "@type": "PostalAddress", addressLocality: cidade.nome, addressRegion: "PR", addressCountry: "BR" }
       },
       {
         "@type": "FAQPage",
         "mainEntity": faqs.map(f => ({
           "@type": "Question",
           "name": f.pergunta,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": f.resposta
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": f.resposta }
         }))
       }
     ]
@@ -106,11 +90,7 @@ const ServicoCidadePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <Breadcrumbs
         items={[
@@ -120,20 +100,26 @@ const ServicoCidadePage = () => {
         ]}
       />
 
-      {/* Hero */}
-      <section className="pt-10 pb-10 hero-gradient">
-        <div className="container mx-auto px-4">
+      {/* ═══ HERO — Premium with glow blobs ═══ */}
+      <section className="relative pt-10 pb-10 hero-gradient overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-breathe" />
+          <div className="absolute bottom-1/3 left-1/5 w-56 h-56 bg-primary/8 rounded-full blur-[80px] animate-breathe" style={{ animationDelay: '2s' }} />
+        </div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
-              <MapPin className="h-5 w-5" />
-              <span className="font-medium">{cidade.nome}, PR</span>
+            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
+              <MapPin className="h-4 w-4" />
+              <span className="font-medium text-sm">{cidade.nome}, PR</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
               {servico.nome} em {cidade.nome}{isSemVisita ? " – Orçamento sem Compromisso" : " – Técnico a Domicílio"}
             </h1>
 
-            <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               {isSemVisita 
                 ? `Orçamento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
                 : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
@@ -141,7 +127,7 @@ const ServicoCidadePage = () => {
             </p>
 
             {isSemVisita && (
-              <div className="bg-white/10 rounded-xl p-4 mb-6 max-w-lg mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-4 mb-6 max-w-lg mx-auto">
                 <div className="flex items-center gap-2 text-accent mb-2">
                   <AlertTriangle className="h-5 w-5" />
                   <span className="font-bold text-sm">IMPORTANTE</span>
@@ -152,24 +138,17 @@ const ServicoCidadePage = () => {
               </div>
             )}
 
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {isSemVisita ? (
-                <>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Sem compromisso</span>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Todas as marcas</span>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Garantia</span>
-                </>
-              ) : (
-                <>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Mesmo dia</span>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Sem sair de casa</span>
-                  <span className="bg-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">✓ Orçamento grátis</span>
-                </>
-              )}
+            <div className="flex flex-wrap justify-center gap-3 mb-8 reveal-text" data-reveal-delay="200">
+              {(isSemVisita 
+                ? [["✓ Sem compromisso"], ["✓ Todas as marcas"], ["✓ Garantia"]]
+                : [["✓ Mesmo dia"], ["✓ Sem sair de casa"], ["✓ Orçamento grátis"]]
+              ).map(([text], i) => (
+                <span key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">{text}</span>
+              ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="300">
+              <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 {isSemVisita ? "Solicitar Orçamento" : "Chamar pelo WhatsApp"}
               </Button>
@@ -178,13 +157,20 @@ const ServicoCidadePage = () => {
         </div>
       </section>
 
-      {/* Benefícios */}
-      <section className="py-10 bg-background">
-        <div className="container mx-auto px-4">
+      {/* ═══ Benefits with hover effects ═══ */}
+      <section className="py-10 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/[0.03] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {beneficios.map((b, i) => (
-              <div key={i} className="text-center p-6 bg-secondary rounded-xl">
-                <b.icon className="h-10 w-10 text-accent mx-auto mb-4" />
+              <div 
+                key={i} 
+                className="text-center p-6 bg-secondary rounded-xl border border-border hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group stagger-item"
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
+                <div className="bg-accent/10 rounded-full p-3 w-fit mx-auto mb-4 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                  <b.icon className="h-8 w-8 text-accent" />
+                </div>
                 <h3 className="font-bold text-foreground mb-2">{b.titulo}</h3>
                 <p className="text-sm text-muted-foreground">{b.descricao}</p>
               </div>
@@ -195,10 +181,11 @@ const ServicoCidadePage = () => {
 
       <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="tecnicoTrabalhando" layout="duo" caption={`Técnico em atendimento a domicílio em ${cidade.nome}`} secondaryCaption="Diagnóstico profissional no local" />
 
-      {/* Como Funciona */}
-      <section className="py-10 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-6">
+      {/* ═══ Process steps with animated numbers ═══ */}
+      <section className="py-10 bg-secondary relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/[0.03] rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
             Como Funciona o Atendimento em {cidade.nome}
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -207,8 +194,12 @@ const ServicoCidadePage = () => {
               { step: "2", titulo: "Agendamento Rápido", desc: `Definimos o melhor horário para ir até você em ${cidade.nome}` },
               { step: "3", titulo: "Serviço Concluído", desc: "Técnico resolve no local com garantia. Você acompanha tudo" },
             ].map((p, i) => (
-              <div key={i} className="text-center p-6 bg-background rounded-xl">
-                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              <div 
+                key={i} 
+                className="text-center p-6 bg-background rounded-xl border border-border hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 group stagger-item"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] transition-all duration-300">
                   {p.step}
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{p.titulo}</h3>
@@ -219,15 +210,20 @@ const ServicoCidadePage = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-10 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-6">
+      {/* ═══ FAQ with glass cards ═══ */}
+      <section className="py-10 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-1/3 w-72 h-72 bg-accent/[0.03] rounded-full blur-[100px] pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-8 reveal-text">
             Perguntas Frequentes: {servico.nome} em {cidade.nome}
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((item, index) => (
-              <details key={index} className="group bg-secondary rounded-xl">
+              <details 
+                key={index} 
+                className="group bg-secondary rounded-xl border border-border hover:border-accent/20 transition-colors stagger-item"
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
                 <summary className="flex items-center justify-between p-5 cursor-pointer font-medium text-foreground">
                   {item.pergunta}
                   <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform group-open:rotate-180" />
@@ -241,23 +237,26 @@ const ServicoCidadePage = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-10 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
+      {/* ═══ CTA with glow ═══ */}
+      <section className="relative py-12 hero-gradient overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4 reveal-text">
             Precisa de {servico.nome} em {cidade.nome}?
           </h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 mb-8 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
             Entre em contato agora e agende seu atendimento a domicílio. Respondemos em até 15 minutos.
           </p>
-          <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
+          <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform reveal-text" data-reveal-delay="200">
             <MessageCircle className="mr-2 h-5 w-5" />
             Agendar {servico.nome} em {cidade.nome}
           </Button>
         </div>
       </section>
 
-      {/* Interlinking */}
+      {/* ═══ Interlinking with hover effects ═══ */}
       <ServiceCityLinks servicoSlug={servico.slug} cidadeSlug={cidade.slug} />
 
       <Footer />

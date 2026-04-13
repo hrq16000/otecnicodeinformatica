@@ -197,7 +197,7 @@ export const TopSearchedServicesSection = () => {
     }));
   }, [geoState, closestCity, showAll, userCoords]);
 
-  const gridCols = citiesToShow.length <= 3 ? "md:grid-cols-3" : "md:grid-cols-5";
+  const gridCols = citiesToShow.length <= 3 ? "md:grid-cols-3" : "md:grid-cols-3 lg:grid-cols-4";
 
   return (
     <section className="py-14 md:py-20 bg-gradient-to-b from-muted to-background relative overflow-hidden noise-overlay">
@@ -292,22 +292,24 @@ export const TopSearchedServicesSection = () => {
             )}
           </div>
 
-          <div className={`grid ${gridCols} gap-6`}>
+          <div className={`grid grid-cols-2 ${gridCols} gap-3 md:gap-4`}>
             {citiesToShow.map((city, index) => (
-              <div key={city.name} className="text-center group slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
+              <div key={city.name} className="rounded-xl border border-border bg-card p-4 hover:border-accent/30 hover:shadow-md transition-all duration-300 slide-up-stagger" style={{ animationDelay: `${index * 60}ms` }}>
                 <Link
                   to={city.url}
-                  className="inline-flex items-center justify-center gap-1.5 text-lg font-bold text-accent hover:text-accent/80 transition-all mb-3 group-hover:scale-105 underline-grow whitespace-nowrap"
+                  className="flex items-center gap-2 text-sm md:text-base font-bold text-accent hover:text-accent/80 transition-all mb-2.5 group"
                 >
-                  <MapPin className="h-4 w-4 flex-shrink-0" />
-                  <span>{city.name}</span>
+                  <div className="w-6 h-6 rounded-md bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                    <MapPin className="h-3 w-3 text-accent" />
+                  </div>
+                  <span className="truncate">{city.name}</span>
                 </Link>
-                <div className="space-y-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {city.bairros.map((bairro, idx) => (
                     <Link
                       key={idx}
                       to={`/bairros/${bairro.slug}`}
-                      className="block text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
+                      className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full hover:text-accent hover:bg-accent/10 transition-colors duration-200"
                     >
                       {bairro.name}
                     </Link>

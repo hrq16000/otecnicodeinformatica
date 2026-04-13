@@ -105,7 +105,12 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} />
+      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: data.servico, path: `/servicos/${data.servicoSlug}` },
+        { name: data.bairro, path: `/servicos/${data.servicoSlug}/${data.bairroSlug}` }
+      ]} />
       <script 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

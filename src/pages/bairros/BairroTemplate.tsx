@@ -165,7 +165,11 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} />
+      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} breadcrumbs={[
+        { name: "Início", path: "/" },
+        { name: `Técnico em ${data.cidade}`, path: getCityLink() },
+        { name: data.nome, path: `/bairros/${data.slug}` }
+      ]} />
       <JsonLdSchema />
       <script
         type="application/ld+json"

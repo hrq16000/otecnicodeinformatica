@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, ArrowRight } from "lucide-react";
-import { problemaPagesData } from "@/lib/problemaPagesData";
+import { problemaSummaries } from "@/lib/problemaSummaries";
 
 const DISPLAY_COUNT = 6;
 

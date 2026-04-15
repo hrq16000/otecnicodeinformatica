@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, ArrowRight } from "lucide-react";
-import { problemaPagesData } from "@/lib/problemaPagesData";
+import { problemaSummaries } from "@/lib/problemaSummaries";
 
 const DISPLAY_COUNT = 6;
 
 export const ProblemasDestaque = () => {
   const problemas = useMemo(() => {
-    const shuffled = [...problemaPagesData].sort(() => Math.random() - 0.5);
+    const shuffled = [...problemaSummaries].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, DISPLAY_COUNT);
   }, []);
 
@@ -45,7 +45,7 @@ export const ProblemasDestaque = () => {
                       {p.h1.replace(/\s*[—–-]\s*Causas.*$/i, "").replace(/\s*em Curitiba$/i, "")}
                     </h3>
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-1 leading-relaxed">
-                      {p.intro.slice(0, 120).replace(/\*\*/g, "").replace(/\n/g, " ").trim()}…
+                      {p.introSnippet}…
                     </p>
                     <span className="text-[10px] text-accent/70 font-medium">{p.categoria}</span>
                   </div>

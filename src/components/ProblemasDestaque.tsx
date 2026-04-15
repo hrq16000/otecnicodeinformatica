@@ -7,7 +7,7 @@ const DISPLAY_COUNT = 6;
 
 export const ProblemasDestaque = () => {
   const problemas = useMemo(() => {
-    const shuffled = [...problemaPagesData].sort(() => Math.random() - 0.5);
+    const shuffled = [...problemaSummaries].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, DISPLAY_COUNT);
   }, []);
 

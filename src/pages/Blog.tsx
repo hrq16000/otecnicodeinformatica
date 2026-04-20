@@ -9,7 +9,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
 import { getUniqueImage } from "@/lib/blogImages";
-import { problemaPagesData } from "@/lib/problemaPagesData";
+import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
   Smartphone, Tv, Wrench, Shield, Wifi, HardDrive, Printer,

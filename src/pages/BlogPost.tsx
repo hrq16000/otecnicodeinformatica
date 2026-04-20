@@ -11,6 +11,7 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
+import { getUniqueImage } from "@/lib/blogImages";
 
 const blogPostsContent: Record<string, {
   title: string;
@@ -9237,6 +9238,16 @@ const BlogPost = () => {
     }
   }, [post, slug]);
 
+  // Compute hero image (Discover requires large 1200px+ image)
+  const heroImage = post?.image
+    ? (typeof post.image === 'string' && post.image.startsWith('http')
+        ? post.image
+        : `https://tecnicocuritiba.com.br${post.image}`)
+    : (slug ? getUniqueImage(slug).replace(/w=\d+/, 'w=1600').replace(/q=\d+/, 'q=80') + '&w=1600&h=900' : '');
+
+  // Compute word count from content (rough estimate via readTime)
+  const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
+
   // Inject BlogPosting + BreadcrumbList structured data
   useEffect(() => {
     if (!post || !slug) return;
@@ -9245,15 +9256,29 @@ const BlogPost = () => {
 
     const blogPostingSchema = {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": post.title,
+      "@type": ["BlogPosting", "Article", "TechArticle"],
+      "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
+      "name": post.title,
       "description": post.excerpt,
-      "datePublished": post.date,
-      "dateModified": post.date,
+      "datePublished": `${post.date}T08:00:00-03:00`,
+      "dateModified": `${post.date}T08:00:00-03:00`,
+      // Discover requires high-res image (min 1200px wide). Provide multiple aspect ratios.
+      "image": [
+        { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
+        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
+        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
+      ],
+      "thumbnailUrl": heroImage,
       "author": {
-        "@type": "Organization",
+        "@type": "Person",
         "name": "Técnico Curitiba",
-        "url": "https://tecnicocuritiba.com.br"
+        "url": "https://tecnicocuritiba.com.br/sobre",
+        "jobTitle": "Técnico de Informática Sênior",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Técnico Curitiba",
+          "url": "https://tecnicocuritiba.com.br"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -9261,7 +9286,9 @@ const BlogPost = () => {
         "url": "https://tecnicocuritiba.com.br",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://tecnicocuritiba.com.br/logo.png"
+          "url": "https://tecnicocuritiba.com.br/logo.png",
+          "width": 600,
+          "height": 60
         }
       },
       "mainEntityOfPage": {
@@ -9270,18 +9297,26 @@ const BlogPost = () => {
       },
       "url": `https://tecnicocuritiba.com.br/blog/${slug}`,
       "inLanguage": "pt-BR",
+      "isAccessibleForFree": true,
       "isPartOf": {
         "@type": "Blog",
         "name": "Blog Técnico Curitiba",
         "url": "https://tecnicocuritiba.com.br/blog"
       },
-      "about": {
-        "@type": "Thing",
-        "name": post.category
-      },
-      "wordCount": 1500,
+      "about": { "@type": "Thing", "name": post.category },
+      "wordCount": wordCount,
+      "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
       "articleSection": post.category,
-      "keywords": `${post.title}, ${post.category}, técnico curitiba, assistência técnica`
+      "articleBody": post.excerpt,
+      "keywords": `${post.title}, ${post.category}, técnico de informática curitiba, assistência técnica curitiba, ${post.category.toLowerCase()} curitiba`,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lead", "article p:first-of-type"]
+      },
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": [`https://tecnicocuritiba.com.br/blog/${slug}`]
+      }
     };
 
     const breadcrumbSchema = {
@@ -9317,20 +9352,33 @@ const BlogPost = () => {
         <title>{post.title} | Blog | Técnico Curitiba</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`https://tecnicocuritiba.com.br/blog/${slug}`} />
         <meta property="og:site_name" content="Técnico Curitiba" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="article:published_time" content={post.date} />
-        <meta property="article:modified_time" content={post.date} />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="900" />
+        <meta property="og:image:alt" content={post.title} />
+        <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
+        <meta property="article:modified_time" content={`${post.date}T08:00:00-03:00`} />
         <meta property="article:section" content={post.category} />
+        <meta property="article:tag" content={post.category} />
         <meta property="article:author" content="Técnico Curitiba" />
+        <meta property="article:publisher" content="https://tecnicocuritiba.com.br" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={heroImage} />
+        <meta name="twitter:image:alt" content={post.title} />
         <meta name="author" content="Técnico Curitiba" />
+        <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />
+        {/* Preload hero image for faster LCP */}
+        <link rel="preload" as="image" href={heroImage} fetchPriority="high" />
       </Helmet>
       <JsonLdSchema />
       <Header />
@@ -9388,19 +9436,21 @@ const BlogPost = () => {
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[100px] pointer-events-none" />
           <div className="container mx-auto relative z-10">
-            {post.image && (
-              <div className="max-w-3xl mx-auto mb-8">
-                <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </AspectRatio>
-              </div>
-            )}
+            {/* Discover-ready hero image: always show large featured image */}
+            <div className="max-w-4xl mx-auto mb-10">
+              <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden shadow-2xl">
+                <img
+                  src={heroImage}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={1600}
+                  height={900}
+                />
+              </AspectRatio>
+            </div>
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
               {post.content}
 

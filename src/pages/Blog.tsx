@@ -9,7 +9,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
 import { getUniqueImage } from "@/lib/blogImages";
-import { problemaPagesData } from "@/lib/problemaPagesData";
+import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
   Smartphone, Tv, Wrench, Shield, Wifi, HardDrive, Printer,
@@ -319,16 +319,16 @@ const Blog = () => {
       date: p.date,
     }));
 
-    const problemaItems: ContentItem[] = problemaPagesData.map((p) => ({
+    const problemaItems: ContentItem[] = problemaSummaries.map((p) => ({
       type: "problema" as const,
       slug: p.slug,
       path: p.slug.startsWith("reflow-") || p.slug.startsWith("reballing-") || p.slug.startsWith("troca-chip-") || p.slug.startsWith("microsoldagem-") || p.slug.startsWith("recapacitacao-")
         ? `/procedimentos/${p.slug}` : `/problemas/${p.slug}`,
       title: p.h1,
-      excerpt: p.intro.slice(0, 180).replace(/\*\*/g, "").replace(/\n/g, " ").trim() + "…",
+      excerpt: p.introSnippet + "…",
       category: p.categoria,
       image: getUniqueImage(`prob-${p.slug}`),
-      gravidade: p.sintomas[0]?.gravidade,
+      gravidade: p.gravidade,
     }));
 
     return [...blogItems, ...problemaItems, ...SERVICO_PAGES];

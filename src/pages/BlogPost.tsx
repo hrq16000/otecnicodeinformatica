@@ -9378,7 +9378,7 @@ const BlogPost = () => {
         <meta name="author" content="Técnico Curitiba" />
         <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />
         {/* Preload hero image for faster LCP */}
-        <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+        <link rel="preload" as="image" href={heroImage} fetchPriority="high" />
       </Helmet>
       <JsonLdSchema />
       <Header />

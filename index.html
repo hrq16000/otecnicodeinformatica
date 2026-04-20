@@ -171,7 +171,16 @@
       ></iframe>
     </noscript>
 
-    <div id="root"></div>
+    <div id="root">
+      <!-- Critical above-the-fold skeleton — replaced when React hydrates -->
+      <section class="hero-critical" aria-label="Carregando">
+        <div class="hero-critical-inner">
+          <span class="hero-badge">⚡ Atendimento no mesmo dia</span>
+          <h1>Técnico de Informática em Curitiba e Região</h1>
+          <p class="hero-sub">Formatação, conserto de PC e notebook, remoção de vírus. Atendimento a domicílio ou remoto, com garantia.</p>
+        </div>
+      </section>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -11,6 +11,7 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
+import { getUniqueImage } from "@/lib/blogImages";
 
 const blogPostsContent: Record<string, {
   title: string;
@@ -9351,20 +9352,33 @@ const BlogPost = () => {
         <title>{post.title} | Blog | Técnico Curitiba</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`https://tecnicocuritiba.com.br/blog/${slug}`} />
         <meta property="og:site_name" content="Técnico Curitiba" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="article:published_time" content={post.date} />
-        <meta property="article:modified_time" content={post.date} />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="900" />
+        <meta property="og:image:alt" content={post.title} />
+        <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
+        <meta property="article:modified_time" content={`${post.date}T08:00:00-03:00`} />
         <meta property="article:section" content={post.category} />
+        <meta property="article:tag" content={post.category} />
         <meta property="article:author" content="Técnico Curitiba" />
+        <meta property="article:publisher" content="https://tecnicocuritiba.com.br" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={heroImage} />
+        <meta name="twitter:image:alt" content={post.title} />
         <meta name="author" content="Técnico Curitiba" />
+        <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />
+        {/* Preload hero image for faster LCP */}
+        <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
       </Helmet>
       <JsonLdSchema />
       <Header />

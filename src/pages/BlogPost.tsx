@@ -9436,19 +9436,21 @@ const BlogPost = () => {
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[100px] pointer-events-none" />
           <div className="container mx-auto relative z-10">
-            {post.image && (
-              <div className="max-w-3xl mx-auto mb-8">
-                <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </AspectRatio>
-              </div>
-            )}
+            {/* Discover-ready hero image: always show large featured image */}
+            <div className="max-w-4xl mx-auto mb-10">
+              <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden shadow-2xl">
+                <img
+                  src={heroImage}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={1600}
+                  height={900}
+                />
+              </AspectRatio>
+            </div>
             <article className="max-w-3xl mx-auto prose prose-lg prose-headings:text-primary prose-headings:font-heading prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground prose-a:text-accent">
               {post.content}
 

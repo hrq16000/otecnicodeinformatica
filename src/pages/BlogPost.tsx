@@ -9221,6 +9221,1328 @@ crontab -e
       </>
     ),
   },
+  "como-deixar-windows-11-mais-rapido-iniciantes": {
+    title: "Como Deixar o Windows 11 Mais Rápido: Guia Para Quem Não Entende de Computador",
+    excerpt: "PC travando? Aprenda passo a passo simples para acelerar o Windows 11 sem mexer em nada perigoso.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Se o seu Windows 11 está lento, travando ou demorando para abrir programas, calma — na maioria das vezes a solução é simples e você mesmo consegue fazer. Este guia foi feito para quem não é técnico: tudo explicado passo a passo, com palavras do dia a dia.</p>
+
+        <h2>1. Reinicie o Computador (Sim, de Verdade)</h2>
+        <p>O Windows 11 acumula 'lixo' na memória conforme você usa. Suspender ou fechar a tampa do notebook NÃO é a mesma coisa que reiniciar.</p>
+        <p>Clique no botão Iniciar (ícone do Windows na barra) → Ligar/Desligar → <strong>Reiniciar</strong>. Espere ele voltar e teste.</p>
+
+        <h2>2. Desligue Programas Que Abrem Sozinhos</h2>
+        <p>Muitos programas se instalam para abrir junto com o Windows e isso deixa tudo lento.</p>
+        <ol>
+          <li>Aperte as teclas <strong>Ctrl + Shift + Esc</strong> ao mesmo tempo (abre o Gerenciador de Tarefas)</li>
+          <li>Clique na aba <strong>Aplicativos de inicialização</strong></li>
+          <li>Veja os que estão como 'Habilitado'</li>
+          <li>Clique com o botão direito nos que você não usa (Spotify, Steam, Skype, OneDrive se não usar) e escolha <strong>Desabilitar</strong></li>
+        </ol>
+
+        <h2>3. Libere Espaço no Disco</h2>
+        <p>Quando o disco fica cheio, o Windows trava. O ideal é ter pelo menos 20% livre.</p>
+        <ol>
+          <li>No campo de busca, digite <strong>Limpeza de Disco</strong> e abra</li>
+          <li>Selecione o disco C: e clique OK</li>
+          <li>Marque tudo que aparece (arquivos temporários, lixeira, miniaturas) e clique OK</li>
+          <li>Confirme e espere terminar</li>
+        </ol>
+
+        <h2>4. Atualize o Windows</h2>
+        <p>Atualizações corrigem problemas de desempenho. Vá em <strong>Configurações → Windows Update → Verificar atualizações</strong> e instale o que aparecer. Reinicie depois.</p>
+
+        <h2>5. Quando Chamar um Técnico</h2>
+        <p>Se mesmo depois disso seu PC continuar lento, pode ser disco antigo (HD em vez de SSD), pouca memória RAM ou vírus. Nesses casos, a <strong>Técnico Curitiba</strong> faz diagnóstico em casa em Curitiba e região metropolitana — chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-fazer-backup-fotos-windows-iniciantes": {
+    title: "Como Fazer Backup das Suas Fotos no Windows: Sem Perder Nenhuma Lembrança",
+    excerpt: "Aprenda 3 jeitos simples de salvar suas fotos para nunca mais perder nada se o computador estragar.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Perder fotos da família é um dos maiores arrependimentos que ouvimos de clientes. A boa notícia: fazer backup é mais fácil do que você imagina. Veja três formas, da mais simples para a mais segura.</p>
+
+        <h2>Forma 1: Pendrive ou HD Externo (Mais Fácil)</h2>
+        <ol>
+          <li>Conecte o pendrive ou HD externo na entrada USB</li>
+          <li>Espere aparecer a notificação 'Dispositivo pronto'</li>
+          <li>Abra o <strong>Explorador de Arquivos</strong> (ícone de pasta amarela)</li>
+          <li>Vá em <strong>Imagens</strong> no lado esquerdo</li>
+          <li>Selecione tudo (Ctrl + A) e arraste para o pendrive na lateral</li>
+          <li>Espere a cópia terminar antes de remover</li>
+        </ol>
+
+        <h2>Forma 2: Google Fotos (Salva Sozinho na Internet)</h2>
+        <p>Vantagem: backup automático e você acessa de qualquer lugar.</p>
+        <ol>
+          <li>Acesse <strong>photos.google.com</strong> no navegador</li>
+          <li>Faça login com sua conta do Google (mesma do Gmail)</li>
+          <li>Clique em <strong>Carregar → Computador</strong></li>
+          <li>Selecione a pasta de fotos e espere subir</li>
+        </ol>
+
+        <h2>Forma 3: OneDrive (Já Vem no Windows)</h2>
+        <p>O Windows 11 já tem OneDrive instalado. Configure assim:</p>
+        <ol>
+          <li>Clique no ícone de nuvem azul na barra de baixo (perto do relógio)</li>
+          <li>Faça login com seu e-mail Microsoft</li>
+          <li>Marque a opção <strong>Fotos</strong> para sincronizar</li>
+          <li>Pronto — toda foto nova vai para a nuvem automaticamente</li>
+        </ol>
+
+        <h2>Dica de Ouro: Faça Dois Backups</h2>
+        <p>Especialistas recomendam a regra <strong>3-2-1</strong>: três cópias, em dois lugares diferentes, sendo uma fora de casa (nuvem). Assim, mesmo que tudo dê errado, suas fotos estão seguras.</p>
+
+        <h2>Ajuda Profissional</h2>
+        <p>Não conseguiu? A Técnico Curitiba faz backup completo em sua casa, configura nuvem e ainda recupera fotos de HDs com defeito. Atendemos Curitiba, São José dos Pinhais e região via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-instalar-impressora-windows-passo-a-passo": {
+    title: "Como Instalar Impressora no Windows: Passo a Passo Simples",
+    excerpt: "Comprou uma impressora nova? Aprenda a instalar em 10 minutos sem ler manual.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Instalar impressora pode parecer assustador, mas no Windows 10 e 11 ficou bem mais fácil. Veja o passo a passo conforme o tipo de impressora que você tem.</p>
+
+        <h2>Impressora com Cabo USB</h2>
+        <ol>
+          <li>Conecte o cabo USB da impressora no computador</li>
+          <li>Ligue a impressora e espere ela ficar pronta (luz verde fixa)</li>
+          <li>O Windows vai detectar e instalar sozinho — espere a notificação 'Pronto para uso'</li>
+          <li>Abra qualquer documento e mande imprimir para testar</li>
+        </ol>
+
+        <h2>Impressora Wi-Fi</h2>
+        <ol>
+          <li>Coloque a impressora perto do roteador na primeira vez</li>
+          <li>No painel da impressora, vá em <strong>Configurações de Rede → Wi-Fi</strong></li>
+          <li>Selecione sua rede Wi-Fi e digite a senha</li>
+          <li>No PC: <strong>Configurações → Bluetooth e dispositivos → Impressoras → Adicionar dispositivo</strong></li>
+          <li>Aguarde sua impressora aparecer e clique em <strong>Adicionar</strong></li>
+        </ol>
+
+        <h2>Não Aparece? Faça Isso</h2>
+        <ol>
+          <li>Confirme que PC e impressora estão na MESMA rede Wi-Fi (não no Wi-Fi do vizinho)</li>
+          <li>Reinicie o roteador, depois a impressora</li>
+          <li>Baixe o driver oficial no site do fabricante (HP, Epson, Brother, Canon)</li>
+          <li>Se for HP, baixe o app <strong>HP Smart</strong> da Microsoft Store</li>
+        </ol>
+
+        <h2>Imprimindo do Celular</h2>
+        <p>A maioria das impressoras modernas aceita imprimir do celular. No Android use <strong>Mopria Print Service</strong>, no iPhone é automático com <strong>AirPrint</strong>. Basta a impressora estar no mesmo Wi-Fi.</p>
+
+        <h2>Quando Pedir Ajuda</h2>
+        <p>Impressoras antigas, sem driver para Windows 11, ou que ficam fora da rede com frequência podem precisar de configuração avançada. A Técnico Curitiba instala e configura impressoras em residências e escritórios em Curitiba.</p>
+
+      </>
+    ),
+  },
+  "como-remover-virus-windows-iniciantes": {
+    title: "Como Remover Vírus do Windows: Guia Para Iniciantes (Sem Pagar Antivírus)",
+    excerpt: "Anúncios estranhos, navegador lento, programas abrindo sozinho? Aprenda a limpar usando ferramentas grátis.",
+    date: "2026-04-29",
+    readTime: "9 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Se aparecem anúncios do nada, abas estranhas no navegador, ou o computador ficou lento de repente, provavelmente é vírus ou adware. Você consegue limpar gratuitamente seguindo este passo a passo.</p>
+
+        <h2>Sinais de Que Tem Vírus</h2>
+        <ul>
+          <li>Computador muito lento sem motivo</li>
+          <li>Páginas abrindo sozinhas no navegador</li>
+          <li>Anúncios pop-up em sites que não tinham antes</li>
+          <li>Senhas mudando ou contas hackeadas</li>
+          <li>Cobranças estranhas no cartão</li>
+          <li>Antivírus ou Windows Update não abrem</li>
+        </ul>
+
+        <h2>Passo 1: Use o Windows Defender (Já Vem no PC)</h2>
+        <ol>
+          <li>Aperte a tecla <strong>Windows</strong> e digite <strong>Segurança do Windows</strong></li>
+          <li>Abra e clique em <strong>Proteção contra vírus e ameaças</strong></li>
+          <li>Clique em <strong>Opções de verificação</strong></li>
+          <li>Escolha <strong>Verificação Completa</strong> e clique <strong>Verificar agora</strong></li>
+          <li>Espere terminar (pode levar 1-2 horas) e remova tudo que aparecer</li>
+        </ol>
+
+        <h2>Passo 2: Malwarebytes (Grátis)</h2>
+        <p>O Defender pega vírus, mas o Malwarebytes é melhor com adware (aqueles anúncios chatos).</p>
+        <ol>
+          <li>Acesse <strong>malwarebytes.com</strong> e baixe a versão grátis</li>
+          <li>Instale e abra</li>
+          <li>Clique em <strong>Verificar</strong></li>
+          <li>Quando terminar, clique <strong>Quarentena</strong> em tudo que apareceu</li>
+          <li>Reinicie o computador</li>
+        </ol>
+
+        <h2>Passo 3: Limpe Extensões do Navegador</h2>
+        <p>Muitos vírus se escondem como extensões. No Chrome ou Edge:</p>
+        <ol>
+          <li>Clique nos 3 pontinhos no canto superior direito</li>
+          <li>Vá em <strong>Extensões → Gerenciar extensões</strong></li>
+          <li>Remova qualquer uma que você não reconheça</li>
+        </ol>
+
+        <h2>Passo 4: Troque Suas Senhas</h2>
+        <p>Depois de limpar, troque as senhas de e-mail, banco e redes sociais. Use o celular (que provavelmente está limpo) para fazer isso.</p>
+
+        <h2>Quando Chamar Profissional</h2>
+        <p>Se voltar logo, se não consegue abrir o antivírus, ou se aparecer tela pedindo dinheiro para 'liberar' arquivos (ransomware), <strong>não pague nada</strong> e chame a Técnico Curitiba imediatamente. Atendemos em domicílio em Curitiba e fazemos remoção profissional com garantia.</p>
+
+      </>
+    ),
+  },
+  "como-organizar-arquivos-windows-iniciantes": {
+    title: "Como Organizar Arquivos no Windows: Nunca Mais Perca Documentos",
+    excerpt: "Aprenda a criar pastas, mover arquivos e achar tudo rápido com a busca do Windows.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Área de trabalho cheia de arquivos? Documentos espalhados? Aprenda a organizar de um jeito simples que vai durar para sempre.</p>
+
+        <h2>Use as Pastas Que o Windows Já Criou</h2>
+        <p>O Windows tem pastas prontas para você: <strong>Documentos, Imagens, Vídeos, Downloads</strong>. Aproveite-as em vez de jogar tudo na Área de Trabalho.</p>
+
+        <h2>Crie Subpastas Por Assunto</h2>
+        <ol>
+          <li>Abra <strong>Documentos</strong></li>
+          <li>Clique com o botão direito numa área vazia → <strong>Novo → Pasta</strong></li>
+          <li>Dê um nome claro: 'Trabalho', 'Família', 'Banco', 'Receitas'</li>
+          <li>Dentro de 'Trabalho' crie outras: 'Contratos 2026', 'Notas fiscais'</li>
+          <li>Arraste seus arquivos soltos para dentro das pastas certas</li>
+        </ol>
+
+        <h2>Renomeie Arquivos com Datas</h2>
+        <p>Em vez de 'Documento1.pdf' use <strong>'2026-04-Conta-Luz.pdf'</strong>. O ano-mês na frente faz tudo ficar em ordem cronológica automaticamente.</p>
+
+        <h2>Use a Busca do Windows</h2>
+        <p>Aperte a tecla <strong>Windows</strong> e comece a digitar o nome do arquivo. Ele aparece em segundos. Por isso bons nomes ajudam tanto.</p>
+
+        <h2>Limpe a Área de Trabalho</h2>
+        <p>A Área de Trabalho deveria ter no máximo 10 ícones. Mova tudo para Documentos. PC mais limpo = PC mais rápido.</p>
+
+        <h2>Faça Backup Depois de Organizar</h2>
+        <p>Agora que está organizado, faça backup (veja nosso guia de backup de fotos). Se precisar de ajuda, a Técnico Curitiba organiza seus arquivos e configura backup automático em casa.</p>
+
+      </>
+    ),
+  },
+  "como-atualizar-windows-corretamente": {
+    title: "Como Atualizar o Windows Corretamente Sem Travar o Computador",
+    excerpt: "Atualização do Windows trava? Aprenda a fazer no momento certo e evitar dor de cabeça.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Atualizar o Windows é importante para segurança, mas no momento errado vira pesadelo. Veja como fazer com tranquilidade.</p>
+
+        <h2>Quando Atualizar</h2>
+        <ul>
+          <li>Quando você tem 1-2 horas livres</li>
+          <li>Com o notebook na tomada</li>
+          <li>Internet boa e estável</li>
+          <li>Sem trabalho urgente para entregar</li>
+        </ul>
+
+        <h2>Passo a Passo</h2>
+        <ol>
+          <li>Salve e feche todos os programas abertos</li>
+          <li>Vá em <strong>Configurações → Windows Update</strong></li>
+          <li>Clique em <strong>Verificar atualizações</strong></li>
+          <li>Espere baixar (pode demorar)</li>
+          <li>Quando aparecer 'Reiniciar agora', clique e <strong>NÃO desligue</strong> o PC enquanto estiver instalando</li>
+        </ol>
+
+        <h2>Se Travar</h2>
+        <p>Espere pelo menos 2 horas antes de fazer qualquer coisa. Atualizações grandes parecem travadas mas estão trabalhando. Se passar disso, force desligar (segurar o botão por 10 segundos), ligue de novo e o Windows volta sozinho.</p>
+
+        <h2>Programe o Horário</h2>
+        <p>Em <strong>Windows Update → Opções avançadas → Horário ativo</strong> diga ao Windows quando você usa o PC. Ele só atualiza fora desse horário.</p>
+
+        <h2>Atualização Não Funciona</h2>
+        <p>Erros recorrentes (códigos como 0x80070002) podem indicar problema de disco ou arquivos corrompidos. A Técnico Curitiba resolve em domicílio em Curitiba sem perder seus dados.</p>
+
+      </>
+    ),
+  },
+  "como-recuperar-arquivos-apagados-windows": {
+    title: "Como Recuperar Arquivos Apagados no Windows: 3 Métodos Que Funcionam",
+    excerpt: "Apagou sem querer? Calma! Veja como recuperar arquivos da lixeira, com Recuva e do histórico de versões.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Apagar arquivo importante por engano acontece com todo mundo. Não entre em pânico — na maioria das vezes dá para recuperar.</p>
+
+        <h2>Método 1: Lixeira (O Mais Óbvio)</h2>
+        <ol>
+          <li>Abra a <strong>Lixeira</strong> (ícone na Área de Trabalho)</li>
+          <li>Procure seu arquivo (use a busca no canto superior se tiver muita coisa)</li>
+          <li>Clique com botão direito → <strong>Restaurar</strong></li>
+          <li>Ele volta para o lugar original</li>
+        </ol>
+
+        <h2>Método 2: Recuva (Quando Esvaziou a Lixeira)</h2>
+        <p>O Recuva é um programa grátis que recupera arquivos mesmo depois de a Lixeira ser esvaziada — desde que você não tenha gravado muita coisa nova depois.</p>
+        <ol>
+          <li>Acesse <strong>ccleaner.com/recuva</strong> e baixe a versão grátis</li>
+          <li>Instale e abra</li>
+          <li>Escolha o tipo de arquivo (Imagens, Documentos, etc.) e clique <strong>Avançar</strong></li>
+          <li>Selecione onde estava e clique <strong>Iniciar</strong></li>
+          <li>Marque os arquivos com bolinha verde (chance alta de recuperar) e clique <strong>Recuperar</strong></li>
+          <li><strong>SALVE EM OUTRO DRIVE</strong> (pendrive ou HD externo) — não no mesmo lugar</li>
+        </ol>
+
+        <h2>Método 3: Histórico de Arquivos</h2>
+        <p>Se você ativou o backup automático antes (em Configurações → Atualização e Segurança → Backup), pode restaurar versões anteriores.</p>
+        <ol>
+          <li>Clique com botão direito na pasta onde estava o arquivo</li>
+          <li>Escolha <strong>Restaurar versões anteriores</strong></li>
+          <li>Selecione a data e restaure</li>
+        </ol>
+
+        <h2>Regra de Ouro</h2>
+        <p>Quanto MENOS você usar o computador depois de apagar, MAIOR a chance de recuperar. Não instale programas, não baixe arquivos grandes, não desfragmente.</p>
+
+        <h2>Casos Difíceis</h2>
+        <p>HD com defeito, formatação acidental, arquivos muito antigos? A Técnico Curitiba tem ferramentas profissionais de recuperação. Atendemos Curitiba e região — quanto mais rápido, melhor a chance.</p>
+
+      </>
+    ),
+  },
+  "como-trocar-papel-de-parede-tela-bloqueio-windows": {
+    title: "Como Trocar Papel de Parede e Tela de Bloqueio do Windows 11",
+    excerpt: "Personalize seu PC com fotos suas em poucos cliques.",
+    date: "2026-04-29",
+    readTime: "4 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Personalizar o computador deixa o uso mais agradável. Veja como trocar o fundo de tela e a imagem que aparece quando o PC está bloqueado.</p>
+
+        <h2>Trocar Papel de Parede</h2>
+        <ol>
+          <li>Clique com botão direito numa área vazia da Área de Trabalho</li>
+          <li>Escolha <strong>Personalizar</strong></li>
+          <li>Clique em <strong>Plano de fundo</strong></li>
+          <li>Em <strong>Personalizar seu plano de fundo</strong> escolha <strong>Imagem</strong></li>
+          <li>Clique <strong>Procurar fotos</strong> e selecione a imagem que quiser</li>
+        </ol>
+
+        <h2>Apresentação de Slides (Várias Fotos)</h2>
+        <p>Quer várias fotos rodando? Em vez de 'Imagem' escolha <strong>Apresentação de Slides</strong>, selecione uma pasta com suas fotos e defina de quantos em quantos minutos trocar.</p>
+
+        <h2>Trocar Tela de Bloqueio</h2>
+        <ol>
+          <li>Em <strong>Personalização</strong>, clique <strong>Tela de bloqueio</strong></li>
+          <li>Em 'Personalizar sua tela de bloqueio' escolha <strong>Imagem</strong></li>
+          <li>Clique <strong>Procurar fotos</strong> e escolha</li>
+        </ol>
+
+        <h2>Use Fotos Suas em Alta Qualidade</h2>
+        <p>Para boa aparência, use fotos com pelo menos <strong>1920x1080</strong>. Fotos do celular hoje são bem maiores que isso, então funcionam ótimo.</p>
+
+      </>
+    ),
+  },
+  "como-criar-conta-usuario-windows-criancas": {
+    title: "Como Criar Conta de Usuário no Windows Para Crianças (Com Controle)",
+    excerpt: "Quer que seus filhos usem o computador com segurança? Aprenda a criar conta infantil com limites.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Criar uma conta separada para crianças protege seus arquivos, controla o tempo de uso e bloqueia conteúdos inadequados. Veja como configurar.</p>
+
+        <h2>Por Que Criar Conta Separada</h2>
+        <ul>
+          <li>Suas senhas e e-mail ficam protegidos</li>
+          <li>Histórico do navegador da criança fica separado</li>
+          <li>Você controla horário de uso</li>
+          <li>Bloqueia downloads e instalações</li>
+          <li>Recebe relatório semanal do que foi acessado</li>
+        </ul>
+
+        <h2>Passo 1: Criar a Conta</h2>
+        <ol>
+          <li>Vá em <strong>Configurações → Contas → Família</strong></li>
+          <li>Clique em <strong>Adicionar alguém</strong></li>
+          <li>Escolha <strong>Criar uma para uma criança</strong></li>
+          <li>Digite um e-mail novo (Outlook cria de graça) e siga os passos</li>
+          <li>Defina senha fácil para a criança lembrar</li>
+        </ol>
+
+        <h2>Passo 2: Definir Limites</h2>
+        <p>Acesse <strong>family.microsoft.com</strong> com sua conta. Lá você pode:</p>
+        <ul>
+          <li>Definir horário máximo de uso por dia da semana</li>
+          <li>Bloquear sites adultos</li>
+          <li>Aprovar ou bloquear cada app que ela tentar instalar</li>
+          <li>Ver relatórios do que foi acessado</li>
+          <li>Receber pedidos de compra antes de qualquer cobrança</li>
+        </ul>
+
+        <h2>Passo 3: Aplicativos Educativos</h2>
+        <p>Algumas sugestões grátis para crianças: <strong>Khan Academy Kids</strong>, <strong>Microsoft Education</strong>, <strong>Scratch Junior</strong> (programação infantil).</p>
+
+        <h2>Não Conseguiu Configurar?</h2>
+        <p>Configurar Microsoft Family pode ser confuso. A Técnico Curitiba configura controle parental, antivírus e backup em casa em Curitiba — proteja toda a família via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-imprimir-pdf-windows": {
+    title: "Como Salvar Qualquer Coisa em PDF no Windows (Sem Programa Pago)",
+    excerpt: "Páginas de site, e-mails, documentos — salve tudo em PDF usando o que já vem no Windows.",
+    date: "2026-04-29",
+    readTime: "5 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">PDF é o formato mais usado para enviar documentos por e-mail. O Windows 10 e 11 já fazem isso sem precisar instalar nada. Veja como.</p>
+
+        <h2>O Truque: 'Imprimir' Para PDF</h2>
+        <p>O Windows tem uma 'impressora virtual' chamada <strong>Microsoft Print to PDF</strong>. Em vez de imprimir no papel, ela cria um arquivo PDF.</p>
+
+        <h2>Passo a Passo (Funciona em Qualquer Programa)</h2>
+        <ol>
+          <li>Abra o que você quer salvar (página de site, Word, e-mail)</li>
+          <li>Aperte <strong>Ctrl + P</strong> (atalho universal de imprimir)</li>
+          <li>Onde diz 'Impressora', selecione <strong>Microsoft Print to PDF</strong></li>
+          <li>Clique em <strong>Imprimir</strong></li>
+          <li>Escolha onde salvar e dê um nome</li>
+          <li>Pronto — o PDF está salvo</li>
+        </ol>
+
+        <h2>Salvar Página de Site Inteira</h2>
+        <p>No Chrome ou Edge: <strong>Ctrl + P</strong> → escolha 'Salvar como PDF' (ou Microsoft Print to PDF) → ajuste se quer só a página atual ou todas → Salvar.</p>
+
+        <h2>Juntar Vários PDFs em Um</h2>
+        <p>Para juntar vários PDFs, use o site grátis <strong>ilovepdf.com</strong> (não precisa instalar nada).</p>
+
+        <h2>Editar PDF</h2>
+        <p>Editar PDF (mudar texto, assinar) é mais avançado. Use o <strong>Adobe Acrobat Reader</strong> grátis para assinar e o <strong>ilovepdf.com</strong> para edições simples. Para casos complexos, a Técnico Curitiba ajuda em sua casa.</p>
+
+      </>
+    ),
+  },
+  "como-deixar-celular-android-mais-rapido": {
+    title: "Como Deixar o Celular Android Mais Rápido: Guia Para Não Técnicos",
+    excerpt: "Celular travando? 8 dicas simples que você consegue fazer hoje sem instalar app nenhum.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Celular Android lento, fechando aplicativos sozinho ou descarregando rápido? Antes de pensar em comprar outro, faça essas limpezas.</p>
+
+        <h2>1. Reinicie o Celular</h2>
+        <p>Sim, parece bobo, mas a maioria das pessoas nunca reinicia. Segure o botão de ligar → escolha <strong>Reiniciar</strong>. Faça isso 1 vez por semana.</p>
+
+        <h2>2. Apague Apps Que Você Não Usa</h2>
+        <ol>
+          <li>Vá em <strong>Configurações → Aplicativos</strong></li>
+          <li>Veja a lista — quantos você usa de verdade?</li>
+          <li>Toque nos que não usa há mais de 1 mês e clique <strong>Desinstalar</strong></li>
+        </ol>
+
+        <h2>3. Limpe Espaço</h2>
+        <p>Celular cheio = celular lento. Vá em <strong>Configurações → Armazenamento</strong> e veja onde está o espaço. Geralmente: WhatsApp, fotos e vídeos. Apague o que não precisa, mande as fotos para Google Fotos.</p>
+
+        <h2>4. Limpe o Cache do WhatsApp</h2>
+        <ol>
+          <li>Abra o <strong>WhatsApp</strong></li>
+          <li>Toque nos 3 pontos → <strong>Configurações → Armazenamento e dados → Gerenciar armazenamento</strong></li>
+          <li>Apague vídeos antigos e conversas pesadas</li>
+        </ol>
+
+        <h2>5. Atualize o Sistema</h2>
+        <p><strong>Configurações → Sistema → Atualização do sistema</strong>. Se tiver atualização disponível, instale (com o celular na tomada e Wi-Fi).</p>
+
+        <h2>6. Atualize os Apps</h2>
+        <p>Abra a <strong>Play Store</strong> → toque na sua foto → <strong>Gerenciar apps e dispositivo</strong> → <strong>Atualizar tudo</strong>.</p>
+
+        <h2>7. Desligue Animações</h2>
+        <p>Em <strong>Configurações → Acessibilidade</strong> ou <strong>Sobre o telefone → Opções do desenvolvedor</strong>, reduza animações. Celular fica mais ágil.</p>
+
+        <h2>8. Última Opção: Restaurar de Fábrica</h2>
+        <p>Faça backup primeiro! Depois <strong>Configurações → Sistema → Opções de redefinição → Apagar todos os dados</strong>. Volta como novo.</p>
+
+        <h2>Não Resolveu?</h2>
+        <p>Pode ser bateria velha ou problema mais sério. A Técnico Curitiba avalia celulares em Curitiba e indica o que vale a pena consertar — chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-economizar-bateria-celular": {
+    title: "Como Economizar Bateria do Celular: 12 Ajustes Que Realmente Funcionam",
+    excerpt: "Bateria acabando antes do fim do dia? Aprenda os ajustes que dobram a duração — sem app milagroso.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Apps que prometem 'economizar bateria' geralmente atrapalham mais que ajudam. O que realmente funciona são ajustes simples no próprio sistema. Veja os 12 mais eficazes.</p>
+
+        <h2>1. Reduza o Brilho da Tela</h2>
+        <p>A tela é o que mais consome bateria. Deixe o brilho automático ligado ou em uns 40-50%.</p>
+
+        <h2>2. Tela Escura (Modo Escuro)</h2>
+        <p>Em celulares com tela OLED (maioria dos topo de linha), o modo escuro economiza bateria de verdade. Vá em <strong>Configurações → Tela → Tema escuro</strong>.</p>
+
+        <h2>3. Tempo de Tela Apagada</h2>
+        <p>Configure para a tela apagar em 30 segundos. <strong>Configurações → Tela → Tempo de espera da tela</strong>.</p>
+
+        <h2>4. Desligue Localização Quando Não Usar</h2>
+        <p>Apps usando GPS sugam bateria. Em <strong>Configurações → Localização</strong> deixe ligado, mas em <strong>Permissões de apps</strong> coloque 'Permitir apenas durante o uso' para todos.</p>
+
+        <h2>5. Wi-Fi Em Vez de Dados Móveis</h2>
+        <p>Wi-Fi consome muito menos bateria que rede 4G/5G. Conecte sempre que possível.</p>
+
+        <h2>6. Desligue 5G se Não Precisa</h2>
+        <p>O 5G consome mais bateria. Em <strong>Configurações → Rede → Tipo de rede preferido</strong> escolha 4G/LTE no dia a dia.</p>
+
+        <h2>7. Notificações Só do Necessário</h2>
+        <p>Cada notificação acende a tela. Em <strong>Configurações → Notificações</strong> desative apps que não importam (jogos, lojas, cupons).</p>
+
+        <h2>8. Apps em Segundo Plano</h2>
+        <p>Em <strong>Configurações → Bateria → Uso da bateria</strong> veja o que mais gasta. Restrinja apps que ficam rodando sem você usar.</p>
+
+        <h2>9. Modo Economia de Bateria</h2>
+        <p>Quando estiver com 30% ou menos, ative <strong>Economia de Bateria</strong>. Pode dobrar a duração.</p>
+
+        <h2>10. Não Deixe no Carro Quente</h2>
+        <p>Calor estraga bateria. Nunca deixe celular ao sol direto ou no painel do carro.</p>
+
+        <h2>11. Não Carregue 100% Toda Hora</h2>
+        <p>Para cuidar da bateria a longo prazo, mantenha entre 20% e 80%. Carregar até 100% todo dia degrada mais rápido.</p>
+
+        <h2>12. Carregador Original</h2>
+        <p>Carregadores baratos podem danificar bateria. Use sempre o original ou marca conhecida.</p>
+
+        <h2>Bateria Não Dura Nem Meio Dia?</h2>
+        <p>Pode ser hora de trocar a bateria. A Técnico Curitiba faz troca de bateria de celular em Curitiba com peças de qualidade e garantia.</p>
+
+      </>
+    ),
+  },
+  "como-fazer-backup-celular-android": {
+    title: "Como Fazer Backup do Celular Android: Não Perca Fotos, Contatos e WhatsApp",
+    excerpt: "Backup completo em 15 minutos: fotos, contatos, WhatsApp e configurações para nunca mais perder nada.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Trocar de celular ou ter o aparelho roubado é estressante — sem backup, vira tragédia. Aprenda a salvar tudo de forma segura.</p>
+
+        <h2>Fotos e Vídeos: Google Fotos (Grátis)</h2>
+        <ol>
+          <li>Baixe o app <strong>Google Fotos</strong> (já vem em quase todo Android)</li>
+          <li>Faça login com sua conta Google</li>
+          <li>Toque na sua foto no canto → <strong>Configurações do Fotos</strong></li>
+          <li>Ative <strong>Backup</strong></li>
+          <li>Escolha qualidade <strong>Original</strong> (cobra do seu plano) ou <strong>Economia de armazenamento</strong> (grátis e ilimitado em qualidade boa)</li>
+        </ol>
+
+        <h2>Contatos: Conta Google</h2>
+        <p>Vá em <strong>Configurações → Contas → Google</strong>. Veja se <strong>Contatos</strong> está com sincronização ligada. Pronto — toda vez que adicionar contato, vai para a nuvem.</p>
+
+        <h2>WhatsApp: Backup no Google Drive</h2>
+        <ol>
+          <li>Abra o <strong>WhatsApp</strong></li>
+          <li>Toque nos 3 pontos → <strong>Configurações → Conversas → Backup de conversas</strong></li>
+          <li>Toque em <strong>Conta do Google</strong> e selecione sua conta</li>
+          <li>Em <strong>Frequência</strong> escolha <strong>Semanal</strong> ou <strong>Diário</strong></li>
+          <li>Ative <strong>Incluir vídeos</strong> se tiver espaço</li>
+        </ol>
+
+        <h2>Apps e Configurações</h2>
+        <p>Em <strong>Configurações → Sistema → Backup</strong> ative <strong>Fazer backup pelo Google One</strong>. Salva apps instalados, papéis de parede, senhas Wi-Fi e configurações.</p>
+
+        <h2>Mensagens SMS</h2>
+        <p>Use o app <strong>SMS Backup & Restore</strong> da Play Store. Salva tudo no Google Drive.</p>
+
+        <h2>Como Restaurar no Celular Novo</h2>
+        <p>Ao ligar o celular novo, escolha <strong>Copiar do dispositivo</strong> ou faça login com sua conta Google. Tudo volta automaticamente.</p>
+
+        <h2>Para Quem Quer Total Segurança</h2>
+        <p>A Técnico Curitiba faz backup completo do celular em casa, configura sincronização automática e ainda transfere tudo para celular novo. Atendemos Curitiba e região via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-conectar-celular-tv": {
+    title: "Como Conectar o Celular na TV: 4 Formas Que Funcionam (Com e Sem Cabo)",
+    excerpt: "Veja fotos, vídeos do YouTube e Netflix do celular na tela grande. Funciona em quase toda TV.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Quer mostrar fotos das férias na TV ou assistir vídeo grande? Tem várias formas. Veja qual serve para você.</p>
+
+        <h2>Forma 1: Smart TV + Mesmo Wi-Fi (Sem Cabo)</h2>
+        <p>Se sua TV é Smart e está no mesmo Wi-Fi do celular, é o jeito mais fácil.</p>
+        <ol>
+          <li>No app YouTube ou Netflix do celular, abra um vídeo</li>
+          <li>Toque no ícone de transmissão (retângulo com ondinhas)</li>
+          <li>Selecione sua TV na lista</li>
+          <li>Pronto — toca direto na TV</li>
+        </ol>
+
+        <h2>Forma 2: Espelhar a Tela do Celular</h2>
+        <ol>
+          <li>No celular Android, puxe a barra de cima → <strong>Transmitir</strong> ou <strong>Smart View</strong></li>
+          <li>Selecione sua TV</li>
+          <li>Tudo que aparecer no celular aparece na TV</li>
+        </ol>
+
+        <h2>Forma 3: Chromecast (TV Antiga Vira Smart)</h2>
+        <p>Se sua TV não é Smart, compre um <strong>Chromecast</strong> (R$ 250 aprox.) ou <strong>Fire Stick</strong>. Plug no HDMI da TV e siga as instruções no celular.</p>
+
+        <h2>Forma 4: Cabo HDMI (Mais Confiável)</h2>
+        <p>Para celulares Android: cabo <strong>USB-C para HDMI</strong>. Para iPhone: <strong>adaptador Lightning para HDMI</strong> da Apple. Plug no celular, plug na TV, escolha a entrada HDMI correta na TV.</p>
+
+        <h2>Não Funciona?</h2>
+        <p>Verifique se TV e celular estão no MESMO Wi-Fi. Reinicie os dois. Se não resolver, a Técnico Curitiba configura espelhamento, Smart TV, Chromecast e até instala TV box em casa em Curitiba.</p>
+
+      </>
+    ),
+  },
+  "como-bloquear-numero-celular": {
+    title: "Como Bloquear Números Indesejados no Celular (Telemarketing e Spam)",
+    excerpt: "Cansado de ligações de telemarketing? Aprenda a bloquear números um por um ou em massa.",
+    date: "2026-04-29",
+    readTime: "5 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Telemarketing constante, número desconhecido toda hora, golpes? Veja como bloquear no Android e iPhone.</p>
+
+        <h2>Bloquear Número Específico (Android)</h2>
+        <ol>
+          <li>Abra o app <strong>Telefone</strong></li>
+          <li>Vá em <strong>Recentes</strong> e ache o número</li>
+          <li>Pressione e segure → <strong>Bloquear / Sinalizar como spam</strong></li>
+          <li>Confirme</li>
+        </ol>
+
+        <h2>Bloquear no iPhone</h2>
+        <ol>
+          <li>Abra <strong>Telefone → Recentes</strong></li>
+          <li>Toque no ícone (i) ao lado do número</li>
+          <li>Role até o final → <strong>Bloquear contato</strong></li>
+        </ol>
+
+        <h2>Bloquear Telemarketing em Massa</h2>
+        <p>Cadastre seu número grátis no <strong>Não Me Perturbe</strong> (naomeperturbe.com.br). Operadoras param de fazer ofertas em até 30 dias. Para outras empresas, instale o app <strong>Truecaller</strong> que identifica e bloqueia spam automaticamente.</p>
+
+        <h2>Bloquear no WhatsApp</h2>
+        <ol>
+          <li>Abra a conversa do número</li>
+          <li>Toque no nome no topo</li>
+          <li>Role até o final → <strong>Bloquear</strong></li>
+        </ol>
+
+        <h2>Cuidado com Golpes</h2>
+        <p>Nunca clique em links de números desconhecidos. Banco e Receita Federal NÃO ligam pedindo senha. Em dúvida, chame a Técnico Curitiba antes de fazer qualquer coisa — atendemos via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-usar-google-fotos-iniciantes": {
+    title: "Como Usar o Google Fotos: Backup, Organização e Edição Para Iniciantes",
+    excerpt: "Aprenda a usar o melhor app grátis para guardar e organizar fotos em qualquer celular.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Google Fotos é o aplicativo mais útil para quem tem muitas fotos. Faz backup automático, organiza por pessoa e lugar, e ainda edita. Veja como aproveitar tudo.</p>
+
+        <h2>Instalar e Configurar</h2>
+        <ol>
+          <li>Baixe <strong>Google Fotos</strong> da Play Store (Android) ou App Store (iPhone)</li>
+          <li>Abra e faça login com sua conta Google</li>
+          <li>Aceite ativar <strong>Backup</strong></li>
+          <li>Escolha <strong>Economia de armazenamento</strong> (grátis e ilimitado, qualidade ótima)</li>
+        </ol>
+
+        <h2>Como Funciona o Backup</h2>
+        <p>Toda foto que você tira fica salva na nuvem automaticamente. Mesmo que perca o celular, suas fotos estão seguras. Acessa de qualquer dispositivo em <strong>photos.google.com</strong>.</p>
+
+        <h2>Buscar Fotos Por Pessoa</h2>
+        <p>O Google reconhece rostos. Toque na barra de busca → role até <strong>Pessoas</strong>. Toque numa pessoa para ver todas as fotos dela. Pode dar nomes para ficar mais fácil.</p>
+
+        <h2>Buscar Por Lugar ou Coisa</h2>
+        <p>Pode buscar por <strong>'Praia'</strong>, <strong>'Cachorro'</strong>, <strong>'Aniversário'</strong>, <strong>'Curitiba'</strong> e ele acha. Funciona impressionantemente bem.</p>
+
+        <h2>Editar Fotos</h2>
+        <ol>
+          <li>Abra a foto</li>
+          <li>Toque no ícone de edição (3 linhas com bolinhas)</li>
+          <li>Use <strong>Aprimorar</strong> para melhoria automática</li>
+          <li>Ajuste brilho, contraste, corte, gire</li>
+          <li>Aplique filtros se quiser</li>
+          <li>Salve</li>
+        </ol>
+
+        <h2>Liberar Espaço no Celular</h2>
+        <p>Depois que tudo está na nuvem, toque no menu → <strong>Liberar espaço</strong>. Apaga as fotos do celular (mantém na nuvem) e libera GB.</p>
+
+        <h2>Compartilhar Álbuns</h2>
+        <p>Crie álbuns com várias fotos e compartilhe link com a família. Todos podem ver e adicionar fotos próprias. Ótimo para casamentos e viagens em grupo.</p>
+
+        <h2>Não Está Subindo Backup?</h2>
+        <p>Verifique Wi-Fi, espaço na conta Google (15 GB grátis, depois compra plano), e configurações do app. A Técnico Curitiba ajuda a configurar Google Fotos e organizar fotos antigas em domicílio em Curitiba.</p>
+
+      </>
+    ),
+  },
+  "como-instalar-aplicativos-celular-com-seguranca": {
+    title: "Como Instalar Aplicativos no Celular Com Segurança",
+    excerpt: "Evite vírus, golpes e apps falsos. Aprenda a instalar só o que é seguro.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">App falso é uma das principais formas de roubarem seu celular. Veja como instalar com segurança e identificar perigos.</p>
+
+        <h2>Use Só a Loja Oficial</h2>
+        <p>Android: <strong>Google Play Store</strong>. iPhone: <strong>App Store</strong>. NUNCA instale APK de site aleatório, mesmo se 'oficial' do banco.</p>
+
+        <h2>Antes de Instalar, Verifique</h2>
+        <ul>
+          <li>Nome do desenvolvedor — bate com o real? (Banco do Brasil S.A. e não 'Banc do Brasil')</li>
+          <li>Quantas vezes foi baixado? Apps reais têm milhões de downloads</li>
+          <li>Estrelas e comentários — leia os mais recentes</li>
+          <li>Data da última atualização — se foi há anos, suspeito</li>
+        </ul>
+
+        <h2>Cuidado com Permissões</h2>
+        <p>Por que um app de lanterna quer acessar seus contatos? Quando instalar e ele pedir permissões estranhas, NEGUE. Em <strong>Configurações → Aplicativos → Permissões</strong> você revisa tudo.</p>
+
+        <h2>Apps de Banco: Sempre Diretos</h2>
+        <p>Procure pelo nome do banco na loja oficial. Se aparecerem 5 apps com mesmo nome, escolha o do desenvolvedor oficial. Em dúvida, abra o site do banco e clique no link de download lá.</p>
+
+        <h2>Sinais de App Malicioso</h2>
+        <ul>
+          <li>Bateria descarrega anormalmente rápido</li>
+          <li>Anúncios aparecem fora dos apps</li>
+          <li>Cobranças estranhas no cartão</li>
+          <li>Celular esquenta sem motivo</li>
+          <li>Apps que você não instalou aparecem</li>
+        </ul>
+
+        <h2>Removeu Mas Continua?</h2>
+        <p>Alguns vírus se reinstalam. A Técnico Curitiba faz limpeza completa do celular em casa em Curitiba, identifica apps maliciosos e configura proteção. Chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-transferir-dados-celular-novo": {
+    title: "Como Transferir Tudo Para o Celular Novo: Android e iPhone",
+    excerpt: "Comprou celular novo? Passe contatos, fotos, WhatsApp e apps em poucos cliques.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Trocar de celular não precisa ser dor de cabeça. Os sistemas modernos transferem quase tudo automaticamente. Veja como.</p>
+
+        <h2>Android Para Android</h2>
+        <ol>
+          <li>Ligue o celular novo e siga as telas iniciais</li>
+          <li>Quando perguntar 'Copiar do dispositivo?', escolha <strong>Sim</strong></li>
+          <li>Conecte os dois com cabo USB ou siga as instruções de Wi-Fi</li>
+          <li>Faça login na MESMA conta Google</li>
+          <li>Marque o que quer transferir (apps, fotos, mensagens, configurações)</li>
+          <li>Espere terminar — pode demorar 1 hora</li>
+        </ol>
+
+        <h2>iPhone Para iPhone</h2>
+        <p>Ligue o iPhone novo perto do antigo. Aparece <strong>Configuração Rápida</strong>. Aponte a câmera do antigo para a animação do novo. Pronto — segue as instruções e tudo passa via Wi-Fi.</p>
+
+        <h2>Android Para iPhone</h2>
+        <ol>
+          <li>No iPhone novo, na hora de configurar, escolha <strong>Mover dados do Android</strong></li>
+          <li>No Android, baixe o app <strong>Move to iOS</strong> da Play Store</li>
+          <li>Abra e siga os passos — ele gera um código que você digita no iPhone</li>
+          <li>Marque o que quer mover (contatos, fotos, mensagens)</li>
+          <li>Espere terminar</li>
+        </ol>
+
+        <h2>iPhone Para Android</h2>
+        <p>Use o app <strong>Switch to Android</strong> da Apple. Funciona similar ao Move to iOS, mas no sentido contrário.</p>
+
+        <h2>WhatsApp Especificamente</h2>
+        <p>WhatsApp tem migração própria entre iPhone e Android. No celular novo, ao instalar, escolha 'Transferir conversas'. Siga as instruções (precisa estar na mesma rede Wi-Fi).</p>
+
+        <h2>Não Conseguiu?</h2>
+        <p>A Técnico Curitiba faz transferência completa entre celulares (até de marcas diferentes), garantindo que nada se perca. Atendemos em casa em Curitiba — chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-fazer-print-tela-celular": {
+    title: "Como Fazer Print da Tela do Celular: Android, iPhone e Print Rolando",
+    excerpt: "Aprenda os atalhos para tirar print no seu celular — incluindo print de página inteira.",
+    date: "2026-04-29",
+    readTime: "4 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Print de tela (screenshot) é útil para mostrar problemas, salvar conversa, guardar reserva. Veja como em qualquer celular.</p>
+
+        <h2>Android (Maioria dos Modelos)</h2>
+        <p>Aperte ao mesmo tempo: <strong>Botão de Ligar + Botão de Diminuir Volume</strong>. Mantenha por 1 segundo. Toca um som e aparece o print.</p>
+
+        <h2>iPhone com Face ID (Sem Botão Home)</h2>
+        <p><strong>Botão Lateral + Botão Aumentar Volume</strong> ao mesmo tempo, rapidamente.</p>
+
+        <h2>iPhone Com Botão Home</h2>
+        <p><strong>Botão Home + Botão Lateral</strong> ao mesmo tempo.</p>
+
+        <h2>Onde Fica o Print</h2>
+        <p>Android: aplicativo <strong>Galeria</strong> ou <strong>Google Fotos</strong>, na pasta 'Screenshots'. iPhone: app <strong>Fotos</strong>, álbum 'Capturas de Tela'.</p>
+
+        <h2>Print Rolando (Página Inteira)</h2>
+        <p>Samsung, Xiaomi e iPhone novos permitem capturar página inteira. Logo depois do print normal, aparece um botão 'Capturar mais' ou 'Página inteira'. Clique nele.</p>
+
+        <h2>Compartilhar o Print</h2>
+        <p>Depois de tirar, toque no preview que aparece no canto. Você pode editar (cortar, marcar) e compartilhar direto pelo WhatsApp, e-mail ou redes sociais.</p>
+
+      </>
+    ),
+  },
+  "como-recuperar-conta-google-bloqueada": {
+    title: "Como Recuperar Conta Google Bloqueada ou Esquecida",
+    excerpt: "Esqueceu a senha do Gmail? Conta foi hackeada? Veja o passo a passo oficial para recuperar.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Perder acesso à conta Google é grave: você perde Gmail, fotos, contatos, YouTube, e o acesso ao próprio celular Android. Veja como recuperar com calma.</p>
+
+        <h2>Passo 1: Use o Recuperador Oficial</h2>
+        <p>Acesse <strong>g.co/recover</strong> (no celular ou computador) e digite seu e-mail.</p>
+
+        <h2>Passo 2: Escolha Como Recuperar</h2>
+        <ul>
+          <li>Confirmar via celular já cadastrado (envia notificação)</li>
+          <li>Receber código por SMS</li>
+          <li>Receber código no e-mail alternativo</li>
+          <li>Responder pergunta de segurança</li>
+          <li>Lembrar de senha antiga</li>
+        </ul>
+
+        <h2>Passo 3: Se Não Tem Mais Acesso ao Celular Cadastrado</h2>
+        <p>Clique em <strong>'Tentar de outro modo'</strong> em cada tela. O Google vai pedir mais informações: ano de criação da conta, contatos frequentes, assuntos de e-mails recentes. Quanto mais responder corretamente, maior a chance.</p>
+
+        <h2>Passo 4: Pode Demorar Dias</h2>
+        <p>Para contas mais antigas ou com pouca informação, o Google pode levar alguns dias analisando. Tenha paciência. Se negar, espere 24h e tente de novo respondendo melhor.</p>
+
+        <h2>Para Não Acontecer de Novo</h2>
+        <ul>
+          <li>Cadastre celular E e-mail alternativo</li>
+          <li>Use senha forte (não use a mesma de outros sites)</li>
+          <li>Ative <strong>Verificação em duas etapas</strong> (g.co/2sv)</li>
+          <li>Anote os <strong>códigos de backup</strong> em papel</li>
+          <li>Imprima e guarde em local seguro</li>
+        </ul>
+
+        <h2>Conta Foi Hackeada</h2>
+        <p>Se ainda consegue entrar mas notou atividade estranha: vá em <strong>myaccount.google.com → Segurança → Atividade recente</strong>. Saia de todos os dispositivos e troque a senha imediatamente.</p>
+
+        <h2>Caso Difícil?</h2>
+        <p>A Técnico Curitiba ajuda na recuperação de contas, configura segurança em 2 etapas e protege todas as suas contas em domicílio em Curitiba. Chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-melhorar-sinal-wifi-em-casa": {
+    title: "Como Melhorar o Sinal de Wi-Fi em Casa: 10 Soluções Sem Comprar Nada",
+    excerpt: "Wi-Fi fraco em alguns cômodos? Aprenda a aumentar o alcance e velocidade sem gastar.",
+    date: "2026-04-29",
+    readTime: "8 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Antes de comprar repetidor ou trocar roteador, faça essas 10 mudanças. Na maioria dos casos resolve.</p>
+
+        <h2>1. Reinicie o Roteador</h2>
+        <p>O mais simples e mais ignorado. Tire da tomada, espere 30 segundos, plug de volta. Faça isso 1 vez por mês.</p>
+
+        <h2>2. Coloque Num Lugar Alto e Central</h2>
+        <p>Roteador no chão ou no canto da casa = sinal ruim em todo lugar. Suba ele para uma estante alta, no meio da casa.</p>
+
+        <h2>3. Longe de Eletrônicos e Metal</h2>
+        <p>Microondas, TV, espelhos grandes, paredes de concreto bloqueiam o sinal. Mantenha 1 metro de distância.</p>
+
+        <h2>4. Antenas em Pé</h2>
+        <p>Se o roteador tem antenas, deixe-as em pé (na vertical), não inclinadas. Para casa de 2 andares, uma em pé e outra deitada.</p>
+
+        <h2>5. Mude o Canal Wi-Fi</h2>
+        <p>Vizinhos no mesmo canal causam interferência. Acesse o roteador (geralmente <strong>192.168.0.1</strong> ou <strong>192.168.1.1</strong> no navegador). Procure 'Canal Wi-Fi' e mude para 1, 6 ou 11.</p>
+
+        <h2>6. Use o 5GHz</h2>
+        <p>Roteadores modernos têm Wi-Fi 2.4GHz e 5GHz. O 5GHz é mais rápido (mas menos alcance). Conecte celular e notebook no 5GHz quando estiver perto, deixe 2.4GHz para câmeras e dispositivos longe.</p>
+
+        <h2>7. Atualize o Roteador</h2>
+        <p>Acesse o painel do roteador e procure 'Atualização de Firmware'. Atualizações trazem melhorias de performance.</p>
+
+        <h2>8. Limite Quem Usa</h2>
+        <p>Vizinho descobriu sua senha? Mude a senha do Wi-Fi (no painel do roteador). Use senha forte com 12+ caracteres.</p>
+
+        <h2>9. Verifique Velocidade Contratada</h2>
+        <p>Acesse <strong>fast.com</strong> ou <strong>speedtest.net</strong> conectado por cabo direto no roteador. Se a velocidade está bem abaixo do contratado, ligue para sua operadora.</p>
+
+        <h2>10. Roteador Velho?</h2>
+        <p>Roteadores com mais de 5 anos não suportam Wi-Fi moderno. Investir em modelo novo (Wi-Fi 6 ou Mesh) faz diferença enorme.</p>
+
+        <h2>Não Resolveu?</h2>
+        <p>A Técnico Curitiba faz análise profissional do seu Wi-Fi, identifica pontos cegos, configura mesh e elimina zonas sem sinal. Atendemos Curitiba e região metropolitana via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-configurar-roteador-wifi-iniciantes": {
+    title: "Como Configurar Seu Roteador Wi-Fi Pela Primeira Vez",
+    excerpt: "Trocou de operadora ou comprou roteador novo? Configure você mesmo em 15 minutos.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Configurar roteador parece complicado mas é simples. Veja o passo a passo geral que serve para a maioria dos modelos.</p>
+
+        <h2>Antes de Começar</h2>
+        <ul>
+          <li>Tenha o roteador novo em mãos</li>
+          <li>Tenha o cabo de internet da operadora</li>
+          <li>Tenha celular ou notebook para acessar o painel</li>
+          <li>Anote a SENHA padrão (vem na etiqueta embaixo do roteador)</li>
+        </ul>
+
+        <h2>Passo 1: Conexões Físicas</h2>
+        <ol>
+          <li>Plug o cabo da operadora na entrada azul ou marcada <strong>WAN</strong> ou <strong>Internet</strong> do roteador</li>
+          <li>Plug o roteador na tomada e ligue</li>
+          <li>Espere 2-3 minutos até as luzes ficarem fixas</li>
+        </ol>
+
+        <h2>Passo 2: Conectar no Wi-Fi</h2>
+        <ol>
+          <li>No celular, vá em Wi-Fi</li>
+          <li>Procure o nome do roteador (na etiqueta, algo como 'TPLINK_1234')</li>
+          <li>Conecte usando a senha padrão da etiqueta</li>
+        </ol>
+
+        <h2>Passo 3: Acessar o Painel</h2>
+        <ol>
+          <li>Abra o navegador (Chrome, Safari)</li>
+          <li>Digite na barra de endereço: <strong>192.168.0.1</strong> ou <strong>192.168.1.1</strong> ou <strong>tplinkwifi.net</strong></li>
+          <li>Faça login (geralmente usuário 'admin' e senha 'admin', mas verifique a etiqueta)</li>
+        </ol>
+
+        <h2>Passo 4: Configurar Internet</h2>
+        <p>Geralmente o roteador detecta sozinho. Se não, escolha tipo de conexão. A maioria das operadoras no Brasil usa <strong>DHCP</strong> (automático). Para Vivo Fibra usa <strong>PPPoE</strong> com login e senha que vêm no contrato.</p>
+
+        <h2>Passo 5: Trocar Senha do Wi-Fi</h2>
+        <ol>
+          <li>Procure <strong>Configurações Wi-Fi</strong> ou <strong>Wireless</strong></li>
+          <li>Mude o nome da rede (SSID) para algo seu</li>
+          <li>Defina senha forte com 12+ caracteres</li>
+          <li>Salve</li>
+        </ol>
+
+        <h2>Passo 6: Trocar Senha do Painel</h2>
+        <p>Importante: troque a senha 'admin'. Procure <strong>Senha de Administrador</strong> ou <strong>Conta</strong> e defina uma nova.</p>
+
+        <h2>Não Funcionou?</h2>
+        <p>Cada operadora tem particularidades (Vivo, Claro NET, Oi, GVT). A Técnico Curitiba configura roteador, repetidor e mesh em sua casa em Curitiba — chame pelo WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-trocar-senha-wifi": {
+    title: "Como Trocar a Senha do Wi-Fi: Passo a Passo Para Qualquer Roteador",
+    excerpt: "Vizinho usando seu Wi-Fi? Aprenda a trocar a senha em 5 minutos.",
+    date: "2026-04-29",
+    readTime: "5 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Trocar a senha do Wi-Fi é simples e deve ser feito sempre que suspeitar de uso indevido ou tiver compartilhado com alguém que não deveria ter mais acesso.</p>
+
+        <h2>O Que Você Precisa</h2>
+        <ul>
+          <li>Estar conectado no Wi-Fi (por cabo ou pelo próprio Wi-Fi atual)</li>
+          <li>Saber o IP do roteador (geralmente 192.168.0.1 ou 192.168.1.1)</li>
+          <li>Senha de administrador (na etiqueta do roteador)</li>
+        </ul>
+
+        <h2>Passo a Passo</h2>
+        <ol>
+          <li>Abra o navegador e digite o IP do roteador na barra</li>
+          <li>Faça login (admin/admin geralmente)</li>
+          <li>Procure menu <strong>Wireless</strong>, <strong>Wi-Fi</strong> ou <strong>Sem fio</strong></li>
+          <li>Clique em <strong>Segurança</strong> ou <strong>Senha</strong></li>
+          <li>Mude a senha para algo forte (12+ caracteres, com letras, números e símbolos)</li>
+          <li>Mantenha o tipo de segurança em <strong>WPA2-PSK</strong> ou <strong>WPA3</strong></li>
+          <li>Salve e aplique</li>
+        </ol>
+
+        <h2>Depois de Trocar</h2>
+        <p>Você será desconectado. Reconecte celulares, TV, notebook, câmeras com a nova senha. Anote em local seguro.</p>
+
+        <h2>Senha Forte É Assim</h2>
+        <ul>
+          <li>Mínimo 12 caracteres</li>
+          <li>Misture LETRAS maiúsculas e minúsculas</li>
+          <li>Inclua números e símbolos (!@#$)</li>
+          <li>NÃO use nome, data de nascimento ou 'minhacasa123'</li>
+          <li>Exemplo bom: <strong>Curitiba!2026#Casa</strong></li>
+        </ul>
+
+        <h2>Esqueci a Senha do Painel?</h2>
+        <p>Aperte e segure o botão <strong>Reset</strong> atrás do roteador por 10 segundos. Volta para configuração de fábrica e você reconfigura. Atenção: vai apagar a senha do Wi-Fi também e voltar para a padrão de etiqueta.</p>
+
+        <h2>Ajuda Profissional</h2>
+        <p>A Técnico Curitiba configura segurança avançada, rede separada para visitas e reset de roteador em casa em Curitiba — atendimento via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-usar-rede-wifi-para-visitas": {
+    title: "Como Criar Rede Wi-Fi Para Visitas Sem Dar Sua Senha Principal",
+    excerpt: "Receba visitas sem comprometer sua segurança. Crie uma rede separada em minutos.",
+    date: "2026-04-29",
+    readTime: "5 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Dar a senha do seu Wi-Fi para todo mundo é arriscado: uma vez que a senha vaza, qualquer um pode usar. A solução é criar uma rede de visitas (Guest Network).</p>
+
+        <h2>Vantagens da Rede de Visitas</h2>
+        <ul>
+          <li>Senha separada — pode trocar quando quiser sem afetar sua casa</li>
+          <li>Visitas não acessam seus computadores nem seu Chromecast</li>
+          <li>Pode limitar a velocidade</li>
+          <li>Pode programar para desligar à noite</li>
+        </ul>
+
+        <h2>Como Criar</h2>
+        <ol>
+          <li>Acesse o painel do roteador (192.168.0.1 ou 192.168.1.1)</li>
+          <li>Faça login</li>
+          <li>Procure <strong>Rede de Visitas</strong>, <strong>Guest Network</strong> ou <strong>Wi-Fi Convidados</strong></li>
+          <li>Ative</li>
+          <li>Defina nome (ex: 'CasaVisitas')</li>
+          <li>Defina senha simples para passar</li>
+          <li>Marque <strong>Isolar da rede principal</strong> ou similar</li>
+          <li>Salve</li>
+        </ol>
+
+        <h2>Compartilhe Por QR Code</h2>
+        <p>No celular Android, vá em <strong>Configurações → Wi-Fi → toque na rede ativa → Compartilhar (QR Code)</strong>. Visitas escaneiam e conectam sem precisar digitar a senha.</p>
+
+        <h2>Roteadores Que Não Têm Essa Função</h2>
+        <p>Roteadores antigos podem não ter. Considere atualizar o firmware ou trocar por modelo recente. A Técnico Curitiba indica e instala roteadores adequados ao seu uso em Curitiba.</p>
+
+      </>
+    ),
+  },
+  "como-configurar-repetidor-wifi": {
+    title: "Como Configurar Repetidor de Wi-Fi: Passo a Passo Simples",
+    excerpt: "Comprou repetidor mas não sabe configurar? Veja como em 10 minutos.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Repetidor estende o sinal do roteador para áreas que não pegam. A configuração é simples seguindo este guia.</p>
+
+        <h2>Onde Colocar o Repetidor</h2>
+        <p>O lugar certo é <strong>no meio do caminho</strong> entre o roteador e o lugar onde o sinal é fraco. Não adianta colocar onde você quer o sinal — coloque onde ainda tem sinal médio do roteador.</p>
+
+        <h2>Método 1: Botão WPS (Mais Fácil)</h2>
+        <ol>
+          <li>Plug o repetidor próximo ao roteador (perto, na primeira vez)</li>
+          <li>Espere 1 minuto</li>
+          <li>Aperte o botão <strong>WPS</strong> do roteador</li>
+          <li>Em até 2 minutos, aperte o botão <strong>WPS</strong> do repetidor</li>
+          <li>Espere a luz parar de piscar e ficar fixa</li>
+          <li>Mova o repetidor para o local definitivo</li>
+        </ol>
+
+        <h2>Método 2: Manual (Quando WPS Não Tem)</h2>
+        <ol>
+          <li>Plug o repetidor e conecte no Wi-Fi dele (nome aparece na etiqueta)</li>
+          <li>Acesse no navegador o endereço da etiqueta (ex: <strong>tplinkrepeater.net</strong>)</li>
+          <li>Faça login (admin geralmente)</li>
+          <li>Escolha sua rede Wi-Fi principal</li>
+          <li>Digite a senha</li>
+          <li>Defina o nome do Wi-Fi do repetidor (pode ser igual ou com '_EXT')</li>
+          <li>Salve e mova para o local</li>
+        </ol>
+
+        <h2>Verificando se Funcionou</h2>
+        <p>Vá ao local com sinal fraco e veja se aparece a rede do repetidor. Conecte e teste velocidade. Se ainda fraco, mude o repetidor de lugar.</p>
+
+        <h2>Limites do Repetidor</h2>
+        <p>Repetidor reduz velocidade pela metade. Para casas grandes, sistema <strong>Mesh</strong> (vários pontos integrados) é muito superior. A Técnico Curitiba instala mesh em Curitiba e região com cobertura total.</p>
+
+      </>
+    ),
+  },
+  "como-saber-quem-esta-usando-meu-wifi": {
+    title: "Como Saber Quem Está Usando o Seu Wi-Fi (E Bloquear)",
+    excerpt: "Internet lenta? Veja todos os aparelhos conectados e expulse os intrusos.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Se sua internet está lenta, pode ter alguém usando sem permissão. Veja como descobrir e expulsar.</p>
+
+        <h2>Pelo Painel do Roteador (Mais Confiável)</h2>
+        <ol>
+          <li>Acesse o painel (192.168.0.1 ou 192.168.1.1)</li>
+          <li>Faça login</li>
+          <li>Procure <strong>Dispositivos Conectados</strong>, <strong>Status</strong>, <strong>Clientes Wi-Fi</strong> ou similar</li>
+          <li>Veja a lista de todos os aparelhos conectados</li>
+        </ol>
+
+        <h2>Identificar Cada Aparelho</h2>
+        <p>A lista mostra nomes técnicos ('android-d4f8'). Para identificar:</p>
+        <ul>
+          <li>Compare com seus aparelhos: celulares, notebook, TV, Chromecast, câmeras, Alexa, geladeira smart</li>
+          <li>Anote o número de aparelhos seus</li>
+          <li>Se sobrar algum desconhecido, é intruso</li>
+        </ul>
+
+        <h2>Pelo Aplicativo (Android)</h2>
+        <p>Baixe o app <strong>Fing</strong> da Play Store. Mostra todos os dispositivos do Wi-Fi com nome amigável e identificação automática.</p>
+
+        <h2>Como Expulsar Intruso</h2>
+        <p>A forma mais eficaz: <strong>trocar a senha do Wi-Fi</strong>. O intruso é desconectado imediatamente e não consegue voltar. Use senha forte (12+ caracteres).</p>
+
+        <h2>Bloquear Por MAC Address</h2>
+        <p>Roteadores avançados permitem bloquear endereço físico (MAC). No painel, em <strong>Filtro de MAC</strong> ou <strong>Bloqueio de Dispositivos</strong>, copie o MAC do intruso e bloqueie. Mas trocar a senha é mais simples.</p>
+
+        <h2>Como Evitar Que Aconteça</h2>
+        <ul>
+          <li>Senha forte e única (não use 'minhacasa123')</li>
+          <li>Não compartilhe sem necessidade</li>
+          <li>Crie rede separada para visitas</li>
+          <li>Troque a senha a cada 6 meses</li>
+        </ul>
+
+        <h2>Suspeita de Algo Mais Sério?</h2>
+        <p>Se mesmo trocando a senha continua estranho, pode ser problema mais grave. A Técnico Curitiba faz auditoria de rede em casa em Curitiba — atendimento via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-conectar-wifi-tv-nao-conecta": {
+    title: "Smart TV Não Conecta no Wi-Fi: 8 Soluções Que Funcionam",
+    excerpt: "TV não acha sua rede ou desconecta toda hora? Veja o que tentar.",
+    date: "2026-04-29",
+    readTime: "7 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Smart TV que não conecta no Wi-Fi é problema comum. Antes de pensar em chamar técnico, tente estas 8 soluções.</p>
+
+        <h2>1. Reinicie a TV</h2>
+        <p>Tire da tomada, espere 1 minuto, plug de volta. Resolve 30% dos casos.</p>
+
+        <h2>2. Reinicie o Roteador</h2>
+        <p>Tire da tomada, espere 30 segundos, plug de volta. Espere 2 minutos para estabilizar.</p>
+
+        <h2>3. Verifique Senha Maiúscula/Minúscula</h2>
+        <p>Senhas Wi-Fi diferenciam letras. 'Casa123' é diferente de 'casa123'. Digite com atenção.</p>
+
+        <h2>4. TV Está no Alcance?</h2>
+        <p>TV no fundo da casa, roteador na frente — pode estar fora do alcance. Teste levando o celular até a TV: se ele pegar mal o Wi-Fi ali, a TV também não vai pegar.</p>
+
+        <h2>5. Use Wi-Fi de 2.4GHz</h2>
+        <p>Algumas TVs antigas só funcionam no 2.4GHz, não no 5GHz. No painel do roteador, dê nomes diferentes para cada banda e conecte a TV na de 2.4GHz.</p>
+
+        <h2>6. Atualize a TV</h2>
+        <p>Em <strong>Configurações → Sobre → Atualizar Software</strong>. Atualizações corrigem bugs de Wi-Fi.</p>
+
+        <h2>7. Esqueça a Rede e Reconecte</h2>
+        <ol>
+          <li>Vá em <strong>Configurações → Rede → Wi-Fi</strong></li>
+          <li>Selecione sua rede e escolha <strong>Esquecer</strong></li>
+          <li>Reconecte digitando a senha</li>
+        </ol>
+
+        <h2>8. Use Cabo de Rede</h2>
+        <p>Se nada funciona, conecte cabo de rede (ethernet) do roteador na TV. É mais estável e rápido. Se sua TV está longe do roteador, peça para a Técnico Curitiba passar o cabo discretamente.</p>
+
+        <h2>Última Opção: Reset de Fábrica</h2>
+        <p>Em <strong>Configurações → Suporte → Redefinir</strong>. Apaga tudo, mas resolve casos persistentes.</p>
+
+        <h2>Continua Não Funcionando?</h2>
+        <p>Pode ser placa Wi-Fi da TV defeituosa. A Técnico Curitiba avalia em casa em Curitiba se vale conserto ou se é mais barato usar Chromecast/TV box.</p>
+
+      </>
+    ),
+  },
+  "como-fazer-teste-velocidade-internet": {
+    title: "Como Fazer Teste de Velocidade da Internet Corretamente",
+    excerpt: "Sua internet está lenta? Aprenda a testar do jeito certo e saber se é problema da operadora.",
+    date: "2026-04-29",
+    readTime: "5 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Antes de reclamar com a operadora, faça o teste do jeito certo. Resultados errados levam à conclusão errada.</p>
+
+        <h2>Como Testar Corretamente</h2>
+        <ol>
+          <li>Conecte o computador no roteador POR CABO (não por Wi-Fi)</li>
+          <li>Feche todos os programas, sites e downloads</li>
+          <li>Pause Netflix, YouTube, downloads</li>
+          <li>Acesse <strong>fast.com</strong> ou <strong>speedtest.net</strong></li>
+          <li>Clique em <strong>Iniciar</strong> e espere terminar</li>
+          <li>Anote o resultado de DOWNLOAD e UPLOAD</li>
+        </ol>
+
+        <h2>Resultado Por Wi-Fi É Sempre Menor</h2>
+        <p>Wi-Fi sempre dá menos que cabo. Não compare com sua velocidade contratada usando Wi-Fi — só cabo é o teste real.</p>
+
+        <h2>Se Está Bem Abaixo do Contratado</h2>
+        <p>Você contratou 300 mega e o teste por cabo deu 40 mega? Isso é problema da operadora. Por lei, devem entregar pelo menos 80% do contratado em média (40% mínimo a qualquer momento).</p>
+
+        <h2>O Que Reclamar Para Operadora</h2>
+        <p>Ligue ou abra chat e diga: <strong>'Fiz teste por cabo direto no modem, todos os outros equipamentos desligados, e estou recebendo X mega de Y contratados. Quero técnico no local ou crédito proporcional.'</strong></p>
+
+        <h2>Continuou Lento Mesmo Após Visita Técnica?</h2>
+        <p>Pode ser cabeamento interno antigo, modem velho ou interferência. A Técnico Curitiba faz análise independente e ajuda a comprovar para a operadora — atendemos Curitiba via WhatsApp.</p>
+
+      </>
+    ),
+  },
+  "como-bloquear-acesso-internet-criancas": {
+    title: "Como Bloquear Acesso à Internet em Horários Específicos (Controle Para Crianças)",
+    excerpt: "Filhos passando o dia inteiro online? Programe horários no próprio roteador.",
+    date: "2026-04-29",
+    readTime: "6 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Em vez de brigar todo dia para o filho desligar o tablet, programe o próprio roteador para cortar a internet em determinados horários. Funciona sem app no celular dele.</p>
+
+        <h2>Pelo Roteador (Mais Eficaz)</h2>
+        <ol>
+          <li>Acesse o painel (192.168.0.1)</li>
+          <li>Procure <strong>Controle dos Pais</strong>, <strong>Parental Controls</strong> ou <strong>Agendamento</strong></li>
+          <li>Adicione o dispositivo (celular ou tablet do filho)</li>
+          <li>Defina horários permitidos (ex: 7h-22h em dias de semana, livre fim de semana)</li>
+          <li>Salve</li>
+        </ol>
+
+        <h2>No Celular Android (Family Link)</h2>
+        <ol>
+          <li>No SEU celular, instale <strong>Google Family Link</strong></li>
+          <li>No celular da criança, instale <strong>Family Link Para Crianças</strong></li>
+          <li>Vincule as duas contas seguindo os passos</li>
+          <li>No seu app, defina tempo de tela e horário de descanso</li>
+          <li>Pode aprovar/negar cada app, ver localização e mais</li>
+        </ol>
+
+        <h2>No iPhone (Tempo de Uso)</h2>
+        <ol>
+          <li>Configurações → Tempo de Uso → Configurar Como Tempo de Uso de Pais e Filhos</li>
+          <li>Defina tempo permitido por categoria (jogos, redes sociais)</li>
+          <li>Defina horário de descanso</li>
+          <li>Bloqueie compras e instalação de apps</li>
+        </ol>
+
+        <h2>Para Bloquear Sites Adultos</h2>
+        <p>No painel do roteador, procure <strong>Filtro de Sites</strong> ou <strong>Bloqueio por DNS</strong>. Use o DNS do <strong>OpenDNS Family Shield</strong> (208.67.222.123 e 208.67.220.123) — bloqueia conteúdo adulto automaticamente.</p>
+
+        <h2>Configuração Completa</h2>
+        <p>Configurar tudo isso é trabalhoso. A Técnico Curitiba configura controle parental completo, filtro de conteúdo e horários no roteador, no celular e no computador — atendemos Curitiba e região.</p>
+
+      </>
+    ),
+  },
+  "como-mudar-nome-rede-wifi": {
+    title: "Como Mudar o Nome da Sua Rede Wi-Fi (SSID)",
+    excerpt: "Em vez de 'TPLINK_5678', personalize o nome da sua rede Wi-Fi.",
+    date: "2026-04-29",
+    readTime: "4 min",
+    category: "Tutoriais Domésticos",
+    content: (
+      <>
+        <p className="lead">Mudar o nome da rede (SSID) é simples e útil para identificar facilmente seu Wi-Fi entre vários da vizinhança.</p>
+
+        <h2>Por Que Mudar</h2>
+        <ul>
+          <li>Identificar fácil entre redes vizinhas</li>
+          <li>Personalizar com criatividade</li>
+          <li>Não revelar marca do roteador (segurança)</li>
+          <li>Diferenciar 2.4GHz e 5GHz se for dual band</li>
+        </ul>
+
+        <h2>Como Mudar</h2>
+        <ol>
+          <li>Acesse o painel do roteador (192.168.0.1 ou 192.168.1.1)</li>
+          <li>Faça login</li>
+          <li>Vá em <strong>Wireless</strong>, <strong>Wi-Fi</strong> ou <strong>Sem Fio</strong></li>
+          <li>Procure o campo <strong>SSID</strong> ou <strong>Nome da Rede</strong></li>
+          <li>Digite o novo nome (até 32 caracteres)</li>
+          <li>Se for dual band, mude separado o 2.4GHz e o 5GHz</li>
+          <li>Salve</li>
+        </ol>
+
+        <h2>O Que Acontece Depois</h2>
+        <p>Todos os dispositivos serão desconectados. Eles não vão reconectar sozinhos porque o 'novo' Wi-Fi parece outro. Conecte cada um manualmente com o nome novo e mesma senha.</p>
+
+        <h2>Dicas de Nomes</h2>
+        <ul>
+          <li>Evite nomes ofensivos (vizinhos veem)</li>
+          <li>Não coloque número da casa nem sobrenome (segurança)</li>
+          <li>Pode ser engraçado: 'NaoSouSeuVizinho', 'WifiTrancado', 'Pegue Pago R$10'</li>
+          <li>Para dual band: 'CasaSilva' e 'CasaSilva_5G'</li>
+        </ul>
+
+        <h2>Esconder o Nome da Rede</h2>
+        <p>Existe opção <strong>Ocultar SSID</strong>. Não recomendamos: traz mais problemas que segurança real. Use senha forte em vez disso.</p>
+
+      </>
+    ),
+  },
 };
 
 const BlogPost = () => {

@@ -1,40 +1,48 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { PainSection } from "@/components/PainSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { TrustSection } from "@/components/TrustSection";
-import { NeighborhoodsSection } from "@/components/NeighborhoodsSection";
-import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
-import { FAQSection } from "@/components/FAQSection";
-import { CitiesSection } from "@/components/CitiesSection";
-import { TopSearchedServicesSection } from "@/components/TopSearchedServicesSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
-import { CoverageMapSection } from "@/components/CoverageMapSection";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
-import { SchedulingSection } from "@/components/scheduling";
-import { TrustBadges, SecurityBadge } from "@/components/social-proof";
-import { SocialProofAdminPanel } from "@/components/social-proof/AdminPanel";
 import { trackPageView } from "@/lib/analytics";
-import { HomePricingBlock } from "@/components/HomePricingBlock";
-import { HomeDiagnosticoBlock } from "@/components/HomeDiagnosticoBlock";
-import { HomeEquipamentosBlock } from "@/components/HomeEquipamentosBlock";
-import { HomeParaQuemBlock } from "@/components/HomeParaQuemBlock";
-import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { ProblemasDestaque } from "@/components/ProblemasDestaque";
-import { TechBrandsMarquee } from "@/components/TechBrandsMarquee";
-import { GeolocationTrigger } from "@/components/GeolocationTrigger";
+
+// Lazy-load all below-the-fold sections to reduce initial JS and improve LCP
+const PainSection = lazy(() => import("@/components/PainSection").then(m => ({ default: m.PainSection })));
+const ServicesSection = lazy(() => import("@/components/ServicesSection").then(m => ({ default: m.ServicesSection })));
+const TrustSection = lazy(() => import("@/components/TrustSection").then(m => ({ default: m.TrustSection })));
+const NeighborhoodsSection = lazy(() => import("@/components/NeighborhoodsSection").then(m => ({ default: m.NeighborhoodsSection })));
+const CTASection = lazy(() => import("@/components/CTASection").then(m => ({ default: m.CTASection })));
+const FAQSection = lazy(() => import("@/components/FAQSection").then(m => ({ default: m.FAQSection })));
+const CitiesSection = lazy(() => import("@/components/CitiesSection").then(m => ({ default: m.CitiesSection })));
+const TopSearchedServicesSection = lazy(() => import("@/components/TopSearchedServicesSection").then(m => ({ default: m.TopSearchedServicesSection })));
+const SocialProofSection = lazy(() => import("@/components/SocialProofSection").then(m => ({ default: m.SocialProofSection })));
+const CoverageMapSection = lazy(() => import("@/components/CoverageMapSection").then(m => ({ default: m.CoverageMapSection })));
+const SchedulingSection = lazy(() => import("@/components/scheduling").then(m => ({ default: m.SchedulingSection })));
+const TrustBadges = lazy(() => import("@/components/social-proof").then(m => ({ default: m.TrustBadges })));
+const SecurityBadge = lazy(() => import("@/components/social-proof").then(m => ({ default: m.SecurityBadge })));
+const SocialProofAdminPanel = lazy(() => import("@/components/social-proof/AdminPanel").then(m => ({ default: m.SocialProofAdminPanel })));
+const HomePricingBlock = lazy(() => import("@/components/HomePricingBlock").then(m => ({ default: m.HomePricingBlock })));
+const HomeDiagnosticoBlock = lazy(() => import("@/components/HomeDiagnosticoBlock").then(m => ({ default: m.HomeDiagnosticoBlock })));
+const HomeEquipamentosBlock = lazy(() => import("@/components/HomeEquipamentosBlock").then(m => ({ default: m.HomeEquipamentosBlock })));
+const HomeParaQuemBlock = lazy(() => import("@/components/HomeParaQuemBlock").then(m => ({ default: m.HomeParaQuemBlock })));
+const InterlinkingBlock = lazy(() => import("@/components/InterlinkingBlock").then(m => ({ default: m.InterlinkingBlock })));
+const ProblemasDestaque = lazy(() => import("@/components/ProblemasDestaque").then(m => ({ default: m.ProblemasDestaque })));
+const TechBrandsMarquee = lazy(() => import("@/components/TechBrandsMarquee").then(m => ({ default: m.TechBrandsMarquee })));
+const GeolocationTrigger = lazy(() => import("@/components/GeolocationTrigger").then(m => ({ default: m.GeolocationTrigger })));
+
+// Skeleton placeholder to reserve space and avoid layout shifts during load
+const SectionFallback = ({ height = "400px" }: { height?: string }) => (
+  <div style={{ minHeight: height }} className="w-full" aria-hidden="true" />
+);
 
 const Index = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Curitiba | Assistência Técnica Nº1 da Região | Atendimento Hoje";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", 
+      metaDescription.setAttribute("content",
         "A assistência técnica em informática mais bem avaliada de Curitiba e região. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio no mesmo dia. ⭐ 4.9/5 - 347+ avaliações. WhatsApp (41) 99745-2053."
       );
     }
@@ -62,16 +70,36 @@ const Index = () => {
           </div>
         </section>
 
-        <TechBrandsMarquee />
-        <PainSection />
-        <SchedulingSection />
-        <ServicesSection />
-        <TopSearchedServicesSection />
-        <GeolocationTrigger />
-        <CoverageMapSection />
-        <CitiesSection />
-        <NeighborhoodsSection />
-        <SocialProofSection />
+        <Suspense fallback={<SectionFallback height="120px" />}>
+          <TechBrandsMarquee />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <PainSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <SchedulingSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <TopSearchedServicesSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <GeolocationTrigger />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CoverageMapSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CitiesSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <NeighborhoodsSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <SocialProofSection />
+        </Suspense>
 
         <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay">
           <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />
@@ -99,7 +127,6 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              {/* Connecting line between steps (desktop only) */}
               <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-sm btn-feedback elastic-click hover-streak hover:shadow-[var(--shadow-lg)]">
                 Entender Como Funciona
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
@@ -108,27 +135,51 @@ const Index = () => {
           </div>
         </section>
 
-        <HomePricingBlock />
-        <HomeDiagnosticoBlock />
-        <HomeEquipamentosBlock />
-        <HomeParaQuemBlock />
-        <ProblemasDestaque />
-        <InterlinkingBlock />
-        <FAQSection />
-        <TrustSection />
-        <CTASection />
+        <Suspense fallback={<SectionFallback />}>
+          <HomePricingBlock />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <HomeDiagnosticoBlock />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <HomeEquipamentosBlock />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <HomeParaQuemBlock />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ProblemasDestaque />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <InterlinkingBlock />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <FAQSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <TrustSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CTASection />
+        </Suspense>
 
         <section className="py-8 bg-muted/30">
           <div className="container mx-auto">
             <div className="text-center mb-6">
-              <SecurityBadge />
+              <Suspense fallback={null}>
+                <SecurityBadge />
+              </Suspense>
             </div>
-            <TrustBadges variant="card" />
+            <Suspense fallback={<SectionFallback height="100px" />}>
+              <TrustBadges variant="card" />
+            </Suspense>
           </div>
         </section>
       </main>
       <Footer />
-      <SocialProofAdminPanel />
+      <Suspense fallback={null}>
+        <SocialProofAdminPanel />
+      </Suspense>
     </div>
   );
 };

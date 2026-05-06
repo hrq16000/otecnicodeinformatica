@@ -54,8 +54,10 @@ export const HeroSection = () => {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover opacity-18 scale-105"
-          loading="eager"
+          loading="lazy"
           decoding="async"
+          // @ts-ignore - fetchpriority is valid HTML attribute
+          fetchpriority="low"
           width="1920"
           height="1080"
           style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}

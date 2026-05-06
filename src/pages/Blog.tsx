@@ -781,10 +781,15 @@ const Blog = () => {
                           <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 bg-card hover-streak">
                             <div className="relative h-36 overflow-hidden">
                               <img
-                                src={item.image + "&w=500&h=280"}
+                                src={getUniqueImage(item.imageSeed || item.slug, 500)}
+                                srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
+                                sizes={COVER_SIZES}
                                 alt={item.title}
+                                width={500}
+                                height={280}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 loading="lazy"
+                                decoding="async"
                               />
                               <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-35 mix-blend-multiply`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />

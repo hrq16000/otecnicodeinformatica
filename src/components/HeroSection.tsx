@@ -54,8 +54,10 @@ export const HeroSection = () => {
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover opacity-18 scale-105"
-          loading="eager"
+          loading="lazy"
           decoding="async"
+          // @ts-ignore - fetchpriority is valid HTML attribute
+          fetchpriority="low"
           width="1920"
           height="1080"
           style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
@@ -154,6 +156,8 @@ export const HeroSection = () => {
                 className="relative w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
                 loading="eager"
                 decoding="async"
+                // @ts-ignore - fetchpriority is valid HTML attribute
+                fetchpriority="high"
                 width="400"
                 height="400"
                 src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859.webp" 

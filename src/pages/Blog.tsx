@@ -585,7 +585,17 @@ const Blog = () => {
                     <Link to={item.path} className="group block h-full">
                       <div className="relative rounded-2xl overflow-hidden h-full gradient-border hover-glow-ring hover-lift bg-card">
                         <div className="relative h-52 overflow-hidden">
-                          <img src={item.image + "&w=800&h=400"} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out" loading="lazy" />
+                          <img
+                            src={getUniqueImage(item.imageSeed || item.slug, 800)}
+                            srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            alt={item.title}
+                            width={800}
+                            height={400}
+                            className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-50 mix-blend-multiply`} />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">

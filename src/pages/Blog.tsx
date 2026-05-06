@@ -8,7 +8,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
-import { getUniqueImage } from "@/lib/blogImages";
+import { getUniqueImage, getUniqueImageSrcSet, COVER_SIZES } from "@/lib/blogImages";
 import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,

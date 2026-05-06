@@ -393,6 +393,7 @@ const Blog = () => {
       excerpt: p.introSnippet + "…",
       category: p.categoria,
       image: getUniqueImage(`prob-${p.slug}`),
+      imageSeed: `prob-${p.slug}`,
       gravidade: p.gravidade,
     }));
 

@@ -379,6 +379,7 @@ const Blog = () => {
       excerpt: p.excerpt,
       category: p.category,
       image: getUniqueImage(`blog-${p.slug}`),
+      imageSeed: `blog-${p.slug}`,
       readTime: p.readTime,
       date: p.date,
     }));

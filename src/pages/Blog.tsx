@@ -8,7 +8,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
-import { getUniqueImage } from "@/lib/blogImages";
+import { getUniqueImage, getUniqueImageSrcSet, COVER_SIZES } from "@/lib/blogImages";
 import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
@@ -201,24 +201,25 @@ type ContentItem = {
   excerpt: string;
   category: string;
   image: string; // now unique per item
+  imageSeed?: string; // seed used to compute srcset variants
   readTime?: string;
   date?: string;
   gravidade?: string;
 };
 
 const SERVICO_PAGES: ContentItem[] = [
-  { type: "servico", slug: "formatacao", path: "/servicos/formatacao-computador", title: "Formatação de Computador", excerpt: "Formatação profissional com backup, instalação de drivers e programas essenciais.", category: "Serviços", image: getUniqueImage("svc-formatacao") },
-  { type: "servico", slug: "remocao-virus", path: "/servicos/remocao-virus", title: "Remoção de Vírus e Malware", excerpt: "Limpeza completa de vírus, trojans, ransomware e adware com ferramentas profissionais.", category: "Serviços", image: getUniqueImage("svc-remocao-virus") },
-  { type: "servico", slug: "upgrade-ssd", path: "/servicos/upgrade-ssd-memoria", title: "Upgrade de SSD e Memória RAM", excerpt: "Deixe seu PC até 10x mais rápido com SSD NVMe e mais memória RAM.", category: "Serviços", image: getUniqueImage("svc-upgrade-ssd") },
-  { type: "servico", slug: "conserto-pc", path: "/servicos/conserto-pc-notebook", title: "Conserto de PC e Notebook", excerpt: "Reparo profissional de hardware e software para computadores e notebooks.", category: "Serviços", image: getUniqueImage("svc-conserto-pc") },
-  { type: "servico", slug: "redes-wifi", path: "/servicos/redes-wifi", title: "Redes e Wi-Fi", excerpt: "Instalação, configuração e otimização de redes domésticas e empresariais.", category: "Serviços", image: getUniqueImage("svc-redes-wifi") },
-  { type: "servico", slug: "conserto-placa", path: "/servicos/conserto-placa", title: "Conserto de Placa Eletrônica", excerpt: "Reparo de placa-mãe, GPU e componentes com microsoldagem profissional.", category: "Serviços", image: getUniqueImage("svc-conserto-placa") },
-  { type: "servico", slug: "manutencao-tv", path: "/servicos/manutencao-tv", title: "Manutenção de TV", excerpt: "Reparo de TV LED, LCD, Smart TV e OLED com diagnóstico profissional.", category: "Serviços", image: getUniqueImage("svc-manutencao-tv") },
-  { type: "servico", slug: "cftv", path: "/cftv", title: "CFTV — Câmeras de Segurança", excerpt: "Instalação e manutenção de sistemas de câmeras de segurança.", category: "Serviços", image: getUniqueImage("svc-cftv") },
-  { type: "servico", slug: "montagem-pc", path: "/servicos/montagem-pc", title: "Montagem de PC", excerpt: "Montagem personalizada de computadores para jogos, trabalho e estudo.", category: "Serviços", image: getUniqueImage("svc-montagem-pc") },
-  { type: "servico", slug: "backup", path: "/servicos/backup-recuperacao", title: "Backup e Recuperação de Dados", excerpt: "Recuperação de arquivos perdidos e backup profissional em nuvem ou HD externo.", category: "Serviços", image: getUniqueImage("svc-backup") },
-  { type: "servico", slug: "procedimentos", path: "/procedimentos-placa", title: "Procedimentos Técnicos em Placa", excerpt: "Reflow, Reballing, Troca de Chip BGA, Microsoldagem e Recapacitação.", category: "Serviços", image: getUniqueImage("svc-procedimentos") },
-  { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: getUniqueImage("svc-coleta") },
+  { type: "servico", slug: "formatacao", path: "/servicos/formatacao-computador", title: "Formatação de Computador", excerpt: "Formatação profissional com backup, instalação de drivers e programas essenciais.", category: "Serviços", image: getUniqueImage("svc-formatacao"), imageSeed: "svc-formatacao" },
+  { type: "servico", slug: "remocao-virus", path: "/servicos/remocao-virus", title: "Remoção de Vírus e Malware", excerpt: "Limpeza completa de vírus, trojans, ransomware e adware com ferramentas profissionais.", category: "Serviços", image: getUniqueImage("svc-remocao-virus"), imageSeed: "svc-remocao-virus" },
+  { type: "servico", slug: "upgrade-ssd", path: "/servicos/upgrade-ssd-memoria", title: "Upgrade de SSD e Memória RAM", excerpt: "Deixe seu PC até 10x mais rápido com SSD NVMe e mais memória RAM.", category: "Serviços", image: getUniqueImage("svc-upgrade-ssd"), imageSeed: "svc-upgrade-ssd" },
+  { type: "servico", slug: "conserto-pc", path: "/servicos/conserto-pc-notebook", title: "Conserto de PC e Notebook", excerpt: "Reparo profissional de hardware e software para computadores e notebooks.", category: "Serviços", image: getUniqueImage("svc-conserto-pc"), imageSeed: "svc-conserto-pc" },
+  { type: "servico", slug: "redes-wifi", path: "/servicos/redes-wifi", title: "Redes e Wi-Fi", excerpt: "Instalação, configuração e otimização de redes domésticas e empresariais.", category: "Serviços", image: getUniqueImage("svc-redes-wifi"), imageSeed: "svc-redes-wifi" },
+  { type: "servico", slug: "conserto-placa", path: "/servicos/conserto-placa", title: "Conserto de Placa Eletrônica", excerpt: "Reparo de placa-mãe, GPU e componentes com microsoldagem profissional.", category: "Serviços", image: getUniqueImage("svc-conserto-placa"), imageSeed: "svc-conserto-placa" },
+  { type: "servico", slug: "manutencao-tv", path: "/servicos/manutencao-tv", title: "Manutenção de TV", excerpt: "Reparo de TV LED, LCD, Smart TV e OLED com diagnóstico profissional.", category: "Serviços", image: getUniqueImage("svc-manutencao-tv"), imageSeed: "svc-manutencao-tv" },
+  { type: "servico", slug: "cftv", path: "/cftv", title: "CFTV — Câmeras de Segurança", excerpt: "Instalação e manutenção de sistemas de câmeras de segurança.", category: "Serviços", image: getUniqueImage("svc-cftv"), imageSeed: "svc-cftv" },
+  { type: "servico", slug: "montagem-pc", path: "/servicos/montagem-pc", title: "Montagem de PC", excerpt: "Montagem personalizada de computadores para jogos, trabalho e estudo.", category: "Serviços", image: getUniqueImage("svc-montagem-pc"), imageSeed: "svc-montagem-pc" },
+  { type: "servico", slug: "backup", path: "/servicos/backup-recuperacao", title: "Backup e Recuperação de Dados", excerpt: "Recuperação de arquivos perdidos e backup profissional em nuvem ou HD externo.", category: "Serviços", image: getUniqueImage("svc-backup"), imageSeed: "svc-backup" },
+  { type: "servico", slug: "procedimentos", path: "/procedimentos-placa", title: "Procedimentos Técnicos em Placa", excerpt: "Reflow, Reballing, Troca de Chip BGA, Microsoldagem e Recapacitação.", category: "Serviços", image: getUniqueImage("svc-procedimentos"), imageSeed: "svc-procedimentos" },
+  { type: "servico", slug: "coleta", path: "/coleta-e-entrega", title: "Coleta e Entrega", excerpt: "Coleta do equipamento na sua casa e entrega após o reparo.", category: "Serviços", image: getUniqueImage("svc-coleta"), imageSeed: "svc-coleta" },
 ];
 
 const ITEMS_PER_PAGE_OPTIONS = [10, 12, 15, 20, 30];
@@ -378,6 +379,7 @@ const Blog = () => {
       excerpt: p.excerpt,
       category: p.category,
       image: getUniqueImage(`blog-${p.slug}`),
+      imageSeed: `blog-${p.slug}`,
       readTime: p.readTime,
       date: p.date,
     }));
@@ -391,6 +393,7 @@ const Blog = () => {
       excerpt: p.introSnippet + "…",
       category: p.categoria,
       image: getUniqueImage(`prob-${p.slug}`),
+      imageSeed: `prob-${p.slug}`,
       gravidade: p.gravidade,
     }));
 
@@ -582,7 +585,17 @@ const Blog = () => {
                     <Link to={item.path} className="group block h-full">
                       <div className="relative rounded-2xl overflow-hidden h-full gradient-border hover-glow-ring hover-lift bg-card">
                         <div className="relative h-52 overflow-hidden">
-                          <img src={item.image + "&w=800&h=400"} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out" loading="lazy" />
+                          <img
+                            src={getUniqueImage(item.imageSeed || item.slug, 800)}
+                            srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            alt={item.title}
+                            width={800}
+                            height={400}
+                            className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-50 mix-blend-multiply`} />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -768,10 +781,15 @@ const Blog = () => {
                           <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 bg-card hover-streak">
                             <div className="relative h-36 overflow-hidden">
                               <img
-                                src={item.image + "&w=500&h=280"}
+                                src={getUniqueImage(item.imageSeed || item.slug, 500)}
+                                srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
+                                sizes={COVER_SIZES}
                                 alt={item.title}
+                                width={500}
+                                height={280}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 loading="lazy"
+                                decoding="async"
                               />
                               <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-35 mix-blend-multiply`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />

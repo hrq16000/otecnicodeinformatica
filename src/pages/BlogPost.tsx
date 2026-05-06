@@ -10763,6 +10763,14 @@ const BlogPost = () => {
               <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden shadow-2xl">
                 <img
                   src={heroImage}
+                  srcSet={
+                    heroImage.includes("images.unsplash.com")
+                      ? [400, 800, 1200, 1600]
+                          .map((w) => `${heroImage.replace(/[?&]w=\d+/g, "")}${heroImage.includes("?") ? "&" : "?"}w=${w} ${w}w`)
+                          .join(", ")
+                      : undefined
+                  }
+                  sizes="(max-width: 768px) 100vw, 1200px"
                   alt={post.title}
                   className="w-full h-full object-cover"
                   loading="eager"

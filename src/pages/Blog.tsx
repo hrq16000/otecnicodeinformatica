@@ -9,6 +9,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
 import { getUniqueImage, getUniqueImageSrcSet, COVER_SIZES } from "@/lib/blogImages";
+import { getCategoryCover } from "@/lib/categoryCovers";
 import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
@@ -371,18 +372,21 @@ const Blog = () => {
 
   // Build content with UNIQUE images per item
   const allContent = useMemo<ContentItem[]>(() => {
-    const blogItems: ContentItem[] = blogPosts.map((p) => ({
-      type: "blog" as const,
-      slug: p.slug,
-      path: `/blog/${p.slug}`,
-      title: p.title,
-      excerpt: p.excerpt,
-      category: p.category,
-      image: getUniqueImage(`blog-${p.slug}`),
-      imageSeed: `blog-${p.slug}`,
-      readTime: p.readTime,
-      date: p.date,
-    }));
+    const blogItems: ContentItem[] = blogPosts.map((p) => {
+      const cover = getCategoryCover(p.slug);
+      return {
+        type: "blog" as const,
+        slug: p.slug,
+        path: `/blog/${p.slug}`,
+        title: p.title,
+        excerpt: p.excerpt,
+        category: p.category,
+        image: cover ? cover.src : getUniqueImage(`blog-${p.slug}`),
+        imageSeed: `blog-${p.slug}`,
+        readTime: p.readTime,
+        date: p.date,
+      };
+    });
 
     const problemaItems: ContentItem[] = problemaSummaries.map((p) => ({
       type: "problema" as const,

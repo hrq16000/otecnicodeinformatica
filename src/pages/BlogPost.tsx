@@ -12,6 +12,7 @@ import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
 import { getUniqueImage } from "@/lib/blogImages";
+import { getCategoryCover } from "@/lib/categoryCovers";
 
 const blogPostsContent: Record<string, {
   title: string;
@@ -10561,7 +10562,10 @@ const BlogPost = () => {
   }, [post, slug]);
 
   // Compute hero image (Discover requires large 1200px+ image)
-  const heroImage = post?.image
+  const categoryCover = slug ? getCategoryCover(slug) : null;
+  const heroImage = categoryCover
+    ? `https://tecnicocuritiba.com.br${categoryCover.src}`
+    : post?.image
     ? (typeof post.image === 'string' && post.image.startsWith('http')
         ? post.image
         : `https://tecnicocuritiba.com.br${post.image}`)

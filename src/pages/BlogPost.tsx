@@ -10768,7 +10768,9 @@ const BlogPost = () => {
                 <img
                   src={heroImage}
                   srcSet={
-                    heroImage.includes("images.unsplash.com")
+                    categoryCover
+                      ? categoryCover.srcSet
+                      : heroImage.includes("images.unsplash.com")
                       ? [400, 800, 1200, 1600]
                           .map((w) => `${heroImage.replace(/[?&]w=\d+/g, "")}${heroImage.includes("?") ? "&" : "?"}w=${w} ${w}w`)
                           .join(", ")

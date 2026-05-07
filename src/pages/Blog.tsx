@@ -9,6 +9,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { IMAGES } from "@/lib/images";
 import { getUniqueImage, getUniqueImageSrcSet, COVER_SIZES } from "@/lib/blogImages";
+import { getCategoryCover } from "@/lib/categoryCovers";
 import { problemaSummaries } from "@/lib/problemaSummaries";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
@@ -371,18 +372,21 @@ const Blog = () => {
 
   // Build content with UNIQUE images per item
   const allContent = useMemo<ContentItem[]>(() => {
-    const blogItems: ContentItem[] = blogPosts.map((p) => ({
-      type: "blog" as const,
-      slug: p.slug,
-      path: `/blog/${p.slug}`,
-      title: p.title,
-      excerpt: p.excerpt,
-      category: p.category,
-      image: getUniqueImage(`blog-${p.slug}`),
-      imageSeed: `blog-${p.slug}`,
-      readTime: p.readTime,
-      date: p.date,
-    }));
+    const blogItems: ContentItem[] = blogPosts.map((p) => {
+      const cover = getCategoryCover(p.slug);
+      return {
+        type: "blog" as const,
+        slug: p.slug,
+        path: `/blog/${p.slug}`,
+        title: p.title,
+        excerpt: p.excerpt,
+        category: p.category,
+        image: cover ? cover.src : getUniqueImage(`blog-${p.slug}`),
+        imageSeed: `blog-${p.slug}`,
+        readTime: p.readTime,
+        date: p.date,
+      };
+    });
 
     const problemaItems: ContentItem[] = problemaSummaries.map((p) => ({
       type: "problema" as const,
@@ -585,6 +589,18 @@ const Blog = () => {
                     <Link to={item.path} className="group block h-full">
                       <div className="relative rounded-2xl overflow-hidden h-full gradient-border hover-glow-ring hover-lift bg-card">
                         <div className="relative h-52 overflow-hidden">
+                          {(() => { const cover = getCategoryCover(item.slug); return cover ? (
+                          <img
+                            src={cover.src}
+                            srcSet={cover.srcSet}
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            alt={item.title}
+                            width={1200}
+                            height={630}
+                            className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
+                            loading="lazy"
+                            decoding="async"
+                          />) : (
                           <img
                             src={getUniqueImage(item.imageSeed || item.slug, 800)}
                             srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
@@ -595,7 +611,7 @@ const Blog = () => {
                             className="w-full h-full object-cover group-hover:scale-[1.12] transition-transform duration-[800ms] ease-out"
                             loading="lazy"
                             decoding="async"
-                          />
+                          />); })()}
                           <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-50 mix-blend-multiply`} />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -780,6 +796,18 @@ const Blog = () => {
                         <Link to={item.path} className="group block h-full">
                           <article className="relative rounded-xl overflow-hidden h-full border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1.5 bg-card hover-streak">
                             <div className="relative h-36 overflow-hidden">
+                              {(() => { const cover = getCategoryCover(item.slug); return cover ? (
+                              <img
+                                src={cover.src}
+                                srcSet={cover.srcSet}
+                                sizes={COVER_SIZES}
+                                alt={item.title}
+                                width={1200}
+                                height={630}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                loading="lazy"
+                                decoding="async"
+                              />) : (
                               <img
                                 src={getUniqueImage(item.imageSeed || item.slug, 500)}
                                 srcSet={getUniqueImageSrcSet(item.imageSeed || item.slug)}
@@ -790,7 +818,7 @@ const Blog = () => {
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 loading="lazy"
                                 decoding="async"
-                              />
+                              />); })()}
                               <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-35 mix-blend-multiply`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                               <div className="absolute top-2 left-2 flex gap-1.5">

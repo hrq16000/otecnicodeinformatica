@@ -30,15 +30,46 @@ export const gtagReportConversion = (url?: string) => {
   }
 };
 
+// Read UTM params from current URL (set by Ads autotag / SEO campaigns)
+const getUtmContext = () => {
+  if (typeof window === 'undefined') return {};
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || undefined,
+    utm_medium: p.get('utm_medium') || undefined,
+    utm_campaign: p.get('utm_campaign') || undefined,
+    utm_term: p.get('utm_term') || undefined,
+    utm_content: p.get('utm_content') || undefined,
+    gclid: p.get('gclid') || undefined,
+  };
+};
+
 // Track CTA clicks for conversions
 export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    // GA4 event
-    window.gtag('event', 'cta_click', {
+    const utm = getUtmContext();
+    const payload = {
       event_category: 'engagement',
       event_label: `${ctaType}_${location}`,
-      value: 1
-    });
+      cta_type: ctaType,
+      cta_location: location,
+      page_path: window.location.pathname,
+      value: 1,
+      ...utm,
+    };
+
+    // Custom event (for funnels / debug)
+    window.gtag('event', 'cta_click', payload);
+
+    // Recommended GA4 event — shows up as a conversion-eligible event,
+    // can be marked as a Key Event in GA4 and imported into Google Ads.
+    if (ctaType === 'whatsapp') {
+      window.gtag('event', 'generate_lead', {
+        ...payload,
+        currency: 'BRL',
+        method: 'whatsapp',
+      });
+    }
 
     // Fire the official Google Ads conversion
     gtagReportConversion();

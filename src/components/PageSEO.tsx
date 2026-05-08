@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
+import { withOgVersion } from "@/lib/ogCacheBust";
 
 const SITE_NAME = "Técnico Curitiba";
 const BASE_URL = "https://tecnicocuritiba.com.br";
@@ -28,6 +29,7 @@ export const PageSEO = ({
   breadcrumbs,
 }: PageSEOProps) => {
   const url = `${BASE_URL}${path}`;
+  const versionedOg = withOgVersion(ogImage);
 
   // Inject BreadcrumbList structured data
   useEffect(() => {
@@ -74,7 +76,8 @@ export const PageSEO = ({
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={versionedOg} />
+      <meta property="og:image:secure_url" content={versionedOg} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
@@ -82,7 +85,7 @@ export const PageSEO = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={versionedOg} />
     </Helmet>
   );
 };

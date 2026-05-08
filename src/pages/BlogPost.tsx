@@ -13,6 +13,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
 import { getUniqueImage } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
+import { withOgVersion } from "@/lib/ogCacheBust";
 
 const blogPostsContent: Record<string, {
   title: string;
@@ -10570,6 +10571,7 @@ const BlogPost = () => {
         ? post.image
         : `https://tecnicocuritiba.com.br${post.image}`)
     : (slug ? getUniqueImage(slug).replace(/w=\d+/, 'w=1600').replace(/q=\d+/, 'q=80') + '&w=1600&h=900' : '');
+  const heroImageOg = withOgVersion(heroImage);
 
   // Compute word count from content (rough estimate via readTime)
   const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
@@ -10686,7 +10688,8 @@ const BlogPost = () => {
         <meta property="og:url" content={`https://tecnicocuritiba.com.br/blog/${slug}`} />
         <meta property="og:site_name" content="Técnico Curitiba" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="og:image" content={heroImage} />
+        <meta property="og:image" content={heroImageOg} />
+        <meta property="og:image:secure_url" content={heroImageOg} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="900" />
         <meta property="og:image:alt" content={post.title} />
@@ -10699,7 +10702,7 @@ const BlogPost = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={heroImage} />
+        <meta name="twitter:image" content={heroImageOg} />
         <meta name="twitter:image:alt" content={post.title} />
         <meta name="author" content="Técnico Curitiba" />
         <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />

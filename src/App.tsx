@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
 import { SocialProofProvider } from "@/components/social-proof";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
+import { GA4ChecklistPanel } from "@/components/GA4ChecklistPanel";
 import { CursorTrail } from "@/components/CursorTrail";
 import { PageTransition } from "@/components/PageTransition";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
@@ -796,6 +797,7 @@ const App = () => (
         </PageTransition>
         <WhatsAppChatbot />
         <SocialProofProvider />
+        <GA4ChecklistPanel />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

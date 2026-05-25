@@ -73,7 +73,7 @@ export const PageSEO = ({
       <link rel="icon" href="/favicon.png" type="image/png" />
 
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />

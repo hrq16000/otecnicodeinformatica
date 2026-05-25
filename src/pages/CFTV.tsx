@@ -220,7 +220,7 @@ const CFTVPage = () => {
                 </a>
               </Button>
 
-              <p className="text-white/50 text-xs mt-4">* Vagas limitadas por semana. Instalação sujeita a agenda.</p>
+              <p className="text-white/80 text-xs mt-4">* Vagas limitadas por semana. Instalação sujeita a agenda.</p>
             </div>
           </div>
         </section>
@@ -393,7 +393,7 @@ const CFTVPage = () => {
                 Quero Garantir Meu Atendimento Agora
               </a>
             </Button>
-            <p className="text-white/50 text-sm mt-4">Vagas limitadas por semana • Instalação sujeita a agenda</p>
+            <p className="text-white/80 text-sm mt-4">Vagas limitadas por semana • Instalação sujeita a agenda</p>
           </div>
         </section>
       </main>

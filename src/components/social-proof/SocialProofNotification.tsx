@@ -132,7 +132,7 @@ export const SocialProofNotification = () => {
 
       {/* CDC compliance footer */}
       <div className="px-4 pb-3">
-        <p className="text-[10px] text-muted-foreground/70 leading-tight">
+        <p className="text-[10px] text-muted-foreground leading-tight">
           Avisos com base em atividade recente e volume médio de solicitações.
         </p>
       </div>

@@ -16,6 +16,7 @@ interface PageSEOProps {
   description: string;
   path?: string;
   ogImage?: string;
+  ogType?: "website" | "article" | "profile" | "product";
   noindex?: boolean;
   breadcrumbs?: BreadcrumbItem[];
 }
@@ -25,9 +26,11 @@ export const PageSEO = ({
   description,
   path = "",
   ogImage = DEFAULT_OG_IMAGE,
+  ogType = "website",
   noindex = false,
   breadcrumbs,
 }: PageSEOProps) => {
+
   const url = `${BASE_URL}${path}`;
   const versionedOg = withOgVersion(ogImage);
 
@@ -70,7 +73,7 @@ export const PageSEO = ({
       <link rel="icon" href="/favicon.png" type="image/png" />
 
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />

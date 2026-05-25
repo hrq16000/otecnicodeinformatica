@@ -530,7 +530,7 @@ const Blog = () => {
               <div className={`max-w-xl mx-auto relative mb-12 transition-all duration-500 ${searchFocused ? 'scale-[1.02]' : ''}`}>
                 <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent/30 via-primary/20 to-accent/30 blur-md transition-opacity duration-500 ${searchFocused ? 'opacity-100' : 'opacity-0'}`} />
                 <div className="relative">
-                  <Search className={`absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 transition-colors duration-300 pointer-events-none ${searchFocused ? 'text-accent' : 'text-white/40'}`} />
+                  <Search className={`absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 transition-colors duration-300 pointer-events-none ${searchFocused ? 'text-accent' : 'text-white/75'}`} />
                   <Input
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -540,7 +540,7 @@ const Blog = () => {
                     className="pl-12 pr-10 py-6 text-base bg-white/10 backdrop-blur-xl border-white/15 text-white placeholder:text-white/35 focus:bg-white/15 focus:border-accent/50 rounded-xl shadow-lg"
                   />
                   {searchTerm && (
-                    <button onClick={() => setSearchTerm("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors">
+                    <button onClick={() => setSearchTerm("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/75 hover:text-white transition-colors">
                       <X className="h-4 w-4" />
                     </button>
                   )}
@@ -734,10 +734,10 @@ const Blog = () => {
             {filtered.length === 0 ? (
               <div className="text-center py-24">
                 <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mx-auto mb-5">
-                  <Search className="h-10 w-10 text-muted-foreground/30" />
+                  <Search className="h-10 w-10 text-muted-foreground" />
                 </div>
                 <p className="text-muted-foreground text-lg mb-1">Nenhum conteúdo encontrado</p>
-                <p className="text-muted-foreground/60 text-sm mb-5">Tente outro termo ou limpe os filtros</p>
+                <p className="text-muted-foreground text-sm mb-5">Tente outro termo ou limpe os filtros</p>
                 <Button variant="outline" onClick={clearFilters} className="gap-2 rounded-full">
                   <X className="h-3.5 w-3.5" /> Limpar filtros
                 </Button>
@@ -888,7 +888,7 @@ const Blog = () => {
                   <Sparkles className="h-3.5 w-3.5 text-accent" /> Atendimento especializado
                 </div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Não encontrou o que procura?</h2>
-                <p className="text-white/60 mb-8 text-lg">Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.</p>
+                <p className="text-white/85 mb-8 text-lg">Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.</p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <a href="https://wa.me/5541997452053?text=Olá! Preciso de ajuda técnica." target="_blank" rel="noopener noreferrer">
                     <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">WhatsApp</Button>

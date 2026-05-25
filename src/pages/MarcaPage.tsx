@@ -77,10 +77,10 @@ const MarcaPage = () => {
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] mb-5">
                   Assistência Técnica{" "}
                   <span style={{ color: brand.color === "#000000" ? "hsl(var(--accent))" : brand.color }}>{brand.name}</span>
-                  <span className="block text-xl md:text-2xl text-white/60 font-normal mt-3">em Curitiba e Região Metropolitana</span>
+                  <span className="block text-xl md:text-2xl text-white/85 font-normal mt-3">em Curitiba e Região Metropolitana</span>
                 </h1>
 
-                <p className="text-white/60 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">{brand.description}</p>
+                <p className="text-white/85 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">{brand.description}</p>
 
                 <div className="flex flex-wrap justify-center gap-4">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -248,7 +248,7 @@ const MarcaPage = () => {
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                   Precisa de Assistência {brand.name}?
                 </h2>
-                <p className="text-white/60 mb-8 text-lg">
+                <p className="text-white/85 mb-8 text-lg">
                   Técnico especializado com mais de 20 anos de experiência. Atendimento a domicílio em Curitiba e região.
                 </p>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

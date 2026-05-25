@@ -104,7 +104,7 @@ const Marcas = () => {
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] mb-5">
                   Marcas que{" "}
                   <span className="gradient-text">Atendemos</span>
-                  <span className="block text-xl md:text-2xl text-white/60 font-normal mt-3">
+                  <span className="block text-xl md:text-2xl text-white/85 font-normal mt-3">
                     Assistência técnica especializada por marca
                   </span>
                 </h1>
@@ -171,7 +171,7 @@ const Marcas = () => {
                       </p>
                     </div>
 
-                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/50 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
                   </Link>
                 </AnimatedSection>
               ))}
@@ -338,7 +338,7 @@ const Marcas = () => {
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                   Não encontrou sua marca?
                 </h2>
-                <p className="text-white/60 mb-8 text-lg">
+                <p className="text-white/85 mb-8 text-lg">
                   Atendemos todas as marcas de computadores, notebooks, celulares e TVs. Entre em contato e informe o modelo do seu equipamento.
                 </p>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

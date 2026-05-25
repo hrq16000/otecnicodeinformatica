@@ -151,7 +151,7 @@ export const SocialProofProvider = () => {
             </div>
           </div>
           <div className="px-4 pb-3">
-            <p className="text-[10px] text-muted-foreground/70 leading-tight">
+            <p className="text-[10px] text-muted-foreground leading-tight">
               Avisos com base em atividade recente e volume médio de solicitações.
             </p>
           </div>
@@ -200,7 +200,7 @@ export const SocialProofProvider = () => {
             )}
           </div>
           <div className="flex items-center justify-between mt-3">
-            <p className="text-[10px] text-muted-foreground/70 leading-tight">
+            <p className="text-[10px] text-muted-foreground leading-tight">
               Disponibilidade pode variar conforme região e horário.
             </p>
             <button onClick={handleClose} className="p-1 rounded-full hover:bg-muted transition-colors ml-2" aria-label="Fechar">

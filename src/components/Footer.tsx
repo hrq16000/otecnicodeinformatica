@@ -3,7 +3,7 @@ import { MapPin, MessageCircle, Users, ArrowRight } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { useMemo } from "react";
 
-const footerLink = "text-white/60 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
+const footerLink = "text-white/85 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
 
 function pickRandom<T>(arr: T[], n: number): T[] {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
@@ -123,7 +123,7 @@ export const Footer = () => {
                 height="40"
               />
             </div>
-            <p className="text-white/50 text-sm max-w-xs leading-relaxed">
+            <p className="text-white/80 text-sm max-w-xs leading-relaxed">
               Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.
             </p>
             <div className="flex items-center gap-2 text-white/65 text-sm hover:text-white/80 transition-all duration-300 group cursor-default">
@@ -201,7 +201,7 @@ export const Footer = () => {
         {/* Chamada parceiro */}
         <div className="border-t border-white/[0.08] pt-6 pb-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <span className="text-white/50 text-sm">É técnico de informática?</span>
+            <span className="text-white/80 text-sm">É técnico de informática?</span>
             <Link
               to="/seja-parceiro"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/15 text-accent text-sm font-semibold border border-accent/25 hover:bg-accent/25 hover:border-accent/40 transition-all duration-300 hover:scale-105 group"
@@ -217,7 +217,7 @@ export const Footer = () => {
           <p className="text-white/45 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. CNPJ: 41.723.708/0001-58. Todos os direitos reservados.
           </p>
-          <p className="text-white/30 text-xs">
+          <p className="text-white/75 text-xs">
             Uma empresa do ecossistema{" "}
             <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
               Preciso de Um

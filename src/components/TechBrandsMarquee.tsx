@@ -78,7 +78,7 @@ export const TechBrandsMarquee = () => {
               >
                 <path d={b.logoPath} />
               </svg>
-              <span className="text-muted-foreground/60 font-heading font-bold text-[11px] md:text-xs tracking-wide group-hover:text-accent transition-colors duration-300 text-center leading-tight">
+              <span className="text-muted-foreground font-heading font-bold text-[11px] md:text-xs tracking-wide group-hover:text-accent transition-colors duration-300 text-center leading-tight">
                 {b.name}
               </span>
             </Link>

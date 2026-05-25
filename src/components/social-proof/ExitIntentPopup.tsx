@@ -189,13 +189,13 @@ export const ExitIntentPopup = () => {
 
           <button
             onClick={handleClose}
-            className="mt-3 text-xs text-muted-foreground/60 hover:text-foreground transition-colors"
+            className="mt-3 text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             Não, prefiro pagar preço cheio
           </button>
         </div>
 
-        <p className="text-[9px] text-muted-foreground/50 text-center mt-3">
+        <p className="text-[9px] text-muted-foreground text-center mt-3">
           Oferta válida apenas para novos atendimentos. Sem compromisso.
         </p>
       </div>

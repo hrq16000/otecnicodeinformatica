@@ -138,7 +138,7 @@ export const ScarcityIndicator = () => {
         </div>
 
         {/* CDC-compliant disclaimer */}
-        <p className="text-[10px] text-muted-foreground/70 mt-3 leading-tight">
+        <p className="text-[10px] text-muted-foreground mt-3 leading-tight">
           A disponibilidade de profissionais pode variar conforme a região e horário.
         </p>
       </div>

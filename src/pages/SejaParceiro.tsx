@@ -360,7 +360,7 @@ const SejaParceiro = () => {
                         Faça o seu cadastro
                       </Button>
                     </a>
-                    <p className="text-[11px] text-muted-foreground/70">
+                    <p className="text-[11px] text-muted-foreground">
                       Plataforma Preciso de Um — conectando prestadores a clientes em todo o Brasil
                     </p>
                   </div>
@@ -382,7 +382,7 @@ const SejaParceiro = () => {
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                   Junte-se à Nossa Rede
                 </h2>
-                <p className="text-white/60 mb-8 text-lg">
+                <p className="text-white/85 mb-8 text-lg">
                   Mais de 20 anos de experiência compartilhada. Cresça com quem entende do mercado.
                 </p>
                 <a href="#formulario">

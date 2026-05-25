@@ -10725,7 +10725,7 @@ const BlogPost = () => {
             <div className="max-w-3xl mx-auto">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-6 transition-colors group"
+                className="inline-flex items-center gap-2 text-white/85 hover:text-white mb-6 transition-colors group"
               >
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                 Voltar ao Blog
@@ -10736,11 +10736,11 @@ const BlogPost = () => {
                   <span className="text-xs font-medium bg-white/15 backdrop-blur-md text-white px-3 py-1.5 rounded-full border border-white/20 shimmer">
                     {post.category}
                   </span>
-                  <div className="flex items-center gap-1 text-white/60 text-xs">
+                  <div className="flex items-center gap-1 text-white/85 text-xs">
                     <Calendar className="h-3 w-3" />
                     <span>{new Date(post.date).toLocaleDateString('pt-BR')}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-white/60 text-xs">
+                  <div className="flex items-center gap-1 text-white/85 text-xs">
                     <Clock className="h-3 w-3" />
                     <span>{post.readTime} de leitura</span>
                   </div>

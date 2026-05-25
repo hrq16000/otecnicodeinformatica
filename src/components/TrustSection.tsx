@@ -36,7 +36,7 @@ export const TrustSection = () => {
               <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight glow-pulse-text">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-white/50 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{stat.label}</p>
+              <p className="text-white/80 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{stat.label}</p>
               {/* Glowing underline */}
               <div className="glow-separator mt-2 w-12 mx-auto" />
             </div>

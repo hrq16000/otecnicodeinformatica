@@ -16,6 +16,7 @@ interface PageSEOProps {
   description: string;
   path?: string;
   ogImage?: string;
+  ogType?: "website" | "article" | "profile" | "product";
   noindex?: boolean;
   breadcrumbs?: BreadcrumbItem[];
 }
@@ -25,9 +26,11 @@ export const PageSEO = ({
   description,
   path = "",
   ogImage = DEFAULT_OG_IMAGE,
+  ogType = "website",
   noindex = false,
   breadcrumbs,
 }: PageSEOProps) => {
+
   const url = `${BASE_URL}${path}`;
   const versionedOg = withOgVersion(ogImage);
 

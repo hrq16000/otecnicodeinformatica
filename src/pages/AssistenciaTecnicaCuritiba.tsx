@@ -236,9 +236,80 @@ export default function AssistenciaTecnicaCuritiba() {
     console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
   }, []);
 
+  // Automated tracking check: confirm whatsapp_click events reach gtag with utm_*/gclid.
+  // If a CTA is clicked and no gtag('event','cta_click') fires within 600ms, console.error.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const originalGtag = window.gtag;
+    let lastClickAt = 0;
+    let lastLocation = "";
+    let firedSinceClick = false;
+
+    window.gtag = function (...args: unknown[]) {
+      try {
+        if (args[0] === "event" && (args[1] === "cta_click" || args[1] === "generate_lead")) {
+          firedSinceClick = true;
+          const payload = (args[2] || {}) as Record<string, unknown>;
+          const hasUtm =
+            "utm_source" in payload || "utm_medium" in payload || "utm_campaign" in payload || "gclid" in payload;
+          // eslint-disable-next-line no-console
+          console.info("[ATC tracking ✓]", args[1], { hasUtmContext: hasUtm, payload });
+        }
+      } catch {
+        /* noop */
+      }
+      return originalGtag?.apply(this, args as []);
+    };
+
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const a = target?.closest?.("a[data-wa-medium]") as HTMLAnchorElement | null;
+      if (!a) return;
+      lastClickAt = Date.now();
+      lastLocation = a.getAttribute("data-wa-medium") || "unknown";
+      firedSinceClick = false;
+      window.setTimeout(() => {
+        if (!firedSinceClick && Date.now() - lastClickAt >= 550) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `[ATC tracking ✗] WhatsApp CTA "${lastLocation}" não disparou cta_click no GA4. Verifique gtag/consent.`
+          );
+        }
+      }, 600);
+    };
+
+    document.addEventListener("click", onClick, true);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      if (originalGtag) window.gtag = originalGtag;
+    };
+  }, []);
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
+        title="Assistência Técnica de Consoles em Curitiba | PS5, Xbox, Nintendo e Placa de Vídeo"
+        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp (41) 99745-2053."
+        path="/assistencia-tecnica-curitiba"
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Serviços", path: "/servicos" },
+          { name: "Assistência Técnica Curitiba", path: "/assistencia-tecnica-curitiba" },
+        ]}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+
         title="Assistência Técnica de Consoles em Curitiba | PS5, Xbox, Nintendo e Placa de Vídeo"
         description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp (41) 99745-2053."
         path="/assistencia-tecnica-curitiba"

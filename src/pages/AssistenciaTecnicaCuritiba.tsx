@@ -356,7 +356,7 @@ export default function AssistenciaTecnicaCuritiba() {
               <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-white">
                 Assistência Técnica Especializada em{" "}
                 <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
-                  Consoles em Curitiba
+                  Curitiba
                 </span>
               </h1>
               <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">

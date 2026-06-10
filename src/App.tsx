@@ -41,6 +41,7 @@ const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
 
 // Bairros Curitiba
 const Centro = lazy(() => import("./pages/bairros/Centro"));

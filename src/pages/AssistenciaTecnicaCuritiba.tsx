@@ -42,9 +42,50 @@ const internalLinks = [
   { to: "/servicos/conserto-placa", label: "Conserto de Placa-mãe" },
   { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
   { to: "/servicos/conserto-celular", label: "Conserto de Celular" },
+  { to: "/servicos/conserto-tv", label: "Conserto de TV" },
   { to: "/tecnico-informatica-curitiba", label: "Técnico de Informática Curitiba" },
   { to: "/precos-e-politicas", label: "Preços e Políticas" },
   { to: "/faq", label: "Perguntas Frequentes" },
+];
+
+const nearbyCities = [
+  { to: "/tecnico-informatica-sao-jose-pinhais", label: "São José dos Pinhais" },
+  { to: "/tecnico-informatica-pinhais", label: "Pinhais" },
+  { to: "/tecnico-informatica-colombo", label: "Colombo" },
+  { to: "/tecnico-informatica-araucaria", label: "Araucária" },
+  { to: "/tecnico-informatica-campo-largo", label: "Campo Largo" },
+  { to: "/tecnico-informatica-fazenda-rio-grande", label: "Fazenda Rio Grande" },
+  { to: "/tecnico-informatica-almirante-tamandare", label: "Almirante Tamandaré" },
+  { to: "/tecnico-informatica-piraquara", label: "Piraquara" },
+  { to: "/tecnico-informatica-quatro-barras", label: "Quatro Barras" },
+  { to: "/tecnico-informatica-campo-magro", label: "Campo Magro" },
+];
+
+const faqs = [
+  {
+    question: "Quanto custa um orçamento de assistência técnica em Curitiba?",
+    answer: "O diagnóstico e o orçamento são gratuitos e sem compromisso. Você só aprova o serviço se concordar com o valor e o prazo apresentados pelo técnico.",
+  },
+  {
+    question: "Vocês têm garantia no reparo de consoles (PS5, Xbox, Switch)?",
+    answer: "Sim. Todo serviço executado tem garantia de 90 dias cobrindo o defeito reparado e as peças substituídas, conforme nota fiscal e ordem de serviço.",
+  },
+  {
+    question: "Atendem em toda Curitiba e região metropolitana?",
+    answer: "Sim. Atendemos toda Curitiba e região metropolitana (São José dos Pinhais, Pinhais, Colombo, Araucária, Campo Largo e outras), com opção de retirada e entrega via motoboy.",
+  },
+  {
+    question: "Fazem assistência técnica para clientes de outras cidades do Brasil?",
+    answer: "Sim. Recebemos aparelhos de todo o Brasil via transportadora e contamos com uma rede de parceiros técnicos para atendimento nacional. Fale com o especialista no WhatsApp para combinar a logística.",
+  },
+  {
+    question: "Quanto tempo demora o reparo de uma placa de vídeo ou console?",
+    answer: "O diagnóstico fica pronto em até 24h úteis. O reparo em si depende da complexidade — reballing de GPU, troca de leitor de PS5 e similares costumam ficar prontos em 3 a 7 dias úteis após aprovação.",
+  },
+  {
+    question: "Usam peças originais nos reparos?",
+    answer: "Trabalhamos com peças originais ou de qualidade equivalente comprovada. Sempre informamos a origem da peça no orçamento para você decidir com transparência.",
+  },
 ];
 
 const services = [
@@ -195,6 +236,65 @@ export default function AssistenciaTecnicaCuritiba() {
     console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
   }, []);
 
+  // Automated tracking check: confirm whatsapp_click events reach gtag with utm_*/gclid.
+  // If a CTA is clicked and no gtag('event','cta_click') fires within 600ms, console.error.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const originalGtag = window.gtag;
+    let lastClickAt = 0;
+    let lastLocation = "";
+    let firedSinceClick = false;
+
+    window.gtag = function (...args: unknown[]) {
+      try {
+        if (args[0] === "event" && (args[1] === "cta_click" || args[1] === "generate_lead")) {
+          firedSinceClick = true;
+          const payload = (args[2] || {}) as Record<string, unknown>;
+          const hasUtm =
+            "utm_source" in payload || "utm_medium" in payload || "utm_campaign" in payload || "gclid" in payload;
+          // eslint-disable-next-line no-console
+          console.info("[ATC tracking ✓]", args[1], { hasUtmContext: hasUtm, payload });
+        }
+      } catch {
+        /* noop */
+      }
+      return originalGtag?.apply(this, args as []);
+    };
+
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const a = target?.closest?.("a[data-wa-medium]") as HTMLAnchorElement | null;
+      if (!a) return;
+      lastClickAt = Date.now();
+      lastLocation = a.getAttribute("data-wa-medium") || "unknown";
+      firedSinceClick = false;
+      window.setTimeout(() => {
+        if (!firedSinceClick && Date.now() - lastClickAt >= 550) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `[ATC tracking ✗] WhatsApp CTA "${lastLocation}" não disparou cta_click no GA4. Verifique gtag/consent.`
+          );
+        }
+      }, 600);
+    };
+
+    document.addEventListener("click", onClick, true);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      if (originalGtag) window.gtag = originalGtag;
+    };
+  }, []);
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
@@ -208,6 +308,7 @@ export default function AssistenciaTecnicaCuritiba() {
         ]}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
@@ -444,6 +545,29 @@ export default function AssistenciaTecnicaCuritiba() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="container mx-auto px-4 py-20 border-t border-border" id="faq">
+          <div data-atc-reveal className="max-w-2xl mx-auto text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">Perguntas Frequentes</h2>
+            <p className="mt-3 text-muted-foreground">Tudo o que você precisa saber sobre a nossa assistência técnica em Curitiba.</p>
+          </div>
+          <div className="max-w-3xl mx-auto grid gap-4">
+            {faqs.map((f, i) => (
+              <details
+                key={i}
+                data-atc-reveal
+                className="atc-card group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-sm)] open:border-accent/40"
+              >
+                <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
+                  <h3 className="text-base md:text-lg font-semibold text-foreground">{f.question}</h3>
+                  <ArrowRight className="h-4 w-4 mt-1 shrink-0 text-accent transition-transform group-open:rotate-90" />
+                </summary>
+                <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 premium-gradient" aria-hidden="true" />
@@ -479,6 +603,26 @@ export default function AssistenciaTecnicaCuritiba() {
                 className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card hover:border-accent/50 hover:bg-accent/5 hover:text-accent px-4 py-2 text-sm text-foreground/85 transition"
               >
                 {l.label}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </nav>
+        </section>
+
+        {/* NEARBY CITIES */}
+        <section className="container mx-auto px-4 pb-16">
+          <div data-atc-reveal className="max-w-2xl mx-auto text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Atendimento na Região Metropolitana</h2>
+            <p className="mt-2 text-muted-foreground text-sm">Também atendemos cidades próximas a Curitiba com retirada e entrega.</p>
+          </div>
+          <nav aria-label="Cidades próximas" data-atc-stagger data-atc-reveal className="flex flex-wrap justify-center gap-2.5">
+            {nearbyCities.map((c) => (
+              <Link
+                key={c.to}
+                to={c.to}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card hover:border-accent/50 hover:bg-accent/5 hover:text-accent px-4 py-2 text-sm text-foreground/85 transition"
+              >
+                {c.label}
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             ))}

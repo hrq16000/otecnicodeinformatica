@@ -42,9 +42,50 @@ const internalLinks = [
   { to: "/servicos/conserto-placa", label: "Conserto de Placa-mãe" },
   { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
   { to: "/servicos/conserto-celular", label: "Conserto de Celular" },
+  { to: "/servicos/conserto-tv", label: "Conserto de TV" },
   { to: "/tecnico-informatica-curitiba", label: "Técnico de Informática Curitiba" },
   { to: "/precos-e-politicas", label: "Preços e Políticas" },
   { to: "/faq", label: "Perguntas Frequentes" },
+];
+
+const nearbyCities = [
+  { to: "/tecnico-informatica-sao-jose-pinhais", label: "São José dos Pinhais" },
+  { to: "/tecnico-informatica-pinhais", label: "Pinhais" },
+  { to: "/tecnico-informatica-colombo", label: "Colombo" },
+  { to: "/tecnico-informatica-araucaria", label: "Araucária" },
+  { to: "/tecnico-informatica-campo-largo", label: "Campo Largo" },
+  { to: "/tecnico-informatica-fazenda-rio-grande", label: "Fazenda Rio Grande" },
+  { to: "/tecnico-informatica-almirante-tamandare", label: "Almirante Tamandaré" },
+  { to: "/tecnico-informatica-piraquara", label: "Piraquara" },
+  { to: "/tecnico-informatica-quatro-barras", label: "Quatro Barras" },
+  { to: "/tecnico-informatica-campo-magro", label: "Campo Magro" },
+];
+
+const faqs = [
+  {
+    question: "Quanto custa um orçamento de assistência técnica em Curitiba?",
+    answer: "O diagnóstico e o orçamento são gratuitos e sem compromisso. Você só aprova o serviço se concordar com o valor e o prazo apresentados pelo técnico.",
+  },
+  {
+    question: "Vocês têm garantia no reparo de consoles (PS5, Xbox, Switch)?",
+    answer: "Sim. Todo serviço executado tem garantia de 90 dias cobrindo o defeito reparado e as peças substituídas, conforme nota fiscal e ordem de serviço.",
+  },
+  {
+    question: "Atendem em toda Curitiba e região metropolitana?",
+    answer: "Sim. Atendemos toda Curitiba e região metropolitana (São José dos Pinhais, Pinhais, Colombo, Araucária, Campo Largo e outras), com opção de retirada e entrega via motoboy.",
+  },
+  {
+    question: "Fazem assistência técnica para clientes de outras cidades do Brasil?",
+    answer: "Sim. Recebemos aparelhos de todo o Brasil via transportadora e contamos com uma rede de parceiros técnicos para atendimento nacional. Fale com o especialista no WhatsApp para combinar a logística.",
+  },
+  {
+    question: "Quanto tempo demora o reparo de uma placa de vídeo ou console?",
+    answer: "O diagnóstico fica pronto em até 24h úteis. O reparo em si depende da complexidade — reballing de GPU, troca de leitor de PS5 e similares costumam ficar prontos em 3 a 7 dias úteis após aprovação.",
+  },
+  {
+    question: "Usam peças originais nos reparos?",
+    answer: "Trabalhamos com peças originais ou de qualidade equivalente comprovada. Sempre informamos a origem da peça no orçamento para você decidir com transparência.",
+  },
 ];
 
 const services = [

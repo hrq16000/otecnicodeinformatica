@@ -608,6 +608,26 @@ export default function AssistenciaTecnicaCuritiba() {
             ))}
           </nav>
         </section>
+
+        {/* NEARBY CITIES */}
+        <section className="container mx-auto px-4 pb-16">
+          <div data-atc-reveal className="max-w-2xl mx-auto text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Atendimento na Região Metropolitana</h2>
+            <p className="mt-2 text-muted-foreground text-sm">Também atendemos cidades próximas a Curitiba com retirada e entrega.</p>
+          </div>
+          <nav aria-label="Cidades próximas" data-atc-stagger data-atc-reveal className="flex flex-wrap justify-center gap-2.5">
+            {nearbyCities.map((c) => (
+              <Link
+                key={c.to}
+                to={c.to}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card hover:border-accent/50 hover:bg-accent/5 hover:text-accent px-4 py-2 text-sm text-foreground/85 transition"
+              >
+                {c.label}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </nav>
+        </section>
       </main>
 
       <Footer />

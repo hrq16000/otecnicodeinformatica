@@ -545,6 +545,29 @@ export default function AssistenciaTecnicaCuritiba() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="container mx-auto px-4 py-20 border-t border-border" id="faq">
+          <div data-atc-reveal className="max-w-2xl mx-auto text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">Perguntas Frequentes</h2>
+            <p className="mt-3 text-muted-foreground">Tudo o que você precisa saber sobre a nossa assistência técnica em Curitiba.</p>
+          </div>
+          <div className="max-w-3xl mx-auto grid gap-4">
+            {faqs.map((f, i) => (
+              <details
+                key={i}
+                data-atc-reveal
+                className="atc-card group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-sm)] open:border-accent/40"
+              >
+                <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
+                  <h3 className="text-base md:text-lg font-semibold text-foreground">{f.question}</h3>
+                  <ArrowRight className="h-4 w-4 mt-1 shrink-0 text-accent transition-transform group-open:rotate-90" />
+                </summary>
+                <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 premium-gradient" aria-hidden="true" />

@@ -91,6 +91,7 @@ const infoLinks = [
   { label: "FAQ", to: "/faq" },
   { label: "Sobre Nós", to: "/sobre" },
   { label: "Contato", to: "/contato" },
+  { label: "Termos e Condições", to: "/termos-e-condicoes" },
 ];
 
 export const Footer = () => {

@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
+import { WhatsAppFunnel } from "@/components/WhatsAppFunnel";
 import { SocialProofProvider } from "@/components/social-proof";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { GA4ChecklistPanel } from "@/components/GA4ChecklistPanel";
@@ -42,6 +43,7 @@ const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
+const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 
 // Bairros Curitiba
 const Centro = lazy(() => import("./pages/bairros/Centro"));
@@ -792,12 +794,14 @@ const App = () => (
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
+            <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         </PageTransition>
         <WhatsAppChatbot />
+        <WhatsAppFunnel />
         <SocialProofProvider />
         <GA4ChecklistPanel />
       </BrowserRouter>

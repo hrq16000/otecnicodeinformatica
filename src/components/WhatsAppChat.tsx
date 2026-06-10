@@ -38,8 +38,10 @@ export const WhatsAppChat = () => {
 
   const handleMessageClick = (message: string) => {
     trackCTAClick("whatsapp", "chat_widget");
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+    // Route through the global funnel so the 3-4 questions modal always shows
+    window.dispatchEvent(
+      new CustomEvent("wa-funnel:open", { detail: { location: "chat_widget", message } })
+    );
     setIsOpen(false);
   };
 

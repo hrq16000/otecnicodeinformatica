@@ -122,11 +122,26 @@ const TransparencyCards = () => (
   </div>
 );
 
+function gaEvent(name: string, params: Record<string, unknown> = {}) {
+  if (typeof window === "undefined") return;
+  const sp = new URLSearchParams(window.location.search);
+  const utm: Record<string, string> = {};
+  ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach((k) => {
+    const v = sp.get(k);
+    if (v) utm[k] = v;
+  });
+  const payload = { event_category: "wa_funnel", page_path: window.location.pathname, ...utm, ...params };
+  // eslint-disable-next-line no-console
+  console.log(`[GA4 ${name}]`, payload);
+  (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", name, payload);
+}
+
 export const WhatsAppFunnel = () => {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>(EMPTY);
   const [originLocation, setOriginLocation] = useState("cta");
+  const [presetMessage, setPresetMessage] = useState<string | null>(null);
   const submittingRef = useRef(false);
 
   // Restore cached answers (sessionStorage) so users don't redo the funnel.
@@ -149,33 +164,85 @@ export const WhatsAppFunnel = () => {
     });
   }, [persist]);
 
+  const openFunnel = useCallback((loc: string, preset?: string) => {
+    setOriginLocation(loc);
+    setPresetMessage(preset ?? null);
+    setStep(0);
+    setOpen(true);
+    gaEvent("wa_funnel_open", { cta_location: loc, has_preset: !!preset });
+  }, []);
+
   // Global click interception for any WhatsApp anchor on the page.
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (submittingRef.current) return; // allow the funnel-driven navigation
+      if (submittingRef.current) return;
       const target = e.target as HTMLElement | null;
       const a = target?.closest("a") as HTMLAnchorElement | null;
       if (!a) return;
       const href = a.getAttribute("href");
       if (!isWhatsAppHref(href)) return;
-      if (a.dataset.funnelSkip === "1") return; // explicit opt-out
+      if (a.dataset.funnelSkip === "1") return;
 
       e.preventDefault();
       e.stopPropagation();
 
-      // Derive a location label for analytics
       let loc = "cta";
       if (a.closest("header")) loc = "header";
       else if (a.closest("footer")) loc = "footer";
       else if (a.closest("[data-wa-medium]")) loc = (a.closest("[data-wa-medium]") as HTMLElement).dataset.waMedium || "cta";
       else if (a.getAttribute("aria-label")?.toLowerCase().includes("whatsapp")) loc = "float";
-      setOriginLocation(loc);
-      setStep(0);
-      setOpen(true);
+
+      // Carry over any preset `text` param from the anchor
+      let preset: string | undefined;
+      try {
+        const u = new URL(href!, window.location.origin);
+        preset = u.searchParams.get("text") || undefined;
+      } catch { /* noop */ }
+
+      openFunnel(loc, preset);
     };
     document.addEventListener("click", handler, true);
-    return () => document.removeEventListener("click", handler, true);
-  }, []);
+
+    // Programmatic open: dispatch `wa-funnel:open` with optional { location, message }
+    const evHandler = (e: Event) => {
+      const detail = (e as CustomEvent<{ location?: string; message?: string }>).detail || {};
+      openFunnel(detail.location || "programmatic", detail.message);
+    };
+    window.addEventListener("wa-funnel:open", evHandler as EventListener);
+
+    // Monkey-patch window.open so legacy callers like
+    // `window.open("https://wa.me/...?text=...")` also route through the funnel.
+    const originalOpen = window.open.bind(window);
+    (window as unknown as { __waOriginalOpen?: typeof window.open }).__waOriginalOpen = originalOpen;
+    window.open = ((url?: string | URL, target?: string, features?: string) => {
+      try {
+        if (submittingRef.current) return originalOpen(url, target, features);
+        const href = typeof url === "string" ? url : url?.toString();
+        if (href && isWhatsAppHref(href)) {
+          let preset: string | undefined;
+          try {
+            const u = new URL(href, window.location.origin);
+            preset = u.searchParams.get("text") || undefined;
+          } catch { /* noop */ }
+          openFunnel("programmatic", preset);
+          return null;
+        }
+      } catch { /* fall through */ }
+      return originalOpen(url, target, features);
+    }) as typeof window.open;
+
+    return () => {
+      document.removeEventListener("click", handler, true);
+      window.removeEventListener("wa-funnel:open", evHandler as EventListener);
+      window.open = originalOpen;
+    };
+  }, [openFunnel]);
+
+  // Track step transitions
+  useEffect(() => {
+    if (!open) return;
+    gaEvent("wa_funnel_step", { step, intent: answers.intent || "none" });
+  }, [open, step, answers.intent]);
 
   const canSubmit = useMemo(() => {
     if (!answers.intent) return false;
@@ -187,18 +254,26 @@ export const WhatsAppFunnel = () => {
   const submit = useCallback(() => {
     submittingRef.current = true;
     try {
-      const message = buildMessage(answers);
+      const baseMessage = buildMessage(answers);
+      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
       const url = new URL(`https://wa.me/${WHATSAPP_NUMBER}`);
-      url.searchParams.set("text", message);
+      url.searchParams.set("text", finalMessage);
       appendUtms(url);
+      gaEvent("wa_funnel_submit", {
+        cta_location: originLocation,
+        intent: answers.intent,
+        has_equipamento: !!answers.equipamento,
+        has_endereco: !!answers.endereco,
+        preferencia: answers.preferencia || "n/a",
+      });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
-      window.open(url.toString(), "_blank", "noopener,noreferrer");
+      const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
+      gaEvent("wa_funnel_opened", { cta_location: originLocation, opened: !!win });
       setOpen(false);
     } finally {
-      // small delay so a follow-up programmatic click doesn't re-open the modal
       setTimeout(() => { submittingRef.current = false; }, 250);
     }
-  }, [answers, originLocation]);
+  }, [answers, originLocation, presetMessage]);
 
   const reset = useCallback(() => {
     setAnswers(EMPTY);
@@ -206,12 +281,17 @@ export const WhatsAppFunnel = () => {
     setStep(0);
   }, [persist]);
 
-  const next = () => setStep((s) => Math.min(s + 1, 3));
+  // intent-aware navigation: "orcamento" pula direto para a descrição
+  const next = () => setStep((s) => {
+    if (s === 0 && answers.intent === "orcamento") return 3;
+    if (s === 1 && answers.intent === "visita") return 3;
+    return Math.min(s + 1, 3);
+  });
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
-  // Pre-fill: if cached answers are complete, start at the confirmation step.
   const handleOpenChange = (v: boolean) => {
     if (v && answers.intent && step === 0) setStep(3);
+    if (!v) gaEvent("wa_funnel_close", { step, intent: answers.intent || "none" });
     setOpen(v);
   };
 

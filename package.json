@@ -11,6 +11,9 @@
     "preview": "vite preview",
     "test:e2e": "playwright test e2e/assistencia-tecnica-curitiba.spec.ts",
     "validate:jsonld": "node scripts/validate-jsonld.mjs",
+    "lh:desktop": "lhci autorun --config=lighthouserc.json",
+    "lh:mobile": "lhci autorun --config=lighthouserc.mobile.json",
+    "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e"
   },
   "dependencies": {

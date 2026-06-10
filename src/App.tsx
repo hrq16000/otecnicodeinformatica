@@ -791,7 +791,8 @@ const App = () => (
             
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
-            
+            <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

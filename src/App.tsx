@@ -41,6 +41,7 @@ const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
 
 // Bairros Curitiba
 const Centro = lazy(() => import("./pages/bairros/Centro"));
@@ -790,7 +791,8 @@ const App = () => (
             
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
-            
+            <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

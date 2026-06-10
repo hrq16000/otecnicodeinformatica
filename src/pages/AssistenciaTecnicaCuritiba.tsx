@@ -295,6 +295,39 @@ export default function AssistenciaTecnicaCuritiba() {
     })),
   };
 
+  // Service schema per repair category, linked to LocalBusiness via provider @id
+  const serviceCategories = [
+    { name: "Conserto de PlayStation (PS5, PS4, PS3) em Curitiba", description: "Reparo de PS5, PS4 e PS3: não liga, superaquecimento, leitor de disco, HDMI, fonte e controle drift.", type: "Console Repair" },
+    { name: "Conserto de Xbox (Series X/S, One) em Curitiba", description: "Reparo de Xbox Series e Xbox One: não liga, barulho de cooler, sem vídeo, fonte e leitor de disco.", type: "Console Repair" },
+    { name: "Conserto de Nintendo Switch em Curitiba", description: "Joy-Con drift, Dock defeito, não carrega e erros de cartão SD.", type: "Console Repair" },
+    { name: "Conserto de TV (LED/Smart) em Curitiba", description: "Sem imagem, backlight, painel, fonte e reparo de placa em TVs LED e Smart TV.", type: "TV Repair" },
+    { name: "Conserto de Placa de Vídeo (GPU NVIDIA/AMD) em Curitiba", description: "Artefatos, superaquecimento, cooler, reballing GPU e baixo desempenho.", type: "GPU Repair" },
+    { name: "Conserto de Placa-mãe em Curitiba", description: "Reparo de placa-mãe de PCs e notebooks com solda BGA e diagnóstico avançado.", type: "Motherboard Repair" },
+    { name: "Conserto de Notebook em Curitiba", description: "Troca de tela, teclado, bateria, placa-mãe e upgrade SSD em notebooks de todas as marcas.", type: "Laptop Repair" },
+    { name: "Conserto de Computador e PC Gamer em Curitiba", description: "Diagnóstico, upgrade, recuperação de dados e montagem de PCs gamer.", type: "Computer Repair" },
+    { name: "Conserto de Celular em Curitiba", description: "Troca de tela, bateria, conectores e recuperação de dados em iPhone, Samsung, Xiaomi e Motorola.", type: "Smartphone Repair" },
+    { name: "Conserto de Equipamento de Som em Curitiba", description: "Reparo de caixas de som, amplificadores, receivers e soundbars.", type: "Audio Repair" },
+  ];
+
+  const servicesJsonLd = serviceCategories.map((svc) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: svc.type,
+    name: svc.name,
+    description: svc.description,
+    areaServed: [
+      { "@type": "City", name: "Curitiba" },
+      { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+    ],
+    provider: { "@id": "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba#localbusiness" },
+    url: "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba",
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://wa.me/5541997452053",
+      servicePhone: "+5541997452053",
+    },
+  }));
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
@@ -309,6 +342,14 @@ export default function AssistenciaTecnicaCuritiba() {
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      {servicesJsonLd.map((svc, i) => (
+        <script
+          key={`svc-jsonld-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(svc) }}
+        />
+      ))}
+
 
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}

@@ -176,7 +176,14 @@ export default function AssistenciaTecnicaCuritiba() {
     console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
   }, []);
 
-
+  return (
+    <>
+      <PageSEO
+        title="Assistência Técnica em Curitiba | Consoles, PC, Notebook e Celular"
+        description="Assistência técnica especializada em Curitiba para PlayStation, Xbox, Nintendo, computadores, notebooks, celulares e placas de vídeo. Orçamento rápido pelo WhatsApp (41) 99745-2053."
+        path="/assistencia-tecnica-curitiba"
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}

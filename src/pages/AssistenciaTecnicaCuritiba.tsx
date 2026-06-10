@@ -216,6 +216,7 @@ export default function AssistenciaTecnicaCuritiba() {
               target="_blank"
               rel="noopener noreferrer"
               data-wa-medium="header"
+              onClick={onWa("header")}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,.45)] transition"
             >
               <MessageCircle className="h-4 w-4" />
@@ -253,6 +254,7 @@ export default function AssistenciaTecnicaCuritiba() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-wa-medium="hero"
+              onClick={onWa("hero")}
                   className="atc-pulse inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-4 font-bold text-base shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)] transition"
                 >
                   <MessageCircle className="h-5 w-5" />
@@ -338,6 +340,7 @@ export default function AssistenciaTecnicaCuritiba() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-wa-medium="service_card"
+              onClick={onWa("service_card")}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200 group/btn"
                 >
                   Ver Detalhes
@@ -394,6 +397,7 @@ export default function AssistenciaTecnicaCuritiba() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-wa-medium="problems_section"
+              onClick={onWa("problems_section")}
                 className="atc-pulse inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-4 font-bold shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)] transition"
               >
                 <MessageCircle className="h-5 w-5" />
@@ -442,6 +446,7 @@ export default function AssistenciaTecnicaCuritiba() {
               target="_blank"
               rel="noopener noreferrer"
               data-wa-medium="final_cta"
+              onClick={onWa("final_cta")}
               className="atc-pulse mt-8 inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-5 font-bold text-lg shadow-[0_24px_60px_-18px_rgba(16,185,129,.8)] transition"
             >
               <MessageCircle className="h-6 w-6" />
@@ -472,6 +477,7 @@ export default function AssistenciaTecnicaCuritiba() {
           target="_blank"
           rel="noopener noreferrer"
           data-wa-medium="float"
+              onClick={onWa("float")}
           aria-label="Falar no WhatsApp"
           className="atc-pulse fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-3.5 font-semibold shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)]"
         >

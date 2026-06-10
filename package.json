@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:e2e": "playwright test e2e/assistencia-tecnica-curitiba.spec.ts",
+    "test:e2e": "playwright test",
     "validate:jsonld": "node scripts/validate-jsonld.mjs",
     "lh:desktop": "lhci autorun --config=lighthouserc.json",
     "lh:mobile": "lhci autorun --config=lighthouserc.mobile.json",

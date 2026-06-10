@@ -210,9 +210,31 @@ export const WhatsAppFunnel = () => {
     };
     window.addEventListener("wa-funnel:open", evHandler as EventListener);
 
+    // Monkey-patch window.open so legacy callers like
+    // `window.open("https://wa.me/...?text=...")` also route through the funnel.
+    const originalOpen = window.open.bind(window);
+    (window as unknown as { __waOriginalOpen?: typeof window.open }).__waOriginalOpen = originalOpen;
+    window.open = ((url?: string | URL, target?: string, features?: string) => {
+      try {
+        if (submittingRef.current) return originalOpen(url, target, features);
+        const href = typeof url === "string" ? url : url?.toString();
+        if (href && isWhatsAppHref(href)) {
+          let preset: string | undefined;
+          try {
+            const u = new URL(href, window.location.origin);
+            preset = u.searchParams.get("text") || undefined;
+          } catch { /* noop */ }
+          openFunnel("programmatic", preset);
+          return null;
+        }
+      } catch { /* fall through */ }
+      return originalOpen(url, target, features);
+    }) as typeof window.open;
+
     return () => {
       document.removeEventListener("click", handler, true);
       window.removeEventListener("wa-funnel:open", evHandler as EventListener);
+      window.open = originalOpen;
     };
   }, [openFunnel]);
 

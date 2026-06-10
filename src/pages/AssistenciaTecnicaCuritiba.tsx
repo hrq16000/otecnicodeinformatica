@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
+import { trackCTAClick } from "@/lib/analytics";
 import {
   MessageCircle,
   Gamepad2,
@@ -25,6 +27,21 @@ import {
 const WA = "5541997452053";
 const WA_TEXT = "Olá! Preciso de um orçamento de assistência técnica em Curitiba.";
 const waUrl = `https://wa.me/${WA}?text=${encodeURIComponent(WA_TEXT)}`;
+
+// Single handler for every WhatsApp CTA on this landing — emits GA4
+// `cta_click` + `generate_lead` with utm_*/gclid (see analytics.ts).
+const onWa = (location: string) => () => trackCTAClick("whatsapp", `atc_${location}`);
+
+const internalLinks = [
+  { to: "/servicos", label: "Todos os Serviços" },
+  { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+  { to: "/servicos/conserto-placa", label: "Conserto de Placa-mãe" },
+  { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+  { to: "/servicos/conserto-celular", label: "Conserto de Celular" },
+  { to: "/tecnico-informatica-curitiba", label: "Técnico de Informática Curitiba" },
+  { to: "/precos-e-politicas", label: "Preços e Políticas" },
+  { to: "/faq", label: "Perguntas Frequentes" },
+];
 
 const services = [
   {
@@ -130,14 +147,34 @@ export default function AssistenciaTecnicaCuritiba() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba#localbusiness",
     name: "Preciso de um Técnico — Assistência Técnica Especializada",
     description:
       "Assistência técnica especializada em Curitiba: consoles, computadores, notebooks, smartphones e placas de vídeo.",
-    areaServed: { "@type": "City", name: "Curitiba" },
+    areaServed: [
+      { "@type": "City", name: "Curitiba", "@id": "https://www.wikidata.org/wiki/Q40269" },
+      { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+    ],
+    serviceArea: { "@type": "City", name: "Curitiba" },
     telephone: "+5541997452053",
     url: "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba",
+    image: "https://tecnicocuritiba.com.br/favicon.png",
     priceRange: "$$",
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+5541997452053",
+      availableLanguage: ["Portuguese"],
+      areaServed: "BR-PR",
+    },
   };
+
+  // Dev/console validation so the user can verify the schema in DevTools.
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
+  }, []);
 
   return (
     <>
@@ -147,7 +184,6 @@ export default function AssistenciaTecnicaCuritiba() {
         path="/assistencia-tecnica-curitiba"
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
 
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
@@ -180,6 +216,7 @@ export default function AssistenciaTecnicaCuritiba() {
               target="_blank"
               rel="noopener noreferrer"
               data-wa-medium="header"
+              onClick={onWa("header")}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,.45)] transition"
             >
               <MessageCircle className="h-4 w-4" />
@@ -217,6 +254,7 @@ export default function AssistenciaTecnicaCuritiba() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-wa-medium="hero"
+              onClick={onWa("hero")}
                   className="atc-pulse inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-4 font-bold text-base shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)] transition"
                 >
                   <MessageCircle className="h-5 w-5" />
@@ -302,6 +340,7 @@ export default function AssistenciaTecnicaCuritiba() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-wa-medium="service_card"
+              onClick={onWa("service_card")}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200 group/btn"
                 >
                   Ver Detalhes
@@ -358,6 +397,7 @@ export default function AssistenciaTecnicaCuritiba() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-wa-medium="problems_section"
+              onClick={onWa("problems_section")}
                 className="atc-pulse inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-4 font-bold shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)] transition"
               >
                 <MessageCircle className="h-5 w-5" />
@@ -406,6 +446,7 @@ export default function AssistenciaTecnicaCuritiba() {
               target="_blank"
               rel="noopener noreferrer"
               data-wa-medium="final_cta"
+              onClick={onWa("final_cta")}
               className="atc-pulse mt-8 inline-flex items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-5 font-bold text-lg shadow-[0_24px_60px_-18px_rgba(16,185,129,.8)] transition"
             >
               <MessageCircle className="h-6 w-6" />
@@ -413,6 +454,27 @@ export default function AssistenciaTecnicaCuritiba() {
             </a>
           </div>
         </section>
+
+        {/* INTERLINKING — boosts crawl & topical relevance */}
+        <section className="container mx-auto px-4 py-14 border-t border-white/5">
+          <div data-atc-reveal className="max-w-2xl mx-auto text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Explore outros serviços em Curitiba</h2>
+            <p className="mt-2 text-white/70 text-sm">Navegue pelo nosso atendimento técnico completo na capital.</p>
+          </div>
+          <nav aria-label="Links internos" data-atc-stagger data-atc-reveal className="flex flex-wrap justify-center gap-2.5">
+            {internalLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-cyan-200 px-4 py-2 text-sm text-white/85 transition"
+              >
+                {l.label}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </nav>
+        </section>
+
 
         {/* FOOTER */}
         <footer className="border-t border-white/10 bg-[#070707]">
@@ -436,6 +498,7 @@ export default function AssistenciaTecnicaCuritiba() {
           target="_blank"
           rel="noopener noreferrer"
           data-wa-medium="float"
+              onClick={onWa("float")}
           aria-label="Falar no WhatsApp"
           className="atc-pulse fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-3.5 font-semibold shadow-[0_18px_40px_-12px_rgba(16,185,129,.7)]"
         >

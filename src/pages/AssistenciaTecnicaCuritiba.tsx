@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
+import { trackCTAClick } from "@/lib/analytics";
 import {
   MessageCircle,
   Gamepad2,
@@ -25,6 +27,21 @@ import {
 const WA = "5541997452053";
 const WA_TEXT = "Olá! Preciso de um orçamento de assistência técnica em Curitiba.";
 const waUrl = `https://wa.me/${WA}?text=${encodeURIComponent(WA_TEXT)}`;
+
+// Single handler for every WhatsApp CTA on this landing — emits GA4
+// `cta_click` + `generate_lead` with utm_*/gclid (see analytics.ts).
+const onWa = (location: string) => () => trackCTAClick("whatsapp", `atc_${location}`);
+
+const internalLinks = [
+  { to: "/servicos", label: "Todos os Serviços" },
+  { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+  { to: "/servicos/conserto-placa", label: "Conserto de Placa-mãe" },
+  { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+  { to: "/servicos/conserto-celular", label: "Conserto de Celular" },
+  { to: "/tecnico-informatica-curitiba", label: "Técnico de Informática Curitiba" },
+  { to: "/precos-e-politicas", label: "Preços e Políticas" },
+  { to: "/faq", label: "Perguntas Frequentes" },
+];
 
 const services = [
   {

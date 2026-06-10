@@ -229,9 +229,8 @@ export default function AssistenciaTecnicaCuritiba() {
         <div className="container mx-auto px-4 pt-4">
           <Breadcrumbs
             items={[
-              { name: "Início", path: "/" },
-              { name: "Serviços", path: "/servicos" },
-              { name: "Assistência Técnica Curitiba", path: "/assistencia-tecnica-curitiba" },
+              { label: "Serviços", href: "/servicos" },
+              { label: "Assistência Técnica Curitiba", href: "/assistencia-tecnica-curitiba" },
             ]}
           />
         </div>

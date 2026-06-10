@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { PageSEO } from "@/components/PageSEO";
 import {
   MessageCircle,
   Gamepad2,

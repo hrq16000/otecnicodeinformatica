@@ -141,22 +141,13 @@ export default function AssistenciaTecnicaCuritiba() {
 
   return (
     <>
-      <Helmet>
-        <title>Assistência Técnica em Curitiba | Consoles, PC, Notebook e Celular</title>
-        <meta
-          name="description"
-          content="Assistência técnica especializada em Curitiba para PlayStation, Xbox, Nintendo, computadores, notebooks, celulares e placas de vídeo. Orçamento rápido pelo WhatsApp (41) 99745-2053."
-        />
-        <link rel="canonical" href="https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Assistência Técnica Especializada em Curitiba" />
-        <meta
-          property="og:description"
-          content="Reparo de consoles, PCs, notebooks, smartphones e placas de vídeo em Curitiba. Diagnóstico rápido, garantia e atendimento via WhatsApp."
-        />
-        <meta property="og:url" content="https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba" />
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+      <PageSEO
+        title="Assistência Técnica em Curitiba | Consoles, PC, Notebook e Celular"
+        description="Assistência técnica especializada em Curitiba para PlayStation, Xbox, Nintendo, computadores, notebooks, celulares e placas de vídeo. Orçamento rápido pelo WhatsApp (41) 99745-2053."
+        path="/assistencia-tecnica-curitiba"
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
 
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}

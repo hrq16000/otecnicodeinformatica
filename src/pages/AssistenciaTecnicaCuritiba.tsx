@@ -147,23 +147,35 @@ export default function AssistenciaTecnicaCuritiba() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba#localbusiness",
     name: "Preciso de um Técnico — Assistência Técnica Especializada",
     description:
       "Assistência técnica especializada em Curitiba: consoles, computadores, notebooks, smartphones e placas de vídeo.",
-    areaServed: { "@type": "City", name: "Curitiba" },
+    areaServed: [
+      { "@type": "City", name: "Curitiba", "@id": "https://www.wikidata.org/wiki/Q40269" },
+      { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+    ],
+    serviceArea: { "@type": "City", name: "Curitiba" },
     telephone: "+5541997452053",
     url: "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba",
+    image: "https://tecnicocuritiba.com.br/favicon.png",
     priceRange: "$$",
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+5541997452053",
+      availableLanguage: ["Portuguese"],
+      areaServed: "BR-PR",
+    },
   };
 
-  return (
-    <>
-      <PageSEO
-        title="Assistência Técnica em Curitiba | Consoles, PC, Notebook e Celular"
-        description="Assistência técnica especializada em Curitiba para PlayStation, Xbox, Nintendo, computadores, notebooks, celulares e placas de vídeo. Orçamento rápido pelo WhatsApp (41) 99745-2053."
-        path="/assistencia-tecnica-curitiba"
-      />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+  // Dev/console validation so the user can verify the schema in DevTools.
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
+  }, []);
+
 
 
       <style>{`

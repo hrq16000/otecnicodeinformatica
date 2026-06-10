@@ -65,6 +65,28 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://tecnicocuritiba.com.br/#localbusiness",
+  name: "Técnico Curitiba — Assistência Técnica em Informática",
+  url: "https://tecnicocuritiba.com.br/",
+  telephone: "+5541997452053",
+  areaServed: [
+    { "@type": "City", name: "Curitiba" },
+    { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+  ],
+  priceRange: "R$ 90 – R$ 500",
+  sameAs: ["https://wa.me/5541997452053"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: "+5541997452053",
+    availableLanguage: ["Portuguese"],
+    areaServed: "BR",
+  },
+};
+
 const TermosCondicoes = () => {
   const title = "Termos, Preços e Condições | Assistência Técnica Curitiba";
   const description =

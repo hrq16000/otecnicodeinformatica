@@ -310,17 +310,6 @@ export default function AssistenciaTecnicaCuritiba() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-        title="Assistência Técnica de Consoles em Curitiba | PS5, Xbox, Nintendo e Placa de Vídeo"
-        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp (41) 99745-2053."
-        path="/assistencia-tecnica-curitiba"
-        breadcrumbs={[
-          { name: "Início", path: "/" },
-          { name: "Serviços", path: "/servicos" },
-          { name: "Assistência Técnica Curitiba", path: "/assistencia-tecnica-curitiba" },
-        ]}
-      />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
       <style>{`
         [data-atc-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
         [data-atc-reveal].atc-in{opacity:1;transform:translateY(0);}

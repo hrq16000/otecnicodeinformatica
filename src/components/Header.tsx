@@ -23,6 +23,7 @@ const mainNavItems = [
     label: "Serviços",
     to: "/servicos",
     sub: [
+      { label: "Assistência Técnica Curitiba", to: "/assistencia-tecnica-curitiba" },
       { label: "Formatação", to: "/servicos/formatacao-computador" },
       { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
       { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },

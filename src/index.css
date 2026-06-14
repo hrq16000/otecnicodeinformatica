@@ -130,6 +130,7 @@
 @layer base {
   * {
     @apply border-border;
+    min-width: 0;
   }
 
   html {
@@ -140,10 +141,38 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Imagens, vídeos e iframes nunca estouram a largura do container */
+  img, video, svg, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tabelas dentro de conteúdo editorial ganham scroll horizontal seguro */
+  article table,
+  .prose table,
+  main table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Pré-formatado e código nunca quebram o layout */
+  pre, code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-break: break-word;
   }
 }
 

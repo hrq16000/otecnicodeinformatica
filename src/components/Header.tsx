@@ -238,7 +238,7 @@ export const Header = () => {
             item.sub ? (
               <DropdownMenu key={item.label}>
                 <DropdownMenuTrigger
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium outline-none group transition-all duration-300 ${
+                  className={`flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium outline-none group transition-all duration-300 whitespace-nowrap ${
                     item.highlight
                       ? "text-accent hover:bg-accent/10"
                       : "text-foreground hover:text-accent hover:bg-accent/5"

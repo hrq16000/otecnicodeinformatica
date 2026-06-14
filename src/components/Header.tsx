@@ -134,7 +134,7 @@ export const Header = () => {
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
             width="304"
             height="98"
-            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`}
+            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-8 sm:h-10 md:h-12' : 'h-10 sm:h-14 md:h-16'}`}
           />
         </Link>
 

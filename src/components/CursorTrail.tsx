@@ -32,7 +32,9 @@ export const CursorTrail = () => {
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isSmallScreen = window.innerWidth < 1024;
+    if (prefersReduced || isTouchDevice || isSmallScreen) return;
 
     // Detect touch devices
     const onTouch = () => { isTouch.current = true; };

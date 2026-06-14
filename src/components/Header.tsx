@@ -403,8 +403,8 @@ export const Header = () => {
               return (
                 <div
                   key={item.label}
-                  className="animate-in fade-in slide-in-from-right-2"
-                  style={{ animationDelay: `${idx * 40}ms`, animationFillMode: "backwards" }}
+                  className="opacity-0 animate-[heroFadeUp_0.35s_ease-out_forwards]"
+                  style={{ animationDelay: `${idx * 50}ms` }}
                 >
                   {!item.sub ? (
                     <Link

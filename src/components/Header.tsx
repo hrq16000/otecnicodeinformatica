@@ -165,7 +165,7 @@ export const Header = () => {
         </nav>
 
         {/* CTA Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
 
           <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">

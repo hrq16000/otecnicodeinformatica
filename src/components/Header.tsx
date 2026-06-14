@@ -168,7 +168,7 @@ export const Header = () => {
         <div className="flex items-center gap-1 sm:gap-2">
           <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
 
-          <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">
+          <Button variant="ghost" size="icon" className="hidden sm:inline-flex text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">
             <Search className="h-5 w-5" />
           </Button>
 

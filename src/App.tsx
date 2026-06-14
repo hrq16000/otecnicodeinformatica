@@ -43,6 +43,7 @@ const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
+const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 
 // Bairros Curitiba

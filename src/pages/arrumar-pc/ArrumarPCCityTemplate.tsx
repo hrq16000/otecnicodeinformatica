@@ -220,6 +220,32 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
           </div>
         </section>
 
+        <section className="container mx-auto px-4 py-12">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
+              Serviços específicos para {data.cidade}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                ["formatacao-windows", "Formatação de Windows"],
+                ["remocao-de-virus", "Remoção de Vírus"],
+                ["pc-lento", "PC Lento"],
+                ["tela-azul", "Tela Azul"],
+                ["wifi-e-internet", "Wi-Fi e Internet"],
+                ["recuperacao-de-arquivos", "Recuperação de Arquivos"],
+              ].map(([slug, nome]) => (
+                <Link
+                  key={slug}
+                  to={`/arrumar-pc/servico/${slug}/${data.slug}`}
+                  className="px-4 py-3 rounded-lg border border-border bg-card hover:border-accent hover:text-accent text-sm font-medium text-center transition-colors"
+                >
+                  {nome} em {data.cidade}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="container mx-auto px-4 py-16 md:py-20">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-10">

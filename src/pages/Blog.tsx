@@ -11,6 +11,7 @@ import { IMAGES } from "@/lib/images";
 import { getUniqueImage, getUniqueImageSrcSet, COVER_SIZES } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
 import { problemaSummaries } from "@/lib/problemaSummaries";
+import { programmaticPostsMeta } from "@/data/blogProgrammaticPosts";
 import {
   Calendar, Clock, ArrowRight, Search, Sparkles, Cpu, Monitor,
   Smartphone, Tv, Wrench, Shield, Wifi, HardDrive, Printer,
@@ -159,6 +160,7 @@ const blogPosts = [
   { slug: "como-fazer-teste-velocidade-internet", title: "Como Testar a Velocidade da Internet Corretamente: Guia 2026", excerpt: "Internet lenta em Curitiba? Aprenda como fazer um teste de velocidade confiável e descobrir se o problema é da operadora ou do seu Wi-Fi.", date: "2026-04-29", readTime: "5 min", category: "Tutoriais Domésticos" },
   { slug: "como-bloquear-acesso-internet-criancas", title: "Como Bloquear Internet em Horários Específicos: Controle Parental no Roteador (2026)", excerpt: "Filhos online o dia inteiro? Aprenda como bloquear o Wi-Fi em horários no próprio roteador, sem instalar app. Configuração ajudada em Curitiba.", date: "2026-04-29", readTime: "6 min", category: "Tutoriais Domésticos" },
   { slug: "como-mudar-nome-rede-wifi", title: "Como Mudar o Nome da Rede Wi-Fi (SSID): Passo a Passo 2026", excerpt: "Aprenda como trocar o nome da sua rede Wi-Fi (SSID) em qualquer roteador — TP-Link, Intelbras, Vivo, Claro, Oi. Tutorial em 5 minutos.", date: "2026-04-29", readTime: "4 min", category: "Tutoriais Domésticos" },
+  ...programmaticPostsMeta,
 ];
 
 // ─── Category config ───

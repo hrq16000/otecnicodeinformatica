@@ -158,6 +158,7 @@ export const Header = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleBtnRef = useRef<HTMLButtonElement>(null);
 
   const closeSearch = useCallback(() => setSearchOpen(false), []);
   const closeMobile = useCallback(() => {
@@ -184,14 +185,25 @@ export const Header = () => {
     closeMobile();
   }, [location.pathname, closeMobile]);
 
-  // Close on ESC
+  // Close on ESC + click outside (pointerdown captura cliques no header acima do overlay)
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeMobile();
     };
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (menuRef.current && menuRef.current.contains(target)) return;
+      if (toggleBtnRef.current && toggleBtnRef.current.contains(target)) return;
+      closeMobile();
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown, true);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown, true);
+    };
   }, [mobileMenuOpen, closeMobile]);
 
   // Lock body scroll
@@ -321,6 +333,7 @@ export const Header = () => {
           </Button>
 
           <Button
+            ref={toggleBtnRef}
             variant="ghost"
             size="icon"
             className="lg:hidden flex-shrink-0 h-9 w-9 relative"

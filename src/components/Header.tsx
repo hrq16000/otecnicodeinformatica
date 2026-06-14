@@ -184,14 +184,25 @@ export const Header = () => {
     closeMobile();
   }, [location.pathname, closeMobile]);
 
-  // Close on ESC
+  // Close on ESC + click outside (pointerdown captura cliques no header acima do overlay)
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeMobile();
     };
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (menuRef.current && menuRef.current.contains(target)) return;
+      if (toggleBtnRef.current && toggleBtnRef.current.contains(target)) return;
+      closeMobile();
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown, true);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown, true);
+    };
   }, [mobileMenuOpen, closeMobile]);
 
   // Lock body scroll

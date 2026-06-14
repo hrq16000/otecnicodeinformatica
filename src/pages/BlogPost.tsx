@@ -14,8 +14,9 @@ import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg
 import { getUniqueImage } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
 import { withOgVersion } from "@/lib/ogCacheBust";
+import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 
-const blogPostsContent: Record<string, {
+const blogPostsContentBase: Record<string, {
   title: string;
   excerpt: string;
   date: string;
@@ -10546,6 +10547,8 @@ crontab -e
     ),
   },
 };
+
+const blogPostsContent = { ...blogPostsContentBase, ...programmaticPosts };
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();

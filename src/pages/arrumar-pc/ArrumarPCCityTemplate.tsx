@@ -8,6 +8,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { CTASection } from "@/components/CTASection";
 import { trackPageView } from "@/lib/analytics";
+import ogArrumarPCBrasil from "@/assets/og-arrumar-pc-brasil.jpg";
 import {
   ShieldCheck,
   Wifi,

@@ -359,8 +359,8 @@ export const Header = () => {
         {/* Painel */}
         <div
           ref={menuRef}
-          className={`absolute top-0 right-0 h-[100dvh] w-[88vw] max-w-sm bg-background border-l border-border shadow-2xl overflow-y-auto transition-transform duration-300 ease-out ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`absolute top-2 right-2 max-h-[calc(100dvh-1rem)] w-[88vw] max-w-sm bg-background border border-border rounded-2xl shadow-2xl overflow-y-auto transition-all duration-300 ease-out ${
+            mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
           }`}
           onClick={(e) => e.stopPropagation()}
         >

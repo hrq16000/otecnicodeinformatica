@@ -44,6 +44,7 @@ const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
 const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
+const ArrumarPCCity = lazy(() => import("./pages/arrumar-pc/ArrumarPCCity"));
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 
 // Bairros Curitiba
@@ -415,6 +416,7 @@ const App = () => (
             <Route path="/atendimento-remoto" element={<AtendimentoRemoto />} />
             <Route path="/arrumar-pc" element={<ArrumarPC />} />
             <Route path="/arrumar-pc/online" element={<ArrumarPC />} />
+            <Route path="/arrumar-pc/:cidade" element={<ArrumarPCCity />} />
             <Route path="/suporte-empresas" element={<SuporteEmpresas />} />
             <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
             <Route path="/valores" element={<PrecosEPoliticas />} />

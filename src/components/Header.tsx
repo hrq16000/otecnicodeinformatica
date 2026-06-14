@@ -185,10 +185,9 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot}>
+          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot} aria-label="Atendimento rápido">
             <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
-            <span className="hidden md:inline">Atendimento Rápido</span>
-            <span className="md:hidden">Atender</span>
+            <span className="hidden sm:inline">Atender</span>
           </Button>
 
           <Button variant="ghost" size="icon" className="lg:hidden flex-shrink-0" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

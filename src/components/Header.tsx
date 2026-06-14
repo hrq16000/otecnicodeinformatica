@@ -191,7 +191,7 @@ export const Header = () => {
             <span className="md:hidden">Atender</span>
           </Button>
 
-          <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <Button variant="ghost" size="icon" className="lg:hidden flex-shrink-0" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="h-5 w-5 rotate-0 transition-transform duration-300" /> : <Menu className="h-5 w-5 hover:scale-110 transition-transform duration-300" />}
           </Button>
         </div>

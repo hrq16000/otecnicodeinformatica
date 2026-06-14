@@ -158,6 +158,7 @@ export const Header = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleBtnRef = useRef<HTMLButtonElement>(null);
 
   const closeSearch = useCallback(() => setSearchOpen(false), []);
   const closeMobile = useCallback(() => {

@@ -95,7 +95,7 @@ export const HeroSection = () => {
               Técnico de Informática
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 mt-2 tracking-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+              <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 mt-2 tracking-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] min-h-[1.5em] break-words">
                 <TypingEffect phrases={TYPING_PHRASES} className="text-white/90" />
               </span>
             </h1>

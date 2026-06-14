@@ -333,6 +333,7 @@ export const Header = () => {
           </Button>
 
           <Button
+            ref={toggleBtnRef}
             variant="ghost"
             size="icon"
             className="lg:hidden flex-shrink-0 h-9 w-9 relative"

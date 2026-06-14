@@ -134,7 +134,7 @@ export const Header = () => {
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
             width="304"
             height="98"
-            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'}`}
+            className={`transition-all duration-300 w-auto object-scale-down ${isScrolled ? 'h-8 sm:h-10 md:h-12' : 'h-10 sm:h-14 md:h-16'}`}
           />
         </Link>
 
@@ -165,10 +165,10 @@ export const Header = () => {
         </nav>
 
         {/* CTA Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
 
-          <Button variant="ghost" size="icon" className="text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">
+          <Button variant="ghost" size="icon" className="hidden sm:inline-flex text-foreground/70 hover:text-accent" onClick={() => setSearchOpen(true)} aria-label="Buscar">
             <Search className="h-5 w-5" />
           </Button>
 
@@ -185,13 +185,12 @@ export const Header = () => {
             </a>
           </Button>
 
-          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot}>
+          <Button variant="cta" size="sm" className="shadow-sm group" onClick={openChatbot} aria-label="Atendimento rápido">
             <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
-            <span className="hidden md:inline">Atendimento Rápido</span>
-            <span className="md:hidden">Atender</span>
+            <span className="hidden sm:inline">Atender</span>
           </Button>
 
-          <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <Button variant="ghost" size="icon" className="lg:hidden flex-shrink-0" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="h-5 w-5 rotate-0 transition-transform duration-300" /> : <Menu className="h-5 w-5 hover:scale-110 transition-transform duration-300" />}
           </Button>
         </div>

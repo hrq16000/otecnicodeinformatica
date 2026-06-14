@@ -273,7 +273,7 @@ export const Header = () => {
               <NavLink
                 key={item.to}
                 to={item.to}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-accent hover:bg-accent/5 transition-all duration-300 group"
+                className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium text-foreground hover:text-accent hover:bg-accent/5 transition-all duration-300 group whitespace-nowrap"
               >
                 <item.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
                 {item.label}

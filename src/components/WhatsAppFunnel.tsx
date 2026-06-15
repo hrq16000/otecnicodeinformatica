@@ -49,7 +49,8 @@ const EMPTY: Answers = {
 };
 
 const VIDEO_WARNING =
-  "🚨 *Atenção:* Para darmos andamento, envie *agora neste chat* um vídeo mostrando o equipamento por completo (com a etiqueta traseira) e o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos* (mute o microfone do celular). *Sem o envio do vídeo, o atendimento não será iniciado.*";
+  "🚨 *Atenção — obrigatório para iniciar o atendimento:* envie *agora neste chat* (1) *fotos* do equipamento por completo, incluindo a *etiqueta traseira* com modelo/série, e (2) um *vídeo* mostrando o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos de fundo* (mute o microfone do celular, ambiente em silêncio). *Sem o envio das fotos e do vídeo, o atendimento não será iniciado.*";
+
 
 function isWhatsAppHref(href: string | null): boolean {
   if (!href) return false;

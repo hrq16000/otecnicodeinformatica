@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
 import { TopOfferBanner } from "@/components/TopOfferBanner";
+import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { trackPageView } from "@/lib/analytics";
 

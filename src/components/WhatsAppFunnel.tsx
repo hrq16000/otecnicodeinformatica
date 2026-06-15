@@ -487,13 +487,16 @@ export const WhatsAppFunnel = () => {
             </div>
 
             <div className="rounded-lg border border-amber-500/50 bg-amber-500/10 p-3 text-xs leading-snug">
-              <p className="font-bold text-foreground mb-1">📹 Próximo passo no WhatsApp</p>
+              <p className="font-bold text-foreground mb-1">📸 Próximo passo no WhatsApp (obrigatório)</p>
               <p className="text-foreground/80">
-                Assim que o chat abrir, envie <strong>um vídeo do equipamento por completo</strong> (mostrando a
-                etiqueta traseira) e do <strong>defeito acontecendo</strong>. O vídeo precisa estar{" "}
-                <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone). Sem o vídeo, o atendimento não é iniciado.
+                Assim que o chat abrir, envie <strong>fotos do equipamento por completo</strong> (incluindo a{" "}
+                <strong>etiqueta traseira</strong> com modelo/série) e um <strong>vídeo do defeito acontecendo</strong>.
+                O vídeo precisa estar <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone, ambiente em
+                silêncio). <strong>Sem o envio das fotos e do vídeo, o atendimento não será iniciado.</strong>
               </p>
             </div>
+
+
 
             <Textarea
               placeholder="Quer acrescentar algo? (opcional)"

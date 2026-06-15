@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      funnel_submissions: {
+        Row: {
+          created_at: string
+          equipamento: string | null
+          gclid: string | null
+          id: string
+          marca: string | null
+          media_paths: Json
+          requires_coleta: boolean
+          session_id: string
+          sintoma: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          wa_message: string | null
+        }
+        Insert: {
+          created_at?: string
+          equipamento?: string | null
+          gclid?: string | null
+          id?: string
+          marca?: string | null
+          media_paths?: Json
+          requires_coleta?: boolean
+          session_id: string
+          sintoma?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          wa_message?: string | null
+        }
+        Update: {
+          created_at?: string
+          equipamento?: string | null
+          gclid?: string | null
+          id?: string
+          marca?: string | null
+          media_paths?: Json
+          requires_coleta?: boolean
+          session_id?: string
+          sintoma?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          wa_message?: string | null
+        }
+        Relationships: []
+      }
       og_validation_status: {
         Row: {
           canonical: string | null

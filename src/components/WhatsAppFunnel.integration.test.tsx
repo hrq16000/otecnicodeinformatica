@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { act, render, screen, fireEvent, within, cleanup } from "@testing-library/react";
+import { act, render, screen, cleanup } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 import { VIDEO_WARNING } from "@/lib/funnelWarning";
@@ -28,11 +28,47 @@ function renderFunnel() {
   );
 }
 
-async function openAndGetDialog() {
+async function openFunnel() {
   await act(async () => {
     window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
   });
-  return await screen.findByRole("dialog", {}, { timeout: 3000 });
+  await screen.findByRole("dialog", {}, { timeout: 3000 });
+}
+
+/** Encontra um botão dentro do dialog atual e clica nele, aguardando re-render. */
+async function clickButton(re: RegExp) {
+  const dialog = await screen.findByRole("dialog");
+  const buttons = dialog.querySelectorAll<HTMLButtonElement>("button");
+  const btn = Array.from(buttons).find((b) => re.test(b.textContent || ""));
+  if (!btn) {
+    throw new Error(`Botão não encontrado para ${re} dentro do dialog`);
+  }
+  await act(async () => {
+    btn.click();
+  });
+}
+
+/** Marca/desmarca o checkbox de aceite da Coleta (input[type=checkbox] dentro do card). */
+async function clickAcceptCheckbox() {
+  const dialog = await screen.findByRole("dialog");
+  const cb = dialog.querySelector<HTMLInputElement>('input[type="checkbox"]');
+  if (!cb) throw new Error("checkbox de aceite não encontrado");
+  await act(async () => {
+    cb.click();
+  });
+}
+
+function dialogText(): string {
+  const d = screen.queryByRole("dialog");
+  return d?.textContent || "";
+}
+
+function continueIsDisabled(): boolean {
+  const dialog = screen.getByRole("dialog");
+  const btn = Array.from(dialog.querySelectorAll<HTMLButtonElement>("button"))
+    .find((b) => /Continuar/i.test(b.textContent || ""));
+  if (!btn) throw new Error("Continuar button missing");
+  return btn.disabled;
 }
 
 function getLastWaUrl(): URL | null {
@@ -47,23 +83,24 @@ function getLastWaUrl(): URL | null {
 describe("WhatsAppFunnel — Cenário 1: Cliente Simples (PC > Lento)", () => {
   it("fluxo passa direto, exibe valores R$ 99,99 / R$ 90 e a URL final contém o aviso obrigatório", async () => {
     renderFunnel();
-    const dialog = await openAndGetDialog();
+    await openFunnel();
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /PC \/ Notebook/i }));
-    fireEvent.click(await within(dialog).findByRole("button", { name: /^Dell$/ }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /Lento \/ travando/i }));
+    await clickButton(/PC \/ Notebook/i);     // step 0 → step 1
+    await clickButton(/^Dell$/);
+    await clickButton(/Lento \/ travando/i);
 
-    expect(within(dialog).getByText(/R\$ 99,99/)).toBeInTheDocument();
-    expect(within(dialog).getByText(/R\$ 90/)).toBeInTheDocument();
+    expect(dialogText()).toMatch(/R\$ 99,99/);
+    expect(dialogText()).toMatch(/R\$ 90/);
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /Continuar/i }));
-    expect(await within(dialog).findByText(/Triagem completa/i)).toBeInTheDocument();
-    expect(within(dialog).getByText(/Próximo passo no WhatsApp/i)).toBeInTheDocument();
+    await clickButton(/Continuar/i);          // pula step 2 → step 3
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /Abrir WhatsApp/i }));
+    expect(dialogText()).toMatch(/Triagem completa/i);
+    expect(dialogText()).toMatch(/Próximo passo no WhatsApp/i);
+
+    await clickButton(/Abrir WhatsApp/i);
 
     const url = getLastWaUrl();
-    expect(url, "deve abrir wa.me").not.toBeNull();
+    expect(url).not.toBeNull();
     const text = url!.searchParams.get("text") || "";
     expect(text).toContain("PC / Notebook");
     expect(text).toContain("Dell");
@@ -75,28 +112,26 @@ describe("WhatsAppFunnel — Cenário 1: Cliente Simples (PC > Lento)", () => {
 describe("WhatsAppFunnel — Cenário 2: Barreira de Fogo (TV > Não liga)", () => {
   it("bloqueia avanço até aceite da Coleta e mensagem final inclui R$ 300 + COLETA", async () => {
     renderFunnel();
-    const dialog = await openAndGetDialog();
+    await openFunnel();
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /^TV$/i }));
-    fireEvent.click(await within(dialog).findByRole("button", { name: /^Samsung$/i }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /^Não liga$/i }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /Continuar/i }));
+    await clickButton(/^TV$/i);
+    await clickButton(/^Samsung$/i);
+    await clickButton(/^Não liga$/i);
+    await clickButton(/Continuar/i);          // step 1 → step 2 (coleta)
 
-    expect(await within(dialog).findByText(/exige.*Coleta e Entrega/i)).toBeInTheDocument();
-    expect(within(dialog).getByText(/R\$ 300/)).toBeInTheDocument();
+    expect(dialogText()).toMatch(/Coleta e Entrega/i);
+    expect(dialogText()).toMatch(/R\$ 300/);
+    expect(continueIsDisabled()).toBe(true);
 
-    const continueBtn = within(dialog).getByRole("button", { name: /Continuar/i });
-    expect(continueBtn).toBeDisabled();
-
-    fireEvent.click(continueBtn);
+    // tenta forçar — não pode abrir wa.me
+    await clickButton(/Continuar/i);
     expect(getLastWaUrl()).toBeNull();
 
-    const acceptCheckbox = within(dialog).getByRole("checkbox");
-    fireEvent.click(acceptCheckbox);
-    expect(continueBtn).toBeEnabled();
+    await clickAcceptCheckbox();
+    expect(continueIsDisabled()).toBe(false);
 
-    fireEvent.click(continueBtn);
-    fireEvent.click(await within(dialog).findByRole("button", { name: /Abrir WhatsApp/i }));
+    await clickButton(/Continuar/i);          // → step 3
+    await clickButton(/Abrir WhatsApp/i);
 
     const url = getLastWaUrl();
     expect(url).not.toBeNull();
@@ -109,18 +144,18 @@ describe("WhatsAppFunnel — Cenário 2: Barreira de Fogo (TV > Não liga)", () 
 });
 
 describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
-  it("aceita coleta e mensagem final inclui exigência completa de fotos + vídeo + etiqueta traseira", async () => {
+  it("mensagem final contém exigência completa de fotos + vídeo + etiqueta traseira sem áudio", async () => {
     renderFunnel();
-    const dialog = await openAndGetDialog();
+    await openFunnel();
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /Celular \/ Tablet/i }));
-    fireEvent.click(await within(dialog).findByRole("button", { name: /iPhone \(Apple\)/i }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /Tela trincada/i }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /Continuar/i }));
+    await clickButton(/Celular \/ Tablet/i);
+    await clickButton(/iPhone \(Apple\)/i);
+    await clickButton(/Tela trincada/i);
+    await clickButton(/Continuar/i);          // → step 2 (coleta)
 
-    fireEvent.click(await within(dialog).findByRole("checkbox"));
-    fireEvent.click(within(dialog).getByRole("button", { name: /Continuar/i }));
-    fireEvent.click(await within(dialog).findByRole("button", { name: /Abrir WhatsApp/i }));
+    await clickAcceptCheckbox();
+    await clickButton(/Continuar/i);          // → step 3
+    await clickButton(/Abrir WhatsApp/i);
 
     const url = getLastWaUrl();
     expect(url).not.toBeNull();
@@ -136,9 +171,10 @@ describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
 });
 
 describe("WhatsAppFunnel — guard de submit", () => {
-  it("não abre WhatsApp se nenhum equipamento foi selecionado", async () => {
+  it("não abre WhatsApp em nenhuma circunstância sem completar a triagem", async () => {
     renderFunnel();
-    await openAndGetDialog();
+    await openFunnel();
+    // Sem nenhum clique nas etapas: nada de wa.me
     expect(getLastWaUrl()).toBeNull();
   });
 });

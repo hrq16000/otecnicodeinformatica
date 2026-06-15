@@ -5,8 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Link } from "react-router-dom";
 import {
   MessageCircle,
-  ShieldCheck,
-  AlertTriangle,
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
@@ -27,22 +25,17 @@ import {
   getSintoma,
   type Equipment,
 } from "@/components/funnel/equipmentBranches";
-import { MediaUploader } from "@/components/funnel/MediaUploader";
 import { ColetaRequiredCard } from "@/components/funnel/ColetaRequiredCard";
-import { getSessionId, recordSubmission, type FunnelMedia } from "@/lib/funnelMedia";
+import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
-const STORAGE_KEY = "wa_funnel_answers_v2";
+const STORAGE_KEY = "wa_funnel_answers_v3";
 
 interface Answers {
   equipamento: Equipment | null;
   marca: string;
   sintoma: string;          // id do sintoma
-  media: FunnelMedia[];
-  mediaConfirmEquipamento: boolean;
-  mediaConfirmSemAudio: boolean;
-  mediaConfirmSemRuido: boolean;
   coletaAccepted: boolean;
   descricao: string;
 }
@@ -51,13 +44,12 @@ const EMPTY: Answers = {
   equipamento: null,
   marca: "",
   sintoma: "",
-  media: [],
-  mediaConfirmEquipamento: false,
-  mediaConfirmSemAudio: false,
-  mediaConfirmSemRuido: false,
   coletaAccepted: false,
   descricao: "",
 };
+
+const VIDEO_WARNING =
+  "🚨 *Atenção:* Para darmos andamento, envie *agora neste chat* um vídeo mostrando o equipamento por completo (com a etiqueta traseira) e o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos* (mute o microfone do celular). *Sem o envio do vídeo, o atendimento não será iniciado.*";
 
 function isWhatsAppHref(href: string | null): boolean {
   if (!href) return false;
@@ -95,18 +87,14 @@ function buildMessage(a: Answers): string {
     lines.push("• Mínimo R$ 300 (diagnóstico incluso) · desistiu paga só R$ 90");
     lines.push("• Autorizado pelo cliente no funil");
   }
-  if (a.media.length > 0) {
-    lines.push("");
-    lines.push(`📸 *Mídias anexadas (${a.media.length}):*`);
-    a.media.forEach((m, i) => lines.push(`${i + 1}. ${m.kind === "video" ? "🎥" : "🖼️"} ${m.signedUrl}`));
-    lines.push("(links válidos por 24h)");
-  }
   if (a.descricao.trim()) {
     lines.push("");
     lines.push(`📝 ${a.descricao.trim()}`);
   }
   lines.push("");
   lines.push("— Estou ciente das políticas e termos: tecnicocuritiba.com.br/termos-e-condicoes");
+  lines.push("");
+  lines.push(VIDEO_WARNING);
   return lines.join("\n");
 }
 
@@ -128,21 +116,20 @@ export const WhatsAppFunnel = () => {
   const submittingRef = useRef(false);
   const sessionId = useMemo(() => getSessionId(), []);
 
-  // Restore cached non-media answers
+  // Restore cached answers
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        setAnswers({ ...EMPTY, ...parsed, media: [] }); // mídias não persistem
+        setAnswers({ ...EMPTY, ...parsed });
       }
     } catch { /* noop */ }
   }, []);
 
   const persist = useCallback((a: Answers) => {
     try {
-      const { media: _m, ...rest } = a;
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(rest));
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(a));
     } catch { /* noop */ }
   }, []);
 
@@ -227,7 +214,7 @@ export const WhatsAppFunnel = () => {
   useEffect(() => {
     if (!open) return;
     trackFunnelStep(step, answers.equipamento, answers.sintoma);
-  }, [open, step, answers.equipamento]);
+  }, [open, step, answers.equipamento, answers.sintoma]);
 
   // ---------- Derivations ----------
   const branch = answers.equipamento ? getBranch(answers.equipamento) : undefined;
@@ -235,52 +222,37 @@ export const WhatsAppFunnel = () => {
     ? getSintoma(answers.equipamento, answers.sintoma)
     : undefined;
   const requiresColeta = !!sintomaObj?.requiresColeta;
-  const requiresVideo = !!sintomaObj?.requiresVideo;
   const isOutro = answers.equipamento === "outro";
 
-  const photosCount = answers.media.filter((m) => m.kind === "photo").length;
-  const videosCount = answers.media.filter((m) => m.kind === "video").length;
-
-  const mediaValid = isOutro
-    ? true
-    : (
-      photosCount >= 1 &&
-      (!requiresVideo || videosCount >= 1) &&
-      answers.mediaConfirmEquipamento &&
-      answers.mediaConfirmSemAudio &&
-      answers.mediaConfirmSemRuido
-    );
-
   // ---------- Navigation ----------
-  const TOTAL_STEPS = 5; // 0 equip, 1 marca/sintoma, 2 mídia, 3 coleta/regra, 4 confirmação
+  // 4 steps: 0 equip, 1 marca/sintoma (ou descrição), 2 coleta (condicional), 3 confirmação
+  const TOTAL_STEPS = 4;
   const canAdvance = useMemo(() => {
     if (step === 0) return !!answers.equipamento;
     if (step === 1) {
       if (isOutro) return answers.descricao.trim().length > 5;
       return !!answers.marca && !!answers.sintoma;
     }
-    if (step === 2) return mediaValid;
-    if (step === 3) {
+    if (step === 2) {
       if (requiresColeta) return answers.coletaAccepted;
       return true;
     }
     return true;
-  }, [step, answers, isOutro, mediaValid, requiresColeta]);
+  }, [step, answers, isOutro, requiresColeta]);
 
   const next = () => {
     setStep((s) => {
       let n = s + 1;
-      // "Outro" pula upload obrigatório e regra de coleta
-      if (s === 1 && isOutro) n = 4;
-      // Sem regra de coleta → pula step 3
-      if (s === 2 && !requiresColeta) n = 4;
+      // "Outro" pula regra de coleta
+      if (s === 1 && isOutro) n = 3;
+      // Sem coleta → pula step 2
+      if (s === 1 && !requiresColeta && !isOutro) n = 3;
       return Math.min(n, TOTAL_STEPS - 1);
     });
   };
   const back = () => setStep((s) => {
     let p = s - 1;
-    if (s === 4 && !isOutro && !requiresColeta) p = 2;
-    if (s === 4 && isOutro) p = 1;
+    if (s === 3 && !requiresColeta) p = 1;
     return Math.max(p, 0);
   });
 
@@ -291,10 +263,6 @@ export const WhatsAppFunnel = () => {
   };
 
   const submit = useCallback(async () => {
-    if (!mediaValid && !isOutro) {
-      trackFunnelBlocked("media_incomplete", answers.equipamento);
-      return;
-    }
     submittingRef.current = true;
     try {
       const baseMessage = buildMessage(answers);
@@ -307,11 +275,9 @@ export const WhatsAppFunnel = () => {
           marca: answers.marca,
           sintoma: sintomaObj?.label,
           requiresColeta,
-          mediaPaths: answers.media.map((m) => m.path),
           waMessage: finalMessage,
         });
       } catch (err) {
-        // Falha no insert não bloqueia o usuário; manda para WA mesmo assim
         // eslint-disable-next-line no-console
         console.warn("[funnel] submission insert failed", err);
         trackFunnelBlocked("insert_failed", answers.equipamento);
@@ -326,7 +292,7 @@ export const WhatsAppFunnel = () => {
         equipamento: answers.equipamento,
         sintoma: answers.sintoma,
         requiresColeta,
-        mediaCount: answers.media.length,
+        mediaCount: 0,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 
@@ -335,7 +301,7 @@ export const WhatsAppFunnel = () => {
     } finally {
       setTimeout(() => { submittingRef.current = false; }, 250);
     }
-  }, [answers, branch, sintomaObj, requiresColeta, mediaValid, isOutro, originLocation, presetMessage, sessionId]);
+  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId]);
 
   const handleOpenChange = (v: boolean) => {
     if (!v) trackFunnelClose(step, answers.equipamento);
@@ -456,45 +422,8 @@ export const WhatsAppFunnel = () => {
           </div>
         )}
 
-        {/* Step 2 — mídia obrigatória */}
-        {step === 2 && !isOutro && branch && (
-          <div className="space-y-3">
-            <p className="text-sm font-medium">Anexe fotos e vídeo do equipamento</p>
-            <MediaUploader
-              sessionId={sessionId}
-              media={answers.media}
-              onChange={(media) => update({ media })}
-              requireVideo={requiresVideo}
-            />
-            <div className="space-y-1.5 rounded-lg border border-border bg-card/40 p-2.5">
-              <Checkbox
-                checked={answers.mediaConfirmEquipamento}
-                onChange={(v) => update({ mediaConfirmEquipamento: v })}
-                label="O vídeo mostra o equipamento completo (frente, traseira e entradas)."
-              />
-              <Checkbox
-                checked={answers.mediaConfirmSemAudio}
-                onChange={(v) => update({ mediaConfirmSemAudio: v })}
-                label="O vídeo está sem voz/fala (microfone mutado)."
-              />
-              <Checkbox
-                checked={answers.mediaConfirmSemRuido}
-                onChange={(v) => update({ mediaConfirmSemRuido: v })}
-                label="Ambiente está sem ruído de fundo (TV, música, conversa)."
-              />
-            </div>
-            {!mediaValid && (
-              <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                <AlertTriangle className="h-3.5 w-3.5 text-amber-600" />
-                Sem fotos/vídeo válidos e checagens marcadas, não conseguimos triagem prévia.
-              </p>
-            )}
-            <FunnelNav onBack={back} onNext={next} canNext={canAdvance} />
-          </div>
-        )}
-
-        {/* Step 3 — regra Coleta e Entrega */}
-        {step === 3 && requiresColeta && sintomaObj && branch && (
+        {/* Step 2 — regra Coleta e Entrega (condicional) */}
+        {step === 2 && requiresColeta && sintomaObj && branch && (
           <div className="space-y-3">
             <ColetaRequiredCard
               equipamento={branch.label}
@@ -506,8 +435,8 @@ export const WhatsAppFunnel = () => {
           </div>
         )}
 
-        {/* Step 4 — confirmação e envio */}
-        {step === 4 && (
+        {/* Step 3 — confirmação e envio */}
+        {step === 3 && (
           <div className="space-y-3">
             <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 flex gap-2.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
@@ -523,7 +452,15 @@ export const WhatsAppFunnel = () => {
               {branch && <p>📦 <strong>{branch.label}</strong>{answers.marca ? ` — ${answers.marca}` : ""}</p>}
               {sintomaObj && <p>⚠️ {sintomaObj.label}</p>}
               {requiresColeta && <p className="text-amber-700 dark:text-amber-400">📦 Coleta e Entrega · mín. R$ 300 (autorizado)</p>}
-              {answers.media.length > 0 && <p>📸 {answers.media.length} mídia(s) anexada(s)</p>}
+            </div>
+
+            <div className="rounded-lg border border-amber-500/50 bg-amber-500/10 p-3 text-xs leading-snug">
+              <p className="font-bold text-foreground mb-1">📹 Próximo passo no WhatsApp</p>
+              <p className="text-foreground/80">
+                Assim que o chat abrir, envie <strong>um vídeo do equipamento por completo</strong> (mostrando a
+                etiqueta traseira) e do <strong>defeito acontecendo</strong>. O vídeo precisa estar{" "}
+                <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone). Sem o vídeo, o atendimento não é iniciado.
+              </p>
             </div>
 
             <Textarea
@@ -575,24 +512,10 @@ const FunnelNav = ({
   </div>
 );
 
-const Checkbox = ({
-  checked, onChange, label,
-}: { checked: boolean; onChange: (v: boolean) => void; label: string }) => (
-  <label className="flex items-start gap-2 text-xs cursor-pointer leading-snug">
-    <input
-      type="checkbox"
-      checked={checked}
-      onChange={(e) => onChange(e.target.checked)}
-      className="mt-0.5 h-3.5 w-3.5 accent-primary"
-    />
-    <span>{label}</span>
-  </label>
-);
-
 // Backward-compat export (alguns componentes legados importam isso)
 export const TransparencyNote = ({ className = "" }: { className?: string }) => (
   <p className={`text-xs text-muted-foreground leading-relaxed ${className}`}>
-    📌 <strong>Transparência:</strong> orçamento grátis por WhatsApp (com fotos). Visita técnica a partir de
+    📌 <strong>Transparência:</strong> orçamento grátis por WhatsApp. Visita técnica a partir de
     {" "}R$ 99,99 (30 min) · diagnóstico R$ 90 só se cancelar · reparos com coleta a partir de R$ 300.{" "}
     <Link to="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</Link>
   </p>

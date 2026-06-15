@@ -14,6 +14,14 @@ import {
 } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 import {
+  trackFunnelOpen,
+  trackFunnelStep,
+  trackFunnelSubmit,
+  trackFunnelClose,
+  trackFunnelBlocked,
+} from "@/lib/funnelAnalytics";
+import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
+import {
   EQUIPMENT_BRANCHES,
   getBranch,
   getSintoma,
@@ -62,29 +70,14 @@ function isWhatsAppHref(href: string | null): boolean {
 }
 
 function appendUtms(url: URL) {
-  const sp = new URLSearchParams(window.location.search);
-  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"];
-  for (const k of keys) {
-    const v = sp.get(k);
-    if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
+  appendUtmsToUrl(url);
+  if (!url.searchParams.has("utm_medium") || url.searchParams.get("utm_medium") === "organic") {
+    url.searchParams.set("utm_medium", "funnel");
   }
-  if (!url.searchParams.has("utm_source")) url.searchParams.set("utm_source", "site");
-  if (!url.searchParams.has("utm_medium")) url.searchParams.set("utm_medium", "funnel");
   if (!url.searchParams.has("utm_campaign")) {
     const path = window.location.pathname.replace(/^\/+|\/+$/g, "") || "home";
     url.searchParams.set("utm_campaign", path.replace(/\//g, "_").slice(0, 80));
   }
-}
-
-function gaEvent(name: string, params: Record<string, unknown> = {}) {
-  if (typeof window === "undefined") return;
-  // eslint-disable-next-line no-console
-  console.log(`[GA4 ${name}]`, params);
-  (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", name, {
-    event_category: "wa_funnel",
-    page_path: window.location.pathname,
-    ...params,
-  });
 }
 
 function buildMessage(a: Answers): string {

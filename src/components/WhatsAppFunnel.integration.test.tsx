@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { render, screen, fireEvent, within, cleanup } from "@testing-library/react";
+import { act, render, screen, fireEvent, within, cleanup, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 import { VIDEO_WARNING } from "@/lib/funnelWarning";
@@ -11,9 +11,7 @@ const openSpy = vi.fn<(url?: string | URL, target?: string, features?: string) =
 
 beforeEach(() => {
   openSpy.mockClear();
-  // jsdom: stub window.open
   vi.stubGlobal("open", openSpy);
-  // gtag spy
   (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = vi.fn();
 });
 
@@ -31,13 +29,23 @@ function renderFunnel() {
   );
 }
 
-function openFunnel() {
-  window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
+async function openAndGetDialog() {
+  // dispara o evento DEPOIS que os useEffects do componente registraram o listener
+  await act(async () => {
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
+  });
+  return await screen.findByRole("dialog", {}, { timeout: 3000 });
 }
 
-function getDialog() {
-  return screen.getByRole("dialog");
+function getLastWaUrl(): URL | null {
+  for (let i = openSpy.mock.calls.length - 1; i >= 0; i -= 1) {
+    const arg = openSpy.mock.calls[i][0];
+    const href = typeof arg === "string" ? arg : arg?.toString();
+    if (href && href.includes("wa.me")) return new URL(href);
+  }
+  return null;
 }
+
 
 function getLastWaUrl(): URL | null {
   for (let i = openSpy.mock.calls.length - 1; i >= 0; i -= 1) {

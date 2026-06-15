@@ -73,36 +73,56 @@ const Index = () => {
           </div>
         </section>
 
-        <Suspense fallback={<SectionFallback height="120px" />}>
-          <TechBrandsMarquee />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <PainSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <SchedulingSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <ServicesSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <TopSearchedServicesSection />
-        </Suspense>
-        <Suspense fallback={null}>
-          <GeolocationTrigger />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <CoverageMapSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <CitiesSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <NeighborhoodsSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <SocialProofSection />
-        </Suspense>
+        <LazyOnVisible minHeight="120px">
+          <Suspense fallback={<SectionFallback height="120px" />}>
+            <TechBrandsMarquee />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <PainSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <SchedulingSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <ServicesSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <TopSearchedServicesSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible minHeight="1px">
+          <Suspense fallback={null}>
+            <GeolocationTrigger />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <CoverageMapSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <CitiesSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <NeighborhoodsSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <SocialProofSection />
+          </Suspense>
+        </LazyOnVisible>
 
         <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay">
           <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />

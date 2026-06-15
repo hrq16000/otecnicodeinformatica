@@ -274,7 +274,23 @@ const AdminFunnel = () => {
               <SelectItem value="no">Sem coleta</SelectItem>
             </SelectContent>
           </Select>
+          <Select value={waFilter} onValueChange={(v) => { setPage(0); setWaFilter(v); }}>
+            <SelectTrigger><SelectValue placeholder="Envio WhatsApp" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos envios</SelectItem>
+              <SelectItem value="yes">Mensagem gerada</SelectItem>
+              <SelectItem value="no">Sem mensagem</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={sintomaFilter} onValueChange={(v) => { setPage(0); setSintomaFilter(v); }}>
+            <SelectTrigger><SelectValue placeholder="Sintoma" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos sintomas</SelectItem>
+              {distinctSintoma.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+            </SelectContent>
+          </Select>
         </div>
+
 
         {/* Table */}
         <div className="rounded-lg border border-border overflow-hidden">
@@ -286,6 +302,7 @@ const AdminFunnel = () => {
                   <th className="px-3 py-2 text-left">Equipamento</th>
                   <th className="px-3 py-2 text-left">Sintoma</th>
                   <th className="px-3 py-2 text-left">Coleta</th>
+                  <th className="px-3 py-2 text-left">WA</th>
                   <th className="px-3 py-2 text-left">Origem</th>
                   <th className="px-3 py-2 text-left">Status</th>
                   <th className="px-3 py-2"></th>
@@ -293,12 +310,12 @@ const AdminFunnel = () => {
               </thead>
               <tbody>
                 {loading && rows.length === 0 && (
-                  <tr><td colSpan={7} className="text-center py-6 text-muted-foreground">
+                  <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin inline mr-2" /> Carregando…
                   </td></tr>
                 )}
                 {!loading && rows.length === 0 && (
-                  <tr><td colSpan={7} className="text-center py-6 text-muted-foreground">
+                  <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
                     <Filter className="h-4 w-4 inline mr-2" /> Nenhum lead encontrado
                   </td></tr>
                 )}
@@ -310,6 +327,11 @@ const AdminFunnel = () => {
                     <td className="px-3 py-2">{r.equipamento || "—"}<div className="text-[10px] text-muted-foreground">{r.marca || ""}</div></td>
                     <td className="px-3 py-2 text-xs">{r.sintoma || "—"}</td>
                     <td className="px-3 py-2">{r.requires_coleta ? <Badge variant="destructive" className="text-[10px]">Coleta</Badge> : <span className="text-xs text-muted-foreground">—</span>}</td>
+                    <td className="px-3 py-2">
+                      {r.wa_message
+                        ? <Badge variant="secondary" className="text-[10px]">Enviada</Badge>
+                        : <Badge variant="outline" className="text-[10px]">—</Badge>}
+                    </td>
                     <td className="px-3 py-2 text-[10px] text-muted-foreground">
                       {r.utm_source || "direct"}{r.utm_campaign ? ` · ${r.utm_campaign}` : ""}
                     </td>
@@ -323,6 +345,7 @@ const AdminFunnel = () => {
                     </td>
                   </tr>
                 ))}
+
               </tbody>
             </table>
           </div>

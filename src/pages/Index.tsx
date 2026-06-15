@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
+import { TopOfferBanner } from "@/components/TopOfferBanner";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { trackPageView } from "@/lib/analytics";
 
@@ -54,6 +55,7 @@ const Index = () => {
       <PageSEO title="Técnico de Informática em Curitiba | Assistência Técnica Nº1 da Região | Atendimento Hoje" description="A assistência técnica em informática mais bem avaliada de Curitiba e região. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio no mesmo dia. ⭐ 4.9/5 - 347+ avaliações. WhatsApp (41) 99745-2053." path="/" />
       <JsonLdSchema />
       <Header />
+      <TopOfferBanner />
       <main>
         <HeroSection />
 

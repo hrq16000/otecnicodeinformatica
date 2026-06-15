@@ -1,108 +1,166 @@
 
-## Correção imediata já aplicada
+# Plano de Implementação
 
-Apliquei salvaguardas globais em `src/index.css` que resolvem 90% dos casos de "estouro de largura" sem regressão visual:
-
-- `* { min-width: 0 }` — evita que filhos de flex/grid empurrem o container.
-- `body, h1-h6` com `overflow-wrap: break-word` + `hyphens: auto` — quebra palavras longas (URLs, nomes compostos, modelos de placa).
-- `img, video, svg, iframe { max-width: 100%; height: auto }` — imagens nunca estouram, mesmo as quebradas.
-- `article/main/.prose table` ganham `display:block; overflow-x:auto` — todas as ~20 tabelas dos posts de blog passam a rolar horizontalmente em mobile em vez de explodir o layout.
-- `pre, code` com `overflow-x:auto` + `word-break`.
-
-`html, body` já tinham `overflow-x: hidden`, então qualquer overflow residual continua mascarado, mas agora a causa também é corrigida.
+5 entregas independentes, integradas ao ecossistema atual (WhatsAppFunnel global, Lovable Cloud, prerender de cidades).
 
 ---
 
-## Plano de melhorias significativas
+## 1. Banner topo da home — Oferta R$ 99,99 / 30 min
 
-### 1. Layout, imagens e responsividade (P0)
+**Novo componente** `src/components/TopOfferBanner.tsx`:
+- Banner fixo logo abaixo do `<Header />` (acima do `HeroSection`), visível em mobile e desktop.
+- Conteúdo: "⚡ Serviço Rápido até 30 min — **R$ 99,99**" + CTA "Chamar agora" (abre o `WhatsAppFunnel`) + link "Termos e Condições" → `/termos-e-condicoes`.
+- Pode ser fechado (X) e o estado persiste em `sessionStorage` (volta na próxima sessão).
+- Cores marca (gradient accent), altura compacta (~44px desktop / 64px mobile), sem quebrar LCP.
+- Aplicado **apenas na home** (`src/pages/Index.tsx`) para preservar o layout das demais páginas.
 
-- **Imagens quebradas**: varrer todos os `<img src>` e backgrounds das páginas de bairro / serviço / blog. Implementar `<img onError>` global que troca por placeholder neutro (SVG inline) + log no console em dev. Remover refs a assets que não existem em `src/assets/` ou `public/`.
-- **`loading="lazy"` + `decoding="async"`** em 100% das imagens fora do viewport inicial (hoje só algumas têm). Ganho direto de LCP.
-- **`width`/`height` explícitos** em imagens above-the-fold para zerar CLS.
-- **Hero do `HeroSection`**: o `TypingEffect` ocasionalmente quebra mid-frase em telas <360px. Adicionar `min-h-[1.5em]` no container do typing pra evitar pulo de altura (CLS) e `break-words` no span.
-- **Grids "3 colunas em mobile"** (`TechnicianAvailability`, `AssistenciaTecnicaCuritiba` linha 452): trocar para `grid-cols-2 sm:grid-cols-3` — em 320px viram pílulas ilegíveis.
-- **Header mobile**: já corrigido na rodada anterior, manter checklist.
-- **Footer**: revisar listas longas de cidades/bairros — atualmente uma única coluna gigante; transformar em `<details>` colapsável por região.
-
-### 2. Performance / Core Web Vitals (P0)
-
-- Code-split por rota com `React.lazy` (hoje muitas páginas de bairro são importadas estaticamente, inflando o bundle inicial).
-- Remover `CursorTrail`, `MouseGlow`, `FloatingParticles` em mobile (eles roda mesmo escondidos visualmente e consomem RAF).
-- Trocar fontes auto-hospedadas em `index.html` para `font-display: swap` + `preconnect`.
-- Comprimir imagens hero (>300KB hoje em alguns bairros) para WebP/AVIF ≤80KB.
-- Lighthouse CI mobile/desktop nas top-10 rotas, thresholds: LCP <2.5s, INP <200ms, CLS <0.05.
-
-### 3. UX e visualização agradável (P1)
-
-- **Tipografia editorial nos posts**: aplicar `prose prose-lg` (Tailwind Typography) nos `BlogPost` — hoje cada bloco define spacing à mão, gerando inconsistência.
-- **Dark mode**: revisar contraste de cards "vidro" — alguns textos cinza/branco em fundo translúcido falham WCAG AA.
-- **Modais (WhatsAppFunnel)**: padronizar altura máxima `max-h-[85dvh]` + `overflow-y-auto` interno (já há relatos de modal cortado em iPhone SE).
-- **Skeletons**: usar `Skeleton.tsx` já existente em todas as seções com `useEffect` de fetch — hoje só algumas têm.
-- **`prefers-reduced-motion`**: respeitar em todas as animações breathe/float.
-
-### 4. SEO nacional agressivo — "arrumar pc em qualquer lugar do Brasil" (P0 estratégico)
-
-Hoje o portal é hiperlocal Curitiba+RMC. Para captar tráfego **nacional** sem canibalizar o local, criar um cluster paralelo:
-
-**Estrutura nova:**
-```
-/arrumar-pc                              (hub nacional, intenção mista)
-/arrumar-pc/online                       (atendimento remoto Brasil inteiro)
-/arrumar-pc/[problema]                   (32 problemas reais já mapeados)
-/arrumar-pc/[capital-ou-cidade]          (programaticamente: 50 cidades alvo)
-/como-arrumar-pc/[problema]              (DIY/tutorial — captura long-tail)
-/tecnico-de-informatica/[estado]         (27 UFs, hub-and-spoke)
-```
-
-**Keywords-alvo nacionais** (alta intenção, baixo-médio KD):
-- "arrumar pc" / "arrumar computador" / "consertar notebook online"
-- "técnico de informática online" / "suporte remoto computador"
-- "meu pc não liga", "tela azul", "formatação online", "remover vírus online"
-- Cauda longa por modelo: "notebook dell não liga", "macbook não carrega" etc.
-
-**Execução:**
-- Gerar páginas programáticas a partir de um JSON `cidades.json` + `problemas.json` (template já existe nos `bairros/`).
-- `LocalBusiness` JSON-LD por cidade + `Service` schema com `areaServed: "BR"` no hub.
-- Hreflang `pt-BR` + canonical correto em todas.
-- Internal linking: bloco "Atendemos em todo o Brasil via remoto" no Footer + CTA em todas as páginas locais.
-- FAQ nacional ("é seguro deixar o técnico acessar meu PC remotamente?", "quanto custa formatação online?") com `FAQPage` schema.
-- **Conteúdo de blog focado em problema** (não em cidade): 20 novos posts tipo "Como arrumar PC que não liga — passo a passo 2026" — captura busca informacional → CTA WhatsApp/remoto.
-- Submeter sitemap atualizado no GSC; adicionar `IndexNow` (Bing) para indexação rápida.
-- Rich snippets: HowTo schema nos tutoriais, Review/Rating no hub.
-
-**Confiança/conversão nacional:**
-- Página "Como funciona o atendimento remoto" com vídeo demo + selos (AnyDesk/TeamViewer).
-- Pagamento PIX nacional destacado.
-- Depoimentos geo-marcados por estado (não só Curitiba).
-
-### 5. Acessibilidade (P1)
-
-- Auditoria com axe-core: principais débitos esperados — botões só com ícone sem `aria-label`, contraste de cinza claro em fundo branco, `<div onClick>` em vários cards.
-- Foco visível padronizado via `:focus-visible` token.
-- Skip-to-content link no Header.
-
-### 6. Qualidade técnica (P2)
-
-- `BlogPost.tsx` tem >5000 linhas — quebrar por slug em `src/content/posts/[slug].tsx` carregados via lazy route.
-- Centralizar número de WhatsApp em `src/config/contact.ts` (hoje hardcoded em dezenas de arquivos).
-- TypeScript strict + remover `any` residuais.
-- Testes E2E ampliados: smoke test por rota crítica gerando matriz de 200/canonical/H1 único.
-
-### 7. Analytics e iteração
-
-- Implementar Microsoft Clarity (heatmap gratuito) — complementa GA4 sem custo.
-- Eventos GA4 por rota nacional separados (`wa_funnel_open_nacional` vs `_local`) para medir ROI da expansão.
-- Dashboard semanal: top 10 buscas → top 10 páginas → conversões WhatsApp.
+**Importante:** o `PricingBanner` atual mostra R$ 69,99. Conforme a memória, manter coexistência: o novo banner promove a oferta-âncora de 30 min (R$ 99,99), enquanto o `PricingBanner` continua como "visita técnica padrão a partir de R$ 69,99" para os atendimentos não-expressos.
 
 ---
 
-## Ordem sugerida de execução
+## 2. WhatsAppFunnel ramificado por equipamento
 
-1. **Sprint 1 (1 dia)**: Performance + imagens (#1, #2) — ganho imediato de LCP/CLS.
-2. **Sprint 2 (2-3 dias)**: Hub `/arrumar-pc` + 10 páginas programáticas de cidade + schemas (#4 core).
-3. **Sprint 3 (2 dias)**: 20 posts de blog "como arrumar" + interlinking nacional (#4 conteúdo).
-4. **Sprint 4 (1 dia)**: UX/A11y/qualidade (#3, #5, #6).
-5. **Contínuo**: monitorar GSC, expandir cidades conforme ranqueamento (#7).
+Refatoração de `src/components/WhatsAppFunnel.tsx` mantendo a API pública (`wa-funnel:open`, intercepção global de `wa.me`, sessionStorage, UTMs, transparência) e adicionando ramificação:
 
-Me diga por onde começar — recomendo **Sprint 1 + esqueleto do hub `/arrumar-pc` agora** para já capturar tráfego nacional enquanto melhoramos a base.
+### Novo fluxo
+1. **Step 0 — Tipo de equipamento** (substitui o atual "O que você precisa?"):
+   - PC / Notebook
+   - TV
+   - Celular / Tablet
+   - Som / Áudio (home-theater, caixa, soundbar)
+   - Videogame (PS, Xbox, Switch)
+   - Outro / só orçamento
+
+2. **Step 1 — Perguntas múltipla escolha específicas** por categoria (estrutura declarativa em `src/components/funnel/equipmentBranches.ts`):
+   - **PC/Notebook**: marca → sintoma (não liga / lento / tela / vírus / outro) → tem áudio/imagem?
+   - **TV**: tamanho → sintoma (não liga / tela quebrada / sem imagem / sem som / linhas/manchas / liga e desliga sozinha)
+   - **Celular**: marca → sintoma (tela trincada / não carrega / molhou / lento / sem som)
+   - **Som**: tipo → sintoma (sem som / chiado / não liga / Bluetooth)
+   - **Videogame**: console → sintoma (não liga / não lê disco / HDMI / drift de controle / superaquecimento)
+
+3. **Step 2 — Mídia obrigatória** (regras "completo + sem áudio + sem ruído"):
+   - Upload de **fotos** (mín. 1, máx. 5) e **vídeo** (mín. 1 quando o sintoma envolve tela/display/imagem/som — ver regra abaixo).
+   - **Avisos visíveis** com checkboxes obrigatórios:
+     - ☐ Equipamento completo no vídeo (mostra entrada de energia, traseira, tela e laterais)
+     - ☐ Vídeo SEM áudio de pessoas falando (mute o microfone)
+     - ☐ Ambiente SEM ruído de fundo
+   - Validação client-side: tipo (image/*, video/*), tamanho (foto ≤ 8MB, vídeo ≤ 50MB), duração mínima 10s para vídeo.
+   - Upload para Lovable Cloud Storage (bucket privado `funnel-uploads`) via `supabase.storage`. URLs assinadas (válidas 24h) são incluídas na mensagem do WhatsApp.
+   - Se o usuário recusar/falhar upload obrigatório → o botão "Continuar" fica bloqueado e exibe mensagem "Sem fotos/vídeo válidos não conseguimos triagem prévia".
+
+4. **Step 3 — Regra "Não liga / Desliga sozinho" → Coleta e Entrega obrigatória**:
+   - Se sintoma ∈ {"não liga", "desliga sozinho", "liga e desliga sozinha", "molhou", "tela quebrada", "sem imagem"} → bloqueia "Levo até parceiro" e "Visita técnica".
+   - Mostra card destacado: **"Esse caso exige Coleta e Entrega"**:
+     - Valor mínimo do reparo: **R$ 300** (já incluso diagnóstico)
+     - Coleta + entrega: conforme tabela atual de `coletaConfig.ts`
+     - Prazo: 3–7 dias úteis após diagnóstico aprovado
+     - Se desistir após diagnóstico: paga apenas R$ 90
+   - Checkbox obrigatório: ☐ "Estou ciente e autorizo a coleta sob estas condições"
+   - Link visível para `/coleta-entrega` e `/termos-e-condicoes`.
+
+5. **Step 4 — Confirmação**: revisão + envio para WhatsApp (mensagem inclui URLs assinadas das mídias, sintoma, regra aplicada).
+
+### Bloqueio do atendimento humano
+- Hoje qualquer clique em `wa.me` abre o funil, mas o usuário pode fechar e o clique original é cancelado — comportamento já existente.
+- **Reforço**: enquanto o funil estiver aberto e a triagem não estiver completa (todos os campos válidos do step atual), o botão "Continuar" fica `disabled` e o botão final de WhatsApp só renderiza no step 4. Não há atalho para `wa.me` direto dentro do modal.
+- O `WhatsAppFloat`, `WhatsAppChatbot` e demais entry points continuam interceptados — a triagem é obrigatória sempre.
+
+### Telemetria
+- `wa_funnel_branch_select` (equipamento), `wa_funnel_media_upload` (count, total bytes), `wa_funnel_coleta_required` (sintoma), `wa_funnel_blocked` (motivo).
+
+---
+
+## 3. Storage para uploads
+
+**Bucket privado** `funnel-uploads` via `supabase--storage_create_bucket`.
+
+**Tabela** `funnel_submissions` para auditoria:
+- `id`, `session_id`, `equipamento`, `marca`, `sintoma`, `requires_coleta` (bool), `media_paths` (jsonb), `wa_message` (text), `utm_*`, `created_at`.
+- RLS: INSERT público (anon), SELECT apenas service_role (admin via edge function futura). GRANT explícito.
+
+**Policy de Storage**: INSERT público no bucket (com prefixo de session_id), SELECT só via signed URL.
+
+---
+
+## 4. Hubs SEO locais — TV, Som, Videogame, Celular
+
+Replica a arquitetura `arrumar-pc/*` mas focada em **Curitiba e bairros/cidades RMC** (não capitais nacionais — alinhado à estratégia local da memória).
+
+### Estrutura de pastas (paralela ao `arrumar-pc`):
+```
+src/pages/conserto-tv/
+  ConsertoTVCityTemplate.tsx
+  ConsertoTVCity.tsx          (router param wrapper)
+  cities.ts                   (Curitiba + 11 RMC + 8 bairros principais)
+  cityImages.ts               (reusa fallback genérico de categoria)
+src/pages/conserto-som/       (mesma estrutura)
+src/pages/conserto-videogame/ (mesma estrutura)
+src/pages/conserto-celular/   (mesma estrutura — complementa o existente ConsertoCelular.tsx)
+```
+
+### Rotas (`src/App.tsx`)
+- `/conserto-tv/:cidade`
+- `/conserto-som/:cidade`
+- `/conserto-videogame/:cidade`
+- `/conserto-celular/:cidade`
+
+Cobertura inicial (cada categoria): `curitiba`, `sao-jose-dos-pinhais`, `araucaria`, `pinhais`, `colombo`, `campo-largo`, `almirante-tamandare`, `fazenda-rio-grande`, `piraquara`, `quatro-barras`, `campo-magro` + 8 bairros (`batel`, `centro`, `cic`, `portao`, `santa-felicidade`, `boqueirao`, `cajuru`, `agua-verde`).
+
+**Total**: 4 categorias × ~19 locais = ~76 páginas geradas via template.
+
+### Cada template entrega:
+- Title único: `Conserto de {Categoria} em {Local} | Coleta e Entrega · Técnico Curitiba`
+- Meta description com sintomas + preços-âncora
+- H1 único: `Conserto de {Categoria} em {Local}`
+- `PageHero` com imagem genérica da categoria (reusa assets já gerados ou placeholders, sem gerar 76 imagens novas — opção de hero da categoria + overlay com nome do local)
+- Open Graph com og:image da categoria
+- **Schema JSON-LD**: `Service` + `LocalBusiness` + `FAQPage` (3 perguntas locais) + `BreadcrumbList`
+- Seções: sintomas comuns, processo (coleta → diagnóstico → reparo → entrega), preços, garantia, CTAs WhatsApp (interceptados pelo funil), bairros próximos (interlinking).
+- Reaproveita `BenefitsGrid`, `CTASection`, `LocalFAQSection`, `Breadcrumbs`.
+
+### Hub raiz por categoria
+- `/conserto-tv-curitiba`, `/conserto-som-curitiba`, `/conserto-videogame-curitiba`, `/conserto-celular-curitiba` — página índice que lista todos os locais e referencia a categoria. (As páginas legadas `ConsertoTV`, `ConsertoCelular`, `ManutencaoTV` permanecem como pretende a memória — adicionamos canonical apontando para o hub novo onde aplicável).
+
+### Sitemap
+- Atualiza `public/sitemap.xml` com as ~76 novas URLs + 4 hubs.
+
+### Prerender
+- Estende `scripts/prerender-cities.mjs` para também emitir HTML estático de cada nova rota (mesmo padrão de title/meta/og/JSON-LD).
+
+---
+
+## 5. Arquivos & Migrações
+
+### Novos arquivos (alto nível)
+- `src/components/TopOfferBanner.tsx`
+- `src/components/funnel/equipmentBranches.ts` (dados declarativos)
+- `src/components/funnel/MediaUploader.tsx`
+- `src/components/funnel/ColetaRequiredCard.tsx`
+- `src/pages/conserto-tv/*` (+ som, videogame, celular)
+- `src/pages/hubs/{categoria}Hub.tsx` × 4
+- `src/lib/funnelMedia.ts` (upload + signed URL helpers)
+
+### Editados
+- `src/components/WhatsAppFunnel.tsx` (refatoração)
+- `src/pages/Index.tsx` (banner topo)
+- `src/App.tsx` (rotas novas)
+- `public/sitemap.xml`
+- `scripts/prerender-cities.mjs` (incluir novas categorias)
+
+### Migrações Supabase
+- `funnel_submissions` (tabela + RLS + GRANT)
+- Bucket `funnel-uploads` (privado, via tool dedicada)
+
+---
+
+## Não-objetivos (fora do escopo)
+- Não gerar OG/hero individual para cada um dos ~76 novos locais (reusa OG por categoria) — pode ser uma fase 2.
+- Não remover páginas legadas (`ConsertoTV.tsx`, `ManutencaoTV.tsx`, `ConsertoCelular.tsx`) — preservação SEO.
+- Não alterar o preço do `PricingBanner` existente (R$ 69,99 permanece — coexistência conforme memória).
+
+---
+
+## Estimativa
+Implementação grande, mas dividida em commits lógicos: (1) banner, (2) storage+migração, (3) refator funil, (4) categorias TV+som+videogame+celular, (5) sitemap+prerender.
+
+Pronto para executar — me confirma se posso seguir ou ajusta algum ponto (ex.: reduzir bairros, pular alguma categoria, mudar política de uploads).

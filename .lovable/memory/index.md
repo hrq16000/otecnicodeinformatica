@@ -1,0 +1,20 @@
+# Project Memory
+
+## Core
+- ALL contact is strictly via WhatsApp. No phone numbers, no `tel:` links.
+- "Premium SaaS" aesthetic: clean typography, glassmorphism, NO dark cyberpunk.
+- Project is evolutionary: never remove existing pages/URLs to protect SEO.
+- Lead generation via WhatsApp & local SEO dominance in Curitiba are primary goals.
+- Supabase with RLS for lead privacy.
+- ALL `wa.me` anchor clicks are intercepted globally by `WhatsAppFunnel` V2 (5-step branched modal: equipamento → marca/sintoma → upload obrigatório → regra de Coleta → confirmação). Use `data-funnel-skip="1"` to opt out.
+- Banner topo da home: oferta-âncora R$ 99,99 / 30 min (`TopOfferBanner`). Coexiste com `PricingBanner` (R$ 69,99 visita padrão).
+
+## Memories
+- [Visual Identity & UI](mem://design/visual-identity) — Premium SaaS aesthetic, glassmorphism, dark mode, animations
+- [WhatsApp Conversion](mem://features/whatsapp-conversion) — WhatsApp triage logic, global chatbot, exit intent popup
+- [WhatsApp Branched Funnel V2](mem://features/whatsapp-funnel-v2) — 5-step funnel: equipamento → sintoma → mídia obrigatória → coleta → envio
+- [WhatsApp Global Funnel](mem://features/whatsapp-funnel) — Global click-interception modal architecture
+- [Business & Pricing](mem://business/pricing-and-policies) — Coleta e Entrega pricing, BGA warranties, CNPJ
+- [SEO Strategy](mem://seo/strategy-and-architecture) — Local SEO hierarchy, LLMs.txt, problem intention engine
+- [Hubs SEO Categorias × Local](mem://features/hubs-seo-categorias) — Conserto TV/Som/Videogame/Celular × RMC e bairros
+- [Technical Components](mem://features/technical-components) — Admin panel, routing maps, analytics, PWA, AdSense

@@ -27,7 +27,7 @@ import {
 } from "@/components/funnel/equipmentBranches";
 import { ColetaRequiredCard } from "@/components/funnel/ColetaRequiredCard";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
-import { VIDEO_WARNING, withVideoWarning } from "@/lib/funnelWarning";
+import { withVideoWarning } from "@/lib/funnelWarning";
 
 
 const WHATSAPP_NUMBER = "5541997452053";

@@ -27,6 +27,8 @@ import {
 } from "@/components/funnel/equipmentBranches";
 import { ColetaRequiredCard } from "@/components/funnel/ColetaRequiredCard";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
+import { withVideoWarning } from "@/lib/funnelWarning";
+
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
@@ -48,8 +50,8 @@ const EMPTY: Answers = {
   descricao: "",
 };
 
-const VIDEO_WARNING =
-  "🚨 *Atenção — obrigatório para iniciar o atendimento:* envie *agora neste chat* (1) *fotos* do equipamento por completo, incluindo a *etiqueta traseira* com modelo/série, e (2) um *vídeo* mostrando o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos de fundo* (mute o microfone do celular, ambiente em silêncio). *Sem o envio das fotos e do vídeo, o atendimento não será iniciado.*";
+
+
 
 
 function isWhatsAppHref(href: string | null): boolean {
@@ -94,10 +96,10 @@ function buildMessage(a: Answers): string {
   }
   lines.push("");
   lines.push("— Estou ciente das políticas e termos: tecnicocuritiba.com.br/termos-e-condicoes");
-  lines.push("");
-  lines.push(VIDEO_WARNING);
-  return lines.join("\n");
+  // Garante o aviso obrigatório no final, vindo da fonte única (`funnelWarning.ts`).
+  return withVideoWarning(lines.join("\n"));
 }
+
 
 const TransparencyMini = () => (
   <div className="rounded-lg border border-border bg-card/50 p-2.5 text-[11px] text-muted-foreground leading-snug">
@@ -254,12 +256,14 @@ export const WhatsAppFunnel = () => {
 
   const canAdvance = useMemo(() => validateStep(step).ok, [validateStep, step]);
 
+  /**
+   * Avança para o próximo step. NÃO valida com `validateStep` aqui porque o
+   * botão "Continuar" já é desabilitado por `canAdvance` (validação reativa) e,
+   * no auto-advance da seleção de equipamento, o `setAnswers` ainda não foi
+   * comitado quando `next()` roda — validar aqui daria falso negativo.
+   * A trava final fica em `submit()`, que revalida todas as etapas.
+   */
   const next = () => {
-    const v = validateStep(step);
-    if (!v.ok) {
-      trackFunnelBlocked(`step_${step}_invalid`, answers.equipamento);
-      return;
-    }
     setStep((s) => {
       let n = s + 1;
       // "Outro" pula regra de coleta
@@ -269,6 +273,7 @@ export const WhatsAppFunnel = () => {
       return Math.min(n, TOTAL_STEPS - 1);
     });
   };
+
   const back = () => setStep((s) => {
     let p = s - 1;
     if (s === 3 && !requiresColeta && !isOutro) p = 1;
@@ -298,7 +303,12 @@ export const WhatsAppFunnel = () => {
 
 
       const baseMessage = buildMessage(answers);
-      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
+      // Mesmo com preset (mensagem vinda de outro CTA), o aviso obrigatório
+      // sempre fica no final via `withVideoWarning`.
+      const finalMessage = withVideoWarning(
+        presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage,
+      );
+
 
       try {
         await recordSubmission({

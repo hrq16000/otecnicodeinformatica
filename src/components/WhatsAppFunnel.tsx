@@ -256,12 +256,14 @@ export const WhatsAppFunnel = () => {
 
   const canAdvance = useMemo(() => validateStep(step).ok, [validateStep, step]);
 
+  /**
+   * Avança para o próximo step. NÃO valida com `validateStep` aqui porque o
+   * botão "Continuar" já é desabilitado por `canAdvance` (validação reativa) e,
+   * no auto-advance da seleção de equipamento, o `setAnswers` ainda não foi
+   * comitado quando `next()` roda — validar aqui daria falso negativo.
+   * A trava final fica em `submit()`, que revalida todas as etapas.
+   */
   const next = () => {
-    const v = validateStep(step);
-    if (!v.ok) {
-      trackFunnelBlocked(`step_${step}_invalid`, answers.equipamento);
-      return;
-    }
     setStep((s) => {
       let n = s + 1;
       // "Outro" pula regra de coleta
@@ -271,6 +273,7 @@ export const WhatsAppFunnel = () => {
       return Math.min(n, TOTAL_STEPS - 1);
     });
   };
+
   const back = () => setStep((s) => {
     let p = s - 1;
     if (s === 3 && !requiresColeta && !isOutro) p = 1;

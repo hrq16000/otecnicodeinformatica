@@ -81,9 +81,12 @@ const AdminFunnel = () => {
     if (statusFilter !== "all") query = query.eq("status_atendimento", statusFilter);
     if (coletaFilter === "yes") query = query.eq("requires_coleta", true);
     if (coletaFilter === "no") query = query.eq("requires_coleta", false);
+    if (waFilter === "yes") query = query.not("wa_message", "is", null);
+    if (waFilter === "no") query = query.is("wa_message", null);
+    if (sintomaFilter !== "all") query = query.eq("sintoma", sintomaFilter);
     if (search.trim()) {
       const s = `%${search.trim()}%`;
-      query = query.or(`wa_message.ilike.${s},marca.ilike.${s},utm_campaign.ilike.${s}`);
+      query = query.or(`wa_message.ilike.${s},marca.ilike.${s},utm_campaign.ilike.${s},sintoma.ilike.${s}`);
     }
 
     const { data, error, count: c } = await query;
@@ -99,7 +102,14 @@ const AdminFunnel = () => {
   useEffect(() => {
     void fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, equipFilter, statusFilter, coletaFilter, isAdmin]);
+  }, [page, equipFilter, statusFilter, coletaFilter, waFilter, sintomaFilter, isAdmin]);
+
+  const distinctSintoma = useMemo(() => {
+    const s = new Set<string>();
+    rows.forEach((r) => r.sintoma && s.add(r.sintoma));
+    return Array.from(s);
+  }, [rows]);
+
 
   const distinctEquip = useMemo(() => {
     const s = new Set<string>();

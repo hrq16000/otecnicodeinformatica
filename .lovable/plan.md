@@ -1,75 +1,108 @@
-## Objetivo
-Entregar 5 frentes coesas: painel admin, tracking analítico, conteúdo legal/serviço, padronização de schema e testes do funil.
+# Plano de execução
+
+Ordem rígida — cada etapa só inicia quando a anterior terminar.
 
 ---
 
-### 1. Painel Administrativo `/admin/funnel`
-- Rota protegida por autenticação (Lovable Cloud auth + tabela `user_roles` com role `admin`).
-- Listagem paginada de `funnel_submissions` com filtros: data, equipamento, marca, requires_coleta, utm_source/campaign, busca em `wa_message`.
-- Drawer de detalhe: dados completos + galeria de mídias (signed URLs do bucket `funnel-uploads`, 1h).
-- Campo `status_atendimento` (novo/contatado/agendado/fechado/perdido) editável inline.
-- Export CSV do filtro atual.
+## 1. Limpeza definitiva do bucket `funnel-uploads`
 
-**Migração**
-- `ALTER TABLE funnel_submissions ADD status_atendimento text DEFAULT 'novo', notas_admin text, atendido_em timestamptz, atendido_por uuid`.
-- Criar enum `app_role` + tabela `user_roles` + função `has_role` (padrão do projeto).
-- Adicionar policies: `SELECT/UPDATE` em `funnel_submissions` para `has_role(auth.uid(),'admin')`.
-- Edge function `admin-funnel-media-url` que gera signed URL (valida `has_role` server-side).
+Como Postgres bloqueia `DELETE` em `storage.buckets`, vou usar a **Storage API REST** via uma migração que chama `net.http_delete` (extensão `pg_net` já habilitada no Lovable Cloud) para o endpoint `/storage/v1/bucket/funnel-uploads`. Antes, esvazio o bucket com a função `storage.empty_bucket` (helper oficial do Supabase).
 
-### 2. Tracking de eventos (GA4 + UTMs)
-- `src/lib/funnelAnalytics.ts` com helpers `trackFunnelOpen`, `trackStep`, `trackSubmit`, `trackWaClick`, `trackCallClick`.
-- Eventos GA4 via `window.gtag` (já carregado pelo projeto). Fallback silencioso se ausente.
-- Capturar UTMs + `gclid` da URL no primeiro hit, persistir em `sessionStorage` (`utm_payload`), reaproveitar no insert do `funnel_submissions` e em todo clique `wa.me`/`tel:`.
-- Disparar eventos em: `WhatsAppFunnel` (abrir, cada step concluído, submit, bloqueio), `WhatsAppFloat`, `WhatsAppChatbot`, `ExitIntentPopup`, `Header`, `Footer`, `PageHero`.
+Sequência:
+1. `SELECT storage.empty_bucket('funnel-uploads')` — limpa objetos.
+2. `net.http_delete` autenticado com `service_role` → remove o bucket.
+3. Grep final no projeto procurando `funnel-uploads`, `MediaUploader`, `funnelMedia` — deve retornar 0 ocorrências.
+4. Atualizar memória do projeto registrando "0 dependências de storage no funil".
 
-### 3. Páginas `/termos-e-condicoes` e `/coleta-e-entrega`
-- `/termos-e-condicoes` já existe (`TermosCondicoes.tsx`) — apenas auditar links internos e garantir rota registrada.
-- `/coleta-e-entrega`: já existe `ColetaEntrega.tsx` mas será expandida — verificar conteúdo, adicionar:
-  - Tabela transparente de preços (mín R$ 300, diagnóstico R$ 90, prazo 3-7 dias).
-  - Schema `Service` + `Offer` + `FAQPage` + `BreadcrumbList`.
-  - Bloco "Quando é obrigatório" (sintomas "não liga / desliga sozinho").
-  - CTA que abre `WhatsAppFunnel` já no branch correto.
-  - Links internos para hubs (PC, TV, etc.) e Termos.
+Se o `http_delete` falhar (rede/permissão), faço fallback: removo apenas as policies/grants restantes e marco o bucket como órfão na memória para limpeza manual posterior.
 
-### 4. JSON-LD e headings dos hubs/locais
-- Auditar `CategoryLocalTemplate.tsx`, `ArrumarPCCityTemplate.tsx`, `ServicoBairroTemplate.tsx`:
-  - Garantir 1 `<h1>` por página, hierarquia h2/h3 coerente.
-  - `Service` com `provider.@id` apontando ao `#localbusiness` único.
-  - `Offer` com `price`, `priceCurrency`, `priceSpecification` (R$ 99,99 visita / R$ 90 diagnóstico / mín R$ 300).
-  - `FAQPage` com ≥ 3 perguntas localizadas.
-  - `BreadcrumbList` com itens corretos (Início → Categoria → Cidade/Bairro).
-  - `AggregateRating` no LocalBusiness sitewide.
-- Estender `scripts/validate-jsonld.mjs` para validar 1 amostra de hub (`/conserto-tv-curitiba`) e 1 de local (`/conserto-tv-curitiba/batel`).
+## 2. Centralizar o aviso final em uma única constante
 
-### 5. Testes automatizados do funil
-- Playwright (`e2e/whatsapp-funnel.spec.ts` já existe — expandir):
-  - Branch PC, TV, celular, som, videogame.
-  - Sintoma "não liga" → exibe `ColetaRequiredCard` com R$ 300 e bloqueia botão WhatsApp até aceitar.
-  - Upload obrigatório: tentar avançar sem mídia → erro visível.
-  - Validação de tamanho (>50MB vídeo) e formato.
-  - Mobile viewport (iPhone 12) — modal deve ser scrollável.
-- Vitest: `MediaUploader` (validações puras), `equipmentBranches` (regras), `funnelAnalytics` (envio gtag).
-- Rota fallback `/funil-indisponivel` para erro de upload/insert (link para `wa.me` direto **com aviso explícito** e marcação `data-funnel-skip="1"`).
+- Criar `src/lib/funnelWarning.ts` exportando:
+  - `VIDEO_WARNING` (texto markdown WhatsApp — fotos completas, etiqueta traseira, vídeo sem áudio/ruído, atendimento não inicia sem mídia).
+  - `VIDEO_WARNING_HTML` (mesma cópia em JSX para o modal).
+  - `buildFinalWhatsAppMessage(answers)` helper que sempre acrescenta `VIDEO_WARNING` ao final.
+- Substituir todas as ocorrências hard-coded em:
+  - `src/components/WhatsAppFunnel.tsx` (constante local + bloco visual do step 3).
+  - `src/components/WhatsAppChatbot.tsx`, `WhatsAppFloat.tsx`, `WhatsAppChat.tsx`, `ExitIntentPopup.tsx`, `TopOfferBanner.tsx`, `PageHero.tsx` e qualquer outro CTA que monte mensagem própria.
+  - `src/pages/FunilIndisponivel.tsx` (mensagem de fallback também recebe o aviso).
+- Teste unitário verificando que a string termina exatamente com `VIDEO_WARNING`.
+
+## 3. Export CSV + PDF no admin
+
+Em `src/pages/admin/AdminFunnel.tsx`:
+- Refatorar o `exportCsv` atual para incluir todas as colunas relevantes (data, equipamento, marca, sintoma, requires_coleta, status, wa_message inteira, UTMs, gclid, notas_admin, atendido_em).
+- Adicionar `exportPdf` usando `jspdf` + `jspdf-autotable` (instalar via bun). PDF com cabeçalho "Leads do funil — Técnico Curitiba", data de geração, filtros aplicados, e tabela paginada das submissões visíveis. Cada linha clicável vira uma página de detalhe? Não — manter simples: tabela única + apêndice com `wa_message` completa por lead.
+- Botão dropdown "Exportar" com opções CSV / PDF substituindo o botão atual.
+- Garantir que mídia NÃO aparece em nenhum dos dois exports (alinhado ao novo fluxo).
+
+## 4. Testes automatizados de validação (Vitest + RTL)
+
+Novo arquivo `src/components/WhatsAppFunnel.integration.test.tsx` cobrindo as 3 jornadas exigidas:
+
+**Cenário 1 — Cliente Simples (PC > Lento/Limpeza)**
+- Render do funil, abre via evento `wa-funnel:open`.
+- Seleciona PC → marca Dell → sintoma "Lento / travando".
+- Verifica que pula step 2 (sem coleta) e vai direto a confirmação.
+- Verifica que `R$ 99,99` e `R$ 90` aparecem em algum bloco de transparência/coleta-info.
+- Verifica que o texto que iria pro WhatsApp termina exatamente com `VIDEO_WARNING`.
+
+**Cenário 2 — Barreira de Fogo (TV > Não liga)**
+- Seleciona TV → Samsung → "Não liga".
+- Confirma que `requiresColeta` ativa (`ColetaRequiredCard` no DOM).
+- Confirma que botão "Continuar" do step 2 está `disabled` enquanto `coletaAccepted=false`.
+- Tenta forçar `submit` programaticamente sem aceite → confirma que step volta para 2 e NÃO abre `wa.me`.
+- Marca o checkbox → botão libera → submit gera URL contendo "COLETA E ENTREGA" e "R$ 300".
+
+**Cenário 3 — Tela Quebrada (TV/Celular)**
+- Seleciona Celular → iPhone → "Tela trincada".
+- Avança normalmente, aceita coleta.
+- Captura o `text` da URL `wa.me` gerada → assert que contém: "fotos", "etiqueta traseira", "vídeo", "sem áudio", "atendimento não será iniciado".
+
+**Testes unitários de regras** (mesmo arquivo ou `equipmentBranches.test.ts` existente expandido):
+- Toda sintoma com `requiresColeta` também precisa ser sintoma de equipamento real (sanity check do array).
+- `validateStep` retorna `ok:false` quando obrigatórios faltam — cobertura step a step.
+
+Mock de `window.open` para capturar URL final sem abrir popup. Mock de `supabase.from(...).insert` para não bater no backend.
+
+## 5. Auditoria de furos + correções
+
+Durante a escrita dos testes, percorrer:
+- `WhatsAppFunnel.tsx` (canAdvance, next, submit, validateStep).
+- `equipmentBranches.ts` (flags requiresColeta consistentes).
+- Geração da URL (`appendUtms`, `buildMessage`).
+
+Furos a procurar e corrigir caso existam:
+- `submit` exposto em ref / window que permita bypass.
+- `next()` aceitando avanço sem revalidar quando step pulado.
+- Mensagem final montada em outros CTAs sem o aviso (resolvido na etapa 2 com a constante única).
+- `presetMessage` sobrescrevendo o aviso (verificar ordem da concatenação no `buildMessage`).
+- Reset de `coletaAccepted` ao trocar de sintoma (se trocar de "lento" para "não liga" depois de aceitar uma coleta anterior, o aceite anterior pode vazar — adicionar reset quando `sintoma` muda).
+
+## 6. Relatório de QA
+
+Ao final, entrego relatório em markdown com:
+- Resultado de cada cenário (PASS/FAIL + assert que confirmou).
+- Lista de furos encontrados durante a auditoria + commit/diff que corrigiu.
+- Confirmação explícita: "Travas de segurança 100% funcionais — nenhuma rota permite gerar mensagem sem o aviso obrigatório nem burlar a etapa de Coleta".
+- Comando `bunx vitest run` com output verde anexado.
 
 ---
 
 ## Detalhes técnicos
-- **Auth admin**: usar Lovable Cloud auth (email/senha). Não auto-confirma email. Primeiro admin promovido manualmente via SQL.
-- **Storage**: signed URLs com `createSignedUrl(path, 3600)` apenas no edge function.
-- **GA4**: medir `wa_funnel_open`, `wa_funnel_step`, `wa_funnel_submit`, `wa_funnel_blocked`, `wa_click`, `call_click` — todos com `equipamento`, `sintoma`, `utm_*` como params.
-- **Sem mudanças no PricingBanner / preços visuais** — apenas refletir no schema.
-- **Não remover** rotas/legacy (memória core).
 
-## Arquivos
-**Criar**: `src/pages/admin/AdminFunnel.tsx`, `src/pages/admin/AdminLogin.tsx`, `src/pages/admin/SubmissionDrawer.tsx`, `src/pages/FunilIndisponivel.tsx`, `src/lib/funnelAnalytics.ts`, `src/lib/utmCapture.ts`, `src/hooks/useAdminAuth.ts`, `supabase/functions/admin-funnel-media-url/index.ts`, testes vitest e playwright novos.
-**Editar**: `WhatsAppFunnel.tsx`, `ColetaEntrega.tsx`, `App.tsx`, `CategoryLocalTemplate.tsx`, `ArrumarPCCityTemplate.tsx`, `scripts/validate-jsonld.mjs`, `sitemap.xml`.
-**Migração**: colunas admin + user_roles + has_role + policies.
+- Dependências novas: `jspdf`, `jspdf-autotable` (peso < 200KB gz, tree-shakable só no admin).
+- Sem novas migrações além da etapa 1 (limpeza do bucket).
+- Memória atualizada: `mem://features/whatsapp-funnel-v2.md` recebe nota "v3.1 — aviso centralizado em `funnelWarning.ts`, 0 storage" e `mem://features/technical-components` registra export PDF.
+- Nenhuma rota/URL pública removida (respeita memória core de evolução SEO).
 
 ## Fora de escopo
-- Notificações push de novo lead (futuro).
-- Integração com CRM externo.
-- Refazer design dos hubs.
+
+- Reescrita visual do admin.
+- Push notifications de novo lead.
+- Integração CRM externo.
+- Internacionalização dos exports.
 
 ---
 
-**Pergunta antes de executar:** algum ponto a remover/repriorizar, ou posso seguir com tudo?
+**Posso seguir nessa ordem?**

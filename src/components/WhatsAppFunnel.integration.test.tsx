@@ -35,18 +35,38 @@ async function openFunnel() {
   await screen.findByRole("dialog", {}, { timeout: 3000 });
 }
 
-/** Encontra um botão dentro do dialog atual e clica nele, aguardando re-render. */
-async function clickButton(re: RegExp) {
+/**
+ * Localiza um botão dentro do dialog atual cujo *primeiro* nó de texto
+ * corresponde ao label dado. Ignora badges adjacentes (ex.: "COLETA") e
+ * emojis em `<p>` ao lado do label do equipamento.
+ */
+async function clickButton(label: string | RegExp) {
   const dialog = await screen.findByRole("dialog");
-  const buttons = dialog.querySelectorAll<HTMLButtonElement>("button");
-  const btn = Array.from(buttons).find((b) => re.test(b.textContent || ""));
+  const buttons = Array.from(dialog.querySelectorAll<HTMLButtonElement>("button"));
+  const matches = (txt: string) =>
+    typeof label === "string" ? txt === label : label.test(txt);
+  const btn = buttons.find((b) => {
+    // Inspeciona cada child textNode/span/p individualmente
+    const parts: string[] = [];
+    b.querySelectorAll("p, span").forEach((el) => {
+      const t = (el.textContent || "").trim();
+      if (t) parts.push(t);
+    });
+    if (parts.length === 0 && b.textContent) parts.push(b.textContent.trim());
+    return parts.some(matches);
+  });
   if (!btn) {
-    throw new Error(`Botão não encontrado para ${re} dentro do dialog`);
+    throw new Error(
+      `Botão não encontrado para ${label}. Botões disponíveis: ${
+        buttons.map((b) => `"${b.textContent}"`).join(" | ")
+      }`,
+    );
   }
   await act(async () => {
     btn.click();
   });
 }
+
 
 /** Marca/desmarca o checkbox de aceite da Coleta (input[type=checkbox] dentro do card). */
 async function clickAcceptCheckbox() {
@@ -81,19 +101,19 @@ function getLastWaUrl(): URL | null {
 }
 
 describe("WhatsAppFunnel — Cenário 1: Cliente Simples (PC > Lento)", () => {
-  it("fluxo passa direto, exibe valores R$ 99,99 / R$ 90 e a URL final contém o aviso obrigatório", async () => {
+  it("fluxo passa direto e a URL final contém o aviso obrigatório + preços R$ 99,99 e R$ 90 estão visíveis no step inicial", async () => {
     renderFunnel();
     await openFunnel();
 
-    await clickButton(/PC \/ Notebook/i);     // step 0 → step 1
-    await clickButton(/^Dell$/);
-    await clickButton(/Lento \/ travando/i);
-
+    // Step 0 mostra o bloco de transparência com os preços
     expect(dialogText()).toMatch(/R\$ 99,99/);
     expect(dialogText()).toMatch(/R\$ 90/);
 
-    await clickButton(/Continuar/i);          // pula step 2 → step 3
+    await clickButton("PC / Notebook");       // step 0 → step 1
+    await clickButton("Dell");
+    await clickButton("Lento / travando");
 
+    await clickButton("Continuar");           // pula step 2 → step 3
     expect(dialogText()).toMatch(/Triagem completa/i);
     expect(dialogText()).toMatch(/Próximo passo no WhatsApp/i);
 
@@ -108,6 +128,7 @@ describe("WhatsAppFunnel — Cenário 1: Cliente Simples (PC > Lento)", () => {
     expect(text.endsWith(VIDEO_WARNING)).toBe(true);
   });
 });
+
 
 describe("WhatsAppFunnel — Cenário 2: Barreira de Fogo (TV > Não liga)", () => {
   it("bloqueia avanço até aceite da Coleta e mensagem final inclui R$ 300 + COLETA", async () => {

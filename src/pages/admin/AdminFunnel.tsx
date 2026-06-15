@@ -12,12 +12,16 @@ import {
 import {
   Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import {
-  Loader2, Download, Search, RefreshCw, LogOut, Filter,
+  Loader2, Download, Search, RefreshCw, LogOut, Filter, FileText, FileSpreadsheet, ChevronDown,
 } from "lucide-react";
+
 
 
 type Submission = {
@@ -310,9 +314,22 @@ const AdminFunnel = () => {
             <Button variant="outline" size="sm" onClick={() => fetchData()} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
             </Button>
-            <Button variant="outline" size="sm" onClick={exportCsv} className="gap-1">
-              <Download className="h-4 w-4" /> CSV
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-1">
+                  <Download className="h-4 w-4" /> Exportar <ChevronDown className="h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={exportCsv} className="gap-2">
+                  <FileSpreadsheet className="h-4 w-4" /> CSV (Excel)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => void exportPdf()} className="gap-2">
+                  <FileText className="h-4 w-4" /> PDF (relatório)
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button variant="outline" size="sm" onClick={signOut} className="gap-1">
               <LogOut className="h-4 w-4" /> Sair
             </Button>

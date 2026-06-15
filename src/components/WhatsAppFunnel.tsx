@@ -14,6 +14,14 @@ import {
 } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 import {
+  trackFunnelOpen,
+  trackFunnelStep,
+  trackFunnelSubmit,
+  trackFunnelClose,
+  trackFunnelBlocked,
+} from "@/lib/funnelAnalytics";
+import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
+import {
   EQUIPMENT_BRANCHES,
   getBranch,
   getSintoma,
@@ -62,29 +70,14 @@ function isWhatsAppHref(href: string | null): boolean {
 }
 
 function appendUtms(url: URL) {
-  const sp = new URLSearchParams(window.location.search);
-  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"];
-  for (const k of keys) {
-    const v = sp.get(k);
-    if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
+  appendUtmsToUrl(url);
+  if (!url.searchParams.has("utm_medium") || url.searchParams.get("utm_medium") === "organic") {
+    url.searchParams.set("utm_medium", "funnel");
   }
-  if (!url.searchParams.has("utm_source")) url.searchParams.set("utm_source", "site");
-  if (!url.searchParams.has("utm_medium")) url.searchParams.set("utm_medium", "funnel");
   if (!url.searchParams.has("utm_campaign")) {
     const path = window.location.pathname.replace(/^\/+|\/+$/g, "") || "home";
     url.searchParams.set("utm_campaign", path.replace(/\//g, "_").slice(0, 80));
   }
-}
-
-function gaEvent(name: string, params: Record<string, unknown> = {}) {
-  if (typeof window === "undefined") return;
-  // eslint-disable-next-line no-console
-  console.log(`[GA4 ${name}]`, params);
-  (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", name, {
-    event_category: "wa_funnel",
-    page_path: window.location.pathname,
-    ...params,
-  });
 }
 
 function buildMessage(a: Answers): string {
@@ -166,7 +159,8 @@ export const WhatsAppFunnel = () => {
     setPresetMessage(preset ?? null);
     setStep(0);
     setOpen(true);
-    gaEvent("wa_funnel_open", { cta_location: loc, has_preset: !!preset });
+    captureUtmsFromUrl();
+    trackFunnelOpen(loc, !!preset);
   }, []);
 
   // Global click interception for any WhatsApp anchor
@@ -232,7 +226,7 @@ export const WhatsAppFunnel = () => {
 
   useEffect(() => {
     if (!open) return;
-    gaEvent("wa_funnel_step", { step, equipamento: answers.equipamento || "none" });
+    trackFunnelStep(step, answers.equipamento, answers.sintoma);
   }, [open, step, answers.equipamento]);
 
   // ---------- Derivations ----------
@@ -297,38 +291,46 @@ export const WhatsAppFunnel = () => {
   };
 
   const submit = useCallback(async () => {
-    if (!mediaValid && !isOutro) return;
+    if (!mediaValid && !isOutro) {
+      trackFunnelBlocked("media_incomplete", answers.equipamento);
+      return;
+    }
     submittingRef.current = true;
     try {
       const baseMessage = buildMessage(answers);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
 
-      // grava submission (best-effort)
-      await recordSubmission({
-        sessionId,
-        equipamento: branch?.label,
-        marca: answers.marca,
-        sintoma: sintomaObj?.label,
-        requiresColeta,
-        mediaPaths: answers.media.map((m) => m.path),
-        waMessage: finalMessage,
-      });
+      try {
+        await recordSubmission({
+          sessionId,
+          equipamento: branch?.label,
+          marca: answers.marca,
+          sintoma: sintomaObj?.label,
+          requiresColeta,
+          mediaPaths: answers.media.map((m) => m.path),
+          waMessage: finalMessage,
+        });
+      } catch (err) {
+        // Falha no insert não bloqueia o usuário; manda para WA mesmo assim
+        // eslint-disable-next-line no-console
+        console.warn("[funnel] submission insert failed", err);
+        trackFunnelBlocked("insert_failed", answers.equipamento);
+      }
 
       const url = new URL(`https://wa.me/${WHATSAPP_NUMBER}`);
       url.searchParams.set("text", finalMessage);
       appendUtms(url);
 
-      gaEvent("wa_funnel_submit", {
-        cta_location: originLocation,
+      trackFunnelSubmit({
+        ctaLocation: originLocation,
         equipamento: answers.equipamento,
         sintoma: answers.sintoma,
-        requires_coleta: requiresColeta,
-        media_count: answers.media.length,
+        requiresColeta,
+        mediaCount: answers.media.length,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 
-      const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
-      gaEvent("wa_funnel_opened", { cta_location: originLocation, opened: !!win });
+      window.open(url.toString(), "_blank", "noopener,noreferrer");
       setOpen(false);
     } finally {
       setTimeout(() => { submittingRef.current = false; }, 250);
@@ -336,7 +338,7 @@ export const WhatsAppFunnel = () => {
   }, [answers, branch, sintomaObj, requiresColeta, mediaValid, isOutro, originLocation, presetMessage, sessionId]);
 
   const handleOpenChange = (v: boolean) => {
-    if (!v) gaEvent("wa_funnel_close", { step, equipamento: answers.equipamento || "none" });
+    if (!v) trackFunnelClose(step, answers.equipamento);
     setOpen(v);
   };
 

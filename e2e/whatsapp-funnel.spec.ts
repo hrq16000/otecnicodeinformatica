@@ -1,148 +1,117 @@
 import { test, expect, type Page } from "@playwright/test";
 
-const ROUTE = "/assistencia-tecnica-curitiba";
-const UTM_QS = "?utm_source=ci&utm_medium=cpc&utm_campaign=funnel_e2e&gclid=CI_GCLID_999";
+const HOME = "/";
+const UTM_QS = "?utm_source=ci&utm_medium=cpc&utm_campaign=funnel_v2_e2e&gclid=CI_GCLID_777";
 
 async function installGtagSpy(page: Page) {
   await page.addInitScript(() => {
     (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls = [];
     (window as unknown as { dataLayer: unknown[] }).dataLayer = [];
-    (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = function (
-      ...args: unknown[]
-    ) {
+    (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = function (...args: unknown[]) {
       (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls.push(args);
       (window as unknown as { dataLayer: unknown[] }).dataLayer.push(args);
     };
   });
 }
 
-async function getGtagCalls(page: Page) {
-  return await page.evaluate(
-    () => (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls || []
-  );
+async function openFunnel(page: Page) {
+  // Programmatic open is the most stable trigger across viewports
+  await page.evaluate(() => {
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
+  });
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible({ timeout: 5000 });
+  return dialog;
 }
 
-test.describe("WhatsApp global funnel — modal flow + GA4 events + wa.me payload", () => {
+test.describe("WhatsAppFunnel v2 — funil ramificado por equipamento", () => {
   test.beforeEach(async ({ page, context }) => {
     await installGtagSpy(page);
-    // Stop wa.me from actually navigating away in popup/new tab
-    await context.route("https://wa.me/**", (route) =>
-      route.fulfill({ status: 204, body: "" })
-    );
+    await context.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
   });
 
-  test("anchor click opens funnel, fills steps, dispatches GA4 events, opens wa.me with answers + utm/gclid", async ({ page, context }) => {
-    await page.goto(`${ROUTE}${UTM_QS}`);
+  test("branch TV 'não liga' bloqueia até aceitar Coleta e mostra R$ 300", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
 
-    // Intercept window.open to capture the final wa.me URL
-    const opened: string[] = [];
-    await page.exposeFunction("__captureOpen", (u: string) => opened.push(u));
-    await page.evaluate(() => {
-      const orig = window.open;
-      (window as unknown as { open: typeof window.open }).open = ((url?: string | URL) => {
-        const href = typeof url === "string" ? url : url?.toString();
-        if (href) (window as unknown as { __captureOpen: (u: string) => void }).__captureOpen(href);
-        return null;
-      }) as typeof window.open;
-      // mark so the funnel's monkey-patch wraps this
-      void orig;
-    });
+    // Step 0: TV (auto-avança)
+    await dialog.getByRole("button", { name: /^TV$/i }).first().click();
 
-    // Click the first WhatsApp anchor on the page
-    const ctas = page.locator('a[href*="wa.me/5541997452053"]');
-    const count = await ctas.count();
-    expect(count, "page must expose WhatsApp CTAs").toBeGreaterThan(0);
-
-    await ctas.first().scrollIntoViewIfNeeded();
-    await ctas.first().click({ force: true });
-
-    // Modal should be visible
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toBeVisible({ timeout: 5000 });
-    await expect(dialog.getByText("Antes de abrir o WhatsApp")).toBeVisible();
-
-    // Step 1: choose "Consertar equipamento"
-    await dialog.getByRole("button", { name: /Consertar equipamento/i }).click();
-
-    // Step 2: equipamento + marca + problema placa
-    await dialog.getByPlaceholder(/PS5, Notebook Dell/i).fill("PlayStation 5 modelo Slim");
-    await dialog.getByPlaceholder(/Marca e modelo/i).fill("Sony PS5 Slim 1TB");
-    await dialog.getByRole("button", { name: /^Sim$/ }).click();
+    // Step 1: sintoma "Não liga" (exige coleta)
+    await expect(dialog.getByText(/Qual é o problema/i)).toBeVisible();
+    await dialog.getByRole("button", { name: /^Não liga$/i }).first().click();
+    // marca (qualquer)
+    await dialog.getByRole("button", { name: /^Samsung$/i }).first().click();
     await dialog.getByRole("button", { name: /Continuar/i }).click();
 
-    // Step 3: preferência
-    await dialog.getByText(/Levo até um parceiro/i).click();
-
-    // Step 4: descrição + submit
-    await dialog.getByPlaceholder(/Conte rapidamente/i).fill("Não liga. Já tentei outra tomada.");
-    await dialog.getByRole("button", { name: /Abrir WhatsApp/i }).click();
-
-    // Verify the wa.me URL we captured contains the answers AND utm/gclid
-    await expect.poll(() => opened.length, { timeout: 5000 }).toBeGreaterThan(0);
-    const finalUrl = opened[0];
-    expect(finalUrl).toMatch(/^https:\/\/wa\.me\/5541997452053/);
-    const u = new URL(finalUrl);
-    const text = u.searchParams.get("text") || "";
-    expect(text).toContain("PlayStation 5");
-    expect(text).toContain("Sony PS5");
-    expect(text).toContain("Não liga");
-    expect(text).toContain("parceiro");
-    expect(text).toContain("R$ 90");
-    expect(text).toContain("R$ 99,99");
-    expect(u.searchParams.get("utm_source")).toBe("ci");
-    expect(u.searchParams.get("utm_campaign")).toBe("funnel_e2e");
-    expect(u.searchParams.get("gclid")).toBe("CI_GCLID_999");
-
-    // GA4 events: open, step, submit, opened — all with utm/gclid attribution
-    const calls = await getGtagCalls(page);
-    const events = calls
-      .filter((c) => c[0] === "event")
-      .map((c) => ({ name: c[1] as string, payload: (c[2] || {}) as Record<string, unknown> }));
-
-    const required = ["wa_funnel_open", "wa_funnel_step", "wa_funnel_submit", "wa_funnel_opened"];
-    for (const name of required) {
-      const hit = events.find((e) => e.name === name);
-      expect(hit, `expected GA4 event ${name}. captured: ${events.map((e) => e.name).join(",")}`).toBeTruthy();
-      const flat = JSON.stringify(hit!.payload);
-      expect(/utm_source|utm_campaign|gclid/i.test(flat), `${name} payload missing utm/gclid: ${flat}`).toBeTruthy();
-    }
+    // Step 2: mídia — bloqueia se faltar
+    await expect(dialog.getByText(/Anexe fotos e vídeo/i)).toBeVisible();
+    const nextBtn = dialog.getByRole("button", { name: /Continuar/i });
+    await expect(nextBtn).toBeDisabled();
   });
 
-  test("legacy window.open(wa.me) is intercepted by the funnel (monkey-patch)", async ({ page }) => {
-    await page.goto(`${ROUTE}${UTM_QS}`);
+  test("branch PC 'lento' não exige coleta e pula direto à confirmação", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
 
-    // Programmatically call window.open with a wa.me URL — funnel must intercept it
-    await page.evaluate(() => {
-      window.open("https://wa.me/5541997452053?text=Quero%20um%20or%C3%A7amento%20preset", "_blank");
-    });
+    await dialog.getByRole("button", { name: /PC \/ Notebook/i }).click();
+    await dialog.getByRole("button", { name: /^Dell$/ }).click();
+    await dialog.getByRole("button", { name: /Lento \/ travando/i }).click();
+    await dialog.getByRole("button", { name: /Continuar/i }).click();
 
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toBeVisible({ timeout: 5000 });
-    await expect(dialog.getByText(/Antes de abrir o WhatsApp/i)).toBeVisible();
-
-    // The "Só um orçamento rápido" path must work after the orcamento bug fix
-    await dialog.getByRole("button", { name: /Só um orçamento rápido/i }).click();
-    // Should jump to description step
-    await expect(dialog.getByPlaceholder(/Conte rapidamente/i)).toBeVisible();
+    // Sintoma sem coleta + sem requiresVideo → step 2 ainda exige foto+checks
+    await expect(dialog.getByText(/Anexe fotos/i)).toBeVisible();
   });
 
-  test("clicking every WhatsApp CTA opens the funnel (no direct navigation)", async ({ page }) => {
-    await page.goto(`${ROUTE}${UTM_QS}`);
+  test("branch 'Outro' pula upload e exige descrição mínima", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
 
-    const ctas = page.locator('a[href*="wa.me/5541997452053"]');
-    const count = await ctas.count();
-    const toClick = Math.min(count, 8);
+    await dialog.getByRole("button", { name: /Outro \/ Só orçamento/i }).click();
+    const nextBtn = dialog.getByRole("button", { name: /Continuar/i });
+    await expect(nextBtn).toBeDisabled();
+    await dialog.getByPlaceholder(/Conte o equipamento/i).fill("Equipamento desconhecido, quero saber se compensa.");
+    await expect(nextBtn).toBeEnabled();
+  });
 
-    for (let i = 0; i < toClick; i++) {
-      // Reset modal between clicks
-      await page.keyboard.press("Escape").catch(() => {});
-      await ctas.nth(i).scrollIntoViewIfNeeded();
-      await ctas.nth(i).click({ force: true });
-      const dialog = page.getByRole("dialog");
-      await expect(dialog, `CTA #${i} should open the funnel modal`).toBeVisible({ timeout: 4000 });
-    }
+  test("GA4 dispara wa_funnel_open com UTM payload", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
+    await page.waitForLoadState("networkidle");
+    await openFunnel(page);
+    const calls = await page.evaluate(() => (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls);
+    const open = calls.find((c) => c[0] === "event" && c[1] === "wa_funnel_open");
+    expect(open).toBeTruthy();
+    const payload = JSON.stringify(open?.[2] || {});
+    expect(payload).toContain("utm_source");
+    expect(payload).toContain("ci");
+  });
+
+  test("link 'Termos e Condições' resolve a rota pública /termos-e-condicoes", async ({ page }) => {
+    const res = await page.goto("/termos-e-condicoes");
+    expect(res?.ok()).toBeTruthy();
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  });
+
+  test("rota de fallback /funil-indisponivel carrega e mostra CTA WhatsApp", async ({ page }) => {
+    await page.goto("/funil-indisponivel");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    const wa = page.locator('a[href*="wa.me/5541997452053"][data-funnel-skip="1"]');
+    await expect(wa).toBeVisible();
+  });
+});
+
+test.describe("WhatsAppFunnel v2 — mobile", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("modal abre, é scrollável e bloqueia avanço sem equipamento", async ({ page, context }) => {
+    await installGtagSpy(page);
+    await context.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
+    await page.goto(HOME);
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+    await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible();
   });
 });

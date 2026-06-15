@@ -47,8 +47,43 @@ const ColetaEntrega = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.lovable.app/" },
-          { "@type": "ListItem", position: 2, name: "Coleta e Entrega", item: "https://tecnicocuritiba.lovable.app/coleta-e-entrega" },
+          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.com.br/" },
+          { "@type": "ListItem", position: 2, name: "Serviços", item: "https://tecnicocuritiba.com.br/servicos" },
+          { "@type": "ListItem", position: 3, name: "Coleta e Entrega", item: "https://tecnicocuritiba.com.br/coleta-e-entrega" },
+        ],
+      })}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://tecnicocuritiba.com.br/coleta-e-entrega#service",
+        name: "Coleta e Entrega de Equipamentos para Reparo",
+        serviceType: "Logística reversa de equipamentos eletrônicos para conserto em bancada",
+        description: "Coleta no endereço do cliente, reparo em laboratório com diagnóstico completo e devolução do equipamento funcionando. Cobre Curitiba e região metropolitana.",
+        areaServed: [
+          { "@type": "City", name: "Curitiba" },
+          { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+        ],
+        provider: { "@id": "https://tecnicocuritiba.com.br/#localbusiness" },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "BRL",
+          price: "300.00",
+          url: "https://tecnicocuritiba.com.br/coleta-e-entrega",
+          availability: "https://schema.org/InStock",
+          priceSpecification: [
+            { "@type": "PriceSpecification", name: "Reparo mínimo com coleta", price: "300.00", priceCurrency: "BRL", description: "Faixa pré-aprovada R$ 300–R$ 500. Acima disso, autorização do cliente." },
+            { "@type": "PriceSpecification", name: "Diagnóstico em bancada (se desistir)", price: "90.00", priceCurrency: "BRL" },
+          ],
+        },
+      })}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "Quando preciso de Coleta e Entrega?", acceptedAnswer: { "@type": "Answer", text: "Sempre que o equipamento não liga, desliga sozinho, tem tela quebrada, molhou ou precisa de reparo em placa. Esses casos exigem bancada com microscópio e estação de retrabalho." } },
+          { "@type": "Question", name: "Qual o valor mínimo?", acceptedAnswer: { "@type": "Answer", text: "R$ 300 (já com diagnóstico incluso). Acima disso, faixa pré-aprovada até R$ 500. Reparos acima de R$ 500 só com autorização explícita do cliente." } },
+          { "@type": "Question", name: "E se eu desistir após o diagnóstico?", acceptedAnswer: { "@type": "Answer", text: "Paga apenas R$ 90 e devolvemos o equipamento. Sem multa, sem surpresa." } },
+          { "@type": "Question", name: "Qual o prazo?", acceptedAnswer: { "@type": "Answer", text: "Computadores e notebooks: 3 a 7 dias úteis. TVs e consoles: 5 a 10 dias úteis dependendo da complexidade e disponibilidade de peças." } },
         ],
       })}} />
       <JsonLdSchema />

@@ -16,8 +16,9 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import {
-  Loader2, Download, Search, RefreshCw, Image as ImageIcon, Video, LogOut, Filter,
+  Loader2, Download, Search, RefreshCw, LogOut, Filter,
 } from "lucide-react";
+
 
 type Submission = {
   id: string;
@@ -62,7 +63,7 @@ const AdminFunnel = () => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [coletaFilter, setColetaFilter] = useState<string>("all");
   const [selected, setSelected] = useState<Submission | null>(null);
-  const [mediaUrls, setMediaUrls] = useState<{ url: string; path: string; kind: "photo" | "video" }[]>([]);
+
 
   const fetchData = async () => {
     if (!isAdmin) return;
@@ -103,22 +104,10 @@ const AdminFunnel = () => {
     return Array.from(s);
   }, [rows]);
 
-  const openDetail = async (row: Submission) => {
+  const openDetail = (row: Submission) => {
     setSelected(row);
-    setMediaUrls([]);
-    const paths = Array.isArray(row.media_paths) ? (row.media_paths as string[]) : [];
-    if (paths.length === 0) return;
-    const results = await Promise.all(
-      paths.map(async (path) => {
-        const { data, error } = await supabase.storage
-          .from("funnel-uploads")
-          .createSignedUrl(path, 60 * 60);
-        const kind: "photo" | "video" = /\.(mp4|webm|mov|m4v)$/i.test(path) ? "video" : "photo";
-        return error || !data ? null : { url: data.signedUrl, path, kind };
-      }),
-    );
-    setMediaUrls(results.filter(Boolean) as { url: string; path: string; kind: "photo" | "video" }[]);
   };
+
 
   const updateStatus = async (id: string, status: string) => {
     const { error } = await supabase
@@ -369,23 +358,10 @@ const AdminFunnel = () => {
                   <Field label="Atendido em" value={selected.atendido_em ? new Date(selected.atendido_em).toLocaleString("pt-BR") : null} />
                 </div>
 
-                <div>
-                  <div className="text-xs font-semibold text-muted-foreground mb-1">Mídias ({mediaUrls.length})</div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {mediaUrls.map((m) => (
-                      <a key={m.path} href={m.url} target="_blank" rel="noopener noreferrer" className="aspect-square rounded border border-border overflow-hidden bg-muted flex items-center justify-center">
-                        {m.kind === "photo" ? (
-                          <img src={m.url} alt="mídia" className="w-full h-full object-cover" />
-                        ) : (
-                          <Video className="h-6 w-6 text-muted-foreground" />
-                        )}
-                      </a>
-                    ))}
-                    {mediaUrls.length === 0 && (
-                      <p className="col-span-3 text-xs text-muted-foreground"><ImageIcon className="h-3 w-3 inline" /> sem mídias</p>
-                    )}
-                  </div>
+                <div className="rounded-md border border-border bg-muted/40 p-2 text-[11px] text-muted-foreground">
+                  📹 Mídias agora são solicitadas diretamente no chat do WhatsApp (vídeo do equipamento sem áudio).
                 </div>
+
 
                 <div>
                   <div className="text-xs font-semibold text-muted-foreground mb-1">Mensagem WhatsApp</div>

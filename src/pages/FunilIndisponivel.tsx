@@ -12,9 +12,10 @@ const FALLBACK_TEXT =
   "Olá! Tive um problema técnico no formulário do site e gostaria de falar com um atendente.";
 
 /**
- * Rota fallback quando MediaUploader / insert de submission falham.
+ * Rota fallback quando o insert de submission falha.
  * Link direto para WhatsApp com data-funnel-skip="1" para não reabrir o funil.
  */
+
 const FunilIndisponivel = () => {
   const url = (() => {
     try {

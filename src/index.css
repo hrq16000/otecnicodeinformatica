@@ -46,6 +46,14 @@
     --site-header-height: 56px;
     --top-offer-height: 42px;
 
+    /* Stacking tokens — keep top chrome above page content, below toasts/modals */
+    --z-top-offer: 60;
+    --z-header: 70;
+    --z-mobile-drawer: 80;
+    --z-modal: 90;
+    --z-page-wipe: 100;
+    --z-toast: 110;
+
     /* Premium palette */
     --whatsapp: 145 63% 42%;
     --whatsapp-hover: 145 63% 36%;

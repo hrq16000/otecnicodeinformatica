@@ -39,8 +39,10 @@ export const TopOfferBanner = () => {
       <div aria-hidden="true" className="h-[calc(var(--site-header-height)+var(--top-offer-height))]" />
       <div
         role="region"
+        data-testid="top-offer-banner"
         aria-label="Oferta: serviço rápido até 30 minutos por R$ 99,99"
-        className="fixed left-0 right-0 top-[var(--site-header-height)] z-[60] flex min-h-[var(--top-offer-height)] w-full items-center overflow-hidden bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md"
+        style={{ zIndex: "var(--z-top-offer)" as unknown as number }}
+        className="fixed left-0 right-0 top-[var(--site-header-height)] flex min-h-[var(--top-offer-height)] w-full items-center overflow-hidden bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md"
       >
         <div className="container mx-auto flex min-h-[var(--top-offer-height)] items-center justify-center gap-2 px-3 py-1.5 pr-9 text-center sm:gap-4 sm:px-4 sm:py-2 sm:text-left">
           <div className="hidden min-w-0 items-center gap-2 sm:flex">

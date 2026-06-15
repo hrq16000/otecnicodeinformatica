@@ -222,7 +222,9 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[70] h-[var(--site-header-height)] transition-all duration-500 ${
+      data-testid="site-header"
+      style={{ zIndex: "var(--z-header)" as unknown as number }}
+      className={`fixed top-0 left-0 right-0 h-[var(--site-header-height)] transition-all duration-500 ${
         isScrolled
           ? "bg-background/92 backdrop-blur-xl shadow-[var(--shadow-md)]"
           : "bg-background/88 backdrop-blur-md shadow-[var(--shadow-sm)]"
@@ -355,10 +357,10 @@ export const Header = () => {
 
       {/* Mobile overlay + drawer */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 transition-all duration-300 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        style={{ top: 0 }}
+        style={{ top: 0, zIndex: "var(--z-mobile-drawer)" as unknown as number }}
         aria-hidden={!mobileMenuOpen}
       >
         {/* Backdrop — clique aqui fecha */}

@@ -47,8 +47,9 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
       {/* Transition overlay wipe */}
       {isTransitioning && (
         <div
-          className="fixed inset-0 z-[100] pointer-events-none"
+          className="fixed inset-0 pointer-events-none"
           style={{
+            zIndex: "var(--z-page-wipe)" as unknown as number,
             background: "linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.05))",
             animation: "pageWipe 0.5s ease-out forwards",
           }}

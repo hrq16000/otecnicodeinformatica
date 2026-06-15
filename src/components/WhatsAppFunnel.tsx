@@ -228,20 +228,38 @@ export const WhatsAppFunnel = () => {
   // ---------- Navigation ----------
   // 4 steps: 0 equip, 1 marca/sintoma (ou descrição), 2 coleta (condicional), 3 confirmação
   const TOTAL_STEPS = 4;
-  const canAdvance = useMemo(() => {
-    if (step === 0) return !!answers.equipamento;
-    if (step === 1) {
-      if (isOutro) return answers.descricao.trim().length > 5;
-      return !!answers.marca && !!answers.sintoma;
+  /** Validação por etapa — fonte única de verdade para botão e guard de submit. */
+  const validateStep = useCallback((s: number): { ok: true } | { ok: false; reason: string } => {
+    if (s === 0) {
+      return answers.equipamento ? { ok: true } : { ok: false, reason: "Selecione o equipamento." };
     }
-    if (step === 2) {
-      if (requiresColeta) return answers.coletaAccepted;
-      return true;
+    if (s === 1) {
+      if (isOutro) {
+        return answers.descricao.trim().length > 5
+          ? { ok: true }
+          : { ok: false, reason: "Descreva seu caso com pelo menos 6 caracteres." };
+      }
+      if (!answers.marca) return { ok: false, reason: "Selecione a marca/tipo." };
+      if (!answers.sintoma) return { ok: false, reason: "Selecione o problema." };
+      return { ok: true };
     }
-    return true;
-  }, [step, answers, isOutro, requiresColeta]);
+    if (s === 2) {
+      if (requiresColeta && !answers.coletaAccepted) {
+        return { ok: false, reason: "Aceite a modalidade Coleta e Entrega para continuar." };
+      }
+      return { ok: true };
+    }
+    return { ok: true };
+  }, [answers, isOutro, requiresColeta]);
+
+  const canAdvance = useMemo(() => validateStep(step).ok, [validateStep, step]);
 
   const next = () => {
+    const v = validateStep(step);
+    if (!v.ok) {
+      trackFunnelBlocked(`step_${step}_invalid`, answers.equipamento);
+      return;
+    }
     setStep((s) => {
       let n = s + 1;
       // "Outro" pula regra de coleta
@@ -253,7 +271,8 @@ export const WhatsAppFunnel = () => {
   };
   const back = () => setStep((s) => {
     let p = s - 1;
-    if (s === 3 && !requiresColeta) p = 1;
+    if (s === 3 && !requiresColeta && !isOutro) p = 1;
+    if (s === 3 && isOutro) p = 1;
     return Math.max(p, 0);
   });
 
@@ -263,9 +282,19 @@ export const WhatsAppFunnel = () => {
     setStep(0);
   };
 
+
   const submit = useCallback(async () => {
+    // Guard final: revalida todas as etapas antes de liberar o WhatsApp
+    for (const s of [0, 1, 2]) {
+      const v = validateStep(s);
+      if (!v.ok) {
+        trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipamento);
+        setStep(s);
+        return;
+      }
+    }
     submittingRef.current = true;
-    try {
+
       const baseMessage = buildMessage(answers);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
 

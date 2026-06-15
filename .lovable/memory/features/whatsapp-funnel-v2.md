@@ -1,21 +1,39 @@
 ---
-name: WhatsApp Branched Funnel V3
-description: Funil ramificado por equipamento, somente texto/múltipla escolha. Sem upload — exigência de vídeo vai na mensagem final do WhatsApp.
+name: WhatsApp Branched Funnel V3.1
+description: Funil ramificado, somente texto, com aviso obrigatório centralizado e zero dependência de storage.
 type: feature
 ---
 
-# Funil V3 (Junho 2026)
+# Funil V3.1 (Junho 2026)
 
-`src/components/WhatsAppFunnel.tsx` tem 4 etapas:
-1. Equipamento (PC, TV, Celular, Som, Videogame, Outro)
-2. Marca + sintoma (múltipla escolha) — declarado em `src/components/funnel/equipmentBranches.ts`. Para "Outro" vira descrição livre.
-3. Card "Coleta e Entrega obrigatória" para sintomas marcados `requiresColeta` (não-liga, desliga sozinho, tela quebrada, molhou, sem imagem, etc.) — exige checkbox de aceite com R$ 300 mínimo + prazo.
-4. Confirmação + envio para WhatsApp.
+`src/components/WhatsAppFunnel.tsx` — 4 etapas, todas text/múltipla escolha:
+1. Equipamento (PC, TV, Celular, Som, Videogame, Outro) — auto-advance ao clicar.
+2. Marca + sintoma (ou descrição livre para "Outro"). Declarado em `equipmentBranches.ts`.
+3. `ColetaRequiredCard` quando `sintoma.requiresColeta === true` (não-liga, desliga sozinho, tela quebrada, molhou, sem imagem, etc.) — exige checkbox de aceite (R$ 300 mínimo + prazo).
+4. Confirmação + envio.
 
-**Regra de negócio (jun/26):** o site NÃO faz upload de fotos/vídeos (sem storage). A exigência de mídia foi transferida para a mensagem pré-preenchida do WhatsApp, que termina com aviso em destaque: vídeo do equipamento completo (com etiqueta traseira), sem áudio nem ruídos, ou o atendimento não é iniciado.
+## Travas de validação
+- `validateStep(step)` é fonte única de verdade. **Não chamar dentro de `next()`** (causaria falso negativo no auto-advance do equipamento). Roda em:
+  - `canAdvance` (desabilita "Continuar" reativamente)
+  - `submit` (revalida todas as etapas antes de abrir WhatsApp — se falhar, volta o usuário ao step quebrado).
 
-WhatsApp humano só abre no step 3 após a triagem. Submissão grava `funnel_submissions` (anon INSERT, RLS) com sintoma, requires_coleta e UTMs — `media_paths` permanece `[]`.
+## Aviso obrigatório
+- Fonte única: `src/lib/funnelWarning.ts` exporta `VIDEO_WARNING` e `withVideoWarning(msg)`.
+- `buildMessage` no funil e `FALLBACK_TEXT` em `FunilIndisponivel` aplicam `withVideoWarning`.
+- Quando vem `presetMessage` de outro CTA, `withVideoWarning` re-aplica no final.
 
-`TopOfferBanner` (apenas home) promove R$ 99,99 / 30 min e abre o funil via `wa-funnel:open`.
+## Storage
+- **0 dependências**. Bucket `funnel-uploads` foi apagado via Storage API (edge function temporária `cleanup-funnel-bucket` em 2026-06-15, já removida). Migração `20260615082307` removeu as policies de `storage.objects`. Nenhum upload no site.
+- Exigência de fotos/vídeo é transferida para a mensagem final do WhatsApp.
 
-Storage key atual: `wa_funnel_answers_v3` (v1/v2 deprecadas). Bucket `funnel-uploads` foi descontinuado.
+## Admin
+- `/admin/funnel` (proteção via `user_roles` + `has_role`).
+- Filtros: equipamento, sintoma, status, coleta, envio WhatsApp (mensagem gerada / não), busca em texto.
+- Export CSV (Excel-friendly, BOM, todas as colunas) e PDF (jspdf + jspdf-autotable, landscape A4 com apêndice de mensagens completas).
+- Drawer mostra "Respostas da triagem" estruturadas + UTMs + mensagem WhatsApp + notas internas.
+
+## Testes
+- `WhatsAppFunnel.integration.test.tsx` cobre 3 jornadas (PC simples, TV não-liga com barreira de R$ 300, Celular tela quebrada com cláusulas de mídia) + guard de submit.
+- `equipmentBranches.test.ts` valida flags `requiresColeta`/`requiresVideo`.
+
+Storage key atual: `wa_funnel_answers_v3`. v1/v2 e bucket `funnel-uploads` deprecados.

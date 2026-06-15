@@ -35,45 +35,48 @@ export const TopOfferBanner = () => {
   if (!visible) return <div aria-hidden="true" className="h-[var(--site-header-height)]" />;
 
   return (
-    <div
-      role="region"
-      aria-label="Oferta: serviço rápido até 30 minutos por R$ 99,99"
-      className="sticky top-[var(--site-header-height)] z-[60] mt-[var(--site-header-height)] flex min-h-[var(--top-offer-height)] w-full items-center overflow-hidden bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md"
-    >
-      <div className="container mx-auto flex min-h-[var(--top-offer-height)] items-center justify-center gap-2 px-3 py-1.5 pr-9 text-center sm:gap-4 sm:px-4 sm:py-2 sm:text-left">
-        <div className="hidden min-w-0 items-center gap-2 sm:flex">
-          <Zap className="h-4 w-4 flex-shrink-0 fill-yellow-300 text-yellow-300" />
-          <p className="text-sm font-semibold tracking-tight">
-            Serviço Rápido até <span className="underline decoration-2 underline-offset-2">30 min</span> — apenas{" "}
-            <span className="text-yellow-300 font-extrabold">R$ 99,99</span>
-          </p>
-        </div>
-        <div className="flex min-w-0 items-center justify-center gap-2 text-[12px] sm:gap-3 sm:text-sm">
-          <a
-            href="https://wa.me/5541997452053"
-            onClick={openFunnel}
-            data-wa-medium="top_banner"
-            className="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
-          >
-            Chamar agora <ArrowRight className="h-3 w-3" />
-          </a>
-          <Link
-            to="/termos-e-condicoes"
-            className="truncate font-medium text-white/85 underline underline-offset-2 hover:text-white"
-          >
-            Termos e Condições
-          </Link>
-        </div>
-      </div>
-      <button
-        type="button"
-        onClick={dismiss}
-        aria-label="Fechar oferta"
-        className="absolute right-1 top-1/2 -translate-y-1/2 rounded-md p-1 transition-colors hover:bg-white/20 sm:right-3"
+    <>
+      <div aria-hidden="true" className="h-[calc(var(--site-header-height)+var(--top-offer-height))]" />
+      <div
+        role="region"
+        aria-label="Oferta: serviço rápido até 30 minutos por R$ 99,99"
+        className="fixed left-0 right-0 top-[var(--site-header-height)] z-[60] flex min-h-[var(--top-offer-height)] w-full items-center overflow-hidden bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md"
       >
-        <X className="h-4 w-4" />
-      </button>
-    </div>
+        <div className="container mx-auto flex min-h-[var(--top-offer-height)] items-center justify-center gap-2 px-3 py-1.5 pr-9 text-center sm:gap-4 sm:px-4 sm:py-2 sm:text-left">
+          <div className="hidden min-w-0 items-center gap-2 sm:flex">
+            <Zap className="h-4 w-4 flex-shrink-0 fill-yellow-300 text-yellow-300" />
+            <p className="text-sm font-semibold tracking-tight">
+              Serviço Rápido até <span className="underline decoration-2 underline-offset-2">30 min</span> — apenas{" "}
+              <span className="text-yellow-300 font-extrabold">R$ 99,99</span>
+            </p>
+          </div>
+          <div className="flex min-w-0 items-center justify-center gap-2 text-[12px] sm:gap-3 sm:text-sm">
+            <a
+              href="https://wa.me/5541997452053"
+              onClick={openFunnel}
+              data-wa-medium="top_banner"
+              className="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
+            >
+              Chamar agora <ArrowRight className="h-3 w-3" />
+            </a>
+            <Link
+              to="/termos-e-condicoes"
+              className="truncate font-medium text-white/85 underline underline-offset-2 hover:text-white"
+            >
+              Termos e Condições
+            </Link>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={dismiss}
+          aria-label="Fechar oferta"
+          className="absolute right-1 top-1/2 -translate-y-1/2 rounded-md p-1 transition-colors hover:bg-white/20 sm:right-3"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+    </>
   );
 };
 

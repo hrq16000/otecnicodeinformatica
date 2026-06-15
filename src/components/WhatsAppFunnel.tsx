@@ -294,6 +294,8 @@ export const WhatsAppFunnel = () => {
       }
     }
     submittingRef.current = true;
+    try {
+
 
       const baseMessage = buildMessage(answers);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
@@ -331,7 +333,7 @@ export const WhatsAppFunnel = () => {
     } finally {
       setTimeout(() => { submittingRef.current = false; }, 250);
     }
-  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId]);
+  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId, validateStep]);
 
   const handleOpenChange = (v: boolean) => {
     if (!v) trackFunnelClose(step, answers.equipamento);

@@ -62,6 +62,9 @@ const AdminFunnel = () => {
   const [equipFilter, setEquipFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [coletaFilter, setColetaFilter] = useState<string>("all");
+  const [waFilter, setWaFilter] = useState<string>("all");
+  const [sintomaFilter, setSintomaFilter] = useState<string>("all");
+
   const [selected, setSelected] = useState<Submission | null>(null);
 
 

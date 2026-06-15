@@ -48,6 +48,16 @@ const ArrumarPCCity = lazy(() => import("./pages/arrumar-pc/ArrumarPCCity"));
 const ArrumarPCServicoCidade = lazy(() => import("./pages/arrumar-pc/ArrumarPCServicoCidade"));
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 
+// Hubs SEO de categorias (TV, Som, Videogame, Celular) × cidades/bairros
+const ConsertoTVCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoTVCity })));
+const ConsertoSomCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoSomCity })));
+const ConsertoVideogameCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoVideogameCity })));
+const ConsertoCelularLocalCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoCelularLocalCity })));
+const ConsertoTVHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoTVHub })));
+const ConsertoSomHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoSomHub })));
+const ConsertoVideogameHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoVideogameHub })));
+const ConsertoCelularLocalHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoCelularLocalHub })));
+
 // Bairros Curitiba
 const Centro = lazy(() => import("./pages/bairros/Centro"));
 const Batel = lazy(() => import("./pages/bairros/Batel"));
@@ -802,6 +812,16 @@ const App = () => (
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
+
+            {/* Hubs SEO Categorias × Local (TV, Som, Videogame, Celular) */}
+            <Route path="/conserto-tv-curitiba" element={<ConsertoTVHub />} />
+            <Route path="/conserto-tv/:local" element={<ConsertoTVCity />} />
+            <Route path="/conserto-som-curitiba" element={<ConsertoSomHub />} />
+            <Route path="/conserto-som/:local" element={<ConsertoSomCity />} />
+            <Route path="/conserto-videogame-curitiba" element={<ConsertoVideogameHub />} />
+            <Route path="/conserto-videogame/:local" element={<ConsertoVideogameCity />} />
+            <Route path="/conserto-celular-curitiba" element={<ConsertoCelularLocalHub />} />
+            <Route path="/conserto-celular/:local" element={<ConsertoCelularLocalCity />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

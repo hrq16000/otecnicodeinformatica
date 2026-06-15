@@ -138,7 +138,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
         title={title}
         description={description}
         path={path}
-        ogImage={ogArrumarPCBrasil}
+        ogImage={getCityOgImage(data.slug)}
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Arrumar PC", path: "/arrumar-pc" },

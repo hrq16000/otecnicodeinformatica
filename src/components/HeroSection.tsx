@@ -46,7 +46,7 @@ export const HeroSection = () => {
   return (
     <>
     <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
-    <section className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
+    <section className="hero-gradient pt-10 pb-14 md:pt-14 md:pb-18 lg:pt-16 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
       {/* Background image with ken burns effect */}
       <div className="absolute inset-0 z-0">
         <img

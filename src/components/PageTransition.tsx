@@ -37,7 +37,13 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
         el.style.transform = "translateY(0) scale(1)";
         el.style.filter = "blur(0)";
         
-        setTimeout(() => setIsTransitioning(false), 400);
+        setTimeout(() => {
+          el.style.transition = "";
+          el.style.opacity = "";
+          el.style.transform = "";
+          el.style.filter = "";
+          setIsTransitioning(false);
+        }, 400);
       });
     });
   }, [location.pathname]);
@@ -54,7 +60,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
           }}
         />
       )}
-      <div ref={containerRef} style={{ opacity: 1, transform: "translateY(0)", filter: "blur(0)" }}>
+      <div ref={containerRef}>
         {children}
       </div>
       <style>{`

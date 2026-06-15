@@ -23,25 +23,19 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
 
     setIsTransitioning(true);
 
-    // Phase 1: Exit with clip-path wipe
+    // Phase 1: fade without transform/filter so fixed headers stay fixed.
     el.style.transition = "none";
     el.style.opacity = "0";
-    el.style.transform = "translateY(16px) scale(0.99)";
-    el.style.filter = "blur(4px)";
 
     // Phase 2: Enter with smooth reveal
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        el.style.transition = "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+        el.style.transition = "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
         el.style.opacity = "1";
-        el.style.transform = "translateY(0) scale(1)";
-        el.style.filter = "blur(0)";
         
         setTimeout(() => {
           el.style.transition = "";
           el.style.opacity = "";
-          el.style.transform = "";
-          el.style.filter = "";
           setIsTransitioning(false);
         }, 400);
       });

@@ -49,7 +49,8 @@ const EMPTY: Answers = {
 };
 
 const VIDEO_WARNING =
-  "🚨 *Atenção:* Para darmos andamento, envie *agora neste chat* um vídeo mostrando o equipamento por completo (com a etiqueta traseira) e o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos* (mute o microfone do celular). *Sem o envio do vídeo, o atendimento não será iniciado.*";
+  "🚨 *Atenção — obrigatório para iniciar o atendimento:* envie *agora neste chat* (1) *fotos* do equipamento por completo, incluindo a *etiqueta traseira* com modelo/série, e (2) um *vídeo* mostrando o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos de fundo* (mute o microfone do celular, ambiente em silêncio). *Sem o envio das fotos e do vídeo, o atendimento não será iniciado.*";
+
 
 function isWhatsAppHref(href: string | null): boolean {
   if (!href) return false;
@@ -227,20 +228,38 @@ export const WhatsAppFunnel = () => {
   // ---------- Navigation ----------
   // 4 steps: 0 equip, 1 marca/sintoma (ou descrição), 2 coleta (condicional), 3 confirmação
   const TOTAL_STEPS = 4;
-  const canAdvance = useMemo(() => {
-    if (step === 0) return !!answers.equipamento;
-    if (step === 1) {
-      if (isOutro) return answers.descricao.trim().length > 5;
-      return !!answers.marca && !!answers.sintoma;
+  /** Validação por etapa — fonte única de verdade para botão e guard de submit. */
+  const validateStep = useCallback((s: number): { ok: true } | { ok: false; reason: string } => {
+    if (s === 0) {
+      return answers.equipamento ? { ok: true } : { ok: false, reason: "Selecione o equipamento." };
     }
-    if (step === 2) {
-      if (requiresColeta) return answers.coletaAccepted;
-      return true;
+    if (s === 1) {
+      if (isOutro) {
+        return answers.descricao.trim().length > 5
+          ? { ok: true }
+          : { ok: false, reason: "Descreva seu caso com pelo menos 6 caracteres." };
+      }
+      if (!answers.marca) return { ok: false, reason: "Selecione a marca/tipo." };
+      if (!answers.sintoma) return { ok: false, reason: "Selecione o problema." };
+      return { ok: true };
     }
-    return true;
-  }, [step, answers, isOutro, requiresColeta]);
+    if (s === 2) {
+      if (requiresColeta && !answers.coletaAccepted) {
+        return { ok: false, reason: "Aceite a modalidade Coleta e Entrega para continuar." };
+      }
+      return { ok: true };
+    }
+    return { ok: true };
+  }, [answers, isOutro, requiresColeta]);
+
+  const canAdvance = useMemo(() => validateStep(step).ok, [validateStep, step]);
 
   const next = () => {
+    const v = validateStep(step);
+    if (!v.ok) {
+      trackFunnelBlocked(`step_${step}_invalid`, answers.equipamento);
+      return;
+    }
     setStep((s) => {
       let n = s + 1;
       // "Outro" pula regra de coleta
@@ -252,7 +271,8 @@ export const WhatsAppFunnel = () => {
   };
   const back = () => setStep((s) => {
     let p = s - 1;
-    if (s === 3 && !requiresColeta) p = 1;
+    if (s === 3 && !requiresColeta && !isOutro) p = 1;
+    if (s === 3 && isOutro) p = 1;
     return Math.max(p, 0);
   });
 
@@ -262,9 +282,21 @@ export const WhatsAppFunnel = () => {
     setStep(0);
   };
 
+
   const submit = useCallback(async () => {
+    // Guard final: revalida todas as etapas antes de liberar o WhatsApp
+    for (const s of [0, 1, 2]) {
+      const v = validateStep(s);
+      if (!v.ok) {
+        trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipamento);
+        setStep(s);
+        return;
+      }
+    }
     submittingRef.current = true;
     try {
+
+
       const baseMessage = buildMessage(answers);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
 
@@ -301,7 +333,7 @@ export const WhatsAppFunnel = () => {
     } finally {
       setTimeout(() => { submittingRef.current = false; }, 250);
     }
-  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId]);
+  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId, validateStep]);
 
   const handleOpenChange = (v: boolean) => {
     if (!v) trackFunnelClose(step, answers.equipamento);
@@ -455,13 +487,16 @@ export const WhatsAppFunnel = () => {
             </div>
 
             <div className="rounded-lg border border-amber-500/50 bg-amber-500/10 p-3 text-xs leading-snug">
-              <p className="font-bold text-foreground mb-1">📹 Próximo passo no WhatsApp</p>
+              <p className="font-bold text-foreground mb-1">📸 Próximo passo no WhatsApp (obrigatório)</p>
               <p className="text-foreground/80">
-                Assim que o chat abrir, envie <strong>um vídeo do equipamento por completo</strong> (mostrando a
-                etiqueta traseira) e do <strong>defeito acontecendo</strong>. O vídeo precisa estar{" "}
-                <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone). Sem o vídeo, o atendimento não é iniciado.
+                Assim que o chat abrir, envie <strong>fotos do equipamento por completo</strong> (incluindo a{" "}
+                <strong>etiqueta traseira</strong> com modelo/série) e um <strong>vídeo do defeito acontecendo</strong>.
+                O vídeo precisa estar <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone, ambiente em
+                silêncio). <strong>Sem o envio das fotos e do vídeo, o atendimento não será iniciado.</strong>
               </p>
             </div>
+
+
 
             <Textarea
               placeholder="Quer acrescentar algo? (opcional)"

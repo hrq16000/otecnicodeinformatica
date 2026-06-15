@@ -62,6 +62,9 @@ const AdminFunnel = () => {
   const [equipFilter, setEquipFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [coletaFilter, setColetaFilter] = useState<string>("all");
+  const [waFilter, setWaFilter] = useState<string>("all");
+  const [sintomaFilter, setSintomaFilter] = useState<string>("all");
+
   const [selected, setSelected] = useState<Submission | null>(null);
 
 
@@ -78,9 +81,12 @@ const AdminFunnel = () => {
     if (statusFilter !== "all") query = query.eq("status_atendimento", statusFilter);
     if (coletaFilter === "yes") query = query.eq("requires_coleta", true);
     if (coletaFilter === "no") query = query.eq("requires_coleta", false);
+    if (waFilter === "yes") query = query.not("wa_message", "is", null);
+    if (waFilter === "no") query = query.is("wa_message", null);
+    if (sintomaFilter !== "all") query = query.eq("sintoma", sintomaFilter);
     if (search.trim()) {
       const s = `%${search.trim()}%`;
-      query = query.or(`wa_message.ilike.${s},marca.ilike.${s},utm_campaign.ilike.${s}`);
+      query = query.or(`wa_message.ilike.${s},marca.ilike.${s},utm_campaign.ilike.${s},sintoma.ilike.${s}`);
     }
 
     const { data, error, count: c } = await query;
@@ -96,7 +102,14 @@ const AdminFunnel = () => {
   useEffect(() => {
     void fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, equipFilter, statusFilter, coletaFilter, isAdmin]);
+  }, [page, equipFilter, statusFilter, coletaFilter, waFilter, sintomaFilter, isAdmin]);
+
+  const distinctSintoma = useMemo(() => {
+    const s = new Set<string>();
+    rows.forEach((r) => r.sintoma && s.add(r.sintoma));
+    return Array.from(s);
+  }, [rows]);
+
 
   const distinctEquip = useMemo(() => {
     const s = new Set<string>();
@@ -261,7 +274,23 @@ const AdminFunnel = () => {
               <SelectItem value="no">Sem coleta</SelectItem>
             </SelectContent>
           </Select>
+          <Select value={waFilter} onValueChange={(v) => { setPage(0); setWaFilter(v); }}>
+            <SelectTrigger><SelectValue placeholder="Envio WhatsApp" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos envios</SelectItem>
+              <SelectItem value="yes">Mensagem gerada</SelectItem>
+              <SelectItem value="no">Sem mensagem</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={sintomaFilter} onValueChange={(v) => { setPage(0); setSintomaFilter(v); }}>
+            <SelectTrigger><SelectValue placeholder="Sintoma" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos sintomas</SelectItem>
+              {distinctSintoma.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+            </SelectContent>
+          </Select>
         </div>
+
 
         {/* Table */}
         <div className="rounded-lg border border-border overflow-hidden">
@@ -273,6 +302,7 @@ const AdminFunnel = () => {
                   <th className="px-3 py-2 text-left">Equipamento</th>
                   <th className="px-3 py-2 text-left">Sintoma</th>
                   <th className="px-3 py-2 text-left">Coleta</th>
+                  <th className="px-3 py-2 text-left">WA</th>
                   <th className="px-3 py-2 text-left">Origem</th>
                   <th className="px-3 py-2 text-left">Status</th>
                   <th className="px-3 py-2"></th>
@@ -280,12 +310,12 @@ const AdminFunnel = () => {
               </thead>
               <tbody>
                 {loading && rows.length === 0 && (
-                  <tr><td colSpan={7} className="text-center py-6 text-muted-foreground">
+                  <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin inline mr-2" /> Carregando…
                   </td></tr>
                 )}
                 {!loading && rows.length === 0 && (
-                  <tr><td colSpan={7} className="text-center py-6 text-muted-foreground">
+                  <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
                     <Filter className="h-4 w-4 inline mr-2" /> Nenhum lead encontrado
                   </td></tr>
                 )}
@@ -297,6 +327,11 @@ const AdminFunnel = () => {
                     <td className="px-3 py-2">{r.equipamento || "—"}<div className="text-[10px] text-muted-foreground">{r.marca || ""}</div></td>
                     <td className="px-3 py-2 text-xs">{r.sintoma || "—"}</td>
                     <td className="px-3 py-2">{r.requires_coleta ? <Badge variant="destructive" className="text-[10px]">Coleta</Badge> : <span className="text-xs text-muted-foreground">—</span>}</td>
+                    <td className="px-3 py-2">
+                      {r.wa_message
+                        ? <Badge variant="secondary" className="text-[10px]">Enviada</Badge>
+                        : <Badge variant="outline" className="text-[10px]">—</Badge>}
+                    </td>
                     <td className="px-3 py-2 text-[10px] text-muted-foreground">
                       {r.utm_source || "direct"}{r.utm_campaign ? ` · ${r.utm_campaign}` : ""}
                     </td>
@@ -310,6 +345,7 @@ const AdminFunnel = () => {
                     </td>
                   </tr>
                 ))}
+
               </tbody>
             </table>
           </div>
@@ -347,26 +383,39 @@ const AdminFunnel = () => {
                   </Select>
                 </div>
 
+                <div className="rounded-lg border border-border bg-card/50 p-3 space-y-1 text-xs">
+                  <div className="text-[10px] font-semibold uppercase text-muted-foreground mb-1">Respostas da triagem</div>
+                  <p>📦 <strong>Equipamento:</strong> {selected.equipamento || "—"}</p>
+                  <p>🏷️ <strong>Marca/tipo:</strong> {selected.marca || "—"}</p>
+                  <p>⚠️ <strong>Sintoma:</strong> {selected.sintoma || "—"}</p>
+                  <p>
+                    📦 <strong>Coleta e Entrega:</strong>{" "}
+                    {selected.requires_coleta
+                      ? <span className="text-amber-700 dark:text-amber-400 font-semibold">Obrigatória · autorizada pelo cliente</span>
+                      : <span className="text-muted-foreground">Não exigida</span>}
+                  </p>
+                  <p>
+                    💬 <strong>Envio WhatsApp:</strong>{" "}
+                    {selected.wa_message
+                      ? <Badge variant="secondary" className="text-[10px]">Mensagem gerada</Badge>
+                      : <Badge variant="outline" className="text-[10px]">Sem mensagem</Badge>}
+                  </p>
+                </div>
+
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <Field label="Marca" value={selected.marca} />
-                  <Field label="Sintoma" value={selected.sintoma} />
-                  <Field label="Coleta" value={selected.requires_coleta ? "Sim" : "Não"} />
                   <Field label="UTM Source" value={selected.utm_source} />
                   <Field label="UTM Campaign" value={selected.utm_campaign} />
                   <Field label="UTM Medium" value={selected.utm_medium} />
                   <Field label="gclid" value={selected.gclid} />
                   <Field label="Atendido em" value={selected.atendido_em ? new Date(selected.atendido_em).toLocaleString("pt-BR") : null} />
+                  <Field label="Session" value={selected.session_id} />
                 </div>
-
-                <div className="rounded-md border border-border bg-muted/40 p-2 text-[11px] text-muted-foreground">
-                  📹 Mídias agora são solicitadas diretamente no chat do WhatsApp (vídeo do equipamento sem áudio).
-                </div>
-
 
                 <div>
-                  <div className="text-xs font-semibold text-muted-foreground mb-1">Mensagem WhatsApp</div>
-                  <pre className="text-[11px] whitespace-pre-wrap bg-muted p-2 rounded max-h-48 overflow-y-auto">{selected.wa_message || "—"}</pre>
+                  <div className="text-xs font-semibold text-muted-foreground mb-1">Mensagem WhatsApp (pré-preenchida)</div>
+                  <pre className="text-[11px] whitespace-pre-wrap bg-muted p-2 rounded max-h-60 overflow-y-auto">{selected.wa_message || "— (não gerada)"}</pre>
                 </div>
+
 
                 <div>
                   <div className="text-xs font-semibold text-muted-foreground mb-1">Notas internas</div>

@@ -206,7 +206,7 @@ describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
     expect(text).toMatch(/fotos/i);
     expect(text).toMatch(/etiqueta traseira/i);
     expect(text).toMatch(/v[ií]deo/i);
-    expect(text).toMatch(/sem .*[áa]udio/i);
+    expect(text).toMatch(/n[ãa]o pode ter [áa]udio/i);
     expect(text).toMatch(/atendimento n[ãa]o ser[áa] iniciado/i);
     expect(text.endsWith(VIDEO_WARNING)).toBe(true);
   });

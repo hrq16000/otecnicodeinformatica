@@ -10,9 +10,11 @@ interface PageHeroProps {
   title: string;
   subtitle: string;
   ctaText?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
 }
 
-export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: PageHeroProps) => {
+export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", heroImage, heroImageAlt }: PageHeroProps) => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   const handleWhatsAppClick = () => {
@@ -51,8 +53,26 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp" }: Pag
               {ctaText}
             </a>
           </Button>
+
+          {heroImage && (
+            <div className="mt-10 md:mt-12 max-w-3xl mx-auto">
+              <div className="relative rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+                <img
+                  src={heroImage}
+                  alt={heroImageAlt ?? title}
+                  width={1536}
+                  height={768}
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-auto block"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
+
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
           <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />

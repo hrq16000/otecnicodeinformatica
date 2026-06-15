@@ -8,7 +8,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { CTASection } from "@/components/CTASection";
 import { trackPageView } from "@/lib/analytics";
-import ogArrumarPCBrasil from "@/assets/og-arrumar-pc-brasil.jpg";
+import { getCityOgImage, getCityHeroImage } from "./cityImages";
 import {
   ShieldCheck,
   Wifi,
@@ -138,7 +138,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
         title={title}
         description={description}
         path={path}
-        ogImage={ogArrumarPCBrasil}
+        ogImage={getCityOgImage(data.slug)}
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Arrumar PC", path: "/arrumar-pc" },
@@ -157,7 +157,10 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
           title={`Arrumar PC em ${data.cidade} — atendimento online`}
           subtitle={`Técnico de informática para ${data.cidade}/${data.estado} via WhatsApp + acesso remoto seguro. Diagnóstico grátis, paga só se resolver.`}
           ctaText="Chamar Técnico no WhatsApp"
+          heroImage={getCityHeroImage(data.slug)}
+          heroImageAlt={`Técnico online arrumando PC em ${data.cidade} - ${data.estadoNome}`}
         />
+
 
         <BenefitsGrid
           benefits={beneficios}

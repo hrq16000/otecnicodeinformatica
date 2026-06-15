@@ -96,10 +96,10 @@ function buildMessage(a: Answers): string {
   }
   lines.push("");
   lines.push("— Estou ciente das políticas e termos: tecnicocuritiba.com.br/termos-e-condicoes");
-  lines.push("");
-  lines.push(VIDEO_WARNING);
-  return lines.join("\n");
+  // Garante o aviso obrigatório no final, vindo da fonte única (`funnelWarning.ts`).
+  return withVideoWarning(lines.join("\n"));
 }
+
 
 const TransparencyMini = () => (
   <div className="rounded-lg border border-border bg-card/50 p-2.5 text-[11px] text-muted-foreground leading-snug">

@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      og_validation_status: {
+        Row: {
+          canonical: string | null
+          checked_at: string
+          city_slug: string
+          created_at: string
+          fb_error: string | null
+          fb_status: string | null
+          http_status: number | null
+          id: string
+          linkedin_error: string | null
+          linkedin_status: string | null
+          og_description: string | null
+          og_image: string | null
+          og_title: string | null
+          raw: Json | null
+          url: string
+        }
+        Insert: {
+          canonical?: string | null
+          checked_at?: string
+          city_slug: string
+          created_at?: string
+          fb_error?: string | null
+          fb_status?: string | null
+          http_status?: number | null
+          id?: string
+          linkedin_error?: string | null
+          linkedin_status?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          raw?: Json | null
+          url: string
+        }
+        Update: {
+          canonical?: string | null
+          checked_at?: string
+          city_slug?: string
+          created_at?: string
+          fb_error?: string | null
+          fb_status?: string | null
+          http_status?: number | null
+          id?: string
+          linkedin_error?: string | null
+          linkedin_status?: string | null
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
+          raw?: Json | null
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

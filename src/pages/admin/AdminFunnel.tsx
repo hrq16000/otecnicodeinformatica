@@ -383,26 +383,39 @@ const AdminFunnel = () => {
                   </Select>
                 </div>
 
+                <div className="rounded-lg border border-border bg-card/50 p-3 space-y-1 text-xs">
+                  <div className="text-[10px] font-semibold uppercase text-muted-foreground mb-1">Respostas da triagem</div>
+                  <p>📦 <strong>Equipamento:</strong> {selected.equipamento || "—"}</p>
+                  <p>🏷️ <strong>Marca/tipo:</strong> {selected.marca || "—"}</p>
+                  <p>⚠️ <strong>Sintoma:</strong> {selected.sintoma || "—"}</p>
+                  <p>
+                    📦 <strong>Coleta e Entrega:</strong>{" "}
+                    {selected.requires_coleta
+                      ? <span className="text-amber-700 dark:text-amber-400 font-semibold">Obrigatória · autorizada pelo cliente</span>
+                      : <span className="text-muted-foreground">Não exigida</span>}
+                  </p>
+                  <p>
+                    💬 <strong>Envio WhatsApp:</strong>{" "}
+                    {selected.wa_message
+                      ? <Badge variant="secondary" className="text-[10px]">Mensagem gerada</Badge>
+                      : <Badge variant="outline" className="text-[10px]">Sem mensagem</Badge>}
+                  </p>
+                </div>
+
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <Field label="Marca" value={selected.marca} />
-                  <Field label="Sintoma" value={selected.sintoma} />
-                  <Field label="Coleta" value={selected.requires_coleta ? "Sim" : "Não"} />
                   <Field label="UTM Source" value={selected.utm_source} />
                   <Field label="UTM Campaign" value={selected.utm_campaign} />
                   <Field label="UTM Medium" value={selected.utm_medium} />
                   <Field label="gclid" value={selected.gclid} />
                   <Field label="Atendido em" value={selected.atendido_em ? new Date(selected.atendido_em).toLocaleString("pt-BR") : null} />
+                  <Field label="Session" value={selected.session_id} />
                 </div>
-
-                <div className="rounded-md border border-border bg-muted/40 p-2 text-[11px] text-muted-foreground">
-                  📹 Mídias agora são solicitadas diretamente no chat do WhatsApp (vídeo do equipamento sem áudio).
-                </div>
-
 
                 <div>
-                  <div className="text-xs font-semibold text-muted-foreground mb-1">Mensagem WhatsApp</div>
-                  <pre className="text-[11px] whitespace-pre-wrap bg-muted p-2 rounded max-h-48 overflow-y-auto">{selected.wa_message || "—"}</pre>
+                  <div className="text-xs font-semibold text-muted-foreground mb-1">Mensagem WhatsApp (pré-preenchida)</div>
+                  <pre className="text-[11px] whitespace-pre-wrap bg-muted p-2 rounded max-h-60 overflow-y-auto">{selected.wa_message || "— (não gerada)"}</pre>
                 </div>
+
 
                 <div>
                   <div className="text-xs font-semibold text-muted-foreground mb-1">Notas internas</div>

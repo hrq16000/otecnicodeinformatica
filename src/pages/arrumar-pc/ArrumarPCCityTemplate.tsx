@@ -157,7 +157,10 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
           title={`Arrumar PC em ${data.cidade} — atendimento online`}
           subtitle={`Técnico de informática para ${data.cidade}/${data.estado} via WhatsApp + acesso remoto seguro. Diagnóstico grátis, paga só se resolver.`}
           ctaText="Chamar Técnico no WhatsApp"
+          heroImage={getCityHeroImage(data.slug)}
+          heroImageAlt={`Técnico online arrumando PC em ${data.cidade} - ${data.estadoNome}`}
         />
+
 
         <BenefitsGrid
           benefits={beneficios}

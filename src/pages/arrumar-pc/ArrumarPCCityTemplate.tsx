@@ -132,6 +132,8 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
     })),
   };
 
+  const heroSet = getCityHeroImage(data.slug);
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
@@ -148,6 +150,18 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        {heroSet && (
+          <link
+            rel="preload"
+            as="image"
+            href={heroSet.preloadHref}
+            type={heroSet.preloadType}
+            // @ts-expect-error - react-helmet passes attrs through
+            imagesrcset={heroSet.webpSrcset || heroSet.jpgSrcset}
+            imagesizes={heroSet.sizes}
+            fetchpriority="high"
+          />
+        )}
       </Helmet>
 
       <Header />
@@ -157,9 +171,10 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
           title={`Arrumar PC em ${data.cidade} — atendimento online`}
           subtitle={`Técnico de informática para ${data.cidade}/${data.estado} via WhatsApp + acesso remoto seguro. Diagnóstico grátis, paga só se resolver.`}
           ctaText="Chamar Técnico no WhatsApp"
-          heroImage={getCityHeroImage(data.slug)}
+          heroImage={heroSet}
           heroImageAlt={`Técnico online arrumando PC em ${data.cidade} - ${data.estadoNome}`}
         />
+
 
 
         <BenefitsGrid

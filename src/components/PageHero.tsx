@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackCTAClick } from "@/lib/analytics";
+import type { HeroImageSet } from "@/pages/arrumar-pc/cityImages";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
@@ -10,7 +11,11 @@ interface PageHeroProps {
   title: string;
   subtitle: string;
   ctaText?: string;
-  heroImage?: string;
+  /**
+   * Hero image. Accepts either a simple string URL (legacy) or a responsive
+   * HeroImageSet with srcset variants for better LCP performance.
+   */
+  heroImage?: string | HeroImageSet;
   heroImageAlt?: string;
 }
 
@@ -20,6 +25,11 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", heroI
   const handleWhatsAppClick = () => {
     trackCTAClick('whatsapp', 'page_hero');
   };
+
+  const heroSet: HeroImageSet | undefined =
+    typeof heroImage === "object" && heroImage !== null ? heroImage : undefined;
+  const heroSrc: string | undefined =
+    typeof heroImage === "string" ? heroImage : heroSet?.src;
 
   return (
     <section className="relative overflow-hidden">
@@ -54,18 +64,35 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", heroI
             </a>
           </Button>
 
-          {heroImage && (
+          {heroSrc && (
             <div className="mt-10 md:mt-12 max-w-3xl mx-auto">
               <div className="relative rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
-                <img
-                  src={heroImage}
-                  alt={heroImageAlt ?? title}
-                  width={1536}
-                  height={768}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-auto block"
-                />
+                <picture>
+                  {heroSet?.webpSrcset && (
+                    <source
+                      type="image/webp"
+                      srcSet={heroSet.webpSrcset}
+                      sizes={heroSet.sizes}
+                    />
+                  )}
+                  {heroSet?.jpgSrcset && (
+                    <source
+                      type="image/jpeg"
+                      srcSet={heroSet.jpgSrcset}
+                      sizes={heroSet.sizes}
+                    />
+                  )}
+                  <img
+                    src={heroSrc}
+                    alt={heroImageAlt ?? title}
+                    width={heroSet?.width ?? 1536}
+                    height={heroSet?.height ?? 768}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-auto block"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>

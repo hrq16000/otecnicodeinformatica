@@ -152,22 +152,34 @@ const AdminFunnel = () => {
     toast({ title: "Notas salvas" });
   };
 
+  const csvColumns: { key: keyof Submission | "wa_message"; label: string }[] = [
+    { key: "created_at", label: "Data" },
+    { key: "equipamento", label: "Equipamento" },
+    { key: "marca", label: "Marca" },
+    { key: "sintoma", label: "Sintoma" },
+    { key: "requires_coleta", label: "Coleta" },
+    { key: "status_atendimento", label: "Status" },
+    { key: "utm_source", label: "UTM Source" },
+    { key: "utm_medium", label: "UTM Medium" },
+    { key: "utm_campaign", label: "UTM Campaign" },
+    { key: "gclid", label: "gclid" },
+    { key: "atendido_em", label: "Atendido em" },
+    { key: "notas_admin", label: "Notas" },
+    { key: "wa_message", label: "Mensagem WhatsApp" },
+  ];
+
   const exportCsv = () => {
-    const headers = [
-      "created_at", "equipamento", "marca", "sintoma", "requires_coleta",
-      "status_atendimento", "utm_source", "utm_medium", "utm_campaign", "gclid",
-    ];
     const csv = [
-      headers.join(","),
+      csvColumns.map((c) => c.label).join(","),
       ...rows.map((r) =>
-        headers.map((h) => {
-          const v = (r as unknown as Record<string, unknown>)[h];
-          const s = v == null ? "" : String(v).replace(/"/g, '""');
+        csvColumns.map((c) => {
+          const v = (r as unknown as Record<string, unknown>)[c.key];
+          const s = v == null ? "" : String(v).replace(/"/g, '""').replace(/\r?\n/g, " ⏎ ");
           return `"${s}"`;
         }).join(","),
       ),
     ].join("\n");
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const blob = new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -175,6 +187,76 @@ const AdminFunnel = () => {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  const exportPdf = async () => {
+    const [{ default: jsPDF }, autoTableMod] = await Promise.all([
+      import("jspdf"),
+      import("jspdf-autotable"),
+    ]);
+    const autoTable = (autoTableMod as { default: (doc: unknown, opts: unknown) => void }).default;
+    const doc = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" });
+
+    const generatedAt = new Date().toLocaleString("pt-BR");
+    doc.setFontSize(14);
+    doc.text("Leads do funil — Técnico Curitiba", 40, 40);
+    doc.setFontSize(9);
+    doc.setTextColor(100);
+    const filters: string[] = [];
+    if (equipFilter !== "all") filters.push(`equipamento=${equipFilter}`);
+    if (statusFilter !== "all") filters.push(`status=${statusFilter}`);
+    if (coletaFilter !== "all") filters.push(`coleta=${coletaFilter}`);
+    if (waFilter !== "all") filters.push(`envio_wa=${waFilter}`);
+    if (sintomaFilter !== "all") filters.push(`sintoma=${sintomaFilter}`);
+    if (search.trim()) filters.push(`busca="${search.trim()}"`);
+    const filterLine = filters.length ? `Filtros: ${filters.join(" · ")}` : "Sem filtros aplicados";
+    doc.text(`Gerado em ${generatedAt} · ${rows.length} registros · ${filterLine}`, 40, 56);
+
+    autoTable(doc, {
+      startY: 70,
+      head: [["Data", "Equipamento", "Marca", "Sintoma", "Coleta", "Envio WA", "Status", "UTM", "Atendido"]],
+      body: rows.map((r) => [
+        new Date(r.created_at).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" }),
+        r.equipamento || "—",
+        r.marca || "—",
+        r.sintoma || "—",
+        r.requires_coleta ? "SIM" : "—",
+        r.wa_message ? "Gerada" : "—",
+        r.status_atendimento,
+        [r.utm_source, r.utm_campaign].filter(Boolean).join(" / ") || "direct",
+        r.atendido_em ? new Date(r.atendido_em).toLocaleDateString("pt-BR") : "—",
+      ]),
+      styles: { fontSize: 8, cellPadding: 3 },
+      headStyles: { fillColor: [30, 41, 59] },
+      alternateRowStyles: { fillColor: [248, 250, 252] },
+    });
+
+    // Apêndice: mensagem WhatsApp completa por lead
+    doc.addPage();
+    doc.setFontSize(13);
+    doc.setTextColor(0);
+    doc.text("Apêndice — Mensagens WhatsApp", 40, 40);
+    let y = 60;
+    doc.setFontSize(9);
+    rows.forEach((r, idx) => {
+      const header = `${idx + 1}. ${new Date(r.created_at).toLocaleString("pt-BR")} · ${r.equipamento || "—"} · ${r.sintoma || "—"} · status: ${r.status_atendimento}`;
+      const body = r.wa_message || "(mensagem não gerada)";
+      const lines = doc.splitTextToSize(body, 760);
+      const blockHeight = 18 + lines.length * 10 + 8;
+      if (y + blockHeight > 560) {
+        doc.addPage();
+        y = 40;
+      }
+      doc.setFont(undefined, "bold");
+      doc.text(header, 40, y);
+      doc.setFont(undefined, "normal");
+      doc.text(lines, 40, y + 14);
+      y += blockHeight;
+    });
+
+    doc.save(`funnel-submissions-${new Date().toISOString().slice(0, 10)}.pdf`);
+  };
+
+
 
   const signOut = async () => {
     await supabase.auth.signOut();

@@ -135,23 +135,23 @@ describe("WhatsAppFunnel — Cenário 2: Barreira de Fogo (TV > Não liga)", () 
     renderFunnel();
     await openFunnel();
 
-    await clickButton(/^TV$/i);
-    await clickButton(/^Samsung$/i);
-    await clickButton(/^Não liga$/i);
-    await clickButton(/Continuar/i);          // step 1 → step 2 (coleta)
+    await clickButton("TV");
+    await clickButton("Samsung");
+    await clickButton("Não liga");
+    await clickButton("Continuar");           // step 1 → step 2 (coleta)
 
     expect(dialogText()).toMatch(/Coleta e Entrega/i);
     expect(dialogText()).toMatch(/R\$ 300/);
     expect(continueIsDisabled()).toBe(true);
 
-    // tenta forçar — não pode abrir wa.me
-    await clickButton(/Continuar/i);
+    // Tentativa de forçar avanço sem aceite — não pode abrir wa.me
+    await clickButton("Continuar");
     expect(getLastWaUrl()).toBeNull();
 
     await clickAcceptCheckbox();
     expect(continueIsDisabled()).toBe(false);
 
-    await clickButton(/Continuar/i);          // → step 3
+    await clickButton("Continuar");           // → step 3
     await clickButton(/Abrir WhatsApp/i);
 
     const url = getLastWaUrl();
@@ -169,13 +169,13 @@ describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
     renderFunnel();
     await openFunnel();
 
-    await clickButton(/Celular \/ Tablet/i);
-    await clickButton(/iPhone \(Apple\)/i);
-    await clickButton(/Tela trincada/i);
-    await clickButton(/Continuar/i);          // → step 2 (coleta)
+    await clickButton("Celular / Tablet");
+    await clickButton("iPhone (Apple)");
+    await clickButton("Tela trincada / quebrada");
+    await clickButton("Continuar");           // → step 2 (coleta)
 
     await clickAcceptCheckbox();
-    await clickButton(/Continuar/i);          // → step 3
+    await clickButton("Continuar");           // → step 3
     await clickButton(/Abrir WhatsApp/i);
 
     const url = getLastWaUrl();
@@ -190,6 +190,7 @@ describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
     expect(text.endsWith(VIDEO_WARNING)).toBe(true);
   });
 });
+
 
 describe("WhatsAppFunnel — guard de submit", () => {
   it("não abre WhatsApp em nenhuma circunstância sem completar a triagem", async () => {

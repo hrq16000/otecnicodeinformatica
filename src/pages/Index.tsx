@@ -158,51 +158,73 @@ const Index = () => {
           </div>
         </section>
 
-        <Suspense fallback={<SectionFallback />}>
-          <HomePricingBlock />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <HomeDiagnosticoBlock />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <HomeEquipamentosBlock />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <HomeParaQuemBlock />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <ProblemasDestaque />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <InterlinkingBlock />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <FAQSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <TrustSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <CTASection />
-        </Suspense>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <HomePricingBlock />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <HomeDiagnosticoBlock />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <HomeEquipamentosBlock />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <HomeParaQuemBlock />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <ProblemasDestaque />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <InterlinkingBlock />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <FAQSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <TrustSection />
+          </Suspense>
+        </LazyOnVisible>
+        <LazyOnVisible>
+          <Suspense fallback={<SectionFallback />}>
+            <CTASection />
+          </Suspense>
+        </LazyOnVisible>
 
-        <section className="py-8 bg-muted/30">
-          <div className="container mx-auto">
-            <div className="text-center mb-6">
-              <Suspense fallback={null}>
-                <SecurityBadge />
+        <LazyOnVisible minHeight="200px">
+          <section className="py-8 bg-muted/30">
+            <div className="container mx-auto">
+              <div className="text-center mb-6">
+                <Suspense fallback={null}>
+                  <SecurityBadge />
+                </Suspense>
+              </div>
+              <Suspense fallback={<SectionFallback height="100px" />}>
+                <TrustBadges variant="card" />
               </Suspense>
             </div>
-            <Suspense fallback={<SectionFallback height="100px" />}>
-              <TrustBadges variant="card" />
-            </Suspense>
-          </div>
-        </section>
+          </section>
+        </LazyOnVisible>
       </main>
       <Footer />
-      <Suspense fallback={null}>
-        <SocialProofAdminPanel />
-      </Suspense>
+      <LazyOnVisible minHeight="1px" rootMargin="0px">
+        <Suspense fallback={null}>
+          <SocialProofAdminPanel />
+        </Suspense>
+      </LazyOnVisible>
     </div>
   );
 };

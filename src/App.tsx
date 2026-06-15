@@ -15,6 +15,8 @@ import { PageTransition } from "@/components/PageTransition";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useParallax } from "@/hooks/useParallax";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import { captureUtmsFromUrl } from "@/lib/utmCapture";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -408,7 +410,13 @@ const PageLoader = () => (
 );
 
 /** Initializes global scroll animations + parallax on each route */
-const ScrollAnimationsInit = () => { useScrollAnimations(); useParallax(); useRevealOnScroll(); return null; };
+const ScrollAnimationsInit = () => {
+  useScrollAnimations();
+  useParallax();
+  useRevealOnScroll();
+  useEffect(() => { captureUtmsFromUrl(); }, []);
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

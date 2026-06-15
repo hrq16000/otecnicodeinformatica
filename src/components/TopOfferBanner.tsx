@@ -38,7 +38,7 @@ export const TopOfferBanner = () => {
     <div
       role="region"
       aria-label="Oferta: serviço rápido até 30 minutos por R$ 99,99"
-      className="relative z-40 w-full bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md"
+      className="relative z-30 w-full bg-gradient-to-r from-accent via-accent to-primary text-white shadow-md mt-[52px] sm:mt-[60px] md:mt-[64px]"
     >
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 px-4 py-2 text-center sm:text-left">
         <div className="flex items-center gap-2 min-w-0">

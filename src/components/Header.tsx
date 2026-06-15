@@ -222,25 +222,23 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[70] h-[var(--site-header-height)] transition-all duration-500 ${
         isScrolled
-          ? "py-0.5 bg-background/90 backdrop-blur-xl shadow-[var(--shadow-md)]"
-          : "py-1 bg-background/80 backdrop-blur-md shadow-[var(--shadow-sm)]"
+          ? "bg-background/92 backdrop-blur-xl shadow-[var(--shadow-md)]"
+          : "bg-background/88 backdrop-blur-md shadow-[var(--shadow-sm)]"
       }`}
     >
       {/* Gradient underline */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
 
-      <div className="container mx-auto flex items-center justify-between gap-2">
+      <div className="container mx-auto flex h-full items-center justify-between gap-2">
         <Link to="/" className="flex-shrink-0" aria-label="Início">
           <img
             alt="Técnico Curitiba — Assistência Técnica em Informática"
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
             width="304"
             height="98"
-            className={`transition-all duration-300 w-auto object-scale-down ${
-              isScrolled ? "h-7 sm:h-9 md:h-10" : "h-9 sm:h-11 md:h-12"
-            }`}
+            className="h-8 w-auto object-scale-down transition-all duration-300 sm:h-10 md:h-11"
           />
         </Link>
 

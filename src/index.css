@@ -42,6 +42,10 @@
 
     --radius: 0.625rem;
 
+    /* Fixed top chrome sizing: header + offer bar */
+    --site-header-height: 56px;
+    --top-offer-height: 42px;
+
     /* Premium palette */
     --whatsapp: 145 63% 42%;
     --whatsapp-hover: 145 63% 36%;
@@ -84,6 +88,19 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --site-header-height: 60px;
+      --top-offer-height: 40px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --site-header-height: 64px;
+    }
   }
 
   .dark {

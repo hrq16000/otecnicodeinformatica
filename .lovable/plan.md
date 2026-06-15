@@ -1,105 +1,57 @@
-# Auditoria Global do Topo + Testes de Regressão
+# Auditoria Global — Responsividade & Performance
 
-## Objetivo
-Garantir que o Header fixo e o TopOfferBanner nunca se sobreponham, em nenhuma largura, e que regressões futuras sejam detectadas automaticamente.
+## Diagnóstico atual (medido agora no preview mobile 520px)
 
----
+**Performance**
+- DOM com **3289 elementos** / profundidade 16 / **597 listeners** — home com 25+ seções `lazy` carregando quase todas no primeiro paint.
+- **162 scripts carregados** (1.92 MB JS), `lucide-react` sozinho = 156 KB, dois chunks Vite > 130 KB cada.
+- Script Duration **3.72s**, Style Recalc **1.71s**, 350 layouts.
+- DOMContentLoaded **7.4s**, Full Load **8.7s** no preview.
+- Console reportou FCP 6960ms (poor) e TTFB 18s em sessão anterior (provavelmente cold start do preview, mas indica fragilidade).
+- LCP candidato: `hero-bg-hardware.jpg` (171 KB) — sem `preload`, sem AVIF/WebP, sem `fetchpriority`.
+- Favicon 158 KB (PNG enorme servido 2×).
+- CLS 0.0385 (ok), maior shift em `::after` do hero — provável animação.
 
-## Fase 1 — Auditoria estática (sem mudar código)
+**Responsividade**
+- Header/TopOfferBanner já padronizados com `--site-header-height` / `--top-offer-height` / `--z-*` (sessão anterior).
+- Falta auditar: overflow horizontal em mobile, `min-w-0` em flex children, textos com `whitespace-nowrap`, imagens sem `max-w-full`, tabelas, formulários, modais.
+- Várias seções home (`HomePricingBlock`, `HomeDiagnosticoBlock`, `HomeEquipamentosBlock`, `ProblemasDestaque`, etc.) nunca foram auditadas em 320px.
 
-Varredura no `src/` por padrões que quebram `position: fixed`:
+## Escopo proposto (3 fases, sem mudar design)
 
-1. **Transform/filter/perspective em ancestrais** — criam containing block novo e quebram `fixed`.
-   - `rg -n "transform|filter:|perspective|backdrop-filter|will-change" src/`
-   - Focar em wrappers globais: `App.tsx`, `PageTransition.tsx`, `Layout`, `main`, `body`.
-2. **Z-index conflitantes** — mapear todos os z-index do projeto.
-   - `rg -n "z-\[|zIndex|z-50|z-40|z-60|z-70" src/`
-3. **Overflow:hidden em ancestrais do header** — pode cortar sticky/fixed filho.
-4. **Uso direto de `top-0` / `sticky` sem variável** — devem migrar para tokens.
-5. **Animações Framer Motion com `transform`** no wrapper raiz.
+### Fase 1 — Performance (impacto alto, baixo risco)
+1. **LCP image**: converter `hero-bg-hardware.jpg` via `vite-imagetools` para AVIF+WebP, adicionar `<link rel="preload" as="image" fetchpriority="high">` no `index.html` e usar `<picture>` no `HeroSection`.
+2. **Favicon**: gerar versão 32×32 / 192×192 otimizada (target < 10 KB), corrigir tag duplicada que faz 2 requests.
+3. **lucide-react tree-shake**: trocar imports `from "lucide-react"` por `lucide-react/dist/esm/icons/<icon>` nos componentes acima da dobra (Header, HeroSection, TopOfferBanner, TechnicianAvailability, PricingBanner). Reduz ~120 KB do bundle inicial.
+4. **Lazy real**: mover `JsonLdSchema`, `PricingBanner`, `TechnicianAvailability` para `lazy()` ou renderizar após `requestIdleCallback`. Hoje todos vão no primeiro chunk.
+5. **`Suspense` com `IntersectionObserver`**: criar `<LazyOnVisible>` wrapper para não montar 15 seções `lazy` simultaneamente (hoje todas baixam logo após paint).
+6. **Remover scripts AdSense** do head em rotas que não monetizam (ou usar `loading="lazy"`).
 
-Saída: `docs/audit-topo.md` com checklist priorizado (Alto/Médio/Baixo).
+### Fase 2 — Responsividade (audit + fix)
+1. Script de varredura `rg` para encontrar: `whitespace-nowrap`, `min-w-\[`, `w-\[[0-9]+px\]`, `overflow-x` ausente, imagens sem `max-w-full h-auto`.
+2. Inspeção visual via `browser--screenshot` em 320, 375, 414, 768, 1024 px nas rotas principais: `/`, `/assistencia-tecnica-curitiba`, `/blog`, `/servicos`, `/contato`, `/coleta-entrega`.
+3. Corrigir cada quebra encontrada (sem rewrite — apenas ajustes Tailwind: `flex-wrap`, `min-w-0`, `break-words`, `truncate`, `grid-cols-1 sm:grid-cols-2`, padding mobile).
+4. Garantir tap targets ≥ 44×44 px em CTAs e links inline.
 
----
+### Fase 3 — Relatório
+- Atualizar `docs/audit-topo.md` → renomear para `docs/audit-global.md` com seção Performance + Responsividade.
+- Tabela antes/depois (LCP, JS inicial, DOM nodes, listeners).
+- Checklist de prevenção (imports lucide, lazy patterns, breakpoints).
 
-## Fase 2 — Padronização via CSS variables
+## Fora do escopo
+- Redesign visual ou mudanças de conteúdo.
+- Refator de rotas, mudanças no funil WhatsApp, edits em backend.
+- SSR/prerender (mudança arquitetural grande).
 
-Em `src/index.css` consolidar (já existem parcialmente):
+## Arquivos a editar (estimativa)
+- `index.html` (preload, favicon, scripts)
+- `vite.config.ts` (imagetools)
+- `src/components/HeroSection.tsx`, `Header.tsx`, `TopOfferBanner.tsx`, `TechnicianAvailability.tsx`, `PricingBanner.tsx` (imports lucide + picture)
+- `src/pages/Index.tsx` (lazy reorganizado)
+- Novo `src/components/LazyOnVisible.tsx`
+- Vários componentes pontuais conforme bugs de responsividade encontrados
+- `public/favicon.png` substituído por versão otimizada
+- `docs/audit-global.md`
 
-```css
-:root {
-  --site-header-height: 56px;
-  --top-offer-height: 40px;
-  --z-header: 70;
-  --z-top-offer: 60;
-  --z-modal: 90;
-  --z-toast: 100;
-}
-@media (min-width: 640px) { :root { --site-header-height: 60px; } }
-@media (min-width: 768px) { :root { --site-header-height: 64px; } }
-```
-
-- `Header.tsx` → `height: var(--site-header-height); z-index: var(--z-header)`.
-- `TopOfferBanner.tsx` → `top: var(--site-header-height); height: var(--top-offer-height); z-index: var(--z-top-offer)`.
-- Spacer global calculado: `calc(var(--site-header-height) + var(--top-offer-height))`.
-- Remover qualquer `z-50/z-40` hardcoded de Header/Banner.
-
----
-
-## Fase 3 — Testes de regressão (Playwright)
-
-Adicionar `@playwright/test` (já existe `e2e/`).
-
-### 3.1 Teste funcional de scroll (mobile)
-`e2e/header-fixed.spec.ts`:
-- Viewports: 320×568, 375×812, 768×1024, 1366×768.
-- Em cada um:
-  - Carrega `/`.
-  - Mede `boundingBox` do header e banner em `scrollY=0`.
-  - Faz `window.scrollTo(0, 1500)`.
-  - Reassere: header `y === 0`, banner `y === headerHeight`, sem overlap, ambos visíveis.
-  - Confere `getComputedStyle(header).position === 'fixed'`.
-
-### 3.2 Regressão visual (screenshots)
-`e2e/visual-top.spec.ts` usando `toHaveScreenshot`:
-- Captura apenas a região do topo (`clip: {x:0,y:0,width:vw,height:headerH+bannerH+8}`).
-- Snapshots por viewport: `top-mobile-sm.png`, `top-mobile.png`, `top-tablet.png`, `top-desktop.png`.
-- Comparação automática com `maxDiffPixelRatio: 0.01`.
-- Baseline commitada em `e2e/__screenshots__/`.
-
-### 3.3 Script
-`package.json` → `"test:e2e": "playwright test"`, `"test:e2e:update": "playwright test --update-snapshots"`.
-
----
-
-## Fase 4 — Relatório `docs/audit-topo.md`
-
-Estrutura:
-1. Resumo executivo (status atual).
-2. Tabela de achados: arquivo · linha · problema · severidade · correção.
-3. Mapa de z-index final.
-4. Checklist de prevenção (regras a seguir em PRs futuros):
-   - Nunca usar `transform` em ancestrais do `Header`.
-   - Sempre usar `var(--z-*)` em vez de `z-[n]`.
-   - Spacer deve usar `calc(var(--site-header-height) + var(--top-offer-height))`.
-   - Animações de página apenas com `opacity`.
-5. Backlog priorizado (P0/P1/P2).
-
----
-
-## Detalhes técnicos
-
-- Stack: Vite + React, Playwright para e2e (não Vitest — Vitest fica para unit).
-- Os testes Playwright rodam contra `npm run preview` ou `dev` numa porta fixa; configurar `playwright.config.ts` com `webServer`.
-- Snapshots versionados; CI roda `playwright test` e falha em diff > 1%.
-- Sem mudanças visuais para o usuário final; somente refator de tokens + infra de teste + doc.
-
-## Arquivos previstos
-
-- editar: `src/index.css`, `src/components/Header.tsx`, `src/components/TopOfferBanner.tsx`, `src/components/HeroSection.tsx`, `src/components/PageTransition.tsx`, `package.json`
-- criar: `playwright.config.ts` (se ausente), `e2e/header-fixed.spec.ts`, `e2e/visual-top.spec.ts`, `e2e/__screenshots__/*`, `docs/audit-topo.md`
-
-## Fora de escopo
-- Redesign do Header/Banner.
-- Mudanças de conteúdo ou copy.
-- Refator de outras seções da home.
+## Pergunta
+Quer que eu execute as 3 fases de uma vez (PR grande, ~20+ arquivos), ou prefere ir **fase por fase** com aprovação entre cada uma (mais seguro, permite validar Performance antes de mexer em responsividade)?

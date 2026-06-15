@@ -300,7 +300,12 @@ export const WhatsAppFunnel = () => {
 
 
       const baseMessage = buildMessage(answers);
-      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage;
+      // Mesmo com preset (mensagem vinda de outro CTA), o aviso obrigatório
+      // sempre fica no final via `withVideoWarning`.
+      const finalMessage = withVideoWarning(
+        presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage,
+      );
+
 
       try {
         await recordSubmission({

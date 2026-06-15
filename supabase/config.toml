@@ -1,1 +1,4 @@
 project_id = "fvleuzkxsykltjbknrmh"
+
+[functions.cleanup-funnel-bucket]
+verify_jwt = false

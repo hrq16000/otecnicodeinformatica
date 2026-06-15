@@ -1,8 +1,26 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { act, render, screen, cleanup } from "@testing-library/react";
+import { act, render, screen, cleanup, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 import { VIDEO_WARNING } from "@/lib/funnelWarning";
+
+// Mock Supabase para o funil não tentar bater na rede (jsdom não tem fetch real).
+vi.mock("@/integrations/supabase/client", () => ({
+  supabase: {
+    from: () => ({
+      insert: vi.fn().mockResolvedValue({ data: null, error: null }),
+    }),
+    auth: {
+      getSession: vi.fn().mockResolvedValue({ data: { session: null }, error: null }),
+      onAuthStateChange: vi.fn(() => ({ data: { subscription: { unsubscribe: vi.fn() } } })),
+    },
+  },
+}));
+
+async function waitForWaCall() {
+  await waitFor(() => expect(getLastWaUrl()).not.toBeNull(), { timeout: 3000 });
+}
+
 
 const openSpy = vi.fn<(url?: string | URL, target?: string, features?: string) => Window | null>(
   () => null,

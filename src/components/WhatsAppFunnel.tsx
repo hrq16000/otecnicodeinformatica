@@ -27,6 +27,8 @@ import {
 } from "@/components/funnel/equipmentBranches";
 import { ColetaRequiredCard } from "@/components/funnel/ColetaRequiredCard";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
+import { VIDEO_WARNING, withVideoWarning } from "@/lib/funnelWarning";
+
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
@@ -48,8 +50,8 @@ const EMPTY: Answers = {
   descricao: "",
 };
 
-const VIDEO_WARNING =
-  "🚨 *Atenção — obrigatório para iniciar o atendimento:* envie *agora neste chat* (1) *fotos* do equipamento por completo, incluindo a *etiqueta traseira* com modelo/série, e (2) um *vídeo* mostrando o defeito acontecendo. O vídeo *não pode ter áudio nem ruídos de fundo* (mute o microfone do celular, ambiente em silêncio). *Sem o envio das fotos e do vídeo, o atendimento não será iniciado.*";
+
+
 
 
 function isWhatsAppHref(href: string | null): boolean {

@@ -47,6 +47,9 @@ const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
 const ArrumarPCCity = lazy(() => import("./pages/arrumar-pc/ArrumarPCCity"));
 const ArrumarPCServicoCidade = lazy(() => import("./pages/arrumar-pc/ArrumarPCServicoCidade"));
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
+const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));
 
 // Hubs SEO de categorias (TV, Som, Videogame, Celular) × cidades/bairros
 const ConsertoTVCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoTVCity })));
@@ -812,6 +815,12 @@ const App = () => (
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
+            <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
+
+            {/* Admin */}
+            <Route path="/admin" element={<Navigate to="/admin/funnel" replace />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/funnel" element={<AdminFunnel />} />
 
             {/* Hubs SEO Categorias × Local (TV, Som, Videogame, Celular) */}
             <Route path="/conserto-tv-curitiba" element={<ConsertoTVHub />} />

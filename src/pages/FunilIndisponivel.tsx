@@ -5,11 +5,14 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, AlertTriangle } from "lucide-react";
 import { appendUtmsToUrl } from "@/lib/utmCapture";
+import { withVideoWarning } from "@/lib/funnelWarning";
 
 const WHATSAPP_NUMBER = "5541997452053";
 
-const FALLBACK_TEXT =
-  "Olá! Tive um problema técnico no formulário do site e gostaria de falar com um atendente.";
+const FALLBACK_TEXT = withVideoWarning(
+  "Olá! Tive um problema técnico no formulário do site e gostaria de falar com um atendente.",
+);
+
 
 /**
  * Rota fallback quando o insert de submission falha.

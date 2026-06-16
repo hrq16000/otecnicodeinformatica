@@ -40,7 +40,7 @@ initWhatsAppUtm();
 // Measure LCP, CLS, INP, FCP, TTFB after hydration
 if (typeof window !== "undefined") {
   if ("requestIdleCallback" in window) {
-    (window as any).requestIdleCallback(() => initWebVitals());
+    (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(() => initWebVitals());
   } else {
     setTimeout(initWebVitals, 1500);
   }

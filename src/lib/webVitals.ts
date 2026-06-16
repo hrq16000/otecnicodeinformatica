@@ -17,8 +17,8 @@ function report(metric: Metric) {
     colors[rating] || ""
   );
   // Send to GA4 if available
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag("event", metric.name, {
+  if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+    (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", metric.name, {
       event_category: "Web Vitals",
       value: Math.round(metric.name === "CLS" ? metric.value * 1000 : metric.value),
       metric_id: metric.id,

@@ -36,18 +36,25 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
   const local = findLocal(slug);
   const category = CATEGORIES[categoryId];
 
-  if (!local) return <Navigate to={`/${category.slug}-curitiba`} replace />;
-
-  const path = `/${category.slug}/${local.slug}`;
-  const cityLabel = local.kind === "bairro" ? `${local.nome}, ${local.cidadeMae}` : local.nome;
+  // Derivações seguras (mesmo quando `local` é nulo) para manter a ordem
+  // dos hooks estável entre renders — corrige rules-of-hooks.
+  const path = local ? `/${category.slug}/${local.slug}` : `/${category.slug}`;
+  const cityLabel = local
+    ? local.kind === "bairro" ? `${local.nome}, ${local.cidadeMae}` : local.nome
+    : "";
   const title = `${category.titlePrefix} em ${cityLabel} | Coleta e Entrega · Técnico Curitiba`;
-  const description = `${category.titlePrefix} em ${cityLabel}/${local.uf} com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e orçamento sem compromisso pelo WhatsApp.`;
+  const description = local
+    ? `${category.titlePrefix} em ${cityLabel}/${local.uf} com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e orçamento sem compromisso pelo WhatsApp.`
+    : "";
   const msg = `Olá! Preciso de ${category.titlePrefix.toLowerCase()} em ${cityLabel}.`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
   useEffect(() => {
+    if (!local) return;
     trackPageView(path, title);
-  }, [path, title]);
+  }, [path, title, local]);
+
+  if (!local) return <Navigate to={`/${category.slug}-curitiba`} replace />;
 
   const serviceSchema = {
     "@context": "https://schema.org",

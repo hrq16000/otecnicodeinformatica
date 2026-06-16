@@ -27,6 +27,11 @@ window.addEventListener("unhandledrejection", (e) =>
 window.addEventListener("load", () => {
   try { sessionStorage.removeItem(RELOAD_KEY); } catch { /* noop */ }
 });
+// Vite emite este evento específico para falhas de preload de chunks após novo deploy
+window.addEventListener("vite:preloadError", (e: Event) => {
+  e.preventDefault?.();
+  handleChunkError("Failed to fetch dynamically imported module");
+});
 
 createRoot(document.getElementById("root")!).render(<App />);
 

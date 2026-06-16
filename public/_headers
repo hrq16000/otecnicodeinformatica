@@ -5,6 +5,23 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Garantia extra para extensões hasheadas (JS/CSS/fontes/imagens) servidas
+# fora de /assets/* — também imutáveis quando contêm hash de conteúdo.
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: revalidação rápida — deploys propagam em segundos.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Hashed responsive OG/hero images live under /assets/ already, but the
 # canonical (non-hashed) OG fallbacks live at the project root, e.g.
 # /og/arrumar-pc-<slug>.jpg — cache them aggressively but allow refresh.

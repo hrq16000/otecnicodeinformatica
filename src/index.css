@@ -208,6 +208,15 @@
 
   .hero-gradient {
     background: linear-gradient(160deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 60%, hsl(215 45% 32%) 100%);
+    /* Reserva mínima de altura para zerar CLS no mobile enquanto fontes/imagens
+       do hero (LCP) ainda estão carregando. Mantém viewport estável. */
+    min-height: 560px;
+  }
+  @media (min-width: 640px) {
+    .hero-gradient { min-height: 620px; }
+  }
+  @media (min-width: 1024px) {
+    .hero-gradient { min-height: 640px; }
   }
 
   .premium-gradient {

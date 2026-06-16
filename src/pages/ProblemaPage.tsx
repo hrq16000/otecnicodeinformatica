@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
-import { getProblemaPageBySlug } from "@/lib/problemaPagesData";
+import type { ProblemaPageData } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
@@ -47,7 +47,21 @@ const diagnosticoSteps = [
 
 const ProblemaPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const data = slug ? getProblemaPageBySlug(slug) : undefined;
+  const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!slug) { setLoading(false); return; }
+    let active = true;
+    setLoading(true);
+    import("@/lib/problemaPagesData").then(({ getProblemaPageBySlug }) => {
+      if (!active) return;
+      const found = getProblemaPageBySlug(slug);
+      setData(found);
+      setLoading(false);
+    }).catch(() => { if (active) setLoading(false); });
+    return () => { active = false; };
+  }, [slug]);
 
   useEffect(() => {
     if (data) {
@@ -95,6 +109,18 @@ const ProblemaPage = () => {
       { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `https://tecnicocuritiba.com.br/problemas/${data.slug}` },
     ],
   } : null;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto py-20 text-center text-muted-foreground">
+          Carregando…
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!data) {
     return (

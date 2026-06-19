@@ -1,12 +1,12 @@
 # CDN cache headers (honored by Cloudflare Pages / Netlify-compatible hosts).
-# Vite emits content-hashed filenames under /assets/*, so they are safe to
-# cache forever — `immutable` lets browsers and the CDN skip revalidation.
+# IMPORTANT: rules are evaluated top-to-bottom — first match wins.
+# Place SPECIFIC paths before GENERIC ones (`/*.html`, `/assets/*`, etc).
 
+# --- 1. Hashed immutable assets (safe forever) ---
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Garantia extra para extensões hasheadas (JS/CSS/fontes/imagens) servidas
-# fora de /assets/* — também imutáveis quando contêm hash de conteúdo.
+# Garantia extra para extensões hasheadas servidas fora de /assets/*.
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 /*.css
@@ -16,28 +16,29 @@
 /*.woff
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML: revalidação rápida — deploys propagam em segundos.
-/
-  Cache-Control: public, max-age=0, must-revalidate
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Hashed responsive OG/hero images live under /assets/ already, but the
-# canonical (non-hashed) OG fallbacks live at the project root, e.g.
-# /og/arrumar-pc-<slug>.jpg — cache them aggressively but allow refresh.
-
-/og/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# --- 2. SPECIFIC paths (must come before generic /*.html) ---
 
 # Per-city prerendered HTML — short edge cache so deploys propagate quickly,
 # longer SWR window to keep crawlers fast.
 /arrumar-pc/*
   Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
 
-# Favicon / manifest
+# Hashed responsive OG/hero images live under /assets/ already, but the
+# canonical (non-hashed) OG fallbacks live at the project root, e.g.
+# /og/arrumar-pc-<slug>.jpg — cache them aggressively but allow refresh.
+/og/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Favicon / manifest (specific files — won't match /*.html anyway)
 /favicon.png
   Cache-Control: public, max-age=604800
 /favicon.ico
   Cache-Control: public, max-age=604800
 /manifest.json
   Cache-Control: public, max-age=86400
+
+# --- 3. Generic HTML fallback (must-revalidate for instant deploys) ---
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

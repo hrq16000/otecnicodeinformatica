@@ -754,6 +754,8 @@ const App = () => (
             <Route path="/servicos/remocao-virus" element={<RemocaoVirus />} />
             <Route path="/servicos/upgrade-ssd-memoria" element={<UpgradeSsdMemoria />} />
             <Route path="/servicos/conserto-pc-notebook" element={<ConsertoPcNotebook />} />
+            <Route path="/servicos/conserto-notebook-curitiba" element={<ConsertoNotebookCuritiba />} />
+
             <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
             <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />

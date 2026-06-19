@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
+import { OrcamentoNotebookCalculator } from "@/components/OrcamentoNotebookCalculator";
 import { Link } from "react-router-dom";
 import { Laptop, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -125,6 +126,13 @@ const ConsertoNotebookCuritiba = () => {
           <div className="max-w-3xl mx-auto text-center">
             <PrecoVisitaTecnica tipo="coleta" />
           </div>
+        </div>
+      </section>
+
+      {/* Calculadora de orçamento — acima da dobra */}
+      <section className="py-10 bg-background">
+        <div className="container mx-auto px-4">
+          <OrcamentoNotebookCalculator />
         </div>
       </section>
 

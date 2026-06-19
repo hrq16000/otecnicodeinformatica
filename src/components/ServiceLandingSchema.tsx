@@ -1,9 +1,9 @@
 import { useEffect } from "react";
+import { validateAndInjectSchema } from "@/lib/schemaValidation";
 
 /**
- * Injeta JSON-LD por página: Service + Offer (R$ a partir de) + FAQPage,
- * referenciando o LocalBusiness sitewide (#organization). Use em todas as
- * landings de serviço para rich results (Serviço + Perguntas Frequentes).
+ * JSON-LD por landing de serviço: Service + Offer + FAQPage + WebPage + Speakable.
+ * Usa validateAndInjectSchema (bloqueia AggregateRating com <5 reviews e injeta dateModified).
  */
 const BASE_URL = "https://tecnicocuritiba.com.br";
 
@@ -13,18 +13,14 @@ export interface ServiceFaq {
 }
 
 interface ServiceLandingSchemaProps {
-  /** Nome curto do serviço — ex.: "Formatação de Computador" */
   serviceName: string;
-  /** Descrição do serviço (1-2 frases). */
   description: string;
-  /** Path relativo da landing — ex.: "/servicos/formatacao-computador" */
   path: string;
-  /** Preço mínimo em BRL (sem símbolo). Ex.: 99.99 */
   priceFrom: number;
-  /** Categoria do serviço — opcional, padrão "Assistência Técnica de Informática" */
   category?: string;
-  /** Lista de perguntas frequentes (mín. 3 para rich results) */
   faqs: ServiceFaq[];
+  /** ISO date opcional; default = build time. Atualizar quando reescrever a página. */
+  dateModified?: string;
 }
 
 export const ServiceLandingSchema = ({
@@ -34,9 +30,11 @@ export const ServiceLandingSchema = ({
   priceFrom,
   category = "Assistência Técnica de Informática",
   faqs,
+  dateModified,
 }: ServiceLandingSchemaProps) => {
   useEffect(() => {
     const url = `${BASE_URL}${path}`;
+    const modified = dateModified ?? new Date().toISOString();
 
     const serviceSchema = {
       "@context": "https://schema.org",
@@ -71,9 +69,6 @@ export const ServiceLandingSchema = ({
         url,
         seller: { "@id": `${BASE_URL}/#organization` },
       },
-      // AggregateRating removido: só pode ser reinjetado quando houver
-      // reviews verificadas (Google/Supabase). Dados fake violam a política
-      // de Rich Results do Google e podem gerar manual action.
     };
 
     const faqSchema = {
@@ -87,27 +82,38 @@ export const ServiceLandingSchema = ({
       })),
     };
 
-    const marker = `service-schema-${path}`;
-    document
-      .querySelectorAll(`script[data-service-schema="${marker}"]`)
-      .forEach((s) => s.remove());
-
-    const make = (data: unknown) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.setAttribute("data-service-schema", marker);
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
+    // WebPage + Speakable — otimizado para Bing Copilot / Google AI Overviews
+    const webPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: serviceName,
+      description,
+      inLanguage: "pt-BR",
+      isPartOf: { "@id": `${BASE_URL}/#website` },
+      about: { "@id": `${BASE_URL}/#organization` },
+      dateModified: modified,
+      primaryImageOfPage: { "@type": "ImageObject", url: `${BASE_URL}/og-image.jpg` },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".tldr", "[data-speakable]"],
+      },
+      mainEntity: { "@id": `${url}#service` },
     };
-    make(serviceSchema);
-    if (faqs.length) make(faqSchema);
+
+    const ids = [
+      [`service-schema-svc-${path}`, serviceSchema],
+      [`service-schema-faq-${path}`, faqSchema],
+      [`service-schema-page-${path}`, webPageSchema],
+    ] as const;
+
+    ids.forEach(([id, s]) => validateAndInjectSchema(id, s));
 
     return () => {
-      document
-        .querySelectorAll(`script[data-service-schema="${marker}"]`)
-        .forEach((s) => s.remove());
+      ids.forEach(([id]) => document.getElementById(id)?.remove());
     };
-  }, [serviceName, description, path, priceFrom, category, faqs]);
+  }, [serviceName, description, path, priceFrom, category, faqs, dateModified]);
 
   return null;
 };

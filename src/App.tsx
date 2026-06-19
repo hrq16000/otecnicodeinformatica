@@ -54,6 +54,8 @@ const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));
 const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
+const ConsertoImpressoraCuritiba = lazy(() => import("./pages/ConsertoImpressoraCuritiba"));
+const AssistenciaEletrodomesticosInteligentesCuritiba = lazy(() => import("./pages/AssistenciaEletrodomesticosInteligentesCuritiba"));
 
 // Hubs SEO de categorias (TV, Som, Videogame, Celular) × cidades/bairros
 const ConsertoTVCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoTVCity })));
@@ -841,6 +843,8 @@ const App = () => (
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/funnel" element={<AdminFunnel />} />
             <Route path="/admin/reviews" element={<AdminReviews />} />
+            <Route path="/conserto-impressora-curitiba" element={<ConsertoImpressoraCuritiba />} />
+            <Route path="/assistencia-eletrodomesticos-inteligentes-curitiba" element={<AssistenciaEletrodomesticosInteligentesCuritiba />} />
 
             {/* Hubs SEO Categorias × Local (TV, Som, Videogame, Celular) */}
             <Route path="/conserto-tv-curitiba" element={<ConsertoTVHub />} />

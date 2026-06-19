@@ -10,7 +10,6 @@ interface LazyMountProps {
   eager?: boolean;
   className?: string;
   style?: CSSProperties;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 /**
@@ -25,9 +24,7 @@ export const LazyMount = ({
   eager = false,
   className,
   style,
-  as = "div",
 }: LazyMountProps) => {
-  const Tag = as as keyof JSX.IntrinsicElements;
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(eager);
 
@@ -60,11 +57,10 @@ export const LazyMount = ({
     ...style,
   };
 
-  // @ts-expect-error dynamic tag
   return (
-    <Tag ref={ref} className={className} style={mergedStyle}>
+    <div ref={ref} className={className} style={mergedStyle}>
       {visible ? children : null}
-    </Tag>
+    </div>
   );
 };
 

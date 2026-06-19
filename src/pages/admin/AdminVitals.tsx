@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { readVitalsHistory, clearVitalsHistory, type WebVitalEntry } from "@/lib/webVitals";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Helmet } from "react-helmet-async";
+
 
 const METRICS = ["LCP", "INP", "CLS", "FCP", "TTFB"] as const;
 
@@ -71,12 +71,19 @@ export default function AdminVitals() {
     }));
   }, [entries]);
 
+  useEffect(() => {
+    document.title = "Painel Web Vitals — Admin";
+    let meta = document.querySelector('meta[name="robots"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "robots");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", "noindex,nofollow");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background px-4 py-10">
-      <Helmet>
-        <title>Painel Web Vitals — Admin</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
       <div className="mx-auto max-w-6xl space-y-6">
         <header className="flex flex-wrap items-end justify-between gap-4">
           <div>

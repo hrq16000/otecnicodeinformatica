@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -161,6 +162,7 @@ const TecnicoInformaticaCuritiba = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title="Técnico de Informática em Curitiba | Assistência Técnica Nº1 | Atendimento Hoje" description="A assistência técnica em informática mais completa de Curitiba. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. ⭐ 4.9/5 - Atendimento a domicílio no mesmo dia. (41) 99745-2053" path="/tecnico-informatica-curitiba" />
+      <CityServiceSchema city={"Curitiba"} citySameAs={"https://pt.wikipedia.org/wiki/Curitiba"} path={"/tecnico-informatica-curitiba"} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em Curitiba" }]} />

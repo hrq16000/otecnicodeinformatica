@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -172,7 +173,7 @@ const TecnicoInformaticaPinhais = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. A partir de R$ 69,99."
+        "Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. a partir de R$ 99,99."
       );
     }
     trackPageView("/tecnico-informatica-pinhais", "Técnico Pinhais");
@@ -180,7 +181,8 @@ const TecnicoInformaticaPinhais = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Pinhais | Assistência Técnica Rápida | Técnico Curitiba" description="Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. A partir de R$ 69,99." path="/tecnico-informatica-pinhais" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Pinhais", path: "/tecnico-informatica-pinhais" }]} />
+      <PageSEO title="Técnico de Informática em Pinhais | Assistência Técnica Rápida | Técnico Curitiba" description="Técnico de informática em Pinhais PR. Atendimento rápido a domicílio. Formatação, conserto de PC e notebook, remoção de vírus. Próximo a Curitiba. a partir de R$ 99,99." path="/tecnico-informatica-pinhais" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Pinhais", path: "/tecnico-informatica-pinhais" }]} />
+      <CityServiceSchema city={"Pinhais"} citySameAs={"https://pt.wikipedia.org/wiki/Pinhais"} path={"/tecnico-informatica-pinhais"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pinhaisSchema) }} />
       <JsonLdSchema />
       <Header />

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -61,13 +62,14 @@ const TecnicoInformaticaCampoMagro = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Campo Magro PR | Atendimento Domicílio | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.");
+    if (meta) meta.setAttribute("content", "Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.");
     trackPageView("/tecnico-informatica-campo-magro", "Técnico Campo Magro");
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Campo Magro PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-campo-magro" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Campo Magro", path: "/tecnico-informatica-campo-magro" }]} />
+      <PageSEO title="Técnico de Informática em Campo Magro PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Campo Magro PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-campo-magro" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Campo Magro", path: "/tecnico-informatica-campo-magro" }]} />
+      <CityServiceSchema city={"Campo Magro"} citySameAs={"https://pt.wikipedia.org/wiki/Campo_Magro"} path={"/tecnico-informatica-campo-magro"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />

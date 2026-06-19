@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -172,7 +173,7 @@ const TecnicoInformaticaCampoLargo = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. A partir de R$ 69,99. Capital da Louça."
+        "Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. a partir de R$ 99,99. Capital da Louça."
       );
     }
     trackPageView("/tecnico-informatica-campo-largo", "Técnico Campo Largo");
@@ -180,7 +181,8 @@ const TecnicoInformaticaCampoLargo = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Campo Largo | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. A partir de R$ 69,99. Capital da Louça." path="/tecnico-informatica-campo-largo" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Campo Largo", path: "/tecnico-informatica-campo-largo" }]} />
+      <PageSEO title="Técnico de Informática em Campo Largo | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em Campo Largo PR. Atendimento a domicílio para computadores e notebooks. Formatação, vírus, upgrade. a partir de R$ 99,99. Capital da Louça." path="/tecnico-informatica-campo-largo" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Campo Largo", path: "/tecnico-informatica-campo-largo" }]} />
+      <CityServiceSchema city={"Campo Largo"} citySameAs={"https://pt.wikipedia.org/wiki/Campo_Largo_(Paran%C3%A1)"} path={"/tecnico-informatica-campo-largo"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(campoLargoSchema) }} />
       <JsonLdSchema />
       <Header />

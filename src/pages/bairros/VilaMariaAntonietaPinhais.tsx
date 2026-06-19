@@ -5,7 +5,7 @@ const data = {
   slug: "vila-maria-antonieta-pinhais",
   cidade: "Pinhais",
   metaTitle: "Técnico de Informática no Vila Maria Antonieta | Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Vila Maria Antonieta, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Vila Maria Antonieta, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Maria Antonieta – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Vila Maria Antonieta. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Vila Maria Antonieta é um bairro de Pinhais próximo ao centro. Nosso técnico atende com ferramentas profissionais para diagnóstico e reparo.`,

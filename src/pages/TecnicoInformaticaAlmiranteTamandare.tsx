@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -102,7 +103,7 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. A partir de A partir de R$ 69,99."
+        "Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. a partir de R$ 99,99."
       );
     }
     trackPageView("/tecnico-informatica-almirante-tamandare", "Técnico Almirante Tamandaré");
@@ -110,7 +111,8 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Almirante Tamandaré | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-almirante-tamandare" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Almirante Tamandaré", path: "/tecnico-informatica-almirante-tamandare" }]} />
+      <PageSEO title="Técnico de Informática em Almirante Tamandaré | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Almirante Tamandaré PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-almirante-tamandare" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Almirante Tamandaré", path: "/tecnico-informatica-almirante-tamandare" }]} />
+      <CityServiceSchema city={"Almirante Tamandaré"} citySameAs={"https://pt.wikipedia.org/wiki/Almirante_Tamandar%C3%A9"} path={"/tecnico-informatica-almirante-tamandare"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(atSchema) }} />
       <JsonLdSchema />
       <Header />

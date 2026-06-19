@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-esperanca-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Jardim Esperança | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Esperança, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Esperança, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Esperança – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Jardim Esperança. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Esperança é um bairro residencial de Campo Largo. Nosso técnico realiza manutenção preventiva e corretiva de computadores.`,

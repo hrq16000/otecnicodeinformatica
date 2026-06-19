@@ -404,7 +404,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 <div className="grid md:grid-cols-3 gap-4">
                   {[
                     { to: "/como-funciona", title: "Como Funciona", desc: "Entenda o passo a passo do atendimento técnico a domicílio.", cta: "Ver detalhes" },
-                    { to: "/valores", title: "Preços e Condições", desc: "Valores claros, sem surpresas. A partir de R$ 69,99.", cta: "Ver preços" },
+                    { to: "/valores", title: "Preços e Condições", desc: "Valores claros, sem surpresas. a partir de R$ 99,99.", cta: "Ver preços" },
                     { to: "/diagnostico-tecnico", title: "Diagnóstico Técnico", desc: "Por que o diagnóstico é pago e como ele protege você.", cta: "Entender" },
                   ].map((link, i) => (
                     <Link 

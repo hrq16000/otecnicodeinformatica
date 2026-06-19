@@ -6,7 +6,7 @@ const CentroColombo = () => {
     slug: "centro-colombo",
     cidade: "Colombo",
     metaTitle: "Técnico de Informática no Centro de Colombo | Atendimento Rápido | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Centro de Colombo PR. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no Centro de Colombo PR. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Colombo",
     subtitulo: "Assistência técnica no Centro de Colombo com atendimento rápido, diagnóstico profissional e garantia.",
     descricaoLonga: `O Centro de Colombo é a região mais movimentada da cidade, com forte concentração comercial e residencial. A proximidade com Curitiba pela Estrada da Ribeira facilita nosso deslocamento.

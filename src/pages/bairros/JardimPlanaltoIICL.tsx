@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-planalto-ii-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Jardim Planalto II | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Planalto II, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Planalto II, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Planalto II – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Jardim Planalto II. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Planalto II é uma extensão do Jardim Planalto em Campo Largo, com perfil residencial. Atendemos com serviços completos de informática.`,

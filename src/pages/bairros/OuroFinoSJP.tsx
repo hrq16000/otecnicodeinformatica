@@ -5,7 +5,7 @@ const data = {
   slug: "ouro-fino-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Ouro Fino | São José dos Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Ouro Fino, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Ouro Fino, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Ouro Fino – São José dos Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Ouro Fino. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Ouro Fino é um bairro residencial de São José dos Pinhais, com comunidade ativa e acesso facilitado pelas principais vias da cidade. Nosso técnico de informática atende Ouro Fino a domicílio, realizando formatação, conserto de notebook, remoção de vírus e configuração de redes com diagnóstico profissional no local.`,

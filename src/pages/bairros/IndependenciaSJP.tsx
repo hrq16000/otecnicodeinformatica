@@ -5,7 +5,7 @@ const data = {
   slug: "independencia-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Independência | São José dos Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Independência, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Independência, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Independência – São José dos Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Independência. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O bairro Independência é uma região residencial consolidada de São José dos Pinhais, com boa infraestrutura e acesso rápido ao centro. Nosso técnico de informática atende Independência a domicílio com profissionalismo, realizando diagnóstico, formatação, conserto de notebooks, upgrade SSD e configuração de redes.`,

@@ -5,7 +5,7 @@ const data = {
   slug: "joquei-clube-cm",
   cidade: "Campo Magro",
   metaTitle: "Técnico de Informática no Jóquei Clube | Campo Magro | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jóquei Clube, Campo Magro. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jóquei Clube, Campo Magro. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jóquei Clube – Campo Magro",
   subtitulo: "Atendimento profissional a domicílio no Jóquei Clube. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jóquei Clube é uma região de Campo Magro com perfil residencial e rural. Nosso técnico de informática atende a domicílio com visita agendada, equipamento profissional e diagnóstico no local.`,

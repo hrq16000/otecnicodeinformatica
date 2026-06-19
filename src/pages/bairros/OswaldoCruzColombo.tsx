@@ -5,7 +5,7 @@ const data = {
   slug: "osvaldo-cruz-colombo",
   cidade: "Colombo",
   metaTitle: "Técnico de Informática no Osvaldo Cruz | Colombo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Osvaldo Cruz, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Osvaldo Cruz, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Osvaldo Cruz – Colombo",
   subtitulo: "Atendimento profissional a domicílio no Osvaldo Cruz. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Osvaldo Cruz é um bairro residencial de Colombo com forte comunidade local. Nosso técnico de informática atende Osvaldo Cruz a domicílio, oferecendo serviços de formatação, conserto de notebooks, remoção de vírus e configuração de redes Wi-Fi com diagnóstico profissional no local e preços acessíveis.`,

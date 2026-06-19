@@ -5,7 +5,7 @@ const data = {
   slug: "estancia-pinhais",
   cidade: "Pinhais",
   metaTitle: "Técnico de Informática no Estância Pinhais | Pinhais | Atendimento Domicílio | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Estância Pinhais, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Estância Pinhais, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Estância Pinhais – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Estância Pinhais. Diagnóstico no local, orçamento transparente e garantia.",
   descricaoLonga: `O Estância Pinhais é um bairro de Pinhais, cidade vizinha de Curitiba com acesso rápido pela região norte/leste. Com forte perfil residencial, o bairro conta com demanda constante por serviços de informática. Nosso técnico de informática atende o Estância Pinhais a domicílio com equipamento profissional, realizando diagnóstico no local e resolvendo a maioria dos problemas na primeira visita. Para casos que exigem bancada, oferecemos coleta e entrega. Trabalhamos com transparência total: orçamento antes da execução, sem surpresas.`,

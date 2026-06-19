@@ -5,7 +5,7 @@ const data = {
   slug: "timbotuva-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Timbotuva | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Timbotuva, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Timbotuva, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Timbotuva – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Timbotuva. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Timbotuva é uma comunidade de Campo Largo com perfil rural e residencial. Nosso técnico atende com visita agendada para diagnóstico e reparo.`,

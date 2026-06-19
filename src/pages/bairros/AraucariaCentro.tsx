@@ -7,7 +7,7 @@ const AraucariaCentro = () => {
     cidade: "Araucária",
     metaTitle: "Técnico de Informática no Centro de Araucária | Atendimento a Domicílio | Técnico Curitiba",
     metaDescription:
-      "Técnico de informática no Centro de Araucária. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio com agendamento. A partir de R$ 69,99.",
+      "Técnico de informática no Centro de Araucária. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio com agendamento. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Araucária",
     subtitulo:
       "Assistência técnica em informática no Centro de Araucária com atendimento a domicílio e soluções rápidas.",

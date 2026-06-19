@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -107,7 +108,7 @@ const TecnicoInformaticaColombo = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 69,99."
+        "Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99."
       );
     }
     trackPageView("/tecnico-informatica-colombo", "Técnico Colombo");
@@ -115,7 +116,8 @@ const TecnicoInformaticaColombo = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Colombo PR | Atendimento a Domicílio | Técnico Curitiba" description="Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. A partir de R$ 69,99." path="/tecnico-informatica-colombo" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Colombo", path: "/tecnico-informatica-colombo" }]} />
+      <PageSEO title="Técnico de Informática em Colombo PR | Atendimento a Domicílio | Técnico Curitiba" description="Técnico de informática em Colombo PR. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99." path="/tecnico-informatica-colombo" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Colombo", path: "/tecnico-informatica-colombo" }]} />
+      <CityServiceSchema city={"Colombo"} citySameAs={"https://pt.wikipedia.org/wiki/Colombo_(Paran%C3%A1)"} path={"/tecnico-informatica-colombo"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(colomboSchema) }} />
       <JsonLdSchema />
       <Header />

@@ -5,7 +5,7 @@ const data = {
   slug: "afonso-pena",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Afonso Pena SJP | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Afonso Pena, São José dos Pinhais. Visita técnica a domicílio. Conserto de PC, formatação e suporte. A partir de A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Afonso Pena, São José dos Pinhais. Visita técnica a domicílio. Conserto de PC, formatação e suporte. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Afonso Pena – SJP",
   subtitulo: "Atendimento técnico no Afonso Pena e proximidades do aeroporto",
   descricaoLonga: `O bairro Afonso Pena em São José dos Pinhais é uma região estratégica próxima 

@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-iguacu-araucaria",
   cidade: "Araucária",
   metaTitle: "Técnico de Informática no Jardim Iguaçu | Araucária | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Iguaçu, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Iguaçu, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Iguaçu – Araucária",
   subtitulo: "Atendimento profissional a domicílio no Jardim Iguaçu. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Iguaçu é um bairro residencial de Araucária próximo ao Rio Iguaçu. Nosso técnico atende a domicílio com ferramentas profissionais para diagnóstico e reparo.`,

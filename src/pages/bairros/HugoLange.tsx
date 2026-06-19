@@ -5,7 +5,7 @@ const data = {
   slug: "hugo-lange",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Hugo Lange | Curitiba | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Hugo Lange, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Hugo Lange, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Hugo Lange – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Hugo Lange. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Hugo Lange é um bairro nobre e arborizado de Curitiba, próximo ao Jardim Botânico e ao Cabral. Com perfil predominantemente residencial e ruas tranquilas, é um dos bairros mais charmosos da cidade. Nosso técnico de informática atende Hugo Lange a domicílio com discrição e profissionalismo, realizando diagnóstico, formatação, conserto de notebooks, configuração de smart home e suporte premium para residências e home offices.`,

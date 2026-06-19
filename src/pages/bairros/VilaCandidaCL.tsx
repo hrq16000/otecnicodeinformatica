@@ -5,7 +5,7 @@ const data = {
   slug: "vila-candida-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Vila Cândida | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Vila Cândida, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Vila Cândida, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Cândida – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Vila Cândida. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Vila Cândida é um bairro residencial de Campo Largo com acesso facilitado pelo centro. Oferecemos suporte técnico completo a domicílio.`,

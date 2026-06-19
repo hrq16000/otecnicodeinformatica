@@ -5,7 +5,7 @@ const data = {
   slug: "quississana-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Quississana | São José dos Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Quississana, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Quississana, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Quississana – São José dos Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Quississana. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Quississana é um bairro residencial de São José dos Pinhais com crescimento acelerado nos últimos anos. A região abriga muitas famílias e condomínios que dependem de tecnologia. Nosso técnico de informática atende Quississana a domicílio com diagnóstico profissional, formatação, conserto de notebooks e configuração de redes Wi-Fi.`,

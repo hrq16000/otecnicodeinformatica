@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -66,13 +67,14 @@ const TecnicoInformaticaPiraquara = () => {
   useEffect(() => {
     document.title = "Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99.");
+    if (meta) meta.setAttribute("content", "Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.");
     trackPageView("/tecnico-informatica-piraquara", "Técnico Piraquara");
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de A partir de R$ 69,99." path="/tecnico-informatica-piraquara" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Piraquara", path: "/tecnico-informatica-piraquara" }]} />
+      <PageSEO title="Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-piraquara" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Piraquara", path: "/tecnico-informatica-piraquara" }]} />
+      <CityServiceSchema city={"Piraquara"} citySameAs={"https://pt.wikipedia.org/wiki/Piraquara"} path={"/tecnico-informatica-piraquara"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />
       <Header />

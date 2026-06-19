@@ -484,7 +484,7 @@ const ComoFunciona = () => {
                     exemplo: "Computador lento → SSD cheio + muitos programas na inicialização",
                     tempo: "30-60 minutos",
                     solucao: "Limpeza de disco, otimização de inicialização, upgrade de SSD se necessário",
-                    custo: "A partir de R$ 69,99",
+                    custo: "a partir de R$ 99,99",
                   },
                   {
                     nivel: "Médio",

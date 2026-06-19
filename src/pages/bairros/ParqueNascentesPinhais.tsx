@@ -5,7 +5,7 @@ const data = {
   slug: "parque-nascentes-pinhais",
   cidade: "Pinhais",
   metaTitle: "Técnico de Informática no Parque das Nascentes | Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Parque das Nascentes, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Parque das Nascentes, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Parque das Nascentes – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Parque das Nascentes. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Parque das Nascentes é uma região de Pinhais com perfil residencial e áreas verdes. Atendemos com visita técnica agendada.`,

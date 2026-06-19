@@ -5,7 +5,7 @@ const data = {
   slug: "boa-vista-at",
   cidade: "Almirante Tamandaré",
   metaTitle: "Técnico de Informática no Boa Vista | Almirante Tamandaré | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Boa Vista, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Boa Vista, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Boa Vista – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Boa Vista. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Boa Vista é um bairro residencial de Almirante Tamandaré. Nosso técnico de informática atende Boa Vista a domicílio com diagnóstico profissional, formatação, conserto de notebooks e configuração de redes Wi-Fi.`,

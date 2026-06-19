@@ -6,7 +6,7 @@ const NacoesFRG = () => {
     slug: "nacoes-frg",
     cidade: "Fazenda Rio Grande",
     metaTitle: "Técnico de Informática no Nações (Fazenda Rio Grande) | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Nações, Fazenda Rio Grande. Formatação, conserto, upgrade SSD e redes Wi-Fi. Atendimento domiciliar. A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no Nações, Fazenda Rio Grande. Formatação, conserto, upgrade SSD e redes Wi-Fi. Atendimento domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Nações – Fazenda Rio Grande",
     subtitulo: "Assistência técnica no Nações com atendimento a domicílio, qualidade e garantia.",
     descricaoLonga: `O bairro Nações em Fazenda Rio Grande é uma região residencial em constante crescimento. Moradores que trabalham de casa ou estudam online precisam de computadores funcionando bem.

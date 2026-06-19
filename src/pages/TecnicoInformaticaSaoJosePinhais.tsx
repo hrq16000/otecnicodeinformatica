@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -156,6 +157,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title="Técnico de Informática em São José dos Pinhais | Assistência Técnica | Técnico Curitiba" description="Técnico de informática em São José dos Pinhais. Atendimento em domicílio e empresas. Conserto de computador, formatação, remoção de vírus na região metropolitana de Curitiba." path="/tecnico-informatica-sao-jose-pinhais" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "São José dos Pinhais", path: "/tecnico-informatica-sao-jose-pinhais" }]} />
+      <CityServiceSchema city={"São José dos Pinhais"} citySameAs={"https://pt.wikipedia.org/wiki/S%C3%A3o_Jos%C3%A9_dos_Pinhais"} path={"/tecnico-informatica-sao-jose-pinhais"} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Técnico em São José dos Pinhais" }]} />

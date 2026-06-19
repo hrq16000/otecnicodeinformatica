@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-karla-pinhais",
   cidade: "Pinhais",
   metaTitle: "Técnico de Informática no Jardim Karla | Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Karla, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Karla, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Karla – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Jardim Karla. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Karla é um bairro de Pinhais próximo ao centro. Atendemos com manutenção de computadores, notebooks e redes Wi-Fi.`,

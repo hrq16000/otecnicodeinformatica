@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { CityServiceSchema } from "@/components/CityServiceSchema";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -173,7 +174,7 @@ const TecnicoInformaticaAraucaria = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. A partir de R$ 69,99. Polo industrial e residencial."
+        "Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. a partir de R$ 99,99. Polo industrial e residencial."
       );
     }
     trackPageView("/tecnico-informatica-araucaria", "Técnico Araucária");
@@ -181,7 +182,8 @@ const TecnicoInformaticaAraucaria = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Araucária | Assistência Técnica a Domicílio | Técnico Curitiba" description="Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. A partir de R$ 69,99. Polo industrial e residencial." path="/tecnico-informatica-araucaria" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Araucária", path: "/tecnico-informatica-araucaria" }]} />
+      <PageSEO title="Técnico de Informática em Araucária | Assistência Técnica a Domicílio | Técnico Curitiba" description="Técnico de informática em Araucária PR. Atendimento a domicílio para PC e notebook. Formatação, conserto, remoção de vírus. a partir de R$ 99,99. Polo industrial e residencial." path="/tecnico-informatica-araucaria" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Araucária", path: "/tecnico-informatica-araucaria" }]} />
+      <CityServiceSchema city={"Araucária"} citySameAs={"https://pt.wikipedia.org/wiki/Arauc%C3%A1ria"} path={"/tecnico-informatica-araucaria"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(araucariaSchema) }} />
       <JsonLdSchema />
       <Header />

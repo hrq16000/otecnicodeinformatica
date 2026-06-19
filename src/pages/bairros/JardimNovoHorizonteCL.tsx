@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-novo-horizonte-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Jardim Novo Horizonte | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Novo Horizonte, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Novo Horizonte, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Novo Horizonte – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Jardim Novo Horizonte. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Novo Horizonte é uma região em crescimento de Campo Largo. Atendemos com manutenção de computadores e redes.`,

@@ -5,7 +5,7 @@ const data = {
   slug: "cic",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no CIC Curitiba | Suporte Técnico | Técnico Curitiba",
-  metaDescription: "Técnico de informática no CIC (Cidade Industrial de Curitiba). Suporte para empresas e residências. Manutenção de computadores. A partir de A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no CIC (Cidade Industrial de Curitiba). Suporte para empresas e residências. Manutenção de computadores. a partir de R$ 99,99.",
   h1: "Técnico de Informática no CIC – Curitiba",
   subtitulo: "Suporte técnico para empresas e residências na Cidade Industrial de Curitiba",
   descricaoLonga: `A Cidade Industrial de Curitiba (CIC) é o maior bairro de Curitiba em extensão, 

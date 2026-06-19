@@ -5,7 +5,7 @@ const data = {
   slug: "embu-colombo",
   cidade: "Colombo",
   metaTitle: "Técnico de Informática no Embu | Colombo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Embu, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Embu, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Embu – Colombo",
   subtitulo: "Atendimento profissional a domicílio no Embu. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Embu é uma região de Colombo com perfil residencial e rural. Nosso técnico atende Embu com visita agendada, levando equipamento profissional para diagnóstico e reparo no local. Atendemos computadores, notebooks e redes.`,

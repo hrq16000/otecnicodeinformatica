@@ -6,7 +6,7 @@ const SaoCristovao = () => {
     slug: "sao-cristovao",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no São Cristóvão SJP | Técnico Curitiba",
-    metaDescription: "Técnico de informática no São Cristóvão, São José dos Pinhais. Conserto de PC e notebook, formatação, upgrade. Atendimento domiciliar. A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no São Cristóvão, São José dos Pinhais. Conserto de PC e notebook, formatação, upgrade. Atendimento domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no São Cristóvão – São José dos Pinhais",
     subtitulo: "Atendimento técnico especializado no São Cristóvão. Seu computador funcionando perfeitamente.",
     descricaoLonga: `O bairro São Cristóvão em São José dos Pinhais é uma região em constante desenvolvimento, com excelente estrutura residencial e comercial. Nossa equipe de técnicos de informática atende toda a região do São Cristóvão, proporcionando serviços de qualidade com atendimento personalizado.

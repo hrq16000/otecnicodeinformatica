@@ -270,6 +270,13 @@ const ConsertoNotebookCuritiba = () => {
         </div>
       </section>
 
+      {/* Calculadora — final da página, antes do CTA */}
+      <section className="py-12 bg-secondary">
+        <div className="container mx-auto px-4">
+          <OrcamentoNotebookCalculator variant="compact" />
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">

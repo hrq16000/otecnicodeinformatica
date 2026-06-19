@@ -1,70 +1,8 @@
-import { useRef, useEffect, useState, type ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import type { ReactNode } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
 }
 
-export const PageTransition = ({ children }: PageTransitionProps) => {
-  const location = useLocation();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prevPath = useRef(location.pathname);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  useEffect(() => {
-    if (prevPath.current === location.pathname) return;
-    prevPath.current = location.pathname;
-
-    const el = containerRef.current;
-    if (!el) return;
-
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
-
-    setIsTransitioning(true);
-
-    // Phase 1: fade without transform/filter so fixed headers stay fixed.
-    el.style.transition = "none";
-    el.style.opacity = "0";
-
-    // Phase 2: Enter with smooth reveal
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        el.style.transition = "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
-        el.style.opacity = "1";
-        
-        setTimeout(() => {
-          el.style.transition = "";
-          el.style.opacity = "";
-          setIsTransitioning(false);
-        }, 400);
-      });
-    });
-  }, [location.pathname]);
-
-  return (
-    <>
-      {/* Transition overlay wipe */}
-      {isTransitioning && (
-        <div
-          className="fixed inset-0 pointer-events-none"
-          style={{
-            zIndex: "var(--z-page-wipe)" as unknown as number,
-            background: "linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.05))",
-            animation: "pageWipe 0.5s ease-out forwards",
-          }}
-        />
-      )}
-      <div ref={containerRef}>
-        {children}
-      </div>
-      <style>{`
-        @keyframes pageWipe {
-          0% { clip-path: inset(0 0 100% 0); opacity: 1; }
-          50% { clip-path: inset(0 0 0 0); opacity: 0.6; }
-          100% { clip-path: inset(100% 0 0 0); opacity: 0; }
-        }
-      `}</style>
-    </>
-  );
-};
+// Carregamento instantâneo: sem overlays, sem fades que escurecem a página.
+export const PageTransition = ({ children }: PageTransitionProps) => <>{children}</>;

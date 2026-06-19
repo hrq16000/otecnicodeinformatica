@@ -409,10 +409,17 @@ const CFTVPinhais = lazy(() => import("./pages/cftv/CFTVPinhais"));
 
 const queryClient = new QueryClient();
 
-// Minimal loading fallback — invisible to avoid layout shift
+// Loader com logo pulsando — carregamento instantâneo
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+  <div className="min-h-[50vh] flex items-center justify-center bg-background">
+    <img
+      src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+      alt="Técnico Curitiba"
+      width="304"
+      height="98"
+      className="h-12 sm:h-14 w-auto object-scale-down animate-pulse"
+      style={{ animationDuration: "1.2s" }}
+    />
   </div>
 );
 

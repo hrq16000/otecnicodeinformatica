@@ -12,8 +12,7 @@ export type BlogPostContent = {
   content: ReactNode;
 };
 
-export const blogPostsContentBase: Record<string, BlogPostContent> = 
-}> = {
+export const blogPostsContentBase: Record<string, BlogPostContent> = {
 
   "linux-vs-windows-diferencas-qual-escolher": {
     title: "Linux vs Windows: Diferenças Reais e Qual Escolher em 2026",

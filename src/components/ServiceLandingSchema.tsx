@@ -71,12 +71,9 @@ export const ServiceLandingSchema = ({
         url,
         seller: { "@id": `${BASE_URL}/#organization` },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "187",
-        bestRating: "5",
-      },
+      // AggregateRating removido: só pode ser reinjetado quando houver
+      // reviews verificadas (Google/Supabase). Dados fake violam a política
+      // de Rich Results do Google e podem gerar manual action.
     };
 
     const faqSchema = {

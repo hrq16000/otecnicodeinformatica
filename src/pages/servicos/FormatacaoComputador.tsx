@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, Clock, Shield, ArrowRight, MessageCircle } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";

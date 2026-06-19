@@ -32,11 +32,24 @@ const ConsertoPcNotebook = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Conserto de PC e Notebook em Curitiba | Hardware - Técnico Curitiba" description="Conserto de computador e notebook em Curitiba. Reparo de hardware, placa-mãe, fonte, tela, teclado. Diagnóstico com coleta e entrega. Garantia." path="/servicos/conserto-pc-notebook"  breadcrumbs={[
+      <PageSEO title="Conserto de PC e Notebook em Curitiba a partir de R$ 99,99 | Técnico Curitiba" description="Conserto de computador e notebook em Curitiba a partir de R$ 99,99 (visita técnica). Hardware, placa-mãe, fonte, tela, teclado, garantia e atendimento em até 30 min." path="/servicos/conserto-pc-notebook"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Conserto PC/Notebook", path: "/servicos/conserto-pc-notebook" }
       ]} />
+      <ServiceLandingSchema
+        serviceName="Conserto de PC e Notebook"
+        description="Diagnóstico e reparo de hardware em computadores e notebooks: placa-mãe, fonte, tela, teclado, dobradiças e conectores. Visita técnica em Curitiba a partir de R$ 99,99."
+        path="/servicos/conserto-pc-notebook"
+        priceFrom={99.99}
+        faqs={[
+          { question: "Quanto custa consertar um notebook em Curitiba?", answer: "A visita técnica e o diagnóstico começam em R$ 99,99. O valor do reparo depende da peça defeituosa — informamos o orçamento fechado antes de executar qualquer serviço." },
+          { question: "Vocês consertam placa-mãe de notebook?", answer: "Sim. Fazemos reparo de placa-mãe a nível de componente — trocas de chip de carga, capacitores, BGA (chipset/GPU) — com garantia. Quando não compensa reparar, indicamos com transparência." },
+          { question: "Tem coleta e entrega para equipamentos maiores?", answer: "Sim. Para desktops, all-in-one e notebooks com tela quebrada oferecemos coleta e entrega em Curitiba e região, com prazo combinado por WhatsApp." },
+          { question: "Quanto tempo demora o conserto?", answer: "Reparos simples (fonte, memória, SSD, software) saem no mesmo dia. Reparos de placa e BGA levam de 3 a 7 dias úteis dependendo da peça." },
+          { question: "Vocês dão garantia no serviço?", answer: "Sim. Toda mão de obra tem garantia de 90 dias e as peças trocadas têm a garantia do fabricante, registrada na ordem de serviço." },
+        ]}
+      />
       <Header />
       <Breadcrumbs
         items={[

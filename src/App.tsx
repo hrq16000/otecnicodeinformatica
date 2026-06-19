@@ -38,6 +38,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const ComoFunciona = lazy(() => import("./pages/ComoFunciona"));
 const DiagnosticoTecnico = lazy(() => import("./pages/DiagnosticoTecnico"));
+const Diagnostico60s = lazy(() => import("./pages/Diagnostico60s"));
 const EquipamentosAtendidos = lazy(() => import("./pages/EquipamentosAtendidos"));
 const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));

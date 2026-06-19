@@ -16,7 +16,8 @@ import {
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star } from "lucide-react";
+import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
+import { t24WaLink, t72WaLink, reviewWindow } from "@/lib/reviewRequest";
 
 type Review = {
   id: string;
@@ -339,6 +340,48 @@ const AdminReviews = () => {
                       {r.published ? <><EyeOff className="w-4 h-4 mr-1" />Ocultar</> : <><Eye className="w-4 h-4 mr-1" />Publicar</>}
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => openEdit(r)} className="flex-1">Editar</Button>
+                    {(() => {
+                      const baseDate = r.review_date ?? r.created_at;
+                      const win = reviewWindow(baseDate);
+                      const ctx = {
+                        clientName: r.author_name,
+                        service: r.service_slug ?? undefined,
+                        neighborhood: r.neighborhood ?? undefined,
+                      };
+                      const sendWa = (kind: "t24" | "t72") => {
+                        const phone = window.prompt(
+                          "Telefone do cliente (E.164, ex: 5541999999999)",
+                          "5541",
+                        );
+                        if (!phone) return;
+                        const url = kind === "t24" ? t24WaLink(phone, ctx) : t72WaLink(phone, ctx);
+                        window.open(url, "_blank", "noopener,noreferrer");
+                      };
+                      return (
+                        <>
+                          <Button
+                            size="sm"
+                            variant={win === "t24" ? "default" : "outline"}
+                            disabled={win === "wait"}
+                            onClick={() => sendWa("t24")}
+                            className="flex-1"
+                            title={win === "wait" ? "Aguarde 24h após o atendimento" : "Pedir review T+24h"}
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />T+24h
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant={win === "t72" ? "default" : "outline"}
+                            disabled={win === "wait" || win === "t24"}
+                            onClick={() => sendWa("t72")}
+                            className="flex-1"
+                            title={win === "expired" ? "Janela expirada (>7d)" : "Lembrete T+72h"}
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />T+72h
+                          </Button>
+                        </>
+                      );
+                    })()}
                     <Button size="sm" variant="destructive" onClick={() => remove(r.id)} className="flex-1"><Trash2 className="w-4 h-4" /></Button>
                   </div>
                 </article>

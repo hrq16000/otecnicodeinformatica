@@ -128,13 +128,10 @@ const localBusinessSchema = {
   "sameAs": [
     "https://wa.me/5541997452053"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "347",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
+  // aggregateRating removido do LocalBusiness sitewide: será reinjetado
+  // dinamicamente a partir da tabela `reviews` (Supabase) quando houver
+  // ao menos 5 avaliações verificadas com texto + autor + data. Dados
+  // fake violam https://developers.google.com/search/docs/appearance/structured-data/review-snippet
   "knowsAbout": [
     "Manutenção de computadores",
     "Conserto de notebooks",

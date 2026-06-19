@@ -16,7 +16,7 @@ import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useParallax } from "@/hooks/useParallax";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
-import { useProblemaChunkPrefetch } from "@/components/ProblemaLink";
+import { useProblemaChunkPrefetch, useBlogChunkPrefetch } from "@/components/ProblemaLink";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 
@@ -416,6 +416,8 @@ const ScrollAnimationsInit = () => {
   useParallax();
   useRevealOnScroll();
   useProblemaChunkPrefetch();
+  useBlogChunkPrefetch();
+
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
 };

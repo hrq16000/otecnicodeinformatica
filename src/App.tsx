@@ -379,6 +379,7 @@ const FormatacaoPinhais = lazy(() => import("./pages/servico-bairro/FormatacaoPi
 const RemocaoVirusPinhais = lazy(() => import("./pages/servico-bairro/RemocaoVirusPinhais"));
 const ConsertoNotebookPinhais = lazy(() => import("./pages/servico-bairro/ConsertoNotebookPinhais"));
 const UpgradeSsdPinhais = lazy(() => import("./pages/servico-bairro/UpgradeSsdPinhais"));
+const RedesWifiPinhais = lazy(() => import("./pages/servico-bairro/RedesWifiPinhais"));
 
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
@@ -808,6 +809,7 @@ const App = () => (
             <Route path="/servicos/remocao-virus/pinhais" element={<RemocaoVirusPinhais />} />
             <Route path="/servicos/conserto-pc-notebook/pinhais" element={<ConsertoNotebookPinhais />} />
             <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
+            <Route path="/servicos/redes-wifi/pinhais" element={<RedesWifiPinhais />} />
             
             {/* Dynamic service+city route (catches all new combinations) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />

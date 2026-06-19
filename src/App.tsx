@@ -38,6 +38,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const ComoFunciona = lazy(() => import("./pages/ComoFunciona"));
 const DiagnosticoTecnico = lazy(() => import("./pages/DiagnosticoTecnico"));
+const Diagnostico60s = lazy(() => import("./pages/Diagnostico60s"));
 const EquipamentosAtendidos = lazy(() => import("./pages/EquipamentosAtendidos"));
 const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));
@@ -490,6 +491,7 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/como-funciona" element={<ComoFunciona />} />
             <Route path="/diagnostico-tecnico" element={<DiagnosticoTecnico />} />
+            <Route path="/diagnostico-60s" element={<Diagnostico60s />} />
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />

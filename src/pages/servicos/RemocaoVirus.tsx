@@ -31,11 +31,24 @@ const RemocaoVirus = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Remoção de Vírus em Curitiba | Malware, Ransomware - Técnico Curitiba" description="Remoção de vírus, malware, ransomware e spyware em Curitiba. Limpeza completa do computador. Atendimento domiciliar. Suporte remoto disponível." path="/servicos/remocao-virus"  breadcrumbs={[
+      <PageSEO title="Remoção de Vírus em Curitiba a partir de R$ 99,99 | Técnico Curitiba" description="Remoção de vírus, malware e ransomware em Curitiba a partir de R$ 99,99. Limpeza completa, antivírus configurado e atendimento em até 30 min." path="/servicos/remocao-virus"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Remoção de Vírus", path: "/servicos/remocao-virus" }
       ]} />
+      <ServiceLandingSchema
+        serviceName="Remoção de Vírus, Malware e Ransomware"
+        description="Análise profunda, remoção de vírus, trojans, spyware e ransomware, com antivírus configurado e endurecimento do Windows. Atendimento domiciliar e remoto em Curitiba."
+        path="/servicos/remocao-virus"
+        priceFrom={99.99}
+        faqs={[
+          { question: "Quanto custa remover vírus do computador em Curitiba?", answer: "A remoção de vírus começa em R$ 99,99 e inclui varredura completa, remoção de malware e configuração de antivírus." },
+          { question: "Preciso formatar para remover vírus?", answer: "Nem sempre. Na maioria dos casos conseguimos remover sem formatar, preservando seus arquivos e programas. Quando o sistema já está comprometido, recomendamos formatação com backup." },
+          { question: "Vocês atendem em casa ou só remoto?", answer: "Atendemos das duas formas em Curitiba e região: visita técnica em domicílio em até 30 min ou suporte remoto seguro quando o problema permite." },
+          { question: "Recupero meus arquivos depois de ransomware?", answer: "Avaliamos cada caso. Quando há backup ou shadow copies, a recuperação é alta. Em ataques recentes, conseguimos isolar a infecção antes que ela se espalhe para outros arquivos." },
+          { question: "Que antivírus vocês instalam?", answer: "Usamos antivírus reconhecidos com versão atualizada, configurados para proteção em tempo real e varredura agendada — sem prejudicar o desempenho do computador." },
+        ]}
+      />
       <Header />
       <Breadcrumbs
         items={[

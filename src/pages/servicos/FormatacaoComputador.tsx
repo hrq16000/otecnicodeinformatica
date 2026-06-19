@@ -16,7 +16,7 @@ const WHATSAPP_NUMBER = "5541997452053";
 
 const FormatacaoComputador = () => {
   useEffect(() => {
-    document.title = "Formatação de Computador em Curitiba | Windows 10/11 - Técnico Curitiba";
+    document.title = "Formatação de Computador em Curitiba a partir de R$ 99,99 | Técnico Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Formatação de computador e notebook em Curitiba a partir de R$ 99,99. Instalação Windows 10/11, drivers e backup. Atendimento domiciliar em até 30 min.");

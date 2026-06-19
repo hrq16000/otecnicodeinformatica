@@ -134,6 +134,60 @@ export type Database = {
         }
         Relationships: []
       }
+      reviews: {
+        Row: {
+          author_name: string
+          author_photo_url: string | null
+          city: string | null
+          comment: string
+          created_at: string
+          google_review_url: string | null
+          id: string
+          neighborhood: string | null
+          published: boolean
+          rating: number
+          review_date: string
+          service_slug: string | null
+          source: string
+          updated_at: string
+          verified: boolean
+        }
+        Insert: {
+          author_name: string
+          author_photo_url?: string | null
+          city?: string | null
+          comment: string
+          created_at?: string
+          google_review_url?: string | null
+          id?: string
+          neighborhood?: string | null
+          published?: boolean
+          rating: number
+          review_date?: string
+          service_slug?: string | null
+          source?: string
+          updated_at?: string
+          verified?: boolean
+        }
+        Update: {
+          author_name?: string
+          author_photo_url?: string | null
+          city?: string | null
+          comment?: string
+          created_at?: string
+          google_review_url?: string | null
+          id?: string
+          neighborhood?: string | null
+          published?: boolean
+          rating?: number
+          review_date?: string
+          service_slug?: string | null
+          source?: string
+          updated_at?: string
+          verified?: boolean
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

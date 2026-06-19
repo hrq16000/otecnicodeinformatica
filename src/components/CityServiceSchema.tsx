@@ -61,12 +61,8 @@ export const CityServiceSchema = ({
         url,
         seller: { "@id": `${BASE_URL}/#organization` },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "187",
-        bestRating: "5",
-      },
+      // aggregateRating removido até existirem reviews verificadas (ver
+      // pipeline GBP/Supabase). Schema.org exige rating real e auditável.
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: `Serviços em ${city}`,

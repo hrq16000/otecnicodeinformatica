@@ -489,11 +489,12 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Explorar Conteúdo — Blog, Serviços e Soluções | Técnico Curitiba"
-        description="Explore todos os artigos, guias de problemas, serviços e soluções técnicas. Mais de 200 páginas de conteúdo especializado em informática."
+        title="Blog Técnico Curitiba | Guias, Soluções e Tutoriais"
+        description="Mais de 200 artigos sobre conserto de PC, formatação, redes Wi-Fi, Linux, segurança e IA. Conteúdo prático de quem atende em Curitiba e RMC."
         path="/blog"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Blog", path: "/blog" }]}
       />
+
       <JsonLdSchema />
       <Header />
 

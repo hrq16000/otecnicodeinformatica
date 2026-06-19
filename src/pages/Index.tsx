@@ -41,11 +41,11 @@ const SectionFallback = ({ height = "400px" }: { height?: string }) => (
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Técnico de Informática em Curitiba | Assistência Técnica Nº1 da Região | Atendimento Hoje";
+    document.title = "Técnico de Informática Curitiba | Atendimento Hoje R$ 99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "A assistência técnica em informática mais bem avaliada de Curitiba e região. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio no mesmo dia. ⭐ 4.9/5 - 347+ avaliações. WhatsApp (41) 99745-2053."
+        "Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5."
       );
     }
     trackPageView("/", "Home");
@@ -53,7 +53,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Curitiba | Assistência Técnica Nº1 da Região | Atendimento Hoje" description="A assistência técnica em informática mais bem avaliada de Curitiba e região. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio no mesmo dia. ⭐ 4.9/5 - 347+ avaliações. WhatsApp (41) 99745-2053." path="/" />
+      <PageSEO title="Técnico de Informática Curitiba | Atendimento Hoje R$ 99" description="Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5." path="/" />
+
       <JsonLdSchema />
       <Header />
       <TopOfferBanner />

@@ -320,6 +320,8 @@ const FormatacaoComputador = lazy(() => import("./pages/servicos/FormatacaoCompu
 const RemocaoVirus = lazy(() => import("./pages/servicos/RemocaoVirus"));
 const UpgradeSsdMemoria = lazy(() => import("./pages/servicos/UpgradeSsdMemoria"));
 const ConsertoPcNotebook = lazy(() => import("./pages/servicos/ConsertoPcNotebook"));
+const ConsertoNotebookCuritiba = lazy(() => import("./pages/servicos/ConsertoNotebookCuritiba"));
+
 const RedesWifi = lazy(() => import("./pages/servicos/RedesWifi"));
 const BackupRecuperacao = lazy(() => import("./pages/servicos/BackupRecuperacao"));
 const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
@@ -752,6 +754,8 @@ const App = () => (
             <Route path="/servicos/remocao-virus" element={<RemocaoVirus />} />
             <Route path="/servicos/upgrade-ssd-memoria" element={<UpgradeSsdMemoria />} />
             <Route path="/servicos/conserto-pc-notebook" element={<ConsertoPcNotebook />} />
+            <Route path="/servicos/conserto-notebook-curitiba" element={<ConsertoNotebookCuritiba />} />
+
             <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
             <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />

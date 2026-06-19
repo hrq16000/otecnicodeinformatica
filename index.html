@@ -29,6 +29,7 @@
     <meta name="application-name" content="Técnico Curitiba" />
     <meta name="msvalidate.01" content="" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="preload" as="image" href="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" type="image/webp" fetchpriority="high" />
 
     <!-- DNS Prefetch & Preconnect for speed -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -58,26 +59,23 @@
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/El3gITL9bldQ7WZaPszZm8jw8DX2/social-images/social-1775439639319-110201.webp" />
 
 
-    <!-- Fonts — preconnect + preload critical woff2 + swap for faster render -->
+    <!-- Fonts — preconnect + preload critical woff2 + stylesheet preload for faster render -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preload critical font files (Inter 400/600 + Poppins 700) for instant FCP -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2" />
+    <!-- Preload critical Latin font files (Inter/Roboto body + Poppins/Montserrat headings) -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" />
 
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
     </noscript>
 
     <!-- Favicon (optimized) -->
@@ -89,17 +87,21 @@
     <style>
       *,*::before,*::after{box-sizing:border-box}
       html{-webkit-text-size-adjust:100%;line-height:1.5}
-      body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(215,65%,22%);-webkit-font-smoothing:antialiased}
+      body{margin:0;font-family:Inter,Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(215,65%,22%);-webkit-font-smoothing:antialiased}
       #root{min-height:100vh}
       /* Hero shell visible instantly before React hydrates */
-      .hero-critical{position:relative;min-height:100vh;background:linear-gradient(180deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 100%);overflow:hidden;padding:6rem 1rem 3.5rem}
+      .hero-critical{position:relative;min-height:100vh;background:linear-gradient(180deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 100%);color:#fff;overflow:hidden;padding:5.75rem 1rem 3.5rem;contain:layout paint}
       .hero-critical::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,hsla(180,100%,50%,.06),transparent 60%),radial-gradient(ellipse at bottom left,hsla(0,0%,100%,.03),transparent 60%);pointer-events:none}
       .hero-critical-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
-      .hero-critical h1{font-family:Poppins,Inter,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.75rem);line-height:1.1;margin:1rem 0;letter-spacing:-.02em}
-      .hero-critical .hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);opacity:.85;max-width:42rem;margin:0 0 1.5rem}
+      .hero-critical-logo{display:block;width:clamp(10rem,42vw,19rem);height:auto;margin:0 0 1.75rem;object-fit:contain}
+      @media (prefers-reduced-motion:no-preference){.hero-critical-logo{animation:logoPulse 1.2s ease-in-out infinite}}
+      .hero-critical h1{font-family:Poppins,Montserrat,Inter,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.75rem);line-height:1.1;margin:1rem 0;letter-spacing:0;color:#fff}
+      .hero-critical .hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.88);max-width:42rem;margin:0 0 1.5rem}
       .hero-critical .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem;border-radius:9999px;background:hsla(180,100%,50%,.12);border:1px solid hsla(180,100%,50%,.25);font-size:.85rem;font-weight:600;color:hsl(180,100%,70%)}
-      @media (prefers-reduced-motion:no-preference){.hero-critical{animation:hf .4s ease-out}}
-      @keyframes hf{from{opacity:0}to{opacity:1}}
+      .hero-critical-skeleton{display:grid;gap:.75rem;width:min(100%,42rem);margin-top:1.75rem}
+      .hero-critical-skeleton span{display:block;height:.75rem;border-radius:999px;background:rgba(255,255,255,.12)}
+      .hero-critical-skeleton span:nth-child(1){width:88%}.hero-critical-skeleton span:nth-child(2){width:64%}.hero-critical-skeleton span:nth-child(3){width:42%;height:2.5rem;margin-top:.75rem}
+      @keyframes logoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.72;transform:scale(1.035)}}
     </style>
 
     <!-- Google Analytics 4 + Ads — single gtag load, deferred -->
@@ -177,9 +179,11 @@
       <!-- Critical above-the-fold skeleton — replaced when React hydrates -->
       <section class="hero-critical" aria-label="Carregando">
         <div class="hero-critical-inner">
+          <img class="hero-critical-logo" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" alt="Técnico Curitiba" width="304" height="98" decoding="sync" fetchpriority="high" />
           <span class="hero-badge">⚡ Atendimento no mesmo dia</span>
           <h1>Técnico de Informática em Curitiba e Região</h1>
           <p class="hero-sub">Formatação, conserto de PC e notebook, remoção de vírus. Atendimento a domicílio ou remoto, com garantia.</p>
+          <div class="hero-critical-skeleton" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
       </section>
     </div>

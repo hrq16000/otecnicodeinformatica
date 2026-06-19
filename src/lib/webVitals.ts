@@ -5,7 +5,7 @@ const fmt = (v: number) => Math.round(v * 100) / 100;
 let started = false;
 
 type WebVitalSnapshot = Pick<Metric, "name" | "value" | "rating" | "id" | "delta"> & {
-  navigationType?: Metric["navigationType"];
+  navigationType?: string;
   timestamp: number;
 };
 
@@ -23,7 +23,7 @@ function report(metric: Metric) {
     rating,
     id: metric.id,
     delta: metric.delta,
-    navigationType: metric.navigationType,
+    navigationType: "navigationType" in metric ? String(metric.navigationType) : undefined,
     timestamp: Date.now(),
   };
 

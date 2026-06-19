@@ -82,7 +82,12 @@ let blogPrefetched = false;
 const prefetchBlog = () => {
   if (blogPrefetched) return;
   blogPrefetched = true;
-  import("@/pages/BlogPost").catch(() => { blogPrefetched = false; });
+  // Dispara em paralelo o chunk de rota (BlogPost) e o chunk pesado de conteúdo
+  // (blogPostsContent ~ 763KB) — Promise.all reduz o tempo total até o clique.
+  Promise.all([
+    import("@/pages/BlogPost"),
+    import("@/data/blogPostsContent"),
+  ]).catch(() => { blogPrefetched = false; });
 };
 
 /** Pré-carrega o chunk de BlogPost quando o usuário se aproxima de `/blog`. */

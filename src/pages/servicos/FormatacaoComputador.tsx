@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { Link } from "react-router-dom";
 import { Monitor, CheckCircle, Clock, Shield, ArrowRight, MessageCircle } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
@@ -15,10 +16,10 @@ const WHATSAPP_NUMBER = "5541997452053";
 
 const FormatacaoComputador = () => {
   useEffect(() => {
-    document.title = "Formatação de Computador em Curitiba | Windows 10/11 - Técnico Curitiba";
+    document.title = "Formatação de Computador em Curitiba a partir de R$ 99,99 | Técnico Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Formatação de computador e notebook em Curitiba. Instalação Windows 10/11, drivers, programas essenciais. Atendimento domiciliar. A partir de A partir de R$ 69,99.");
+      metaDescription.setAttribute("content", "Formatação de computador e notebook em Curitiba a partir de R$ 99,99. Instalação Windows 10/11, drivers e backup. Atendimento domiciliar em até 30 min.");
     }
     trackPageView("/servicos/formatacao-computador", "Formatação de Computador");
   }, []);
@@ -31,11 +32,24 @@ const FormatacaoComputador = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Formatação de Computador em Curitiba | Windows 10/11 - Técnico Curitiba" description="Formatação de computador e notebook em Curitiba. Instalação Windows 10/11, drivers, programas essenciais. Atendimento domiciliar. A partir de A partir de R$ 69,99." path="/servicos/formatacao-computador" breadcrumbs={[
+      <PageSEO title="Formatação de Computador em Curitiba a partir de R$ 99,99 | Técnico Curitiba" description="Formatação de computador e notebook em Curitiba a partir de R$ 99,99. Instalação Windows 10/11, drivers e backup. Atendimento domiciliar em até 30 min." path="/servicos/formatacao-computador" breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Formatação de Computador", path: "/servicos/formatacao-computador" }
       ]} />
+      <ServiceLandingSchema
+        serviceName="Formatação de Computador e Notebook"
+        description="Formatação completa com Windows 10/11 original, instalação de drivers, programas essenciais e backup dos seus arquivos. Atendimento em domicílio em Curitiba e região."
+        path="/servicos/formatacao-computador"
+        priceFrom={99.99}
+        faqs={[
+          { question: "Quanto custa formatar um computador em Curitiba?", answer: "A formatação começa em R$ 99,99 e inclui Windows 10/11 original, drivers e programas essenciais. Backup dos arquivos sob demanda." },
+          { question: "A formatação apaga meus arquivos?", answer: "Sim, formatar reinstala o sistema do zero. Por isso oferecemos backup prévio dos seus dados antes do procedimento, sem custo adicional dependendo do volume." },
+          { question: "Em quanto tempo a formatação fica pronta?", answer: "Em média 2 a 4 horas, dependendo do hardware. Atendimento domiciliar em Curitiba costuma ser agendado para o mesmo dia." },
+          { question: "Vocês instalam Office, antivírus e drivers depois da formatação?", answer: "Sim. Entregamos a máquina com Windows ativado, drivers atualizados, navegador, antivírus e pacote de produtividade já configurados." },
+          { question: "Atendem em domicílio ou só na loja?", answer: "Atendemos em domicílio em toda Curitiba e região metropolitana, com visita técnica em até 30 minutos do agendamento, sem custo extra para deslocamento dentro de Curitiba." },
+        ]}
+      />
       <Header />
       <Breadcrumbs
         items={[

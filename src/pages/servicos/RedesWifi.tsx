@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { Link } from "react-router-dom";
 import { Wifi, CheckCircle, Router, Signal, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,11 +31,24 @@ const RedesWifi = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Configuração de Redes e Wi-Fi em Curitiba | Técnico Curitiba" description="Configuração de redes Wi-Fi em Curitiba. Instalação de roteadores, repetidores, extensores. Internet lenta? Resolvemos! Atendimento domiciliar." path="/servicos/redes-wifi"  breadcrumbs={[
+      <PageSEO title="Configuração de Redes e Wi-Fi em Curitiba a partir de R$ 99,99 | Técnico Curitiba" description="Instalação e configuração de Wi-Fi, roteadores, repetidores e sistemas mesh em Curitiba a partir de R$ 99,99. Internet lenta? Resolvemos em até 30 min." path="/servicos/redes-wifi"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Redes e Wi-Fi", path: "/servicos/redes-wifi" }
       ]} />
+      <ServiceLandingSchema
+        serviceName="Configuração de Redes Wi-Fi, Roteadores e Mesh"
+        description="Instalação de roteadores, repetidores e sistemas mesh, mapa de cobertura, troca de canal/banda 5 GHz e segurança da rede. Atendimento domiciliar em Curitiba."
+        path="/servicos/redes-wifi"
+        priceFrom={99.99}
+        faqs={[
+          { question: "Quanto custa configurar Wi-Fi em casa em Curitiba?", answer: "A configuração começa em R$ 99,99 e inclui mapa de cobertura, ajuste de canal/banda, senha forte e rede de visitantes. Para casas grandes recomendamos sistema mesh, orçado à parte." },
+          { question: "Por que meu Wi-Fi vive caindo?", answer: "Os motivos mais comuns são interferência de canal, roteador mal posicionado, firmware desatualizado ou número de dispositivos acima do suportado. Diagnosticamos na visita técnica." },
+          { question: "Vocês configuram sistema mesh (Deco, Nest, Eero)?", answer: "Sim. Instalamos sistemas mesh das principais marcas, posicionando os pontos para cobertura uniforme em toda a casa ou escritório." },
+          { question: "Atendem empresas e escritórios?", answer: "Sim. Configuramos redes corporativas com VLANs, controle de acesso, rede de visitantes isolada e gestão de banda para empresas em Curitiba." },
+          { question: "Quanto tempo demora?", answer: "Atendimento residencial leva em média 1 a 2 horas. Empresas e instalações mesh maiores levam 2 a 4 horas. Visita técnica em até 30 min do agendamento." },
+        ]}
+      />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Redes e Wi-Fi" }]} />
       

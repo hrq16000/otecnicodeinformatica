@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { Link } from "react-router-dom";
 import { HardDrive, CheckCircle, Zap, TrendingUp, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,11 +31,24 @@ const UpgradeSsdMemoria = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Upgrade SSD e Memória RAM em Curitiba | Notebook e PC - Técnico Curitiba" description="Upgrade de SSD e memória RAM em Curitiba. Deixe seu notebook ou PC até 10x mais rápido. Instalação profissional com garantia. Atendimento domiciliar." path="/servicos/upgrade-ssd-memoria"  breadcrumbs={[
+      <PageSEO title="Upgrade SSD e Memória RAM em Curitiba a partir de R$ 99,99 (mão de obra) | Técnico Curitiba" description="Instalação de SSD e memória RAM em notebooks e PCs em Curitiba. Mão de obra a partir de R$ 99,99 — clonagem do Windows, garantia e visita técnica em até 30 min." path="/servicos/upgrade-ssd-memoria"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Upgrade SSD/Memória", path: "/servicos/upgrade-ssd-memoria" }
       ]} />
+      <ServiceLandingSchema
+        serviceName="Upgrade de SSD e Memória RAM"
+        description="Instalação e clonagem de SSD SATA/NVMe e troca/expansão de memória RAM em notebooks e desktops, sem reinstalar Windows. Atendimento domiciliar em Curitiba."
+        path="/servicos/upgrade-ssd-memoria"
+        priceFrom={99.99}
+        faqs={[
+          { question: "Quanto custa instalar um SSD no meu notebook em Curitiba?", answer: "A mão de obra de instalação começa em R$ 99,99 e inclui clonagem do Windows, drivers e testes. O valor da peça (SSD/memória) é separado e você pode comprar conosco ou por conta própria." },
+          { question: "Preciso reinstalar o Windows ao trocar para SSD?", answer: "Não. Fazemos a clonagem do seu HD atual para o SSD novo, preservando programas, arquivos e licenças. O computador liga já com tudo no lugar, só que muito mais rápido." },
+          { question: "Vale a pena colocar SSD em notebook antigo?", answer: "Sim. Na maioria dos notebooks com mais de 3 anos, trocar o HD por SSD entrega ganho de 5x a 10x na velocidade de inicialização e abertura de programas — é o upgrade com melhor custo-benefício." },
+          { question: "Como sei quanta memória RAM cabe no meu PC?", answer: "Fazemos diagnóstico gratuito por WhatsApp: você nos manda modelo do equipamento e identificamos o tipo (DDR3/DDR4/DDR5), frequência máxima e número de slots." },
+          { question: "Quanto tempo demora a instalação?", answer: "Em média 1 a 2 horas, incluindo clonagem do sistema. Atendemos em domicílio em Curitiba e região, com visita em até 30 min do agendamento." },
+        ]}
+      />
       <Header />
       <Breadcrumbs
         items={[

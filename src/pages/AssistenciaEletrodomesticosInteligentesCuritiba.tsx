@@ -36,7 +36,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank");
   };
   const callClick = () => {
-    trackCTAClick("call", "eletrodomesticos-inteligentes");
+    trackCTAClick("phone", "eletrodomesticos-inteligentes");
     window.location.href = `tel:+${WHATSAPP}`;
   };
 

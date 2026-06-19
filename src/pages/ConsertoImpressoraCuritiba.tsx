@@ -36,7 +36,7 @@ const ConsertoImpressoraCuritiba = () => {
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank");
   };
   const callClick = () => {
-    trackCTAClick("call", "conserto-impressora");
+    trackCTAClick("phone", "conserto-impressora");
     window.location.href = `tel:+${WHATSAPP}`;
   };
 

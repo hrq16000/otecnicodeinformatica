@@ -416,6 +416,8 @@ const ScrollAnimationsInit = () => {
   useParallax();
   useRevealOnScroll();
   useProblemaChunkPrefetch();
+  useBlogChunkPrefetch();
+
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
 };

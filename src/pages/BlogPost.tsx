@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Header } from "@/components/Header";
@@ -10,11 +10,12 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
 import { getUniqueImage } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
+import type { BlogPostContent } from "@/data/blogPostsContent";
+
 
 const blogPostsContentBase: Record<string, {
   title: string;

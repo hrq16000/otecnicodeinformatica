@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://tecnicocuritiba.com.br/sitemap.xml</loc>
-    <lastmod>2026-04-20</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://tecnicocuritiba.com.br/sitemap-news.xml</loc>
-    <lastmod>2026-04-20</lastmod>
-  </sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-main.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-servicos.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-bairros.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-marcas.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-problemas.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
+  <sitemap><loc>https://tecnicocuritiba.com.br/sitemap-news.xml</loc><lastmod>2026-06-19</lastmod></sitemap>
 </sitemapindex>

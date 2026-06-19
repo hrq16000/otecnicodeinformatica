@@ -77,4 +77,49 @@ export const useProblemaChunkPrefetch = () => {
   }, []);
 };
 
+/* ----------------------------- BlogPost prefetch ----------------------------- */
+let blogPrefetched = false;
+const prefetchBlog = () => {
+  if (blogPrefetched) return;
+  blogPrefetched = true;
+  import("@/pages/BlogPost").catch(() => { blogPrefetched = false; });
+};
+
+/** Pré-carrega o chunk de BlogPost quando o usuário se aproxima de `/blog`. */
+export const useBlogChunkPrefetch = () => {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const sel = 'a[href^="/blog"]';
+    const onHover = (e: Event) => {
+      const t = (e.target as HTMLElement | null)?.closest(sel);
+      if (t) prefetchBlog();
+    };
+    document.addEventListener("mouseover", onHover, { passive: true });
+    document.addEventListener("focusin", onHover, { passive: true });
+    document.addEventListener("touchstart", onHover, { passive: true });
+
+    let io: IntersectionObserver | undefined;
+    let timer: number | undefined;
+    if ("IntersectionObserver" in window) {
+      io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          prefetchBlog();
+          io?.disconnect();
+        }
+      }, { rootMargin: "300px" });
+      timer = window.setTimeout(() => {
+        document.querySelectorAll<HTMLAnchorElement>(sel).forEach((l) => io!.observe(l));
+      }, 1200);
+    }
+    return () => {
+      if (timer) window.clearTimeout(timer);
+      io?.disconnect();
+      document.removeEventListener("mouseover", onHover);
+      document.removeEventListener("focusin", onHover);
+      document.removeEventListener("touchstart", onHover);
+    };
+  }, []);
+};
+
 export default ProblemaLink;
+

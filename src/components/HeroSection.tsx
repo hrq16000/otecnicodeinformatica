@@ -91,7 +91,7 @@ export const HeroSection = () => {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-heading font-bold text-white leading-[1.15] mb-5 md:mb-6 tracking-tight opacity-0 animate-[heroFadeUp_0.7s_ease-out_0.2s_forwards]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-heading font-bold text-white leading-[1.15] mb-5 md:mb-6 tracking-tight motion-safe:opacity-0 motion-safe:animate-[heroFadeUp_0.7s_ease-out_0.2s_forwards]">
               Técnico de Informática
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
@@ -100,7 +100,7 @@ export const HeroSection = () => {
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-white/95 mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0 opacity-0 animate-[heroFadeUp_0.6s_ease-out_0.35s_forwards] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
+            <p className="text-lg md:text-xl text-white/95 mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0 motion-safe:opacity-0 motion-safe:animate-[heroFadeUp_0.6s_ease-out_0.35s_forwards] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
               <strong className="text-white">Conserto de computadores e notebooks</strong> com atendimento 
               <strong className="text-white"> a domicílio</strong> no mesmo dia. Formatação, remoção de vírus, 
               upgrade SSD e mais.

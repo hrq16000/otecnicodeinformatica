@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
 import { Link } from "react-router-dom";
 import { ShieldCheck, CheckCircle, AlertTriangle, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";

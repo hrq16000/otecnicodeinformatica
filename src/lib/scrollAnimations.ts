@@ -46,7 +46,10 @@ const EXCLUDE_SELECTORS = [
 const EXCLUDE_PARENT_SELECTORS = [
   'header', 'nav', '[role="navigation"]',
   '[class*="fixed"]', '[class*="sticky"]',
+  // Hero is above the fold and must be visible immediately (CLS guard).
+  '.hero-gradient',
 ];
+
 
 function shouldExclude(el: Element): boolean {
   // Direct match

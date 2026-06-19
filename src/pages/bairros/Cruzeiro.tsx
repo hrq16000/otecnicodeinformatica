@@ -6,7 +6,7 @@ const Cruzeiro = () => {
     slug: "cruzeiro",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no Cruzeiro SJP | Atendimento Rápido | Técnico Curitiba",
-    metaDescription: "Técnico de informática no bairro Cruzeiro em São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento em domicílio. A partir de A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no bairro Cruzeiro em São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Cruzeiro – São José dos Pinhais",
     subtitulo: "Assistência técnica profissional no Cruzeiro e região. Atendimento rápido em domicílio para residências e empresas.",
     descricaoLonga: `O bairro Cruzeiro em São José dos Pinhais é uma região tradicional e bem estruturada, com forte presença comercial e residencial. Nossa equipe de técnicos de informática atende toda a região do Cruzeiro, oferecendo serviços especializados de manutenção, conserto e suporte para computadores e notebooks.

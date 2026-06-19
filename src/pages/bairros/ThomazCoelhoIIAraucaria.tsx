@@ -5,7 +5,7 @@ const data = {
   slug: "thomaz-coelho-ii",
   cidade: "Araucária",
   metaTitle: "Técnico de Informática no Thomaz Coelho II | Araucária | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Thomaz Coelho II, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Thomaz Coelho II, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Thomaz Coelho II – Araucária",
   subtitulo: "Atendimento profissional a domicílio no Thomaz Coelho II. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Thomaz Coelho II é uma extensão do bairro Thomaz Coelho em Araucária, com forte presença industrial e residencial. Nosso técnico atende a domicílio com diagnóstico completo.`,

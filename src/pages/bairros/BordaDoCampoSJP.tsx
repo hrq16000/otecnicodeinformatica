@@ -5,7 +5,7 @@ const data = {
   slug: "borda-do-campo-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Borda do Campo | São José dos Pinhais | Atendimento Domicílio | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Borda do Campo, São José dos Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Borda do Campo, São José dos Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Borda do Campo – São José dos Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Borda do Campo. Diagnóstico no local, orçamento transparente e garantia.",
   descricaoLonga: `O Borda do Campo é um bairro de São José dos Pinhais, a segunda maior cidade do Paraná. Com milhares de residências e empresas, a região tem forte demanda por serviços de informática profissional. Nosso técnico de informática atende o Borda do Campo a domicílio com equipamento profissional, realizando diagnóstico no local e resolvendo a maioria dos problemas na primeira visita. Para casos que exigem bancada, oferecemos coleta e entrega. Trabalhamos com transparência total: orçamento antes da execução, sem surpresas.`,

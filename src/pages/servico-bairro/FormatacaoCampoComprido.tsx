@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Campo Comprido Curitiba | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Campo Comprido, Curitiba. Windows 10/11 original, backup completo e programas. A partir de A partir de R$ 69,99.",
+  metaDescription: "Formatação de computador e notebook no Campo Comprido, Curitiba. Windows 10/11 original, backup completo e programas. a partir de R$ 99,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",

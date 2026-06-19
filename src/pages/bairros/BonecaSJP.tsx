@@ -5,7 +5,7 @@ const data = {
   slug: "boneca-do-iguacu-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Boneca do Iguaçu | São José dos Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Boneca do Iguaçu, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Boneca do Iguaçu, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Boneca do Iguaçu – São José dos Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Boneca do Iguaçu. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Boneca do Iguaçu é um bairro residencial de São José dos Pinhais, próximo ao Rio Iguaçu. A região tem crescido com novos empreendimentos e abriga famílias que precisam de suporte técnico confiável. Nosso técnico atende Boneca do Iguaçu a domicílio, resolvendo problemas de informática com agilidade e preço justo.`,

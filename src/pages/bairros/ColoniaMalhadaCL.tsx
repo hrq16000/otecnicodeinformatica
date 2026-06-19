@@ -5,7 +5,7 @@ const data = {
   slug: "colonia-malhada-cl",
   cidade: "Campo Largo",
   metaTitle: "Técnico de Informática no Colônia Malhada | Campo Largo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Colônia Malhada, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Colônia Malhada, Campo Largo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Colônia Malhada – Campo Largo",
   subtitulo: "Atendimento profissional a domicílio no Colônia Malhada. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Colônia Malhada é uma região de Campo Largo com características rurais e residenciais. Atendemos com visita agendada.`,

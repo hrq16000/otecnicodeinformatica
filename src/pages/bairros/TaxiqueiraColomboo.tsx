@@ -5,7 +5,7 @@ const data = {
   slug: "taxiqueira-colombo",
   cidade: "Colombo",
   metaTitle: "Técnico de Informática no Taxiqueira | Colombo | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Taxiqueira, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Taxiqueira, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Taxiqueira – Colombo",
   subtitulo: "Atendimento profissional a domicílio no Taxiqueira. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Taxiqueira é um bairro em crescimento de Colombo, com perfil residencial. Nosso técnico de informática atende Taxiqueira a domicílio com diagnóstico profissional, serviços de formatação, conserto de notebooks e configuração de redes Wi-Fi.`,

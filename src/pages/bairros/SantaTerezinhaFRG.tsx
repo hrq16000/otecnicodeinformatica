@@ -5,7 +5,7 @@ const data = {
   slug: "santa-terezinha-frg",
   cidade: "Fazenda Rio Grande",
   metaTitle: "Técnico de Informática no Santa Terezinha | Fazenda Rio Grande | Atendimento Domicílio | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Santa Terezinha, Fazenda Rio Grande. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Santa Terezinha, Fazenda Rio Grande. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Santa Terezinha – Fazenda Rio Grande",
   subtitulo: "Atendimento técnico profissional a domicílio no Santa Terezinha. Diagnóstico no local, orçamento transparente e garantia.",
   descricaoLonga: `O Santa Terezinha faz parte de Fazenda Rio Grande, cidade ao sul de Curitiba com crescimento acelerado. A região tem forte demanda por serviços de informática profissional. Nosso técnico de informática atende o Santa Terezinha a domicílio com equipamento profissional, realizando diagnóstico no local e resolvendo a maioria dos problemas na primeira visita. Para casos que exigem bancada, oferecemos coleta e entrega. Trabalhamos com transparência total: orçamento antes da execução, sem surpresas.`,

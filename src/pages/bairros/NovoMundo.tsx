@@ -5,7 +5,7 @@ const data = {
   slug: "novo-mundo",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Novo Mundo | Curitiba | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Novo Mundo, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Novo Mundo, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Novo Mundo – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Novo Mundo. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O Novo Mundo é um bairro residencial e comercial de Curitiba, com excelente infraestrutura e acesso fácil por vias como a BR-476. A região possui muitas residências e empresas que dependem de suporte técnico confiável. Nosso técnico de informática atende o Novo Mundo a domicílio com diagnóstico profissional, serviços de formatação, conserto de PC e notebook, configuração de redes e backup de dados.`,

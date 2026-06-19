@@ -5,7 +5,7 @@ const data = {
   slug: "parque-industrial-frg",
   cidade: "Fazenda Rio Grande",
   metaTitle: "Técnico de Informática no Parque Industrial | Fazenda Rio Grande | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Parque Industrial, Fazenda Rio Grande. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Parque Industrial, Fazenda Rio Grande. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Parque Industrial – Fazenda Rio Grande",
   subtitulo: "Atendimento profissional a domicílio no Parque Industrial. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O Parque Industrial é uma região de Fazenda Rio Grande com presença de empresas e residências. Nosso técnico de informática atende a domicílio, oferecendo suporte técnico completo para computadores e notebooks.`,

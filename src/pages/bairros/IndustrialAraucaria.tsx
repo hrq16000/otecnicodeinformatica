@@ -5,7 +5,7 @@ const data = {
   slug: "industrial-araucaria",
   cidade: "Araucária",
   metaTitle: "Técnico de Informática no Industrial | Araucária | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Industrial, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Industrial, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Industrial – Araucária",
   subtitulo: "Atendimento profissional a domicílio no Industrial. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O bairro Industrial de Araucária concentra empresas e indústrias da região. Atendemos com suporte técnico corporativo e residencial, incluindo manutenção de redes e servidores.`,

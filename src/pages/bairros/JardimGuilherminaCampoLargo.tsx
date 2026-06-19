@@ -7,7 +7,7 @@ const JardimGuilherminaCampoLargo = () => {
     cidade: "Campo Largo",
     metaTitle: "Técnico de Informática no Jardim Guilhermina (Campo Largo) | Técnico Curitiba",
     metaDescription:
-      "Técnico de informática no Jardim Guilhermina, Campo Largo. Formatação, vírus, conserto de notebook, upgrade SSD/RAM e Wi‑Fi. Atendimento a domicílio. A partir de R$ 69,99.",
+      "Técnico de informática no Jardim Guilhermina, Campo Largo. Formatação, vírus, conserto de notebook, upgrade SSD/RAM e Wi‑Fi. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Jardim Guilhermina – Campo Largo",
     subtitulo:
       "Assistência técnica no Jardim Guilhermina com atendimento em domicílio, rapidez e qualidade.",

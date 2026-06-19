@@ -6,7 +6,7 @@ const JardimMontoSanto = () => {
     slug: "jardim-monte-santo",
     cidade: "Almirante Tamandaré",
     metaTitle: "Técnico de Informática no Jardim Monte Santo (Almirante Tamandaré) | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Jardim Monte Santo, Almirante Tamandaré. Conserto, formatação, vírus, upgrade. Atendimento a domicílio. A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no Jardim Monte Santo, Almirante Tamandaré. Conserto, formatação, vírus, upgrade. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Jardim Monte Santo – Almirante Tamandaré",
     subtitulo: "Atendimento técnico a domicílio no Jardim Monte Santo com rapidez e garantia.",
     descricaoLonga: `O Jardim Monte Santo é um bairro residencial de Almirante Tamandaré com boa infraestrutura e acesso facilitado. Moradores que precisam do computador para trabalho e estudos contam com nosso atendimento profissional.

@@ -5,7 +5,7 @@ const data = {
   slug: "vila-izabel",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Vila Izabel | Curitiba | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Vila Izabel, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Vila Izabel, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Izabel – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Vila Izabel. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Vila Izabel é um bairro residencial acolhedor de Curitiba, conhecido pela tranquilidade e pelo comércio local. Próximo ao Portão e ao Campo Comprido, a região possui muitas casas e prédios residenciais cujos moradores dependem de computadores para trabalho remoto e estudos. Nosso técnico atende Vila Izabel a domicílio com diagnóstico profissional no local, resolvendo problemas como computador lento, vírus, tela azul e configuração de Wi-Fi.`,

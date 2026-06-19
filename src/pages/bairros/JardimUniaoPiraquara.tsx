@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-uniao-piraquara",
   cidade: "Piraquara",
   metaTitle: "Técnico de Informática no Jardim União | Piraquara | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim União, Piraquara. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim União, Piraquara. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim União – Piraquara",
   subtitulo: "Atendimento profissional a domicílio no Jardim União. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim União é um bairro residencial de Piraquara com comunidade ativa. Nosso técnico de informática atende Jardim União a domicílio com diagnóstico profissional, formatação, conserto de notebooks, remoção de vírus e configuração de redes.`,

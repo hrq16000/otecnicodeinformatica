@@ -5,7 +5,7 @@ const data = {
   slug: "hauer",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Hauer | Curitiba | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Hauer, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Hauer, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Hauer – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Hauer. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O Hauer é um bairro tradicional de Curitiba, com perfil residencial e comercial equilibrado. Próximo ao Boqueirão e ao Xaxim, a região tem acesso fácil por vias importantes como a Av. Marechal Floriano Peixoto. Nosso técnico de informática atende o Hauer a domicílio com rapidez, oferecendo serviços de formatação, conserto de notebook, remoção de vírus, configuração de rede e manutenção preventiva para residências e empresas.`,

@@ -5,7 +5,7 @@ const data = {
   slug: "campo-tenente-at",
   cidade: "Almirante Tamandaré",
   metaTitle: "Técnico de Informática no Campo do Tenente | Almirante Tamandaré | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Campo do Tenente, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Campo do Tenente, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Campo do Tenente – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Campo do Tenente. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Campo do Tenente é uma região de Almirante Tamandaré com perfil residencial. Nosso técnico atende a domicílio com equipamento profissional, oferecendo manutenção completa de computadores e notebooks com garantia e transparência.`,

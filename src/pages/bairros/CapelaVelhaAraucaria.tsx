@@ -7,7 +7,7 @@ const CapelaVelhaAraucaria = () => {
     cidade: "Araucária",
     metaTitle: "Técnico de Informática na Capela Velha (Araucária) | Técnico Curitiba",
     metaDescription:
-      "Técnico de informática na Capela Velha, Araucária. Conserto de notebook e PC, formatação, vírus, rede Wi‑Fi e upgrade. Atendimento em domicílio. A partir de A partir de R$ 69,99.",
+      "Técnico de informática na Capela Velha, Araucária. Conserto de notebook e PC, formatação, vírus, rede Wi‑Fi e upgrade. Atendimento em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática na Capela Velha – Araucária",
     subtitulo:
       "Atendimento a domicílio na Capela Velha com assistência técnica completa e horário agendado.",

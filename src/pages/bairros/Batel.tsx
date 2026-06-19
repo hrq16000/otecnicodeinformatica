@@ -5,7 +5,7 @@ const data = {
   slug: "batel",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Batel Curitiba | Atendimento Premium | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Batel, Curitiba. Atendimento para residências e empresas. Serviço profissional com garantia. Visita técnica a partir de A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Batel, Curitiba. Atendimento para residências e empresas. Serviço profissional com garantia. Visita técnica a partir de a partir de R$ 99,99.",
   h1: "Técnico de Informática no Batel – Curitiba",
   subtitulo: "Atendimento profissional no Batel e arredores. Residências e empresas.",
   descricaoLonga: `O Batel é um dos bairros mais sofisticados de Curitiba, abrigando residências 

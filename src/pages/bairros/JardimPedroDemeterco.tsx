@@ -5,7 +5,7 @@ const data = {
   slug: "jardim-pedro-demeterco",
   cidade: "Pinhais",
   metaTitle: "Técnico de Informática no Jardim Pedro Demeterco | Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Jardim Pedro Demeterco, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Jardim Pedro Demeterco, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Pedro Demeterco – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Jardim Pedro Demeterco. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Jardim Pedro Demeterco é um bairro residencial de Pinhais com boa infraestrutura. Nosso técnico atende a domicílio com diagnóstico completo.`,

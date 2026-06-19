@@ -6,7 +6,7 @@ const Aristocrata = () => {
     slug: "aristocrata",
     cidade: "São José dos Pinhais",
     metaTitle: "Técnico de Informática no Aristocrata SJP | Assistência Técnica | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Aristocrata em São José dos Pinhais. Conserto, formatação, upgrade. Atendimento domiciliar rápido. Serviços a partir de A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no Aristocrata em São José dos Pinhais. Conserto, formatação, upgrade. Atendimento domiciliar rápido. Serviços a partir de a partir de R$ 99,99.",
     h1: "Técnico de Informática no Aristocrata – São José dos Pinhais",
     subtitulo: "Atendimento técnico especializado no Aristocrata. Resolvemos seu problema de informática no conforto da sua casa ou empresa.",
     descricaoLonga: `O bairro Aristocrata em São José dos Pinhais é uma região residencial valorizada, com excelente infraestrutura e qualidade de vida. Nossa equipe atende moradores e empresas do Aristocrata com serviços completos de assistência técnica em informática.

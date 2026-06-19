@@ -5,7 +5,7 @@ const data = {
   slug: "agricola-sjp",
   cidade: "São José dos Pinhais",
   metaTitle: "Técnico de Informática no Agrícola | São José dos Pinhais | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Agrícola, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Agrícola, São José dos Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Agrícola – São José dos Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Agrícola. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `O bairro Agrícola é uma região em desenvolvimento de São José dos Pinhais, com perfil residencial e industrial. Nosso técnico atende Agrícola a domicílio, oferecendo suporte técnico profissional para computadores e notebooks, incluindo formatação, limpeza de vírus, upgrade SSD e manutenção preventiva.`,

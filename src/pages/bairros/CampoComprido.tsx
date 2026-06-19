@@ -5,7 +5,7 @@ const data = {
   slug: "campo-comprido",
   cidade: "Curitiba",
   metaTitle: "Técnico de Informática no Campo Comprido Curitiba | Visita Técnica | Técnico Curitiba",
-  metaDescription: "Técnico de informática no Campo Comprido, Curitiba. Visita técnica em domicílio para PC e notebook. Formatação, manutenção e suporte. A partir de R$ 69,99.",
+  metaDescription: "Técnico de informática no Campo Comprido, Curitiba. Visita técnica em domicílio para PC e notebook. Formatação, manutenção e suporte. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Campo Comprido",
   subtitulo: "Atendimento técnico no Campo Comprido e região oeste de Curitiba",
   descricaoLonga: `O Campo Comprido é um bairro em crescimento na região oeste de Curitiba, 

@@ -6,7 +6,7 @@ const CentroAT = () => {
     slug: "centro-almirante-tamandare",
     cidade: "Almirante Tamandaré",
     metaTitle: "Técnico de Informática no Centro de Almirante Tamandaré | Técnico Curitiba",
-    metaDescription: "Técnico de informática no Centro de Almirante Tamandaré. Formatação, conserto, vírus, upgrade. Atendimento a domicílio rápido. A partir de R$ 69,99.",
+    metaDescription: "Técnico de informática no Centro de Almirante Tamandaré. Formatação, conserto, vírus, upgrade. Atendimento a domicílio rápido. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Almirante Tamandaré",
     subtitulo: "Assistência técnica profissional no Centro de Almirante Tamandaré com diagnóstico transparente e garantia.",
     descricaoLonga: `O Centro de Almirante Tamandaré é a região mais movimentada da cidade, com comércio ativo e grande fluxo residencial. O acesso rápido pela Rodovia dos Minérios facilita o deslocamento do nosso técnico.

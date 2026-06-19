@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import { ArrowLeft, MessageCircle, Phone, CheckCircle2 } from "lucide-react";
 import {
   EQUIPMENTS,

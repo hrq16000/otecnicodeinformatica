@@ -2,6 +2,12 @@
 import { onLCP, onCLS, onINP, onFCP, onTTFB, type Metric } from "web-vitals";
 
 const fmt = (v: number) => Math.round(v * 100) / 100;
+let started = false;
+
+type WebVitalSnapshot = Pick<Metric, "name" | "value" | "rating" | "id" | "delta"> & {
+  navigationType?: Metric["navigationType"];
+  timestamp: number;
+};
 
 const colors: Record<string, string> = {
   good: "color:#10b981;font-weight:bold",
@@ -11,6 +17,26 @@ const colors: Record<string, string> = {
 
 function report(metric: Metric) {
   const rating = metric.rating;
+  const snapshot: WebVitalSnapshot = {
+    name: metric.name,
+    value: metric.value,
+    rating,
+    id: metric.id,
+    delta: metric.delta,
+    navigationType: metric.navigationType,
+    timestamp: Date.now(),
+  };
+
+  if (typeof window !== "undefined") {
+    const w = window as Window & { __WEB_VITALS__?: Record<string, WebVitalSnapshot> };
+    w.__WEB_VITALS__ = { ...(w.__WEB_VITALS__ || {}), [metric.name]: snapshot };
+    try {
+      localStorage.setItem("tc_web_vitals", JSON.stringify(w.__WEB_VITALS__));
+    } catch {
+      // Ignore storage limits/private mode.
+    }
+  }
+
   // eslint-disable-next-line no-console
   console.log(
     `%c[Web Vitals] ${metric.name}: ${fmt(metric.value)}${metric.name === "CLS" ? "" : "ms"} (${rating})`,
@@ -30,6 +56,8 @@ function report(metric: Metric) {
 }
 
 export function initWebVitals() {
+  if (started) return;
+  started = true;
   onLCP(report);
   onCLS(report);
   onINP(report);

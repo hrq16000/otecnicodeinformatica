@@ -329,7 +329,7 @@ export const Header = () => {
             aria-label="Atendimento rápido"
           >
             <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
-            <span className="hidden sm:inline">Atender</span>
+            <span className="hidden sm:inline">Agendar\n</span>
           </Button>
 
           <Button

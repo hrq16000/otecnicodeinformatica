@@ -370,41 +370,42 @@ const AdminReviews = () => {
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => openEdit(r)} className="flex-1">Editar</Button>
                     {(() => {
-                      const baseDate = r.review_date ?? r.created_at;
+                      const baseDate = r.service_closed_at ?? r.review_date ?? r.created_at;
                       const win = reviewWindow(baseDate);
                       const ctx = {
                         clientName: r.author_name,
                         service: r.service_slug ?? undefined,
                         neighborhood: r.neighborhood ?? undefined,
                       };
+                      const hasPhone = !!r.client_phone && r.client_phone.replace(/\D/g, "").length >= 10;
                       const sendWa = (kind: "t24" | "t72") => {
-                        const phone = window.prompt(
-                          "Telefone do cliente (E.164, ex: 5541999999999)",
-                          "5541",
-                        );
-                        if (!phone) return;
-                        const url = kind === "t24" ? t24WaLink(phone, ctx) : t72WaLink(phone, ctx);
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        const url = kind === "t24" ? t24WaLink(r.client_phone!, ctx) : t72WaLink(r.client_phone!, ctx);
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
+                      const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
                       return (
                         <>
                           <Button
                             size="sm"
                             variant={win === "t24" ? "default" : "outline"}
-                            disabled={win === "wait"}
+                            disabled={win === "wait" || !hasPhone}
                             onClick={() => sendWa("t24")}
                             className="flex-1"
-                            title={win === "wait" ? "Aguarde 24h após o atendimento" : "Pedir review T+24h"}
+                            title={(win === "wait" ? "Aguarde 24h após o atendimento" : "Pedir review T+24h") + tipPhone}
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />T+24h
                           </Button>
                           <Button
                             size="sm"
                             variant={win === "t72" ? "default" : "outline"}
-                            disabled={win === "wait" || win === "t24"}
+                            disabled={win === "wait" || win === "t24" || !hasPhone}
                             onClick={() => sendWa("t72")}
                             className="flex-1"
-                            title={win === "expired" ? "Janela expirada (>7d)" : "Lembrete T+72h"}
+                            title={(win === "expired" ? "Janela expirada (>7d)" : "Lembrete T+72h") + tipPhone}
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />T+72h
                           </Button>

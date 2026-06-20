@@ -18,6 +18,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
 import { t24WaLink, t72WaLink, reviewWindow } from "@/lib/reviewRequest";
+import { pingIndexNow } from "@/lib/indexNow";
 
 type Review = {
   id: string;
@@ -34,6 +35,8 @@ type Review = {
   published: boolean;
   review_date: string | null;
   created_at: string;
+  client_phone: string | null;
+  service_closed_at: string | null;
 };
 
 type Filter = "all" | "pending" | "published" | "hidden";
@@ -50,7 +53,23 @@ const emptyForm: Partial<Review> = {
   verified: true,
   published: true,
   review_date: new Date().toISOString().slice(0, 10),
+  client_phone: "",
+  service_closed_at: null,
 };
+
+/** URLs a notificar no IndexNow quando uma review entra no ar. */
+function indexNowUrlsForReview(r: Pick<Review, "service_slug" | "neighborhood">): string[] {
+  const urls = new Set<string>(["/", "/avaliacoes", "/sobre"]);
+  if (r.service_slug) {
+    const slug = r.service_slug.startsWith("/") ? r.service_slug : `/servicos/${r.service_slug}`;
+    urls.add(slug);
+  }
+  if (r.neighborhood) {
+    const slug = r.neighborhood.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-");
+    urls.add(`/bairros/${slug}`);
+  }
+  return [...urls];
+}
 
 const AdminReviews = () => {
   const { loading: authLoading, session, isAdmin } = useAdminAuth();

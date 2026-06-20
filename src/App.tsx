@@ -411,27 +411,26 @@ const CFTVPinhais = lazy(() => import("./pages/cftv/CFTVPinhais"));
 
 const queryClient = new QueryClient();
 
-// Loader leve com logo pulsando — sem overlay e com skeleton estável para evitar CLS
+// Loader minimalista: apenas a logo pulsando, sem skeleton, para evitar flicker de barras
 const PageLoader = () => (
-  <div className="min-h-[56vh] bg-background px-4 py-16" role="status" aria-label="Carregando página">
-    <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8">
-      <img
-        src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
-        alt="Técnico Curitiba"
-        width="304"
-        height="98"
-        decoding="sync"
-        className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
-        style={{ animationDuration: "1.2s" }}
-      />
-      <div className="grid w-full gap-3" aria-hidden="true">
-        <div className="mx-auto h-4 w-3/4 max-w-xl rounded-full bg-muted" />
-        <div className="mx-auto h-4 w-1/2 max-w-md rounded-full bg-muted" />
-        <div className="mx-auto mt-2 h-11 w-48 rounded-md bg-muted" />
-      </div>
-    </div>
+  <div
+    className="min-h-[40vh] bg-background flex items-center justify-center px-4 py-12"
+    role="status"
+    aria-label="Carregando"
+  >
+    <img
+      src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+      alt="Técnico Curitiba"
+      width="304"
+      height="98"
+      decoding="sync"
+      fetchPriority="high"
+      className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
+      style={{ animationDuration: "1s" }}
+    />
   </div>
 );
+
 
 /** Initializes global scroll animations + parallax on each route */
 const ScrollAnimationsInit = () => {

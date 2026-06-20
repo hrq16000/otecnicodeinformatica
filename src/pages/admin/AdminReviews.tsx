@@ -289,6 +289,8 @@ const AdminReviews = () => {
                     <Input placeholder="Bairro" value={form.neighborhood ?? ""} onChange={(e) => setForm({ ...form, neighborhood: e.target.value })} />
                     <Input placeholder="Serviço (slug)" value={form.service_slug ?? ""} onChange={(e) => setForm({ ...form, service_slug: e.target.value })} className="col-span-2" />
                     <Input placeholder="URL da review Google" value={form.google_review_url ?? ""} onChange={(e) => setForm({ ...form, google_review_url: e.target.value })} className="col-span-2" />
+                    <Input placeholder="WhatsApp do cliente (ex: 5541999999999)" value={form.client_phone ?? ""} onChange={(e) => setForm({ ...form, client_phone: e.target.value })} />
+                    <Input type="datetime-local" placeholder="Fechado em" value={form.service_closed_at ? new Date(form.service_closed_at).toISOString().slice(0,16) : ""} onChange={(e) => setForm({ ...form, service_closed_at: e.target.value ? new Date(e.target.value).toISOString() : null })} />
                     <Textarea placeholder="Comentário" value={form.comment ?? ""} onChange={(e) => setForm({ ...form, comment: e.target.value })} className="col-span-2" rows={3} />
                     <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!form.verified} onChange={(e) => setForm({ ...form, verified: e.target.checked })} /> Verificada</label>
                     <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })} /> Publicada</label>

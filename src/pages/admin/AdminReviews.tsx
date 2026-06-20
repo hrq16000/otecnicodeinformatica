@@ -131,12 +131,14 @@ const AdminReviews = () => {
   }, [reviews]);
 
   async function togglePublished(r: Review) {
+    const next = !r.published;
     const { error } = await supabase
       .from("reviews")
-      .update({ published: !r.published })
+      .update({ published: next })
       .eq("id", r.id);
     if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
-    setReviews((prev) => prev.map((x) => (x.id === r.id ? { ...x, published: !x.published } : x)));
+    setReviews((prev) => prev.map((x) => (x.id === r.id ? { ...x, published: next } : x)));
+    if (next && r.verified) void pingIndexNow(indexNowUrlsForReview(r));
   }
 
   async function approve(r: Review) {
@@ -148,7 +150,8 @@ const AdminReviews = () => {
     setReviews((prev) =>
       prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: true } : x)),
     );
-    toast({ title: "Review aprovada" });
+    void pingIndexNow(indexNowUrlsForReview(r));
+    toast({ title: "Review aprovada", description: "IndexNow notificado para Bing/Yandex." });
   }
 
   async function remove(id: string) {
@@ -187,6 +190,8 @@ const AdminReviews = () => {
       verified: !!form.verified,
       published: !!form.published,
       review_date: form.review_date || null,
+      client_phone: form.client_phone ? form.client_phone.replace(/\D/g, "") : null,
+      service_closed_at: form.service_closed_at || null,
     };
     if (editingId) {
       const { error } = await supabase.from("reviews").update(payload).eq("id", editingId);
@@ -197,6 +202,9 @@ const AdminReviews = () => {
     }
     setDialogOpen(false);
     void fetchReviews();
+    if (payload.verified && payload.published) {
+      void pingIndexNow(indexNowUrlsForReview(payload));
+    }
     toast({ title: editingId ? "Review atualizada" : "Review criada" });
   }
 

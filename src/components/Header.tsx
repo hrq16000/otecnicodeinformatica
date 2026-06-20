@@ -326,10 +326,10 @@ export const Header = () => {
             size="sm"
             className="shadow-sm group h-9"
             onClick={openChatbot}
-            aria-label="Atendimento rápido"
+            aria-label="Agendar atendimento"
           >
             <Bot className="h-4 w-4 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
-            <span className="hidden sm:inline">Agendar\n</span>
+            <span className="hidden sm:inline whitespace-nowrap">Agendar</span>
           </Button>
 
           <Button

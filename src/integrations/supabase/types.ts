@@ -139,6 +139,7 @@ export type Database = {
           author_name: string
           author_photo_url: string | null
           city: string | null
+          client_phone: string | null
           comment: string
           created_at: string
           google_review_url: string | null
@@ -147,6 +148,7 @@ export type Database = {
           published: boolean
           rating: number
           review_date: string
+          service_closed_at: string | null
           service_slug: string | null
           source: string
           updated_at: string
@@ -156,6 +158,7 @@ export type Database = {
           author_name: string
           author_photo_url?: string | null
           city?: string | null
+          client_phone?: string | null
           comment: string
           created_at?: string
           google_review_url?: string | null
@@ -164,6 +167,7 @@ export type Database = {
           published?: boolean
           rating: number
           review_date?: string
+          service_closed_at?: string | null
           service_slug?: string | null
           source?: string
           updated_at?: string
@@ -173,6 +177,7 @@ export type Database = {
           author_name?: string
           author_photo_url?: string | null
           city?: string | null
+          client_phone?: string | null
           comment?: string
           created_at?: string
           google_review_url?: string | null
@@ -181,6 +186,7 @@ export type Database = {
           published?: boolean
           rating?: number
           review_date?: string
+          service_closed_at?: string | null
           service_slug?: string | null
           source?: string
           updated_at?: string

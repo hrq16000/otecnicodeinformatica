@@ -18,6 +18,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
 import { t24WaLink, t72WaLink, reviewWindow } from "@/lib/reviewRequest";
+import { pingIndexNow } from "@/lib/indexNow";
 
 type Review = {
   id: string;
@@ -34,6 +35,8 @@ type Review = {
   published: boolean;
   review_date: string | null;
   created_at: string;
+  client_phone: string | null;
+  service_closed_at: string | null;
 };
 
 type Filter = "all" | "pending" | "published" | "hidden";
@@ -50,7 +53,23 @@ const emptyForm: Partial<Review> = {
   verified: true,
   published: true,
   review_date: new Date().toISOString().slice(0, 10),
+  client_phone: "",
+  service_closed_at: null,
 };
+
+/** URLs a notificar no IndexNow quando uma review entra no ar. */
+function indexNowUrlsForReview(r: Pick<Review, "service_slug" | "neighborhood">): string[] {
+  const urls = new Set<string>(["/", "/avaliacoes", "/sobre"]);
+  if (r.service_slug) {
+    const slug = r.service_slug.startsWith("/") ? r.service_slug : `/servicos/${r.service_slug}`;
+    urls.add(slug);
+  }
+  if (r.neighborhood) {
+    const slug = r.neighborhood.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-");
+    urls.add(`/bairros/${slug}`);
+  }
+  return [...urls];
+}
 
 const AdminReviews = () => {
   const { loading: authLoading, session, isAdmin } = useAdminAuth();
@@ -112,12 +131,14 @@ const AdminReviews = () => {
   }, [reviews]);
 
   async function togglePublished(r: Review) {
+    const next = !r.published;
     const { error } = await supabase
       .from("reviews")
-      .update({ published: !r.published })
+      .update({ published: next })
       .eq("id", r.id);
     if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
-    setReviews((prev) => prev.map((x) => (x.id === r.id ? { ...x, published: !x.published } : x)));
+    setReviews((prev) => prev.map((x) => (x.id === r.id ? { ...x, published: next } : x)));
+    if (next && r.verified) void pingIndexNow(indexNowUrlsForReview(r));
   }
 
   async function approve(r: Review) {
@@ -129,7 +150,8 @@ const AdminReviews = () => {
     setReviews((prev) =>
       prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: true } : x)),
     );
-    toast({ title: "Review aprovada" });
+    void pingIndexNow(indexNowUrlsForReview(r));
+    toast({ title: "Review aprovada", description: "IndexNow notificado para Bing/Yandex." });
   }
 
   async function remove(id: string) {
@@ -168,6 +190,8 @@ const AdminReviews = () => {
       verified: !!form.verified,
       published: !!form.published,
       review_date: form.review_date || null,
+      client_phone: form.client_phone ? form.client_phone.replace(/\D/g, "") : null,
+      service_closed_at: form.service_closed_at || null,
     };
     if (editingId) {
       const { error } = await supabase.from("reviews").update(payload).eq("id", editingId);
@@ -178,6 +202,9 @@ const AdminReviews = () => {
     }
     setDialogOpen(false);
     void fetchReviews();
+    if (payload.verified && payload.published) {
+      void pingIndexNow(indexNowUrlsForReview(payload));
+    }
     toast({ title: editingId ? "Review atualizada" : "Review criada" });
   }
 
@@ -262,6 +289,8 @@ const AdminReviews = () => {
                     <Input placeholder="Bairro" value={form.neighborhood ?? ""} onChange={(e) => setForm({ ...form, neighborhood: e.target.value })} />
                     <Input placeholder="Serviço (slug)" value={form.service_slug ?? ""} onChange={(e) => setForm({ ...form, service_slug: e.target.value })} className="col-span-2" />
                     <Input placeholder="URL da review Google" value={form.google_review_url ?? ""} onChange={(e) => setForm({ ...form, google_review_url: e.target.value })} className="col-span-2" />
+                    <Input placeholder="WhatsApp do cliente (ex: 5541999999999)" value={form.client_phone ?? ""} onChange={(e) => setForm({ ...form, client_phone: e.target.value })} />
+                    <Input type="datetime-local" placeholder="Fechado em" value={form.service_closed_at ? new Date(form.service_closed_at).toISOString().slice(0,16) : ""} onChange={(e) => setForm({ ...form, service_closed_at: e.target.value ? new Date(e.target.value).toISOString() : null })} />
                     <Textarea placeholder="Comentário" value={form.comment ?? ""} onChange={(e) => setForm({ ...form, comment: e.target.value })} className="col-span-2" rows={3} />
                     <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!form.verified} onChange={(e) => setForm({ ...form, verified: e.target.checked })} /> Verificada</label>
                     <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })} /> Publicada</label>
@@ -341,41 +370,42 @@ const AdminReviews = () => {
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => openEdit(r)} className="flex-1">Editar</Button>
                     {(() => {
-                      const baseDate = r.review_date ?? r.created_at;
+                      const baseDate = r.service_closed_at ?? r.review_date ?? r.created_at;
                       const win = reviewWindow(baseDate);
                       const ctx = {
                         clientName: r.author_name,
                         service: r.service_slug ?? undefined,
                         neighborhood: r.neighborhood ?? undefined,
                       };
+                      const hasPhone = !!r.client_phone && r.client_phone.replace(/\D/g, "").length >= 10;
                       const sendWa = (kind: "t24" | "t72") => {
-                        const phone = window.prompt(
-                          "Telefone do cliente (E.164, ex: 5541999999999)",
-                          "5541",
-                        );
-                        if (!phone) return;
-                        const url = kind === "t24" ? t24WaLink(phone, ctx) : t72WaLink(phone, ctx);
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        const url = kind === "t24" ? t24WaLink(r.client_phone!, ctx) : t72WaLink(r.client_phone!, ctx);
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
+                      const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
                       return (
                         <>
                           <Button
                             size="sm"
                             variant={win === "t24" ? "default" : "outline"}
-                            disabled={win === "wait"}
+                            disabled={win === "wait" || !hasPhone}
                             onClick={() => sendWa("t24")}
                             className="flex-1"
-                            title={win === "wait" ? "Aguarde 24h após o atendimento" : "Pedir review T+24h"}
+                            title={(win === "wait" ? "Aguarde 24h após o atendimento" : "Pedir review T+24h") + tipPhone}
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />T+24h
                           </Button>
                           <Button
                             size="sm"
                             variant={win === "t72" ? "default" : "outline"}
-                            disabled={win === "wait" || win === "t24"}
+                            disabled={win === "wait" || win === "t24" || !hasPhone}
                             onClick={() => sendWa("t72")}
                             className="flex-1"
-                            title={win === "expired" ? "Janela expirada (>7d)" : "Lembrete T+72h"}
+                            title={(win === "expired" ? "Janela expirada (>7d)" : "Lembrete T+72h") + tipPhone}
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />T+72h
                           </Button>

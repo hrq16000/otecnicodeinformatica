@@ -34,38 +34,7 @@ export const useGeolocation = (): GeoData => {
   });
 
   useEffect(() => {
-    // Try to get real location, but start with fallback immediately
-    const timer = setTimeout(async () => {
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 3000);
-        const response = await fetch("https://ipapi.co/json/", {
-          signal: controller.signal,
-        });
-        clearTimeout(timeout);
-
-        if (!response.ok) throw new Error("Failed");
-
-        const data = await response.json();
-        const detectedCity = data.city || "";
-        const isInServiceArea = CURITIBA_REGION_CITIES.some(
-          (city) => city.toLowerCase() === detectedCity.toLowerCase()
-        );
-
-        if (isInServiceArea) {
-          setGeoData({
-            city: detectedCity,
-            region: data.region || "Paraná",
-            isLoading: false,
-            error: null,
-          });
-        }
-      } catch {
-        // Keep fallback - already set
-      }
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    setGeoData((current) => ({ ...current, isLoading: false }));
   }, []);
 
   return geoData;

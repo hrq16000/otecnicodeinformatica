@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { useEffect } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 
@@ -34,6 +33,45 @@ export const PageSEO = ({
   const url = `${BASE_URL}${path}`;
   const versionedOg = withOgVersion(ogImage);
 
+  useEffect(() => {
+    document.title = title;
+    const upsertMeta = (selector: string, attrs: Record<string, string>) => {
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement("meta");
+        document.head.appendChild(el);
+      }
+      Object.entries(attrs).forEach(([key, value]) => el!.setAttribute(key, value));
+    };
+    const upsertLink = (rel: string, href: string) => {
+      let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+      if (!el) {
+        el = document.createElement("link");
+        el.rel = rel;
+        document.head.appendChild(el);
+      }
+      el.href = href;
+    };
+
+    upsertMeta('meta[name="description"]', { name: "description", content: description });
+    upsertMeta('meta[property="og:type"]', { property: "og:type", content: ogType });
+    upsertMeta('meta[property="og:url"]', { property: "og:url", content: url });
+    upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: SITE_NAME });
+    upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: "pt_BR" });
+    upsertMeta('meta[property="og:title"]', { property: "og:title", content: title });
+    upsertMeta('meta[property="og:description"]', { property: "og:description", content: description });
+    upsertMeta('meta[property="og:image"]', { property: "og:image", content: versionedOg });
+    upsertMeta('meta[property="og:image:secure_url"]', { property: "og:image:secure_url", content: versionedOg });
+    upsertMeta('meta[property="og:image:width"]', { property: "og:image:width", content: "1200" });
+    upsertMeta('meta[property="og:image:height"]', { property: "og:image:height", content: "630" });
+    upsertMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
+    upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
+    upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: versionedOg });
+    upsertLink("canonical", url);
+    if (noindex) upsertMeta('meta[name="robots"]', { name: "robots", content: "noindex, nofollow" });
+  }, [description, noindex, ogType, title, url, versionedOg]);
+
   // Inject BreadcrumbList structured data
   useEffect(() => {
     if (!breadcrumbs || breadcrumbs.length === 0) return;
@@ -62,33 +100,5 @@ export const PageSEO = ({
     };
   }, [breadcrumbs]);
 
-  return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
-      <link rel="canonical" href={url} />
-
-      {/* Favicon */}
-      <link rel="icon" href="/favicon.png" type="image/png" />
-
-      {/* Open Graph */}
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={url} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={versionedOg} />
-      <meta property="og:image:secure_url" content={versionedOg} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={versionedOg} />
-    </Helmet>
-  );
+  return null;
 };

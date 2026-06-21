@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const STORAGE_KEY = "top_offer_banner_dismissed_v1";
 
@@ -7,16 +7,14 @@ const STORAGE_KEY = "top_offer_banner_dismissed_v1";
  * Dispara o WhatsAppFunnel via custom event. Pode ser dispensado (sessionStorage).
  */
 export const TopOfferBanner = () => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
+  const [visible, setVisible] = useState(() => {
     try {
       const dismissed = sessionStorage.getItem(STORAGE_KEY);
-      if (!dismissed) setVisible(true);
+      return !dismissed;
     } catch {
-      setVisible(true);
+      return true;
     }
-  }, []);
+  });
 
   const dismiss = () => {
     setVisible(false);

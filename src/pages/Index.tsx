@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
+import { FastHeader } from "@/components/FastHeader";
+import { FastHeroSection } from "@/components/FastHeroSection";
 import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
@@ -56,10 +56,10 @@ const Index = () => {
       <PageSEO title="Técnico de Informática Curitiba | Atendimento Hoje R$ 99" description="Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5." path="/" />
 
       <JsonLdSchema />
-      <Header />
+      <FastHeader />
       <TopOfferBanner />
       <main>
-        <HeroSection />
+        <FastHeroSection />
 
         <section className="py-6 bg-background">
           <div className="container mx-auto">

@@ -2,13 +2,14 @@ import { lazy, Suspense, useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { FastHeroSection } from "@/components/FastHeroSection";
-import { Footer } from "@/components/Footer";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
 import { TopOfferBanner } from "@/components/TopOfferBanner";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { trackPageView } from "@/lib/analytics";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 // Lazy-load all below-the-fold sections to reduce initial JS and improve LCP
 const PainSection = lazy(() => import("@/components/PainSection").then(m => ({ default: m.PainSection })));
@@ -220,7 +221,11 @@ const Index = () => {
           </section>
         </LazyOnVisible>
       </main>
-      <Footer />
+      <LazyOnVisible minHeight="280px">
+        <Suspense fallback={<SectionFallback height="280px" />}>
+          <Footer />
+        </Suspense>
+      </LazyOnVisible>
       <LazyOnVisible minHeight="1px" rootMargin="0px">
         <Suspense fallback={null}>
           <SocialProofAdminPanel />

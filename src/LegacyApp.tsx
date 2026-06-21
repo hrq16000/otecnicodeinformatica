@@ -457,6 +457,7 @@ const IdleEnhancements = () => {
 };
 
 const App = () => (
+      <>
         <AppInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -881,6 +882,7 @@ const App = () => (
           </Routes>
         </Suspense>
         <IdleEnhancements />
+      </>
 );
 
 export default App;

@@ -1,13 +1,15 @@
-import { trackCTAClick } from "@/lib/analytics";
-
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
+const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
+  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
+};
 
 export const FastHeader = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   const openChatbot = () => {
-    trackCTAClick("chatbot", "header");
+    trackHeaderClick("chatbot");
     window.dispatchEvent(new CustomEvent("openChatbot"));
   };
 
@@ -42,7 +44,7 @@ export const FastHeader = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackCTAClick("whatsapp", "header")}
+            onClick={() => trackHeaderClick("whatsapp")}
             aria-label="WhatsApp"
             className="inline-flex min-h-9 items-center justify-center rounded-lg bg-[hsl(var(--whatsapp))] px-3 text-sm font-bold text-primary-foreground shadow-sm transition-colors hover:bg-[hsl(var(--whatsapp-hover))] sm:min-w-24"
           >

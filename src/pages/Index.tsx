@@ -1,12 +1,13 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { FastHeader } from "@/components/FastHeader";
 import { FastHeroSection } from "@/components/FastHeroSection";
 import { PricingBanner } from "@/components/PricingBanner";
 import { TopOfferBanner } from "@/components/TopOfferBanner";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
-import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 
 const HomeDeferredSections = lazy(() => import("@/components/HomeDeferredSections"));
+const PricingBanner = lazy(() => import("@/components/PricingBanner").then((m) => ({ default: m.PricingBanner })));
+const TechnicianAvailability = lazy(() => import("@/components/TechnicianAvailability").then((m) => ({ default: m.TechnicianAvailability })));
 
 // Skeleton placeholder to reserve space and avoid layout shifts during load
 const SectionFallback = ({ height = "400px" }: { height?: string }) => (
@@ -14,6 +15,8 @@ const SectionFallback = ({ height = "400px" }: { height?: string }) => (
 );
 
 const Index = () => {
+  const [showNearFold, setShowNearFold] = useState(false);
+
   useEffect(() => {
     document.title = "Técnico de Informática Curitiba | Atendimento Hoje R$ 99";
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -28,6 +31,16 @@ const Index = () => {
     return () => window.clearTimeout(id);
   }, []);
 
+  useEffect(() => {
+    const show = () => setShowNearFold(true);
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(show, { timeout: 1600 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(show, 900);
+    return () => window.clearTimeout(id);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <FastHeader />
@@ -35,18 +48,22 @@ const Index = () => {
       <main>
         <FastHeroSection />
 
-        <section className="py-6 bg-background">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-4 mb-4">
-                <TechnicianAvailability />
-                <div className="flex items-center">
-                  <PricingBanner />
+        {showNearFold ? (
+          <section className="py-6 bg-background">
+            <div className="container mx-auto">
+              <div className="max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <Suspense fallback={<SectionFallback height="160px" />}>
+                    <TechnicianAvailability />
+                    <div className="flex items-center">
+                      <PricingBanner />
+                    </div>
+                  </Suspense>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         <LazyOnVisible minHeight="900px" rootMargin="-320px 0px">
           <Suspense fallback={<SectionFallback height="900px" />}>

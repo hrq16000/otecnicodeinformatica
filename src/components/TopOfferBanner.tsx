@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const STORAGE_KEY = "top_offer_banner_dismissed_v1";
 
@@ -60,12 +59,12 @@ export const TopOfferBanner = () => {
             >
               Chamar agora <span aria-hidden="true">→</span>
             </a>
-            <Link
-              to="/termos-e-condicoes"
+            <a
+              href="/termos-e-condicoes"
               className="truncate font-medium text-white/85 underline underline-offset-2 hover:text-white"
             >
               Termos e Condições
-            </Link>
+            </a>
           </div>
         </div>
         <button

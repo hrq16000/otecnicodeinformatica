@@ -5,7 +5,6 @@ import { PricingBanner } from "@/components/PricingBanner";
 import { TopOfferBanner } from "@/components/TopOfferBanner";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
-import { trackPageView } from "@/lib/analytics";
 
 const HomeDeferredSections = lazy(() => import("@/components/HomeDeferredSections"));
 
@@ -23,7 +22,10 @@ const Index = () => {
         "Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5."
       );
     }
-    trackPageView("/", "Home");
+    const id = window.setTimeout(() => {
+      import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));
+    }, 1800);
+    return () => window.clearTimeout(id);
   }, []);
 
   return (

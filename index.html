@@ -56,6 +56,9 @@
 
 
     <!-- Fonte do shell usa fallback local; fontes web entram pelo CSS do app sem bloquear a primeira pintura. -->
+    <link rel="preload" as="style" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
 
     <!-- Favicon (optimized) -->
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />

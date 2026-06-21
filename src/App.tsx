@@ -12,7 +12,7 @@ const PageLoader = () => (
       width="304"
       height="98"
       decoding="sync"
-      fetchpriority="high"
+      fetchPriority="high"
       className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
       style={{ animationDuration: "1s" }}
     />

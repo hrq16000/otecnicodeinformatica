@@ -27,7 +27,7 @@ export const FastHeader = () => {
             width="304"
             height="98"
             decoding="sync"
-            fetchpriority="high"
+            fetchPriority="high"
             className="h-8 w-auto object-scale-down sm:h-10"
           />
         </a>

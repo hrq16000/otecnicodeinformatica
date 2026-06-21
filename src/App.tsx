@@ -45,10 +45,20 @@ const IdleEnhancements = () => {
   if (!enabled) return null;
   return (
     <Suspense fallback={null}>
-      <WhatsAppChatbot />
       <SocialProofProvider />
     </Suspense>
   );
+};
+
+const ChatbotOnDemand = () => {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    const activate = () => setEnabled(true);
+    window.addEventListener("openChatbot", activate, { once: true });
+    return () => window.removeEventListener("openChatbot", activate);
+  }, []);
+  if (!enabled) return null;
+  return <Suspense fallback={null}><WhatsAppChatbot /></Suspense>;
 };
 
 const HomeApp = () => (
@@ -62,6 +72,7 @@ const HomeApp = () => (
         <Route path="*" element={<LegacyApp />} />
       </Routes>
     </Suspense>
+    <ChatbotOnDemand />
     <IdleEnhancements />
   </BrowserRouter>
 );

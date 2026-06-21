@@ -1,8 +1,7 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Index from "./pages/Index";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
-const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
 
 const PageLoader = () => (
   <div className="min-h-[40vh] bg-background flex items-center justify-center px-4 py-12" role="status" aria-label="Carregando">
@@ -12,7 +11,6 @@ const PageLoader = () => (
       width="304"
       height="98"
       decoding="sync"
-      fetchPriority="high"
       className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
       style={{ animationDuration: "1s" }}
     />
@@ -24,17 +22,6 @@ const AppInit = () => {
     import("@/lib/utmCapture").then(({ captureUtmsFromUrl }) => captureUtmsFromUrl());
   }, []);
   return null;
-};
-
-const ChatbotOnDemand = () => {
-  const [enabled, setEnabled] = useState(false);
-  useEffect(() => {
-    const activate = () => setEnabled(true);
-    window.addEventListener("openChatbot", activate, { once: true });
-    return () => window.removeEventListener("openChatbot", activate);
-  }, []);
-  if (!enabled) return null;
-  return <Suspense fallback={null}><WhatsAppChatbot /></Suspense>;
 };
 
 const isHomeRoute = () => {
@@ -52,7 +39,6 @@ const HomeApp = () => (
         <LegacyApp />
       </Suspense>
     )}
-    <ChatbotOnDemand />
   </>
 );
 

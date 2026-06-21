@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
-import "./index.css";
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.
 const RELOAD_KEY = "__chunk_reloaded__";
@@ -32,7 +31,6 @@ window.addEventListener("vite:preloadError", (e: Event) => {
 });
 
 const rootElement = document.getElementById("root")!;
-rootElement.textContent = "";
 createRoot(rootElement).render(<App />);
 
 const runWhenIdle = (fn: () => void) => {

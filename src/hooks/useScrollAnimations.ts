@@ -10,17 +10,17 @@ export function useScrollAnimations() {
   const location = useLocation();
 
   useEffect(() => {
-    // Wait for React to paint the page
-    const raf = requestAnimationFrame(() => {
-      // Small delay to ensure lazy components are mounted
-      const timer = setTimeout(() => {
-        initScrollAnimations();
-      }, 100);
-      return () => clearTimeout(timer);
-    });
+    const run = () => initScrollAnimations();
+    const idleId = typeof window.requestIdleCallback === "function"
+      ? window.requestIdleCallback(run, { timeout: 2500 })
+      : window.setTimeout(run, 1200);
 
     return () => {
-      cancelAnimationFrame(raf);
+      if (typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      } else {
+        window.clearTimeout(idleId);
+      }
       cleanupScrollAnimations();
     };
   }, [location.pathname]);

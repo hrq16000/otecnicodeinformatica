@@ -83,7 +83,7 @@ export const FastHeroSection = () => {
                 className="relative w-64 rounded-2xl shadow-2xl sm:w-80 md:w-96 lg:w-auto lg:max-w-md"
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
+                fetchpriority="low"
                 width="400"
                 height="400"
                 src="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp"

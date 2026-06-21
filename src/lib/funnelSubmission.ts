@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 /** Gera um ID de sessão estável por aba do navegador. */
 export function getSessionId(): string {
   try {
@@ -32,6 +30,7 @@ export async function recordSubmission(payload: {
     gclid: sp.get("gclid") || undefined,
   };
   try {
+    const { supabase } = await import("@/integrations/supabase/client");
     await supabase.from("funnel_submissions").insert({
       session_id: payload.sessionId,
       equipamento: payload.equipamento?.slice(0, 80),

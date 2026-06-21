@@ -1,23 +1,16 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { WhatsAppChatbot } from "@/components/WhatsAppChatbot";
-import { WhatsAppFunnel } from "@/components/WhatsAppFunnel";
-import { SocialProofProvider } from "@/components/social-proof";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
-import { GA4ChecklistPanel } from "@/components/GA4ChecklistPanel";
-import { CursorTrail } from "@/components/CursorTrail";
 import { PageTransition } from "@/components/PageTransition";
 import { useScrollAnimations } from "@/hooks/useScrollAnimations";
 import { useParallax } from "@/hooks/useParallax";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
-import { useProblemaChunkPrefetch, useBlogChunkPrefetch } from "@/components/ProblemaLink";
-import { useEffect } from "react";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -411,6 +404,11 @@ const CFTVPinhais = lazy(() => import("./pages/cftv/CFTVPinhais"));
 
 const queryClient = new QueryClient();
 
+const WhatsAppFunnel = lazy(() => import("@/components/WhatsAppFunnel").then((m) => ({ default: m.WhatsAppFunnel })));
+const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
+const SocialProofProvider = lazy(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProofProvider })));
+const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").then((m) => ({ default: m.GA4ChecklistPanel })));
+
 // Loader minimalista: apenas a logo pulsando, sem skeleton, para evitar flicker de barras
 const PageLoader = () => (
   <div
@@ -437,11 +435,38 @@ const ScrollAnimationsInit = () => {
   useScrollAnimations();
   useParallax();
   useRevealOnScroll();
-  useProblemaChunkPrefetch();
-  useBlogChunkPrefetch();
 
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
+};
+
+const IdleEnhancements = () => {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const activate = () => setEnabled(true);
+    const idleId = typeof window.requestIdleCallback === "function"
+      ? window.requestIdleCallback(activate, { timeout: 4500 })
+      : globalThis.setTimeout(activate, 2500);
+
+    return () => {
+      if (typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      } else {
+        globalThis.clearTimeout(idleId);
+      }
+    };
+  }, []);
+
+  if (!enabled) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <WhatsAppChatbot />
+      <SocialProofProvider />
+      <GA4ChecklistPanel />
+    </Suspense>
+  );
 };
 
 const App = () => (
@@ -452,7 +477,6 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <ScrollProgressBar />
-        <CursorTrail />
         <ScrollAnimationsInit />
         <PageTransition>
         <Suspense fallback={<PageLoader />}>
@@ -878,10 +902,10 @@ const App = () => (
           </Routes>
         </Suspense>
         </PageTransition>
-        <WhatsAppChatbot />
-        <WhatsAppFunnel />
-        <SocialProofProvider />
-        <GA4ChecklistPanel />
+        <Suspense fallback={null}>
+          <WhatsAppFunnel />
+        </Suspense>
+        <IdleEnhancements />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

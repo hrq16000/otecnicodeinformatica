@@ -37,8 +37,7 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-    <!-- Preload hero image (LCP) — responsive variants -->
-    <link rel="preload" as="image" href="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp" type="image/webp" fetchpriority="high" imagesrcset="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-240.webp 240w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-360.webp 360w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp 480w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-800.webp 800w" imagesizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 448px" />
+    <!-- Preload only the immediate brand mark; the React hero image loads after hydration. -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -70,10 +69,7 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" />
 
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
     </noscript>
@@ -94,11 +90,16 @@
       html{-webkit-text-size-adjust:100%;line-height:1.5}
       body{margin:0;font-family:Inter,"Inter Fallback",Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(215,65%,22%);-webkit-font-smoothing:antialiased;font-display:swap}
       #root{min-height:100vh}
-      /* Splash instantâneo antes do React hidratar: evita “hero falsa” travada no preview */
-      .app-splash{position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 100%);contain:layout paint;overflow:hidden}
-      .app-splash::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,hsla(180,100%,50%,.08),transparent 56%),radial-gradient(ellipse at bottom left,hsla(0,0%,100%,.04),transparent 58%);pointer-events:none}
-      .app-splash-logo{position:relative;z-index:1;display:block;width:clamp(12rem,54vw,20rem);height:auto;object-fit:contain;will-change:transform,opacity;filter:drop-shadow(0 1.25rem 2.5rem rgba(0,0,0,.24))}
-      @media (prefers-reduced-motion:no-preference){.app-splash-logo{animation:logoPulse .9s ease-in-out infinite}}
+      /* Shell crítico: conteúdo útil aparece antes do React hidratar. */
+      .app-shell{min-height:100vh;background:linear-gradient(155deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 55%,hsl(220,55%,28%) 100%);color:#fff;overflow:hidden;position:relative}
+      .app-shell::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,hsla(24,92%,52%,.18),transparent 46%),radial-gradient(ellipse at bottom left,hsla(0,0%,100%,.08),transparent 52%);pointer-events:none}
+      .app-shell-header{height:56px;display:flex;align-items:center;padding:0 16px;background:rgba(8,21,40,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
+      .app-shell-logo{display:block;width:clamp(10.5rem,46vw,17rem);height:auto;object-fit:contain;will-change:transform,opacity;filter:drop-shadow(0 .75rem 1.5rem rgba(0,0,0,.22))}
+      .app-shell-main{position:relative;z-index:1;display:grid;min-height:calc(100vh - 56px);place-items:center;padding:clamp(24px,6vw,56px) 18px 32px;text-align:center}
+      .app-shell-content{max-width:720px;margin:0 auto}.app-shell-badge{display:inline-flex;margin-bottom:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;color:rgba(255,255,255,.92)}
+      .app-shell h1{margin:0;font-family:Poppins,"Poppins Fallback",Inter,sans-serif;font-size:clamp(2rem,8vw,4rem);line-height:1.08;letter-spacing:0;font-weight:800}.app-shell h1 span{color:hsl(24,92%,58%);display:block}.app-shell p{max-width:620px;margin:16px auto 0;font-size:clamp(1rem,4vw,1.25rem);line-height:1.55;color:rgba(255,255,255,.9)}
+      .app-shell-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}.app-shell-cta{display:inline-flex;min-height:48px;align-items:center;justify-content:center;border-radius:12px;padding:0 18px;background:hsl(145,63%,42%);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(0,0,0,.22)}.app-shell-cta.secondary{background:hsl(24,92%,52%)}
+      @media (prefers-reduced-motion:no-preference){.app-shell-logo{animation:logoPulse .9s ease-in-out infinite}}
       @keyframes logoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.58;transform:scale(1.08)}}
 
     </style>
@@ -175,8 +176,21 @@
     </noscript>
 
     <div id="root">
-      <div class="app-splash" role="status" aria-label="Carregando Técnico Curitiba">
-        <img class="app-splash-logo" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" alt="Técnico Curitiba" width="304" height="98" decoding="sync" fetchpriority="high" />
+      <div class="app-shell" aria-label="Técnico Curitiba">
+        <header class="app-shell-header">
+          <img class="app-shell-logo" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" alt="Técnico Curitiba" width="304" height="98" decoding="sync" fetchpriority="high" />
+        </header>
+        <main class="app-shell-main">
+          <div class="app-shell-content">
+            <span class="app-shell-badge">Atendimento técnico em Curitiba e região</span>
+            <h1>Técnico de Informática <span>em Curitiba</span></h1>
+            <p>Conserto de computadores e notebooks com atendimento a domicílio, formatação, remoção de vírus e upgrade SSD.</p>
+            <div class="app-shell-actions" aria-label="Ações rápidas">
+              <a class="app-shell-cta" href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." rel="noopener noreferrer">WhatsApp Agora</a>
+              <a class="app-shell-cta secondary" href="/diagnostico-60s">Diagnóstico 60s</a>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>

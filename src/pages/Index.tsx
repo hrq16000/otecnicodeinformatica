@@ -74,7 +74,7 @@ const Index = () => {
           </div>
         </section>
 
-        <LazyOnVisible minHeight="120px">
+        <LazyOnVisible minHeight="120px" rootMargin="50px 0px">
           <Suspense fallback={<SectionFallback height="120px" />}>
             <TechBrandsMarquee />
           </Suspense>

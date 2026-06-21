@@ -1,28 +1,9 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { MessageCircle, MapPin, Clock, Shield, Star, CheckCircle, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
-import { SchedulingModal } from "@/components/scheduling";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { TypingEffect } from "@/components/TypingEffect";
-import { FloatingParticles } from "@/components/FloatingParticles";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
-import heroBgHardware from "@/assets/hero-bg-hardware.jpg";
-import heroBgRedes from "@/assets/hero-bg-redes.jpg";
-import heroBgPlacamae from "@/assets/hero-bg-placamae.jpg";
-import heroBgReparo from "@/assets/hero-bg-reparo.jpg";
-
-const HERO_BACKGROUNDS = [heroTechBg, heroBgHardware, heroBgRedes, heroBgPlacamae, heroBgReparo];
-
-const getRandomBg = () => HERO_BACKGROUNDS[Math.floor(Math.random() * HERO_BACKGROUNDS.length)];
-
-const TYPING_PHRASES = [
-  "e Região Metropolitana",
-  "São José dos Pinhais",
-  "Araucária e Campo Largo",
-  "Pinhais e Colombo",
-];
+const SchedulingModal = lazy(() => import("@/components/scheduling/SchedulingModal").then((m) => ({ default: m.SchedulingModal })));
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
@@ -35,7 +16,6 @@ const trustSignals = [
 
 export const HeroSection = () => {
   const [isSchedulingOpen, setIsSchedulingOpen] = useState(false);
-  const [heroBg] = useState(getRandomBg);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   
   const openChatbot = () => {
@@ -45,37 +25,20 @@ export const HeroSection = () => {
 
   return (
     <>
-    <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
+    {isSchedulingOpen && (
+      <Suspense fallback={null}>
+        <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
+      </Suspense>
+    )}
     <section className="hero-gradient pt-8 pb-14 sm:pt-10 md:pt-12 md:pb-18 lg:pt-14 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
-      {/* Background image with ken burns effect */}
+      {/* Lightweight critical background: no extra image request before first interaction */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover opacity-18 scale-105"
-          loading="lazy"
-          decoding="async"
-          // @ts-ignore - fetchpriority is valid HTML attribute
-          fetchpriority="low"
-          width="1920"
-          height="1080"
-          style={{ animation: "kenBurns 25s ease-in-out infinite alternate" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,65%,22%)]/90 via-[hsl(215,65%,22%)]/80 to-[hsl(215,65%,22%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,65%,22%)]/40 via-transparent to-[hsl(215,65%,22%)]/30" />
-        {/* Extra mobile contrast layer */}
-        <div className="absolute inset-0 bg-[hsl(215,65%,22%)]/30 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-[hsl(var(--hero-bg))] to-[hsl(var(--hero-bg-end))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.16),transparent_45%),radial-gradient(ellipse_at_bottom_left,hsl(var(--primary-foreground)/0.08),transparent_50%)]" />
       </div>
-      <style>{`@keyframes kenBurns { 0% { transform: scale(1.05) translate(0,0); } 100% { transform: scale(1.12) translate(-1%,-1%); } }`}</style>
-
-      {/* Floating particles */}
-      <FloatingParticles count={40} />
       
       {/* Parallax ambient lights */}
-      <div data-parallax="0.12" className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-accent/[0.06] blur-[120px] pointer-events-none animate-breathe" />
-      <div data-parallax="0.08" className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.03] blur-[100px] pointer-events-none" />
-      <div data-parallax="0.2" className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px] pointer-events-none" />
+      <div data-parallax="0.08" className="absolute top-0 right-0 h-80 w-80 rounded-full bg-accent/[0.06] blur-[96px] pointer-events-none" />
 
       <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -87,7 +50,7 @@ export const HeroSection = () => {
             >
               <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
               <span className="text-white/90 text-sm font-medium tracking-wide">
-                +<AnimatedCounter end={20} className="font-bold" /> anos atendendo Curitiba e região
+                +20 anos atendendo Curitiba e região
               </span>
             </div>
 
@@ -96,7 +59,7 @@ export const HeroSection = () => {
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba</span>
               <span className="block text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 mt-2 tracking-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] min-h-[1.5em] break-words">
-                <TypingEffect phrases={TYPING_PHRASES} className="text-white/90" />
+                e Região Metropolitana
               </span>
             </h1>
             
@@ -155,7 +118,7 @@ export const HeroSection = () => {
                 alt="Técnico de informática profissional realizando conserto de computador em Curitiba" 
                 className="relative w-64 sm:w-80 md:w-96 lg:w-auto lg:max-w-md rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]" 
                 loading="eager"
-                decoding="async"
+                decoding="sync"
                 // @ts-ignore - fetchpriority is valid HTML attribute
                 fetchpriority="high"
                 width="400"

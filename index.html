@@ -119,8 +119,7 @@
           var ga=document.createElement('script');ga.async=true;ga.src='https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';document.head.appendChild(ga);
           ga.onload=function(){window.gtag('js',new Date());window.gtag('config','G-B9VPHCZC10',{send_page_view:true});window.gtag('config','AW-17892118207')};
         }
-        function schedule(){setTimeout(loadMarketing,8000)}
-        if(document.readyState==='complete') schedule(); else window.addEventListener('load',schedule,{once:true});
+        ['pointerdown','keydown','scroll','touchstart'].forEach(function(evt){window.addEventListener(evt,loadMarketing,{once:true,passive:true})});
       })();
     </script>
   </body>

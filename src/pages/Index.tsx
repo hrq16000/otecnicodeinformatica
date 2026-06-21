@@ -80,47 +80,47 @@ const Index = () => {
             <TechBrandsMarquee />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <PainSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <SchedulingSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <ServicesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <TopSearchedServicesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible minHeight="1px">
+        <LazyOnVisible minHeight="1px" rootMargin="-240px 0px">
           <Suspense fallback={null}>
             <GeolocationTrigger />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CoverageMapSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CitiesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <NeighborhoodsSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <SocialProofSection />
           </Suspense>
@@ -160,53 +160,53 @@ const Index = () => {
           </div>
         </section>
 
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomePricingBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeDiagnosticoBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeEquipamentosBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeParaQuemBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <ProblemasDestaque />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <InterlinkingBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <TrustSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CTASection />
           </Suspense>
         </LazyOnVisible>
 
-        <LazyOnVisible minHeight="200px">
+        <LazyOnVisible minHeight="200px" rootMargin="-240px 0px">
           <section className="py-8 bg-muted/30">
             <div className="container mx-auto">
               <div className="text-center mb-6">

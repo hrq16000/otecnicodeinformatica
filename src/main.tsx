@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { initWebVitals } from "./lib/webVitals";
 import { initWhatsAppUtm } from "./lib/whatsappUtm";
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.
@@ -36,4 +35,10 @@ window.addEventListener("vite:preloadError", (e: Event) => {
 createRoot(document.getElementById("root")!).render(<App />);
 
 initWhatsAppUtm();
-initWebVitals();
+
+const startVitals = () => import("./lib/webVitals").then(({ initWebVitals }) => initWebVitals());
+if (typeof window.requestIdleCallback === "function") {
+  window.requestIdleCallback(() => { void startVitals(); }, { timeout: 5000 });
+} else {
+  window.setTimeout(() => { void startVitals(); }, 3500);
+}

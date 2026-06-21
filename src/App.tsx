@@ -393,12 +393,12 @@ const CFTVAraucaria = lazy(() => import("./pages/cftv/CFTVAraucaria"));
 const CFTVCampoLargo = lazy(() => import("./pages/cftv/CFTVCampoLargo"));
 const CFTVPinhais = lazy(() => import("./pages/cftv/CFTVPinhais"));
 
-const queryClient = new QueryClient();
-
 const WhatsAppFunnel = lazy(() => import("@/components/WhatsAppFunnel").then((m) => ({ default: m.WhatsAppFunnel })));
 const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
 const SocialProofProvider = lazy(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProofProvider })));
 const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").then((m) => ({ default: m.GA4ChecklistPanel })));
+const Toaster = lazy(() => import("@/components/ui/toaster").then((m) => ({ default: m.Toaster })));
+const Sonner = lazy(() => import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })));
 
 // Loader minimalista: apenas a logo pulsando, sem skeleton, para evitar flicker de barras
 const PageLoader = () => (
@@ -421,12 +421,7 @@ const PageLoader = () => (
 );
 
 
-/** Initializes global scroll animations + parallax on each route */
-const ScrollAnimationsInit = () => {
-  useScrollAnimations();
-  useParallax();
-  useRevealOnScroll();
-
+const AppInit = () => {
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
 };
@@ -453,6 +448,8 @@ const IdleEnhancements = () => {
 
   return (
     <Suspense fallback={null}>
+      <Toaster />
+      <Sonner />
       <WhatsAppChatbot />
       <SocialProofProvider />
       <GA4ChecklistPanel />
@@ -461,14 +458,9 @@ const IdleEnhancements = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <ScrollProgressBar />
-        <ScrollAnimationsInit />
-        <PageTransition>
+        <AppInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -891,13 +883,11 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-        </PageTransition>
         <Suspense fallback={null}>
           <WhatsAppFunnel />
         </Suspense>
         <IdleEnhancements />
       </BrowserRouter>
-  </QueryClientProvider>
 );
 
 export default App;

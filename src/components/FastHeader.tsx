@@ -1,5 +1,6 @@
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+const SCHEDULE_MESSAGE = "Olá! Quero agendar atendimento técnico.";
 
 const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
@@ -7,11 +8,7 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
 
 export const FastHeader = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-
-  const openChatbot = () => {
-    trackHeaderClick("chatbot");
-    window.dispatchEvent(new CustomEvent("openChatbot"));
-  };
+  const scheduleUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(SCHEDULE_MESSAGE)}`;
 
   return (
     <header
@@ -50,14 +47,16 @@ export const FastHeader = () => {
             <span className="sm:hidden" aria-hidden="true">☏</span>
             <span className="hidden sm:inline">WhatsApp</span>
           </a>
-          <button
-            type="button"
-            onClick={openChatbot}
+          <a
+            href={scheduleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackHeaderClick("chatbot")}
             aria-label="Agendar atendimento"
             className="inline-flex min-h-9 items-center justify-center rounded-lg bg-accent px-3 text-sm font-bold text-accent-foreground shadow-sm transition-colors hover:bg-accent/90"
           >
             Agendar
-          </button>
+          </a>
           <a
             href="/servicos"
             aria-label="Abrir menu"

@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
+const trackHeroWhatsApp = () => {
+  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", "hero"));
+};
 
 export const FastHeroSection = () => {
   const [showScheduling, setShowScheduling] = useState(false);
@@ -52,7 +55,7 @@ export const FastHeroSection = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackCTAClick("whatsapp", "hero")}
+                onClick={trackHeroWhatsApp}
                 aria-label="Chamar técnico no WhatsApp"
                 className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[hsl(var(--whatsapp))] px-6 text-base font-bold text-primary-foreground shadow-lg transition-transform hover:scale-[1.02] hover:bg-[hsl(var(--whatsapp-hover))]"
               >

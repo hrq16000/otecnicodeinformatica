@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
-import { trackCTAClick } from "@/lib/analytics";
-
 const WHATSAPP_NUMBER = "5541997452053";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
+
+const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
+  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
+};
 
 export const FastHeader = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   const openChatbot = () => {
-    trackCTAClick("chatbot", "header");
+    trackHeaderClick("chatbot");
     window.dispatchEvent(new CustomEvent("openChatbot"));
   };
 
@@ -19,7 +20,7 @@ export const FastHeader = () => {
       style={{ zIndex: "var(--z-header)" as unknown as number }}
     >
       <div className="container mx-auto flex h-full items-center justify-between gap-2">
-        <Link to="/" aria-label="Início" className="min-w-0 flex-shrink-0">
+        <a href="/" aria-label="Início" className="min-w-0 flex-shrink-0">
           <img
             alt="Técnico Curitiba — Assistência Técnica em Informática"
             src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
@@ -29,13 +30,13 @@ export const FastHeader = () => {
             fetchPriority="high"
             className="h-8 w-auto object-scale-down sm:h-10"
           />
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex" aria-label="Navegação principal">
-          <Link className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" to="/servicos">Serviços</Link>
-          <Link className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" to="/como-funciona">Atendimento</Link>
-          <Link className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" to="/tecnico-informatica-curitiba">Regiões</Link>
-          <Link className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" to="/blog">Saiba Mais</Link>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/servicos">Serviços</a>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/como-funciona">Atendimento</a>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/tecnico-informatica-curitiba">Regiões</a>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/blog">Saiba Mais</a>
         </nav>
 
         <div className="flex items-center gap-1.5">
@@ -43,7 +44,7 @@ export const FastHeader = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackCTAClick("whatsapp", "header")}
+            onClick={() => trackHeaderClick("whatsapp")}
             aria-label="WhatsApp"
             className="inline-flex min-h-9 items-center justify-center rounded-lg bg-[hsl(var(--whatsapp))] px-3 text-sm font-bold text-primary-foreground shadow-sm transition-colors hover:bg-[hsl(var(--whatsapp-hover))] sm:min-w-24"
           >
@@ -58,13 +59,13 @@ export const FastHeader = () => {
           >
             Agendar
           </button>
-          <Link
-            to="/servicos"
+          <a
+            href="/servicos"
             aria-label="Abrir menu"
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
           >
             <span aria-hidden="true">☰</span>
-          </Link>
+          </a>
         </div>
       </div>
     </header>

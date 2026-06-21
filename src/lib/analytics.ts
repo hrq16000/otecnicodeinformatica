@@ -1,5 +1,4 @@
-// Google Analytics & Ads tracking utilities
-import { toast } from "sonner";
+// Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
 
 declare global {
   interface Window {
@@ -85,16 +84,7 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       // Console always for diagnostics
       // eslint-disable-next-line no-console
       console.log('[GA4 cta_click → WhatsApp]', payload);
-      if (debugFlag) {
-        const lines = [
-          `utm_source: ${utm.utm_source ?? '—'}`,
-          `utm_medium: ${utm.utm_medium ?? '—'}`,
-          `utm_campaign: ${utm.utm_campaign ?? '—'}`,
-          `gclid: ${utm.gclid ?? '—'}`,
-          `location: ${location}`,
-        ].join('\n');
-        toast.success('WhatsApp lead enviado ao GA4', { description: lines, duration: 6000 });
-      }
+      if (debugFlag) console.info('[GA4 debug]', { ...utm, location });
     }
   }
 };

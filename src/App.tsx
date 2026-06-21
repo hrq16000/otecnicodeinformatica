@@ -1,14 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { ScrollProgressBar } from "@/components/ScrollProgressBar";
-import { PageTransition } from "@/components/PageTransition";
-import { useScrollAnimations } from "@/hooks/useScrollAnimations";
-import { useParallax } from "@/hooks/useParallax";
-import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 import Index from "./pages/Index";
 

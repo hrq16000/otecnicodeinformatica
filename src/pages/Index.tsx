@@ -1,14 +1,15 @@
 import { lazy, Suspense, useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { Footer } from "@/components/Footer";
+import { FastHeader } from "@/components/FastHeader";
+import { FastHeroSection } from "@/components/FastHeroSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { PricingBanner } from "@/components/PricingBanner";
 import { TopOfferBanner } from "@/components/TopOfferBanner";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { TechnicianAvailability } from "@/components/TechnicianAvailability";
 import { trackPageView } from "@/lib/analytics";
+
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
 // Lazy-load all below-the-fold sections to reduce initial JS and improve LCP
 const PainSection = lazy(() => import("@/components/PainSection").then(m => ({ default: m.PainSection })));
@@ -56,10 +57,10 @@ const Index = () => {
       <PageSEO title="Técnico de Informática Curitiba | Atendimento Hoje R$ 99" description="Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5." path="/" />
 
       <JsonLdSchema />
-      <Header />
+      <FastHeader />
       <TopOfferBanner />
       <main>
-        <HeroSection />
+        <FastHeroSection />
 
         <section className="py-6 bg-background">
           <div className="container mx-auto">
@@ -74,52 +75,52 @@ const Index = () => {
           </div>
         </section>
 
-        <LazyOnVisible minHeight="120px" rootMargin="-120px 0px">
+        <LazyOnVisible minHeight="120px" rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback height="120px" />}>
             <TechBrandsMarquee />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <PainSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <SchedulingSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <ServicesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <TopSearchedServicesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible minHeight="1px">
+        <LazyOnVisible minHeight="1px" rootMargin="-240px 0px">
           <Suspense fallback={null}>
             <GeolocationTrigger />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CoverageMapSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CitiesSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <NeighborhoodsSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <SocialProofSection />
           </Suspense>
@@ -159,53 +160,53 @@ const Index = () => {
           </div>
         </section>
 
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomePricingBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeDiagnosticoBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeEquipamentosBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <HomeParaQuemBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <ProblemasDestaque />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <InterlinkingBlock />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <FAQSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <TrustSection />
           </Suspense>
         </LazyOnVisible>
-        <LazyOnVisible>
+        <LazyOnVisible rootMargin="-240px 0px">
           <Suspense fallback={<SectionFallback />}>
             <CTASection />
           </Suspense>
         </LazyOnVisible>
 
-        <LazyOnVisible minHeight="200px">
+        <LazyOnVisible minHeight="200px" rootMargin="-240px 0px">
           <section className="py-8 bg-muted/30">
             <div className="container mx-auto">
               <div className="text-center mb-6">
@@ -220,7 +221,11 @@ const Index = () => {
           </section>
         </LazyOnVisible>
       </main>
-      <Footer />
+      <LazyOnVisible minHeight="280px">
+        <Suspense fallback={<SectionFallback height="280px" />}>
+          <Footer />
+        </Suspense>
+      </LazyOnVisible>
       <LazyOnVisible minHeight="1px" rootMargin="0px">
         <Suspense fallback={null}>
           <SocialProofAdminPanel />

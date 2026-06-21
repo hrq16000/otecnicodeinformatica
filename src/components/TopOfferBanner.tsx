@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { X, Zap, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "top_offer_banner_dismissed_v1";
 
@@ -46,7 +45,7 @@ export const TopOfferBanner = () => {
       >
         <div className="container mx-auto flex min-h-[var(--top-offer-height)] items-center justify-center gap-2 px-3 py-1.5 pr-9 text-center sm:gap-4 sm:px-4 sm:py-2 sm:text-left">
           <div className="hidden min-w-0 items-center gap-2 sm:flex">
-            <Zap className="h-4 w-4 flex-shrink-0 fill-yellow-300 text-yellow-300" />
+            <span className="flex-shrink-0 text-yellow-300" aria-hidden="true">⚡</span>
             <p className="text-sm font-semibold tracking-tight">
               Serviço Rápido até <span className="underline decoration-2 underline-offset-2">30 min</span> — apenas{" "}
               <span className="text-yellow-300 font-extrabold">R$ 99,99</span>
@@ -59,7 +58,7 @@ export const TopOfferBanner = () => {
               data-wa-medium="top_banner"
               className="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
             >
-              Chamar agora <ArrowRight className="h-3 w-3" />
+              Chamar agora <span aria-hidden="true">→</span>
             </a>
             <Link
               to="/termos-e-condicoes"
@@ -75,7 +74,7 @@ export const TopOfferBanner = () => {
           aria-label="Fechar oferta"
           className="absolute right-1 top-1/2 -translate-y-1/2 rounded-md p-1 transition-colors hover:bg-white/20 sm:right-3"
         >
-          <X className="h-4 w-4" />
+          <span className="block h-4 w-4 leading-4" aria-hidden="true">×</span>
         </button>
       </div>
     </>

@@ -28,14 +28,11 @@
     <meta name="msapplication-TileColor" content="#0a0a0f" />
     <meta name="application-name" content="Técnico Curitiba" />
     <meta name="msvalidate.01" content="" />
-    <link rel="manifest" href="/manifest.json" />
     <link rel="preload" as="image" href="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" type="image/webp" fetchpriority="high" />
 
     <!-- DNS Prefetch & Preconnect for speed -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
     <!-- Preload only the immediate brand mark; the React hero image loads after hydration. -->
 
@@ -58,21 +55,7 @@
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/El3gITL9bldQ7WZaPszZm8jw8DX2/social-images/social-1775439639319-110201.webp" />
 
 
-    <!-- Fonts — preconnect + preload critical woff2 + stylesheet preload for faster render -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Preload critical Latin font files (Inter/Roboto body + Poppins/Montserrat headings) -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" />
-
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
-    </noscript>
+    <!-- Fonte do shell usa fallback local; fontes web entram pelo CSS do app sem bloquear a primeira pintura. -->
 
     <!-- Favicon (optimized) -->
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -104,77 +87,9 @@
 
     </style>
 
-    <!-- Google Analytics 4 + Ads — single gtag load, deferred -->
-    <script>
-      if(typeof requestIdleCallback==='function'){
-        requestIdleCallback(function(){loadGA()});
-      }else{
-        setTimeout(loadGA,2000);
-      }
-      function loadGA(){
-        var s=document.createElement('script');s.async=true;
-        s.src='https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';
-        document.head.appendChild(s);
-        s.onload=function(){
-          window.dataLayer=window.dataLayer||[];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag=gtag;
-          gtag('js',new Date());
-          gtag('config','G-B9VPHCZC10',{send_page_view:true});
-          gtag('config','AW-17892118207');
-          gtag('event','conversion',{
-            'send_to':'AW-17892118207/i5jSCMqi1JYcEL-d0NNC',
-            'value':1.0,'currency':'BRL'
-          });
-        };
-      }
-    </script>
-
-    <!-- Google Ads now loaded via unified GA script above -->
-
-    <!-- Google Tag Manager — loaded after interactive -->
-    <script>
-      if(typeof requestIdleCallback==='function'){
-        requestIdleCallback(function(){loadGTM()});
-      }else{
-        setTimeout(loadGTM,3500);
-      }
-      function loadGTM(){
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PTQNSLFS');
-      }
-    </script>
-
-    <!-- Google AdSense — deferred -->
-    <script>
-      if(typeof requestIdleCallback==='function'){
-        requestIdleCallback(function(){loadAdSense()});
-      }else{
-        setTimeout(loadAdSense,4000);
-      }
-      function loadAdSense(){
-        var s=document.createElement('script');
-        s.async=true;s.crossOrigin='anonymous';
-        s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3762170279587706';
-        document.head.appendChild(s);
-      }
-    </script>
     <meta name="google-adsense-account" content="ca-pub-3762170279587706">
 </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PTQNSLFS"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe>
-    </noscript>
-
     <div id="root">
       <div class="app-shell" aria-label="Técnico Curitiba">
         <header class="app-shell-header">

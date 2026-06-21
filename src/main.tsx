@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { initWebVitals } from "./lib/webVitals";
 import { initWhatsAppUtm } from "./lib/whatsappUtm";
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.
@@ -33,7 +32,8 @@ window.addEventListener("vite:preloadError", (e: Event) => {
   handleChunkError("Failed to fetch dynamically imported module");
 });
 
-createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById("root")!;
+rootElement.textContent = "";
+createRoot(rootElement).render(<App />);
 
 initWhatsAppUtm();
-initWebVitals();

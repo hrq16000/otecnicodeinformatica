@@ -16,7 +16,7 @@ interface LazyOnVisibleProps {
 export const LazyOnVisible = ({
   children,
   minHeight = "400px",
-  rootMargin = "150px 0px",
+  rootMargin = "0px 0px",
 }: LazyOnVisibleProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);

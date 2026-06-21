@@ -1,7 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
-import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -38,19 +36,23 @@ const ChatbotOnDemand = () => {
   return <Suspense fallback={null}><WhatsAppChatbot /></Suspense>;
 };
 
+const isHomeRoute = () => {
+  const path = typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/+$/, "") || "/";
+  return path === "/" || path === "/index";
+};
+
 const HomeApp = () => (
-  <BrowserRouter>
-    <ScrollToTop />
+  <>
     <AppInit />
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/index" element={<Index />} />
-        <Route path="*" element={<LegacyApp />} />
-      </Routes>
-    </Suspense>
+    {isHomeRoute() ? (
+      <Index />
+    ) : (
+      <Suspense fallback={<PageLoader />}>
+        <LegacyApp />
+      </Suspense>
+    )}
     <ChatbotOnDemand />
-  </BrowserRouter>
+  </>
 );
 
 export default HomeApp;

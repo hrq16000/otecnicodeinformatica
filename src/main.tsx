@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { initWhatsAppUtm } from "./lib/whatsappUtm";
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.
 const RELOAD_KEY = "__chunk_reloaded__";
@@ -36,4 +35,14 @@ const rootElement = document.getElementById("root")!;
 rootElement.textContent = "";
 createRoot(rootElement).render(<App />);
 
-initWhatsAppUtm();
+const runWhenIdle = (fn: () => void) => {
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(fn, { timeout: 3000 });
+  } else {
+    window.setTimeout(fn, 1200);
+  }
+};
+
+runWhenIdle(() => {
+  import("./lib/whatsappUtm").then(({ initWhatsAppUtm }) => initWhatsAppUtm());
+});

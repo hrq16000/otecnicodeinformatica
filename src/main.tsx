@@ -32,13 +32,8 @@ window.addEventListener("vite:preloadError", (e: Event) => {
   handleChunkError("Failed to fetch dynamically imported module");
 });
 
-createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById("root")!;
+rootElement.textContent = "";
+createRoot(rootElement).render(<App />);
 
 initWhatsAppUtm();
-
-const startVitals = () => import("./lib/webVitals").then(({ initWebVitals }) => initWebVitals());
-if (typeof window.requestIdleCallback === "function") {
-  window.requestIdleCallback(() => { void startVitals(); }, { timeout: 5000 });
-} else {
-  window.setTimeout(() => { void startVitals(); }, 3500);
-}

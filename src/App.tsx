@@ -6,7 +6,6 @@ import { captureUtmsFromUrl } from "@/lib/utmCapture";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
 const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
-const SocialProofProvider = lazy(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProofProvider })));
 
 const PageLoader = () => (
   <div className="min-h-[40vh] bg-background flex items-center justify-center px-4 py-12" role="status" aria-label="Carregando">
@@ -26,28 +25,6 @@ const PageLoader = () => (
 const AppInit = () => {
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
-};
-
-const IdleEnhancements = () => {
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    const activate = () => setEnabled(true);
-    const id = typeof window.requestIdleCallback === "function"
-      ? window.requestIdleCallback(activate, { timeout: 6500 })
-      : window.setTimeout(activate, 4500);
-    return () => {
-      if (typeof window.cancelIdleCallback === "function") window.cancelIdleCallback(id);
-      else window.clearTimeout(id);
-    };
-  }, []);
-
-  if (!enabled) return null;
-  return (
-    <Suspense fallback={null}>
-      <SocialProofProvider />
-    </Suspense>
-  );
 };
 
 const ChatbotOnDemand = () => {
@@ -73,7 +50,6 @@ const HomeApp = () => (
       </Routes>
     </Suspense>
     <ChatbotOnDemand />
-    <IdleEnhancements />
   </BrowserRouter>
 );
 

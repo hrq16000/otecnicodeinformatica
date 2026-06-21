@@ -5,7 +5,6 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
-const WhatsAppFunnel = lazy(() => import("@/components/WhatsAppFunnel").then((m) => ({ default: m.WhatsAppFunnel })));
 const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
 const SocialProofProvider = lazy(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProofProvider })));
 
@@ -62,9 +61,6 @@ const HomeApp = () => (
         <Route path="/index" element={<Index />} />
         <Route path="*" element={<LegacyApp />} />
       </Routes>
-    </Suspense>
-    <Suspense fallback={null}>
-      <WhatsAppFunnel />
     </Suspense>
     <IdleEnhancements />
   </BrowserRouter>

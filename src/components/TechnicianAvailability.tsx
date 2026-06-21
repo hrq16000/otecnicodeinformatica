@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Clock, Users, Zap } from "lucide-react";
 
 interface AvailabilityStatus {
   isOnline: boolean;
@@ -87,17 +86,17 @@ export const TechnicianAvailability = () => {
       {status.isOnline ? (
         <div className="grid grid-cols-3 gap-3">
           <div className="text-center p-2 bg-secondary rounded-lg">
-            <Users className="h-4 w-4 mx-auto mb-1 text-primary" />
+            <span className="mx-auto mb-1 block text-primary" aria-hidden="true">👥</span>
             <p className="text-lg font-bold text-primary">{status.technicianCount}</p>
             <p className="text-xs text-muted-foreground">Técnicos Online</p>
           </div>
           <div className="text-center p-2 bg-secondary rounded-lg">
-            <Clock className="h-4 w-4 mx-auto mb-1 text-accent" />
+            <span className="mx-auto mb-1 block text-accent" aria-hidden="true">⏱</span>
             <p className="text-lg font-bold text-accent">{status.waitTime}</p>
             <p className="text-xs text-muted-foreground">Tempo Estimado</p>
           </div>
           <div className="text-center p-2 bg-secondary rounded-lg">
-            <Zap className="h-4 w-4 mx-auto mb-1 text-primary" />
+            <span className="mx-auto mb-1 block text-primary" aria-hidden="true">⚡</span>
             <p className="text-lg font-bold text-primary">{status.queueSize}</p>
             <p className="text-xs text-muted-foreground">Na Fila</p>
           </div>
@@ -191,7 +190,7 @@ export const TechnicianAvailabilityInline = () => {
       </div>
       <div className="hidden sm:block w-px h-4 bg-white/30" />
       <div className="flex items-center gap-2">
-        <Clock className="h-4 w-4" />
+        <span aria-hidden="true">⏱</span>
         <span>Tempo de resposta: <strong className="text-white">{status.waitTime}</strong></span>
       </div>
       {status.queueSize <= 2 && (

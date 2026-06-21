@@ -393,7 +393,6 @@ const CFTVAraucaria = lazy(() => import("./pages/cftv/CFTVAraucaria"));
 const CFTVCampoLargo = lazy(() => import("./pages/cftv/CFTVCampoLargo"));
 const CFTVPinhais = lazy(() => import("./pages/cftv/CFTVPinhais"));
 
-const WhatsAppFunnel = lazy(() => import("@/components/WhatsAppFunnel").then((m) => ({ default: m.WhatsAppFunnel })));
 const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
 const SocialProofProvider = lazy(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProofProvider })));
 const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").then((m) => ({ default: m.GA4ChecklistPanel })));
@@ -458,8 +457,6 @@ const IdleEnhancements = () => {
 };
 
 const App = () => (
-      <BrowserRouter>
-        <ScrollToTop />
         <AppInit />
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -883,11 +880,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-        <Suspense fallback={null}>
-          <WhatsAppFunnel />
-        </Suspense>
         <IdleEnhancements />
-      </BrowserRouter>
 );
 
 export default App;

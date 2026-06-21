@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import Index from "./pages/Index";
-import { captureUtmsFromUrl } from "@/lib/utmCapture";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
 const WhatsAppChatbot = lazy(() => import("@/components/WhatsAppChatbot").then((m) => ({ default: m.WhatsAppChatbot })));
@@ -21,7 +20,9 @@ const PageLoader = () => (
 );
 
 const AppInit = () => {
-  useEffect(() => { captureUtmsFromUrl(); }, []);
+  useEffect(() => {
+    import("@/lib/utmCapture").then(({ captureUtmsFromUrl }) => captureUtmsFromUrl());
+  }, []);
   return null;
 };
 

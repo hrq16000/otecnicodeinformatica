@@ -4,14 +4,23 @@ import { RouteLoader } from "./components/RouteLoader";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
 
+const routeCache = new Map<string, Promise<unknown>>();
+
 const warmRoute = (pathname = "") => {
-  import("./LegacyApp");
-  if (pathname === "/servicos") import("./pages/Servicos");
-  else if (pathname === "/como-funciona") import("./pages/ComoFunciona");
-  else if (pathname === "/tecnico-informatica-curitiba") import("./pages/TecnicoInformaticaCuritiba");
-  else if (pathname === "/blog") import("./pages/Blog");
-  else if (pathname === "/diagnostico-60s") import("./pages/Diagnostico60s");
-  else if (pathname === "/termos-e-condicoes") import("./pages/TermosCondicoes");
+  if (routeCache.has(pathname)) return routeCache.get(pathname)!;
+
+  const routeImport =
+    pathname === "/servicos" ? import("./pages/Servicos")
+    : pathname === "/como-funciona" ? import("./pages/ComoFunciona")
+    : pathname === "/tecnico-informatica-curitiba" ? import("./pages/TecnicoInformaticaCuritiba")
+    : pathname === "/blog" ? import("./pages/Blog")
+    : pathname === "/diagnostico-60s" ? import("./pages/Diagnostico60s")
+    : pathname === "/termos-e-condicoes" ? import("./pages/TermosCondicoes")
+    : Promise.resolve();
+
+  const promise = Promise.all([import("./LegacyApp"), routeImport]).catch(() => undefined);
+  routeCache.set(pathname, promise);
+  return promise;
 };
 
 const AppInit = () => {
@@ -29,6 +38,9 @@ const isHomeRoute = (pathname?: string) => {
 const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => void }) => {
   useEffect(() => {
     warmRoute(window.location.pathname);
+    const preloadCommon = window.setTimeout(() => {
+      ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);
+    }, 250);
 
     const getInternalUrl = (target: EventTarget | null) => {
       const anchor = target instanceof Element ? target.closest<HTMLAnchorElement>("a[href]") : null;
@@ -48,11 +60,14 @@ const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => v
       if (!url || (url.pathname === window.location.pathname && url.search === window.location.search && url.hash)) return;
 
       event.preventDefault();
-      warmRoute(url.pathname);
-      window.history.pushState({}, "", url);
-      window.dispatchEvent(new PopStateEvent("popstate"));
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
-      startTransition(() => setRoutePath(url.pathname));
+      const go = () => {
+        window.history.pushState({}, "", url);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+        startTransition(() => setRoutePath(url.pathname));
+      };
+
+      warmRoute(url.pathname).then(go);
     };
 
     const pop = () => startTransition(() => setRoutePath(window.location.pathname));
@@ -68,6 +83,7 @@ const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => v
       document.removeEventListener("touchstart", prefetch, true);
       document.removeEventListener("click", click, true);
       window.removeEventListener("popstate", pop);
+      window.clearTimeout(preloadCommon);
     };
   }, [setRoutePath]);
   return null;

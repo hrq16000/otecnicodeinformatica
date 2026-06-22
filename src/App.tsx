@@ -1,4 +1,4 @@
-import { lazy, Suspense, startTransition, useEffect, useState } from "react";
+import { lazy, Suspense, startTransition, useEffect, useRef, useState } from "react";
 import Index from "./pages/Index";
 import { RouteLoader } from "./components/RouteLoader";
 
@@ -35,7 +35,15 @@ const isHomeRoute = (pathname?: string) => {
   return path === "/" || path === "/index";
 };
 
-const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => void }) => {
+const InstantNavigation = ({
+  setRoutePath,
+  setShowNavLoader,
+}: {
+  setRoutePath: (path: string) => void;
+  setShowNavLoader: (show: boolean) => void;
+}) => {
+  const navId = useRef(0);
+
   useEffect(() => {
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
@@ -60,14 +68,22 @@ const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => v
       if (!url || (url.pathname === window.location.pathname && url.search === window.location.search && url.hash)) return;
 
       event.preventDefault();
+      const currentNav = ++navId.current;
+      const loaderTimer = window.setTimeout(() => setShowNavLoader(true), 90);
+
       const go = () => {
         window.history.pushState({}, "", url);
         window.dispatchEvent(new PopStateEvent("popstate"));
         window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
         startTransition(() => setRoutePath(url.pathname));
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            if (navId.current === currentNav) setShowNavLoader(false);
+          });
+        });
       };
 
-      warmRoute(url.pathname).then(go);
+      warmRoute(url.pathname).then(go).finally(() => window.clearTimeout(loaderTimer));
     };
 
     const pop = () => startTransition(() => setRoutePath(window.location.pathname));
@@ -85,19 +101,27 @@ const InstantNavigation = ({ setRoutePath }: { setRoutePath: (path: string) => v
       window.removeEventListener("popstate", pop);
       window.clearTimeout(preloadCommon);
     };
-  }, [setRoutePath]);
+  }, [setRoutePath, setShowNavLoader]);
   return null;
 };
+
+const NavigationOverlay = () => (
+  <div className="fixed inset-0 z-[var(--z-page-wipe)] animate-in fade-in duration-150">
+    <RouteLoader />
+  </div>
+);
 
 const HomeApp = () => {
   const [routePath, setRoutePath] = useState(() =>
     typeof window === "undefined" ? "/" : window.location.pathname,
   );
+  const [showNavLoader, setShowNavLoader] = useState(false);
 
   return (
     <>
       <AppInit />
-      <InstantNavigation setRoutePath={setRoutePath} />
+      <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
+      {showNavLoader ? <NavigationOverlay /> : null}
       {isHomeRoute(routePath) ? (
         <Index />
       ) : (

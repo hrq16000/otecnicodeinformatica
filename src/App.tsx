@@ -8,19 +8,34 @@ const LegacyApp = lazy(() => import("./LegacyApp"));
 
 const routeCache = new Map<string, Promise<unknown>>();
 
+const routeImportMap: Record<string, () => Promise<unknown>> = {
+  "/servicos": () => import("./pages/Servicos"),
+  "/como-funciona": () => import("./pages/ComoFunciona"),
+  "/tecnico-informatica-curitiba": () => import("./pages/TecnicoInformaticaCuritiba"),
+  "/blog": () => import("./pages/Blog"),
+  "/diagnostico-60s": () => import("./pages/Diagnostico60s"),
+  "/termos-e-condicoes": () => import("./pages/TermosCondicoes"),
+  "/sobre": () => import("./pages/Sobre"),
+  "/contato": () => import("./pages/Contato"),
+  "/faq": () => import("./pages/FAQ"),
+  "/equipamentos-atendidos": () => import("./pages/EquipamentosAtendidos"),
+  "/atendimento-domicilio": () => import("./pages/AtendimentoDomicilio"),
+  "/atendimento-remoto": () => import("./pages/AtendimentoRemoto"),
+  "/suporte-empresas": () => import("./pages/SuporteEmpresas"),
+  "/precos-e-politicas": () => import("./pages/PrecosEPoliticas"),
+  "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),
+  "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),
+  "/arrumar-pc": () => import("./pages/ArrumarPC"),
+};
+
 const warmRoute = (pathname = "") => {
   if (routeCache.has(pathname)) return routeCache.get(pathname)!;
-
-  const routeImport =
-    pathname === "/servicos" ? import("./pages/Servicos")
-    : pathname === "/como-funciona" ? import("./pages/ComoFunciona")
-    : pathname === "/tecnico-informatica-curitiba" ? import("./pages/TecnicoInformaticaCuritiba")
-    : pathname === "/blog" ? import("./pages/Blog")
-    : pathname === "/diagnostico-60s" ? import("./pages/Diagnostico60s")
-    : pathname === "/termos-e-condicoes" ? import("./pages/TermosCondicoes")
-    : Promise.resolve();
-
-  const promise = Promise.all([import("./LegacyApp"), routeImport]).catch(() => undefined);
+  const routeImport = routeImportMap[pathname]?.() ?? Promise.resolve();
+  const promise = Promise.all([import("./LegacyApp"), routeImport]).catch(() => {
+    // Permite nova tentativa se a primeira falhar (ex.: rede instável).
+    routeCache.delete(pathname);
+    return undefined;
+  });
   routeCache.set(pathname, promise);
   return promise;
 };

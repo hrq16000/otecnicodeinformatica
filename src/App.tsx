@@ -1,6 +1,8 @@
 import { lazy, Suspense, startTransition, useEffect, useRef, useState } from "react";
 import Index from "./pages/Index";
 import { RouteLoader } from "./components/RouteLoader";
+import { startNav } from "./lib/navTelemetry";
+
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
 

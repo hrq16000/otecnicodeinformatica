@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 import { RouteLoader } from "@/components/RouteLoader";
@@ -443,6 +443,7 @@ const IdleEnhancements = () => {
 };
 
 const App = () => (
+      <BrowserRouter>
         <ScrollToTop />
         <AppInit />
         <Suspense fallback={null}>
@@ -868,6 +869,7 @@ const App = () => (
           </Routes>
         </Suspense>
         <IdleEnhancements />
+      </BrowserRouter>
 );
 
 export default App;

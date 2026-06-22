@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
+import { RouteLoader } from "@/components/RouteLoader";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -439,7 +440,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <AppInit />
-        <Suspense fallback={null}>
+        <Suspense fallback={<RouteLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />

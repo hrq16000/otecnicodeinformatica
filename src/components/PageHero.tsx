@@ -88,7 +88,7 @@ export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", heroI
                     width={heroSet?.width ?? 1536}
                     height={heroSet?.height ?? 768}
                     loading="eager"
-                    fetchPriority="high"
+                    fetchpriority="high"
                     decoding="async"
                     className="w-full h-auto block"
                   />

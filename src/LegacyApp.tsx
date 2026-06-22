@@ -400,12 +400,6 @@ const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").th
 const Toaster = lazy(() => import("@/components/ui/toaster").then((m) => ({ default: m.Toaster })));
 const Sonner = lazy(() => import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })));
 
-// Loader unificado: mesmo visual do shell de index.html (logo pulsando sobre
-// o gradiente azul), para a transição entre páginas ser perfeitamente
-// contínua — sem "duas telas estranhas" intermediárias.
-const PageLoader = RouteLoader;
-
-
 const AppInit = () => {
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
@@ -446,7 +440,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <AppInit />
-        <Suspense fallback={<PageLoader />}>
+        <Suspense fallback={<RouteLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />

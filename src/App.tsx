@@ -48,7 +48,7 @@ const InstantNavigation = ({
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
       ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);
-    }, 250);
+    }, 40);
 
     const getInternalUrl = (target: EventTarget | null) => {
       const anchor = target instanceof Element ? target.closest<HTMLAnchorElement>("a[href]") : null;
@@ -89,12 +89,14 @@ const InstantNavigation = ({
     const pop = () => startTransition(() => setRoutePath(window.location.pathname));
 
     document.addEventListener("pointerover", prefetch, true);
+    document.addEventListener("pointerdown", prefetch, true);
     document.addEventListener("focusin", prefetch, true);
     document.addEventListener("touchstart", prefetch, true);
     document.addEventListener("click", click, true);
     window.addEventListener("popstate", pop);
     return () => {
       document.removeEventListener("pointerover", prefetch, true);
+      document.removeEventListener("pointerdown", prefetch, true);
       document.removeEventListener("focusin", prefetch, true);
       document.removeEventListener("touchstart", prefetch, true);
       document.removeEventListener("click", click, true);

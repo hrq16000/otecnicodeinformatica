@@ -1,21 +1,8 @@
 import { lazy, Suspense, useEffect } from "react";
 import Index from "./pages/Index";
+import { RouteLoader } from "./components/RouteLoader";
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
-
-const PageLoader = () => (
-  <div className="min-h-[40vh] bg-background flex items-center justify-center px-4 py-12" role="status" aria-label="Carregando">
-    <img
-      src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
-      alt="Técnico Curitiba"
-      width="304"
-      height="98"
-      decoding="sync"
-      className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
-      style={{ animationDuration: "1s" }}
-    />
-  </div>
-);
 
 const AppInit = () => {
   useEffect(() => {
@@ -25,17 +12,44 @@ const AppInit = () => {
 };
 
 const isHomeRoute = () => {
-  const path = typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/+$/, "") || "/";
+  const path =
+    typeof window === "undefined" ? "/" : window.location.pathname.replace(/\/+$/, "") || "/";
   return path === "/" || path === "/index";
+};
+
+// Pré-carrega o bundle do roteador em idle quando estamos na home,
+// assim o primeiro clique para outra página NÃO espera o chunk baixar.
+const PrefetchLegacy = () => {
+  useEffect(() => {
+    if (!isHomeRoute()) return;
+    const prefetch = () => {
+      import("./LegacyApp");
+    };
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+    };
+    const id = w.requestIdleCallback
+      ? w.requestIdleCallback(prefetch, { timeout: 2500 })
+      : (window.setTimeout(prefetch, 1500) as unknown as number);
+    return () => {
+      const w2 = window as Window & { cancelIdleCallback?: (id: number) => void };
+      if (w2.cancelIdleCallback) w2.cancelIdleCallback(id);
+      else window.clearTimeout(id);
+    };
+  }, []);
+  return null;
 };
 
 const HomeApp = () => (
   <>
     <AppInit />
     {isHomeRoute() ? (
-      <Index />
+      <>
+        <Index />
+        <PrefetchLegacy />
+      </>
     ) : (
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<RouteLoader />}>
         <LegacyApp />
       </Suspense>
     )}

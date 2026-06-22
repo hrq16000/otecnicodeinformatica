@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
-import { RouteLoader } from "@/components/RouteLoader";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -400,12 +399,6 @@ const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").th
 const Toaster = lazy(() => import("@/components/ui/toaster").then((m) => ({ default: m.Toaster })));
 const Sonner = lazy(() => import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })));
 
-// Loader unificado: mesmo visual do shell de index.html (logo pulsando sobre
-// o gradiente azul), para a transição entre páginas ser perfeitamente
-// contínua — sem "duas telas estranhas" intermediárias.
-const PageLoader = RouteLoader;
-
-
 const AppInit = () => {
   useEffect(() => { captureUtmsFromUrl(); }, []);
   return null;
@@ -447,7 +440,7 @@ const App = () => (
         <ScrollToTop />
         <AppInit />
         <Suspense fallback={null}>
-          <Routes location={typeof window === "undefined" ? undefined : window.location}>
+          <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />
             <Route path="/servicos" element={<Servicos />} />

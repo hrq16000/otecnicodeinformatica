@@ -71,7 +71,11 @@ const InstantNavigation = ({
 
       event.preventDefault();
       const currentNav = ++navId.current;
-      const loaderTimer = window.setTimeout(() => setShowNavLoader(true), 90);
+      const cached = routeCache.has(url.pathname);
+      const endNav = startNav(url.pathname);
+      const loaderTimer = window.setTimeout(() => {
+        if (navId.current === currentNav) setShowNavLoader(true);
+      }, 90);
 
       const go = () => {
         window.history.pushState({}, "", url);
@@ -81,12 +85,14 @@ const InstantNavigation = ({
         window.requestAnimationFrame(() => {
           window.requestAnimationFrame(() => {
             if (navId.current === currentNav) setShowNavLoader(false);
+            endNav({ cached });
           });
         });
       };
 
       warmRoute(url.pathname).then(go).finally(() => window.clearTimeout(loaderTimer));
     };
+
 
     const pop = () => startTransition(() => setRoutePath(window.location.pathname));
 

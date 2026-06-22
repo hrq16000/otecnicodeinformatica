@@ -54,8 +54,8 @@ jobs:
 
       # 4) Guard against regressions in security HTTP headers.
       - name: Verify security headers in public/_headers
-        run: bunx --bun tsx scripts/check-security-headers.ts
+        run: bun scripts/check-security-headers.ts
 
       # 5) Guard against tables shipping without RLS.
       - name: Verify every public-schema CREATE TABLE has RLS + GRANT
-        run: bunx --bun tsx scripts/check-rls-migrations.ts
+        run: bun scripts/check-rls-migrations.ts

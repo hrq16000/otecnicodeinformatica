@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
+import { RouteLoader } from "@/components/RouteLoader";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -399,25 +400,10 @@ const GA4ChecklistPanel = lazy(() => import("@/components/GA4ChecklistPanel").th
 const Toaster = lazy(() => import("@/components/ui/toaster").then((m) => ({ default: m.Toaster })));
 const Sonner = lazy(() => import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })));
 
-// Loader minimalista: apenas a logo pulsando, sem skeleton, para evitar flicker de barras
-const PageLoader = () => (
-  <div
-    className="min-h-[40vh] bg-background flex items-center justify-center px-4 py-12"
-    role="status"
-    aria-label="Carregando"
-  >
-    <img
-      src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
-      alt="Técnico Curitiba"
-      width="304"
-      height="98"
-      decoding="sync"
-      fetchPriority="high"
-      className="h-12 w-auto object-scale-down motion-safe:animate-pulse sm:h-14"
-      style={{ animationDuration: "1s" }}
-    />
-  </div>
-);
+// Loader unificado: mesmo visual do shell de index.html (logo pulsando sobre
+// o gradiente azul), para a transição entre páginas ser perfeitamente
+// contínua — sem "duas telas estranhas" intermediárias.
+const PageLoader = RouteLoader;
 
 
 const AppInit = () => {

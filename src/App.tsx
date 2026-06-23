@@ -31,14 +31,51 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
 const warmRoute = (pathname = "") => {
   if (routeCache.has(pathname)) return routeCache.get(pathname)!;
   const routeImport = routeImportMap[pathname]?.() ?? Promise.resolve();
-  const promise = Promise.all([import("./LegacyApp"), routeImport]).catch(() => {
+  const promise = Promise.all([import("./LegacyApp"), routeImport]).catch((err) => {
     // Permite nova tentativa se a primeira falhar (ex.: rede instável).
     routeCache.delete(pathname);
+    handlePreloadError(err);
     return undefined;
   });
   routeCache.set(pathname, promise);
   return promise;
 };
+
+// Fallback robusto para deploys novos: chunk antigo desapareceu do servidor.
+// Faz UM reload (guardado por sessionStorage) sem entrar em loop. Se já
+// recarregamos uma vez, segue silenciosamente — Suspense mantém a rota atual
+// renderizada, sem tela intermediária de loader.
+const PRELOAD_RELOAD_KEY = "__nav_preload_reload__";
+const isPreloadError = (err: unknown) => {
+  if (!err) return false;
+  const name = (err as { name?: string }).name ?? "";
+  const msg = (err as { message?: string }).message ?? String(err);
+  return (
+    name === "ChunkLoadError" ||
+    /Loading chunk [\w-]+ failed/i.test(msg) ||
+    /Failed to fetch dynamically imported module/i.test(msg) ||
+    /Importing a module script failed/i.test(msg)
+  );
+};
+const handlePreloadError = (err: unknown) => {
+  if (typeof window === "undefined" || !isPreloadError(err)) return;
+  try {
+    if (sessionStorage.getItem(PRELOAD_RELOAD_KEY)) return;
+    sessionStorage.setItem(PRELOAD_RELOAD_KEY, "1");
+    window.location.reload();
+  } catch {
+    /* storage indisponível: ignora silenciosamente */
+  }
+};
+if (typeof window !== "undefined") {
+  window.addEventListener("vite:preloadError", (event) => {
+    event.preventDefault();
+    handlePreloadError((event as Event & { payload?: unknown }).payload ?? new Error("vite:preloadError"));
+  });
+  window.addEventListener("load", () => {
+    try { sessionStorage.removeItem(PRELOAD_RELOAD_KEY); } catch { /* noop */ }
+  });
+}
 
 const AppInit = () => {
   useEffect(() => {

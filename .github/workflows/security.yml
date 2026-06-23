@@ -59,3 +59,7 @@ jobs:
       # 5) Guard against tables shipping without RLS.
       - name: Verify every public-schema CREATE TABLE has RLS + GRANT
         run: bun scripts/check-rls-migrations.ts
+
+      # 6) Guard against SEO regressions on the landing shell (title / desc / unique H1).
+      - name: Verify SEO basics on index.html
+        run: bun scripts/check-seo-basics.ts index.html

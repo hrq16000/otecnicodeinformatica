@@ -44,10 +44,21 @@ const getUtmContext = () => {
   };
 };
 
+// Device dimension: habilita relatório "conversões/CTR por dispositivo" no GA4
+// (mobile/tablet/desktop), inferido por largura + ponteiro coarse.
+const getDeviceContext = () => {
+  if (typeof window === 'undefined') return { device: 'unknown' as const, viewport_width: 0 };
+  const w = window.innerWidth || document.documentElement.clientWidth || 0;
+  const coarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches;
+  const device = w < 768 || coarse ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
+  return { device, viewport_width: w };
+};
+
 // Track CTA clicks for conversions
 export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
     const utm = getUtmContext();
+    const deviceCtx = getDeviceContext();
     const payload = {
       event_category: 'engagement',
       event_label: `${ctaType}_${location}`,
@@ -55,19 +66,27 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       cta_location: location,
       page_path: window.location.pathname,
       value: 1,
+      ...deviceCtx,
       ...utm,
     };
 
     // Custom event (for funnels / debug)
     window.gtag('event', 'cta_click', payload);
 
-    // Recommended GA4 event — shows up as a conversion-eligible event,
-    // can be marked as a Key Event in GA4 and imported into Google Ads.
+    // Eventos GA4 nomeados — facilitam Key Events e relatórios por dispositivo.
     if (ctaType === 'whatsapp') {
+      window.gtag('event', 'click_whatsapp', payload);
       window.gtag('event', 'generate_lead', {
         ...payload,
         currency: 'BRL',
         method: 'whatsapp',
+      });
+    } else if (ctaType === 'phone') {
+      window.gtag('event', 'click_call', payload);
+      window.gtag('event', 'generate_lead', {
+        ...payload,
+        currency: 'BRL',
+        method: 'phone',
       });
     }
 

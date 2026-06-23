@@ -6,9 +6,11 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/generate-sitemaps.mjs",
+    "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html",
     "build": "vite build",
+    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
+    "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:e2e": "playwright test",

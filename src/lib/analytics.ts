@@ -44,6 +44,16 @@ const getUtmContext = () => {
   };
 };
 
+// Device dimension: habilita relatório "conversões/CTR por dispositivo" no GA4
+// (mobile/tablet/desktop), inferido por largura + ponteiro coarse.
+const getDeviceContext = () => {
+  if (typeof window === 'undefined') return { device: 'unknown' as const, viewport_width: 0 };
+  const w = window.innerWidth || document.documentElement.clientWidth || 0;
+  const coarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches;
+  const device = w < 768 || coarse ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
+  return { device, viewport_width: w };
+};
+
 // Track CTA clicks for conversions
 export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
   if (typeof window !== 'undefined' && window.gtag) {

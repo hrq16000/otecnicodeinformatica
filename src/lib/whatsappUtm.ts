@@ -81,7 +81,11 @@ export function initWhatsAppUtm() {
       if (anchor.dataset.utmApplied === "1") return;
       const medium = deriveMedium(anchor);
       const campaign = deriveCampaign();
-      anchor.href = withUtm(anchor.href, medium, campaign);
+      const location =
+        (anchor.closest("[data-cta-location]") as HTMLElement | null)?.dataset.ctaLocation ||
+        anchor.dataset.ctaLocation ||
+        medium;
+      anchor.href = withUtm(anchor.href, medium, campaign, location);
       anchor.dataset.utmApplied = "1";
     },
     true

@@ -180,9 +180,8 @@ const PoliticaPrivacidade = () => {
       <Header />
       <main className="bg-background">
         <PageHero
-          eyebrow="LGPD · Privacidade"
           title="Política de Privacidade"
-          subtitle={`Como tratamos seus dados pessoais. Atualizada em ${UPDATED}.`}
+          subtitle={`LGPD · Como tratamos seus dados pessoais. Atualizada em ${UPDATED}.`}
         />
 
         <article className="container mx-auto max-w-3xl px-4 py-12 md:py-16">

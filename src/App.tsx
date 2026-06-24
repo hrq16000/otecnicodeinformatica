@@ -93,6 +93,16 @@ const InstantNavigation = ({
   const navId = useRef(0);
 
   useEffect(() => {
+    const onPreloadError = (event: Event) => {
+      event.preventDefault();
+      handlePreloadError((event as Event & { payload?: unknown }).payload ?? new Error("vite:preloadError"));
+    };
+    const onLoad = () => {
+      try { sessionStorage.removeItem(PRELOAD_RELOAD_KEY); } catch { /* noop */ }
+    };
+    window.addEventListener("vite:preloadError", onPreloadError);
+    window.addEventListener("load", onLoad);
+
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
       ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);

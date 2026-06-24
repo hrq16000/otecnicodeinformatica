@@ -17,12 +17,12 @@ const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
 
 const Contato = () => {
   useEffect(() => {
-    document.title = "Contato | Técnico Curitiba - Fale Conosco";
+    document.title = "Contato Técnico Curitiba | WhatsApp Hoje R$ 99,99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Entre em contato com a Técnico Curitiba. WhatsApp, telefone e atendimento rápido para suporte técnico em informática em Curitiba e região."
+        "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99."
       );
     }
     trackPageView("/contato", "Contato");
@@ -36,7 +36,7 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Contato | Técnico Curitiba - Fale Conosco" description="Entre em contato com a Técnico Curitiba. WhatsApp, telefone e atendimento rápido para suporte técnico em informática em Curitiba e região." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
+      <PageSEO title="Contato Técnico Curitiba | WhatsApp Hoje R$ 99,99" description="Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -57,8 +57,8 @@ const Contato = () => {
                   <span>Resposta rápida via WhatsApp</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  <span className="block">Fale</span>
-                  <span className="block gradient-text-animated">Conosco</span>
+                  <span className="block">Contato Técnico Curitiba</span>
+                  <span className="block gradient-text-animated">WhatsApp Hoje</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
                   Precisa de suporte técnico? Entre em contato agora mesmo e resolva seu problema rapidamente.

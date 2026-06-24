@@ -41,11 +41,12 @@ export const FastHeader = () => {
           />
         </a>
 
-        <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-1 text-sm font-semibold md:flex" aria-label="Navegação principal">
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/servicos">Serviços</a>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/valores">Preço</a>
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/como-funciona">Atendimento</a>
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/tecnico-informatica-curitiba">Regiões</a>
-          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/blog">Saiba Mais</a>
+          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/blog">Blog</a>
         </nav>
 
         <div className="flex items-center gap-1.5">

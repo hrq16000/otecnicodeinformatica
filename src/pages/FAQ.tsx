@@ -124,12 +124,12 @@ const faqCategories = [
 
 const FAQ = () => {
   useEffect(() => {
-    document.title = "Perguntas Frequentes (FAQ) | Técnico Curitiba";
+    document.title = "FAQ Técnico Curitiba | Preço, Prazo e Garantia";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Perguntas frequentes sobre os serviços de informática do Técnico Curitiba. Preços, formas de pagamento, área de atendimento, garantia e mais."
+        "Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp."
       );
     }
     trackPageView("/faq", "FAQ");
@@ -153,7 +153,7 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Perguntas Frequentes (FAQ) | Técnico Curitiba" description="Perguntas frequentes sobre os serviços de informática do Técnico Curitiba. Preços, formas de pagamento, área de atendimento, garantia e mais." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
+      <PageSEO title="FAQ Técnico Curitiba | Preço, Prazo e Garantia" description="Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
       <JsonLdSchema />
       <script
         type="application/ld+json"
@@ -178,7 +178,7 @@ const FAQ = () => {
                   <span>Tire suas dúvidas</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  Perguntas <span className="gradient-text-animated">Frequentes</span>
+                  Dúvidas Frequentes sobre <span className="gradient-text-animated">Técnico em Curitiba</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
                   Tire suas dúvidas sobre nossos serviços de informática

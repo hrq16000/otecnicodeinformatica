@@ -91,28 +91,29 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       ...utm,
     };
 
-    // Custom event (for funnels / debug)
+    // cta_click sempre dispara (mede CTR / engajamento por dispositivo)
     window.gtag('event', 'cta_click', payload);
 
     // Eventos GA4 nomeados — facilitam Key Events e relatórios por dispositivo.
     if (ctaType === 'whatsapp') {
       window.gtag('event', 'click_whatsapp', payload);
-      window.gtag('event', 'generate_lead', {
-        ...payload,
-        currency: 'BRL',
-        method: 'whatsapp',
-      });
     } else if (ctaType === 'phone') {
       window.gtag('event', 'click_call', payload);
+    }
+
+    // generate_lead + conversão do Ads disparam APENAS no primeiro clique da
+    // sessão (dedup via lead_id em sessionStorage). Cliques repetidos viram
+    // engajamento (cta_click) e não contam como novo lead/conversão.
+    if (isNew && (ctaType === 'whatsapp' || ctaType === 'phone')) {
       window.gtag('event', 'generate_lead', {
         ...payload,
         currency: 'BRL',
-        method: 'phone',
+        method: ctaType,
+        // transaction_id deduplica o evento no GA4 caso o usuário recarregue.
+        transaction_id: leadId,
       });
+      gtagReportConversion();
     }
-
-    // Fire the official Google Ads conversion
-    gtagReportConversion();
 
     // Visual debug for WhatsApp clicks (dev or ?debug_utm=1)
     if (ctaType === 'whatsapp') {

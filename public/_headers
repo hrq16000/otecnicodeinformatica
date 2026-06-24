@@ -42,11 +42,15 @@
 
 # Favicon / manifest (specific files — won't match /*.html anyway)
 /favicon.png
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
 /favicon.ico
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
+/favicon-32.png
+  Cache-Control: public, max-age=0, must-revalidate
+/apple-touch-icon.png
+  Cache-Control: public, max-age=0, must-revalidate
 /manifest.json
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 # --- 3. Generic HTML fallback (must-revalidate for instant deploys) ---
 /

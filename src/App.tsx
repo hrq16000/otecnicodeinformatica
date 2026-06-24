@@ -106,7 +106,7 @@ const InstantNavigation = ({
 
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
-      ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);
+      ["/servicos", "/como-funciona", "/valores", "/tecnico-informatica-curitiba", "/blog", "/faq", "/contato"].forEach(warmRoute);
     }, 40);
 
     const getInternalUrl = (target: EventTarget | null) => {

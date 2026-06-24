@@ -134,7 +134,7 @@ export const FastHeader = () => {
             </summary>
             <nav
               aria-label="Menu principal"
-              className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(92vw,360px)] overflow-y-auto rounded-2xl border border-border bg-background p-0 shadow-[var(--shadow-xl)]"
+              className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(92vw,360px)] overflow-y-auto rounded-2xl border border-border bg-background p-0 text-foreground shadow-[var(--shadow-xl)]"
             >
               <div className="flex items-center gap-2 border-b border-border px-4 py-3 text-sm font-semibold text-foreground">
                 <span className="text-accent" aria-hidden="true">✦</span>

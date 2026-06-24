@@ -414,7 +414,16 @@ export const Header = () => {
                         >
                           <item.icon className="h-4 w-4" />
                         </span>
-                        <span className="flex-1 text-left">{item.label}</span>
+                        <Link
+                          to={item.to}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            closeMobile();
+                          }}
+                          className="flex-1 rounded-md py-1 text-left hover:text-accent"
+                        >
+                          {item.label}
+                        </Link>
                         <ChevronDown
                           className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${
                             isOpen ? "rotate-180" : ""

@@ -120,14 +120,14 @@ export const FastHeader = () => {
             Agendar
           </a>
 
-          <details className="group/menu relative">
+          <details className="group/root relative">
             <summary
               aria-label="Abrir menu"
               title="Menu"
               className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden"
             >
-              <span aria-hidden="true" className="text-xl font-bold leading-none group-open/menu:hidden">☰</span>
-              <span aria-hidden="true" className="hidden text-xl font-bold leading-none text-accent group-open/menu:block">×</span>
+              <span aria-hidden="true" className="text-xl font-bold leading-none group-open/root:hidden">☰</span>
+              <span aria-hidden="true" className="hidden text-xl font-bold leading-none text-accent group-open/root:block">×</span>
             </summary>
             <nav
               aria-label="Menu mobile"

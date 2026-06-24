@@ -9,11 +9,12 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
 const mobileLinks: Array<{ label: string; href: string }> = [
   { label: "Início", href: "/" },
   { label: "Serviços", href: "/servicos" },
+  { label: "Preço", href: "/valores" },
   { label: "Como Funciona", href: "/como-funciona" },
-  { label: "Preços e Políticas", href: "/precos-e-politicas" },
   { label: "Atendimento Domicílio", href: "/atendimento-domicilio" },
   { label: "Atendimento Remoto", href: "/atendimento-remoto" },
   { label: "Regiões (Curitiba)", href: "/tecnico-informatica-curitiba" },
+  { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Contato", href: "/contato" },

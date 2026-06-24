@@ -38,8 +38,8 @@ export const FastHeroSection = () => {
             </div>
 
             {/* H1 cirúrgico: serviço + cidade + ancoragem de preço + urgência local */}
-            <h1 className="mb-4 font-heading text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:mb-5 md:text-5xl lg:text-[3.4rem]">
-              Conserto de PC e Notebook
+              <h1 className="mb-4 font-heading text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:mb-5 md:text-5xl lg:text-[3.4rem]">
+              Técnico de Informática em Curitiba
               <br />
               <span className="text-accent drop-shadow-sm">em Curitiba — Hoje</span>
               <span className="mt-2 block text-lg font-semibold tracking-normal text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] sm:text-xl md:text-2xl">

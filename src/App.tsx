@@ -165,6 +165,8 @@ const InstantNavigation = ({
       document.removeEventListener("touchstart", prefetch, true);
       document.removeEventListener("click", click, true);
       window.removeEventListener("popstate", pop);
+      window.removeEventListener("vite:preloadError", onPreloadError);
+      window.removeEventListener("load", onLoad);
       window.clearTimeout(preloadCommon);
     };
   }, [setRoutePath, setShowNavLoader]);

@@ -25,7 +25,6 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/atendimento-domicilio": () => import("./pages/AtendimentoDomicilio"),
   "/atendimento-remoto": () => import("./pages/AtendimentoRemoto"),
   "/suporte-empresas": () => import("./pages/SuporteEmpresas"),
-  "/precos-e-politicas": () => import("./pages/PrecosEPoliticas"),
   "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),
   "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),
   "/arrumar-pc": () => import("./pages/ArrumarPC"),

@@ -67,15 +67,9 @@ const handlePreloadError = (err: unknown) => {
     /* storage indisponível: ignora silenciosamente */
   }
 };
-if (typeof window !== "undefined") {
-  window.addEventListener("vite:preloadError", (event) => {
-    event.preventDefault();
-    handlePreloadError((event as Event & { payload?: unknown }).payload ?? new Error("vite:preloadError"));
-  });
-  window.addEventListener("load", () => {
-    try { sessionStorage.removeItem(PRELOAD_RELOAD_KEY); } catch { /* noop */ }
-  });
-}
+// Registro dos listeners é feito dentro do useEffect de InstantNavigation
+// para evitar TDZ em chunks minificados (referência a consts ainda não
+// inicializadas durante avaliação top-level com import circular).
 
 const AppInit = () => {
   useEffect(() => {

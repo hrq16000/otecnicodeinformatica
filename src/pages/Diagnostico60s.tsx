@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { ArrowLeft, MessageCircle, Phone, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MessageCircle, CalendarCheck, CheckCircle2 } from "lucide-react";
 import {
   EQUIPMENTS,
   type DiagnosticBranch,
@@ -230,10 +230,12 @@ export default function Diagnostico60s() {
                   <MessageCircle className="w-5 h-5" /> Falar no WhatsApp agora
                 </a>
                 <a
-                  href="tel:+5541997452053"
+                  href={waLink("Olá! Quero agendar atendimento técnico em Curitiba.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-border bg-card font-semibold hover:bg-muted transition-colors"
                 >
-                  <Phone className="w-5 h-5" /> Ligar (41) 99745-2053
+                  <CalendarCheck className="w-5 h-5" /> Agendar no WhatsApp
                 </a>
               </div>
 

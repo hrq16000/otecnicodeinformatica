@@ -151,7 +151,13 @@ export const FastHeader = () => {
                     <details key={group.label} className="group/menu">
                       <summary className={`flex min-h-12 cursor-pointer list-none items-center gap-3 rounded-xl px-2.5 py-2 font-medium text-foreground transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden ${group.highlight ? "bg-accent/5 text-accent" : ""}`}>
                         <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${group.highlight ? "bg-accent text-accent-foreground" : "bg-accent/10 text-accent"}`} aria-hidden="true">{group.icon}</span>
-                        <span className="flex-1">{group.label}</span>
+                        <a
+                          href={group.links[0]?.href}
+                          className="flex-1 rounded-md py-1 hover:text-accent"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          {group.label}
+                        </a>
                         <span className="transition-transform group-open/menu:rotate-180" aria-hidden="true">⌄</span>
                       </summary>
                       <div className="grid gap-0.5 py-1 pl-14 pr-1">

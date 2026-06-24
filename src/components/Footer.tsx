@@ -113,14 +113,20 @@ const NAP = {
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
   "@id": "https://tecnicocuritiba.com.br/#localbusiness",
   name: NAP.name,
+  alternateName: "Técnico Curitiba",
+  description:
+    "Assistência técnica em informática a domicílio em Curitiba e Região Metropolitana: formatação, conserto de PC/notebook, remoção de vírus, upgrade de SSD/memória, redes Wi-Fi e suporte para empresas.",
   image: "https://tecnicocuritiba.com.br/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp",
+  logo: "https://tecnicocuritiba.com.br/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp",
   url: NAP.url,
   telephone: NAP.phone,
   email: NAP.email,
-  priceRange: "R$ 79,99 – R$ 1.350",
+  priceRange: "$$",
+  currenciesAccepted: "BRL",
+  paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
   address: {
     "@type": "PostalAddress",
     streetAddress: NAP.street,
@@ -134,11 +140,16 @@ const localBusinessSchema = {
     latitude: NAP.geo.lat,
     longitude: NAP.geo.lng,
   },
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${NAP.geo.lat},${NAP.geo.lng}`,
   areaServed: [
     "Curitiba", "São José dos Pinhais", "Araucária", "Campo Largo",
     "Pinhais", "Colombo", "Fazenda Rio Grande", "Almirante Tamandaré",
     "Piraquara", "Campo Magro", "Quatro Barras",
-  ].map((c) => ({ "@type": "City", name: c })),
+  ].map((c) => ({
+    "@type": "City",
+    name: c,
+    containedInPlace: { "@type": "State", name: "Paraná" },
+  })),
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -147,8 +158,31 @@ const localBusinessSchema = {
       closes: "20:00",
     },
   ],
-  sameAs: [],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: NAP.phone,
+      contactType: "customer service",
+      areaServed: "BR",
+      availableLanguage: ["Portuguese", "pt-BR"],
+      contactOption: "TollFree",
+    },
+  ],
+  knowsAbout: [
+    "Formatação de computador",
+    "Remoção de vírus e malware",
+    "Conserto de notebook",
+    "Upgrade de SSD e memória RAM",
+    "Recuperação de dados",
+    "Configuração de redes Wi-Fi",
+    "Suporte técnico empresarial",
+    "CFTV e câmeras de segurança",
+  ],
+  sameAs: [
+    "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+Curitiba",
+  ],
 };
+
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

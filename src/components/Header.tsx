@@ -44,12 +44,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { SmartSearch } from "@/components/SmartSearch";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997452053";
@@ -243,54 +237,22 @@ export const Header = () => {
           />
         </Link>
 
-        {/* Desktop Navigation — compact, with icons */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {mainNavItems.map((item) =>
-            item.sub ? (
-              <DropdownMenu key={item.label}>
-                <DropdownMenuTrigger
-                  className={`flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium outline-none group transition-all duration-300 whitespace-nowrap ${
-                    item.highlight
-                      ? "text-accent hover:bg-accent/10"
-                      : "text-foreground hover:text-accent hover:bg-accent/5"
-                  }`}
-                >
-                  <item.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                  <span>{item.label}</span>
-                  <ChevronDown className="h-3 w-3 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="start"
-                  sideOffset={8}
-                  className="w-64 bg-background/95 backdrop-blur-xl border border-border/60 shadow-[var(--shadow-xl)] rounded-2xl p-1.5 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
-                >
-                  {item.sub.map((sub) => (
-                    <DropdownMenuItem
-                      key={sub.to}
-                      asChild
-                      className="rounded-xl px-2.5 py-2 text-sm text-foreground cursor-pointer transition-all duration-200 focus:bg-accent/10 focus:text-accent data-[highlighted]:bg-accent/10 data-[highlighted]:text-accent group"
-                    >
-                      <Link to={sub.to} className="w-full flex items-center gap-2.5">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/10 text-accent transition-all duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-accent-foreground group-hover:shadow-[var(--shadow-accent)]">
-                          <sub.icon className="h-3.5 w-3.5" />
-                        </span>
-                        <span className="flex-1">{sub.label}</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium text-foreground hover:text-accent hover:bg-accent/5 transition-all duration-300 group whitespace-nowrap"
-              >
-                <item.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-                {item.label}
-              </NavLink>
-            )
-          )}
+        {/* Navegação principal enxuta: demais links ficam no botão hambúrguer sempre visível. */}
+        <nav className="hidden md:flex items-center gap-1" aria-label="Navegação principal">
+          {[
+            { label: "Serviços", to: "/servicos", icon: Wrench },
+            { label: "Preço", to: "/valores", icon: CreditCard },
+            { label: "Atendimento", to: "/como-funciona", icon: Headphones },
+          ].map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium text-foreground hover:text-accent hover:bg-accent/5 transition-all duration-300 group whitespace-nowrap"
+            >
+              <item.icon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* CTA Buttons */}
@@ -336,17 +298,19 @@ export const Header = () => {
             ref={toggleBtnRef}
             variant="ghost"
             size="icon"
-            className="lg:hidden flex-shrink-0 h-9 w-9 relative"
+            className="relative z-[calc(var(--z-mobile-drawer)+1)] flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm hover:bg-accent/10 hover:text-accent"
             aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((v) => !v)}
           >
             <Menu
+              strokeWidth={2.5}
               className={`absolute h-5 w-5 transition-all duration-300 ${
                 mobileMenuOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
               }`}
             />
             <X
+              strokeWidth={2.5}
               className={`absolute h-5 w-5 transition-all duration-300 ${
                 mobileMenuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
               }`}
@@ -357,7 +321,7 @@ export const Header = () => {
 
       {/* Mobile overlay + drawer */}
       <div
-        className={`lg:hidden fixed inset-0 transition-all duration-300 ${
+        className={`fixed inset-0 transition-all duration-300 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{ top: 0, zIndex: "var(--z-mobile-drawer)" as unknown as number }}
@@ -372,7 +336,7 @@ export const Header = () => {
         {/* Painel */}
         <div
           ref={menuRef}
-          className={`absolute top-2 right-2 max-h-[calc(100dvh-1rem)] w-[88vw] max-w-sm bg-background border border-border rounded-2xl shadow-2xl overflow-y-auto transition-all duration-300 ease-out ${
+          className={`absolute top-2 right-2 max-h-[calc(100dvh-1rem)] w-[min(92vw,360px)] bg-background border border-border rounded-2xl shadow-2xl overflow-y-auto transition-all duration-300 ease-out ${
             mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -384,8 +348,8 @@ export const Header = () => {
               Menu
             </span>
             <div className="flex items-center gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={closeMobile} aria-label="Fechar menu">
-                <X className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-lg border border-border bg-background text-foreground hover:bg-accent/10 hover:text-accent" onClick={closeMobile} aria-label="Fechar menu">
+                <X className="h-4 w-4" strokeWidth={2.5} />
               </Button>
             </div>
           </div>
@@ -415,8 +379,8 @@ export const Header = () => {
               return (
                 <div
                   key={item.label}
-                  className="opacity-0 animate-[heroFadeUp_0.35s_ease-out_forwards]"
-                  style={{ animationDelay: `${idx * 50}ms` }}
+                  className="animate-[heroFadeUp_0.25s_ease-out_both]"
+                  style={{ animationDelay: `${idx * 25}ms` }}
                 >
                   {!item.sub ? (
                     <Link

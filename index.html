@@ -146,5 +146,30 @@
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      /* Fallback de hidratação: se em 8s o React não marcar documentElement
+         data-hydrated="1", mostramos um aviso discreto reforçando o WhatsApp
+         (links já presentes no shell) e oferecendo recarregar. Não substitui
+         o shell — apenas adiciona uma faixa com CTAs garantidos. */
+      (function () {
+        var DELAY = 8000;
+        setTimeout(function () {
+          if (document.documentElement.dataset.hydrated === "1") return;
+          try {
+            if (window.gtag) window.gtag('event', 'hydration_timeout', { non_interaction: true });
+          } catch (e) {}
+          var bar = document.createElement('div');
+          bar.setAttribute('role', 'alert');
+          bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0a0a0f;color:#fff;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Inter,sans-serif;border-top:1px solid rgba(255,255,255,.18)';
+          bar.innerHTML = '<span>Conexão lenta? Fale agora mesmo:</span>' +
+            '<a href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." style="background:hsl(145,63%,42%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">WhatsApp Agora</a>' +
+            '<a href="/diagnostico-60s" style="background:hsl(24,92%,52%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">Agendar</a>' +
+            '<button type="button" id="__hydra_reload" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);padding:10px 14px;border-radius:10px;cursor:pointer">Recarregar</button>';
+          document.body.appendChild(bar);
+          var btn = document.getElementById('__hydra_reload');
+          if (btn) btn.addEventListener('click', function () { location.reload(); });
+        }, DELAY);
+      })();
+    </script>
   </body>
 </html>

@@ -6,6 +6,19 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
 };
 
+const mobileLinks: Array<{ label: string; href: string }> = [
+  { label: "Início", href: "/" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Como Funciona", href: "/como-funciona" },
+  { label: "Preços e Políticas", href: "/precos-e-politicas" },
+  { label: "Atendimento Domicílio", href: "/atendimento-domicilio" },
+  { label: "Atendimento Remoto", href: "/atendimento-remoto" },
+  { label: "Regiões (Curitiba)", href: "/tecnico-informatica-curitiba" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contato", href: "/contato" },
+];
+
 export const FastHeader = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const scheduleUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(SCHEDULE_MESSAGE)}`;
@@ -57,13 +70,37 @@ export const FastHeader = () => {
           >
             Agendar
           </a>
-          <a
-            href="/servicos"
-            aria-label="Abrir menu"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
-          >
-            <span aria-hidden="true">☰</span>
-          </a>
+
+          {/*
+            Menu mobile sem dependência de hidratação: <details> nativo.
+            Antes era um <a href="/servicos">, então tocar no "menu" navegava
+            direto para a página de Serviços. Agora abre/fecha localmente.
+          */}
+          <details className="relative lg:hidden">
+            <summary
+              aria-label="Abrir menu"
+              className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border text-foreground marker:hidden [&::-webkit-details-marker]:hidden"
+            >
+              <span aria-hidden="true">☰</span>
+            </summary>
+            <nav
+              aria-label="Menu mobile"
+              className="absolute right-0 top-[calc(100%+8px)] w-64 rounded-xl border border-border bg-background p-2 shadow-[var(--shadow-xl)]"
+            >
+              <ul className="grid gap-0.5 text-sm">
+                {mobileLinks.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      className="block rounded-lg px-3 py-2 font-medium text-foreground hover:bg-accent/10 hover:text-accent"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </details>
         </div>
       </div>
     </header>

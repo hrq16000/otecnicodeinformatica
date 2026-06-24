@@ -40,8 +40,7 @@ import {
   Mail,
   Handshake,
 } from "lucide-react";
-import { useDarkMode } from "@/hooks/useDarkMode";
-import { DarkModeToggle } from "@/components/DarkModeToggle";
+// Modo escuro removido por baixa legibilidade — toggle foi descontinuado.
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { SmartSearch } from "@/components/SmartSearch";
@@ -154,7 +153,7 @@ export const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
-  const { isDark, toggle: toggleDark } = useDarkMode();
+  // Dark mode removido.
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
@@ -296,7 +295,8 @@ export const Header = () => {
 
         {/* CTA Buttons */}
         <div className="flex items-center gap-1 sm:gap-1.5">
-          <DarkModeToggle isDark={isDark} toggle={toggleDark} className="hidden sm:block" />
+
+
 
           <Button
             variant="ghost"
@@ -384,7 +384,6 @@ export const Header = () => {
               Menu
             </span>
             <div className="flex items-center gap-1">
-              <DarkModeToggle isDark={isDark} toggle={toggleDark} />
               <Button variant="ghost" size="icon" className="h-8 w-8" onClick={closeMobile} aria-label="Fechar menu">
                 <X className="h-4 w-4" />
               </Button>

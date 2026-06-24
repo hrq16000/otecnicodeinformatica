@@ -54,11 +54,31 @@ const getDeviceContext = () => {
   return { device, viewport_width: w };
 };
 
+// Lead dedup: gera/persiste um ID por sessão por tipo de CTA para evitar
+// múltiplos `generate_lead` na mesma sessão (clicar 2x no WhatsApp = 1 lead).
+const LEAD_KEY = 'lead_dedup_v1';
+type LeadMap = Partial<Record<'whatsapp' | 'phone' | 'chatbot', string>>;
+const readLeadMap = (): LeadMap => {
+  try { return JSON.parse(sessionStorage.getItem(LEAD_KEY) || '{}') as LeadMap; } catch { return {}; }
+};
+const writeLeadMap = (m: LeadMap) => {
+  try { sessionStorage.setItem(LEAD_KEY, JSON.stringify(m)); } catch { /* noop */ }
+};
+const ensureLeadId = (ctaType: 'whatsapp' | 'phone' | 'chatbot'): { leadId: string; isNew: boolean } => {
+  const map = readLeadMap();
+  if (map[ctaType]) return { leadId: map[ctaType]!, isNew: false };
+  const leadId = `lead_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+  map[ctaType] = leadId;
+  writeLeadMap(map);
+  return { leadId, isNew: true };
+};
+
 // Track CTA clicks for conversions
 export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
     const utm = getUtmContext();
     const deviceCtx = getDeviceContext();
+    const { leadId, isNew } = ensureLeadId(ctaType);
     const payload = {
       event_category: 'engagement',
       event_label: `${ctaType}_${location}`,
@@ -66,32 +86,34 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       cta_location: location,
       page_path: window.location.pathname,
       value: 1,
+      lead_id: leadId,
       ...deviceCtx,
       ...utm,
     };
 
-    // Custom event (for funnels / debug)
+    // cta_click sempre dispara (mede CTR / engajamento por dispositivo)
     window.gtag('event', 'cta_click', payload);
 
     // Eventos GA4 nomeados — facilitam Key Events e relatórios por dispositivo.
     if (ctaType === 'whatsapp') {
       window.gtag('event', 'click_whatsapp', payload);
-      window.gtag('event', 'generate_lead', {
-        ...payload,
-        currency: 'BRL',
-        method: 'whatsapp',
-      });
     } else if (ctaType === 'phone') {
       window.gtag('event', 'click_call', payload);
+    }
+
+    // generate_lead + conversão do Ads disparam APENAS no primeiro clique da
+    // sessão (dedup via lead_id em sessionStorage). Cliques repetidos viram
+    // engajamento (cta_click) e não contam como novo lead/conversão.
+    if (isNew && (ctaType === 'whatsapp' || ctaType === 'phone')) {
       window.gtag('event', 'generate_lead', {
         ...payload,
         currency: 'BRL',
-        method: 'phone',
+        method: ctaType,
+        // transaction_id deduplica o evento no GA4 caso o usuário recarregue.
+        transaction_id: leadId,
       });
+      gtagReportConversion();
     }
-
-    // Fire the official Google Ads conversion
-    gtagReportConversion();
 
     // Visual debug for WhatsApp clicks (dev or ?debug_utm=1)
     if (ctaType === 'whatsapp') {

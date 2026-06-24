@@ -29,14 +29,35 @@ function deriveMedium(el: HTMLElement | null): string {
   return "cta";
 }
 
-function withUtm(href: string, medium: string, campaign: string): string {
+function readEntryUtms(): Record<string, string> {
+  try {
+    const raw = sessionStorage.getItem("utm_payload_v1");
+    return raw ? (JSON.parse(raw) as Record<string, string>) : {};
+  } catch {
+    return {};
+  }
+}
+
+function withUtm(href: string, medium: string, campaign: string, location: string): string {
   try {
     const u = new URL(href, window.location.origin);
     const text = u.searchParams.get("text");
+
+    // 1) Propaga UTMs originais da entrada do visitante (atribuição da campanha).
+    const entry = readEntryUtms();
+    for (const [k, v] of Object.entries(entry)) {
+      if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
+    }
+
+    // 2) Fallbacks por local de clique (não sobrescreve UTMs existentes).
     if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "site");
     if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", medium);
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
-    // Preserve text param order/encoding
+
+    // 3) Marca o local de clique (sempre).
+    u.searchParams.set("click_location", location);
+
+    // Mantém text por último para preservar ordem/encoding
     if (text !== null) {
       u.searchParams.delete("text");
       u.searchParams.set("text", text);

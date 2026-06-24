@@ -198,6 +198,7 @@ const HomeApp = () => {
           <LegacyApp />
         </Suspense>
       )}
+      <ConsentBanner />
     </>
   );
 };

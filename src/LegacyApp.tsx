@@ -36,6 +36,7 @@ const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
 const ArrumarPCCity = lazy(() => import("./pages/arrumar-pc/ArrumarPCCity"));
 const ArrumarPCServicoCidade = lazy(() => import("./pages/arrumar-pc/ArrumarPCServicoCidade"));
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
+const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));

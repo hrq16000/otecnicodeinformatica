@@ -67,15 +67,9 @@ const handlePreloadError = (err: unknown) => {
     /* storage indisponível: ignora silenciosamente */
   }
 };
-if (typeof window !== "undefined") {
-  window.addEventListener("vite:preloadError", (event) => {
-    event.preventDefault();
-    handlePreloadError((event as Event & { payload?: unknown }).payload ?? new Error("vite:preloadError"));
-  });
-  window.addEventListener("load", () => {
-    try { sessionStorage.removeItem(PRELOAD_RELOAD_KEY); } catch { /* noop */ }
-  });
-}
+// Registro dos listeners é feito dentro do useEffect de InstantNavigation
+// para evitar TDZ em chunks minificados (referência a consts ainda não
+// inicializadas durante avaliação top-level com import circular).
 
 const AppInit = () => {
   useEffect(() => {
@@ -99,6 +93,16 @@ const InstantNavigation = ({
   const navId = useRef(0);
 
   useEffect(() => {
+    const onPreloadError = (event: Event) => {
+      event.preventDefault();
+      handlePreloadError((event as Event & { payload?: unknown }).payload ?? new Error("vite:preloadError"));
+    };
+    const onLoad = () => {
+      try { sessionStorage.removeItem(PRELOAD_RELOAD_KEY); } catch { /* noop */ }
+    };
+    window.addEventListener("vite:preloadError", onPreloadError);
+    window.addEventListener("load", onLoad);
+
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
       ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);
@@ -161,6 +165,8 @@ const InstantNavigation = ({
       document.removeEventListener("touchstart", prefetch, true);
       document.removeEventListener("click", click, true);
       window.removeEventListener("popstate", pop);
+      window.removeEventListener("vite:preloadError", onPreloadError);
+      window.removeEventListener("load", onLoad);
       window.clearTimeout(preloadCommon);
     };
   }, [setRoutePath, setShowNavLoader]);

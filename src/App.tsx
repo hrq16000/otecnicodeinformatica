@@ -12,6 +12,8 @@ const routeCache = new Map<string, Promise<unknown>>();
 const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/servicos": () => import("./pages/Servicos"),
   "/como-funciona": () => import("./pages/ComoFunciona"),
+  "/valores": () => import("./pages/PrecosEPoliticas"),
+  "/precos-e-politicas": () => import("./pages/PrecosEPoliticas"),
   "/tecnico-informatica-curitiba": () => import("./pages/TecnicoInformaticaCuritiba"),
   "/blog": () => import("./pages/Blog"),
   "/diagnostico-60s": () => import("./pages/Diagnostico60s"),
@@ -23,7 +25,6 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/atendimento-domicilio": () => import("./pages/AtendimentoDomicilio"),
   "/atendimento-remoto": () => import("./pages/AtendimentoRemoto"),
   "/suporte-empresas": () => import("./pages/SuporteEmpresas"),
-  "/precos-e-politicas": () => import("./pages/PrecosEPoliticas"),
   "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),
   "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),
   "/arrumar-pc": () => import("./pages/ArrumarPC"),
@@ -106,7 +107,7 @@ const InstantNavigation = ({
 
     warmRoute(window.location.pathname);
     const preloadCommon = window.setTimeout(() => {
-      ["/servicos", "/como-funciona", "/tecnico-informatica-curitiba", "/blog"].forEach(warmRoute);
+      ["/servicos", "/como-funciona", "/valores", "/tecnico-informatica-curitiba", "/blog", "/faq", "/contato"].forEach(warmRoute);
     }, 40);
 
     const getInternalUrl = (target: EventTarget | null) => {

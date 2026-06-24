@@ -199,6 +199,9 @@ const TecnicoInformaticaCuritiba = () => {
                 <p>
                   Com atendimento ágil, <strong className="text-foreground">orçamento transparente</strong> e garantia em todos os serviços, somos a escolha certa para quem busca um técnico de computador confiável em Curitiba.
                 </p>
+                <p className="mt-4 rounded-xl border border-accent/20 bg-accent/5 p-4 text-sm leading-relaxed">
+                  Se o seu problema envolve eletrônicos específicos, consoles, placas de vídeo, TV ou reparos em bancada, veja também nossa página de <Link to="/assistencia-tecnica-curitiba" className="font-semibold text-accent hover:underline">assistência técnica especializada em Curitiba</Link>. Mantemos esta página focada em informática, computadores e notebooks para evitar mistura de intenções.
+                </p>
               </div>
             </div>
           </div>

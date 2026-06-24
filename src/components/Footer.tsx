@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, MessageCircle, Users, ArrowRight, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, MessageCircle, Users, ArrowRight, Mail, Clock } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { useMemo } from "react";
 
@@ -162,10 +162,10 @@ const localBusinessSchema = {
     {
       "@type": "ContactPoint",
       telephone: NAP.phone,
-      contactType: "customer service",
+      contactType: "customer support",
       areaServed: "BR",
       availableLanguage: ["Portuguese", "pt-BR"],
-      contactOption: "TollFree",
+      url: "https://wa.me/5541997452053",
     },
   ],
   knowsAbout: [
@@ -303,10 +303,10 @@ export const Footer = () => {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <Phone className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <MessageCircle className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
             <div>
-              <div className="font-semibold text-white/90">Telefone / WhatsApp</div>
-              <a href={`tel:${NAP.phone}`} className="hover:text-white">{NAP.phoneDisplay}</a>
+              <div className="font-semibold text-white/90">WhatsApp</div>
+              <a href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" className="hover:text-white">Clique para chamar no WhatsApp</a>
             </div>
           </div>
           <div className="flex items-start gap-2">

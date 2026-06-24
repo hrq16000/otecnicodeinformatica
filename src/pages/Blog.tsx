@@ -361,7 +361,7 @@ const Blog = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
-    document.title = "Explorar Conteúdo — Blog, Serviços, Problemas e Soluções | Técnico Curitiba";
+    document.title = "Blog Técnico Curitiba | Dicas Urgentes de PC";
     trackPageView("/blog", "Blog — Explorar Conteúdo");
   }, []);
 
@@ -489,8 +489,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Blog Técnico Curitiba | Guias, Soluções e Tutoriais"
-        description="Mais de 200 artigos sobre conserto de PC, formatação, redes Wi-Fi, Linux, segurança e IA. Conteúdo prático de quem atende em Curitiba e RMC."
+        title="Blog Técnico Curitiba | Dicas Urgentes de PC"
+        description="Guias rápidos para computador lento, vírus, formatação e notebook que não liga. Conteúdo local de técnico em Curitiba com WhatsApp para urgências."
         path="/blog"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Blog", path: "/blog" }]}
       />
@@ -517,12 +517,12 @@ const Blog = () => {
                   <Sparkles className="h-4 w-4 text-accent animate-bounce-subtle" />
                   <span>{stats.total}+ conteúdos técnicos</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-[1.1] mb-5">
-                  <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>Explore Todo o</span>
-                  <span className="block gradient-text-animated text-5xl md:text-7xl lg:text-8xl" style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}>Conhecimento</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] mb-5">
+                  <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>Blog Técnico Curitiba</span>
+                  <span className="block gradient-text-animated text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}>Soluções Rápidas</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed" style={{ animation: 'heroFadeUp 0.7s ease-out 0.3s both' }}>
-                  Artigos, guias de problemas, procedimentos técnicos e serviços especializados — tudo num só lugar.
+                  Guias práticos para problemas de computador, notebook, vírus, formatação e atendimento em Curitiba.
                 </p>
                 <div className="glow-separator max-w-[200px] mx-auto mt-6" style={{ animation: 'heroFadeIn 1s ease-out 0.5s both' }} />
               </div>

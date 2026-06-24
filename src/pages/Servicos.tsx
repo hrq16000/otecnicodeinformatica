@@ -128,12 +128,12 @@ const services = [
 
 const Servicos = () => {
   useEffect(() => {
-    document.title = "Serviços de Informática em Curitiba | Assistência Técnica Completa | Técnico Curitiba";
+    document.title = "Serviços de Informática Curitiba | Hoje R$ 99,99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Conheça todos os serviços de informática: formatação, remoção de vírus, backup, upgrade, suporte empresarial e muito mais. Técnico especializado em Curitiba."
+        "Formatação, remoção de vírus, conserto de PC/notebook, upgrade SSD e suporte em Curitiba. Atendimento hoje a partir de R$ 99,99 via WhatsApp."
       );
     }
     trackPageView("/servicos", "Serviços");
@@ -147,7 +147,7 @@ const Servicos = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Serviços de Informática em Curitiba | Assistência Técnica Completa | Técnico Curitiba" description="Conheça todos os serviços de informática: formatação, remoção de vírus, backup, upgrade, suporte empresarial e muito mais. Técnico especializado em Curitiba." path="/servicos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }]} />
+      <PageSEO title="Serviços de Informática Curitiba | Hoje R$ 99,99" description="Formatação, remoção de vírus, conserto de PC/notebook, upgrade SSD e suporte em Curitiba. Atendimento hoje a partir de R$ 99,99 via WhatsApp." path="/servicos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }]} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />
@@ -166,7 +166,7 @@ const Servicos = () => {
           <div className="container mx-auto relative z-10">
             <div className="text-center mb-10 md:mb-14">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
-                Todos os Nossos Serviços de Informática
+                Serviços com orçamento claro antes do reparo
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
                 De formatação a suporte empresarial, oferecemos soluções completas para manter seu computador e sua empresa funcionando. Serviços a partir de <strong className="text-accent">R$ 99,99</strong> ou por hora técnica.

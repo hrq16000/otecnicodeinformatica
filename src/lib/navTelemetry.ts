@@ -6,8 +6,7 @@
  *   para cálculo de p50/p95.
  * - Modo debug: `?debug=nav` na URL OU `localStorage.NAV_DEBUG=1`.
  *   Em debug, loga cada navegação no console com cor por faixa.
- * - Alerta (console.warn) quando uma navegação ultrapassa o
- *   threshold de 90ms — equivalente ao gatilho do RouteLoader.
+ * - Alerta (console.warn) quando uma navegação ultrapassa 1s.
  *
  * Uso:
  *   const end = startNav(pathname);     // no início do click handler
@@ -15,7 +14,7 @@
  */
 const STORE_KEY = "__nav_p95__";
 const MAX_SAMPLES = 30;
-const SLOW_THRESHOLD_MS = 90;
+const SLOW_THRESHOLD_MS = 1000;
 
 type Sample = { path: string; ms: number; cached: boolean; at: number };
 
@@ -89,7 +88,7 @@ export const startNav = (path: string) => {
     }
 
     if (ms > SLOW_THRESHOLD_MS) {
-      // Acima do threshold do loader → digno de atenção
+      // Acima de 1s entre clique e paint → regressão perceptível.
       // eslint-disable-next-line no-console
       console.warn(
         `[nav] slow ${ms.toFixed(0)}ms → ${path}${cached ? " (cached)" : ""}`,

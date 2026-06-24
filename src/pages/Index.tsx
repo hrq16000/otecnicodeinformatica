@@ -17,11 +17,11 @@ const Index = () => {
   const [showNearFold, setShowNearFold] = useState(false);
 
   useEffect(() => {
-    document.title = "Técnico de Informática Curitiba | Atendimento Hoje R$ 99";
+    document.title = "Técnico de Informática Curitiba | Hoje R$ 99,99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        "Técnico de informática a domicílio em Curitiba e RMC. Formatação, conserto de PC/notebook, remoção de vírus e upgrade SSD a partir de R$ 99,99. ⭐ 4.9/5."
+        "Técnico de informática em Curitiba hoje. Conserto de PC/notebook, formatação, vírus e SSD a partir de R$ 99,99. Chame no WhatsApp."
       );
     }
     const id = window.setTimeout(() => {

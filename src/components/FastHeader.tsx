@@ -6,18 +6,67 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
 };
 
-const mobileLinks: Array<{ label: string; href: string }> = [
-  { label: "Início", href: "/" },
-  { label: "Serviços", href: "/servicos" },
-  { label: "Preço", href: "/valores" },
-  { label: "Como Funciona", href: "/como-funciona" },
-  { label: "Atendimento Domicílio", href: "/atendimento-domicilio" },
-  { label: "Atendimento Remoto", href: "/atendimento-remoto" },
-  { label: "Regiões (Curitiba)", href: "/tecnico-informatica-curitiba" },
-  { label: "Sobre", href: "/sobre" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contato", href: "/contato" },
+const menuGroups: Array<{
+  label: string;
+  icon: string;
+  highlight?: boolean;
+  links?: Array<{ label: string; href: string }>;
+  href?: string;
+}> = [
+  { label: "Início", icon: "⌂", href: "/" },
+  {
+    label: "Arrumar PC",
+    icon: "◉",
+    highlight: true,
+    links: [
+      { label: "Atendimento Brasil (remoto)", href: "/arrumar-pc" },
+      { label: "Suporte online", href: "/arrumar-pc/online" },
+      { label: "Atendimento remoto", href: "/atendimento-remoto" },
+    ],
+  },
+  {
+    label: "Serviços",
+    icon: "⌘",
+    links: [
+      { label: "Todos os Serviços", href: "/servicos" },
+      { label: "Formatação", href: "/servicos/formatacao-computador" },
+      { label: "Remoção de Vírus", href: "/servicos/remocao-virus" },
+      { label: "Upgrade SSD/RAM", href: "/servicos/upgrade-ssd-memoria" },
+      { label: "Conserto PC/Notebook", href: "/servicos/conserto-pc-notebook" },
+    ],
+  },
+  {
+    label: "Atendimento",
+    icon: "⌕",
+    links: [
+      { label: "Como Funciona", href: "/como-funciona" },
+      { label: "Preço", href: "/valores" },
+      { label: "Domicílio", href: "/atendimento-domicilio" },
+      { label: "Remoto", href: "/atendimento-remoto" },
+      { label: "Empresas", href: "/suporte-empresas" },
+    ],
+  },
+  {
+    label: "Regiões",
+    icon: "⌖",
+    links: [
+      { label: "Curitiba", href: "/tecnico-informatica-curitiba" },
+      { label: "São José dos Pinhais", href: "/tecnico-informatica-sao-jose-pinhais" },
+      { label: "Araucária", href: "/tecnico-informatica-araucaria" },
+      { label: "Campo Largo", href: "/tecnico-informatica-campo-largo" },
+      { label: "Pinhais", href: "/tecnico-informatica-pinhais" },
+    ],
+  },
+  {
+    label: "Saiba Mais",
+    icon: "▤",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Sobre", href: "/sobre" },
+      { label: "Contato", href: "/contato" },
+    ],
+  },
 ];
 
 export const FastHeader = () => {
@@ -46,8 +95,6 @@ export const FastHeader = () => {
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/servicos">Serviços</a>
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/valores">Preço</a>
           <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/como-funciona">Atendimento</a>
-          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/tecnico-informatica-curitiba">Regiões</a>
-          <a className="rounded-lg px-3 py-2 text-foreground hover:bg-accent/10 hover:text-accent" href="/blog">Blog</a>
         </nav>
 
         <div className="flex items-center gap-1.5">
@@ -73,36 +120,65 @@ export const FastHeader = () => {
             Agendar
           </a>
 
-          {/*
-            Menu sempre visível (mobile e desktop). No mobile substitui o nav inline;
-            no desktop funciona como "Mais" para páginas secundárias (Sobre, Contato,
-            FAQ etc.) sem dependência de hidratação — usa <details> nativo.
-          */}
-          <details className="relative">
+          <details className="group/root relative">
             <summary
               aria-label="Abrir menu"
               title="Menu"
-              className="inline-flex h-9 min-w-9 cursor-pointer list-none items-center justify-center gap-1 rounded-lg border border-border bg-background px-2 text-foreground transition-colors hover:bg-muted marker:hidden [&::-webkit-details-marker]:hidden"
+              className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden"
             >
-              <span aria-hidden="true" className="text-base leading-none">☰</span>
-              <span className="hidden text-xs font-semibold uppercase tracking-wide md:inline">Menu</span>
+              <span aria-hidden="true" className="text-xl font-bold leading-none group-open/root:hidden">☰</span>
+              <span aria-hidden="true" className="hidden text-xl font-bold leading-none text-accent group-open/root:block">×</span>
             </summary>
             <nav
               aria-label="Menu mobile"
-              className="absolute right-0 top-[calc(100%+8px)] w-64 rounded-xl border border-border bg-background p-2 shadow-[var(--shadow-xl)]"
+              className="absolute right-0 top-[calc(100%+8px)] w-[min(92vw,360px)] rounded-2xl border border-border bg-background p-0 shadow-[var(--shadow-xl)]"
             >
-              <ul className="grid gap-0.5 text-sm">
-                {mobileLinks.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      className="block rounded-lg px-3 py-2 font-medium text-foreground hover:bg-accent/10 hover:text-accent"
-                    >
-                      {l.label}
+              <div className="flex items-center gap-2 border-b border-border px-4 py-3 text-sm font-semibold text-foreground">
+                <span className="text-accent" aria-hidden="true">✦</span>
+                Menu
+              </div>
+              <div className="grid gap-2 border-b border-border p-4">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackHeaderClick("whatsapp")} className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--whatsapp))] px-4 text-sm font-bold text-primary-foreground">
+                  <span aria-hidden="true">☏</span> Falar no WhatsApp
+                </a>
+                <a href="/arrumar-pc" className="inline-flex min-h-9 items-center justify-center gap-2 rounded-lg border border-accent/40 bg-accent/5 px-4 text-sm font-semibold text-accent">
+                  <span aria-hidden="true">◉</span> Arrumar PC online — Brasil
+                </a>
+              </div>
+              <div className="grid gap-1 p-2 text-sm">
+                {menuGroups.map((group) =>
+                  group.links ? (
+                    <details key={group.label} className="group/menu">
+                      <summary className={`flex min-h-12 cursor-pointer list-none items-center gap-3 rounded-xl px-2.5 py-2 font-medium text-foreground transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden ${group.highlight ? "bg-accent/5 text-accent" : ""}`}>
+                        <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${group.highlight ? "bg-accent text-accent-foreground" : "bg-accent/10 text-accent"}`} aria-hidden="true">{group.icon}</span>
+                        <a
+                          href={group.links[0]?.href}
+                          className="flex-1 rounded-md py-1 hover:text-accent"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          {group.label}
+                        </a>
+                        <span className="transition-transform group-open/menu:rotate-180" aria-hidden="true">⌄</span>
+                      </summary>
+                      <div className="grid gap-0.5 py-1 pl-14 pr-1">
+                        {group.links.map((link) => (
+                          <a key={link.href} href={link.href} className="rounded-lg px-3 py-2 text-foreground/85 hover:bg-accent/10 hover:text-accent">
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    </details>
+                  ) : (
+                    <a key={group.href} href={group.href} className="flex min-h-12 items-center gap-3 rounded-xl px-2.5 py-2 font-medium text-foreground hover:bg-accent/10 hover:text-accent">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent" aria-hidden="true">{group.icon}</span>
+                      {group.label}
                     </a>
-                  </li>
-                ))}
-              </ul>
+                  )
+                )}
+              </div>
+              <div className="border-t border-border p-4 text-center text-xs text-muted-foreground">
+                © Técnico Curitiba — Atendimento Brasil via WhatsApp
+              </div>
             </nav>
           </details>
         </div>

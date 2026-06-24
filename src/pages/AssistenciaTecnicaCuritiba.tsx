@@ -404,6 +404,9 @@ export default function AssistenciaTecnicaCuritiba() {
                 Reparo profissional em PlayStation, Xbox, Nintendo Switch e Placas de Vídeo —
                 e também computadores, notebooks e smartphones. <strong className="text-white">Serviço com garantia</strong>.
               </p>
+              <p className="mt-4 max-w-2xl rounded-xl border border-white/15 bg-white/[0.06] p-4 text-sm leading-relaxed text-white/80">
+                Para formatação, remoção de vírus, upgrade SSD e suporte de informática a domicílio, acesse a página canônica de <Link to="/tecnico-informatica-curitiba" className="font-semibold text-accent hover:underline">técnico de informática em Curitiba</Link>. Esta página fica focada em assistência técnica especializada e reparos de bancada.
+              </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild variant="heroWhatsapp" size="lg" className="atc-pulse" onClick={onWa("hero")}>

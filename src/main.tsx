@@ -61,4 +61,5 @@ const runWhenIdle = (fn: () => void) => {
 
 runWhenIdle(() => {
   import("./lib/whatsappUtm").then(({ initWhatsAppUtm }) => initWhatsAppUtm());
+  import("./lib/webVitals").then(({ initWebVitals }) => initWebVitals());
 });

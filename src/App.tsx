@@ -12,6 +12,8 @@ const routeCache = new Map<string, Promise<unknown>>();
 const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/servicos": () => import("./pages/Servicos"),
   "/como-funciona": () => import("./pages/ComoFunciona"),
+  "/valores": () => import("./pages/PrecosEPoliticas"),
+  "/precos-e-politicas": () => import("./pages/PrecosEPoliticas"),
   "/tecnico-informatica-curitiba": () => import("./pages/TecnicoInformaticaCuritiba"),
   "/blog": () => import("./pages/Blog"),
   "/diagnostico-60s": () => import("./pages/Diagnostico60s"),

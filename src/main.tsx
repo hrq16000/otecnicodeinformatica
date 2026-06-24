@@ -1,5 +1,15 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import { initErrorReporter, APP_BUILD_INFO } from "./lib/errorReporter";
+
+initErrorReporter();
+// Sinaliza ao fallback estático do index.html que o JS hidratou.
+try {
+  document.documentElement.dataset.hydrated = "1";
+  const meta = document.querySelector('meta[name="app-version"]');
+  if (meta) meta.setAttribute("content", `${APP_BUILD_INFO.version} @ ${APP_BUILD_INFO.buildTime}`);
+} catch { /* noop */ }
+
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.
 const RELOAD_KEY = "__chunk_reloaded__";

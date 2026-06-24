@@ -1,7 +1,11 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  // Dark mode neutralizado: a classe-seletor abaixo nunca é aplicada,
+  // então TODA variante `dark:` no projeto fica permanentemente inerte
+  // (mantemos as classes inline em components shadcn para não fragmentar
+  // o design system, mas elas nunca terão efeito visual).
+  darkMode: ["class", ".__dark_disabled__"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {

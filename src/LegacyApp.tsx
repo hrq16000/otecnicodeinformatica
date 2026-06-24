@@ -839,6 +839,8 @@ const App = () => (
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
+            <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/privacidade" element={<Navigate to="/politica-de-privacidade" replace />} />
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
 
             {/* Admin */}

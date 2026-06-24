@@ -255,6 +255,48 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* NAP — sinal forte para SEO local */}
+        <address
+          className="not-italic grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 border-t border-white/[0.08] pt-6 pb-2 text-white/80 text-sm"
+          aria-label="Informações de contato"
+        >
+          <div className="flex items-start gap-2">
+            <MapPin className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Endereço</div>
+              <div>{NAP.city} – {NAP.region}, Brasil</div>
+              <div className="text-white/55 text-xs">Atendimento a domicílio e coleta</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Phone className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Telefone / WhatsApp</div>
+              <a href={`tel:${NAP.phone}`} className="hover:text-white">{NAP.phoneDisplay}</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Mail className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">E-mail</div>
+              <a href={`mailto:${NAP.email}`} className="hover:text-white break-all">{NAP.email}</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Horário</div>
+              <div>{NAP.hours}</div>
+            </div>
+          </div>
+        </address>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+
+
         {/* Chamada parceiro */}
         <div className="border-t border-white/[0.08] pt-6 pb-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

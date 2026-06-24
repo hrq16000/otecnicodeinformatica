@@ -3,12 +3,20 @@ import App from "./App.tsx";
 import { initErrorReporter, APP_BUILD_INFO } from "./lib/errorReporter";
 
 initErrorReporter();
+// Tema único (claro): remove qualquer `dark` herdado, força color-scheme light
+// e zera flags antigas no localStorage para ignorar preferências do usuário.
+try {
+  document.documentElement.classList.remove("dark");
+  document.documentElement.style.colorScheme = "light";
+  localStorage.removeItem("theme");
+} catch { /* noop */ }
 // Sinaliza ao fallback estático do index.html que o JS hidratou.
 try {
   document.documentElement.dataset.hydrated = "1";
   const meta = document.querySelector('meta[name="app-version"]');
   if (meta) meta.setAttribute("content", `${APP_BUILD_INFO.version} @ ${APP_BUILD_INFO.buildTime}`);
 } catch { /* noop */ }
+
 
 
 // Recarrega 1x quando um chunk antigo (deploy novo) falha em ser baixado.

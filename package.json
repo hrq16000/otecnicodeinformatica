@@ -18,7 +18,8 @@
     "validate:jsonld": "node scripts/validate-jsonld.mjs",
     "lh:desktop": "lhci autorun --config=lighthouserc.json",
     "lh:mobile": "lhci autorun --config=lighthouserc.mobile.json",
-    "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile",
+    "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile && npm run perf:budgets",
+    "perf:budgets": "node scripts/check-performance-budgets.mjs",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e"
   },
   "dependencies": {

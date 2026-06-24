@@ -92,7 +92,63 @@ const infoLinks = [
   { label: "Sobre Nós", to: "/sobre" },
   { label: "Contato", to: "/contato" },
   { label: "Termos e Condições", to: "/termos-e-condicoes" },
+  { label: "Política de Privacidade", to: "/politica-de-privacidade" },
 ];
+
+// NAP (Name · Address · Phone) — fonte única de verdade para SEO local
+const NAP = {
+  name: "Técnico Curitiba — Assistência Técnica em Informática",
+  street: "Atendimento a domicílio e coleta",
+  city: "Curitiba",
+  region: "PR",
+  country: "BR",
+  postal: "80000-000",
+  phone: "+5541997452053",
+  phoneDisplay: "(41) 9 9745-2053",
+  email: "contato@tecnicocuritiba.com.br",
+  url: "https://tecnicocuritiba.com.br",
+  geo: { lat: -25.4284, lng: -49.2733 },
+  hours: "Seg–Sáb · 08h às 20h",
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://tecnicocuritiba.com.br/#localbusiness",
+  name: NAP.name,
+  image: "https://tecnicocuritiba.com.br/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp",
+  url: NAP.url,
+  telephone: NAP.phone,
+  email: NAP.email,
+  priceRange: "R$ 79,99 – R$ 1.350",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: NAP.street,
+    addressLocality: NAP.city,
+    addressRegion: NAP.region,
+    postalCode: NAP.postal,
+    addressCountry: NAP.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: NAP.geo.lat,
+    longitude: NAP.geo.lng,
+  },
+  areaServed: [
+    "Curitiba", "São José dos Pinhais", "Araucária", "Campo Largo",
+    "Pinhais", "Colombo", "Fazenda Rio Grande", "Almirante Tamandaré",
+    "Piraquara", "Campo Magro", "Quatro Barras",
+  ].map((c) => ({ "@type": "City", name: c })),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:00",
+      closes: "20:00",
+    },
+  ],
+  sameAs: [],
+};
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

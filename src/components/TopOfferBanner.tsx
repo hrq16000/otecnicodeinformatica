@@ -49,19 +49,23 @@ export const TopOfferBanner = () => {
             </p>
           </div>
           <div className="flex min-w-0 items-center justify-center gap-2 text-[12px] sm:gap-3 sm:text-sm">
+            <span className="font-semibold sm:hidden">
+              ⚡ 30 min · <span className="font-extrabold text-yellow-300">R$ 99,99</span>
+            </span>
             <a
               href="https://wa.me/5541997452053"
               onClick={openFunnel}
               data-wa-medium="top_banner"
-              className="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 font-semibold backdrop-blur-sm transition-colors hover:bg-white/25"
+              data-cta-location="top_banner"
+              className="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-white px-3 py-1 font-extrabold text-[hsl(var(--whatsapp))] shadow-sm transition-transform hover:scale-105"
             >
               Chamar agora <span aria-hidden="true">→</span>
             </a>
             <a
               href="/termos-e-condicoes"
-              className="truncate font-medium text-white/85 underline underline-offset-2 hover:text-white"
+              className="hidden truncate text-[11px] font-medium text-white/70 underline underline-offset-2 hover:text-white sm:inline"
             >
-              Termos e Condições
+              Termos
             </a>
           </div>
         </div>

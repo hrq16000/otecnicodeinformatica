@@ -5,6 +5,10 @@ import { useMemo } from "react";
 
 const footerLink = "text-white/85 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
 
+const trackFooterWhatsApp = (location: string) => {
+  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
+};
+
 function pickRandom<T>(arr: T[], n: number): T[] {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, n);
@@ -225,6 +229,7 @@ export const Footer = () => {
               href="https://wa.me/5541997452053?text=Olá!%20Encontrei%20vocês%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackFooterWhatsApp("footer_primary")}
               className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] hover:scale-105 hover:shadow-[var(--shadow-whatsapp)] text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 group"
             >
               <MessageCircle className="h-4 w-4 flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
@@ -306,7 +311,7 @@ export const Footer = () => {
             <MessageCircle className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
             <div>
               <div className="font-semibold text-white/90">WhatsApp</div>
-              <a href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" className="hover:text-white">Clique para chamar no WhatsApp</a>
+              <a href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" onClick={() => trackFooterWhatsApp("footer_nap")} className="hover:text-white">Clique para chamar no WhatsApp</a>
             </div>
           </div>
           <div className="flex items-start gap-2">
@@ -347,20 +352,20 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/[0.08] pt-7 text-center space-y-2 spotlight-sweep">
-          <p className="text-white/45 text-sm">
+          <p className="text-white/70 text-sm">
             © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. CNPJ: 41.723.708/0001-58. Todos os direitos reservados.
           </p>
-          <p className="text-white/75 text-xs">
+          <p className="text-white/80 text-xs">
             Uma empresa do ecossistema{" "}
-            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
+            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
               Preciso de Um
             </a>
             {" · "}
-            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
+            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
               Mestre dos Serviços
             </a>
             {" · "}
-            <a href="https://tamonaweb.com.br" target="_blank" rel="noopener noreferrer" className="text-white/45 hover:text-white/70 underline transition-colors">
+            <a href="https://tamonaweb.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
               TamoNaWeb
             </a>
           </p>

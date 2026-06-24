@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 import { RouteLoader } from "@/components/RouteLoader";
+import { AppErrorBoundary } from "@/components/AppErrorBoundary";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting & faster initial load
@@ -438,6 +439,7 @@ const IdleEnhancements = () => {
 };
 
 const App = () => (
+      <AppErrorBoundary>
       <BrowserRouter>
         <ScrollToTop />
         <AppInit />
@@ -867,6 +869,7 @@ const App = () => (
         </Suspense>
         <IdleEnhancements />
       </BrowserRouter>
+      </AppErrorBoundary>
 );
 
 export default App;

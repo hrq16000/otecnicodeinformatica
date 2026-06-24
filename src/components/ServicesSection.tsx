@@ -17,6 +17,11 @@ type Service = {
   tempo: string;            // expected resolution time
   badge?: string;           // "Mais pedido", "Urgente", etc.
   waMessage: string;        // pre-filled WhatsApp message per problem
+  trust: string;
+  details: {
+    what: string;
+    bring: string;
+  };
 };
 
 const allServices: Service[] = [
@@ -29,6 +34,8 @@ const allServices: Service[] = [
     tempo: "1–2h",
     badge: "Mais pedido",
     waMessage: "Olá! Meu computador está com vírus / lento / abrindo coisas sozinho. Preciso de ajuda hoje.",
+    trust: "+320 limpezas realizadas",
+    details: { what: "Varredura, remoção de malware e proteção básica.", bring: "Senha do Windows e avisos que aparecem na tela." },
   },
   {
     icon: Monitor,
@@ -38,6 +45,8 @@ const allServices: Service[] = [
     preco: "R$ 150",
     tempo: "Mesmo dia",
     waMessage: "Olá! Quero formatar meu computador com Windows + programas. Pode me passar o passo a passo?",
+    trust: "Backup orientado antes de iniciar",
+    details: { what: "Backup, Windows, drivers e programas essenciais.", bring: "Carregador, senhas e lista dos programas usados." },
   },
   {
     icon: Wrench,
@@ -48,6 +57,8 @@ const allServices: Service[] = [
     tempo: "24–48h",
     badge: "Garantia 90 dias",
     waMessage: "Olá! Meu PC/notebook está com defeito. Pode me ajudar com o diagnóstico?",
+    trust: "Diagnóstico explicado por foto/vídeo",
+    details: { what: "Teste de fonte, memória, disco, tela e sistema.", bring: "Carregador, cabo de energia e descrição do sintoma." },
   },
   {
     icon: HardDrive,
@@ -57,6 +68,8 @@ const allServices: Service[] = [
     preco: "A partir de R$ 80 (M.O.)",
     tempo: "1h",
     waMessage: "Olá! Quero fazer upgrade de SSD/memória no meu computador. Pode me ajudar a escolher?",
+    trust: "Upgrade com teste de velocidade",
+    details: { what: "Instalação física, clonagem quando aplicável e validação.", bring: "Modelo do equipamento ou foto da etiqueta." },
   },
   {
     icon: Wifi,
@@ -66,6 +79,8 @@ const allServices: Service[] = [
     preco: "A partir de R$ 80",
     tempo: "1–2h",
     waMessage: "Olá! Meu Wi-Fi está fraco / caindo. Preciso de ajuda para configurar a rede.",
+    trust: "Configuração segura do roteador",
+    details: { what: "Ajuste de roteador, repetidor/mesh e senha segura.", bring: "Login da operadora e local dos equipamentos." },
   },
   {
     icon: Database,
@@ -76,6 +91,8 @@ const allServices: Service[] = [
     tempo: "24h",
     badge: "Sem dado, sem cobrança",
     waMessage: "Olá! Preciso recuperar arquivos / fotos do meu HD ou pendrive. Pode me ajudar?",
+    trust: "Avaliação antes de mexer nos dados",
+    details: { what: "Triagem do disco, cópia segura e tentativa de recuperação.", bring: "HD/pendrive e pasta/arquivos prioritários." },
   },
   {
     icon: MapPin,
@@ -85,6 +102,8 @@ const allServices: Service[] = [
     preco: "A partir de R$ 69,99",
     tempo: "Hoje",
     waMessage: "Olá! Quero atendimento técnico a domicílio em Curitiba. Qual a disponibilidade hoje?",
+    trust: "Técnico identificado no atendimento",
+    details: { what: "Diagnóstico no local e preço aprovado antes do serviço.", bring: "Bairro, ponto de referência e melhor horário." },
   },
   {
     icon: Headphones,
@@ -94,6 +113,8 @@ const allServices: Service[] = [
     preco: "R$ 79,99",
     tempo: "~15 min",
     waMessage: "Olá! Quero atendimento remoto agora. Pode me ajudar pelo AnyDesk?",
+    trust: "Você acompanha tudo na tela",
+    details: { what: "Acesso remoto assistido para ajustes, vírus leves e programas.", bring: "Internet ativa e autorização para acesso remoto." },
   },
   {
     icon: Building2,
@@ -103,6 +124,8 @@ const allServices: Service[] = [
     preco: "A partir de R$ 300/mês",
     tempo: "SLA 4h",
     waMessage: "Olá! Quero contratar suporte de TI para minha empresa em Curitiba.",
+    trust: "Atendimento com prioridade para operação",
+    details: { what: "Suporte remoto/presencial, rede, backup e estações.", bring: "Quantidade de computadores e urgências atuais." },
   },
   {
     icon: Camera,
@@ -112,6 +135,8 @@ const allServices: Service[] = [
     preco: "R$ 1.350 instalado",
     tempo: "1 dia",
     waMessage: "Olá! Quero instalar câmeras de segurança (CFTV). Pode me passar o orçamento?",
+    trust: "Acesso no celular configurado",
+    details: { what: "Instalação, cabeamento, DVR/NVR e aplicativo.", bring: "Fotos do local e quantidade de pontos desejada." },
   },
 ];
 
@@ -126,6 +151,12 @@ function shuffleArray<T>(arr: T[]): T[] {
 
 const buildWa = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+const trackServiceWhatsApp = (service: Service) => {
+  import("@/lib/analytics").then(({ trackCTAClick }) =>
+    trackCTAClick("whatsapp", `services_card_${service.link.replace(/\W+/g, "_")}`),
+  );
+};
 
 export const ServicesSection = () => {
   const isMobile = useIsMobile();
@@ -193,6 +224,22 @@ export const ServicesSection = () => {
                   {service.pitch}
                 </p>
 
+                <div className="mb-3 rounded-lg border border-border bg-background/55 px-3 py-2 text-xs font-semibold text-foreground/80">
+                  <span className="text-accent" aria-hidden="true">★</span> {service.trust}
+                </div>
+
+                <details className="group/details mb-4 rounded-lg border border-border bg-background/55 px-3 py-2 text-sm">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
+                    Detalhes do atendimento
+                    <span aria-hidden="true" className="text-accent transition-transform group-open/details:rotate-180">⌄</span>
+                  </summary>
+                  <div className="mt-2 space-y-1.5 text-xs leading-relaxed text-muted-foreground">
+                    <p><strong className="text-foreground">O que fazemos:</strong> {service.details.what}</p>
+                    <p><strong className="text-foreground">Tempo estimado:</strong> {service.tempo}</p>
+                    <p><strong className="text-foreground">O que levar/enviar:</strong> {service.details.bring}</p>
+                  </div>
+                </details>
+
                 <div className="mt-auto flex items-center gap-2">
                   <a
                     href={waUrl}
@@ -200,6 +247,7 @@ export const ServicesSection = () => {
                     rel="noopener nofollow"
                     data-cta-location={`services_card_${service.link.replace(/\W+/g, "_")}`}
                     data-wa-medium="services_card"
+                    onClick={() => trackServiceWhatsApp(service)}
                     aria-label={`Falar no WhatsApp sobre ${service.title}`}
                     className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[hsl(var(--whatsapp))] px-3 py-2.5 text-sm font-bold text-primary-foreground shadow-[0_8px_20px_-8px_hsl(145_63%_42%/0.6)] transition-all hover:scale-[1.02] hover:bg-[hsl(var(--whatsapp-hover))]"
                   >
@@ -211,7 +259,7 @@ export const ServicesSection = () => {
                     aria-label={`Ver detalhes de ${service.title}`}
                     className="inline-flex items-center justify-center gap-1 rounded-lg border border-border bg-background/60 px-3 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
                   >
-                    Detalhes
+                    Página
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -234,6 +282,7 @@ export const ServicesSection = () => {
             rel="noopener nofollow"
             data-cta-location="services_section_footer"
             data-wa-medium="services_footer"
+            onClick={() => import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", "services_section_footer"))}
             className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md hover:bg-[hsl(var(--whatsapp-hover))] transition-colors"
           >
             <MessageCircle className="h-4 w-4" />

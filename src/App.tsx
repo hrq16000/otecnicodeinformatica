@@ -3,6 +3,7 @@ import Index from "./pages/Index";
 import { RouteLoader } from "./components/RouteLoader";
 import { startNav } from "./lib/navTelemetry";
 import ConsentBanner from "./components/ConsentBanner";
+import { AppErrorBoundary } from "./components/AppErrorBoundary";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -188,7 +189,7 @@ const HomeApp = () => {
   const [showNavLoader, setShowNavLoader] = useState(false);
 
   return (
-    <>
+    <AppErrorBoundary>
       <AppInit />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
       {showNavLoader ? <NavigationOverlay /> : null}
@@ -200,7 +201,7 @@ const HomeApp = () => {
         </Suspense>
       )}
       <ConsentBanner />
-    </>
+    </AppErrorBoundary>
   );
 };
 

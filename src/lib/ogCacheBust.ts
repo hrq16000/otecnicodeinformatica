@@ -2,7 +2,7 @@
 // is replaced so Facebook/X/LinkedIn refetch a fresh preview.
 // Files with content hashes in their filename invalidate automatically;
 // this helper handles the remaining static URLs.
-export const OG_VERSION = "20260615";
+export const OG_VERSION = "20260624-3";
 
 export function withOgVersion(url: string | undefined | null): string {
   if (!url) return "";

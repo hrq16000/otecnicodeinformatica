@@ -33,8 +33,8 @@
     <link rel="preload" as="image" href="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp" type="image/webp" fetchpriority="high" imagesrcset="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-240.webp 240w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-360.webp 360w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp 480w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-800.webp 800w" imagesizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 448px" />
 
     <!-- DNS Prefetch & Preconnect for speed -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
     <!-- Preload only the immediate brand mark; the React hero image loads after hydration. -->
 
@@ -45,16 +45,17 @@
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content="Técnico de Informática Curitiba | Hoje R$ 99,99" />
     <meta property="og:description" content="Técnico de informática em Curitiba hoje. Conserto de PC/notebook, formatação, vírus e SSD a partir de R$ 99,99. Chame no WhatsApp." />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/El3gITL9bldQ7WZaPszZm8jw8DX2/social-images/social-1775439639319-110201.webp" />
+    <meta property="og:image" content="https://tecnicocuritiba.com.br/og-image.png?v=20260624-3" />
+    <meta property="og:image:secure_url" content="https://tecnicocuritiba.com.br/og-image.png?v=20260624-3" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:type" content="image/png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Técnico de Informática Curitiba | Hoje R$ 99,99" />
     <meta name="twitter:description" content="Técnico de informática em Curitiba hoje. Conserto de PC/notebook, formatação, vírus e SSD a partir de R$ 99,99. Chame no WhatsApp." />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/El3gITL9bldQ7WZaPszZm8jw8DX2/social-images/social-1775439639319-110201.webp" />
+    <meta name="twitter:image" content="https://tecnicocuritiba.com.br/og-image.png?v=20260624-3" />
 
 
     <!-- Fonte do shell usa fallback local; fontes web entram pelo CSS do app sem bloquear a primeira pintura. -->
@@ -63,12 +64,12 @@
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
 
     <!-- Favicon (desktop + mobile, ordem otimizada) -->
-    <link rel="icon" href="/favicon.ico?v=20260624-2" sizes="any" type="image/x-icon" />
-    <link rel="shortcut icon" href="/favicon.ico?v=20260624-2" type="image/x-icon" />
-    <link rel="icon" href="/favicon-32.png?v=20260624-2" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon.png?v=20260624-2" type="image/png" sizes="192x192" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png?v=20260624-2" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon-20260624.ico" sizes="any" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon-20260624.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon-32-20260624.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-20260624.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon-20260624.png" />
+    <link rel="manifest" href="/manifest.json?v=20260624-3" />
 
     <!-- Critical inline styles for above-the-fold (Hero) — eliminates render-blocking -->
     <style>
@@ -127,8 +128,13 @@
       gtag('js', new Date());
       gtag('config', 'G-B9VPHCZC10', { anonymize_ip: true });
       gtag('config', 'AW-17892118207');
+      (window.requestIdleCallback || function(cb){ return setTimeout(cb, 1800); })(function(){
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';
+        document.head.appendChild(s);
+      });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10"></script>
 </head>
   <body>
     <div id="root">

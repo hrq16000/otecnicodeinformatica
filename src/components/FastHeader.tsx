@@ -123,15 +123,18 @@ export const FastHeader = () => {
           <details className="group/root relative">
             <summary
               aria-label="Abrir menu"
-              title="Menu"
+              title="Abrir menu"
               className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden"
             >
-              <span aria-hidden="true" className="text-xl font-bold leading-none group-open/root:hidden">☰</span>
-              <span aria-hidden="true" className="hidden text-xl font-bold leading-none text-accent group-open/root:block">×</span>
+              <span aria-hidden="true" className="relative block h-5 w-5">
+                <span className="absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:top-2.5 group-open/root:rotate-45" />
+                <span className="absolute left-0 top-2.5 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:opacity-0" />
+                <span className="absolute left-0 top-4 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:top-2.5 group-open/root:-rotate-45" />
+              </span>
             </summary>
             <nav
-              aria-label="Menu mobile"
-              className="absolute right-0 top-[calc(100%+8px)] w-[min(92vw,360px)] rounded-2xl border border-border bg-background p-0 shadow-[var(--shadow-xl)]"
+              aria-label="Menu principal"
+              className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(92vw,360px)] overflow-y-auto rounded-2xl border border-border bg-background p-0 text-foreground shadow-[var(--shadow-xl)]"
             >
               <div className="flex items-center gap-2 border-b border-border px-4 py-3 text-sm font-semibold text-foreground">
                 <span className="text-accent" aria-hidden="true">✦</span>

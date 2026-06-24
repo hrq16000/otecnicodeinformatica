@@ -9,11 +9,12 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
 const mobileLinks: Array<{ label: string; href: string }> = [
   { label: "Início", href: "/" },
   { label: "Serviços", href: "/servicos" },
+  { label: "Preço", href: "/valores" },
   { label: "Como Funciona", href: "/como-funciona" },
-  { label: "Preços e Políticas", href: "/precos-e-politicas" },
   { label: "Atendimento Domicílio", href: "/atendimento-domicilio" },
   { label: "Atendimento Remoto", href: "/atendimento-remoto" },
   { label: "Regiões (Curitiba)", href: "/tecnico-informatica-curitiba" },
+  { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Contato", href: "/contato" },
@@ -73,16 +74,18 @@ export const FastHeader = () => {
           </a>
 
           {/*
-            Menu mobile sem dependência de hidratação: <details> nativo.
-            Antes era um <a href="/servicos">, então tocar no "menu" navegava
-            direto para a página de Serviços. Agora abre/fecha localmente.
+            Menu sempre visível (mobile e desktop). No mobile substitui o nav inline;
+            no desktop funciona como "Mais" para páginas secundárias (Sobre, Contato,
+            FAQ etc.) sem dependência de hidratação — usa <details> nativo.
           */}
-          <details className="relative md:hidden">
+          <details className="relative">
             <summary
               aria-label="Abrir menu"
-              className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border text-foreground marker:hidden [&::-webkit-details-marker]:hidden"
+              title="Menu"
+              className="inline-flex h-9 min-w-9 cursor-pointer list-none items-center justify-center gap-1 rounded-lg border border-border bg-background px-2 text-foreground transition-colors hover:bg-muted marker:hidden [&::-webkit-details-marker]:hidden"
             >
-              <span aria-hidden="true">☰</span>
+              <span aria-hidden="true" className="text-base leading-none">☰</span>
+              <span className="hidden text-xs font-semibold uppercase tracking-wide md:inline">Menu</span>
             </summary>
             <nav
               aria-label="Menu mobile"

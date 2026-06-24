@@ -282,6 +282,7 @@ export const ServicesSection = () => {
             rel="noopener nofollow"
             data-cta-location="services_section_footer"
             data-wa-medium="services_footer"
+            onClick={() => import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", "services_section_footer"))}
             className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md hover:bg-[hsl(var(--whatsapp-hover))] transition-colors"
           >
             <MessageCircle className="h-4 w-4" />

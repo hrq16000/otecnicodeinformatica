@@ -77,7 +77,7 @@ export const FastHeader = () => {
             Antes era um <a href="/servicos">, então tocar no "menu" navegava
             direto para a página de Serviços. Agora abre/fecha localmente.
           */}
-          <details className="relative lg:hidden">
+          <details className="relative md:hidden">
             <summary
               aria-label="Abrir menu"
               className="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border text-foreground marker:hidden [&::-webkit-details-marker]:hidden"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, MessageCircle, Users, ArrowRight } from "lucide-react";
+import { MapPin, MessageCircle, Users, ArrowRight, Phone, Mail, Clock } from "lucide-react";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { useMemo } from "react";
 
@@ -92,7 +92,63 @@ const infoLinks = [
   { label: "Sobre Nós", to: "/sobre" },
   { label: "Contato", to: "/contato" },
   { label: "Termos e Condições", to: "/termos-e-condicoes" },
+  { label: "Política de Privacidade", to: "/politica-de-privacidade" },
 ];
+
+// NAP (Name · Address · Phone) — fonte única de verdade para SEO local
+const NAP = {
+  name: "Técnico Curitiba — Assistência Técnica em Informática",
+  street: "Atendimento a domicílio e coleta",
+  city: "Curitiba",
+  region: "PR",
+  country: "BR",
+  postal: "80000-000",
+  phone: "+5541997452053",
+  phoneDisplay: "(41) 9 9745-2053",
+  email: "contato@tecnicocuritiba.com.br",
+  url: "https://tecnicocuritiba.com.br",
+  geo: { lat: -25.4284, lng: -49.2733 },
+  hours: "Seg–Sáb · 08h às 20h",
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://tecnicocuritiba.com.br/#localbusiness",
+  name: NAP.name,
+  image: "https://tecnicocuritiba.com.br/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp",
+  url: NAP.url,
+  telephone: NAP.phone,
+  email: NAP.email,
+  priceRange: "R$ 79,99 – R$ 1.350",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: NAP.street,
+    addressLocality: NAP.city,
+    addressRegion: NAP.region,
+    postalCode: NAP.postal,
+    addressCountry: NAP.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: NAP.geo.lat,
+    longitude: NAP.geo.lng,
+  },
+  areaServed: [
+    "Curitiba", "São José dos Pinhais", "Araucária", "Campo Largo",
+    "Pinhais", "Colombo", "Fazenda Rio Grande", "Almirante Tamandaré",
+    "Piraquara", "Campo Magro", "Quatro Barras",
+  ].map((c) => ({ "@type": "City", name: c })),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:00",
+      closes: "20:00",
+    },
+  ],
+  sameAs: [],
+};
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -198,6 +254,48 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
+
+        {/* NAP — sinal forte para SEO local */}
+        <address
+          className="not-italic grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 border-t border-white/[0.08] pt-6 pb-2 text-white/80 text-sm"
+          aria-label="Informações de contato"
+        >
+          <div className="flex items-start gap-2">
+            <MapPin className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Endereço</div>
+              <div>{NAP.city} – {NAP.region}, Brasil</div>
+              <div className="text-white/55 text-xs">Atendimento a domicílio e coleta</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Phone className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Telefone / WhatsApp</div>
+              <a href={`tel:${NAP.phone}`} className="hover:text-white">{NAP.phoneDisplay}</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Mail className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">E-mail</div>
+              <a href={`mailto:${NAP.email}`} className="hover:text-white break-all">{NAP.email}</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
+            <div>
+              <div className="font-semibold text-white/90">Horário</div>
+              <div>{NAP.hours}</div>
+            </div>
+          </div>
+        </address>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+
 
         {/* Chamada parceiro */}
         <div className="border-t border-white/[0.08] pt-6 pb-4">

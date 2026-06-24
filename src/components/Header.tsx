@@ -40,8 +40,7 @@ import {
   Mail,
   Handshake,
 } from "lucide-react";
-import { useDarkMode } from "@/hooks/useDarkMode";
-import { DarkModeToggle } from "@/components/DarkModeToggle";
+// Modo escuro removido por baixa legibilidade — toggle foi descontinuado.
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { SmartSearch } from "@/components/SmartSearch";

@@ -28,7 +28,8 @@
     --secondary-foreground: 215 50% 16%;
 
     --muted: 220 14% 95%;
-    --muted-foreground: 215 15% 46%;
+    /* Reforçado para garantir contraste AA em texto secundário (antes 215 15% 46%, ficava ilegível em fundos claros). */
+    --muted-foreground: 215 28% 30%;
 
     --accent: 24 92% 52%;
     --accent-foreground: 0 0% 100%;

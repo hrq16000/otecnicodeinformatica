@@ -1,24 +1,24 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
+/**
+ * Modo escuro foi descontinuado por questões de contraste/legibilidade.
+ * Mantemos o hook como no-op para preservar a API dos componentes existentes
+ * sem precisar refatorar todos os call-sites. Garantimos que a classe `.dark`
+ * nunca fique aplicada (mesmo que esteja persistida no localStorage).
+ */
 export function useDarkMode() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    const stored = localStorage.getItem("theme");
-    if (stored) return stored === "dark";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    try {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } catch {
+      /* noop */
     }
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }, [isDark]);
+  }, []);
 
-  const toggle = useCallback(() => setIsDark((prev) => !prev), []);
+  const toggle = useCallback(() => {
+    /* no-op: dark mode removido */
+  }, []);
 
-  return { isDark, toggle };
+  return { isDark: false, toggle };
 }

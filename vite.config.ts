@@ -20,6 +20,21 @@ const resolveAppVersion = () => {
 };
 const APP_VERSION = resolveAppVersion();
 const APP_BUILD_TIME = new Date().toISOString();
+const GOOGLE_SITE_VERIFICATION =
+  process.env.VITE_GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_SITE_VERIFICATION || "";
+
+const googleSiteVerificationPlugin = () => ({
+  name: "google-site-verification-meta",
+  transformIndexHtml(html: string) {
+    const token = GOOGLE_SITE_VERIFICATION.trim();
+    if (!token) return html;
+    if (html.includes('name="google-site-verification"')) return html;
+    return html.replace(
+      /<meta name="msvalidate\.01" content="" \/>/,
+      `<meta name="msvalidate.01" content="" />\n    <meta name="google-site-verification" content="${token.replace(/"/g, "&quot;")}" />`,
+    );
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -29,6 +44,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    googleSiteVerificationPlugin(),
     mode === "development" && componentTagger(),
     prerenderCitiesPlugin(),
   ].filter(Boolean),

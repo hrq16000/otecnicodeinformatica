@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Refrigerator, MessageCircle, Phone, CheckCircle, Wifi, Shield, ArrowRight } from "lucide-react";
+import { Refrigerator, MessageCircle, CalendarCheck, CheckCircle, Wifi, Shield, ArrowRight } from "lucide-react";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP = "5541997452053";
@@ -36,8 +36,9 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank");
   };
   const callClick = () => {
-    trackCTAClick("phone", "eletrodomesticos-inteligentes");
-    window.location.href = `tel:+${WHATSAPP}`;
+    trackCTAClick("whatsapp", "eletrodomesticos-inteligentes-agendar");
+    const msg = encodeURIComponent("Olá! Quero agendar atendimento para eletrodoméstico inteligente em Curitiba.");
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank");
   };
 
   return (
@@ -81,7 +82,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
               <MessageCircle className="mr-2 w-5 h-5" /> WhatsApp agora
             </Button>
             <Button size="lg" variant="outline" onClick={callClick} className="bg-white text-primary hover:bg-white/90">
-              <Phone className="mr-2 w-5 h-5" /> (41) 99745-2053
+              <CalendarCheck className="mr-2 w-5 h-5" /> Agendar no WhatsApp
             </Button>
           </div>
         </div>
@@ -191,7 +192,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
               <MessageCircle className="mr-2 w-5 h-5" /> Falar no WhatsApp
             </Button>
             <Button size="lg" variant="outline" onClick={callClick} className="bg-white text-primary hover:bg-white/90">
-              <Phone className="mr-2 w-5 h-5" /> Ligar (41) 99745-2053
+              <CalendarCheck className="mr-2 w-5 h-5" /> Agendar no WhatsApp
             </Button>
           </div>
         </div>

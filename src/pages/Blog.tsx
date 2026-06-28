@@ -519,7 +519,7 @@ const Blog = () => {
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.1] mb-5">
                   <span className="block" style={{ animation: 'heroFadeUp 0.6s ease-out both' }}>Blog Técnico Curitiba</span>
-                  <span className="block gradient-text-animated text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}>Soluções Rápidas</span>
+                  <span className="block gradient-text-animated text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ animation: 'heroFadeUp 0.6s ease-out 0.15s both' }}>PC lento, vírus e urgências</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed" style={{ animation: 'heroFadeUp 0.7s ease-out 0.3s both' }}>
                   Guias práticos para problemas de computador, notebook, vírus, formatação e atendimento em Curitiba.

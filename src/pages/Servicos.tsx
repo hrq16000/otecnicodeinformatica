@@ -153,7 +153,7 @@ const Servicos = () => {
       <Breadcrumbs items={[{ label: "Serviços" }]} />
       <main>
         <PageHero
-          title="Serviços de Informática em Curitiba"
+          title="Serviços de Informática Curitiba — Hoje a partir de R$ 99,99"
           subtitle="Assistência técnica completa para computadores, notebooks e redes. Atendimento profissional com garantia e preço justo."
           ctaText="Solicitar Orçamento"
         />

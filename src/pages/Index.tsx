@@ -24,6 +24,14 @@ const Index = () => {
         "Técnico de informática em Curitiba hoje. Conserto de PC/notebook, formatação, vírus e SSD a partir de R$ 99,99. Chame no WhatsApp."
       );
     }
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = "https://tecnicocuritiba.com.br/";
+    const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
+    if (ogUrl) ogUrl.content = "https://tecnicocuritiba.com.br/";
+    const ogImage = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+    if (ogImage) ogImage.content = "https://tecnicocuritiba.com.br/og-image.png?v=20260624-3";
+    const twitterImage = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
+    if (twitterImage) twitterImage.content = "https://tecnicocuritiba.com.br/og-image.png?v=20260624-3";
     const id = window.setTimeout(() => {
       import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));
     }, 1800);

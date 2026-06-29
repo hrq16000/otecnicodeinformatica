@@ -135,21 +135,17 @@
 </head>
   <body>
     <div id="root">
-      <div class="app-shell" aria-label="Técnico Curitiba">
-        <header class="app-shell-header">
-          <img class="app-shell-logo" src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp" alt="Técnico Curitiba" width="304" height="98" decoding="sync" fetchpriority="high" />
-        </header>
-        <main class="app-shell-main">
-          <div class="app-shell-content">
-            <span class="app-shell-badge">Atendimento técnico em Curitiba e região</span>
-            <h1>Técnico de Informática <span>Curitiba — Hoje</span></h1>
-            <p>Conserto de computadores e notebooks com atendimento a domicílio, formatação, remoção de vírus e upgrade SSD.</p>
-            <div class="app-shell-actions" aria-label="Ações rápidas">
-              <a class="app-shell-cta" href="https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." rel="noopener noreferrer">WhatsApp Agora</a>
-              <a class="app-shell-cta secondary" href="/diagnostico-60s">Diagnóstico 60s</a>
-            </div>
-          </div>
-        </main>
+      <div class="app-shell" data-splash="1" role="status" aria-live="polite">
+        <img
+          class="app-shell-logo"
+          src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+          alt="Técnico Curitiba"
+          width="304"
+          height="98"
+          decoding="sync"
+          fetchpriority="high"
+        />
+        <span class="app-shell-srlabel">Carregando Técnico Curitiba…</span>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>

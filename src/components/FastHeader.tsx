@@ -104,11 +104,12 @@ export const FastHeader = () => {
             rel="noopener noreferrer"
             onClick={() => trackHeaderClick("whatsapp")}
             aria-label="WhatsApp"
-            className="inline-flex min-h-9 items-center justify-center rounded-lg bg-[hsl(var(--whatsapp))] px-3 text-sm font-bold text-primary-foreground shadow-sm transition-colors hover:bg-[hsl(var(--whatsapp-hover))] sm:min-w-24"
+            className="inline-flex min-h-9 items-center justify-center gap-1.5 rounded-lg bg-[hsl(var(--whatsapp))] px-3 text-sm font-bold text-primary-foreground shadow-sm transition-colors hover:bg-[hsl(var(--whatsapp-hover))] sm:min-w-24"
           >
-            <span className="sm:hidden" aria-hidden="true">☏</span>
-            <span className="hidden sm:inline">WhatsApp</span>
+            <span aria-hidden="true">☏</span>
+            <span>WhatsApp</span>
           </a>
+
           <a
             href={scheduleUrl}
             target="_blank"

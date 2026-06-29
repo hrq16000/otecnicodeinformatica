@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, ArrowRight, Building2, Home, Sparkles } from "lucide-react";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { MapPin, ArrowRight, Building2, Home, Sparkles, ShieldCheck, Clock, MessageCircle } from "lucide-react";
+
 
 interface CityData {
   name: string;
@@ -63,21 +63,22 @@ export const CitiesSection = () => {
           </p>
           <div className="glow-separator max-w-xs mx-auto mt-5" />
           
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mt-6">
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '0ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-accent glow-pulse-text"><AnimatedCounter end={5} /></p>
-              <p className="text-xs text-muted-foreground">Cidades principais</p>
-            </div>
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '100ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={25} suffix="+" /></p>
-              <p className="text-xs text-muted-foreground">Bairros cobertos</p>
-            </div>
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '200ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={347} suffix="+" /></p>
-              <p className="text-xs text-muted-foreground">Clientes atendidos</p>
-            </div>
+          {/* Diferenciais reais — sem números inventados */}
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <MapPin className="h-3.5 w-3.5 text-accent" /> Curitiba e região metropolitana
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <Clock className="h-3.5 w-3.5 text-accent" /> Atendimento no mesmo dia (sujeito à agenda)
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Orçamento aprovado antes do serviço
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <MessageCircle className="h-3.5 w-3.5 text-accent" /> Contato direto pelo WhatsApp
+            </span>
           </div>
+
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-grid">
@@ -153,12 +154,13 @@ export const CitiesSection = () => {
           </h3>
           <div className="prose prose-sm text-muted-foreground max-w-none">
             <p>
-              Somos especialistas em <strong>manutenção de computadores e notebooks</strong> com mais de 20 anos 
-              de experiência atendendo a região de Curitiba. Nossa equipe de técnicos qualificados oferece 
-              <strong> atendimento a domicílio</strong> em toda a região metropolitana, incluindo 
-              <strong> São José dos Pinhais</strong>, <strong>Araucária</strong>, <strong>Campo Largo</strong>, 
-              <strong> Pinhais</strong>, <strong>Colombo</strong> e <strong>Almirante Tamandaré</strong>.
+              Prestamos <strong>manutenção de computadores e notebooks</strong> em <strong>Curitiba</strong> e
+              região metropolitana, incluindo <strong>São José dos Pinhais</strong>, <strong>Araucária</strong>,
+              <strong> Campo Largo</strong>, <strong>Pinhais</strong>, <strong>Colombo</strong> e
+              <strong> Almirante Tamandaré</strong>. Atendimento <strong>a domicílio</strong> e remoto,
+              com diagnóstico explicado e orçamento aprovado antes do serviço.
             </p>
+
             <p className="mt-3">
               Diferente de grandes empresas que usam call centers, aqui você fala diretamente com o técnico 
               que vai realizar o serviço. Isso garante <strong>atendimento personalizado</strong>, 

@@ -244,13 +244,21 @@ export const ServicesSection = () => {
                   </div>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
-                  {service.pitch}
-                </p>
+                <dl className="mb-3 space-y-1.5 text-sm leading-relaxed flex-1">
+                  <div>
+                    <dt className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Problema</dt>
+                    <dd className="text-foreground/90">{service.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Solução</dt>
+                    <dd className="text-foreground/90">{service.solution}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-bold uppercase tracking-wide text-accent">Benefício</dt>
+                    <dd className="text-foreground/90">{service.benefit}</dd>
+                  </div>
+                </dl>
 
-                <div className="mb-3 rounded-lg border border-border bg-background/55 px-3 py-2 text-xs font-semibold text-foreground/80">
-                  <span className="text-accent" aria-hidden="true">★</span> {service.trust}
-                </div>
 
                 <details className="group/details mb-4 rounded-lg border border-border bg-background/55 px-3 py-2 text-sm">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">

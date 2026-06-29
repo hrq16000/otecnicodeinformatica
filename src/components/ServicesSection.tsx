@@ -184,13 +184,14 @@ const trackServiceWhatsApp = (service: Service) => {
 
 export const ServicesSection = () => {
   const isMobile = useIsMobile();
-  // Mantém o "primeiros mais pedidos" no topo e embaralha o restante
+  // Mantém os 6 serviços prioritários (briefing comercial) no topo e embaralha os extras.
   const services = useMemo(() => {
-    const pinned = allServices.slice(0, 3);
-    const rest = shuffleArray(allServices.slice(3));
+    const pinned = allServices.slice(0, 6);
+    const rest = shuffleArray(allServices.slice(6));
     const all = [...pinned, ...rest];
-    return isMobile ? all.slice(0, 4) : all.slice(0, 9);
+    return isMobile ? all.slice(0, 6) : all.slice(0, 9);
   }, [isMobile]);
+
 
   return (
     <section

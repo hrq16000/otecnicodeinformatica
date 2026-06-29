@@ -82,15 +82,12 @@
       html{-webkit-text-size-adjust:100%;line-height:1.5}
       body{margin:0;font-family:Inter,"Inter Fallback",Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(215,65%,22%);-webkit-font-smoothing:antialiased;font-display:swap}
       #root{min-height:100vh}
-      /* Shell crítico: conteúdo útil aparece antes do React hidratar. */
-      .app-shell{min-height:100vh;background:linear-gradient(155deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 55%,hsl(220,55%,28%) 100%);color:#fff;overflow:hidden;position:relative}
+      /* Splash crítico: APENAS a logo pulsando até o React hidratar.
+         Zero hero estática — evita "flash of static content" antes da SPA. */
+      .app-shell{min-height:100vh;background:linear-gradient(155deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 55%,hsl(220,55%,28%) 100%);color:#fff;display:grid;place-items:center;padding:24px}
       .app-shell::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,hsla(24,92%,52%,.18),transparent 46%),radial-gradient(ellipse at bottom left,hsla(0,0%,100%,.08),transparent 52%);pointer-events:none}
-      .app-shell-header{height:56px;display:flex;align-items:center;padding:0 16px;background:rgba(8,21,40,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
-      .app-shell-logo{display:block;width:clamp(13rem,58vw,22rem);height:auto;object-fit:contain;will-change:transform,opacity;filter:drop-shadow(0 .75rem 1.5rem rgba(0,0,0,.22))}
-      .app-shell-main{position:relative;z-index:1;display:grid;min-height:calc(100vh - 56px);place-items:center;padding:clamp(24px,6vw,56px) 18px 32px;text-align:center}
-      .app-shell-content{max-width:720px;margin:0 auto}.app-shell-badge{display:inline-flex;margin-bottom:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;color:rgba(255,255,255,.92)}
-      .app-shell h1{margin:0;font-family:Poppins,"Poppins Fallback",Inter,sans-serif;font-size:clamp(2rem,8vw,4rem);line-height:1.08;letter-spacing:0;font-weight:800}.app-shell h1 span{color:hsl(24,92%,58%);display:block}.app-shell p{max-width:620px;margin:16px auto 0;font-size:clamp(1rem,4vw,1.25rem);line-height:1.55;color:rgba(255,255,255,.9)}
-      .app-shell-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}.app-shell-cta{display:inline-flex;min-height:48px;align-items:center;justify-content:center;border-radius:12px;padding:0 18px;background:hsl(145,63%,42%);color:#fff;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(0,0,0,.22)}.app-shell-cta.secondary{background:hsl(24,92%,52%)}
+      .app-shell-logo{display:block;width:clamp(13rem,58vw,22rem);height:auto;object-fit:contain;position:relative;z-index:1;will-change:transform,opacity;filter:drop-shadow(0 .75rem 1.5rem rgba(0,0,0,.22))}
+      .app-shell-srlabel{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
       @media (prefers-reduced-motion:no-preference){.app-shell-logo{animation:logoPulse .9s ease-in-out infinite}}
       @keyframes logoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.62;transform:scale(1.06)}}
 

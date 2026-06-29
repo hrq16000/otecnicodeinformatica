@@ -45,6 +45,7 @@ const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
 const AdminVitals = lazy(() => import("./pages/admin/AdminVitals"));
 const ConsertoImpressoraCuritiba = lazy(() => import("./pages/ConsertoImpressoraCuritiba"));
 const AssistenciaEletrodomesticosInteligentesCuritiba = lazy(() => import("./pages/AssistenciaEletrodomesticosInteligentesCuritiba"));
+const Status = lazy(() => import("./pages/Status"));
 
 // Hubs SEO de categorias (TV, Som, Videogame, Celular) × cidades/bairros
 const ConsertoTVCity = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoTVCity })));
@@ -864,6 +865,7 @@ const App = () => (
             <Route path="/conserto-celular-curitiba" element={<ConsertoCelularLocalHub />} />
             <Route path="/conserto-celular/:local" element={<ConsertoCelularLocalCity />} />
 
+            <Route path="/status" element={<Status />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

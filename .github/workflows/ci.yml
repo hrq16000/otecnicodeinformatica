@@ -47,8 +47,56 @@ jobs:
           CI: "true"
       - name: Wait for server
         run: npx wait-on http://localhost:8080 --timeout 60000
-      - name: Run targeted E2E (whatsapp + termos + sitemap)
-        run: npx playwright test e2e/whatsapp-funnel.spec.ts e2e/termos-e-condicoes.spec.ts e2e/seo-sitemap-robots.spec.ts
+      - name: Run targeted E2E (whatsapp + termos + sitemap + como-funciona)
+        run: npx playwright test e2e/whatsapp-funnel.spec.ts e2e/termos-e-condicoes.spec.ts e2e/seo-sitemap-robots.spec.ts e2e/como-funciona-mobile.spec.ts
         env:
           E2E_BASE_URL: http://localhost:8080
+
+  indexnow:
+    runs-on: ubuntu-latest
+    needs: [build, e2e]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Ping IndexNow with sitemap URLs
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          INDEXNOW_HOST: tecnicocuritiba.com.br
+        run: |
+          if [ -z "$INDEXNOW_KEY" ]; then
+            echo "::warning::INDEXNOW_KEY ausente — pulando ping."
+            exit 0
+          fi
+          node scripts/indexnow-ping.mjs
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+      - name: Install Lighthouse CI
+        run: npm i -g @lhci/cli@0.13.x
+      - name: Build
+        run: npm run build
+      - name: Lighthouse (desktop + mobile, non-blocking)
+        run: |
+          npm run lh:desktop || echo "::warning::lh desktop falhou"
+          npm run lh:mobile || echo "::warning::lh mobile falhou"
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          if-no-files-found: ignore
+
 

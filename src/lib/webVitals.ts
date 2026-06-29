@@ -91,7 +91,7 @@ function report(metric: Metric) {
   );
 
   // GA4
-  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void; __APP_VERSION__?: string };
   if (typeof window !== "undefined" && w.gtag) {
     w.gtag("event", metric.name, {
       event_category: "Web Vitals",
@@ -100,6 +100,7 @@ function report(metric: Metric) {
       metric_id: metric.id,
       metric_value: metric.value,
       metric_rating: metric.rating,
+      app_version: w.__APP_VERSION__ || "dev",
       non_interaction: true,
     });
   }

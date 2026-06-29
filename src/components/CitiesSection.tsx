@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, ArrowRight, Building2, Home, Sparkles } from "lucide-react";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { MapPin, ArrowRight, Building2, Home, Sparkles, ShieldCheck, Clock, MessageCircle } from "lucide-react";
+
 
 interface CityData {
   name: string;

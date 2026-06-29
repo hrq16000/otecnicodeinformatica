@@ -1,6 +1,6 @@
 import { MessageCircle, ShieldCheck, MapPin, Clock, Wallet } from "lucide-react";
 import { useEffect, useState } from "react";
-import { trackWhatsAppClick } from "@/lib/analytics";
+import { trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_URL = "https://wa.me/5541987224831?text=Ol%C3%A1!%20Quero%20um%20atendimento%20t%C3%A9cnico%20em%20Curitiba.";
 

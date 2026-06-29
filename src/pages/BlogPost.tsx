@@ -15,6 +15,7 @@ import { getCategoryCover } from "@/lib/categoryCovers";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 import type { BlogPostContent } from "@/data/blogPostsContent";
+import { BlogPostFAQ } from "@/components/BlogPostFAQ";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)

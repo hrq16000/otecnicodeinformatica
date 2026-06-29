@@ -14,6 +14,8 @@ const FAQSection = lazy(() => import("@/components/FAQSection").then(m => ({ def
 const CitiesSection = lazy(() => import("@/components/CitiesSection").then(m => ({ default: m.CitiesSection })));
 const TopSearchedServicesSection = lazy(() => import("@/components/TopSearchedServicesSection").then(m => ({ default: m.TopSearchedServicesSection })));
 const SocialProofSection = lazy(() => import("@/components/SocialProofSection").then(m => ({ default: m.SocialProofSection })));
+const TestimonialsPlaceholder = lazy(() => import("@/components/TestimonialsPlaceholder").then(m => ({ default: m.TestimonialsPlaceholder })));
+
 const CoverageMapSection = lazy(() => import("@/components/CoverageMapSection").then(m => ({ default: m.CoverageMapSection })));
 const SchedulingSection = lazy(() => import("@/components/scheduling").then(m => ({ default: m.SchedulingSection })));
 const TrustBadges = lazy(() => import("@/components/social-proof").then(m => ({ default: m.TrustBadges })));
@@ -47,6 +49,8 @@ const DeferredContent = () => (
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><CitiesSection /></Suspense></LazyOnVisible>
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><NeighborhoodsSection /></Suspense></LazyOnVisible>
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><SocialProofSection /></Suspense></LazyOnVisible>
+    <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback height="300px" />}><TestimonialsPlaceholder /></Suspense></LazyOnVisible>
+
 
     <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay" aria-labelledby="como-funciona-home">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />

@@ -63,21 +63,22 @@ export const CitiesSection = () => {
           </p>
           <div className="glow-separator max-w-xs mx-auto mt-5" />
           
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mt-6">
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '0ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-accent glow-pulse-text"><AnimatedCounter end={5} /></p>
-              <p className="text-xs text-muted-foreground">Cidades principais</p>
-            </div>
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '100ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={25} suffix="+" /></p>
-              <p className="text-xs text-muted-foreground">Bairros cobertos</p>
-            </div>
-            <div className="text-center slide-up-stagger" style={{ animationDelay: '200ms' }}>
-              <p className="text-2xl md:text-3xl font-bold text-foreground"><AnimatedCounter end={347} suffix="+" /></p>
-              <p className="text-xs text-muted-foreground">Clientes atendidos</p>
-            </div>
+          {/* Diferenciais reais — sem números inventados */}
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <MapPin className="h-3.5 w-3.5 text-accent" /> Curitiba e região metropolitana
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <Clock className="h-3.5 w-3.5 text-accent" /> Atendimento no mesmo dia (sujeito à agenda)
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Orçamento aprovado antes do serviço
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
+              <MessageCircle className="h-3.5 w-3.5 text-accent" /> Contato direto pelo WhatsApp
+            </span>
           </div>
+
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-grid">

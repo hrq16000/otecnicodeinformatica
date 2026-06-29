@@ -87,7 +87,7 @@ export const FastHeader = () => {
             width="304"
             height="98"
             decoding="sync"
-            className="h-8 w-auto object-scale-down sm:h-10"
+            className="h-10 w-auto object-scale-down sm:h-12"
           />
         </a>
 

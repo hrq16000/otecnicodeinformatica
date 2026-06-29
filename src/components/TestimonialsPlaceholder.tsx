@@ -90,7 +90,7 @@ export const TestimonialsPlaceholder = ({ items = [] as Testimonial[] }) => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick("testimonials")}
+            onClick={() => trackCTAClick("whatsapp", "testimonials")}
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />

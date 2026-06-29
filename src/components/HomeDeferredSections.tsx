@@ -48,30 +48,32 @@ const DeferredContent = () => (
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><NeighborhoodsSection /></Suspense></LazyOnVisible>
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><SocialProofSection /></Suspense></LazyOnVisible>
 
-    <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay">
+    <section className="py-14 md:py-18 bg-muted relative overflow-hidden section-divider mesh-gradient-warm noise-overlay" aria-labelledby="como-funciona-home">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] morph-blob pointer-events-none blur-[100px]" />
       <div className="container mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">Como Funciona Nosso <span className="gradient-text">Atendimento</span></h2>
-          <p className="text-muted-foreground mb-4 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">Atendimento técnico simples, rápido e transparente em 3 passos</p>
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 id="como-funciona-home" className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 tracking-tight reveal-text">Como Funciona Nosso <span className="gradient-text">Atendimento</span></h2>
+          <p className="text-muted-foreground mb-4 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">Sem ansiedade e sem surpresa: você só aprova o serviço depois de saber o que vai ser feito e quanto custa.</p>
           <div className="glow-separator max-w-xs mx-auto mb-8" />
-          <div className="grid md:grid-cols-3 gap-5 mb-8">
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8 text-left">
             {[
-              { step: "1", title: "Chame no WhatsApp", desc: "Descreva o problema e receba orientação imediata do técnico" },
-              { step: "2", title: "Diagnóstico e Orçamento", desc: "Avaliação profissional com orçamento transparente antes da execução" },
-              { step: "3", title: "Execução com Garantia", desc: "Serviço realizado com aprovação e garantia por escrito" },
+              { step: "1", title: "Chame no WhatsApp", desc: "Mande uma mensagem descrevendo o problema. Falamos direto com o técnico, sem call center." },
+              { step: "2", title: "Diagnóstico e orientação", desc: "Recebe orientação inicial e, quando aplicável, diagnóstico explicado por foto, vídeo ou no local." },
+              { step: "3", title: "Aprovação do atendimento", desc: "Você recebe o orçamento fechado por escrito. Só seguimos depois da sua aprovação." },
+              { step: "4", title: "Serviço executado", desc: "Reparo realizado por técnico identificado, com cuidado no equipamento e seus dados." },
             ].map((item, i) => (
-              <div key={i} className="glass-card gradient-border rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover-streak animated-border slide-up-stagger group" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="bg-accent text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mx-auto mb-3 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--accent)/0.4)] transition-all duration-300">{item.step}</div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-200">{item.title}</h3>
+              <li key={i} className="glass-card gradient-border rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover-streak animated-border slide-up-stagger group" style={{ animationDelay: `${i * 90}ms` }}>
+                <div className="bg-accent text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center font-bold text-base mb-3 shadow-sm group-hover:scale-110 transition-all duration-300">{item.step}</div>
+                <h3 className="font-bold text-foreground mb-1.5 group-hover:text-accent transition-colors duration-200">{item.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
           <a href="/como-funciona" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-sm btn-feedback elastic-click hover-streak hover:shadow-[var(--shadow-lg)]">Entender Como Funciona <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></a>
         </div>
       </div>
     </section>
+
 
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><HomePricingBlock /></Suspense></LazyOnVisible>
     <LazyOnVisible rootMargin="-240px 0px"><Suspense fallback={<SectionFallback />}><HomeDiagnosticoBlock /></Suspense></LazyOnVisible>

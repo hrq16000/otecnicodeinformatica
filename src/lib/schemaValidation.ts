@@ -130,9 +130,38 @@ export function validateSchema(schema: JsonLd): ValidationResult {
   return { valid: errors.length === 0, errors, warnings };
 }
 
+/** Registry global em dev para o painel de relatório de schemas. */
+export type SchemaReportEntry = {
+  scriptId: string;
+  endpoint: string;
+  status: "passed" | "failed";
+  errors: string[];
+  warnings: string[];
+  at: number;
+};
+
+const REPORT_KEY = "__jsonLdReport";
+function pushReport(entry: SchemaReportEntry) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as Record<string, SchemaReportEntry[]>;
+  if (!Array.isArray(w[REPORT_KEY])) w[REPORT_KEY] = [];
+  // dedupe by scriptId+endpoint, keep latest
+  w[REPORT_KEY] = w[REPORT_KEY].filter(
+    (e) => !(e.scriptId === entry.scriptId && e.endpoint === entry.endpoint),
+  );
+  w[REPORT_KEY].push(entry);
+  window.dispatchEvent(new CustomEvent("jsonld:report", { detail: entry }));
+}
+
+export function getSchemaReport(): SchemaReportEntry[] {
+  if (typeof window === "undefined") return [];
+  const w = window as unknown as Record<string, SchemaReportEntry[]>;
+  return Array.isArray(w[REPORT_KEY]) ? w[REPORT_KEY] : [];
+}
+
 /**
  * Injeta JSON-LD no <head> apenas se passar na validação.
- * Em dev mode loga errors/warnings no console.
+ * Em dev mode loga errors/warnings no console e registra no painel.
  */
 export function validateAndInjectSchema(
   scriptId: string,
@@ -140,6 +169,7 @@ export function validateAndInjectSchema(
 ): boolean {
   const { valid, errors, warnings } = validateSchema(schema);
   const isDev = import.meta.env?.DEV;
+  const endpoint = typeof window !== "undefined" ? window.location.pathname : "ssr";
 
   if (warnings.length && isDev) {
     console.warn(`[JSON-LD ${scriptId}] avisos:`, warnings);
@@ -149,6 +179,7 @@ export function validateAndInjectSchema(
       console.error(`[JSON-LD ${scriptId}] inválido — não injetado:`, errors);
     }
     document.getElementById(scriptId)?.remove();
+    pushReport({ scriptId, endpoint, status: "failed", errors, warnings, at: Date.now() });
     return false;
   }
 
@@ -158,8 +189,10 @@ export function validateAndInjectSchema(
   el.type = "application/ld+json";
   el.text = JSON.stringify(schema);
   document.head.appendChild(el);
+  pushReport({ scriptId, endpoint, status: "passed", errors: [], warnings, at: Date.now() });
   return true;
 }
+
 
 /** Hook React: injeta + remove na desmontagem, com validação. */
 import { useEffect } from "react";

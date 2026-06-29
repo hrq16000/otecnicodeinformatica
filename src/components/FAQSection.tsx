@@ -100,7 +100,18 @@ export const FAQSection = () => {
                   <p className="text-muted-foreground leading-relaxed px-4 -mx-4">
                     {faq.answer}
                   </p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTAClick("whatsapp", `faq_q${index + 1}`)}
+                    className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-accent hover:underline"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Tirar essa dúvida no WhatsApp
+                  </a>
                 </div>
+
               </div>
             </div>
           ))}

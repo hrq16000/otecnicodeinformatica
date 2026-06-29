@@ -15,6 +15,23 @@ try {
   document.documentElement.dataset.hydrated = "1";
   const meta = document.querySelector('meta[name="app-version"]');
   if (meta) meta.setAttribute("content", `${APP_BUILD_INFO.version} @ ${APP_BUILD_INFO.buildTime}`);
+  // Cache-bust automático: se a versão atual difere da última vista nesta
+  // sessão, força reload UMA vez (evita loop). Cobre o caso de cache antigo.
+  try {
+    const KEY = "__app_version__";
+    const last = sessionStorage.getItem(KEY);
+    if (last && last !== APP_BUILD_INFO.version) {
+      sessionStorage.setItem(KEY, APP_BUILD_INFO.version);
+      if (!sessionStorage.getItem("__app_version_reloaded__")) {
+        sessionStorage.setItem("__app_version_reloaded__", "1");
+        location.reload();
+      }
+    } else if (!last) {
+      sessionStorage.setItem(KEY, APP_BUILD_INFO.version);
+    } else {
+      sessionStorage.removeItem("__app_version_reloaded__");
+    }
+  } catch { /* noop */ }
 } catch { /* noop */ }
 
 

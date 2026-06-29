@@ -79,6 +79,7 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
     const utm = getUtmContext();
     const deviceCtx = getDeviceContext();
     const { leadId, isNew } = ensureLeadId(ctaType);
+    const appVersion = (window as unknown as { __APP_VERSION__?: string }).__APP_VERSION__ || 'dev';
     const payload = {
       event_category: 'engagement',
       event_label: `${ctaType}_${location}`,
@@ -87,6 +88,7 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       page_path: window.location.pathname,
       value: 1,
       lead_id: leadId,
+      app_version: appVersion,
       ...deviceCtx,
       ...utm,
     };

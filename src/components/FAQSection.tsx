@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
+import { trackCTAClick } from "@/lib/analytics";
+
+const WHATSAPP_URL = "https://wa.me/5541987224831?text=Ol%C3%A1!%20Vi%20a%20FAQ%20e%20quero%20um%20atendimento%20em%20Curitiba.";
+
 
 interface FAQItem {
   question: string;
@@ -96,7 +100,18 @@ export const FAQSection = () => {
                   <p className="text-muted-foreground leading-relaxed px-4 -mx-4">
                     {faq.answer}
                   </p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTAClick("whatsapp", `faq_q${index + 1}`)}
+                    className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-accent hover:underline"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Tirar essa dúvida no WhatsApp
+                  </a>
                 </div>
+
               </div>
             </div>
           ))}

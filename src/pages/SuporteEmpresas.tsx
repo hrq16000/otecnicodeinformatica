@@ -69,7 +69,32 @@ const SuporteEmpresas = () => {
       );
     }
     trackPageView("/suporte-empresas", "Suporte Empresas");
+
+    // Schemas Service para sinais Premium PJ
+    import("@/lib/schemaValidation").then(({ validateAndInjectSchema }) => {
+      const baseProvider = { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnicocuritiba.com.br/", areaServed: "Curitiba e região metropolitana" };
+      const services = [
+        { id: "service-faturado", name: "Pagamento Faturado PJ", desc: "Atendimento técnico corporativo com pagamento faturado (boleto/30 dias) para empresas em Curitiba." },
+        { id: "service-nfe", name: "Emissão de NF-e", desc: "Nota fiscal eletrônica em todos os atendimentos PJ, conforme legislação do Município de Curitiba." },
+        { id: "service-infra", name: "Projetos de Infraestrutura de TI", desc: "Cabeamento estruturado, redes Wi-Fi corporativas, racks e configuração de servidores para PMEs." },
+        { id: "service-premium", name: "Atendimento Premium PJ", desc: "SLA prioritário, técnico dedicado e janela de atendimento garantida para contratos mensais." },
+      ];
+      services.forEach((s) => {
+        validateAndInjectSchema(s.id, {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": `https://tecnicocuritiba.com.br/suporte-empresas#${s.id}`,
+          name: s.name,
+          description: s.desc,
+          serviceType: s.name,
+          areaServed: { "@type": "City", name: "Curitiba" },
+          provider: baseProvider,
+          url: "https://tecnicocuritiba.com.br/suporte-empresas",
+        });
+      });
+    });
   }, []);
+
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 

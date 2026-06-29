@@ -20,7 +20,9 @@
     "lh:mobile": "lhci autorun --config=lighthouserc.mobile.json",
     "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile && npm run perf:budgets",
     "perf:budgets": "node scripts/check-performance-budgets.mjs",
-    "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e"
+    "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
+    "indexnow:ping": "node scripts/indexnow-ping.mjs"
+
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

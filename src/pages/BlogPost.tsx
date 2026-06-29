@@ -352,6 +352,8 @@ const BlogPost = () => {
                   </a>
                 </div>
               </div>
+
+              <BlogPostFAQ category={post.category} slug={slug ?? ""} />
             </article>
           </div>
         </section>

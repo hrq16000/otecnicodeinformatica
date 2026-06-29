@@ -15,6 +15,7 @@ const CitiesSection = lazy(() => import("@/components/CitiesSection").then(m => 
 const TopSearchedServicesSection = lazy(() => import("@/components/TopSearchedServicesSection").then(m => ({ default: m.TopSearchedServicesSection })));
 const SocialProofSection = lazy(() => import("@/components/SocialProofSection").then(m => ({ default: m.SocialProofSection })));
 const TestimonialsPlaceholder = lazy(() => import("@/components/TestimonialsPlaceholder").then(m => ({ default: m.TestimonialsPlaceholder })));
+const ComoFuncionaFluxo = lazy(() => import("@/components/ComoFuncionaFluxo").then(m => ({ default: m.ComoFuncionaFluxo })));
 
 const CoverageMapSection = lazy(() => import("@/components/CoverageMapSection").then(m => ({ default: m.CoverageMapSection })));
 const SchedulingSection = lazy(() => import("@/components/scheduling").then(m => ({ default: m.SchedulingSection })));

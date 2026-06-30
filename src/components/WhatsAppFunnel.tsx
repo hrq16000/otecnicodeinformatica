@@ -185,13 +185,16 @@ export const WhatsAppFunnel = () => {
         preset = u.searchParams.get("text") || undefined;
       } catch { /* noop */ }
 
+      trackCTAClick("whatsapp", loc);
       openFunnel(loc, preset);
     };
     document.addEventListener("click", handler, true);
 
     const evHandler = (e: Event) => {
       const detail = (e as CustomEvent<{ location?: string; message?: string }>).detail || {};
-      openFunnel(detail.location || "programmatic", detail.message);
+      const loc = detail.location || "programmatic";
+      trackCTAClick("whatsapp", loc);
+      openFunnel(loc, detail.message);
     };
     window.addEventListener("wa-funnel:open", evHandler as EventListener);
 
@@ -207,7 +210,9 @@ export const WhatsAppFunnel = () => {
             preset = u.searchParams.get("text") || undefined;
           } catch { /* noop */ }
           const trackedLocation = window.__lastCtaType === "whatsapp" ? window.__lastCtaLocation : undefined;
-          openFunnel(trackedLocation || "programmatic", preset);
+          const loc = trackedLocation || "programmatic";
+          trackCTAClick("whatsapp", loc);
+          openFunnel(loc, preset);
           return null;
         }
       } catch { /* fall through */ }
@@ -223,8 +228,8 @@ export const WhatsAppFunnel = () => {
 
   useEffect(() => {
     if (!open) return;
-    trackFunnelStep(step, answers.equipamento, answers.sintoma);
-  }, [open, step, answers.equipamento, answers.sintoma]);
+    trackFunnelStep(step, answers.equipamento, answers.sintoma, originLocation);
+  }, [open, step, answers.equipamento, answers.sintoma, originLocation]);
 
   // ---------- Derivations ----------
   const branch = answers.equipamento ? getBranch(answers.equipamento) : undefined;
@@ -349,6 +354,7 @@ export const WhatsAppFunnel = () => {
         sintoma: answers.sintoma,
         requiresColeta,
         mediaCount: 0,
+        minimumAccepted: answers.minimumAccepted,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 

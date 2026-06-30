@@ -4,6 +4,8 @@ declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;
     dataLayer: unknown[];
+    __lastCtaLocation?: string;
+    __lastCtaType?: 'whatsapp' | 'phone' | 'chatbot';
   }
 }
 
@@ -75,6 +77,10 @@ const ensureLeadId = (ctaType: 'whatsapp' | 'phone' | 'chatbot'): { leadId: stri
 
 // Track CTA clicks for conversions
 export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
+  if (typeof window !== 'undefined') {
+    window.__lastCtaType = ctaType;
+    window.__lastCtaLocation = location;
+  }
   if (typeof window !== 'undefined' && window.gtag) {
     const utm = getUtmContext();
     const deviceCtx = getDeviceContext();

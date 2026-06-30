@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Link } from "react-router-dom";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   MessageCircle,
   ArrowRight,
@@ -32,13 +32,14 @@ import { withVideoWarning } from "@/lib/funnelWarning";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
-const STORAGE_KEY = "wa_funnel_answers_v3";
+const STORAGE_KEY = "wa_funnel_answers_v4";
 
 interface Answers {
   equipamento: Equipment | null;
   marca: string;
   sintoma: string;          // id do sintoma
   coletaAccepted: boolean;
+  minimumAccepted: boolean;
   descricao: string;
 }
 
@@ -47,6 +48,7 @@ const EMPTY: Answers = {
   marca: "",
   sintoma: "",
   coletaAccepted: false,
+  minimumAccepted: false,
   descricao: "",
 };
 
@@ -90,6 +92,8 @@ function buildMessage(a: Answers): string {
     lines.push("• Mínimo R$ 300 (diagnóstico incluso) · desistiu paga só R$ 90");
     lines.push("• Autorizado pelo cliente no funil");
   }
+  lines.push("");
+  lines.push("💰 *Valor mínimo:* cliente confirmou ciência do mínimo de R$ 99,99 para atendimento/visita.");
   if (a.descricao.trim()) {
     lines.push("");
     lines.push(`📝 ${a.descricao.trim()}`);

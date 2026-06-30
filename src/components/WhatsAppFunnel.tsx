@@ -148,7 +148,11 @@ export const WhatsAppFunnel = () => {
     });
   }, [persist]);
 
+  const lastOpenRef = useRef(0);
   const openFunnel = useCallback((loc: string, preset?: string) => {
+    const now = Date.now();
+    if (now - lastOpenRef.current < 600) return; // dedup: evita 2 quizzes
+    lastOpenRef.current = now;
     setOriginLocation(loc);
     setPresetMessage(preset ?? null);
     setStep(0);

@@ -21,9 +21,11 @@ export const WhatsAppFloat = () => {
       type="button"
       onClick={handleClick}
       data-cta-location="float"
+      data-wa-funnel="required"
+      data-testid="whatsapp-float"
       aria-label="Falar com técnico pelo WhatsApp"
       className={cn(
-        "fixed bottom-6 left-6 z-[var(--z-mobile-drawer)] flex items-center gap-2",
+        "fixed bottom-24 right-4 z-[85] flex items-center gap-2 sm:bottom-6 sm:right-6",
         "bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-primary-foreground",
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",

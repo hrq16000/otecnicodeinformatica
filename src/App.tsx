@@ -4,6 +4,8 @@ import { RouteLoader } from "./components/RouteLoader";
 import { startNav } from "./lib/navTelemetry";
 import ConsentBanner from "./components/ConsentBanner";
 import { AppErrorBoundary } from "./components/AppErrorBoundary";
+import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
+import { WhatsAppFloat } from "./components/WhatsAppFloat";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -200,6 +202,8 @@ const HomeApp = () => {
           <LegacyApp />
         </Suspense>
       )}
+      <WhatsAppFunnel />
+      <WhatsAppFloat />
       <ConsentBanner />
     </AppErrorBoundary>
   );

@@ -4,7 +4,6 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick, trackPageView } from "@/lib/analytics";
 import {
@@ -675,7 +674,6 @@ export default function AssistenciaTecnicaCuritiba() {
       </main>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 }

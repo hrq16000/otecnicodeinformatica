@@ -80,6 +80,11 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
   if (typeof window !== 'undefined') {
     window.__lastCtaType = ctaType;
     window.__lastCtaLocation = location;
+    (window as unknown as { __ctaTracked?: { type: string; location: string; t: number } }).__ctaTracked = {
+      type: ctaType,
+      location,
+      t: Date.now(),
+    };
   }
   if (typeof window !== 'undefined' && window.gtag) {
     const utm = getUtmContext();

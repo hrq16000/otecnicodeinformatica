@@ -257,6 +257,11 @@ export const WhatsAppFunnel = () => {
       }
       return { ok: true };
     }
+    if (s === 3) {
+      return answers.minimumAccepted
+        ? { ok: true }
+        : { ok: false, reason: "Confirme ciência do valor mínimo de R$ 99,99." };
+    }
     return { ok: true };
   }, [answers, isOutro, requiresColeta]);
 
@@ -296,7 +301,7 @@ export const WhatsAppFunnel = () => {
 
   const submit = useCallback(async () => {
     // Guard final: revalida todas as etapas antes de liberar o WhatsApp
-    for (const s of [0, 1, 2]) {
+    for (const s of [0, 1, 2, 3]) {
       const v = validateStep(s);
       if (!v.ok) {
         trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipamento);
@@ -323,6 +328,8 @@ export const WhatsAppFunnel = () => {
           marca: answers.marca,
           sintoma: sintomaObj?.label,
           requiresColeta,
+          minimumAccepted: answers.minimumAccepted,
+          ctaLocation: originLocation,
           waMessage: finalMessage,
         });
       } catch (err) {
@@ -529,6 +536,18 @@ export const WhatsAppFunnel = () => {
               </Link>.
             </p>
 
+            <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3">
+              <Checkbox
+                id="min-val-confirm"
+                checked={answers.minimumAccepted}
+                onCheckedChange={(v) => update({ minimumAccepted: !!v })}
+                className="mt-0.5"
+              />
+              <label htmlFor="min-val-confirm" className="cursor-pointer text-[11px] leading-snug text-foreground/85">
+                Estou ciente que o valor mínimo para atendimento/visita é <strong>R$ 99,99</strong> e que o WhatsApp só abre após a triagem.
+              </label>
+            </div>
+
             <div className="flex gap-2">
               <Button variant="outline" size="sm" onClick={back} className="gap-1">
                 <ArrowLeft className="h-4 w-4" /> Voltar
@@ -536,6 +555,7 @@ export const WhatsAppFunnel = () => {
               <Button variant="outline" size="sm" onClick={reset}>Recomeçar</Button>
               <Button
                 onClick={submit}
+                disabled={!answers.minimumAccepted}
                 className="ml-auto bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white gap-2"
               >
                 <MessageCircle className="h-4 w-4" />

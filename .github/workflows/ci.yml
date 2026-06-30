@@ -58,10 +58,30 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Detect changes in service/neighborhood pages
+        id: changes
+        run: |
+          set -e
+          base="${{ github.event.before }}"
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+            base="HEAD~1"
+          fi
+          changed=$(git diff --name-only "$base" HEAD || true)
+          echo "$changed"
+          if echo "$changed" | grep -qE '^(src/pages/(servicos|bairros|arrumar-pc|servico-bairro|cftv|hubs)/|src/pages/Tecnico|src/pages/Conserto|public/sitemap)'; then
+            echo "ping=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ping=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Sem mudanças em páginas de serviço/bairro/sitemap — IndexNow pulado."
+          fi
       - uses: actions/setup-node@v4
+        if: steps.changes.outputs.ping == 'true'
         with:
           node-version: "20"
       - name: Ping IndexNow with sitemap URLs
+        if: steps.changes.outputs.ping == 'true'
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           INDEXNOW_HOST: tecnicocuritiba.com.br

@@ -73,10 +73,24 @@ export const FastHeader = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const scheduleUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(SCHEDULE_MESSAGE)}`;
 
+  // Shrink-on-scroll: alterna `data-scrolled` no <html>, e o CSS troca
+  // `--site-header-height` por sua versão compacta. Sem re-render do React.
+  if (typeof window !== "undefined" && !(window as any).__hdrScrollBound) {
+    (window as any).__hdrScrollBound = true;
+    const sync = () => {
+      const scrolled = window.scrollY > 24 ? "1" : "0";
+      if (document.documentElement.dataset.scrolled !== scrolled) {
+        document.documentElement.dataset.scrolled = scrolled;
+      }
+    };
+    window.addEventListener("scroll", sync, { passive: true });
+    sync();
+  }
+
   return (
     <header
       data-testid="site-header"
-      className="fixed left-0 right-0 top-0 h-[var(--site-header-height)] border-b border-border bg-background/95 shadow-[var(--shadow-sm)] backdrop-blur-md"
+      className="fixed left-0 right-0 top-0 h-[var(--site-header-height)] border-b border-border bg-background/95 shadow-[var(--shadow-sm)] backdrop-blur-md transition-[height] duration-200"
       style={{ zIndex: "var(--z-header)" as unknown as number }}
     >
       <div className="container mx-auto flex h-full items-center justify-between gap-2">
@@ -87,7 +101,9 @@ export const FastHeader = () => {
             width="304"
             height="98"
             decoding="sync"
-            className="h-10 w-auto object-scale-down sm:h-12"
+            // @ts-ignore - fetchpriority is valid HTML attribute
+            fetchpriority="high"
+            className="h-12 w-auto object-scale-down transition-[height] duration-200 sm:h-14 md:h-16 [html[data-scrolled='1']_&]:h-9 [html[data-scrolled='1']_&]:sm:h-10 [html[data-scrolled='1']_&]:md:h-11"
           />
         </a>
 

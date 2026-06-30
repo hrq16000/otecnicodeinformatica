@@ -206,7 +206,8 @@ export const WhatsAppFunnel = () => {
             const u = new URL(href, window.location.origin);
             preset = u.searchParams.get("text") || undefined;
           } catch { /* noop */ }
-          openFunnel("programmatic", preset);
+          const trackedLocation = window.__lastCtaType === "whatsapp" ? window.__lastCtaLocation : undefined;
+          openFunnel(trackedLocation || "programmatic", preset);
           return null;
         }
       } catch { /* fall through */ }

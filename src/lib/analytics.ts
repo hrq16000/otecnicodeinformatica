@@ -91,6 +91,7 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
       event_label: `${ctaType}_${location}`,
       cta_type: ctaType,
       cta_location: location,
+      click_location: location,
       page_path: window.location.pathname,
       value: 1,
       lead_id: leadId,

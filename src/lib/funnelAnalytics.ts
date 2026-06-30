@@ -35,8 +35,6 @@ function baseParams(extra: Record<string, unknown> = {}) {
     page_path: typeof window !== "undefined" ? window.location.pathname : "/",
     app_version: typeof window !== "undefined" ? window.__APP_VERSION__ || "dev" : "server",
     session_id: typeof window !== "undefined" ? getSessionId() : "server",
-    click_location: location,
-    cta_location: location,
     ...getDeviceContext(),
     ...readUtms(),
     ...extra,

@@ -21,8 +21,9 @@
     "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile && npm run perf:budgets",
     "perf:budgets": "node scripts/check-performance-budgets.mjs",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
-    "indexnow:ping": "node scripts/indexnow-ping.mjs"
-
+    "indexnow:ping": "node scripts/indexnow-ping.mjs",
+    "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
+    "preview:category-prompts": "bun scripts/preview-category-prompts.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

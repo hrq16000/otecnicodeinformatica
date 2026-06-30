@@ -1,45 +1,59 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import { globSync } from "glob";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
-const files = globSync("{src,pages,components}/**/*.{ts,tsx,js,jsx,html}", { cwd: ROOT, nodir: true, absolute: false })
-  .concat(["index.html"])
-  .filter((f, i, arr) => arr.indexOf(f) === i);
+const START_DIRS = ["src", "public"].filter((d) => existsSync(join(ROOT, d)));
+const EXTRA_FILES = ["index.html"].filter((f) => existsSync(join(ROOT, f)));
+const EXT = /\.(ts|tsx|js|jsx|html)$/;
 
-const allowed = [
+const ALLOWLIST = [
   "src/components/WhatsAppFunnel.tsx",
   "src/pages/FunilIndisponivel.tsx",
-  "src/components/AppErrorBoundary.tsx",
   "src/pages/admin/",
   "src/components/admin/",
 ];
 
+function walk(dir: string, out: string[] = []) {
+  for (const entry of readdirSync(join(ROOT, dir))) {
+    const full = join(ROOT, dir, entry);
+    const rel = relative(ROOT, full).replace(/\\/g, "/");
+    const st = statSync(full);
+    if (st.isDirectory()) walk(rel, out);
+    else if (EXT.test(rel)) out.push(rel);
+  }
+  return out;
+}
+
+const files = [...START_DIRS.flatMap((d) => walk(d)), ...EXTRA_FILES];
 const violations: string[] = [];
+
 for (const file of files) {
-  if (allowed.some((a) => file === a || file.startsWith(a))) continue;
-  let text = "";
-  try { text = readFileSync(join(ROOT, file), "utf8"); } catch { continue; }
-  const lines = text.split(/\r?\n/);
-  lines.forEach((line, idx) => {
+  if (ALLOWLIST.some((a) => file === a || file.startsWith(a))) continue;
+  const text = readFileSync(join(ROOT, file), "utf8");
+  text.split(/\r?\n/).forEach((line, idx) => {
     const l = line.toLowerCase();
-    const isWhatsappPath = l.includes("wa.me/") || l.includes("api.whatsapp.com") || l.includes("window.open(url") || l.includes("window.open(`https://wa.me") || l.includes("window.open(wa") || l.includes("href={whatsappurl") || l.includes("href={walink") || l.includes("href={whatsapp_url");
-    const isTracked = l.includes("data-cta-location") || l.includes("trackctaclick") || l.includes("wa-funnel:open") || l.includes("data-wa-funnel") || l.includes("data-funnel-skip");
-    if (isWhatsappPath && !isTracked) violations.push(`${file}:${idx + 1} WhatsApp CTA sem tracking/funil explícito`);
-    if (l.includes("href=\"tel:") || l.includes("href={'tel:") || l.includes("href={`tel:")) violations.push(`${file}:${idx + 1} tel: direto proibido; use funil/CTA rastreável`);
+    const opensDirectWa = l.includes("wa.me/") || l.includes("api.whatsapp.com") || l.includes("window.open(url") || l.includes("window.open(wa") || l.includes("window.open(`https://wa.me");
+    const hasFunnelTracking = l.includes("data-cta-location") || l.includes("trackctaclick") || l.includes("wa-funnel:open") || l.includes("data-wa-funnel") || l.includes("data-funnel-skip");
+    if (opensDirectWa && !hasFunnelTracking) {
+      violations.push(`${file}:${idx + 1} WhatsApp CTA/window.open sem tracking/funil explícito`);
+    }
+    if (l.includes("href=\"tel:") || l.includes("href={'tel:") || l.includes("href={`tel:")) {
+      violations.push(`${file}:${idx + 1} link tel: direto proibido; todos os contatos passam pelo funil`);
+    }
   });
 }
 
 const funnel = readFileSync(join(ROOT, "src/components/WhatsAppFunnel.tsx"), "utf8");
+const analytics = readFileSync(join(ROOT, "src/lib/funnelAnalytics.ts"), "utf8");
 if (!funnel.includes("R$ 99,99") || !funnel.includes("minimumAccepted") || !funnel.includes("disabled={!answers.minimumAccepted}")) {
-  violations.push("src/components/WhatsAppFunnel.tsx validação obrigatória do mínimo R$ 99,99 ausente/incompleta");
+  violations.push("src/components/WhatsAppFunnel.tsx deve exigir confirmação do valor mínimo R$ 99,99 antes de abrir WhatsApp");
 }
-if (!funnel.includes("click_location") && !readFileSync(join(ROOT, "src/lib/funnelAnalytics.ts"), "utf8").includes("click_location")) {
-  violations.push("src/lib/funnelAnalytics.ts click_location ausente nos eventos do funil");
+if (!analytics.includes("click_location") || !analytics.includes("app_version")) {
+  violations.push("src/lib/funnelAnalytics.ts deve enviar click_location e app_version em todos os eventos do wa-funnel");
 }
 
 if (violations.length) {
   console.error("\nCTA funnel gate failed:\n" + violations.map((v) => `- ${v}`).join("\n"));
   process.exit(1);
 }
-console.log("CTA funnel gate passed: WhatsApp/phone CTAs protegidos, click_location e mínimo R$ 99,99 validados.");
+console.log("CTA funnel gate passed: CTAs protegidos, sem tel:, click_location/app_version e mínimo R$ 99,99 validados.");

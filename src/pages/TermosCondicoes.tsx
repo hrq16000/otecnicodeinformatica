@@ -222,6 +222,7 @@ const TermosCondicoes = () => {
           </p>
           <a
             href="https://wa.me/5541997452053"
+            data-cta-location="terms_bottom_cta"
             className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
           >
             <MessageCircle className="h-5 w-5" />

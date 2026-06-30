@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Link } from "react-router-dom";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   MessageCircle,
   ArrowRight,
@@ -32,13 +32,14 @@ import { withVideoWarning } from "@/lib/funnelWarning";
 
 const WHATSAPP_NUMBER = "5541997452053";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
-const STORAGE_KEY = "wa_funnel_answers_v3";
+const STORAGE_KEY = "wa_funnel_answers_v4";
 
 interface Answers {
   equipamento: Equipment | null;
   marca: string;
   sintoma: string;          // id do sintoma
   coletaAccepted: boolean;
+  minimumAccepted: boolean;
   descricao: string;
 }
 
@@ -47,6 +48,7 @@ const EMPTY: Answers = {
   marca: "",
   sintoma: "",
   coletaAccepted: false,
+  minimumAccepted: false,
   descricao: "",
 };
 
@@ -90,6 +92,8 @@ function buildMessage(a: Answers): string {
     lines.push("• Mínimo R$ 300 (diagnóstico incluso) · desistiu paga só R$ 90");
     lines.push("• Autorizado pelo cliente no funil");
   }
+  lines.push("");
+  lines.push("💰 *Valor mínimo:* cliente confirmou ciência do mínimo de R$ 99,99 para atendimento/visita.");
   if (a.descricao.trim()) {
     lines.push("");
     lines.push(`📝 ${a.descricao.trim()}`);
@@ -181,13 +185,16 @@ export const WhatsAppFunnel = () => {
         preset = u.searchParams.get("text") || undefined;
       } catch { /* noop */ }
 
+      trackCTAClick("whatsapp", loc);
       openFunnel(loc, preset);
     };
     document.addEventListener("click", handler, true);
 
     const evHandler = (e: Event) => {
       const detail = (e as CustomEvent<{ location?: string; message?: string }>).detail || {};
-      openFunnel(detail.location || "programmatic", detail.message);
+      const loc = detail.location || "programmatic";
+      trackCTAClick("whatsapp", loc);
+      openFunnel(loc, detail.message);
     };
     window.addEventListener("wa-funnel:open", evHandler as EventListener);
 
@@ -202,7 +209,10 @@ export const WhatsAppFunnel = () => {
             const u = new URL(href, window.location.origin);
             preset = u.searchParams.get("text") || undefined;
           } catch { /* noop */ }
-          openFunnel("programmatic", preset);
+          const trackedLocation = window.__lastCtaType === "whatsapp" ? window.__lastCtaLocation : undefined;
+          const loc = trackedLocation || "programmatic";
+          trackCTAClick("whatsapp", loc);
+          openFunnel(loc, preset);
           return null;
         }
       } catch { /* fall through */ }
@@ -218,8 +228,8 @@ export const WhatsAppFunnel = () => {
 
   useEffect(() => {
     if (!open) return;
-    trackFunnelStep(step, answers.equipamento, answers.sintoma);
-  }, [open, step, answers.equipamento, answers.sintoma]);
+    trackFunnelStep(step, answers.equipamento, answers.sintoma, originLocation);
+  }, [open, step, answers.equipamento, answers.sintoma, originLocation]);
 
   // ---------- Derivations ----------
   const branch = answers.equipamento ? getBranch(answers.equipamento) : undefined;
@@ -252,6 +262,11 @@ export const WhatsAppFunnel = () => {
         return { ok: false, reason: "Aceite a modalidade Coleta e Entrega para continuar." };
       }
       return { ok: true };
+    }
+    if (s === 3) {
+      return answers.minimumAccepted
+        ? { ok: true }
+        : { ok: false, reason: "Confirme ciência do valor mínimo de R$ 99,99." };
     }
     return { ok: true };
   }, [answers, isOutro, requiresColeta]);
@@ -292,7 +307,7 @@ export const WhatsAppFunnel = () => {
 
   const submit = useCallback(async () => {
     // Guard final: revalida todas as etapas antes de liberar o WhatsApp
-    for (const s of [0, 1, 2]) {
+    for (const s of [0, 1, 2, 3]) {
       const v = validateStep(s);
       if (!v.ok) {
         trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipamento);
@@ -319,6 +334,8 @@ export const WhatsAppFunnel = () => {
           marca: answers.marca,
           sintoma: sintomaObj?.label,
           requiresColeta,
+          minimumAccepted: answers.minimumAccepted,
+          ctaLocation: originLocation,
           waMessage: finalMessage,
         });
       } catch (err) {
@@ -337,6 +354,7 @@ export const WhatsAppFunnel = () => {
         sintoma: answers.sintoma,
         requiresColeta,
         mediaCount: 0,
+        minimumAccepted: answers.minimumAccepted,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 
@@ -520,10 +538,22 @@ export const WhatsAppFunnel = () => {
 
             <p className="text-[11px] text-muted-foreground">
               Ao continuar você concorda com os{" "}
-              <Link to="/termos-e-condicoes" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
+              <a href="/termos-e-condicoes" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
                 Termos e Condições
-              </Link>.
+              </a>.
             </p>
+
+            <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3">
+              <Checkbox
+                id="min-val-confirm"
+                checked={answers.minimumAccepted}
+                onCheckedChange={(v) => update({ minimumAccepted: !!v })}
+                className="mt-0.5"
+              />
+              <label htmlFor="min-val-confirm" className="cursor-pointer text-[11px] leading-snug text-foreground/85">
+                Estou ciente que o valor mínimo para atendimento/visita é <strong>R$ 99,99</strong> e que o WhatsApp só abre após a triagem.
+              </label>
+            </div>
 
             <div className="flex gap-2">
               <Button variant="outline" size="sm" onClick={back} className="gap-1">
@@ -532,6 +562,7 @@ export const WhatsAppFunnel = () => {
               <Button variant="outline" size="sm" onClick={reset}>Recomeçar</Button>
               <Button
                 onClick={submit}
+                disabled={!answers.minimumAccepted}
                 className="ml-auto bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
@@ -564,7 +595,7 @@ export const TransparencyNote = ({ className = "" }: { className?: string }) => 
   <p className={`text-xs text-muted-foreground leading-relaxed ${className}`}>
     📌 <strong>Transparência:</strong> orçamento grátis por WhatsApp. Visita técnica a partir de
     {" "}R$ 99,99 (30 min) · diagnóstico R$ 90 só se cancelar · reparos com coleta a partir de R$ 300.{" "}
-    <Link to="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</Link>
+    <a href="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</a>
   </p>
 );
 

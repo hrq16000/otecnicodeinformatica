@@ -21,6 +21,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Lint (non-blocking warnings)
         run: npm run lint --silent || echo "::warning::lint reported issues"
+      - name: CTA funnel gate
+        run: npm run check:cta-funnel
       - name: Build
         run: npm run build
       - name: JSON-LD validation

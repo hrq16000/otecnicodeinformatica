@@ -153,7 +153,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     icon: Mail,
     body: (
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>WhatsApp: <a className="text-accent underline" href={`https://wa.me/${WHATSAPP}`}>(41) 9 9745-2053</a></li>
+        <li>WhatsApp: <a className="text-accent underline" href={`https://wa.me/${WHATSAPP}`} data-cta-location="privacy_contact_whatsapp">Clique para chamar no WhatsApp</a></li>
         <li>E-mail: <a className="text-accent underline" href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
         <li>Endereço: Curitiba e Região Metropolitana – PR</li>
       </ul>

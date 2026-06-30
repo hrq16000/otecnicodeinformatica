@@ -316,6 +316,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
             </p>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Quero orçamento de ${category.titlePrefix}.`)}`}
+              data-cta-location="category_local_how_it_works"
               className="inline-flex items-center gap-2 mt-5 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white px-5 py-3 rounded-lg font-semibold"
             >
               <MessageCircle className="h-4 w-4" />

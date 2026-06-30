@@ -59,7 +59,25 @@ test.describe("WhatsAppFunnel v3 — funil ramificado por equipamento (texto-onl
 
     await expect(dialog.getByText(/Triagem completa/i)).toBeVisible();
     await expect(dialog.getByText(/sem áudio/i)).toBeVisible();
-    await expect(dialog.getByRole("button", { name: /Abrir WhatsApp/i })).toBeEnabled();
+    const submit = dialog.getByRole("button", { name: /Abrir WhatsApp/i });
+    await expect(submit).toBeDisabled();
+    await dialog.getByLabel(/valor mínimo.*R\$ 99,99/i).click();
+    await expect(submit).toBeEnabled();
+  });
+
+  test("botão flutuante abre funil e eventos preservam click_location/app_version", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
+    await page.waitForLoadState("domcontentloaded");
+    await page.getByTestId("whatsapp-float").click();
+
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible({ timeout: 5000 });
+    await expect(dialog.getByText(/Triagem antes do atendimento/i)).toBeVisible();
+
+    const events = await page.evaluate(() => (window as unknown as { __waFunnelEvents?: Array<{ name: string; payload: Record<string, unknown> }> }).__waFunnelEvents || []);
+    const opened = events.find((e) => e.name === "wa_funnel_open");
+    expect(opened?.payload.click_location).toBe("float");
+    expect(opened?.payload.app_version).toBeTruthy();
   });
 
   test("branch 'Outro' pula coleta e exige descrição mínima", async ({ page }) => {

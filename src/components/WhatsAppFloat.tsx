@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Botão flutuante de WhatsApp.
- * - Visível em mobile E desktop (canto inferior esquerdo).
+ * - Visível em mobile, tablet e desktop.
  * - Não expõe número/URL: dispara o funil obrigatório via evento `wa-funnel:open`.
  * - Todo clique passa pelo funil que confirma o mínimo R$ 99,99 e coleta detalhes.
  */
@@ -21,9 +21,11 @@ export const WhatsAppFloat = () => {
       type="button"
       onClick={handleClick}
       data-cta-location="float"
+      data-wa-funnel="required"
+      data-testid="whatsapp-float"
       aria-label="Falar com técnico pelo WhatsApp"
       className={cn(
-        "fixed bottom-6 left-6 z-[var(--z-mobile-drawer)] flex items-center gap-2",
+        "fixed bottom-24 right-4 z-[95] flex min-h-12 items-center gap-2 sm:bottom-6 sm:right-6",
         "bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-primary-foreground",
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",
@@ -31,7 +33,7 @@ export const WhatsAppFloat = () => {
       )}
     >
       <MessageCircle className="h-6 w-6 transition-transform group-hover:rotate-12" />
-      <span className="hidden text-sm font-semibold sm:inline">Fale com Técnico</span>
+      <span className="hidden whitespace-nowrap text-sm font-semibold sm:inline">Fale com Técnico</span>
     </button>
   );
 };

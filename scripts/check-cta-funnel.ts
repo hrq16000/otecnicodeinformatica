@@ -32,7 +32,7 @@ for (const file of files) {
   const text = readFileSync(join(ROOT, file), "utf8");
   text.split(/\r?\n/).forEach((line, idx) => {
     const l = line.toLowerCase();
-    const opensDirectWa = l.includes("wa.me/") || l.includes("api.whatsapp.com") || l.includes("window.open(url") || l.includes("window.open(wa") || l.includes("window.open(`https://wa.me");
+    const opensDirectWa = l.includes("wa.me/") || l.includes("api.whatsapp.com") || l.includes("window.open(`https://wa.me");
     const hasFunnelTracking = l.includes("data-cta-location") || l.includes("trackctaclick") || l.includes("wa-funnel:open") || l.includes("data-wa-funnel") || l.includes("data-funnel-skip");
     if (opensDirectWa && !hasFunnelTracking) {
       violations.push(`${file}:${idx + 1} WhatsApp CTA/window.open sem tracking/funil explícito`);

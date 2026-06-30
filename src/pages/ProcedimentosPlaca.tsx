@@ -197,6 +197,7 @@ const ProcedimentosPlaca = () => {
               <div className="flex flex-wrap justify-center gap-3">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso de um reparo em placa. Qual procedimento seria indicado para o meu caso?")}`}
+                  data-cta-location="procedimentos_placa_cta"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

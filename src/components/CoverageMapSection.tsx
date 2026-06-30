@@ -350,6 +350,7 @@ export const CoverageMapSection = () => {
                 <span className="font-semibold">Não encontrou sua região?</span>{" "}
                 <a
                   href="https://wa.me/5541997452053?text=Olá! Gostaria de saber se vocês atendem na minha região."
+                  data-cta-location="coverage_region_check"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline font-medium underline-grow"

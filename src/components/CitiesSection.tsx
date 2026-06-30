@@ -135,6 +135,7 @@ export const CitiesSection = () => {
               ) : (
                 <a 
                   href={`https://wa.me/5541997452053?text=Olá! Preciso de técnico em ${city.name}`}
+                  data-cta-location={`cities_${city.slug || city.name.toLowerCase().replace(/\s+/g, "-")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200 underline-grow"

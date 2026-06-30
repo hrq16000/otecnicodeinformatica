@@ -122,7 +122,8 @@ export const SocialProofSection = () => {
             <div className="flex justify-center">
               <Button variant="heroWhatsapp" size="lg" className="ripple-container shadow-lg" asChild>
                 <a 
-                  href="https://wa.me/5541997452053?text=Olá!%20Vi%20as%20avaliações%20e%20gostaria%20de%20agendar%20um%20atendimento%20técnico." 
+                  href="https://wa.me/5541997452053?text=Olá!%20Vi%20as%20avaliações%20e%20gostaria%20de%20agendar%20um%20atendimento%20técnico."
+                  data-cta-location="social_proof" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

@@ -68,15 +68,8 @@ window.addEventListener("vite:preloadError", (e: Event) => {
 const rootElement = document.getElementById("root")!;
 createRoot(rootElement).render(<App />);
 
-// Painel dev-only de relatório JSON-LD
-if (import.meta.env?.DEV) {
-  import("./components/JsonLdDevReport").then(({ JsonLdDevReport }) => {
-    const host = document.createElement("div");
-    host.id = "jsonld-dev-report-host";
-    document.body.appendChild(host);
-    createRoot(host).render(<JsonLdDevReport />);
-  });
-}
+// Painel dev-only de relatório JSON-LD — desativado a pedido do usuário
+// (poluía a UI mesmo em preview). Reativar manualmente se precisar auditar.
 
 
 const runWhenIdle = (fn: () => void) => {

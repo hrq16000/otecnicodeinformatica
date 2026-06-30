@@ -18,6 +18,8 @@ export async function recordSubmission(payload: {
   marca?: string;
   sintoma?: string;
   requiresColeta?: boolean;
+  minimumAccepted?: boolean;
+  ctaLocation?: string;
   waMessage: string;
 }): Promise<void> {
   const sp = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
@@ -38,7 +40,10 @@ export async function recordSubmission(payload: {
       sintoma: payload.sintoma?.slice(0, 120),
       requires_coleta: !!payload.requiresColeta,
       media_paths: [],
-      wa_message: payload.waMessage.slice(0, 4000),
+      wa_message: [
+        payload.waMessage,
+        `\n\n[tracking] cta_location=${payload.ctaLocation || "unknown"}; minimum_accepted=${payload.minimumAccepted ? "true" : "false"}`,
+      ].join("").slice(0, 4000),
       ...utm,
     });
   } catch (err) {

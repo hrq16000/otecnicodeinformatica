@@ -60,8 +60,8 @@ export function track(name: string, params: Record<string, unknown> = {}) {
 export const trackFunnelOpen = (location: string, hasPreset = false) =>
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
 
-export const trackFunnelStep = (step: number, equipamento?: string | null, sintoma?: string | null) =>
-  track("wa_funnel_step", { step, equipamento: equipamento || "none", sintoma: sintoma || "none" });
+export const trackFunnelStep = (step: number, equipamento?: string | null, sintoma?: string | null, ctaLocation = "unknown") =>
+  track("wa_funnel_step", { step, equipamento: equipamento || "none", sintoma: sintoma || "none", ctaLocation });
 
 export const trackFunnelSubmit = (params: {
   equipamento?: string | null;
@@ -69,6 +69,7 @@ export const trackFunnelSubmit = (params: {
   requiresColeta?: boolean;
   mediaCount?: number;
   ctaLocation?: string;
+  minimumAccepted?: boolean;
 }) => track("wa_funnel_submit", params);
 
 export const trackFunnelBlocked = (reason: string, equipamento?: string | null) =>

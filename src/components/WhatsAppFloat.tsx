@@ -2,30 +2,36 @@ import { MessageCircle } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-const WHATSAPP_NUMBER = "5541997452053";
-const WHATSAPP_MESSAGE = "Olá! Vi o site de vocês e preciso de um técnico de informática. Podem me atender hoje?";
-
+/**
+ * Botão flutuante de WhatsApp.
+ * - Visível em mobile E desktop (canto inferior esquerdo).
+ * - Não expõe número/URL: dispara o funil obrigatório via evento `wa-funnel:open`.
+ * - Todo clique passa pelo funil que confirma o mínimo R$ 99,99 e coleta detalhes.
+ */
 export const WhatsAppFloat = () => {
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const handleClick = () => {
+    trackCTAClick("whatsapp", "float");
+    window.dispatchEvent(
+      new CustomEvent("wa-funnel:open", { detail: { location: "float" } }),
+    );
+  };
 
   return (
-    <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackCTAClick('whatsapp', 'float')}
+    <button
+      type="button"
+      onClick={handleClick}
+      data-cta-location="float"
+      aria-label="Falar com técnico pelo WhatsApp"
       className={cn(
-        "fixed bottom-6 left-6 z-50 flex items-center gap-2",
-        "bg-whatsapp hover:bg-whatsapp-hover text-white",
+        "fixed bottom-6 left-6 z-[var(--z-mobile-drawer)] flex items-center gap-2",
+        "bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-primary-foreground",
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",
-        "transition-all duration-300 hover:scale-110 group",
-        "wa-pulse"
+        "transition-all duration-300 hover:scale-110 group wa-pulse",
       )}
-      aria-label="Falar com técnico pelo WhatsApp"
     >
       <MessageCircle className="h-6 w-6 transition-transform group-hover:rotate-12" />
-      <span className="text-sm font-semibold hidden sm:inline">Fale com Técnico</span>
-    </a>
+      <span className="hidden text-sm font-semibold sm:inline">Fale com Técnico</span>
+    </button>
   );
 };

@@ -531,9 +531,9 @@ export const WhatsAppFunnel = () => {
 
             <p className="text-[11px] text-muted-foreground">
               Ao continuar você concorda com os{" "}
-              <Link to="/termos-e-condicoes" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
+              <a href="/termos-e-condicoes" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
                 Termos e Condições
-              </Link>.
+              </a>.
             </p>
 
             <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3">
@@ -588,7 +588,7 @@ export const TransparencyNote = ({ className = "" }: { className?: string }) => 
   <p className={`text-xs text-muted-foreground leading-relaxed ${className}`}>
     📌 <strong>Transparência:</strong> orçamento grátis por WhatsApp. Visita técnica a partir de
     {" "}R$ 99,99 (30 min) · diagnóstico R$ 90 só se cancelar · reparos com coleta a partir de R$ 300.{" "}
-    <Link to="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</Link>
+    <a href="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</a>
   </p>
 );
 

@@ -168,7 +168,9 @@ export const WhatsAppFunnel = () => {
       e.stopPropagation();
 
       let loc = "cta";
-      if (a.closest("header")) loc = "header";
+      const ctaLoc = a.closest<HTMLElement>("[data-cta-location]")?.dataset.ctaLocation;
+      if (ctaLoc) loc = ctaLoc;
+      else if (a.closest("header")) loc = "header";
       else if (a.closest("footer")) loc = "footer";
       else if (a.closest("[data-wa-medium]")) loc = (a.closest("[data-wa-medium]") as HTMLElement).dataset.waMedium || "cta";
       else if (a.getAttribute("aria-label")?.toLowerCase().includes("whatsapp")) loc = "float";

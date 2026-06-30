@@ -44,7 +44,8 @@
     --radius: 0.625rem;
 
     /* Fixed top chrome sizing: header + offer bar */
-    --site-header-height: 56px;
+    --site-header-height: 72px;
+    --site-header-height-compact: 56px;
     --top-offer-height: 42px;
 
     /* Stacking tokens — keep top chrome above page content, below toasts/modals */
@@ -101,15 +102,22 @@
 
   @media (min-width: 640px) {
     :root {
-      --site-header-height: 60px;
+      --site-header-height: 80px;
+      --site-header-height-compact: 60px;
       --top-offer-height: 40px;
     }
   }
 
   @media (min-width: 768px) {
     :root {
-      --site-header-height: 64px;
+      --site-header-height: 88px;
+      --site-header-height-compact: 64px;
     }
+  }
+
+  /* Quando o usuário rola a página, encolhemos o header via classe no <html>. */
+  html[data-scrolled="1"] {
+    --site-header-height: var(--site-header-height-compact);
   }
 
   /* Modo escuro removido permanentemente — apenas tema claro é suportado.

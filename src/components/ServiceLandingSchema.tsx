@@ -5,7 +5,7 @@ import { validateAndInjectSchema } from "@/lib/schemaValidation";
  * JSON-LD por landing de serviço: Service + Offer + FAQPage + WebPage + Speakable.
  * Usa validateAndInjectSchema (bloqueia AggregateRating com <5 reviews e injeta dateModified).
  */
-const BASE_URL = "https://tecnicocuritiba.com.br";
+const BASE_URL = "https://tecnico.curitiba.br";
 
 export interface ServiceFaq {
   question: string;

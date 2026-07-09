@@ -53,7 +53,6 @@ const schema = {
   "@context": "https://schema.org", "@type": "LocalBusiness",
   "name": "Técnico de Informática em Quatro Barras",
   "description": "Assistência técnica em Quatro Barras PR. Atendimento a domicílio.",
-  "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Quatro Barras", "containedInPlace": { "@type": "State", "name": "Paraná" } },
   "priceRange": "$$",
 };

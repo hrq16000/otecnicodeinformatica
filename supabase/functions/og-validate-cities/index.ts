@@ -14,7 +14,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const SITE = "https://tecnicocuritiba.com.br";
+const SITE = "https://tecnico.curitiba.br";
 const CITY_SLUGS = [
   "sao-paulo","rio-de-janeiro","belo-horizonte","brasilia","porto-alegre",
   "florianopolis","salvador","recife","fortaleza","manaus","campinas","goiania",

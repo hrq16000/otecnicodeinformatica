@@ -1,6 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 
-const WHATSAPP_URL = "https://wa.me/5541997452053?text=Ol%C3%A1!%20O%20site%20travou%20no%20meu%20celular.%20Preciso%20de%20atendimento%20t%C3%A9cnico.";
+const WHATSAPP_URL = "https://wa.me/5541997086380?text=Ol%C3%A1!%20O%20site%20travou%20no%20meu%20celular.%20Preciso%20de%20atendimento%20t%C3%A9cnico.";
 
 type Props = { children: ReactNode };
 type State = { hasError: boolean };

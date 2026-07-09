@@ -15,7 +15,7 @@ import {
   Radio, Smartphone, Cable,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const equipamentos = [
   {

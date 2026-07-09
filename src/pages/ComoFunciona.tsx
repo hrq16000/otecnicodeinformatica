@@ -44,7 +44,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const ComoFunciona = () => {
   useEffect(() => {

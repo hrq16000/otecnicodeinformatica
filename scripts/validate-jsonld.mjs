@@ -8,7 +8,7 @@
  *
  * Usage:
  *   node scripts/validate-jsonld.mjs              # builds + serves locally
- *   BASE_URL=https://tecnicocuritiba.com.br \
+ *   BASE_URL=https://tecnico.curitiba.br \
  *     node scripts/validate-jsonld.mjs            # validates a live URL
  */
 import { spawn } from "node:child_process";

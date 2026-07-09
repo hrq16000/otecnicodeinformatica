@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP = "5541997452053";
+const WHATSAPP = "5541997086380";
 
 const MarcaPage = () => {
   const { slug } = useParams<{ slug: string }>();

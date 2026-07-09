@@ -5,11 +5,11 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lucide-react";
 
-const CANONICAL = "https://tecnicocuritiba.com.br/politica-de-privacidade";
+const CANONICAL = "https://tecnico.curitiba.br/politica-de-privacidade";
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
 const CNPJ = "41.723.708/0001-58";
-const WHATSAPP = "5541997452053";
-const EMAIL = "contato@tecnicocuritiba.com.br";
+const WHATSAPP = "5541997086380";
+const EMAIL = "contato@tecnico.curitiba.br";
 const UPDATED = "24/06/2026";
 
 const sections: { id: string; title: string; icon: typeof ShieldCheck; body: React.ReactNode }[] = [
@@ -21,12 +21,12 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
       <>
         <p>
           Esta Política de Privacidade aplica-se ao site{" "}
-          <strong>tecnicocuritiba.com.br</strong>, operado por <strong>{COMPANY}</strong>,
+          <strong>tecnico.curitiba.br</strong>, operado por <strong>{COMPANY}</strong>,
           inscrita no CNPJ {CNPJ}, com atendimento em Curitiba e Região Metropolitana – PR.
         </p>
         <p className="mt-2">
           Contato do encarregado (DPO): <a href={`mailto:${EMAIL}`} className="text-accent underline">{EMAIL}</a>{" "}
-          ou WhatsApp (41) 9 9745-2053.
+          ou WhatsApp.
         </p>
       </>
     ),

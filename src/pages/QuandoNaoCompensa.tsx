@@ -15,7 +15,7 @@ import {
   Tv, HardDrive, Calculator, ShieldCheck,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const cenarios = [
   {

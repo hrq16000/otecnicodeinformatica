@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useSocialProofSettings } from "@/hooks/useSocialProofSettings";
 import { useGeolocation } from "@/hooks/useGeolocation";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Vi a oferta especial e gostaria de garantir meu atendimento técnico com desconto.";
 
 export const ExitIntentPopup = () => {

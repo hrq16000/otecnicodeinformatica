@@ -5,7 +5,7 @@ import { trackCTAClick } from "@/lib/analytics";
 import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
 const SchedulingModal = lazy(() => import("@/components/scheduling/SchedulingModal").then((m) => ({ default: m.SchedulingModal })));
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 const trustSignals = [

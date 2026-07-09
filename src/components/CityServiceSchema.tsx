@@ -6,7 +6,7 @@ import { useEffect } from "react";
  * O LocalBusiness completo já é injetado pelo <JsonLdSchema /> da home/header,
  * aqui apenas reforçamos a relação Cidade ↔ Serviço para rich results locais.
  */
-const BASE_URL = "https://tecnicocuritiba.com.br";
+const BASE_URL = "https://tecnico.curitiba.br";
 
 interface CityServiceSchemaProps {
   /** Nome da cidade — ex.: "Curitiba", "São José dos Pinhais" */

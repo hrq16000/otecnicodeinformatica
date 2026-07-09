@@ -3,7 +3,7 @@ import { auditWhatsAppUrl, initWhatsAppUtm } from "./whatsappUtm";
 
 describe("auditWhatsAppUrl", () => {
   it("detecta utm_source/medium/campaign/click_location ausentes", () => {
-    const a = auditWhatsAppUrl("https://wa.me/5541997452053?text=oi");
+    const a = auditWhatsAppUrl("https://wa.me/5541997086380?text=oi");
     expect(a.ok).toBe(false);
     expect(a.missing).toEqual(
       expect.arrayContaining(["utm_source", "utm_medium", "utm_campaign", "click_location"]),
@@ -12,7 +12,7 @@ describe("auditWhatsAppUrl", () => {
 
   it("aprova quando todos os parâmetros obrigatórios estão presentes", () => {
     const url =
-      "https://wa.me/5541997452053?text=oi&utm_source=site&utm_medium=cta&utm_campaign=home&click_location=hero";
+      "https://wa.me/5541997086380?text=oi&utm_source=site&utm_medium=cta&utm_campaign=home&click_location=hero";
     const a = auditWhatsAppUrl(url);
     expect(a.ok).toBe(true);
     expect(a.missing).toEqual([]);
@@ -33,7 +33,7 @@ describe("initWhatsAppUtm — injeta UTMs e audita no clique", () => {
   it("aplica utm_source/medium/campaign/click_location e dispara wa-utm:audit OK", () => {
     initWhatsAppUtm();
     const a = document.createElement("a");
-    a.href = "https://wa.me/5541997452053?text=oi";
+    a.href = "https://wa.me/5541997086380?text=oi";
     a.dataset.ctaLocation = "hero_test";
     document.body.appendChild(a);
 

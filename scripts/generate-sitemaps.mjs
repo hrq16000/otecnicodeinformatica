@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 
-const BASE_URL = "https://tecnicocuritiba.com.br";
+const BASE_URL = "https://tecnico.curitiba.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const appSrc = readFileSync(resolve("src/App.tsx"), "utf8");

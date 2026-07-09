@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 const SCHEDULE_MESSAGE = "Olá! Quero agendar atendimento técnico.";
 
@@ -97,9 +97,9 @@ export const FastHeader = () => {
         <a href="/" aria-label="Início" className="min-w-0 flex-shrink-0">
           <img
             alt="Técnico Curitiba — Assistência Técnica em Informática"
-            src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+            src="/logo.webp"
             width="304"
-            height="98"
+            height="71"
             decoding="sync"
             // @ts-ignore - fetchpriority is valid HTML attribute
             fetchpriority="high"

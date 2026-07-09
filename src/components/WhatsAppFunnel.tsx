@@ -30,7 +30,7 @@ import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { withVideoWarning } from "@/lib/funnelWarning";
 
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
 const STORAGE_KEY = "wa_funnel_answers_v4";
 
@@ -99,7 +99,7 @@ function buildMessage(a: Answers): string {
     lines.push(`📝 ${a.descricao.trim()}`);
   }
   lines.push("");
-  lines.push("— Estou ciente das políticas e termos: tecnicocuritiba.com.br/termos-e-condicoes");
+  lines.push("— Estou ciente das políticas e termos: tecnico.curitiba.br/termos-e-condicoes");
   // Garante o aviso obrigatório no final, vindo da fonte única (`funnelWarning.ts`).
   return withVideoWarning(lines.join("\n"));
 }

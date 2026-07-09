@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const tiposPlaca = [
   { titulo: "Placa-mãe de desktop", desc: "Trilhas queimadas, capacitores estufados, VRM danificado, socket com pino torto. Diagnóstico com multímetro e osciloscópio.", prazo: "7-30 dias" },

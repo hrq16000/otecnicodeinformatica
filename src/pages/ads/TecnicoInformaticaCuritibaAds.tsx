@@ -4,7 +4,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle, Shield, Clock, MapPin, Star } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Vi o anúncio e preciso de um técnico de informática em Curitiba. Serviço: [DESCREVA O PROBLEMA]";
 
 const TecnicoInformaticaCuritibaAds = () => {
@@ -34,7 +34,7 @@ const TecnicoInformaticaCuritibaAds = () => {
         <div className="container mx-auto text-center">
           <img
             alt="Técnico Curitiba"
-            src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+            src="/logo.webp"
             className="h-12 mx-auto"
           />
         </div>

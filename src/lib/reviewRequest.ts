@@ -11,7 +11,7 @@
  * Sem Twilio/GatewayAPI = sem custo recorrente e sem opt-in regulatório.
  */
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 /**
  * Link mágico do Google que abre direto a tela "Escrever avaliação".

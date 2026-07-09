@@ -12,7 +12,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const FormatacaoComputador = () => {
   useEffect(() => {

@@ -39,7 +39,7 @@ import {
   REGRA_ORCAMENTO_GRATIS,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const servicosPrecos = [
   {

@@ -11,7 +11,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const sintomas = [
   { titulo: "Não liga de jeito nenhum", desc: "Nenhum LED acende, nenhum som. Pode ser fonte queimada, curto na placa-mãe ou problema no botão power.", gravidade: "Médio a complexo" },

@@ -10,7 +10,7 @@ import {
   isLeaf,
 } from "@/lib/diagnostico60sTree";
 
-const WA_NUMBER = "5541997452053";
+const WA_NUMBER = "5541997086380";
 
 function waLink(message: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -111,9 +111,9 @@ export default function Diagnostico60s() {
           name="description"
           content="Descubra em 60 segundos o que está acontecendo com seu notebook, TV, celular, impressora ou Wi-Fi. Diagnóstico guiado + WhatsApp direto com técnico em Curitiba."
         />
-        <link rel="canonical" href="https://tecnicocuritiba.com.br/diagnostico-60s" />
+        <link rel="canonical" href="https://tecnico.curitiba.br/diagnostico-60s" />
         <meta property="og:title" content="Diagnóstico em 60s — TecnicoCuritiba" />
-        <meta property="og:url" content="https://tecnicocuritiba.com.br/diagnostico-60s" />
+        <meta property="og:url" content="https://tecnico.curitiba.br/diagnostico-60s" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>

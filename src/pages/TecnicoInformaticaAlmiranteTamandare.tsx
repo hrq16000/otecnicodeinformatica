@@ -92,7 +92,6 @@ const atSchema = {
   "@type": "LocalBusiness",
   "name": "Técnico de Informática em Almirante Tamandaré",
   "description": "Assistência técnica de computadores em Almirante Tamandaré PR. Atendimento a domicílio. Formatação, conserto, upgrade.",
-  "telephone": "+55-41-99745-2053",
   "areaServed": { "@type": "City", "name": "Almirante Tamandaré", "containedInPlace": { "@type": "State", "name": "Paraná" } },
   "priceRange": "$$",
 };

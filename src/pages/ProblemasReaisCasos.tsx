@@ -14,7 +14,7 @@ import {
   Zap, HardDrive, Cpu, Wrench, Monitor, ShieldCheck,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const casos = [
   {

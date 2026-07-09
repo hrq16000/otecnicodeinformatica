@@ -14,7 +14,7 @@ import {
   Package, ShieldCheck, Clock, Wrench, MapPin, MessageCircle,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const beneficios = [
   { icon: Package, title: "Coleta e Entrega", description: "Buscamos seu equipamento em casa e devolvemos consertado. Sem precisar deslocar até a loja." },
@@ -61,7 +61,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     "@type": "Service",
     name: `${category.titlePrefix} em ${cityLabel}`,
     serviceType: category.titlePrefix,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnicocuritiba.com.br", telephone: "+5541997452053", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br", telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
     areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
     description,
     offers: {
@@ -75,7 +75,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
         description: "Reparo mínimo com diagnóstico incluso. Coleta e entrega conforme distância.",
       },
       availability: "https://schema.org/InStock",
-      url: `https://tecnicocuritiba.com.br${path}`,
+      url: `https://tecnico.curitiba.br${path}`,
     },
   };
 
@@ -261,7 +261,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
     "@type": "Service",
     name: category.titlePrefix,
     description,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnicocuritiba.com.br" },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br" },
     areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
   };
 

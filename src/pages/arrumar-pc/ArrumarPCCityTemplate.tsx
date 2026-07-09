@@ -18,7 +18,7 @@ import {
   CreditCard,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 export type CityData = {
   slug: string; // e.g. "sao-paulo"
@@ -87,7 +87,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnicocuritiba.com.br",
+      url: "https://tecnico.curitiba.br",
     },
     areaServed: {
       "@type": "City",
@@ -99,7 +99,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: `https://tecnicocuritiba.com.br${path}`,
+      url: `https://tecnico.curitiba.br${path}`,
     },
   };
 

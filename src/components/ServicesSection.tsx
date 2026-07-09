@@ -6,7 +6,7 @@ import {
   Building2, Headphones, MapPin, ArrowRight, Camera, Clock, MessageCircle,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 type Service = {
   icon: typeof Monitor;

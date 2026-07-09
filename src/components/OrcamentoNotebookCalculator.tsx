@@ -17,7 +17,7 @@ import { trackCTAClick } from "@/lib/analytics";
  * - Faixa é estimativa, sempre fechada após diagnóstico real.
  */
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 type Problema = {
   id: string;

@@ -4,7 +4,7 @@ import { MessageCircle, CheckCircle, Zap, Shield, Clock, ThumbsUp } from "lucide
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const benefits = [
   { icon: Clock, text: "Mais de 20 anos de experiência", description: "Profissional experiente no mercado" },

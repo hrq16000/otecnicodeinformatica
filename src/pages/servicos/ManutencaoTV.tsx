@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const defeitos = [
   { titulo: "TV não liga", desc: "Pode ser problema na fonte de alimentação, placa principal ou capacitores estufados. Requer bancada.", tipo: "Laboratório" },

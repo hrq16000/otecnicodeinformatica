@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { validateAndInjectSchema } from '@/lib/schemaValidation';
 
-const SITE = "https://tecnicocuritiba.com.br";
+const SITE = "https://tecnico.curitiba.br";
 const BUILD_DATE = new Date().toISOString();
 
 const localBusinessSchema = {
@@ -12,8 +12,7 @@ const localBusinessSchema = {
   "alternateName": ["Técnico de Informática Curitiba", "Assistência Técnica Curitiba"],
   "description": "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Atendimento domiciliar no mesmo dia.",
   "url": SITE,
-  "telephone": "+55-41-99745-2053",
-  "email": "contato@tecnicocuritiba.com.br",
+  "email": "contato@tecnico.curitiba.br",
   "image": `${SITE}/og-image.jpg`,
   "logo": `${SITE}/logo.png`,
   "priceRange": "R$ 69,99 - R$ 500",
@@ -46,7 +45,7 @@ const localBusinessSchema = {
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
   ],
-  "sameAs": ["https://wa.me/5541997452053"],
+  "sameAs": ["https://wa.me/5541997086380"],
   "knowsAbout": [
     "Manutenção de computadores", "Conserto de notebooks", "Formatação Windows",
     "Remoção de vírus", "Upgrade de hardware", "Configuração de redes",
@@ -98,12 +97,11 @@ const organizationSchema = {
   "logo": `${SITE}/logo.png`,
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+55-41-99745-2053",
     "contactType": "customer service",
     "availableLanguage": "Portuguese",
     "areaServed": "BR-PR"
   },
-  "sameAs": ["https://wa.me/5541997452053"]
+  "sameAs": ["https://wa.me/5541997086380"]
 };
 
 // WebPage com Speakable — extração prioritária para Bing Copilot / AI Overviews

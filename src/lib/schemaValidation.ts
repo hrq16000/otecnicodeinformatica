@@ -163,10 +163,27 @@ export function getSchemaReport(): SchemaReportEntry[] {
  * Injeta JSON-LD no <head> apenas se passar na validação.
  * Em dev mode loga errors/warnings no console e registra no painel.
  */
+/**
+ * Telefone institucional em E.164 (WhatsApp). NÃO é exibido como texto em
+ * lugar nenhum do site — vive apenas dentro do JSON-LD, onde é obrigatório
+ * para LocalBusiness (Google/Bing). Fonte única de verdade.
+ */
+const SCHEMA_TELEPHONE = "+5541997086380";
+
 export function validateAndInjectSchema(
   scriptId: string,
   schema: JsonLd,
 ): boolean {
+  // LocalBusiness exige telephone: injeta automaticamente se ausente,
+  // sem nunca expor o número como texto visível.
+  if (
+    hasType(schema, "LocalBusiness") &&
+    (schema.telephone === undefined ||
+      schema.telephone === null ||
+      schema.telephone === "")
+  ) {
+    schema = { ...schema, telephone: SCHEMA_TELEPHONE };
+  }
   const { valid, errors, warnings } = validateSchema(schema);
   const isDev = import.meta.env?.DEV;
   const endpoint = typeof window !== "undefined" ? window.location.pathname : "ssr";

@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MSG =
   "Olá! Quero arrumar meu PC. Pode me ajudar via atendimento remoto?";
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -126,7 +126,7 @@ const ArrumarPC = () => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnicocuritiba.com.br",
+      url: "https://tecnico.curitiba.br",
     },
     areaServed: { "@type": "Country", name: "Brasil" },
     description:
@@ -135,7 +135,7 @@ const ArrumarPC = () => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: "https://tecnicocuritiba.com.br/arrumar-pc",
+      url: "https://tecnico.curitiba.br/arrumar-pc",
     },
   };
 

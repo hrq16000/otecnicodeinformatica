@@ -3,7 +3,7 @@
 // Also accepts a single { url } string. GET returns the configured key for sanity checks.
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 
-const HOST = "tecnicocuritiba.com.br";
+const HOST = "tecnico.curitiba.br";
 const KEY = "f783ab585dfa9e6b017cb058009cccae";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = "https://api.indexnow.org/IndexNow";

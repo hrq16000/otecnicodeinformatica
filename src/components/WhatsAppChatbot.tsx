@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 import DOMPurify from "dompurify";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 // Fluxo do chatbot com triagem profissional completa
 const chatFlow = {
@@ -309,7 +309,7 @@ const chatFlow = {
   },
 
   link_precos: {
-    mensagem: "Veja a tabela completa em:\n🔗 **tecnicocuritiba.com.br/precos-e-politicas**\n\nOu converse sobre valores específicos para seu caso:",
+    mensagem: "Veja a tabela completa em:\n🔗 **tecnico.curitiba.br/precos-e-politicas**\n\nOu converse sobre valores específicos para seu caso:",
     opcoes: [
       { label: "Falar sobre meu caso", proximo: "whatsapp_geral" },
       { label: "Agendar serviço", proximo: "tipo_equipamento" },
@@ -317,14 +317,14 @@ const chatFlow = {
   },
 
   link_diagnostico: {
-    mensagem: "Leia o guia completo em:\n🔗 **tecnicocuritiba.com.br/diagnostico-tecnico**\n\nOu agende diretamente:",
+    mensagem: "Leia o guia completo em:\n🔗 **tecnico.curitiba.br/diagnostico-tecnico**\n\nOu agende diretamente:",
     opcoes: [
       { label: "Agendar diagnóstico", proximo: "tipo_equipamento" },
     ]
   },
 
   link_quando_nao_compensa: {
-    mensagem: "Veja o guia completo em:\n🔗 **tecnicocuritiba.com.br/quando-nao-compensa**\n\nSe quiser uma avaliação personalizada:",
+    mensagem: "Veja o guia completo em:\n🔗 **tecnico.curitiba.br/quando-nao-compensa**\n\nSe quiser uma avaliação personalizada:",
     opcoes: [
       { label: "Consultar viabilidade", proximo: "whatsapp_geral" },
     ]

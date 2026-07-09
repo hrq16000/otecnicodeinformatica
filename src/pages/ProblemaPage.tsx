@@ -16,7 +16,7 @@ import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const tipoIcon = (tipo: string) => {
   switch (tipo) {
@@ -104,9 +104,9 @@ const ProblemaPage = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.com.br/" },
-      { "@type": "ListItem", position: 2, name: data.categoria, item: "https://tecnicocuritiba.com.br/servicos" },
-      { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `https://tecnicocuritiba.com.br/problemas/${data.slug}` },
+      { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+      { "@type": "ListItem", position: 2, name: data.categoria, item: "https://tecnico.curitiba.br/servicos" },
+      { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `https://tecnico.curitiba.br/problemas/${data.slug}` },
     ],
   } : null;
 
@@ -143,7 +143,7 @@ const ProblemaPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <link rel="canonical" href={`https://tecnicocuritiba.com.br/problemas/${data.slug}`} />
+        <link rel="canonical" href={`https://tecnico.curitiba.br/problemas/${data.slug}`} />
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
         {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
       </Helmet>

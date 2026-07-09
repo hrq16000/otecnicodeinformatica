@@ -65,11 +65,11 @@ const BlogPost = () => {
   // Compute hero image (Discover requires large 1200px+ image)
   const categoryCover = slug ? getCategoryCover(slug) : null;
   const heroImage = categoryCover
-    ? `https://tecnicocuritiba.com.br${categoryCover.src}`
+    ? `https://tecnico.curitiba.br${categoryCover.src}`
     : post?.image
     ? (typeof post.image === 'string' && post.image.startsWith('http')
         ? post.image
-        : `https://tecnicocuritiba.com.br${post.image}`)
+        : `https://tecnico.curitiba.br${post.image}`)
     : (slug ? getUniqueImage(slug).replace(/w=\d+/, 'w=1600').replace(/q=\d+/, 'q=80') + '&w=1600&h=900' : '');
   const heroImageOg = withOgVersion(heroImage);
 
@@ -100,36 +100,36 @@ const BlogPost = () => {
       "author": {
         "@type": "Person",
         "name": "Técnico Curitiba",
-        "url": "https://tecnicocuritiba.com.br/sobre",
+        "url": "https://tecnico.curitiba.br/sobre",
         "jobTitle": "Técnico de Informática Sênior",
         "worksFor": {
           "@type": "Organization",
           "name": "Técnico Curitiba",
-          "url": "https://tecnicocuritiba.com.br"
+          "url": "https://tecnico.curitiba.br"
         }
       },
       "publisher": {
         "@type": "Organization",
         "name": "Técnico Curitiba",
-        "url": "https://tecnicocuritiba.com.br",
+        "url": "https://tecnico.curitiba.br",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://tecnicocuritiba.com.br/logo.png",
+          "url": "https://tecnico.curitiba.br/logo.png",
           "width": 600,
           "height": 60
         }
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://tecnicocuritiba.com.br/blog/${slug}`
+        "@id": `https://tecnico.curitiba.br/blog/${slug}`
       },
-      "url": `https://tecnicocuritiba.com.br/blog/${slug}`,
+      "url": `https://tecnico.curitiba.br/blog/${slug}`,
       "inLanguage": "pt-BR",
       "isAccessibleForFree": true,
       "isPartOf": {
         "@type": "Blog",
         "name": "Blog Técnico Curitiba",
-        "url": "https://tecnicocuritiba.com.br/blog"
+        "url": "https://tecnico.curitiba.br/blog"
       },
       "about": { "@type": "Thing", "name": post.category },
       "wordCount": wordCount,
@@ -143,7 +143,7 @@ const BlogPost = () => {
       },
       "potentialAction": {
         "@type": "ReadAction",
-        "target": [`https://tecnicocuritiba.com.br/blog/${slug}`]
+        "target": [`https://tecnico.curitiba.br/blog/${slug}`]
       }
     };
 
@@ -151,9 +151,9 @@ const BlogPost = () => {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnicocuritiba.com.br/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnicocuritiba.com.br/blog" },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://tecnicocuritiba.com.br/blog/${slug}` }
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnico.curitiba.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnico.curitiba.br/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://tecnico.curitiba.br/blog/${slug}` }
       ]
     };
 
@@ -188,13 +188,13 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.title} | Blog | Técnico Curitiba</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <link rel="canonical" href={`https://tecnico.curitiba.br/blog/${slug}`} />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://tecnicocuritiba.com.br/blog/${slug}`} />
+        <meta property="og:url" content={`https://tecnico.curitiba.br/blog/${slug}`} />
         <meta property="og:site_name" content="Técnico Curitiba" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
@@ -207,7 +207,7 @@ const BlogPost = () => {
         <meta property="article:section" content={post.category} />
         <meta property="article:tag" content={post.category} />
         <meta property="article:author" content="Técnico Curitiba" />
-        <meta property="article:publisher" content="https://tecnicocuritiba.com.br" />
+        <meta property="article:publisher" content="https://tecnico.curitiba.br" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
@@ -337,7 +337,7 @@ const BlogPost = () => {
                     </p>
                   </div>
                   <a
-                    href={`https://wa.me/5541997452053?text=${encodeURIComponent(`Olá! Li o artigo "${post.title}" e preciso de ajuda.`)}`}
+                    href={`https://wa.me/5541997086380?text=${encodeURIComponent(`Olá! Li o artigo "${post.title}" e preciso de ajuda.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cta="blog-article-bottom"

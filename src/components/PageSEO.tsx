@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 
 const SITE_NAME = "Técnico Curitiba";
-const BASE_URL = "https://tecnicocuritiba.com.br";
-const DEFAULT_OG_IMAGE = "https://tecnicocuritiba.com.br/og-image.png";
+const BASE_URL = "https://tecnico.curitiba.br";
+const DEFAULT_OG_IMAGE = "https://tecnico.curitiba.br/og-image.png";
 
 interface BreadcrumbItem {
   name: string;

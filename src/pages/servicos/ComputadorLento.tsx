@@ -11,7 +11,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const causas = [
   { titulo: "HD antigo ou sem SSD", desc: "A causa nº 1 de lentidão. HDs mecânicos são até 10x mais lentos que SSDs. A troca resolve em 90% dos casos.", solucao: "Upgrade para SSD" },

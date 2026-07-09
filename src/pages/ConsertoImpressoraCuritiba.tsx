@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Printer, MessageCircle, CalendarCheck, CheckCircle, Clock, Shield, ArrowRight } from "lucide-react";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP = "5541997452053";
+const WHATSAPP = "5541997086380";
 const PATH = "/conserto-impressora-curitiba";
 
 const TITLE = "Conserto de Impressora em Curitiba | Técnico no Mesmo Dia";

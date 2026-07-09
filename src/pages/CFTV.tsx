@@ -65,12 +65,8 @@ const CFTVPage = () => {
           "priceCurrency": "BRL",
           "availability": "https://schema.org/InStock",
           "seller": { "@type": "Organization", "name": "Mileuma Soluções / Mestre dos Serviços" }
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "127"
         }
+        // aggregateRating removido: sem reviews reais verificadas para este produto.
       })}} />
 
       <Header />

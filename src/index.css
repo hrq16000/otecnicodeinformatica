@@ -1460,3 +1460,30 @@
     animation: none !important;
   }
 }
+
+/* ── Hero slideshow (pontos de Curitiba, cross-fade lento) ── */
+.hero-slide {
+  opacity: 0;
+  will-change: opacity, transform;
+  animation: heroSlideFade 20s ease-in-out infinite;
+  transform: scale(1.06);
+}
+.hero-slide--a { animation-delay: 0s; }
+.hero-slide--b { animation-delay: 10s; }
+
+@keyframes heroSlideFade {
+  0%   { opacity: 0; transform: scale(1.06); }
+  8%   { opacity: 0.55; }
+  42%  { opacity: 0.55; transform: scale(1.12); }
+  50%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    animation: none !important;
+    transform: none !important;
+  }
+  .hero-slide--a { opacity: 0.4; }
+  .hero-slide--b { opacity: 0; }
+}

@@ -1,4 +1,6 @@
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import heroBg1 from "@/assets/hero-curitiba-1.webp";
+import heroBg2 from "@/assets/hero-curitiba-2.webp";
 
 const WA_HERO = whatsappLink(
   "Olá! Preciso de um técnico em Curitiba. Pode me ajudar com meu equipamento?",
@@ -25,6 +27,26 @@ export const HeroPremium = () => {
       aria-label="Técnico em Curitiba para notebook, PC e informática"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-bg))] via-[hsl(205_55%_16%)] to-[hsl(var(--hero-bg-end))]" />
+
+      {/* Slideshow de fundo — pontos de Curitiba desfocados, cross-fade lento.
+          Fica atrás do overlay para não interferir na leitura do texto. */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div
+          className="hero-slide hero-slide--a absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg1})` }}
+        />
+        <div
+          className="hero-slide hero-slide--b absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg2})` }}
+        />
+      </div>
+
+      {/* Overlay de legibilidade sobre o slideshow */}
+      <div
+        className="absolute inset-0 bg-[hsl(var(--hero-bg))]/72"
+        aria-hidden="true"
+      />
+
       {/* Grid técnico sutil — estático, sem animação/glow */}
       <div
         className="absolute inset-0 opacity-[0.06]"

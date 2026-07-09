@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { FastHeader } from "@/components/FastHeader";
+import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroPremium } from "@/components/home/HeroPremium";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { siteConfig } from "@/lib/siteConfig";
@@ -35,6 +36,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLdSchema />
       <FastHeader />
       <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       <main>

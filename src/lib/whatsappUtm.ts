@@ -29,6 +29,15 @@ function deriveMedium(el: HTMLElement | null): string {
   return "cta";
 }
 
+// Fonte do clique (substitui o antigo "Ligar Agora"): rótulo declarado no
+// próprio CTA via [data-wa-source]. Vira utm_source quando o visitante não
+// chegou por uma campanha externa (que sempre tem prioridade de atribuição).
+function deriveSource(el: HTMLElement | null): string | null {
+  if (!el) return null;
+  const src = (el.closest("[data-wa-source]") as HTMLElement | null)?.dataset.waSource;
+  return src && src.trim() ? src.trim() : null;
+}
+
 function readEntryUtms(): Record<string, string> {
   try {
     const raw = sessionStorage.getItem("utm_payload_v1");

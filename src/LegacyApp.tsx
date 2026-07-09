@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 const Servicos = lazy(() => import("./pages/Servicos"));
 const AtendimentoDomicilio = lazy(() => import("./pages/AtendimentoDomicilio"));
 const AtendimentoRemoto = lazy(() => import("./pages/AtendimentoRemoto"));
-const SuporteEmpresas = lazy(() => import("./pages/SuporteEmpresas"));
+
 const PrecosEPoliticas = lazy(() => import("./pages/PrecosEPoliticas"));
 const TecnicoInformaticaCuritiba = lazy(() => import("./pages/TecnicoInformaticaCuritiba"));
 const TecnicoInformaticaSaoJosePinhais = lazy(() => import("./pages/TecnicoInformaticaSaoJosePinhais"));
@@ -456,7 +456,7 @@ const App = () => (
             <Route path="/arrumar-pc/online" element={<ArrumarPC />} />
             <Route path="/arrumar-pc/servico/:servico/:cidade" element={<ArrumarPCServicoCidade />} />
             <Route path="/arrumar-pc/:cidade" element={<ArrumarPCCity />} />
-            <Route path="/suporte-empresas" element={<SuporteEmpresas />} />
+            <Route path="/suporte-empresas" element={<Navigate to="/servicos/suporte-tecnico-empresarial" replace />} />
             <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
             <Route path="/valores" element={<PrecosEPoliticas />} />
             

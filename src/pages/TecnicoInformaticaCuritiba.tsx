@@ -153,7 +153,7 @@ const TecnicoInformaticaCuritiba = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "A assistência técnica em informática mais completa de Curitiba. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. ⭐ 4.9/5 - Atendimento a domicílio no mesmo dia."
+        "A assistência técnica em informática mais completa de Curitiba. Formatação, conserto de PC e notebook, remoção de vírus e upgrade de SSD — atendimento a domicílio no mesmo dia via WhatsApp."
       );
     }
     trackPageView("/tecnico-informatica-curitiba", "Técnico Curitiba");
@@ -161,7 +161,7 @@ const TecnicoInformaticaCuritiba = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Curitiba a partir de R$ 99,99 | Atendimento Hoje" description="Assistência técnica em informática em Curitiba a partir de R$ 99,99. Formatação, conserto de PC e notebook, remoção de vírus, upgrade SSD. ⭐ 4.9/5 — atendimento em domicílio em até 30 min via WhatsApp." path="/tecnico-informatica-curitiba" />
+      <PageSEO title="Técnico de Informática em Curitiba a partir de R$ 99,99 | Atendimento Hoje" description="Assistência técnica em informática em Curitiba a partir de R$ 99,99. Formatação, conserto de PC e notebook, remoção de vírus e upgrade de SSD — atendimento em domicílio via WhatsApp." path="/tecnico-informatica-curitiba" />
       <CityServiceSchema city={"Curitiba"} citySameAs={"https://pt.wikipedia.org/wiki/Curitiba"} path={"/tecnico-informatica-curitiba"} />
       <JsonLdSchema />
       <Header />

@@ -13,7 +13,7 @@ const localBusinessSchema = {
   "description": "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Atendimento domiciliar no mesmo dia.",
   "url": SITE,
   "email": "contato@tecnico.curitiba.br",
-  "image": `${SITE}/og-image.jpg`,
+  "image": `${SITE}/og-image.png`,
   "logo": `${SITE}/logo.png`,
   "priceRange": "R$ 69,99 - R$ 500",
   "currenciesAccepted": "BRL",
@@ -52,7 +52,7 @@ const localBusinessSchema = {
     "Suporte técnico em informática", "Instalação de câmeras CFTV",
     "Conserto de impressoras", "Assistência de eletrodomésticos inteligentes"
   ],
-  "hasMap": "https://www.google.com/maps?cid=tecnicocuritiba"
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+em+Curitiba"
 };
 
 const faqSchema = {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import { whatsappLink } from "@/lib/siteConfig";
 
-const WHATSAPP_URL = "https://wa.me/5541987224831?text=Ol%C3%A1!%20Vi%20a%20FAQ%20e%20quero%20um%20atendimento%20em%20Curitiba.";
+const WHATSAPP_URL = whatsappLink("Olá! Vi a FAQ e quero um atendimento em Curitiba.");
 
 
 interface FAQItem {

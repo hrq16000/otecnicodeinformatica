@@ -163,8 +163,8 @@ export const ExitIntentPopup = () => {
           {/* Trust */}
           <div className="flex flex-wrap justify-center gap-3 mb-4">
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Star className="h-3.5 w-3.5 text-accent fill-accent" />
-              <span>4.9/5 estrelas</span>
+              <Shield className="h-3.5 w-3.5 text-accent" />
+              <span>Diagnóstico honesto</span>
             </div>
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
               <Shield className="h-3.5 w-3.5 text-trust" />

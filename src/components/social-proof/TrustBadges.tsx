@@ -1,4 +1,4 @@
-import { Shield, Award, Clock, Star, CheckCircle, Lock } from "lucide-react";
+import { Shield, Award, Clock, CheckCircle, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TrustBadgeProps {
@@ -87,21 +87,9 @@ export const RatingBadge = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <div className="flex items-center gap-0.5">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            className={cn(
-              "h-4 w-4",
-              star <= 4 || star === 5
-                ? "fill-amber-400 text-amber-400"
-                : "fill-amber-400/50 text-amber-400/50"
-            )}
-          />
-        ))}
-      </div>
-      <span className="font-bold text-foreground">4.9</span>
-      <span className="text-sm text-muted-foreground">(347+ avaliações)</span>
+      <CheckCircle className="h-4 w-4 text-trust" />
+      <span className="font-semibold text-foreground">Atendimento local e direto</span>
+      <span className="text-sm text-muted-foreground">Curitiba e região</span>
     </div>
   );
 };

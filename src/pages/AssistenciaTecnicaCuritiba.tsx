@@ -436,21 +436,17 @@ export default function AssistenciaTecnicaCuritiba() {
             <div data-atc-reveal className="relative lg:justify-self-end">
               <div className="relative rounded-3xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-md shadow-[var(--shadow-xl)] max-w-sm">
                 <div className="flex items-center gap-3">
-                  <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
-                    <Star className="h-7 w-7 text-white fill-white" />
+                  <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg">
+                    <ShieldCheck className="h-7 w-7 text-white" />
                   </div>
                   <div>
-                    <div className="text-3xl font-extrabold leading-none text-white">4,9</div>
-                    <div className="flex gap-0.5 mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
+                    <div className="text-lg font-extrabold leading-tight text-white">Atendimento direto</div>
+                    <div className="text-sm text-white/80">com o próprio técnico</div>
                   </div>
                 </div>
                 <p className="mt-4 text-white/90 text-sm leading-relaxed">
-                  <strong className="text-white">Nossos clientes confiam</strong> na qualidade técnica.
-                  Atendimento direto com o profissional — sem intermediários.
+                  <strong className="text-white">Sem intermediários e sem call center.</strong> Você fala direto
+                  com quem executa o reparo, com diagnóstico honesto antes de qualquer serviço.
                 </p>
                 <div className="mt-5 grid grid-cols-3 gap-2 text-center text-xs text-white/80">
                   <div className="rounded-lg bg-white/5 border border-white/15 py-2"><div className="text-white font-bold text-base">+5 anos</div>experiência</div>

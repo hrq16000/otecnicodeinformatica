@@ -43,6 +43,7 @@ const MarcaPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
+        noindex
         title={`Assistência Técnica ${brand.name} em Curitiba | Conserto e Manutenção`}
         description={`Assistência técnica especializada ${brand.name} em Curitiba e região. ${brand.servicos.slice(0, 3).join(", ")}. Atendimento a domicílio.`}
         path={`/marcas/${brand.slug}`}

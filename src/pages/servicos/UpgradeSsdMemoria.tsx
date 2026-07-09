@@ -1,258 +1,58 @@
-import { useEffect } from "react";
-import { PageSEO } from "@/components/PageSEO";
-import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
-import { Link } from "react-router-dom";
-import { HardDrive, CheckCircle, Zap, TrendingUp, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { RealImageSection } from "@/components/RealImageSection";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { ServicoLandingLayout, type ServicoLandingData } from "@/components/servico/ServicoLandingLayout";
 
-const WHATSAPP_NUMBER = "5541997086380";
-
-const UpgradeSsdMemoria = () => {
-  useEffect(() => {
-    document.title = "Upgrade SSD e Memória RAM em Curitiba | Notebook e PC - Técnico Curitiba";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Upgrade de SSD e memória RAM em Curitiba. Deixe seu notebook ou PC até 10x mais rápido. Instalação profissional com garantia. Atendimento domiciliar.");
-    }
-    trackPageView("/servicos/upgrade-ssd-memoria", "Upgrade SSD e Memória");
-  }, []);
-
-  const handleWhatsAppClick = () => {
-    trackCTAClick("whatsapp", "upgrade-ssd-memoria");
-    const message = encodeURIComponent("Olá! Quero fazer upgrade de SSD/memória no meu computador. Podem me ajudar?");
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      <PageSEO title="Upgrade SSD e Memória RAM em Curitiba a partir de R$ 99,99 (mão de obra) | Técnico Curitiba" description="Instalação de SSD e memória RAM em notebooks e PCs em Curitiba. Mão de obra a partir de R$ 99,99 — clonagem do Windows, garantia e visita técnica em até 30 min." path="/servicos/upgrade-ssd-memoria"  breadcrumbs={[
-        { name: "Início", path: "/" },
-        { name: "Serviços", path: "/servicos" },
-        { name: "Upgrade SSD/Memória", path: "/servicos/upgrade-ssd-memoria" }
-      ]} />
-      <ServiceLandingSchema
-        serviceName="Upgrade de SSD e Memória RAM"
-        description="Instalação e clonagem de SSD SATA/NVMe e troca/expansão de memória RAM em notebooks e desktops, sem reinstalar Windows. Atendimento domiciliar em Curitiba."
-        path="/servicos/upgrade-ssd-memoria"
-        priceFrom={99.99}
-        faqs={[
-          { question: "Quanto custa instalar um SSD no meu notebook em Curitiba?", answer: "A mão de obra de instalação começa em R$ 99,99 e inclui clonagem do Windows, drivers e testes. O valor da peça (SSD/memória) é separado e você pode comprar conosco ou por conta própria." },
-          { question: "Preciso reinstalar o Windows ao trocar para SSD?", answer: "Não. Fazemos a clonagem do seu HD atual para o SSD novo, preservando programas, arquivos e licenças. O computador liga já com tudo no lugar, só que muito mais rápido." },
-          { question: "Vale a pena colocar SSD em notebook antigo?", answer: "Sim. Na maioria dos notebooks com mais de 3 anos, trocar o HD por SSD entrega ganho de 5x a 10x na velocidade de inicialização e abertura de programas — é o upgrade com melhor custo-benefício." },
-          { question: "Como sei quanta memória RAM cabe no meu PC?", answer: "Fazemos diagnóstico gratuito por WhatsApp: você nos manda modelo do equipamento e identificamos o tipo (DDR3/DDR4/DDR5), frequência máxima e número de slots." },
-          { question: "Quanto tempo demora a instalação?", answer: "Em média 1 a 2 horas, incluindo clonagem do sistema. Atendemos em domicílio em Curitiba e região, com visita em até 30 min do agendamento." },
-        ]}
-      />
-      <Header />
-      <Breadcrumbs
-        items={[
-          { label: "Serviços", href: "/servicos" },
-          { label: "Upgrade SSD e Memória" },
-        ]}
-      />
-      
-      {/* Hero Section */}
-      <section className="relative pt-10 pb-10 hero-gradient overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-breathe" />
-          <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '2s' }} />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
-              <Zap className="h-5 w-5" />
-              <span className="font-medium">Performance Máxima</span>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
-              Upgrade de SSD e Memória RAM em Curitiba
-            </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto fade-section">
-              Deixe seu computador ou notebook até 10x mais rápido com upgrade de SSD e memória RAM. Instalação profissional com migração de dados.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-section">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Solicitar Orçamento
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <RealImageSection imageKey="componentesSsd" caption="SSD e memória RAM para upgrade de desempenho" />
-
-      {/* Comparativo de Performance */}
-      <section className="relative py-16 bg-background overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Diferença de Performance: HD vs SSD
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="group bg-secondary p-8 rounded-xl border-l-4 border-red-500 stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/10">
-                <h3 className="text-xl font-bold text-red-500 mb-4">Com HD Tradicional</h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li>⏱️ Windows inicia em 2-3 minutos</li>
-                  <li>⏱️ Programas demoram para abrir</li>
-                  <li>⏱️ Transferência de arquivos lenta</li>
-                  <li>⏱️ Travamentos frequentes</li>
-                  <li>🔊 Ruído mecânico do disco</li>
-                </ul>
-              </div>
-              <div className="group bg-secondary p-8 rounded-xl border-l-4 border-accent stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10" style={{ animationDelay: '80ms' }}>
-                <h3 className="text-xl font-bold text-accent mb-4">Com SSD</h3>
-                <ul className="space-y-3 text-foreground">
-                  <li>⚡ Windows inicia em 15-30 segundos</li>
-                  <li>⚡ Programas abrem instantaneamente</li>
-                  <li>⚡ Transferência até 10x mais rápida</li>
-                  <li>⚡ Desempenho fluido e estável</li>
-                  <li>🔇 Operação silenciosa</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <RealImageSection imageKey="placaMae" caption="Diagnóstico de compatibilidade para upgrade" />
-
-      {/* Tipos de Upgrade */}
-      <section className="py-10 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Opções de Upgrade
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              { icon: HardDrive, title: "SSD SATA", desc: "Ideal para notebooks e PCs mais antigos. Até 550MB/s de velocidade.", price: "A partir de R$299", sub: "SSD 240GB + instalação", featured: false },
-              { icon: HardDrive, title: "SSD NVMe", desc: "Máxima velocidade para notebooks e PCs modernos. Até 3.500MB/s.", price: "A partir de R$399", sub: "SSD NVMe 256GB + instalação", featured: true },
-              { icon: TrendingUp, title: "Memória RAM", desc: "Mais memória para multitarefas e programas pesados.", price: "A partir de R$199", sub: "8GB DDR4 + instalação", featured: false },
-            ].map((item, index) => (
-              <div key={index} className={`group text-center p-6 bg-background rounded-xl stagger-item transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${item.featured ? 'border-2 border-accent shadow-[0_0_24px_hsl(var(--accent)/0.15)]' : ''}`} style={{ animationDelay: `${index * 80}ms` }}>
-                <item.icon className="h-12 w-12 text-accent mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground mb-4">{item.desc}</p>
-                <p className="text-2xl font-bold text-accent">{item.price}</p>
-                <p className="text-sm text-muted-foreground">{item.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefícios */}
-      <section className="relative py-16 bg-background overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Benefícios do Upgrade
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { title: "10x Mais Rápido", desc: "Boot e programas instantâneos" },
-              { title: "Sem Travamentos", desc: "Multitarefas fluido" },
-              { title: "Maior Durabilidade", desc: "SSD não tem peças móveis" },
-              { title: "Economia de Energia", desc: "Mais autonomia no notebook" },
-            ].map((item, index) => (
-              <div key={index} className="group text-center p-6 bg-secondary rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg" style={{ animationDelay: `${index * 80}ms` }}>
-                <Zap className="h-10 w-10 text-accent mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* O que está incluso */}
-      <section className="py-10 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            O Que Está Incluso
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              "Diagnóstico de compatibilidade",
-              "SSD ou memória RAM de qualidade",
-              "Clonagem/migração de dados",
-              "Instalação profissional",
-              "Testes de funcionamento",
-              "Garantia de 12 meses",
-              "Atendimento domiciliar",
-              "Suporte pós-upgrade",
-            ].map((item, index) => (
-              <div key={index} className="group flex items-center gap-3 p-4 bg-background rounded-lg stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
-                <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                <span className="text-foreground">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-10 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Perguntas Frequentes
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              { q: "Meu notebook suporta upgrade?", a: "A maioria dos notebooks suporta upgrade de SSD e/ou memória RAM. Fazemos diagnóstico gratuito para verificar compatibilidade." },
-              { q: "Vou perder meus dados?", a: "Não! Fazemos clonagem completa do HD para o SSD. Todos os seus programas, arquivos e configurações são preservados." },
-              { q: "Quanto tempo demora o serviço?", a: "O upgrade leva de 1 a 3 horas, dependendo da quantidade de dados para migrar." },
-              { q: "Qual a diferença entre SATA e NVMe?", a: "O SSD NVMe é até 6x mais rápido que o SATA, mas requer slot M.2 disponível. Verificamos qual opção é melhor para seu equipamento." },
-              { q: "Posso fazer upgrade de notebook antigo?", a: "Sim! Notebooks mais antigos podem receber SSD SATA e, dependendo do modelo, mais memória RAM." },
-            ].map((item, index) => (
-              <div key={index} className="group bg-secondary p-6 rounded-xl stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
-                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
-                <p className="text-muted-foreground">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="relative py-16 bg-primary overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-breathe" />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-white mb-4 reveal-text">
-            Deixe Seu Computador Mais Rápido Hoje!
-          </h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Solicite um orçamento sem compromisso e descubra como deixar seu computador voando!
-          </p>
-          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
-            <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar Orçamento
-          </Button>
-        </div>
-      </section>
-
-      {/* Serviços Relacionados */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">Serviços Relacionados</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/servicos/conserto-pc-notebook" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Conserto de Hardware</Link>
-            <Link to="/servicos/formatacao-computador" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Formatação</Link>
-            <Link to="/servicos/montagem-pc" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Montagem de PC</Link>
-          </div>
-        </div>
-      </section>
-      <InterlinkingBlock />
-      <Footer />
-    </div>
-  );
+const data: ServicoLandingData = {
+  path: "upgrade-ssd-memoria",
+  trackingKey: "upgrade-ssd-memoria",
+  metaTitle: "Upgrade de SSD e Memória RAM em Curitiba a partir de R$ 99,99 | Técnico em Curitiba",
+  metaDescription:
+    "Instalação de SSD e memória RAM em notebook e PC em Curitiba. Mão de obra a partir de R$ 99,99, com clonagem do Windows e orientação honesta sobre o ganho real.",
+  serviceName: "Upgrade de SSD e Memória RAM",
+  serviceDescription:
+    "Instalação de SSD e memória RAM em notebooks e computadores, com clonagem do sistema, testes e orientação honesta sobre o ganho de desempenho, em Curitiba e região.",
+  eyebrow: "Upgrade de desempenho em Curitiba",
+  h1: "Upgrade de SSD e memória RAM em Curitiba",
+  h1Accent: "seu PC muito mais rápido",
+  intro:
+    "A forma mais barata de deixar um notebook ou PC rápido de novo é trocar o HD por SSD e reforçar a memória RAM. Avaliamos seu equipamento e indicamos o upgrade que realmente vale a pena.",
+  whatsappMessage: "Olá! Quero fazer upgrade de SSD/memória no meu computador. Pode me ajudar?",
+  precoNota: "mão de obra",
+  incluso: [
+    { title: "Avaliação de compatibilidade", desc: "Verificamos o que seu equipamento suporta antes de indicar peças." },
+    { title: "Instalação do SSD", desc: "SSD SATA ou NVMe instalado conforme o seu modelo." },
+    { title: "Clonagem do sistema", desc: "Migramos o Windows e seus dados sem reinstalar tudo (quando possível)." },
+    { title: "Upgrade de RAM", desc: "Instalação de memória compatível para multitarefa e desempenho." },
+    { title: "Testes de desempenho", desc: "Conferimos temperatura, velocidade e estabilidade após o upgrade." },
+    { title: "Orientação honesta", desc: "Se o upgrade não compensar no seu caso, avisamos antes." },
+  ],
+  sinais: [
+    "Notebook demora vários minutos para ligar",
+    "Trava ao abrir várias abas ou programas",
+    "Ainda usa HD mecânico (não SSD)",
+    "Pouca memória RAM para o uso do dia a dia",
+    "Barulho ou lentidão típicos de HD desgastado",
+    "Quer estender a vida útil de um equipamento antigo",
+  ],
+  processo: [
+    { step: "1", title: "Avaliação", desc: "Você informa o modelo pelo WhatsApp e avaliamos o upgrade ideal." },
+    { step: "2", title: "Orçamento", desc: "Apresentamos peças e mão de obra com valor aprovado antes." },
+    { step: "3", title: "Instalação", desc: "Instalamos o SSD/RAM e clonamos o sistema quando possível." },
+    { step: "4", title: "Entrega", desc: "Equipamento testado, mais rápido e pronto para uso." },
+  ],
+  faqs: [
+    { question: "Quanto custa o upgrade de SSD ou memória?", answer: "A mão de obra começa em R$ 99,99, somada ao valor das peças. Passamos o orçamento completo antes de executar." },
+    { question: "Preciso reinstalar o Windows e meus programas?", answer: "Na maioria dos casos não. Fazemos a clonagem do sistema para o SSD, mantendo Windows, programas e arquivos como estavam." },
+    { question: "Qual dá mais resultado: SSD ou mais RAM?", answer: "Em geral o SSD é o upgrade que mais acelera um PC antigo. A RAM ajuda na multitarefa. Avaliamos seu caso e indicamos o melhor custo-benefício." },
+    { question: "Vocês vendem as peças ou eu levo as minhas?", answer: "As duas opções. Podemos fornecer SSD e memória compatíveis ou instalar peças que você já tenha." },
+    { question: "Atendem em domicílio ou por coleta?", answer: "Atendemos em Curitiba e região, com atendimento em domicílio ou coleta e entrega." },
+  ],
+  relacionados: [
+    { label: "Formatação de computador", to: "/servicos/formatacao-computador" },
+    { label: "Computador lento", to: "/servicos/computador-lento" },
+    { label: "Montagem de PC", to: "/servicos/montagem-pc" },
+  ],
+  dateModified: "2026-07-09",
 };
+
+const UpgradeSsdMemoria = () => <ServicoLandingLayout data={data} />;
 
 export default UpgradeSsdMemoria;

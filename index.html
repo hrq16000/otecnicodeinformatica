@@ -60,7 +60,9 @@
     <meta name="twitter:image:alt" content="Técnico de Informática em Curitiba" />
 
 
-    <!-- Fonte do shell usa fallback local; fontes web entram pelo CSS do app sem bloquear a primeira pintura. -->
+    <!-- Tipografia auto-hospedada: preload das fontes críticas (corpo + H1) para reduzir CLS/LCP. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-var.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
     <link rel="preload" as="style" href="/src/index.css" />
     <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
@@ -76,13 +78,13 @@
     <!-- Critical inline styles for above-the-fold (Hero) — eliminates render-blocking -->
     <style>
       /* Fallback fonts matched via size-adjust — eliminates FOUT/FOIT flicker
-         even on slow networks. Body & headings render instantly with metrics
-         close to Inter/Poppins so swap-in is imperceptible. */
-      @font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107%;ascent-override:90%;descent-override:22%;line-gap-override:0%}
+         even on slow networks. Body (Montserrat) & headings (Poppins) render
+         instantly with metrics close to the web fonts so swap-in is imperceptible. */
+      @font-face{font-family:"Montserrat Fallback";src:local("Arial");size-adjust:112%;ascent-override:87.5%;descent-override:22.7%;line-gap-override:0%}
       @font-face{font-family:"Poppins Fallback";src:local("Arial");size-adjust:112%;ascent-override:92%;descent-override:30%;line-gap-override:0%}
       *,*::before,*::after{box-sizing:border-box}
       html{-webkit-text-size-adjust:100%;line-height:1.5}
-      body{margin:0;font-family:Inter,"Inter Fallback",Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(205,58%,15%);-webkit-font-smoothing:antialiased;font-display:swap}
+      body{margin:0;font-family:Montserrat,"Montserrat Fallback",Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:hsl(205,58%,15%);-webkit-font-smoothing:antialiased;font-display:swap}
       #root{min-height:100vh}
       /* Splash crítico: APENAS a logo pulsando até o React hidratar.
          Zero hero estática — evita "flash of static content" antes da SPA. */
@@ -178,7 +180,7 @@
           } catch (e) {}
           var bar = document.createElement('div');
           bar.setAttribute('role', 'alert');
-          bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b2733;color:#fff;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Inter,sans-serif;border-top:1px solid rgba(255,255,255,.18)';
+          bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b2733;color:#fff;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Montserrat,sans-serif;border-top:1px solid rgba(255,255,255,.18)';
           bar.innerHTML = '<span>Conexão lenta? Fale agora mesmo:</span>' +
             '<a href="https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." data-cta-location="hydration_timeout_bar" style="background:hsl(145,63%,42%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">WhatsApp Agora</a>' +
             '<a href="/diagnostico-60s" style="background:hsl(24,92%,52%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">Diagnóstico 60s</a>' +

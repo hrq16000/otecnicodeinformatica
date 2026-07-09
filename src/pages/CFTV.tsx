@@ -16,11 +16,11 @@ import {
   Moon,
   HardDrive,
   CheckCircle2,
-  Star,
+  
   AlertTriangle,
   Clock,
   MapPin,
-  Award,
+  
   Camera,
   Lock,
   Zap,
@@ -247,55 +247,31 @@ const CFTVPage = () => {
         {/* PROVA SOCIAL */}
         <section className="py-12 md:py-20 bg-background">
           <div className="container mx-auto">
-            <div className="text-center mb-6">
+            <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3">
-                O Que Dizem Nossos Clientes
+                Por que instalar seu CFTV com a gente
               </h2>
-              <div className="flex items-center justify-center gap-2 mb-2">
-                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-accent text-accent" />)}
-                <span className="text-foreground font-semibold ml-1">4.9/5</span>
-              </div>
-              <p className="text-muted-foreground">Mais de 127 instalações realizadas na região</p>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Atendimento local e direto em Curitiba e região, com projeto adequado ao seu imóvel,
+                orçamento aprovado antes da instalação e sem promessa que não podemos cumprir.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
               {[
-                { name: "Marcos R.", location: "Boqueirão, Curitiba", text: "Instalaram as 4 câmeras em menos de 3 horas. Agora vejo tudo pelo celular, mesmo quando estou no trabalho. Sensação de segurança incomparável!", service: "Kit 4 Câmeras" },
-                { name: "Fernanda S.", location: "Afonso Pena, SJP", text: "Sempre tive medo de deixar a loja sozinha à noite. Depois das câmeras, já peguei duas tentativas de arrombamento nas gravações. A polícia agiu rápido com as imagens.", service: "CFTV Comercial" },
-                { name: "Ricardo M.", location: "Itapoá, Litoral PR", text: "Tenho casa de praia e ficava meses sem ir. Agora monitoro tudo pelo celular. Já valeu cada centavo quando vi um estranho rondando e acionei a PM na hora.", service: "Monitoramento Remoto" },
-              ].map((t, i) => (
-                <div key={i} className="bg-muted/30 rounded-xl p-6 border border-primary/5">
-                  <div className="flex gap-0.5 mb-3">
-                    {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 fill-accent text-accent" />)}
-                  </div>
-                  <p className="text-foreground/80 text-sm mb-4 leading-relaxed italic">"{t.text}"</p>
-                  <div className="border-t border-primary/10 pt-3">
-                    <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.location}</p>
-                    <p className="text-xs text-accent mt-1">{t.service}</p>
-                  </div>
+                { title: "Projeto sob medida", desc: "Definimos pontos de câmera e cobertura conforme a planta do seu imóvel." },
+                { title: "Acesso pelo celular", desc: "Configuramos o monitoramento remoto para você ver as imagens de onde estiver." },
+                { title: "Instalação organizada", desc: "Cabeamento limpo, equipamentos testados e orientação de uso na entrega." },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl border border-border bg-card p-6">
+                  <h3 className="font-heading font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
-
-            {/* Autoridade */}
-            <div className="max-w-3xl mx-auto mt-12 bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/10">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Award className="h-10 w-10 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-primary text-lg mb-2">Mestre dos Serviços — Desde 1999</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Mais de <strong>25 anos de experiência</strong> em soluções de segurança eletrônica e tecnologia. 
-                    Henrique da Cruz e a equipe da Mileuma Soluções já protegeram centenas de residências e comércios 
-                    em Curitiba, São José dos Pinhais e Litoral do Paraná. Profissionalismo, pontualidade e garantia real.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
+
 
         {/* COBERTURA */}
         <section className="py-8 md:py-10 bg-muted/50">

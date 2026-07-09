@@ -143,6 +143,7 @@ const ProblemaPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href={`https://tecnico.curitiba.br/problemas/${data.slug}`} />
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
         {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}

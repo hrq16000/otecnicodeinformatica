@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, CheckCircle, Shield, Clock, MapPin, Star } from "lucide-react";
+import { MessageCircle, CheckCircle, Shield, Clock, MapPin, ShieldCheck } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Vi o anúncio e preciso de um técnico de informática em Curitiba. Serviço: [DESCREVA O PROBLEMA]";
@@ -46,9 +46,10 @@ const TecnicoInformaticaCuritibaAds = () => {
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm mb-6">
-                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                4.9 estrelas • +500 clientes atendidos
+                <ShieldCheck className="h-4 w-4 text-white" />
+                Atendimento local e direto em Curitiba
               </div>
+
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-6">
                 Técnico de Informática em Curitiba

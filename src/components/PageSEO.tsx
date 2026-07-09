@@ -69,7 +69,10 @@ export const PageSEO = ({
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: versionedOg });
     upsertLink("canonical", url);
-    if (noindex) upsertMeta('meta[name="robots"]', { name: "robots", content: "noindex, nofollow" });
+    upsertMeta('meta[name="robots"]', {
+      name: "robots",
+      content: noindex ? "noindex, nofollow" : "index, follow",
+    });
   }, [description, noindex, ogType, title, url, versionedOg]);
 
   // Inject BreadcrumbList structured data

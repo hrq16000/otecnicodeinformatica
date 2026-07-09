@@ -139,7 +139,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} breadcrumbs={[
+      <PageSEO noindex title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} breadcrumbs={[
         { name: "Início", path: "/" },
         { name: `Técnico em ${data.cidade}`, path: getCityLink() },
         { name: data.nome, path: `/bairros/${data.slug}` }
@@ -209,13 +209,8 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         {/* ═══ Rating strip ═══ */}
         <section className="py-3 bg-accent/5 border-b border-accent/10">
           <div className="container mx-auto">
-            <div className="flex items-center justify-center gap-4 text-sm">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                ))}
-              </div>
-              <span className="text-muted-foreground">4.9/5 • Avaliação dos clientes na região</span>
+            <div className="flex items-center justify-center gap-2 text-sm">
+              <span className="text-muted-foreground">Atendimento local e direto em {data.cidade} e região</span>
             </div>
           </div>
         </section>

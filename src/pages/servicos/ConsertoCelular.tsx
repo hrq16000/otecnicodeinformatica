@@ -20,7 +20,7 @@ import {
   MSG_COLETA_RESUMO,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const marcasAtendidas = [
   "Apple (iPhone)", "Samsung", "Motorola", "Xiaomi", "LG",
@@ -72,7 +72,6 @@ const ConsertoCelular = () => {
     provider: {
       "@type": "LocalBusiness",
       name: "Técnico Curitiba",
-      telephone: "+55-41-99745-2053",
     },
     areaServed: { "@type": "City", name: "Curitiba" },
   };

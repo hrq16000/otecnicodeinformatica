@@ -27,7 +27,7 @@ import {
   PRAZOS,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 type EquipmentType = "tv" | "celular" | "notebook" | "pc" | "monitor" | "radio" | "som" | "outro";
 
@@ -233,7 +233,7 @@ const ColetaFormulario = () => {
       `✅ *TERMOS ACEITOS:* Todos os ${TERMS.length} termos foram lidos e aceitos.`,
       ``,
       `---`,
-      `Formulário enviado pelo site tecnicocuritiba.com.br`,
+      `Formulário enviado pelo site tecnico.curitiba.br`,
     ];
     return lines.filter((l) => l !== "").join("\n");
   };

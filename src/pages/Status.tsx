@@ -10,7 +10,7 @@ type AppError = {
 };
 
 const WHATSAPP_URL =
-  "https://wa.me/5541997452053?text=Ol%C3%A1!%20Vi%20um%20problema%20na%20p%C3%A1gina%20de%20status.";
+  "https://wa.me/5541997086380?text=Ol%C3%A1!%20Vi%20um%20problema%20na%20p%C3%A1gina%20de%20status.";
 
 export default function Status() {
   const [errors, setErrors] = useState<AppError[]>([]);

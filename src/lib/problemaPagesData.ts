@@ -2217,7 +2217,7 @@ Nem tudo é proibido. Estas verificações são seguras para qualquer pessoa:
 ❌ Mexer em configurações da BIOS` },
 
   // ===== LOCAL + INTENÇÃO (46-50) =====
-  { slug: "assistencia-tecnica-urgente-curitiba", title: "Assistência Técnica Urgente em Curitiba | Mesmo Dia", metaDescription: "Precisa de assistência técnica urgente em Curitiba? Atendimento no mesmo dia. Computador, notebook, TV. WhatsApp (41) 99745-2053.", h1: "Assistência Técnica Urgente em Curitiba — Atendimento no Mesmo Dia", categoria: "Local + Intenção", intro: `Situações urgentes acontecem: o computador do trabalho parou, o notebook com o TCC travou, a TV da empresa de eventos não liga antes de um evento. Para esses momentos, oferecemos atendimento prioritário em Curitiba e região metropolitana, com visita técnica no mesmo dia (sujeito à disponibilidade).
+  { slug: "assistencia-tecnica-urgente-curitiba", title: "Assistência Técnica Urgente em Curitiba | Mesmo Dia", metaDescription: "Precisa de assistência técnica urgente em Curitiba? Atendimento no mesmo dia. Computador, notebook, TV. WhatsApp.", h1: "Assistência Técnica Urgente em Curitiba — Atendimento no Mesmo Dia", categoria: "Local + Intenção", intro: `Situações urgentes acontecem: o computador do trabalho parou, o notebook com o TCC travou, a TV da empresa de eventos não liga antes de um evento. Para esses momentos, oferecemos atendimento prioritário em Curitiba e região metropolitana, com visita técnica no mesmo dia (sujeito à disponibilidade).
 
 Nosso atendimento urgente funciona via WhatsApp — descreva a situação, envie fotos/vídeos se possível, e priorizamos seu caso na agenda do dia. Atendemos computadores, notebooks, TVs, redes e equipamentos eletrônicos.`, sintomas: [{ titulo: "Equipamento parou e você precisa dele AGORA", desc: "Atendimento prioritário via WhatsApp.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer problema técnico", desc: "Atendemos todos os tipos de problema com prioridade.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido na visita urgente.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico urgente + reparo no mesmo dia.", tempo: "2h a 4h", custo: "R$ 200 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico urgente + equipamento vai para bancada com prioridade.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Não deixe para última hora — quanto antes chamar, melhor"], diagnostico: `Diagnóstico presencial prioritário. Custo: R$ 90 (mesmo do normal).`, solucao: `Atendimento priorizado na agenda do dia. WhatsApp para triagem imediata.`, quandoCompensa: "Quando a urgência justifica — trabalho, estudo, evento.", quandoNaoCompensa: "Para problemas que podem esperar, o agendamento normal tem o mesmo custo.", whatsappMessage: "URGENTE! Preciso de atendimento técnico hoje. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Como Funciona", to: "/como-funciona" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Emergência TI", to: "/problemas/tecnico-informatica-emergencia-curitiba" }, { label: "Conserto Domicílio", to: "/problemas/conserto-computador-domicilio-curitiba" }, { label: "Técnico Perto de Mim", to: "/problemas/tecnico-computador-perto-de-mim" }], conteudoExtra: `### Como Funciona o Atendimento Urgente
 
@@ -2434,7 +2434,7 @@ A limpeza + pasta térmica a cada 12-18 meses custa R$ 120-200 e pode prolongar 
 5. **Conecte e desconecte o carregador com cuidado** — DC jack é frágil
 6. **Reinicie pelo menos 1x por semana** — Fechar a tampa não é reiniciar` },
 
-  { slug: "tecnico-computador-perto-de-mim", title: "Técnico de Computador Perto de Mim | Curitiba", metaDescription: "Procurando técnico de computador perto de você em Curitiba? Atendimento a domicílio em todos os bairros. WhatsApp (41) 99745-2053.", h1: "Técnico de Computador Perto de Mim em Curitiba", categoria: "Local + Intenção", intro: `Se você está procurando um técnico de computador perto de você em Curitiba e região metropolitana, você está no lugar certo. Atendemos todos os bairros de Curitiba e as cidades da região metropolitana com visita técnica a domicílio.
+  { slug: "tecnico-computador-perto-de-mim", title: "Técnico de Computador Perto de Mim | Curitiba", metaDescription: "Procurando técnico de computador perto de você em Curitiba? Atendimento a domicílio em todos os bairros. WhatsApp.", h1: "Técnico de Computador Perto de Mim em Curitiba", categoria: "Local + Intenção", intro: `Se você está procurando um técnico de computador perto de você em Curitiba e região metropolitana, você está no lugar certo. Atendemos todos os bairros de Curitiba e as cidades da região metropolitana com visita técnica a domicílio.
 
 Diferente de lojas de informática genéricas, somos técnicos especializados em diagnóstico e reparo. Isso significa que você recebe atendimento de quem realmente entende do problema — não de um vendedor que vai tentar empurrar peças.`, sintomas: [{ titulo: "Precisa de técnico na sua região", desc: "Atendimento a domicílio em toda Curitiba e região.", gravidade: "Variável" }], causas: [{ titulo: "Cobertura ampla", desc: "Todos os bairros de Curitiba + 10 cidades da região metropolitana.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Visita técnica + resolução no local.", tempo: "1h a 3h", custo: "R$ 90 a R$ 300" }, { nivel: "Médio", desc: "Diagnóstico + upgrade/reparo no local.", tempo: "2h a 4h", custo: "R$ 200 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + coleta para bancada.", tempo: "Variável", custo: "R$ 250+" }], riscos: ["Cuidado com técnicos sem formação ou experiência comprovada"], diagnostico: `Diagnóstico profissional na sua casa. Custo: R$ 90.`, solucao: `Técnico especializado na sua região com atendimento no mesmo dia.`, quandoCompensa: "Sempre — atendimento domiciliar economiza tempo.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Preciso de um técnico de computador na minha região. Podem atender?", relatedPages: [...RELATED_BASE, { label: "Curitiba", to: "/tecnico-informatica-curitiba" }, { label: "Atendimento Domicílio", to: "/atendimento-domicilio" }, { label: "Conserto Domicílio", to: "/problemas/conserto-computador-domicilio-curitiba" }, { label: "Atendimento Urgente", to: "/problemas/assistencia-tecnica-urgente-curitiba" }, { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" }], conteudoExtra: `### Bairros e Cidades Atendidas
 
@@ -2456,7 +2456,7 @@ Existem muitas opções quando você busca "técnico de computador perto de mim"
 
 ### Como Nos Encontrar
 
-**WhatsApp**: (41) 99745-2053 — Resposta rápida
+**WhatsApp**: — Resposta rápida
 **Atendimento**: Segunda a Sábado
 **Cobertura**: Curitiba + 10 cidades da região metropolitana
 **Deslocamento**: Técnico vai até você — sem precisar sair de casa
@@ -2497,7 +2497,7 @@ A: Fazemos a coleta do equipamento e devolvemos pronto. Sem custo adicional de t
   {
     slug: "impressora-nao-imprime-curitiba",
     title: "Impressora Não Imprime em Curitiba | Diagnóstico e Soluções Reais",
-    metaDescription: "Impressora não imprime? Diagnóstico profissional em Curitiba e região. Problemas de driver, cabeçote, papel, Wi-Fi. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    metaDescription: "Impressora não imprime? Diagnóstico profissional em Curitiba e região. Problemas de driver, cabeçote, papel, Wi-Fi. Atendimento rápido. WhatsApp.",
     h1: "Impressora Não Imprime — Diagnóstico e Soluções Reais",
     categoria: "Problemas de Impressora",
     intro: `Sua impressora parou de imprimir e você não sabe o motivo? Esse é um dos problemas mais frustrantes do dia a dia — especialmente quando você precisa imprimir um documento urgente para o trabalho, escola ou uma reunião.\n\nAs causas variam enormemente: pode ser algo simples como um driver desatualizado ou papel preso, ou algo mais complexo como cabeçote de impressão entupido, cartucho seco ou problema na placa lógica da impressora.\n\nEm Curitiba e região metropolitana, atendemos centenas de chamados relacionados a impressoras — HP, Epson, Canon, Brother, Samsung e outras marcas.`,
@@ -2576,7 +2576,7 @@ Atendemos em toda Curitiba (Centro, Batel, Portão, CIC, Santa Felicidade) e reg
   {
     slug: "monitor-sem-sinal-curitiba",
     title: "Monitor Sem Sinal em Curitiba | Diagnóstico e Soluções Reais",
-    metaDescription: "Monitor sem sinal? Diagnóstico profissional em Curitiba. Problema na placa de vídeo, cabo, monitor ou configuração. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    metaDescription: "Monitor sem sinal? Diagnóstico profissional em Curitiba. Problema na placa de vídeo, cabo, monitor ou configuração. Atendimento rápido. WhatsApp.",
     h1: "Monitor Sem Sinal — Diagnóstico e Soluções Reais",
     categoria: "Problemas de Monitor/Vídeo",
     intro: `Ligar o computador e ver "Sem Sinal" ou "No Signal" no monitor é assustador. Você não sabe se o problema é no monitor, no cabo, na placa de vídeo ou na placa-mãe.\n\nA boa notícia: na maioria dos casos o problema é simples — cabo solto, entrada errada ou driver corrompido. Mas em casos graves, pode indicar falha na GPU ou placa-mãe.\n\nEm Curitiba, atendemos este problema diariamente. Nosso diagnóstico identifica a causa real e evita substituições desnecessárias.`,
@@ -2652,7 +2652,7 @@ Diagnosticamos problemas de monitor/vídeo em toda Curitiba e região metropolit
   {
     slug: "internet-lenta-curitiba",
     title: "Internet Lenta em Curitiba | Diagnóstico de Rede e Soluções",
-    metaDescription: "Internet lenta em Curitiba? Diagnóstico de rede profissional. Roteador, Wi-Fi, cabeamento, DNS. Atendimento rápido. WhatsApp (41) 99745-2053.",
+    metaDescription: "Internet lenta em Curitiba? Diagnóstico de rede profissional. Roteador, Wi-Fi, cabeamento, DNS. Atendimento rápido. WhatsApp.",
     h1: "Internet Lenta — Diagnóstico de Rede e Soluções Profissionais",
     categoria: "Problemas de Rede",
     intro: `Internet lenta é uma das reclamações mais comuns em Curitiba. Antes de culpar o provedor, saiba que em mais de 60% dos casos o problema está na sua casa ou escritório.\n\nRoteador mal posicionado, canal Wi-Fi congestionado, cabeamento antigo, DNS lento ou malware consumindo banda — são dezenas de causas possíveis.\n\nNossa equipe utiliza ferramentas de análise de rede para identificar gargalos e interferências.`,
@@ -2724,7 +2724,7 @@ Configuramos redes em todos os bairros e cidades da região metropolitana. Proje
   {
     slug: "teclado-mouse-nao-funciona-curitiba",
     title: "Teclado ou Mouse Não Funciona em Curitiba | Diagnóstico Rápido",
-    metaDescription: "Teclado ou mouse não funcionam? Diagnóstico rápido em Curitiba. Porta USB, driver, Bluetooth. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    metaDescription: "Teclado ou mouse não funcionam? Diagnóstico rápido em Curitiba. Porta USB, driver, Bluetooth. Atendimento no mesmo dia. WhatsApp.",
     h1: "Teclado ou Mouse Não Funciona — Diagnóstico e Soluções Rápidas",
     categoria: "Problemas de Periféricos",
     intro: `Teclado ou mouse pararam de funcionar? Antes de comprar novos, saiba que em muitos casos o problema está no computador — não no periférico.\n\nPortas USB defeituosas, drivers corrompidos, conflitos de Bluetooth ou sujeira acumulada podem ser a causa real.\n\nEm Curitiba, diagnosticamos e resolvemos com rapidez, evitando gastos desnecessários.`,
@@ -2785,7 +2785,7 @@ Resolvemos no mesmo dia em toda Curitiba e região. Maioria dos casos em menos d
   {
     slug: "hd-externo-nao-reconhece-curitiba",
     title: "HD Externo Não Reconhece em Curitiba | Recuperação e Diagnóstico",
-    metaDescription: "HD externo não reconhece? Diagnóstico e recuperação de dados em Curitiba. USB, partição, firmware. Atendimento especializado. WhatsApp (41) 99745-2053.",
+    metaDescription: "HD externo não reconhece? Diagnóstico e recuperação de dados em Curitiba. USB, partição, firmware. Atendimento especializado. WhatsApp.",
     h1: "HD Externo Não Reconhece — Diagnóstico e Recuperação de Dados",
     categoria: "Problemas de Armazenamento",
     intro: `Seu HD externo ou pendrive parou de ser reconhecido? Isso pode ser desde um problema simples de cabo até perda iminente de dados.\n\nAntes de tentar qualquer solução caseira, entenda a causa — ações como formatar podem destruir seus arquivos permanentemente.\n\nEm Curitiba, oferecemos diagnóstico especializado com foco na preservação dos seus dados.`,
@@ -2861,7 +2861,7 @@ Diagnóstico de armazenamento em toda Curitiba e região. Parceria com laborató
   {
     slug: "tela-azul-windows-curitiba",
     title: "Tela Azul no Windows em Curitiba | Diagnóstico BSOD Profissional",
-    metaDescription: "Tela azul da morte (BSOD) no Windows? Diagnóstico profissional em Curitiba. Identificamos o driver ou hardware causador. WhatsApp (41) 99745-2053.",
+    metaDescription: "Tela azul da morte (BSOD) no Windows? Diagnóstico profissional em Curitiba. Identificamos o driver ou hardware causador. WhatsApp.",
     h1: "Tela Azul no Windows (BSOD) — Diagnóstico e Solução Profissional",
     categoria: "Erros de Sistema",
     intro: `A temida "Tela Azul da Morte" (BSOD - Blue Screen of Death) é o erro mais assustador do Windows. O computador para tudo, exibe um código de erro e reinicia sozinho.\n\nNa maioria dos casos, a tela azul é causada por um driver incompatível, memória RAM defeituosa ou superaquecimento. Mas também pode indicar HD/SSD com falha ou até placa-mãe danificada.\n\nEm Curitiba, analisamos os logs de crash dump para identificar exatamente qual componente ou driver está causando o problema — sem tentativa e erro.`,
@@ -2933,7 +2933,7 @@ Diagnosticamos telas azuis em toda Curitiba e região metropolitana. Análise de
   {
     slug: "notebook-sem-wifi-curitiba",
     title: "Notebook Sem Wi-Fi em Curitiba | Diagnóstico e Solução Rápida",
-    metaDescription: "Notebook não conecta no Wi-Fi? Diagnóstico rápido em Curitiba. Problema de driver, placa wireless, configuração. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    metaDescription: "Notebook não conecta no Wi-Fi? Diagnóstico rápido em Curitiba. Problema de driver, placa wireless, configuração. Atendimento no mesmo dia. WhatsApp.",
     h1: "Notebook Sem Wi-Fi — Diagnóstico e Solução Rápida",
     categoria: "Problemas de Notebook",
     intro: `Seu notebook parou de encontrar redes Wi-Fi ou não consegue se conectar? Esse problema afeta milhares de usuários e pode ter causas simples ou complexas.\n\nDesde um driver desatualizado pelo Windows Update até uma placa wireless queimada, o diagnóstico correto é essencial para não gastar dinheiro à toa.\n\nEm Curitiba, resolvemos problemas de Wi-Fi em notebooks de todas as marcas — Dell, Lenovo, HP, Acer, Asus, Samsung e Apple.`,
@@ -3001,7 +3001,7 @@ Resolvemos problemas de Wi-Fi em notebooks de todas as marcas. Atendimento a dom
   {
     slug: "pc-trava-ao-jogar-curitiba",
     title: "PC Trava ao Jogar em Curitiba | Diagnóstico Gamer Profissional",
-    metaDescription: "PC trava, congela ou reinicia durante jogos? Diagnóstico gamer em Curitiba. GPU, fonte, temperatura, drivers. Atendimento especializado. WhatsApp (41) 99745-2053.",
+    metaDescription: "PC trava, congela ou reinicia durante jogos? Diagnóstico gamer em Curitiba. GPU, fonte, temperatura, drivers. Atendimento especializado. WhatsApp.",
     h1: "PC Trava ao Jogar — Diagnóstico Gamer e Soluções Reais",
     categoria: "Problemas Gamer",
     intro: `Seu PC congela, trava ou reinicia no meio de uma partida? Esse é um dos problemas mais frustrantes para gamers — especialmente quando acontece em momentos cruciais.\n\nAs causas mais comuns envolvem superaquecimento de GPU, fonte de alimentação insuficiente, drivers desatualizados ou RAM instável. Mas identificar qual é o culpado exige diagnóstico profissional.\n\nEm Curitiba, oferecemos diagnóstico especializado para PCs gamer com testes de stress, monitoramento de temperatura e análise de estabilidade.`,
@@ -3078,7 +3078,7 @@ Diagnóstico especializado para PCs gamer em toda Curitiba e região. Equipament
   {
     slug: "computador-com-som-estranho-curitiba",
     title: "Computador Com Som Estranho em Curitiba | Diagnóstico de Barulhos",
-    metaDescription: "Computador fazendo barulho estranho? Diagnóstico profissional em Curitiba. Ventoinha, HD, fonte, cooler. Identifique antes que quebre. WhatsApp (41) 99745-2053.",
+    metaDescription: "Computador fazendo barulho estranho? Diagnóstico profissional em Curitiba. Ventoinha, HD, fonte, cooler. Identifique antes que quebre. WhatsApp.",
     h1: "Computador Com Som Estranho — Diagnóstico de Barulhos e Ruídos",
     categoria: "Problemas de Hardware",
     intro: `Seu computador começou a fazer barulhos estranhos? Chiados, zumbidos, cliques ou vibrações não são normais e quase sempre indicam um componente prestes a falhar.\n\nIdentificar a origem do barulho cedo pode evitar quebras mais caras e perda de dados. Cada tipo de som aponta para um componente diferente.\n\nEm Curitiba, diagnosticamos a origem do barulho com precisão para resolver antes que o problema se agrave.`,
@@ -3146,7 +3146,7 @@ Diagnosticamos barulhos em PCs e notebooks em toda Curitiba e região. Limpeza p
   {
     slug: "computador-nao-conecta-bluetooth-curitiba",
     title: "Computador Não Conecta Bluetooth em Curitiba | Diagnóstico Rápido",
-    metaDescription: "Bluetooth não funciona no computador? Diagnóstico rápido em Curitiba. Driver, adaptador, configuração. Atendimento no mesmo dia. WhatsApp (41) 99745-2053.",
+    metaDescription: "Bluetooth não funciona no computador? Diagnóstico rápido em Curitiba. Driver, adaptador, configuração. Atendimento no mesmo dia. WhatsApp.",
     h1: "Computador Não Conecta Bluetooth — Diagnóstico e Solução",
     categoria: "Problemas de Conectividade",
     intro: `O Bluetooth do seu computador parou de funcionar? Não consegue parear fones, mouse, teclado ou caixas de som sem fio?\n\nEsse problema é extremamente comum e na maioria dos casos é causado por driver, configuração ou adaptador desativado.\n\nEm Curitiba, resolvemos problemas de Bluetooth em PCs e notebooks com rapidez.`,

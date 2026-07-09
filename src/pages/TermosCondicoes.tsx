@@ -13,7 +13,7 @@ import {
   Clock,
 } from "lucide-react";
 
-const CANONICAL = "https://tecnicocuritiba.com.br/termos-e-condicoes";
+const CANONICAL = "https://tecnico.curitiba.br/termos-e-condicoes";
 
 const faq = [
   {
@@ -60,7 +60,7 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.com.br/" },
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
     { "@type": "ListItem", position: 2, name: "Termos e Condições", item: CANONICAL },
   ],
 };
@@ -68,20 +68,20 @@ const breadcrumbJsonLd = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://tecnicocuritiba.com.br/#localbusiness",
+  "@id": "https://tecnico.curitiba.br/#localbusiness",
   name: "Técnico Curitiba — Assistência Técnica em Informática",
-  url: "https://tecnicocuritiba.com.br/",
-  telephone: "+5541997452053",
+  url: "https://tecnico.curitiba.br/",
+  telephone: "+5541997086380",
   areaServed: [
     { "@type": "City", name: "Curitiba" },
     { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
   ],
   priceRange: "R$ 90 – R$ 500",
-  sameAs: ["https://wa.me/5541997452053"],
+  sameAs: ["https://wa.me/5541997086380"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    telephone: "+5541997452053",
+    telephone: "+5541997086380",
     availableLanguage: ["Portuguese"],
     areaServed: "BR",
   },
@@ -221,7 +221,7 @@ const TermosCondicoes = () => {
             Toda conversa começa com nossas perguntas rápidas para já chegar com tudo pronto no WhatsApp.
           </p>
           <a
-            href="https://wa.me/5541997452053"
+            href="https://wa.me/5541997086380"
             data-cta-location="terms_bottom_cta"
             className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
           >

@@ -32,7 +32,7 @@ import {
   Zap
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 interface BairroData {
   nome: string;
@@ -100,7 +100,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     "@type": "LocalBusiness",
     "name": `Técnico de Informática em ${data.nome}`,
     "description": data.metaDescription,
-    "telephone": "+55-41-99745-2053",
     "areaServed": {
       "@type": "Place",
       "name": data.nome,

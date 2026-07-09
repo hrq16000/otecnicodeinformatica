@@ -27,8 +27,8 @@ Curitiba, Sao Jose dos Pinhais, Araucaria, Campo Largo, Pinhais, Colombo, Fazend
 
 ## Contato
 
-- WhatsApp: +55 41 99745-2053
-- Website: https://tecnicocuritiba.com.br
+- WhatsApp: 
+- Website: https://tecnico.curitiba.br
 - Horario: Seg-Sex 08h-18h, Sab 09h-13h
 
 ## Diferenciais
@@ -42,13 +42,13 @@ Curitiba, Sao Jose dos Pinhais, Araucaria, Campo Largo, Pinhais, Colombo, Fazend
 
 ## Paginas Importantes
 
-- [Servicos](https://tecnicocuritiba.com.br/servicos)
-- [Como Funciona](https://tecnicocuritiba.com.br/como-funciona)
-- [Precos](https://tecnicocuritiba.com.br/precos-e-politicas)
-- [Blog Tecnico](https://tecnicocuritiba.com.br/blog)
-- [Marcas Atendidas](https://tecnicocuritiba.com.br/marcas)
-- [FAQ](https://tecnicocuritiba.com.br/faq)
-- [Contato](https://tecnicocuritiba.com.br/contato)
+- [Servicos](https://tecnico.curitiba.br/servicos)
+- [Como Funciona](https://tecnico.curitiba.br/como-funciona)
+- [Precos](https://tecnico.curitiba.br/precos-e-politicas)
+- [Blog Tecnico](https://tecnico.curitiba.br/blog)
+- [Marcas Atendidas](https://tecnico.curitiba.br/marcas)
+- [FAQ](https://tecnico.curitiba.br/faq)
+- [Contato](https://tecnico.curitiba.br/contato)
 
 ## Sobre
 

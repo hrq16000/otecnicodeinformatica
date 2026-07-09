@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/linux-vs-windows-diferencas-qual-escolher</loc>
+    <loc>https://tecnico.curitiba.br/blog/linux-vs-windows-diferencas-qual-escolher</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -15,7 +15,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/comandos-linux-essenciais-iniciantes</loc>
+    <loc>https://tecnico.curitiba.br/blog/comandos-linux-essenciais-iniciantes</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -28,7 +28,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-ubuntu-do-zero</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-ubuntu-do-zero</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -41,7 +41,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/distribuicoes-linux-qual-melhor-para-voce</loc>
+    <loc>https://tecnico.curitiba.br/blog/distribuicoes-linux-qual-melhor-para-voce</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -54,7 +54,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/trocar-windows-por-linux-vale-a-pena</loc>
+    <loc>https://tecnico.curitiba.br/blog/trocar-windows-por-linux-vale-a-pena</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -67,7 +67,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/linux-para-pc-antigo-leve-rapido</loc>
+    <loc>https://tecnico.curitiba.br/blog/linux-para-pc-antigo-leve-rapido</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -80,7 +80,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-servidor-web-apache-nginx-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-servidor-web-apache-nginx-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -93,7 +93,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-gerenciar-pacotes-apt-dnf-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-gerenciar-pacotes-apt-dnf-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -106,7 +106,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-ssh-seguro-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-ssh-seguro-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -119,7 +119,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-usar-docker-linux-guia-completo</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-usar-docker-linux-guia-completo</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -132,7 +132,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/inteligencia-artificial-evolucao-historia</loc>
+    <loc>https://tecnico.curitiba.br/blog/inteligencia-artificial-evolucao-historia</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -145,7 +145,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-usar-ia-no-dia-a-dia-dicas-praticas</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-usar-ia-no-dia-a-dia-dicas-praticas</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -158,7 +158,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/melhores-ferramentas-ia-gratuitas-2026</loc>
+    <loc>https://tecnico.curitiba.br/blog/melhores-ferramentas-ia-gratuitas-2026</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -171,7 +171,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/ia-para-pequenas-empresas-como-comecar</loc>
+    <loc>https://tecnico.curitiba.br/blog/ia-para-pequenas-empresas-como-comecar</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -184,7 +184,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/ia-substituir-empregos-mitos-verdades</loc>
+    <loc>https://tecnico.curitiba.br/blog/ia-substituir-empregos-mitos-verdades</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -197,7 +197,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-servidor-de-arquivos</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-servidor-de-arquivos</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -210,7 +210,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-manutencao-impressora</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-manutencao-impressora</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -223,7 +223,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-vpn-empresarial</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-vpn-empresarial</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -236,7 +236,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-plataforma-prestadores</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-plataforma-prestadores</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -249,7 +249,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-cadastrar-preciso-de-um</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-cadastrar-preciso-de-um</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -262,7 +262,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-todos-os-ramos</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-todos-os-ramos</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -275,7 +275,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-vagas-oportunidades</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-vagas-oportunidades</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -288,7 +288,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/por-que-todo-prestador-deve-estar-preciso-de-um</loc>
+    <loc>https://tecnico.curitiba.br/blog/por-que-todo-prestador-deve-estar-preciso-de-um</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -301,7 +301,7 @@
     <lastmod>2026-04-07</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-trocar-pasta-termica-notebook</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-trocar-pasta-termica-notebook</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -314,7 +314,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-clonar-hd-para-ssd</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-clonar-hd-para-ssd</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -327,7 +327,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-testar-fonte-de-alimentacao-pc</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-testar-fonte-de-alimentacao-pc</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -340,7 +340,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-limpar-notebook-por-dentro</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-limpar-notebook-por-dentro</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -353,7 +353,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-recuperar-dados-hd-defeituoso</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-recuperar-dados-hd-defeituoso</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -366,7 +366,7 @@
     <lastmod>2026-04-07</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-rede-wifi-empresarial</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-rede-wifi-empresarial</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -379,7 +379,7 @@
     <lastmod>2026-04-07</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-diagnosticar-placa-mae-defeituosa</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-diagnosticar-placa-mae-defeituosa</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -392,7 +392,7 @@
     <lastmod>2026-04-07</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-segundo-ssd-notebook</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-segundo-ssd-notebook</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -405,7 +405,7 @@
     <lastmod>2026-04-07</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-crimpar-cabo-de-rede-rj45</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-crimpar-cabo-de-rede-rj45</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -418,7 +418,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-bios-uefi-corretamente</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-bios-uefi-corretamente</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -431,7 +431,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-montar-pc-do-zero-guia-completo</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-montar-pc-do-zero-guia-completo</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -444,7 +444,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-linux-dual-boot-windows</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-linux-dual-boot-windows</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -457,7 +457,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-backup-automatizado</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-backup-automatizado</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -470,7 +470,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-para-eletricistas</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-para-eletricistas</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -483,7 +483,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-para-pintores-pedreiros</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-para-pintores-pedreiros</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -496,7 +496,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/preciso-de-um-para-tecnicos-informatica</loc>
+    <loc>https://tecnico.curitiba.br/blog/preciso-de-um-para-tecnicos-informatica</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -509,7 +509,7 @@
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/quando-trocar-computador-ou-reparar</loc>
+    <loc>https://tecnico.curitiba.br/blog/quando-trocar-computador-ou-reparar</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -522,7 +522,7 @@
     <lastmod>2026-04-06</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/erros-comuns-upgrade-computador</loc>
+    <loc>https://tecnico.curitiba.br/blog/erros-comuns-upgrade-computador</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -535,7 +535,7 @@
     <lastmod>2026-04-06</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/manutencao-preventiva-computador-guia</loc>
+    <loc>https://tecnico.curitiba.br/blog/manutencao-preventiva-computador-guia</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -548,7 +548,7 @@
     <lastmod>2026-04-06</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/diagnostico-tecnico-por-que-e-pago</loc>
+    <loc>https://tecnico.curitiba.br/blog/diagnostico-tecnico-por-que-e-pago</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -561,7 +561,7 @@
     <lastmod>2026-04-05</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-proteger-computador-golpes-internet</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-proteger-computador-golpes-internet</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -574,7 +574,7 @@
     <lastmod>2026-04-05</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/computador-lento-causas-solucoes</loc>
+    <loc>https://tecnico.curitiba.br/blog/computador-lento-causas-solucoes</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -587,7 +587,7 @@
     <lastmod>2026-04-06</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-saber-se-pc-tem-virus-malware</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-saber-se-pc-tem-virus-malware</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -600,7 +600,7 @@
     <lastmod>2026-04-05</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/notebook-nao-liga-o-que-fazer</loc>
+    <loc>https://tecnico.curitiba.br/blog/notebook-nao-liga-o-que-fazer</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -613,7 +613,7 @@
     <lastmod>2026-04-04</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-firewall-pfsense</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-firewall-pfsense</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -626,7 +626,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-montar-rack-de-rede</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-montar-rack-de-rede</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -639,7 +639,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-active-directory</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-active-directory</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -652,7 +652,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-manutencao-nobreak</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-manutencao-nobreak</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -665,7 +665,7 @@
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-upgrade-ssd-nvme</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-upgrade-ssd-nvme</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -678,7 +678,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-recuperar-dados-hd-com-defeito</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-recuperar-dados-hd-com-defeito</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -691,7 +691,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-trocar-tela-notebook-passo-a-passo</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-trocar-tela-notebook-passo-a-passo</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -704,7 +704,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-backup-completo-windows-11</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-backup-completo-windows-11</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -717,7 +717,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-windows-11-do-zero</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-windows-11-do-zero</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -730,7 +730,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-resolver-tela-azul-windows</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-resolver-tela-azul-windows</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -743,7 +743,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-overclock-cpu-com-seguranca</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-overclock-cpu-com-seguranca</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -756,7 +756,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-montar-pc-gamer-2026</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-montar-pc-gamer-2026</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -769,7 +769,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-criar-script-bash-iniciantes</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-criar-script-bash-iniciantes</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -782,7 +782,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-monitorar-servidor-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-monitorar-servidor-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -795,7 +795,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-cron-jobs-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-cron-jobs-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -808,7 +808,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-postgresql-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-postgresql-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -821,7 +821,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-usar-systemd-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-usar-systemd-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -834,7 +834,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-rede-linux-netplan</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-rede-linux-netplan</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -847,7 +847,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-instalar-lamp-stack-ubuntu</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-instalar-lamp-stack-ubuntu</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -860,7 +860,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-usar-rsync-backup-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-usar-rsync-backup-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -873,7 +873,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-criar-prompts-eficazes-chatgpt</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-criar-prompts-eficazes-chatgpt</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -886,7 +886,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/melhores-ias-para-programacao-2026</loc>
+    <loc>https://tecnico.curitiba.br/blog/melhores-ias-para-programacao-2026</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -899,7 +899,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-rodar-ia-localmente-no-pc</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-rodar-ia-localmente-no-pc</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -912,7 +912,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-criar-imagens-com-stable-diffusion</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-criar-imagens-com-stable-diffusion</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -925,7 +925,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/automatizar-tarefas-com-ia-n8n-make</loc>
+    <loc>https://tecnico.curitiba.br/blog/automatizar-tarefas-com-ia-n8n-make</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -938,7 +938,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/ia-para-criacao-conteudo-profissional</loc>
+    <loc>https://tecnico.curitiba.br/blog/ia-para-criacao-conteudo-profissional</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -951,7 +951,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/diferenca-llm-machine-learning-deep-learning</loc>
+    <loc>https://tecnico.curitiba.br/blog/diferenca-llm-machine-learning-deep-learning</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -964,7 +964,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-treinar-ia-customizada-fine-tuning</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-treinar-ia-customizada-fine-tuning</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -977,7 +977,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-firewall-ufw-linux</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-firewall-ufw-linux</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -990,7 +990,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-proteger-rede-wifi-empresa</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-proteger-rede-wifi-empresa</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1003,7 +1003,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-detectar-invasao-rede</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-detectar-invasao-rede</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1016,7 +1016,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-2fa-em-tudo</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-2fa-em-tudo</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1029,7 +1029,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/melhores-antivirus-2026-comparativo</loc>
+    <loc>https://tecnico.curitiba.br/blog/melhores-antivirus-2026-comparativo</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1042,7 +1042,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-configurar-vlan-rede-corporativa</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-configurar-vlan-rede-corporativa</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1055,7 +1055,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-fazer-pentest-basico-rede</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-fazer-pentest-basico-rede</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>
@@ -1068,7 +1068,7 @@
     <lastmod>2026-04-20</lastmod>
   </url>
   <url>
-    <loc>https://tecnicocuritiba.com.br/blog/como-recuperar-conta-hackeada</loc>
+    <loc>https://tecnico.curitiba.br/blog/como-recuperar-conta-hackeada</loc>
     <news:news>
       <news:publication>
         <news:name>Técnico Curitiba</news:name>

@@ -6,7 +6,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-const SITE = "https://tecnicocuritiba.com.br";
+const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
 
 // === Cidades para arrumar-pc (national hub) ===
@@ -185,7 +185,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: cat.titlePrefix,
       serviceType: cat.titlePrefix,
-      provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997452053" },
+      provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997086380" },
       areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
       description: meta.description,
       url: meta.url,
@@ -205,7 +205,7 @@ export async function prerenderCities(distDir) {
         "@type": "Service",
         name: `${cat.titlePrefix} em ${meta.cityLabel}`,
         serviceType: cat.titlePrefix,
-        provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997452053", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
+        provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
         areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: meta.cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
         offers: {
           "@type": "Offer", priceCurrency: "BRL", price: "300",

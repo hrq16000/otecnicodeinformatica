@@ -143,8 +143,7 @@ const pinhaisSchema = {
   "@type": "LocalBusiness",
   "name": "Técnico de Informática em Pinhais",
   "description": "Assistência técnica de computadores em Pinhais PR. Atendimento a domicílio rápido. Formatação, conserto de notebook, remoção de vírus. Próximo a Curitiba.",
-  "telephone": "+55-41-99745-2053",
-  "url": "https://tecnicocuritiba.com.br/tecnico-informatica-pinhais",
+  "url": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
   "areaServed": {
     "@type": "City",
     "name": "Pinhais",

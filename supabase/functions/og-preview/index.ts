@@ -5,7 +5,7 @@
 //
 // Usage: /functions/v1/og-preview?cidade=sao-paulo
 
-const SITE = "https://tecnicocuritiba.com.br";
+const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
 
 const CITIES: Record<string, { cidade: string; estado: string; estadoNome: string }> = {

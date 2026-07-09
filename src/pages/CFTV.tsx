@@ -28,7 +28,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_CFTV_MESSAGE = "Olá! Tenho interesse no Kit 4 Câmeras Intelbras com instalação. Gostaria de mais informações.";
 
 const CFTVPage = () => {
@@ -39,7 +39,7 @@ const CFTVPage = () => {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp (41) 99745-2053."
+        "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp."
       );
     }
     trackPageView("/cftv", "CFTV");
@@ -51,7 +51,7 @@ const CFTVPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp (41) 99745-2053." path="/cftv" breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
+      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp." path="/cftv" breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",

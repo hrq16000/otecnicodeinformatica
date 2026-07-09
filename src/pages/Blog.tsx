@@ -893,7 +893,7 @@ const Blog = () => {
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Não encontrou o que procura?</h2>
                 <p className="text-white/85 mb-8 text-lg">Fale com um técnico especializado — atendimento em Curitiba e região metropolitana.</p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="https://wa.me/5541997452053?text=Olá! Preciso de ajuda técnica." data-cta-location="blog_bottom_cta" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/5541997086380?text=Olá! Preciso de ajuda técnica." data-cta-location="blog_bottom_cta" target="_blank" rel="noopener noreferrer">
                     <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-[var(--shadow-whatsapp)] hover-glow-cta cta-pulse">WhatsApp</Button>
                   </a>
                   <Link to="/contato">

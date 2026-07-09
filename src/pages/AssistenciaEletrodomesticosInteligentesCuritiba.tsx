@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Refrigerator, MessageCircle, CalendarCheck, CheckCircle, Wifi, Shield, ArrowRight } from "lucide-react";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP = "5541997452053";
+const WHATSAPP = "5541997086380";
 const PATH = "/assistencia-eletrodomesticos-inteligentes-curitiba";
 
 const TITLE = "Assistência Eletrodomésticos Inteligentes em Curitiba | Smart Home";

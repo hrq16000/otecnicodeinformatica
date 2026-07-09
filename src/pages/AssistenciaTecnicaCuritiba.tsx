@@ -28,7 +28,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const WA = "5541997452053";
+const WA = "5541997086380";
 const WA_TEXT = "Olá! Preciso de um orçamento de assistência técnica em Curitiba.";
 const waUrl = `https://wa.me/${WA}?text=${encodeURIComponent(WA_TEXT)}`;
 
@@ -207,7 +207,7 @@ export default function AssistenciaTecnicaCuritiba() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba#localbusiness",
+    "@id": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba#localbusiness",
     name: "Preciso de um Técnico — Assistência Técnica Especializada",
     description:
       "Assistência técnica especializada em Curitiba: consoles, placas de vídeo, computadores, notebooks e smartphones.",
@@ -216,16 +216,16 @@ export default function AssistenciaTecnicaCuritiba() {
       { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
     ],
     serviceArea: { "@type": "City", name: "Curitiba" },
-    telephone: "+5541997452053",
-    url: "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba",
-    image: "https://tecnicocuritiba.com.br/favicon.png",
+    telephone: "+5541997086380",
+    url: "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
+    image: "https://tecnico.curitiba.br/favicon.png",
     priceRange: "$$",
     // aggregateRating removido: só deve ser emitido com reviews reais (ver
     // DynamicAggregateRating + edge function aggregate-rating, MIN_REVIEWS=5).
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      telephone: "+5541997452053",
+      telephone: "+5541997086380",
       availableLanguage: ["Portuguese"],
       areaServed: "BR-PR",
     },
@@ -319,12 +319,12 @@ export default function AssistenciaTecnicaCuritiba() {
       { "@type": "City", name: "Curitiba" },
       { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
     ],
-    provider: { "@id": "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba#localbusiness" },
-    url: "https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba",
+    provider: { "@id": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba#localbusiness" },
+    url: "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: "https://wa.me/5541997452053",
-      servicePhone: "+5541997452053",
+      serviceUrl: "https://wa.me/5541997086380",
+      servicePhone: "+5541997086380",
     },
   }));
 
@@ -332,7 +332,7 @@ export default function AssistenciaTecnicaCuritiba() {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Assistência Técnica de Consoles em Curitiba | PS5, Xbox, Nintendo e Placa de Vídeo"
-        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp (41) 99745-2053."
+        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp."
         path="/assistencia-tecnica-curitiba"
         breadcrumbs={[
           { name: "Início", path: "/" },

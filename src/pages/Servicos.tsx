@@ -29,7 +29,7 @@ import {
   Home,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Gostaria de saber mais sobre os serviços.";
 
 const services = [

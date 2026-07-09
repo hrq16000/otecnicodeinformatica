@@ -2,7 +2,7 @@ import { MessageCircle, Bot, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 export const CTASection = () => {

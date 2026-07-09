@@ -9,7 +9,7 @@ export function withOgVersion(url: string | undefined | null): string {
   // If filename already contains a hash (8+ hex/alnum before extension), skip.
   if (/\.[a-f0-9]{6,}-?\d*\.(webp|jpg|jpeg|png)(\?|$)/i.test(url)) return url;
   try {
-    const u = new URL(url, "https://tecnicocuritiba.com.br");
+    const u = new URL(url, "https://tecnico.curitiba.br");
     if (!u.searchParams.has("v")) u.searchParams.set("v", OG_VERSION);
     return u.toString();
   } catch {

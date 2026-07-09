@@ -134,7 +134,7 @@ export const CitiesSection = () => {
                 </Link>
               ) : (
                 <a 
-                  href={`https://wa.me/5541997452053?text=Olá! Preciso de técnico em ${city.name}`}
+                  href={`https://wa.me/5541997086380?text=Olá! Preciso de técnico em ${city.name}`}
                   data-cta-location={`cities_${city.slug || city.name.toLowerCase().replace(/\s+/g, "-")}`}
                   target="_blank"
                   rel="noopener noreferrer"

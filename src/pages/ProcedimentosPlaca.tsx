@@ -9,7 +9,7 @@ import { ArrowRight, Cpu, Flame, RefreshCw, Smartphone, Zap, Wrench, MessageCirc
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const PROCEDIMENTOS = [
   {

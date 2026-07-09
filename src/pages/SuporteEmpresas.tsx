@@ -14,7 +14,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Headphones, Clock, Building, CreditCard, FileText, CheckCircle, Users, Shield } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico para minha empresa.";
 
 const services = [
@@ -72,7 +72,7 @@ const SuporteEmpresas = () => {
 
     // Schemas Service para sinais Premium PJ
     import("@/lib/schemaValidation").then(({ validateAndInjectSchema }) => {
-      const baseProvider = { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnicocuritiba.com.br/", areaServed: "Curitiba e região metropolitana" };
+      const baseProvider = { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br/", areaServed: "Curitiba e região metropolitana" };
       const services = [
         { id: "service-faturado", name: "Pagamento Faturado PJ", desc: "Atendimento técnico corporativo com pagamento faturado (boleto/30 dias) para empresas em Curitiba." },
         { id: "service-nfe", name: "Emissão de NF-e", desc: "Nota fiscal eletrônica em todos os atendimentos PJ, conforme legislação do Município de Curitiba." },
@@ -83,13 +83,13 @@ const SuporteEmpresas = () => {
         validateAndInjectSchema(s.id, {
           "@context": "https://schema.org",
           "@type": "Service",
-          "@id": `https://tecnicocuritiba.com.br/suporte-empresas#${s.id}`,
+          "@id": `https://tecnico.curitiba.br/suporte-empresas#${s.id}`,
           name: s.name,
           description: s.desc,
           serviceType: s.name,
           areaServed: { "@type": "City", name: "Curitiba" },
           provider: baseProvider,
-          url: "https://tecnicocuritiba.com.br/suporte-empresas",
+          url: "https://tecnico.curitiba.br/suporte-empresas",
         });
       });
     });

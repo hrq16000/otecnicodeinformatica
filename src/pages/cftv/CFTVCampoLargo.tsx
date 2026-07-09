@@ -5,7 +5,7 @@ const CFTVCampoLargo = () => (
     city="Campo Largo"
     slug="campo-largo"
     metaTitle="Câmeras de Segurança em Campo Largo | Kit Intelbras R$ 1.350 | Instalação Inclusa"
-    metaDescription="Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp (41) 99745-2053."
+    metaDescription="Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp."
     neighborhoods={["Centro", "Ferraria", "Jardim Guilhermina", "Vila Pompeia", "São Marcos", "Rondinha"]}
     cityDescription="Campo Largo, conhecida como Capital da Louça, combina áreas urbanas movimentadas com propriedades rurais e chácaras. Essa diversidade de imóveis exige soluções de segurança adaptadas — desde comércios no centro até residências e sítios nas áreas mais afastadas."
     localStats="Proprietários de chácaras e sítios em Campo Largo são alvos frequentes de furtos devido ao isolamento. Sistemas de câmeras com acesso remoto permitem monitorar a propriedade mesmo à distância, com gravação contínua 24h e alerta de movimento."

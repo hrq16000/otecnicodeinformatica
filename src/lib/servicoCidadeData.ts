@@ -51,7 +51,7 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
       { pergunta: "Quanto tempo leva a formatação?", resposta: "Em média 2 a 4 horas, dependendo do equipamento e programas a instalar." },
       { pergunta: "Vou perder meus arquivos?", resposta: "Fazemos backup antes de formatar. Documentos, fotos e arquivos ficam protegidos." },
       { pergunta: `O técnico vai até minha casa em ${cidadeNome}?`, resposta: `Sim. Fazemos atendimento a domicílio em ${cidadeNome}. Sem precisar sair de casa.` },
-      { pergunta: "Como agendar?", resposta: "Pelo WhatsApp (41) 99745-2053. Respondemos em até 15 minutos." },
+      { pergunta: "Como agendar?", resposta: "Pelo WhatsApp. Respondemos em até 15 minutos." },
     ],
     "remocao-virus": [
       { pergunta: "Como saber se meu computador tem vírus?", resposta: "Sinais: lentidão excessiva, anúncios em excesso, programas abrindo sozinhos, antivírus desabilitado." },

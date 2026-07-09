@@ -14,7 +14,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 export interface ServicoBairroData {
   metaTitle: string;
@@ -63,7 +63,6 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     provider: {
       "@type": "LocalBusiness",
       name: "Técnico Curitiba",
-      telephone: "+55-41-99745-2053",
       address: { "@type": "PostalAddress", addressLocality: data.cidade, addressRegion: "PR", addressCountry: "BR" },
     },
     areaServed: { "@type": "Place", name: `${data.bairro}, ${data.cidade}` },

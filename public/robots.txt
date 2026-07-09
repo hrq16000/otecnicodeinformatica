@@ -83,8 +83,8 @@ Crawl-delay: 2
 Disallow: /ads/
 
 # Sitemap index (preferido) + sitemaps individuais
-Sitemap: https://tecnicocuritiba.com.br/sitemap-index.xml
-Sitemap: https://tecnicocuritiba.com.br/sitemap.xml
-Sitemap: https://tecnicocuritiba.com.br/sitemap-news.xml
+Sitemap: https://tecnico.curitiba.br/sitemap-index.xml
+Sitemap: https://tecnico.curitiba.br/sitemap.xml
+Sitemap: https://tecnico.curitiba.br/sitemap-news.xml
 
-Host: https://tecnicocuritiba.com.br
+Host: https://tecnico.curitiba.br

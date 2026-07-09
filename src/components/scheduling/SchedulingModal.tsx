@@ -13,7 +13,7 @@ import { ptBR } from "date-fns/locale";
 import { CalendarIcon, Clock, MapPin, Wrench, User, Phone, MessageSquare, CheckCircle2, ArrowRight, Send } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 interface SchedulingModalProps {
   isOpen: boolean;

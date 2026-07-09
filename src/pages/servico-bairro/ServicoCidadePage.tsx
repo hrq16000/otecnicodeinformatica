@@ -14,7 +14,7 @@ import { SERVICOS, CIDADES, getServico, getCidade, getFaqPorServico } from "@/li
 import { ServiceCityLinks } from "@/components/ServiceCityLinks";
 import NotFound from "@/pages/NotFound";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 const ServicoCidadePage = () => {
   const { servico: servicoSlug, cidade: cidadeSlug } = useParams<{ servico: string; cidade: string }>();
@@ -28,7 +28,7 @@ const ServicoCidadePage = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio no mesmo dia. Sem sair de casa. WhatsApp: (41) 99745-2053.`
+        `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio no mesmo dia. Sem sair de casa. WhatsApp.`
       );
     }
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -37,7 +37,7 @@ const ServicoCidadePage = () => {
       canonical.rel = "canonical";
       document.head.appendChild(canonical);
     }
-    canonical.href = `https://tecnicocuritiba.com.br/servicos/${servicoSlug}/${cidadeSlug}`;
+    canonical.href = `https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`;
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
   }, [servico, cidade, servicoSlug, cidadeSlug]);
 
@@ -59,8 +59,7 @@ const ServicoCidadePage = () => {
       {
         "@type": "LocalBusiness",
         "name": `Técnico de Informática em ${cidade.nome}`,
-        "telephone": "+55-41-99745-2053",
-        "url": "https://tecnicocuritiba.com.br",
+        "url": "https://tecnico.curitiba.br",
         "areaServed": cidade.nome,
         "priceRange": "$$",
         "address": { "@type": "PostalAddress", addressLocality: cidade.nome, addressRegion: "PR", addressCountry: "BR" }

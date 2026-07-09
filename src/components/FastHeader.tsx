@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 const SCHEDULE_MESSAGE = "Olá! Quero agendar atendimento técnico.";
 

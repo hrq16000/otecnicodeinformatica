@@ -10,7 +10,7 @@ import { ShieldCheck, Zap, MapPin, MessageCircle, CheckCircle2, Wrench } from "l
 import type { CityData } from "./ArrumarPCCityTemplate";
 import type { ServicoData } from "./services";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 
 interface Props {
   servico: ServicoData;
@@ -36,7 +36,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnicocuritiba.com.br",
+      url: "https://tecnico.curitiba.br",
     },
     areaServed: {
       "@type": "City",
@@ -48,7 +48,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: `https://tecnicocuritiba.com.br${path}`,
+      url: `https://tecnico.curitiba.br${path}`,
     },
   };
 

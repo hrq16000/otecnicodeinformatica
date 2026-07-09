@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const WHATSAPP = "5541997452053";
+const WHATSAPP = "5541997086380";
 
 const beneficios = [
   { icon: TrendingUp, title: "Demanda constante", desc: "Receba chamados técnicos de clientes qualificados na sua região, sem precisar investir em marketing." },

@@ -23,7 +23,7 @@ type PostDef = {
   whenToCall: string;
 };
 
-const WA = "https://wa.me/5541997452053?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20um%20problema%20no%20PC.";
+const WA = "https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20um%20problema%20no%20PC.";
 
 const renderPost = (d: PostDef): React.ReactNode => (
   <>

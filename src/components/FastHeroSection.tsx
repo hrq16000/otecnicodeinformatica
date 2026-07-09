@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE =
   "Olá! Preciso de suporte técnico em Curitiba. Pode me passar um orçamento?";
 const SCHEDULE_MESSAGE =

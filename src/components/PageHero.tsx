@@ -4,7 +4,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackCTAClick } from "@/lib/analytics";
 import type { HeroImageSet } from "@/pages/arrumar-pc/cityImages";
 
-const WHATSAPP_NUMBER = "5541997452053";
+const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 interface PageHeroProps {

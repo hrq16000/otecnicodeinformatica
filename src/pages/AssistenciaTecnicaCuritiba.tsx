@@ -367,7 +367,7 @@ export default function AssistenciaTecnicaCuritiba() {
 
       <Header />
 
-      <main className="pt-20">
+      <main>
         <div className="container mx-auto px-4 pt-4">
           <Breadcrumbs
             items={[

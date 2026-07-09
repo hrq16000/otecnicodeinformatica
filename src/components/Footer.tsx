@@ -122,8 +122,8 @@ const localBusinessSchema = {
   alternateName: "Técnico Curitiba",
   description:
     "Assistência técnica em informática a domicílio em Curitiba e Região Metropolitana: formatação, conserto de PC/notebook, remoção de vírus, upgrade de SSD/memória, redes Wi-Fi e suporte para empresas.",
-  image: "https://tecnico.curitiba.br/__l5e/assets-v1/957e727d-8074-4275-82c1-a2a326c28b7a/logo-tecnico-curitiba.png",
-  logo: "https://tecnico.curitiba.br/__l5e/assets-v1/957e727d-8074-4275-82c1-a2a326c28b7a/logo-tecnico-curitiba.png",
+  image: "https://tecnico.curitiba.br/logo.webp",
+  logo: "https://tecnico.curitiba.br/logo.webp",
   url: NAP.url,
   telephone: NAP.phone,
   email: NAP.email,
@@ -212,7 +212,7 @@ export const Footer = () => {
               <img
                 alt="Técnico Curitiba"
                 className="h-10 w-auto"
-                src="/__l5e/assets-v1/957e727d-8074-4275-82c1-a2a326c28b7a/logo-tecnico-curitiba.png"
+                src="/logo.webp"
                 width="200"
                 height="40"
               />

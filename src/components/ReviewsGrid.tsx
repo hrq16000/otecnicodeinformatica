@@ -183,7 +183,7 @@ export const ReviewsGrid = ({
   }
 
   return (
-    <section className="py-12 px-4 min-h-[560px] md:min-h-[440px] content-visibility-auto">>
+    <section className="py-12 px-4 min-h-[560px] md:min-h-[440px] content-visibility-auto">
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">

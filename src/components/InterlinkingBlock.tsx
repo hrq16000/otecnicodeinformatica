@@ -13,18 +13,14 @@ const atendimentoLinks = [
 ];
 
 const servicoLinks = [
-  { icon: HardDrive, title: "Formatação", desc: "Windows 10/11 completo", to: "/servicos/formatacao-computador" },
-  { icon: Shield, title: "Remoção de Vírus", desc: "Limpeza total de malware", to: "/servicos/remocao-virus" },
-  { icon: Cpu, title: "Upgrade SSD/RAM", desc: "Mais velocidade e desempenho", to: "/servicos/upgrade-ssd-memoria" },
-  { icon: Wrench, title: "Conserto PC/Notebook", desc: "Reparo de todas as marcas", to: "/servicos/conserto-pc-notebook" },
-  { icon: Cpu, title: "Computador Lento", desc: "Diagnóstico de lentidão", to: "/servicos/computador-lento" },
-  { icon: AlertTriangle, title: "Não Liga", desc: "PC ou notebook não liga", to: "/servicos/computador-nao-liga" },
-  { icon: Tv, title: "Manutenção de TV", desc: "Reparo de TVs e monitores", to: "/servicos/manutencao-tv" },
-  { icon: CircuitBoard, title: "Conserto de Placa", desc: "Reparo em nível de componente", to: "/servicos/conserto-placa" },
-  { icon: Server, title: "Montagem de PC", desc: "PC sob medida", to: "/servicos/montagem-pc" },
-  { icon: Wifi, title: "Redes e Wi-Fi", desc: "Configuração e instalação", to: "/servicos/redes-wifi" },
-  { icon: HardDrive, title: "Backup e Recuperação", desc: "Proteja seus dados", to: "/servicos/backup-recuperacao" },
-  { icon: Camera, title: "CFTV / Câmeras", desc: "Segurança eletrônica", to: "/cftv" },
+  { icon: Monitor, title: "Formatação", desc: "Windows com backup", to: "/servicos/formatacao" },
+  { icon: Wrench, title: "Manutenção de Notebook", desc: "Aquecimento, tela e bateria", to: "/servicos/manutencao-de-notebook" },
+  { icon: Cpu, title: "Manutenção de Computador", desc: "Travamentos e hardware", to: "/servicos/manutencao-de-computador" },
+  { icon: HardDrive, title: "Upgrade SSD/RAM", desc: "Mais desempenho real", to: "/servicos/upgrade-ssd-ram" },
+  { icon: Shield, title: "Remoção de Vírus", desc: "Limpeza segura de malware", to: "/servicos/remocao-de-virus" },
+  { icon: Server, title: "Recuperação de Dados", desc: "HD, SSD e pendrive", to: "/servicos/recuperacao-de-dados" },
+  { icon: Wifi, title: "Redes e Wi-Fi", desc: "Cobertura e estabilidade", to: "/servicos/redes-e-wifi" },
+  { icon: CircuitBoard, title: "Suporte Empresarial", desc: "TI para empresas", to: "/servicos/suporte-tecnico-empresarial" },
 ];
 
 const regiaoLinks = [

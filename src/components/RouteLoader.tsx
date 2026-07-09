@@ -20,7 +20,7 @@ export const RouteLoader = () => (
   >
     <style>{`@keyframes routeLogoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.62;transform:scale(1.06)}}`}</style>
     <img
-      src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+      src="/__l5e/assets-v1/957e727d-8074-4275-82c1-a2a326c28b7a/logo-tecnico-curitiba.png"
       alt="Técnico Curitiba"
       width={304}
       height={98}

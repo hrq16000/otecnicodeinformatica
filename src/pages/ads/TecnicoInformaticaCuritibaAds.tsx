@@ -34,7 +34,7 @@ const TecnicoInformaticaCuritibaAds = () => {
         <div className="container mx-auto text-center">
           <img
             alt="Técnico Curitiba"
-            src="/lovable-uploads/87899615-1234-4c6d-a8ca-ee38ec566ef4.webp"
+            src="/__l5e/assets-v1/957e727d-8074-4275-82c1-a2a326c28b7a/logo-tecnico-curitiba.png"
             className="h-12 mx-auto"
           />
         </div>

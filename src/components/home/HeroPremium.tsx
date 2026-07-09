@@ -1,4 +1,6 @@
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import heroBg1 from "@/assets/hero-curitiba-1.webp";
+import heroBg2 from "@/assets/hero-curitiba-2.webp";
 
 const WA_HERO = whatsappLink(
   "Olá! Preciso de um técnico em Curitiba. Pode me ajudar com meu equipamento?",

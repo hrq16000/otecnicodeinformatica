@@ -36,6 +36,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <FastHeader />
+      <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       <main>
         <HeroPremium />
 

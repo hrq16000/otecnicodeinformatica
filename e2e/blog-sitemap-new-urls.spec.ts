@@ -56,7 +56,7 @@ test.describe("32 novas URLs do blog", () => {
       // canonical correto
       const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
       expect(canonical, `canonical em ${slug}`).toBe(
-        `https://tecnicocuritiba.com.br/blog/${slug}`
+        `https://tecnico.curitiba.br/blog/${slug}`
       );
 
       // H1 único

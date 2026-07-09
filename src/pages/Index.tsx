@@ -1,83 +1,56 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { FastHeader } from "@/components/FastHeader";
-import { FastHeroSection } from "@/components/FastHeroSection";
-import { TopOfferBanner } from "@/components/TopOfferBanner";
+import { HeroPremium } from "@/components/home/HeroPremium";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
+import { siteConfig } from "@/lib/siteConfig";
 
-const HomeDeferredSections = lazy(() => import("@/components/HomeDeferredSections"));
-const PricingBanner = lazy(() => import("@/components/PricingBanner").then((m) => ({ default: m.PricingBanner })));
-const TechnicianAvailability = lazy(() => import("@/components/TechnicianAvailability").then((m) => ({ default: m.TechnicianAvailability })));
+const HomeSections = lazy(() =>
+  import("@/components/home/HomeSections").then((m) => ({ default: m.HomeSections })),
+);
+const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
 
-// Skeleton placeholder to reserve space and avoid layout shifts during load
-const SectionFallback = ({ height = "400px" }: { height?: string }) => (
+const SectionFallback = ({ height = "480px" }: { height?: string }) => (
   <div style={{ minHeight: height }} className="w-full" aria-hidden="true" />
 );
 
 const Index = () => {
-  const [showNearFold, setShowNearFold] = useState(false);
-
   useEffect(() => {
-    document.title = "Técnico de Informática Curitiba | Hoje R$ 99,99";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content",
-        "Técnico de informática em Curitiba hoje. Conserto de PC/notebook, formatação, vírus e SSD a partir de R$ 99,99. Chame no WhatsApp."
-      );
-    }
+    document.title = siteConfig.defaultTitle;
+    const setMeta = (selector: string, attr: string, value: string) => {
+      const el = document.querySelector<HTMLMetaElement>(selector);
+      if (el) el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', "content", siteConfig.defaultDescription);
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = "https://tecnico.curitiba.br/";
-    const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
-    if (ogUrl) ogUrl.content = "https://tecnico.curitiba.br/";
-    const ogImage = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
-    if (ogImage) ogImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260709-1";
-    const twitterImage = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
-    if (twitterImage) twitterImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260709-1";
+    if (canonical) canonical.href = `${siteConfig.baseUrl}/`;
+    setMeta('meta[property="og:url"]', "content", `${siteConfig.baseUrl}/`);
+    setMeta('meta[property="og:title"]', "content", siteConfig.defaultTitle);
+    setMeta('meta[property="og:description"]', "content", siteConfig.defaultDescription);
+
     const id = window.setTimeout(() => {
       import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));
     }, 1800);
     return () => window.clearTimeout(id);
   }, []);
 
-  useEffect(() => {
-    const show = () => setShowNearFold(true);
-    if (typeof window.requestIdleCallback === "function") {
-      const id = window.requestIdleCallback(show, { timeout: 1600 });
-      return () => window.cancelIdleCallback(id);
-    }
-    const id = window.setTimeout(show, 900);
-    return () => window.clearTimeout(id);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <FastHeader />
-      <TopOfferBanner />
       <main>
-        <FastHeroSection />
+        <HeroPremium />
 
-        {showNearFold ? (
-          <section className="py-6 bg-background">
-            <div className="container mx-auto">
-              <div className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <Suspense fallback={<SectionFallback height="160px" />}>
-                    <TechnicianAvailability />
-                    <div className="flex items-center">
-                      <PricingBanner />
-                    </div>
-                  </Suspense>
-                </div>
-              </div>
-            </div>
-          </section>
-        ) : null}
-
-        <LazyOnVisible minHeight="900px" rootMargin="-320px 0px">
+        <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">
           <Suspense fallback={<SectionFallback height="900px" />}>
-            <HomeDeferredSections />
+            <HomeSections />
           </Suspense>
         </LazyOnVisible>
       </main>
+
+      <LazyOnVisible minHeight="400px" rootMargin="-100px 0px">
+        <Suspense fallback={<SectionFallback height="400px" />}>
+          <Footer />
+        </Suspense>
+      </LazyOnVisible>
     </div>
   );
 };

@@ -309,6 +309,7 @@ const BordaDoCampoSJP = lazy(() => import("./pages/bairros/BordaDoCampoSJP"));
 const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInformaticaCuritibaAds"));
 
 // Páginas de Serviços Individuais
+const ServicoCore = lazy(() => import("./pages/servicos/ServicoCore"));
 const FormatacaoComputador = lazy(() => import("./pages/servicos/FormatacaoComputador"));
 const RemocaoVirus = lazy(() => import("./pages/servicos/RemocaoVirus"));
 const UpgradeSsdMemoria = lazy(() => import("./pages/servicos/UpgradeSsdMemoria"));

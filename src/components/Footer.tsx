@@ -23,7 +23,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
     links: [
       { label: "Como funciona", to: "/como-funciona" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
-      { label: "Suporte empresarial", to: "/suporte-empresas" },
+      { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
       { label: "Atendimento a domicílio", to: "/atendimento-domicilio" },
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       { label: "FAQ", to: "/faq" },

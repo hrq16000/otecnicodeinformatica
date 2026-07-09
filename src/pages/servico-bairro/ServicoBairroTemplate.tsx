@@ -115,7 +115,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
             <div className="flex flex-wrap justify-center gap-3 mb-8 reveal-text" data-reveal-delay="200">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-lg">
                 <Star className="h-4 w-4 text-accent fill-accent" />
-                <span className="text-white text-sm font-medium">4.9/5 (347+)</span>
+                <span className="text-white text-sm font-medium">Atendimento local direto</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-lg">
                 <Clock className="h-4 w-4 text-accent" />

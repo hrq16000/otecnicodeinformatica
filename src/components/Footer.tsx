@@ -1,158 +1,82 @@
-import { Link } from "react-router-dom";
-import { MapPin, MessageCircle, Users, ArrowRight, Mail, Clock } from "lucide-react";
-import { FloatingParticles } from "@/components/FloatingParticles";
-import { useMemo } from "react";
+import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 
-const footerLink = "text-white/85 hover:text-white/90 text-sm transition-all duration-200 hover:translate-x-1 inline-block";
-
-const trackFooterWhatsApp = (location: string) => {
+const trackFooterWhatsApp = (location: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
-};
 
-function pickRandom<T>(arr: T[], n: number): T[] {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, n);
-}
+const linkClass = "text-sm text-white/75 transition-colors hover:text-white";
 
-const informaticaLinks = [
-  { label: "Formatação", to: "/servicos/formatacao-computador" },
-  { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
-  { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
-  { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
-  { label: "Computador Lento", to: "/servicos/computador-lento" },
-  { label: "Computador Não Liga", to: "/servicos/computador-nao-liga" },
-  { label: "Montagem de PC", to: "/servicos/montagem-pc" },
-  { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
-  { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
-  { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
+const columns: Array<{ title: string; links: Array<{ label: string; to: string }> }> = [
+  {
+    title: "Serviços",
+    links: [
+      { label: "Todos os serviços", to: "/servicos" },
+      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Manutenção de notebook", to: "/servicos/conserto-notebook-curitiba" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-virus" },
+      { label: "Backup e recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+    ],
+  },
+  {
+    title: "Atendimento",
+    links: [
+      { label: "Como funciona", to: "/como-funciona" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+      { label: "Suporte empresarial", to: "/suporte-empresas" },
+      { label: "Atendimento a domicílio", to: "/atendimento-domicilio" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "FAQ", to: "/faq" },
+    ],
+  },
+  {
+    title: "Regiões",
+    links: [
+      { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
+      { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
+      { label: "Colombo", to: "/tecnico-informatica-colombo" },
+      { label: "Araucária", to: "/tecnico-informatica-araucaria" },
+      { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
+    ],
+  },
+  {
+    title: "Institucional",
+    links: [
+      { label: "Sobre", to: "/sobre" },
+      { label: "Contato", to: "/contato" },
+      { label: "Termos e condições", to: "/termos-e-condicoes" },
+      { label: "Política de privacidade", to: "/politica-de-privacidade" },
+    ],
+  },
 ];
 
-const servicosLinks = [
-  { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
-  { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-  { label: "CFTV / Câmeras", to: "/cftv" },
-  { label: "Suporte Empresas", to: "/suporte-empresas" },
-  { label: "Atendimento Remoto", to: "/atendimento-remoto" },
-  { label: "Domicílio", to: "/atendimento-domicilio" },
-  { label: "Coleta e Entrega", to: "/coleta-e-entrega" },
-  { label: "Conserto de TV", to: "/servicos/conserto-tv" },
-];
-
-const procedimentosTvLinks = [
-  { label: "Reflow BGA", to: "/procedimentos/reflow-bga-curitiba" },
-  { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
-  { label: "Troca de Chip BGA", to: "/procedimentos/troca-chip-bga-curitiba" },
-  { label: "Microsoldagem Celular", to: "/procedimentos/microsoldagem-celular-curitiba" },
-  { label: "Recapacitação", to: "/procedimentos/recapacitacao-placa-eletronica-curitiba" },
-  { label: "Reparo Placa TV", to: "/reparo-placa-principal-tv-curitiba" },
-  { label: "Reparo Placa Notebook", to: "/reparo-placa-mae-notebook-curitiba" },
-  { label: "Reparo Placa Celular", to: "/reparo-placa-mae-celular-curitiba" },
-  { label: "TV Listras na Tela", to: "/tv-listras-na-tela-curitiba" },
-  { label: "TV Listras H/V", to: "/tv-listras-horizontais-verticais-conserto-curitiba" },
-  { label: "Por Que Custa Caro", to: "/por-que-conserto-placa-mae-custa-caro-curitiba" },
-];
-
-
-const atendimentoLinks = [
-  { label: "Como Funciona", to: "/como-funciona" },
-  { label: "Preços e Políticas", to: "/precos-e-politicas" },
-  { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
-  { label: "Equipamentos", to: "/equipamentos-atendidos" },
-  { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
-  { label: "Casos Reais", to: "/problemas-reais-e-casos" },
-];
-
-const regionLinks = [
-  { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
-  { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
-  { label: "Araucária", to: "/tecnico-informatica-araucaria" },
-  { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
-  { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
-  { label: "Colombo", to: "/tecnico-informatica-colombo" },
-  { label: "Faz. Rio Grande", to: "/tecnico-informatica-fazenda-rio-grande" },
-  { label: "Alm. Tamandaré", to: "/tecnico-informatica-almirante-tamandare" },
-  { label: "Piraquara", to: "/tecnico-informatica-piraquara" },
-  { label: "Campo Magro", to: "/tecnico-informatica-campo-magro" },
-  { label: "Quatro Barras", to: "/tecnico-informatica-quatro-barras" },
-];
-
-const bairroLinks = [
-  { label: "Centro", to: "/bairros/centro" },
-  { label: "Batel", to: "/bairros/batel" },
-  { label: "Portão", to: "/bairros/portao" },
-  { label: "Santa Felicidade", to: "/bairros/santa-felicidade" },
-  { label: "CIC", to: "/bairros/cic" },
-];
-
-const blogLinks = [
-  { label: "Computador Lento", to: "/blog/computador-lento-causas-solucoes" },
-  { label: "PC com Vírus?", to: "/blog/como-saber-se-pc-tem-virus-malware" },
-  { label: "Notebook Não Liga", to: "/blog/notebook-nao-liga-o-que-fazer" },
-];
-
-const infoLinks = [
-  { label: "Blog", to: "/blog" },
-  { label: "FAQ", to: "/faq" },
-  { label: "Sobre Nós", to: "/sobre" },
-  { label: "Contato", to: "/contato" },
-  { label: "Termos e Condições", to: "/termos-e-condicoes" },
-  { label: "Política de Privacidade", to: "/politica-de-privacidade" },
-];
-
-// NAP (Name · Address · Phone) — fonte única de verdade para SEO local
-const NAP = {
-  name: "Técnico Curitiba — Assistência Técnica em Informática",
-  street: "Atendimento a domicílio e coleta",
-  city: "Curitiba",
-  region: "PR",
-  country: "BR",
-  postal: "80000-000",
-  phone: "+5541997086380",
-  email: "contato@tecnico.curitiba.br",
-  url: "https://tecnico.curitiba.br",
-  geo: { lat: -25.4284, lng: -49.2733 },
-  hours: "Seg–Sáb · 08h às 20h",
-};
-
+// JSON-LD LocalBusiness — sem aggregateRating/review inventado. Telefone só aqui e em wa.me.
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
-  "@id": "https://tecnico.curitiba.br/#localbusiness",
-  name: NAP.name,
-  alternateName: "Técnico Curitiba",
-  description:
-    "Assistência técnica em informática a domicílio em Curitiba e Região Metropolitana: formatação, conserto de PC/notebook, remoção de vírus, upgrade de SSD/memória, redes Wi-Fi e suporte para empresas.",
-  image: "https://tecnico.curitiba.br/logo.webp",
-  logo: "https://tecnico.curitiba.br/logo.webp",
-  url: NAP.url,
-  telephone: NAP.phone,
-  email: NAP.email,
+  "@id": `${siteConfig.baseUrl}/#localbusiness`,
+  name: siteConfig.legalName,
+  alternateName: siteConfig.brandName,
+  description: siteConfig.defaultDescription,
+  image: `${siteConfig.baseUrl}/logo.webp`,
+  logo: `${siteConfig.baseUrl}/logo.webp`,
+  url: siteConfig.baseUrl,
+  telephone: siteConfig.phoneE164,
+  email: siteConfig.email,
   priceRange: "$$",
   currenciesAccepted: "BRL",
   paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
   address: {
     "@type": "PostalAddress",
-    streetAddress: NAP.street,
-    addressLocality: NAP.city,
-    addressRegion: NAP.region,
-    postalCode: NAP.postal,
-    addressCountry: NAP.country,
+    addressLocality: siteConfig.primaryCity,
+    addressRegion: siteConfig.region,
+    addressCountry: siteConfig.country,
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: NAP.geo.lat,
-    longitude: NAP.geo.lng,
-  },
-  hasMap: `https://www.google.com/maps/search/?api=1&query=${NAP.geo.lat},${NAP.geo.lng}`,
-  areaServed: [
-    "Curitiba", "São José dos Pinhais", "Araucária", "Campo Largo",
-    "Pinhais", "Colombo", "Fazenda Rio Grande", "Almirante Tamandaré",
-    "Piraquara", "Campo Magro", "Quatro Barras",
-  ].map((c) => ({
-    "@type": "City",
-    name: c,
-    containedInPlace: { "@type": "State", name: "Paraná" },
-  })),
+  geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng },
+  areaServed: siteConfig.serviceArea
+    .filter((c) => c !== "Região Metropolitana de Curitiba")
+    .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -164,212 +88,68 @@ const localBusinessSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: NAP.phone,
+      telephone: siteConfig.phoneE164,
       contactType: "customer support",
       areaServed: "BR",
       availableLanguage: ["Portuguese", "pt-BR"],
-      url: "https://wa.me/5541997086380",
+      url: whatsappLink(),
     },
   ],
-  knowsAbout: [
-    "Formatação de computador",
-    "Remoção de vírus e malware",
-    "Conserto de notebook",
-    "Upgrade de SSD e memória RAM",
-    "Recuperação de dados",
-    "Configuração de redes Wi-Fi",
-    "Suporte técnico empresarial",
-    "CFTV e câmeras de segurança",
-  ],
-  sameAs: [
-    "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+Curitiba",
-  ],
+  sameAs: siteConfig.sameAs,
 };
-
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const servicosFooter = useMemo(() => {
-    const info = pickRandom(informaticaLinks, 3);
-    const serv = pickRandom(servicosLinks, 3);
-    const proc = pickRandom(procedimentosTvLinks, 3);
-    return [
-      { label: "Todos os Serviços", to: "/servicos" },
-      ...info, ...serv, ...proc,
-    ];
-  }, []);
-
   return (
-    <footer className="premium-gradient py-12 md:py-14 relative overflow-hidden noise-overlay">
-      <FloatingParticles count={15} />
-      <div data-parallax="0.06" className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none orb-float" />
-      <div className="container mx-auto relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
-          {/* Logo e Contato */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-4">
-            <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow duration-300">
-              <img
-                alt="Técnico Curitiba"
-                className="h-10 w-auto"
-                src="/logo.webp"
-                width="200"
-                height="47"
-              />
+    <footer className="bg-[hsl(var(--hero-bg))] text-white">
+      <div className="container mx-auto py-12 md:py-14">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+          <div className="space-y-4">
+            <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1">
+              <img alt="Técnico em Curitiba" className="h-10 w-auto" src="/logo.webp" width="200" height="47" />
             </div>
-            <p className="text-white/80 text-sm max-w-xs leading-relaxed">
-              Assistência técnica em informática Nº1 de Curitiba e região. Atendimento a domicílio no mesmo dia.
+            <p className="max-w-xs text-sm leading-relaxed text-white/70">
+              Assistência técnica em informática em {siteConfig.primaryCity} e Região Metropolitana:
+              notebook, PC, formatação, redes e suporte empresarial. Diagnóstico honesto.
             </p>
-            <div className="flex items-center gap-2 text-white/65 text-sm hover:text-white/80 transition-all duration-300 group cursor-default">
-              <MapPin className="h-4 w-4 flex-shrink-0 group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
-              <span>Curitiba e Região Metropolitana, PR</span>
-            </div>
-            <a 
-              href="https://wa.me/5541997086380?text=Olá!%20Encontrei%20vocês%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
+            <a
+              href={whatsappLink("Olá! Encontrei vocês no site e gostaria de saber mais sobre os serviços.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackFooterWhatsApp("footer_primary")}
-              className="inline-flex items-center gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] hover:scale-105 hover:shadow-[var(--shadow-whatsapp)] text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 group"
+              data-cta-location="footer_primary"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-5 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
             >
-              <MessageCircle className="h-4 w-4 flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
-              <span>Chamar no WhatsApp</span>
+              Iniciar atendimento
             </a>
           </div>
 
-          {/* Serviços (randomizado) */}
-          <div className="anim-fade-up">
-            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Serviços</h3>
-            <ul className="space-y-2">
-              {servicosFooter.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Atendimento */}
-          <div className="anim-fade-up">
-            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Atendimento</h3>
-            <ul className="space-y-2">
-              {atendimentoLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Regiões */}
-          <div className="anim-fade-up">
-            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Regiões</h3>
-            <ul className="space-y-2">
-              {regionLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Saiba Mais */}
-          <div className="anim-fade-up">
-            <h3 className="text-white/90 font-semibold mb-4 text-xs uppercase tracking-widest">Saiba Mais</h3>
-            <ul className="space-y-2">
-              {infoLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-            <h3 className="text-white/90 font-semibold mb-3 mt-6 text-xs uppercase tracking-widest">Blog</h3>
-            <ul className="space-y-2">
-              {blogLinks.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to} className={`${footerLink} hover-lift inline-block`}>{item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {columns.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h3 className="mb-3 text-sm font-bold text-white">{col.title}</h3>
+              <ul className="space-y-2">
+                {col.links.map((l) => (
+                  <li key={l.to}>
+                    <a href={l.to} className={linkClass}>
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
 
-        {/* NAP — sinal forte para SEO local */}
-        <address
-          className="not-italic grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 border-t border-white/[0.08] pt-6 pb-2 text-white/80 text-sm"
-          aria-label="Informações de contato"
-        >
-          <div className="flex items-start gap-2">
-            <MapPin className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
-            <div>
-              <div className="font-semibold text-white/90">Endereço</div>
-              <div>{NAP.city} – {NAP.region}, Brasil</div>
-              <div className="text-white/55 text-xs">Atendimento a domicílio e coleta</div>
-            </div>
-          </div>
-          <div className="flex items-start gap-2">
-            <MessageCircle className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
-            <div>
-              <div className="font-semibold text-white/90">WhatsApp</div>
-              <a href="https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" onClick={() => trackFooterWhatsApp("footer_nap")} className="hover:text-white">Clique para chamar no WhatsApp</a>
-            </div>
-          </div>
-          <div className="flex items-start gap-2">
-            <Mail className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
-            <div>
-              <div className="font-semibold text-white/90">E-mail</div>
-              <a href={`mailto:${NAP.email}`} className="hover:text-white break-all">{NAP.email}</a>
-            </div>
-          </div>
-          <div className="flex items-start gap-2">
-            <Clock className="h-4 w-4 mt-0.5 text-accent flex-shrink-0" />
-            <div>
-              <div className="font-semibold text-white/90">Horário</div>
-              <div>{NAP.hours}</div>
-            </div>
-          </div>
-        </address>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-
-
-        {/* Chamada parceiro */}
-        <div className="border-t border-white/[0.08] pt-6 pb-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <span className="text-white/80 text-sm">É técnico de informática?</span>
-            <Link
-              to="/seja-parceiro"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/15 text-accent text-sm font-semibold border border-accent/25 hover:bg-accent/25 hover:border-accent/40 transition-all duration-300 hover:scale-105 group"
-            >
-              <Users className="h-4 w-4 group-hover:scale-110 transition-transform" />
-              Quer ser técnico parceiro?
-              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="border-t border-white/[0.08] pt-7 text-center space-y-2 spotlight-sweep">
-          <p className="text-white/70 text-sm">
-            © {currentYear} Técnico Curitiba - Assistência Técnica em Informática. CNPJ: 41.723.708/0001-58. Todos os direitos reservados.
-          </p>
-          <p className="text-white/80 text-xs">
-            Uma empresa do ecossistema{" "}
-            <a href="https://precisodeum.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
-              Preciso de Um
-            </a>
-            {" · "}
-            <a href="https://mestredosservicos.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
-              Mestre dos Serviços
-            </a>
-            {" · "}
-            <a href="https://tamonaweb.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white underline transition-colors">
-              TamoNaWeb
-            </a>
-          </p>
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} {siteConfig.brandName} — {siteConfig.primaryCity}, {siteConfig.region}. Todos os direitos reservados.</p>
+          <p>{siteConfig.serviceArea.filter((c) => c !== "Região Metropolitana de Curitiba").join(" · ")}</p>
         </div>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </footer>
   );
 };
+
+export default Footer;

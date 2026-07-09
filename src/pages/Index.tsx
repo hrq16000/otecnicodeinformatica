@@ -29,9 +29,9 @@ const Index = () => {
     const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
     if (ogUrl) ogUrl.content = "https://tecnico.curitiba.br/";
     const ogImage = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
-    if (ogImage) ogImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260629-1";
+    if (ogImage) ogImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260709-1";
     const twitterImage = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
-    if (twitterImage) twitterImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260629-1";
+    if (twitterImage) twitterImage.content = "https://tecnico.curitiba.br/og-image.png?v=20260709-1";
     const id = window.setTimeout(() => {
       import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));
     }, 1800);

@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -287,7 +287,7 @@ const TecnicoInformaticaSaoJosePinhais = () => {
         <ServiceLocalLinks currentCity="São José dos Pinhais" />
         <RealImageSection imageKey="ferramentas" caption="Ferramentas profissionais para diagnóstico" />
         <LocalFAQSection title="Perguntas Frequentes - São José dos Pinhais" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "São José dos Pinhais" }} title="Avaliações de clientes em São José dos Pinhais" />
         <TrustSection />
         <CTASection />
       </main>

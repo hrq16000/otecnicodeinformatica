@@ -1,0 +1,285 @@
+import { lazy, Suspense } from "react";
+import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+
+const ReviewsGrid = lazy(() =>
+  import("@/components/ReviewsGrid").then((m) => ({ default: m.ReviewsGrid })),
+);
+
+const wa = (msg: string) => whatsappLink(msg);
+const track = (loc: string) =>
+  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", loc));
+
+// ── Dados ────────────────────────────────────────────────────────
+const pains = [
+  { t: "Notebook travando", d: "Lentidão, superaquecimento ou desligando sozinho." },
+  { t: "PC lento", d: "Demora para ligar, abrir programas e navegar." },
+  { t: "Empresa parada", d: "Estações, rede ou sistema fora do ar travam a operação." },
+  { t: "Arquivos em risco", d: "HD com falha, exclusão acidental ou disco não reconhecido." },
+  { t: "Internet instável", d: "Wi-Fi caindo, sinal fraco ou rede mal configurada." },
+  { t: "Sistema corrompido", d: "Erros de boot, tela azul, vírus ou Windows danificado." },
+];
+
+const services = [
+  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao" },
+  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook" },
+  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc" },
+  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade" },
+  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus" },
+  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup" },
+  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes" },
+  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa" },
+];
+
+const steps = [
+  "Você inicia o atendimento pelo WhatsApp.",
+  "A triagem entende o problema do equipamento.",
+  "O técnico avalia o melhor caminho para o reparo.",
+  "Você recebe orientação, prazo e condições.",
+  "O serviço é executado com transparência.",
+];
+
+const faqs = [
+  { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O orçamento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },
+  { q: "Vocês atendem notebook e computador?", a: "Sim. Atendemos notebook, PC e periféricos, com foco em informática." },
+  { q: "Fazem atendimento empresarial?", a: "Sim. Prestamos suporte técnico para empresas: estações, rede e manutenção preventiva." },
+  { q: "Tem recuperação de dados?", a: "Sim, avaliamos cada caso. A recuperação depende da condição real do disco e é orçada após diagnóstico." },
+  { q: "O orçamento é fechado antes do serviço?", a: "Sim. Você aprova o valor antes de qualquer reparo. Nada é executado sem sua confirmação." },
+  { q: "O atendimento é pelo WhatsApp?", a: "Sim, o contato e a triagem acontecem pelo WhatsApp para agilizar o diagnóstico." },
+  { q: "O número fica visível no site?", a: "O contato é feito diretamente pelo botão de atendimento, que abre a triagem por WhatsApp." },
+  { q: "Atende no mesmo dia?", a: "Sempre que houver disponibilidade na agenda, buscamos atender no mesmo dia. A confirmação vem na triagem." },
+];
+
+const areas = siteConfig.serviceArea.filter((a) => a !== "Região Metropolitana de Curitiba");
+
+// ── UI helpers ───────────────────────────────────────────────────
+const SectionTitle = ({ eyebrow, title, sub }: { eyebrow?: string; title: string; sub?: string }) => (
+  <div className="mx-auto mb-10 max-w-2xl text-center">
+    {eyebrow && (
+      <span className="text-xs font-bold uppercase tracking-wider text-accent">{eyebrow}</span>
+    )}
+    <h2 className="mt-2 font-heading text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+      {title}
+    </h2>
+    {sub && <p className="mt-3 text-base text-muted-foreground">{sub}</p>}
+  </div>
+);
+
+const FunnelButton = ({ loc, msg, children, variant = "accent" }: { loc: string; msg: string; children: React.ReactNode; variant?: "accent" | "ghost" }) => (
+  <a
+    href={wa(msg)}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => track(loc)}
+    data-cta-location={loc}
+    className={
+      variant === "accent"
+        ? "inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
+        : "inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+    }
+  >
+    {children}
+  </a>
+);
+
+export const HomeSections = () => {
+  return (
+    <>
+      {/* 2. DORES */}
+      <section className="border-b border-border bg-secondary py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle
+            eyebrow="Sinais de que algo está errado"
+            title="Quando o computador para, o prejuízo começa."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {pains.map((p) => (
+              <div key={p.t} className="rounded-xl border border-border bg-card p-5">
+                <h3 className="font-heading text-base font-bold text-foreground">{p.t}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SERVIÇOS */}
+      <section id="servicos" className="py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle
+            eyebrow="O que resolvemos"
+            title="Serviços de informática em Curitiba"
+            sub="Foco em notebook, PC e suporte empresarial. Orçamento conforme avaliação, sem valor inventado."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s) => (
+              <div key={s.t} className="flex flex-col rounded-xl border border-border bg-card p-5 transition-shadow hover:shadow-[var(--shadow-md)]">
+                <h3 className="font-heading text-base font-bold leading-snug text-foreground">{s.t}</h3>
+                <p className="mt-1.5 flex-1 text-sm text-muted-foreground">{s.d}</p>
+                <a
+                  href={wa(`Olá! Tenho interesse em: ${s.t}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => track(s.loc)}
+                  data-cta-location={s.loc}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-accent hover:underline"
+                >
+                  Iniciar atendimento →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. RESIDENCIAL x EMPRESARIAL */}
+      <section className="border-y border-border bg-secondary py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle eyebrow="Para quem atendemos" title="Residencial e empresarial" />
+          <div className="grid gap-5 md:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-heading text-lg font-bold text-foreground">Residencial</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Notebook e PC lentos, formatação, remoção de vírus, upgrade de SSD/RAM,
+                backup de fotos e documentos, Wi-Fi doméstico e recuperação de dados.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-accent/30 bg-accent/[0.04] p-6">
+              <h3 className="font-heading text-lg font-bold text-foreground">Empresarial</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Estações de trabalho, rede e cabeamento, suporte técnico contínuo,
+                manutenção preventiva e resposta a urgências operacionais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. COMO FUNCIONA */}
+      <section className="py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle eyebrow="Passo a passo" title="Como funciona o atendimento" />
+          <ol className="mx-auto grid max-w-3xl gap-3">
+            {steps.map((s, i) => (
+              <li key={s} className="flex items-start gap-4 rounded-xl border border-border bg-card p-4">
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                  {i + 1}
+                </span>
+                <span className="pt-1 text-sm font-medium text-foreground">{s}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 6. PREÇOS E POLÍTICAS */}
+      <section className="border-y border-border bg-secondary py-14 md:py-18">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 md:p-8">
+            <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground">
+              Preços e políticas
+            </h2>
+            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                Diagnóstico/visita a partir de <strong className="text-foreground">{siteConfig.minPriceLabel}</strong>, quando aplicável.
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                O orçamento depende do problema e é aprovado por você antes do reparo.
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                Peças, componentes e materiais não estão inclusos, quando aplicável.
+              </li>
+            </ul>
+            <p className="mt-5 rounded-lg bg-secondary p-4 text-sm text-muted-foreground">
+              {siteConfig.pricingDisclaimer}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <FunnelButton loc="pricing_cta" msg="Olá! Quero um orçamento para meu equipamento.">
+                Pedir orçamento
+              </FunnelButton>
+              <a
+                href="/precos-e-politicas"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                Ver preços e políticas
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PROVA DE CONFIANÇA REAL (sem rating inventado) */}
+      <section className="py-14 md:py-18">
+        <div className="container mx-auto">
+          <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
+            <ReviewsGrid title="O que dizem sobre o atendimento" whatsappCta limit={6} />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* 8. ÁREAS ATENDIDAS */}
+      <section className="border-y border-border bg-secondary py-14 md:py-18">
+        <div className="container mx-auto text-center">
+          <SectionTitle
+            eyebrow="Cobertura"
+            title="Áreas atendidas"
+            sub="Curitiba e principais cidades da Região Metropolitana."
+          />
+          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-2">
+            {areas.map((a) => (
+              <span key={a} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+                {a}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FAQ */}
+      <section className="py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle eyebrow="Dúvidas frequentes" title="Perguntas e respostas" />
+          <div className="mx-auto max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card">
+            {faqs.map((f) => (
+              <details key={f.q} className="group px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span className="text-accent transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. CTA FINAL */}
+      <section className="bg-[hsl(var(--hero-bg))] py-16 text-white md:py-20">
+        <div className="container mx-auto text-center">
+          <h2 className="mx-auto max-w-2xl font-heading text-2xl font-bold tracking-tight md:text-3xl">
+            Precisa resolver um problema técnico hoje?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-white/80">
+            Inicie a triagem por WhatsApp e receba orientação, prazo e condições antes de qualquer reparo.
+          </p>
+          <div className="mt-7 flex justify-center">
+            <a
+              href={wa("Olá! Preciso resolver um problema técnico hoje. Pode me ajudar?")}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("cta_final")}
+              data-cta-location="cta_final"
+              className="inline-flex min-h-14 items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
+            >
+              Começar triagem agora
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default HomeSections;

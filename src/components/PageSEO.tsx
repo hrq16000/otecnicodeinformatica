@@ -71,7 +71,7 @@ export const PageSEO = ({
     upsertLink("canonical", url);
     upsertMeta('meta[name="robots"]', {
       name: "robots",
-      content: noindex ? "noindex, nofollow" : "index, follow",
+      content: noindex ? "noindex, follow" : "index, follow",
     });
   }, [description, noindex, ogType, title, url, versionedOg]);
 

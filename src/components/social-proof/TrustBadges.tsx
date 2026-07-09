@@ -1,4 +1,4 @@
-import { Shield, Award, Clock, Star, CheckCircle, Lock } from "lucide-react";
+import { Shield, Award, Clock, CheckCircle, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TrustBadgeProps {

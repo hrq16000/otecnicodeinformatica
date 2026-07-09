@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { FastHeader } from "@/components/FastHeader";
+import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroPremium } from "@/components/home/HeroPremium";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { siteConfig } from "@/lib/siteConfig";

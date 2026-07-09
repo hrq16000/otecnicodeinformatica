@@ -78,7 +78,7 @@ const ConsertoCelular = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO
+      <PageSEO noindex
         title="Conserto de Celular em Curitiba e Região | Orçamento sem Compromisso"
         description="Conserto de celular e smartphone. iPhone, Samsung, Motorola, Xiaomi. Orçamento humanizado sem compromisso."
         path="/servicos/conserto-celular"

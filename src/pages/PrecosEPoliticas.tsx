@@ -146,7 +146,7 @@ const PrecosEPoliticas = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Tabela de Valores | Técnico de Informática Curitiba" description="Tabela completa de valores de serviços de informática em Curitiba. Visita técnica a partir de R$ 69,99. Transparência total nos valores." path="/valores" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Valores", path: "/valores" }]} />
+      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Tabela transparente de preços de serviços de informática em Curitiba: formatação, remoção de vírus, upgrade e conserto. Visita técnica a partir de R$ 69,99." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <Header />
       <main>

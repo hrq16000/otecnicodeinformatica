@@ -10,12 +10,12 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
     title: "Serviços",
     links: [
       { label: "Todos os serviços", to: "/servicos" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
-      { label: "Manutenção de notebook", to: "/servicos/conserto-notebook-curitiba" },
-      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
-      { label: "Remoção de vírus", to: "/servicos/remocao-virus" },
-      { label: "Backup e recuperação", to: "/servicos/backup-recuperacao" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
     ],
   },
   {

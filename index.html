@@ -60,7 +60,9 @@
     <meta name="twitter:image:alt" content="Técnico de Informática em Curitiba" />
 
 
-    <!-- Fonte do shell usa fallback local; fontes web entram pelo CSS do app sem bloquear a primeira pintura. -->
+    <!-- Tipografia auto-hospedada: preload das fontes críticas (corpo + H1) para reduzir CLS/LCP. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-var.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
     <link rel="preload" as="style" href="/src/index.css" />
     <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>

@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/lib/siteConfig";
 
 const WA_SUPPORT = whatsappLink("Olá! Preciso de suporte técnico em informática.");
@@ -26,6 +28,9 @@ const mobileExtra = [
 ];
 
 export const FastHeader = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
   // Shrink-on-scroll sem re-render do React.
   if (typeof window !== "undefined" && !(window as any).__hdrScrollBound) {
     (window as any).__hdrScrollBound = true;
@@ -38,6 +43,27 @@ export const FastHeader = () => {
     window.addEventListener("scroll", sync, { passive: true });
     sync();
   }
+
+  // Fecha ao clicar fora ou pressionar Esc.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onPointer = (e: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("touchstart", onPointer, { passive: true });
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("touchstart", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -71,73 +97,71 @@ export const FastHeader = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1.5">
-          <a
-            href={WA_SUPPORT}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackHeaderClick("whatsapp")}
-            data-cta-location="header_whatsapp"
-            aria-label="Falar no WhatsApp"
-            className="hidden min-h-10 items-center justify-center gap-1.5 rounded-md border border-[hsl(var(--whatsapp))]/40 bg-[hsl(var(--whatsapp))]/10 px-3 text-sm font-bold text-[hsl(var(--whatsapp-hover))] transition-colors hover:bg-[hsl(var(--whatsapp))]/20 sm:inline-flex"
-          >
-            WhatsApp
-          </a>
-
+        <div className="flex items-center gap-2">
           <a
             href={WA_SCHEDULE}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackHeaderClick("chatbot")}
             data-cta-location="header_agendar"
-            aria-label="Iniciar atendimento — Agendar"
+            aria-label="Iniciar atendimento"
             className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
           >
             <span className="sm:hidden">Atender</span>
-            <span className="hidden sm:inline">Iniciar atendimento · Agendar</span>
+            <span className="hidden sm:inline">Iniciar atendimento</span>
           </a>
 
-          <details className="group/root relative lg:hidden">
-            <summary
-              aria-label="Abrir menu"
-              title="Abrir menu"
-              className="inline-flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent marker:hidden [&::-webkit-details-marker]:hidden"
+          <div ref={menuRef} className="relative lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={menuOpen}
+              aria-haspopup="menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
             >
-              <span aria-hidden="true" className="relative block h-5 w-5">
-                <span className="absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:top-2.5 group-open/root:rotate-45" />
-                <span className="absolute left-0 top-2.5 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:opacity-0" />
-                <span className="absolute left-0 top-4 block h-0.5 w-5 rounded-full bg-current transition-all duration-200 group-open/root:top-2.5 group-open/root:-rotate-45" />
-              </span>
-            </summary>
-            <nav
-              aria-label="Menu mobile"
-              className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground shadow-[var(--shadow-xl)]"
-            >
-              <div className="grid gap-0.5">
-                {[...primaryNav, ...mobileExtra].map((item) => (
+              {menuOpen ? (
+                <X className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+              )}
+            </button>
+
+            {menuOpen && (
+              <nav
+                aria-label="Menu mobile"
+                className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] origin-top-right animate-in fade-in slide-in-from-top-2 overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground shadow-[var(--shadow-xl)] duration-150"
+              >
+                <div className="grid gap-0.5">
+                  {[...primaryNav, ...mobileExtra].map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+                <div className="mt-2 border-t border-border p-2">
                   <a
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
+                    href={WA_SCHEDULE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackHeaderClick("chatbot");
+                      setMenuOpen(false);
+                    }}
+                    data-cta-location="header_mobile_agendar"
+                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-bold text-accent-foreground"
                   >
-                    {item.label}
+                    Iniciar atendimento
                   </a>
-                ))}
-              </div>
-              <div className="mt-2 border-t border-border p-2">
-                <a
-                  href={WA_SUPPORT}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackHeaderClick("whatsapp")}
-                  data-cta-location="header_mobile_whatsapp"
-                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-bold text-accent-foreground"
-                >
-                  Iniciar atendimento
-                </a>
-              </div>
-            </nav>
-          </details>
+                </div>
+              </nav>
+            )}
+          </div>
         </div>
       </div>
     </header>

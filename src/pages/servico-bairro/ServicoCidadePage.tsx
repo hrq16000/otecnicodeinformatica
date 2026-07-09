@@ -38,6 +38,14 @@ const ServicoCidadePage = () => {
       document.head.appendChild(canonical);
     }
     canonical.href = `https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`;
+    // Página herdada serviço×cidade (thin) — não deve competir com os serviços canônicos.
+    let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.name = "robots";
+      document.head.appendChild(robots);
+    }
+    robots.content = "noindex, follow";
     trackPageView(`/servicos/${servicoSlug}/${cidadeSlug}`, `${servico.nome} - ${cidade.nome}`);
   }, [servico, cidade, servicoSlug, cidadeSlug]);
 

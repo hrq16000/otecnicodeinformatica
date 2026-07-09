@@ -130,7 +130,7 @@ export const FastHeader = () => {
             {menuOpen && (
               <nav
                 aria-label="Menu mobile"
-                className="absolute right-0 top-[calc(100%+8px)] max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] origin-top-right animate-in fade-in slide-in-from-top-2 overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground shadow-[var(--shadow-xl)] duration-150"
+                className="absolute right-0 top-[calc(100%+8px)] z-50 max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground opacity-100 shadow-[var(--shadow-xl)]"
               >
                 <div className="grid gap-0.5">
                   {[...primaryNav, ...mobileExtra].map((item) => (

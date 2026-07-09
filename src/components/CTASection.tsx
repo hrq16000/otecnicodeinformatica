@@ -56,7 +56,7 @@ export const CTASection = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="heroWhatsapp" className="animate-pulse-soft ripple-container shadow-lg hover:shadow-xl hover:scale-[1.05] transition-all duration-300 btn-feedback ring-pulse elastic-click hover-streak" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackCTAClick('whatsapp', 'final_cta')}>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta-location="final_cta" data-wa-source="whatsapp_cta" onClick={() => trackCTAClick('whatsapp', 'final_cta')}>
                 <MessageCircle className="h-5 w-5 md:h-6 md:w-6" />
                 WhatsApp Imediato
               </a>

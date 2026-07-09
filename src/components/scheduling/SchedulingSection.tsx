@@ -102,18 +102,13 @@ export const SchedulingSection = () => {
               </div>
 
               {/* Trust Badge */}
-              <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl hover:bg-accent/15 transition-colors duration-300 hover-streak">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-accent glow-pulse-text">4.9</div>
-                  <div className="flex text-accent">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3 w-3 fill-current" />
-                    ))}
-                  </div>
+              <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/15">
+                  <ShieldCheck className="h-6 w-6 text-accent" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-foreground">+347 avaliações</p>
-                  <p className="text-sm text-muted-foreground">Nota máxima no Google</p>
+                  <p className="font-medium text-foreground">Diagnóstico honesto</p>
+                  <p className="text-sm text-muted-foreground">Preço aprovado antes de qualquer serviço</p>
                 </div>
               </div>
             </div>

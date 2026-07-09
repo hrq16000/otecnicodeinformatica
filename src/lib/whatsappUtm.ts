@@ -130,11 +130,13 @@ export function initWhatsAppUtm() {
       if (anchor.dataset.utmApplied === "1") return;
       const medium = deriveMedium(anchor);
       const campaign = deriveCampaign();
+      const source = deriveSource(anchor);
       const location =
         (anchor.closest("[data-cta-location]") as HTMLElement | null)?.dataset.ctaLocation ||
         anchor.dataset.ctaLocation ||
+        source ||
         medium;
-      anchor.href = withUtm(anchor.href, medium, campaign, location);
+      anchor.href = withUtm(anchor.href, medium, campaign, location, source);
       anchor.dataset.utmApplied = "1";
 
       // Validação + log debug — antes do navegador seguir o link.

@@ -18,7 +18,7 @@ const CANONICAL = "https://tecnico.curitiba.br/termos-e-condicoes";
 const faq = [
   {
     q: "Quanto custa o orçamento pelo WhatsApp?",
-    a: "Totalmente grátis. Envie fotos, vídeos e a descrição do problema pelo WhatsApp (41) 9 9745-2053. Respondemos em até 30 minutos em horário comercial.",
+    a: "Totalmente grátis. Envie fotos, vídeos e a descrição do problema pelo WhatsApp. Respondemos em até 30 minutos em horário comercial.",
   },
   {
     q: "Quanto custa a visita técnica em Curitiba e região?",

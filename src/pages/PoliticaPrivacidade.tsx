@@ -26,7 +26,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         </p>
         <p className="mt-2">
           Contato do encarregado (DPO): <a href={`mailto:${EMAIL}`} className="text-accent underline">{EMAIL}</a>{" "}
-          ou WhatsApp (41) 9 9745-2053.
+          ou WhatsApp.
         </p>
       </>
     ),

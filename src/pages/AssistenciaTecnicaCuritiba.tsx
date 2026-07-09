@@ -626,7 +626,7 @@ export default function AssistenciaTecnicaCuritiba() {
               <Button asChild variant="heroWhatsapp" size="lg" className="atc-pulse text-base md:text-lg px-8" onClick={onWa("final_cta")}>
                 <a href={waUrl} target="_blank" rel="noopener noreferrer" data-wa-medium="final_cta">
                   <MessageCircle className="h-6 w-6" />
-                  Falar com Especialista — (41) 9 9745-2053
+                  Falar com Especialista
                 </a>
               </Button>
             </div>

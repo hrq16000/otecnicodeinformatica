@@ -108,7 +108,6 @@ const NAP = {
   country: "BR",
   postal: "80000-000",
   phone: "+5541997086380",
-  phoneDisplay: "(41) 9 9745-2053",
   email: "contato@tecnico.curitiba.br",
   url: "https://tecnico.curitiba.br",
   geo: { lat: -25.4284, lng: -49.2733 },

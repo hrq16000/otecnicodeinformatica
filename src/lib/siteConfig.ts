@@ -22,7 +22,7 @@ export const siteConfig = {
   defaultTitle:
     "Técnico em Curitiba | Informática, Notebook, PC e Suporte Empresarial",
   defaultDescription:
-    "Atendimento técnico em Curitiba para notebook, computador, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto e atendimento via WhatsApp.",
+    "Técnico em Curitiba para notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto via WhatsApp.",
   defaultOgImage: "https://tecnico.curitiba.br/og-image.png",
 
   // Contato — número NUNCA exibido como texto; só em wa.me / JSON-LD.

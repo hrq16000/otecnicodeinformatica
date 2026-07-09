@@ -21,17 +21,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 50% 16%;
 
-    --primary: 215 65% 22%;
+    /* Nova identidade: grafite / azul petróleo escuro */
+    --primary: 205 58% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 96%;
-    --secondary-foreground: 215 50% 16%;
+    --secondary: 205 20% 96%;
+    --secondary-foreground: 205 50% 14%;
 
-    --muted: 220 14% 95%;
-    /* Reforçado para garantir contraste AA em texto secundário (antes 215 15% 46%, ficava ilegível em fundos claros). */
-    --muted-foreground: 215 28% 30%;
+    --muted: 205 14% 95%;
+    /* Reforçado para garantir contraste AA em texto secundário. */
+    --muted-foreground: 205 22% 32%;
 
-    --accent: 24 92% 52%;
+    /* Acento: azul elétrico / ciano controlado */
+    --accent: 197 90% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -39,7 +41,7 @@
 
     --border: 220 14% 90%;
     --input: 220 14% 90%;
-    --ring: 215 65% 22%;
+    --ring: 197 90% 42%;
 
     --radius: 0.625rem;
 
@@ -56,19 +58,20 @@
     --z-page-wipe: 100;
     --z-toast: 110;
 
-    /* Premium palette */
+    /* Nova paleta técnica premium */
     --whatsapp: 145 63% 42%;
     --whatsapp-hover: 145 63% 36%;
-    --cta-orange: 24 92% 52%;
-    --cta-orange-hover: 24 92% 45%;
-    --hero-bg: 215 65% 18%;
-    --hero-bg-end: 220 55% 28%;
-    --section-light: 220 20% 97%;
+    /* Acento herdado (mantém o nome por compatibilidade) — agora ciano elétrico */
+    --cta-orange: 197 90% 42%;
+    --cta-orange-hover: 197 90% 35%;
+    --hero-bg: 205 58% 13%;
+    --hero-bg-end: 200 45% 22%;
+    --section-light: 205 20% 97%;
     --trust-green: 145 63% 42%;
 
     /* Refined glow tokens */
-    --glow-primary: 215 65% 45%;
-    --glow-accent: 24 85% 58%;
+    --glow-primary: 205 60% 40%;
+    --glow-accent: 195 92% 52%;
     --glow-whatsapp: 145 55% 48%;
 
     /* Premium shadow tokens */
@@ -179,7 +182,7 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(160deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 60%, hsl(215 45% 32%) 100%);
+    background: linear-gradient(160deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 62%, hsl(197 55% 26%) 100%);
     /* Reserva mínima de altura para zerar CLS no mobile enquanto fontes/imagens
        do hero (LCP) ainda estão carregando. Mantém viewport estável. */
     min-height: 560px;

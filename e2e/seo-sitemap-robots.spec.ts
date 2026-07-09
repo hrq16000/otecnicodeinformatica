@@ -15,9 +15,9 @@ test.describe("SEO — sitemap & robots", () => {
     const res = await request.get(`${BASE}/sitemap-main.xml`);
     expect(res.ok()).toBeTruthy();
     const body = await res.text();
-    expect(body).toContain("https://tecnicocuritiba.com.br/assistencia-tecnica-curitiba");
-    expect(body).toContain("https://tecnicocuritiba.com.br/termos-e-condicoes");
-    expect(body).toContain("https://tecnicocuritiba.com.br/");
+    expect(body).toContain("https://tecnico.curitiba.br/assistencia-tecnica-curitiba");
+    expect(body).toContain("https://tecnico.curitiba.br/termos-e-condicoes");
+    expect(body).toContain("https://tecnico.curitiba.br/");
   });
 
   test("/assistencia-tecnica-curitiba canonical self-references", async ({ page }) => {

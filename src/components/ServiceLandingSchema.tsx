@@ -94,7 +94,7 @@ export const ServiceLandingSchema = ({
       isPartOf: { "@id": `${BASE_URL}/#website` },
       about: { "@id": `${BASE_URL}/#organization` },
       dateModified: modified,
-      primaryImageOfPage: { "@type": "ImageObject", url: `${BASE_URL}/og-image.jpg` },
+      primaryImageOfPage: { "@type": "ImageObject", url: `${BASE_URL}/og-image.png` },
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["h1", ".tldr", "[data-speakable]"],

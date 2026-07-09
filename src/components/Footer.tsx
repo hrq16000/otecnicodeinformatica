@@ -214,7 +214,7 @@ export const Footer = () => {
                 className="h-10 w-auto"
                 src="/logo.webp"
                 width="200"
-                height="40"
+                height="47"
               />
             </div>
             <p className="text-white/80 text-sm max-w-xs leading-relaxed">

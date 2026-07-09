@@ -99,7 +99,7 @@ export const FastHeader = () => {
             alt="Técnico Curitiba — Assistência Técnica em Informática"
             src="/logo.webp"
             width="304"
-            height="98"
+            height="71"
             decoding="sync"
             // @ts-ignore - fetchpriority is valid HTML attribute
             fetchpriority="high"

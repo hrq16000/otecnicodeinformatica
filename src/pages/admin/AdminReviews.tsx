@@ -256,7 +256,7 @@ const AdminReviews = () => {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
       <Header />
-      <main className="min-h-screen bg-background pt-24 pb-12 px-4">
+      <main className="min-h-screen bg-background pt-8 pb-12 px-4">
         <div className="max-w-7xl mx-auto">
           <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>

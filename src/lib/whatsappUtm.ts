@@ -47,7 +47,7 @@ function readEntryUtms(): Record<string, string> {
   }
 }
 
-function withUtm(href: string, medium: string, campaign: string, location: string): string {
+function withUtm(href: string, medium: string, campaign: string, location: string, source: string | null): string {
   try {
     const u = new URL(href, window.location.origin);
     const text = u.searchParams.get("text");
@@ -58,8 +58,9 @@ function withUtm(href: string, medium: string, campaign: string, location: strin
       if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
     }
 
-    // 2) Fallbacks por local de clique (não sobrescreve UTMs existentes).
-    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "site");
+    // 2) Fallbacks por local de clique (não sobrescreve UTMs de campanha).
+    //    data-wa-source define a origem site-side (ex.: whatsapp_cta).
+    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", source || "site");
     if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", medium);
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
 

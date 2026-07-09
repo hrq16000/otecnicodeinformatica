@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Star, MessageCircle, ShieldCheck } from "lucide-react";
+import { Star, MessageCircle, ShieldCheck, Truck, BadgeCheck, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAggregateRating } from "@/hooks/useAggregateRating";
 import { Button } from "@/components/ui/button";
@@ -26,9 +26,106 @@ interface ReviewsGridProps {
   showAverage?: boolean;
   title?: string;
   whatsappCta?: boolean;
+  /** Exibe prova de confiança alternativa quando não há reviews reais. Default: true. */
+  fallback?: boolean;
 }
 
-const WHATSAPP_NUMBER = "5541997452053";
+/** Abre o funil obrigatório sem expor o número no DOM. */
+const openFunnel = (location: string, message?: string) => {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(
+    new CustomEvent("wa-funnel:open", { detail: { location, message } }),
+  );
+};
+
+/**
+ * Prova de confiança exibida quando ainda não existem reviews verificadas
+ * para o filtro atual. NÃO inventa aggregateRating nem contagem de avaliações
+ * — apenas comunica garantias reais e verificáveis do atendimento.
+ */
+const TrustProofFallback = ({
+  title,
+  city,
+  whatsappCta,
+}: {
+  title: string;
+  city?: string;
+  whatsappCta: boolean;
+}) => {
+  const signals = [
+    {
+      icon: BadgeCheck,
+      title: "Atendimento verificado",
+      desc: "Técnico identificado e diagnóstico transparente antes de qualquer serviço.",
+    },
+    {
+      icon: Clock,
+      title: "Orçamento sem compromisso",
+      desc: "Você aprova o valor antes de começarmos. Sem surpresas na conta.",
+    },
+    {
+      icon: Truck,
+      title: "Coleta e entrega",
+      desc: `Retiramos e devolvemos o equipamento${city ? ` em ${city}` : ""} com segurança.`,
+    },
+    {
+      icon: ShieldCheck,
+      title: "Garantia no serviço",
+      desc: "Todo reparo acompanha garantia. Confiança em cada etapa.",
+    },
+  ];
+
+  return (
+    <section className="py-12 px-4">
+      <div className="max-w-6xl mx-auto">
+        <header className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            {title}
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Ainda estamos reunindo avaliações verificadas
+            {city ? ` de clientes em ${city}` : ""}. Enquanto isso, veja os
+            compromissos reais do nosso atendimento.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {signals.map((s) => (
+            <article
+              key={s.title}
+              className="rounded-xl border border-border bg-card p-5 shadow-sm text-center"
+            >
+              <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                <s.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-1">{s.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {s.desc}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        {whatsappCta && (
+          <div className="text-center mt-8">
+            <Button
+              size="lg"
+              className="gap-2"
+              onClick={() =>
+                openFunnel(
+                  city ? `reviews_fallback_${city}` : "reviews_fallback",
+                )
+              }
+            >
+              <MessageCircle className="w-5 h-5" />
+              Pedir orçamento pelo WhatsApp
+            </Button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
 
 export const ReviewsGrid = ({
   filter = {},
@@ -36,6 +133,7 @@ export const ReviewsGrid = ({
   showAverage = true,
   title = "Avaliações de clientes reais",
   whatsappCta = true,
+  fallback = true,
 }: ReviewsGridProps) => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -72,16 +170,17 @@ export const ReviewsGrid = ({
     };
   }, [filter.service, filter.city, filter.neighborhood, limit]);
 
+  // Sem reviews reais: exibe prova de confiança alternativa (sem schema/rating).
   if (!loading && reviews.length === 0) {
-    return null; // fallback silencioso, evita schema vazio
+    if (!fallback) return null;
+    return (
+      <TrustProofFallback
+        title={title}
+        city={filter.city}
+        whatsappCta={whatsappCta}
+      />
+    );
   }
-
-  const whatsappMsg = encodeURIComponent(
-    `Olá! Vi as avaliações no site e gostaria de um orçamento${
-      filter.neighborhood ? ` em ${filter.neighborhood}` : ""
-    }.`,
-  );
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
 
   return (
     <section className="py-12 px-4">
@@ -183,11 +282,17 @@ export const ReviewsGrid = ({
 
         {whatsappCta && (
           <div className="text-center mt-8">
-            <Button asChild size="lg" className="gap-2">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5" />
-                Quero o mesmo atendimento pelo WhatsApp
-              </a>
+            <Button
+              size="lg"
+              className="gap-2"
+              onClick={() =>
+                openFunnel(
+                  filter.city ? `reviews_grid_${filter.city}` : "reviews_grid",
+                )
+              }
+            >
+              <MessageCircle className="w-5 h-5" />
+              Quero o mesmo atendimento pelo WhatsApp
             </Button>
           </div>
         )}

@@ -79,7 +79,7 @@ const ConsertoTV = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO
+      <PageSEO noindex
         title="Conserto de TV em Curitiba e Região | Orçamento sem Compromisso"
         description="Conserto de TV LED, LCD, OLED e Smart TV. Orçamento humanizado. Samsung, LG, Sony, TCL e todas as marcas."
         path="/servicos/conserto-tv"

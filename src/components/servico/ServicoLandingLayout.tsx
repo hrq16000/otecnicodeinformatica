@@ -31,6 +31,10 @@ export interface ServicoLandingData {
   incluso: { title: string; desc: string }[];
   sinais: string[];
   processo: { step: string; title: string; desc: string }[];
+  /** Fatores reais que influenciam o valor final (sem preço fechado). */
+  fatoresValor?: { title: string; desc: string }[];
+  /** Diferenciação residencial x empresarial. */
+  atendimento?: { residencial: string; empresarial: string };
   faqs: ServiceFaq[];
   relacionados: { label: string; to: string }[];
   /** Data ISO da última reescrita — atualiza dateModified do schema */
@@ -185,6 +189,50 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           </div>
         </div>
       </section>
+
+      {/* O que pode influenciar o valor */}
+      {data.fatoresValor && data.fatoresValor.length > 0 && (
+        <section className="py-14 md:py-16 bg-secondary">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
+              O que pode influenciar o valor
+            </h2>
+            <p className="mb-8 max-w-2xl text-muted-foreground">
+              Não trabalhamos com preço fechado universal. O diagnóstico começa a partir de{" "}
+              {siteConfig.minPriceLabel} e o valor final depende de fatores reais avaliados caso a caso:
+            </p>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {data.fatoresValor.map((item) => (
+                <div key={item.title} className="rounded-xl border border-border bg-background p-5">
+                  <h3 className="font-bold text-foreground">{item.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Atendimento residencial e empresarial */}
+      {data.atendimento && (
+        <section className="py-14 md:py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
+              Atendimento residencial e empresarial em Curitiba e região
+            </h2>
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-bold text-foreground">Residencial</h3>
+                <p className="mt-2 text-muted-foreground">{data.atendimento.residencial}</p>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-bold text-foreground">Empresarial</h3>
+                <p className="mt-2 text-muted-foreground">{data.atendimento.empresarial}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {data.extra}
 

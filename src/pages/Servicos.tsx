@@ -1,313 +1,206 @@
 import { useEffect } from "react";
-import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
-import { Header } from "@/components/Header";
-import { PageHero } from "@/components/PageHero";
-import { TrustSection } from "@/components/TrustSection";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
-import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { BlocoInteligencia } from "@/components/BlocoInteligencia";
-import { RealImageSection } from "@/components/RealImageSection";
-import { JsonLdSchema } from "@/components/JsonLdSchema";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
-import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
 import {
   Monitor,
-  ShieldCheck,
-  Wrench,
-  HardDrive,
-  Wifi,
-  Database,
-  Building2,
-  Headphones,
-  MapPin,
+  Laptop,
   Cpu,
-  Settings,
-  Home,
+  HardDrive,
+  ShieldCheck,
+  Database,
+  Wifi,
+  Building2,
+  ArrowRight,
 } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { SERVICOS_CORE } from "@/lib/servicosCore";
 
-const WHATSAPP_NUMBER = "5541997086380";
-const WHATSAPP_MESSAGE = "Olá! Gostaria de saber mais sobre os serviços.";
+const CTA_BASE =
+  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
 
-const services = [
-  {
-    icon: Wrench,
-    title: "Assistência Técnica em Informática",
-    description:
-      "Oferecemos serviços completos de assistência técnica para computadores e notebooks. Nossa equipe realiza diagnósticos precisos, identificando falhas de hardware e software para devolver seu equipamento funcionando perfeitamente. Trabalhamos com todas as marcas e modelos, garantindo qualidade e agilidade no atendimento.",
-    keywords: ["assistência técnica informática", "conserto computador", "reparo notebook"],
-  },
-  {
-    icon: MapPin,
-    title: "Técnico de Informática em Domicílio",
-    description:
-      "Levamos a solução até você. Nosso técnico em informática vai até sua casa ou escritório em Curitiba e região metropolitana para resolver problemas no seu computador sem que você precise sair de casa. Atendimento prático, rápido e com horário agendado conforme sua disponibilidade.",
-    keywords: ["técnico informática domicílio", "técnico em casa", "atendimento residencial"],
-  },
-  {
-    icon: Settings,
-    title: "Manutenção Preventiva e Corretiva",
-    description:
-      "A manutenção preventiva evita problemas futuros, mantendo seu PC ou notebook sempre otimizado. Já a manutenção corretiva resolve defeitos existentes, desde travamentos até falhas de inicialização. Nossos técnicos especializados cuidam do seu equipamento com profissionalismo.",
-    keywords: ["manutenção computador", "manutenção preventiva", "manutenção corretiva"],
-  },
-  {
-    icon: Monitor,
-    title: "Formatação de Computador e Notebook",
-    description:
-      "Formatação completa com instalação limpa do Windows, configuração de drivers, programas essenciais e ativação do sistema. Removemos arquivos desnecessários e deixamos seu computador como novo, rápido e pronto para uso. Backup dos seus dados incluído quando solicitado.",
-    keywords: ["formatação computador", "formatação notebook", "instalar windows"],
-  },
-  {
-    icon: Cpu,
-    title: "Limpeza Interna e Troca de Pasta Térmica",
-    description:
-      "A limpeza interna remove poeira acumulada que causa superaquecimento e travamentos. A troca de pasta térmica renova a condução de calor do processador, evitando desligamentos inesperados. Serviço essencial para manter a vida útil e performance do seu equipamento.",
-    keywords: ["limpeza computador", "pasta térmica", "superaquecimento"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Remoção de Vírus e Malware",
-    description:
-      "Seu computador está lento, abrindo propagandas ou com comportamento estranho? Realizamos varredura completa para eliminar vírus, trojans, spyware e outros malwares. Instalamos proteção atualizada e configuramos seu sistema para maior segurança contra ameaças virtuais.",
-    keywords: ["remover vírus", "limpar malware", "computador infectado"],
-  },
-  {
-    icon: Database,
-    title: "Backup e Recuperação de Dados",
-    description:
-      "Proteja seus arquivos importantes com nosso serviço de backup profissional. Se você perdeu dados por formatação acidental, HD danificado ou ataque de ransomware, nossa equipe utiliza ferramentas especializadas para tentar recuperar fotos, documentos e arquivos preciosos.",
-    keywords: ["backup dados", "recuperar arquivos", "HD danificado"],
-  },
-  {
-    icon: HardDrive,
-    title: "Instalação de Programas e Sistemas",
-    description:
-      "Instalamos e configuramos qualquer software que você precisa: pacote Office, antivírus, programas de design, contabilidade, editores e muito mais. Também fazemos atualização de sistemas operacionais e drivers para melhor compatibilidade e desempenho.",
-    keywords: ["instalar programas", "configurar software", "atualização sistema"],
-  },
-  {
-    icon: Cpu,
-    title: "Montagem e Upgrade de PC",
-    description:
-      "Quer um computador mais rápido? Realizamos upgrade de memória RAM, troca de HD por SSD, instalação de placa de vídeo e outros componentes. Também montamos PCs personalizados conforme sua necessidade, seja para trabalho, estudos ou jogos.",
-    keywords: ["upgrade computador", "montar PC", "trocar SSD"],
-  },
-  {
-    icon: Building2,
-    title: "Suporte Técnico para Empresas",
-    description:
-      "Soluções de TI para pequenas e médias empresas em Curitiba. Oferecemos planos de suporte contínuo, manutenção de infraestrutura, gestão de rede, backup corporativo e atendimento prioritário. Emitimos nota fiscal e aceitamos pagamento faturado para facilitar sua gestão.",
-    keywords: ["suporte empresarial", "TI empresas", "manutenção corporativa"],
-  },
-  {
-    icon: Home,
-    title: "Suporte para Home Office",
-    description:
-      "Trabalha de casa? Configuramos seu ambiente de trabalho remoto com internet estável, VPN segura, impressora em rede e todos os softwares que sua empresa utiliza. Garantimos que você tenha produtividade máxima sem sair de casa.",
-    keywords: ["home office", "trabalho remoto", "configurar VPN"],
-  },
-  {
-    icon: Wifi,
-    title: "Configuração de Redes e Wi-Fi",
-    description:
-      "Instalação e configuração de roteadores, extensores de sinal, redes cabeadas e Wi-Fi corporativo. Resolvemos problemas de conexão lenta, quedas frequentes e áreas sem cobertura. Sua internet funcionando em todos os cômodos da casa ou setores da empresa.",
-    keywords: ["configurar wifi", "rede lenta", "instalar roteador"],
-  },
-  {
-    icon: Headphones,
-    title: "Atendimento Remoto Imediato",
-    description:
-      "Problemas simples podem ser resolvidos sem visita técnica. Através de acesso remoto seguro, nosso técnico assume o controle do seu computador e resolve a questão em tempo real, enquanto você acompanha. Rápido, prático e econômico.",
-    keywords: ["suporte remoto", "atendimento online", "acesso remoto"],
-  },
-];
+const CARDS = [
+  { slug: "formatacao", icon: Monitor, blurb: "Windows lento ou corrompido? Formatação com backup e sistema pronto para o uso." },
+  { slug: "manutencao-de-notebook", icon: Laptop, blurb: "Aquecimento, tela, teclado, bateria e lentidão — com diagnóstico antes do orçamento." },
+  { slug: "manutencao-de-computador", icon: Cpu, blurb: "Desktop travando ou sem vídeo? Fonte, memória, armazenamento e placa-mãe avaliados." },
+  { slug: "upgrade-ssd-ram", icon: HardDrive, blurb: "Ganho real de desempenho com SSD e memória, respeitando a compatibilidade." },
+  { slug: "remocao-de-virus", icon: ShieldCheck, blurb: "Pop-ups, lentidão e navegador sequestrado, com atenção aos seus dados." },
+  { slug: "recuperacao-de-dados", icon: Database, blurb: "HD, SSD e pendrive: avaliação primeiro. Recuperação não é garantida." },
+  { slug: "redes-e-wifi", icon: Wifi, blurb: "Wi-Fi caindo ou sinal fraco em casa e na empresa? Cobertura e estabilidade." },
+  { slug: "suporte-tecnico-empresarial", icon: Building2, blurb: "Estações, rede, impressoras e backups, pontual ou recorrente sob consulta." },
+] as const;
+
+const TITLE = "Serviços de Informática em Curitiba | Técnico em Curitiba";
+const DESCRIPTION =
+  "Formatação, manutenção de notebook e PC, upgrade de SSD/RAM, remoção de vírus, recuperação de dados, redes/Wi-Fi e suporte empresarial em Curitiba. Atendimento via WhatsApp.";
 
 const Servicos = () => {
   useEffect(() => {
-    document.title = "Serviços de Informática Curitiba | Hoje R$ 99,99";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Formatação, remoção de vírus, conserto de PC/notebook, upgrade SSD e suporte em Curitiba. Atendimento hoje a partir de R$ 99,99 via WhatsApp."
-      );
-    }
     trackPageView("/servicos", "Serviços");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-
-  const handleCTAClick = () => {
-    trackCTAClick("whatsapp", "servicos-cta");
-  };
+  const waHref = whatsappLink("Olá! Gostaria de saber mais sobre os serviços.");
+  const handleCta = () => trackCTAClick("whatsapp", "servicos-hub");
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Serviços de Informática Curitiba | Hoje R$ 99,99" description="Formatação, remoção de vírus, conserto de PC/notebook, upgrade SSD e suporte em Curitiba. Atendimento hoje a partir de R$ 99,99 via WhatsApp." path="/servicos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }]} />
-      <JsonLdSchema />
+      <PageSEO
+        title={TITLE}
+        description={DESCRIPTION}
+        path="/servicos"
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Serviços", path: "/servicos" },
+        ]}
+      />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />
-      <main>
-        <PageHero
-          title="Serviços de Informática Curitiba — Hoje a partir de R$ 99,99"
-          subtitle="Assistência técnica completa para computadores, notebooks e redes. Atendimento profissional com garantia e preço justo."
-          ctaText="Solicitar Orçamento"
+
+      {/* Hero — identidade "centro técnico local premium" */}
+      <section className="relative overflow-hidden bg-[hsl(var(--hero-bg))] text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-bg))] via-[hsl(205_55%_16%)] to-[hsl(var(--hero-bg-end))]" />
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--accent)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+          aria-hidden="true"
         />
-
-        <section className="py-8 md:py-10 lg:py-20 bg-background relative overflow-hidden">
-          {/* Ambient glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="container mx-auto relative z-10">
-            <div className="text-center mb-10 md:mb-14">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 reveal-text">
-                Serviços com orçamento claro antes do reparo
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                De formatação a suporte empresarial, oferecemos soluções completas para manter seu computador e sua empresa funcionando. Serviços a partir de <strong className="text-accent">R$ 99,99</strong> ou por hora técnica.
-              </p>
+        <div className="container relative z-10 mx-auto py-14 md:py-20">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--accent))]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
+              Serviços em Curitiba
+            </span>
+            <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
+              Serviços de informática em Curitiba
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+              Assistência técnica focada em computadores, notebooks, redes e empresas. O atendimento
+              começa por uma triagem no WhatsApp: você descreve o problema, recebe orientação e o
+              valor é aprovado antes de qualquer serviço.
+            </p>
+            <div className="mt-7">
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleCta}
+                data-cta-location="servicos_hub_hero"
+                className={CTA_BASE}
+              >
+                Iniciar atendimento no WhatsApp
+              </a>
             </div>
+            <p className="mt-5 text-sm text-white/70">
+              Curitiba e região • A partir de {siteConfig.minPriceLabel} • Diagnóstico honesto, sem
+              promessa falsa
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-6">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <article
-                    key={index}
-                    className="group glass-card gradient-border rounded-xl p-6 md:p-8 hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-300 hover-streak animated-border stagger-item"
-                    style={{ animationDelay: `${index * 40}ms` }}
-                  >
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="flex-shrink-0">
-                        <div className="bg-primary rounded-lg p-4 w-fit group-hover:scale-110 group-hover:shadow-[0_0_20px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
-                          <Icon className="h-8 w-8 text-primary-foreground" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-4">
-                          {service.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {service.keywords.map((keyword, idx) => (
-                            <span
-                              key={idx}
-                              className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full group-hover:bg-accent/10 group-hover:text-accent transition-colors duration-300"
-                            >
-                              {keyword}
-                            </span>
-                          ))}
-                        </div>
-                        <Button variant="whatsapp" size="sm" className="opacity-80 group-hover:opacity-100 transition-opacity duration-300" asChild>
-                          <a
-                            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre ${service.title}.`)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleCTAClick}
-                          >
-                            <MessageCircle className="h-4 w-4" />
-                            Solicitar Este Serviço
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-
-            {/* Blocos por tipo de problema */}
-            <div className="mt-16">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8 text-center reveal-text">
-                Qual o Seu Problema?
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  {
-                    problema: "Computador Lento",
-                    descricao: "HD antigo, pouca RAM, vírus ou Windows corrompido. Diagnóstico identifica a causa real.",
-                    links: [
-                      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
-                      { label: "Formatação", to: "/servicos/formatacao-computador" },
-                      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
-                    ],
-                  },
-                  {
-                    problema: "Notebook Não Liga",
-                    descricao: "Pode ser bateria, carregador, placa-mãe ou tela. Precisa de diagnóstico técnico.",
-                    links: [
-                      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
-                      { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
-                    ],
-                  },
-                  {
-                    problema: "Vírus e Pop-ups",
-                    descricao: "Propagandas, programas estranhos, lentidão extrema. Limpeza profissional com proteção.",
-                    links: [
-                      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
-                      { label: "Formatação", to: "/servicos/formatacao-computador" },
-                    ],
-                  },
-                  {
-                    problema: "Wi-Fi Lento ou Caindo",
-                    descricao: "Posicionamento do roteador, interferência ou configuração errada. Resolvemos na visita.",
-                    links: [
-                      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
-                    ],
-                  },
-                  {
-                    problema: "Perdi Meus Arquivos",
-                    descricao: "HD com defeito, formatação acidental ou ransomware. Tentamos recuperar antes de tudo.",
-                    links: [
-                      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
-                    ],
-                  },
-                  {
-                    problema: "Quero Montar ou Melhorar Meu PC",
-                    descricao: "Montagem personalizada ou upgrade de componentes para melhor desempenho.",
-                    links: [
-                      { label: "Montagem de PC", to: "/servicos/montagem-pc" },
-                      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
-                    ],
-                  },
-                  {
-                    problema: "TV Com Defeito",
-                    descricao: "Conserto de TV LED, LCD e Smart TV. Reparo de placa-fonte, backlight e T-CON.",
-                    links: [
-                      { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
-                      { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-                    ],
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="group glass-card gradient-border rounded-xl p-6 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak animated-border stagger-item" style={{ animationDelay: `${i * 60}ms` }}>
-                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.problema}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{item.descricao}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {item.links.map((link) => (
-                        <Link key={link.to} to={link.to} className="text-xs bg-accent/10 text-accent px-3 py-1.5 rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-200">
-                          {link.label} →
-                        </Link>
-                      ))}
-                    </div>
+      {/* Grid dos 8 serviços essenciais */}
+      <section className="py-14 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
+            Serviços essenciais
+          </h2>
+          <p className="mb-8 max-w-2xl text-muted-foreground">
+            Poucas páginas, bem cuidadas. Cada serviço tem conteúdo próprio, explicando quando
+            chamar, como funciona e o que influencia o valor.
+          </p>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {CARDS.map(({ slug, icon: Icon, blurb }) => {
+              const data = SERVICOS_CORE[slug];
+              return (
+                <Link
+                  key={slug}
+                  to={`/servicos/${slug}`}
+                  className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-colors hover:border-[hsl(var(--accent))]"
+                >
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[hsl(var(--accent))]/10 text-[hsl(var(--accent))]">
+                    <Icon className="h-6 w-6" />
                   </div>
-                ))}
-              </div>
+                  <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-[hsl(var(--accent))]">
+                    {data.serviceName}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{blurb}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--accent))]">
+                    Ver serviço
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Como o atendimento começa */}
+      <section className="py-14 md:py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+              O atendimento começa pela triagem
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Não trabalhamos com preço fechado universal. Você fala com o técnico pelo WhatsApp,
+              explicamos os próximos passos e o diagnóstico começa a partir de {siteConfig.minPriceLabel}.
+              O valor final depende do equipamento, da complexidade, de eventuais peças e da condição
+              real do problema.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link
+                to="/como-funciona"
+                className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+              >
+                Como funciona
+              </Link>
+              <Link
+                to="/precos-e-politicas"
+                className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+              >
+                Preços e políticas
+              </Link>
+              <Link
+                to="/faq"
+                className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+              >
+                Dúvidas frequentes
+              </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <TrustSection />
-        <CTASection />
-      </main>
-      <RealImageSection imageKey="tecnicoTrabalhando" secondaryImageKey="notebookReparo" layout="duo" caption="Técnico especializado em ação" secondaryCaption="Reparo profissional de notebooks" />
-      <BlocoInteligencia />
+      {/* CTA final */}
+      <section className="bg-[hsl(var(--hero-bg))] py-16 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold">Vamos resolver isso hoje?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-white/80">
+            Fale direto com o técnico pelo WhatsApp. Diagnóstico honesto e valor aprovado antes de
+            qualquer serviço.
+          </p>
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleCta}
+            data-cta-location="servicos_hub_final"
+            className={`${CTA_BASE} mt-7`}
+          >
+            Iniciar atendimento no WhatsApp
+          </a>
+        </div>
+      </section>
+
       <InterlinkingBlock />
       <Footer />
     </div>

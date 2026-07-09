@@ -19,7 +19,7 @@ const primaryNav = [
 
 // Itens extras do menu mobile (mantém acesso, sem poluir o header).
 const mobileExtra = [
-  { label: "Suporte empresarial", href: "/suporte-empresas" },
+  { label: "Suporte empresarial", href: "/servicos/suporte-tecnico-empresarial" },
   { label: "Atendimento a domicílio", href: "/atendimento-domicilio" },
   { label: "Atendimento remoto", href: "/atendimento-remoto" },
   { label: "Blog", href: "/blog" },

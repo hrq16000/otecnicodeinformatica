@@ -309,6 +309,7 @@ const BordaDoCampoSJP = lazy(() => import("./pages/bairros/BordaDoCampoSJP"));
 const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInformaticaCuritibaAds"));
 
 // Páginas de Serviços Individuais
+const ServicoCore = lazy(() => import("./pages/servicos/ServicoCore"));
 const FormatacaoComputador = lazy(() => import("./pages/servicos/FormatacaoComputador"));
 const RemocaoVirus = lazy(() => import("./pages/servicos/RemocaoVirus"));
 const UpgradeSsdMemoria = lazy(() => import("./pages/servicos/UpgradeSsdMemoria"));
@@ -759,15 +760,26 @@ const App = () => (
             <Route path="/cftv/campo-largo" element={<CFTVCampoLargo />} />
             <Route path="/cftv/pinhais" element={<CFTVPinhais />} />
             
-            {/* Páginas de Serviços */}
-            <Route path="/servicos/formatacao-computador" element={<FormatacaoComputador />} />
-            <Route path="/servicos/remocao-virus" element={<RemocaoVirus />} />
-            <Route path="/servicos/upgrade-ssd-memoria" element={<UpgradeSsdMemoria />} />
-            <Route path="/servicos/conserto-pc-notebook" element={<ConsertoPcNotebook />} />
-            <Route path="/servicos/conserto-notebook-curitiba" element={<ConsertoNotebookCuritiba />} />
+            {/* Serviços essenciais — slugs canônicos (SEO local curado) */}
+            <Route path="/servicos/formatacao" element={<ServicoCore slug="formatacao" />} />
+            <Route path="/servicos/manutencao-de-notebook" element={<ServicoCore slug="manutencao-de-notebook" />} />
+            <Route path="/servicos/manutencao-de-computador" element={<ServicoCore slug="manutencao-de-computador" />} />
+            <Route path="/servicos/upgrade-ssd-ram" element={<ServicoCore slug="upgrade-ssd-ram" />} />
+            <Route path="/servicos/remocao-de-virus" element={<ServicoCore slug="remocao-de-virus" />} />
+            <Route path="/servicos/recuperacao-de-dados" element={<ServicoCore slug="recuperacao-de-dados" />} />
+            <Route path="/servicos/redes-e-wifi" element={<ServicoCore slug="redes-e-wifi" />} />
+            <Route path="/servicos/suporte-tecnico-empresarial" element={<ServicoCore slug="suporte-tecnico-empresarial" />} />
 
-            <Route path="/servicos/redes-wifi" element={<RedesWifi />} />
-            <Route path="/servicos/backup-recuperacao" element={<BackupRecuperacao />} />
+            {/* Redirects de slugs herdados para os canônicos */}
+            <Route path="/servicos/formatacao-computador" element={<Navigate to="/servicos/formatacao" replace />} />
+            <Route path="/servicos/remocao-virus" element={<Navigate to="/servicos/remocao-de-virus" replace />} />
+            <Route path="/servicos/upgrade-ssd-memoria" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
+            <Route path="/servicos/conserto-pc-notebook" element={<Navigate to="/servicos/manutencao-de-computador" replace />} />
+            <Route path="/servicos/conserto-notebook-curitiba" element={<Navigate to="/servicos/manutencao-de-notebook" replace />} />
+            <Route path="/servicos/redes-wifi" element={<Navigate to="/servicos/redes-e-wifi" replace />} />
+            <Route path="/servicos/backup-recuperacao" element={<Navigate to="/servicos/recuperacao-de-dados" replace />} />
+
+            {/* Páginas herdadas/thin — mantidas funcionando, mas com noindex */}
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
             <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
             <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
@@ -775,6 +787,7 @@ const App = () => (
             <Route path="/servicos/conserto-tv" element={<ConsertoTV />} />
             <Route path="/servicos/conserto-celular" element={<ConsertoCelular />} />
             <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
+            
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}
             <Route path="/servicos/formatacao-computador/centro" element={<FormatacaoCentro />} />

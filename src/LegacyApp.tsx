@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 const Servicos = lazy(() => import("./pages/Servicos"));
 const AtendimentoDomicilio = lazy(() => import("./pages/AtendimentoDomicilio"));
 const AtendimentoRemoto = lazy(() => import("./pages/AtendimentoRemoto"));
-const SuporteEmpresas = lazy(() => import("./pages/SuporteEmpresas"));
+
 const PrecosEPoliticas = lazy(() => import("./pages/PrecosEPoliticas"));
 const TecnicoInformaticaCuritiba = lazy(() => import("./pages/TecnicoInformaticaCuritiba"));
 const TecnicoInformaticaSaoJosePinhais = lazy(() => import("./pages/TecnicoInformaticaSaoJosePinhais"));

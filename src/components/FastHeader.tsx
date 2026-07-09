@@ -84,7 +84,7 @@ export const FastHeader = () => {
           />
         </a>
 
-        <nav className="hidden items-center gap-0.5 text-sm font-semibold lg:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-0.5 text-sm font-semibold xl:flex" aria-label="Navegação principal">
           {primaryNav.map((item) => (
             <a
               key={item.href}
@@ -111,7 +111,7 @@ export const FastHeader = () => {
             <span className="hidden sm:inline">Iniciar atendimento</span>
           </a>
 
-          <div ref={menuRef} className="relative lg:hidden">
+          <div ref={menuRef} className="relative">
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}

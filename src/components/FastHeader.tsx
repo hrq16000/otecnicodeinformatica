@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/lib/siteConfig";
 
-const WA_SUPPORT = whatsappLink("Olá! Preciso de suporte técnico em informática.");
 const WA_SCHEDULE = whatsappLink("Olá! Quero agendar um atendimento técnico.");
 
 const trackHeaderClick = (type: "whatsapp" | "chatbot") => {

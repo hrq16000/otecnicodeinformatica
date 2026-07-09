@@ -29,6 +29,15 @@ function deriveMedium(el: HTMLElement | null): string {
   return "cta";
 }
 
+// Fonte do clique (substitui o antigo "Ligar Agora"): rótulo declarado no
+// próprio CTA via [data-wa-source]. Vira utm_source quando o visitante não
+// chegou por uma campanha externa (que sempre tem prioridade de atribuição).
+function deriveSource(el: HTMLElement | null): string | null {
+  if (!el) return null;
+  const src = (el.closest("[data-wa-source]") as HTMLElement | null)?.dataset.waSource;
+  return src && src.trim() ? src.trim() : null;
+}
+
 function readEntryUtms(): Record<string, string> {
   try {
     const raw = sessionStorage.getItem("utm_payload_v1");
@@ -38,7 +47,7 @@ function readEntryUtms(): Record<string, string> {
   }
 }
 
-function withUtm(href: string, medium: string, campaign: string, location: string): string {
+function withUtm(href: string, medium: string, campaign: string, location: string, source: string | null): string {
   try {
     const u = new URL(href, window.location.origin);
     const text = u.searchParams.get("text");
@@ -49,8 +58,9 @@ function withUtm(href: string, medium: string, campaign: string, location: strin
       if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
     }
 
-    // 2) Fallbacks por local de clique (não sobrescreve UTMs existentes).
-    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "site");
+    // 2) Fallbacks por local de clique (não sobrescreve UTMs de campanha).
+    //    data-wa-source define a origem site-side (ex.: whatsapp_cta).
+    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", source || "site");
     if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", medium);
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
 
@@ -120,11 +130,13 @@ export function initWhatsAppUtm() {
       if (anchor.dataset.utmApplied === "1") return;
       const medium = deriveMedium(anchor);
       const campaign = deriveCampaign();
+      const source = deriveSource(anchor);
       const location =
         (anchor.closest("[data-cta-location]") as HTMLElement | null)?.dataset.ctaLocation ||
         anchor.dataset.ctaLocation ||
+        source ||
         medium;
-      anchor.href = withUtm(anchor.href, medium, campaign, location);
+      anchor.href = withUtm(anchor.href, medium, campaign, location, source);
       anchor.dataset.utmApplied = "1";
 
       // Validação + log debug — antes do navegador seguir o link.

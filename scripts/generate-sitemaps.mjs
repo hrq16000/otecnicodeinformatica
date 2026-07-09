@@ -28,18 +28,16 @@ const MAIN = [
   { path: "/quando-nao-compensa", changefreq: "monthly", priority: "0.5" },
 ];
 
-// Serviços de informática em foco nesta rodada.
+// Serviços essenciais — slugs canônicos curados desta rodada.
 const SERVICOS = [
-  "/servicos/formatacao-computador",
-  "/servicos/conserto-notebook-curitiba",
-  "/servicos/conserto-pc-notebook",
-  "/servicos/upgrade-ssd-memoria",
-  "/servicos/remocao-virus",
-  "/servicos/backup-recuperacao",
-  "/servicos/redes-wifi",
-  "/servicos/computador-lento",
-  "/servicos/computador-nao-liga",
-  "/servicos/montagem-pc",
+  "/servicos/formatacao",
+  "/servicos/manutencao-de-notebook",
+  "/servicos/manutencao-de-computador",
+  "/servicos/upgrade-ssd-ram",
+  "/servicos/remocao-de-virus",
+  "/servicos/recuperacao-de-dados",
+  "/servicos/redes-e-wifi",
+  "/servicos/suporte-tecnico-empresarial",
 ].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
 
 // Hubs de cidade reais (NÃO 215 bairros).

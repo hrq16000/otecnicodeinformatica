@@ -16,11 +16,11 @@ import {
   Moon,
   HardDrive,
   CheckCircle2,
-  Star,
+  
   AlertTriangle,
   Clock,
   MapPin,
-  Award,
+  
   Camera,
   Lock,
   Zap,

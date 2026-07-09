@@ -12,7 +12,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -135,7 +135,7 @@ const TecnicoInformaticaQuatroBarras = () => {
 
         <ServiceLocalLinks currentCity="Quatro Barras" />
         <LocalFAQSection title="Perguntas Frequentes - Quatro Barras" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Quatro Barras" }} title="Avaliações de clientes em Quatro Barras" />
         <TrustSection />
         <CTASection />
       </main>

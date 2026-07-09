@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -357,7 +357,7 @@ const TecnicoInformaticaAraucaria = () => {
         <ServiceLocalLinks currentCity="Araucária" />
         <RealImageSection imageKey="diagnostico" caption="Diagnóstico profissional com equipamento especializado" />
         <LocalFAQSection title="Perguntas Frequentes - Araucária" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Araucária" }} title="Avaliações de clientes em Araucária" />
         <TrustSection />
         <CTASection />
       </main>

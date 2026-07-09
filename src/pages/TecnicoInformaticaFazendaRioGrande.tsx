@@ -12,7 +12,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -228,7 +228,7 @@ const TecnicoInformaticaFazendaRioGrande = () => {
 
         <ServiceLocalLinks currentCity="Fazenda Rio Grande" />
         <LocalFAQSection title="Perguntas Frequentes - Fazenda Rio Grande" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Fazenda Rio Grande" }} title="Avaliações de clientes em Fazenda Rio Grande" />
         <TrustSection />
         <CTASection />
       </main>

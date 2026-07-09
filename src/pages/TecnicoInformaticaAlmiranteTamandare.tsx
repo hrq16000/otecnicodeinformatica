@@ -12,7 +12,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -225,7 +225,7 @@ const TecnicoInformaticaAlmiranteTamandare = () => {
 
         <ServiceLocalLinks currentCity="Almirante Tamandaré" />
         <LocalFAQSection title="Perguntas Frequentes - Almirante Tamandaré" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Almirante Tamandaré" }} title="Avaliações de clientes em Almirante Tamandaré" />
         <TrustSection />
         <CTASection />
       </main>

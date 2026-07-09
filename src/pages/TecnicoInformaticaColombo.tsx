@@ -12,7 +12,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -247,7 +247,7 @@ const TecnicoInformaticaColombo = () => {
 
         <ServiceLocalLinks currentCity="Colombo" />
         <LocalFAQSection title="Perguntas Frequentes - Colombo" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Colombo" }} title="Avaliações de clientes em Colombo" />
         <TrustSection />
         <CTASection />
       </main>

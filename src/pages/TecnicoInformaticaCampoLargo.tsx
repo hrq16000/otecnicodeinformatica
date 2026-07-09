@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -348,7 +348,7 @@ const TecnicoInformaticaCampoLargo = () => {
         <ServiceLocalLinks currentCity="Campo Largo" />
         <RealImageSection imageKey="componentesSsd" caption="Upgrade SSD e memória RAM" />
         <LocalFAQSection title="Perguntas Frequentes - Campo Largo" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Campo Largo" }} title="Avaliações de clientes em Campo Largo" />
         <TrustSection />
         <CTASection />
       </main>

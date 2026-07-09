@@ -13,7 +13,7 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
-import { SocialProofSection } from "@/components/SocialProofSection";
+import { ReviewsGrid } from "@/components/ReviewsGrid";
 import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
@@ -348,7 +348,7 @@ const TecnicoInformaticaPinhais = () => {
         <ServiceLocalLinks currentCity="Pinhais" />
         <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento domiciliar profissional" />
         <LocalFAQSection title="Perguntas Frequentes - Pinhais" faqs={localFaqs} />
-        <SocialProofSection />
+        <ReviewsGrid filter={{ city: "Pinhais" }} title="Avaliações de clientes em Pinhais" />
         <TrustSection />
         <CTASection />
       </main>

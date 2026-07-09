@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { CalendarDays, Clock, MapPin, CheckCircle, Shield, Star } from "lucide-react";
+import { CalendarDays, Clock, MapPin, CheckCircle, Shield, Star, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SchedulingModal } from "./SchedulingModal";
 

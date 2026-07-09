@@ -23,6 +23,7 @@
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
+    "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
     "preview:category-prompts": "bun scripts/preview-category-prompts.ts"
   },
   "dependencies": {

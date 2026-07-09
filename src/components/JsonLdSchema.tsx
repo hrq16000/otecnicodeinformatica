@@ -52,7 +52,7 @@ const localBusinessSchema = {
     "Suporte técnico em informática", "Instalação de câmeras CFTV",
     "Conserto de impressoras", "Assistência de eletrodomésticos inteligentes"
   ],
-  "hasMap": "https://www.google.com/maps?cid=tecnicocuritiba"
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+em+Curitiba"
 };
 
 const faqSchema = {

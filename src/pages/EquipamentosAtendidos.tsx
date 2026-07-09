@@ -97,8 +97,8 @@ const EquipamentosAtendidos = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnicocuritiba.lovable.app/" },
-          { "@type": "ListItem", position: 2, name: "Equipamentos Atendidos", item: "https://tecnicocuritiba.lovable.app/equipamentos-atendidos" },
+          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+          { "@type": "ListItem", position: 2, name: "Equipamentos Atendidos", item: "https://tecnico.curitiba.br/equipamentos-atendidos" },
         ],
       })}} />
       <JsonLdSchema />

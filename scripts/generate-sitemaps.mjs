@@ -73,7 +73,7 @@ for (const [name, entries] of active) {
 }
 
 // Zera sub-sitemaps herdados para parar de servir conteúdo thin/duplicado.
-for (const name of ["sitemap-bairros.xml", "sitemap-marcas.xml", "sitemap-problemas.xml"]) {
+for (const name of ["sitemap-bairros.xml", "sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"]) {
   writeFileSync(resolve("public", name), EMPTY_URLSET);
 }
 

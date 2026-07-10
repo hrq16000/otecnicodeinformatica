@@ -101,23 +101,23 @@ const servicosPrecos = [
 
 const PrecosEPoliticas = () => {
   useEffect(() => {
-    document.title = "Tabela de Valores | Técnico de Informática Curitiba";
+    document.title = "Preços e Políticas | Técnico em Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Tabela completa de valores de serviços de informática em Curitiba. Visita técnica a partir de R$ 69,99. Transparência total nos valores."
+        "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados."
       );
     }
-    trackPageView("/valores", "Valores e Condições");
+    trackPageView("/precos-e-politicas", "Preços e Políticas");
   }, []);
 
-  const whatsappMessage = "Olá! Vi a tabela de valores no site e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
+  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Tabela transparente de preços de serviços de informática em Curitiba: formatação, remoção de vírus, upgrade e conserto. Visita técnica a partir de R$ 69,99." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
+      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -127,16 +127,16 @@ const PrecosEPoliticas = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Tabela de Valores
+                Preços e Políticas
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
-                Transparência total nos valores • Sem surpresas na hora de pagar
+                Valores de referência e regras claras • O orçamento final depende da avaliação
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  { icon: BadgeCheck, text: "Valores fixos" },
-                  { icon: Star, text: "Garantia por escrito" },
-                  { icon: FileText, text: "Nota fiscal" },
+                  { icon: BadgeCheck, text: "Valores de referência" },
+                  { icon: Star, text: "Orçamento após avaliação" },
+                  { icon: FileText, text: "Regras transparentes" },
                 ].map((badge, i) => (
                   <div key={i} className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2 stagger-item hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                     <badge.icon className="h-5 w-5 text-accent" />

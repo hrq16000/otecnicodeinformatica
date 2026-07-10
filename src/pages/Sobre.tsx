@@ -1,182 +1,257 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  ShieldCheck,
+  Eye,
+  Lock,
+  MessageCircle,
+  CheckCircle,
+  XCircle,
+  Home,
+  Building2,
+  ArrowRight,
+} from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
-import { Header } from "@/components/Header";
-import { TrustSection } from "@/components/TrustSection";
-import { CTASection } from "@/components/CTASection";
+import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
-import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { RealImageSection } from "@/components/RealImageSection";
-import { JsonLdSchema } from "@/components/JsonLdSchema";
-import { FloatingParticles } from "@/components/FloatingParticles";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { trackPageView } from "@/lib/analytics";
-import { Award, Users, Target, Heart } from "lucide-react";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
-const valores = [
-  {
-    icon: Award,
-    title: "Excelência",
-    description: "Buscamos a melhor solução técnica para cada problema, com qualidade e atenção aos detalhes.",
-  },
-  {
-    icon: Users,
-    title: "Atendimento Humano",
-    description: "Tratamos cada cliente de forma personalizada, com respeito e comunicação clara.",
-  },
-  {
-    icon: Target,
-    title: "Compromisso",
-    description: "Cumprimos prazos e entregamos o que prometemos. Sua confiança é nossa prioridade.",
-  },
-  {
-    icon: Heart,
-    title: "Paixão por Tecnologia",
-    description: "Amamos o que fazemos e isso reflete na qualidade do nosso trabalho.",
-  },
+const CTA_CLASS =
+  "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
+
+const comoTrabalhamos = [
+  { title: "Triagem por WhatsApp", desc: "Você descreve o problema e recebe as primeiras orientações antes de qualquer deslocamento." },
+  { title: "Diagnóstico primeiro", desc: "Avaliamos o equipamento para entender a causa real, sem chutes e sem empurrar peça." },
+  { title: "Orçamento aprovado por você", desc: "Nada é executado sem sua aprovação. Você sabe o que será feito e quanto custa." },
+  { title: "Garantia sobre o serviço", desc: "O serviço realizado tem garantia. Explicamos as condições em cada caso." },
+];
+
+const naoPrometemos = [
+  "Não prometemos preço fechado universal por telefone — o valor depende da avaliação real.",
+  "Não garantimos recuperação de dados: é sempre uma tentativa que depende do estado da mídia.",
+  "Não garantimos tempo fixo de chegada — combinamos horário e logística conforme a agenda.",
+  "Não usamos avaliações falsas, número de estrelas inventado nem depoimentos fictícios.",
+  "Não mantemos equipe fixa nem endereço comercial anunciado em cada cidade.",
 ];
 
 const Sobre = () => {
   useEffect(() => {
-    document.title = "Sobre Nós | Técnico Curitiba - Assistência Técnica em Informática";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Conheça a Técnico Curitiba. Assistência técnica em informática com experiência, compromisso e atendimento humanizado em Curitiba e região."
-      );
-    }
     trackPageView("/sobre", "Sobre");
   }, []);
 
+  const waHref = whatsappLink("Olá! Quero saber mais sobre o atendimento do Técnico em Curitiba.");
+
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness", "ComputerRepairService"],
+    name: siteConfig.brandName,
+    legalName: siteConfig.legalName,
+    url: siteConfig.baseUrl,
+    telephone: siteConfig.phoneE164,
+    description: siteConfig.defaultDescription,
+    areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Curitiba",
+      addressRegion: "PR",
+      addressCountry: "BR",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Sobre Nós | Técnico Curitiba - Assistência Técnica em Informática" description="Conheça a Técnico Curitiba. Assistência técnica em informática com experiência, compromisso e atendimento humanizado em Curitiba e região." path="/sobre" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]} />
-      <JsonLdSchema />
-      <Header />
-      <main>
+      <PageSEO
+        title="Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte"
+        description="Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e orçamento transparente."
+        path="/sobre"
+        breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+
+      <FastHeader />
+      <main className="pt-[var(--site-header-height)]">
+        <Breadcrumbs items={[{ label: "Sobre" }]} />
+
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 premium-gradient" />
-          <FloatingParticles count={25} />
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-16 left-[10%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[120px] animate-breathe" />
-            <div className="absolute bottom-0 right-[15%] w-[400px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] animate-breathe" style={{ animationDelay: "2.5s" }} />
-          </div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
-          <div className="container mx-auto relative z-10 pt-14 pb-20 md:pt-20 md:pb-24">
-            <AnimatedSection animation="fade-up">
-              <div className="max-w-3xl mx-auto text-center">
-                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
-                  <Heart className="h-4 w-4 text-accent" />
-                  <span>Desde 2018 em Curitiba</span>
-                </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  Sobre a <span className="gradient-text-animated">Técnico Curitiba</span>
-                </h1>
-                <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  Assistência técnica em informática com compromisso, transparência e paixão por resolver problemas
-                </p>
-                <div className="glow-separator max-w-[200px] mx-auto mt-6" />
-              </div>
-            </AnimatedSection>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
-              <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H0Z" className="fill-background" />
-            </svg>
-          </div>
-        </section>
-
-        {/* Nossa História */}
-        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
-          <div className="absolute top-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
-                Nossa História
-              </h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-                <p>
-                  A Técnico Curitiba nasceu da percepção de que muitas pessoas e empresas em Curitiba tinham dificuldade em encontrar um <strong className="text-foreground">técnico de informática confiável</strong>, que fosse transparente no orçamento e cumprisse prazos.
-                </p>
-                <p>
-                  Com experiência prática em manutenção de computadores, decidimos criar um serviço diferente: atendimento humanizado, comunicação clara, preço justo e, acima de tudo, <strong className="text-foreground">resolver o problema do cliente</strong>.
-                </p>
-                <p>
-                  Hoje, atendemos residências, profissionais liberais e empresas em toda Curitiba e região metropolitana. Contamos com parcerias estratégicas em diversas regiões do Brasil, permitindo oferecer suporte de alto padrão mesmo para demandas mais complexas.
-                </p>
-                <p>
-                  Nossa missão é simples: <strong className="text-foreground">fazer seu computador funcionar</strong>, sem enrolação, sem termos técnicos confusos, sem cobranças surpresa. Você fala direto com o técnico, recebe um orçamento claro e tem a garantia de um serviço bem feito.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Valores */}
-        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 reveal-text">
-                Nossos Valores
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                O que guia nosso trabalho todos os dias
+        <section className="border-b border-border/60 bg-secondary/40">
+          <div className="container mx-auto py-12 md:py-16">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent">
+                <ShieldCheck className="h-4 w-4" />
+                Diagnóstico honesto, orçamento transparente
+              </span>
+              <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
+                Sobre o <span className="text-accent">Técnico em Curitiba</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
+                Assistência técnica em informática com foco em resolver o problema do cliente, sem termos
+                confusos e sem cobrança surpresa.
               </p>
             </div>
+          </div>
+        </section>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {valores.map((valor, index) => {
-                const Icon = valor.icon;
-                return (
-                  <AnimatedSection key={index} delay={100 * index}>
-                    <div className="group glass-card gradient-border rounded-xl p-6 text-center hover:-translate-y-2 hover:shadow-[var(--shadow-lg)] transition-all duration-300 animated-border">
-                      <div className="bg-primary rounded-full p-4 w-fit mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_0_24px_hsl(var(--glow-primary)/0.3)] transition-all duration-300">
-                        <Icon className="h-6 w-6 text-primary-foreground icon-spin-hover" />
-                      </div>
-                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{valor.title}</h3>
-                      <p className="text-muted-foreground text-sm">{valor.description}</p>
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
+        {/* Quem somos + O que atendemos */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto grid gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">Quem somos</h2>
+              <div className="mt-4 space-y-4 text-muted-foreground">
+                <p>
+                  O <strong className="text-foreground">Técnico em Curitiba</strong> é um serviço de assistência
+                  técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e
+                  região metropolitana. A proposta é simples: você fala direto com quem entende do problema,
+                  entende o que está acontecendo com o equipamento e decide com clareza.
+                </p>
+                <p>
+                  Nosso trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, orçamento e
+                  execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio;
+                  reparos que exigem bancada seguem para a oficina com o seu acompanhamento.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">O que atendemos</h2>
+              <p className="mt-4 text-muted-foreground">
+                Nosso foco é informática — nada de dispersar em áreas fora da nossa competência:
+              </p>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {[
+                  "Notebooks",
+                  "Computadores (desktop)",
+                  "Formatação e sistema",
+                  "Upgrade de SSD e memória",
+                  "Remoção de vírus",
+                  "Recuperação de dados",
+                  "Redes e Wi-Fi",
+                  "Suporte empresarial",
+                ].map((s) => (
+                  <li key={s} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle className="h-4 w-4 flex-shrink-0 text-accent" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/servicos" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                Ver todos os serviços <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Diferenciais */}
-        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center reveal-text">
-                Por Que Somos Diferentes?
+        {/* Como trabalhamos */}
+        <section className="border-y border-border/60 bg-secondary/40 py-12 md:py-16">
+          <div className="container mx-auto">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">Como trabalhamos</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {comoTrabalhamos.map((c) => (
+                <div key={c.title} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="font-semibold text-foreground">{c.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Residencial x empresarial */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <Home className="h-8 w-8 text-accent" />
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Atendimento residencial</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Atendimento a domicílio ou por coleta e entrega, com horário combinado. Ideal para home office,
+                estudo e uso do dia a dia — formatação, lentidão, vírus, upgrade e Wi-Fi.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <Building2 className="h-8 w-8 text-accent" />
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Atendimento empresarial</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Suporte a estações de trabalho, servidores locais e rede da empresa, de forma pontual ou
+                recorrente sob consulta, pensado para reduzir paradas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* O que não prometemos */}
+        <section className="border-y border-border/60 bg-secondary/40 py-12 md:py-16">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">O que não prometemos</h2>
+            <p className="mt-3 text-muted-foreground">
+              Transparência também é dizer o que não fazemos. Preferimos ser honestos a criar expectativa falsa.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {naoPrometemos.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <XCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Compromissos */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto grid gap-6 lg:grid-cols-3">
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <Eye className="h-8 w-8 text-accent" />
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Transparência</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Diagnóstico antes do orçamento e nenhuma execução sem sua aprovação.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <Lock className="h-8 w-8 text-accent" />
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Cuidado com seus dados</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Tratamos seus arquivos com discrição. Quando possível, fazemos backup antes de intervir no sistema.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <ShieldCheck className="h-8 w-8 text-accent" />
+              <h3 className="mt-3 text-lg font-semibold text-foreground">Atendimento na região</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Curitiba e região metropolitana, incluindo São José dos Pinhais, Pinhais, Colombo, Araucária e
+                Campo Largo.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA final */}
+        <section className="pb-14">
+          <div className="container mx-auto">
+            <div className="rounded-2xl border border-border bg-card p-8 text-center md:p-12">
+              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+                Vamos resolver o seu problema?
               </h2>
-              <div className="space-y-4 text-muted-foreground">
-                {[
-                  { title: "Você fala direto com o técnico", desc: "Nada de call center ou atendentes que não entendem seu problema. Você conversa diretamente com quem vai resolver." },
-                  { title: "Orçamento transparente", desc: "Antes de qualquer serviço, você sabe exatamente quanto vai pagar. Sem surpresas, sem taxas escondidas." },
-                  { title: "Garantia em todos os serviços", desc: "Confiamos no nosso trabalho. Por isso, oferecemos garantia por escrito em cada serviço realizado." },
-                  { title: "Atendimento para pessoa física e empresas", desc: "Residências, profissionais liberais, pequenas e médias empresas. Emitimos nota fiscal e aceitamos pagamento faturado." },
-                ].map((item, i) => (
-                  <AnimatedSection key={i} delay={80 * i}>
-                    <div className="group glass-card gradient-border rounded-xl p-5 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] transition-all duration-300 hover-streak">
-                      <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </AnimatedSection>
-                ))}
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                Descreva o que está acontecendo pelo WhatsApp e receba as primeiras orientações.
+              </p>
+              <div className="mt-7">
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta-location="sobre_final"
+                  data-wa-source="whatsapp_cta"
+                  onClick={() => trackCTAClick("whatsapp", "sobre_final")}
+                  className={CTA_CLASS}
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  Iniciar atendimento
+                </a>
               </div>
             </div>
           </div>
         </section>
-
-        <TrustSection />
-        <CTASection />
       </main>
-      <RealImageSection imageKey="bancadaTecnica" secondaryImageKey="clienteSatisfeito" layout="duo" caption="Nossa bancada de trabalho profissional" secondaryCaption="Clientes satisfeitos com nosso atendimento" />
-      <InterlinkingBlock />
       <Footer />
     </div>
   );

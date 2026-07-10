@@ -1461,29 +1461,73 @@
   }
 }
 
-/* ── Hero slideshow (pontos de Curitiba, cross-fade lento) ── */
-.hero-slide {
-  opacity: 0;
+/* ── Hero slideshow (pontos turísticos de Curitiba) ── */
+/* Fotos levemente desfocadas para manter a leitura do texto sobreposto. */
+.hero-photo {
+  filter: blur(2px) saturate(1.05) brightness(0.9);
+  transform: scale(1.08);
   will-change: opacity, transform;
-  animation: heroSlideFade 20s ease-in-out infinite;
-  transform: scale(1.06);
 }
-.hero-slide--a { animation-delay: 0s; }
-.hero-slide--b { animation-delay: 10s; }
+.hero-photo--pan {
+  animation: heroKenBurns 18s ease-in-out infinite alternate;
+}
+@keyframes heroKenBurns {
+  from { transform: scale(1.08) translate3d(0, 0, 0); }
+  to   { transform: scale(1.16) translate3d(-1.5%, -1.5%, 0); }
+}
 
-@keyframes heroSlideFade {
-  0%   { opacity: 0; transform: scale(1.06); }
-  8%   { opacity: 0.55; }
-  42%  { opacity: 0.55; transform: scale(1.12); }
-  50%  { opacity: 0; }
-  100% { opacity: 0; }
+/* Legenda entra suavemente a cada troca de slide */
+.hero-caption {
+  animation: heroCaptionIn 700ms ease-out both;
+}
+@keyframes heroCaptionIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Entrada do conteúdo do hero */
+.hero-reveal {
+  animation: heroRevealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes heroRevealUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide {
+  .hero-photo,
+  .hero-photo--pan,
+  .hero-caption,
+  .hero-reveal {
     animation: none !important;
+    transform: scale(1.04) !important;
+  }
+  .hero-reveal { transform: none !important; opacity: 1 !important; }
+  .hero-caption { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Menu mobile: entrada do painel + stagger dos itens ── */
+.menu-panel {
+  animation: menuPanelIn 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes menuPanelIn {
+  from { opacity: 0; transform: scale(0.96) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.menu-item {
+  animation: menuItemIn 260ms ease-out both;
+}
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-panel,
+  .menu-item {
+    animation: none !important;
+    opacity: 1 !important;
     transform: none !important;
   }
-  .hero-slide--a { opacity: 0.4; }
-  .hero-slide--b { opacity: 0; }
 }
+
+

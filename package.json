@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html",
+    "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs",
     "build": "vite build",
     "postbuild": "bun scripts/check-seo-basics.ts dist/index.html",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
@@ -25,6 +25,8 @@
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
     "check:public-data-exposure": "node scripts/check-public-data-exposure.mjs",
+    "check:security-findings": "node scripts/check-security-findings-baseline.mjs",
+    "check:security": "npm run check:public-data-exposure && npm run check:security-findings",
     "preview:category-prompts": "bun scripts/preview-category-prompts.ts"
   },
   "dependencies": {

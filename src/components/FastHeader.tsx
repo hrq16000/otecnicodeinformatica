@@ -1,5 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Wrench,
+  Route,
+  Tag,
+  HelpCircle,
+  MessageCircle,
+  Building2,
+  Home,
+  MonitorSmartphone,
+  Info,
+  type LucideIcon,
+} from "lucide-react";
 import { whatsappLink } from "@/lib/siteConfig";
 
 const WA_SCHEDULE = whatsappLink("Olá! Quero agendar um atendimento técnico.");
@@ -8,22 +21,25 @@ const trackHeaderClick = (type: "whatsapp" | "chatbot") => {
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick(type, "header"));
 };
 
+type NavItem = { label: string; href: string; icon: LucideIcon };
+
 // Navegação enxuta — foco em informática/PC/notebook/empresarial.
-const primaryNav = [
-  { label: "Serviços", href: "/servicos" },
-  { label: "Como funciona", href: "/como-funciona" },
-  { label: "Preços", href: "/precos-e-politicas" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contato", href: "/contato" },
+const primaryNav: NavItem[] = [
+  { label: "Serviços", href: "/servicos", icon: Wrench },
+  { label: "Como funciona", href: "/como-funciona", icon: Route },
+  { label: "Preços", href: "/precos-e-politicas", icon: Tag },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
+  { label: "Contato", href: "/contato", icon: MessageCircle },
 ];
 
 // Itens extras do menu mobile (mantém acesso, sem poluir o header).
-const mobileExtra = [
-  { label: "Suporte empresarial", href: "/servicos/suporte-tecnico-empresarial" },
-  { label: "Atendimento a domicílio", href: "/atendimento-domicilio" },
-  { label: "Atendimento remoto", href: "/atendimento-remoto" },
-  { label: "Sobre", href: "/sobre" },
+const mobileExtra: NavItem[] = [
+  { label: "Suporte empresarial", href: "/servicos/suporte-tecnico-empresarial", icon: Building2 },
+  { label: "Atendimento a domicílio", href: "/atendimento-domicilio", icon: Home },
+  { label: "Atendimento remoto", href: "/atendimento-remoto", icon: MonitorSmartphone },
+  { label: "Sobre", href: "/sobre", icon: Info },
 ];
+
 
 export const FastHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -88,12 +104,18 @@ export const FastHeader = () => {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+              className="group inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
             >
+              <item.icon
+                className="h-4 w-4 text-accent/70 transition-transform duration-200 group-hover:scale-110 group-hover:text-accent"
+                strokeWidth={2}
+                aria-hidden="true"
+              />
               {item.label}
             </a>
           ))}
         </nav>
+
 
         <div className="flex items-center gap-2">
           <a
@@ -129,20 +151,25 @@ export const FastHeader = () => {
             {menuOpen && (
               <nav
                 aria-label="Menu mobile"
-                className="absolute right-0 top-[calc(100%+8px)] z-50 max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground opacity-100 shadow-[var(--shadow-xl)]"
+                className="menu-panel absolute right-0 top-[calc(100%+8px)] z-50 max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] origin-top-right overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground opacity-100 shadow-[var(--shadow-xl)]"
               >
                 <div className="grid gap-0.5">
-                  {[...primaryNav, ...mobileExtra].map((item) => (
+                  {[...primaryNav, ...mobileExtra].map((item, i) => (
                     <a
                       key={item.href}
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
+                      style={{ animationDelay: `${i * 35}ms` }}
+                      className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
                     >
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent transition-transform duration-200 group-hover:scale-110">
+                        <item.icon className="h-[18px] w-[18px]" strokeWidth={2} aria-hidden="true" />
+                      </span>
                       {item.label}
                     </a>
                   ))}
                 </div>
+
                 <div className="mt-2 border-t border-border p-2">
                   <a
                     href={WA_SCHEDULE}

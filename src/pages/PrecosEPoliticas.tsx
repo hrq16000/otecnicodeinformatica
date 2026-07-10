@@ -46,107 +46,78 @@ const servicosPrecos = [
     categoria: "Formatação e Sistema",
     icon: Monitor,
     servicos: [
-      { nome: "Formatação Completa", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Até 1h R$168,99 • +1h consultar" },
-      { nome: "Instalação Windows 11", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Até 1h R$168,99 • Licença não inclusa" },
-      { nome: "Reinstalação de Sistema", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Até 1h R$168,99 • Mantendo dados do usuário" },
-      { nome: "Configuração Inicial PC Novo", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Até 30min R$99,99" },
+      { nome: "Formatação completa", valor: "a partir de R$ 99,99", obs: "Windows + drivers essenciais • Licença não inclusa" },
+      { nome: "Reinstalação de sistema", valor: "a partir de R$ 99,99", obs: "Mantendo dados do usuário quando possível" },
+      { nome: "Configuração de PC novo", valor: "a partir de R$ 99,99", obs: "Ajustes iniciais e programas essenciais" },
     ]
   },
   {
     categoria: "Segurança e Vírus",
     icon: Shield,
     servicos: [
-      { nome: "Remoção de Vírus Simples", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Até 30min R$99,99" },
-      { nome: "Remoção Vírus Complexo", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Até 2h R$199,99 • Ransomware, rootkits" },
-      { nome: "Instalação Antivírus", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Gratuito ou licenciado" },
-      { nome: "Limpeza Completa + Proteção", valor: "A partir de R$ 168,99", obs: "Até 1h R$168,99 • Formatação + antivírus" },
+      { nome: "Remoção de vírus", valor: "a partir de R$ 99,99", obs: "Casos complexos podem exigir mais tempo" },
+      { nome: "Instalação de antivírus", valor: "a partir de R$ 99,99", obs: "Solução gratuita ou licenciada" },
+      { nome: "Limpeza + proteção", valor: "sob avaliação", obs: "Escopo definido conforme o caso" },
     ]
   },
   {
     categoria: "Hardware e Upgrades",
     icon: HardDrive,
     servicos: [
-      { nome: "Upgrade SSD (só mão de obra)", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
-      { nome: "Upgrade Memória RAM", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Peça não inclusa" },
-      { nome: "Troca de HD por SSD", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Clonagem até 1h R$168,99" },
-      { nome: "Limpeza Interna + Pasta Térmica", valor: "A partir de R$ 169", obs: "Mínimo 1h R$169 • Notebook ou desktop" },
+      { nome: "Upgrade de SSD (mão de obra)", valor: "a partir de R$ 99,99", obs: "Peça não inclusa" },
+      { nome: "Upgrade de memória RAM", valor: "a partir de R$ 99,99", obs: "Peça não inclusa" },
+      { nome: "Troca de HD por SSD", valor: "a partir de R$ 99,99", obs: "Clonagem conforme o volume de dados" },
+      { nome: "Limpeza interna + pasta térmica", valor: "sob avaliação", obs: "Notebook ou desktop" },
     ]
   },
   {
-    categoria: "Conserto e Reparo",
-    icon: Wrench,
-    servicos: [
-      { nome: "Diagnóstico com Coleta", valor: "R$ 90", obs: "Coleta + entrega inclusas" },
-      { nome: "Reparo de Notebook", valor: "A partir de R$ 300", obs: "Com coleta e entrega • Depende do defeito" },
-      { nome: "Reparo de Placa de Vídeo", valor: "A partir de R$ 289", obs: "Diagnóstico + reballing/reflow • Peça não inclusa" },
-      { nome: "Troca de Tela Notebook", valor: "Sob orçamento", obs: "Peça + mão de obra" },
-      { nome: "Troca de Teclado Notebook", valor: "Sob orçamento", obs: "Depende do modelo do notebook" },
-      { nome: "Conserto de Celular", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
-      { nome: "Reparo de Placa-mãe", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
-      { nome: "Conserto de TV", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
-      { nome: "Reparo de Ferramentas", valor: "Sob orçamento", obs: "Orçamento somente após coleta" },
-    ]
-  },
-  {
-    categoria: "Redes e Internet",
+    categoria: "Redes e Wi-Fi",
     icon: Wifi,
     servicos: [
-      { nome: "Configuração de Roteador", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Wi-Fi + segurança" },
-      { nome: "Instalação Rede Cabeada", valor: "Sob orçamento", obs: "Por ponto de rede" },
-      { nome: "Extensão de Sinal Wi-Fi", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Repetidor/mesh" },
-      { nome: "Configuração VPN", valor: "Sob orçamento", obs: "Empresarial ou residencial" },
+      { nome: "Configuração de roteador", valor: "a partir de R$ 99,99", obs: "Wi-Fi + segurança básica" },
+      { nome: "Melhoria de sinal Wi-Fi", valor: "a partir de R$ 99,99", obs: "Repetidor / mesh" },
+      { nome: "Rede cabeada", valor: "sob avaliação", obs: "Por ponto de rede" },
     ]
   },
   {
     categoria: "Backup e Dados",
     icon: Database,
     servicos: [
-      { nome: "Backup de Dados", valor: "A partir de R$ 168,99", obs: "Mínimo 1-3h • R$168,99 (1h) a R$249,99 (3h)" },
-      { nome: "Recuperação de Dados", valor: "A partir de R$ 300", obs: "Somente com coleta e entrega • HD funcionando" },
-      { nome: "Recuperação Dados HD Danificado", valor: "Sob orçamento", obs: "Análise prévia" },
-      { nome: "Configuração Backup Nuvem", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • OneDrive, Google Drive" },
+      { nome: "Backup de dados", valor: "sob avaliação", obs: "Pode influenciar prazo e valor do atendimento" },
+      { nome: "Recuperação de dados", valor: "sob avaliação", obs: "Somente após análise • Recuperação não garantida" },
+      { nome: "Configuração de backup em nuvem", valor: "a partir de R$ 99,99", obs: "OneDrive, Google Drive e similares" },
     ]
   },
   {
-    categoria: "Suporte Remoto",
-    icon: Headphones,
-    servicos: [
-      { nome: "Suporte Remoto Básico", valor: "a partir de R$ 99,99", obs: "⚡ Flash 15min R$69,99 • Problemas simples" },
-      { nome: "Suporte Remoto Avançado", valor: "A partir de R$ 99,99", obs: "30min R$99,99 • Configurações complexas" },
-      { nome: "Hora Técnica Remota", valor: "A partir de R$ 79 / hora", obs: "Para empresas e particulares" },
-    ]
-  },
-  {
-    categoria: "Empresas",
+    categoria: "Suporte e Empresas",
     icon: Building2,
     servicos: [
-      { nome: "Contrato Mensal - Básico", valor: "A partir de R$ 300/mês", obs: "Até 5 equipamentos" },
-      { nome: "Contrato Mensal - Profissional", valor: "A partir de R$ 600/mês", obs: "Até 15 equipamentos" },
-      { nome: "Hora Técnica Empresarial", valor: "A partir de R$ 79/hora", obs: "Sem contrato" },
-      { nome: "Consultoria TI", valor: "Sob orçamento", obs: "Projetos específicos" },
+      { nome: "Suporte técnico remoto", valor: "a partir de R$ 99,99", obs: "Para problemas resolvíveis à distância" },
+      { nome: "Suporte técnico empresarial", valor: "sob consulta", obs: "Atendimento pontual ou escopo recorrente" },
+      { nome: "Consultoria de TI", valor: "sob consulta", obs: "Projetos específicos" },
     ]
   },
 ];
 
 const PrecosEPoliticas = () => {
   useEffect(() => {
-    document.title = "Tabela de Valores | Técnico de Informática Curitiba";
+    document.title = "Preços e Políticas | Técnico em Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Tabela completa de valores de serviços de informática em Curitiba. Visita técnica a partir de R$ 69,99. Transparência total nos valores."
+        "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados."
       );
     }
-    trackPageView("/valores", "Valores e Condições");
+    trackPageView("/precos-e-politicas", "Preços e Políticas");
   }, []);
 
-  const whatsappMessage = "Olá! Vi a tabela de valores no site e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
+  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Tabela transparente de preços de serviços de informática em Curitiba: formatação, remoção de vírus, upgrade e conserto. Visita técnica a partir de R$ 69,99." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
+      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -156,16 +127,16 @@ const PrecosEPoliticas = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Tabela de Valores
+                Preços e Políticas
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
-                Transparência total nos valores • Sem surpresas na hora de pagar
+                Valores de referência e regras claras • O orçamento final depende da avaliação
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  { icon: BadgeCheck, text: "Valores fixos" },
-                  { icon: Star, text: "Garantia por escrito" },
-                  { icon: FileText, text: "Nota fiscal" },
+                  { icon: BadgeCheck, text: "Valores de referência" },
+                  { icon: Star, text: "Orçamento após avaliação" },
+                  { icon: FileText, text: "Regras transparentes" },
                 ].map((badge, i) => (
                   <div key={i} className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2 stagger-item hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
                     <badge.icon className="h-5 w-5 text-accent" />
@@ -204,7 +175,6 @@ const PrecosEPoliticas = () => {
               </p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {[
-                  { tempo: "até 15 minutos", valor: "R$ 69,99" },
                   { tempo: "até 30 minutos", valor: "R$ 99,99" },
                 ].map((t, i) => (
                   <div key={i} className={`bg-secondary rounded-xl p-6 text-center hover:-translate-y-1 transition-all stagger-item ${i === 0 ? "ring-2 ring-accent shadow-[0_0_20px_hsl(var(--accent)/0.15)]" : ""}`} style={{ animationDelay: `${i * 100}ms` }}>
@@ -468,7 +438,7 @@ const PrecosEPoliticas = () => {
                       <p className="font-semibold text-foreground mb-2">Visita técnica presencial:</p>
                       <p className="text-muted-foreground">
                         Cobrança proporcional ao tempo de atendimento 
-                        (a partir de <strong className="text-accent">R$ 69,99</strong>).
+                        (a partir de <strong className="text-accent">R$ 99,99</strong>).
                       </p>
                     </div>
                   </div>
@@ -524,7 +494,7 @@ const PrecosEPoliticas = () => {
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
                         <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">Garantia por escrito em todos os serviços (30 a 90 dias)</span>
+                        <span className="text-muted-foreground">Garantia de mão de obra conforme o tipo de serviço</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
@@ -538,21 +508,26 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* Laboratório */}
+        {/* Recuperação de dados e casos que exigem análise */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-                Laboratório (Coleta e Entrega)
+                Casos que exigem análise
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Para reparos que exigem bancada, peças específicas ou tempo estendido de análise.
+                Alguns atendimentos — como recuperação de dados, defeitos intermitentes ou problemas de hardware mais profundos — só podem ser orçados após avaliação do equipamento.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-secondary rounded-xl p-6">
-                  <h3 className="font-bold text-foreground mb-3">Aplicável para:</h3>
+                  <h3 className="font-bold text-foreground mb-3">Como tratamos:</h3>
                   <ul className="space-y-2">
-                    {["TVs (LED, OLED, Smart)", "Placas mãe de notebooks", "Notebooks com defeito grave", "Equipamentos complexos", "Recuperação de dados em HD danificado"].map((t, i) => (
+                    {[
+                      "Avaliação antes de qualquer execução",
+                      "Explicação clara das possibilidades e limites",
+                      "Recuperação de dados não é garantida",
+                      "Orçamento e prazo informados antes de prosseguir",
+                    ].map((t, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
                       </li>
@@ -560,14 +535,13 @@ const PrecosEPoliticas = () => {
                   </ul>
                 </div>
                 <div className="bg-secondary rounded-xl p-6">
-                  <h3 className="font-bold text-foreground mb-3">Detalhes:</h3>
+                  <h3 className="font-bold text-foreground mb-3">O que pode variar:</h3>
                   <ul className="space-y-2">
                     {[
-                      "Prazo médio: 15 a 60 dias",
-                      "Pode variar conforme complexidade e peças",
-                      "Inclui coleta e entrega no seu endereço",
-                      "Recibo detalhado na coleta",
-                      "Atualizações via WhatsApp",
+                      "Prazo conforme a complexidade e a condição do equipamento",
+                      "Disponibilidade de peças, licenças e materiais",
+                      "Necessidade de backup, que pode influenciar prazo e valor",
+                      "Atualizações do andamento via WhatsApp",
                     ].map((t, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
@@ -576,50 +550,9 @@ const PrecosEPoliticas = () => {
                   </ul>
                 </div>
               </div>
-              <p className="text-center mt-4">
-                <Link to="/coleta-e-entrega" className="text-accent text-sm hover:underline font-medium">
-                  Saiba mais sobre o serviço de coleta e entrega →
-                </Link>
-              </p>
             </div>
           </div>
         </section>
-
-        {/* Casos Complexos */}
-        <section className="py-8 md:py-10 bg-secondary">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-                Casos Complexos
-              </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Alguns problemas exigem análise profunda e conhecimento avançado.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: "Curto em Placa Mãe", desc: "Curto-circuito causado por líquido, surto elétrico ou peça incompatível. Exige micro-solda e testes componente a componente." },
-                  { title: "GPU Desgastada", desc: "Placa de vídeo com desgaste por uso intenso (jogos, mineração). Pode exigir reballing ou substituição de chips." },
-                  { title: "Erro em Upgrade", desc: "Dano causado por instalação incorreta de peças (RAM, SSD, processador). Trilhas rompidas, slots danificados." },
-                  { title: "Placa Danificada por Ferramenta", desc: "Uso de chaves inadequadas, facas ou objetos pontiagudos que riscaram trilhas ou cortaram cabos flat." },
-                  { title: "Reballing de BGA", desc: "Processo de refusão das esferas de solda em chips BGA. Aplicável em GPUs e chipsets com problema de contato." },
-                  { title: "Fila de Atendimento", desc: "Casos complexos entram em fila conforme ordem de chegada. O prazo depende da quantidade de equipamentos em análise." },
-                ].map((c, i) => (
-                  <div key={i} className="bg-background rounded-xl p-5">
-                    <AlertTriangle className="h-5 w-5 text-accent mb-2" />
-                    <h3 className="font-bold text-primary text-sm mb-1">{c.title}</h3>
-                    <p className="text-xs text-muted-foreground">{c.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center mt-4">
-                <Link to="/problemas-reais-e-casos" className="text-accent text-sm hover:underline font-medium">
-                  Ver exemplos reais de casos complexos →
-                </Link>
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Final */}
         <section className="py-8 md:py-10 bg-primary">
           <div className="container mx-auto">

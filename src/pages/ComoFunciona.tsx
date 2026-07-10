@@ -245,10 +245,10 @@ const ComoFunciona = () => {
                   Quanto Custa o Atendimento?
                 </h2>
                 <p className="text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto">
-                  Os valores iniciais são simples e transparentes. A visita técnica presencial começa em <strong className="text-accent">R$ 69,99</strong>. Formatação a partir de <strong className="text-accent">R$ 168,99</strong>. Suporte remoto a partir de <strong className="text-accent">R$ 69,99</strong>. Hora técnica remota a partir de <strong className="text-accent">R$ 79/hora</strong>.
+                  A mão de obra começa a partir de <strong className="text-accent">R$ 99,99</strong> quando há visita ou diagnóstico presencial aplicável. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais.
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Os valores podem variar conforme a complexidade do serviço, necessidade de peças e localização. Veja todos os detalhes na nossa tabela completa de preços.
+                  Os valores podem variar conforme a complexidade do serviço, a necessidade de peças e a localização. O orçamento é informado antes da execução. Veja os detalhes na página de preços e políticas.
                 </p>
                 <Button variant="cta" size="lg" asChild>
                   <Link to="/valores">
@@ -792,7 +792,7 @@ const confiancaItems = [
 ];
 
 const faqItems = [
-  { question: "Quanto custa a visita técnica?", answer: "A visita técnica presencial começa em R$ 69,99. O tempo é cronometrado a partir da chegada do técnico. Consulte todos os valores em /valores." },
+  { question: "Quanto custa a visita técnica?", answer: "Quando há visita ou diagnóstico presencial aplicável, a mão de obra começa a partir de R$ 99,99. O valor final depende da avaliação do problema e do tempo necessário. Consulte os detalhes em /precos-e-politicas." },
   { question: "O valor pode mudar depois do orçamento?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
   { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },
   { question: "Atende no mesmo dia?", answer: "Na maioria dos casos, sim. Nosso objetivo é atender no mesmo dia da solicitação, dependendo da disponibilidade de agenda e da sua localização. Entre em contato via WhatsApp para verificar a disponibilidade." },

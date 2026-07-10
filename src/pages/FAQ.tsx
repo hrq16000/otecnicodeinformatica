@@ -20,103 +20,74 @@ import {
 
 const faqCategories = [
   {
-    category: "Serviços e Preços",
+    category: "Preços e Orçamento",
     questions: [
       {
-        question: "Quanto custa o atendimento técnico?",
-        answer: "Nossos serviços começam a partir de R$ 69,99. O valor varia conforme a complexidade do problema. Serviços mais complexos são orçados individualmente antes de iniciar."
+        question: "Quanto custa chamar um técnico em Curitiba?",
+        answer: "Quando há visita ou diagnóstico presencial aplicável, o atendimento começa a partir de R$ 99,99. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais. Passamos a estimativa antes de iniciar."
       },
       {
-        question: "Vocês fazem orçamento gratuito?",
-        answer: "Sim! O orçamento é gratuito e sem compromisso. Você pode descrever o problema pelo WhatsApp e passamos uma estimativa. Se necessário uma visita técnica para diagnóstico, informamos previamente."
-      },
-      {
-        question: "Quais formas de pagamento são aceitas?",
-        answer: "Aceitamos dinheiro, PIX, cartão de débito e crédito. Para empresas, oferecemos pagamento faturado (boleto) mediante análise de crédito."
-      },
-      {
-        question: "Vocês emitem nota fiscal?",
-        answer: "Sim, emitimos nota fiscal de serviços para todos os atendimentos. Basta solicitar no momento do pagamento."
+        question: "O orçamento é passado antes do serviço?",
+        answer: "Sim. Você recebe orientação, prazo estimado e condições antes de qualquer execução. O serviço só avança após o seu alinhamento. Estimativas iniciais são feitas pelo WhatsApp; casos que exigem análise podem precisar de diagnóstico presencial ou em laboratório."
       },
     ]
   },
   {
-    category: "Atendimento",
+    category: "Serviços de Informática",
     questions: [
       {
-        question: "Qual a área de atendimento?",
-        answer: "Atendemos toda Curitiba e região metropolitana, incluindo São José dos Pinhais, Colombo, Pinhais, Araucária e Campo Largo. Para atendimento remoto, atendemos todo o Brasil."
+        question: "Vocês atendem notebook e computador?",
+        answer: "Sim. Trabalhamos com notebooks e computadores (PC), incluindo manutenção, formatação, limpeza, otimização e diagnóstico de problemas de hardware e software."
       },
       {
-        question: "Qual o horário de atendimento?",
-        answer: "Nosso horário comercial é de segunda a sexta, das 8h às 18h, e sábados das 8h às 12h. Para urgências fora do horário, entre em contato pelo WhatsApp."
+        question: "Fazem formatação com backup?",
+        answer: "Sim. Fazemos formatação e reinstalação do sistema e podemos realizar backup dos seus dados antes do processo, quando solicitado. O backup pode influenciar o prazo e o valor do atendimento."
       },
       {
-        question: "Quanto tempo para responder no WhatsApp?",
-        answer: "Durante o horário comercial, respondemos em até 30 minutos. Fora do horário, respondemos assim que possível no próximo dia útil."
+        question: "Fazem upgrade para SSD e memória RAM?",
+        answer: "Sim. Verificamos a compatibilidade do seu equipamento e fazemos upgrade de SSD e de memória RAM. As peças não estão incluídas na mão de obra e podem ser cobradas à parte."
       },
       {
-        question: "Vocês fazem atendimento no mesmo dia?",
-        answer: "Sempre que possível, sim! Depende da disponibilidade de agenda e da localização. Informe seu endereço e verificamos a disponibilidade."
+        question: "Removem vírus?",
+        answer: "Sim. Fazemos varredura, remoção de ameaças e configuração de proteção adequada. Em casos complexos, pode ser necessário mais tempo de análise, o que é informado antes."
+      },
+      {
+        question: "Recuperação de dados é garantida?",
+        answer: "Não. A recuperação de dados depende do tipo e da gravidade do dano no equipamento, por isso não é possível garantir sucesso. Fazemos a análise e explicamos as possibilidades e condições antes de prosseguir."
+      },
+      {
+        question: "Atendem Wi-Fi e redes?",
+        answer: "Sim. Configuramos roteadores, redes Wi-Fi, melhoria de sinal e organização de rede para residências e empresas."
       },
     ]
   },
   {
-    category: "Serviços Específicos",
+    category: "Empresas e Regiões",
     questions: [
       {
-        question: "Vocês formatam computador?",
-        answer: "Sim! Fazemos formatação completa com instalação do Windows, drivers, programas essenciais e configuração personalizada. Incluímos backup dos seus dados quando solicitado."
+        question: "Atendem empresas?",
+        answer: "Sim. Oferecemos suporte técnico empresarial, com atendimento pontual ou escopo recorrente sob consulta, conforme a estrutura e as necessidades da empresa."
       },
       {
-        question: "Consertam notebook que não liga?",
-        answer: "Sim, fazemos diagnóstico completo para identificar a causa. Pode ser problema de fonte, bateria, placa-mãe ou outros componentes. Após identificar, informamos o custo do reparo."
-      },
-      {
-        question: "Vocês removem vírus?",
-        answer: "Sim! Fazemos varredura completa, removemos todas as ameaças encontradas (vírus, trojans, ransomware, adware) e instalamos proteção adequada para evitar futuras infecções."
-      },
-      {
-        question: "Fazem upgrade de memória e SSD?",
-        answer: "Sim, realizamos upgrades de hardware como aumento de memória RAM e troca de HD por SSD. Verificamos a compatibilidade do seu equipamento antes de recomendar."
-      },
-      {
-        question: "Recuperam dados de HD com problema?",
-        answer: "Tentamos recuperar dados usando ferramentas especializadas. O sucesso depende do tipo de dano. Para casos mais graves (HD com barulhos estranhos), recomendamos laboratório especializado."
+        question: "Quais regiões são atendidas?",
+        answer: "Atendemos Curitiba e a região metropolitana, incluindo São José dos Pinhais, Pinhais, Colombo, Araucária e Campo Largo. Parte dos atendimentos também pode ser feita de forma remota."
       },
     ]
   },
   {
-    category: "Empresas",
+    category: "Atendimento e Contato",
     questions: [
       {
-        question: "Vocês atendem empresas?",
-        answer: "Sim! Oferecemos suporte técnico para pequenas e médias empresas, com opções de atendimento avulso ou planos mensais com suporte contínuo."
+        question: "O atendimento começa pelo WhatsApp?",
+        answer: "Sim. O atendimento é iniciado pelo funil no WhatsApp. Uma triagem entende o seu problema e organiza o pedido antes de dar sequência ao diagnóstico e à execução."
       },
       {
-        question: "O que inclui o plano mensal para empresas?",
-        answer: "Nossos planos incluem suporte remoto e presencial, manutenção preventiva, backup, monitoramento e atendimento prioritário. O valor é personalizado conforme o número de computadores e necessidades da empresa."
+        question: "O número de WhatsApp fica visível no site?",
+        answer: "Não. Para organizar melhor os atendimentos, o número não fica exposto no site. O contato é feito pelos botões de atendimento, que abrem a conversa diretamente."
       },
       {
-        question: "Vocês aceitam pagamento faturado?",
-        answer: "Sim, para empresas oferecemos pagamento faturado (boleto) com prazo de até 30 dias, mediante análise de crédito prévia."
-      },
-    ]
-  },
-  {
-    category: "Garantia e Segurança",
-    questions: [
-      {
-        question: "Os serviços têm garantia?",
-        answer: "Sim! Todos os nossos serviços incluem garantia por escrito. O prazo varia conforme o tipo de serviço: formatação tem garantia de 30 dias, peças instaladas seguem garantia do fabricante."
-      },
-      {
-        question: "Meus dados ficam seguros?",
-        answer: "Absolutamente. Tratamos seus dados com total sigilo e confidencialidade. Não acessamos arquivos pessoais além do necessário para resolver o problema e nunca compartilhamos informações."
-      },
-      {
-        question: "Como funciona o atendimento remoto? É seguro?",
-        answer: "Usamos softwares profissionais e seguros para acesso remoto. Você acompanha tudo na tela e pode encerrar a conexão a qualquer momento. A sessão é criptografada e você autoriza cada acesso."
+        question: "Vocês atendem TV, celular ou eletrônicos?",
+        answer: "Este site é focado em informática: notebook, computador/PC, formatação, upgrade de SSD/RAM, remoção de vírus, backup, recuperação de dados, redes/Wi-Fi e suporte técnico empresarial. Para outros tipos de equipamento, consulte pelo WhatsApp a disponibilidade."
       },
     ]
   },

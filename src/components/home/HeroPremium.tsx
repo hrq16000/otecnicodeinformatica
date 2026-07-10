@@ -1,9 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Pause, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
-import heroJardimBotanico from "@/assets/hero-jardim-botanico.jpg";
-import heroOscarNiemeyer from "@/assets/hero-oscar-niemeyer.jpg";
-import heroOperaDeArame from "@/assets/hero-opera-de-arame.jpg";
-import heroParqueTangua from "@/assets/hero-parque-tangua.jpg";
+import { HERO_SLIDES, shuffleSlides } from "./heroSlides";
 
 const WA_HERO = whatsappLink(
   "Olá! Preciso de um técnico em Curitiba. Pode me ajudar com meu equipamento?",
@@ -18,65 +16,52 @@ const trustChips = [
   "Atendimento local e direto",
 ];
 
-/** Pontos turísticos de Curitiba usados como pano de fundo do hero. */
-const HERO_SLIDES = [
-  {
-    src: heroJardimBotanico,
-    place: "Jardim Botânico",
-    caption: "Jardim Botânico — o cartão-postal de Curitiba",
-  },
-  {
-    src: heroOscarNiemeyer,
-    place: "Museu Oscar Niemeyer",
-    caption: "Museu Oscar Niemeyer — o Olho de Curitiba",
-  },
-  {
-    src: heroOperaDeArame,
-    place: "Ópera de Arame",
-    caption: "Ópera de Arame — no coração do parque",
-  },
-  {
-    src: heroParqueTangua,
-    place: "Parque Tanguá",
-    caption: "Parque Tanguá — mirante e cascata",
-  },
-] as const;
-
-/** Embaralha uma cópia do array (Fisher–Yates). */
-function shuffle<T>(arr: readonly T[]): T[] {
-  const out = [...arr];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
+const AUTOPLAY_MS = 6500;
 
 /**
  * Hero da identidade "Centro técnico local premium".
- * Fundo grafite/petróleo com slideshow de pontos turísticos de Curitiba
- * (ordem aleatória, cross-fade lento, levemente desfocado para manter a
- * leitura do texto). Sem partículas, sem cursor trail, sem glow decorativo,
- * sem nota/rating inventado.
+ * Slideshow de pontos turísticos de Curitiba (ordem aleatória, cross-fade),
+ * com controles acessíveis (pausar/retomar, anterior/próximo), imagens nítidas
+ * em AVIF/WebP responsivos e scrim forte para leitura do texto.
+ * Respeita prefers-reduced-motion (sem autoplay; controles manuais seguem ativos).
  */
 export const HeroPremium = () => {
-  // Ordem aleatória definida uma vez por carregamento.
-  const slides = useMemo(() => shuffle(HERO_SLIDES), []);
+  const slides = useMemo(() => shuffleSlides(HERO_SLIDES), []);
   const [active, setActive] = useState(0);
-  const [motionOk, setMotionOk] = useState(true);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef<number | null>(null);
 
+  const go = useCallback(
+    (dir: 1 | -1) => setActive((i) => (i + dir + slides.length) % slides.length),
+    [slides.length],
+  );
+  const goTo = useCallback((i: number) => setActive(i), []);
+
+  // Detecta prefers-reduced-motion (reativo).
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setMotionOk(!reduce);
-    if (reduce || slides.length <= 1) return;
-    const id = window.setInterval(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => setReduceMotion(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  // Autoplay — desligado quando pausado, com reduced-motion, ou 1 slide só.
+  const autoplayOn = !paused && !reduceMotion && slides.length > 1;
+  useEffect(() => {
+    if (!autoplayOn) return;
+    timerRef.current = window.setInterval(() => {
       setActive((i) => (i + 1) % slides.length);
-    }, 6500);
-    return () => window.clearInterval(id);
-  }, [slides.length]);
+    }, AUTOPLAY_MS);
+    return () => {
+      if (timerRef.current) window.clearInterval(timerRef.current);
+    };
+  }, [autoplayOn, slides.length, active]);
 
   const activeCaption = slides[active]?.caption;
+  const canToggle = !reduceMotion && slides.length > 1;
 
   return (
     <section
@@ -85,34 +70,48 @@ export const HeroPremium = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-bg))] via-[hsl(205_55%_16%)] to-[hsl(var(--hero-bg-end))]" />
 
-      {/* Slideshow de fundo — pontos turísticos de Curitiba, cross-fade lento.
-          Levemente desfocado + overlay para não interferir na leitura do texto. */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      {/* Slideshow de fundo — pontos turísticos de Curitiba, nítidos em AVIF/WebP. */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+        role="group"
+        aria-roledescription="carrossel"
+        aria-label="Pontos turísticos de Curitiba"
+      >
         {slides.map((slide, i) => (
-          <img
-            key={slide.place}
-            src={slide.src}
-            alt=""
-            width={1600}
-            height={912}
-            loading={i === 0 ? "eager" : "lazy"}
-            // @ts-ignore - fetchpriority é atributo HTML válido
-            fetchpriority={i === 0 ? "high" : undefined}
-            decoding="async"
-            className={`hero-photo absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
-              i === active ? "opacity-100" : "opacity-0"
-            } ${motionOk ? "hero-photo--pan" : ""}`}
-          />
+          <picture key={slide.place}>
+            <source type="image/avif" srcSet={slide.avif} sizes="100vw" />
+            <source type="image/webp" srcSet={slide.webp} sizes="100vw" />
+            <img
+              src={slide.fallback}
+              srcSet={slide.jpg}
+              sizes="100vw"
+              alt=""
+              width={1920}
+              height={1088}
+              loading={i === 0 ? "eager" : "lazy"}
+              // @ts-ignore - fetchpriority é atributo HTML válido
+              fetchpriority={i === 0 ? "high" : "low"}
+              decoding="async"
+              className={`hero-photo absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
+                i === active ? "opacity-100" : "opacity-0"
+              } ${i === active && autoplayOn ? "hero-photo--pan" : ""}`}
+            />
+          </picture>
         ))}
       </div>
 
-      {/* Overlay de legibilidade sobre o slideshow */}
+      {/* Scrim de legibilidade — gradiente lateral forte + véu inferior. */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--hero-bg))]/92 via-[hsl(var(--hero-bg))]/80 to-[hsl(var(--hero-bg))]/60"
+        className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--hero-bg))]/95 via-[hsl(var(--hero-bg))]/80 to-[hsl(var(--hero-bg))]/45"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[hsl(var(--hero-bg))]/85 to-transparent"
         aria-hidden="true"
       />
 
-      {/* Grid técnico sutil — estático, sem animação/glow */}
+      {/* Grid técnico sutil — estático */}
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
@@ -130,12 +129,12 @@ export const HeroPremium = () => {
             Assistência técnica em {siteConfig.primaryCity}
           </span>
 
-          <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.4rem]">
+          <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_12px_hsl(var(--hero-bg)/0.6)] sm:text-4xl md:text-5xl lg:text-[3.4rem]">
             Técnico em Curitiba para
             <span className="text-[hsl(var(--accent))]"> Notebook, PC e Informática</span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 drop-shadow-[0_1px_8px_hsl(var(--hero-bg)/0.7)] md:text-lg">
             Formatação, manutenção, upgrade, backup, recuperação de dados, redes e suporte
             empresarial com atendimento direto, diagnóstico honesto e agendamento via WhatsApp.
           </p>
@@ -148,19 +147,19 @@ export const HeroPremium = () => {
               onClick={trackHero}
               data-cta-location="hero_primary"
               data-wa-source="whatsapp_cta"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--hero-bg))]"
             >
               Iniciar atendimento
             </a>
             <a
               href="/servicos"
-              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/5 px-7 text-base font-semibold text-white transition-colors hover:bg-white/12"
+              className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/5 px-7 text-base font-semibold text-white transition-colors hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--hero-bg))]"
             >
               Ver serviços
             </a>
           </div>
 
-          <p className="mt-5 text-sm text-white/70">
+          <p className="mt-5 text-sm text-white/80">
             Atendimento em Curitiba e região • Diagnóstico a partir de {siteConfig.minPriceLabel} • Sem promessa falsa
           </p>
 
@@ -178,33 +177,73 @@ export const HeroPremium = () => {
         </div>
       </div>
 
-      {/* Legenda do ponto turístico — frase sobre a foto */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10">
-        <div className="container mx-auto flex items-center justify-between gap-4 px-4 pb-4">
+      {/* Controles e legenda do slideshow */}
+      <div className="absolute inset-x-0 bottom-0 z-10">
+        <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 pb-4">
           {activeCaption && (
             <span
               key={activeCaption}
-              className="hero-caption inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3.5 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-[13px]"
+              aria-live="polite"
+              className="hero-caption inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-sm sm:text-[13px]"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
               {activeCaption}
             </span>
           )}
-          {/* Indicadores do slideshow */}
-          <span className="pointer-events-auto ml-auto flex items-center gap-1.5">
-            {slides.map((slide, i) => (
+
+          <div className="ml-auto flex items-center gap-1.5">
+            {/* Pausar / retomar (oculto sob reduced-motion) */}
+            {canToggle && (
               <button
-                key={slide.place}
                 type="button"
-                aria-label={`Ver ${slide.place}`}
-                aria-current={i === active}
-                onClick={() => setActive(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? "w-6 bg-[hsl(var(--accent))]" : "w-1.5 bg-white/40 hover:bg-white/70"
-                }`}
-              />
-            ))}
-          </span>
+                onClick={() => setPaused((p) => !p)}
+                aria-label={paused ? "Retomar apresentação de slides" : "Pausar apresentação de slides"}
+                aria-pressed={paused}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                {paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
+              </button>
+            )}
+
+            {slides.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => go(-1)}
+                  aria-label="Slide anterior"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                </button>
+
+                {/* Indicadores clicáveis */}
+                <span className="mx-1 flex items-center gap-1.5" role="tablist" aria-label="Selecionar ponto turístico">
+                  {slides.map((slide, i) => (
+                    <button
+                      key={slide.place}
+                      type="button"
+                      role="tab"
+                      aria-label={`Ver ${slide.place}`}
+                      aria-selected={i === active}
+                      onClick={() => goTo(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                        i === active ? "w-6 bg-[hsl(var(--accent))]" : "w-1.5 bg-white/50 hover:bg-white/80"
+                      }`}
+                    />
+                  ))}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => go(1)}
+                  aria-label="Próximo slide"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>

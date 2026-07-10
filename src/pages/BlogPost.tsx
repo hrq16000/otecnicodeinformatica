@@ -203,8 +203,7 @@ const BlogPost = () => {
         <title>{post.title} | Blog | Técnico Curitiba</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://tecnico.curitiba.br/blog/${slug}`} />
-        <meta name="robots" content={isOffTopicCategory(post.category) ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
-        <meta name="googlebot" content={isOffTopicCategory(post.category) ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
+        {/* robots/googlebot são gerenciados via efeito (meta única em index.html) */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />

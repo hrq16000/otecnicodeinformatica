@@ -508,7 +508,51 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
-        {/* Laboratório */}
+        {/* Recuperação de dados e casos que exigem análise */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+                Casos que exigem análise
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Alguns atendimentos — como recuperação de dados, defeitos intermitentes ou problemas de hardware mais profundos — só podem ser orçados após avaliação do equipamento.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-secondary rounded-xl p-6">
+                  <h3 className="font-bold text-foreground mb-3">Como tratamos:</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Avaliação antes de qualquer execução",
+                      "Explicação clara das possibilidades e limites",
+                      "Recuperação de dados não é garantida",
+                      "Orçamento e prazo informados antes de prosseguir",
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-secondary rounded-xl p-6">
+                  <h3 className="font-bold text-foreground mb-3">O que pode variar:</h3>
+                  <ul className="space-y-2">
+                    {[
+                      "Prazo conforme a complexidade e a condição do equipamento",
+                      "Disponibilidade de peças, licenças e materiais",
+                      "Necessidade de backup, que pode influenciar prazo e valor",
+                      "Atualizações do andamento via WhatsApp",
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">

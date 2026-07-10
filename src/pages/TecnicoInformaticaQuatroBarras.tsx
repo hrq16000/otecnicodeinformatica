@@ -67,7 +67,7 @@ const TecnicoInformaticaQuatroBarras = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Quatro Barras PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-quatro-barras" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Quatro Barras", path: "/tecnico-informatica-quatro-barras" }]} />
+      <PageSEO noindex title="Técnico de Informática em Quatro Barras PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Quatro Barras PR. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-quatro-barras" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Quatro Barras", path: "/tecnico-informatica-quatro-barras" }]} />
       <CityServiceSchema city={"Quatro Barras"} citySameAs={"https://pt.wikipedia.org/wiki/Quatro_Barras"} path={"/tecnico-informatica-quatro-barras"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />

@@ -22,7 +22,6 @@ const mobileExtra = [
   { label: "Suporte empresarial", href: "/servicos/suporte-tecnico-empresarial" },
   { label: "Atendimento a domicílio", href: "/atendimento-domicilio" },
   { label: "Atendimento remoto", href: "/atendimento-remoto" },
-  { label: "Blog", href: "/blog" },
   { label: "Sobre", href: "/sobre" },
 ];
 

@@ -77,14 +77,15 @@ for (const name of ["sitemap-bairros.xml", "sitemap-marcas.xml", "sitemap-proble
   writeFileSync(resolve("public", name), EMPTY_URLSET);
 }
 
-// Índice apenas com os sitemaps ativos + news.
+// Índice apenas com os sitemaps ativos e curados.
+// Blog/news fora do índice nesta fase: conteúdo majoritariamente off-topic
+// (Linux/Docker/SSH/IA) — mantido no app, mas sem push de indexação.
 const indexXml =
   `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   active
     .map(([name]) => `  <sitemap><loc>${BASE_URL}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`)
     .join("\n") +
-  `\n  <sitemap><loc>${BASE_URL}/sitemap-news.xml</loc><lastmod>${TODAY}</lastmod></sitemap>\n` +
-  `</sitemapindex>\n`;
+  `\n</sitemapindex>\n`;
 
 writeFileSync(resolve("public/sitemap-index.xml"), indexXml);
 // Alias legado.

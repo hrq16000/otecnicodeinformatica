@@ -5,6 +5,7 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";

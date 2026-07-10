@@ -44,6 +44,10 @@ const mobileExtra: NavItem[] = [
 export const FastHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const listRef = useRef<HTMLDivElement | null>(null);
+  // Quando o menu abre por teclado, focar o primeiro item.
+  const focusFirstOnOpen = useRef(false);
 
   // Shrink-on-scroll sem re-render do React.
   if (typeof window !== "undefined" && !(window as any).__hdrScrollBound) {
@@ -58,7 +62,7 @@ export const FastHeader = () => {
     sync();
   }
 
-  // Fecha ao clicar fora ou pressionar Esc.
+  // Fecha ao clicar fora ou pressionar Esc (devolvendo o foco ao botão).
   useEffect(() => {
     if (!menuOpen) return;
     const onPointer = (e: MouseEvent | TouchEvent) => {
@@ -67,7 +71,10 @@ export const FastHeader = () => {
       }
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        buttonRef.current?.focus();
+      }
     };
     document.addEventListener("mousedown", onPointer);
     document.addEventListener("touchstart", onPointer, { passive: true });
@@ -78,6 +85,50 @@ export const FastHeader = () => {
       document.removeEventListener("keydown", onKey);
     };
   }, [menuOpen]);
+
+  // Ao abrir por teclado, move o foco para o primeiro item do menu.
+  useEffect(() => {
+    if (menuOpen && focusFirstOnOpen.current) {
+      focusFirstOnOpen.current = false;
+      const first = listRef.current?.querySelector<HTMLElement>('[role="menuitem"]');
+      first?.focus();
+    }
+  }, [menuOpen]);
+
+  const itemsEls = () =>
+    Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
+
+  // Navegação por setas / Home / End dentro do menu.
+  const onMenuKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const items = itemsEls();
+    if (items.length === 0) return;
+    const idx = items.indexOf(document.activeElement as HTMLElement);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      items[(idx + 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      items[(idx - 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      items[items.length - 1]?.focus();
+    } else if (e.key === "Tab") {
+      // Fecha ao sair do menu por Tab, mantendo o fluxo natural de foco.
+      setMenuOpen(false);
+    }
+  };
+
+  const onButtonKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if ((e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") && !menuOpen) {
+      e.preventDefault();
+      focusFirstOnOpen.current = true;
+      setMenuOpen(true);
+    }
+  };
+
 
   return (
     <header

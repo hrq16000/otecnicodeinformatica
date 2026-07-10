@@ -99,7 +99,7 @@ export const FastHeader = () => {
     Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
 
   // Navegação por setas / Home / End dentro do menu.
-  const onMenuKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onMenuKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
     const items = itemsEls();
     if (items.length === 0) return;
     const idx = items.indexOf(document.activeElement as HTMLElement);
@@ -121,7 +121,7 @@ export const FastHeader = () => {
     }
   };
 
-  const onButtonKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+  const onButtonKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>) => {
     if ((e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") && !menuOpen) {
       e.preventDefault();
       focusFirstOnOpen.current = true;

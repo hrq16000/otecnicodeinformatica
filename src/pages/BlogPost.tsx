@@ -76,7 +76,25 @@ const BlogPost = () => {
     }
   }, [post, slug]);
 
-  // Compute hero image (Discover requires large 1200px+ image)
+  // Gerencia a meta robots única (definida em index.html): posts off-topic
+  // recebem noindex, follow; posts alinhados voltam a index, follow.
+  useEffect(() => {
+    if (!post) return;
+    const offTopic = isOffTopicCategory(post.category);
+    const robots = document.querySelector('meta[name="robots"]');
+    const googlebot = document.querySelector('meta[name="googlebot"]');
+    const prevRobots = robots?.getAttribute("content") ?? null;
+    const prevGoogle = googlebot?.getAttribute("content") ?? null;
+    const indexVal = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+    const indexGoogle = "index, follow, max-image-preview:large, max-snippet:-1";
+    robots?.setAttribute("content", offTopic ? "noindex, follow" : indexVal);
+    googlebot?.setAttribute("content", offTopic ? "noindex, follow" : indexGoogle);
+    return () => {
+      if (robots && prevRobots) robots.setAttribute("content", prevRobots);
+      if (googlebot && prevGoogle) googlebot.setAttribute("content", prevGoogle);
+    };
+  }, [post]);
+
   const categoryCover = slug ? getCategoryCover(slug) : null;
   const heroImage = categoryCover
     ? `https://tecnico.curitiba.br${categoryCover.src}`

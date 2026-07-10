@@ -11,25 +11,26 @@
 import jbAvif from "@/assets/hero-jardim-botanico.jpg?w=768;1280;1920&format=avif&as=srcset";
 import jbWebp from "@/assets/hero-jardim-botanico.jpg?w=768;1280;1920&format=webp&as=srcset";
 import jbJpg from "@/assets/hero-jardim-botanico.jpg?w=768;1280;1920&format=jpg&as=srcset";
-import jbFallback from "@/assets/hero-jardim-botanico.jpg?w=1280&format=jpg";
 
 // Museu Oscar Niemeyer
 import onAvif from "@/assets/hero-oscar-niemeyer.jpg?w=768;1280;1920&format=avif&as=srcset";
 import onWebp from "@/assets/hero-oscar-niemeyer.jpg?w=768;1280;1920&format=webp&as=srcset";
 import onJpg from "@/assets/hero-oscar-niemeyer.jpg?w=768;1280;1920&format=jpg&as=srcset";
-import onFallback from "@/assets/hero-oscar-niemeyer.jpg?w=1280&format=jpg";
 
 // Ópera de Arame
 import opAvif from "@/assets/hero-opera-de-arame.jpg?w=768;1280;1920&format=avif&as=srcset";
 import opWebp from "@/assets/hero-opera-de-arame.jpg?w=768;1280;1920&format=webp&as=srcset";
 import opJpg from "@/assets/hero-opera-de-arame.jpg?w=768;1280;1920&format=jpg&as=srcset";
-import opFallback from "@/assets/hero-opera-de-arame.jpg?w=1280&format=jpg";
 
 // Parque Tanguá
 import ptAvif from "@/assets/hero-parque-tangua.jpg?w=768;1280;1920&format=avif&as=srcset";
 import ptWebp from "@/assets/hero-parque-tangua.jpg?w=768;1280;1920&format=webp&as=srcset";
 import ptJpg from "@/assets/hero-parque-tangua.jpg?w=768;1280;1920&format=jpg&as=srcset";
-import ptFallback from "@/assets/hero-parque-tangua.jpg?w=1280&format=jpg";
+
+/** Extrai a primeira URL de um srcset para usar como `src` de fallback. */
+function firstFromSrcset(srcset: string): string {
+  return srcset.split(",")[0]?.trim().split(/\s+/)[0] ?? "";
+}
 
 export interface HeroSlide {
   place: string;
@@ -47,7 +48,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     avif: jbAvif,
     webp: jbWebp,
     jpg: jbJpg,
-    fallback: jbFallback,
+    fallback: firstFromSrcset(jbJpg),
   },
   {
     place: "Museu Oscar Niemeyer",
@@ -55,7 +56,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     avif: onAvif,
     webp: onWebp,
     jpg: onJpg,
-    fallback: onFallback,
+    fallback: firstFromSrcset(onJpg),
   },
   {
     place: "Ópera de Arame",
@@ -63,7 +64,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     avif: opAvif,
     webp: opWebp,
     jpg: opJpg,
-    fallback: opFallback,
+    fallback: firstFromSrcset(opJpg),
   },
   {
     place: "Parque Tanguá",
@@ -71,7 +72,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     avif: ptAvif,
     webp: ptWebp,
     jpg: ptJpg,
-    fallback: ptFallback,
+    fallback: firstFromSrcset(ptJpg),
   },
 ] as const;
 

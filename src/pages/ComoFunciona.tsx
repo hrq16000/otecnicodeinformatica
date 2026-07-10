@@ -245,10 +245,10 @@ const ComoFunciona = () => {
                   Quanto Custa o Atendimento?
                 </h2>
                 <p className="text-muted-foreground mb-3 leading-relaxed max-w-xl mx-auto">
-                  Os valores iniciais são simples e transparentes. A visita técnica presencial começa em <strong className="text-accent">R$ 69,99</strong>. Formatação a partir de <strong className="text-accent">R$ 168,99</strong>. Suporte remoto a partir de <strong className="text-accent">R$ 69,99</strong>. Hora técnica remota a partir de <strong className="text-accent">R$ 79/hora</strong>.
+                  A mão de obra começa a partir de <strong className="text-accent">R$ 99,99</strong> quando há visita ou diagnóstico presencial aplicável. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais.
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Os valores podem variar conforme a complexidade do serviço, necessidade de peças e localização. Veja todos os detalhes na nossa tabela completa de preços.
+                  Os valores podem variar conforme a complexidade do serviço, a necessidade de peças e a localização. O orçamento é informado antes da execução. Veja os detalhes na página de preços e políticas.
                 </p>
                 <Button variant="cta" size="lg" asChild>
                   <Link to="/valores">

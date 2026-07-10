@@ -151,11 +151,45 @@ async function writePage(distDir, routePath, html) {
   await fs.writeFile(path.join(outDir, "index.html"), html, "utf8");
 }
 
+// Injeção cirúrgica para rotas CURADAS: preserva og:image e demais tags do
+// index.html base, apenas reescrevendo title/description/canonical/og:url e
+// os alternates hreflang para a URL da rota (self-referente).
+function injectCuratedMeta(html, url, title, description) {
+  const t = htmlEscape(title);
+  const d = htmlEscape(description);
+  let out = html
+    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${t}</title>`)
+    .replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${d}">`)
+    .replace(/<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${url}" />`)
+    .replace(/<link\s+rel=["']alternate["']\s+hreflang=["']pt-BR["'][^>]*>/i, `<link rel="alternate" hreflang="pt-BR" href="${url}" />`)
+    .replace(/<link\s+rel=["']alternate["']\s+hreflang=["']x-default["'][^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${url}" />`)
+    .replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${url}" />`)
+    .replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${t}">`)
+    .replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`)
+    .replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`)
+    .replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
+  return out;
+}
+
 export async function prerenderCities(distDir) {
   const indexPath = path.join(distDir, "index.html");
   const baseHtml = await fs.readFile(indexPath, "utf8");
   const fallbackOg = await findHashedAsset(distDir, "og-arrumar-pc-brasil");
   let written = 0;
+
+  // --- rotas CURADAS (serviços, cidades âncora, institucionais) ---
+  // "/" já sai correto no index.html base; as demais recebem canonical/og por rota.
+  let curated = 0;
+  for (const route of CURATED_ROUTES) {
+    if (route.path === "/") continue;
+    const url = `${SITE}${route.path}`;
+    const html = injectCuratedMeta(baseHtml, url, route.title, route.description);
+    await writePage(distDir, route.path, html);
+    curated++;
+  }
+  console.log(`[prerender-cities] wrote ${curated} curated per-route index.html files`);
+
+
 
   // --- arrumar-pc cities ---
   for (const c of CITIES) {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import {
   Menu,
   X,
@@ -44,6 +44,10 @@ const mobileExtra: NavItem[] = [
 export const FastHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const listRef = useRef<HTMLDivElement | null>(null);
+  // Quando o menu abre por teclado, focar o primeiro item.
+  const focusFirstOnOpen = useRef(false);
 
   // Shrink-on-scroll sem re-render do React.
   if (typeof window !== "undefined" && !(window as any).__hdrScrollBound) {
@@ -58,7 +62,7 @@ export const FastHeader = () => {
     sync();
   }
 
-  // Fecha ao clicar fora ou pressionar Esc.
+  // Fecha ao clicar fora ou pressionar Esc (devolvendo o foco ao botão).
   useEffect(() => {
     if (!menuOpen) return;
     const onPointer = (e: MouseEvent | TouchEvent) => {
@@ -67,7 +71,10 @@ export const FastHeader = () => {
       }
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        buttonRef.current?.focus();
+      }
     };
     document.addEventListener("mousedown", onPointer);
     document.addEventListener("touchstart", onPointer, { passive: true });
@@ -78,6 +85,50 @@ export const FastHeader = () => {
       document.removeEventListener("keydown", onKey);
     };
   }, [menuOpen]);
+
+  // Ao abrir por teclado, move o foco para o primeiro item do menu.
+  useEffect(() => {
+    if (menuOpen && focusFirstOnOpen.current) {
+      focusFirstOnOpen.current = false;
+      const first = listRef.current?.querySelector<HTMLElement>('[role="menuitem"]');
+      first?.focus();
+    }
+  }, [menuOpen]);
+
+  const itemsEls = () =>
+    Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
+
+  // Navegação por setas / Home / End dentro do menu.
+  const onMenuKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    const items = itemsEls();
+    if (items.length === 0) return;
+    const idx = items.indexOf(document.activeElement as HTMLElement);
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      items[(idx + 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      items[(idx - 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      items[items.length - 1]?.focus();
+    } else if (e.key === "Tab") {
+      // Fecha ao sair do menu por Tab, mantendo o fluxo natural de foco.
+      setMenuOpen(false);
+    }
+  };
+
+  const onButtonKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>) => {
+    if ((e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") && !menuOpen) {
+      e.preventDefault();
+      focusFirstOnOpen.current = true;
+      setMenuOpen(true);
+    }
+  };
+
 
   return (
     <header
@@ -104,7 +155,7 @@ export const FastHeader = () => {
             <a
               key={item.href}
               href={item.href}
-              className="group inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+              className="group inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <item.icon
                 className="h-4 w-4 text-accent/70 transition-transform duration-200 group-hover:scale-110 group-hover:text-accent"
@@ -134,12 +185,15 @@ export const FastHeader = () => {
 
           <div ref={menuRef} className="relative">
             <button
+              ref={buttonRef}
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
+              onKeyDown={onButtonKeyDown}
               aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={menuOpen}
               aria-haspopup="menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              aria-controls="site-menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {menuOpen ? (
                 <X className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
@@ -150,17 +204,25 @@ export const FastHeader = () => {
 
             {menuOpen && (
               <nav
-                aria-label="Menu mobile"
+                id="site-menu"
+                aria-label="Menu de navegação"
                 className="menu-panel absolute right-0 top-[calc(100%+8px)] z-50 max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] origin-top-right overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground opacity-100 shadow-[var(--shadow-xl)]"
               >
-                <div className="grid gap-0.5">
+                <div
+                  ref={listRef}
+                  role="menu"
+                  aria-label="Páginas do site"
+                  onKeyDown={onMenuKeyDown}
+                  className="grid gap-0.5"
+                >
                   {[...primaryNav, ...mobileExtra].map((item, i) => (
                     <a
                       key={item.href}
                       href={item.href}
+                      role="menuitem"
                       onClick={() => setMenuOpen(false)}
                       style={{ animationDelay: `${i * 35}ms` }}
-                      className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
+                      className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent focus-visible:bg-accent/10 focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                     >
                       <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent transition-transform duration-200 group-hover:scale-110">
                         <item.icon className="h-[18px] w-[18px]" strokeWidth={2} aria-hidden="true" />
@@ -169,6 +231,7 @@ export const FastHeader = () => {
                     </a>
                   ))}
                 </div>
+
 
                 <div className="mt-2 border-t border-border p-2">
                   <a

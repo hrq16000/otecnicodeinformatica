@@ -3,8 +3,10 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { execSync } from "node:child_process";
 import { componentTagger } from "lovable-tagger";
+import { imagetools } from "vite-imagetools";
 // @ts-expect-error - JS plugin without types
 import { prerenderCitiesPlugin } from "./scripts/prerender-cities.mjs";
+
 
 const resolveAppVersion = () => {
   if (process.env.APP_VERSION) return process.env.APP_VERSION;
@@ -44,10 +46,12 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    imagetools(),
     googleSiteVerificationPlugin(),
     mode === "development" && componentTagger(),
     prerenderCitiesPlugin(),
   ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

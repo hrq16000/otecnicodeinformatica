@@ -46,10 +46,12 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    imagetools(),
     googleSiteVerificationPlugin(),
     mode === "development" && componentTagger(),
     prerenderCitiesPlugin(),
   ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

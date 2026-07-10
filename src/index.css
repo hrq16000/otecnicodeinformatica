@@ -1462,12 +1462,13 @@
 }
 
 /* ── Hero slideshow (pontos turísticos de Curitiba) ── */
-/* Fotos levemente desfocadas para manter a leitura do texto sobreposto. */
+/* Imagens nítidas; a legibilidade vem do scrim + drop-shadow do texto. */
 .hero-photo {
-  filter: blur(2px) saturate(1.05) brightness(0.9);
-  transform: scale(1.08);
+  filter: saturate(1.06) brightness(0.94);
+  transform: scale(1.05);
   will-change: opacity, transform;
 }
+
 .hero-photo--pan {
   animation: heroKenBurns 18s ease-in-out infinite alternate;
 }

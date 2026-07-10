@@ -36,6 +36,20 @@ const loadBlogPostsContent = (): Promise<PostsMap> => {
   return inflight;
 };
 
+// Categorias off-topic para o posicionamento atual (informática/PC/notebook,
+// formatação, backup, recuperação de dados, SSD/RAM, vírus, redes/Wi-Fi,
+// suporte empresarial e segurança básica). Posts fora disso recebem
+// noindex, follow e ficam fora do sitemap.
+const OFF_TOPIC_BLOG_CATEGORIES = new Set([
+  "Linux",
+  "Inteligência Artificial",
+  "Plataformas",
+  "CFTV",
+]);
+
+const isOffTopicCategory = (category?: string) =>
+  !!category && OFF_TOPIC_BLOG_CATEGORIES.has(category);
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [posts, setPosts] = useState<PostsMap | null>(cachedPosts);

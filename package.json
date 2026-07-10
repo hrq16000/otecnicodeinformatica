@@ -24,6 +24,7 @@
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
+    "check:public-data-exposure": "node scripts/check-public-data-exposure.mjs",
     "preview:category-prompts": "bun scripts/preview-category-prompts.ts"
   },
   "dependencies": {

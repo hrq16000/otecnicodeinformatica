@@ -155,7 +155,7 @@ export const FastHeader = () => {
             <a
               key={item.href}
               href={item.href}
-              className="group inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+              className="group inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <item.icon
                 className="h-4 w-4 text-accent/70 transition-transform duration-200 group-hover:scale-110 group-hover:text-accent"

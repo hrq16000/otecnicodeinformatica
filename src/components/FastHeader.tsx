@@ -185,12 +185,15 @@ export const FastHeader = () => {
 
           <div ref={menuRef} className="relative">
             <button
+              ref={buttonRef}
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
+              onKeyDown={onButtonKeyDown}
               aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={menuOpen}
               aria-haspopup="menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              aria-controls="site-menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {menuOpen ? (
                 <X className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
@@ -201,17 +204,25 @@ export const FastHeader = () => {
 
             {menuOpen && (
               <nav
-                aria-label="Menu mobile"
+                id="site-menu"
+                aria-label="Menu de navegação"
                 className="menu-panel absolute right-0 top-[calc(100%+8px)] z-50 max-h-[calc(100dvh-var(--site-header-height)-16px)] w-[min(90vw,320px)] origin-top-right overflow-y-auto rounded-2xl border border-border bg-background p-2 text-foreground opacity-100 shadow-[var(--shadow-xl)]"
               >
-                <div className="grid gap-0.5">
+                <div
+                  ref={listRef}
+                  role="menu"
+                  aria-label="Páginas do site"
+                  onKeyDown={onMenuKeyDown}
+                  className="grid gap-0.5"
+                >
                   {[...primaryNav, ...mobileExtra].map((item, i) => (
                     <a
                       key={item.href}
                       href={item.href}
+                      role="menuitem"
                       onClick={() => setMenuOpen(false)}
                       style={{ animationDelay: `${i * 35}ms` }}
-                      className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent"
+                      className="menu-item group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-accent/10 hover:text-accent focus-visible:bg-accent/10 focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent"
                     >
                       <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent transition-transform duration-200 group-hover:scale-110">
                         <item.icon className="h-[18px] w-[18px]" strokeWidth={2} aria-hidden="true" />
@@ -220,6 +231,7 @@ export const FastHeader = () => {
                     </a>
                   ))}
                 </div>
+
 
                 <div className="mt-2 border-t border-border p-2">
                   <a

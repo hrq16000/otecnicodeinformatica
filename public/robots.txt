@@ -85,6 +85,5 @@ Disallow: /ads/
 # Sitemap index (preferido) + sitemaps individuais
 Sitemap: https://tecnico.curitiba.br/sitemap-index.xml
 Sitemap: https://tecnico.curitiba.br/sitemap.xml
-Sitemap: https://tecnico.curitiba.br/sitemap-news.xml
 
 Host: https://tecnico.curitiba.br

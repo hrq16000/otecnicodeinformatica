@@ -175,7 +175,6 @@ const PrecosEPoliticas = () => {
               </p>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {[
-                  { tempo: "até 15 minutos", valor: "R$ 69,99" },
                   { tempo: "até 30 minutos", valor: "R$ 99,99" },
                 ].map((t, i) => (
                   <div key={i} className={`bg-secondary rounded-xl p-6 text-center hover:-translate-y-1 transition-all stagger-item ${i === 0 ? "ring-2 ring-accent shadow-[0_0_20px_hsl(var(--accent)/0.15)]" : ""}`} style={{ animationDelay: `${i * 100}ms` }}>

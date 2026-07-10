@@ -438,7 +438,7 @@ const PrecosEPoliticas = () => {
                       <p className="font-semibold text-foreground mb-2">Visita técnica presencial:</p>
                       <p className="text-muted-foreground">
                         Cobrança proporcional ao tempo de atendimento 
-                        (a partir de <strong className="text-accent">R$ 69,99</strong>).
+                        (a partir de <strong className="text-accent">R$ 99,99</strong>).
                       </p>
                     </div>
                   </div>

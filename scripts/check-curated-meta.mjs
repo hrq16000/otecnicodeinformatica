@@ -215,6 +215,52 @@ if (existsSync(distDir)) {
     if (cans[0] && cans[0] !== `${SITE}${route.path}`) fail(`curated ${route.path}: canonical "${cans[0]}" não é self-referente`);
   }
 
+  // ── Onda 2 · 6 URLs curadas que antes herdavam o fallback da home ──────
+  // Validação reforçada: HTML próprio + index,follow + self-canonical +
+  // og:url self + og:title/og:description presentes + og:image oficial +
+  // sem gpt-engineer + presença no sitemap. Fonte de verdade: componentes
+  // de página (PageSEO) espelhados em curated-routes-meta.mjs.
+  const NEW_CURATED = [
+    "/atendimento-domicilio",
+    "/atendimento-remoto",
+    "/coleta-e-entrega",
+    "/diagnostico-tecnico",
+    "/equipamentos-atendidos",
+    "/quando-nao-compensa",
+  ];
+  const sitemapMainXml = existsSync(resolve(root, "public/sitemap-main.xml"))
+    ? readFileSync(resolve(root, "public/sitemap-main.xml"), "utf8")
+    : "";
+  const metaProp = (h, prop) => (h.match(new RegExp(`property=["']${prop}["']\\s+content=["']([^"']+)["']`, "i")) || [])[1];
+  const metaName = (h, name) => (h.match(new RegExp(`name=["']${name}["']\\s+content=["']([^"']+)["']`, "i")) || [])[1];
+  for (const p of NEW_CURATED) {
+    const h = readDist(p);
+    if (!h) { fail(`nova curada ${p}: HTML ausente em dist${p}/index.html`); continue; }
+    const r = robotsOf(h);
+    if (r.count !== 1) fail(`nova curada ${p}: esperado exatamente 1 meta robots (achou ${r.count})`);
+    if (r.value !== "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1") {
+      fail(`nova curada ${p}: robots="${r.value}" (esperado index, follow …)`);
+    }
+    const cans = canonicalsOf(h);
+    if (cans.length !== 1) fail(`nova curada ${p}: esperado exatamente 1 canonical (achou ${cans.length})`);
+    if (cans[0] !== `${SITE}${p}`) fail(`nova curada ${p}: canonical "${cans[0]}" não é self-referente`);
+    if (cans[0] === `${SITE}/`) fail(`nova curada ${p}: canonical aponta para a home (proibido)`);
+    const title = (h.match(/<title>([\s\S]*?)<\/title>/i) || [])[1];
+    if (!title) fail(`nova curada ${p}: <title> ausente`);
+    if (!metaName(h, "description")) fail(`nova curada ${p}: meta description ausente`);
+    if (metaProp(h, "og:url") !== `${SITE}${p}`) fail(`nova curada ${p}: og:url "${metaProp(h, "og:url")}" não é self-referente`);
+    if (!metaProp(h, "og:title")) fail(`nova curada ${p}: og:title ausente`);
+    if (!metaProp(h, "og:description")) fail(`nova curada ${p}: og:description ausente`);
+    const ogImg = metaProp(h, "og:image");
+    if (!ogImg || !ogImg.startsWith(`${SITE}/`)) fail(`nova curada ${p}: og:image "${ogImg}" não usa o domínio oficial`);
+    if (metaProp(h, "og:site_name") !== OFFICIAL_NAME) fail(`nova curada ${p}: og:site_name divergente`);
+    if (!metaName(h, "twitter:image")) fail(`nova curada ${p}: twitter:image ausente`);
+    if (/gpt-engineer/i.test(h)) fail(`nova curada ${p}: contém referência a storage do gpt-engineer`);
+    if (!sitemapMainXml.includes(`<loc>${SITE}${p}</loc>`)) fail(`nova curada ${p}: ausente do sitemap-main.xml`);
+    if (!curatedByPath.has(p)) fail(`nova curada ${p}: ausente de CURATED_ROUTES (curated-routes-meta.mjs)`);
+  }
+
+
   // Sitemaps: total 33 URLs e nenhuma rota legada presente.
   const sitemapFiles = ["sitemap-main.xml", "sitemap-servicos.xml", "sitemap-regioes.xml", "sitemap-bairros.xml"];
   let sitemapTotal = 0;

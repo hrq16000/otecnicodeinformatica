@@ -272,6 +272,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
         title={title}
         description={description}
         path={path}
+        noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: `${category.titlePrefix} em Curitiba`, path },

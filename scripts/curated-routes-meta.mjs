@@ -37,7 +37,7 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/remocao-de-virus",
-    "title": "Remoção de Vírus e Malware em Curitiba | Técnico em Curitiba",
+    "title": "Remoção de Vírus e Malware em Curitiba | Técnico",
     "description": "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp."
   },
   {

@@ -112,8 +112,8 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/empresa-de-ti-curitiba",
-    "title": "Empresa de TI em Curitiba | Suporte Técnico para Empresas",
-    "description": "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp."
+    "title": "Empresa de TI em Curitiba | Soluções para Pequenas Empresas",
+    "description": "Soluções de informática para empresas em Curitiba: diagnóstico do ambiente, computadores, redes, manutenção e organização do suporte técnico."
   },
   {
     "path": "/bairros/cic",

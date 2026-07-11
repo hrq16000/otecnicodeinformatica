@@ -79,16 +79,17 @@ const EMPTY_URLSET = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="htt
 
 // Sub-sitemaps ativos.
 const active = [
-  ["sitemap-main.xml", MAIN],
+  ["sitemap-main.xml", [...MAIN, ...HUBS]],
   ["sitemap-servicos.xml", SERVICOS],
   ["sitemap-regioes.xml", REGIOES],
+  ["sitemap-bairros.xml", BAIRROS],
 ];
 for (const [name, entries] of active) {
   writeFileSync(resolve("public", name), buildUrlset(entries));
 }
 
 // Zera sub-sitemaps herdados para parar de servir conteúdo thin/duplicado.
-for (const name of ["sitemap-bairros.xml", "sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"]) {
+for (const name of ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"]) {
   writeFileSync(resolve("public", name), EMPTY_URLSET);
 }
 

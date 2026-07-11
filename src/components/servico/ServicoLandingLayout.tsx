@@ -328,6 +328,34 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </section>
       )}
 
+      {/* Atendimento local — links internos para bairros, cidades e problemas próximos */}
+      {data.linksLocais && data.linksLocais.length > 0 && (
+        <section className="py-10 bg-secondary">
+          <div className="container mx-auto px-4">
+            <h2 className="mb-2 text-center text-xl font-heading font-bold text-foreground">
+              Atendimento local em Curitiba e região
+            </h2>
+            <p className="mx-auto mb-5 max-w-2xl text-center text-sm text-muted-foreground">
+              Atendemos os principais bairros de Curitiba e cidades da região metropolitana.
+              Veja também os problemas mais buscados e a página da sua região:
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {data.linksLocais.map((r) => (
+                <Link
+                  key={r.to}
+                  to={r.to}
+                  className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+                >
+                  {r.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
+
       <InterlinkingBlock />
       <Footer />
     </div>

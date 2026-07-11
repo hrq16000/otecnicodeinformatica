@@ -53,7 +53,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/servicos/suporte-tecnico-empresarial",
     "title": "Suporte Técnico para Empresas em Curitiba | Informática",
-    "description": "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta."
+    "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva."
   },
   {
     "path": "/sobre",

@@ -17,6 +17,18 @@ const trustChips = [
   "Atendimento local e direto",
 ];
 
+// Links diretos para os 8 serviços + hub — distribui a navegação a partir da home.
+const SERVICE_LINKS: Array<{ label: string; to: string }> = [
+  { label: "Formatação", to: "/servicos/formatacao" },
+  { label: "Manutenção de PC", to: "/servicos/manutencao-de-computador" },
+  { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+  { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+  { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+  { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+  { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+];
+
 const AUTOPLAY_MS = 6500;
 
 /**
@@ -131,14 +143,39 @@ export const HeroPremium = () => {
           </span>
 
           <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_12px_hsl(var(--hero-bg)/0.6)] sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-            Técnico em Curitiba para
-            <span className="text-[hsl(var(--accent))]"> Notebook, PC e Informática</span>
+            Sua tecnologia resolvida sem enrolação,
+            <span className="text-[hsl(var(--accent))]"> com diagnóstico honesto</span>
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 drop-shadow-[0_1px_8px_hsl(var(--hero-bg)/0.7)] md:text-lg">
-            Formatação, manutenção, upgrade, backup, recuperação de dados, redes e suporte
-            empresarial com atendimento direto, diagnóstico honesto e agendamento via WhatsApp.
+            Um só lugar para cuidar do seu equipamento: você descreve o problema, recebe uma
+            avaliação clara e aprova o preço antes de qualquer reparo. Escolha o serviço abaixo
+            ou fale direto no WhatsApp.
           </p>
+
+          <nav className="mt-6" aria-label="Serviços de informática">
+            <ul className="flex flex-wrap gap-2">
+              {SERVICE_LINKS.map((s) => (
+                <li key={s.to}>
+                  <a
+                    href={s.to}
+                    className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-[13px] font-medium text-white/90 transition-colors hover:border-[hsl(var(--accent))] hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="/servicos"
+                  className="inline-flex items-center rounded-full border border-[hsl(var(--accent))]/50 bg-[hsl(var(--accent))]/15 px-3.5 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[hsl(var(--accent))]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  Ver todos os serviços →
+                </a>
+              </li>
+            </ul>
+          </nav>
+
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a

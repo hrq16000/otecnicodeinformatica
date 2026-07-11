@@ -481,7 +481,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "suporte-empresarial",
     metaTitle: "Suporte Técnico para Empresas em Curitiba | Informática",
     metaDescription:
-      "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta.",
+      "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva.",
     serviceName: "Suporte Técnico Empresarial",
     serviceDescription:
       "Suporte de informática para empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente em Curitiba e região.",

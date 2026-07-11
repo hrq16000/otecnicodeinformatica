@@ -97,7 +97,59 @@ if (!siteNameConst || siteNameConst[1] !== OFFICIAL_NAME) {
   fail(`PageSEO.tsx SITE_NAME divergente: "${siteNameConst ? siteNameConst[1] : "?"}" (esperado "${OFFICIAL_NAME}")`);
 }
 
-// ── Resultado ───────────────────────────────────────────────────────
+// ── 6. Identidade institucional: manifest.json ──────────────────────
+import { existsSync } from "node:fs";
+let manifest;
+try {
+  manifest = JSON.parse(readFileSync(resolve(root, "public/manifest.json"), "utf8"));
+} catch (e) {
+  fail(`public/manifest.json inválido: ${e.message}`);
+}
+if (manifest) {
+  if (manifest.name !== OFFICIAL_NAME) fail(`manifest.name divergente: "${manifest.name}" (esperado "${OFFICIAL_NAME}")`);
+  if (manifest.short_name !== OFFICIAL_NAME) fail(`manifest.short_name divergente: "${manifest.short_name}" (esperado "${OFFICIAL_NAME}")`);
+}
+
+// ── 7. Identidade institucional: prerender-cities.mjs ───────────────
+// Campos institucionais (og:site_name, Organization.name, LocalBusiness.name)
+// não devem usar o nome antigo "Técnico Curitiba".
+const prerenderSrc = readFileSync(resolve(root, "scripts/prerender-cities.mjs"), "utf8");
+const badSiteName = [...prerenderSrc.matchAll(/(og:site_name"\s+content=|name:\s*)"Técnico Curitiba"/g)];
+if (badSiteName.length) {
+  fail(`prerender-cities.mjs ainda usa "Técnico Curitiba" em ${badSiteName.length} campo(s) institucional(is)`);
+}
+
+// ── 8. Pós-build: dist/valores/index.html (alias de /precos-e-politicas) ──
+const valoresHtmlPath = resolve(root, "dist/valores/index.html");
+if (existsSync(valoresHtmlPath)) {
+  const v = readFileSync(valoresHtmlPath, "utf8");
+  const canonicalCount = (v.match(/rel="canonical"/g) || []).length;
+  if (canonicalCount !== 1) fail(`dist/valores: esperado exatamente 1 canonical (achou ${canonicalCount})`);
+  const vCanonical = (v.match(/rel="canonical"\s+href="([^"]+)"/) || [])[1];
+  if (vCanonical !== "https://tecnico.curitiba.br/precos-e-politicas") {
+    fail(`dist/valores: canonical divergente "${vCanonical}" (esperado /precos-e-politicas)`);
+  }
+  if (/rel="canonical"\s+href="https:\/\/tecnico\.curitiba\.br\/"/.test(v)) {
+    fail("dist/valores: canonical aponta para a home (proibido)");
+  }
+  const vOgUrl = (v.match(/property="og:url"\s+content="([^"]+)"/) || [])[1];
+  if (vOgUrl !== "https://tecnico.curitiba.br/precos-e-politicas") {
+    fail(`dist/valores: og:url divergente "${vOgUrl}" (esperado /precos-e-politicas)`);
+  }
+  if (/gpt-engineer/i.test(v)) fail("dist/valores: contém referência a storage do gpt-engineer");
+
+  // /valores fora de todos os sitemaps
+  const sitemapDir = resolve(root, "public");
+  for (const f of ["sitemap-main.xml", "sitemap-servicos.xml", "sitemap-regioes.xml", "sitemap-bairros.xml", "sitemap.xml"]) {
+    const sp = resolve(sitemapDir, f);
+    if (existsSync(sp) && /\/valores(<|\/)/.test(readFileSync(sp, "utf8"))) {
+      fail(`/valores presente em ${f} (deve ficar fora dos sitemaps)`);
+    }
+  }
+} else {
+  console.log("ℹ️  check-curated-meta: dist/valores/index.html ausente (pré-build) — validação de alias adiada para pós-build.");
+}
+
 if (errors.length) {
   console.error("❌ check-curated-meta: FALHOU\n" + errors.map((e) => " - " + e).join("\n"));
   process.exit(1);

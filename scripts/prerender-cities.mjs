@@ -114,7 +114,7 @@ function injectMeta(html, meta) {
   const og = [
     `<meta property="og:type" content="website">`,
     `<meta property="og:url" content="${meta.url}">`,
-    `<meta property="og:site_name" content="Técnico Curitiba">`,
+    `<meta property="og:site_name" content="Técnico em Curitiba">`,
     `<meta property="og:locale" content="pt_BR">`,
     `<meta property="og:title" content="${htmlEscape(meta.title)}">`,
     `<meta property="og:description" content="${htmlEscape(meta.description)}">`,
@@ -189,6 +189,24 @@ export async function prerenderCities(distDir) {
   }
   console.log(`[prerender-cities] wrote ${curated} curated per-route index.html files`);
 
+  // --- /valores (alias de /precos-e-politicas) ---
+  // Rota alias sem HTML próprio: o fallback dist/index.html entregava o canonical
+  // da home para crawlers sem JS. Geramos dist/valores/index.html reaproveitando
+  // os metadados oficiais de /precos-e-politicas e forçando canonical + og:url
+  // para a URL canônica /precos-e-politicas (nunca a home). Fora de todos os
+  // sitemaps — apenas HTML estático para corrigir o canonical pré-hidratação.
+  const precos = CURATED_ROUTES.find((r) => r.path === "/precos-e-politicas");
+  if (precos) {
+    const precosUrl = `${SITE}/precos-e-politicas`;
+    const html = injectCuratedMeta(baseHtml, precosUrl, precos.title, precos.description);
+    await writePage(distDir, "/valores", html);
+    console.log(`[prerender-cities] wrote /valores alias -> canonical ${precosUrl}`);
+  } else {
+    console.warn("[prerender-cities] /precos-e-politicas ausente em CURATED_ROUTES; /valores não gerado");
+  }
+
+
+
 
 
   // --- arrumar-pc cities ---
@@ -201,7 +219,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: `Arrumar PC online em ${c.cidade}`,
       serviceType: "Suporte técnico remoto de informática",
-      provider: { "@type": "Organization", name: "Técnico Curitiba", url: SITE },
+      provider: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
       areaServed: { "@type": "City", name: c.cidade, containedInPlace: { "@type": "State", name: c.estadoNome } },
       description: meta.description,
       url: meta.url,
@@ -220,7 +238,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: cat.titlePrefix,
       serviceType: cat.titlePrefix,
-      provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997086380" },
+      provider: { "@type": "LocalBusiness", name: "Técnico em Curitiba", url: SITE, telephone: "+5541997086380" },
       areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
       description: meta.description,
       url: meta.url,
@@ -240,7 +258,7 @@ export async function prerenderCities(distDir) {
         "@type": "Service",
         name: `${cat.titlePrefix} em ${meta.cityLabel}`,
         serviceType: cat.titlePrefix,
-        provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE, telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
+        provider: { "@type": "LocalBusiness", name: "Técnico em Curitiba", url: SITE, telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
         areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: meta.cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
         offers: {
           "@type": "Offer", priceCurrency: "BRL", price: "300",

@@ -3,7 +3,7 @@
 // Este mapa espelha os títulos/descrições curados apenas para crawlers SEM JS
 // (canonical/og:url por rota no HTML estático). Se um título de página mudar,
 // atualize também esta lista rodando a captura em scripts/prerender-curated.
-// NÃO adicionar rotas fora do sitemap curado (27 URLs).
+// NÃO adicionar rotas fora do sitemap curado (33 URLs).
 export const CURATED_ROUTES = [
   {
     "path": "/",

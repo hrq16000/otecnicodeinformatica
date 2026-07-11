@@ -207,7 +207,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "upgrade-ssd-ram": {
     path: "upgrade-ssd-ram",
     trackingKey: "upgrade-ssd-ram",
-    metaTitle: "Upgrade de SSD e Memória RAM em Curitiba | Técnico em Curitiba",
+    metaTitle: "Upgrade de SSD e Memória RAM em Curitiba | Técnico",
     metaDescription:
       "Upgrade de SSD e memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Atendimento via WhatsApp.",
     serviceName: "Upgrade de SSD e Memória RAM",
@@ -265,7 +265,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "remocao-de-virus": {
     path: "remocao-de-virus",
     trackingKey: "remocao-virus",
-    metaTitle: "Remoção de Vírus e Malware em Curitiba | Técnico em Curitiba",
+    metaTitle: "Remoção de Vírus e Malware em Curitiba | Técnico",
     metaDescription:
       "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp.",
     serviceName: "Remoção de Vírus e Malware",

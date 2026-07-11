@@ -17,7 +17,7 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/formatacao",
-    "title": "Formatação de Computador e Notebook em Curitiba | Técnico em Curitiba",
+    "title": "Formatação de PC e Notebook em Curitiba | Técnico",
     "description": "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp."
   },
   {

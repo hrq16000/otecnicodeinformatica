@@ -80,7 +80,7 @@ jobs:
           fi
           changed=$(git diff --name-only "$base" HEAD || true)
           echo "$changed"
-          if echo "$changed" | grep -qE '^(src/pages/(servicos|bairros|arrumar-pc|servico-bairro|cftv|hubs)/|src/pages/Tecnico|src/pages/Conserto|public/sitemap)'; then
+          if echo "$changed" | grep -qE '^(src/pages/(servicos|bairros|arrumar-pc|servico-bairro|cftv|hubs)/|src/pages/Tecnico|src/pages/Conserto|src/pages/EmpresaDeTiCuritiba|src/lib/servicos(Core|Local)|public/sitemap)'; then
             echo "ping=true" >> "$GITHUB_OUTPUT"
           else
             echo "ping=false" >> "$GITHUB_OUTPUT"

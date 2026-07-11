@@ -14,7 +14,7 @@ export const RouteLoader = () => (
       placeItems: "center",
       opacity: 1,
       background:
-        "linear-gradient(155deg,hsl(215,65%,22%) 0%,hsl(215,70%,18%) 55%,hsl(220,55%,28%) 100%)",
+        "linear-gradient(155deg,#ffffff 0%,hsl(200,44%,96%) 55%,hsl(197,52%,90%) 100%)",
       transition: "opacity 160ms ease",
     }}
   >
@@ -29,7 +29,7 @@ export const RouteLoader = () => (
         width: "clamp(13rem, 58vw, 22rem)",
         height: "auto",
         objectFit: "contain",
-        filter: "drop-shadow(0 .75rem 1.5rem rgba(0,0,0,.22))",
+        filter: "drop-shadow(0 .5rem 1.25rem rgba(15,40,60,.14))",
         animation: "routeLogoPulse 720ms ease-in-out infinite",
       }}
     />

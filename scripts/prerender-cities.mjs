@@ -264,7 +264,7 @@ export async function prerenderCities(distDir) {
       description: meta.description,
       url: meta.url,
     };
-    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd });
+    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
     await writePage(distDir, meta.path, html);
     written++;
   }

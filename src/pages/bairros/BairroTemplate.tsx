@@ -49,6 +49,8 @@ interface BairroData {
   conteudoExclusivo?: string;
   problemasComuns?: string[];
   dicasLocais?: string;
+  /** Quando true, o bairro é âncora indexável (conteúdo único ≥300 palavras) */
+  indexavel?: boolean;
 }
 
 interface BairroTemplateProps {
@@ -139,7 +141,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} breadcrumbs={[
+      <PageSEO noindex={!data.indexavel} title={data.metaTitle} description={data.metaDescription} path={`/bairros/${data.slug}`} breadcrumbs={[
         { name: "Início", path: "/" },
         { name: `Técnico em ${data.cidade}`, path: getCityLink() },
         { name: data.nome, path: `/bairros/${data.slug}` }
@@ -423,6 +425,34 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
             </div>
           </section>
         </AnimatedSection>
+
+        {/* ═══ Conteúdo exclusivo local (bairros âncora indexáveis) ═══ */}
+        {(data.conteudoExclusivo || data.dicasLocais) && (
+          <AnimatedSection>
+            <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
+              <div className="container mx-auto px-4 relative z-10">
+                <div className="max-w-4xl mx-auto">
+                  {data.conteudoExclusivo && (
+                    <div className="prose prose-lg max-w-none text-muted-foreground mb-8 whitespace-pre-line">
+                      {data.conteudoExclusivo}
+                    </div>
+                  )}
+                  {data.dicasLocais && (
+                    <div className="bg-card rounded-xl p-6 md:p-8 border border-border">
+                      <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
+                        <MapPin className="h-5 w-5 text-accent" />
+                        Dicas para quem é do {data.nome}
+                      </h3>
+                      <p className="text-muted-foreground whitespace-pre-line">{data.dicasLocais}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </section>
+          </AnimatedSection>
+        )}
+
+
 
         {/* ═══ Services grid with icon animations ═══ */}
         <AnimatedSection>

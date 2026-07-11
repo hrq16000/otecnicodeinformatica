@@ -53,14 +53,14 @@ export const CITIES = [
 ];
 
 // === Categorias × Locais (RMC/bairros) — mirrors src/pages/hubs/{categories,locais}.ts ===
-const CATEGORIES = [
+export const CATEGORIES = [
   { id: "tv", slug: "conserto-tv", nome: "TV", titlePrefix: "Conserto de TV" },
   { id: "som", slug: "conserto-som", nome: "Som", titlePrefix: "Conserto de Som e Áudio" },
   { id: "videogame", slug: "conserto-videogame", nome: "Videogame", titlePrefix: "Conserto de Videogame" },
   { id: "celular", slug: "conserto-celular", nome: "Celular", titlePrefix: "Conserto de Celular" },
 ];
 
-const LOCAIS = [
+export const LOCAIS = [
   { slug: "curitiba", nome: "Curitiba", kind: "cidade" },
   { slug: "sao-jose-dos-pinhais", nome: "São José dos Pinhais", kind: "cidade" },
   { slug: "araucaria", nome: "Araucária", kind: "cidade" },
@@ -84,7 +84,7 @@ const LOCAIS = [
 
 // === CFTV (câmeras de segurança) — espelha src/pages/cftv/* ===
 // Hub /cftv + 7 páginas locais = 8 rotas. Todas noindex,follow (fora do sitemap).
-const CFTV_ROUTES = [
+export const CFTV_ROUTES = [
   {
     path: "/cftv", city: "Curitiba e Região", hub: true,
     title: "Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350",

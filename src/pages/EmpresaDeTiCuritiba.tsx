@@ -367,11 +367,11 @@ const EmpresaDeTiCuritiba = () => {
         <section className="py-14 bg-secondary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-2xl md:text-3xl font-heading font-bold text-foreground">
-              Precisa de uma empresa de TI de confiança em Curitiba?
+              Quer avaliar a estrutura de TI da sua empresa em Curitiba?
             </h2>
             <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">
-              Fale pelo WhatsApp, descreva a necessidade da sua empresa e receba uma avaliação
-              com orçamento transparente.
+              Fale pelo WhatsApp, conte como está a informática hoje e receba uma avaliação do
+              ambiente com orientação transparente sobre os próximos passos.
             </p>
             <Button
               variant="whatsapp"
@@ -382,7 +382,7 @@ const EmpresaDeTiCuritiba = () => {
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
-                Solicitar avaliação de TI
+                Conversar sobre a estrutura de TI
               </a>
             </Button>
           </div>

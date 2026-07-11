@@ -22,22 +22,22 @@ const WHATSAPP_NUMBER = "5541997086380";
 
 const DiagnosticoTecnico = () => {
   useEffect(() => {
-    document.title = "Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona";
+    document.title = "Diagnóstico Técnico de Computador e Notebook em Curitiba";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba."
+        "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento."
       );
     }
     trackPageView("/diagnostico-tecnico", "Diagnóstico Técnico");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso de um diagnóstico técnico para meu equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Preciso solicitar um diagnóstico técnico para meu equipamento.")}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `diagnostico-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona" description="Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
+      <PageSEO title="Diagnóstico Técnico de Computador e Notebook em Curitiba" description="Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -64,7 +64,7 @@ const DiagnosticoTecnico = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Diagnóstico Técnico: A Etapa Mais Importante de Qualquer Reparo
+                Diagnóstico técnico antes do reparo
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Antes de qualquer solução, é preciso entender o problema com precisão. Descubra por que o diagnóstico profissional é pago, como ele funciona e como evita prejuízos maiores.
@@ -373,6 +373,40 @@ const DiagnosticoTecnico = () => {
             </div>
           </div>
         </section>
+
+        {/* Links relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Depois do diagnóstico
+            </h2>
+            <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">
+              O diagnóstico avalia a causa provável, a condição e a viabilidade. A execução só
+              acontece após a sua aprovação — e algumas falhas podem ser intermitentes, com
+              recuperação e reparo não garantidos.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Como funciona", to: "/como-funciona" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+                { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
+                { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* CTA FINAL */}
         <section className="py-10 md:py-20 bg-primary">

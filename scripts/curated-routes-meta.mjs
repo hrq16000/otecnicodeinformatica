@@ -53,7 +53,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/servicos/suporte-tecnico-empresarial",
     "title": "Suporte Técnico para Empresas em Curitiba | Informática",
-    "description": "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta."
+    "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva."
   },
   {
     "path": "/sobre",
@@ -112,8 +112,8 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/empresa-de-ti-curitiba",
-    "title": "Empresa de TI em Curitiba | Suporte Técnico para Empresas",
-    "description": "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp."
+    "title": "Empresa de TI em Curitiba | Soluções para Pequenas Empresas",
+    "description": "Soluções de informática para empresas em Curitiba: diagnóstico do ambiente, computadores, redes, manutenção e organização do suporte técnico."
   },
   {
     "path": "/bairros/cic",
@@ -142,23 +142,23 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/atendimento-domicilio",
-    "title": "Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba",
-    "description": "Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável."
+    "title": "Técnico de Informática em Domicílio em Curitiba | Atendimento",
+    "description": "Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local."
   },
   {
     "path": "/atendimento-remoto",
-    "title": "Atendimento Remoto de Informática em Curitiba | Técnico Curitiba",
-    "description": "Atendimento Remoto de Informática em Curitiba | Técnico Curitiba"
+    "title": "Suporte Remoto de Informática | Atendimento em Curitiba",
+    "description": "Suporte remoto para configurações, sistemas, programas, acesso, orientações e problemas de informática que não exigem intervenção física."
   },
   {
     "path": "/coleta-e-entrega",
-    "title": "Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba",
-    "description": "Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte."
+    "title": "Coleta e Entrega de Computador e Notebook em Curitiba",
+    "description": "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada."
   },
   {
     "path": "/diagnostico-tecnico",
-    "title": "Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona",
-    "description": "Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba."
+    "title": "Diagnóstico Técnico de Computador e Notebook em Curitiba",
+    "description": "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento."
   },
   {
     "path": "/equipamentos-atendidos",

@@ -439,12 +439,71 @@ if (existsSync(distDir)) {
   }
 }
 
+// ── 12. Onda 2D · empresa de TI × suporte empresarial × 4 modalidades ──
+// Fatos objetivos: intenção proprietária separada por rota, titles/H1
+// distintos, mensagens de WhatsApp com contexto próprio e sem links para
+// rotas legadas noindex nas 6 páginas do escopo.
+{
+  const D2D = {
+    "/empresa-de-ti-curitiba": { file: "src/pages/EmpresaDeTiCuritiba.tsx", titleHas: "Empresa de TI", h1: "Soluções de TI para empresas em Curitiba", wa: "Quero avaliar as necessidades de informática da minha empresa em Curitiba." },
+    "/atendimento-domicilio": { file: "src/pages/AtendimentoDomicilio.tsx", titleHas: "Domicílio", h1: "Atendimento técnico de informática em domicílio em Curitiba", wa: "Preciso verificar a possibilidade de atendimento técnico em domicílio." },
+    "/atendimento-remoto": { file: "src/pages/AtendimentoRemoto.tsx", titleHas: "Suporte Remoto", h1: "Suporte remoto de informática para residências e empresas", wa: "Preciso de suporte remoto de informática." },
+    "/coleta-e-entrega": { file: "src/pages/ColetaEntrega.tsx", titleHas: "Coleta e Entrega", h1: "Coleta e entrega agendada para equipamentos de informática", wa: "Preciso avaliar coleta e entrega para um computador ou notebook." },
+    "/diagnostico-tecnico": { file: "src/pages/DiagnosticoTecnico.tsx", titleHas: "Diagnóstico Técnico", h1: "Diagnóstico técnico antes do reparo", wa: "Preciso solicitar um diagnóstico técnico para meu equipamento." },
+  };
 
+  // Suporte empresarial (fonte: servicosCore.ts, entrada única)
+  const empSlug = "suporte-tecnico-empresarial";
+  const empCur = curatedByPath.get(`/servicos/${empSlug}`);
+  const empEntry = (() => {
+    const start = coreSrc.indexOf(`"${empSlug}"`);
+    const rest = coreSrc.slice(start);
+    return rest.slice(0, rest.indexOf("dateModified"));
+  })();
+  const empH1 = (empEntry.match(/h1:\s*"([^"]+)"/) || [])[1] || "";
+  const empWa = (empEntry.match(/whatsappMessage:\s*"([^"]+)"/) || [])[1] || "";
 
+  if (!empCur || !/suporte técnico/i.test(empCur.title)) fail("suporte empresarial: title curado deve conter 'Suporte Técnico'");
+  if (!/suporte técnico/i.test(empH1)) fail("suporte empresarial: H1 deve conter 'Suporte Técnico'");
+  if (/empresa de ti em curitiba/i.test(`${empCur?.title} ${empH1}`)) fail("suporte empresarial: não deve usar 'Empresa de TI em Curitiba' no foco (title/H1)");
+  if (!empWa || empWa.length < 12) fail("suporte empresarial: whatsappMessage sem contexto");
 
+  const titles6 = [empCur?.title];
+  const h1s6 = [empH1];
+  const waMsgs6 = [empWa];
 
-if (errors.length) {
-  console.error("❌ check-curated-meta: FALHOU\n" + errors.map((e) => " - " + e).join("\n"));
-  process.exit(1);
+  for (const [routePath, spec] of Object.entries(D2D)) {
+    const cur = curatedByPath.get(routePath);
+    if (!cur) { fail(`Onda 2D ${routePath}: ausente de CURATED_ROUTES`); continue; }
+    if (!cur.title.includes(spec.titleHas)) fail(`Onda 2D ${routePath}: title deve conter "${spec.titleHas}" (achou "${cur.title}")`);
+    const src = readFileSync(resolve(root, spec.file), "utf8");
+    if (!src.includes(spec.h1)) fail(`Onda 2D ${routePath}: H1 esperado ausente no componente ("${spec.h1}")`);
+    if (!src.includes(spec.wa)) fail(`Onda 2D ${routePath}: mensagem de WhatsApp contextual ausente ("${spec.wa}")`);
+    for (const bad of ["/arrumar-pc", "/cftv", "/conserto-"]) {
+      if (src.includes(bad)) fail(`Onda 2D ${routePath}: link para rota legada noindex detectado (${bad})`);
+    }
+    titles6.push(cur.title);
+    h1s6.push(spec.h1);
+    waMsgs6.push(spec.wa);
+  }
+
+  if (new Set(titles6.filter(Boolean)).size !== 6) fail("Onda 2D: as 6 rotas devem ter titles distintos");
+  if (new Set(h1s6.filter(Boolean)).size !== 6) fail("Onda 2D: as 6 rotas devem ter H1 distintos");
+  if (new Set(waMsgs6.filter(Boolean)).size !== 6) fail("Onda 2D: as 6 rotas devem ter mensagens de WhatsApp distintas");
+
+  // Pós-build: cada uma das 6 rotas tem exatamente 1 <h1>
+  if (existsSync(distDir)) {
+    const routes6 = ["/empresa-de-ti-curitiba", "/servicos/suporte-tecnico-empresarial", ...Object.keys(D2D)];
+    for (const p of routes6) {
+      const file = resolve(distDir, ...p.split("/").filter(Boolean), "index.html");
+      if (!existsSync(file)) { fail(`Onda 2D ${p}: HTML ausente em dist${p}/index.html`); continue; }
+      const h = readFileSync(file, "utf8");
+      const h1c = (h.match(/<h1[\s>]/gi) || []).length;
+      if (h1c !== 1) fail(`Onda 2D ${p}: esperado exatamente 1 <h1> (achou ${h1c})`);
+    }
+  }
 }
+
+
+
 console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps com 33 URLs.`);

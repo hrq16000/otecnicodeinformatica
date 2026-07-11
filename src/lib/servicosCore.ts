@@ -481,7 +481,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "suporte-empresarial",
     metaTitle: "Suporte Técnico para Empresas em Curitiba | Informática",
     metaDescription:
-      "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta.",
+      "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva.",
     serviceName: "Suporte Técnico Empresarial",
     serviceDescription:
       "Suporte de informática para empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente em Curitiba e região.",
@@ -532,9 +532,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     relacionados: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Suporte remoto", to: "/atendimento-remoto" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
       { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
-      { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
     dateModified: "2026-07-11",
   },

@@ -23,44 +23,44 @@ import {
 } from "lucide-react";
 
 const PATH = "/empresa-de-ti-curitiba";
-const TITLE = "Empresa de TI em Curitiba | Suporte Técnico para Empresas";
+const TITLE = "Empresa de TI em Curitiba | Soluções para Pequenas Empresas";
 const DESCRIPTION =
-  "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp.";
+  "Soluções de informática para empresas em Curitiba: diagnóstico do ambiente, computadores, redes, manutenção e organização do suporte técnico.";
 
 const whatsappMessage =
-  "Olá! Preciso de suporte de TI para minha empresa em Curitiba. Podem avaliar?";
+  "Quero avaliar as necessidades de informática da minha empresa em Curitiba.";
 const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const servicos = [
   {
+    icon: ShieldCheck,
+    title: "Diagnóstico do ambiente",
+    desc: "Avaliamos como está a informática da empresa hoje — equipamentos, rede e rotinas — antes de propor qualquer solução.",
+  },
+  {
     icon: Server,
-    title: "Manutenção de estações de trabalho",
-    desc: "Diagnóstico, reparo e padronização dos computadores da equipe para reduzir travamentos e paradas.",
+    title: "Computadores e estações",
+    desc: "Organização, padronização básica e manutenção das estações de trabalho para reduzir travamentos e paradas.",
   },
   {
     icon: Network,
-    title: "Redes e Wi-Fi corporativo",
+    title: "Redes e Wi-Fi",
     desc: "Cabeamento, roteadores, repetidores e organização de rede para conexão estável em todo o escritório.",
   },
   {
     icon: HardDrive,
-    title: "Backup e proteção de dados",
-    desc: "Rotinas de backup testadas para evitar perda de arquivos, notas e sistemas em caso de falha.",
+    title: "Manutenção preventiva",
+    desc: "Rotinas para antecipar falhas e reduzir surpresas, no formato pontual ou recorrente sob consulta.",
   },
   {
     icon: Printer,
-    title: "Impressoras e periféricos",
-    desc: "Instalação, compartilhamento e suporte a impressoras, scanners e demais periféricos da empresa.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Remoção de vírus e segurança",
-    desc: "Limpeza de malware, hardening básico e orientação contra golpes e sequestro de dados.",
+    title: "Suporte remoto e presencial",
+    desc: "Atendimento remoto para ajustes do dia a dia e presencial quando a situação exige avaliação no local.",
   },
   {
     icon: Building2,
-    title: "Suporte pontual ou recorrente",
-    desc: "Atendimento sob demanda ou manutenção preventiva programada, conforme o porte da operação.",
+    title: "Orientação de melhoria",
+    desc: "Ajudamos a organizar as necessidades técnicas e orientamos sobre substituição ou melhoria de equipamentos.",
   },
 ];
 
@@ -83,10 +83,10 @@ const cidades = [
 
 const relacionados = [
   { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-  { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
-  { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
   { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+  { label: "Suporte remoto", to: "/atendimento-remoto" },
+  { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+  { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
 ];
 
 const faqs = [
@@ -123,8 +123,8 @@ const hubSchema = {
   "@graph": [
     {
       "@type": "Service",
-      "name": "Empresa de TI em Curitiba — Suporte Técnico Empresarial",
-      "serviceType": "Suporte de TI e manutenção de informática para empresas",
+      "name": "Soluções de TI para empresas em Curitiba",
+      "serviceType": "Soluções e infraestrutura de informática para empresas",
       "provider": {
         "@type": "LocalBusiness",
         "name": siteConfig.brandName,
@@ -186,14 +186,15 @@ const EmpresaDeTiCuritiba = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
                 <Building2 className="h-4 w-4" />
-                <span className="font-medium text-sm">Suporte de TI para empresas • Curitiba e região</span>
+                <span className="font-medium text-sm">Soluções de TI para empresas • Curitiba e região</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-                Empresa de TI em Curitiba para suporte técnico do seu negócio
+                Soluções de TI para empresas em Curitiba
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                Manutenção de computadores, redes, servidores, impressoras e backup — com
-                diagnóstico honesto e orçamento aprovado antes de qualquer serviço.
+                Como organizar e melhorar a informática da sua empresa: diagnóstico do
+                ambiente, computadores, redes, manutenção preventiva e a organização do
+                suporte técnico — com orientação clara antes de qualquer investimento.
               </p>
               <div className="flex justify-center">
                 <Button
@@ -205,7 +206,7 @@ const EmpresaDeTiCuritiba = () => {
                 >
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5" />
-                    Falar com suporte de TI
+                    Conversar sobre a estrutura de TI
                   </a>
                 </Button>
               </div>
@@ -219,19 +220,27 @@ const EmpresaDeTiCuritiba = () => {
             <div className="container mx-auto px-4">
               <div className="mx-auto max-w-3xl space-y-4">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-                  Suporte de TI empresarial em Curitiba, sem complicação
+                  Como organizar e melhorar a informática da sua empresa
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Empresa parada por causa de computador travando, rede caindo ou impressora
-                  fora do ar é prejuízo direto. Atuamos como a TI de apoio de escritórios,
-                  comércios e pequenas e médias empresas em Curitiba e na Região Metropolitana,
-                  resolvendo o dia a dia da tecnologia com clareza e transparência.
+                  Esta é a página para quem precisa estruturar, organizar ou melhorar o ambiente
+                  de informática do negócio — e não apenas resolver um chamado pontual. Atuamos
+                  como a TI de apoio de escritórios, comércios e pequenas empresas em Curitiba e na
+                  Região Metropolitana, com uma visão do conjunto: equipamentos, rede e rotinas.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  O trabalho começa sempre pelo diagnóstico: entender o ambiente, os equipamentos
-                  e a real necessidade antes de propor qualquer solução. Você aprova o orçamento
-                  antes da execução e escolhe entre atendimento pontual ou manutenção preventiva
-                  recorrente sob consulta.
+                  O trabalho começa sempre pelo diagnóstico do ambiente: entender os equipamentos,
+                  a rede e as reais necessidades antes de propor qualquer solução. A partir daí,
+                  organizamos as prioridades, a manutenção preventiva e a orientação para
+                  substituição ou melhoria de equipamentos. Você aprova o escopo antes da execução
+                  e escolhe entre atendimento pontual ou acompanhamento recorrente sob consulta.
+                  Para resolver problemas técnicos específicos do dia a dia, o
+                  {" "}
+                  <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent underline underline-offset-2">
+                    suporte técnico empresarial
+                  </Link>
+                  {" "}
+                  é a oferta operacional indicada.
                 </p>
               </div>
             </div>
@@ -243,7 +252,7 @@ const EmpresaDeTiCuritiba = () => {
           <section className="py-12 md:py-14 bg-secondary">
             <div className="container mx-auto px-4">
               <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
-                O que a nossa TI resolve para a sua empresa
+                O que abrange a solução de TI da sua empresa
               </h2>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
                 {servicos.map((s) => (
@@ -358,11 +367,11 @@ const EmpresaDeTiCuritiba = () => {
         <section className="py-14 bg-secondary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-2xl md:text-3xl font-heading font-bold text-foreground">
-              Precisa de uma empresa de TI de confiança em Curitiba?
+              Quer avaliar a estrutura de TI da sua empresa em Curitiba?
             </h2>
             <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">
-              Fale pelo WhatsApp, descreva a necessidade da sua empresa e receba uma avaliação
-              com orçamento transparente.
+              Fale pelo WhatsApp, conte como está a informática hoje e receba uma avaliação do
+              ambiente com orientação transparente sobre os próximos passos.
             </p>
             <Button
               variant="whatsapp"
@@ -373,7 +382,7 @@ const EmpresaDeTiCuritiba = () => {
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
-                Solicitar avaliação de TI
+                Conversar sobre a estrutura de TI
               </a>
             </Button>
           </div>

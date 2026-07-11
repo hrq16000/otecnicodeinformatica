@@ -25,25 +25,35 @@ import {
 } from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_MESSAGE = "Preciso avaliar coleta e entrega para um computador ou notebook.";
+
+const faqItems = [
+  { q: "Quais equipamentos podem usar a coleta e entrega?", a: "Computadores de mesa e notebooks que precisam de diagnóstico, manutenção ou reparo em bancada. É a modalidade indicada quando o serviço não pode ser concluído no local." },
+  { q: "Quando a coleta é mais adequada que o atendimento no local?", a: "Quando o caso exige bancada, ferramentas específicas ou tempo estendido de diagnóstico — por exemplo reparo de placa, troca de tela ou recuperação de dados." },
+  { q: "Como funciona o agendamento?", a: `Fazemos uma triagem pelo WhatsApp antes de agendar. Na coleta, identificamos o equipamento e registramos os acessórios recebidos. A taxa mínima pré-aprovada é de ${COLETA_TAXA_MINIMA_LABEL}.` },
+  { q: "O reparo é executado direto?", a: "Não. Após o recebimento fazemos o diagnóstico e a execução só acontece depois da sua aprovação do orçamento. Peças e componentes, quando necessários, ficam fora do valor-base." },
+  { q: "Qual o prazo?", a: `${PRAZOS[0].equipamentos}: ${PRAZOS[0].prazo}. ${PRAZOS[1].equipamentos}: ${PRAZOS[1].prazo}. O prazo depende do tipo de falha e da fila do laboratório.` },
+  { q: "E se eu desistir após o diagnóstico?", a: `Você paga apenas o valor do diagnóstico (${DIAGNOSTICO_VALOR_LABEL}) e agendamos a devolução do equipamento.` },
+];
 
 const ColetaEntrega = () => {
   useEffect(() => {
-    document.title = "Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba";
+    document.title = "Coleta e Entrega de Computador e Notebook em Curitiba";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte."
+        "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada."
       );
     }
     trackPageView("/coleta-e-entrega", "Coleta e Entrega");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso do serviço de coleta e entrega para meu equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `coleta-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba" description="Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
+      <PageSEO title="Coleta e Entrega de Computador e Notebook em Curitiba" description="Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [
@@ -79,12 +89,10 @@ const ColetaEntrega = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: [
-          { "@type": "Question", name: "Quando preciso de Coleta e Entrega?", acceptedAnswer: { "@type": "Answer", text: "Sempre que o equipamento não liga, desliga sozinho, tem tela quebrada, molhou ou precisa de reparo em placa. Esses casos exigem bancada com microscópio e estação de retrabalho." } },
-          { "@type": "Question", name: "Qual o valor mínimo?", acceptedAnswer: { "@type": "Answer", text: "R$ 300 (já com diagnóstico incluso). Acima disso, faixa pré-aprovada até R$ 500. Reparos acima de R$ 500 só com autorização explícita do cliente." } },
-          { "@type": "Question", name: "E se eu desistir após o diagnóstico?", acceptedAnswer: { "@type": "Answer", text: "Paga apenas R$ 90 e devolvemos o equipamento. Sem multa, sem surpresa." } },
-          { "@type": "Question", name: "Qual o prazo?", acceptedAnswer: { "@type": "Answer", text: "Computadores e notebooks: 3 a 7 dias úteis. TVs e consoles: 5 a 10 dias úteis dependendo da complexidade e disponibilidade de peças." } },
-        ],
+        mainEntity: faqItems.map((f) => ({
+          "@type": "Question", name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       })}} />
       <JsonLdSchema />
       <Header />
@@ -96,7 +104,7 @@ const ColetaEntrega = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Coleta e Entrega de Equipamentos em Curitiba
+                Coleta e entrega agendada para equipamentos de informática
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Não pode trazer seu equipamento? Nós buscamos na sua casa ou empresa, realizamos o serviço em laboratório e devolvemos funcionando. Comodidade total com segurança.
@@ -298,14 +306,7 @@ const ColetaEntrega = () => {
                 Perguntas Frequentes
               </h2>
               <Accordion type="single" collapsible className="space-y-3">
-                {[
-                  { q: "A coleta é gratuita?", a: `A coleta está inclusa quando o reparo é aprovado. Taxa mínima pré-aprovada de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                  { q: "Quanto tempo demora o reparo?", a: `${PRAZOS[0].equipamentos}: ${PRAZOS[0].prazo}. ${PRAZOS[1].equipamentos}: ${PRAZOS[1].prazo}, dependendo da complexidade e disponibilidade de peças.` },
-                  { q: "Meu equipamento está seguro?", a: "Sim. Emitimos recibo detalhado na coleta e o transporte é feito com proteção profissional." },
-                  { q: "Posso acompanhar o andamento?", a: "Sim! Mantemos contato via WhatsApp com atualizações sobre cada etapa do processo." },
-                  { q: "E se eu desistir do reparo?", a: `Você paga apenas o valor do diagnóstico (${DIAGNOSTICO_VALOR_LABEL}) e devolvemos o equipamento.` },
-                  { q: "Atendem no fim de semana?", a: "As coletas são agendadas de segunda a sexta. Em casos urgentes, avaliamos disponibilidade no sábado." },
-                ].map((item, i) => (
+                {faqItems.map((item, i) => (
                   <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-xl border-none px-5">
                     <AccordionTrigger className="text-left font-semibold text-primary hover:no-underline">
                       {item.q}
@@ -317,6 +318,35 @@ const ColetaEntrega = () => {
             </div>
           </div>
         </section>
+
+        {/* Serviços relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Serviços relacionados à coleta
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+                { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+                { label: "Como funciona", to: "/como-funciona" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* CTA FINAL */}
         <section className="py-10 md:py-20 bg-primary">

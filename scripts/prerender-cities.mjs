@@ -188,7 +188,8 @@ function injectCuratedMeta(html, url, title, description) {
     .replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`)
     .replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`)
     .replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
-  return out;
+  // Rotas curadas recebem robots explícito index,follow (não herdado silenciosamente).
+  return setRobots(out, ROBOTS_INDEX);
 }
 
 export async function prerenderCities(distDir) {

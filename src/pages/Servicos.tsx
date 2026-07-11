@@ -34,9 +34,9 @@ const CARDS = [
   { slug: "suporte-tecnico-empresarial", icon: Building2, blurb: "Estações, rede, impressoras e backups, pontual ou recorrente sob consulta." },
 ] as const;
 
-const TITLE = "Serviços de Informática em Curitiba | Técnico em Curitiba";
+const TITLE = "Serviços de Informática em Curitiba | PC e Notebook";
 const DESCRIPTION =
-  "Formatação, manutenção de notebook e PC, upgrade de SSD/RAM, remoção de vírus, recuperação de dados, redes/Wi-Fi e suporte empresarial em Curitiba. Atendimento via WhatsApp.";
+  "Conheça os serviços de formatação, manutenção de computadores e notebooks, SSD, vírus, recuperação de dados, Wi-Fi e suporte empresarial.";
 
 const Servicos = () => {
   useEffect(() => {
@@ -113,8 +113,8 @@ const Servicos = () => {
             Serviços essenciais
           </h2>
           <p className="mb-8 max-w-2xl text-muted-foreground">
-            Poucas páginas, bem cuidadas. Cada serviço tem conteúdo próprio, explicando quando
-            chamar, como funciona e o que influencia o valor.
+            Encontre o serviço adequado para seu computador, notebook, rede ou empresa. Cada página
+            explica os sintomas atendidos, o processo e o que pode influenciar o orçamento.
           </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CARDS.map(({ slug, icon: Icon, blurb }) => {
@@ -162,6 +162,12 @@ const Servicos = () => {
                 className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
               >
                 Como funciona
+              </Link>
+              <Link
+                to="/diagnostico-tecnico"
+                className="rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+              >
+                Diagnóstico técnico
               </Link>
               <Link
                 to="/precos-e-politicas"

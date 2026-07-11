@@ -278,6 +278,73 @@ if (existsSync(distDir)) {
   console.log("ℹ️  check-curated-meta: dist/ ausente (pré-build) — validação de indexabilidade legada adiada para pós-build.");
 }
 
+// ── 10. Onda 2B · anti-canibalização home × /servicos × landing local ──
+// Garante propriedade de intenção separada:
+//   /                         → marca + conversão (não usa a intenção-alvo)
+//   /servicos                 → "Serviços de informática em Curitiba" (hub)
+//   /tecnico-informatica-curitiba → "Técnico de informática em Curitiba" (landing)
+{
+  const INTENT_RE = /técnico de informática em curitiba/i;
+  const homeR = curatedByPath.get("/");
+  const servicosR = curatedByPath.get("/servicos");
+  const landingR = curatedByPath.get("/tecnico-informatica-curitiba");
+
+  if (!homeR || !servicosR || !landingR) {
+    fail("curadas home/servicos/landing ausentes de CURATED_ROUTES");
+  } else {
+    // Titles distintos entre as três rotas
+    const titles = [homeR.title, servicosR.title, landingR.title];
+    if (new Set(titles).size !== 3) fail("home, /servicos e landing devem ter titles distintos");
+    // Propriedade de intenção nos titles
+    if (INTENT_RE.test(homeR.title)) fail("home NÃO deve usar 'Técnico de Informática em Curitiba' no title (pertence à landing)");
+    if (!INTENT_RE.test(landingR.title)) fail("landing deve conter a intenção 'Técnico de Informática em Curitiba' no title");
+    if (!/serviços de informática em curitiba/i.test(servicosR.title)) fail("/servicos deve conter 'Serviços de Informática em Curitiba' no title");
+  }
+
+  // Paridade dos titles curados com as fontes de verdade
+  const servicosSrc = readFileSync(resolve(root, "src/pages/Servicos.tsx"), "utf8");
+  const cidadesSrc = readFileSync(resolve(root, "src/lib/cidadesData.ts"), "utf8");
+  const heroSrc = readFileSync(resolve(root, "src/components/home/HeroPremium.tsx"), "utf8");
+  const idxHtml = readFileSync(resolve(root, "index.html"), "utf8");
+
+  if (servicosR) {
+    const svcTitle = (servicosSrc.match(/const\s+TITLE\s*=\s*"([^"]+)"/) || [])[1];
+    if (svcTitle !== servicosR.title) fail(`/servicos: title curado "${servicosR.title}" diverge de Servicos.tsx ("${svcTitle}")`);
+    if (!/<h1[^>]*>\s*Serviços de informática em Curitiba/i.test(servicosSrc)) fail("/servicos: H1 deve ser 'Serviços de informática em Curitiba'");
+  }
+
+  const curBlock = (cidadesSrc.match(/curitiba:\s*\{[\s\S]*?\n\s{2}\},/) || [])[0] || "";
+  const cmt = (curBlock.match(/metaTitle:\s*"([^"]+)"/) || [])[1];
+  const ch1 = (curBlock.match(/h1:\s*"([^"]+)"/) || [])[1] || "";
+  const ch1a = (curBlock.match(/h1Accent:\s*"([^"]+)"/) || [])[1] || "";
+  const landingH1 = `${ch1} ${ch1a}`.trim();
+  if (landingR && cmt !== landingR.title) fail(`landing: title curado "${landingR.title}" diverge de cidadesData.curitiba.metaTitle ("${cmt}")`);
+  if (!INTENT_RE.test(landingH1)) fail(`landing: H1 "${landingH1}" deve conter a intenção 'Técnico de informática em Curitiba'`);
+
+  // Home: title curado === index.html, H1 não usa a intenção-alvo e difere da landing
+  if (homeR) {
+    const htmlTitle = (idxHtml.match(/<title>([^<]+)<\/title>/) || [])[1];
+    if (htmlTitle !== homeR.title) fail(`home: <title> em index.html ("${htmlTitle}") diverge do curado ("${homeR.title}")`);
+  }
+  if (INTENT_RE.test(heroSrc)) fail("home (HeroPremium): não pode conter a intenção 'Técnico de informática em Curitiba'");
+  if (!/Soluções para computador, notebook, Wi-Fi/i.test(heroSrc)) fail("home: H1 esperado 'Soluções para computador, notebook, Wi-Fi e empresas' ausente no Hero");
+
+  // Home: links para os 8 serviços + hub + landing local
+  const HOME_SERVICE_LINKS = SERVICE_PATHS.map((p) => `/servicos/${p}`);
+  for (const l of HOME_SERVICE_LINKS) {
+    if (!heroSrc.includes(`"${l}"`)) fail(`home: link ausente para ${l}`);
+  }
+  if (!heroSrc.includes('"/servicos"')) fail("home: link ausente para /servicos");
+  if (!heroSrc.includes('"/tecnico-informatica-curitiba"')) fail("home: link ausente para /tecnico-informatica-curitiba");
+
+  // Home não deve linkar rotas legadas noindex
+  for (const bad of ["/arrumar-pc", "/cftv", "/conserto-"]) {
+    if (heroSrc.includes(bad)) fail(`home: link para rota legada noindex detectado (${bad})`);
+  }
+}
+
+
+
 if (errors.length) {
   console.error("❌ check-curated-meta: FALHOU\n" + errors.map((e) => " - " + e).join("\n"));
   process.exit(1);

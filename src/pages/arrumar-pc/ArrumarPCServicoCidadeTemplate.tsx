@@ -87,6 +87,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
         title={title}
         description={description}
         path={path}
+        noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Arrumar PC", path: "/arrumar-pc" },

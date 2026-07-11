@@ -39,7 +39,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title={metaTitle} description={metaDescription} path={`/cftv/${slug}`} breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }, { name: city, path: `/cftv/${slug}` }]} />
+      <PageSEO title={metaTitle} description={metaDescription} path={`/cftv/${slug}`} noindex breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }, { name: city, path: `/cftv/${slug}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",

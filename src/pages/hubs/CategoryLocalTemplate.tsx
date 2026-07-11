@@ -98,6 +98,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
         title={title}
         description={description}
         path={path}
+        noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: category.titlePrefix, path: `/${category.slug}-curitiba` },
@@ -271,6 +272,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
         title={title}
         description={description}
         path={path}
+        noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: `${category.titlePrefix} em Curitiba`, path },

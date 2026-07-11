@@ -9,6 +9,24 @@ import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
+const DEFAULT_OG = `${SITE}/og-image.png`;
+
+// Política de robots explícita (nunca herdada silenciosamente do index.html base).
+const ROBOTS_INDEX = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const ROBOTS_NOINDEX = "noindex, follow";
+
+// Remove TODO meta robots existente e injeta exatamente um com o conteúdo dado.
+// Falha (throw) se não conseguir garantir exatamente um meta robots.
+function setRobots(html, content) {
+  let out = html.replace(/\s*<meta\s+name=["']robots["'][^>]*>/gi, "");
+  const tag = `<meta name="robots" content="${content}">`;
+  out = out.replace(/<\/head>/i, `    ${tag}\n  </head>`);
+  const found = (out.match(/<meta\s+name=["']robots["']/gi) || []).length;
+  if (found !== 1) {
+    throw new Error(`[prerender-cities] setRobots: esperado exatamente 1 meta robots, encontrou ${found}`);
+  }
+  return out;
+}
 
 // === Cidades para arrumar-pc (national hub) ===
 export const CITIES = [
@@ -35,14 +53,14 @@ export const CITIES = [
 ];
 
 // === Categorias × Locais (RMC/bairros) — mirrors src/pages/hubs/{categories,locais}.ts ===
-const CATEGORIES = [
+export const CATEGORIES = [
   { id: "tv", slug: "conserto-tv", nome: "TV", titlePrefix: "Conserto de TV" },
   { id: "som", slug: "conserto-som", nome: "Som", titlePrefix: "Conserto de Som e Áudio" },
   { id: "videogame", slug: "conserto-videogame", nome: "Videogame", titlePrefix: "Conserto de Videogame" },
   { id: "celular", slug: "conserto-celular", nome: "Celular", titlePrefix: "Conserto de Celular" },
 ];
 
-const LOCAIS = [
+export const LOCAIS = [
   { slug: "curitiba", nome: "Curitiba", kind: "cidade" },
   { slug: "sao-jose-dos-pinhais", nome: "São José dos Pinhais", kind: "cidade" },
   { slug: "araucaria", nome: "Araucária", kind: "cidade" },
@@ -63,6 +81,53 @@ const LOCAIS = [
   { slug: "cajuru", nome: "Cajuru", kind: "bairro", cidadeMae: "Curitiba" },
   { slug: "agua-verde", nome: "Água Verde", kind: "bairro", cidadeMae: "Curitiba" },
 ];
+
+// === CFTV (câmeras de segurança) — espelha src/pages/cftv/* ===
+// Hub /cftv + 7 páginas locais = 8 rotas. Todas noindex,follow (fora do sitemap).
+export const CFTV_ROUTES = [
+  {
+    path: "/cftv", city: "Curitiba e Região", hub: true,
+    title: "Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350",
+    description: "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/curitiba", city: "Curitiba",
+    title: "Câmeras de Segurança em Curitiba | Kit 4 Câmeras Intelbras R$ 1.350 | Instalação Profissional",
+    description: "Instalação de câmeras de segurança Intelbras em Curitiba. Kit 4 câmeras com DVR, HD e acesso remoto por R$ 1.350. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/sao-jose-dos-pinhais", city: "São José dos Pinhais",
+    title: "Câmeras de Segurança em São José dos Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em São José dos Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/litoral", city: "Litoral do Paraná",
+    title: "Câmeras de Segurança no Litoral do PR | Itapoá e Guaratuba | Kit Intelbras R$ 1.350",
+    description: "Instalação de câmeras de segurança no Litoral do Paraná: Itapoá, Guaratuba e região. Kit 4 câmeras Intelbras com acesso remoto. R$ 1.350. WhatsApp.",
+  },
+  {
+    path: "/cftv/guaratuba", city: "Guaratuba",
+    title: "Câmeras de Segurança em Guaratuba | Kit 4 Câmeras Intelbras R$ 1.350 | Instalação Profissional",
+    description: "Kit 4 câmeras Intelbras com instalação em Guaratuba. Monitore sua casa de praia pelo celular de qualquer lugar. R$ 1.350 completo. WhatsApp.",
+  },
+  {
+    path: "/cftv/araucaria", city: "Araucária",
+    title: "Câmeras de Segurança em Araucária | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Araucária. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/campo-largo", city: "Campo Largo",
+    title: "Câmeras de Segurança em Campo Largo | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/pinhais", city: "Pinhais",
+    title: "Câmeras de Segurança em Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+];
+
+
 
 function htmlEscape(s) {
   return String(s)
@@ -142,6 +207,8 @@ function injectMeta(html, meta) {
 
   const block = `\n    ${titleTag}\n    ${descTag}\n    ${canonical}\n    ${og}\n    ${tw}\n    ${jsonLd}\n  `;
   out = out.replace(/<\/head>/i, `${block}</head>`);
+  // Política de robots explícita por rota (default: noindex para famílias legadas).
+  out = setRobots(out, meta.robots || ROBOTS_NOINDEX);
   return out;
 }
 
@@ -168,7 +235,8 @@ function injectCuratedMeta(html, url, title, description) {
     .replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`)
     .replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`)
     .replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
-  return out;
+  // Rotas curadas recebem robots explícito index,follow (não herdado silenciosamente).
+  return setRobots(out, ROBOTS_INDEX);
 }
 
 export async function prerenderCities(distDir) {
@@ -224,7 +292,7 @@ export async function prerenderCities(distDir) {
       description: meta.description,
       url: meta.url,
     };
-    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd });
+    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
     await writePage(distDir, meta.path, html);
     written++;
   }
@@ -243,7 +311,7 @@ export async function prerenderCities(distDir) {
       description: meta.description,
       url: meta.url,
     };
-    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd });
+    const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
     await writePage(distDir, meta.path, html);
     written++;
   }
@@ -268,10 +336,37 @@ export async function prerenderCities(distDir) {
         description: meta.description,
         url: meta.url,
       };
-      const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd });
+      const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
       await writePage(distDir, meta.path, html);
       written++;
     }
+  }
+
+  // --- CFTV (câmeras de segurança) — família legada adjacente ao núcleo ---
+  // As rotas /cftv e /cftv/<local> não tinham HTML estático próprio e caíam no
+  // fallback do index.html (robots + canonical da home). Geramos HTML estático
+  // self-referente com noindex,follow. Fora de todos os sitemaps.
+  for (const r of CFTV_ROUTES) {
+    const url = `${SITE}${r.path}`;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Instalação de Câmeras de Segurança em ${r.city}`,
+      serviceType: "Instalação de CFTV e câmeras de segurança",
+      provider: { "@type": "Organization", name: "Mileuma Soluções / Mestre dos Serviços" },
+      areaServed: r.hub
+        ? { "@type": "AdministrativeArea", name: "Curitiba e Região Metropolitana" }
+        : { "@type": "City", name: r.city },
+      offers: { "@type": "Offer", price: "1350.00", priceCurrency: "BRL", availability: "https://schema.org/InStock", url },
+      description: r.description,
+      url,
+    };
+    const html = injectMeta(baseHtml, {
+      path: r.path, url, title: r.title, description: r.description,
+      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+    });
+    await writePage(distDir, r.path, html);
+    written++;
   }
 
   // eslint-disable-next-line no-console

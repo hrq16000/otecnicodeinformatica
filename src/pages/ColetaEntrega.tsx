@@ -319,6 +319,35 @@ const ColetaEntrega = () => {
           </div>
         </section>
 
+        {/* Serviços relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Serviços relacionados à coleta
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+                { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+                { label: "Como funciona", to: "/como-funciona" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
         {/* CTA FINAL */}
         <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">

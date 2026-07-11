@@ -252,7 +252,7 @@ const EmpresaDeTiCuritiba = () => {
           <section className="py-12 md:py-14 bg-secondary">
             <div className="container mx-auto px-4">
               <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
-                O que a nossa TI resolve para a sua empresa
+                O que abrange a solução de TI da sua empresa
               </h2>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
                 {servicos.map((s) => (

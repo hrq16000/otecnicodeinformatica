@@ -96,7 +96,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     metaTitle: "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
     metaDescription:
       "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp.",
-    serviceName: "Assistência Técnica de Notebook",
+    serviceName: "Manutenção de Notebook",
     serviceDescription:
       "Diagnóstico e manutenção de notebooks: limpeza interna, troca de pasta térmica, tela, teclado, bateria e desempenho, com atendimento em Curitiba e região.",
     eyebrow: "Notebook em Curitiba",
@@ -163,7 +163,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     metaTitle: "Assistência Técnica de Computador em Curitiba | PC",
     metaDescription:
       "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp.",
-    serviceName: "Assistência Técnica de Computador (Desktop)",
+    serviceName: "Manutenção de Computador (Desktop)",
     serviceDescription:
       "Diagnóstico e manutenção de PCs desktop: fonte, memória, armazenamento, placa-mãe, travamentos e limpeza, com atendimento em Curitiba e região.",
     eyebrow: "PC desktop em Curitiba",
@@ -228,7 +228,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     metaTitle: "Instalação de SSD e Upgrade de Memória em Curitiba",
     metaDescription:
       "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Via WhatsApp.",
-    serviceName: "Instalação de SSD e Upgrade de Memória RAM",
+    serviceName: "Upgrade de SSD e Memória RAM",
     serviceDescription:
       "Instalação de SSD e ampliação de RAM com avaliação de compatibilidade, clonagem do sistema e backup, para ganho real de desempenho em Curitiba e região.",
     eyebrow: "Desempenho em Curitiba",
@@ -419,7 +419,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     metaTitle: "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
     metaDescription:
       "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp.",
-    serviceName: "Instalação e Configuração de Redes e Wi-Fi",
+    serviceName: "Redes e Wi-Fi",
     serviceDescription:
       "Instalação e configuração de redes e Wi-Fi residenciais e empresariais: roteador, repetidor, cabeamento e estabilidade, em Curitiba e região.",
     eyebrow: "Conectividade em Curitiba",
@@ -482,7 +482,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     metaTitle: "Suporte Técnico para Empresas em Curitiba | Informática",
     metaDescription:
       "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta.",
-    serviceName: "Suporte Técnico de Informática para Empresas",
+    serviceName: "Suporte Técnico Empresarial",
     serviceDescription:
       "Suporte de informática para empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente em Curitiba e região.",
     eyebrow: "Empresas em Curitiba",

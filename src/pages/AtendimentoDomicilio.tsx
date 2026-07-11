@@ -59,14 +59,65 @@ const publicoAlvo = [
   },
 ];
 
+const noLocal = [
+  "Equipamento que não liga ou desliga sozinho",
+  "Placa-mãe com micro-solda ou dano por líquido",
+  "Troca de tela de notebook",
+  "Recuperação de dados de HD/SSD danificado",
+  "Diagnóstico complexo que exige bancada e tempo estendido",
+];
+
+const faqs = [
+  {
+    question: "Quais serviços podem ser feitos no local?",
+    answer:
+      "Instalação e configuração de programas, ajustes de rede e Wi-Fi, remoção de vírus, backup, configuração de impressora e a maioria dos problemas de software costumam ser resolvidos na sua casa ou escritório. A confirmação depende da triagem prévia.",
+  },
+  {
+    question: "Quando o equipamento precisa ser coletado?",
+    answer:
+      "Casos que exigem bancada — como equipamento que não liga, reparo de placa, troca de tela ou recuperação de dados — normalmente não são resolvidos no local e seguem para coleta e entrega, com diagnóstico em laboratório.",
+  },
+  {
+    question: "O atendimento em domicílio garante a resolução na hora?",
+    answer:
+      "Nem sempre. O atendimento no local resolve boa parte dos casos de software, mas alguns problemas só são confirmados durante a avaliação e podem exigir peças, coleta ou tempo adicional.",
+  },
+  {
+    question: "Como funciona a triagem antes da visita?",
+    answer:
+      "Antes de agendar, conversamos pelo WhatsApp sobre o sintoma. Enviar informações e fotos do equipamento ajuda a avaliar se o caso é adequado para atendimento no local ou se será melhor por coleta.",
+  },
+  {
+    question: "As peças estão incluídas na visita?",
+    answer:
+      "Não automaticamente. A visita cobre a mão de obra e a avaliação; peças e materiais, quando necessários, são orçados à parte e só trocados após a sua aprovação.",
+  },
+  {
+    question: "Qual a área de atendimento?",
+    answer:
+      "Atendemos Curitiba e a Região Metropolitana. A localização pode influenciar o agendamento e o deslocamento, combinados antes da visita.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
 const AtendimentoDomicilio = () => {
   useEffect(() => {
-    document.title = "Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba";
+    document.title = "Técnico de Informática em Domicílio em Curitiba | Atendimento";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável."
+        "Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local."
       );
     }
     trackPageView("/atendimento-domicilio", "Atendimento Domicílio");
@@ -80,14 +131,16 @@ const AtendimentoDomicilio = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba" description="Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável." path="/atendimento-domicilio" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento a Domicílio", path: "/atendimento-domicilio" }]} />
+      <PageSEO title="Técnico de Informática em Domicílio em Curitiba | Atendimento" description="Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local." path="/atendimento-domicilio" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento a Domicílio", path: "/atendimento-domicilio" }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <JsonLdSchema />
       <Header />
       <main>
         <PageHero
-          title="Técnico de Informática em Domicílio"
-          subtitle="Atendimento técnico na sua casa ou escritório em Curitiba. Comodidade, rapidez e segurança sem você precisar sair de casa."
-          ctaText="Agendar Visita Técnica"
+          title="Atendimento técnico de informática em domicílio em Curitiba"
+          subtitle="Atendimento na sua casa ou escritório para o que pode ser avaliado no local — com triagem prévia pelo WhatsApp para indicar a melhor modalidade."
+          ctaText="Verificar atendimento em domicílio"
+          whatsappMessage={WHATSAPP_MESSAGE}
         />
 
         <BenefitsGrid
@@ -95,6 +148,49 @@ const AtendimentoDomicilio = () => {
           title="Vantagens do Atendimento em Domicílio"
           subtitle="Por que escolher o técnico que vai até você?"
         />
+
+        {/* Limitações e triagem */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+                Quando o atendimento no local é indicado?
+              </h2>
+              <p className="text-muted-foreground text-center mb-8">
+                A visita é ideal para problemas de software, rede e configurações que possam ser
+                avaliados no seu endereço. Casos que exigem bancada ou ambiente controlado são
+                melhor resolvidos por coleta.
+              </p>
+              <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 mb-6">
+                <h3 className="flex items-center gap-2 font-bold text-foreground mb-3">
+                  <AlertTriangle className="h-5 w-5 text-destructive" />
+                  O que normalmente exige coleta ou bancada
+                </h3>
+                <ul className="space-y-2">
+                  {noLocal.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Truck className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl bg-secondary p-5">
+                <h3 className="flex items-center gap-2 font-bold text-foreground mb-2">
+                  <Camera className="h-5 w-5 text-accent" />
+                  Triagem antes de agendar
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Antes de marcar a visita, conversamos pelo WhatsApp sobre o sintoma. Enviar
+                  informações e fotos do equipamento ajuda a avaliar a modalidade certa. O
+                  atendimento em domicílio não garante resolução imediata, e peças e materiais
+                  não estão automaticamente incluídos — quando necessários, são orçados à parte.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         {/* Como Funciona */}
         <section className="py-8 md:py-10 bg-secondary">

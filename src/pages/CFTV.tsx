@@ -51,7 +51,7 @@ const CFTVPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp." path="/cftv" breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
+      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp." path="/cftv" noindex breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",

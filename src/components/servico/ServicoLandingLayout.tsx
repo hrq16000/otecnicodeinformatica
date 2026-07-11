@@ -240,6 +240,32 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
       {data.extra}
 
+      {/* Conteúdo local aprofundado — reforço de SEO local em Curitiba */}
+      {data.blocoLocal && data.blocoLocal.length > 0 && (
+        <section className="py-14 md:py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl space-y-10">
+              {data.blocoLocal.map((bloco) => (
+                <article key={bloco.titulo}>
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+                    {bloco.titulo}
+                  </h2>
+                  <div className="space-y-4">
+                    {bloco.paragrafos.map((p, i) => (
+                      <p key={i} className="text-muted-foreground leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
+
       {/* FAQ */}
       <section className="py-14 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">

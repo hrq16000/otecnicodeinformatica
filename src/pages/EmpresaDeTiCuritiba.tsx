@@ -220,19 +220,27 @@ const EmpresaDeTiCuritiba = () => {
             <div className="container mx-auto px-4">
               <div className="mx-auto max-w-3xl space-y-4">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-                  Suporte de TI empresarial em Curitiba, sem complicação
+                  Como organizar e melhorar a informática da sua empresa
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Empresa parada por causa de computador travando, rede caindo ou impressora
-                  fora do ar é prejuízo direto. Atuamos como a TI de apoio de escritórios,
-                  comércios e pequenas e médias empresas em Curitiba e na Região Metropolitana,
-                  resolvendo o dia a dia da tecnologia com clareza e transparência.
+                  Esta é a página para quem precisa estruturar, organizar ou melhorar o ambiente
+                  de informática do negócio — e não apenas resolver um chamado pontual. Atuamos
+                  como a TI de apoio de escritórios, comércios e pequenas empresas em Curitiba e na
+                  Região Metropolitana, com uma visão do conjunto: equipamentos, rede e rotinas.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  O trabalho começa sempre pelo diagnóstico: entender o ambiente, os equipamentos
-                  e a real necessidade antes de propor qualquer solução. Você aprova o orçamento
-                  antes da execução e escolhe entre atendimento pontual ou manutenção preventiva
-                  recorrente sob consulta.
+                  O trabalho começa sempre pelo diagnóstico do ambiente: entender os equipamentos,
+                  a rede e as reais necessidades antes de propor qualquer solução. A partir daí,
+                  organizamos as prioridades, a manutenção preventiva e a orientação para
+                  substituição ou melhoria de equipamentos. Você aprova o escopo antes da execução
+                  e escolhe entre atendimento pontual ou acompanhamento recorrente sob consulta.
+                  Para resolver problemas técnicos específicos do dia a dia, o
+                  {" "}
+                  <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent underline underline-offset-2">
+                    suporte técnico empresarial
+                  </Link>
+                  {" "}
+                  é a oferta operacional indicada.
                 </p>
               </div>
             </div>

@@ -22,13 +22,13 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/manutencao-de-notebook",
-    "title": "Manutenção de Notebook em Curitiba | Técnico em Curitiba",
-    "description": "Manutenção de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Diagnóstico antes do orçamento. Atendimento via WhatsApp."
+    "title": "Assistência Técnica de Notebook em Curitiba | Manutenção",
+    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp."
   },
   {
     "path": "/servicos/manutencao-de-computador",
-    "title": "Manutenção de Computador (PC Desktop) em Curitiba | Técnico em Curitiba",
-    "description": "Manutenção de computador de mesa em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Diagnóstico honesto antes do orçamento. Atendimento via WhatsApp."
+    "title": "Assistência Técnica de Computador em Curitiba | PC",
+    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp."
   },
   {
     "path": "/servicos/upgrade-ssd-ram",

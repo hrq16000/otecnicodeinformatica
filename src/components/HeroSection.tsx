@@ -3,6 +3,7 @@ import { MessageCircle, MapPin, Clock, Shield, Star, CheckCircle, CalendarDays }
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 import { TechnicianAvailabilityInline } from "@/components/TechnicianAvailability";
+import { HeroTrustBanner } from "@/components/HeroTrustBanner";
 const SchedulingModal = lazy(() => import("@/components/scheduling/SchedulingModal").then((m) => ({ default: m.SchedulingModal })));
 
 const WHATSAPP_NUMBER = "5541997086380";

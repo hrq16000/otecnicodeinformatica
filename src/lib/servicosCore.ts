@@ -532,9 +532,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     relacionados: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Suporte remoto", to: "/atendimento-remoto" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
       { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
-      { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
     dateModified: "2026-07-11",
   },

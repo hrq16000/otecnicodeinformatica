@@ -104,20 +104,29 @@ const benefits = [
 
 const AtendimentoRemoto = () => {
   useEffect(() => {
-    document.title = "Atendimento Remoto de Informática em Curitiba | Técnico Curitiba";
+    document.title = "Suporte Remoto de Informática | Atendimento em Curitiba";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        "Suporte remoto para configurações, sistemas, programas, acesso, orientações e problemas de informática que não exigem intervenção física."
+      );
+    }
     trackPageView("/atendimento-remoto", "Atendimento Remoto");
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" description="Atendimento Remoto de Informática em Curitiba | Técnico Curitiba" path="/atendimento-remoto" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento Remoto", path: "/atendimento-remoto" }]} />
+      <PageSEO title="Suporte Remoto de Informática | Atendimento em Curitiba" description="Suporte remoto para configurações, sistemas, programas, acesso, orientações e problemas de informática que não exigem intervenção física." path="/atendimento-remoto" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento Remoto", path: "/atendimento-remoto" }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <JsonLdSchema />
       <Header />
       <main>
         <PageHero
-          title="Atendimento Remoto de Informática"
-          subtitle="Conserto de problemas do seu computador sem sair de casa"
-          ctaText="Chame no WhatsApp"
+          title="Suporte remoto de informática para residências e empresas"
+          subtitle="Resolvemos remotamente o que não exige intervenção física: configurações, sistemas, programas e orientação — com o seu acompanhamento na tela."
+          ctaText="Pedir suporte remoto"
+          whatsappMessage={WHATSAPP_MESSAGE}
         />
         
         <BenefitsGrid
@@ -125,6 +134,7 @@ const AtendimentoRemoto = () => {
           title="Por Que Escolher o Atendimento Remoto?"
           subtitle="Solução rápida, prática e segura para resolver problemas de informática"
         />
+
         
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">

@@ -91,9 +91,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "manutencao-de-notebook": {
     path: "manutencao-de-notebook",
     trackingKey: "manutencao-notebook",
-    metaTitle: "Manutenção de Notebook em Curitiba | Técnico em Curitiba",
+    metaTitle: "Assistência Técnica de Notebook em Curitiba | Manutenção",
     metaDescription:
-      "Manutenção de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Diagnóstico antes do orçamento. Atendimento via WhatsApp.",
+      "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp.",
     serviceName: "Manutenção de Notebook",
     serviceDescription:
       "Diagnóstico e manutenção de notebooks: limpeza interna, troca de pasta térmica, tela, teclado, bateria e desempenho, com atendimento em Curitiba e região.",

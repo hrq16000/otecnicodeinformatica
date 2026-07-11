@@ -48,6 +48,23 @@ export const SERVICOS_CANONICOS: { label: string; to: string; desc: string }[] =
   { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial", desc: "Suporte pontual ou recorrente para estações, servidores e rede." },
 ];
 
+// Modalidades de atendimento — links compartilhados para as páginas próprias.
+export const MODALIDADES_ATENDIMENTO: { label: string; to: string; desc: string }[] = [
+  { label: "Atendimento em domicílio", to: "/atendimento-domicilio", desc: "Avaliação e reparo no local, quando o problema permite atendimento presencial." },
+  { label: "Suporte remoto", to: "/atendimento-remoto", desc: "Configurações, sistemas e orientações resolvidos à distância, sem deslocamento." },
+  { label: "Coleta e entrega", to: "/coleta-e-entrega", desc: "Retirada agendada quando o serviço precisa de bancada, com devolução ao final." },
+  { label: "Diagnóstico técnico", to: "/diagnostico-tecnico", desc: "Etapa de avaliação para identificar a causa antes de qualquer orçamento." },
+];
+
+// Bairros curados de Curitiba — a landing de Curitiba é a página-mãe deles.
+export const CURITIBA_BAIRROS: { label: string; to: string; desc: string }[] = [
+  { label: "CIC (Cidade Industrial)", to: "/bairros/cic", desc: "Atendimento para residências e empresas no maior bairro de Curitiba." },
+  { label: "Batel", to: "/bairros/batel", desc: "Suporte para home office, residências e pequenos escritórios." },
+  { label: "Água Verde", to: "/bairros/agua-verde", desc: "Manutenção de notebook e PC para quem trabalha e estuda em casa." },
+  { label: "Centro", to: "/bairros/centro", desc: "Atendimento ágil para lojas, consultórios e escritórios da região central." },
+  { label: "Portão", to: "/bairros/portao", desc: "Conserto de notebook, PC e redes para casas e comércios do bairro." },
+];
+
 // Processo comum (não é conteúdo SEO exclusivo; é institucional).
 export const PROCESSO_ATENDIMENTO = [
   { step: "1", title: "Triagem", desc: "Você descreve o problema pelo WhatsApp e recebe as primeiras orientações." },

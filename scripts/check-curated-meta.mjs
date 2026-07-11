@@ -501,9 +501,174 @@ if (existsSync(distDir)) {
       const h1c = (h.match(/<h1[\s>]/gi) || []).length;
       if (h1c !== 1) fail(`Onda 2D ${p}: esperado exatamente 1 <h1> (achou ${h1c})`);
     }
+
+// ── 13. Onda 2E · anti-doorway das 6 cidades + 5 bairros curados ───────
+// Fatos objetivos: HTML próprio index/follow self-canonical (já validado
+// na seção 9), titles/H1 únicos e com localidade correta, rede de links
+// Curitiba↔bairros, ausência de links legados noindex, e ausência de
+// introduções/FAQs textualmente idênticas entre localidades.
+{
+  const bairrosSrc = readFileSync(resolve(root, "src/lib/bairrosData.ts"), "utf8");
+  const cidLayout = readFileSync(resolve(root, "src/components/cidade/CidadeLandingLayout.tsx"), "utf8");
+  const bairroLayout = readFileSync(resolve(root, "src/components/bairro/BairroLocalLayout.tsx"), "utf8");
+  const cidData = readFileSync(resolve(root, "src/lib/cidadesData.ts"), "utf8");
+
+  const CIDADES_2E = [
+    { path: "/tecnico-informatica-curitiba", nome: "Curitiba" },
+    { path: "/tecnico-informatica-sao-jose-pinhais", nome: "São José dos Pinhais" },
+    { path: "/tecnico-informatica-pinhais", nome: "Pinhais" },
+    { path: "/tecnico-informatica-colombo", nome: "Colombo" },
+    { path: "/tecnico-informatica-araucaria", nome: "Araucária" },
+    { path: "/tecnico-informatica-campo-largo", nome: "Campo Largo" },
+  ];
+  const BAIRROS_2E = [
+    { path: "/bairros/cic", slug: "cic", nome: "CIC" },
+    { path: "/bairros/batel", slug: "batel", nome: "Batel" },
+    { path: "/bairros/agua-verde", slug: "agua-verde", nome: "Água Verde" },
+    { path: "/bairros/centro", slug: "centro", nome: "Centro" },
+    { path: "/bairros/portao", slug: "portao", nome: "Portão" },
+  ];
+
+  // 13.1 — todas as 11 rotas presentes em CURATED_ROUTES
+  for (const r of [...CIDADES_2E, ...BAIRROS_2E]) {
+    if (!curatedByPath.has(r.path)) fail(`Onda 2E: rota ausente de CURATED_ROUTES: ${r.path}`);
+  }
+
+  // Helper: extrai blocos por chave de objeto em src (chave: { ... }) até a próxima chave de 4 espaços
+  const sliceByKeys = (src, keys) => {
+    const map = {};
+    const idx = keys.map((k) => ({ k, i: src.indexOf(k) }));
+    idx.sort((a, b) => a.i - b.i);
+    for (let n = 0; n < idx.length; n++) {
+      if (idx[n].i < 0) continue;
+      const end = n + 1 < idx.length && idx[n + 1].i > 0 ? idx[n + 1].i : src.length;
+      map[idx[n].k] = src.slice(idx[n].i, end);
+    }
+    return map;
+  };
+
+  // 13.2 — titles/H1 das cidades (fonte: curated + cidadesData)
+  const cityTitles = [];
+  const cityH1s = [];
+  const cityBlocks = sliceByKeys(cidData, ["  curitiba:", '  "sao-jose-pinhais":', "  pinhais:", "  colombo:", "  araucaria:", '  "campo-largo":']);
+  const cityKeyByNome = {
+    "Curitiba": "  curitiba:",
+    "São José dos Pinhais": '  "sao-jose-pinhais":',
+    "Pinhais": "  pinhais:",
+    "Colombo": "  colombo:",
+    "Araucária": "  araucaria:",
+    "Campo Largo": '  "campo-largo":',
+  };
+  const cityIntros = [];
+  for (const c of CIDADES_2E) {
+    const cur = curatedByPath.get(c.path);
+    if (cur) {
+      if (!cur.title.includes(c.nome)) fail(`Onda 2E cidade ${c.path}: title não contém "${c.nome}"`);
+      cityTitles.push(cur.title);
+    }
+    const blk = cityBlocks[cityKeyByNome[c.nome]] || "";
+    const h1 = (blk.match(/h1:\s*"([^"]+)"/) || [])[1] || "";
+    const h1a = (blk.match(/h1Accent:\s*"([^"]+)"/) || [])[1] || "";
+    cityH1s.push(`${h1} ${h1a}`.trim());
+    const firstProposta = (blk.match(/proposta:\s*\[\s*"([^"]+)"/) || [])[1] || "";
+    cityIntros.push(firstProposta.split(c.nome).join("").replace(/\s+/g, " ").trim());
+  }
+  if (new Set(cityTitles).size !== CIDADES_2E.length) fail("Onda 2E: as 6 cidades devem ter titles distintos");
+  if (new Set(cityH1s.filter(Boolean)).size !== CIDADES_2E.length) fail("Onda 2E: as 6 cidades devem ter H1 distintos");
+  if (new Set(cityIntros.filter(Boolean)).size !== CIDADES_2E.length) fail("Onda 2E: introduções das cidades idênticas após remover o nome da cidade (doorway)");
+
+  // 13.3 — titles/H1/intros/FAQ dos bairros (fonte: bairrosData)
+  const bairroBlocks = sliceByKeys(bairrosSrc, ["  cic:", "  batel:", '  "agua-verde":', "  centro:", "  portao:"]);
+  const bairroKey = { cic: "  cic:", batel: "  batel:", "agua-verde": '  "agua-verde":', centro: "  centro:", portao: "  portao:" };
+  const bTitles = [];
+  const bH1s = [];
+  const bIntros = [];
+  const bFaqs = [];
+  for (const b of BAIRROS_2E) {
+    const cur = curatedByPath.get(b.path);
+    if (cur) {
+      if (!cur.title.includes(b.nome)) fail(`Onda 2E bairro ${b.path}: title não contém "${b.nome}"`);
+      bTitles.push(cur.title);
+    }
+    const blk = bairroBlocks[bairroKey[b.slug]] || "";
+    if (!blk) { fail(`Onda 2E: bloco do bairro ${b.slug} não encontrado em bairrosData.ts`); continue; }
+    const h1 = (blk.match(/h1:\s*"([^"]+)"/) || [])[1] || "";
+    bH1s.push(h1);
+    if (!h1.includes(b.nome)) fail(`Onda 2E bairro ${b.path}: H1 não contém "${b.nome}"`);
+    const firstIntro = (blk.match(/introducaoLocal:\s*\[\s*"([^"]+)"/) || [])[1] || "";
+    bIntros.push(firstIntro.split(b.nome).join("").replace(/\s+/g, " ").trim());
+    const faqQs = [...blk.matchAll(/question:\s*"([^"]+)"/g)].map((m) => m[1]).join("|");
+    bFaqs.push(faqQs);
+  }
+  if (new Set(bTitles).size !== BAIRROS_2E.length) fail("Onda 2E: os 5 bairros devem ter titles distintos");
+  if (new Set(bH1s.filter(Boolean)).size !== BAIRROS_2E.length) fail("Onda 2E: os 5 bairros devem ter H1 distintos");
+  if (new Set(bIntros.filter(Boolean)).size !== BAIRROS_2E.length) fail("Onda 2E: introduções dos bairros idênticas após remover o nome (doorway)");
+  if (new Set(bFaqs.filter(Boolean)).size !== BAIRROS_2E.length) fail("Onda 2E: FAQs dos bairros idênticas entre páginas");
+
+  // 13.4 — H1 das 11 páginas distintos entre si
+  const all11H1 = [...cityH1s, ...bH1s].filter(Boolean);
+  if (new Set(all11H1).size !== 11) fail("Onda 2E: os H1 das 11 páginas locais devem ser todos distintos");
+
+  // 13.5 — rede de links Curitiba ↔ bairros
+  for (const b of BAIRROS_2E) {
+    if (!bairroLayout.includes("/tecnico-informatica-curitiba")) {
+      fail("Onda 2E: BairroLocalLayout deve linkar para /tecnico-informatica-curitiba");
+      break;
+    }
+  }
+  for (const b of BAIRROS_2E) {
+    if (!cidData.includes(`"${b.path}"`)) fail(`Onda 2E: CURITIBA_BAIRROS ausente do link para ${b.path}`);
+  }
+  if (!/data\.slug === "curitiba"/.test(cidLayout) || !cidLayout.includes("CURITIBA_BAIRROS")) {
+    fail("Onda 2E: CidadeLandingLayout deve renderizar CURITIBA_BAIRROS apenas para Curitiba");
+  }
+
+  // 13.6 — sem links legados noindex nas fontes locais
+  for (const [name, src] of [["bairrosData.ts", bairrosSrc], ["BairroLocalLayout.tsx", bairroLayout], ["CidadeLandingLayout.tsx", cidLayout], ["cidadesData.ts", cidData]]) {
+    for (const bad of ["/arrumar-pc", "/cftv", "/conserto-"]) {
+      if (src.includes(bad)) fail(`Onda 2E: link legado noindex "${bad}" detectado em ${name}`);
+    }
+  }
+
+  // 13.7 — todos os serviços prioritários dos bairros são rotas curadas
+  const bairroServicePaths = [...bairrosSrc.matchAll(/"(\/servicos\/[a-z-]+)"/g)].map((m) => m[1]);
+  for (const p of bairroServicePaths) {
+    if (!curatedByPath.has(p)) fail(`Onda 2E: bairro linka rota de serviço não curada: ${p}`);
+    if ((p.match(/\//g) || []).length > 2) fail(`Onda 2E: bairro linka serviço×bairro legado: ${p}`);
+  }
+
+  // 13.8 — WhatsApp com cidade/bairro correto na mensagem
+  for (const b of BAIRROS_2E) {
+    const blk = bairroBlocks[bairroKey[b.slug]] || "";
+    const wa = (blk.match(/whatsappMessage:\s*"([^"]+)"/) || [])[1] || "";
+    if (!wa.includes(b.nome)) fail(`Onda 2E bairro ${b.path}: whatsappMessage não contém "${b.nome}"`);
+    if (!/curitiba/i.test(wa)) fail(`Onda 2E bairro ${b.path}: whatsappMessage não contém "Curitiba"`);
+  }
+  // data-neighborhood presente no layout de bairro
+  if (!bairroLayout.includes("data-neighborhood")) fail("Onda 2E: BairroLocalLayout deve incluir data-neighborhood nos CTAs");
+  if (!bairroLayout.includes('data-city="Curitiba"')) fail("Onda 2E: BairroLocalLayout deve incluir data-city nos CTAs");
+
+  // 13.9 — sem endereço/unidade física inventada nos bairros
+  for (const bad of ["addressLocality", "streetAddress", "PostalAddress", "aggregateRating", "AggregateRating"]) {
+    if (bairroLayout.includes(bad)) fail(`Onda 2E: BairroLocalLayout não deve declarar "${bad}" (endereço/rating inventado)`);
+  }
+
+  // 13.10 — pós-build: cada uma das 11 rotas com exatamente 1 <h1>
+  if (existsSync(distDir)) {
+    for (const r of [...CIDADES_2E, ...BAIRROS_2E]) {
+      const file = resolve(distDir, ...r.path.split("/").filter(Boolean), "index.html");
+      if (!existsSync(file)) { fail(`Onda 2E ${r.path}: HTML ausente em dist${r.path}/index.html`); continue; }
+      const h = readFileSync(file, "utf8");
+      const h1c = (h.match(/<h1[\s>]/gi) || []).length;
+      if (h1c !== 1) fail(`Onda 2E ${r.path}: esperado exatamente 1 <h1> (achou ${h1c})`);
+    }
   }
 }
 
+if (errors.length) {
+  console.error("❌ check-curated-meta: falhas encontradas:\n" + errors.map((e) => "  - " + e).join("\n"));
+  process.exit(1);
+}
 
+console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, 6 cidades + 5 bairros curados sem doorway, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps com 33 URLs.`);
 
-console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps com 33 URLs.`);

@@ -38,22 +38,22 @@ const faqItems = [
 
 const ColetaEntrega = () => {
   useEffect(() => {
-    document.title = "Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba";
+    document.title = "Coleta e Entrega de Computador e Notebook em Curitiba";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte."
+        "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada."
       );
     }
     trackPageView("/coleta-e-entrega", "Coleta e Entrega");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso do serviço de coleta e entrega para meu equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `coleta-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba" description="Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
+      <PageSEO title="Coleta e Entrega de Computador e Notebook em Curitiba" description="Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [

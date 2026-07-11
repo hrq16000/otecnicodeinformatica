@@ -186,14 +186,15 @@ const EmpresaDeTiCuritiba = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
                 <Building2 className="h-4 w-4" />
-                <span className="font-medium text-sm">Suporte de TI para empresas • Curitiba e região</span>
+                <span className="font-medium text-sm">Soluções de TI para empresas • Curitiba e região</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
-                Empresa de TI em Curitiba para suporte técnico do seu negócio
+                Soluções de TI para empresas em Curitiba
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                Manutenção de computadores, redes, servidores, impressoras e backup — com
-                diagnóstico honesto e orçamento aprovado antes de qualquer serviço.
+                Como organizar e melhorar a informática da sua empresa: diagnóstico do
+                ambiente, computadores, redes, manutenção preventiva e a organização do
+                suporte técnico — com orientação clara antes de qualquer investimento.
               </p>
               <div className="flex justify-center">
                 <Button
@@ -205,7 +206,7 @@ const EmpresaDeTiCuritiba = () => {
                 >
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5" />
-                    Falar com suporte de TI
+                    Conversar sobre a estrutura de TI
                   </a>
                 </Button>
               </div>

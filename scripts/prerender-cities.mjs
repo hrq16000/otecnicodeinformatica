@@ -9,6 +9,24 @@ import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
+const DEFAULT_OG = `${SITE}/og-image.png`;
+
+// Política de robots explícita (nunca herdada silenciosamente do index.html base).
+const ROBOTS_INDEX = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const ROBOTS_NOINDEX = "noindex, follow";
+
+// Remove TODO meta robots existente e injeta exatamente um com o conteúdo dado.
+// Falha (throw) se não conseguir garantir exatamente um meta robots.
+function setRobots(html, content) {
+  let out = html.replace(/\s*<meta\s+name=["']robots["'][^>]*>/gi, "");
+  const tag = `<meta name="robots" content="${content}">`;
+  out = out.replace(/<\/head>/i, `    ${tag}\n  </head>`);
+  const found = (out.match(/<meta\s+name=["']robots["']/gi) || []).length;
+  if (found !== 1) {
+    throw new Error(`[prerender-cities] setRobots: esperado exatamente 1 meta robots, encontrou ${found}`);
+  }
+  return out;
+}
 
 // === Cidades para arrumar-pc (national hub) ===
 export const CITIES = [

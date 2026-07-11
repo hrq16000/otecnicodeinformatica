@@ -139,5 +139,35 @@ export const CURATED_ROUTES = [
     "path": "/bairros/portao",
     "title": "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
     "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Atendimento a domicílio a partir de R$ 99,99. Via WhatsApp."
+  },
+  {
+    "path": "/atendimento-domicilio",
+    "title": "Técnico de Informática em Domicílio Curitiba | Atendimento em Casa | Técnico Curitiba",
+    "description": "Técnico de informática em domicílio em Curitiba. Atendimento em casa ou escritório com horário agendado. Técnico perto de mim, rápido e confiável."
+  },
+  {
+    "path": "/atendimento-remoto",
+    "title": "Atendimento Remoto de Informática em Curitiba | Técnico Curitiba",
+    "description": "Atendimento Remoto de Informática em Curitiba | Técnico Curitiba"
+  },
+  {
+    "path": "/coleta-e-entrega",
+    "title": "Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba",
+    "description": "Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte."
+  },
+  {
+    "path": "/diagnostico-tecnico",
+    "title": "Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona",
+    "description": "Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba."
+  },
+  {
+    "path": "/equipamentos-atendidos",
+    "title": "Equipamentos Atendidos | Assistência Técnica Curitiba - Computadores, Notebooks, TVs",
+    "description": "Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia."
+  },
+  {
+    "path": "/quando-nao-compensa",
+    "title": "Quando NÃO Compensa Reparar | Guia Técnico - Curitiba",
+    "description": "Guia completo sobre quando compensa e quando NÃO compensa reparar computadores, notebooks, TVs e outros equipamentos. Dicas de um técnico profissional em Curitiba."
   }
 ];

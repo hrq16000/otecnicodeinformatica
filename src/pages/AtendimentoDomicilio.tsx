@@ -320,6 +320,56 @@ const AtendimentoDomicilio = () => {
           </div>
         </section>
 
+        {/* Serviços relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Serviços e modalidades relacionadas
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+                { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+                { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+                { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+                Perguntas frequentes sobre atendimento em domicílio
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((f) => (
+                  <div key={f.question} className="rounded-xl border border-border bg-background p-5">
+                    <h3 className="flex items-start gap-2 font-bold text-foreground mb-2">
+                      <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
+                      {f.question}
+                    </h3>
+                    <p className="pl-7 text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <TrustSection />
         <CTASection />
       </main>

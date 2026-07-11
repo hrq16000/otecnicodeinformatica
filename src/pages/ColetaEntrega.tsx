@@ -43,7 +43,7 @@ const ColetaEntrega = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba" description="Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte." path="/coleta-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-entrega" }]} />
+      <PageSEO title="Coleta e Entrega de Equipamentos | Assistência Técnica Curitiba" description="Serviço de coleta e entrega de computadores, notebooks e TVs em Curitiba e região metropolitana. Logística segura, rastreamento e garantia no transporte." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [

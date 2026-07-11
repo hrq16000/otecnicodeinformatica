@@ -83,10 +83,10 @@ const cidades = [
 
 const relacionados = [
   { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-  { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
-  { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
   { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+  { label: "Suporte remoto", to: "/atendimento-remoto" },
+  { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+  { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
 ];
 
 const faqs = [

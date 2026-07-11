@@ -306,14 +306,7 @@ const ColetaEntrega = () => {
                 Perguntas Frequentes
               </h2>
               <Accordion type="single" collapsible className="space-y-3">
-                {[
-                  { q: "A coleta é gratuita?", a: `A coleta está inclusa quando o reparo é aprovado. Taxa mínima pré-aprovada de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                  { q: "Quanto tempo demora o reparo?", a: `${PRAZOS[0].equipamentos}: ${PRAZOS[0].prazo}. ${PRAZOS[1].equipamentos}: ${PRAZOS[1].prazo}, dependendo da complexidade e disponibilidade de peças.` },
-                  { q: "Meu equipamento está seguro?", a: "Sim. Emitimos recibo detalhado na coleta e o transporte é feito com proteção profissional." },
-                  { q: "Posso acompanhar o andamento?", a: "Sim! Mantemos contato via WhatsApp com atualizações sobre cada etapa do processo." },
-                  { q: "E se eu desistir do reparo?", a: `Você paga apenas o valor do diagnóstico (${DIAGNOSTICO_VALOR_LABEL}) e devolvemos o equipamento.` },
-                  { q: "Atendem no fim de semana?", a: "As coletas são agendadas de segunda a sexta. Em casos urgentes, avaliamos disponibilidade no sábado." },
-                ].map((item, i) => (
+                {faqItems.map((item, i) => (
                   <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-xl border-none px-5">
                     <AccordionTrigger className="text-left font-semibold text-primary hover:no-underline">
                       {item.q}

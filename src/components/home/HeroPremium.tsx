@@ -139,18 +139,17 @@ export const HeroPremium = () => {
         <div className="hero-reveal max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--accent))]">
             <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-            Assistência técnica em {siteConfig.primaryCity}
+            Assistência técnica local em {siteConfig.primaryCity}
           </span>
 
           <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_12px_hsl(var(--hero-bg)/0.6)] sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-            Sua tecnologia resolvida sem enrolação,
-            <span className="text-[hsl(var(--accent))]"> com diagnóstico honesto</span>
+            Soluções para computador, notebook, Wi-Fi
+            <span className="text-[hsl(var(--accent))]"> e empresas</span>
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 drop-shadow-[0_1px_8px_hsl(var(--hero-bg)/0.7)] md:text-lg">
-            Um só lugar para cuidar do seu equipamento: você descreve o problema, recebe uma
-            avaliação clara e aprova o preço antes de qualquer reparo. Escolha o serviço abaixo
-            ou fale direto no WhatsApp.
+            Escolha o serviço que precisa, entenda como funciona o atendimento e envie as
+            informações pelo WhatsApp para iniciar a triagem.
           </p>
 
           <nav className="mt-6" aria-label="Serviços de informática">
@@ -175,6 +174,16 @@ export const HeroPremium = () => {
               </li>
             </ul>
           </nav>
+
+          <p className="mt-4 text-sm text-white/80">
+            <a
+              href="/tecnico-informatica-curitiba"
+              className="font-medium text-[hsl(var(--accent))] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              Conheça o atendimento técnico em Curitiba
+            </a>
+          </p>
+
 
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">

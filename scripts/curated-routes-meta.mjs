@@ -7,13 +7,13 @@
 export const CURATED_ROUTES = [
   {
     "path": "/",
-    "title": "Técnico em Curitiba | Informática, Notebook, PC e Suporte Empresarial",
-    "description": "Técnico em Curitiba para notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto via WhatsApp."
+    "title": "Técnico em Curitiba | PC, Notebook, Wi-Fi e Suporte Empresarial",
+    "description": "Diagnóstico, manutenção e suporte para computadores, notebooks, redes e empresas em Curitiba. Escolha o serviço e continue pelo WhatsApp."
   },
   {
     "path": "/servicos",
-    "title": "Serviços de Informática em Curitiba | Técnico em Curitiba",
-    "description": "Formatação, manutenção de notebook e PC, upgrade de SSD/RAM, remoção de vírus, recuperação de dados, redes/Wi-Fi e suporte empresarial em Curitiba. Atendimento via WhatsApp."
+    "title": "Serviços de Informática em Curitiba | PC e Notebook",
+    "description": "Conheça os serviços de formatação, manutenção de computadores e notebooks, SSD, vírus, recuperação de dados, Wi-Fi e suporte empresarial."
   },
   {
     "path": "/servicos/formatacao",

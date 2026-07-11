@@ -11,6 +11,11 @@ export const siteConfig = {
   brandName: "Técnico em Curitiba",
   legalName: "Técnico em Curitiba — Assistência Técnica em Informática",
 
+  // Identidade legal (dados reais fornecidos pelo cliente — não inventar)
+  legalEntityName: "Ping Soluções",
+  cnpj: "41.723.708/0001-58",
+  foundedYear: "1998",
+
   // Domínio (sem www)
   domain: "tecnico.curitiba.br",
   baseUrl: "https://tecnico.curitiba.br",

@@ -43,6 +43,10 @@ export interface ServicoLandingData {
   precoNota?: string;
   /** Bloco extra opcional renderizado antes da FAQ */
   extra?: ReactNode;
+  /** Conteúdo local aprofundado (H2 + parágrafos) para reforço de SEO local */
+  blocoLocal?: { titulo: string; paragrafos: string[] }[];
+  /** Links internos contextuais para bairros/cidades e problemas próximos */
+  linksLocais?: { label: string; to: string }[];
 }
 
 const CTA_BASE =

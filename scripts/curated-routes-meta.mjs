@@ -32,7 +32,7 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
-    "title": "Upgrade de SSD e Memória RAM em Curitiba | Técnico em Curitiba",
+    "title": "Upgrade de SSD e Memória RAM em Curitiba | Técnico",
     "description": "Upgrade de SSD e memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Atendimento via WhatsApp."
   },
   {

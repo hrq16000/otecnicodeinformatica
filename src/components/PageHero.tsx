@@ -11,6 +11,8 @@ interface PageHeroProps {
   title: string;
   subtitle: string;
   ctaText?: string;
+  /** Mensagem contextual usada no link do WhatsApp (default: genérica). */
+  whatsappMessage?: string;
   /**
    * Hero image. Accepts either a simple string URL (legacy) or a responsive
    * HeroImageSet with srcset variants for better LCP performance.
@@ -19,8 +21,8 @@ interface PageHeroProps {
   heroImageAlt?: string;
 }
 
-export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", heroImage, heroImageAlt }: PageHeroProps) => {
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+export const PageHero = ({ title, subtitle, ctaText = "Chame no WhatsApp", whatsappMessage = WHATSAPP_MESSAGE, heroImage, heroImageAlt }: PageHeroProps) => {
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleWhatsAppClick = () => {
     trackCTAClick('whatsapp', 'page_hero');

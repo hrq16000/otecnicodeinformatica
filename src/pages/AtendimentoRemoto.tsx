@@ -175,10 +175,102 @@ const AtendimentoRemoto = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Resolvemos o Problema</h3>
                     <p className="text-muted-foreground">
-                      Você acompanha tudo na tela enquanto corrigimos vírus, lentidão, erros e outros problemas.
+                      Você acompanha tudo na tela enquanto ajustamos configurações, sistema, programas e boa parte dos problemas de software.
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* O que pode e o que não pode remoto */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+                O que pode (e o que não pode) ser resolvido remotamente
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-background rounded-xl p-6 border-l-4 border-accent">
+                  <CheckCircle2 className="h-8 w-8 text-accent mb-3" />
+                  <h3 className="text-lg font-bold text-foreground mb-3">Atendido remotamente</h3>
+                  <ul className="space-y-2">
+                    {podeRemoto.map((t) => (
+                      <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-background rounded-xl p-6 border-l-4 border-destructive">
+                  <Ban className="h-8 w-8 text-destructive mb-3" />
+                  <h3 className="text-lg font-bold text-foreground mb-3">Exige atendimento físico</h3>
+                  <ul className="space-y-2">
+                    {naoRemoto.map((t) => (
+                      <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Ban className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 rounded-xl bg-background p-5 flex gap-3 items-start">
+                <Lock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Acesso com consentimento.</strong> O acesso remoto
+                  só ocorre com a sua autorização explícita e sob o seu acompanhamento na tela. Não
+                  pedimos senhas por aqui e o acesso é encerrado ao final do atendimento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Links relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Serviços e modalidades relacionadas
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+                { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+                { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+                { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+                Perguntas frequentes sobre suporte remoto
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((f) => (
+                  <div key={f.question} className="rounded-xl border border-border bg-background p-5">
+                    <h3 className="flex items-start gap-2 font-bold text-foreground mb-2">
+                      <ShieldCheck className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
+                      {f.question}
+                    </h3>
+                    <p className="pl-7 text-muted-foreground leading-relaxed">{f.answer}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

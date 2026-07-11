@@ -160,6 +160,8 @@ function injectMeta(html, meta) {
 
   const block = `\n    ${titleTag}\n    ${descTag}\n    ${canonical}\n    ${og}\n    ${tw}\n    ${jsonLd}\n  `;
   out = out.replace(/<\/head>/i, `${block}</head>`);
+  // Política de robots explícita por rota (default: noindex para famílias legadas).
+  out = setRobots(out, meta.robots || ROBOTS_NOINDEX);
   return out;
 }
 

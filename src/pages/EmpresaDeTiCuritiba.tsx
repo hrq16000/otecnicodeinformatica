@@ -23,12 +23,12 @@ import {
 } from "lucide-react";
 
 const PATH = "/empresa-de-ti-curitiba";
-const TITLE = "Empresa de TI em Curitiba | Suporte Técnico para Empresas";
+const TITLE = "Empresa de TI em Curitiba | Soluções para Pequenas Empresas";
 const DESCRIPTION =
-  "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp.";
+  "Soluções de informática para empresas em Curitiba: diagnóstico do ambiente, computadores, redes, manutenção e organização do suporte técnico.";
 
 const whatsappMessage =
-  "Olá! Preciso de suporte de TI para minha empresa em Curitiba. Podem avaliar?";
+  "Quero avaliar as necessidades de informática da minha empresa em Curitiba.";
 const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
 const servicos = [

@@ -55,9 +55,9 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Computador lento", to: "/computador-lento-curitiba" },
-      { label: "Windows lento", to: "/windows-lento-curitiba" },
-      { label: "Computador com vírus", to: "/computador-com-virus-curitiba" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
     ],
   },
 
@@ -94,10 +94,9 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Notebook não liga", to: "/notebook-nao-liga-curitiba" },
-      { label: "Notebook lento", to: "/notebook-lento-curitiba" },
-      { label: "Tela de notebook quebrada", to: "/notebook-com-tela-quebrada-curitiba" },
-      { label: "Notebook com água", to: "/notebook-com-agua-ou-liquido-curitiba" },
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
     ],
   },
 
@@ -134,10 +133,9 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Computador não liga", to: "/computador-nao-liga-curitiba" },
-      { label: "Computador travando", to: "/computador-travando-curitiba" },
-      { label: "PC superaquecendo", to: "/pc-superaquecendo-curitiba" },
-      { label: "Tela preta", to: "/computador-com-tela-preta-curitiba" },
+      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
     ],
   },
 
@@ -166,9 +164,9 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Computador lento", to: "/computador-lento-curitiba" },
-      { label: "Notebook lento", to: "/notebook-lento-curitiba" },
-      { label: "Vale a pena consertar?", to: "/vale-a-pena-consertar-computador" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
     ],
   },
 
@@ -197,9 +195,9 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Computador com vírus", to: "/computador-com-virus-curitiba" },
-      { label: "Windows lento", to: "/windows-lento-curitiba" },
-      { label: "Computador lento", to: "/computador-lento-curitiba" },
+      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
     ],
   },
 
@@ -228,8 +226,8 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     linksLocais: [
       ...REGIOES,
-      { label: "Computador não liga", to: "/computador-nao-liga-curitiba" },
-      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
       { label: "Formatação", to: "/servicos/formatacao" },
     ],
   },
@@ -260,7 +258,8 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     linksLocais: [
       ...REGIOES,
       { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
     ],
   },
 
@@ -290,7 +289,8 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     linksLocais: [
       ...REGIOES,
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
   },
 };

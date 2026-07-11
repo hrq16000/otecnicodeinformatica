@@ -374,6 +374,40 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
+        {/* Links relacionados */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
+              Depois do diagnóstico
+            </h2>
+            <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">
+              O diagnóstico avalia a causa provável, a condição e a viabilidade. A execução só
+              acontece após a sua aprovação — e algumas falhas podem ser intermitentes, com
+              recuperação e reparo não garantidos.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              {[
+                { label: "Como funciona", to: "/como-funciona" },
+                { label: "Preços e políticas", to: "/precos-e-politicas" },
+                { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
+                { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  {l.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
         {/* CTA FINAL */}
         <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">

@@ -17,7 +17,7 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/formatacao",
-    "title": "Formatação de Computador e Notebook em Curitiba | Técnico em Curitiba",
+    "title": "Formatação de PC e Notebook em Curitiba | Técnico",
     "description": "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp."
   },
   {
@@ -32,22 +32,22 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
-    "title": "Upgrade de SSD e Memória RAM em Curitiba | Técnico em Curitiba",
+    "title": "Upgrade de SSD e Memória RAM em Curitiba | Técnico",
     "description": "Upgrade de SSD e memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Atendimento via WhatsApp."
   },
   {
     "path": "/servicos/remocao-de-virus",
-    "title": "Remoção de Vírus e Malware em Curitiba | Técnico em Curitiba",
+    "title": "Remoção de Vírus e Malware em Curitiba | Técnico",
     "description": "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp."
   },
   {
     "path": "/servicos/recuperacao-de-dados",
-    "title": "Recuperação de Dados em Curitiba | HD, SSD e Pendrive | Técnico em Curitiba",
+    "title": "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
     "description": "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas. Avaliação primeiro — recuperação não é garantida."
   },
   {
     "path": "/servicos/redes-e-wifi",
-    "title": "Redes e Wi-Fi em Curitiba | Instalação e Configuração | Técnico em Curitiba",
+    "title": "Redes e Wi-Fi em Curitiba | Instalação e Configuração",
     "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp."
   },
   {

@@ -50,6 +50,21 @@ const REGIOES = [
   "/tecnico-informatica-campo-largo",
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.7" }));
 
+// Bairros âncora INDEXÁVEIS — conteúdo único ≥300 palavras, notebook/PC.
+// (política de poda: só entram bairros com conteúdo exclusivo real).
+const BAIRROS = [
+  "/bairros/cic",
+  "/bairros/batel",
+  "/bairros/agua-verde",
+  "/bairros/centro",
+  "/bairros/portao",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.65" }));
+
+// Hubs de SEO temáticos (empresa de TI, etc.).
+const HUBS = [
+  "/empresa-de-ti-curitiba",
+].map((path) => ({ path, changefreq: "weekly", priority: "0.8" }));
+
 function buildUrlset(entries) {
   const urls = entries
     .map(

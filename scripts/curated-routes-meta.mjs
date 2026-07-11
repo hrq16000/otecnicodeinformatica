@@ -82,8 +82,8 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/tecnico-informatica-curitiba",
-    "title": "Técnico em Curitiba para Notebook, PC e Informática | Técnico em Curitiba",
-    "description": "Técnico de informática em Curitiba para notebook, PC, formatação, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta. Diagnóstico via WhatsApp."
+    "title": "Técnico de Informática em Curitiba | Notebook, PC e Redes",
+    "description": "Técnico de informática em Curitiba para notebook, PC, formatação, upgrade de SSD e redes. Atendimento a domicílio ou por coleta, com diagnóstico honesto via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-sao-jose-pinhais",

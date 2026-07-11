@@ -150,8 +150,90 @@ if (existsSync(valoresHtmlPath)) {
   console.log("ℹ️  check-curated-meta: dist/valores/index.html ausente (pré-build) — validação de alias adiada para pós-build.");
 }
 
+// ── 9. Pós-build: indexabilidade das famílias legadas vs. rotas curadas ──
+// Confirma no HTML gerado (dist) que:
+//  - as 108 rotas legadas (/arrumar-pc/*, hubs conserto-*-curitiba,
+//    conserto-*/local e /cftv/*) são noindex,follow, self-canonical e
+//    ausentes de todos os sitemaps;
+//  - as rotas curadas pré-renderizadas continuam index,follow, self-canonical;
+//  - cada HTML tem exatamente 1 meta robots e 1 canonical.
+const SITE = "https://tecnico.curitiba.br";
+const distDir = resolve(root, "dist");
+if (existsSync(distDir)) {
+  const { CITIES, CATEGORIES, LOCAIS, CFTV_ROUTES } = await import(
+    pathToFileURL(resolve(root, "scripts/prerender-cities.mjs")).href
+  );
+
+  const readDist = (routePath) => {
+    const file = routePath === "/"
+      ? resolve(distDir, "index.html")
+      : resolve(distDir, ...routePath.split("/").filter(Boolean), "index.html");
+    return existsSync(file) ? readFileSync(file, "utf8") : null;
+  };
+  const robotsOf = (h) => {
+    const all = [...h.matchAll(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/gi)];
+    return { count: all.length, value: all.length ? all[0][1] : null };
+  };
+  const canonicalsOf = (h) => [...h.matchAll(/rel=["']canonical["']\s+href=["']([^"']+)["']/gi)].map((m) => m[1]);
+
+  // Famílias legadas (fonte única: prerender-cities.mjs).
+  const legacyArrumar = CITIES.map((c) => `/arrumar-pc/${c.slug}`);
+  const legacyHubs = CATEGORIES.map((c) => `/${c.slug}-curitiba`);
+  const legacyLocal = CATEGORIES.flatMap((cat) => LOCAIS.map((l) => `/${cat.slug}/${l.slug}`));
+  const legacyCftv = CFTV_ROUTES.map((r) => r.path);
+  const legacyPaths = [...legacyArrumar, ...legacyHubs, ...legacyLocal, ...legacyCftv];
+
+  const expected = { arrumar: 20, hubs: 4, local: 76, cftv: 8, total: 108 };
+  if (legacyArrumar.length !== expected.arrumar) fail(`legacy /arrumar-pc: esperado ${expected.arrumar}, achou ${legacyArrumar.length}`);
+  if (legacyHubs.length !== expected.hubs) fail(`legacy hubs conserto-*-curitiba: esperado ${expected.hubs}, achou ${legacyHubs.length}`);
+  if (legacyLocal.length !== expected.local) fail(`legacy conserto-*/local: esperado ${expected.local}, achou ${legacyLocal.length}`);
+  if (legacyCftv.length !== expected.cftv) fail(`legacy /cftv/*: esperado ${expected.cftv}, achou ${legacyCftv.length}`);
+  if (legacyPaths.length !== expected.total) fail(`legacy total: esperado ${expected.total}, achou ${legacyPaths.length}`);
+
+  for (const p of legacyPaths) {
+    const h = readDist(p);
+    if (!h) { fail(`legacy: HTML ausente em dist${p}/index.html`); continue; }
+    const r = robotsOf(h);
+    if (r.count !== 1) fail(`legacy ${p}: esperado exatamente 1 meta robots (achou ${r.count})`);
+    if (r.value !== "noindex, follow") fail(`legacy ${p}: robots="${r.value}" (esperado "noindex, follow")`);
+    const cans = canonicalsOf(h);
+    if (cans.length !== 1) fail(`legacy ${p}: esperado exatamente 1 canonical (achou ${cans.length})`);
+    if (cans[0] && cans[0] !== `${SITE}${p}`) fail(`legacy ${p}: canonical "${cans[0]}" não é self-referente`);
+    if (cans[0] === `${SITE}/`) fail(`legacy ${p}: canonical aponta para a home (proibido)`);
+  }
+
+  // Rotas curadas pré-renderizadas: index,follow + self-canonical.
+  for (const route of CURATED_ROUTES) {
+    const h = readDist(route.path);
+    if (!h) { fail(`curated: HTML ausente em dist${route.path === "/" ? "" : route.path}/index.html`); continue; }
+    const r = robotsOf(h);
+    if (r.count !== 1) fail(`curated ${route.path}: esperado exatamente 1 meta robots (achou ${r.count})`);
+    if (!r.value || !/^index,\s*follow/.test(r.value)) fail(`curated ${route.path}: robots="${r.value}" (esperado index, follow)`);
+    if (r.value && /noindex/.test(r.value)) fail(`curated ${route.path}: recebeu noindex (proibido)`);
+    const cans = canonicalsOf(h);
+    if (cans.length !== 1) fail(`curated ${route.path}: esperado exatamente 1 canonical (achou ${cans.length})`);
+    if (cans[0] && cans[0] !== `${SITE}${route.path}`) fail(`curated ${route.path}: canonical "${cans[0]}" não é self-referente`);
+  }
+
+  // Sitemaps: total 33 URLs e nenhuma rota legada presente.
+  const sitemapFiles = ["sitemap-main.xml", "sitemap-servicos.xml", "sitemap-regioes.xml", "sitemap-bairros.xml"];
+  let sitemapTotal = 0;
+  for (const f of sitemapFiles) {
+    const sp = resolve(root, "public", f);
+    if (!existsSync(sp)) { fail(`sitemap ausente: ${f}`); continue; }
+    const xml = readFileSync(sp, "utf8");
+    sitemapTotal += (xml.match(/<loc>/g) || []).length;
+    for (const p of legacyPaths) {
+      if (xml.includes(`<loc>${SITE}${p}</loc>`)) fail(`rota legada ${p} presente em ${f} (deve ficar fora dos sitemaps)`);
+    }
+  }
+  if (sitemapTotal !== 33) fail(`sitemaps: total esperado 33 URLs, achou ${sitemapTotal}`);
+} else {
+  console.log("ℹ️  check-curated-meta: dist/ ausente (pré-build) — validação de indexabilidade legada adiada para pós-build.");
+}
+
 if (errors.length) {
   console.error("❌ check-curated-meta: FALHOU\n" + errors.map((e) => " - " + e).join("\n"));
   process.exit(1);
 }
-console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio.`);
+console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps com 33 URLs.`);

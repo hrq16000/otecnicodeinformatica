@@ -343,6 +343,104 @@ if (existsSync(distDir)) {
   }
 }
 
+// ── 11. Onda 2C · fortalecimento dos 8 serviços comerciais ─────────────
+// Fatos objetivos: intenção própria, títulos/H1 únicos e distintos de
+// home/servicos/landing, empresarial ≠ "Empresa de TI", recuperação com
+// aviso de "não garantida", formatação sem promessa universal, links
+// internos apenas para rotas curadas (indexáveis) e mensagens de WhatsApp
+// com contexto por serviço.
+{
+  const localSrc = readFileSync(resolve(root, "src/lib/servicosLocal.ts"), "utf8");
+  const h1s = grabAll(/h1:\s*"([^"]+)"/g, coreSrc);
+  const waMsgs = grabAll(/whatsappMessage:\s*"([^"]+)"/g, coreSrc);
+  const bySlug = new Map();
+  paths.forEach((p, i) => bySlug.set(p, { title: titles[i], h1: h1s[i], wa: waMsgs[i] }));
+
+  const INTENT = {
+    "formatacao": "formatação",
+    "manutencao-de-notebook": "assistência técnica de notebook",
+    "manutencao-de-computador": "assistência técnica de computador",
+    "upgrade-ssd-ram": "instalação de ssd",
+    "remocao-de-virus": "remoção de vírus",
+    "recuperacao-de-dados": "recuperação de dados",
+    "redes-e-wifi": "redes e wi-fi",
+    "suporte-tecnico-empresarial": "suporte técnico para empresas",
+  };
+
+  const svcTitles = [];
+  const svcH1s = [];
+  for (const sp of SERVICE_PATHS) {
+    const s = bySlug.get(sp);
+    if (!s) { fail(`serviço ausente em servicosCore: ${sp}`); continue; }
+    if (!s.title) fail(`serviço ${sp}: metaTitle ausente`);
+    if (!s.h1) fail(`serviço ${sp}: h1 ausente`);
+    if (!s.wa || s.wa.length < 12) fail(`serviço ${sp}: whatsappMessage sem contexto`);
+    if (s.title && !s.title.toLowerCase().includes(INTENT[sp])) {
+      fail(`serviço ${sp}: title não contém a intenção principal "${INTENT[sp]}"`);
+    }
+    svcTitles.push(s.title);
+    svcH1s.push(s.h1);
+  }
+  if (new Set(svcTitles).size !== SERVICE_PATHS.length) fail("os 8 serviços devem ter titles distintos entre si");
+  if (new Set(svcH1s).size !== SERVICE_PATHS.length) fail("os 8 serviços devem ter H1 distintos entre si");
+
+  // Não colidir com home / /servicos / landing Curitiba (title e H1)
+  const homeR2 = curatedByPath.get("/");
+  const servicosR2 = curatedByPath.get("/servicos");
+  const landingR2 = curatedByPath.get("/tecnico-informatica-curitiba");
+  const hubTitles = [homeR2?.title, servicosR2?.title, landingR2?.title].filter(Boolean);
+  for (const t of svcTitles) if (hubTitles.includes(t)) fail(`serviço com title idêntico a home/servicos/landing: "${t}"`);
+
+  // Empresarial não usa "Empresa de TI em Curitiba" como foco (title/H1)
+  const emp = bySlug.get("suporte-tecnico-empresarial");
+  if (emp && /empresa de ti em curitiba/i.test(`${emp.title} ${emp.h1}`)) {
+    fail("suporte empresarial: title/H1 não deve usar 'Empresa de TI em Curitiba' (pertence ao hub /empresa-de-ti-curitiba)");
+  }
+
+  // Blocos de conteúdo por serviço (bounded por chave de serviço 2-espaços)
+  const blockFor = (slug) => {
+    const start = coreSrc.indexOf(`path: "${slug}"`);
+    if (start < 0) return "";
+    const rest = coreSrc.slice(start + 6);
+    const nextRel = rest.search(/\n\s{2}"?[a-z-]+"?:\s*\{/);
+    return nextRel < 0 ? coreSrc.slice(start) : coreSrc.slice(start, start + 6 + nextRel);
+  };
+  if (!/não é garantida/i.test(blockFor("recuperacao-de-dados"))) {
+    fail("recuperação: falta o aviso de que a recuperação 'não é garantida'");
+  }
+  if (!/nem sempre/i.test(blockFor("formatacao"))) {
+    fail("formatação: falta a ressalva de que formatar 'nem sempre' resolve a lentidão");
+  }
+
+  // Links internos: todo destino deve ser rota curada (indexável) — sem legada/quebrada
+  const linkTargets = [
+    ...grabAll(/to:\s*"([^"]+)"/g, coreSrc),
+    ...grabAll(/to:\s*"([^"]+)"/g, localSrc),
+  ];
+  for (const t of linkTargets) {
+    if (!curatedByPath.has(t)) fail(`link interno para rota não curada/legada: ${t}`);
+  }
+
+  // Pós-build: HTML próprio dos 8 serviços — 1 H1, 1 title, 1 description, og:url self
+  if (existsSync(distDir)) {
+    for (const sp of SERVICE_PATHS) {
+      const p = `/servicos/${sp}`;
+      const file = resolve(distDir, "servicos", sp, "index.html");
+      if (!existsSync(file)) { fail(`serviço ${p}: HTML ausente em dist${p}/index.html`); continue; }
+      const h = readFileSync(file, "utf8");
+      const h1c = (h.match(/<h1[\s>]/gi) || []).length;
+      if (h1c !== 1) fail(`serviço ${p}: esperado exatamente 1 <h1> (achou ${h1c})`);
+      if ((h.match(/<title>/g) || []).length !== 1) fail(`serviço ${p}: esperado exatamente 1 <title>`);
+      if ((h.match(/name="description"/g) || []).length !== 1) fail(`serviço ${p}: esperado exatamente 1 meta description`);
+      const ogUrl = (h.match(/property="og:url"\s+content="([^"]+)"/) || [])[1];
+      if (ogUrl !== `${SITE}${p}`) fail(`serviço ${p}: og:url "${ogUrl}" não é self-referente`);
+      if (/gpt-engineer/i.test(h)) fail(`serviço ${p}: contém referência a storage do gpt-engineer`);
+    }
+  }
+}
+
+
+
 
 
 if (errors.length) {

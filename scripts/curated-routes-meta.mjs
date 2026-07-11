@@ -17,12 +17,12 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/formatacao",
-    "title": "Formatação de PC e Notebook em Curitiba | Técnico",
+    "title": "Formatação de PC e Notebook em Curitiba | Windows",
     "description": "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp."
   },
   {
     "path": "/servicos/manutencao-de-notebook",
-    "title": "Assistência Técnica de Notebook em Curitiba | Manutenção",
+    "title": "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
     "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp."
   },
   {
@@ -32,12 +32,12 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
-    "title": "Upgrade de SSD e Memória RAM em Curitiba | Técnico",
-    "description": "Upgrade de SSD e memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Atendimento via WhatsApp."
+    "title": "Instalação de SSD e Upgrade de Memória em Curitiba",
+    "description": "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Via WhatsApp."
   },
   {
     "path": "/servicos/remocao-de-virus",
-    "title": "Remoção de Vírus e Malware em Curitiba | Técnico",
+    "title": "Remoção de Vírus e Malware em Curitiba | PC e Notebook",
     "description": "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp."
   },
   {
@@ -47,12 +47,12 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/redes-e-wifi",
-    "title": "Redes e Wi-Fi em Curitiba | Instalação e Configuração",
+    "title": "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
     "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp."
   },
   {
     "path": "/servicos/suporte-tecnico-empresarial",
-    "title": "Suporte Técnico Empresarial em Curitiba | Técnico em Curitiba",
+    "title": "Suporte Técnico para Empresas em Curitiba | Informática",
     "description": "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta."
   },
   {

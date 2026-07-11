@@ -2,8 +2,9 @@ import type { ServicoLandingData } from "@/components/servico/ServicoLandingLayo
 
 // ─────────────────────────────────────────────────────────────
 // SERVIÇOS ESSENCIAIS — conteúdo próprio, local e profundo.
-// Sem rating inventado, sem preço fechado universal, sem urgência falsa.
-// Slugs canônicos definidos nesta rodada (SEO local curado).
+// Cada página é proprietária de UMA intenção comercial. Sem rating
+// inventado, sem preço fechado universal, sem urgência falsa.
+// Sintomas são absorvidos como seção (sinais) — nunca viram novas URLs.
 // ─────────────────────────────────────────────────────────────
 
 const LINKS_BASE = [
@@ -21,19 +22,12 @@ const PROCESSO_PADRAO = [
   { step: "6", title: "Entrega e validação", desc: "Testamos junto com você e entregamos funcionando." },
 ];
 
-const ATENDIMENTO_PADRAO = {
-  residencial:
-    "Atendimento a domicílio ou por coleta e entrega em Curitiba e região metropolitana, com horário combinado e diagnóstico transparente antes de aprovar o serviço.",
-  empresarial:
-    "Suporte a estações de trabalho, servidores locais e rede da empresa, com atendimento pontual ou recorrente sob consulta para reduzir paradas e imprevistos.",
-};
-
 export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   // 1 ─────────────────────────────────────────────────────────
   formatacao: {
     path: "formatacao",
     trackingKey: "formatacao",
-    metaTitle: "Formatação de PC e Notebook em Curitiba | Técnico",
+    metaTitle: "Formatação de PC e Notebook em Curitiba | Windows",
     metaDescription:
       "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp.",
     serviceName: "Formatação de Computador e Notebook",
@@ -43,7 +37,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     h1: "Formatação de computador e notebook em Curitiba",
     h1Accent: "com backup dos seus arquivos",
     intro:
-      "Windows lento, cheio de erro ou corrompido? A formatação reinstala o sistema do zero. Antes de tudo fazemos o backup dos seus dados e, ao final, restauramos seus arquivos e deixamos a máquina pronta para o dia a dia.",
+      "Windows corrompido, cheio de erro ou que não inicia direito? A formatação reinstala o sistema do zero — com Windows original, drivers e programas essenciais. Antes de tudo fazemos o backup dos seus arquivos e, ao final, restauramos seus dados. Importante: lentidão nem sempre se resolve formatando; por isso avaliamos a causa antes. Você descreve o caso pelo WhatsApp e seguimos com o diagnóstico.",
     whatsappMessage: "Olá! Preciso formatar meu computador/notebook. Pode me orientar?",
     incluso: [
       { title: "Backup prévio", desc: "Salvamos documentos, fotos e arquivos importantes antes de formatar." },
@@ -54,12 +48,13 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Restauração dos dados", desc: "Seus arquivos de volta e organizados após o procedimento." },
     ],
     sinais: [
-      "Sistema lento mesmo após limpeza e desinstalação de programas",
+      "Windows corrompido que não inicia corretamente",
+      "Inicialização travando ou parando no logo do Windows",
+      "Erros recorrentes do sistema mesmo após limpeza",
       "Vírus, pop-ups ou navegador que voltam sempre",
-      "Telas azuis, travamentos e erros frequentes do Windows",
-      "Sistema corrompido que não inicia corretamente",
       "Acúmulo de programas e arquivos desnecessários",
       "Preparar a máquina para venda, repasse ou novo usuário",
+      "Troca de HD por SSD com reinstalação ou clonagem do sistema",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -70,38 +65,45 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos apertados podem influenciar o agendamento." },
       { title: "Deslocamento", desc: "Atendimento em domicílio considera a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Formatação a domicílio ou por coleta e entrega em Curitiba e região, com backup dos seus arquivos antes de reinstalar e horário combinado com você.",
+      empresarial:
+        "Formatação e padronização de máquinas de escritório e estações de trabalho, com Windows, drivers e programas essenciais configurados para a rotina da equipe.",
+    },
     faqs: [
       { question: "A formatação apaga meus arquivos?", answer: "A formatação reinstala o sistema do zero. Por isso fazemos backup dos seus dados antes e restauramos depois, sempre que o equipamento permite leitura das informações." },
       { question: "Vocês instalam Office, antivírus e drivers?", answer: "Sim. Entregamos com Windows ativado, drivers atualizados, navegador, antivírus e pacote de produtividade configurados conforme o seu uso." },
-      { question: "Formatar deixa o computador mais rápido?", answer: "Na maioria dos casos há ganho perceptível, principalmente combinando com SSD. Não prometemos porcentagem fixa: o resultado depende do hardware." },
+      { question: "Formatar sempre deixa o computador rápido?", answer: "Nem sempre. Formatar resolve problemas de software, mas lentidão também pode vir de HD antigo, pouca memória ou superaquecimento. Por isso avaliamos a causa antes: às vezes um SSD resolve mais que formatar." },
       { question: "Em quanto tempo fica pronto?", answer: "Em geral de 2 a 4 horas, variando conforme o hardware e o volume de dados a copiar e restaurar." },
       { question: "Atendem em domicílio ou por coleta?", answer: "Atendemos em Curitiba e região, com opção de atendimento em domicílio ou coleta e entrega do equipamento." },
     ],
     relacionados: [
-      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
-      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
-      ...LINKS_BASE,
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 2 ─────────────────────────────────────────────────────────
   "manutencao-de-notebook": {
     path: "manutencao-de-notebook",
     trackingKey: "manutencao-notebook",
-    metaTitle: "Assistência Técnica de Notebook em Curitiba | Manutenção",
+    metaTitle: "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
     metaDescription:
       "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp.",
     serviceName: "Manutenção de Notebook",
     serviceDescription:
       "Diagnóstico e manutenção de notebooks: limpeza interna, troca de pasta térmica, tela, teclado, bateria e desempenho, com atendimento em Curitiba e região.",
     eyebrow: "Notebook em Curitiba",
-    h1: "Manutenção de notebook em Curitiba",
+    h1: "Assistência técnica de notebook em Curitiba",
     h1Accent: "diagnóstico antes do orçamento",
     intro:
-      "Notebook esquentando, lento, com tela, teclado ou bateria com problema? Fazemos o diagnóstico para identificar a causa real e só então apresentamos o orçamento — sem trocar peça sem necessidade.",
+      "Notebook que não liga, esquenta e desliga, ficou lento ou está com tela, teclado ou bateria com defeito? Atendemos as marcas mais comuns do mercado e começamos sempre pelo diagnóstico, para identificar a causa real antes de falar em peça ou preço. Nem toda placa tem reparo viável, e explicamos isso com honestidade. Descreva o sintoma pelo WhatsApp e combinamos o próximo passo.",
     whatsappMessage: "Olá! Meu notebook está com problema. Podem avaliar?",
     incluso: [
       { title: "Diagnóstico do notebook", desc: "Avaliação de hardware e software para achar a causa real." },
@@ -112,12 +114,14 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Teste final", desc: "Validação com você antes da entrega." },
     ],
     sinais: [
-      "Notebook esquentando e desligando sozinho",
+      "Notebook não liga ou não dá sinal de vídeo",
+      "Esquenta muito e desliga sozinho",
       "Ventoinha barulhenta ou muito acelerada",
+      "Não carrega ou a bateria não segura carga",
       "Lentidão para ligar e abrir programas",
       "Tela com manchas, linhas ou sem imagem",
-      "Teclas que falham ou não respondem",
-      "Bateria que não segura carga ou não carrega",
+      "Teclado ou touchpad falhando",
+      "Dobradiça solta ou carcaça danificada",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -128,21 +132,28 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos curtos podem alterar o agendamento e a disponibilidade de peça." },
       { title: "Deslocamento", desc: "Coleta e entrega consideram a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Atendimento de notebook em domicílio ou por coleta e entrega em Curitiba e região, ideal para quem usa o aparelho em casa, nos estudos ou no home office.",
+      empresarial:
+        "Manutenção de notebooks corporativos e de equipes, com diagnóstico, limpeza, troca de peças e upgrade para reduzir paradas no trabalho.",
+    },
     faqs: [
       { question: "Meu notebook esquenta muito, tem solução?", answer: "Na maioria dos casos, sim. O aquecimento costuma vir de poeira acumulada e pasta térmica ressecada. Fazemos limpeza interna e avaliamos a ventoinha e o dissipador." },
       { question: "Vale a pena consertar ou é melhor trocar?", answer: "Depende do custo do reparo frente ao valor do aparelho. Após o diagnóstico explicamos com honestidade quando compensa consertar e quando não vale." },
-      { question: "Vocês trocam tela e teclado?", answer: "Sim, avaliamos e substituímos tela, dobradiça, teclado, bateria e conectores, conforme o modelo e a disponibilidade de peça." },
+      { question: "Vocês trocam tela e teclado?", answer: "Sim, avaliamos e substituímos tela, dobradiça, teclado, bateria e conectores, conforme o modelo e a disponibilidade de peça. Nem toda placa, porém, tem reparo viável." },
       { question: "Preciso levar o notebook até vocês?", answer: "Atendemos em domicílio e também por coleta e entrega em Curitiba e região, conforme o tipo de serviço." },
       { question: "Quanto tempo leva a manutenção?", answer: "Serviços simples podem sair no mesmo dia; reparos que dependem de peça específica levam mais tempo. Informamos o prazo no orçamento." },
     ],
     relacionados: [
-      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Formatação", to: "/servicos/formatacao" },
-      ...LINKS_BASE,
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 3 ─────────────────────────────────────────────────────────
@@ -156,10 +167,10 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     serviceDescription:
       "Diagnóstico e manutenção de PCs desktop: fonte, memória, armazenamento, placa-mãe, travamentos e limpeza, com atendimento em Curitiba e região.",
     eyebrow: "PC desktop em Curitiba",
-    h1: "Manutenção de computador de mesa em Curitiba",
+    h1: "Manutenção e assistência técnica de computador em Curitiba",
     h1Accent: "sem troca de peça desnecessária",
     intro:
-      "Desktop travando, reiniciando ou fazendo barulho? Avaliamos fonte, memória, armazenamento, placa-mãe e temperatura para identificar a causa real antes de qualquer orçamento.",
+      "Computador que não liga, trava, reinicia sozinho, dá tela azul ou não dá vídeo? No desktop, quase todo componente pode ser testado de forma isolada — fonte, memória, armazenamento, placa de vídeo e placa-mãe. Testamos cada parte para isolar a causa real antes de indicar qualquer troca. Esta página é sobre PC de mesa; se o seu equipamento é notebook, veja a assistência específica. Fale pelo WhatsApp para começar o diagnóstico.",
     whatsappMessage: "Olá! Meu computador de mesa está com problema. Podem avaliar?",
     incluso: [
       { title: "Diagnóstico completo", desc: "Teste de fonte, memória, armazenamento e placa-mãe." },
@@ -170,12 +181,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Teste final", desc: "Validação de estabilidade antes de devolver o equipamento." },
     ],
     sinais: [
-      "PC que trava ou reinicia sozinho",
       "Computador que não liga ou não dá vídeo",
+      "PC que trava ou reinicia sozinho",
+      "Tela azul e falhas de inicialização do Windows",
       "Ruídos anormais na fonte ou nas ventoinhas",
-      "Lentidão e travamentos ao abrir programas",
       "Superaquecimento e desligamentos por proteção",
-      "Erros após queda de energia",
+      "Lentidão e baixo desempenho no dia a dia",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -186,7 +197,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos curtos podem alterar agendamento e disponibilidade." },
       { title: "Deslocamento", desc: "Atendimento em domicílio considera a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Manutenção de PC de mesa em domicílio ou por coleta e entrega em Curitiba e região, com diagnóstico transparente antes de aprovar qualquer serviço.",
+      empresarial:
+        "Manutenção de desktops e estações de trabalho de escritórios e empresas, de forma pontual ou preventiva, para manter a equipe produtiva.",
+    },
     faqs: [
       { question: "Meu PC liga mas não dá imagem, o que pode ser?", answer: "Pode ser memória, placa de vídeo, fonte ou placa-mãe. O diagnóstico isola o componente responsável antes de qualquer troca." },
       { question: "O computador reinicia sozinho, é grave?", answer: "Nem sempre. Costuma estar ligado a superaquecimento, fonte instável, memória ou software. Avaliamos para identificar a causa correta." },
@@ -195,29 +211,31 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Vale a pena consertar um PC antigo?", answer: "Depende do custo do reparo e de um upgrade frente ao valor da máquina. Explicamos com transparência quando compensa investir." },
     ],
     relacionados: [
-      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
-      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Formatação", to: "/servicos/formatacao" },
-      ...LINKS_BASE,
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
+      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 4 ─────────────────────────────────────────────────────────
   "upgrade-ssd-ram": {
     path: "upgrade-ssd-ram",
     trackingKey: "upgrade-ssd-ram",
-    metaTitle: "Upgrade de SSD e Memória RAM em Curitiba | Técnico",
+    metaTitle: "Instalação de SSD e Upgrade de Memória em Curitiba",
     metaDescription:
-      "Upgrade de SSD e memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Atendimento via WhatsApp.",
+      "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Via WhatsApp.",
     serviceName: "Upgrade de SSD e Memória RAM",
     serviceDescription:
-      "Upgrade de SSD e RAM com avaliação de compatibilidade, clonagem do sistema e backup, para ganho real de desempenho em Curitiba e região.",
+      "Instalação de SSD e ampliação de RAM com avaliação de compatibilidade, clonagem do sistema e backup, para ganho real de desempenho em Curitiba e região.",
     eyebrow: "Desempenho em Curitiba",
-    h1: "Upgrade de SSD e memória RAM em Curitiba",
+    h1: "Instalação de SSD e upgrade de memória RAM em Curitiba",
     h1Accent: "ganho real de desempenho",
     intro:
-      "Trocar o HD por um SSD e ampliar a memória é o upgrade com melhor custo-benefício para a maioria das máquinas. Avaliamos a compatibilidade e, quando possível, clonamos o sistema para você não perder nada.",
+      "Trocar o HD por um SSD e ampliar a memória é o upgrade com melhor custo-benefício para a maioria das máquinas. Antes de indicar peça, avaliamos a compatibilidade do seu equipamento (SATA ou NVMe, limite de RAM) e, quando possível, clonamos o Windows para você não perder nada. O ganho é real, mas depende do gargalo de cada máquina — não prometemos milagre em equipamento condenado. Envie o modelo pelo WhatsApp para avaliação.",
     whatsappMessage: "Olá! Quero fazer upgrade de SSD e/ou memória. Podem avaliar meu equipamento?",
     incluso: [
       { title: "Avaliação de compatibilidade", desc: "Checamos o que o seu equipamento suporta antes de indicar peças." },
@@ -229,11 +247,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     sinais: [
       "Computador demora muito para ligar e abrir programas",
+      "Disco (HD) sempre em uso elevado, travando o sistema",
+      "Falta de espaço em disco",
       "Trava ao usar várias abas ou aplicativos ao mesmo tempo",
       "Ainda usa HD mecânico (não SSD)",
-      "Pouca memória para o uso atual",
-      "Máquina boa de processador, mas 'lenta' no dia a dia",
-      "Quer melhorar sem trocar de computador",
+      "Pouca memória RAM para o uso atual",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -244,7 +262,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Compatibilidade do equipamento", desc: "Máquinas antigas podem ter limites de suporte." },
       { title: "Deslocamento", desc: "Atendimento em domicílio considera a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Upgrade de notebook e desktop de uso pessoal em Curitiba e região, com avaliação de compatibilidade e clonagem do sistema sempre que possível.",
+      empresarial:
+        "Padronização e upgrade de SSD e memória no parque de máquinas de empresas, melhorando o desempenho das estações sem trocar todo o equipamento.",
+    },
     faqs: [
       { question: "SSD faz diferença mesmo?", answer: "Sim, é o upgrade que mais melhora a percepção de velocidade no uso diário. O ganho depende do restante do hardware, então não prometemos porcentagem fixa." },
       { question: "Vou perder meus arquivos ao trocar o disco?", answer: "Quando o disco antigo está legível, fazemos a clonagem ou o backup e transferência dos dados. Backup prévio é sempre recomendado." },
@@ -253,19 +276,20 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Vocês instalam peça que eu já comprei?", answer: "Podemos avaliar e instalar, verificando a compatibilidade. Se a peça não for adequada, orientamos a melhor opção." },
     ],
     relacionados: [
-      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 5 ─────────────────────────────────────────────────────────
   "remocao-de-virus": {
     path: "remocao-de-virus",
     trackingKey: "remocao-virus",
-    metaTitle: "Remoção de Vírus e Malware em Curitiba | Técnico",
+    metaTitle: "Remoção de Vírus e Malware em Curitiba | PC e Notebook",
     metaDescription:
       "Remoção de vírus, malware e sequestro de navegador em Curitiba. Limpeza segura, proteção dos seus dados e reinstalação quando necessário. Atendimento via WhatsApp.",
     serviceName: "Remoção de Vírus e Malware",
@@ -275,7 +299,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     h1: "Remoção de vírus e malware em Curitiba",
     h1Accent: "com proteção dos seus dados",
     intro:
-      "Pop-ups, lentidão repentina, navegador sequestrado ou avisos estranhos? Fazemos a limpeza de vírus e malware com atenção aos seus dados e orientamos sobre proteção para não acontecer de novo.",
+      "Pop-ups sem parar, navegador sequestrado, programas desconhecidos ou avisos falsos pedindo pagamento? Fazemos a remoção de vírus e malware com atenção aos seus arquivos e reconfiguramos o navegador e a proteção. A limpeza preserva seus dados sempre que o sistema permite — quando há criptografia ou corrupção, porém, não é possível garantir integridade total. Fale pelo WhatsApp e descreva o que está acontecendo.",
     whatsappMessage: "Olá! Acho que meu computador está com vírus. Podem ajudar?",
     incluso: [
       { title: "Diagnóstico de infecção", desc: "Identificação de vírus, malware, adware e sequestro de navegador." },
@@ -287,11 +311,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     sinais: [
       "Pop-ups e propagandas aparecendo sem parar",
-      "Navegador com página inicial ou busca trocadas",
-      "Lentidão repentina e travamentos",
+      "Navegador com página inicial, busca ou extensões trocadas",
       "Programas desconhecidos instalados sozinhos",
+      "Lentidão repentina e travamentos",
       "Avisos falsos pedindo pagamento ou ligação",
-      "Arquivos bloqueados ou com extensão estranha",
+      "Arquivos bloqueados e acessos suspeitos às contas",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -302,9 +326,14 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos curtos podem influenciar o agendamento." },
       { title: "Deslocamento", desc: "Atendimento em domicílio considera a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Remoção de vírus em domicílio ou por coleta e entrega em Curitiba e região, preservando seus dados sempre que o estado do sistema permite.",
+      empresarial:
+        "Limpeza e proteção de estações de trabalho de empresas, com orientação de segurança para reduzir reincidência e risco de golpes na equipe.",
+    },
     faqs: [
-      { question: "Vou perder meus arquivos na remoção de vírus?", answer: "O objetivo é preservar seus dados. Em infecções graves, priorizamos o backup antes de intervir e explicamos os riscos com antecedência." },
+      { question: "Vou perder meus arquivos na remoção de vírus?", answer: "O objetivo é preservar seus dados. Em infecções graves, com criptografia ou corrupção, nem sempre há garantia de integridade total — por isso priorizamos o backup antes de intervir e explicamos os riscos." },
       { question: "Sempre precisa formatar para remover vírus?", answer: "Não. Muitos casos são resolvidos com limpeza direcionada. A formatação só é indicada quando o sistema está comprometido demais." },
       { question: "Meu navegador foi 'sequestrado', dá para resolver?", answer: "Sim. Removemos extensões e redirecionamentos maliciosos e reconfiguramos o navegador com segurança." },
       { question: "Como evitar pegar vírus de novo?", answer: "Orientamos sobre antivírus, atualizações, downloads seguros e cuidado com anexos e links. A prevenção faz parte do atendimento." },
@@ -313,10 +342,10 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
-      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 6 ─────────────────────────────────────────────────────────
@@ -330,11 +359,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     serviceDescription:
       "Tentativa de recuperação de dados em HD, SSD, pendrive e cartão de memória, com avaliação inicial e transparência sobre as chances, em Curitiba e região.",
     eyebrow: "Recuperação em Curitiba",
-    h1: "Recuperação de dados em Curitiba",
+    h1: "Recuperação de dados de HD, SSD e pendrive em Curitiba",
     h1Accent: "avaliação antes de qualquer promessa",
     intro:
-      "Apagou arquivos por engano, o sistema não inicia ou o disco parou de ser reconhecido? Avaliamos o dispositivo e explicamos as chances reais. Importante: recuperação de dados não é garantida e insistir por conta própria pode piorar.",
-    whatsappMessage: "Olá! Preciso recuperar dados de um HD/SSD/pendrive. Podem avaliar?",
+      "Apagou arquivos por engano, o sistema não inicia ou o disco parou de ser reconhecido? Avaliamos HD, SSD, pendrive e cartão e explicamos as chances reais antes de qualquer tentativa. Isto não é o mesmo que backup preventivo: aqui tentamos resgatar o que já foi perdido. Importante: recuperação de dados não é garantida, e continuar usando o dispositivo pode sobrescrever ou piorar a falha. Se houver risco, pare de usar e fale pelo WhatsApp.",
+    whatsappMessage: "Olá! Preciso avaliar uma possível recuperação de dados de um HD/SSD/pendrive.",
     incluso: [
       { title: "Avaliação do dispositivo", desc: "Análise inicial de HD, SSD, pendrive ou cartão." },
       { title: "Diagnóstico de causa", desc: "Exclusão acidental, corrupção lógica ou falha física." },
@@ -344,11 +373,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Orientação", desc: "Recomendações de backup para evitar novas perdas." },
     ],
     sinais: [
-      "Arquivos apagados por engano",
+      "Arquivos apagados por engano ou partição inacessível",
       "Sistema que não inicia mais",
       "HD ou SSD não reconhecido pelo computador",
       "Pendrive ou cartão pedindo formatação",
-      "Ruídos anormais vindos do HD",
+      "Ruídos anormais vindos do HD (possível falha física)",
       "Perda de fotos, documentos ou trabalhos importantes",
     ],
     processo: PROCESSO_PADRAO,
@@ -360,38 +389,44 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos curtos podem influenciar o processo." },
       { title: "Necessidade de mídia", desc: "Fornecimento de novo disco/mídia para entrega dos dados." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Avaliação de recuperação de dados de HD, SSD, pendrive e cartão de uso pessoal em Curitiba e região, com transparência sobre as chances reais.",
+      empresarial:
+        "Tentativa de recuperação de dados de máquinas e servidores locais de empresas, sempre com avaliação prévia — a recuperação não é garantida.",
+    },
     faqs: [
       { question: "A recuperação de dados é garantida?", answer: "Não. Nenhum serviço sério garante 100%. Fazemos a avaliação, explicamos as chances reais e trabalhamos para não piorar o estado do dispositivo." },
       { question: "Apaguei arquivos, o que devo fazer agora?", answer: "Pare de usar o dispositivo imediatamente. Continuar gravando dados reduz muito as chances de recuperação. Traga para avaliação o quanto antes." },
       { question: "Meu HD faz barulho, tem solução?", answer: "Ruído pode indicar falha física, que é mais delicada. Não insista em ligar: isso pode agravar. Avaliamos o caso com cuidado." },
-      { question: "Recuperam dados de pendrive e cartão?", answer: "Avaliamos HD, SSD, pendrive e cartão de memória. Cada mídia tem particularidades e chances diferentes." },
+      { question: "Recuperação é a mesma coisa que backup?", answer: "Não. Recuperação tenta resgatar dados já perdidos e não tem garantia. Backup é preventivo, feito antes de qualquer problema. Orientamos uma rotina de backup para você não depender de recuperação." },
       { question: "Como evitar perder dados de novo?", answer: "Backup regular em mais de um lugar (disco externo e nuvem, por exemplo). Orientamos a melhor rotina para o seu caso." },
     ],
     relacionados: [
-      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 7 ─────────────────────────────────────────────────────────
   "redes-e-wifi": {
     path: "redes-e-wifi",
     trackingKey: "redes-wifi",
-    metaTitle: "Redes e Wi-Fi em Curitiba | Instalação e Configuração",
+    metaTitle: "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
     metaDescription:
       "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp.",
     serviceName: "Redes e Wi-Fi",
     serviceDescription:
       "Instalação e configuração de redes e Wi-Fi residenciais e empresariais: roteador, repetidor, cabeamento e estabilidade, em Curitiba e região.",
     eyebrow: "Conectividade em Curitiba",
-    h1: "Redes e Wi-Fi em Curitiba",
+    h1: "Instalação e configuração de redes e Wi-Fi em Curitiba",
     h1Accent: "internet estável em casa e na empresa",
     intro:
-      "Wi-Fi que cai, sinal fraco em alguns cômodos ou rede instável no trabalho? Avaliamos o ambiente e configuramos roteador, repetidores e cabeamento para melhorar cobertura e estabilidade.",
+      "Wi-Fi que cai, sinal fraco em alguns cômodos ou rede instável no trabalho? Avaliamos o ambiente e configuramos roteador, repetidores, mesh e cabeamento para melhorar cobertura e estabilidade. Muitas vezes o problema é o posicionamento ou o excesso de dispositivos, não o plano — mas falhas que são do provedor só confirmamos após diagnóstico. Fale pelo WhatsApp para avaliarmos o seu caso.",
     whatsappMessage: "Olá! Preciso melhorar minha rede/Wi-Fi. Podem avaliar?",
     incluso: [
       { title: "Análise do ambiente", desc: "Avaliação de cobertura, interferências e pontos críticos." },
@@ -404,10 +439,10 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     sinais: [
       "Wi-Fi que cai ou oscila com frequência",
       "Sinal fraco em cômodos ou setores específicos",
-      "Internet lenta mesmo com bom plano",
+      "Dispositivos que não conectam ou conflito de IP",
+      "Impressora de rede que some ou não é encontrada",
       "Muitos dispositivos e a rede não aguenta",
-      "Necessidade de rede cabeada estável",
-      "Rede da empresa instável ou insegura",
+      "Rede da empresa instável, insegura ou desorganizada",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -418,39 +453,44 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Urgência", desc: "Prazos curtos podem alterar o agendamento." },
       { title: "Deslocamento", desc: "Atendimento considera a localização em Curitiba e região." },
     ],
-    atendimento: ATENDIMENTO_PADRAO,
+    atendimento: {
+      residencial:
+        "Wi-Fi de casas e apartamentos em Curitiba e região: posicionamento de roteador, repetidores ou mesh para cobrir todos os cômodos com estabilidade.",
+      empresarial:
+        "Redes de escritórios e pequenas empresas: cabeamento, segmentação simples, impressoras em rede e estabilidade para o trabalho, sob avaliação.",
+    },
     faqs: [
       { question: "Meu Wi-Fi não pega em todos os cômodos, o que fazer?", answer: "Avaliamos o ambiente e indicamos posicionamento do roteador, repetidores ou sistema mesh para ampliar a cobertura de forma estável." },
       { question: "Repetidor ou mesh, qual é melhor?", answer: "Depende do ambiente. O mesh costuma oferecer transição mais suave; o repetidor pode resolver casos pontuais. Indicamos o adequado após avaliar." },
       { question: "Vocês configuram a rede da minha empresa?", answer: "Sim. Trabalhamos estabilidade, segurança e organização de redes empresariais, com atendimento pontual ou recorrente sob consulta." },
       { question: "Passam cabo de rede?", answer: "Quando faz sentido para estabilidade, avaliamos e realizamos o cabeamento e a organização dos pontos." },
-      { question: "A internet continua lenta, é problema de Wi-Fi?", answer: "Pode ser Wi-Fi, roteador, quantidade de dispositivos ou o próprio plano. O diagnóstico separa o que é rede local do que é o provedor." },
+      { question: "A internet continua lenta, é problema de Wi-Fi?", answer: "Pode ser Wi-Fi, roteador, quantidade de dispositivos ou o próprio plano. O diagnóstico separa o que é rede local do que é o provedor — falhas da operadora fogem ao nosso reparo." },
     ],
     relacionados: [
-      { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
-      { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 
   // 8 ─────────────────────────────────────────────────────────
   "suporte-tecnico-empresarial": {
     path: "suporte-tecnico-empresarial",
     trackingKey: "suporte-empresarial",
-    metaTitle: "Suporte Técnico Empresarial em Curitiba | Técnico em Curitiba",
+    metaTitle: "Suporte Técnico para Empresas em Curitiba | Informática",
     metaDescription:
       "Suporte técnico para empresas em Curitiba: estações de trabalho, rede, impressoras, backups e manutenção preventiva. Atendimento pontual ou recorrente sob consulta.",
     serviceName: "Suporte Técnico Empresarial",
     serviceDescription:
-      "Suporte de TI para empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente em Curitiba e região.",
+      "Suporte de informática para empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente em Curitiba e região.",
     eyebrow: "Empresas em Curitiba",
-    h1: "Suporte técnico empresarial em Curitiba",
+    h1: "Suporte técnico de informática para empresas em Curitiba",
     h1Accent: "menos paradas, mais previsibilidade",
     intro:
-      "Empresa parada custa caro. Damos suporte a estações de trabalho, rede, impressoras e rotinas de backup, com atendimento pontual para emergências ou recorrente para prevenir problemas.",
-    whatsappMessage: "Olá! Preciso de suporte técnico para minha empresa. Podem atender?",
+      "Empresa parada custa caro. Damos suporte técnico às estações de trabalho da equipe, à rede interna, às impressoras compartilhadas e às rotinas de backup, com atendimento pontual para emergências ou recorrente para prevenir problemas. É o suporte prático do dia a dia; a estruturação institucional de TI mais ampla você encontra na página Empresa de TI em Curitiba. Fale pelo WhatsApp para avaliarmos a necessidade.",
+    whatsappMessage: "Olá! Preciso de suporte técnico de informática para uma empresa em Curitiba.",
     incluso: [
       { title: "Estações de trabalho", desc: "Manutenção e configuração dos computadores da equipe." },
       { title: "Rede e conectividade", desc: "Estabilidade, segurança e organização da rede interna." },
@@ -460,12 +500,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Atendimento recorrente", desc: "Planos de acompanhamento sob consulta, conforme a necessidade." },
     ],
     sinais: [
-      "Computadores da equipe lentos ou instáveis",
+      "Estações de trabalho lentas ou instáveis",
+      "Falhas recorrentes que atrapalham a operação",
+      "Usuários sem acesso a arquivos, rede ou impressão",
       "Rede interna caindo e afetando o trabalho",
-      "Problemas frequentes de impressão",
-      "Falta de rotina de backup confiável",
-      "Ausência de manutenção preventiva",
-      "Necessidade de um técnico de confiança recorrente",
+      "Computadores sem manutenção preventiva",
+      "Necessidade de suporte remoto ou presencial recorrente",
     ],
     processo: PROCESSO_PADRAO,
     fatoresValor: [
@@ -480,7 +520,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       residencial:
         "Também atendemos profissionais autônomos e home office que dependem do computador para trabalhar, com o mesmo cuidado de diagnóstico e prevenção.",
       empresarial:
-        "Suporte a micro e pequenas empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou contrato recorrente sob consulta.",
+        "Suporte a micro e pequenas empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente sob consulta.",
     },
     faqs: [
       { question: "Vocês atendem empresas de qual porte?", answer: "Atendemos principalmente autônomos, escritórios e micro e pequenas empresas em Curitiba e região, de forma pontual ou recorrente." },
@@ -490,12 +530,13 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Resolvem problemas de rede e impressão?", answer: "Sim. Rede instável e problemas de impressão compartilhada estão entre os atendimentos mais comuns em empresas." },
     ],
     relacionados: [
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
-      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
-      ...LINKS_BASE,
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
-    dateModified: "2026-07-09",
+    dateModified: "2026-07-11",
   },
 };
 
@@ -510,14 +551,3 @@ export const SERVICOS_CORE_ORDER = [
   "redes-e-wifi",
   "suporte-tecnico-empresarial",
 ] as const;
-
-/** Slugs herdados que devem redirecionar para os canônicos desta rodada. */
-export const SERVICO_REDIRECTS: Record<string, string> = {
-  "/servicos/formatacao-computador": "/servicos/formatacao",
-  "/servicos/remocao-virus": "/servicos/remocao-de-virus",
-  "/servicos/upgrade-ssd-memoria": "/servicos/upgrade-ssd-ram",
-  "/servicos/redes-wifi": "/servicos/redes-e-wifi",
-  "/servicos/backup-recuperacao": "/servicos/recuperacao-de-dados",
-  "/servicos/conserto-pc-notebook": "/servicos/manutencao-de-computador",
-  "/servicos/conserto-notebook-curitiba": "/servicos/manutencao-de-notebook",
-};

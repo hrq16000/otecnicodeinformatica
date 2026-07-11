@@ -123,8 +123,8 @@ const hubSchema = {
   "@graph": [
     {
       "@type": "Service",
-      "name": "Empresa de TI em Curitiba — Suporte Técnico Empresarial",
-      "serviceType": "Suporte de TI e manutenção de informática para empresas",
+      "name": "Soluções de TI para empresas em Curitiba",
+      "serviceType": "Soluções e infraestrutura de informática para empresas",
       "provider": {
         "@type": "LocalBusiness",
         "name": siteConfig.brandName,

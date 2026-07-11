@@ -64,7 +64,7 @@ const DiagnosticoTecnico = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Diagnóstico Técnico: A Etapa Mais Importante de Qualquer Reparo
+                Diagnóstico técnico antes do reparo
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Antes de qualquer solução, é preciso entender o problema com precisão. Descubra por que o diagnóstico profissional é pago, como ele funciona e como evita prejuízos maiores.

@@ -99,8 +99,6 @@ export const HeroSection = () => {
               </Button>
             </div>
 
-            <HeroTrustBanner />
-
             <div className="mt-5 opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.7s_forwards]">
               <TechnicianAvailabilityInline />
             </div>

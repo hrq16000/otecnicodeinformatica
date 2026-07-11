@@ -25,6 +25,16 @@ import {
 } from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_MESSAGE = "Preciso avaliar coleta e entrega para um computador ou notebook.";
+
+const faqItems = [
+  { q: "Quais equipamentos podem usar a coleta e entrega?", a: "Computadores de mesa e notebooks que precisam de diagnóstico, manutenção ou reparo em bancada. É a modalidade indicada quando o serviço não pode ser concluído no local." },
+  { q: "Quando a coleta é mais adequada que o atendimento no local?", a: "Quando o caso exige bancada, ferramentas específicas ou tempo estendido de diagnóstico — por exemplo reparo de placa, troca de tela ou recuperação de dados." },
+  { q: "Como funciona o agendamento?", a: `Fazemos uma triagem pelo WhatsApp antes de agendar. Na coleta, identificamos o equipamento e registramos os acessórios recebidos. A taxa mínima pré-aprovada é de ${COLETA_TAXA_MINIMA_LABEL}.` },
+  { q: "O reparo é executado direto?", a: "Não. Após o recebimento fazemos o diagnóstico e a execução só acontece depois da sua aprovação do orçamento. Peças e componentes, quando necessários, ficam fora do valor-base." },
+  { q: "Qual o prazo?", a: `${PRAZOS[0].equipamentos}: ${PRAZOS[0].prazo}. ${PRAZOS[1].equipamentos}: ${PRAZOS[1].prazo}. O prazo depende do tipo de falha e da fila do laboratório.` },
+  { q: "E se eu desistir após o diagnóstico?", a: `Você paga apenas o valor do diagnóstico (${DIAGNOSTICO_VALOR_LABEL}) e agendamos a devolução do equipamento.` },
+];
 
 const ColetaEntrega = () => {
   useEffect(() => {

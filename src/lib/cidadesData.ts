@@ -63,12 +63,12 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "curitiba",
     cidade: "Curitiba",
     areaName: "Curitiba",
-    metaTitle: "Técnico de Informática em Curitiba | Notebook, PC e Redes",
+    metaTitle: "Técnico de Informática em Curitiba | PC e Notebook",
     metaDescription:
-      "Técnico de informática em Curitiba para notebook, PC, formatação, upgrade de SSD e redes. Atendimento a domicílio ou por coleta, com diagnóstico honesto via WhatsApp.",
+      "Atendimento técnico em Curitiba para computador, notebook, formatação, SSD, vírus, recuperação de dados, Wi-Fi e suporte para empresas.",
     eyebrow: "Atendimento em Curitiba",
-    h1: "Técnico em Curitiba para notebook, PC e informática",
-    h1Accent: "com diagnóstico honesto",
+    h1: "Técnico de informática em Curitiba para",
+    h1Accent: "PC e notebook",
     subtitulo:
       "Atendimento técnico em informática na capital paranaense, com triagem por WhatsApp, orçamento transparente e garantia sobre o serviço realizado.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Curitiba. Pode me orientar?",

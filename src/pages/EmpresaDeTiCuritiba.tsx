@@ -33,34 +33,34 @@ const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURI
 
 const servicos = [
   {
+    icon: ShieldCheck,
+    title: "Diagnóstico do ambiente",
+    desc: "Avaliamos como está a informática da empresa hoje — equipamentos, rede e rotinas — antes de propor qualquer solução.",
+  },
+  {
     icon: Server,
-    title: "Manutenção de estações de trabalho",
-    desc: "Diagnóstico, reparo e padronização dos computadores da equipe para reduzir travamentos e paradas.",
+    title: "Computadores e estações",
+    desc: "Organização, padronização básica e manutenção das estações de trabalho para reduzir travamentos e paradas.",
   },
   {
     icon: Network,
-    title: "Redes e Wi-Fi corporativo",
+    title: "Redes e Wi-Fi",
     desc: "Cabeamento, roteadores, repetidores e organização de rede para conexão estável em todo o escritório.",
   },
   {
     icon: HardDrive,
-    title: "Backup e proteção de dados",
-    desc: "Rotinas de backup testadas para evitar perda de arquivos, notas e sistemas em caso de falha.",
+    title: "Manutenção preventiva",
+    desc: "Rotinas para antecipar falhas e reduzir surpresas, no formato pontual ou recorrente sob consulta.",
   },
   {
     icon: Printer,
-    title: "Impressoras e periféricos",
-    desc: "Instalação, compartilhamento e suporte a impressoras, scanners e demais periféricos da empresa.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Remoção de vírus e segurança",
-    desc: "Limpeza de malware, hardening básico e orientação contra golpes e sequestro de dados.",
+    title: "Suporte remoto e presencial",
+    desc: "Atendimento remoto para ajustes do dia a dia e presencial quando a situação exige avaliação no local.",
   },
   {
     icon: Building2,
-    title: "Suporte pontual ou recorrente",
-    desc: "Atendimento sob demanda ou manutenção preventiva programada, conforme o porte da operação.",
+    title: "Orientação de melhoria",
+    desc: "Ajudamos a organizar as necessidades técnicas e orientamos sobre substituição ou melhoria de equipamentos.",
   },
 ];
 

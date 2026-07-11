@@ -104,7 +104,7 @@ const ColetaEntrega = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Coleta e Entrega de Equipamentos em Curitiba
+                Coleta e entrega agendada para equipamentos de informática
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Não pode trazer seu equipamento? Nós buscamos na sua casa ou empresa, realizamos o serviço em laboratório e devolvemos funcionando. Comodidade total com segurança.

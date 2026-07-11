@@ -82,6 +82,53 @@ const LOCAIS = [
   { slug: "agua-verde", nome: "Água Verde", kind: "bairro", cidadeMae: "Curitiba" },
 ];
 
+// === CFTV (câmeras de segurança) — espelha src/pages/cftv/* ===
+// Hub /cftv + 7 páginas locais = 8 rotas. Todas noindex,follow (fora do sitemap).
+const CFTV_ROUTES = [
+  {
+    path: "/cftv", city: "Curitiba e Região", hub: true,
+    title: "Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350",
+    description: "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/curitiba", city: "Curitiba",
+    title: "Câmeras de Segurança em Curitiba | Kit 4 Câmeras Intelbras R$ 1.350 | Instalação Profissional",
+    description: "Instalação de câmeras de segurança Intelbras em Curitiba. Kit 4 câmeras com DVR, HD e acesso remoto por R$ 1.350. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/sao-jose-dos-pinhais", city: "São José dos Pinhais",
+    title: "Câmeras de Segurança em São José dos Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em São José dos Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/litoral", city: "Litoral do Paraná",
+    title: "Câmeras de Segurança no Litoral do PR | Itapoá e Guaratuba | Kit Intelbras R$ 1.350",
+    description: "Instalação de câmeras de segurança no Litoral do Paraná: Itapoá, Guaratuba e região. Kit 4 câmeras Intelbras com acesso remoto. R$ 1.350. WhatsApp.",
+  },
+  {
+    path: "/cftv/guaratuba", city: "Guaratuba",
+    title: "Câmeras de Segurança em Guaratuba | Kit 4 Câmeras Intelbras R$ 1.350 | Instalação Profissional",
+    description: "Kit 4 câmeras Intelbras com instalação em Guaratuba. Monitore sua casa de praia pelo celular de qualquer lugar. R$ 1.350 completo. WhatsApp.",
+  },
+  {
+    path: "/cftv/araucaria", city: "Araucária",
+    title: "Câmeras de Segurança em Araucária | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Araucária. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/campo-largo", city: "Campo Largo",
+    title: "Câmeras de Segurança em Campo Largo | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+  {
+    path: "/cftv/pinhais", city: "Pinhais",
+    title: "Câmeras de Segurança em Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+  },
+];
+
+
+
 function htmlEscape(s) {
   return String(s)
     .replace(/&/g, "&amp;")

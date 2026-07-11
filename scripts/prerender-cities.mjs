@@ -289,10 +289,37 @@ export async function prerenderCities(distDir) {
         description: meta.description,
         url: meta.url,
       };
-      const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd });
+      const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
       await writePage(distDir, meta.path, html);
       written++;
     }
+  }
+
+  // --- CFTV (câmeras de segurança) — família legada adjacente ao núcleo ---
+  // As rotas /cftv e /cftv/<local> não tinham HTML estático próprio e caíam no
+  // fallback do index.html (robots + canonical da home). Geramos HTML estático
+  // self-referente com noindex,follow. Fora de todos os sitemaps.
+  for (const r of CFTV_ROUTES) {
+    const url = `${SITE}${r.path}`;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Instalação de Câmeras de Segurança em ${r.city}`,
+      serviceType: "Instalação de CFTV e câmeras de segurança",
+      provider: { "@type": "Organization", name: "Mileuma Soluções / Mestre dos Serviços" },
+      areaServed: r.hub
+        ? { "@type": "AdministrativeArea", name: "Curitiba e Região Metropolitana" }
+        : { "@type": "City", name: r.city },
+      offers: { "@type": "Offer", price: "1350.00", priceCurrency: "BRL", availability: "https://schema.org/InStock", url },
+      description: r.description,
+      url,
+    };
+    const html = injectMeta(baseHtml, {
+      path: r.path, url, title: r.title, description: r.description,
+      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+    });
+    await writePage(distDir, r.path, html);
+    written++;
   }
 
   // eslint-disable-next-line no-console

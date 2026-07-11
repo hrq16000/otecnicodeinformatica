@@ -17,6 +17,18 @@ const trustChips = [
   "Atendimento local e direto",
 ];
 
+// Links diretos para os 8 serviços + hub — distribui a navegação a partir da home.
+const SERVICE_LINKS: Array<{ label: string; to: string }> = [
+  { label: "Formatação", to: "/servicos/formatacao" },
+  { label: "Manutenção de PC", to: "/servicos/manutencao-de-computador" },
+  { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+  { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+  { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
+  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+  { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+  { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+];
+
 const AUTOPLAY_MS = 6500;
 
 /**

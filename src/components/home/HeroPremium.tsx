@@ -174,6 +174,10 @@ export const HeroPremium = () => {
               </li>
             ))}
           </ul>
+
+          <div className="mt-7 max-w-lg">
+            <HeroTrustBanner />
+          </div>
         </div>
       </div>
 

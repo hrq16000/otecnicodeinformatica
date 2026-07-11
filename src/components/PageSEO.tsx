@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 
-const SITE_NAME = "Técnico Curitiba";
+const SITE_NAME = "Técnico em Curitiba";
 const BASE_URL = "https://tecnico.curitiba.br";
 const DEFAULT_OG_IMAGE = "https://tecnico.curitiba.br/og-image.png";
 

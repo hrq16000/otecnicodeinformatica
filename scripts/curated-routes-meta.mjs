@@ -47,7 +47,7 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/redes-e-wifi",
-    "title": "Redes e Wi-Fi em Curitiba | Instalação e Configuração | Técnico em Curitiba",
+    "title": "Redes e Wi-Fi em Curitiba | Instalação e Configuração",
     "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp."
   },
   {

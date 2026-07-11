@@ -56,6 +56,8 @@ const ConsertoTVHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").th
 const ConsertoSomHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoSomHub })));
 const ConsertoVideogameHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoVideogameHub })));
 const ConsertoCelularLocalHub = lazy(() => import("./pages/hubs/CategoryLocalTemplate").then(m => ({ default: m.ConsertoCelularLocalHub })));
+// Hub SEO — Empresa de TI em Curitiba
+const EmpresaDeTiCuritiba = lazy(() => import("./pages/EmpresaDeTiCuritiba"));
 
 // Bairros Curitiba
 const Centro = lazy(() => import("./pages/bairros/Centro"));
@@ -457,6 +459,7 @@ const App = () => (
             <Route path="/arrumar-pc/servico/:servico/:cidade" element={<ArrumarPCServicoCidade />} />
             <Route path="/arrumar-pc/:cidade" element={<ArrumarPCCity />} />
             <Route path="/suporte-empresas" element={<Navigate to="/servicos/suporte-tecnico-empresarial" replace />} />
+            <Route path="/empresa-de-ti-curitiba" element={<EmpresaDeTiCuritiba />} />
             <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
             <Route path="/valores" element={<PrecosEPoliticas />} />
             

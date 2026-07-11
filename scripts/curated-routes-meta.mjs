@@ -22,13 +22,13 @@ export const CURATED_ROUTES = [
   },
   {
     "path": "/servicos/manutencao-de-notebook",
-    "title": "Manutenção de Notebook em Curitiba | Técnico em Curitiba",
-    "description": "Manutenção de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Diagnóstico antes do orçamento. Atendimento via WhatsApp."
+    "title": "Assistência Técnica de Notebook em Curitiba | Manutenção",
+    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp."
   },
   {
     "path": "/servicos/manutencao-de-computador",
-    "title": "Manutenção de Computador (PC Desktop) em Curitiba | Técnico em Curitiba",
-    "description": "Manutenção de computador de mesa em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Diagnóstico honesto antes do orçamento. Atendimento via WhatsApp."
+    "title": "Assistência Técnica de Computador em Curitiba | PC",
+    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp."
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
@@ -109,5 +109,35 @@ export const CURATED_ROUTES = [
     "path": "/tecnico-informatica-campo-largo",
     "title": "Técnico em Campo Largo para Notebook, PC e Redes | Técnico em Curitiba",
     "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
+  },
+  {
+    "path": "/empresa-de-ti-curitiba",
+    "title": "Empresa de TI em Curitiba | Suporte Técnico para Empresas",
+    "description": "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp."
+  },
+  {
+    "path": "/bairros/cic",
+    "title": "Técnico de Informática no CIC (Curitiba) | Notebook e PC",
+    "description": "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+  },
+  {
+    "path": "/bairros/batel",
+    "title": "Técnico de Informática no Batel (Curitiba) | Notebook e PC",
+    "description": "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+  },
+  {
+    "path": "/bairros/agua-verde",
+    "title": "Técnico de Informática no Água Verde (Curitiba) | Notebook e PC",
+    "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+  },
+  {
+    "path": "/bairros/centro",
+    "title": "Técnico de Informática no Centro de Curitiba | Notebook e PC",
+    "description": "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+  },
+  {
+    "path": "/bairros/portao",
+    "title": "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
+    "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Atendimento a domicílio a partir de R$ 99,99. Via WhatsApp."
   }
 ];

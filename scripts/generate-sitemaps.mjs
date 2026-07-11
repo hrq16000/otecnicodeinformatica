@@ -50,6 +50,21 @@ const REGIOES = [
   "/tecnico-informatica-campo-largo",
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.7" }));
 
+// Bairros âncora INDEXÁVEIS — conteúdo único ≥300 palavras, notebook/PC.
+// (política de poda: só entram bairros com conteúdo exclusivo real).
+const BAIRROS = [
+  "/bairros/cic",
+  "/bairros/batel",
+  "/bairros/agua-verde",
+  "/bairros/centro",
+  "/bairros/portao",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.65" }));
+
+// Hubs de SEO temáticos (empresa de TI, etc.).
+const HUBS = [
+  "/empresa-de-ti-curitiba",
+].map((path) => ({ path, changefreq: "weekly", priority: "0.8" }));
+
 function buildUrlset(entries) {
   const urls = entries
     .map(
@@ -64,16 +79,17 @@ const EMPTY_URLSET = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="htt
 
 // Sub-sitemaps ativos.
 const active = [
-  ["sitemap-main.xml", MAIN],
+  ["sitemap-main.xml", [...MAIN, ...HUBS]],
   ["sitemap-servicos.xml", SERVICOS],
   ["sitemap-regioes.xml", REGIOES],
+  ["sitemap-bairros.xml", BAIRROS],
 ];
 for (const [name, entries] of active) {
   writeFileSync(resolve("public", name), buildUrlset(entries));
 }
 
 // Zera sub-sitemaps herdados para parar de servir conteúdo thin/duplicado.
-for (const name of ["sitemap-bairros.xml", "sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"]) {
+for (const name of ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"]) {
   writeFileSync(resolve("public", name), EMPTY_URLSET);
 }
 

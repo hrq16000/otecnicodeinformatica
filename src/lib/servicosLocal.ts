@@ -17,8 +17,12 @@ export interface ServicoLocalData {
 // Regiões âncora reutilizadas (bairros indexáveis + cidades da RMC).
 const REGIOES = [
   { label: "Técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+  { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
   { label: "Técnico no Batel", to: "/bairros/batel" },
   { label: "Técnico no CIC", to: "/bairros/cic" },
+  { label: "Técnico no Água Verde", to: "/bairros/agua-verde" },
+  { label: "Técnico no Centro", to: "/bairros/centro" },
+  { label: "Técnico no Portão", to: "/bairros/portao" },
   { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
   { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
   { label: "Colombo", to: "/tecnico-informatica-colombo" },
@@ -74,10 +78,18 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
           "Os serviços mais procurados são limpeza interna com troca de pasta térmica (para notebook que esquenta e desliga sozinho), troca de tela e dobradiça, substituição de teclado e bateria, e upgrade de SSD e memória para ganho de desempenho. Reparos de bancada, como conserto de placa, têm prazo e valor informados antes de retirar o equipamento.",
         ],
       },
+      {
+        titulo: "Assistência técnica de notebook: marcas, defeitos e como funciona",
+        paragrafos: [
+          "Quando alguém procura assistência técnica de notebook, quase sempre está diante de um destes cenários: notebook que não liga, tela apagada ou trincada, aquecimento com desligamento, lentidão extrema, teclado falhando ou bateria que não segura carga. Cada sintoma tem uma causa provável diferente, e é por isso que começamos sempre pelo diagnóstico técnico antes de falar em preço ou peça.",
+          "Trabalhamos com as principais marcas de notebook do mercado brasileiro — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — em modelos de uso doméstico, estudo e trabalho. O fluxo é simples e transparente: você descreve o problema pelo WhatsApp, avaliamos o equipamento, explicamos o que foi encontrado em linguagem clara e só executamos o serviço depois da sua aprovação. Assim a assistência técnica sai sem surpresa no valor final.",
+        ],
+      },
     ],
     faqsLocais: [
       { question: "Onde consertar meu notebook em Curitiba?", answer: "Atendemos toda Curitiba e região metropolitana em domicílio ou por coleta e entrega. Basta descrever o problema pelo WhatsApp que orientamos o próximo passo e o formato de atendimento ideal." },
       { question: "Quanto custa a assistência técnica de notebook em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99. O valor final depende do modelo do notebook, da peça necessária (tela, teclado, bateria, dobradiça) e da complexidade do reparo. Você só aprova depois de saber o valor." },
+      { question: "Qual assistência técnica de notebook atende a minha marca?", answer: "Atendemos as principais marcas do mercado — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — para os defeitos mais comuns de tela, teclado, bateria, aquecimento e desempenho. Modelos e peças específicas são confirmados no diagnóstico." },
       { question: "O conserto de notebook é feito no mesmo dia?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem no mesmo dia. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo no orçamento." },
     ],
     linksLocais: [
@@ -106,10 +118,18 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
           "Já travamentos, desligamentos por temperatura e telas azuis costumam indicar hardware pedindo atenção: limpeza interna, revisão da refrigeração, teste de fonte e memória. Em Curitiba, esse tipo de manutenção preventiva evita que um problema pequeno vire prejuízo maior.",
         ],
       },
+      {
+        titulo: "Assistência técnica de computador para casa e empresa",
+        paragrafos: [
+          "Quem procura assistência técnica de computador normalmente convive com PC que não liga, reinícios sozinho, tela azul, lentidão que atrapalha o trabalho ou barulho e superaquecimento. Em desktop, a boa notícia é que quase todo componente pode ser testado e substituído de forma isolada — fonte, memória, SSD/HD, placa de vídeo e placa-mãe — o que torna o reparo mais econômico do que em notebook, desde que o diagnóstico seja bem feito.",
+          "Atendemos assistência técnica de computador tanto para uso doméstico quanto para empresas de Curitiba e região, com montagem, upgrade e manutenção preventiva. Você aprova o orçamento antes de qualquer intervenção, e priorizamos sempre a solução com melhor custo-benefício: às vezes um upgrade de SSD resolve o que parecia exigir uma máquina nova.",
+        ],
+      },
     ],
     faqsLocais: [
       { question: "Vocês fazem manutenção de computador a domicílio em Curitiba?", answer: "Sim. Atendemos em domicílio em Curitiba e região com horário agendado, e também por coleta e entrega quando o reparo exige bancada." },
       { question: "Meu PC vive travando em Curitiba, o que pode ser?", answer: "Travamentos costumam estar ligados a superaquecimento, fonte instável, memória ou software. Fazemos o diagnóstico para identificar a causa correta antes de qualquer orçamento." },
+      { question: "A assistência técnica de computador atende empresas?", answer: "Sim. Atendemos residências e também empresas, com manutenção de estações de trabalho, rede, impressoras e rotinas de backup, de forma pontual ou recorrente sob consulta." },
       { question: "Quanto custa a manutenção de computador em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99 e o valor final depende do componente afetado e da necessidade de peça. Nada é executado sem a sua aprovação." },
     ],
     linksLocais: [

@@ -1,0 +1,388 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { PageSEO } from "@/components/PageSEO";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/siteConfig";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import {
+  MessageCircle,
+  Building2,
+  Server,
+  ShieldCheck,
+  Network,
+  Printer,
+  HardDrive,
+  MapPin,
+  CheckCircle,
+  ArrowRight,
+} from "lucide-react";
+
+const PATH = "/empresa-de-ti-curitiba";
+const TITLE = "Empresa de TI em Curitiba | Suporte Técnico para Empresas";
+const DESCRIPTION =
+  "Empresa de TI em Curitiba para suporte técnico empresarial, manutenção de computadores, redes, servidores e backup. Atendimento pontual ou recorrente sob consulta via WhatsApp.";
+
+const whatsappMessage =
+  "Olá! Preciso de suporte de TI para minha empresa em Curitiba. Podem avaliar?";
+const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const servicos = [
+  {
+    icon: Server,
+    title: "Manutenção de estações de trabalho",
+    desc: "Diagnóstico, reparo e padronização dos computadores da equipe para reduzir travamentos e paradas.",
+  },
+  {
+    icon: Network,
+    title: "Redes e Wi-Fi corporativo",
+    desc: "Cabeamento, roteadores, repetidores e organização de rede para conexão estável em todo o escritório.",
+  },
+  {
+    icon: HardDrive,
+    title: "Backup e proteção de dados",
+    desc: "Rotinas de backup testadas para evitar perda de arquivos, notas e sistemas em caso de falha.",
+  },
+  {
+    icon: Printer,
+    title: "Impressoras e periféricos",
+    desc: "Instalação, compartilhamento e suporte a impressoras, scanners e demais periféricos da empresa.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Remoção de vírus e segurança",
+    desc: "Limpeza de malware, hardening básico e orientação contra golpes e sequestro de dados.",
+  },
+  {
+    icon: Building2,
+    title: "Suporte pontual ou recorrente",
+    desc: "Atendimento sob demanda ou manutenção preventiva programada, conforme o porte da operação.",
+  },
+];
+
+const bairros = [
+  { label: "Batel", to: "/bairros/batel" },
+  { label: "CIC", to: "/bairros/cic" },
+  { label: "Água Verde", to: "/bairros/agua-verde" },
+  { label: "Centro", to: "/bairros/centro" },
+  { label: "Portão", to: "/bairros/portao" },
+];
+
+const cidades = [
+  { label: "Curitiba", to: "/tecnico-informatica-curitiba" },
+  { label: "São José dos Pinhais", to: "/tecnico-informatica-sao-jose-pinhais" },
+  { label: "Pinhais", to: "/tecnico-informatica-pinhais" },
+  { label: "Colombo", to: "/tecnico-informatica-colombo" },
+  { label: "Araucária", to: "/tecnico-informatica-araucaria" },
+  { label: "Campo Largo", to: "/tecnico-informatica-campo-largo" },
+];
+
+const relacionados = [
+  { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+  { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+  { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+  { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+];
+
+const faqs = [
+  {
+    question: "O que faz uma empresa de TI em Curitiba?",
+    answer:
+      "Cuida da parte de tecnologia do seu negócio: manutenção de computadores e notebooks, rede e Wi-Fi, servidores locais, impressoras, backup de dados e segurança. O objetivo é manter a operação funcionando com o mínimo de paradas.",
+  },
+  {
+    question: "Vocês atendem suporte de TI recorrente ou só emergência?",
+    answer:
+      "Os dois. Atendemos chamados pontuais quando algo para de funcionar e também manutenção preventiva recorrente sob consulta, que costuma sair mais barato do que resolver tudo no modo emergência.",
+  },
+  {
+    question: "Atendem empresas de qual porte?",
+    answer:
+      "Trabalhamos com autônomos, escritórios, comércios e pequenas e médias empresas de Curitiba e região metropolitana. O escopo é adequado ao número de máquinas e à complexidade da rede.",
+  },
+  {
+    question: "Como funciona o orçamento do suporte de TI?",
+    answer:
+      "Começa com uma avaliação para entender o ambiente e a demanda. A partir daí apresentamos o orçamento, que só é executado após a sua aprovação. O diagnóstico começa a partir de " +
+      siteConfig.minPriceLabel + ".",
+  },
+  {
+    question: "Vocês atendem no local da empresa?",
+    answer:
+      "Sim, atendemos presencialmente em Curitiba e região, e também remotamente para ajustes que não exigem visita. Reparos de bancada podem usar coleta e entrega.",
+  },
+];
+
+const hubSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Empresa de TI em Curitiba — Suporte Técnico Empresarial",
+      "serviceType": "Suporte de TI e manutenção de informática para empresas",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": siteConfig.brandName,
+        "telephone": siteConfig.phoneE164,
+        "areaServed": siteConfig.serviceArea.map((name) => ({ "@type": "Place", name })),
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "addressCountry": "BR",
+        },
+      },
+      "areaServed": { "@type": "City", "name": "Curitiba" },
+      "url": `${siteConfig.baseUrl}${PATH}`,
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+      })),
+    },
+  ],
+};
+
+const EmpresaDeTiCuritiba = () => {
+  useEffect(() => {
+    trackPageView(PATH, "Empresa de TI em Curitiba");
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <PageSEO
+        title={TITLE}
+        description={DESCRIPTION}
+        path={PATH}
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Empresa de TI em Curitiba", path: PATH },
+        ]}
+      />
+      <JsonLdSchema />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubSchema) }}
+      />
+      <Header />
+      <Breadcrumbs items={[{ label: "Empresa de TI em Curitiba" }]} />
+
+      <main>
+        {/* ═══ HERO ═══ */}
+        <section className="relative pt-10 pb-10 md:pt-14 md:pb-14 overflow-hidden hero-gradient">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-breathe" />
+            <div className="absolute bottom-1/3 left-1/5 w-56 h-56 bg-primary/8 rounded-full blur-[80px] animate-breathe" style={{ animationDelay: "2s" }} />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
+                <Building2 className="h-4 w-4" />
+                <span className="font-medium text-sm">Suporte de TI para empresas • Curitiba e região</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+                Empresa de TI em Curitiba para suporte técnico do seu negócio
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Manutenção de computadores, redes, servidores, impressoras e backup — com
+                diagnóstico honesto e orçamento aprovado antes de qualquer serviço.
+              </p>
+              <div className="flex justify-center">
+                <Button
+                  variant="heroWhatsapp"
+                  size="lg"
+                  className="text-base md:text-lg px-8 hover:scale-105 transition-transform"
+                  asChild
+                  onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_hero")}
+                >
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" />
+                    Falar com suporte de TI
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ Intro ═══ */}
+        <AnimatedSection>
+          <section className="py-12 md:py-14 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="mx-auto max-w-3xl space-y-4">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+                  Suporte de TI empresarial em Curitiba, sem complicação
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Empresa parada por causa de computador travando, rede caindo ou impressora
+                  fora do ar é prejuízo direto. Atuamos como a TI de apoio de escritórios,
+                  comércios e pequenas e médias empresas em Curitiba e na Região Metropolitana,
+                  resolvendo o dia a dia da tecnologia com clareza e transparência.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  O trabalho começa sempre pelo diagnóstico: entender o ambiente, os equipamentos
+                  e a real necessidade antes de propor qualquer solução. Você aprova o orçamento
+                  antes da execução e escolhe entre atendimento pontual ou manutenção preventiva
+                  recorrente sob consulta.
+                </p>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* ═══ Serviços ═══ */}
+        <AnimatedSection>
+          <section className="py-12 md:py-14 bg-secondary">
+            <div className="container mx-auto px-4">
+              <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
+                O que a nossa TI resolve para a sua empresa
+              </h2>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+                {servicos.map((s) => (
+                  <div key={s.title} className="rounded-xl border border-border bg-card p-6 shadow-[var(--shadow-sm)]">
+                    <s.icon className="h-8 w-8 text-accent mb-3" />
+                    <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
+        <AnimatedSection>
+          <section className="py-12 md:py-14 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="mx-auto max-w-4xl">
+                <h2 className="mb-2 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
+                  Atendimento de TI em Curitiba e Região Metropolitana
+                </h2>
+                <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
+                  Atendemos empresas nos principais bairros de Curitiba e nas cidades da RMC.
+                  Escolha a sua região:
+                </p>
+
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Bairros de Curitiba
+                </h3>
+                <div className="mb-8 flex flex-wrap gap-3">
+                  {bairros.map((b) => (
+                    <Link
+                      key={b.to}
+                      to={b.to}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <MapPin className="h-4 w-4" />
+                      {b.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Cidades da Região Metropolitana
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {cidades.map((c) => (
+                    <Link
+                      key={c.to}
+                      to={c.to}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <MapPin className="h-4 w-4" />
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* ═══ Serviços relacionados ═══ */}
+        <AnimatedSection>
+          <section className="py-10 bg-secondary">
+            <div className="container mx-auto px-4">
+              <h2 className="mb-5 text-center text-xl font-heading font-bold text-foreground">
+                Serviços relacionados
+              </h2>
+              <div className="flex flex-wrap justify-center gap-3">
+                {relacionados.map((r) => (
+                  <Link
+                    key={r.to}
+                    to={r.to}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-5 py-2.5 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                  >
+                    {r.label}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* ═══ FAQ ═══ */}
+        <AnimatedSection>
+          <section className="py-14 md:py-16 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="mx-auto max-w-3xl">
+                <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
+                  Perguntas frequentes sobre TI para empresas
+                </h2>
+                <div className="space-y-4">
+                  {faqs.map((f) => (
+                    <div key={f.question} className="rounded-xl border border-border bg-card p-6">
+                      <h3 className="mb-2 flex items-start gap-2 text-lg font-bold text-foreground">
+                        <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
+                        {f.question}
+                      </h3>
+                      <p className="pl-7 text-muted-foreground leading-relaxed">{f.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* ═══ CTA final ═══ */}
+        <section className="py-14 bg-secondary">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-4 text-2xl md:text-3xl font-heading font-bold text-foreground">
+              Precisa de uma empresa de TI de confiança em Curitiba?
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">
+              Fale pelo WhatsApp, descreva a necessidade da sua empresa e receba uma avaliação
+              com orçamento transparente.
+            </p>
+            <Button
+              variant="whatsapp"
+              size="lg"
+              className="px-8 hover:scale-105 transition-transform"
+              asChild
+              onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_footer")}
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5" />
+                Solicitar avaliação de TI
+              </a>
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default EmpresaDeTiCuritiba;

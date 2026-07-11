@@ -49,6 +49,8 @@ interface BairroData {
   conteudoExclusivo?: string;
   problemasComuns?: string[];
   dicasLocais?: string;
+  /** Quando true, o bairro é âncora indexável (conteúdo único ≥300 palavras) */
+  indexavel?: boolean;
 }
 
 interface BairroTemplateProps {

@@ -33,7 +33,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   formatacao: {
     path: "formatacao",
     trackingKey: "formatacao",
-    metaTitle: "Formatação de Computador e Notebook em Curitiba | Técnico em Curitiba",
+    metaTitle: "Formatação de PC e Notebook em Curitiba | Técnico",
     metaDescription:
       "Formatação de PC e notebook em Curitiba com backup, Windows original, drivers e programas essenciais. Diagnóstico a partir de R$ 99,99. Atendimento via WhatsApp.",
     serviceName: "Formatação de Computador e Notebook",
@@ -149,7 +149,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "manutencao-de-computador": {
     path: "manutencao-de-computador",
     trackingKey: "manutencao-computador",
-    metaTitle: "Manutenção de Computador (PC Desktop) em Curitiba | Técnico em Curitiba",
+    metaTitle: "Manutenção de Computador (Desktop) em Curitiba | Técnico",
     metaDescription:
       "Manutenção de computador de mesa em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Diagnóstico honesto antes do orçamento. Atendimento via WhatsApp.",
     serviceName: "Manutenção de Computador (Desktop)",
@@ -323,7 +323,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "recuperacao-de-dados": {
     path: "recuperacao-de-dados",
     trackingKey: "recuperacao-dados",
-    metaTitle: "Recuperação de Dados em Curitiba | HD, SSD e Pendrive | Técnico em Curitiba",
+    metaTitle: "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
     metaDescription:
       "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas. Avaliação primeiro — recuperação não é garantida.",
     serviceName: "Recuperação de Dados",
@@ -381,7 +381,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "redes-e-wifi": {
     path: "redes-e-wifi",
     trackingKey: "redes-wifi",
-    metaTitle: "Redes e Wi-Fi em Curitiba | Instalação e Configuração | Técnico em Curitiba",
+    metaTitle: "Redes e Wi-Fi em Curitiba | Instalação e Configuração",
     metaDescription:
       "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp.",
     serviceName: "Redes e Wi-Fi",

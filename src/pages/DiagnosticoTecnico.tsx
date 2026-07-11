@@ -22,22 +22,22 @@ const WHATSAPP_NUMBER = "5541997086380";
 
 const DiagnosticoTecnico = () => {
   useEffect(() => {
-    document.title = "Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona";
+    document.title = "Diagnóstico Técnico de Computador e Notebook em Curitiba";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba."
+        "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento."
       );
     }
     trackPageView("/diagnostico-tecnico", "Diagnóstico Técnico");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso de um diagnóstico técnico para meu equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Preciso solicitar um diagnóstico técnico para meu equipamento.")}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `diagnostico-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Diagnóstico Técnico em Curitiba | Por Que É Essencial e Como Funciona" description="Entenda por que o diagnóstico técnico profissional é essencial antes de qualquer reparo. Evite prejuízos e saiba como funciona o diagnóstico de computadores, notebooks e TVs em Curitiba." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
+      <PageSEO title="Diagnóstico Técnico de Computador e Notebook em Curitiba" description="Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",

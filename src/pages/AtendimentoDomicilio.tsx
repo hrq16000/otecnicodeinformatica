@@ -13,10 +13,10 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle } from "lucide-react";
+import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle, Truck, AlertTriangle, ArrowRight, Camera } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997086380";
-const WHATSAPP_MESSAGE = "Olá! Preciso de atendimento técnico em domicílio.";
+const WHATSAPP_MESSAGE = "Preciso verificar a possibilidade de atendimento técnico em domicílio.";
 
 const benefits = [
   {

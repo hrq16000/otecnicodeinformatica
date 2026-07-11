@@ -189,6 +189,24 @@ export async function prerenderCities(distDir) {
   }
   console.log(`[prerender-cities] wrote ${curated} curated per-route index.html files`);
 
+  // --- /valores (alias de /precos-e-politicas) ---
+  // Rota alias sem HTML próprio: o fallback dist/index.html entregava o canonical
+  // da home para crawlers sem JS. Geramos dist/valores/index.html reaproveitando
+  // os metadados oficiais de /precos-e-politicas e forçando canonical + og:url
+  // para a URL canônica /precos-e-politicas (nunca a home). Fora de todos os
+  // sitemaps — apenas HTML estático para corrigir o canonical pré-hidratação.
+  const precos = CURATED_ROUTES.find((r) => r.path === "/precos-e-politicas");
+  if (precos) {
+    const precosUrl = `${SITE}/precos-e-politicas`;
+    const html = injectCuratedMeta(baseHtml, precosUrl, precos.title, precos.description);
+    await writePage(distDir, "/valores", html);
+    console.log(`[prerender-cities] wrote /valores alias -> canonical ${precosUrl}`);
+  } else {
+    console.warn("[prerender-cities] /precos-e-politicas ausente em CURATED_ROUTES; /valores não gerado");
+  }
+
+
+
 
 
   // --- arrumar-pc cities ---

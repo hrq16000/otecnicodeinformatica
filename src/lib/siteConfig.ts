@@ -23,11 +23,16 @@ export const siteConfig = {
     return this.baseUrl;
   },
 
-  // SEO base
+  // SEO base (marca institucional — usado como fallback/schema em outras páginas)
   defaultTitle:
     "Técnico em Curitiba | Informática, Notebook, PC e Suporte Empresarial",
   defaultDescription:
     "Técnico em Curitiba para notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto via WhatsApp.",
+  // SEO da home (marca + conversão + roteamento — não disputa a intenção da landing local)
+  homeTitle:
+    "Técnico em Curitiba | PC, Notebook, Wi-Fi e Suporte Empresarial",
+  homeDescription:
+    "Diagnóstico, manutenção e suporte para computadores, notebooks, redes e empresas em Curitiba. Escolha o serviço e continue pelo WhatsApp.",
   defaultOgImage: "https://tecnico.curitiba.br/og-image.png",
 
   // Contato — número NUNCA exibido como texto; só em wa.me / JSON-LD.

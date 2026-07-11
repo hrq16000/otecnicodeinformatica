@@ -16,17 +16,17 @@ const SectionFallback = ({ height = "480px" }: { height?: string }) => (
 
 const Index = () => {
   useEffect(() => {
-    document.title = siteConfig.defaultTitle;
+    document.title = siteConfig.homeTitle;
     const setMeta = (selector: string, attr: string, value: string) => {
       const el = document.querySelector<HTMLMetaElement>(selector);
       if (el) el.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', "content", siteConfig.defaultDescription);
+    setMeta('meta[name="description"]', "content", siteConfig.homeDescription);
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `${siteConfig.baseUrl}/`;
     setMeta('meta[property="og:url"]', "content", `${siteConfig.baseUrl}/`);
-    setMeta('meta[property="og:title"]', "content", siteConfig.defaultTitle);
-    setMeta('meta[property="og:description"]', "content", siteConfig.defaultDescription);
+    setMeta('meta[property="og:title"]', "content", siteConfig.homeTitle);
+    setMeta('meta[property="og:description"]', "content", siteConfig.homeDescription);
 
     const id = window.setTimeout(() => {
       import("@/lib/analytics").then(({ trackPageView }) => trackPageView("/", "Home"));

@@ -149,9 +149,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "manutencao-de-computador": {
     path: "manutencao-de-computador",
     trackingKey: "manutencao-computador",
-    metaTitle: "Manutenção de Computador (Desktop) em Curitiba | Técnico",
+    metaTitle: "Assistência Técnica de Computador em Curitiba | PC",
     metaDescription:
-      "Manutenção de computador de mesa em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Diagnóstico honesto antes do orçamento. Atendimento via WhatsApp.",
+      "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp.",
     serviceName: "Manutenção de Computador (Desktop)",
     serviceDescription:
       "Diagnóstico e manutenção de PCs desktop: fonte, memória, armazenamento, placa-mãe, travamentos e limpeza, com atendimento em Curitiba e região.",

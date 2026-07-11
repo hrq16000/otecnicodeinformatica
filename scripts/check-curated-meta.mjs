@@ -501,6 +501,8 @@ if (existsSync(distDir)) {
       const h1c = (h.match(/<h1[\s>]/gi) || []).length;
       if (h1c !== 1) fail(`Onda 2D ${p}: esperado exatamente 1 <h1> (achou ${h1c})`);
     }
+  }
+}
 
 // ── 13. Onda 2E · anti-doorway das 6 cidades + 5 bairros curados ───────
 // Fatos objetivos: HTML próprio index/follow self-canonical (já validado

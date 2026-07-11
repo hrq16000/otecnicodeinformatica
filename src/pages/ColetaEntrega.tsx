@@ -89,12 +89,10 @@ const ColetaEntrega = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: [
-          { "@type": "Question", name: "Quando preciso de Coleta e Entrega?", acceptedAnswer: { "@type": "Answer", text: "Sempre que o equipamento não liga, desliga sozinho, tem tela quebrada, molhou ou precisa de reparo em placa. Esses casos exigem bancada com microscópio e estação de retrabalho." } },
-          { "@type": "Question", name: "Qual o valor mínimo?", acceptedAnswer: { "@type": "Answer", text: "R$ 300 (já com diagnóstico incluso). Acima disso, faixa pré-aprovada até R$ 500. Reparos acima de R$ 500 só com autorização explícita do cliente." } },
-          { "@type": "Question", name: "E se eu desistir após o diagnóstico?", acceptedAnswer: { "@type": "Answer", text: "Paga apenas R$ 90 e devolvemos o equipamento. Sem multa, sem surpresa." } },
-          { "@type": "Question", name: "Qual o prazo?", acceptedAnswer: { "@type": "Answer", text: "Computadores e notebooks: 3 a 7 dias úteis. TVs e consoles: 5 a 10 dias úteis dependendo da complexidade e disponibilidade de peças." } },
-        ],
+        mainEntity: faqItems.map((f) => ({
+          "@type": "Question", name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       })}} />
       <JsonLdSchema />
       <Header />

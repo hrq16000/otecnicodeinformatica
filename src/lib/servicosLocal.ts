@@ -78,10 +78,18 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
           "Os serviços mais procurados são limpeza interna com troca de pasta térmica (para notebook que esquenta e desliga sozinho), troca de tela e dobradiça, substituição de teclado e bateria, e upgrade de SSD e memória para ganho de desempenho. Reparos de bancada, como conserto de placa, têm prazo e valor informados antes de retirar o equipamento.",
         ],
       },
+      {
+        titulo: "Assistência técnica de notebook: marcas, defeitos e como funciona",
+        paragrafos: [
+          "Quando alguém procura assistência técnica de notebook, quase sempre está diante de um destes cenários: notebook que não liga, tela apagada ou trincada, aquecimento com desligamento, lentidão extrema, teclado falhando ou bateria que não segura carga. Cada sintoma tem uma causa provável diferente, e é por isso que começamos sempre pelo diagnóstico técnico antes de falar em preço ou peça.",
+          "Trabalhamos com as principais marcas de notebook do mercado brasileiro — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — em modelos de uso doméstico, estudo e trabalho. O fluxo é simples e transparente: você descreve o problema pelo WhatsApp, avaliamos o equipamento, explicamos o que foi encontrado em linguagem clara e só executamos o serviço depois da sua aprovação. Assim a assistência técnica sai sem surpresa no valor final.",
+        ],
+      },
     ],
     faqsLocais: [
       { question: "Onde consertar meu notebook em Curitiba?", answer: "Atendemos toda Curitiba e região metropolitana em domicílio ou por coleta e entrega. Basta descrever o problema pelo WhatsApp que orientamos o próximo passo e o formato de atendimento ideal." },
       { question: "Quanto custa a assistência técnica de notebook em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99. O valor final depende do modelo do notebook, da peça necessária (tela, teclado, bateria, dobradiça) e da complexidade do reparo. Você só aprova depois de saber o valor." },
+      { question: "Qual assistência técnica de notebook atende a minha marca?", answer: "Atendemos as principais marcas do mercado — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — para os defeitos mais comuns de tela, teclado, bateria, aquecimento e desempenho. Modelos e peças específicas são confirmados no diagnóstico." },
       { question: "O conserto de notebook é feito no mesmo dia?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem no mesmo dia. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo no orçamento." },
     ],
     linksLocais: [

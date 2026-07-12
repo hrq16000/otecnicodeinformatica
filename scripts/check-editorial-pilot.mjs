@@ -173,6 +173,11 @@ for (const slug of pilotSlugs) {
     "especialista sênior", "atendimento hoje", "como novo",
   ];
   for (const b of banned) {
+    if (b === "sempre resolve") {
+      // "nem sempre resolve" / "não resolve" são cautelosos e permitidos.
+      if (/(?<!nem )sempre resolve/.test(lower)) fail(`"${slug}" contém expressão proibida: "${b}".`);
+      continue;
+    }
     if (lower.includes(b)) fail(`"${slug}" contém expressão proibida: "${b}".`);
   }
   // Sem preço promocional dentro do artigo.

@@ -228,6 +228,30 @@ for (const slug of EXPECTED_PILOTS) {
   }
 }
 
+// ── 4b. Alinhamento de intenção (desalinhamentos resolvidos) ─
+const titleOf = (slug) => (contentBlocks.get(slug) ?? "").match(/title:\s*"((?:[^"\\]|\\.)*)"/)?.[1] ?? "";
+
+// Notebook: title focado em notebook; sem desktop/computador no title (= H1 renderizado).
+const nbTitle = titleOf("notebook-nao-liga-o-que-fazer").toLowerCase();
+if (!nbTitle) fail("Notebook: title ausente.");
+else {
+  if (!nbTitle.includes("notebook")) fail("Notebook: title/H1 deve focar em notebook.");
+  if (/\bdesktop\b/.test(nbTitle)) fail('Notebook: "desktop" não pode aparecer no title/H1.');
+  if (/\bcomputador(es)?\b/.test(nbTitle)) fail('Notebook: "computador" não pode aparecer no title/H1 (foco é notebook).');
+}
+// Notebook: desktop pode aparecer no corpo apenas como menção contextual curta (<= 1 vez).
+const nbBody = (contentBlocks.get("notebook-nao-liga-o-que-fazer") ?? "").toLowerCase();
+const desktopMentions = (nbBody.match(/desktop/g) ?? []).length;
+if (desktopMentions > 1) fail(`Notebook: "desktop" citado ${desktopMentions}x no corpo (máximo 1 menção contextual).`);
+
+// Windows: title focado em instalação limpa do Windows 11.
+const winTitle = titleOf("como-instalar-windows-11-do-zero").toLowerCase();
+if (!winTitle) fail("Windows: title ausente.");
+else if (!(winTitle.includes("windows 11") && /instala/.test(winTitle) && winTitle.includes("limpa"))) {
+  fail('Windows: title/H1 deve focar em instalação limpa do Windows 11.');
+}
+
+
 // Windows: sem ativador/crack/bypass/download não oficial.
 const win = contentBlocks.get("como-instalar-windows-11-do-zero") ?? "";
 for (const bad of ["ativador", "crack", "bypass de licença", "burlar", "kmspico", "serial gratis"]) {

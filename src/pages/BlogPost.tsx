@@ -73,24 +73,24 @@ const BlogPost = () => {
     }
   }, [post, slug]);
 
-  // Gerencia a meta robots única (definida em index.html): posts off-topic
-  // recebem noindex, follow; posts alinhados voltam a index, follow.
+  // Fail-closed: a meta robots reflete APENAS o registro editorial.
+  // Artigo sem aprovação válida => noindex, follow. Aprovado => index, follow.
   useEffect(() => {
-    if (!post) return;
-    const offTopic = isOffTopicCategory(post.category);
+    if (!post || !slug) return;
+    const approved = isEditorialApproved(slug);
     const robots = document.querySelector('meta[name="robots"]');
     const googlebot = document.querySelector('meta[name="googlebot"]');
     const prevRobots = robots?.getAttribute("content") ?? null;
     const prevGoogle = googlebot?.getAttribute("content") ?? null;
     const indexVal = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
     const indexGoogle = "index, follow, max-image-preview:large, max-snippet:-1";
-    robots?.setAttribute("content", offTopic ? "noindex, follow" : indexVal);
-    googlebot?.setAttribute("content", offTopic ? "noindex, follow" : indexGoogle);
+    robots?.setAttribute("content", approved ? indexVal : "noindex, follow");
+    googlebot?.setAttribute("content", approved ? indexGoogle : "noindex, follow");
     return () => {
       if (robots && prevRobots) robots.setAttribute("content", prevRobots);
       if (googlebot && prevGoogle) googlebot.setAttribute("content", prevGoogle);
     };
-  }, [post]);
+  }, [post, slug]);
 
   const categoryCover = slug ? getCategoryCover(slug) : null;
   const heroImage = categoryCover

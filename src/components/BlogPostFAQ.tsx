@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { isEditorialApproved } from "@/lib/blogEditorialRegistry";
+import { getArticleSources } from "@/lib/blogEditorialSources";
+
 
 type FAQItem = { q: string; a: string };
 

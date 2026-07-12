@@ -99,6 +99,28 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
       "Uso de mídia oficial de instalação para instalação limpa ou reinstalação do Windows.",
     ],
   },
+  "ms-win11-activation": {
+    id: "ms-win11-activation",
+    title: "Activate Windows",
+    publisher: "Microsoft Support",
+    url: "https://support.microsoft.com/en-us/windows/activate-windows-c39005d4-95ee-b91e-b399-2820fda32227",
+    accessedAt: "2026-07-12",
+    sourceType: "official",
+    supports: [
+      "A ativação do Windows depende de uma licença digital ou chave de produto legítima vinculada ao dispositivo ou conta Microsoft.",
+    ],
+  },
+  "ms-bitlocker-recovery": {
+    id: "ms-bitlocker-recovery",
+    title: "Finding your BitLocker recovery key in Windows",
+    publisher: "Microsoft Support",
+    url: "https://support.microsoft.com/en-us/windows/finding-your-bitlocker-recovery-key-in-windows-6b71ad27-0b89-ea08-f143-056f5ab347d6",
+    accessedAt: "2026-07-12",
+    sourceType: "official",
+    supports: [
+      "Discos protegidos por BitLocker podem exigir a chave de recuperação; sem ela é possível perder o acesso aos dados.",
+    ],
+  },
   "ms-tech-support-scams": {
     id: "ms-tech-support-scams",
     title: "Protect yourself from tech support scams",
@@ -110,6 +132,7 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
       "Golpes de falso suporte técnico usam táticas de intimidação; não ligar para números exibidos em alertas.",
     ],
   },
+
   "certbr-golpes": {
     id: "certbr-golpes",
     title: "Cartilha de Segurança para Internet — Golpes",

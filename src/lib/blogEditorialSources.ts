@@ -45,8 +45,15 @@ export interface ArticleSourceManifest {
   factChecked: boolean;
   /** Data ISO da checagem — apenas se realmente executada e concluída. */
   factCheckedAt?: string;
+  /**
+   * true quando o artigo se sustenta exclusivamente em conhecimento técnico
+   * estável (sem afirmação instável/dependente de versão ou fabricante) e,
+   * por isso, pode ficar "reviewed" sem fontes visíveis. Justificado em notes.
+   */
+  stableKnowledge?: boolean;
   notes?: string;
 }
+
 
 // Domínios permitidos para fontes primárias/oficiais. Qualquer URL fora
 // desta lista é rejeitada pelo gate a menos que reclassificada.

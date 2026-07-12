@@ -1593,61 +1593,74 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "notebook-nao-liga-o-que-fazer": {
-    title: "Computador ou notebook não liga: o que verificar com segurança",
-    excerpt: "Sem nenhum sinal, liga e desliga, ou acende mas não mostra imagem? Veja como identificar o comportamento, o que dá para checar sem abrir o equipamento e quando chamar um técnico.",
+    title: "Notebook não liga: o que verificar antes da assistência",
+    excerpt: "Veja verificações seguras para um notebook que não liga, liga sem imagem ou desliga sozinho e saiba quando interromper os testes.",
     date: "2026-04-04",
     readTime: "10 min",
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">Você aperta o botão e não acontece nada — ou o equipamento reage, mas não chega ao sistema. "Não liga" pode significar coisas bem diferentes, de um cabo solto a uma falha interna. Observar <strong>o comportamento exato</strong> ajuda a entender a situação e evita medidas que podem piorar o quadro.</p>
+        <p className="lead">Você aperta o botão do notebook e não acontece nada — ou ele reage, mas não chega ao sistema. "Não liga" pode significar coisas bem diferentes, de um carregador com defeito a uma falha interna. Observar <strong>o comportamento exato</strong> ajuda a entender a situação e evita medidas que podem piorar o quadro.</p>
 
-        <h2>Identifique o comportamento</h2>
+        <h2>Identifique o comportamento do notebook</h2>
         <ul>
-          <li><strong>Nenhum sinal:</strong> sem luzes, sem som, sem ventoinha.</li>
-          <li><strong>Liga, mas sem imagem:</strong> luzes acendem e ventoinhas giram, a tela fica preta.</li>
-          <li><strong>Liga e desliga:</strong> inicia por alguns segundos e apaga sozinho.</li>
-          <li><strong>Acende, mas não carrega o sistema:</strong> chega a mostrar algo, mas trava antes da área de trabalho.</li>
-          <li><strong>Emite bipes</strong> ou luzes piscando em sequência.</li>
-          <li><strong>Parou após queda de energia</strong>, raio ou oscilação na rede elétrica.</li>
+          <li><strong>Nenhum sinal:</strong> nenhuma luz, nenhum som, nenhuma ventoinha.</li>
+          <li><strong>LED acende, mas não inicia:</strong> a luz de energia acende, mas nada aparece na tela.</li>
+          <li><strong>Liga sem imagem:</strong> ventoinha gira e há sinais de atividade, mas a tela fica preta.</li>
+          <li><strong>Inicia e desliga:</strong> liga por alguns segundos e apaga sozinho.</li>
+          <li><strong>Não carrega:</strong> conectado ao carregador, a bateria não indica carregamento.</li>
+          <li><strong>Liga só na tomada:</strong> funciona com o carregador, mas não segura a bateria.</li>
+          <li><strong>LED pisca ou há bipes</strong> em sequência ao tentar ligar.</li>
+          <li><strong>Desligou após aquecimento ou queda de energia</strong> e não voltou.</li>
         </ul>
-        <p>Cada comportamento aponta para grupos diferentes de possíveis causas — alimentação, memória, armazenamento, tela, placa ou sistema. Nada disso confirma a causa sozinho; o diagnóstico é o que fecha o quadro.</p>
+        <p>Cada comportamento aponta para grupos diferentes de possíveis causas. Nada disso confirma a causa sozinho; o diagnóstico é o que fecha o quadro.</p>
 
-        <h2>Verificações seguras (sem abrir o equipamento)</h2>
+        <h2>Verificações seguras (sem abrir o notebook)</h2>
         <ul>
-          <li>Em desktop: teste outra tomada que você sabe que funciona e confira o cabo de força e o filtro de linha.</li>
-          <li>Em notebook: conecte o carregador, verifique se o LED dele acende e aguarde alguns minutos antes de tentar ligar.</li>
+          <li>Teste o carregador em uma tomada que você sabe que funciona e observe se o LED do carregador acende.</li>
+          <li>Confira o cabo e o conector do carregador externamente, procurando por danos visíveis.</li>
+          <li>Com o notebook conectado ao carregador, aguarde alguns minutos antes de tentar ligar.</li>
           <li>Remova periféricos externos (pendrives, HD externo, impressora) e tente ligar só com o essencial.</li>
-          <li>Se liga mas não dá imagem, ligue a um monitor ou TV externa por HDMI para ver se a imagem aparece.</li>
-          <li>Observe e anote luzes, bipes e o comportamento das ventoinhas — isso ajuda muito o técnico.</li>
+          <li>Se liga sem imagem, conecte um monitor ou TV externa por HDMI para ver se a imagem aparece.</li>
+          <li>Observe e anote o padrão de luzes e bipes — isso ajuda muito no diagnóstico.</li>
+          <li>Siga apenas procedimentos oficiais do fabricante quando eles estiverem claramente identificados para o seu modelo.</li>
         </ul>
         <p>São checagens de baixo risco. A partir daí, mexer no interior exige preparo.</p>
 
         <h2>O que não fazer</h2>
         <ul>
-          <li>Não abra a fonte de alimentação — mesmo desligada ela pode reter carga.</li>
-          <li>Não desmonte o equipamento nem force conectores sem experiência.</li>
+          <li>Não abra o carregador nem a bateria.</li>
+          <li>Não faça "ponte" nem improvise ligações elétricas.</li>
+          <li>Não desmonte o notebook nem remova componentes internos sem experiência.</li>
+          <li>Não use carregador incompatível — tensão ou conector errados podem causar dano.</li>
           <li>Se caiu líquido, não use secador nem calor: isso espalha o líquido e piora a corrosão. Desligue e não tente ligar.</li>
-          <li>Não insista repetidamente em ligar um equipamento que dá curto ou cheiro de queimado.</li>
+          <li>Não insista em ligar diante de cheiro, fumaça ou calor anormal.</li>
         </ul>
 
         <h2>Sinais para parar na hora</h2>
-        <p>Desligue e não tente ligar de novo se houver <strong>cheiro de queimado, fumaça, estalos, aquecimento anormal, líquido no equipamento ou carregador/fonte danificado</strong>. Nesses casos, continuar tentando aumenta o risco de dano maior.</p>
+        <p>Pare de tentar ligar se houver <strong>cheiro de queimado, fumaça, estalos, aquecimento anormal, líquido no equipamento ou carregador danificado</strong>. Nesses casos, continuar tentando aumenta o risco de dano maior.</p>
+
+        <h2>Os limites das verificações caseiras</h2>
+        <p>Sintomas parecidos podem envolver o carregador, o conector de energia, a bateria, a memória, a tela, o armazenamento, o sistema, a placa ou uma proteção térmica que interrompeu o funcionamento. Não dá para afirmar qual é a causa sem diagnóstico — testar às cegas troca peças boas e não resolve o problema real. Em desktops o roteiro é diferente e envolve outros componentes; aqui o foco é o notebook.</p>
 
         <h2>Quando procurar atendimento técnico</h2>
-        <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico presencial: ele identifica se o problema está na alimentação, na memória, no armazenamento, na tela ou na placa antes de qualquer troca. Tentar abrir sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
+        <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico: ele identifica onde está o problema antes de qualquer troca. Tentar abrir o notebook sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Equipamento que não liga?</h3>
+          <h3 className="text-accent font-bold mb-2">Notebook que não liga?</h3>
           <p className="text-muted-foreground mb-3">O diagnóstico mostra a causa real e as opções antes de você decidir.</p>
           <ul className="mb-0">
-            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+            <li><Link to="/coleta-e-entrega" className="text-accent">Coleta e entrega do equipamento</Link></li>
             <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="notebook-nao-liga-o-que-fazer" />
       </>
     ),
+
   },
   "diferenca-camera-wifi-dvr-qual-escolher": {
     title: "Câmera Wi-Fi ou DVR: Qual a Diferença e Qual Escolher?",

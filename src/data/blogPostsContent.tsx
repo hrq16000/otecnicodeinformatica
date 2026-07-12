@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { EditorialReferences } from "@/components/BlogPostFAQ";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
+
 
 export type BlogPostContent = {
   title: string;
@@ -1587,65 +1589,81 @@ docker run -d --name db --network minha-rede postgres
             <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Como manter um backup preventivo</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="como-saber-se-pc-tem-virus-malware" />
       </>
+
     ),
   },
   "notebook-nao-liga-o-que-fazer": {
-    title: "Computador ou notebook não liga: o que verificar com segurança",
-    excerpt: "Sem nenhum sinal, liga e desliga, ou acende mas não mostra imagem? Veja como identificar o comportamento, o que dá para checar sem abrir o equipamento e quando chamar um técnico.",
+    title: "Notebook não liga: o que verificar antes da assistência",
+    excerpt: "Veja verificações seguras para um notebook que não liga, liga sem imagem ou desliga sozinho e saiba quando interromper os testes.",
     date: "2026-04-04",
     readTime: "10 min",
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">Você aperta o botão e não acontece nada — ou o equipamento reage, mas não chega ao sistema. "Não liga" pode significar coisas bem diferentes, de um cabo solto a uma falha interna. Observar <strong>o comportamento exato</strong> ajuda a entender a situação e evita medidas que podem piorar o quadro.</p>
+        <p className="lead">Você aperta o botão do notebook e não acontece nada — ou ele reage, mas não chega ao sistema. "Não liga" pode significar coisas bem diferentes, de um carregador com defeito a uma falha interna. Observar <strong>o comportamento exato</strong> ajuda a entender a situação e evita medidas que podem piorar o quadro.</p>
 
-        <h2>Identifique o comportamento</h2>
+        <h2>Identifique o comportamento do notebook</h2>
         <ul>
-          <li><strong>Nenhum sinal:</strong> sem luzes, sem som, sem ventoinha.</li>
-          <li><strong>Liga, mas sem imagem:</strong> luzes acendem e ventoinhas giram, a tela fica preta.</li>
-          <li><strong>Liga e desliga:</strong> inicia por alguns segundos e apaga sozinho.</li>
-          <li><strong>Acende, mas não carrega o sistema:</strong> chega a mostrar algo, mas trava antes da área de trabalho.</li>
-          <li><strong>Emite bipes</strong> ou luzes piscando em sequência.</li>
-          <li><strong>Parou após queda de energia</strong>, raio ou oscilação na rede elétrica.</li>
+          <li><strong>Nenhum sinal:</strong> nenhuma luz, nenhum som, nenhuma ventoinha.</li>
+          <li><strong>LED acende, mas não inicia:</strong> a luz de energia acende, mas nada aparece na tela.</li>
+          <li><strong>Liga sem imagem:</strong> ventoinha gira e há sinais de atividade, mas a tela fica preta.</li>
+          <li><strong>Inicia e desliga:</strong> liga por alguns segundos e apaga sozinho.</li>
+          <li><strong>Não carrega:</strong> conectado ao carregador, a bateria não indica carregamento.</li>
+          <li><strong>Liga só na tomada:</strong> funciona com o carregador, mas não segura a bateria.</li>
+          <li><strong>LED pisca ou há bipes</strong> em sequência ao tentar ligar.</li>
+          <li><strong>Desligou após aquecimento ou queda de energia</strong> e não voltou.</li>
         </ul>
-        <p>Cada comportamento aponta para grupos diferentes de possíveis causas — alimentação, memória, armazenamento, tela, placa ou sistema. Nada disso confirma a causa sozinho; o diagnóstico é o que fecha o quadro.</p>
+        <p>Cada comportamento aponta para grupos diferentes de possíveis causas. Nada disso confirma a causa sozinho; o diagnóstico é o que fecha o quadro.</p>
 
-        <h2>Verificações seguras (sem abrir o equipamento)</h2>
+        <h2>Verificações seguras (sem abrir o notebook)</h2>
         <ul>
-          <li>Em desktop: teste outra tomada que você sabe que funciona e confira o cabo de força e o filtro de linha.</li>
-          <li>Em notebook: conecte o carregador, verifique se o LED dele acende e aguarde alguns minutos antes de tentar ligar.</li>
+          <li>Teste o carregador em uma tomada que você sabe que funciona e observe se o LED do carregador acende.</li>
+          <li>Confira o cabo e o conector do carregador externamente, procurando por danos visíveis.</li>
+          <li>Com o notebook conectado ao carregador, aguarde alguns minutos antes de tentar ligar.</li>
           <li>Remova periféricos externos (pendrives, HD externo, impressora) e tente ligar só com o essencial.</li>
-          <li>Se liga mas não dá imagem, ligue a um monitor ou TV externa por HDMI para ver se a imagem aparece.</li>
-          <li>Observe e anote luzes, bipes e o comportamento das ventoinhas — isso ajuda muito o técnico.</li>
+          <li>Se liga sem imagem, conecte um monitor ou TV externa por HDMI para ver se a imagem aparece.</li>
+          <li>Observe e anote o padrão de luzes e bipes — isso ajuda muito no diagnóstico.</li>
+          <li>Siga apenas procedimentos oficiais do fabricante quando eles estiverem claramente identificados para o seu modelo.</li>
         </ul>
         <p>São checagens de baixo risco. A partir daí, mexer no interior exige preparo.</p>
 
         <h2>O que não fazer</h2>
         <ul>
-          <li>Não abra a fonte de alimentação — mesmo desligada ela pode reter carga.</li>
-          <li>Não desmonte o equipamento nem force conectores sem experiência.</li>
+          <li>Não abra o carregador nem a bateria.</li>
+          <li>Não faça "ponte" nem improvise ligações elétricas.</li>
+          <li>Não desmonte o notebook nem remova componentes internos sem experiência.</li>
+          <li>Não use carregador incompatível — tensão ou conector errados podem causar dano.</li>
           <li>Se caiu líquido, não use secador nem calor: isso espalha o líquido e piora a corrosão. Desligue e não tente ligar.</li>
-          <li>Não insista repetidamente em ligar um equipamento que dá curto ou cheiro de queimado.</li>
+          <li>Não insista em ligar diante de cheiro, fumaça ou calor anormal.</li>
         </ul>
 
         <h2>Sinais para parar na hora</h2>
-        <p>Desligue e não tente ligar de novo se houver <strong>cheiro de queimado, fumaça, estalos, aquecimento anormal, líquido no equipamento ou carregador/fonte danificado</strong>. Nesses casos, continuar tentando aumenta o risco de dano maior.</p>
+        <p>Pare de tentar ligar se houver <strong>cheiro de queimado, fumaça, estalos, aquecimento anormal, líquido no equipamento ou carregador danificado</strong>. Nesses casos, continuar tentando aumenta o risco de dano maior.</p>
+
+        <h2>Os limites das verificações caseiras</h2>
+        <p>Sintomas parecidos podem envolver o carregador, o conector de energia, a bateria, a memória, a tela, o armazenamento, o sistema, a placa ou uma proteção térmica que interrompeu o funcionamento. Não dá para afirmar qual é a causa sem diagnóstico — testar às cegas troca peças boas e não resolve o problema real. Em desktops o roteiro é diferente e envolve outros componentes; aqui o foco é o notebook.</p>
 
         <h2>Quando procurar atendimento técnico</h2>
-        <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico presencial: ele identifica se o problema está na alimentação, na memória, no armazenamento, na tela ou na placa antes de qualquer troca. Tentar abrir sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
+        <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico: ele identifica onde está o problema antes de qualquer troca. Tentar abrir o notebook sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Equipamento que não liga?</h3>
+          <h3 className="text-accent font-bold mb-2">Notebook que não liga?</h3>
           <p className="text-muted-foreground mb-3">O diagnóstico mostra a causa real e as opções antes de você decidir.</p>
           <ul className="mb-0">
-            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
             <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
           </ul>
+
         </div>
+
+        <EditorialReferences slug="notebook-nao-liga-o-que-fazer" />
       </>
     ),
+
   },
   "diferenca-camera-wifi-dvr-qual-escolher": {
     title: "Câmera Wi-Fi ou DVR: Qual a Diferença e Qual Escolher?",
@@ -2331,7 +2349,10 @@ docker run -d --name db --network minha-rede postgres
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="backup-como-proteger-seus-arquivos" />
       </>
+
     ),
   },
   "notebook-superaquecendo-o-que-fazer": {
@@ -5936,54 +5957,58 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
   },
 
   "como-instalar-windows-11-do-zero": {
-    title: "Formatar ou reinstalar o Windows: quando faz sentido e quando não resolve",
-    excerpt: "Antes de formatar, entenda a diferença entre reiniciar, restaurar e reinstalar o Windows, os riscos para seus dados e quando o problema pode ser físico, não de software.",
+    title: "Como preparar uma instalação limpa do Windows 11",
+    excerpt: "Entenda backup, requisitos, mídia oficial, licença, drivers e riscos antes de fazer uma instalação limpa do Windows 11.",
     date: "2026-04-20",
     readTime: "11 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">Formatar virou sinônimo de "resolver tudo", mas nem sempre é o caminho — e, quando é, tem riscos que precisam ser tratados antes. Este guia ajuda a entender quando faz sentido reinstalar o Windows, quando o problema pode ser físico e como não perder seus arquivos no processo.</p>
+        <p className="lead">Uma instalação limpa do Windows 11 apaga o disco do sistema e começa tudo do zero. Bem feita, ela deixa o sistema estável; feita às pressas, pode custar seus arquivos. Este guia é de <strong>preparação e decisão segura</strong> — o que conferir antes, durante e depois — e não um tutorial de bypass ou ativação.</p>
 
-        <h2>Reiniciar, restaurar e formatar não são a mesma coisa</h2>
+        <h2>O que é instalação limpa</h2>
         <ul>
-          <li><strong>Reiniciar:</strong> desliga e liga o sistema; resolve travamentos temporários.</li>
-          <li><strong>Restaurar / redefinir:</strong> o Windows tem opções de recuperação que reparam ou reinstalam o sistema com mais ou menos preservação de dados.</li>
-          <li><strong>Formatar (instalação limpa):</strong> apaga o conteúdo do disco do sistema e instala tudo do zero.</li>
+          <li><strong>Atualização:</strong> mantém arquivos, programas e configurações e apenas atualiza o sistema.</li>
+          <li><strong>Restauração:</strong> volta o sistema a um ponto anterior, quando há um ponto salvo.</li>
+          <li><strong>Redefinição:</strong> recurso do próprio Windows que reinstala o sistema com opção de manter ou remover arquivos.</li>
+          <li><strong>Reinstalação:</strong> instala o sistema novamente, com graus variados de preservação.</li>
+          <li><strong>Instalação limpa:</strong> apaga o disco do sistema e instala o Windows 11 do zero.</li>
         </ul>
-        <p>Cada opção tem um nível diferente de impacto. Começar pela mais leve costuma ser o mais sensato.</p>
+        <p>A instalação limpa é a mais radical. Só faz sentido depois de descartar as opções mais leves e com backup pronto.</p>
 
-        <h2>Quando a instalação limpa pode ajudar</h2>
+        <h2>Antes de começar</h2>
         <ul>
-          <li>Sistema corrompido, cheio de erros ou que não inicia direito por causa de software.</li>
-          <li>Acúmulo de programas e configurações que degradaram o funcionamento.</li>
-          <li>Preparar o equipamento para outro uso ou dono, apagando os dados anteriores.</li>
-        </ul>
-
-        <h2>Quando formatar não resolve</h2>
-        <p>Se a causa é física — HD desgastado, pouca memória, superaquecimento ou hardware defasado — formatar dá, no máximo, um alívio passageiro. <strong>Formatação não é solução universal para lentidão ou defeito físico.</strong> Por isso vale entender a causa antes; muitas vezes o caso é de <Link to="/blog/computador-lento-causas-solucoes" className="text-accent">avaliar por que o computador está lento</Link>, e não simplesmente reinstalar.</p>
-
-        <h2>Backup vem antes de tudo</h2>
-        <p>Formatar apaga o disco do sistema. Antes de qualquer coisa, salve seus arquivos importantes em outro lugar. Se o disco já dá sinais de falha (ruídos, erros de leitura), o cuidado é ainda maior — veja <Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">como manter um backup preventivo</Link>. Se os dados já estão inacessíveis, o caminho passa a ser <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não formatação.</p>
-
-        <h2>O que planejar antes de reinstalar</h2>
-        <ul>
-          <li><strong>Arquivos:</strong> documentos, fotos e pastas pessoais copiados e conferidos.</li>
-          <li><strong>Programas:</strong> lista do que precisa reinstalar e onde estão as licenças legítimas.</li>
-          <li><strong>Contas:</strong> acessos de e-mail, navegador e serviços que serão reconfigurados.</li>
-          <li><strong>Drivers:</strong> componentes que precisam dos drivers corretos após a instalação.</li>
-          <li><strong>Criptografia:</strong> discos protegidos podem exigir a chave de recuperação — tenha-a em mãos para não perder acesso.</li>
+          <li><strong>Backup:</strong> copie e confira documentos, fotos e pastas pessoais em outro lugar.</li>
+          <li><strong>Contas e senhas:</strong> anote acessos de e-mail, navegador e serviços que serão reconfigurados.</li>
+          <li><strong>Criptografia:</strong> discos protegidos por BitLocker podem exigir a chave de recuperação — tenha-a em mãos para não perder o acesso.</li>
+          <li><strong>Programas e licenças:</strong> liste o que precisa reinstalar e onde estão as licenças legítimas.</li>
+          <li><strong>Drivers:</strong> identifique os componentes que vão precisar de drivers após a instalação.</li>
+          <li><strong>Edição e compatibilidade:</strong> confira a edição correta do Windows e se o equipamento atende aos requisitos oficiais do Windows 11.</li>
         </ul>
 
-        <h2>Licenciamento</h2>
-        <p>Use apenas licenças legítimas do sistema e dos programas. Este conteúdo não fornece chaves, ativadores ou formas de burlar licenciamento.</p>
+        <h2>Mídia oficial</h2>
+        <p>Baixe o Windows 11 e crie a mídia de instalação apenas pelas <strong>ferramentas e downloads oficiais da Microsoft</strong>. Este conteúdo não indica ativadores, cracks, chaves, bypass de requisitos, imagens modificadas, downloads de terceiros ou scripts para contornar verificações — além do risco de segurança, essas práticas comprometem a licença e a estabilidade do sistema.</p>
+
+        <h2>Durante e após a instalação</h2>
+        <ul>
+          <li>A seleção de disco exige cuidado: partições podem conter seus dados.</li>
+          <li>A instalação limpa apaga arquivos do disco escolhido — por isso o backup vem antes.</li>
+          <li>Instale drivers a partir do fabricante do equipamento ou do Windows Update.</li>
+          <li>A ativação depende de uma licença legítima já vinculada ao equipamento ou adquirida oficialmente.</li>
+          <li>Os programas precisam ser reinstalados depois.</li>
+          <li>Confira o backup antes de apagar qualquer coisa em definitivo.</li>
+        </ul>
+
+        <h2>Quando não prosseguir</h2>
+        <p>A instalação limpa organiza o sistema, mas <strong>não resolve</strong> problemas físicos: se o disco, a memória ou outra peça estão com defeito, reinstalar o Windows 11 não corrige a falha. Interrompa a instalação limpa se houver <strong>disco com sinais de falha, arquivos ainda sem backup, chave de recuperação desconhecida, equipamento sem compatibilidade confirmada, dúvida sobre partições, suspeita de falha física ou necessidade de recuperar dados</strong>. Nesses casos, seguir em frente pode apagar dados sem retorno. Se os arquivos já estão inacessíveis, o caminho é a <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não a instalação limpa.</p>
+
 
         <h2>Quando procurar atendimento técnico</h2>
-        <p>Se você não tem certeza se o caso é de software ou hardware, ou não quer arriscar perder dados, um diagnóstico define o melhor caminho antes de formatar. Assim você evita reinstalar o sistema e continuar com o mesmo problema.</p>
+        <p>Se você não tem certeza sobre requisitos, partições, licença ou backup, um diagnóstico define o melhor caminho antes de apagar o disco. Assim você evita reinstalar o sistema e perder arquivos no processo.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Na dúvida entre formatar ou reparar?</h3>
-          <p className="text-muted-foreground mb-3">Avaliamos a causa e cuidamos do backup antes de qualquer reinstalação.</p>
+          <h3 className="text-accent font-bold mb-2">Vai fazer instalação limpa do Windows 11?</h3>
+          <p className="text-muted-foreground mb-3">Cuidamos do backup e conferimos requisitos e licença antes da instalação.</p>
           <ul className="mb-0">
             <li><Link to="/servicos/formatacao" className="text-accent">Formatação e instalação do sistema</Link></li>
             <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Recuperação de dados</Link></li>
@@ -5991,9 +6016,12 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
             <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="como-instalar-windows-11-do-zero" />
       </>
     ),
   },
+
 
   "como-resolver-tela-azul-windows": {
     title: "Como Resolver Tela Azul do Windows (BSOD): Diagnóstico e Solução",
@@ -10107,7 +10135,10 @@ crontab -e
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="como-melhorar-sinal-wifi-em-casa" />
       </>
+
     ),
   },
   "como-configurar-roteador-wifi-iniciantes": {

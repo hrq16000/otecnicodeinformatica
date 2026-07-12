@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { isEditorialApproved } from "@/lib/blogEditorialRegistry";
+import { getArticleSources } from "@/lib/blogEditorialSources";
+
 
 type FAQItem = { q: string; a: string };
 
@@ -59,22 +61,23 @@ const CATEGORY_EXTRA: Record<string, FAQItem[]> = {
 const PILOT_FAQ: Record<string, FAQItem[]> = {
   "notebook-nao-liga-o-que-fazer": [
     {
-      q: "O computador não dá nenhum sinal ao ligar. O que pode ser?",
-      a: "Depende do comportamento: pode estar relacionado à alimentação (tomada, cabo, fonte), à memória, ao armazenamento ou à placa. As verificações seguras ajudam a estreitar, mas a causa só se confirma no diagnóstico.",
+      q: "O notebook não dá nenhum sinal ao ligar. O que pode ser?",
+      a: "Pode estar relacionado à alimentação (tomada, cabo, carregador), à bateria, à memória, ao armazenamento ou à placa. As verificações seguras ajudam a estreitar, mas a causa só se confirma no diagnóstico.",
     },
     {
-      q: "Liga, mas a tela fica preta. É a tela?",
-      a: "Nem sempre. Ligar o equipamento a um monitor externo ajuda a saber se o problema é da tela ou da parte que gera a imagem.",
+      q: "O notebook liga, mas a tela fica preta. É a tela?",
+      a: "Nem sempre. Ligar o notebook a um monitor externo ajuda a saber se o problema é da tela ou da parte que gera a imagem.",
     },
     {
-      q: "Posso abrir o equipamento para verificar?",
-      a: "Verificações externas (tomada, cabo, periféricos, monitor externo) são seguras. Abrir a fonte ou desmontar sem preparo pode piorar o quadro e é melhor evitar.",
+      q: "Posso abrir o notebook para verificar?",
+      a: "Verificações externas (tomada, cabo, carregador, periféricos, monitor externo) são seguras. Abrir o carregador, a bateria ou desmontar o notebook sem preparo pode piorar o quadro e é melhor evitar.",
     },
     {
-      q: "Parou depois de uma queda de energia. Tem solução?",
-      a: "É preciso avaliar. Oscilações podem afetar fonte ou placa; o diagnóstico define quais são as opções antes de qualquer troca.",
+      q: "O notebook parou depois de uma queda de energia. Tem solução?",
+      a: "É preciso avaliar. Oscilações podem afetar o carregador, o conector, a bateria ou a placa; o diagnóstico define quais são as opções antes de qualquer troca.",
     },
   ],
+
   "computador-lento-causas-solucoes": [
     {
       q: "Formatar resolve a lentidão?",
@@ -95,22 +98,23 @@ const PILOT_FAQ: Record<string, FAQItem[]> = {
   ],
   "como-instalar-windows-11-do-zero": [
     {
-      q: "Qual a diferença entre restaurar e formatar?",
-      a: "Restaurar tenta reparar o sistema preservando mais coisas; formatar apaga o disco do sistema e instala tudo do zero.",
+      q: "Qual a diferença entre atualizar e fazer instalação limpa?",
+      a: "Atualizar mantém arquivos, programas e configurações; a instalação limpa apaga o disco do sistema e instala o Windows 11 do zero, exigindo backup antes.",
     },
     {
-      q: "Formatar apaga meus arquivos?",
-      a: "Sim, o disco do sistema é apagado. Por isso o backup dos dados vem antes de qualquer formatação.",
+      q: "A instalação limpa apaga meus arquivos?",
+      a: "Sim, o disco do sistema é apagado. Por isso o backup conferido dos dados vem antes de qualquer instalação limpa.",
     },
     {
-      q: "Formatar resolve qualquer problema?",
-      a: "Não. Se a causa é física, como disco, memória ou aquecimento, a formatação não resolve.",
+      q: "Preciso baixar o Windows 11 de onde?",
+      a: "Apenas das ferramentas e downloads oficiais da Microsoft. Imagens modificadas, ativadores e downloads de terceiros trazem risco de segurança e problemas de licença.",
     },
     {
-      q: "Vocês fornecem chave ou ativador do Windows?",
-      a: "Não. Trabalhamos apenas com licenças legítimas e não orientamos formas de burlar licenciamento.",
+      q: "Vocês fornecem chave, ativador ou bypass de requisitos?",
+      a: "Não. Trabalhamos apenas com licenças legítimas e não orientamos ativadores, cracks ou formas de contornar os requisitos do Windows 11.",
     },
   ],
+
   "quando-trocar-hd-por-ssd": [
     {
       q: "O SSD deixa qualquer computador rápido?",
@@ -258,4 +262,43 @@ export const BlogPostFAQ = ({ category, slug }: { category: string; slug: string
   );
 };
 
+// ─────────────────────────────────────────────────────────────
+// FONTES E REFERÊNCIAS TÉCNICAS (visíveis) — pilotos em revisão.
+//
+// Renderiza APENAS as fontes realmente registradas no manifesto
+// (src/lib/blogEditorialSources.ts) para o slug. Sem fonte registrada,
+// não renderiza nada (artigos baseados em conhecimento técnico estável,
+// justificados no manifesto). Nunca expõe status interno, factChecked,
+// classificação ou notas privadas. Âncora descritiva, publisher visível,
+// rel="noopener noreferrer" e target de nova aba.
+// ─────────────────────────────────────────────────────────────
+export const EditorialReferences = ({ slug }: { slug: string }) => {
+  const sources = getArticleSources(slug);
+  if (sources.length === 0) return null;
+
+  return (
+    <section className="not-prose mt-12">
+      <h2 className="font-heading font-bold text-primary text-xl md:text-2xl mb-4">
+        Fontes e referências técnicas
+      </h2>
+      <ul className="rounded-2xl border border-border bg-card divide-y divide-border overflow-hidden m-0 list-none p-0">
+        {sources.map((s) => (
+          <li key={s.id} className="p-4 md:p-5">
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-accent hover:underline"
+            >
+              {s.title}
+            </a>
+            <span className="block text-sm text-muted-foreground mt-1">{s.publisher}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
 export default BlogPostFAQ;
+

@@ -41,13 +41,12 @@ const EXPECTED_PILOTS = [
   "como-melhorar-sinal-wifi-em-casa",
 ];
 
-// Pilotos que, nesta rodada, devem estar "blocked" por desalinhamento crítico
-// de intenção (slug × title/H1/conteúdo). Enquanto não forem resolvidos com
-// análise de links/redirects, não podem ser "reviewed".
-const CRITICAL_ALIGNMENT = new Set([
-  "notebook-nao-liga-o-que-fazer",
-  "como-instalar-windows-11-do-zero",
-]);
+// Fechamento técnico (PROMPT 33): os dois desalinhamentos críticos foram
+// resolvidos no conteúdo e realinhados ao slug. Nenhum piloto pode permanecer
+// "pending" e nenhum deve depender de um bloqueio artificial: cada um termina
+// como "reviewed" (com fact-check e fontes ou conhecimento estável justificado)
+// ou "blocked" (com justificativa objetiva em notes).
+
 
 const ALLOWED_SOURCE_HOSTS = new Set([
   "microsoft.com",
@@ -153,17 +152,30 @@ for (const slug of EXPECTED_PILOTS) {
   }
   const status = trM[1];
   const factChecked = /factChecked:\s*true/.test(block);
+  const stableKnowledge = /stableKnowledge:\s*true/.test(block);
+  const hasNotes = /notes:\s*\n?\s*"/.test(block) || /notes:\s*"/.test(block);
   const sourceIds = [...(block.match(/sources:\s*\[([\s\S]*?)\]/)?.[1].matchAll(/"([^"]+)"/g) ?? [])].map((m) => m[1]);
+
+  // Fechamento técnico: nenhum piloto pode permanecer "pending".
+  if (status === "pending") {
+    fail(`"${slug}" ainda está 'pending' — a rodada exige 'reviewed' ou 'blocked'.`);
+  }
 
   if (status === "reviewed") {
     if (!factChecked) fail(`"${slug}" está 'reviewed' mas factChecked não é true.`);
-    if (sourceIds.length === 0) fail(`"${slug}" está 'reviewed' sem fontes obrigatórias.`);
+    // Reviewed exige fontes materiais OU justificativa explícita de conhecimento estável.
+    if (sourceIds.length === 0 && !stableKnowledge) {
+      fail(`"${slug}" está 'reviewed' sem fontes e sem stableKnowledge:true justificado.`);
+    }
+    if (!hasNotes) fail(`"${slug}" está 'reviewed' sem justificativa (notes).`);
   }
-  if (CRITICAL_ALIGNMENT.has(slug) && status !== "blocked") {
-    fail(`"${slug}" é desalinhamento crítico e deve estar 'blocked' (ou resolvido em rodada dedicada).`);
+
+  if (status === "blocked") {
+    if (!hasNotes) fail(`"${slug}" está 'blocked' sem justificativa (notes) do bloqueador.`);
   }
   // Ids de fonte referenciados devem existir em EDITORIAL_SOURCES.
   for (const id of sourceIds) {
+
     if (!new RegExp(`"${id}":\\s*\\{`).test(sourcesSrc)) {
       fail(`"${slug}" referencia fonte inexistente: ${id}`);
     }
@@ -215,6 +227,30 @@ for (const slug of EXPECTED_PILOTS) {
     fail(`"${slug}" contém Person no corpo.`);
   }
 }
+
+// ── 4b. Alinhamento de intenção (desalinhamentos resolvidos) ─
+const titleOf = (slug) => (contentBlocks.get(slug) ?? "").match(/title:\s*"((?:[^"\\]|\\.)*)"/)?.[1] ?? "";
+
+// Notebook: title focado em notebook; sem desktop/computador no title (= H1 renderizado).
+const nbTitle = titleOf("notebook-nao-liga-o-que-fazer").toLowerCase();
+if (!nbTitle) fail("Notebook: title ausente.");
+else {
+  if (!nbTitle.includes("notebook")) fail("Notebook: title/H1 deve focar em notebook.");
+  if (/\bdesktop\b/.test(nbTitle)) fail('Notebook: "desktop" não pode aparecer no title/H1.');
+  if (/\bcomputador(es)?\b/.test(nbTitle)) fail('Notebook: "computador" não pode aparecer no title/H1 (foco é notebook).');
+}
+// Notebook: desktop pode aparecer no corpo apenas como menção contextual curta (<= 1 vez).
+const nbBody = (contentBlocks.get("notebook-nao-liga-o-que-fazer") ?? "").toLowerCase();
+const desktopMentions = (nbBody.match(/desktop/g) ?? []).length;
+if (desktopMentions > 1) fail(`Notebook: "desktop" citado ${desktopMentions}x no corpo (máximo 1 menção contextual).`);
+
+// Windows: title focado em instalação limpa do Windows 11.
+const winTitle = titleOf("como-instalar-windows-11-do-zero").toLowerCase();
+if (!winTitle) fail("Windows: title ausente.");
+else if (!(winTitle.includes("windows 11") && /instala/.test(winTitle) && winTitle.includes("limpa"))) {
+  fail('Windows: title/H1 deve focar em instalação limpa do Windows 11.');
+}
+
 
 // Windows: sem ativador/crack/bypass/download não oficial.
 const win = contentBlocks.get("como-instalar-windows-11-do-zero") ?? "";

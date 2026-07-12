@@ -413,17 +413,18 @@ export const EQUIPMENTS: EquipmentConfig[] = [
       ],
     },
     symptomMeta: {
-      "caiu": { route: "coleta", event: "quando_aconteceu" },
-      "molhou": { route: "coleta", event: "quando_aconteceu" },
-      "tela-quebrou": { route: "coleta", event: "quando_aconteceu" },
-      "tela-sem-imagem": { route: "coleta", event: "quando_comecou" },
-      "nao-liga": { route: "coleta", event: "quando_aconteceu" },
-      "nao-carrega": { route: "coleta", event: "quando_comecou" },
-      "bateria": { route: "coleta", event: "quando_comecou" },
-      "reinicia-trava": { route: "coleta", event: "frequencia" },
-      "camera-audio-conector": { route: "coleta", event: "quando_comecou" },
+      "caiu": { route: "coleta", event: "quando_aconteceu", category: "possível dano físico", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "molhou": { route: "coleta", event: "quando_aconteceu", category: "contato com líquido", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "tela-quebrou": { route: "coleta", event: "quando_aconteceu", category: "possível troca de tela", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "tela-sem-imagem": { route: "coleta", event: "quando_comecou", category: "possível tela/placa", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "nao-liga": { route: "coleta", event: "quando_aconteceu", category: "possível placa/alimentação", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "nao-carrega": { route: "coleta", event: "quando_comecou", category: "possível conector/bateria", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "bateria": { route: "coleta", event: "quando_comecou", category: "possível bateria", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "reinicia-trava": { route: "coleta", event: "frequencia", category: "possível sistema/placa", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
+      "camera-audio-conector": { route: "coleta", event: "quando_comecou", category: "possível componente", priceHint: "Celular/Tablet: faixa de referência ~R$ 150 a R$ 3.000 conforme marca, modelo, dano, peça e disponibilidade (não é orçamento)." },
       "outro": { route: "coleta", event: "quando_comecou" },
     },
+
     contextFields: [
       // molhou
       {

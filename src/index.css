@@ -1532,3 +1532,12 @@
 }
 
 
+
+/* ── Triagem obrigatória: esconder botões flutuantes de WhatsApp com o modal aberto ── */
+body[data-triage-open="1"] [data-testid="whatsapp-float"],
+body[data-triage-open="1"] [data-cta-location="float"],
+body[data-triage-open="1"] .wa-pulse {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}

@@ -97,7 +97,7 @@ export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(
       authorType: "organization" as EditorialAuthorType,
       authorId: INSTITUTIONAL_AUTHOR.id,
       imageOrigin: "unknown" as EditorialImageOrigin,
-      // Sem approvedAt e sem reviewedAt: rascunho em revisão.
+      // Rascunho em revisao — sem data de aprovacao e sem data de revisao material.
     },
   ]),
 );

@@ -1589,7 +1589,10 @@ docker run -d --name db --network minha-rede postgres
             <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Como manter um backup preventivo</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="como-saber-se-pc-tem-virus-malware" />
       </>
+
     ),
   },
   "notebook-nao-liga-o-que-fazer": {

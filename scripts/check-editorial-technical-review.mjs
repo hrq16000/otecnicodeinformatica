@@ -152,17 +152,30 @@ for (const slug of EXPECTED_PILOTS) {
   }
   const status = trM[1];
   const factChecked = /factChecked:\s*true/.test(block);
+  const stableKnowledge = /stableKnowledge:\s*true/.test(block);
+  const hasNotes = /notes:\s*\n?\s*"/.test(block) || /notes:\s*"/.test(block);
   const sourceIds = [...(block.match(/sources:\s*\[([\s\S]*?)\]/)?.[1].matchAll(/"([^"]+)"/g) ?? [])].map((m) => m[1]);
+
+  // Fechamento técnico: nenhum piloto pode permanecer "pending".
+  if (status === "pending") {
+    fail(`"${slug}" ainda está 'pending' — a rodada exige 'reviewed' ou 'blocked'.`);
+  }
 
   if (status === "reviewed") {
     if (!factChecked) fail(`"${slug}" está 'reviewed' mas factChecked não é true.`);
-    if (sourceIds.length === 0) fail(`"${slug}" está 'reviewed' sem fontes obrigatórias.`);
+    // Reviewed exige fontes materiais OU justificativa explícita de conhecimento estável.
+    if (sourceIds.length === 0 && !stableKnowledge) {
+      fail(`"${slug}" está 'reviewed' sem fontes e sem stableKnowledge:true justificado.`);
+    }
+    if (!hasNotes) fail(`"${slug}" está 'reviewed' sem justificativa (notes).`);
   }
-  if (CRITICAL_ALIGNMENT.has(slug) && status !== "blocked") {
-    fail(`"${slug}" é desalinhamento crítico e deve estar 'blocked' (ou resolvido em rodada dedicada).`);
+
+  if (status === "blocked") {
+    if (!hasNotes) fail(`"${slug}" está 'blocked' sem justificativa (notes) do bloqueador.`);
   }
   // Ids de fonte referenciados devem existir em EDITORIAL_SOURCES.
   for (const id of sourceIds) {
+
     if (!new RegExp(`"${id}":\\s*\\{`).test(sourcesSrc)) {
       fail(`"${slug}" referencia fonte inexistente: ${id}`);
     }

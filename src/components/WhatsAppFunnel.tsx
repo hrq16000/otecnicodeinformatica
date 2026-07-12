@@ -528,11 +528,7 @@ export const WhatsAppFunnel = () => {
                         value={f.id === "symptom" ? answers.symptom ?? "" : answers.fields[f.id] ?? ""}
                         invalid={invalidField === f.id}
                         onChange={(v) => setField(f.id, v)}
-                        onSelect={() => maybeAutoAdvance(
-                          f.id === "symptom"
-                            ? resetForSymptom(answers, "__probe__") && { ...answers, symptom: "__probe__" } as TriageAnswers
-                            : answers,
-                        )}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
                       />
                     ))}
                     <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />

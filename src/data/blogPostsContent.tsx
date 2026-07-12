@@ -2346,7 +2346,10 @@ docker run -d --name db --network minha-rede postgres
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="backup-como-proteger-seus-arquivos" />
       </>
+
     ),
   },
   "notebook-superaquecendo-o-que-fazer": {

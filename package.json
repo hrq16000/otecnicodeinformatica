@@ -26,6 +26,7 @@
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",
     "check:editorial-governance": "node scripts/check-editorial-governance.mjs",
+    "check:editorial-pilot": "node scripts/check-editorial-pilot.mjs",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
     "check:public-data-exposure": "node scripts/check-public-data-exposure.mjs",
     "check:security-findings": "node scripts/check-security-findings-baseline.mjs",

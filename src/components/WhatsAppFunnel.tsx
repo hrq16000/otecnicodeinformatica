@@ -205,6 +205,15 @@ export const WhatsAppFunnel = () => {
     [step, advance, clearTimers],
   );
 
+  /** Estado resultante de uma seleção — determinístico, sem depender do setState. */
+  const computeNext = useCallback(
+    (id: string, value: string): TriageAnswers => {
+      if (id === "symptom") return resetForSymptom(answers, value);
+      return { ...answers, fields: { ...answers.fields, [id]: value } };
+    },
+    [answers],
+  );
+
   // ---------- field updates ----------
   const setField = useCallback(
     (id: string, value: string) => {

@@ -3,13 +3,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  MessageCircle,
-  ArrowRight,
-  ArrowLeft,
-  CheckCircle2,
-  Lock,
-} from "lucide-react";
+import * as Icons from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Lock, MessageCircle, Copy, ExternalLink } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 import {
   trackFunnelOpen,
@@ -19,42 +14,43 @@ import {
   trackFunnelBlocked,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
-import {
-  EQUIPMENT_BRANCHES,
-  getBranch,
-  getSintoma,
-  type Equipment,
-} from "@/components/funnel/equipmentBranches";
-import { ColetaRequiredCard } from "@/components/funnel/ColetaRequiredCard";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
-import { withVideoWarning } from "@/lib/funnelWarning";
+import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
+import { TriageField } from "@/components/funnel/TriageField";
+import {
+  EQUIPMENTS,
+  EMPTY_ANSWERS,
+  URGENCY_OPTIONS,
+  WHATSAPP_NUMBER,
+  STORAGE_KEY,
+  getEquipment,
+  type EquipmentId,
+  type TriageAnswers,
+} from "@/lib/funnel/triageConfig";
+import {
+  STEPS,
+  TOTAL_STEPS,
+  buildTriageSummary,
+  buildWhatsAppMessage,
+  clearPersisted,
+  determineServiceRoute,
+  getDetailsFields,
+  getIdentityFields,
+  getPricingRules,
+  getTermsForRoute,
+  loadPersisted,
+  makeTriageId,
+  persist,
+  resetForEquipment,
+  resetForSymptom,
+  validateStep,
+} from "@/lib/funnel/triageMachine";
 
-
-const WHATSAPP_NUMBER = "5541997086380";
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
-const STORAGE_KEY = "wa_funnel_answers_v4";
-
-interface Answers {
-  equipamento: Equipment | null;
-  marca: string;
-  sintoma: string;          // id do sintoma
-  coletaAccepted: boolean;
-  minimumAccepted: boolean;
-  descricao: string;
-}
-
-const EMPTY: Answers = {
-  equipamento: null,
-  marca: "",
-  sintoma: "",
-  coletaAccepted: false,
-  minimumAccepted: false,
-  descricao: "",
-};
-
-
-
-
+const REDUCED_MOTION =
+  typeof window !== "undefined" && window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
 
 function isWhatsAppHref(href: string | null): boolean {
   if (!href) return false;
@@ -77,91 +73,219 @@ function appendUtms(url: URL) {
   }
 }
 
-function buildMessage(a: Answers): string {
-  const branch = a.equipamento ? getBranch(a.equipamento) : undefined;
-  const sintoma = a.equipamento && a.sintoma ? getSintoma(a.equipamento, a.sintoma) : undefined;
-  const lines: string[] = [];
-  lines.push("Olá! Triagem completa pelo site Técnico Curitiba ✅");
-  lines.push("");
-  lines.push(`🔧 *Equipamento:* ${branch?.emoji ?? ""} ${branch?.label ?? "Não informado"}`);
-  if (a.marca) lines.push(`• Marca/tipo: ${a.marca}`);
-  if (sintoma) lines.push(`• Sintoma: ${sintoma.label}`);
-  if (sintoma?.requiresColeta) {
-    lines.push("");
-    lines.push("📦 *Modalidade: COLETA E ENTREGA (obrigatória)*");
-    lines.push("• Mínimo R$ 300 (diagnóstico incluso) · desistiu paga só R$ 90");
-    lines.push("• Autorizado pelo cliente no funil");
+/** Bip curtíssimo, apenas após tentativa explícita de avançar com erro. */
+function playErrorBeep() {
+  if (REDUCED_MOTION) return;
+  try {
+    const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = new Ctx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.frequency.value = 320;
+    gain.gain.value = 0.04;
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.08);
+    osc.onended = () => ctx.close().catch(() => {});
+  } catch {
+    /* respeita bloqueios do navegador */
   }
-  lines.push("");
-  lines.push("💰 *Valor mínimo:* cliente confirmou ciência do mínimo de R$ 99,99 para atendimento/visita.");
-  if (a.descricao.trim()) {
-    lines.push("");
-    lines.push(`📝 ${a.descricao.trim()}`);
-  }
-  lines.push("");
-  lines.push("— Estou ciente das políticas e termos: tecnico.curitiba.br/termos-e-condicoes");
-  // Garante o aviso obrigatório no final, vindo da fonte única (`funnelWarning.ts`).
-  return withVideoWarning(lines.join("\n"));
 }
-
-
-const TransparencyMini = () => (
-  <div className="rounded-lg border border-border bg-card/50 p-2.5 text-[11px] text-muted-foreground leading-snug">
-    <p>
-      💡 <strong>Como funciona:</strong> orçamento grátis por WhatsApp · visita técnica a partir de R$ 99,99 (30 min)
-      · reparos com coleta a partir de R$ 300 · diagnóstico R$ 90 se desistir.
-    </p>
-  </div>
-);
 
 export const WhatsAppFunnel = () => {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>(EMPTY);
+  const [answers, setAnswers] = useState<TriageAnswers>(EMPTY_ANSWERS);
   const [originLocation, setOriginLocation] = useState("cta");
   const [presetMessage, setPresetMessage] = useState<string | null>(null);
+  const [invalidField, setInvalidField] = useState<string | null>(null);
+  const [pulse, setPulse] = useState(false);
+  const [fallback, setFallback] = useState<{ message: string; url: string } | null>(null);
+  const [copied, setCopied] = useState(false);
+
   const submittingRef = useRef(false);
+  const isTransitioning = useRef(false);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pulseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fieldRefs = useRef<Map<string, HTMLElement | null>>(new Map());
+  const openerRef = useRef<HTMLElement | null>(null);
   const sessionId = useMemo(() => getSessionId(), []);
 
-  // Restore cached answers
+  // Restaura estado persistido (com versionamento — descarta versões antigas).
   useEffect(() => {
-    try {
-      const raw = sessionStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        setAnswers({ ...EMPTY, ...parsed });
-      }
-    } catch { /* noop */ }
+    const restored = loadPersisted(STORAGE_KEY);
+    if (restored) setAnswers(restored);
   }, []);
 
-  const persist = useCallback((a: Answers) => {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(a));
-    } catch { /* noop */ }
+  const clearTimers = useCallback(() => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (pulseTimer.current) clearTimeout(pulseTimer.current);
+    advanceTimer.current = null;
+    pulseTimer.current = null;
   }, []);
 
-  const update = useCallback((patch: Partial<Answers>) => {
-    setAnswers((prev) => {
-      const next = { ...prev, ...patch };
-      persist(next);
-      return next;
-    });
-  }, [persist]);
+  useEffect(() => () => clearTimers(), [clearTimers]);
 
+  const commit = useCallback((next: TriageAnswers) => {
+    setAnswers(next);
+    persist(STORAGE_KEY, next);
+    return next;
+  }, []);
+
+  // ---------- derivations ----------
+  const equipment = getEquipment(answers.equipment);
+  const rules = useMemo(() => getPricingRules(answers), [answers]);
+  const terms = useMemo(() => getTermsForRoute(determineServiceRoute(answers)), [answers]);
+  const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
+
+  // ---------- navigation ----------
+  const goTo = useCallback((s: number) => {
+    setStep(Math.max(0, Math.min(s, TOTAL_STEPS - 1)));
+    setInvalidField(null);
+  }, []);
+
+  const doPulse = useCallback(() => {
+    setPulse(true);
+    pulseTimer.current = setTimeout(() => setPulse(false), 500);
+  }, []);
+
+  const advance = useCallback(() => {
+    if (isTransitioning.current) return;
+    isTransitioning.current = true;
+    doPulse();
+    const delay = REDUCED_MOTION ? 0 : 420;
+    advanceTimer.current = setTimeout(() => {
+      setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+      setInvalidField(null);
+      isTransitioning.current = false;
+    }, delay);
+  }, [doPulse]);
+
+  const focusFirstIncomplete = useCallback((s: number, a: TriageAnswers) => {
+    const v = validateStep(s, a);
+    if (v.ok || !v.firstIncomplete) return;
+    setInvalidField(v.firstIncomplete);
+    const el = fieldRefs.current.get(v.firstIncomplete);
+    if (el) {
+      el.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "center" });
+      const focusable = el.querySelector<HTMLElement>("button,input,textarea,[tabindex]");
+      focusable?.focus();
+    }
+  }, []);
+
+  const handleNext = useCallback(() => {
+    clearTimers();
+    if (isTransitioning.current) return;
+    const v = validateStep(step, answers);
+    if (!v.ok) {
+      playErrorBeep();
+      focusFirstIncomplete(step, answers);
+      return;
+    }
+    advance();
+  }, [step, answers, advance, focusFirstIncomplete, clearTimers]);
+
+  const back = useCallback(() => {
+    clearTimers();
+    isTransitioning.current = false;
+    goTo(step - 1);
+  }, [step, goTo, clearTimers]);
+
+  // Auto-advance depois de uma seleção que completa a etapa.
+  const maybeAutoAdvance = useCallback(
+    (nextAnswers: TriageAnswers) => {
+      const name = STEPS[step];
+      if (name !== "equipment" && name !== "identity" && name !== "details") return;
+      if (!validateStep(step, nextAnswers).ok) return;
+      clearTimers();
+      advance();
+    },
+    [step, advance, clearTimers],
+  );
+
+  // ---------- field updates ----------
+  const setField = useCallback(
+    (id: string, value: string) => {
+      setInvalidField(null);
+      setAnswers((prev) => {
+        let next: TriageAnswers;
+        if (id === "symptom") {
+          next = resetForSymptom(prev, value);
+        } else {
+          next = { ...prev, fields: { ...prev.fields, [id]: value } };
+        }
+        persist(STORAGE_KEY, next);
+        return next;
+      });
+    },
+    [],
+  );
+
+  const setEquipment = useCallback(
+    (id: EquipmentId) => {
+      setInvalidField(null);
+      const next = resetForEquipment(answers, id);
+      commit(next);
+      maybeAutoAdvance(next);
+    },
+    [answers, commit, maybeAutoAdvance],
+  );
+
+  const setUrgency = useCallback(
+    (value: string) => {
+      setInvalidField(null);
+      const next = { ...answers, urgency: value };
+      commit(next);
+      maybeAutoAdvance(next);
+    },
+    [answers, commit, maybeAutoAdvance],
+  );
+
+  const setTerm = useCallback(
+    (id: string, checked: boolean) => {
+      setInvalidField(null);
+      const next = { ...answers, termsAccepted: { ...answers.termsAccepted, [id]: checked } };
+      commit(next);
+    },
+    [answers, commit],
+  );
+
+  const reset = useCallback(() => {
+    clearTimers();
+    isTransitioning.current = false;
+    commit(EMPTY_ANSWERS);
+    clearPersisted(STORAGE_KEY);
+    setFallback(null);
+    setStep(0);
+    setInvalidField(null);
+  }, [commit, clearTimers]);
+
+  // ---------- open / close ----------
   const lastOpenRef = useRef(0);
   const openFunnel = useCallback((loc: string, preset?: string) => {
     const now = Date.now();
-    if (now - lastOpenRef.current < 600) return; // dedup: evita 2 quizzes
+    if (now - lastOpenRef.current < 600) return;
     lastOpenRef.current = now;
+    openerRef.current = (document.activeElement as HTMLElement) ?? null;
     setOriginLocation(loc);
     setPresetMessage(preset ?? null);
+    setFallback(null);
     setStep(0);
     setOpen(true);
     captureUtmsFromUrl();
     trackFunnelOpen(loc, !!preset);
   }, []);
 
-  // Global click interception for any WhatsApp anchor
+  // Esconde botões flutuantes / rodapé WhatsApp enquanto o modal está aberto.
+  useEffect(() => {
+    if (open) document.body.setAttribute("data-triage-open", "1");
+    else document.body.removeAttribute("data-triage-open");
+    return () => document.body.removeAttribute("data-triage-open");
+  }, [open]);
+
+  // Global click interception for any WhatsApp anchor.
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (submittingRef.current) return;
@@ -171,10 +295,8 @@ export const WhatsAppFunnel = () => {
       const href = a.getAttribute("href");
       if (!isWhatsAppHref(href)) return;
       if (a.dataset.funnelSkip === "1") return;
-
       e.preventDefault();
       e.stopPropagation();
-
       let loc = "cta";
       const ctaLoc = a.closest<HTMLElement>("[data-cta-location]")?.dataset.ctaLocation;
       if (ctaLoc) loc = ctaLoc;
@@ -182,13 +304,11 @@ export const WhatsAppFunnel = () => {
       else if (a.closest("footer")) loc = "footer";
       else if (a.closest("[data-wa-medium]")) loc = (a.closest("[data-wa-medium]") as HTMLElement).dataset.waMedium || "cta";
       else if (a.getAttribute("aria-label")?.toLowerCase().includes("whatsapp")) loc = "float";
-
       let preset: string | undefined;
       try {
         const u = new URL(href!, window.location.origin);
         preset = u.searchParams.get("text") || undefined;
       } catch { /* noop */ }
-
       trackCTAClick("whatsapp", loc);
       openFunnel(loc, preset);
     };
@@ -203,9 +323,9 @@ export const WhatsAppFunnel = () => {
     window.addEventListener("wa-funnel:open", evHandler as EventListener);
 
     const originalOpen = window.open.bind(window);
-    window.open = ((url?: string | URL, target?: string, features?: string) => {
+    window.open = ((url?: string | URL, targetName?: string, features?: string) => {
       try {
-        if (submittingRef.current) return originalOpen(url, target, features);
+        if (submittingRef.current) return originalOpen(url, targetName, features);
         const href = typeof url === "string" ? url : url?.toString();
         if (href && isWhatsAppHref(href)) {
           let preset: string | undefined;
@@ -214,13 +334,11 @@ export const WhatsAppFunnel = () => {
             preset = u.searchParams.get("text") || undefined;
           } catch { /* noop */ }
           const trackedLocation = window.__lastCtaType === "whatsapp" ? window.__lastCtaLocation : undefined;
-          const loc = trackedLocation || "programmatic";
-          trackCTAClick("whatsapp", loc);
-          openFunnel(loc, preset);
+          openFunnel(trackedLocation || "programmatic", preset);
           return null;
         }
       } catch { /* fall through */ }
-      return originalOpen(url, target, features);
+      return originalOpen(url, targetName, features);
     }) as typeof window.open;
 
     return () => {
@@ -232,120 +350,57 @@ export const WhatsAppFunnel = () => {
 
   useEffect(() => {
     if (!open) return;
-    trackFunnelStep(step, answers.equipamento, answers.sintoma, originLocation);
-  }, [open, step, answers.equipamento, answers.sintoma, originLocation]);
+    trackFunnelStep(step, answers.equipment, answers.symptom, originLocation);
+  }, [open, step, answers.equipment, answers.symptom, originLocation]);
 
-  // ---------- Derivations ----------
-  const branch = answers.equipamento ? getBranch(answers.equipamento) : undefined;
-  const sintomaObj = answers.equipamento && answers.sintoma
-    ? getSintoma(answers.equipamento, answers.sintoma)
-    : undefined;
-  const requiresColeta = !!sintomaObj?.requiresColeta;
-  const isOutro = answers.equipamento === "outro";
-
-  // ---------- Navigation ----------
-  // 4 steps: 0 equip, 1 marca/sintoma (ou descrição), 2 coleta (condicional), 3 confirmação
-  const TOTAL_STEPS = 4;
-  /** Validação por etapa — fonte única de verdade para botão e guard de submit. */
-  const validateStep = useCallback((s: number): { ok: true } | { ok: false; reason: string } => {
-    if (s === 0) {
-      return answers.equipamento ? { ok: true } : { ok: false, reason: "Selecione o equipamento." };
-    }
-    if (s === 1) {
-      if (isOutro) {
-        return answers.descricao.trim().length > 5
-          ? { ok: true }
-          : { ok: false, reason: "Descreva seu caso com pelo menos 6 caracteres." };
+  const hasAnswers = !!answers.equipment;
+  const handleOpenChange = (v: boolean) => {
+    if (!v) {
+      if (hasAnswers && !fallback) {
+        const ok = window.confirm("Fechar a triagem? Suas respostas ficam salvas para continuar depois.");
+        if (!ok) return;
       }
-      if (!answers.marca) return { ok: false, reason: "Selecione a marca/tipo." };
-      if (!answers.sintoma) return { ok: false, reason: "Selecione o problema." };
-      return { ok: true };
+      trackFunnelClose(step, answers.equipment);
+      clearTimers();
+      isTransitioning.current = false;
+      openerRef.current?.focus?.();
     }
-    if (s === 2) {
-      if (requiresColeta && !answers.coletaAccepted) {
-        return { ok: false, reason: "Aceite a modalidade Coleta e Entrega para continuar." };
-      }
-      return { ok: true };
-    }
-    if (s === 3) {
-      return answers.minimumAccepted
-        ? { ok: true }
-        : { ok: false, reason: "Confirme ciência do valor mínimo de R$ 99,99." };
-    }
-    return { ok: true };
-  }, [answers, isOutro, requiresColeta]);
-
-  const canAdvance = useMemo(() => validateStep(step).ok, [validateStep, step]);
-
-  /**
-   * Avança para o próximo step. NÃO valida com `validateStep` aqui porque o
-   * botão "Continuar" já é desabilitado por `canAdvance` (validação reativa) e,
-   * no auto-advance da seleção de equipamento, o `setAnswers` ainda não foi
-   * comitado quando `next()` roda — validar aqui daria falso negativo.
-   * A trava final fica em `submit()`, que revalida todas as etapas.
-   */
-  const next = () => {
-    setStep((s) => {
-      let n = s + 1;
-      // "Outro" pula regra de coleta
-      if (s === 1 && isOutro) n = 3;
-      // Sem coleta → pula step 2
-      if (s === 1 && !requiresColeta && !isOutro) n = 3;
-      return Math.min(n, TOTAL_STEPS - 1);
-    });
+    setOpen(v);
   };
 
-  const back = () => setStep((s) => {
-    let p = s - 1;
-    if (s === 3 && !requiresColeta && !isOutro) p = 1;
-    if (s === 3 && isOutro) p = 1;
-    return Math.max(p, 0);
-  });
-
-  const reset = () => {
-    setAnswers(EMPTY);
-    persist(EMPTY);
-    setStep(0);
-  };
-
-
+  // ---------- submit ----------
   const submit = useCallback(async () => {
-    // Guard final: revalida todas as etapas antes de liberar o WhatsApp
-    for (const s of [0, 1, 2, 3]) {
-      const v = validateStep(s);
+    if (submittingRef.current) return;
+    for (let s = 0; s < TOTAL_STEPS; s++) {
+      const v = validateStep(s, answers);
       if (!v.ok) {
-        trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipamento);
+        trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipment);
         setStep(s);
+        setTimeout(() => focusFirstIncomplete(s, answers), 60);
         return;
       }
     }
     submittingRef.current = true;
     try {
-
-
-      const baseMessage = buildMessage(answers);
-      // Mesmo com preset (mensagem vinda de outro CTA), o aviso obrigatório
-      // sempre fica no final via `withVideoWarning`.
-      const finalMessage = withVideoWarning(
-        presetMessage ? `${presetMessage}\n\n---\n${baseMessage}` : baseMessage,
-      );
-
+      const triageId = makeTriageId();
+      const base = buildWhatsAppMessage(answers, triageId);
+      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${base}` : base;
 
       try {
         await recordSubmission({
           sessionId,
-          equipamento: branch?.label,
-          marca: answers.marca,
-          sintoma: sintomaObj?.label,
-          requiresColeta,
-          minimumAccepted: answers.minimumAccepted,
+          equipamento: equipment?.label,
+          marca: answers.fields.marca || answers.fields.console || answers.fields["equip-nome"],
+          sintoma: answers.symptom || undefined,
+          requiresColeta: rules.route === "coleta",
+          minimumAccepted: true,
           ctaLocation: originLocation,
           waMessage: finalMessage,
         });
       } catch (err) {
         // eslint-disable-next-line no-console
-        console.warn("[funnel] submission insert failed", err);
-        trackFunnelBlocked("insert_failed", answers.equipamento);
+        console.warn("[triage] submission insert failed", err);
+        trackFunnelBlocked("insert_failed", answers.equipment);
       }
 
       const url = new URL(`https://wa.me/${WHATSAPP_NUMBER}`);
@@ -354,233 +409,284 @@ export const WhatsAppFunnel = () => {
 
       trackFunnelSubmit({
         ctaLocation: originLocation,
-        equipamento: answers.equipamento,
-        sintoma: answers.sintoma,
-        requiresColeta,
+        equipamento: answers.equipment,
+        sintoma: answers.symptom,
+        requiresColeta: rules.route === "coleta",
         mediaCount: 0,
-        minimumAccepted: answers.minimumAccepted,
+        minimumAccepted: true,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 
-      window.open(url.toString(), "_blank", "noopener,noreferrer");
-      setOpen(false);
+      const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
+      if (!win) {
+        // Popup bloqueado: preserva triagem e oferece cópia da mensagem.
+        setFallback({ message: finalMessage, url: url.toString() });
+      } else {
+        clearPersisted(STORAGE_KEY);
+        setOpen(false);
+      }
     } finally {
-      setTimeout(() => { submittingRef.current = false; }, 250);
+      setTimeout(() => { submittingRef.current = false; }, 300);
     }
-  }, [answers, branch, sintomaObj, requiresColeta, originLocation, presetMessage, sessionId, validateStep]);
+  }, [answers, equipment, rules, originLocation, presetMessage, sessionId, focusFirstIncomplete]);
 
-  const handleOpenChange = (v: boolean) => {
-    if (!v) trackFunnelClose(step, answers.equipamento);
-    setOpen(v);
+  const copyMessage = useCallback(async () => {
+    if (!fallback) return;
+    try {
+      await navigator.clipboard.writeText(fallback.message);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch { /* noop */ }
+  }, [fallback]);
+
+  // ---------- render helpers ----------
+  const registerRef = (id: string) => (el: HTMLDivElement | null) => {
+    fieldRefs.current.set(id, el);
   };
 
-  // ---------- UI ----------
+  const stepName = STEPS[step];
+
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-lg max-h-[92vh] overflow-y-auto p-5 sm:p-6">
-        <DialogHeader className="space-y-1">
-          <DialogTitle className="flex items-center gap-2 text-lg">
-            <Lock className="h-4 w-4 text-primary" />
+      <DialogContent
+        className="z-[120] w-[calc(100vw-1.5rem)] max-w-[600px] max-h-[92dvh] gap-0 overflow-hidden p-0 sm:w-full"
+      >
+        {/* Cabeçalho fixo compacto */}
+        <DialogHeader className="space-y-1 border-b border-border bg-card/60 px-4 py-3 sm:px-5">
+          <DialogTitle className="flex items-center gap-2 text-base">
+            <Lock className="h-4 w-4 text-primary" aria-hidden="true" />
             Triagem antes do atendimento
           </DialogTitle>
           <DialogDescription className="text-xs">
-            Para garantir um atendimento rápido e preciso, o WhatsApp humano abre <strong>somente após a triagem</strong>.
-            Etapa {step + 1} de {TOTAL_STEPS}.
+            O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {TOTAL_STEPS}.
           </DialogDescription>
+          <div className={`mt-1.5 flex gap-1 transition-transform ${pulse && !REDUCED_MOTION ? "scale-y-150" : ""}`}>
+            {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
+              <div
+                key={i}
+                className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-muted"}`}
+              />
+            ))}
+          </div>
         </DialogHeader>
 
-        {/* Progress */}
-        <div className="flex gap-1 mb-1">
-          {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-muted"}`}
-            />
-          ))}
-        </div>
-
-        {/* Step 0 — equipamento */}
-        {step === 0 && (
-          <div className="space-y-3">
-            <TransparencyMini />
-            <p className="text-sm font-medium">1. Qual o equipamento?</p>
-            <div className="grid grid-cols-2 gap-2">
-              {EQUIPMENT_BRANCHES.map((b) => (
-                <button
-                  key={b.id}
-                  type="button"
-                  onClick={() => { update({ equipamento: b.id, marca: "", sintoma: "" }); next(); }}
-                  className={`text-left p-3 rounded-lg border transition-colors ${
-                    answers.equipamento === b.id
-                      ? "border-primary bg-accent/10"
-                      : "border-border bg-card hover:border-primary/60"
-                  }`}
-                >
-                  <p className="text-2xl">{b.emoji}</p>
-                  <p className="text-sm font-semibold mt-0.5">{b.label}</p>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Step 1 — marca + sintoma (ou descrição livre para "outro") */}
-        {step === 1 && branch && (
-          <div className="space-y-3">
-            {isOutro ? (
-              <>
-                <p className="text-sm font-medium">Descreva seu caso</p>
-                <Textarea
-                  rows={5}
-                  placeholder="Conte o equipamento, marca, o que aconteceu e quando começou…"
-                  value={answers.descricao}
-                  onChange={(e) => update({ descricao: e.target.value })}
-                />
-              </>
+        {/* Conteúdo rolável */}
+        <div className="max-h-[calc(92dvh-8.5rem)] overflow-y-auto px-4 py-4 sm:px-5">
+          <TriageErrorBoundary onReset={reset}>
+            {fallback ? (
+              <FallbackView
+                copied={copied}
+                onCopy={copyMessage}
+                url={fallback.url}
+              />
             ) : (
               <>
-                <div>
-                  <p className="text-sm font-medium mb-1.5">{branch.marcaLabel}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {branch.marcaOptions.map((m) => (
-                      <button
-                        key={m}
-                        type="button"
-                        onClick={() => update({ marca: m })}
-                        className={`px-2.5 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                          answers.marca === m
-                            ? "border-primary bg-primary text-primary-foreground"
-                            : "border-border bg-card hover:border-primary/60"
-                        }`}
-                      >
-                        {m}
-                      </button>
-                    ))}
+                {/* ETAPA 0 — equipamento */}
+                {stepName === "equipment" && (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium">Qual o equipamento?</p>
+                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                      {EQUIPMENTS.map((eq) => {
+                        const Icon = (Icons[eq.icon as keyof typeof Icons] || Icons.HelpCircle) as React.ComponentType<{ className?: string }>;
+                        const active = answers.equipment === eq.id;
+                        return (
+                          <button
+                            key={eq.id}
+                            type="button"
+                            aria-pressed={active}
+                            onClick={() => setEquipment(eq.id)}
+                            className={`flex min-h-[76px] flex-col items-center justify-center gap-1.5 rounded-xl border p-2.5 text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                              active ? "border-primary bg-primary/10" : "border-border bg-card hover:border-primary/60"
+                            }`}
+                          >
+                            <Icon className="h-6 w-6 text-primary" />
+                            <span className="text-xs font-semibold leading-tight">{eq.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="text-sm font-medium mb-1.5">Qual é o problema?</p>
-                  <div className="grid gap-1.5">
-                    {branch.sintomas.map((s) => (
-                      <button
-                        key={s.id}
-                        type="button"
-                        onClick={() => update({ sintoma: s.id })}
-                        className={`text-left p-2.5 rounded-lg border text-sm flex items-center justify-between gap-2 transition-colors ${
-                          answers.sintoma === s.id
-                            ? "border-primary bg-accent/10"
-                            : "border-border bg-card hover:border-primary/60"
-                        }`}
-                      >
-                        <span>{s.label}</span>
-                        {s.requiresColeta && (
-                          <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-300 flex-shrink-0">
-                            COLETA
-                          </span>
+                )}
+
+                {/* ETAPA 1 — identificação + sintoma */}
+                {stepName === "identity" && equipment && (
+                  <div className="space-y-4">
+                    {getIdentityFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id === "symptom" ? answers.symptom ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={() => maybeAutoAdvance(
+                          f.id === "symptom"
+                            ? resetForSymptom(answers, "__probe__") && { ...answers, symptom: "__probe__" } as TriageAnswers
+                            : answers,
                         )}
-                      </button>
+                      />
                     ))}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
                   </div>
-                </div>
+                )}
+
+                {/* ETAPA 2 — contexto + urgência */}
+                {stepName === "details" && equipment && (
+                  <div className="space-y-4">
+                    {getDetailsFields(answers).length === 0 && (
+                      <p className="text-sm text-muted-foreground">
+                        Só falta a urgência para seguir.
+                      </p>
+                    )}
+                    {getDetailsFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id === "__event" ? answers.fields.__event ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={() => maybeAutoAdvance(answers)}
+                      />
+                    ))}
+                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>
+                      <p className="text-sm font-medium">Qual a urgência? <span className="text-destructive">*</span></p>
+                      <div role="radiogroup" className="grid gap-1.5">
+                        {URGENCY_OPTIONS.map((u) => {
+                          const active = answers.urgency === u.value;
+                          return (
+                            <button
+                              key={u.value}
+                              type="button"
+                              role="radio"
+                              aria-checked={active}
+                              onClick={() => setUrgency(u.value)}
+                              className={`min-h-11 rounded-lg border px-3 py-2.5 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                                active ? "border-primary bg-primary/10 font-medium" : "border-border bg-card hover:border-primary/60"
+                              }`}
+                            >
+                              {u.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* ETAPA 3 — modalidade definida */}
+                {stepName === "modality" && (
+                  <div className="space-y-3">
+                    <div className="rounded-xl border-2 border-primary/40 bg-primary/5 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Modalidade indicada</p>
+                      <p className="mt-1 text-lg font-bold text-foreground">{rules.routeLabel}</p>
+                      <p className="mt-2 text-sm leading-snug text-foreground/80">{rules.explanation}</p>
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      <InfoBox title="Valor mínimo" value={rules.minPrice} />
+                      <InfoBox title="Prazo estimado" value={rules.prazo} />
+                    </div>
+                    {rules.priceHint && (
+                      <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-2.5 text-xs leading-snug text-foreground/80">
+                        💡 {rules.priceHint} <em>Estimativa informativa — não substitui diagnóstico.</em>
+                      </p>
+                    )}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext nextLabel="Continuar" />
+                  </div>
+                )}
+
+                {/* ETAPA 4 — ciência e aceite */}
+                {stepName === "terms" && (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium">Registro de ciência e aceite eletrônico</p>
+                    <div className="space-y-2">
+                      {terms.map((t) => {
+                        const checked = !!answers.termsAccepted[t.id];
+                        return (
+                          <label
+                            key={t.id}
+                            ref={registerRef(t.id) as unknown as React.Ref<HTMLLabelElement>}
+                            className={`flex items-start gap-2.5 rounded-lg border p-3 text-xs leading-snug transition-colors cursor-pointer ${
+                              invalidField === t.id ? "border-destructive ring-2 ring-destructive/40" : "border-border bg-card/50"
+                            }`}
+                          >
+                            <Checkbox
+                              checked={checked}
+                              onCheckedChange={(v) => setTerm(t.id, !!v)}
+                              className="mt-0.5"
+                              aria-label="Confirmar item de ciência"
+                            />
+                            <span className="text-foreground/85">{t.text}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">
+                      Leia também os{" "}
+                      <a href="/termos-e-condicoes" data-funnel-skip="1" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
+                        Termos e Condições
+                      </a>.
+                    </p>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} nextLabel="Continuar" />
+                  </div>
+                )}
+
+                {/* ETAPA 5 — revisão + WhatsApp */}
+                {stepName === "review" && (
+                  <div className="space-y-3">
+                    <div className="flex gap-2.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600" aria-hidden="true" />
+                      <div className="text-xs leading-snug">
+                        <p className="font-semibold text-foreground">Triagem completa</p>
+                        <p className="mt-0.5 text-foreground/70">Confira o resumo e agende pelo WhatsApp.</p>
+                      </div>
+                    </div>
+
+                    <div className="rounded-lg border border-border bg-card/50 p-3">
+                      <dl className="grid gap-1 text-xs">
+                        {buildTriageSummary(answers).map((r) => (
+                          <div key={r.label} className="flex gap-2">
+                            <dt className="min-w-[92px] font-semibold text-foreground/70">{r.label}</dt>
+                            <dd className="flex-1 text-foreground">{r.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+
+                    <Textarea
+                      placeholder="Observação adicional (opcional)"
+                      rows={2}
+                      value={answers.finalNotes}
+                      maxLength={500}
+                      aria-label="Observação adicional"
+                      onChange={(e) => commit({ ...answers, finalNotes: e.target.value })}
+                    />
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button variant="outline" size="sm" onClick={back} className="gap-1">
+                        <ArrowLeft className="h-4 w-4" /> Voltar
+                      </Button>
+                      <Button variant="ghost" size="sm" onClick={reset}>Recomeçar</Button>
+                      <Button
+                        onClick={submit}
+                        className="ml-auto gap-2 bg-[hsl(var(--whatsapp))] text-white hover:bg-[hsl(var(--whatsapp-hover))]"
+                      >
+                        <MessageCircle className="h-4 w-4" /> Agendar agora
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </>
             )}
-            <FunnelNav onBack={back} onNext={next} canNext={canAdvance} />
-          </div>
-        )}
-
-        {/* Step 2 — regra Coleta e Entrega (condicional) */}
-        {step === 2 && requiresColeta && sintomaObj && branch && (
-          <div className="space-y-3">
-            <ColetaRequiredCard
-              equipamento={branch.label}
-              sintoma={sintomaObj.label}
-              accepted={answers.coletaAccepted}
-              onAcceptChange={(v) => update({ coletaAccepted: v })}
-            />
-            <FunnelNav onBack={back} onNext={next} canNext={canAdvance} nextLabel="Continuar" />
-          </div>
-        )}
-
-        {/* Step 3 — confirmação e envio */}
-        {step === 3 && (
-          <div className="space-y-3">
-            <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 flex gap-2.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-              <div className="text-xs leading-snug">
-                <p className="font-semibold text-foreground">Triagem completa! 🎉</p>
-                <p className="text-foreground/70 mt-0.5">
-                  Vamos abrir o WhatsApp já com todas as informações. Resposta em até 30 min em horário comercial.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-lg border border-border bg-card/50 p-3 space-y-1 text-xs">
-              {branch && <p>📦 <strong>{branch.label}</strong>{answers.marca ? ` — ${answers.marca}` : ""}</p>}
-              {sintomaObj && <p>⚠️ {sintomaObj.label}</p>}
-              {requiresColeta && <p className="text-amber-700 dark:text-amber-400">📦 Coleta e Entrega · mín. R$ 300 (autorizado)</p>}
-            </div>
-
-            <div className="rounded-lg border border-amber-500/50 bg-amber-500/10 p-3 text-xs leading-snug">
-              <p className="font-bold text-foreground mb-1">📸 Próximo passo no WhatsApp (obrigatório)</p>
-              <p className="text-foreground/80">
-                Assim que o chat abrir, envie <strong>fotos do equipamento por completo</strong> (incluindo a{" "}
-                <strong>etiqueta traseira</strong> com modelo/série) e um <strong>vídeo do defeito acontecendo</strong>.
-                O vídeo precisa estar <strong>sem áudio e sem ruídos de fundo</strong> (mute o microfone, ambiente em
-                silêncio). <strong>Sem o envio das fotos e do vídeo, o atendimento não será iniciado.</strong>
-              </p>
-            </div>
-
-
-
-            <Textarea
-              placeholder="Quer acrescentar algo? (opcional)"
-              rows={3}
-              value={answers.descricao}
-              onChange={(e) => update({ descricao: e.target.value })}
-              maxLength={500}
-            />
-
-            <p className="text-[11px] text-muted-foreground">
-              Ao continuar você concorda com os{" "}
-              <a href="/termos-e-condicoes" className="underline hover:text-foreground" onClick={() => setOpen(false)}>
-                Termos e Condições
-              </a>.
-            </p>
-
-            <div className="flex items-start gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3">
-              <Checkbox
-                id="min-val-confirm"
-                checked={answers.minimumAccepted}
-                onCheckedChange={(v) => update({ minimumAccepted: !!v })}
-                className="mt-0.5"
-              />
-              <label htmlFor="min-val-confirm" className="cursor-pointer text-[11px] leading-snug text-foreground/85">
-                Estou ciente que o valor mínimo para atendimento/visita é <strong>R$ 99,99</strong> e que o WhatsApp só abre após a triagem.
-              </label>
-            </div>
-
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={back} className="gap-1">
-                <ArrowLeft className="h-4 w-4" /> Voltar
-              </Button>
-              <Button variant="outline" size="sm" onClick={reset}>Recomeçar</Button>
-              <Button
-                onClick={submit}
-                disabled={!answers.minimumAccepted}
-                className="ml-auto bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white gap-2"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Abrir WhatsApp
-              </Button>
-            </div>
-          </div>
-        )}
+          </TriageErrorBoundary>
+        </div>
       </DialogContent>
     </Dialog>
   );
 };
 
-// ---------- helpers ----------
+// ---------- subcomponents ----------
 const FunnelNav = ({
   onBack, onNext, canNext, nextLabel = "Continuar",
 }: { onBack: () => void; onNext: () => void; canNext: boolean; nextLabel?: string }) => (
@@ -594,11 +700,41 @@ const FunnelNav = ({
   </div>
 );
 
-// Backward-compat export (alguns componentes legados importam isso)
+const InfoBox = ({ title, value }: { title: string; value: string }) => (
+  <div className="rounded-lg border border-border bg-card/50 p-3">
+    <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{title}</p>
+    <p className="mt-0.5 text-sm font-medium text-foreground">{value}</p>
+  </div>
+);
+
+const FallbackView = ({
+  copied, onCopy, url,
+}: { copied: boolean; onCopy: () => void; url: string }) => (
+  <div className="space-y-3">
+    <div className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs leading-snug">
+      <p className="font-semibold text-foreground">Não conseguimos abrir o WhatsApp automaticamente</p>
+      <p className="mt-1 text-foreground/80">
+        Seu navegador pode ter bloqueado a janela. Copie a mensagem da triagem e cole no WhatsApp, ou abra pelo botão abaixo. Suas respostas continuam salvas.
+      </p>
+    </div>
+    <div className="flex flex-wrap gap-2">
+      <Button size="sm" onClick={onCopy} className="gap-2">
+        <Copy className="h-4 w-4" /> {copied ? "Copiado!" : "Copiar mensagem"}
+      </Button>
+      <Button asChild size="sm" variant="outline" className="gap-2">
+        <a href={url} target="_blank" rel="noopener noreferrer" data-funnel-skip="1">
+          <ExternalLink className="h-4 w-4" /> Abrir WhatsApp
+        </a>
+      </Button>
+    </div>
+  </div>
+);
+
+// Backward-compat export (componentes legados podem importar isto).
 export const TransparencyNote = ({ className = "" }: { className?: string }) => (
   <p className={`text-xs text-muted-foreground leading-relaxed ${className}`}>
-    📌 <strong>Transparência:</strong> orçamento grátis por WhatsApp. Visita técnica a partir de
-    {" "}R$ 99,99 (30 min) · diagnóstico R$ 90 só se cancelar · reparos com coleta a partir de R$ 300.{" "}
+    📌 <strong>Transparência:</strong> orçamento inicial por WhatsApp. Visita técnica para PC/Notebook a partir de
+    {" "}R$ 99,99 (30 min) · coleta e entrega a partir de R$ 299,99.{" "}
     <a href="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</a>
   </p>
 );

@@ -239,6 +239,93 @@ function injectCuratedMeta(html, url, title, description) {
   return setRobots(out, ROBOTS_INDEX);
 }
 
+// ─────────────────────────────────────────────────────────────
+// BLOG EDITORIAL — extração de slugs + metadados (fail-closed).
+// Parseia as fontes reais (blogPostsContentBase + programmaticPosts)
+// para gerar HTML estático próprio por artigo. Todos os artigos são
+// noindex, follow (registro editorial vazio nesta fase). Fora do sitemap.
+// ─────────────────────────────────────────────────────────────
+const HOWTO_DEFAULT_DATE = "2026-06-14";
+
+function extractField(block, name) {
+  const re = new RegExp(`^\\s*${name}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, "m");
+  const m = block.match(re);
+  return m ? m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\") : undefined;
+}
+
+export async function getBlogPosts(rootDir = ".") {
+  const posts = [];
+  const seen = new Set();
+  const duplicates = [];
+
+  // --- Base manual (blogPostsContentBase) ---
+  const basePath = path.join(rootDir, "src/data/blogPostsContent.tsx");
+  const baseSrc = await fs.readFile(basePath, "utf8");
+  const entryRe = /^  "([a-z0-9-]+)":\s*\{/gm;
+  const matches = [...baseSrc.matchAll(entryRe)];
+  for (let i = 0; i < matches.length; i++) {
+    const slug = matches[i][1];
+    const start = matches[i].index;
+    const end = i + 1 < matches.length ? matches[i + 1].index : baseSrc.length;
+    const block = baseSrc.slice(start, end);
+    const title = extractField(block, "title");
+    const excerpt = extractField(block, "excerpt");
+    const date = extractField(block, "date");
+    const category = extractField(block, "category");
+    if (!title) continue;
+    if (seen.has(slug)) { duplicates.push(slug); continue; }
+    seen.add(slug);
+    posts.push({ slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE, category: category ?? "", origin: "manual" });
+  }
+
+  // --- Programáticos (defs em blogProgrammaticPosts.tsx) ---
+  const progPath = path.join(rootDir, "src/data/blogProgrammaticPosts.tsx");
+  const progSrc = await fs.readFile(progPath, "utf8");
+  const defsIdx = progSrc.indexOf("const defs");
+  const defsSrc = defsIdx >= 0 ? progSrc.slice(defsIdx) : progSrc;
+  const slugRe = /slug:\s*"([a-z0-9-]+)"/g;
+  const slugMatches = [...defsSrc.matchAll(slugRe)];
+  for (let i = 0; i < slugMatches.length; i++) {
+    const slug = slugMatches[i][1];
+    const start = slugMatches[i].index;
+    const end = i + 1 < slugMatches.length ? slugMatches[i + 1].index : defsSrc.length;
+    const block = defsSrc.slice(start, end);
+    const title = extractField(block, "title");
+    const excerpt = extractField(block, "excerpt");
+    const date = extractField(block, "date");
+    const category = extractField(block, "category");
+    if (!title) continue;
+    if (seen.has(slug)) { duplicates.push(slug); continue; }
+    seen.add(slug);
+    posts.push({ slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE, category: category ?? "", origin: "programmatic" });
+  }
+
+  return { posts, duplicates };
+}
+
+// Gera o HTML estático de um artigo não aprovado (noindex,follow, self-canonical).
+async function writeBlogPostPage(distDir, baseHtml, post) {
+  const routePath = `/blog/${post.slug}`;
+  const url = `${SITE}${routePath}`;
+  const title = `${post.title} | Blog | Técnico em Curitiba`;
+  const description = post.excerpt || post.title;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: post.title,
+    description,
+    url,
+    inLanguage: "pt-BR",
+    isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
+    publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+  };
+  const html = injectMeta(baseHtml, {
+    path: routePath, url, title, description,
+    ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+  });
+  await writePage(distDir, routePath, html);
+}
+
 export async function prerenderCities(distDir) {
   const indexPath = path.join(distDir, "index.html");
   const baseHtml = await fs.readFile(indexPath, "utf8");

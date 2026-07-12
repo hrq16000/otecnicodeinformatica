@@ -456,6 +456,43 @@ export async function prerenderCities(distDir) {
     written++;
   }
 
+  // --- BLOG editorial (fail-closed) ---
+  // Hub /blog + um HTML próprio por artigo. Todos noindex,follow e fora
+  // de qualquer sitemap. Registro editorial vazio => nenhum indexável.
+  const { posts: blogPosts, duplicates: blogDuplicates } = await getBlogPosts(".");
+  if (blogDuplicates.length) {
+    console.warn(`[prerender-cities] blog: ${blogDuplicates.length} slug(s) duplicado(s) ignorado(s): ${blogDuplicates.join(", ")}`);
+  }
+
+  // Hub /blog — noindex enquanto não houver artigos aprovados.
+  {
+    const url = `${SITE}/blog`;
+    const title = "Guias de Informática | Técnico em Curitiba";
+    const description = "Guias sobre manutenção, segurança, computadores, notebooks, redes e cuidados com dados, publicados após revisão editorial.";
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: title,
+      description,
+      url,
+      inLanguage: "pt-BR",
+      isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
+      publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+    };
+    const html = injectMeta(baseHtml, {
+      path: "/blog", url, title, description,
+      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+    });
+    await writePage(distDir, "/blog", html);
+    written++;
+  }
+
+  for (const post of blogPosts) {
+    await writeBlogPostPage(distDir, baseHtml, post);
+    written++;
+  }
+  console.log(`[prerender-cities] wrote /blog hub + ${blogPosts.length} blog article HTML files (noindex,follow)`);
+
   // eslint-disable-next-line no-console
   console.log(`[prerender-cities] wrote ${written} per-route index.html files`);
 }

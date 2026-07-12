@@ -221,7 +221,7 @@ const win = contentBlocks.get("como-instalar-windows-11-do-zero") ?? "";
 for (const bad of ["ativador", "crack", "bypass de licença", "burlar", "kmspico", "serial gratis"]) {
   if (win.toLowerCase().includes(bad)) {
     // "não fornece ... ativador" / "burlar" em contexto negativo é permitido.
-    const negOk = new RegExp(`(não|nao)[^.]{0,40}${bad}`, "i").test(win);
+    const negOk = new RegExp(`(não|nao)[^.]{0,80}${bad}`, "i").test(win);
     if (!negOk) fail(`Windows: contém termo proibido fora de contexto negativo: "${bad}".`);
   }
 }

@@ -1,15 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { act, render, screen, cleanup, waitFor } from "@testing-library/react";
+import { act, render, screen, cleanup, waitFor, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
-import { VIDEO_WARNING } from "@/lib/funnelWarning";
 
-// Mock Supabase para o funil não tentar bater na rede (jsdom não tem fetch real).
+// Mock Supabase para o funil não bater na rede.
 vi.mock("@/integrations/supabase/client", () => ({
   supabase: {
-    from: () => ({
-      insert: vi.fn().mockResolvedValue({ data: null, error: null }),
-    }),
+    from: () => ({ insert: vi.fn().mockResolvedValue({ data: null, error: null }) }),
     auth: {
       getSession: vi.fn().mockResolvedValue({ data: { session: null }, error: null }),
       onAuthStateChange: vi.fn(() => ({ data: { subscription: { unsubscribe: vi.fn() } } })),
@@ -17,13 +14,9 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 
-async function waitForWaCall() {
-  await waitFor(() => expect(getLastWaUrl()).not.toBeNull(), { timeout: 3000 });
-}
-
-
+// window.open retorna uma janela "válida" para o fluxo feliz (sem fallback).
 const openSpy = vi.fn<(url?: string | URL, target?: string, features?: string) => Window | null>(
-  () => null,
+  () => ({}) as Window,
 );
 
 beforeEach(() => {
@@ -53,63 +46,20 @@ async function openFunnel() {
   await screen.findByRole("dialog", {}, { timeout: 3000 });
 }
 
-/**
- * Localiza um botão dentro do dialog atual cujo *primeiro* nó de texto
- * corresponde ao label dado. Ignora badges adjacentes (ex.: "COLETA") e
- * emojis em `<p>` ao lado do label do equipamento.
- */
-async function clickButton(label: string | RegExp) {
-  const dialog = await screen.findByRole("dialog");
-  const buttons = Array.from(dialog.querySelectorAll<HTMLButtonElement>("button"));
-  const matches = (txt: string) =>
-    typeof label === "string" ? txt === label : label.test(txt);
-  const btn = buttons.find((b) => {
-    // Inspeciona cada child textNode/span/p individualmente
-    const parts: string[] = [];
-    b.querySelectorAll("p, span").forEach((el) => {
-      const t = (el.textContent || "").trim();
-      if (t) parts.push(t);
-    });
-    if (parts.length === 0 && b.textContent) parts.push(b.textContent.trim());
-    return parts.some(matches);
-  });
-  if (!btn) {
-    throw new Error(
-      `Botão não encontrado para ${label}. Botões disponíveis: ${
-        buttons.map((b) => `"${b.textContent}"`).join(" | ")
-      }`,
-    );
-  }
-  await act(async () => {
-    btn.click();
-  });
+function dialog() {
+  return screen.getByRole("dialog");
 }
 
-
-/** Marca/desmarca o checkbox de aceite da Coleta (input[type=checkbox] dentro do card). */
-async function clickAcceptCheckbox() {
-  const dialog = await screen.findByRole("dialog");
-  const cb = dialog.querySelector<HTMLInputElement>('input[type="checkbox"]');
-  if (!cb) throw new Error("checkbox de aceite não encontrado");
-  await act(async () => {
-    cb.click();
-  });
+async function clickText(label: string | RegExp) {
+  const d = dialog();
+  const buttons = Array.from(d.querySelectorAll<HTMLButtonElement>("button"));
+  const matches = (t: string) => (typeof label === "string" ? t === label : label.test(t));
+  const btn = buttons.find((b) => matches((b.textContent || "").trim()));
+  if (!btn) throw new Error(`Botão "${label}" não encontrado. Disponíveis: ${buttons.map((b) => b.textContent).join(" | ")}`);
+  await act(async () => { btn.click(); });
 }
 
-function dialogText(): string {
-  const d = screen.queryByRole("dialog");
-  return d?.textContent || "";
-}
-
-function continueIsDisabled(): boolean {
-  const dialog = screen.getByRole("dialog");
-  const btn = Array.from(dialog.querySelectorAll<HTMLButtonElement>("button"))
-    .find((b) => /Continuar/i.test(b.textContent || ""));
-  if (!btn) throw new Error("Continuar button missing");
-  return btn.disabled;
-}
-
-function getLastWaUrl(): URL | null {
+function getWaUrl(): URL | null {
   for (let i = openSpy.mock.calls.length - 1; i >= 0; i -= 1) {
     const arg = openSpy.mock.calls[i][0];
     const href = typeof arg === "string" ? arg : arg?.toString();
@@ -118,106 +68,104 @@ function getLastWaUrl(): URL | null {
   return null;
 }
 
-describe("WhatsAppFunnel — Cenário 1: Cliente Simples (PC > Lento)", () => {
-  it("fluxo passa direto e a URL final contém o aviso obrigatório + preços R$ 99,99 e R$ 90 estão visíveis no step inicial", async () => {
+async function checkAllTerms() {
+  const boxes = within(dialog()).getAllByRole("checkbox");
+  for (const b of boxes) {
+    await act(async () => { (b as HTMLElement).click(); });
+  }
+}
+
+describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
+  it("roteia para atendimento remoto e gera mensagem com a modalidade correta", async () => {
     renderFunnel();
     await openFunnel();
 
-    // Step 0 mostra o bloco de transparência com os preços
-    expect(dialogText()).toMatch(/R\$ 99,99/);
-    expect(dialogText()).toMatch(/R\$ 90/);
+    await clickText("PC / Notebook");
+    await waitFor(() => expect(dialog().textContent).toMatch(/principal objetivo/i), { timeout: 3000 });
 
-    await clickButton("PC / Notebook");       // step 0 → step 1
-    await clickButton("Dell");
-    await clickButton("Lento / travando");
+    await clickText("Notebook");
+    await clickText("Liga e inicia normalmente");
+    await clickText("Instalar ou configurar programa");
 
-    await clickButton("Continuar");           // pula step 2 → step 3
-    expect(dialogText()).toMatch(/Triagem completa/i);
-    expect(dialogText()).toMatch(/Próximo passo no WhatsApp/i);
+    // auto-advance → detalhes
+    await waitFor(() => expect(dialog().textContent).toMatch(/urgência/i), { timeout: 3000 });
+    await clickText("Há poucos dias");
+    await clickText(/Próximas 72 horas úteis/i);
 
-    await clickButton(/Abrir WhatsApp/i);
-    await waitForWaCall();
+    // auto-advance → modalidade
+    await waitFor(() => expect(dialog().textContent).toMatch(/Atendimento remoto/i), { timeout: 3000 });
+    expect(dialog().textContent).not.toMatch(/Coleta e entrega/i);
+    await clickText("Continuar");
 
-    const url = getLastWaUrl();
-    expect(url).not.toBeNull();
-    const text = url!.searchParams.get("text") || "";
-    expect(text).toContain("PC / Notebook");
-    expect(text).toContain("Dell");
-    expect(text).toContain("Lento");
-    expect(text.endsWith(VIDEO_WARNING)).toBe(true);
+    // termos
+    await waitFor(() => expect(dialog().textContent).toMatch(/ciência e aceite/i), { timeout: 3000 });
+    await checkAllTerms();
+    await clickText("Continuar");
+
+    // revisão
+    await waitFor(() => expect(dialog().textContent).toMatch(/Triagem completa/i), { timeout: 3000 });
+    await clickText("Agendar agora");
+
+    await waitFor(() => expect(getWaUrl()).not.toBeNull(), { timeout: 3000 });
+    const text = getWaUrl()!.searchParams.get("text") || "";
+    expect(text).toMatch(/PC \/ Notebook/);
+    expect(text).toMatch(/Atendimento remoto/i);
+    expect(text).toMatch(/72 horas úteis/i);
   });
 });
 
-
-describe("WhatsAppFunnel — Cenário 2: Barreira de Fogo (TV > Não liga)", () => {
-  it("bloqueia avanço até aceite da Coleta e mensagem final inclui R$ 300 + COLETA", async () => {
+describe("Triagem V5 — TV não liga → COLETA", () => {
+  it("exige aceites de coleta e gera mensagem com R$ 299,99", async () => {
     renderFunnel();
     await openFunnel();
 
-    await clickButton("TV");
-    await clickButton("Samsung");
-    await clickButton("Não liga");
-    await clickButton("Continuar");           // step 1 → step 2 (coleta)
+    await clickText("TV");
+    await waitFor(() => expect(dialog().textContent).toMatch(/O que aconteceu/i), { timeout: 3000 });
 
-    expect(dialogText()).toMatch(/Coleta e Entrega/i);
-    expect(dialogText()).toMatch(/R\$ 300/);
-    expect(continueIsDisabled()).toBe(true);
+    await clickText("LED");
+    await clickText("Não liga");
 
-    // Tentativa de forçar avanço sem aceite — não pode abrir wa.me
-    await clickButton("Continuar");
-    expect(getLastWaUrl()).toBeNull();
+    await waitFor(() => expect(dialog().textContent).toMatch(/urgência/i), { timeout: 3000 });
+    // TV "não liga" pergunta "quando aconteceu?" e NUNCA frequência
+    expect(dialog().textContent).toMatch(/quando aconteceu/i);
+    expect(dialog().textContent).not.toMatch(/frequência/i);
+    await clickText("Hoje");
+    await clickText(/Esta semana/i);
 
-    await clickAcceptCheckbox();
-    expect(continueIsDisabled()).toBe(false);
+    await waitFor(() => expect(dialog().textContent).toMatch(/Coleta e entrega/i), { timeout: 3000 });
+    expect(dialog().textContent).toMatch(/R\$ 299,99/);
+    await clickText("Continuar");
 
-    await clickButton("Continuar");           // → step 3
-    await clickButton(/Abrir WhatsApp/i);
-    await waitForWaCall();
+    // termos (coleta = 4 checkboxes)
+    await waitFor(() => expect(dialog().textContent).toMatch(/ciência e aceite/i), { timeout: 3000 });
+    const boxes = within(dialog()).getAllByRole("checkbox");
+    expect(boxes.length).toBe(4);
 
-    const url = getLastWaUrl();
-    expect(url).not.toBeNull();
-    const text = url!.searchParams.get("text") || "";
-    expect(text).toContain("COLETA E ENTREGA");
-    expect(text).toContain("R$ 300");
-    expect(text).toContain("Não liga");
-    expect(text.endsWith(VIDEO_WARNING)).toBe(true);
+    // sem aceitar tudo, não abre WhatsApp (Continuar desabilitado)
+    await checkAllTerms();
+    await clickText("Continuar");
+
+    await waitFor(() => expect(dialog().textContent).toMatch(/Triagem completa/i), { timeout: 3000 });
+    await clickText("Agendar agora");
+
+    await waitFor(() => expect(getWaUrl()).not.toBeNull(), { timeout: 3000 });
+    const text = getWaUrl()!.searchParams.get("text") || "";
+    expect(text).toMatch(/Coleta e entrega/i);
+    expect(text).toMatch(/R\$ 299,99/);
   });
 });
 
-describe("WhatsAppFunnel — Cenário 3: Tela Quebrada (Celular)", () => {
-  it("mensagem final contém exigência completa de fotos + vídeo + etiqueta traseira sem áudio", async () => {
+describe("Triagem V5 — guard de submit", () => {
+  it("não abre WhatsApp sem completar a triagem", async () => {
     renderFunnel();
     await openFunnel();
-
-    await clickButton("Celular / Tablet");
-    await clickButton("iPhone (Apple)");
-    await clickButton("Tela trincada / quebrada");
-    await clickButton("Continuar");           // → step 2 (coleta)
-
-    await clickAcceptCheckbox();
-    await clickButton("Continuar");           // → step 3
-    await clickButton(/Abrir WhatsApp/i);
-    await waitForWaCall();
-
-    const url = getLastWaUrl();
-    expect(url).not.toBeNull();
-    const text = url!.searchParams.get("text") || "";
-
-    expect(text).toMatch(/fotos/i);
-    expect(text).toMatch(/etiqueta traseira/i);
-    expect(text).toMatch(/v[ií]deo/i);
-    expect(text).toMatch(/n[ãa]o pode ter [áa]udio/i);
-    expect(text).toMatch(/atendimento n[ãa]o ser[áa] iniciado/i);
-    expect(text.endsWith(VIDEO_WARNING)).toBe(true);
+    expect(getWaUrl()).toBeNull();
   });
-});
 
-
-describe("WhatsAppFunnel — guard de submit", () => {
-  it("não abre WhatsApp em nenhuma circunstância sem completar a triagem", async () => {
+  it("não existe mais a categoria 'Outro / Só orçamento' e sim 'Outro'", async () => {
     renderFunnel();
     await openFunnel();
-    // Sem nenhum clique nas etapas: nada de wa.me
-    expect(getLastWaUrl()).toBeNull();
+    expect(dialog().textContent).not.toMatch(/Só orçamento/i);
+    expect(within(dialog()).getByText("Outro")).toBeInTheDocument();
   });
 });

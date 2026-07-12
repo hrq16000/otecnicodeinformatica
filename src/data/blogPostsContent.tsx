@@ -1458,206 +1458,192 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "computador-lento-causas-solucoes": {
-    title: "Computador Lento: 12 Causas Reais e Como Resolver (Guia Técnico 2026)",
-    excerpt: "Descubra as 12 causas mais comuns de lentidão e o que realmente funciona.",
+    title: "Computador lento: causas possíveis e como decidir o próximo passo",
+    excerpt: "Entenda por que um computador fica lento, o que dá para verificar com segurança e quando formatar, fazer upgrade ou buscar manutenção realmente faz diferença.",
     date: "2026-04-06",
-    readTime: "12 min",
+    readTime: "11 min",
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">Computador lento é o problema mais comum que recebemos em Curitiba e região. <strong>Na maioria dos casos, a causa não é uma só</strong> — são vários fatores acumulados. Neste guia, listamos as 12 causas reais que encontramos no dia a dia e o que fazer em cada situação.</p>
+        <p className="lead">Um computador lento quase nunca tem uma causa única. Costuma ser uma soma de fatores — disco antigo, pouca memória, programas em segundo plano ou o sistema já desgastado pelo tempo. Antes de formatar ou gastar com peças, vale entender o que a lentidão pode indicar e o que você mesmo consegue verificar com segurança.</p>
 
-        <h2>1. HD Antigo (Disco Rígido Mecânico)</h2>
-        <p>Se seu computador ainda usa HD mecânico, essa é provavelmente a causa número 1 da lentidão. O HD mecânico lê dados a 80-120 MB/s, enquanto um SSD alcança 500-3.500 MB/s. <strong>A troca de HD por SSD é o upgrade com maior impacto perceptível</strong> — o Windows inicia em 15 segundos em vez de 2 minutos.</p>
+        <h2>O que a lentidão costuma indicar</h2>
+        <p>Repare em <strong>quando</strong> a lentidão aparece, porque isso ajuda a separar as possibilidades:</p>
+        <ul>
+          <li>Demora só para ligar e chegar até a área de trabalho.</li>
+          <li>Demora para abrir programas depois que o sistema já iniciou.</li>
+          <li>Travamentos e congelamentos no meio do uso.</li>
+          <li>Lentidão apenas no navegador ou em um programa específico.</li>
+          <li>Lentidão que piora com o tempo de uso, acompanhada de aquecimento.</li>
+        </ul>
+        <p>Cada padrão aponta para grupos de causas diferentes. Nenhum diagnóstico à distância é definitivo: aqui o objetivo é entender a situação, não confirmar a causa sem verificar.</p>
 
-        <h2>2. Memória RAM Insuficiente</h2>
-        <p>Windows 10/11 exige no mínimo 4 GB de RAM para funcionar, mas na prática <strong>8 GB é o mínimo recomendado</strong>. Com menos, o sistema usa o HD como memória virtual (swap), o que torna tudo extremamente lento. Se você abre o navegador com 5 abas e já trava, provavelmente é falta de RAM.</p>
+        <h2>Verificações seguras que você pode fazer</h2>
+        <ul>
+          <li>Reinicie o computador por completo — muita coisa acumulada some com um reinício.</li>
+          <li>Veja quanto espaço livre resta no disco do sistema; discos quase cheios deixam tudo lento.</li>
+          <li>Abra o Gerenciador de Tarefas (Ctrl + Shift + Esc) e observe o que consome disco, memória e processador.</li>
+          <li>Revise os programas que iniciam junto com o sistema e desative os que você não usa.</li>
+          <li>Confira se há atualizações do sistema pendentes.</li>
+        </ul>
+        <p>Essas ações não apagam dados e não exigem abrir o equipamento. Se a lentidão continuar, a causa provavelmente é mais profunda.</p>
 
-        <h2>3. Programas Iniciando com o Windows</h2>
-        <p>Muitos programas se configuram para iniciar junto com o sistema: antivírus, Spotify, Steam, OneDrive, Skype, atualizadores. Cada um consome RAM e processamento. Para verificar: <strong>Ctrl + Shift + Esc → Inicializar</strong>. Desative o que não precisa iniciar automaticamente.</p>
+        <h2>Causas possíveis, por grupo</h2>
+        <h3>Armazenamento</h3>
+        <p>Um disco rígido mecânico (HD) antigo é uma das razões mais frequentes de lentidão geral. HDs também se desgastam e podem apresentar setores com falha, o que trava a leitura. Migrar para um SSD costuma trazer o ganho mais perceptível — mas isso <Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">precisa ser avaliado caso a caso</Link>.</p>
+        <h3>Memória (RAM)</h3>
+        <p>Pouca memória faz o sistema recorrer ao disco como memória virtual, e tudo fica arrastado, principalmente com várias abas ou programas abertos.</p>
+        <h3>Software e inicialização</h3>
+        <p>Programas que iniciam sozinhos, atualizadores e serviços em segundo plano consomem recursos o tempo todo. Um navegador cheio de extensões também pesa bastante.</p>
+        <h3>Temperatura</h3>
+        <p>Quando o processador aquece demais, ele reduz a velocidade para se proteger. Poeira e ventilação obstruída são causas comuns de aquecimento.</p>
+        <h3>Segurança</h3>
+        <p>Alguns programas maliciosos consomem processamento e rede em silêncio. Se a lentidão veio junto com comportamento estranho, vale <Link to="/blog/como-saber-se-pc-tem-virus-malware" className="text-accent">investigar sinais de vírus</Link> e considerar a <Link to="/servicos/remocao-de-virus" className="text-accent">remoção profissional</Link>.</p>
+        <h3>Sistema desgastado</h3>
+        <p>Com o tempo, o sistema acumula configurações, restos de programas e arquivos que degradam o desempenho.</p>
+        <h3>Hardware limitado para o uso atual</h3>
+        <p>Equipamentos muito antigos podem simplesmente não dar conta de programas e sistemas atuais, mesmo após ajustes.</p>
 
-        <h2>4. Vírus e Malwares</h2>
-        <p>Malwares consomem CPU e internet em segundo plano. Mineradores de criptomoeda, por exemplo, usam até 100% do processador sem você perceber. <strong>Um antivírus gratuito nem sempre detecta tudo</strong> — às vezes é necessário ferramentas específicas como Malwarebytes ou análise manual.</p>
-        <p><Link to="/servicos/remocao-virus" className="text-accent">→ Saiba mais sobre remoção de vírus</Link></p>
+        <h2>Formatar nem sempre resolve</h2>
+        <p>Formatar reinstala o sistema do zero e pode ajudar quando o problema é de software acumulado ou corrompido. Mas não resolve lentidão causada por HD desgastado, pouca memória, superaquecimento ou hardware defasado. Formatar sem entender a causa costuma dar um alívio temporário — e o problema volta. Veja <Link to="/servicos/formatacao" className="text-accent">como avaliamos quando a formatação faz sentido</Link>.</p>
 
-        <h2>5. Windows Desatualizado ou Corrompido</h2>
-        <p>Atualizações pendentes podem travar o sistema. Por outro lado, uma atualização mal instalada também causa problemas. Em alguns casos, a formatação é a solução mais eficiente — reinstalar o Windows do zero elimina todos os problemas acumulados.</p>
+        <h2>Sinais de que é melhor não insistir</h2>
+        <ul>
+          <li>Ruídos, cliques ou estalos vindos do disco.</li>
+          <li>Arquivos que somem ou ficam corrompidos.</li>
+          <li>Aquecimento excessivo e desligamentos repentinos.</li>
+          <li>Reinicializações constantes ou tela azul recorrente.</li>
+        </ul>
+        <p>Nesses casos, continuar usando pode aumentar o risco de perda de dados. Fazer um backup dos arquivos importantes é a primeira medida antes de qualquer tentativa.</p>
 
-        <h2>6. Superaquecimento</h2>
-        <p>Quando o processador esquenta demais, ele reduz a velocidade automaticamente (thermal throttling) para não queimar. Causas comuns: <strong>pasta térmica ressecada, ventilador com poeira, notebook usado na cama</strong>. A limpeza interna resolve na maioria dos casos.</p>
-
-        <h2>7. HD com Setores Defeituosos</h2>
-        <p>HDs mecânicos se desgastam com o tempo. Setores defeituosos fazem o sistema travar ao tentar ler dados corrompidos. <strong>Se você ouve cliques ou estalos no computador, o HD pode estar morrendo</strong>. Nesse caso, a troca é urgente para não perder dados.</p>
-
-        <h2>8. Driver Desatualizado ou Incompatível</h2>
-        <p>Drivers são os programas que fazem o Windows se comunicar com o hardware. Drivers antigos ou genéricos podem causar lentidão, travamentos e tela azul. Após uma formatação profissional, sempre instalamos os drivers corretos do fabricante.</p>
-
-        <h2>9. Antivírus Pesado</h2>
-        <p>Ironicamente, alguns antivírus causam mais lentidão que os próprios vírus. Soluções como Norton e McAfee pré-instalados consomem muita RAM. <strong>O Windows Defender, que já vem no Windows, é suficiente para a maioria dos usuários</strong>.</p>
-
-        <h2>10. Disco Cheio</h2>
-        <p>Quando o disco está com mais de 90% de ocupação, o Windows não tem espaço para arquivos temporários e memória virtual. Isso torna tudo mais lento. Limpe a Lixeira, remova programas não usados e mova fotos/vídeos para HD externo ou nuvem.</p>
-
-        <h2>11. Navegador com Muitas Extensões</h2>
-        <p>Chrome é famoso por consumir muita RAM. Se você tem 10+ extensões, cada aba pode consumir 300 MB ou mais. Desative extensões que não usa e considere usar Edge ou Firefox se seu PC tem pouca RAM.</p>
-
-        <h2>12. Hardware Antigo (Processador Ultrapassado)</h2>
-        <p>Processadores com mais de 8-20 anos podem não dar conta do Windows atual. Um Celeron ou Pentium antigo, mesmo com SSD e RAM, terá limitações. <strong>Nesse caso, a melhor solução pode ser trocar o computador</strong> — e não gastar em upgrades que não vão resolver.</p>
-        <p><Link to="/quando-nao-compensa" className="text-accent">→ Saiba quando não compensa reparar</Link></p>
-
-        <h2>O Que Fazer Agora?</h2>
-        <p>Se seu computador está lento, o primeiro passo é um <strong>diagnóstico técnico</strong>. Sem saber a causa real, qualquer solução é um chute. Em muitos casos, um upgrade simples (SSD + limpeza) resolve completamente. Em outros, pode ser necessário formatação ou até troca de equipamento.</p>
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se as verificações seguras não resolveram, ou se há sinais de falha física, um diagnóstico presencial identifica a causa real antes de qualquer troca de peça ou formatação. Assim você evita pagar por uma solução que não ataca o problema certo.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Computador Lento em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico vai até você, faz o diagnóstico no local e resolve na hora sempre que possível. A partir de R$ 69,99. Atendemos Curitiba, São José dos Pinhais, Araucária, Campo Largo e Pinhais.</p>
+          <h3 className="text-accent font-bold mb-2">Quer descobrir a causa real da lentidão?</h3>
+          <p className="text-muted-foreground mb-3">Um diagnóstico técnico mostra se o caso pede limpeza, upgrade, formatação ou reparo — sem chute.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Upgrade de SSD e memória</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+          </ul>
         </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
-          <li><Link to="/valores" className="text-accent">Preços e políticas de serviço</Link></li>
-          <li><Link to="/diagnostico-tecnico" className="text-accent">Por que o diagnóstico é pago</Link></li>
-          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Upgrade SSD e memória</Link></li>
-        </ul>
       </>
     ),
   },
   "como-saber-se-pc-tem-virus-malware": {
-    title: "Como Saber se Seu PC Tem Vírus ou Malware: Sinais, Testes e Soluções",
-    excerpt: "Aprenda a identificar infecções e o que fazer.",
+    title: "Como saber se o computador está com vírus ou malware",
+    excerpt: "Pop-ups, navegador alterado, lentidão repentina ou arquivos bloqueados? Veja os sinais de infecção, o que fazer com segurança e o que evitar para não piorar a situação.",
     date: "2026-04-05",
     readTime: "10 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">Nem todo computador lento tem vírus, mas <strong>todo computador com vírus fica lento</strong>. O problema é que muitos malwares modernos são silenciosos — roubam dados, mineram criptomoedas ou espionam sem dar sinais óbvios. Veja como identificar e o que fazer.</p>
+        <p className="lead">Muitos programas maliciosos são silenciosos: não travam a tela nem exibem avisos óbvios. Outros são barulhentos, cheios de pop-ups e alertas falsos. Este guia ajuda a diferenciar <strong>sintoma</strong> de <strong>confirmação</strong> e a agir com segurança — sem cair em golpes que se disfarçam de solução.</p>
 
-        <h2>8 Sinais de Que Seu PC Pode Estar Infectado</h2>
-        <ol>
-          <li><strong>Lentidão repentina</strong> — o PC estava normal e de repente ficou extremamente lento, sem motivo aparente</li>
-          <li><strong>Pop-ups e propagandas</strong> — janelas abrindo sozinhas, propagandas em sites que normalmente não têm</li>
-          <li><strong>Programas desconhecidos</strong> — softwares que você não instalou aparecem na lista de programas</li>
-          <li><strong>Navegador alterado</strong> — página inicial mudou, barra de ferramentas estranha, buscador diferente</li>
-          <li><strong>Antivírus desativado</strong> — o Windows Defender ou outro antivírus foi desligado sem sua autorização</li>
-          <li><strong>Disco e CPU sempre em 100%</strong> — mesmo sem programas abertos, o uso de recursos é alto</li>
-          <li><strong>Arquivos sumindo ou ficando estranhos</strong> — pastas renomeadas, extensões alteradas (sinal de ransomware)</li>
-          <li><strong>Emails enviados sem você saber</strong> — contatos recebem mensagens que você não mandou</li>
-        </ol>
-
-        <h2>Tipos de Ameaças Mais Comuns em 2026</h2>
+        <h2>Sinais que merecem atenção</h2>
         <ul>
-          <li><strong>Adware:</strong> exibe propagandas invasivas e redireciona seu navegador</li>
-          <li><strong>Spyware:</strong> captura senhas, dados bancários e histórico de navegação</li>
-          <li><strong>Ransomware:</strong> criptografa seus arquivos e pede resgate em Bitcoin</li>
-          <li><strong>Cryptojacker:</strong> usa seu processador para minerar criptomoedas</li>
-          <li><strong>Trojan:</strong> se disfarça de programa legítimo e abre portas para invasores</li>
-          <li><strong>Rootkit:</strong> se esconde no sistema operacional, difícil de detectar</li>
+          <li>Pop-ups e propagandas abrindo sozinhos, inclusive fora do navegador.</li>
+          <li>Página inicial, buscador ou extensões do navegador alterados sem sua ação.</li>
+          <li>Programas que você não instalou aparecendo na lista de aplicativos.</li>
+          <li>Lentidão repentina e uso alto de processador mesmo sem programas abertos.</li>
+          <li>Alertas dizendo que o computador está infectado e mandando ligar para um número ou instalar algo.</li>
+          <li>Redirecionamentos de sites e resultados de busca estranhos.</li>
+          <li>Contas acessadas sem autorização ou mensagens enviadas sem você saber.</li>
+          <li>Arquivos renomeados, com extensão trocada ou inacessíveis (possível ransomware).</li>
+          <li>Antivírus desativado sozinho e sem permitir reativar.</li>
+        </ul>
+        <p>Um sinal isolado nem sempre significa infecção — pode ser configuração, extensão indesejada ou até hardware. A confirmação depende de análise; o importante é não ignorar vários sinais juntos.</p>
+
+        <h2>O que fazer com segurança</h2>
+        <ul>
+          <li>Em um incidente grave (arquivos bloqueados, conta invadida), desconecte o equipamento da internet para conter o problema.</li>
+          <li>Não pague nem siga instruções de alertas de "suporte técnico" — são táticas de golpe.</li>
+          <li>Não instale "limpadores" ou "aceleradores" aleatórios; muitos trazem mais malware.</li>
+          <li>Se houver suspeita de senhas comprometidas, troque-as a partir de outro dispositivo confiável.</li>
+          <li>Em ambiente empresarial, preserve as evidências e evite mexer antes de orientar a equipe responsável.</li>
         </ul>
 
-        <h2>O Que Fazer se Suspeitar de Infecção</h2>
-        <h3>1. Não entre em pânico</h3>
-        <p>Desconecte da internet (puxe o cabo ou desative o Wi-Fi). Isso impede que o malware envie seus dados ou baixe mais ameaças.</p>
-
-        <h3>2. Não tente formatar sozinho</h3>
-        <p>Se você tem dados importantes (fotos, documentos, trabalho), <strong>formatar sem backup significa perder tudo</strong>. Um técnico pode remover o vírus preservando seus arquivos.</p>
-
-        <h3>3. Não baixe "antivírus milagrosos"</h3>
-        <p>Muitos sites oferecem "limpadores gratuitos" que na verdade instalam ainda mais malwares. <strong>Use apenas ferramentas conhecidas</strong> como Malwarebytes ou o próprio Windows Defender.</p>
-
-        <h3>4. Chame um técnico se não tiver certeza</h3>
-        <p>A remoção profissional garante que todos os vestígios sejam eliminados. Além de limpar, configuramos proteções para evitar reinfecção.</p>
-
-        <h2>Prevenção: Como Evitar Vírus</h2>
+        <h2>O que evitar</h2>
         <ul>
-          <li>Mantenha o Windows sempre atualizado</li>
-          <li>Não baixe programas de sites desconhecidos</li>
-          <li>Desconfie de emails com anexos ou links estranhos</li>
-          <li>Use senhas diferentes para cada serviço</li>
-          <li>Mantenha o Windows Defender ativo</li>
-          <li>Faça backup regular dos seus dados importantes</li>
+          <li>Formatar por conta própria sem backup — você pode perder dados que ainda dariam para preservar.</li>
+          <li>Desativar a segurança do sistema de forma permanente.</li>
+          <li>Compartilhar senhas ou dar acesso remoto a quem entrou em contato do nada.</li>
+          <li>Confiar em promessas de remoção "sem risco nenhum": dependendo da ameaça, há chance de perda de dados, e isso precisa ser avaliado.</li>
         </ul>
+
+        <h2>Golpe de falso suporte</h2>
+        <p>Uma das fraudes mais comuns exibe uma tela de alerta assustadora com um telefone para "ajuda". Ninguém sério trabalha assim. Feche a janela, não ligue para o número e não instale nada que essa tela peça. Se não conseguir fechar, desligue o computador.</p>
+
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se há sinais de ransomware, invasão de contas ou infecção que volta sempre, a remoção profissional avalia o tipo de ameaça e prioriza preservar seus dados. Em muitos casos dá para orientar por <Link to="/atendimento-remoto" className="text-accent">atendimento remoto</Link>, e o <Link to="/diagnostico-tecnico" className="text-accent">diagnóstico</Link> define o caminho mais seguro.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Suspeita de Vírus?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz a remoção completa a domicílio em Curitiba e região. Limpamos o sistema, recuperamos arquivos e configuramos proteção. A partir de R$ 69,99.</p>
+          <h3 className="text-accent font-bold mb-2">Suspeita de vírus no computador?</h3>
+          <p className="text-muted-foreground mb-3">Avaliamos o tipo de infecção e agimos priorizando a preservação dos seus arquivos.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/remocao-de-virus" className="text-accent">Remoção de vírus e malware</Link></li>
+            <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Recuperação de dados</Link></li>
+            <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Como manter um backup preventivo</Link></li>
+          </ul>
         </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/servicos/remocao-virus" className="text-accent">Serviço de remoção de vírus</Link></li>
-          <li><Link to="/blog/sinais-computador-com-virus" className="text-accent">5 sinais de computador com vírus</Link></li>
-          <li><Link to="/como-funciona" className="text-accent">Como funciona nosso atendimento</Link></li>
-          <li><Link to="/valores" className="text-accent">Preços e condições</Link></li>
-        </ul>
       </>
     ),
   },
   "notebook-nao-liga-o-que-fazer": {
-    title: "Notebook Não Liga: O Que Pode Ser e O Que Fazer Antes de Desesperar",
-    excerpt: "Veja as causas mais comuns e quando levar ao técnico.",
+    title: "Computador ou notebook não liga: o que verificar com segurança",
+    excerpt: "Sem nenhum sinal, liga e desliga, ou acende mas não mostra imagem? Veja como identificar o comportamento, o que dá para checar sem abrir o equipamento e quando chamar um técnico.",
     date: "2026-04-04",
-    readTime: "9 min",
+    readTime: "10 min",
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">Você aperta o botão de ligar e... nada. Ou talvez o LED pisque, o ventilador gire por um segundo e pare. <strong>Notebook que não liga é um dos problemas mais assustadores</strong>, mas nem sempre significa que ele está morto. Vamos analisar as possibilidades.</p>
+        <p className="lead">Você aperta o botão e não acontece nada — ou o equipamento reage, mas não chega ao sistema. "Não liga" pode significar coisas bem diferentes, de um cabo solto a uma falha interna. Observar <strong>o comportamento exato</strong> ajuda a entender a situação e evita medidas que podem piorar o quadro.</p>
 
-        <h2>Cenário 1: Tela Preta, Nenhuma Reação</h2>
-        <p>Se absolutamente nada acontece ao apertar o botão:</p>
+        <h2>Identifique o comportamento</h2>
         <ul>
-          <li><strong>Bateria esgotada:</strong> conecte o carregador e espere 15 minutos antes de tentar ligar</li>
-          <li><strong>Carregador com defeito:</strong> verifique se o LED do carregador acende. Tente outro carregador compatível se possível</li>
-          <li><strong>Botão de liga com mau contato:</strong> em notebooks mais antigos, o botão pode perder o contato interno</li>
-          <li><strong>Placa-mãe com curto:</strong> pode ter ocorrido um curto por queda, líquido ou surto elétrico</li>
+          <li><strong>Nenhum sinal:</strong> sem luzes, sem som, sem ventoinha.</li>
+          <li><strong>Liga, mas sem imagem:</strong> luzes acendem e ventoinhas giram, a tela fica preta.</li>
+          <li><strong>Liga e desliga:</strong> inicia por alguns segundos e apaga sozinho.</li>
+          <li><strong>Acende, mas não carrega o sistema:</strong> chega a mostrar algo, mas trava antes da área de trabalho.</li>
+          <li><strong>Emite bipes</strong> ou luzes piscando em sequência.</li>
+          <li><strong>Parou após queda de energia</strong>, raio ou oscilação na rede elétrica.</li>
+        </ul>
+        <p>Cada comportamento aponta para grupos diferentes de possíveis causas — alimentação, memória, armazenamento, tela, placa ou sistema. Nada disso confirma a causa sozinho; o diagnóstico é o que fecha o quadro.</p>
+
+        <h2>Verificações seguras (sem abrir o equipamento)</h2>
+        <ul>
+          <li>Em desktop: teste outra tomada que você sabe que funciona e confira o cabo de força e o filtro de linha.</li>
+          <li>Em notebook: conecte o carregador, verifique se o LED dele acende e aguarde alguns minutos antes de tentar ligar.</li>
+          <li>Remova periféricos externos (pendrives, HD externo, impressora) e tente ligar só com o essencial.</li>
+          <li>Se liga mas não dá imagem, ligue a um monitor ou TV externa por HDMI para ver se a imagem aparece.</li>
+          <li>Observe e anote luzes, bipes e o comportamento das ventoinhas — isso ajuda muito o técnico.</li>
+        </ul>
+        <p>São checagens de baixo risco. A partir daí, mexer no interior exige preparo.</p>
+
+        <h2>O que não fazer</h2>
+        <ul>
+          <li>Não abra a fonte de alimentação — mesmo desligada ela pode reter carga.</li>
+          <li>Não desmonte o equipamento nem force conectores sem experiência.</li>
+          <li>Se caiu líquido, não use secador nem calor: isso espalha o líquido e piora a corrosão. Desligue e não tente ligar.</li>
+          <li>Não insista repetidamente em ligar um equipamento que dá curto ou cheiro de queimado.</li>
         </ul>
 
-        <h2>Cenário 2: LED Acende, Ventilador Gira, Mas Sem Imagem</h2>
-        <p>Isso geralmente indica que o notebook está ligando, mas a imagem não chega na tela:</p>
-        <ul>
-          <li><strong>Tela queimada ou flat cable solto:</strong> conecte num monitor externo (HDMI). Se a imagem aparecer, o problema é na tela</li>
-          <li><strong>Memória RAM solta:</strong> se houve queda ou transporte brusco, a RAM pode ter se desencaixado</li>
-          <li><strong>GPU com defeito:</strong> em notebooks com placa de vídeo dedicada, o chip gráfico pode falhar (comum em notebooks gamer mais antigos)</li>
-        </ul>
+        <h2>Sinais para parar na hora</h2>
+        <p>Desligue e não tente ligar de novo se houver <strong>cheiro de queimado, fumaça, estalos, aquecimento anormal, líquido no equipamento ou carregador/fonte danificado</strong>. Nesses casos, continuar tentando aumenta o risco de dano maior.</p>
 
-        <h2>Cenário 3: Liga e Desliga Rapidamente</h2>
-        <p>O notebook inicia por 1-3 segundos e desliga sozinho:</p>
-        <ul>
-          <li><strong>Superaquecimento:</strong> pasta térmica ressecada impede a dissipação de calor</li>
-          <li><strong>Curto-circuito:</strong> componente em curto faz a placa desligar por proteção</li>
-          <li><strong>Fonte/bateria com defeito:</strong> não entrega energia suficiente</li>
-        </ul>
-
-        <h2>Cenário 4: Aparece Tela Azul ou Fica em Loop</h2>
-        <p>Se o notebook liga mas não chega ao Windows:</p>
-        <ul>
-          <li><strong>HD/SSD com defeito:</strong> o sistema operacional não consegue carregar</li>
-          <li><strong>Windows corrompido:</strong> pode ser resolvido com formatação</li>
-          <li><strong>Atualização travada:</strong> uma atualização mal instalada pode impedir a inicialização</li>
-        </ul>
-
-        <h2>O Que NÃO Fazer</h2>
-        <ul>
-          <li><strong>Não abra o notebook sem experiência</strong> — parafusos mal encaixados, cabos puxados e estática podem piorar o problema</li>
-          <li><strong>Não tente "resetar a BIOS" por tutoriais genéricos</strong> — cada modelo tem procedimento diferente</li>
-          <li><strong>Não use secador de cabelo</strong> para "secar" notebook que caiu líquido — isso espalha o líquido internamente</li>
-        </ul>
-
-        <h2>Quando Chamar o Técnico?</h2>
-        <p>Se as verificações básicas (carregador, bateria, monitor externo) não resolveram, <strong>é hora de chamar um profissional</strong>. Tentar abrir e mexer no notebook sem conhecimento pode transformar um problema simples em um prejuízo grande.</p>
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico presencial: ele identifica se o problema está na alimentação, na memória, no armazenamento, na tela ou na placa antes de qualquer troca. Tentar abrir sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Notebook Não Liga em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz diagnóstico a domicílio ou em bancada. Avaliamos o problema, explicamos as opções e você decide. Sem surpresas. A partir de R$ 69,99.</p>
+          <h3 className="text-accent font-bold mb-2">Equipamento que não liga?</h3>
+          <p className="text-muted-foreground mb-3">O diagnóstico mostra a causa real e as opções antes de você decidir.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+            <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
+          </ul>
         </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/servicos/conserto-pc-notebook" className="text-accent">Conserto de notebook e PC</Link></li>
-          <li><Link to="/diagnostico-tecnico" className="text-accent">Por que o diagnóstico é pago</Link></li>
-          <li><Link to="/quando-nao-compensa" className="text-accent">Quando não compensa reparar</Link></li>
-          <li><Link to="/problemas-reais-e-casos" className="text-accent">Problemas reais e casos técnicos</Link></li>
-        </ul>
       </>
     ),
   },
@@ -2243,126 +2229,170 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "quando-trocar-hd-por-ssd": {
-    title: "Quando Vale a Pena Trocar o HD por SSD?",
-    excerpt: "Entenda as vantagens do SSD sobre o HD tradicional, quanto custa o upgrade e se essa mudança faz sentido para o seu uso do computador.",
+    title: "Vale a pena trocar o HD por SSD? Como avaliar o upgrade",
+    excerpt: "O SSD acelera a inicialização e a abertura de programas, mas não resolve tudo. Veja o que muda, o que continua igual e como avaliar se o upgrade compensa no seu caso.",
     date: "2024-01-05",
-    readTime: "6 min",
+    readTime: "9 min",
     category: "Hardware",
     content: (
       <>
-        <p className="lead">O SSD (Solid State Drive) é uma das melhores atualizações que você pode fazer em um computador antigo. Mas será que vale a pena no seu caso?</p>
-        
-        <h2>O Que é um SSD?</h2>
-        <p>Diferente do HD tradicional que usa discos magnéticos girando, o SSD armazena dados em chips de memória flash. Isso significa que não há partes móveis, resultando em mais velocidade, silêncio e resistência.</p>
-        
-        <h2>Vantagens do SSD</h2>
+        <p className="lead">Trocar o HD por um SSD é um dos upgrades mais perceptíveis em computadores mais antigos. Ainda assim, não é uma solução para qualquer problema. Vale entender o que realmente muda, o que continua limitado e o que precisa ser avaliado antes de investir.</p>
+
+        <h2>O que muda com o SSD</h2>
+        <p>O SSD guarda dados em memória flash, sem partes móveis. Na prática, o que mais se sente:</p>
         <ul>
-          <li><strong>Velocidade:</strong> O Windows pode iniciar em 15-30 segundos em vez de 2-3 minutos</li>
-          <li><strong>Programas abrem instantaneamente:</strong> Word, navegador, jogos - tudo carrega muito mais rápido</li>
-          <li><strong>Silêncio:</strong> SSDs não fazem barulho</li>
-          <li><strong>Durabilidade:</strong> Sem partes móveis, são mais resistentes a quedas</li>
-          <li><strong>Menor consumo:</strong> Ideal para notebooks, pois economiza bateria</li>
+          <li>Inicialização do sistema mais rápida.</li>
+          <li>Programas e arquivos abrindo mais rápido.</li>
+          <li>Menos travamentos ligados à leitura lenta do disco.</li>
+          <li>Funcionamento silencioso e mais resistente a solavancos.</li>
         </ul>
-        
-        <h2>Quando Vale a Pena?</h2>
-        <p>A troca vale a pena se:</p>
+
+        <h2>O que o SSD não muda</h2>
+        <p>O SSD acelera o armazenamento, mas não substitui outros componentes:</p>
         <ul>
-          <li>Seu computador demora muito para ligar</li>
-          <li>Programas abrem devagar mesmo com memória RAM suficiente</li>
-          <li>Você quer prolongar a vida útil do computador</li>
-          <li>Usa notebook e quer mais velocidade e economia de bateria</li>
+          <li>Se falta memória (RAM), o sistema ainda vai sofrer com muitos programas abertos.</li>
+          <li>Um processador muito antigo continua sendo o limite em tarefas pesadas.</li>
+          <li>Lentidão por malware ou sistema corrompido não some só com o disco novo.</li>
+          <li>Não é realista esperar que qualquer equipamento fique como um modelo atual.</li>
         </ul>
-        
-        <h2>Quanto Custa?</h2>
-        <p>Um SSD de 240GB (suficiente para Windows e programas) custa entre R$ 100 e R$ 200. Modelos de 480GB a 1TB custam mais, mas são ideais se você tem muitos arquivos.</p>
-        
+
+        <h2>Compatibilidade: o que verificar</h2>
+        <ul>
+          <li><strong>Interface:</strong> há SSDs SATA (formato 2,5") e SSDs NVMe (formato M.2). Nem todo computador aceita NVMe.</li>
+          <li><strong>Espaço físico:</strong> notebooks finos podem ter só um slot; alguns aceitam SSD e HD juntos.</li>
+          <li><strong>Capacidade:</strong> escolha conforme o volume dos seus arquivos, não só pelo preço.</li>
+        </ul>
+        <p>Essa checagem depende do modelo. Quando há dúvida, confirmar o slot e a interface antes de comprar evita frustração.</p>
+
+        <h2>Clonar ou instalar do zero?</h2>
+        <p>É possível clonar o sistema atual para o SSD ou fazer uma instalação limpa. Clonar mantém tudo como está — inclusive eventuais problemas de um sistema já corrompido. A instalação limpa costuma deixar o funcionamento mais estável, mas exige reinstalar programas. Em ambos os casos, o disco antigo pode estar desgastado, então <strong>fazer backup antes é indispensável</strong>.</p>
+
+        <h2>Antes de decidir</h2>
+        <p>Se o HD atual apresenta ruídos, cliques ou erros de leitura, trate isso como sinal de alerta e priorize o backup dos dados. Avaliar o estado do disco atual e o restante do hardware ajuda a decidir se o SSD sozinho resolve ou se faz mais sentido dentro de uma manutenção completa.</p>
+
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Precisa de ajuda com o upgrade?</h3>
-          <p className="text-muted-foreground mb-0">A troca de HD por SSD inclui migrar o sistema e seus arquivos. Um técnico pode fazer isso de forma segura, garantindo que você não perca nada no processo.</p>
+          <h3 className="text-accent font-bold mb-2">Quer avaliar se o upgrade compensa?</h3>
+          <p className="text-muted-foreground mb-3">Verificamos a compatibilidade, o estado do disco atual e o restante do hardware antes de qualquer troca.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Upgrade de SSD e memória</Link></li>
+            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
+            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/servicos/formatacao" className="text-accent">Formatação e instalação do sistema</Link></li>
+          </ul>
         </div>
       </>
     ),
   },
   "backup-como-proteger-seus-arquivos": {
-    title: "Backup: Como Proteger Seus Arquivos Importantes",
-    excerpt: "Não espere perder seus dados para fazer backup. Conheça as melhores práticas para manter seus arquivos seguros usando métodos simples e eficientes.",
+    title: "Como evitar perder arquivos importantes: guia de backup preventivo",
+    excerpt: "Backup não é copiar arquivos para outra pasta do mesmo disco. Entenda cópias local, externa e em nuvem, o teste de restauração e a diferença entre backup e recuperação.",
     date: "2024-01-02",
-    readTime: "5 min",
+    readTime: "9 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">Fotos de família, documentos importantes, trabalhos - tudo pode ser perdido em segundos por falha de hardware, vírus ou acidente. Veja como se proteger.</p>
-        
-        <h2>A Regra 3-2-1</h2>
-        <p>Profissionais de TI usam a regra 3-2-1 para backups seguros:</p>
+        <p className="lead">Fotos, documentos e trabalho podem sumir em segundos por falha de disco, vírus ou descuido. Backup preventivo é o que separa um susto de um prejuízo. E, ao contrário do que muita gente pensa, mover arquivos para outra pasta do mesmo disco <strong>não é backup</strong> — se o disco falhar, tudo vai junto.</p>
+
+        <h2>O que conta como backup de verdade</h2>
+        <p>Backup é ter cópias em lugares independentes do original. Quanto mais separados os riscos, melhor:</p>
         <ul>
-          <li><strong>3 cópias</strong> dos seus arquivos importantes</li>
-          <li><strong>2 tipos</strong> de mídia diferentes (ex: HD externo + nuvem)</li>
-          <li><strong>1 cópia</strong> fora de casa (em caso de incêndio, roubo, etc.)</li>
+          <li><strong>Cópia local:</strong> em outro disco do mesmo computador — protege de erro humano, mas não de furto ou incêndio.</li>
+          <li><strong>Cópia externa:</strong> em HD ou SSD externo guardado desconectado, fora do computador.</li>
+          <li><strong>Cópia em nuvem:</strong> acessível de qualquer lugar e fora de casa fisicamente.</li>
         </ul>
-        
-        <h2>Opções de Backup</h2>
-        
-        <h3>HD Externo</h3>
-        <p>Simples e prático. Conecte periodicamente e copie seus arquivos importantes. Um HD de 1TB custa cerca de R$ 250-350.</p>
-        
-        <h3>Nuvem (Google Drive, OneDrive, iCloud)</h3>
-        <p>Seus arquivos ficam sincronizados automaticamente e acessíveis de qualquer lugar. A maioria oferece espaço gratuito limitado e planos pagos para mais espaço.</p>
-        
-        <h3>Pen Drive</h3>
-        <p>Bom para arquivos pequenos e documentos importantes. Não recomendado como único backup devido à facilidade de perder.</p>
-        
-        <h2>O Que Fazer Backup?</h2>
+        <p>Manter cópias em mídias diferentes, com pelo menos uma fora do local, reduz bastante o risco de perder tudo de uma vez. Trate isso como orientação, não como regra rígida — o essencial é ter mais de uma cópia independente.</p>
+
+        <h2>Sincronização não é sempre backup</h2>
+        <p>Pastas sincronizadas com a nuvem são úteis, mas se um arquivo é apagado ou criptografado, a alteração pode se espalhar para todas as cópias sincronizadas. Um backup real guarda versões que não são sobrescritas automaticamente.</p>
+
+        <h2>Com que frequência</h2>
+        <p>Depende de quanto os dados mudam e do quanto você não pode perdê-los. Arquivos de trabalho que mudam todo dia pedem cópias frequentes; fotos que raramente mudam podem ser copiadas de tempos em tempos. O que importa é a rotina existir.</p>
+
+        <h2>Teste de restauração</h2>
+        <p>Backup que nunca foi testado pode não servir na hora da emergência. De tempos em tempos, abra um arquivo restaurado da cópia para confirmar que ela realmente funciona.</p>
+
+        <h2>Cuidados de segurança</h2>
         <ul>
-          <li>Fotos e vídeos pessoais</li>
-          <li>Documentos importantes (RG, CPF, contratos)</li>
-          <li>Arquivos de trabalho</li>
-          <li>Favoritos do navegador e senhas (use um gerenciador)</li>
+          <li>Um disco externo permanentemente conectado também pode ser atingido por ransomware — mantenha ao menos uma cópia desconectada.</li>
+          <li>Para dados sensíveis, considere criptografia e cuidado com onde as cópias ficam guardadas.</li>
+          <li>Guarde senhas e acessos em um gerenciador confiável, não em arquivos soltos.</li>
+          <li>Dados empresariais costumam ter exigências próprias de retenção e privacidade.</li>
         </ul>
-        
+
+        <h2>Backup preventivo x recuperação de dados</h2>
+        <p>São coisas diferentes. Backup é o que você faz <strong>antes</strong> de qualquer problema. Recuperação é tentar resgatar dados <strong>depois</strong> de uma falha — um processo mais incerto, que nem sempre traz tudo de volta. Por isso o backup preventivo é sempre o caminho mais seguro.</p>
+
         <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Já perdeu arquivos?</h3>
-          <p className="text-muted-foreground mb-0">Em alguns casos ainda é possível recuperar dados de HDs com problema. Quanto mais rápido agir, maiores as chances. Procure um técnico especializado.</p>
+          <h3 className="text-accent font-bold mb-2">Precisa organizar um backup confiável?</h3>
+          <p className="text-muted-foreground mb-3">Ajudamos a montar uma rotina adequada ao seu uso e a avaliar riscos de perda de dados.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Recuperação de dados</Link></li>
+            <li><Link to="/servicos/remocao-de-virus" className="text-accent">Remoção de vírus e malware</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+          </ul>
         </div>
       </>
     ),
   },
   "notebook-superaquecendo-o-que-fazer": {
-    title: "Notebook Superaquecendo: O Que Fazer?",
-    excerpt: "Seu notebook esquenta demais e desliga sozinho? Descubra as causas do superaquecimento e como resolver esse problema comum.",
+    title: "Computador ou notebook superaquecendo: sinais, prevenção e quando parar de usar",
+    excerpt: "Aquecimento normal ou comportamento de risco? Veja o que observar no superaquecimento, o que fazer com segurança e os sinais que pedem desligar o equipamento na hora.",
     date: "2023-12-28",
-    readTime: "4 min",
+    readTime: "9 min",
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">O superaquecimento é um dos problemas mais comuns em notebooks e pode danificar componentes caros. Entenda as causas e soluções.</p>
-        
-        <h2>Por Que o Notebook Esquenta?</h2>
-        <p>Notebooks são compactos e têm pouco espaço para circulação de ar. Com o tempo, poeira se acumula nas saídas de ar e a pasta térmica (que ajuda a dissipar calor do processador) resseca.</p>
-        
-        <h2>Sinais de Superaquecimento</h2>
+        <p className="lead">Todo computador esquenta — o problema é quando o calor vira desempenho ruim, desligamentos ou risco. Saber diferenciar aquecimento normal de comportamento anormal ajuda a agir na hora certa e a evitar dano aos componentes.</p>
+
+        <h2>Aquecimento normal x anormal</h2>
+        <p>Sob tarefas pesadas, é esperado que a ventoinha acelere e a temperatura suba. Vale ligar o alerta quando aparece:</p>
         <ul>
-          <li>Base do notebook muito quente ao toque</li>
-          <li>Ventoinha fazendo muito barulho constantemente</li>
-          <li>Desligamentos repentinos durante uso intenso</li>
-          <li>Travamentos quando joga ou usa programas pesados</li>
-          <li>Redução de performance após alguns minutos de uso</li>
+          <li>Desligamento repentino durante o uso (o sistema se protege do calor).</li>
+          <li>Queda de desempenho depois de alguns minutos ligado.</li>
+          <li>Base do notebook muito quente mesmo em tarefas leves.</li>
+          <li>Ventoinha sempre no máximo ou, ao contrário, sem nenhum ruído.</li>
         </ul>
-        
-        <h2>O Que Você Pode Fazer</h2>
+
+        <h2>Causas comuns</h2>
         <ul>
-          <li><strong>Use em superfícies duras:</strong> Evite usar o notebook na cama ou sofá, que bloqueiam a ventilação</li>
-          <li><strong>Use um suporte:</strong> Elevar o notebook melhora a circulação de ar</li>
-          <li><strong>Limpe as saídas de ar:</strong> Com ar comprimido, remova poeira das grades de ventilação</li>
-          <li><strong>Evite luz solar direta:</strong> Não deixe o notebook exposto ao sol</li>
+          <li>Poeira acumulada nas saídas de ar e no cooler.</li>
+          <li>Fluxo de ar bloqueado — usar o notebook sobre cama, sofá ou almofada.</li>
+          <li>Pasta térmica ressecada (a periodicidade varia conforme o equipamento e o uso).</li>
+          <li>Carga de processamento alta por muito tempo.</li>
+          <li>Ambiente muito quente ou abafado.</li>
         </ul>
-        
-        <h2>Quando Procurar um Técnico</h2>
-        <p>Se as dicas acima não resolverem, provavelmente é hora de uma limpeza interna e troca de pasta térmica. Esse serviço requer abrir o notebook e deve ser feito por um profissional para não danificar os componentes.</p>
-        
+
+        <h2>O que você pode fazer com segurança</h2>
+        <ul>
+          <li>Use o equipamento sobre superfície dura e plana, que não bloqueie as saídas de ar.</li>
+          <li>Um suporte que eleve o notebook melhora a circulação.</li>
+          <li>Mantenha as grades de ventilação livres de poeira e obstáculos.</li>
+          <li>Evite luz solar direta e ambientes muito abafados.</li>
+          <li>Feche programas pesados que ficam rodando sem necessidade.</li>
+        </ul>
+        <p>A limpeza interna e a troca de pasta térmica exigem abrir o equipamento e devem ser feitas por quem tem prática, para não danificar peças.</p>
+
         <div className="bg-destructive/10 rounded-xl p-6 my-8 border border-destructive/20">
-          <h3 className="text-destructive font-bold mb-2">⚠️ Importante</h3>
-          <p className="text-muted-foreground mb-0">Ignorar o superaquecimento pode queimar o processador ou placa de vídeo, resultando em consertos caros ou até a necessidade de trocar o notebook.</p>
+          <h3 className="text-destructive font-bold mb-2">Desligue imediatamente se notar</h3>
+          <ul className="text-muted-foreground mb-0">
+            <li>Cheiro de queimado, fumaça ou estalos.</li>
+            <li>Bateria estufada ou deformada.</li>
+            <li>Aquecimento extremo que impede o toque.</li>
+          </ul>
+          <p className="text-muted-foreground mt-3 mb-0">Nesses casos: não fure nem pressione a bateria, não use secador ou calor externo e não abra o equipamento energizado. Desconecte da tomada e procure um técnico.</p>
+        </div>
+
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se o cuidado com ventilação não resolveu, ou se há desligamentos por calor, provavelmente é hora de limpeza interna e avaliação térmica. Ignorar o superaquecimento por muito tempo pode comprometer componentes e sair mais caro.</p>
+
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Equipamento esquentando demais?</h3>
+          <p className="text-muted-foreground mb-3">Avaliamos ventilação, temperatura e o estado interno antes de recomendar qualquer serviço.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
+            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+          </ul>
         </div>
       </>
     ),
@@ -5906,116 +5936,61 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
   },
 
   "como-instalar-windows-11-do-zero": {
-    title: "Como Instalar Windows 11 do Zero: Guia Técnico Profissional",
-    excerpt: "Pendrive bootável, particionamento, drivers, ativação e otimização pós-instalação para máxima performance.",
+    title: "Formatar ou reinstalar o Windows: quando faz sentido e quando não resolve",
+    excerpt: "Antes de formatar, entenda a diferença entre reiniciar, restaurar e reinstalar o Windows, os riscos para seus dados e quando o problema pode ser físico, não de software.",
     date: "2026-04-20",
-    readTime: "12 min",
+    readTime: "11 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">Realizar <strong>instalar windows 11 do zero</strong> exige procedimento técnico, ferramentas adequadas e atenção a detalhes que separam o trabalho amador do profissional. Neste guia, você vai aprender o passo a passo real usado em laboratórios de assistência técnica em Curitiba.</p>
+        <p className="lead">Formatar virou sinônimo de "resolver tudo", mas nem sempre é o caminho — e, quando é, tem riscos que precisam ser tratados antes. Este guia ajuda a entender quando faz sentido reinstalar o Windows, quando o problema pode ser físico e como não perder seus arquivos no processo.</p>
 
-        <h2>Por Que o Procedimento Importa</h2>
-        <p>Trabalhar em hardware sem método é a principal causa de dano permanente em equipamentos. Pequenos descuidos — descarga eletrostática, parafuso errado, conector mal encaixado — podem transformar um serviço simples em um problema irreversível. Por isso, todo técnico profissional segue um <strong>checklist documentado</strong> antes, durante e depois de cada intervenção.</p>
-        <p>O custo médio de um erro evitável em manutenção de hardware varia entre R$ 200 e R$ 2.000, dependendo da peça danificada. Já o custo de seguir o procedimento correto é apenas o tempo de leitura deste artigo.</p>
-
-        <h2>Ferramentas e Materiais Necessários</h2>
-        <p>Antes de começar, separe todo o material. Interromper o procedimento no meio para buscar uma chave Phillips é como abrir uma cirurgia sem o instrumental.</p>
+        <h2>Reiniciar, restaurar e formatar não são a mesma coisa</h2>
         <ul>
-          <li><strong>Pulseira antiestática</strong> (ESD) — protege componentes contra descarga eletrostática, principal causa silenciosa de morte de placas</li>
-          <li><strong>Chaves Phillips e Torx</strong> — kit de precisão com bits magnéticos, indispensável para notebooks modernos</li>
-          <li><strong>Pasta térmica de qualidade</strong> — Arctic MX-6, Noctua NT-H2 ou Thermal Grizzly Kryonaut (evite genéricas)</li>
-          <li><strong>Álcool isopropílico 99,9%</strong> — para limpeza de pasta térmica antiga e contatos oxidados</li>
-          <li><strong>Pincel antiestático</strong> e pano de microfibra — limpeza segura de placas e dissipadores</li>
-          <li><strong>Pinça de precisão</strong> — manuseio de conectores flat cable e parafusos pequenos</li>
-          <li><strong>Pendrive com Ventoy</strong> — para boot de utilitários (MemTest86, Hiren's BootCD, Hard Disk Sentinel)</li>
+          <li><strong>Reiniciar:</strong> desliga e liga o sistema; resolve travamentos temporários.</li>
+          <li><strong>Restaurar / redefinir:</strong> o Windows tem opções de recuperação que reparam ou reinstalam o sistema com mais ou menos preservação de dados.</li>
+          <li><strong>Formatar (instalação limpa):</strong> apaga o conteúdo do disco do sistema e instala tudo do zero.</li>
         </ul>
-        <p>Investir R$ 300-500 num kit profissional retorna em economia já no primeiro serviço evitando danos.</p>
+        <p>Cada opção tem um nível diferente de impacto. Começar pela mais leve costuma ser o mais sensato.</p>
 
-        <h2>Preparação do Ambiente</h2>
-        <p>O local de trabalho influencia diretamente a qualidade do serviço. Profissionais sérios trabalham em ambientes controlados — não em cima do sofá da sala.</p>
+        <h2>Quando a instalação limpa pode ajudar</h2>
         <ul>
-          <li><strong>Bancada plana e iluminada</strong> — preferencialmente com manta antiestática</li>
-          <li><strong>Recipientes para parafusos</strong> — separe por etapa da desmontagem (use bandejas magnéticas ou organizadores)</li>
-          <li><strong>Documentação aberta</strong> — manual de serviço do equipamento, vídeos do iFixit, fórum específico</li>
-          <li><strong>Câmera ou celular</strong> — fotografe cada etapa antes de desconectar (especialmente conectores flat)</li>
-          <li><strong>Sem animais ou crianças</strong> — peças pequenas se perdem em frações de segundo</li>
-          <li><strong>Temperatura ambiente</strong> — entre 18-25°C, sem umidade alta (problemas comuns em Curitiba no inverno)</li>
+          <li>Sistema corrompido, cheio de erros ou que não inicia direito por causa de software.</li>
+          <li>Acúmulo de programas e configurações que degradaram o funcionamento.</li>
+          <li>Preparar o equipamento para outro uso ou dono, apagando os dados anteriores.</li>
         </ul>
 
-        <h2>Diagnóstico Inicial</h2>
-        <p>Nunca comece um procedimento sem entender o estado atual do equipamento. O diagnóstico determina se a intervenção planejada é realmente a correta — ou se você está prestes a substituir uma peça boa enquanto o problema real é outro.</p>
-        <p>Documente:</p>
-        <ul>
-          <li>Modelo exato do equipamento e número de série</li>
-          <li>Sintomas relatados pelo usuário e quando começaram</li>
-          <li>Última intervenção realizada (atualização, queda, contato com líquido)</li>
-          <li>Estado físico aparente — pontos de impacto, sinais de líquido, cheiro de queimado</li>
-          <li>Comportamento ao ligar — LEDs, ventoinhas, beeps, mensagens de POST</li>
-        </ul>
-        <p>Esse registro vale ouro: serve de proteção em caso de discussão sobre danos pré-existentes e ajuda a refinar o diagnóstico se o problema persistir.</p>
+        <h2>Quando formatar não resolve</h2>
+        <p>Se a causa é física — HD desgastado, pouca memória, superaquecimento ou hardware defasado — formatar dá, no máximo, um alívio passageiro. <strong>Formatação não é solução universal para lentidão ou defeito físico.</strong> Por isso vale entender a causa antes; muitas vezes o caso é de <Link to="/blog/computador-lento-causas-solucoes" className="text-accent">avaliar por que o computador está lento</Link>, e não simplesmente reinstalar.</p>
 
-        <h2>Procedimento Passo a Passo</h2>
-        <p>Com tudo preparado, execute o procedimento na ordem correta. <strong>Pular etapas é o caminho mais curto para o retrabalho.</strong></p>
-        <ol>
-          <li><strong>Backup completo dos dados</strong> — antes de qualquer intervenção em hardware com armazenamento, copie tudo. HD/SSD podem morrer durante o processo.</li>
-          <li><strong>Desligue completamente</strong> — não basta hibernar. Desconecte da tomada e remova a bateria (se removível). Aguarde 30 segundos para descarga residual.</li>
-          <li><strong>Aterre-se</strong> — toque numa parte metálica aterrada antes de manusear componentes. Use pulseira ESD em peças sensíveis (RAM, GPU, SSD NVMe).</li>
-          <li><strong>Desmontagem documentada</strong> — fotografe cada parafuso retirado e cada conector desconectado. Use bandejas separadas por etapa.</li>
-          <li><strong>Execução técnica</strong> — siga o procedimento específico para o tipo de intervenção. Não force nada. Se está duro, há algo errado.</li>
-          <li><strong>Limpeza durante a montagem</strong> — aproveite o equipamento aberto para limpeza completa de coolers, dissipadores e contatos.</li>
-          <li><strong>Remontagem na ordem inversa</strong> — sem pular conectores. Confira cada flat cable e cada parafuso antes de fechar.</li>
-          <li><strong>Teste antes de fechar definitivamente</strong> — ligue com a tampa solta e verifique se tudo funciona. Só então parafuse tudo.</li>
-        </ol>
+        <h2>Backup vem antes de tudo</h2>
+        <p>Formatar apaga o disco do sistema. Antes de qualquer coisa, salve seus arquivos importantes em outro lugar. Se o disco já dá sinais de falha (ruídos, erros de leitura), o cuidado é ainda maior — veja <Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">como manter um backup preventivo</Link>. Se os dados já estão inacessíveis, o caminho passa a ser <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não formatação.</p>
 
-        <h2>Erros Comuns Que Devem Ser Evitados</h2>
-        <p>Mesmo técnicos experientes cometem erros recorrentes. Conhecê-los previamente reduz drasticamente as chances de problema.</p>
+        <h2>O que planejar antes de reinstalar</h2>
         <ul>
-          <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
-          <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
-          <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
-          <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
-          <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
+          <li><strong>Arquivos:</strong> documentos, fotos e pastas pessoais copiados e conferidos.</li>
+          <li><strong>Programas:</strong> lista do que precisa reinstalar e onde estão as licenças legítimas.</li>
+          <li><strong>Contas:</strong> acessos de e-mail, navegador e serviços que serão reconfigurados.</li>
+          <li><strong>Drivers:</strong> componentes que precisam dos drivers corretos após a instalação.</li>
+          <li><strong>Criptografia:</strong> discos protegidos podem exigir a chave de recuperação — tenha-a em mãos para não perder acesso.</li>
         </ul>
 
-        <h2>Validação e Testes Pós-Procedimento</h2>
-        <p>O serviço só está concluído quando passa nos testes. Profissionais entregam o equipamento com relatório de testes, não com base em "tá funcionando".</p>
-        <ul>
-          <li><strong>Teste de boot completo</strong> — entrar no SO sem erros, sem mensagens de POST anormais</li>
-          <li><strong>Stress test de CPU</strong> — Cinebench R23 ou Prime95 por 30 minutos, monitorando temperatura</li>
-          <li><strong>Stress test de GPU</strong> — FurMark ou 3DMark por 20 minutos (em GPUs dedicadas)</li>
-          <li><strong>Teste de memória RAM</strong> — MemTest86 por pelo menos um ciclo completo</li>
-          <li><strong>Teste de disco</strong> — CrystalDiskInfo (saúde) e CrystalDiskMark (performance)</li>
-          <li><strong>Teste de carga prolongada</strong> — uso real por algumas horas antes de devolver ao cliente</li>
-        </ul>
+        <h2>Licenciamento</h2>
+        <p>Use apenas licenças legítimas do sistema e dos programas. Este conteúdo não fornece chaves, ativadores ou formas de burlar licenciamento.</p>
 
-        <h2>Quando Chamar um Profissional</h2>
-        <p>Há situações em que tentar resolver sozinho não compensa. O custo do erro é maior que o do serviço técnico.</p>
-        <ul>
-          <li>Equipamento ainda em garantia — abrir cancela a cobertura do fabricante</li>
-          <li>Problema envolve solda em placa-mãe (BGA, SMD, microsoldagem)</li>
-          <li>Recuperação de dados de HD com falha mecânica (cabeça travada, motor queimado)</li>
-          <li>Contato com líquido — cada minuto sem limpeza profissional causa mais corrosão</li>
-          <li>Falta de ferramenta específica (estação de retrabalho, microscópio, oscilador)</li>
-          <li>Quando o equipamento tem valor sentimental ou contém dados insubstituíveis</li>
-        </ul>
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se você não tem certeza se o caso é de software ou hardware, ou não quer arriscar perder dados, um diagnóstico define o melhor caminho antes de formatar. Assim você evita reinstalar o sistema e continuar com o mesmo problema.</p>
 
-        <h2>Garantia e Documentação do Serviço</h2>
-        <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
-        <ul>
-          <li>Diagnóstico inicial documentado</li>
-          <li>Lista de peças trocadas (com nota fiscal das peças)</li>
-          <li>Procedimentos realizados</li>
-          <li>Testes executados e resultados</li>
-          <li>Garantia mínima de 90 dias para serviços e peças</li>
-        </ul>
-
-        <h2>Fazendo Instalar Windows 11 do Zero em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza instalar windows 11 do zero em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
-        <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
-
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Na dúvida entre formatar ou reparar?</h3>
+          <p className="text-muted-foreground mb-3">Avaliamos a causa e cuidamos do backup antes de qualquer reinstalação.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/formatacao" className="text-accent">Formatação e instalação do sistema</Link></li>
+            <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Recuperação de dados</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+            <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
+          </ul>
+        </div>
       </>
     ),
   },
@@ -10077,48 +10052,61 @@ crontab -e
     ),
   },
   "como-melhorar-sinal-wifi-em-casa": {
-    title: "Como Melhorar o Sinal de Wi-Fi em Casa: 10 Soluções Grátis (Guia 2026)",
-    excerpt: "Wi-Fi fraco em casa em Curitiba? Aprenda como aumentar o sinal e a velocidade do Wi-Fi com 10 ajustes sem comprar nada. Instalação profissional disponível.",
+    title: "Wi-Fi caindo ou com sinal fraco: como diagnosticar antes de trocar tudo",
+    excerpt: "Wi-Fi que cai, fica lento ou não chega em alguns cômodos? Veja como separar problema da rede local e falha da operadora, com verificações seguras antes de comprar equipamento.",
     date: "2026-04-29",
-    readTime: "8 min",
+    readTime: "9 min",
     category: "Tutoriais Domésticos",
     content: (
       <>
-        <p className="lead">Antes de comprar repetidor ou trocar roteador, faça essas 10 mudanças. Na maioria dos casos resolve.</p>
+        <p className="lead">"O Wi-Fi está ruim" pode significar coisas bem diferentes: sinal que não chega, conexão que cai ou internet que simplesmente não funciona mesmo com o Wi-Fi conectado. Identificar qual é o seu caso evita gastar com repetidor ou roteador novo sem necessidade.</p>
 
-        <h2>1. Reinicie o Roteador</h2>
-        <p>O mais simples e mais ignorado. Tire da tomada, espere 30 segundos, plug de volta. Faça isso 1 vez por mês.</p>
+        <h2>Qual é exatamente o problema?</h2>
+        <ul>
+          <li><strong>Sem sinal em alguns cômodos:</strong> questão de alcance e obstáculos.</li>
+          <li><strong>Conectado, mas sem internet:</strong> costuma apontar para a operadora ou para o roteador.</li>
+          <li><strong>Só um aparelho com problema:</strong> provavelmente é o aparelho, não a rede.</li>
+          <li><strong>Todos os aparelhos caindo juntos:</strong> aponta para roteador ou operadora.</li>
+          <li><strong>Quedas em horários específicos:</strong> pode ser saturação ou interferência.</li>
+        </ul>
 
-        <h2>2. Coloque Num Lugar Alto e Central</h2>
-        <p>Roteador no chão ou no canto da casa = sinal ruim em todo lugar. Suba ele para uma estante alta, no meio da casa.</p>
+        <h2>Rede local x operadora</h2>
+        <p>Muita gente troca de roteador quando o problema estava na operadora — e vice-versa. Um jeito simples de separar: se <strong>todos</strong> os aparelhos ficam sem internet ao mesmo tempo e o problema persiste após reiniciar os equipamentos, há boa chance de ser a operadora ou o equipamento dela. Se a internet funciona perto do roteador mas some em cômodos distantes, o tema é alcance da rede local.</p>
 
-        <h2>3. Longe de Eletrônicos e Metal</h2>
-        <p>Microondas, TV, espelhos grandes, paredes de concreto bloqueiam o sinal. Mantenha 1 metro de distância.</p>
+        <h2>Verificações seguras</h2>
+        <ul>
+          <li>Compare aparelhos: teste em dois ou três dispositivos para ver se é geral ou isolado.</li>
+          <li>Teste perto do roteador: se melhora muito de perto, é questão de alcance.</li>
+          <li>Confira os cabos externos do modem/roteador — um conector solto derruba tudo.</li>
+          <li>Reinicie de forma controlada: desligue o roteador da tomada, aguarde alguns instantes e ligue de novo.</li>
+          <li>Observe as luzes do equipamento; luzes de internet apagadas ou vermelhas costumam indicar falha de linha.</li>
+          <li>Confirme se a operadora não está com indisponibilidade na sua região.</li>
+          <li>Anote horários e o padrão das quedas — ajuda muito no diagnóstico.</li>
+        </ul>
 
-        <h2>4. Antenas em Pé</h2>
-        <p>Se o roteador tem antenas, deixe-as em pé (na vertical), não inclinadas. Para casa de 2 andares, uma em pé e outra deitada.</p>
+        <h2>O que pode influenciar o alcance</h2>
+        <ul>
+          <li>Posição do roteador (canto ou chão pioram; local alto e central ajuda).</li>
+          <li>Paredes grossas, espelhos e metal entre você e o roteador.</li>
+          <li>Interferência de outros aparelhos e de redes vizinhas no mesmo canal.</li>
+          <li>Distância grande, que pode pedir mesh em vez de repetidor simples.</li>
+          <li>Roteador antigo, que pode não acompanhar o uso atual.</li>
+        </ul>
+        <p>Trocar o roteador nem sempre resolve: se a causa é a operadora, o cabeamento ou o posicionamento, o aparelho novo repete o mesmo problema. Por isso o diagnóstico vem antes da compra.</p>
 
-        <h2>5. Mude o Canal Wi-Fi</h2>
-        <p>Vizinhos no mesmo canal causam interferência. Acesse o roteador (geralmente <strong>192.168.0.1</strong> ou <strong>192.168.1.1</strong> no navegador). Procure 'Canal Wi-Fi' e mude para 1, 6 ou 11.</p>
+        <h2>Quando procurar atendimento técnico</h2>
+        <p>Se as verificações não resolveram, ou se a casa é grande e tem pontos cegos, uma análise no local identifica onde o sinal se perde e o que realmente faz diferença — do posicionamento a um sistema mesh bem dimensionado. Casos mais simples podem até ser orientados remotamente.</p>
 
-        <h2>6. Use o 5GHz</h2>
-        <p>Roteadores modernos têm Wi-Fi 2.4GHz e 5GHz. O 5GHz é mais rápido (mas menos alcance). Conecte celular e notebook no 5GHz quando estiver perto, deixe 2.4GHz para câmeras e dispositivos longe.</p>
-
-        <h2>7. Atualize o Roteador</h2>
-        <p>Acesse o painel do roteador e procure 'Atualização de Firmware'. Atualizações trazem melhorias de performance.</p>
-
-        <h2>8. Limite Quem Usa</h2>
-        <p>Vizinho descobriu sua senha? Mude a senha do Wi-Fi (no painel do roteador). Use senha forte com 12+ caracteres.</p>
-
-        <h2>9. Verifique Velocidade Contratada</h2>
-        <p>Acesse <strong>fast.com</strong> ou <strong>speedtest.net</strong> conectado por cabo direto no roteador. Se a velocidade está bem abaixo do contratado, ligue para sua operadora.</p>
-
-        <h2>10. Roteador Velho?</h2>
-        <p>Roteadores com mais de 5 anos não suportam Wi-Fi moderno. Investir em modelo novo (Wi-Fi 6 ou Mesh) faz diferença enorme.</p>
-
-        <h2>Não Resolveu?</h2>
-        <p>A Técnico Curitiba faz análise profissional do seu Wi-Fi, identifica pontos cegos, configura mesh e elimina zonas sem sinal. Atendemos Curitiba e região metropolitana via WhatsApp.</p>
-
+        <div className="bg-accent/10 rounded-xl p-6 my-8">
+          <h3 className="text-accent font-bold mb-2">Wi-Fi caindo ou com pontos cegos?</h3>
+          <p className="text-muted-foreground mb-3">Analisamos a cobertura no local e indicamos o que resolve de fato, sem trocar equipamento à toa.</p>
+          <ul className="mb-0">
+            <li><Link to="/servicos/redes-e-wifi" className="text-accent">Redes e Wi-Fi</Link></li>
+            <li><Link to="/atendimento-domicilio" className="text-accent">Atendimento em domicílio</Link></li>
+            <li><Link to="/atendimento-remoto" className="text-accent">Atendimento remoto</Link></li>
+            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+          </ul>
+        </div>
       </>
     ),
   },

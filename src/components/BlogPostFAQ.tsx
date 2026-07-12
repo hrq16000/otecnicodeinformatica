@@ -98,22 +98,23 @@ const PILOT_FAQ: Record<string, FAQItem[]> = {
   ],
   "como-instalar-windows-11-do-zero": [
     {
-      q: "Qual a diferença entre restaurar e formatar?",
-      a: "Restaurar tenta reparar o sistema preservando mais coisas; formatar apaga o disco do sistema e instala tudo do zero.",
+      q: "Qual a diferença entre atualizar e fazer instalação limpa?",
+      a: "Atualizar mantém arquivos, programas e configurações; a instalação limpa apaga o disco do sistema e instala o Windows 11 do zero, exigindo backup antes.",
     },
     {
-      q: "Formatar apaga meus arquivos?",
-      a: "Sim, o disco do sistema é apagado. Por isso o backup dos dados vem antes de qualquer formatação.",
+      q: "A instalação limpa apaga meus arquivos?",
+      a: "Sim, o disco do sistema é apagado. Por isso o backup conferido dos dados vem antes de qualquer instalação limpa.",
     },
     {
-      q: "Formatar resolve qualquer problema?",
-      a: "Não. Se a causa é física, como disco, memória ou aquecimento, a formatação não resolve.",
+      q: "Preciso baixar o Windows 11 de onde?",
+      a: "Apenas das ferramentas e downloads oficiais da Microsoft. Imagens modificadas, ativadores e downloads de terceiros trazem risco de segurança e problemas de licença.",
     },
     {
-      q: "Vocês fornecem chave ou ativador do Windows?",
-      a: "Não. Trabalhamos apenas com licenças legítimas e não orientamos formas de burlar licenciamento.",
+      q: "Vocês fornecem chave, ativador ou bypass de requisitos?",
+      a: "Não. Trabalhamos apenas com licenças legítimas e não orientamos ativadores, cracks ou formas de contornar os requisitos do Windows 11.",
     },
   ],
+
   "quando-trocar-hd-por-ssd": [
     {
       q: "O SSD deixa qualquer computador rápido?",

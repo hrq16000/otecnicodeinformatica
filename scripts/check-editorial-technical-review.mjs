@@ -41,13 +41,12 @@ const EXPECTED_PILOTS = [
   "como-melhorar-sinal-wifi-em-casa",
 ];
 
-// Pilotos que, nesta rodada, devem estar "blocked" por desalinhamento crítico
-// de intenção (slug × title/H1/conteúdo). Enquanto não forem resolvidos com
-// análise de links/redirects, não podem ser "reviewed".
-const CRITICAL_ALIGNMENT = new Set([
-  "notebook-nao-liga-o-que-fazer",
-  "como-instalar-windows-11-do-zero",
-]);
+// Fechamento técnico (PROMPT 33): os dois desalinhamentos críticos foram
+// resolvidos no conteúdo e realinhados ao slug. Nenhum piloto pode permanecer
+// "pending" e nenhum deve depender de um bloqueio artificial: cada um termina
+// como "reviewed" (com fact-check e fontes ou conhecimento estável justificado)
+// ou "blocked" (com justificativa objetiva em notes).
+
 
 const ALLOWED_SOURCE_HOSTS = new Set([
   "microsoft.com",

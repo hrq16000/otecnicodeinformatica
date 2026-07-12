@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 
 const HOME = "/";
-const UTM_QS = "?utm_source=ci&utm_medium=cpc&utm_campaign=funnel_v3_e2e&gclid=CI_GCLID_777";
+const UTM_QS = "?utm_source=ci&utm_medium=cpc&utm_campaign=triage_v5_e2e&gclid=CI_GCLID_777";
 
 async function installGtagSpy(page: Page) {
   await page.addInitScript(() => {
@@ -23,49 +23,59 @@ async function openFunnel(page: Page) {
   return dialog;
 }
 
-test.describe("WhatsAppFunnel v3 — funil ramificado por equipamento (texto-only)", () => {
+test.describe("Triagem V5 — funil ramificado por equipamento", () => {
   test.beforeEach(async ({ page, context }) => {
     await installGtagSpy(page);
     await context.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
   });
 
-  test("branch TV 'não liga' exige aceite de Coleta com R$ 300", async ({ page }) => {
+  test("categoria 'Outro' substitui 'Outro / Só orçamento' e não há remoto para TV", async ({ page }) => {
+    await page.goto(`${HOME}${UTM_QS}`);
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+    await expect(dialog.getByText("Outro", { exact: true }).first()).toBeVisible();
+    await expect(dialog.getByText(/Só orçamento/i)).toHaveCount(0);
+  });
+
+  test("TV não liga → coleta obrigatória com R$ 299,99 e pergunta 'quando aconteceu'", async ({ page }) => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
 
     await dialog.getByRole("button", { name: /^TV$/i }).first().click();
+    await expect(dialog.getByText(/O que aconteceu/i)).toBeVisible();
+    await dialog.getByRole("radio", { name: /^LED$/i }).click();
+    await dialog.getByRole("radio", { name: /^Não liga$/i }).click();
 
-    await expect(dialog.getByText(/Qual é o problema/i)).toBeVisible();
-    await dialog.getByRole("button", { name: /^Samsung$/i }).first().click();
-    await dialog.getByRole("button", { name: /^Não liga$/i }).first().click();
-    await dialog.getByRole("button", { name: /Continuar/i }).click();
+    await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();
+    await expect(dialog.getByText(/Quando aconteceu/i)).toBeVisible();
+    await expect(dialog.getByText(/Com que frequência/i)).toHaveCount(0);
+    await dialog.getByRole("radio", { name: /^Hoje$/i }).click();
+    await dialog.getByRole("radio", { name: /Sem pressa/i }).click();
 
-    await expect(dialog.getByText(/Coleta e Entrega/i).first()).toBeVisible();
-    await expect(dialog.getByText(/R\$ 300/i).first()).toBeVisible();
-    const nextBtn = dialog.getByRole("button", { name: /Continuar/i });
-    await expect(nextBtn).toBeDisabled();
+    await expect(dialog.getByText(/Coleta e entrega/i).first()).toBeVisible();
+    await expect(dialog.getByText(/R\$ 299,99/i).first()).toBeVisible();
   });
 
-  test("branch PC 'lento' não exige coleta e vai direto à confirmação com aviso de vídeo", async ({ page }) => {
+  test("PC funcionando + instalar programa → atendimento remoto", async ({ page }) => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
 
     await dialog.getByRole("button", { name: /PC \/ Notebook/i }).click();
-    await dialog.getByRole("button", { name: /^Dell$/ }).click();
-    await dialog.getByRole("button", { name: /Lento \/ travando/i }).click();
-    await dialog.getByRole("button", { name: /Continuar/i }).click();
+    await dialog.getByRole("radio", { name: /^Notebook$/i }).click();
+    await dialog.getByRole("radio", { name: /Liga e inicia normalmente/i }).click();
+    await dialog.getByRole("radio", { name: /Instalar ou configurar programa/i }).click();
 
-    await expect(dialog.getByText(/Triagem completa/i)).toBeVisible();
-    await expect(dialog.getByText(/sem áudio/i)).toBeVisible();
-    const submit = dialog.getByRole("button", { name: /Abrir WhatsApp/i });
-    await expect(submit).toBeDisabled();
-    await dialog.getByLabel(/valor mínimo.*R\$ 99,99/i).click();
-    await expect(submit).toBeEnabled();
+    await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();
+    await dialog.getByRole("radio", { name: /Há poucos dias/i }).click();
+    await dialog.getByRole("radio", { name: /Próximas 72 horas úteis/i }).click();
+
+    await expect(dialog.getByText(/Atendimento remoto/i).first()).toBeVisible();
+    await expect(dialog.getByText(/Coleta e entrega/i)).toHaveCount(0);
   });
 
-  test("botão flutuante abre funil e eventos preservam click_location/app_version", async ({ page }) => {
+  test("botão flutuante abre o funil e evento preserva click_location", async ({ page }) => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("domcontentloaded");
     await page.getByTestId("whatsapp-float").click();
@@ -78,18 +88,6 @@ test.describe("WhatsAppFunnel v3 — funil ramificado por equipamento (texto-onl
     const opened = events.find((e) => e.name === "wa_funnel_open");
     expect(opened?.payload.click_location).toBe("float");
     expect(opened?.payload.app_version).toBeTruthy();
-  });
-
-  test("branch 'Outro' pula coleta e exige descrição mínima", async ({ page }) => {
-    await page.goto(`${HOME}${UTM_QS}`);
-    await page.waitForLoadState("networkidle");
-    const dialog = await openFunnel(page);
-
-    await dialog.getByRole("button", { name: /Outro \/ Só orçamento/i }).click();
-    const nextBtn = dialog.getByRole("button", { name: /Continuar/i });
-    await expect(nextBtn).toBeDisabled();
-    await dialog.getByPlaceholder(/Conte o equipamento/i).fill("Equipamento desconhecido, quero saber se compensa.");
-    await expect(nextBtn).toBeEnabled();
   });
 
   test("GA4 dispara wa_funnel_open com UTM payload", async ({ page }) => {
@@ -115,7 +113,7 @@ test.describe("WhatsAppFunnel v3 — funil ramificado por equipamento (texto-onl
   });
 });
 
-test.describe("WhatsAppFunnel v3 — mobile", () => {
+test.describe("Triagem V5 — mobile", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
   test("modal abre e mostra seleção de equipamento", async ({ page, context }) => {

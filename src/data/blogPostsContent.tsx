@@ -1655,9 +1655,9 @@ docker run -d --name db --network minha-rede postgres
           <ul className="mb-0">
             <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
-            <li><Link to="/coleta-e-entrega" className="text-accent">Coleta e entrega do equipamento</Link></li>
             <li><Link to="/precos-e-politicas" className="text-accent">Preços e políticas de atendimento</Link></li>
           </ul>
+
         </div>
 
         <EditorialReferences slug="notebook-nao-liga-o-que-fazer" />

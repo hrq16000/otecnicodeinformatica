@@ -61,22 +61,23 @@ const CATEGORY_EXTRA: Record<string, FAQItem[]> = {
 const PILOT_FAQ: Record<string, FAQItem[]> = {
   "notebook-nao-liga-o-que-fazer": [
     {
-      q: "O computador não dá nenhum sinal ao ligar. O que pode ser?",
-      a: "Depende do comportamento: pode estar relacionado à alimentação (tomada, cabo, fonte), à memória, ao armazenamento ou à placa. As verificações seguras ajudam a estreitar, mas a causa só se confirma no diagnóstico.",
+      q: "O notebook não dá nenhum sinal ao ligar. O que pode ser?",
+      a: "Pode estar relacionado à alimentação (tomada, cabo, carregador), à bateria, à memória, ao armazenamento ou à placa. As verificações seguras ajudam a estreitar, mas a causa só se confirma no diagnóstico.",
     },
     {
-      q: "Liga, mas a tela fica preta. É a tela?",
-      a: "Nem sempre. Ligar o equipamento a um monitor externo ajuda a saber se o problema é da tela ou da parte que gera a imagem.",
+      q: "O notebook liga, mas a tela fica preta. É a tela?",
+      a: "Nem sempre. Ligar o notebook a um monitor externo ajuda a saber se o problema é da tela ou da parte que gera a imagem.",
     },
     {
-      q: "Posso abrir o equipamento para verificar?",
-      a: "Verificações externas (tomada, cabo, periféricos, monitor externo) são seguras. Abrir a fonte ou desmontar sem preparo pode piorar o quadro e é melhor evitar.",
+      q: "Posso abrir o notebook para verificar?",
+      a: "Verificações externas (tomada, cabo, carregador, periféricos, monitor externo) são seguras. Abrir o carregador, a bateria ou desmontar o notebook sem preparo pode piorar o quadro e é melhor evitar.",
     },
     {
-      q: "Parou depois de uma queda de energia. Tem solução?",
-      a: "É preciso avaliar. Oscilações podem afetar fonte ou placa; o diagnóstico define quais são as opções antes de qualquer troca.",
+      q: "O notebook parou depois de uma queda de energia. Tem solução?",
+      a: "É preciso avaliar. Oscilações podem afetar o carregador, o conector, a bateria ou a placa; o diagnóstico define quais são as opções antes de qualquer troca.",
     },
   ],
+
   "computador-lento-causas-solucoes": [
     {
       q: "Formatar resolve a lentidão?",

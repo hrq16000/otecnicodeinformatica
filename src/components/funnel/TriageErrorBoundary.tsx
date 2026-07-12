@@ -26,7 +26,6 @@ export class TriageErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     // Log de desenvolvimento sem dados sensíveis do cliente.
-    // eslint-disable-next-line no-console
     console.error("[triage] render error:", error.message, info.componentStack?.slice(0, 300));
   }
 

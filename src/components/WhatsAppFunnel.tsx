@@ -407,7 +407,6 @@ export const WhatsAppFunnel = () => {
           waMessage: finalMessage,
         });
       } catch (err) {
-        // eslint-disable-next-line no-console
         console.warn("[triage] submission insert failed", err);
         trackFunnelBlocked("insert_failed", answers.equipment);
       }

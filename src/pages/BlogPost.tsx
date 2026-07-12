@@ -105,76 +105,20 @@ const BlogPost = () => {
   // Compute word count from content (rough estimate via readTime)
   const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
 
-  // Inject BlogPosting + BreadcrumbList structured data
+  // Structured data governado pelo registro editorial fail-closed.
+  // - Artigo NÃO aprovado: emite apenas WebPage + BreadcrumbList (sem
+  //   BlogPosting/Article/TechArticle, sem autor pessoal, sem prova de
+  //   revisão). Não é tratado como conteúdo publicado.
+  // - Artigo aprovado (futuro): emite BlogPosting completo com autoria
+  //   institucional/verificada e data real registrada.
   useEffect(() => {
     if (!post || !slug) return;
     const existingSchemas = document.querySelectorAll('script[data-blog-schema="true"]');
     existingSchemas.forEach(s => s.remove());
 
-    const blogPostingSchema = {
-      "@context": "https://schema.org",
-      "@type": ["BlogPosting", "Article", "TechArticle"],
-      "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
-      "name": post.title,
-      "description": post.excerpt,
-      "datePublished": `${post.date}T08:00:00-03:00`,
-      "dateModified": `${post.date}T08:00:00-03:00`,
-      // Discover requires high-res image (min 1200px wide). Provide multiple aspect ratios.
-      "image": [
-        { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
-        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
-        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
-      ],
-      "thumbnailUrl": heroImage,
-      "author": {
-        "@type": "Person",
-        "name": "Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br/sobre",
-        "jobTitle": "Técnico de Informática Sênior",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Técnico Curitiba",
-          "url": "https://tecnico.curitiba.br"
-        }
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://tecnico.curitiba.br/logo.png",
-          "width": 600,
-          "height": 60
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://tecnico.curitiba.br/blog/${slug}`
-      },
-      "url": `https://tecnico.curitiba.br/blog/${slug}`,
-      "inLanguage": "pt-BR",
-      "isAccessibleForFree": true,
-      "isPartOf": {
-        "@type": "Blog",
-        "name": "Blog Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br/blog"
-      },
-      "about": { "@type": "Thing", "name": post.category },
-      "wordCount": wordCount,
-      "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
-      "articleSection": post.category,
-      "articleBody": post.excerpt,
-      "keywords": `${post.title}, ${post.category}, técnico de informática curitiba, assistência técnica curitiba, ${post.category.toLowerCase()} curitiba`,
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", ".lead", "article p:first-of-type"]
-      },
-      "potentialAction": {
-        "@type": "ReadAction",
-        "target": [`https://tecnico.curitiba.br/blog/${slug}`]
-      }
-    };
+    const canonicalUrl = `https://tecnico.curitiba.br/blog/${slug}`;
+    const approval = getEditorialApproval(slug);
+    const approved = isEditorialApproved(slug);
 
     const breadcrumbSchema = {
       "@context": "https://schema.org",
@@ -182,11 +126,83 @@ const BlogPost = () => {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnico.curitiba.br/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnico.curitiba.br/blog" },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://tecnico.curitiba.br/blog/${slug}` }
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
       ]
     };
 
-    [blogPostingSchema, breadcrumbSchema].forEach(schema => {
+    const schemas: Record<string, unknown>[] = [breadcrumbSchema];
+
+    if (approved && approval) {
+      // Autoria institucional oficial (sem Person fictício / cargo inventado).
+      const author = {
+        "@type": "Organization",
+        "name": INSTITUTIONAL_AUTHOR.name,
+        "url": INSTITUTIONAL_AUTHOR.url,
+      };
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": ["BlogPosting", "Article", "TechArticle"],
+        "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
+        "name": post.title,
+        "description": post.excerpt,
+        "datePublished": `${post.date}T08:00:00-03:00`,
+        // dateModified reflete a revisão material registrada; nunca gerada no build.
+        "dateModified": `${(approval.reviewedAt ?? post.date).slice(0, 10)}T08:00:00-03:00`,
+        "image": [
+          { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
+          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
+          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
+        ],
+        "thumbnailUrl": heroImage,
+        "author": author,
+        "publisher": {
+          "@type": "Organization",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+          "logo": {
+            "@type": "ImageObject",
+            "url": EDITORIAL_PUBLISHER.logo,
+            "width": 600,
+            "height": 60
+          }
+        },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+        "url": canonicalUrl,
+        "inLanguage": "pt-BR",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Blog Técnico em Curitiba",
+          "url": "https://tecnico.curitiba.br/blog"
+        },
+        "about": { "@type": "Thing", "name": post.category },
+        "wordCount": wordCount,
+        "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
+        "articleSection": post.category,
+      });
+    } else {
+      // Rascunho / em preparação: somente WebPage institucional mínimo.
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": post.title,
+        "description": post.excerpt,
+        "url": canonicalUrl,
+        "inLanguage": "pt-BR",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+        },
+      });
+    }
+
+    schemas.forEach(schema => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.setAttribute('data-blog-schema', 'true');
@@ -197,7 +213,7 @@ const BlogPost = () => {
     return () => {
       document.querySelectorAll('script[data-blog-schema="true"]').forEach(s => s.remove());
     };
-  }, [post, slug]);
+  }, [post, slug, heroImage, wordCount]);
 
   // Wait for the content chunk before deciding to redirect.
   if (!posts) {

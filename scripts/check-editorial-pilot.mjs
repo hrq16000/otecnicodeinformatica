@@ -190,10 +190,10 @@ for (const slug of pilotSlugs) {
 const themed = [
   { slug: "como-instalar-windows-11-do-zero", needs: ["não resolve"], msg: "formatação deve deixar claro que não resolve tudo" },
   { slug: "quando-trocar-hd-por-ssd", needs: ["não substitui"], msg: "SSD deve indicar que não substitui outros componentes" },
-  { slug: "como-saber-se-pc-tem-virus-malware", needs: ["não é possível prometer", "ransomware"], msg: "vírus não pode prometer remoção sem risco e deve citar ransomware" },
+  { slug: "como-saber-se-pc-tem-virus-malware", needs: ["há chance de perda", "ransomware"], msg: "vírus não pode prometer remoção sem risco e deve citar ransomware" },
   { slug: "como-melhorar-sinal-wifi-em-casa", needs: ["operadora", "rede local"], msg: "Wi-Fi deve diferenciar rede local e operadora" },
   { slug: "notebook-superaquecendo-o-que-fazer", needs: ["desligue", "bateria"], msg: "superaquecimento deve conter alertas de segurança" },
-  { slug: "backup-como-proteger-seus-arquivos", needs: ["não há garantia"], msg: "backup não pode prometer recuperação" },
+  { slug: "backup-como-proteger-seus-arquivos", needs: ["nem sempre traz tudo de volta"], msg: "backup não pode prometer recuperação" },
 ];
 for (const t of themed) {
   const block = blocks.get(t.slug);

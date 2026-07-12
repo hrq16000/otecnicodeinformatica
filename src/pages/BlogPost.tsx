@@ -16,6 +16,12 @@ import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
+import {
+  isEditorialApproved,
+  getEditorialApproval,
+  INSTITUTIONAL_AUTHOR,
+  EDITORIAL_PUBLISHER,
+} from "@/lib/blogEditorialRegistry";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)

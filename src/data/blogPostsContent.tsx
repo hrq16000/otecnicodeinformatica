@@ -6000,7 +6000,8 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Quando não prosseguir</h2>
-        <p>Interrompa a instalação limpa se houver <strong>disco com sinais de falha, arquivos ainda sem backup, chave de recuperação desconhecida, equipamento sem compatibilidade confirmada, dúvida sobre partições, suspeita de falha física ou necessidade de recuperar dados</strong>. Nesses casos, seguir em frente pode apagar dados sem retorno. Se os arquivos já estão inacessíveis, o caminho é a <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não a instalação limpa.</p>
+        <p>A instalação limpa organiza o sistema, mas <strong>não resolve</strong> problemas físicos: se o disco, a memória ou outra peça estão com defeito, reinstalar o Windows 11 não corrige a falha. Interrompa a instalação limpa se houver <strong>disco com sinais de falha, arquivos ainda sem backup, chave de recuperação desconhecida, equipamento sem compatibilidade confirmada, dúvida sobre partições, suspeita de falha física ou necessidade de recuperar dados</strong>. Nesses casos, seguir em frente pode apagar dados sem retorno. Se os arquivos já estão inacessíveis, o caminho é a <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não a instalação limpa.</p>
+
 
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se você não tem certeza sobre requisitos, partições, licença ou backup, um diagnóstico define o melhor caminho antes de apagar o disco. Assim você evita reinstalar o sistema e perder arquivos no processo.</p>

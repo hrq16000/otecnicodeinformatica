@@ -10134,7 +10134,10 @@ crontab -e
             <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
           </ul>
         </div>
+
+        <EditorialReferences slug="como-melhorar-sinal-wifi-em-casa" />
       </>
+
     ),
   },
   "como-configurar-roteador-wifi-iniciantes": {

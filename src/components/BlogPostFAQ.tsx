@@ -260,4 +260,43 @@ export const BlogPostFAQ = ({ category, slug }: { category: string; slug: string
   );
 };
 
+// ─────────────────────────────────────────────────────────────
+// FONTES E REFERÊNCIAS TÉCNICAS (visíveis) — pilotos em revisão.
+//
+// Renderiza APENAS as fontes realmente registradas no manifesto
+// (src/lib/blogEditorialSources.ts) para o slug. Sem fonte registrada,
+// não renderiza nada (artigos baseados em conhecimento técnico estável,
+// justificados no manifesto). Nunca expõe status interno, factChecked,
+// classificação ou notas privadas. Âncora descritiva, publisher visível,
+// rel="noopener noreferrer" e target de nova aba.
+// ─────────────────────────────────────────────────────────────
+export const EditorialReferences = ({ slug }: { slug: string }) => {
+  const sources = getArticleSources(slug);
+  if (sources.length === 0) return null;
+
+  return (
+    <section className="not-prose mt-12">
+      <h2 className="font-heading font-bold text-primary text-xl md:text-2xl mb-4">
+        Fontes e referências técnicas
+      </h2>
+      <ul className="rounded-2xl border border-border bg-card divide-y divide-border overflow-hidden m-0 list-none p-0">
+        {sources.map((s) => (
+          <li key={s.id} className="p-4 md:p-5">
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-accent hover:underline"
+            >
+              {s.title}
+            </a>
+            <span className="block text-sm text-muted-foreground mt-1">{s.publisher}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
 export default BlogPostFAQ;
+

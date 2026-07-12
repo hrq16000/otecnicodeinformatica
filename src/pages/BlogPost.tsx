@@ -228,37 +228,40 @@ const BlogPost = () => {
   }
 
 
+  const approved = slug ? isEditorialApproved(slug) : false;
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} | Blog | Técnico Curitiba</title>
+        <title>{post.title} | Blog | Técnico em Curitiba</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://tecnico.curitiba.br/blog/${slug}`} />
-        {/* robots/googlebot são gerenciados via efeito (meta única em index.html) */}
-        <meta property="og:type" content="article" />
+        {/* robots/googlebot são gerenciados via efeito (registro editorial) */}
+        <meta property="og:type" content={approved ? "article" : "website"} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`https://tecnico.curitiba.br/blog/${slug}`} />
-        <meta property="og:site_name" content="Técnico Curitiba" />
+        <meta property="og:site_name" content="Técnico em Curitiba" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="900" />
         <meta property="og:image:alt" content={post.title} />
-        <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
-        <meta property="article:modified_time" content={`${post.date}T08:00:00-03:00`} />
-        <meta property="article:section" content={post.category} />
-        <meta property="article:tag" content={post.category} />
-        <meta property="article:author" content="Técnico Curitiba" />
-        <meta property="article:publisher" content="https://tecnico.curitiba.br" />
+        {approved && (
+          <>
+            <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
+            <meta property="article:section" content={post.category} />
+            <meta property="article:tag" content={post.category} />
+            <meta property="article:author" content="Técnico em Curitiba" />
+            <meta property="article:publisher" content="https://tecnico.curitiba.br" />
+          </>
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={heroImageOg} />
         <meta name="twitter:image:alt" content={post.title} />
-        <meta name="author" content="Técnico Curitiba" />
-        <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />
         {/* Preload hero image for faster LCP */}
         <link rel="preload" as="image" href={heroImage} fetchPriority="high" />
       </Helmet>

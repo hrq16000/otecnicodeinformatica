@@ -60,6 +60,48 @@ export const EDITORIAL_PUBLISHER = {
 // ─────────────────────────────────────────────────────────────
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>();
 
+// ─────────────────────────────────────────────────────────────
+// FILA DE REVISÃO EDITORIAL (in_review) — separada dos aprovados.
+//
+// Os oito conteúdos-piloto foram reescritos com profundidade, mas
+// NÃO estão aprovados: seguem noindex, fora do sitemap e fora da
+// listagem pública. Esta fila é apenas um registro de trabalho.
+// Ela NÃO influencia isEditorialApproved() — a única fonte de
+// indexabilidade continua sendo APPROVED_EDITORIAL_CONTENT.
+//
+// Regras para cada item aqui:
+//   status: "in_review"
+//   authorType: "organization" (autoria institucional; sem pessoa)
+//   authorId: entidade oficial (INSTITUTIONAL_AUTHOR.id)
+//   imageOrigin: "unknown" (nenhuma imagem aprovada)
+//   approvedAt: AUSENTE
+//   reviewedAt: AUSENTE (não houve revisão material concluída)
+// ─────────────────────────────────────────────────────────────
+export const EDITORIAL_PILOT_SLUGS = [
+  "notebook-nao-liga-o-que-fazer",
+  "computador-lento-causas-solucoes",
+  "como-instalar-windows-11-do-zero",
+  "quando-trocar-hd-por-ssd",
+  "notebook-superaquecendo-o-que-fazer",
+  "backup-como-proteger-seus-arquivos",
+  "como-saber-se-pc-tem-virus-malware",
+  "como-melhorar-sinal-wifi-em-casa",
+] as const;
+
+export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(
+  EDITORIAL_PILOT_SLUGS.map((slug) => [
+    slug,
+    {
+      slug,
+      status: "in_review" as EditorialStatus,
+      authorType: "organization" as EditorialAuthorType,
+      authorId: INSTITUTIONAL_AUTHOR.id,
+      imageOrigin: "unknown" as EditorialImageOrigin,
+      // Rascunho em revisao — sem data de aprovacao e sem data de revisao material.
+    },
+  ]),
+);
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/;
 
 /**

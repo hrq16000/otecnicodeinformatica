@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { isEditorialApproved } from "@/lib/blogEditorialRegistry";
 
 type FAQItem = { q: string; a: string };
 
@@ -48,13 +49,175 @@ const CATEGORY_EXTRA: Record<string, FAQItem[]> = {
   ],
 };
 
+// ─────────────────────────────────────────────────────────────
+// FAQ EDITORIAL POR ARTIGO (pilotos em revisão).
+// Perguntas específicas por tema, distintas entre si, sem preço,
+// sem prazo prometido e sem promessa de resultado. Quando um slug
+// tem override aqui, ele NÃO usa o BASE_FAQ nem os extras de
+// categoria (que contêm valores comerciais).
+// ─────────────────────────────────────────────────────────────
+const PILOT_FAQ: Record<string, FAQItem[]> = {
+  "notebook-nao-liga-o-que-fazer": [
+    {
+      q: "O computador não dá nenhum sinal ao ligar. O que pode ser?",
+      a: "Depende do comportamento: pode estar relacionado à alimentação (tomada, cabo, fonte), à memória, ao armazenamento ou à placa. As verificações seguras ajudam a estreitar, mas a causa só se confirma no diagnóstico.",
+    },
+    {
+      q: "Liga, mas a tela fica preta. É a tela?",
+      a: "Nem sempre. Ligar o equipamento a um monitor externo ajuda a saber se o problema é da tela ou da parte que gera a imagem.",
+    },
+    {
+      q: "Posso abrir o equipamento para verificar?",
+      a: "Verificações externas (tomada, cabo, periféricos, monitor externo) são seguras. Abrir a fonte ou desmontar sem preparo pode piorar o quadro e é melhor evitar.",
+    },
+    {
+      q: "Parou depois de uma queda de energia. Tem solução?",
+      a: "É preciso avaliar. Oscilações podem afetar fonte ou placa; o diagnóstico define quais são as opções antes de qualquer troca.",
+    },
+  ],
+  "computador-lento-causas-solucoes": [
+    {
+      q: "Formatar resolve a lentidão?",
+      a: "Só quando a causa é software acumulado ou corrompido. Não resolve lentidão por HD desgastado, pouca memória, superaquecimento ou hardware antigo.",
+    },
+    {
+      q: "Trocar por SSD deixa o computador rápido?",
+      a: "Costuma ajudar bastante na inicialização e na abertura de programas, mas o ganho depende do restante do hardware.",
+    },
+    {
+      q: "Como sei se a lentidão é vírus?",
+      a: "Lentidão acompanhada de pop-ups, navegador alterado ou uso alto de recursos sem motivo são sinais. A confirmação exige análise.",
+    },
+    {
+      q: "Vale a pena investir num computador antigo?",
+      a: "Depende do uso e do estado do equipamento. Às vezes um upgrade simples compensa; em outros casos, não.",
+    },
+  ],
+  "como-instalar-windows-11-do-zero": [
+    {
+      q: "Qual a diferença entre restaurar e formatar?",
+      a: "Restaurar tenta reparar o sistema preservando mais coisas; formatar apaga o disco do sistema e instala tudo do zero.",
+    },
+    {
+      q: "Formatar apaga meus arquivos?",
+      a: "Sim, o disco do sistema é apagado. Por isso o backup dos dados vem antes de qualquer formatação.",
+    },
+    {
+      q: "Formatar resolve qualquer problema?",
+      a: "Não. Se a causa é física, como disco, memória ou aquecimento, a formatação não resolve.",
+    },
+    {
+      q: "Vocês fornecem chave ou ativador do Windows?",
+      a: "Não. Trabalhamos apenas com licenças legítimas e não orientamos formas de burlar licenciamento.",
+    },
+  ],
+  "quando-trocar-hd-por-ssd": [
+    {
+      q: "O SSD deixa qualquer computador rápido?",
+      a: "Ele acelera bastante o armazenamento, mas não substitui memória ou processador limitados.",
+    },
+    {
+      q: "Qualquer computador aceita qualquer SSD?",
+      a: "Não. É preciso conferir a interface (SATA ou NVMe) e o espaço físico disponível no equipamento.",
+    },
+    {
+      q: "É melhor clonar o sistema ou instalar do zero?",
+      a: "Clonar mantém tudo, inclusive problemas do sistema atual; a instalação limpa costuma ser mais estável. Em qualquer caso, backup antes é indispensável.",
+    },
+    {
+      q: "Preciso trocar o computador todo ou só o disco?",
+      a: "Depende do estado do equipamento. A avaliação do hardware ajuda a decidir se o SSD sozinho resolve.",
+    },
+  ],
+  "notebook-superaquecendo-o-que-fazer": [
+    {
+      q: "Meu notebook esquenta muito. É normal?",
+      a: "Em tarefas pesadas o calor sobe. Desligamentos, base muito quente em uso leve ou queda de desempenho já são sinais de alerta.",
+    },
+    {
+      q: "Posso fazer a limpeza interna sozinho?",
+      a: "A limpeza externa das saídas de ar é segura. Abrir para limpeza interna e trocar a pasta térmica exige prática para não danificar peças.",
+    },
+    {
+      q: "A bateria está estufada. O que faço?",
+      a: "Pare de usar, não fure nem pressione a bateria e procure um técnico. Bateria deformada é sinal de risco.",
+    },
+    {
+      q: "De quanto em quanto tempo trocar a pasta térmica?",
+      a: "Varia conforme o equipamento e o uso. Não existe um prazo único que sirva para todos os casos.",
+    },
+  ],
+  "backup-como-proteger-seus-arquivos": [
+    {
+      q: "Copiar para outra pasta do mesmo disco é backup?",
+      a: "Não. Se o disco falhar, a cópia na mesma unidade se perde junto com o original.",
+    },
+    {
+      q: "Sincronizar com a nuvem é backup?",
+      a: "Ajuda, mas se um arquivo é apagado ou criptografado a mudança pode se espalhar. Backup guarda versões que não são sobrescritas automaticamente.",
+    },
+    {
+      q: "Com que frequência devo fazer backup?",
+      a: "Conforme o quanto os dados mudam e o quanto você não pode perdê-los. O essencial é manter uma rotina.",
+    },
+    {
+      q: "Já perdi arquivos. Ainda dá para recuperar?",
+      a: "Às vezes sim, mas não há garantia. Por isso o backup preventivo é sempre mais seguro do que depender de recuperação.",
+    },
+  ],
+  "como-saber-se-pc-tem-virus-malware": [
+    {
+      q: "Todo computador lento está com vírus?",
+      a: "Não. Lentidão tem várias causas possíveis; vírus é uma delas e precisa ser confirmado por análise.",
+    },
+    {
+      q: "Apareceu um alerta com telefone de suporte. Devo ligar?",
+      a: "Não. É um golpe de falso suporte. Feche a janela, não ligue para o número e não instale nada que a tela pedir.",
+    },
+    {
+      q: "Dá para remover vírus sem perder arquivos?",
+      a: "Em muitos casos sim, mas depende do tipo de ameaça. Não é possível prometer que nunca haverá perda de dados.",
+    },
+    {
+      q: "Meus arquivos ficaram bloqueados ou criptografados. O que faço?",
+      a: "Pode ser ransomware. Desconecte da internet, não pague o resgate e busque avaliação antes de mexer nos arquivos.",
+    },
+  ],
+  "como-melhorar-sinal-wifi-em-casa": [
+    {
+      q: "Como sei se o problema é do roteador ou da operadora?",
+      a: "Se todos os aparelhos ficam sem internet ao mesmo tempo e o problema persiste após reiniciar, tende a ser a operadora. Se cai só longe do roteador, é alcance da rede local.",
+    },
+    {
+      q: "Trocar de roteador resolve?",
+      a: "Nem sempre. Se a causa é a operadora, o cabeamento ou o posicionamento, o aparelho novo repete o mesmo problema.",
+    },
+    {
+      q: "Repetidor ou sistema mesh?",
+      a: "Depende do tamanho e do layout do imóvel. Casas grandes com pontos cegos costumam se beneficiar de mesh.",
+    },
+    {
+      q: "O Wi-Fi cai só em um aparelho. É a rede?",
+      a: "Provavelmente não. Quando o problema é isolado em um dispositivo, a causa costuma estar no próprio aparelho.",
+    },
+  ],
+};
+
 export const BlogPostFAQ = ({ category, slug }: { category: string; slug: string }) => {
+  const override = PILOT_FAQ[slug];
   const extras = CATEGORY_EXTRA[category] ?? [];
-  const items = [...extras, ...BASE_FAQ].slice(0, 5);
+  const items = override ?? [...extras, ...BASE_FAQ].slice(0, 5);
 
   useEffect(() => {
     const id = `faq-jsonld-${slug}`;
     document.getElementById(id)?.remove();
+    // Fail-closed: FAQPage (rich result) apenas para conteúdo aprovado.
+    // Conteúdo em revisão/rascunho mantém a FAQ visível, mas sem schema.
+    if (!isEditorialApproved(slug)) {
+      return () => {
+        document.getElementById(id)?.remove();
+      };
+    }
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = id;

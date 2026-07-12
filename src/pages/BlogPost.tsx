@@ -16,6 +16,12 @@ import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
+import {
+  isEditorialApproved,
+  getEditorialApproval,
+  INSTITUTIONAL_AUTHOR,
+  EDITORIAL_PUBLISHER,
+} from "@/lib/blogEditorialRegistry";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)
@@ -36,19 +42,10 @@ const loadBlogPostsContent = (): Promise<PostsMap> => {
   return inflight;
 };
 
-// Categorias off-topic para o posicionamento atual (informática/PC/notebook,
-// formatação, backup, recuperação de dados, SSD/RAM, vírus, redes/Wi-Fi,
-// suporte empresarial e segurança básica). Posts fora disso recebem
-// noindex, follow e ficam fora do sitemap.
-const OFF_TOPIC_BLOG_CATEGORIES = new Set([
-  "Linux",
-  "Inteligência Artificial",
-  "Plataformas",
-  "CFTV",
-]);
-
-const isOffTopicCategory = (category?: string) =>
-  !!category && OFF_TOPIC_BLOG_CATEGORIES.has(category);
+// Indexabilidade é decidida EXCLUSIVAMENTE pelo registro editorial
+// fail-closed (src/lib/blogEditorialRegistry.ts). Categoria, data,
+// slug, imagem ou tema NÃO controlam indexabilidade. Sem aprovação
+// explícita, o artigo é noindex, follow e fica fora do sitemap.
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -67,7 +64,7 @@ const BlogPost = () => {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} | Blog | Técnico Curitiba`;
+      document.title = `${post.title} | Blog | Técnico em Curitiba`;
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute("content", post.excerpt);
@@ -76,24 +73,24 @@ const BlogPost = () => {
     }
   }, [post, slug]);
 
-  // Gerencia a meta robots única (definida em index.html): posts off-topic
-  // recebem noindex, follow; posts alinhados voltam a index, follow.
+  // Fail-closed: a meta robots reflete APENAS o registro editorial.
+  // Artigo sem aprovação válida => noindex, follow. Aprovado => index, follow.
   useEffect(() => {
-    if (!post) return;
-    const offTopic = isOffTopicCategory(post.category);
+    if (!post || !slug) return;
+    const approved = isEditorialApproved(slug);
     const robots = document.querySelector('meta[name="robots"]');
     const googlebot = document.querySelector('meta[name="googlebot"]');
     const prevRobots = robots?.getAttribute("content") ?? null;
     const prevGoogle = googlebot?.getAttribute("content") ?? null;
     const indexVal = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
     const indexGoogle = "index, follow, max-image-preview:large, max-snippet:-1";
-    robots?.setAttribute("content", offTopic ? "noindex, follow" : indexVal);
-    googlebot?.setAttribute("content", offTopic ? "noindex, follow" : indexGoogle);
+    robots?.setAttribute("content", approved ? indexVal : "noindex, follow");
+    googlebot?.setAttribute("content", approved ? indexGoogle : "noindex, follow");
     return () => {
       if (robots && prevRobots) robots.setAttribute("content", prevRobots);
       if (googlebot && prevGoogle) googlebot.setAttribute("content", prevGoogle);
     };
-  }, [post]);
+  }, [post, slug]);
 
   const categoryCover = slug ? getCategoryCover(slug) : null;
   const heroImage = categoryCover
@@ -108,76 +105,20 @@ const BlogPost = () => {
   // Compute word count from content (rough estimate via readTime)
   const wordCount = post ? Math.round(parseInt(post.readTime) * 220) : 1500;
 
-  // Inject BlogPosting + BreadcrumbList structured data
+  // Structured data governado pelo registro editorial fail-closed.
+  // - Artigo NÃO aprovado: emite apenas WebPage + BreadcrumbList (sem
+  //   BlogPosting/Article/TechArticle, sem autor pessoal, sem prova de
+  //   revisão). Não é tratado como conteúdo publicado.
+  // - Artigo aprovado (futuro): emite BlogPosting completo com autoria
+  //   institucional/verificada e data real registrada.
   useEffect(() => {
     if (!post || !slug) return;
     const existingSchemas = document.querySelectorAll('script[data-blog-schema="true"]');
     existingSchemas.forEach(s => s.remove());
 
-    const blogPostingSchema = {
-      "@context": "https://schema.org",
-      "@type": ["BlogPosting", "Article", "TechArticle"],
-      "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
-      "name": post.title,
-      "description": post.excerpt,
-      "datePublished": `${post.date}T08:00:00-03:00`,
-      "dateModified": `${post.date}T08:00:00-03:00`,
-      // Discover requires high-res image (min 1200px wide). Provide multiple aspect ratios.
-      "image": [
-        { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
-        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
-        { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
-      ],
-      "thumbnailUrl": heroImage,
-      "author": {
-        "@type": "Person",
-        "name": "Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br/sobre",
-        "jobTitle": "Técnico de Informática Sênior",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Técnico Curitiba",
-          "url": "https://tecnico.curitiba.br"
-        }
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://tecnico.curitiba.br/logo.png",
-          "width": 600,
-          "height": 60
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://tecnico.curitiba.br/blog/${slug}`
-      },
-      "url": `https://tecnico.curitiba.br/blog/${slug}`,
-      "inLanguage": "pt-BR",
-      "isAccessibleForFree": true,
-      "isPartOf": {
-        "@type": "Blog",
-        "name": "Blog Técnico Curitiba",
-        "url": "https://tecnico.curitiba.br/blog"
-      },
-      "about": { "@type": "Thing", "name": post.category },
-      "wordCount": wordCount,
-      "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
-      "articleSection": post.category,
-      "articleBody": post.excerpt,
-      "keywords": `${post.title}, ${post.category}, técnico de informática curitiba, assistência técnica curitiba, ${post.category.toLowerCase()} curitiba`,
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", ".lead", "article p:first-of-type"]
-      },
-      "potentialAction": {
-        "@type": "ReadAction",
-        "target": [`https://tecnico.curitiba.br/blog/${slug}`]
-      }
-    };
+    const canonicalUrl = `https://tecnico.curitiba.br/blog/${slug}`;
+    const approval = getEditorialApproval(slug);
+    const approved = isEditorialApproved(slug);
 
     const breadcrumbSchema = {
       "@context": "https://schema.org",
@@ -185,11 +126,83 @@ const BlogPost = () => {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnico.curitiba.br/" },
         { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnico.curitiba.br/blog" },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://tecnico.curitiba.br/blog/${slug}` }
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
       ]
     };
 
-    [blogPostingSchema, breadcrumbSchema].forEach(schema => {
+    const schemas: Record<string, unknown>[] = [breadcrumbSchema];
+
+    if (approved && approval) {
+      // Autoria institucional oficial (sem Person fictício / cargo inventado).
+      const author = {
+        "@type": "Organization",
+        "name": INSTITUTIONAL_AUTHOR.name,
+        "url": INSTITUTIONAL_AUTHOR.url,
+      };
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": ["BlogPosting", "Article", "TechArticle"],
+        "headline": post.title.length > 110 ? post.title.substring(0, 107) + '...' : post.title,
+        "name": post.title,
+        "description": post.excerpt,
+        "datePublished": `${post.date}T08:00:00-03:00`,
+        // dateModified reflete a revisão material registrada; nunca gerada no build.
+        "dateModified": `${(approval.reviewedAt ?? post.date).slice(0, 10)}T08:00:00-03:00`,
+        "image": [
+          { "@type": "ImageObject", "url": heroImage, "width": 1600, "height": 900 },
+          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 1200 },
+          { "@type": "ImageObject", "url": heroImage, "width": 1200, "height": 675 }
+        ],
+        "thumbnailUrl": heroImage,
+        "author": author,
+        "publisher": {
+          "@type": "Organization",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+          "logo": {
+            "@type": "ImageObject",
+            "url": EDITORIAL_PUBLISHER.logo,
+            "width": 600,
+            "height": 60
+          }
+        },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+        "url": canonicalUrl,
+        "inLanguage": "pt-BR",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Blog Técnico em Curitiba",
+          "url": "https://tecnico.curitiba.br/blog"
+        },
+        "about": { "@type": "Thing", "name": post.category },
+        "wordCount": wordCount,
+        "timeRequired": `PT${parseInt(post.readTime) || 10}M`,
+        "articleSection": post.category,
+      });
+    } else {
+      // Rascunho / em preparação: somente WebPage institucional mínimo.
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": post.title,
+        "description": post.excerpt,
+        "url": canonicalUrl,
+        "inLanguage": "pt-BR",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": EDITORIAL_PUBLISHER.name,
+          "url": EDITORIAL_PUBLISHER.url,
+        },
+      });
+    }
+
+    schemas.forEach(schema => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.setAttribute('data-blog-schema', 'true');
@@ -200,7 +213,7 @@ const BlogPost = () => {
     return () => {
       document.querySelectorAll('script[data-blog-schema="true"]').forEach(s => s.remove());
     };
-  }, [post, slug]);
+  }, [post, slug, heroImage, wordCount]);
 
   // Wait for the content chunk before deciding to redirect.
   if (!posts) {
@@ -215,37 +228,40 @@ const BlogPost = () => {
   }
 
 
+  const approved = slug ? isEditorialApproved(slug) : false;
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} | Blog | Técnico Curitiba</title>
+        <title>{post.title} | Blog | Técnico em Curitiba</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://tecnico.curitiba.br/blog/${slug}`} />
-        {/* robots/googlebot são gerenciados via efeito (meta única em index.html) */}
-        <meta property="og:type" content="article" />
+        {/* robots/googlebot são gerenciados via efeito (registro editorial) */}
+        <meta property="og:type" content={approved ? "article" : "website"} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`https://tecnico.curitiba.br/blog/${slug}`} />
-        <meta property="og:site_name" content="Técnico Curitiba" />
+        <meta property="og:site_name" content="Técnico em Curitiba" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="900" />
         <meta property="og:image:alt" content={post.title} />
-        <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
-        <meta property="article:modified_time" content={`${post.date}T08:00:00-03:00`} />
-        <meta property="article:section" content={post.category} />
-        <meta property="article:tag" content={post.category} />
-        <meta property="article:author" content="Técnico Curitiba" />
-        <meta property="article:publisher" content="https://tecnico.curitiba.br" />
+        {approved && (
+          <>
+            <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
+            <meta property="article:section" content={post.category} />
+            <meta property="article:tag" content={post.category} />
+            <meta property="article:author" content="Técnico em Curitiba" />
+            <meta property="article:publisher" content="https://tecnico.curitiba.br" />
+          </>
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={heroImageOg} />
         <meta name="twitter:image:alt" content={post.title} />
-        <meta name="author" content="Técnico Curitiba" />
-        <meta name="news_keywords" content={`${post.category}, técnico curitiba, ${post.title}`} />
         {/* Preload hero image for faster LCP */}
         <link rel="preload" as="image" href={heroImage} fetchPriority="high" />
       </Helmet>

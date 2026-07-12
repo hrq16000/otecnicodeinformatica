@@ -130,7 +130,7 @@ describe("Triagem V5 — TV não liga → COLETA", () => {
     expect(dialog().textContent).toMatch(/quando aconteceu/i);
     expect(dialog().textContent).not.toMatch(/frequência/i);
     await clickText("Hoje");
-    await clickText(/Esta semana/i);
+    await clickText("Sem pressa");
 
     await waitFor(() => expect(dialog().textContent).toMatch(/Coleta e entrega/i), { timeout: 3000 });
     expect(dialog().textContent).toMatch(/R\$ 299,99/);

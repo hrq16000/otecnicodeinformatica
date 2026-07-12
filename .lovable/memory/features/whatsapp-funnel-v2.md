@@ -1,39 +1,50 @@
 ---
-name: WhatsApp Branched Funnel V3.1
-description: Funil ramificado, somente texto, com aviso obrigatório centralizado e zero dependência de storage.
+name: Triagem V5 — máquina de estados data-driven
+description: Funil de triagem reescrito como máquina de estados centralizada, contextual por equipamento, com modalidade automática e governança de valores/termos.
 type: feature
 ---
 
-# Funil V3.1 (Junho 2026)
+# Funil de Triagem V5 (Julho 2026)
 
-`src/components/WhatsAppFunnel.tsx` — 4 etapas, todas text/múltipla escolha:
-1. Equipamento (PC, TV, Celular, Som, Videogame, Outro) — auto-advance ao clicar.
-2. Marca + sintoma (ou descrição livre para "Outro"). Declarado em `equipmentBranches.ts`.
-3. `ColetaRequiredCard` quando `sintoma.requiresColeta === true` (não-liga, desliga sozinho, tela quebrada, molhou, sem imagem, etc.) — exige checkbox de aceite (R$ 300 mínimo + prazo).
-4. Confirmação + envio.
+Reescrita completa do funil obrigatório de WhatsApp. Substitui o antigo `equipmentBranches.ts` + JSX condicional.
 
-## Travas de validação
-- `validateStep(step)` é fonte única de verdade. **Não chamar dentro de `next()`** (causaria falso negativo no auto-advance do equipamento). Roda em:
-  - `canAdvance` (desabilita "Continuar" reativamente)
-  - `submit` (revalida todas as etapas antes de abrir WhatsApp — se falhar, volta o usuário ao step quebrado).
+## Arquitetura (autocontida, replicável entre projetos)
+- `src/lib/funnel/triageConfig.ts` — **fonte única de verdade** (⚙️ CONFIGURÁVEL: `WHATSAPP_NUMBER` (vem do siteConfig), `BRAND_NAME`, `TRIAGE_VERSION`, `PRICING`, prazos, `URGENCY_OPTIONS`, catálogo `EQUIPMENTS` data-driven).
+- `src/lib/funnel/triageMachine.ts` — lógica pura testável: `determineServiceRoute`, `getPricingRules`, `getIdentityFields`/`getDetailsFields`/`getEventField`, `getTermsForRoute`, `validateStep`, `getFirstIncompleteField`, `resetForEquipment`/`resetForSymptom`, `buildTriageSummary`, `buildWhatsAppMessage`, `loadPersisted`/`persist` (versionado por `TRIAGE_VERSION`).
+- `src/components/WhatsAppFunnel.tsx` — modal (6 etapas) + interceptação global de links WhatsApp (mantida: click capture, evento `wa-funnel:open`, override de `window.open`, hooks `__waFunnelEvents`/gtag).
+- `src/components/funnel/TriageField.tsx` — render acessível de campos (single/chips/text/textarea, aria-pressed/radiogroup).
+- `src/components/funnel/TriageErrorBoundary.tsx` — recuperação "Reiniciar triagem".
 
-## Aviso obrigatório
-- Fonte única: `src/lib/funnelWarning.ts` exporta `VIDEO_WARNING` e `withVideoWarning(msg)`.
-- `buildMessage` no funil e `FALLBACK_TEXT` em `FunilIndisponivel` aplicam `withVideoWarning`.
-- Quando vem `presetMessage` de outro CTA, `withVideoWarning` re-aplica no final.
+## 6 etapas
+0 equipamento · 1 identificação+sintoma · 2 contexto+urgência · 3 modalidade (auto) · 4 ciência/aceite · 5 revisão+WhatsApp.
 
-## Storage
-- **0 dependências**. Bucket `funnel-uploads` foi apagado via Storage API (edge function temporária `cleanup-funnel-bucket` em 2026-06-15, já removida). Migração `20260615082307` removeu as policies de `storage.objects`. Nenhum upload no site.
-- Exigência de fotos/vídeo é transferida para a mensagem final do WhatsApp.
+## Regras de modalidade (críticas)
+- **Remoto**: só PC/Notebook + `liga-normal` + objetivo instalar/configurar.
+- **Visita**: só PC/Notebook em serviços rápidos compatíveis (R$ 99,99/30min).
+- **Coleta**: TV, celular/tablet, Surface, som/áudio, videogame, Outro — e PC que não liga / possível placa / dano físico. Mín. **R$ 299,99**, cancelamento **R$ 99,99**, teto sem re-autorização R$ 300, prazo 3–60 dias úteis.
+- `forcedRoute` no config para equipamentos sempre-coleta.
 
-## Admin
-- `/admin/funnel` (proteção via `user_roles` + `has_role`).
-- Filtros: equipamento, sintoma, status, coleta, envio WhatsApp (mensagem gerada / não), busca em texto.
-- Export CSV (Excel-friendly, BOM, todas as colunas) e PDF (jspdf + jspdf-autotable, landscape A4 com apêndice de mensagens completas).
-- Drawer mostra "Respostas da triagem" estruturadas + UTMs + mensagem WhatsApp + notas internas.
+## Regras de conteúdo
+- Categoria **"Outro"** (não mais "Outro / Só orçamento").
+- Urgência: **"Próximas 72 horas úteis — até 3 dias úteis"** / "Esta semana" / "Sem pressa" (removido "Hoje").
+- Evento temporal contextual: `quando_aconteceu` (queda/líquido/tela) vs `quando_comecou` (progressivo) vs `frequencia` (só intermitente).
+- CTA final: **"Agendar agora"**. Sem "Abrir WhatsApp/Finalizar/Enviar".
+- Faixas de preço são estimativas informativas ("indício"/"possível"), nunca diagnóstico/reparo prometido.
+
+## Robustez (causa raiz da tela de erro anterior)
+- Estado versionado (`STORAGE_KEY = triage_state_<version>`) descarta sessionStorage incompatível; sanitização defensiva em `loadPersisted`.
+- `isTransitioning` + limpeza de timers evita duplo avanço; `submittingRef` evita dupla submissão.
+- Error Boundary específico impede que estado inválido derrube a página.
+- Fallback de popup bloqueado: copiar mensagem + link, preservando respostas.
+
+## UX/mobile
+- Modal `max-w-[600px]`, `max-h-[92dvh]`, header fixo + área rolável, z-[120].
+- `body[data-triage-open="1"]` esconde floats de WhatsApp (CSS em index.css).
+- Auto-advance (~420ms, respeita prefers-reduced-motion) nas etapas de seleção; botões "Voltar"/"Continuar" acessíveis.
 
 ## Testes
-- `WhatsAppFunnel.integration.test.tsx` cobre 3 jornadas (PC simples, TV não-liga com barreira de R$ 300, Celular tela quebrada com cláusulas de mídia) + guard de submit.
-- `equipmentBranches.test.ts` valida flags `requiresColeta`/`requiresVideo`.
+- `src/lib/funnel/triageMachine.test.ts` — 19 testes de rota/validação/mensagem.
+- `WhatsAppFunnel.integration.test.tsx` — fluxos PC→remoto e TV→coleta + guards.
+- `e2e/whatsapp-funnel.spec.ts` — atualizado para V5.
 
-Storage key atual: `wa_funnel_answers_v3`. v1/v2 e bucket `funnel-uploads` deprecados.
+Número WhatsApp vem sempre de `siteConfig.whatsappNumber` (nunca hardcode).

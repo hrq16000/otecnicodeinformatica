@@ -150,10 +150,13 @@ async function checkStaticHtml(posts) {
     if (!/og:site_name["']\s+content=["']Técnico em Curitiba["']/.test(h))
       fail(`/blog/${post.slug}: og:site_name deve ser "Técnico em Curitiba"`);
 
-    // Sem autor/cargo fictício
+    // Sem autor/cargo fictício no schema editorial injetado.
+    // (Obs.: "Técnico Curitiba" no alt do logo vem do index.html base e é
+    //  legítimo — checamos apenas autor/publisher fictício e schema Person.)
     if (/Técnico de Informática Sênior/.test(h)) fail(`/blog/${post.slug}: cargo fictício no HTML`);
-    if (/"@type":"Person"/.test(h)) fail(`/blog/${post.slug}: Person no HTML`);
-    if (/"Técnico Curitiba"/.test(h)) fail(`/blog/${post.slug}: marca divergente "Técnico Curitiba" no HTML`);
+    if (/"@type":\s*"Person"/.test(h)) fail(`/blog/${post.slug}: Person no HTML`);
+    if (/"author":\s*\{[^}]*"Técnico Curitiba"/.test(h)) fail(`/blog/${post.slug}: autor fictício no schema`);
+    if (/"publisher":\s*\{[^}]*"Técnico Curitiba"/.test(h)) fail(`/blog/${post.slug}: publisher divergente no schema`);
 
     checked++;
   }

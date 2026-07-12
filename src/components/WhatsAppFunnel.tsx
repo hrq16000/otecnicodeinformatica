@@ -551,7 +551,7 @@ export const WhatsAppFunnel = () => {
                         value={f.id === "__event" ? answers.fields.__event ?? "" : answers.fields[f.id] ?? ""}
                         invalid={invalidField === f.id}
                         onChange={(v) => setField(f.id, v)}
-                        onSelect={() => maybeAutoAdvance(answers)}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
                       />
                     ))}
                     <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>

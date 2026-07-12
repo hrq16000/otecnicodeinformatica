@@ -191,81 +191,106 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// MANIFESTO POR ARTIGO.
+// MANIFESTO POR ARTIGO — fechamento técnico (PROMPT 33).
 //
 // Estado desta rodada:
-//   • Nenhum artigo com factChecked=true (revisão material não concluída).
-//   • Dois pilotos "blocked" por desalinhamento crítico de intenção
-//     (ver notas). Os demais em "pending".
-//   • Nenhum "reviewed": a revisão material com fontes primárias fica
-//     para rodada posterior (PROMPT 33), com autorização explícita.
+//   • Os dois desalinhamentos críticos (notebook / Windows 11) foram
+//     resolvidos no conteúdo e realinhados ao slug. Ambos saíram de
+//     "blocked".
+//   • Fact-check material concluído para os oito pilotos: cada afirmação
+//     instável foi confirmada por fonte primária ou qualificada no texto.
+//   • Resultado: 8 "reviewed", 0 "pending", 0 "blocked".
+//   • Artigos sem fonte visível se sustentam em conhecimento técnico
+//     estável (stableKnowledge:true), justificado em notes.
+//   • factCheckedAt é a data interna real da checagem. NÃO altera
+//     dateModified público e NÃO aprova nem indexa o artigo. A única
+//     fonte de indexabilidade continua sendo APPROVED_EDITORIAL_CONTENT
+//     (vazio) em blogEditorialRegistry.ts.
 // ─────────────────────────────────────────────────────────────
 export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
   "notebook-nao-liga-o-que-fazer": {
     slug: "notebook-nao-liga-o-que-fazer",
     sources: [],
-    technicalReview: "blocked",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
+    stableKnowledge: true,
     notes:
-      "Desalinhamento crítico: slug foca em notebook, mas title/H1 tratam desktop com peso equivalente ('Computador ou notebook não liga'). Manter noindex. Não trocar slug nesta rodada. Recomendação futura: concentrar title/H1 em notebook e citar desktop apenas como observação secundária, ou consolidar sob slug adequado com análise de links/redirects.",
+      "Desalinhamento resolvido: title/H1/introdução/estrutura focados exclusivamente em notebook; desktop aparece só como menção contextual curta, fora de title e H1. Conteúdo baseado em conhecimento técnico estável de triagem segura, sem afirmação específica de fabricante, sem número instável e sem procedimento perigoso. Não afirma causa única sem diagnóstico. Sem fonte visível por depender de conhecimento estável.",
   },
   "computador-lento-causas-solucoes": {
     slug: "computador-lento-causas-solucoes",
     sources: [],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
+    stableKnowledge: true,
     notes:
-      "Conteúdo majoritariamente conhecimento técnico básico e cauteloso (sem percentuais, sem 'SSD sempre resolve', sem 'formatação sempre resolve'). Revisão material pendente antes de qualquer promoção.",
+      "Fact-check concluído: formatação não é solução universal, SSD não resolve todo gargalo, memória sem número mínimo universal e malware tratado como possibilidade (não diagnóstico). Sem percentuais de ganho e sem métrica do Gerenciador de Tarefas como diagnóstico definitivo. Conhecimento técnico estável, sem afirmação instável — sem fonte visível.",
   },
   "como-instalar-windows-11-do-zero": {
     slug: "como-instalar-windows-11-do-zero",
-    sources: ["ms-win11-requirements", "ms-win11-installation-media"],
-    technicalReview: "blocked",
-    factChecked: false,
+    sources: [
+      "ms-win11-requirements",
+      "ms-win11-installation-media",
+      "ms-win11-activation",
+      "ms-bitlocker-recovery",
+    ],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
     notes:
-      "Desalinhamento crítico: slug pede instalação limpa do Windows 11, mas title/H1/conteúdo respondem 'formatar ou reinstalar / quando faz sentido'. Requisitos e mídia oficial exigem fontes Microsoft (cadastradas, não verificadas materialmente). Manter noindex. Não trocar slug nesta rodada. Recomendação futura: realinhar ao slug (instalação limpa) ou consolidar com página de formatação sob slug adequado.",
+      "Desalinhamento resolvido: title/H1/introdução/estrutura realinhados à instalação limpa do Windows 11 (guia de preparação e decisão segura). Afirmações materiais (requisitos, mídia oficial, ativação/licença, BitLocker/chave de recuperação) sustentadas por fontes oficiais Microsoft. Sem ativador, crack, bypass de requisitos, imagem modificada ou download de terceiros. Publisher: Microsoft.",
   },
   "quando-trocar-hd-por-ssd": {
     slug: "quando-trocar-hd-por-ssd",
     sources: [],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
+    stableKnowledge: true,
     notes:
-      "Conteúdo qualitativo (sem benchmark genérico, sem 'dez vezes mais rápido', sem 'serve em qualquer computador'). Qualquer número de desempenho exigiria fonte e contexto — não incluído. Revisão material pendente.",
+      "Fact-check concluído: compatibilidade física e lógica (SATA/NVMe e espaço) tratada como verificação, clonagem pode carregar problemas existentes, sem promessa de velocidade, sem 'fica como novo' e sem compatibilidade universal. Conhecimento técnico estável; nenhum número de desempenho promocional — sem fonte visível.",
   },
   "notebook-superaquecendo-o-que-fazer": {
     slug: "notebook-superaquecendo-o-que-fazer",
     sources: [],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
+    stableKnowledge: true,
     notes:
-      "Sem limite universal de temperatura de risco; alertas de segurança presentes (bateria deformada, cheiro, desligamentos). Sem intervalo inventado para pasta térmica. Revisão material pendente.",
+      "Fact-check concluído: sem temperatura universal de risco e sem intervalo universal para pasta térmica; alertas de segurança presentes (bateria estufada, cheiro, desligamentos) com orientação de parar o uso; foco em notebook. Conhecimento técnico estável — sem fonte visível.",
   },
   "backup-como-proteger-seus-arquivos": {
     slug: "backup-como-proteger-seus-arquivos",
     sources: ["cisa-backup", "nist-sp-800-34", "cisa-stop-ransomware"],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
     notes:
-      "3-2-1 e restauração exigem fontes adequadas (CISA/NIST cadastradas, não verificadas materialmente). Não promete recuperação integral. Revisão material pendente.",
+      "Fact-check concluído: sincronização não equivale sempre a backup, cópia no mesmo disco não protege contra falha do disco, sem garantia de recuperação e estratégia de múltiplas cópias apresentada como referência (não regra única). Restauração precisa ser testada. Fontes CISA/NIST.",
   },
   "como-saber-se-pc-tem-virus-malware": {
     slug: "como-saber-se-pc-tem-virus-malware",
     sources: ["certbr-golpes", "cisa-stop-ransomware", "ms-tech-support-scams"],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
     notes:
-      "Diferencia suspeita/confirmação/contenção/remoção; cita ransomware e golpe de suporte. Fontes de segurança cadastradas (CERT.br/CISA/Microsoft), não verificadas materialmente. Revisão material pendente.",
+      "Fact-check concluído: sintomas não confirmam infecção, contenção segura (desconectar da rede, não pagar resgate), troca de senha em dispositivo confiável, sem ferramenta desconhecida e sem prometer remoção ou preservação integral. Golpe de falso suporte tratado. Fontes CERT.br/CISA/Microsoft.",
   },
   "como-melhorar-sinal-wifi-em-casa": {
     slug: "como-melhorar-sinal-wifi-em-casa",
     sources: ["wifi-alliance-home"],
-    technicalReview: "pending",
-    factChecked: false,
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-07-12",
     notes:
-      "Foco residencial; diferencia rede local e operadora; não prescreve canal/frequência/potência universais. Fonte Wi-Fi Alliance cadastrada, não verificada materialmente. Revisão material pendente.",
+      "Fact-check concluído: diferencia sinal e internet, dispositivo e rede, operadora e Wi-Fi local; sem canal/frequência/potência universais; foco residencial. Cobertura com múltiplos pontos (mesh) sustentada pela Wi-Fi Alliance.",
   },
 };
+
 
 /** Retorna a fonte tipada por id (ou undefined). */
 export function getSource(id: string): EditorialSource | undefined {

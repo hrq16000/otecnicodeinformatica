@@ -64,7 +64,7 @@ const BlogPost = () => {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} | Blog | Técnico Curitiba`;
+      document.title = `${post.title} | Blog | Técnico em Curitiba`;
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute("content", post.excerpt);

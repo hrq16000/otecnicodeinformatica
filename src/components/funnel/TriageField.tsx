@@ -56,7 +56,7 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
                   aria-checked={active}
                   onClick={() => {
                     onChange(o.value);
-                    onSelect?.();
+                    onSelect?.(o.value);
                   }}
                   className={`min-h-11 text-left px-3 py-2.5 rounded-lg border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     active
@@ -91,7 +91,7 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
                   aria-checked={active}
                   onClick={() => {
                     onChange(o.value);
-                    onSelect?.();
+                    onSelect?.(o.value);
                   }}
                   className={`min-h-9 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     active

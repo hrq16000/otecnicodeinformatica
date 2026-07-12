@@ -9,7 +9,7 @@ interface Props {
   invalid?: boolean;
   onChange: (value: string) => void;
   /** Disparado quando um valor é escolhido (para foco/auto-advance). */
-  onSelect?: () => void;
+  onSelect?: (value: string) => void;
 }
 
 /**

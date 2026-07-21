@@ -749,6 +749,7 @@ export const WhatsAppFunnel = () => {
                       </Button>
                       <Button variant="ghost" size="sm" onClick={reset}>Recomeçar</Button>
                       <Button
+                        ref={agendarBtnRef}
                         onClick={submit}
                         className="ml-auto gap-2 bg-[hsl(var(--whatsapp))] text-white hover:bg-[hsl(var(--whatsapp-hover))]"
                       >

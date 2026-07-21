@@ -1,67 +1,58 @@
+## Escopo aprovado
 
-# Plano — Analytics, Validação, Galeria, FAQ e Bairros (Wi-Fi + TV Smart)
+**Política:** teto sobe de 12 → 13 âncoras. Rebaixar Cajuru, Cristo Rei e Boqueirão (viram `noindex`, páginas continuam existindo). Promover Jardim das Américas, Ecoville, Alto da XV e Rebouças.
 
-## 1. Analytics — Fallback "unknown" nos CTAs
-Arquivo: `src/lib/funnelAnalytics.ts` e `src/components/WhatsAppFunnel.tsx`.
-- Em `trackWaClick` / `trackCallClick`, sempre garantir params `modalidade` e `problema`; quando ausentes → `"unknown"`.
-- Novo helper `trackCtaWithContext(type, location, ctx?)` que lê `sessionStorage['wa-funnel:last-triage']` e completa faltantes com `"unknown"`.
-- Aplicar nos botões "WhatsApp Agora" e "Ligar Agora" globais (Header, Float, HeroPremium, ProblemaPage).
+**Regra de geração:** um bairro só entra como indexável (ou como `noindex` novo) se o gerador produzir ≥ 300 palavras únicas (medidas contra o texto base do template) — validado no build.
 
-## 2. Evento dedicado para serviços internos em `/problema/*`
-- Novo evento GA4 `problema_service_click` em `src/lib/funnelAnalytics.ts`.
-- Payload: `{ problema_slug, servico_slug, servico_href, cta_location: 'problema_internal_link' }`.
-- Emitido pelos cards/links internos que apontam para `/servicos/*` dentro de `ProblemaPage.tsx`.
+**Analytics:** além do clique/submit atuais, medir impressão do botão "Agendar agora" e abertura do modal do funil.
 
-## 3. Validação de links internos + tracking de falhas
-- Criar `src/lib/internalLinkAudit.ts` com whitelist de rotas `/servicos/*` derivada de `servicosCore.ts` e `servicosLocal.ts`.
-- Ao renderizar `ProblemaPage`, validar cada href; se inválido:
-  - Não renderizar link quebrado (fallback para texto).
-  - Emitir `problema_link_broken` com `{ problema_slug, target_href, reason }`.
-- Script CI opcional: `scripts/check-problema-internal-links.mjs` (varre `problemaSummaries` e confirma rotas).
+## Alterações
 
-## 4. Scroll depth + visibilidade de CTAs em `/problema/*`
-- Novo hook `src/hooks/useScrollDepthTracking.ts` disparando `scroll_depth` em 25/50/75/100% (uma vez por sessão por página).
-- Novo hook `useCtaVisibility.ts` usando IntersectionObserver: dispara `cta_visible` com `{ cta_type, cta_location, visible_at_ms }` quando ≥50% visível por 400ms.
-- Wire nos CTAs principais de `ProblemaPage.tsx` (hero WhatsApp, sticky mobile, bloco final).
+### 1. Governança
+- `docs/politica-poda-bairros.md`: teto → 13, nova lista de 13 âncoras, seção explicando rebaixamento (URLs preservadas conforme SEO evolutivo).
+- `.lovable/memory/features/bairro-pruning-policy.md` + `mem://index.md`: refletir teto 13 e lista atualizada.
 
-## 5. Galeria WebP — Wi-Fi e TV Smart
-- Gerar 6 imagens WebP via imagegen (3 Wi-Fi: site survey, roteador/mesh, cabeamento; 3 TV Smart: painel aberto, medição, tela nova instalada).
-- Externalizar via `lovable-assets` como `.asset.json`.
-- Novo componente `src/components/gallery/ServiceGallery.tsx` (grid responsivo, `loading="lazy"`, `decoding="async"`, alt e figcaption).
-- Aplicar em `src/pages/servicos/RedesWifi.tsx` e `src/pages/servicos/ManutencaoTV.tsx`.
+### 2. Dados dos bairros (`src/pages/servico-bairro/wifiTvBairroData.ts`)
+- Adicionar campos: `indexable: boolean`, `narrativaLocal: string` (bloco ≥ 220 palavras exclusivas por bairro — perfil urbano, tipos de imóvel, particularidades de rede/TV, referências geográficas), `narrativaTv: string` opcional para nuances de TV.
+- Editar 12 âncoras atuais: preencher `narrativaLocal` (base para uniqueness) e marcar Cajuru/Cristo Rei/Boqueirão como `indexable: false`.
+- Adicionar 4 novas âncoras (Jardim das Américas, Ecoville, Alto da XV, Rebouças) com `narrativaLocal` próprio.
+- `buildWifiBairroData` / `buildTvBairroData`: propagar `indexable`, injetar `narrativaLocal` no início de `descricaoLonga` (fica antes do bloco genérico).
 
-## 6. FAQ de triagem (Wi-Fi e TV Smart)
-- Fonte: catálogo em `src/lib/funnel/triageConfig.ts` (sintomas por equipamento).
-- Adicionar 4–6 perguntas por página em Wi-Fi e TV Smart:
-  - "O que fazer antes da visita" (reboot, cabos, checagens seguras).
-  - "Sinais de falha" (piscar de LED, listras, quedas intermitentes).
-  - "Como definimos o orçamento" (mínimo R$ 99,99, coleta R$ 299,99 quando aplicável).
-- FAQ renderizada no componente existente + JSON-LD `FAQPage`.
+### 3. Páginas e rotas
+- Criar 8 componentes em `src/pages/servico-bairro/`:
+  `RedesWifi{JardimAmericas,Ecoville,AltoXV,Reboucas}.tsx` e `ManutencaoTv{JardimAmericas,Ecoville,AltoXV,Reboucas}.tsx`.
+- `src/LegacyApp.tsx`: importar e rotear as 8 novas páginas.
+- `public/sitemap-bairros.xml`: substituir entradas antigas por um bloco curado das 13 âncoras × Wi-Fi/TV (26 URLs, `lastmod` de hoje). Remover Cajuru/Cristo Rei/Boqueirão do sitemap.
+- Páginas Cajuru/Cristo Rei/Boqueirão existentes continuam servindo, mas passam a renderizar com `noindex` automaticamente via `indexable: false`.
 
-## 7. Páginas dedicadas por bairro (Wi-Fi e TV Smart)
-**Decisão de política:** memória diz "12 bairros-âncora indexáveis; resto noindex". Vamos usar os 5 bairros já curados no `sitemap-bairros.xml`: **Batel, Centro, Água Verde, CIC, Portão** — indexáveis. Outros bairros ficam fora deste escopo.
+### 4. Validador de copy (`scripts/validate-bairro-copy.mjs`)
+- Importa `BAIRROS_INDEXAVEIS` via `tsx`.
+- Para cada bairro: monta `buildWifiBairroData` + `buildTvBairroData`, extrai `descricaoLonga + narrativaLocal + FAQ`, tokeniza, remove stopwords PT-BR e o vocabulário do template compartilhado, exige ≥ 300 palavras próprias.
+- Gate adicional: Jaccard entre bairros ≤ 0.55 para evitar duplicação cruzada.
+- Falha o build via `check:bairro-copy` no `package.json` e no CI (`.github/workflows/ci.yml`).
 
-- Estrutura:
-  - `/redes-wifi/<bairro>` → 5 páginas.
-  - `/manutencao-tv-smart/<bairro>` → 5 páginas.
-- Reutilizar `ServicoBairroTemplate` (adaptando ou clonando) com:
-  - Copy exclusiva por bairro (referências geográficas locais).
-  - CTAs disparando o funil V5 (`wa-funnel:open` com preset `{ equipamento, bairro }`).
-  - JSON-LD `LocalBusiness` + `Service` + `FAQPage`.
-  - `noindex` OFF (indexáveis).
-- Registrar no `sitemap-bairros.xml` (10 novas URLs) e no gerador `scripts/generate-sitemaps.mjs`.
+### 5. Analytics de impressão / modal
+- `src/lib/funnelAnalytics.ts`: adicionar
+  - `trackFunnelAgendarImpression({ ctaLocation, modalidade, equipamento })` — dispara 1× por sessão+localização quando o botão "Agendar agora" fica ≥ 50 % visível por 400 ms.
+  - `trackFunnelModalOpen({ ctaLocation, hasPreset })` — sempre que o `Dialog` transiciona de fechado→aberto.
+  - `trackFunnelModalImpression({ ctaLocation })` — 1× por sessão na primeira montagem visível do modal.
+- `src/components/WhatsAppFunnel.tsx`:
+  - `useEffect` sobre `open`: dispara `trackFunnelModalOpen` na transição (mantém `trackFunnelOpen` para compat).
+  - `IntersectionObserver` no botão "Agendar agora" (ref no botão final): dispara `trackFunnelAgendarImpression` uma vez.
+  - `trackFunnelModalImpression` na primeira renderização com `open === true`.
+- Deduplicação por chave `sessionId + eventName + ctaLocation` em `sessionStorage`.
 
-## Detalhes técnicos
-- Sem alterações no funil V5, apenas em consumidores.
-- Testes: adicionar unit tests para `internalLinkAudit`, `useScrollDepthTracking`, e um E2E `problema-analytics.spec.ts` verificando disparo dos eventos.
-- CI: novo gate `check:problema-internal-links` no `package.json`.
-- Assets: uso obrigatório do CLI `lovable-assets` para as 6 imagens WebP.
+### 6. Testes / gates
+- Estender `scripts/check-cta-funnel.ts` para exigir presença das novas chamadas de tracking no funil.
+- Adicionar `bairro-copy` ao pipeline `ci.yml` (etapa entre lint e build).
+- Rodar `npm run check:jsonld` / `check:curated-meta` para garantir que os 8 novos slugs entram nos manifestos.
 
-## Escopo NÃO incluído
-- Não gerar páginas para bairros fora dos 5 curados (respeita a política de poda).
-- Não alterar preços/regras do funil.
-- Não indexar conteúdo editorial (fundação editorial fail-closed mantida).
+## Fora de escopo (explícito)
 
-## Confirmações antes de iniciar
-1. Confirmar os 5 bairros indexáveis (Batel, Centro, Água Verde, CIC, Portão) para as novas landing pages.
-2. Confirmar rotas `/redes-wifi/<bairro>` e `/manutencao-tv-smart/<bairro>` (alternativa: manter padrão `/servicos-bairro/<servico>-<bairro>` já existente).
+- Geração dos ~200 bairros noindex restantes: **não** será feita agora — a política aprovada é "gerar só com copy exclusiva validada", e não há copy manual para os demais. O gerador + validador ficam prontos para novas ondas.
+- Reordenar bairros âncora além dos 4 novos.
+- Dashboard admin de conversão (fora deste ciclo).
+
+## Riscos
+- Rebaixar Cajuru/Boqueirão perde tráfego local existente até que Ecoville/Alto XV/Rebouças indexem — impacto SEO de 4–8 semanas.
+- Se o Jaccard ≥ 0.55 falhar em algum bairro, o build quebra até a narrativa ser reescrita.

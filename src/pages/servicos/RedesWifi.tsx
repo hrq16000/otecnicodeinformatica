@@ -1,4 +1,39 @@
 import { ServicoLandingLayout, type ServicoLandingData } from "@/components/servico/ServicoLandingLayout";
+import { ServiceGallery } from "@/components/gallery/ServiceGallery";
+import { IMAGES } from "@/lib/images";
+
+const wifiGalleryImages = [
+  {
+    src: IMAGES.redesWifi,
+    alt: "Site survey de Wi-Fi com identificação de zonas sem sinal em residência",
+    caption: "Mapeamento de cobertura e identificação de zonas sem sinal",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&w=600&q=70",
+    alt: "Roteador Wi-Fi 6 e nós de sistema mesh instalados sobre bancada técnica",
+    caption: "Roteador principal e nós mesh — cobertura estável em toda a casa",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1591808216268-ce0b82787efe?auto=format&fit=crop&w=600&q=70",
+    alt: "Cabeamento de rede organizado com conectores RJ45 crimpados",
+    caption: "Cabeamento estruturado e organizado quando necessário",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=70",
+    alt: "Painel administrativo do roteador com configuração de canais e segurança WPA",
+    caption: "Configuração de canais 2,4/5 GHz, WPA e priorização de dispositivos",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=70",
+    alt: "Aplicativo de análise de espectro Wi-Fi rodando em smartphone",
+    caption: "Análise de espectro e escolha do canal com menos interferência",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=70",
+    alt: "Rack de rede empresarial com switch, roteador e organização de cabos",
+    caption: "Rede segmentada para trabalho, IoT e visitantes",
+  },
+];
 
 const data: ServicoLandingData = {
   path: "redes-wifi",
@@ -43,15 +78,46 @@ const data: ServicoLandingData = {
     { question: "Vocês configuram roteador de qualquer marca?", answer: "Sim, trabalhamos com as principais marcas de roteadores, repetidores e sistemas mesh do mercado." },
     { question: "Fazem rede para empresas e escritórios?", answer: "Sim. Configuramos redes para escritórios, comércios e pequenas empresas, incluindo rede separada para visitantes." },
     { question: "Atendem em domicílio?", answer: "Sim, atendemos em domicílio em Curitiba e região metropolitana." },
+    // ── FAQ de triagem (o que fazer antes da visita, sinais de falha, orçamento)
+    {
+      question: "O que fazer antes da visita para Wi-Fi lento ou caindo?",
+      answer:
+        "Antes do técnico chegar: 1) desligue o roteador da tomada por 60 segundos e religue; 2) teste a velocidade contratada com o cabo direto no modem em fast.com ou speedtest.net; 3) anote se a queda ocorre em cômodos específicos ou em dispositivos específicos; 4) verifique se o firmware do roteador está atualizado. Essas informações aceleram o diagnóstico e evitam trocas desnecessárias de equipamento.",
+    },
+    {
+      question: "Quais sinais indicam que o problema é no roteador e não na operadora?",
+      answer:
+        "Se a velocidade no cabo é alta mas cai muito no Wi-Fi, é rede local. Se o LED de internet do modem pisca em vermelho/laranja, o problema é da operadora. Roteador reiniciando sozinho, esquentando muito ou com mais de 4 anos frequentemente exige troca. Sinal excelente perto do roteador mas zero em 2 cômodos indica necessidade de mesh ou repetidor.",
+    },
+    {
+      question: "Como definem o orçamento de rede/Wi-Fi?",
+      answer:
+        "A visita técnica tem valor mínimo de R$ 99,99, informado antes do envio do técnico. Serviços simples (configurar roteador novo, alterar senha, ajustar canais) resolvem dentro desse mínimo. Instalação de mesh, cabeamento estruturado ou rede empresarial recebem orçamento específico após avaliação do ambiente. Nada é executado sem sua aprovação por escrito no WhatsApp.",
+    },
+    {
+      question: "Vale a pena trocar o roteador da operadora por um próprio?",
+      answer:
+        "Na maioria dos casos, sim. Roteadores fornecidos por operadoras costumam ter antenas fracas e firmware limitado. Um roteador Wi-Fi 6 de mercado ou um mesh dual-band resolve quedas, aumenta a cobertura e suporta mais dispositivos simultâneos. Indicamos o modelo certo para o seu ambiente antes da compra.",
+    },
   ],
   relacionados: [
     { label: "Suporte para empresas", to: "/suporte-empresas" },
     { label: "Formatação de computador", to: "/servicos/formatacao-computador" },
     { label: "Remoção de vírus", to: "/servicos/remocao-virus" },
   ],
-  dateModified: "2026-07-09",
+  dateModified: "2026-07-21",
 };
 
-const RedesWifi = () => <ServicoLandingLayout data={data} />;
+const RedesWifi = () => (
+  <>
+    <ServicoLandingLayout data={data} />
+    <ServiceGallery
+      id="galeria-wifi"
+      title="O que está incluso no atendimento de Wi-Fi"
+      subtitle="Da análise do ambiente até a configuração final: veja o que o técnico entrega em cada visita."
+      images={wifiGalleryImages}
+    />
+  </>
+);
 
 export default RedesWifi;

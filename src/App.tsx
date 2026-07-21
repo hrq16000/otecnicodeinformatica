@@ -32,6 +32,7 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),
   "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),
   "/arrumar-pc": () => import("./pages/ArrumarPC"),
+  "/obrigado": () => import("./pages/Obrigado"),
 };
 
 const warmRoute = (pathname = "") => {

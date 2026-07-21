@@ -54,8 +54,12 @@ function tokenize(text) {
     .filter((w) => !STOPWORDS.has(w));
 }
 
-function ownWords(text) {
-  return new Set(tokenize(text).filter((w) => !TEMPLATE_VOCAB.has(w)));
+function ownTokens(text) {
+  // Lista (com repetição) usada para contagem de palavras.
+  return tokenize(text).filter((w) => !TEMPLATE_VOCAB.has(w));
+}
+function ownWordSet(text) {
+  return new Set(ownTokens(text));
 }
 
 function jaccard(a, b) {

@@ -14,7 +14,12 @@ export type ImageBriefStatus = "briefed" | "captured" | "approved";
 export interface EditorialImageBrief {
   slug: string;
   subject: string;
+  /** Descrição narrativa do que aparece na cena. */
   scene: string;
+  /** Enquadramento fotográfico: distância, ângulo e composição. */
+  framing: string;
+  /** Iluminação recomendada (temperatura de cor, direção, contraste). */
+  lighting: string;
   requiredElements: string[];
   forbiddenElements: string[];
   privacyRisks: string[];

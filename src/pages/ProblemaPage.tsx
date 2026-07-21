@@ -15,6 +15,15 @@ import type { ProblemaPageData } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
+import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+
+const BAIRROS_ATENDIDOS = [
+  { to: "/bairros/batel", label: "Batel" },
+  { to: "/bairros/centro", label: "Centro" },
+  { to: "/bairros/agua-verde", label: "Água Verde" },
+  { to: "/bairros/cic", label: "CIC" },
+  { to: "/bairros/portao", label: "Portão" },
+];
 
 const WHATSAPP_NUMBER = "5541997086380";
 
@@ -85,6 +94,14 @@ const ProblemaPage = () => {
       question: "O diagnóstico é gratuito?",
       answer: "O diagnóstico profissional tem custo a partir de R$ 69,99, que é abatido do serviço caso aprovado. Isso garante uma análise precisa e evita reparos desnecessários.",
     },
+    {
+      question: "Vocês atendem em Curitiba e região metropolitana?",
+      answer: "Sim. Atendemos Curitiba e região metropolitana (São José dos Pinhais, Pinhais, Colombo, Araucária e Campo Largo), presencialmente e por coleta e entrega. A modalidade é definida na triagem por WhatsApp conforme o equipamento e o problema.",
+    },
+    {
+      question: "Quanto tempo demora após entrar em contato pelo WhatsApp?",
+      answer: "Respondemos em minutos no horário comercial. Serviços remotos podem começar no mesmo dia; visitas e coletas são agendadas conforme sua janela. Nada é executado sem sua aprovação explícita.",
+    },
   ] : [];
 
   const faqSchema = data ? {
@@ -98,6 +115,22 @@ const ProblemaPage = () => {
         text: item.answer,
       },
     })),
+  } : null;
+
+  const localBusinessSchema = data ? {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ComputerRepairService"],
+    name: siteConfig.brandName,
+    url: absoluteUrl(`/problemas/${data.slug}`),
+    telephone: siteConfig.phoneE164,
+    areaServed: siteConfig.serviceArea.map((n) => ({ "@type": "City", name: n })),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: siteConfig.primaryCity,
+      addressRegion: siteConfig.region,
+      addressCountry: siteConfig.country,
+    },
+    priceRange: siteConfig.minPriceLabel,
   } : null;
 
   const breadcrumbSchema = data ? {

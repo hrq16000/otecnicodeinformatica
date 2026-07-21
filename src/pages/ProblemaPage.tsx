@@ -85,6 +85,36 @@ const ProblemaPage = () => {
     }
   }, [data]);
 
+  useScrollDepthTracking(data ? `/problemas/${data.slug}` : "", { problema_slug: data?.slug || "unknown" });
+  const heroCtaRef = useCtaVisibility<HTMLDivElement>("whatsapp", `problema:${data?.slug || "unknown"}:hero`);
+  const finalCtaRef = useCtaVisibility<HTMLDivElement>("whatsapp", `problema:${data?.slug || "unknown"}:final`);
+
+  const validatedRelatedPages = data ? data.relatedPages.filter((link) => {
+    const audit = auditInternalLink(link.to);
+    if (!audit.valid) {
+      trackProblemaLinkBroken({
+        problemaSlug: data.slug,
+        targetHref: link.to,
+        reason: audit.reason,
+        linkLabel: link.label,
+      });
+      return false;
+    }
+    return true;
+  }) : [];
+
+  const handleRelatedClick = (href: string, label: string) => {
+    if (!data) return;
+    const servicoSlug = href.replace(/^\/servicos\//, "").replace(/^\//, "");
+    trackProblemaServiceClick({
+      problemaSlug: data.slug,
+      servicoSlug,
+      servicoHref: href,
+      linkLabel: label,
+    });
+  };
+
+
   const faqItems = data ? [
     ...data.sintomas.slice(0, 3).map(s => ({
       question: `O que significa quando ${s.titulo.toLowerCase()}?`,

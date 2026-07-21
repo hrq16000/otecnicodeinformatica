@@ -366,6 +366,47 @@ export const WhatsAppFunnel = () => {
     trackFunnelStep(step, answers.equipment, answers.symptom, originLocation);
   }, [open, step, answers.equipment, answers.symptom, originLocation]);
 
+  // Modal open/impression — dispara quando o Dialog transiciona para aberto.
+  const wasOpenRef = useRef(false);
+  useEffect(() => {
+    if (open && !wasOpenRef.current) {
+      trackFunnelModalOpen({ ctaLocation: originLocation, hasPreset: !!presetMessage });
+      trackFunnelModalImpression({ ctaLocation: originLocation });
+    }
+    wasOpenRef.current = open;
+  }, [open, originLocation, presetMessage]);
+
+  // Impressão do botão "Agendar agora": IntersectionObserver com 400ms de dwell.
+  const agendarBtnRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    const el = agendarBtnRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    let timer: number | null = null;
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          if (timer !== null) continue;
+          timer = window.setTimeout(() => {
+            trackFunnelAgendarImpression({
+              ctaLocation: originLocation,
+              modalidade: rules.route,
+              equipamento: answers.equipment,
+            });
+            io.disconnect();
+          }, 400);
+        } else if (timer !== null) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+    }, { threshold: [0, 0.5, 1] });
+    io.observe(el);
+    return () => {
+      if (timer !== null) clearTimeout(timer);
+      io.disconnect();
+    };
+  }, [step, originLocation, rules.route, answers.equipment]);
+
   const hasAnswers = !!answers.equipment;
   const handleOpenChange = (v: boolean) => {
     if (!v) {

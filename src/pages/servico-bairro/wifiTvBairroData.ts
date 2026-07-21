@@ -308,6 +308,8 @@ export function buildWifiBairroData(bairroSlug: string): ServicoBairroData {
 
 export function buildTvBairroData(bairroSlug: string): ServicoBairroData {
   const b = BAIRROS_INDEXAVEIS[bairroSlug];
+  const isIndex = b.indexable !== false;
+  const narrativa = b.narrativaLocal ? ` ${b.narrativaLocal}` : "";
   return {
     metaTitle: `Conserto de Smart TV no ${b.nome}, Curitiba com coleta e entrega | Técnico em Curitiba`,
     metaDescription: `Reparo e troca de tela de Smart TV LED/LCD no ${b.nome}, Curitiba. Diagnóstico em bancada, coleta e entrega, orçamento pelo WhatsApp.`,
@@ -317,12 +319,13 @@ export function buildTvBairroData(bairroSlug: string): ServicoBairroData {
     bairroSlug: b.slug,
     cidade: "Curitiba",
     cidadeSlug: "curitiba",
-    indexable: true,
+    indexable: isIndex,
     h1: `Conserto de Smart TV no ${b.nome}, Curitiba`,
     subtitulo: `Reparo de placa, fonte, backlight e troca de tela com coleta e entrega no ${b.nome}.`,
     precoBase: "R$ 299,99",
     precoDescricao: "Taxa mínima de coleta e entrega. O reparo em si é orçado por escrito após diagnóstico em bancada.",
-    descricaoLonga: `${b.descricaoLocal} Coletamos a TV no seu endereço, executamos o diagnóstico em bancada com equipamento profissional (multímetro, câmera térmica, estação de solda SMD) e devolvemos a TV testada, com garantia formal.`,
+    descricaoLonga: `${b.descricaoLocal}${narrativa} Coletamos a TV no seu endereço, executamos o diagnóstico em bancada com equipamento profissional (multímetro, câmera térmica, estação de solda SMD) e devolvemos a TV testada, com garantia formal.`,
+
     beneficios: [
       "Coleta e entrega no endereço",
       "Diagnóstico em bancada com câmera térmica",

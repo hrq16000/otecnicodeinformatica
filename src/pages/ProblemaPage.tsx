@@ -91,17 +91,16 @@ const ProblemaPage = () => {
 
   const validatedRelatedPages = data ? data.relatedPages.filter((link) => {
     const audit = auditInternalLink(link.to);
-    if (!audit.valid) {
-      trackProblemaLinkBroken({
-        problemaSlug: data.slug,
-        targetHref: link.to,
-        reason: audit.reason,
-        linkLabel: link.label,
-      });
-      return false;
-    }
-    return true;
+    if (audit.valid) return true;
+    trackProblemaLinkBroken({
+      problemaSlug: data.slug,
+      targetHref: link.to,
+      reason: audit.reason,
+      linkLabel: link.label,
+    });
+    return false;
   }) : [];
+
 
   const handleRelatedClick = (href: string, label: string) => {
     if (!data) return;

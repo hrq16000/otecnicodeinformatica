@@ -97,6 +97,56 @@ export const trackFunnelAgendarClick = (params: {
   });
 
 /**
+ * Impressão do botão "Agendar agora" (≥50% visível por 400ms).
+ * Deduplicado por session + cta_location — 1 evento por sessão/localização.
+ */
+export const trackFunnelAgendarImpression = (params: {
+  ctaLocation?: string;
+  modalidade?: string | null;
+  equipamento?: string | null;
+}) => {
+  const loc = params.ctaLocation || "wa_funnel_review";
+  if (typeof window !== "undefined") {
+    const key = `wa:agendar-imp:${loc}`;
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    } catch { /* storage bloqueado */ }
+  }
+  track("wa_funnel_agendar_impression", {
+    cta_location: loc,
+    modalidade: params.modalidade || "unknown",
+    equipamento: params.equipamento || "none",
+  });
+};
+
+/** Abertura do modal do funil (transição fechado→aberto). */
+export const trackFunnelModalOpen = (params: {
+  ctaLocation?: string;
+  hasPreset?: boolean;
+}) =>
+  track("wa_funnel_modal_open", {
+    cta_location: params.ctaLocation || "unknown",
+    has_preset: !!params.hasPreset,
+  });
+
+/**
+ * Impressão do modal do funil — 1 evento por sessão + ctaLocation
+ * na primeira montagem em estado visível.
+ */
+export const trackFunnelModalImpression = (params: { ctaLocation?: string }) => {
+  const loc = params.ctaLocation || "unknown";
+  if (typeof window !== "undefined") {
+    const key = `wa:modal-imp:${loc}`;
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    } catch { /* storage bloqueado */ }
+  }
+  track("wa_funnel_modal_impression", { cta_location: loc });
+};
+
+/**
  * Lê o último contexto de triagem persistido (modalidade/equipamento/problema).
  * Retorna sempre `"unknown"` para campos ausentes — garantindo que os eventos
  * de clique em WhatsApp / Ligar continuem sendo registrados mesmo antes do

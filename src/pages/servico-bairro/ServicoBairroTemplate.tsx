@@ -37,7 +37,10 @@ export interface ServicoBairroData {
   tempoAtendimento: string;
   servicosRelacionados: { nome: string; slug: string }[];
   bairrosProximos: { nome: string; slug: string }[];
+  /** Se true, sobrescreve `noindex` do PageSEO (default false = noindex). */
+  indexable?: boolean;
 }
+
 
 export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => {
   useEffect(() => {

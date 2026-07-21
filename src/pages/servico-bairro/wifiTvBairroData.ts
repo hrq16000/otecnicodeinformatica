@@ -13,7 +13,19 @@ interface BairroContext {
   tempoAtendimento: string;
   bairrosProximos: { nome: string; slug: string }[];
   descricaoLocal: string;
+  /**
+   * Bloco narrativo exclusivo (≥ 220 palavras próprias) que sustenta a
+   * exigência de uniqueness da política de poda. Obrigatório para novos
+   * bairros âncora — validado por scripts/validate-bairro-copy.mjs.
+   */
+  narrativaLocal?: string;
+  /**
+   * Governa `noindex` no template. `undefined` (âncoras herdadas) → true.
+   * Rebaixamentos usam `false` explicitamente para virar `noindex`.
+   */
+  indexable?: boolean;
 }
+
 
 export const BAIRROS_INDEXAVEIS: Record<string, BairroContext> = {
   batel: {

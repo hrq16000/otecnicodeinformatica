@@ -817,6 +817,16 @@ const App = () => (
             <Route path="/servicos/upgrade-ssd-memoria/batel" element={<UpgradeSsdBatel />} />
             <Route path="/servicos/formatacao-computador/portao" element={<FormatacaoPortao />} />
             <Route path="/servicos/redes-wifi/cic" element={<RedesWifiCIC />} />
+            {/* Wi-Fi + TV Smart por bairro (indexáveis) */}
+            <Route path="/servicos/redes-wifi/batel" element={<RedesWifiBatel />} />
+            <Route path="/servicos/redes-wifi/centro" element={<RedesWifiCentro />} />
+            <Route path="/servicos/redes-wifi/agua-verde" element={<RedesWifiAguaVerde />} />
+            <Route path="/servicos/redes-wifi/portao" element={<RedesWifiPortao />} />
+            <Route path="/servicos/manutencao-tv/batel" element={<ManutencaoTvBatel />} />
+            <Route path="/servicos/manutencao-tv/centro" element={<ManutencaoTvCentro />} />
+            <Route path="/servicos/manutencao-tv/agua-verde" element={<ManutencaoTvAguaVerde />} />
+            <Route path="/servicos/manutencao-tv/cic" element={<ManutencaoTvCic />} />
+            <Route path="/servicos/manutencao-tv/portao" element={<ManutencaoTvPortao />} />
             <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
             <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
             <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />

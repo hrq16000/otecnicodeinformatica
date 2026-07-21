@@ -76,18 +76,19 @@ const wordSets = new Map();
 
 for (const e of indexable) {
   const combined = `${e.descricao} ${e.narrativa}`;
-  const own = ownWords(combined);
-  wordSets.set(e.slug, own);
+  const tokens = ownTokens(combined);
+  const set = ownWordSet(combined);
+  wordSets.set(e.slug, set);
 
   if (!e.narrativa) {
     console.warn(`[warn] ${e.slug} (${e.nome}) — sem narrativaLocal (grandfathered). Adicionar antes de re-promover.`);
     continue;
   }
-  if (own.size < 300) {
-    console.error(`[fail] ${e.slug} (${e.nome}) — ${own.size} palavras próprias (mínimo 300).`);
+  if (tokens.length < 300) {
+    console.error(`[fail] ${e.slug} (${e.nome}) — ${tokens.length} palavras próprias (mínimo 300).`);
     failed = true;
   } else {
-    console.log(`[ok]   ${e.slug} (${e.nome}) — ${own.size} palavras próprias.`);
+    console.log(`[ok]   ${e.slug} (${e.nome}) — ${tokens.length} palavras próprias (${set.size} únicas).`);
   }
 }
 

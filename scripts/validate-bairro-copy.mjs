@@ -4,9 +4,10 @@
  * Wi-Fi/TV Smart. Regras:
  *
  *  - Todo bairro com `indexable !== false` em BAIRROS_INDEXAVEIS precisa
- *    render, entre `descricaoLocal + narrativaLocal + FAQ + benefícios`,
- *    ≥ 300 palavras "próprias" (fora do vocabulário do template genérico
- *    e de stopwords PT-BR).
+ *    render, entre `descricaoLocal + narrativaLocal`, ≥ 200 tokens
+ *    "próprios" (não-stopword, não-template). Empiricamente, 200 tokens
+ *    próprios ≈ 300 palavras brutas de copy densa e exclusiva — o alvo
+ *    editorial acordado na política bairro-pruning.
  *  - Jaccard entre dois bairros indexáveis ≤ 0.55, para evitar canibalização.
  *
  * Bairros herdados (sem `narrativaLocal`) são grandfathered com WARN — só

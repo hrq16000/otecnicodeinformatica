@@ -180,6 +180,7 @@ const ProblemaPage = () => {
         <link rel="canonical" href={`https://tecnico.curitiba.br/problemas/${data.slug}`} />
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
         {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
+        {localBusinessSchema && <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>}
       </Helmet>
       <Header />
       <Breadcrumbs items={[{ label: data.categoria, href: "/servicos" }, { label: data.h1.split("—")[0].trim() }]} />
@@ -529,6 +530,43 @@ const ProblemaPage = () => {
           <Button size="lg" variant="cta" onClick={handleWhatsApp}>
             <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
           </Button>
+        </div>
+      </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+      {/* Cobertura local — Curitiba + bairros curados */}
+      <section className="py-10 bg-background border-t border-border/60">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent">
+              <Wrench className="h-4 w-4" /> Atendimento local
+            </div>
+            <h2 className="mt-4 text-xl md:text-2xl font-bold text-primary">
+              Onde atendemos em Curitiba e região
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">
+              Atendimento presencial em Curitiba e região metropolitana, com coleta e entrega para casos que exigem bancada.
+              Confira páginas locais dos bairros mais próximos:
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <Link
+                to="/tecnico-informatica-curitiba"
+                className="rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent/20"
+              >
+                Técnico em Curitiba
+              </Link>
+              {BAIRROS_ATENDIDOS.map((b) => (
+                <Link
+                  key={b.to}
+                  to={b.to}
+                  className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground hover:border-accent/50 hover:text-accent"
+                >
+                  {b.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       </AnimatedSection>

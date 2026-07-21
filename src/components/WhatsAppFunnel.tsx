@@ -13,6 +13,9 @@ import {
   trackFunnelClose,
   trackFunnelBlocked,
   trackFunnelAgendarClick,
+  trackFunnelAgendarImpression,
+  trackFunnelModalOpen,
+  trackFunnelModalImpression,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";

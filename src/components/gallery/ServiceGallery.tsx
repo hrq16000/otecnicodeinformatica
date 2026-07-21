@@ -41,7 +41,7 @@ export const ServiceGallery = memo(function ServiceGallery({
             )}
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {images.map((img, idx) => {
+            {images.map((img) => {
               // Constrói srcset para Unsplash (fmt=webp via `auto=format`).
               // Fallback: usa a src original se não for URL do Unsplash.
               const isUnsplash = /images\.unsplash\.com/.test(img.src);
@@ -53,24 +53,35 @@ export const ServiceGallery = memo(function ServiceGallery({
               const srcSet = isUnsplash
                 ? [400, 600, 900].map((w) => `${buildSrc(w)} ${w}w`).join(", ")
                 : undefined;
+              const w = img.width || 600;
+              const h = img.height || 400;
               return (
                 <figure
                   key={img.src}
                   className="rounded-xl overflow-hidden bg-background border border-border shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <img
-                    src={buildSrc(600)}
-                    srcSet={srcSet}
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    alt={img.alt}
-                    loading="lazy"
-                    decoding="async"
-                    // 1º item recebe fetchpriority baixo (galeria sempre fora do fold).
-                    fetchPriority={idx === 0 ? "low" : undefined}
-                    width={img.width || 600}
-                    height={img.height || 400}
-                    className="w-full h-48 md:h-56 object-cover"
-                  />
+                  {/* Wrapper com aspect-ratio fixo evita CLS enquanto a imagem carrega,
+                      mesmo antes do <img> ter dimensões pintadas pelo browser. */}
+                  <div
+                    className="w-full bg-muted/40"
+                    style={{ aspectRatio: `${w} / ${h}` }}
+                  >
+                    <img
+                      src={buildSrc(600)}
+                      srcSet={srcSet}
+                      // sizes refinado: mobile pequeno tem 1 coluna full-width,
+                      // tablet 2 colunas (50vw), desktop grid de 3 (~360px).
+                      sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      // Galeria fica sempre abaixo do fold → nunca é LCP.
+                      fetchPriority="low"
+                      width={w}
+                      height={h}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <figcaption className="p-3 text-xs md:text-sm text-muted-foreground text-center italic">
                     {img.caption}
                   </figcaption>

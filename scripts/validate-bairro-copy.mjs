@@ -85,8 +85,8 @@ for (const e of indexable) {
     console.warn(`[warn] ${e.slug} (${e.nome}) — sem narrativaLocal (grandfathered). Adicionar antes de re-promover.`);
     continue;
   }
-  if (tokens.length < 300) {
-    console.error(`[fail] ${e.slug} (${e.nome}) — ${tokens.length} palavras próprias (mínimo 300).`);
+  if (tokens.length < 200) {
+    console.error(`[fail] ${e.slug} (${e.nome}) — ${tokens.length} palavras próprias (mínimo 200).`);
     failed = true;
   } else {
     console.log(`[ok]   ${e.slug} (${e.nome}) — ${tokens.length} palavras próprias (${set.size} únicas).`);

@@ -244,6 +244,35 @@ const ManutencaoTV = () => {
         </div>
       </section>
 
+      <ServiceGallery
+        id="galeria-tv"
+        title="O que está incluso no reparo de TV Smart"
+        subtitle="Do diagnóstico em bancada à devolução: veja o processo real de reparo e troca de tela."
+        images={tvGalleryImages}
+      />
+
+      {/* FAQ de triagem — o que fazer antes da coleta, sinais de falha, critério de orçamento */}
+      <section className="py-10 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+              Antes de chamar o técnico — perguntas frequentes
+            </h2>
+            <div className="space-y-3">
+              {tvTriagemFaq.map((item) => (
+                <details key={item.q} className="bg-background rounded-xl border border-border group">
+                  <summary className="p-4 font-semibold text-foreground cursor-pointer list-none flex items-center justify-between hover:text-accent transition-colors">
+                    {item.q}
+                    <span className="text-muted-foreground group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{item.a}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />
@@ -252,3 +281,4 @@ const ManutencaoTV = () => {
 };
 
 export default ManutencaoTV;
+

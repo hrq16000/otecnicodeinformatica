@@ -74,7 +74,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} breadcrumbs={[
+      <PageSEO noindex={!data.indexable} title={data.metaTitle} description={data.metaDescription} path={`/servicos/${data.servicoSlug}/${data.bairroSlug}`} breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: data.servico, path: `/servicos/${data.servicoSlug}` },

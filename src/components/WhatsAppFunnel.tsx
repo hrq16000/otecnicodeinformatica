@@ -12,6 +12,7 @@ import {
   trackFunnelSubmit,
   trackFunnelClose,
   trackFunnelBlocked,
+  trackFunnelAgendarClick,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";

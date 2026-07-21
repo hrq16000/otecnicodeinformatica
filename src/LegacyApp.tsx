@@ -348,7 +348,7 @@ const FormatacaoPortao = lazy(() => import("./pages/servico-bairro/FormatacaoPor
 const RedesWifiCIC = lazy(() => import("./pages/servico-bairro/RedesWifiCIC"));
 const BackupCentro = lazy(() => import("./pages/servico-bairro/BackupCentro"));
 const ConsertoNotebookPortao = lazy(() => import("./pages/servico-bairro/ConsertoNotebookPortao"));
-const RedesWifiSantaFelicidade = lazy(() => import("./pages/servico-bairro/RedesWifiSantaFelicidade"));
+// RedesWifiSantaFelicidade legado desativado; rota agora usa RedesWifiSantaFelicidadeAncora (indexável).
 const FormatacaoCampoComprido = lazy(() => import("./pages/servico-bairro/FormatacaoCampoComprido"));
 const RemocaoVirusBatel = lazy(() => import("./pages/servico-bairro/RemocaoVirusBatel"));
 const MontagemPcCIC = lazy(() => import("./pages/servico-bairro/MontagemPcCIC"));

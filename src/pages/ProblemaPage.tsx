@@ -173,9 +173,10 @@ const ProblemaPage = () => {
   }
 
   const handleWhatsApp = () => {
-    trackCTAClick("whatsapp", data.slug);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(data.whatsappMessage)}`, "_blank");
+    if (data) trackWaClick(`problema:${data.slug}`, { problema_slug: data.slug });
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: `problema:${data?.slug || "unknown"}` } }));
   };
+
 
   return (
     <div className="min-h-screen bg-background">

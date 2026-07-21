@@ -10,7 +10,11 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView } from "@/lib/analytics";
+import { trackWaClick, trackProblemaServiceClick, trackProblemaLinkBroken } from "@/lib/funnelAnalytics";
+import { auditInternalLink } from "@/lib/internalLinkAudit";
+import { useScrollDepthTracking } from "@/hooks/useScrollDepthTracking";
+import { useCtaVisibility } from "@/hooks/useCtaVisibility";
 import type { ProblemaPageData } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
@@ -80,6 +84,36 @@ const ProblemaPage = () => {
       trackPageView(`/problemas/${data.slug}`, data.h1);
     }
   }, [data]);
+
+  useScrollDepthTracking(data ? `/problemas/${data.slug}` : "", { problema_slug: data?.slug || "unknown" });
+  const heroCtaRef = useCtaVisibility<HTMLDivElement>("whatsapp", `problema:${data?.slug || "unknown"}:hero`);
+  const finalCtaRef = useCtaVisibility<HTMLDivElement>("whatsapp", `problema:${data?.slug || "unknown"}:final`);
+
+  const validatedRelatedPages = data ? data.relatedPages.filter((link) => {
+    const audit = auditInternalLink(link.to);
+    if (audit.valid === true) return true;
+    trackProblemaLinkBroken({
+      problemaSlug: data.slug,
+      targetHref: link.to,
+      reason: (audit as { reason: string }).reason,
+      linkLabel: link.label,
+    });
+    return false;
+  }) : [];
+
+
+
+  const handleRelatedClick = (href: string, label: string) => {
+    if (!data) return;
+    const servicoSlug = href.replace(/^\/servicos\//, "").replace(/^\//, "");
+    trackProblemaServiceClick({
+      problemaSlug: data.slug,
+      servicoSlug,
+      servicoHref: href,
+      linkLabel: label,
+    });
+  };
+
 
   const faqItems = data ? [
     ...data.sintomas.slice(0, 3).map(s => ({
@@ -169,9 +203,10 @@ const ProblemaPage = () => {
   }
 
   const handleWhatsApp = () => {
-    trackCTAClick("whatsapp", data.slug);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(data.whatsappMessage)}`, "_blank");
+    if (data) trackWaClick(`problema:${data.slug}`, { problema_slug: data.slug });
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: `problema:${data?.slug || "unknown"}` } }));
   };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -192,9 +227,11 @@ const ProblemaPage = () => {
             <span className="inline-block bg-accent/20 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-4">{data.categoria}</span>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">{data.h1}</h1>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">{data.intro.split("\n")[0]}</p>
-            <Button size="lg" variant="cta" onClick={handleWhatsApp}>
-              <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
-            </Button>
+            <div ref={heroCtaRef} className="inline-block">
+              <Button size="lg" variant="cta" onClick={handleWhatsApp}>
+                <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -527,9 +564,11 @@ const ProblemaPage = () => {
         <div className="container mx-auto text-center px-4 relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">{data.h1.split("—")[0].trim()}?</h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">Nosso técnico identifica o problema com diagnóstico preciso. Atendimento em Curitiba e região metropolitana.</p>
-          <Button size="lg" variant="cta" onClick={handleWhatsApp}>
-            <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
-          </Button>
+          <div ref={finalCtaRef} className="inline-block">
+            <Button size="lg" variant="cta" onClick={handleWhatsApp}>
+              <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
+            </Button>
+          </div>
         </div>
       </section>
       </AnimatedSection>
@@ -578,8 +617,13 @@ const ProblemaPage = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-bold text-primary mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
-              {data.relatedPages.map((link) => (
-                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all border border-border">
+              {validatedRelatedPages.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => handleRelatedClick(link.to, link.label)}
+                  className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all border border-border"
+                >
                   <ArrowRight className="h-4 w-4 text-accent flex-shrink-0" />{link.label}
                 </Link>
               ))}

@@ -842,6 +842,20 @@ const App = () => (
             <Route path="/servicos/manutencao-tv/agua-verde" element={<ManutencaoTvAguaVerde />} />
             <Route path="/servicos/manutencao-tv/cic" element={<ManutencaoTvCic />} />
             <Route path="/servicos/manutencao-tv/portao" element={<ManutencaoTvPortao />} />
+            {/* Onda 2 — 7 bairros âncora restantes (Wi-Fi + TV Smart) */}
+            <Route path="/servicos/redes-wifi/bigorrilho" element={<RedesWifiBigorrilho />} />
+            <Route path="/servicos/redes-wifi/cabral" element={<RedesWifiCabral />} />
+            <Route path="/servicos/redes-wifi/boa-vista" element={<RedesWifiBoaVista />} />
+            <Route path="/servicos/redes-wifi/cristo-rei" element={<RedesWifiCristoRei />} />
+            <Route path="/servicos/redes-wifi/cajuru" element={<RedesWifiCajuru />} />
+            <Route path="/servicos/redes-wifi/boqueirao" element={<RedesWifiBoqueirao />} />
+            <Route path="/servicos/manutencao-tv/bigorrilho" element={<ManutencaoTvBigorrilho />} />
+            <Route path="/servicos/manutencao-tv/cabral" element={<ManutencaoTvCabral />} />
+            <Route path="/servicos/manutencao-tv/santa-felicidade" element={<ManutencaoTvSantaFelicidade />} />
+            <Route path="/servicos/manutencao-tv/boa-vista" element={<ManutencaoTvBoaVista />} />
+            <Route path="/servicos/manutencao-tv/cristo-rei" element={<ManutencaoTvCristoRei />} />
+            <Route path="/servicos/manutencao-tv/cajuru" element={<ManutencaoTvCajuru />} />
+            <Route path="/servicos/manutencao-tv/boqueirao" element={<ManutencaoTvBoqueirao />} />
             <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
             <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
             <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />

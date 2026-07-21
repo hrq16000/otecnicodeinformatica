@@ -41,7 +41,7 @@ export const ServiceGallery = memo(function ServiceGallery({
             )}
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {images.map((img, idx) => {
+            {images.map((img) => {
               // Constrói srcset para Unsplash (fmt=webp via `auto=format`).
               // Fallback: usa a src original se não for URL do Unsplash.
               const isUnsplash = /images\.unsplash\.com/.test(img.src);

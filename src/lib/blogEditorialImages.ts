@@ -1,9 +1,17 @@
 // ─────────────────────────────────────────────────────────────
-// BRIEFING DE IMAGENS EDITORIAIS — PROMPT 32.
+// BRIEFING DE IMAGENS EDITORIAIS — PROMPT 32 (+ enriquecimento
+// framing/iluminação, PROMPT 35).
 //
 // Especificação tipada dos oito ativos visuais futuros. NÃO gera,
 // baixa nem substitui imagens. NÃO altera imageOrigin (segue "unknown"
 // em blogEditorialRegistry.ts). Estado inicial de todo brief: "briefed".
+//
+// Cada brief agora descreve explicitamente:
+//   - subject   : o assunto central
+//   - scene     : narrativa do que aparece
+//   - framing   : enquadramento fotográfico (distância/ângulo/composição)
+//   - lighting  : iluminação recomendada
+//   - requiredElements / forbiddenElements / privacyRisks
 //
 // Requisitos de privacidade e propriedade estão descritos por brief e
 // reforçados por REQUIRED_ASSET_SPEC (aplicável a qualquer captura futura).
@@ -48,7 +56,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "notebook-nao-liga-o-que-fazer": {
     slug: "notebook-nao-liga-o-que-fazer",
     subject: "Notebook que não liga",
-    scene: "Notebook real fechado/entreaberto em bancada limpa, foco no botão de energia e no LED de status; tela sem imagem.",
+    scene:
+      "Notebook real fechado ou entreaberto em bancada limpa, foco no botão de energia e no LED de status; tela sem imagem.",
+    framing:
+      "Plano médio-fechado a ~45° de cima, terço superior enquadra o botão de energia; fundo desfocado sem elementos concorrentes.",
+    lighting:
+      "Luz suave difusa vinda da esquerda superior (5000-5500K), leve preenchimento à direita para evitar sombras duras; sem reflexos na tela.",
     requiredElements: ["notebook real", "botão de energia ou LED", "tela sem imagem"],
     forbiddenElements: ["desktop como foco principal", "procedimento perigoso", "ferramenta improvisada"],
     privacyRisks: ["número de série", "etiqueta de identificação", "dados do usuário visíveis"],
@@ -60,7 +73,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "computador-lento-causas-solucoes": {
     slug: "computador-lento-causas-solucoes",
     subject: "Computador lento",
-    scene: "Computador em uso com monitor de recursos genérico aberto, ambiente neutro.",
+    scene:
+      "Computador em uso com monitor de recursos (CPU/RAM/Disco) genérico aberto na tela; ambiente neutro tipo home-office.",
+    framing:
+      "Plano ombro-monitor, câmera ligeiramente acima da linha do olho do usuário; monitor ocupa 60% do quadro, mão descansada no mouse compõe o primeiro plano desfocado.",
+    lighting:
+      "Ambiente claro e neutro (~4500K), sem contraluz atrás do monitor; ganho na tela ajustado para não estourar branco no monitor de recursos.",
     requiredElements: ["monitor de recursos ou computador em uso"],
     forbiddenElements: ["velocímetro artificial", "promessa de percentual"],
     privacyRisks: ["nomes de usuário", "nomes de arquivos", "aplicativos pessoais identificáveis"],
@@ -72,7 +90,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "como-instalar-windows-11-do-zero": {
     slug: "como-instalar-windows-11-do-zero",
     subject: "Instalação/recuperação do Windows 11",
-    scene: "Tela oficial de instalação ou recuperação do Windows em um notebook, ambiente neutro.",
+    scene:
+      "Tela oficial de instalação ou recuperação do Windows 11 em um notebook, ambiente neutro (mesa clara).",
+    framing:
+      "Plano frontal levemente inclinado (~10°) para leitura clara da tela; notebook centralizado, corte na altura do teclado; margem generosa acima para respiro editorial.",
+    lighting:
+      "Luz frontal difusa balanceada com a temperatura da tela (~6500K); sem reflexos na tela e sem sombra no teclado.",
     requiredElements: ["tela oficial de instalação ou recuperação"],
     forbiddenElements: ["ativador", "software não oficial", "método de bypass"],
     privacyRisks: ["chave de produto", "e-mail", "nome de conta", "identificadores de máquina"],
@@ -84,7 +107,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "quando-trocar-hd-por-ssd": {
     slug: "quando-trocar-hd-por-ssd",
     subject: "Troca de HD por SSD",
-    scene: "SSD e HD lado a lado em bancada técnica limpa, sem destaque de marca específica.",
+    scene:
+      "Um SSD 2,5\"/M.2 e um HD 2,5\"/3,5\" lado a lado em bancada técnica limpa; opcional: parafusadeira Phillips fora de foco no canto.",
+    framing:
+      "Top-down (flat lay) simétrico, HD e SSD em diagonal ocupando a linha central; regra dos terços aplicada, respiro à direita para chamada editorial.",
+    lighting:
+      "Luz cenital suave em softbox (~5000K), com reflexo controlado nos rótulos para que nenhuma marca se torne o herói da imagem.",
     requiredElements: ["SSD e HD em bancada limpa"],
     forbiddenElements: ["marca como recomendação implícita", "promessa de desempenho"],
     privacyRisks: ["números de série", "dados de cliente"],
@@ -96,7 +124,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "notebook-superaquecendo-o-que-fazer": {
     slug: "notebook-superaquecendo-o-que-fazer",
     subject: "Notebook superaquecendo",
-    scene: "Saída de ar/ventoinha de notebook, com sinais de poeira acumulada; ambiente neutro.",
+    scene:
+      "Saída de ar/ventoinha lateral de notebook, com sinais visíveis de poeira acumulada; ambiente neutro (bancada clara).",
+    framing:
+      "Macro/close a 30°, foco seletivo na saída de ar (f/4-5.6), corte deixando parte do teclado desfocado ao fundo; sem mãos ou ferramentas em uso.",
+    lighting:
+      "Luz lateral rasante (~4500K) para revelar textura da poeira sem gerar sombras dramatizadas; fundo levemente esmaecido.",
     requiredElements: ["saída de ar", "ventoinha", "poeira"],
     forbiddenElements: ["procedimento perigoso", "chama", "secador", "ferramenta improvisada"],
     privacyRisks: ["etiqueta legível", "número de série"],
@@ -108,7 +141,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "backup-como-proteger-seus-arquivos": {
     slug: "backup-como-proteger-seus-arquivos",
     subject: "Backup preventivo",
-    scene: "Armazenamento externo (HD/SSD ou pen drive) ao lado de interface de nuvem genérica em tela.",
+    scene:
+      "Armazenamento externo (HD/SSD portátil ou pen drive) sobre a mesa, ao lado de tela mostrando interface de nuvem genérica (sem marca dominante).",
+    framing:
+      "Plano de 3/4 com HD/SSD em primeiro plano nítido e monitor levemente desfocado ao fundo; profundidade de campo cria hierarquia dispositivo → nuvem.",
+    lighting:
+      "Luz suave frontal-superior (~5000K), leve backlight para separar o dispositivo do fundo; nada de highlight forte na tela.",
     requiredElements: ["armazenamento externo", "interface de nuvem genérica"],
     forbiddenElements: ["marcas identificáveis", "contas identificáveis"],
     privacyRisks: ["nomes de arquivos", "e-mail/conta em tela"],
@@ -120,9 +158,19 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "como-saber-se-pc-tem-virus-malware": {
     slug: "como-saber-se-pc-tem-virus-malware",
     subject: "Sinais de vírus/malware e golpes",
-    scene: "Alerta de golpe simulado ou interface de segurança genérica em tela; ambiente neutro.",
+    scene:
+      "Alerta de golpe SIMULADO (fake, criado para o artigo) ou interface genérica de central de segurança do SO em tela; ambiente neutro.",
+    framing:
+      "Plano frontal do monitor ocupando ~70% do quadro; leve inclinação da câmera (~5°) evita paralelismo perfeito; margem inferior para chamada.",
+    lighting:
+      "Ambiente com luz neutra baixa (~4000K) para valorizar o alerta na tela sem estourar; sem reflexo no monitor.",
     requiredElements: ["alerta de golpe simulado ou interface genérica de segurança"],
-    forbiddenElements: ["malware real reproduzido", "telefone de golpe legível", "URL maliciosa ativa"],
+    forbiddenElements: [
+      "malware real reproduzido",
+      "telefone de golpe legível",
+      "URL maliciosa ativa",
+      "logo de antivírus específico como herói",
+    ],
     privacyRisks: ["dados pessoais em tela", "telefone", "URL maliciosa"],
     aspectRatio: "16:9",
     minimumWidth: 1200,
@@ -132,7 +180,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
   "como-melhorar-sinal-wifi-em-casa": {
     slug: "como-melhorar-sinal-wifi-em-casa",
     subject: "Wi-Fi residencial",
-    scene: "Roteador moderno em ambiente residencial neutro, posicionado em local alto/central.",
+    scene:
+      "Roteador moderno em ambiente residencial neutro, posicionado em local alto/central (estante ou console), sem obstruções próximas.",
+    framing:
+      "Plano médio a ~30°, câmera na altura do roteador; regra dos terços com o roteador à esquerda e ambiente respirando à direita para respiro editorial.",
+    lighting:
+      "Luz ambiente residencial quente (~3000-3500K) suavizada; LEDs do roteador visíveis mas não estourados; sem contraluz de janela.",
     requiredElements: ["roteador em ambiente residencial"],
     forbiddenElements: ["etiqueta traseira legível", "alteração insegura de firmware"],
     privacyRisks: ["SSID", "senha", "endereço MAC", "QR code de acesso"],

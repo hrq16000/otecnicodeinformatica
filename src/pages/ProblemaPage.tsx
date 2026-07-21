@@ -617,8 +617,13 @@ const ProblemaPage = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-bold text-primary mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
-              {data.relatedPages.map((link) => (
-                <Link key={link.to} to={link.to} className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all border border-border">
+              {validatedRelatedPages.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => handleRelatedClick(link.to, link.label)}
+                  className="flex items-center gap-2 bg-background rounded-lg p-3 text-sm font-medium text-foreground hover:text-accent hover:shadow-md transition-all border border-border"
+                >
                   <ArrowRight className="h-4 w-4 text-accent flex-shrink-0" />{link.label}
                 </Link>
               ))}

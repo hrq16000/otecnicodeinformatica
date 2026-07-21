@@ -1,41 +1,74 @@
-## Plano de Execução — Fase Cirúrgica (sem inventar dados)
+## Objetivo
+Garantir que **todo** botão "WhatsApp Agora" da landing e das páginas `/problemas/*` passe pelo Funil V5 (ciência + aceite antes do WhatsApp), entregar a página `/obrigado` com mensagens por modalidade e enriquecer o SEO local das páginas de problema — mantendo a coerência com o resto do site (contato só via WhatsApp, sem `tel:`, sem AggregateRating inventado, /problemas/* ficam `noindex` por serem legadas).
 
-Sem regressões. Sem números falsos. Mobile-first. Foco em WhatsApp.
+## 1. Integrar Funil V5 nos CTAs "WhatsApp Agora"
 
-### Bloco 1 — Resiliência e Performance (alto ROI, baixo risco)
-1. **Fallback estático sem JS** no `index.html`: além do shell pulsante, adicionar `<noscript>` com CTA WhatsApp + texto essencial. Manter o emergency bar atual.
-2. **Fontes**: adicionar `font-display: swap` global, `preconnect` para Google Fonts e `preload` para a fonte WOFF2 primária.
-3. **Preload crítico**: garantir `preconnect` para WhatsApp/Supabase e `preload as=image` para a logo (já existe — revisar `fetchpriority`).
-4. **Web Vitals**: já existe `src/lib/webVitals.ts`. Validar envio de LCP/INP/CLS ao GA4 com `app_version` e logar no console quando `?debug=vitals`.
+**Landing das cidades — `src/components/cidade/CidadeLandingLayout.tsx`**
+Trocar os dois `<a href={waHref}>` (hero e CTA final) por `<button>` que dispara `wa-funnel:open` com `detail.location` (`cidade_hero`, `cidade_final`) e `detail.presetContext` com `{ cidade, service: "cidade" }`. Mantém `data-cta-location` e `trackCTAClick` — a única diferença é que o WhatsApp só abre depois da triagem/aceite.
 
-### Bloco 2 — Cache busting OG/Favicon
-5. Bumpar `OG_VERSION` em `src/lib/ogCacheBust.ts` para `20260629-1`.
-6. Forçar `?v=20260629-1` no favicon do `index.html` e revalidar paths absolutos do OG (`https://tecnicocuritiba.com.br/og-image.png?v=...`).
-7. Garantir `<meta property="og:image:width/height">` presentes.
+**Página `/problemas/:slug` — `src/pages/ProblemaPage.tsx`**
+- `handleWhatsApp` deixa de chamar `window.open(wa.me/…)` diretamente.
+- Passa a disparar `wa-funnel:open` com `detail.presetMessage = data.whatsappMessage` e `detail.location = "problema_" + data.slug`.
+- Botões trocam `<a>` → `<button>` (todos os CTAs internos da página).
 
-### Bloco 3 — Consolidação de cidade (Curitiba)
-8. **Canônicos**: confirmar canonical `/tecnico-informatica-curitiba` como hub principal de Curitiba; variações (`/arrumar-pc/curitiba`, `/hubs/*-curitiba`) apontam canonical para o hub apropriado quando há sobreposição direta.
-9. **Sem redirects destrutivos**: manter URLs vivas, ajustar apenas `<link rel=canonical>` para reduzir canibalização. Documentar em `docs/audit-canonicals.md`.
+**Guarda automática (`scripts/check-cta-funnel.ts`)**
+Já reforça que qualquer novo `wa.me` fora do funil quebra o build; nenhum ajuste necessário.
 
-### Bloco 4 — Blog (CTA + FAQ)
-10. Em `src/pages/BlogPost.tsx`: já existe CTA WhatsApp. Adicionar bloco **FAQ contextual** (3-5 perguntas genéricas por categoria) com `FAQPage` JSON-LD por post.
-11. Padronizar `click_location="blog_post_cta"` com `app_version` no analytics — já existe, validar.
+## 2. Página `/obrigado` (contexto pós-WhatsApp)
 
-### Bloco 5 — Tracking padronizado por posição
-12. Em todos os CTAs principais, garantir `click_location` consistente: `hero`, `top_banner`, `services`, `social_proof`, `faq`, `final_cta`, `float`, `blog_post_cta`. Auditar e corrigir onde divergir.
+**Novos arquivos**
+- `src/pages/Obrigado.tsx`
+- Rota lazy em `src/App.tsx` (`/obrigado` → `Obrigado`) e entrada em `src/LegacyApp.tsx` (para navegação legada).
 
-### Bloco 6 — Testes E2E
-13. `e2e/mobile-ctas.spec.ts`: viewport 390x844, validar visibilidade de "Agendar" e botão WhatsApp clicável na home.
-14. Rodar suíte (sanity) localmente — ignorar regressões pré-existentes não relacionadas.
+**Comportamento**
+- Lê `sessionStorage['wa-funnel:last-triage']` (gravado pelo funil no `submit` — sem PII, apenas `{ modality, equipmentLabel, triageId, cidade? }`).
+- Renderiza mensagem específica por modalidade (`remoto`, `visita`, `coleta`) com próximos passos, prazo e link único de reabrir o WhatsApp (via mesma preset).
+- Se `sessionStorage` estiver vazio (usuário chegou por link direto), mostra mensagem genérica + CTA "Iniciar triagem" que abre o funil, **sem** reiniciar automaticamente.
+- Uso de `document.title`, `meta description` e `canonical` via efeito (mesmo padrão de `Index.tsx`).
+- Bloqueia indexação com `<meta name="robots" content="noindex,follow">` (não é página de conversão de busca).
 
-### O que NÃO farei nesta fase
-- Não tocarei copy de provas sociais sem dado real.
-- Não reescreverei Services/Header (já reestruturados em fases anteriores).
-- Não criarei redirects 301 server-side (sem backend de hosting customizável aqui).
-- Não inventarei depoimentos, ratings, contadores.
+**JSON-LD**
+- `LocalBusiness` reutilizando `siteConfig` (sem AggregateRating — respeita regra de core).
+- `FAQPage` com 3 perguntas úteis pós-envio ("Quando o técnico responde?", "Preciso preparar algo?", "Como acompanho o atendimento?").
 
-### Detalhes técnicos
-- Arquivos tocados (estimado): `index.html`, `src/lib/ogCacheBust.ts`, `src/pages/Index.tsx`, `src/pages/BlogPost.tsx`, `src/lib/webVitals.ts`, novos `e2e/mobile-ctas.spec.ts`, `docs/audit-canonicals.md`, possivelmente `src/components/BlogPostFAQ.tsx`.
-- Validação: `npm run build` ao final.
+**Ajuste no funil (`src/components/WhatsAppFunnel.tsx`)**
+No `submit`, após `window.open` bem-sucedido, gravar em `sessionStorage` o contexto reduzido e navegar via `history.pushState` para `/obrigado` disparando `popstate` (mesmo mecanismo de InstantNavigation em `App.tsx`). A navegação para `/obrigado` **não** reabre o funil (ele só abre por evento explícito).
 
-Executando agora.
+## 3. SEO local das páginas `/problemas/:slug`
+
+Mantendo `noindex, follow` (respeita política de rotas legadas), reforçar:
+- `<h1>` já traz o problema — adicionar variação com "em Curitiba" no `data.h1` quando faltar (via helper em `ProblemaPage`, sem editar dados).
+- Adicionar `BreadcrumbList` (já existe) + bloco visível "Atendemos em Curitiba, região metropolitana e coleta em bairros como Batel, Centro, Água Verde, CIC e Portão" com links internos para as 5 páginas curadas de bairro e para `/tecnico-informatica-curitiba`.
+- Substituir botão "Falar com Técnico Agora" pelo disparo do funil (item 1) — coerência de contato.
+- `FAQPage` já existe: acrescentar 2 perguntas locais ("Vocês atendem em Curitiba?" / "Quanto tempo demora após o WhatsApp?").
+- Adicionar `LocalBusiness` mínimo (mesmo padrão de `CidadeLandingLayout`), sem inventar rating.
+- Guarda de conteúdo: se `data` não tiver campos essenciais, manter fallback.
+
+## 4. Testes/validação
+
+- Ajustar `e2e/whatsapp-funnel.spec.ts` para cobrir o novo CTA da cidade (clicar hero → modal do funil abre, WhatsApp não abre antes do aceite).
+- Novo teste rápido: navegar até `/obrigado` sem contexto → mostra estado genérico; injetar contexto no `sessionStorage` → mostra bloco por modalidade.
+- `bun run check:cta-funnel`, `bun run validate:jsonld` e `bunx vitest run` no final.
+
+## Detalhes técnicos
+
+```text
+Fluxo pós-triagem:
+  submit() -> gravar sessionStorage(wa-funnel:last-triage)
+           -> window.open(wa.me)
+           -> pushState('/obrigado') + popstate
+           -> Obrigado.tsx lê sessionStorage e renderiza
+```
+
+Arquivos alterados/criados:
+```
+src/components/cidade/CidadeLandingLayout.tsx   (edit — trocar 2 CTAs)
+src/pages/ProblemaPage.tsx                      (edit — CTAs + SEO local + JSON-LD)
+src/components/WhatsAppFunnel.tsx               (edit — gravar contexto + push /obrigado)
+src/pages/Obrigado.tsx                          (new)
+src/App.tsx                                     (edit — routeImportMap /obrigado)
+src/LegacyApp.tsx                               (edit — <Route path="/obrigado">)
+e2e/whatsapp-funnel.spec.ts                     (edit — novo caso)
+```
+
+Sem mudanças de schema, sitemaps ou dados. Contato continua exclusivamente via WhatsApp; nenhum `tel:` introduzido; nenhuma AggregateRating inventada.

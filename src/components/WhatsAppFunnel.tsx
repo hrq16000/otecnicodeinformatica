@@ -425,6 +425,20 @@ export const WhatsAppFunnel = () => {
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
 
+      // Contexto reduzido pós-triagem, lido pela página /obrigado.
+      // Sem PII: apenas modalidade, rótulo do equipamento, triageId e origem.
+      try {
+        const ctx = {
+          modality: rules.route,
+          equipmentLabel: equipment?.label ?? "",
+          equipmentId: answers.equipment ?? "",
+          triageId,
+          ctaLocation: originLocation,
+          savedAt: Date.now(),
+        };
+        sessionStorage.setItem("wa-funnel:last-triage", JSON.stringify(ctx));
+      } catch { /* storage indisponível: segue silenciosamente */ }
+
       const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
       if (!win) {
         // Popup bloqueado: preserva triagem e oferece cópia da mensagem.
@@ -432,6 +446,14 @@ export const WhatsAppFunnel = () => {
       } else {
         clearPersisted(STORAGE_KEY);
         setOpen(false);
+        // Navega para /obrigado usando o mesmo mecanismo do InstantNavigation.
+        try {
+          if (window.location.pathname !== "/obrigado") {
+            window.history.pushState({}, "", "/obrigado");
+            window.dispatchEvent(new PopStateEvent("popstate"));
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+          }
+        } catch { /* fallback silencioso */ }
       }
     } finally {
       setTimeout(() => { submittingRef.current = false; }, 300);

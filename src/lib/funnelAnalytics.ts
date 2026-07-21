@@ -79,6 +79,24 @@ export const trackFunnelClose = (step: number, equipamento?: string | null) =>
   track("wa_funnel_close", { step, equipamento: equipamento || "none" });
 
 /**
+ * Clique no CTA final "Agendar agora" da última etapa do funil V5,
+ * imediatamente antes de abrir o WhatsApp. Payload traz o snapshot da
+ * triagem para permitir análise de conversão por equipamento/modalidade.
+ */
+export const trackFunnelAgendarClick = (params: {
+  equipamento?: string | null;
+  sintoma?: string | null;
+  modalidade?: string | null;
+  ctaLocation?: string;
+}) =>
+  track("wa_funnel_agendar_click", {
+    equipamento: params.equipamento || "none",
+    sintoma: params.sintoma || "none",
+    modalidade: params.modalidade || "unknown",
+    cta_location: params.ctaLocation || "wa_funnel_review",
+  });
+
+/**
  * Lê o último contexto de triagem persistido (modalidade/equipamento/problema).
  * Retorna sempre `"unknown"` para campos ausentes — garantindo que os eventos
  * de clique em WhatsApp / Ligar continuem sendo registrados mesmo antes do

@@ -1,29 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/centro</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/batel</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/agua-verde</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/portao</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/bigorrilho</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/cabral</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/santa-felicidade</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/boa-vista</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/cic</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/jardim-das-americas</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/ecoville</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/alto-da-xv</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/redes-wifi/reboucas</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/centro</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/batel</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/agua-verde</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/portao</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/bigorrilho</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/cabral</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/santa-felicidade</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/boa-vista</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/cic</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/jardim-das-americas</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/ecoville</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/alto-da-xv</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/servicos/manutencao-tv/reboucas</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tecnico.curitiba.br/bairros/cic</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://tecnico.curitiba.br/bairros/batel</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://tecnico.curitiba.br/bairros/agua-verde</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://tecnico.curitiba.br/bairros/centro</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://tecnico.curitiba.br/bairros/portao</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
 </urlset>

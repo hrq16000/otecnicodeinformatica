@@ -388,6 +388,21 @@ const ManutencaoTvCentro = lazy(() => import("./pages/servico-bairro/ManutencaoT
 const ManutencaoTvAguaVerde = lazy(() => import("./pages/servico-bairro/ManutencaoTvAguaVerde"));
 const ManutencaoTvCic = lazy(() => import("./pages/servico-bairro/ManutencaoTvCic"));
 const ManutencaoTvPortao = lazy(() => import("./pages/servico-bairro/ManutencaoTvPortao"));
+// Onda 2 — completa 12 bairros-âncora indexáveis (Wi-Fi + TV Smart)
+const RedesWifiBigorrilho = lazy(() => import("./pages/servico-bairro/RedesWifiBigorrilho"));
+const RedesWifiCabral = lazy(() => import("./pages/servico-bairro/RedesWifiCabral"));
+const RedesWifiSantaFelicidadeAncora = lazy(() => import("./pages/servico-bairro/RedesWifiSantaFelicidadeAncora"));
+const RedesWifiBoaVista = lazy(() => import("./pages/servico-bairro/RedesWifiBoaVista"));
+const RedesWifiCristoRei = lazy(() => import("./pages/servico-bairro/RedesWifiCristoRei"));
+const RedesWifiCajuru = lazy(() => import("./pages/servico-bairro/RedesWifiCajuru"));
+const RedesWifiBoqueirao = lazy(() => import("./pages/servico-bairro/RedesWifiBoqueirao"));
+const ManutencaoTvBigorrilho = lazy(() => import("./pages/servico-bairro/ManutencaoTvBigorrilho"));
+const ManutencaoTvCabral = lazy(() => import("./pages/servico-bairro/ManutencaoTvCabral"));
+const ManutencaoTvSantaFelicidade = lazy(() => import("./pages/servico-bairro/ManutencaoTvSantaFelicidade"));
+const ManutencaoTvBoaVista = lazy(() => import("./pages/servico-bairro/ManutencaoTvBoaVista"));
+const ManutencaoTvCristoRei = lazy(() => import("./pages/servico-bairro/ManutencaoTvCristoRei"));
+const ManutencaoTvCajuru = lazy(() => import("./pages/servico-bairro/ManutencaoTvCajuru"));
+const ManutencaoTvBoqueirao = lazy(() => import("./pages/servico-bairro/ManutencaoTvBoqueirao"));
 
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));

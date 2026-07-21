@@ -378,6 +378,17 @@ const ConsertoNotebookPinhais = lazy(() => import("./pages/servico-bairro/Conser
 const UpgradeSsdPinhais = lazy(() => import("./pages/servico-bairro/UpgradeSsdPinhais"));
 const RedesWifiPinhais = lazy(() => import("./pages/servico-bairro/RedesWifiPinhais"));
 
+// Wi-Fi + TV Smart por bairro (indexáveis — 5 bairros âncora)
+const RedesWifiBatel = lazy(() => import("./pages/servico-bairro/RedesWifiBatel"));
+const RedesWifiCentro = lazy(() => import("./pages/servico-bairro/RedesWifiCentro"));
+const RedesWifiAguaVerde = lazy(() => import("./pages/servico-bairro/RedesWifiAguaVerde"));
+const RedesWifiPortao = lazy(() => import("./pages/servico-bairro/RedesWifiPortao"));
+const ManutencaoTvBatel = lazy(() => import("./pages/servico-bairro/ManutencaoTvBatel"));
+const ManutencaoTvCentro = lazy(() => import("./pages/servico-bairro/ManutencaoTvCentro"));
+const ManutencaoTvAguaVerde = lazy(() => import("./pages/servico-bairro/ManutencaoTvAguaVerde"));
+const ManutencaoTvCic = lazy(() => import("./pages/servico-bairro/ManutencaoTvCic"));
+const ManutencaoTvPortao = lazy(() => import("./pages/servico-bairro/ManutencaoTvPortao"));
+
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
 

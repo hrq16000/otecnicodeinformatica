@@ -381,6 +381,15 @@ export const WhatsAppFunnel = () => {
   // ---------- submit ----------
   const submit = useCallback(async () => {
     if (submittingRef.current) return;
+    // Emitido antes da validação: reflete a *intenção* de agendar do usuário,
+    // independentemente de a triagem estar completa. Assim conseguimos medir
+    // desistência entre "clicou em Agendar agora" e "efetivamente abriu o WhatsApp".
+    trackFunnelAgendarClick({
+      equipamento: answers.equipment,
+      sintoma: answers.symptom,
+      modalidade: rules.route,
+      ctaLocation: originLocation,
+    });
     for (let s = 0; s < TOTAL_STEPS; s++) {
       const v = validateStep(s, answers);
       if (!v.ok) {

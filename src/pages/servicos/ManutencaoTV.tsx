@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { RealImageSection } from "@/components/RealImageSection";
 import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
+import { ServiceGallery } from "@/components/gallery/ServiceGallery";
 import { Link } from "react-router-dom";
 import { Tv, CheckCircle, AlertCircle, MessageCircle, ArrowRight, Clock } from "lucide-react";
 import { COLETA_TAXA_MINIMA_LABEL, PRAZO_LONGO, DIAGNOSTICO_VALOR_LABEL } from "@/lib/coletaConfig";
@@ -14,6 +15,60 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "5541997086380";
+
+const tvGalleryImages = [
+  {
+    src: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=70",
+    alt: "Smart TV com backlight testado após reparo em laboratório",
+    caption: "Teste de backlight após reparo — imagem uniforme e sem manchas",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=70",
+    alt: "Placa T-CON de TV LED aberta na bancada com equipamento de diagnóstico",
+    caption: "Bancada com placa T-CON, fonte e mainboard sob análise",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=70",
+    alt: "Medição de tensão em capacitores de fonte de Smart TV com multímetro",
+    caption: "Medição de tensões e identificação de capacitores estufados",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1580982327559-c1202864eb05?auto=format&fit=crop&w=600&q=70",
+    alt: "Painel de tela LCD de TV Smart sendo posicionado durante troca",
+    caption: "Troca de painel LCD com bancada climatizada e ferramental de precisão",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1571415060716-baff5f717068?auto=format&fit=crop&w=600&q=70",
+    alt: "Técnico realizando reflow em placa de Smart TV com estação de ar quente",
+    caption: "Reflow controlado em placa principal com estação SMD",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=600&q=70",
+    alt: "Smart TV instalada de volta na sala do cliente após reparo",
+    caption: "TV reinstalada no cliente após reparo, com garantia por escrito",
+  },
+];
+
+const tvTriagemFaq = [
+  {
+    q: "O que fazer antes de chamar o técnico para uma TV com defeito?",
+    a: "Antes de solicitar coleta: 1) confirme se a TV liga no botão do painel (não só no controle); 2) teste em uma tomada diferente sem estabilizador; 3) desconecte todos os cabos HDMI/USB e ligue apenas na energia; 4) anote marca, modelo, ano e o comportamento exato (LED aceso? tela preta? listras?). Envie fotos/vídeo pelo WhatsApp — ajuda a confirmar se o caso é elétrico, de placa ou de painel.",
+  },
+  {
+    q: "Quais sinais indicam problema de fonte, backlight, T-CON ou painel?",
+    a: "Fonte: TV não liga, LED de standby apagado ou piscando. Backlight: LED de standby acende mas a tela fica preta (com áudio funcionando). T-CON/flat cable: linhas horizontais/verticais fixas ou dobras estranhas na imagem. Painel LCD: manchas escuras, sombras permanentes ou trincos visíveis — nesse último caso o reparo raramente compensa.",
+  },
+  {
+    q: "Como definimos o orçamento e a taxa mínima de coleta?",
+    a: `A taxa mínima de coleta é ${COLETA_TAXA_MINIMA_LABEL} e cobre a retirada, o transporte seguro e o diagnóstico em bancada. O valor do reparo em si é orçado por escrito após identificar o componente defeituoso e nunca é executado sem sua aprovação. Prazo padrão: ${PRAZO_LONGO}. O diagnóstico custa ${DIAGNOSTICO_VALOR_LABEL} e é abatido do serviço se aprovado.`,
+  },
+  {
+    q: "Quando não vale a pena consertar uma Smart TV?",
+    a: "Não compensa quando o painel LCD está trincado (custo próximo ao de uma TV nova), quando a TV tem 8+ anos e há múltiplas placas com falha, ou em TVs menores que 32\" — nesses casos, orientamos a compra de um modelo novo com transparência, sem cobrar reparo desnecessário.",
+  },
+];
+
+
 
 const defeitos = [
   { titulo: "TV não liga", desc: "Pode ser problema na fonte de alimentação, placa principal ou capacitores estufados. Requer bancada.", tipo: "Laboratório" },

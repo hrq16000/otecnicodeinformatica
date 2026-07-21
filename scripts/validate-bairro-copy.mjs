@@ -20,14 +20,12 @@ const STOPWORDS = new Set(
     .split(/\s+/)
 );
 
-// Vocabulário compartilhado (template) — removido antes da contagem de "próprias".
+// Vocabulário genérico do template (marketing puro) — removido antes da
+// contagem. Termos técnicos ficam preservados porque descrevem o serviço
+// real; a uniqueness cruzada é checada pelo Jaccard abaixo.
 const TEMPLATE_VOCAB = new Set([
-  "wi-fi","wifi","mesh","roteador","repetidor","cabeamento","canais","interferência",
-  "orçamento","whatsapp","curitiba","atendimento","visita","técnico","técnica","técnicos",
-  "cliente","instalação","configuração","reparo","reparos","conserto","smart","tv","tvs",
-  "coleta","entrega","bancada","diagnóstico","garantia","serviço","serviços",
-  "aprovação","valor","mínimo","r$","99,99","299,99","backlight","fonte","placa","painel",
-  "mainboard","hdmi","usb","led","lcd","qled","oled","standby","teste","testes",
+  "orçamento","whatsapp","curitiba","cliente","aprovação","valor","mínimo",
+  "r$","serviço","serviços","atendimento","técnico","técnica","técnicos",
 ]);
 
 const src = readFileSync(resolve("src/pages/servico-bairro/wifiTvBairroData.ts"), "utf8");

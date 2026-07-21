@@ -34,14 +34,14 @@ const src = readFileSync(resolve("src/pages/servico-bairro/wifiTvBairroData.ts")
 // segue estrutura estável e este script roda no CI antes do build.
 function extractEntries() {
   const entries = [];
-  const bairroBlocks = src.matchAll(/"?([a-z-]+)"?:\s*\{([\s\S]*?)\n\s{2}\},/g);
+  // Slugs válidos vêm entre aspas ou como chave direta seguindo `,\n  `.
+  const bairroBlocks = src.matchAll(/\n  "?([a-z][a-z0-9-]*)"?:\s*\{\s*\n\s*slug:\s*"([a-z0-9-]+)",([\s\S]*?)\n\s{2}\},/g);
   for (const m of bairroBlocks) {
-    const slug = m[1];
-    const body = m[2];
-    if (!/\bslug:\s*"/.test(body)) continue; // ignora falso-positivo
+    const slug = m[2];
+    const body = m[3];
     const nome = /nome:\s*"([^"]+)"/.exec(body)?.[1] || slug;
-    const descricao = /descricaoLocal:\s*\n?\s*"([\s\S]*?)"/.exec(body)?.[1] || "";
-    const narrativa = /narrativaLocal:\s*\n?\s*"([\s\S]*?)"/.exec(body)?.[1] || "";
+    const descricao = /descricaoLocal:\s*\n?\s*"([\s\S]*?)"(?=,\n)/.exec(body)?.[1] || "";
+    const narrativa = /narrativaLocal:\s*\n?\s*"([\s\S]*?)"(?=,\n)/.exec(body)?.[1] || "";
     const indexable = /indexable:\s*false/.test(body) ? false : true;
     entries.push({ slug, nome, descricao, narrativa, indexable });
   }

@@ -865,6 +865,15 @@ const App = () => (
             <Route path="/servicos/manutencao-tv/cristo-rei" element={<ManutencaoTvCristoRei />} />
             <Route path="/servicos/manutencao-tv/cajuru" element={<ManutencaoTvCajuru />} />
             <Route path="/servicos/manutencao-tv/boqueirao" element={<ManutencaoTvBoqueirao />} />
+            {/* Onda 3 — 4 novos bairros âncora (Wi-Fi + TV Smart) */}
+            <Route path="/servicos/redes-wifi/jardim-das-americas" element={<RedesWifiJardimAmericas />} />
+            <Route path="/servicos/manutencao-tv/jardim-das-americas" element={<ManutencaoTvJardimAmericas />} />
+            <Route path="/servicos/redes-wifi/ecoville" element={<RedesWifiEcoville />} />
+            <Route path="/servicos/manutencao-tv/ecoville" element={<ManutencaoTvEcoville />} />
+            <Route path="/servicos/redes-wifi/alto-da-xv" element={<RedesWifiAltoXV />} />
+            <Route path="/servicos/manutencao-tv/alto-da-xv" element={<ManutencaoTvAltoXV />} />
+            <Route path="/servicos/redes-wifi/reboucas" element={<RedesWifiReboucas />} />
+            <Route path="/servicos/manutencao-tv/reboucas" element={<ManutencaoTvReboucas />} />
             <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
             <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
             <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidadeAncora />} />

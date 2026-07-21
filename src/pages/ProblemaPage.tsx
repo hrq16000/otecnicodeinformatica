@@ -227,9 +227,11 @@ const ProblemaPage = () => {
             <span className="inline-block bg-accent/20 text-white px-4 py-1.5 rounded-full text-sm font-medium mb-4">{data.categoria}</span>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">{data.h1}</h1>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">{data.intro.split("\n")[0]}</p>
-            <Button size="lg" variant="cta" onClick={handleWhatsApp}>
-              <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
-            </Button>
+            <div ref={heroCtaRef} className="inline-block">
+              <Button size="lg" variant="cta" onClick={handleWhatsApp}>
+                <MessageCircle className="mr-2 h-5 w-5" /> Falar com Técnico Agora
+              </Button>
+            </div>
           </div>
         </div>
       </section>

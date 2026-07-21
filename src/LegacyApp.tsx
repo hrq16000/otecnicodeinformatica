@@ -858,7 +858,7 @@ const App = () => (
             <Route path="/servicos/manutencao-tv/boqueirao" element={<ManutencaoTvBoqueirao />} />
             <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
             <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
-            <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />
+            <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidadeAncora />} />
             <Route path="/servicos/formatacao-computador/campo-comprido" element={<FormatacaoCampoComprido />} />
             <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
             <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />

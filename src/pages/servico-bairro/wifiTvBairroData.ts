@@ -81,7 +81,99 @@ export const BAIRROS_INDEXAVEIS: Record<string, BairroContext> = {
     descricaoLocal:
       "Portão combina residencial e comercial, com comércio local que depende de rede estável para maquininhas, câmeras e Smart TVs em salas de espera.",
   },
+  bigorrilho: {
+    slug: "bigorrilho",
+    nome: "Bigorrilho",
+    pontosReferencia: ["Shopping Mueller (proximidades)", "Praça do Expedicionário", "Champagnat"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba centro-oeste",
+    bairrosProximos: [
+      { nome: "Batel", slug: "batel" },
+      { nome: "Centro", slug: "centro" },
+      { nome: "Santa Felicidade", slug: "santa-felicidade" },
+    ],
+    descricaoLocal:
+      "Bigorrilho tem forte perfil residencial vertical, com prédios altos e Smart TVs grandes onde reparo de painel e ajuste de mesh entre andares são frequentes.",
+  },
+  cabral: {
+    slug: "cabral",
+    nome: "Cabral",
+    pontosReferencia: ["Estádio Couto Pereira", "Praça Redonda", "Av. Paraná"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba centro-norte",
+    bairrosProximos: [
+      { nome: "Boa Vista", slug: "boa-vista" },
+      { nome: "Cristo Rei", slug: "cristo-rei" },
+      { nome: "Centro", slug: "centro" },
+    ],
+    descricaoLocal:
+      "O Cabral mistura casas antigas e prédios novos — cenários em que cabeamento herdado e antenas coletivas exigem diagnóstico antes de instalar mesh ou nova Smart TV.",
+  },
+  "santa-felicidade": {
+    slug: "santa-felicidade",
+    nome: "Santa Felicidade",
+    pontosReferencia: ["Av. Manoel Ribas", "Bosque Italiano", "Cascatinha"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba noroeste",
+    bairrosProximos: [
+      { nome: "Bigorrilho", slug: "bigorrilho" },
+      { nome: "Cascatinha", slug: "cascatinha" },
+      { nome: "Campo Comprido", slug: "campo-comprido" },
+    ],
+    descricaoLocal:
+      "Santa Felicidade concentra casas amplas e restaurantes, onde cobertura Wi-Fi em áreas externas e reparo de TV grande são as demandas recorrentes.",
+  },
+  "boa-vista": {
+    slug: "boa-vista",
+    nome: "Boa Vista",
+    pontosReferencia: ["Shopping Barigüi (proximidades)", "Terminal Boa Vista", "Av. Paraná"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba norte",
+    bairrosProximos: [
+      { nome: "Cabral", slug: "cabral" },
+      { nome: "Cristo Rei", slug: "cristo-rei" },
+      { nome: "Bacacheri", slug: "bacacheri" },
+    ],
+    descricaoLocal:
+      "Boa Vista tem grande volume residencial e comércio de bairro — perfil em que roteador da operadora não cobre a casa toda e Smart TVs de médio porte precisam de manutenção.",
+  },
+  "cristo-rei": {
+    slug: "cristo-rei",
+    nome: "Cristo Rei",
+    pontosReferencia: ["UFPR Politécnico", "Praça Osório de Almeida", "Av. Sete de Setembro"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba leste-central",
+    bairrosProximos: [
+      { nome: "Jardim Botânico", slug: "jardim-botanico" },
+      { nome: "Cabral", slug: "cabral" },
+      { nome: "Centro", slug: "centro" },
+    ],
+    descricaoLocal:
+      "Cristo Rei mistura residências, universidades e escritórios técnicos — onde estabilidade de Wi-Fi para estudo/trabalho remoto é crítica e TVs de médio porte são padrão.",
+  },
+  cajuru: {
+    slug: "cajuru",
+    nome: "Cajuru",
+    pontosReferencia: ["Terminal Cajuru", "Av. das Torres", "Parque Náutico"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba leste",
+    bairrosProximos: [
+      { nome: "Boqueirão", slug: "boqueirao" },
+      { nome: "Jardim Botânico", slug: "jardim-botanico" },
+      { nome: "Uberaba", slug: "uberaba" },
+    ],
+    descricaoLocal:
+      "O Cajuru é uma das regiões residenciais mais populosas de Curitiba — muitas casas com Wi-Fi limitado ao roteador da operadora e Smart TVs que precisam de reparo de fonte com frequência.",
+  },
+  boqueirao: {
+    slug: "boqueirao",
+    nome: "Boqueirão",
+    pontosReferencia: ["Terminal Boqueirão", "Av. Marechal Floriano", "Rodoferroviária (proximidades)"],
+    tempoAtendimento: "atendimento no mesmo dia em Curitiba sudeste",
+    bairrosProximos: [
+      { nome: "Cajuru", slug: "cajuru" },
+      { nome: "Hauer", slug: "hauer" },
+      { nome: "Xaxim", slug: "xaxim" },
+    ],
+    descricaoLocal:
+      "Boqueirão é um grande bairro residencial com muito comércio local — atendimentos de Wi-Fi para casas grandes e conserto de TV com uso intenso predominam.",
+  },
 };
+
 
 export function buildWifiBairroData(bairroSlug: string): ServicoBairroData {
   const b = BAIRROS_INDEXAVEIS[bairroSlug];

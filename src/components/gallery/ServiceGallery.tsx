@@ -41,26 +41,44 @@ export const ServiceGallery = memo(function ServiceGallery({
             )}
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {images.map((img) => (
-              <figure
-                key={img.src}
-                className="rounded-xl overflow-hidden bg-background border border-border shadow-sm hover:shadow-md transition-shadow"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={img.width || 600}
-                  height={img.height || 400}
-                  className="w-full h-48 md:h-56 object-cover"
-                />
-                <figcaption className="p-3 text-xs md:text-sm text-muted-foreground text-center italic">
-                  {img.caption}
-                </figcaption>
-              </figure>
-            ))}
+            {images.map((img, idx) => {
+              // Constrói srcset para Unsplash (fmt=webp via `auto=format`).
+              // Fallback: usa a src original se não for URL do Unsplash.
+              const isUnsplash = /images\.unsplash\.com/.test(img.src);
+              const base = img.src.replace(/([?&])w=\d+/, "$1").replace(/&&+/g, "&");
+              const buildSrc = (w: number) =>
+                isUnsplash
+                  ? `${base}${base.includes("?") ? "&" : "?"}w=${w}&auto=format&fit=crop&q=70`
+                  : img.src;
+              const srcSet = isUnsplash
+                ? [400, 600, 900].map((w) => `${buildSrc(w)} ${w}w`).join(", ")
+                : undefined;
+              return (
+                <figure
+                  key={img.src}
+                  className="rounded-xl overflow-hidden bg-background border border-border shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <img
+                    src={buildSrc(600)}
+                    srcSet={srcSet}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    // 1º item recebe fetchpriority baixo (galeria sempre fora do fold).
+                    fetchPriority={idx === 0 ? "low" : undefined}
+                    width={img.width || 600}
+                    height={img.height || 400}
+                    className="w-full h-48 md:h-56 object-cover"
+                  />
+                  <figcaption className="p-3 text-xs md:text-sm text-muted-foreground text-center italic">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              );
+            })}
           </div>
+
         </div>
       </div>
     </section>

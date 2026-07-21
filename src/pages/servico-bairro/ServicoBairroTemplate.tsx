@@ -12,9 +12,10 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView } from "@/lib/analytics";
+import { trackWaClick } from "@/lib/funnelAnalytics";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const CANONICAL_BASE = "https://tecnico.curitiba.br";
 
 export interface ServicoBairroData {
   metaTitle: string;
@@ -43,34 +44,97 @@ export interface ServicoBairroData {
 
 
 export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => {
-  useEffect(() => {
-    document.title = data.metaTitle;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", data.metaDescription);
-    }
-    trackPageView(`/servicos/${data.servicoSlug}/${data.bairroSlug}`, `${data.servico} - ${data.bairro}`);
-  }, [data]);
+  const path = `/servicos/${data.servicoSlug}/${data.bairroSlug}`;
+  const canonical = `${CANONICAL_BASE}${path}`;
 
+  useEffect(() => {
+    trackPageView(path, `${data.servico} - ${data.bairro}`);
+  }, [path, data.servico, data.bairro]);
+
+  /**
+   * CTA WhatsApp → passa pelo funil obrigatório V5. Analytics resiliente:
+   * trackWaClick faz fallback para "unknown" quando modalidade/problema
+   * ainda não foram capturados na sessão.
+   */
   const handleWhatsAppClick = () => {
-    trackCTAClick("whatsapp", `${data.servicoSlug}-${data.bairroSlug}`);
-    const message = encodeURIComponent(`Olá! Preciso de ${data.servico.toLowerCase()} no ${data.bairro}. Qual a disponibilidade?`);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    const location = `${data.servicoSlug}-${data.bairroSlug}`;
+    trackWaClick(location, {
+      servico: data.servicoSlug,
+      bairro: data.bairroSlug,
+      cidade: data.cidadeSlug || "curitiba",
+    });
+    window.dispatchEvent(
+      new CustomEvent("wa-funnel:open", {
+        detail: {
+          location,
+          preset: { equipamento: null, sintoma: null },
+        },
+      }),
+    );
   };
 
-  const jsonLd = {
+  // Preço numérico normalizado (aceita "R$ 99,99" ou "R$ 299,99")
+  const priceNumeric = data.precoBase.replace(/[^\d,]/g, "").replace(",", ".");
+
+  // ── LocalBusiness (referenciável por @id em outros schemas)
+  const localBusinessLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${CANONICAL_BASE}/#localbusiness`,
+    name: "Técnico em Curitiba",
+    url: CANONICAL_BASE,
+    telephone: "+5541997086380",
+    areaServed: [
+      { "@type": "Place", name: `${data.bairro}, ${data.cidade}` },
+      { "@type": "City", name: data.cidade },
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: data.cidade,
+      addressRegion: "PR",
+      addressCountry: "BR",
+    },
+  };
+
+  // ── Service — canonical/@id self-referente na URL da página
+  const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${canonical}#service`,
     name: `${data.servico} no ${data.bairro}`,
     description: data.metaDescription,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Técnico Curitiba",
-      address: { "@type": "PostalAddress", addressLocality: data.cidade, addressRegion: "PR", addressCountry: "BR" },
-    },
+    serviceType: data.servico,
+    provider: { "@id": `${CANONICAL_BASE}/#localbusiness` },
     areaServed: { "@type": "Place", name: `${data.bairro}, ${data.cidade}` },
-    offers: { "@type": "Offer", price: data.precoBase.replace(/[^\d,]/g, "").replace(",", "."), priceCurrency: "BRL" }
+    offers: {
+      "@type": "Offer",
+      price: priceNumeric,
+      priceCurrency: "BRL",
+      url: canonical,
+      availability: "https://schema.org/InStock",
+    },
+    url: canonical,
   };
+
+  // ── FAQPage específico da página (usa apenas o data.faq real da rota)
+  const faqLd = data.faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${canonical}#faq`,
+        mainEntity: data.faq.map((f) => ({
+          "@type": "Question",
+          name: f.pergunta,
+          acceptedAnswer: { "@type": "Answer", text: f.resposta },
+        })),
+      }
+    : null;
+
+  const jsonLdGraph = {
+    "@context": "https://schema.org",
+    "@graph": [localBusinessLd, serviceLd, ...(faqLd ? [faqLd] : [])],
+  };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,7 +144,9 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
         { name: data.servico, path: `/servicos/${data.servicoSlug}` },
         { name: data.bairro, path: `/servicos/${data.servicoSlug}/${data.bairroSlug}` }
       ]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }} />
+      <link rel="canonical" href={canonical} data-canonical-servico-bairro />
+
       
       <Header />
       <Breadcrumbs

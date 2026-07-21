@@ -348,7 +348,7 @@ const FormatacaoPortao = lazy(() => import("./pages/servico-bairro/FormatacaoPor
 const RedesWifiCIC = lazy(() => import("./pages/servico-bairro/RedesWifiCIC"));
 const BackupCentro = lazy(() => import("./pages/servico-bairro/BackupCentro"));
 const ConsertoNotebookPortao = lazy(() => import("./pages/servico-bairro/ConsertoNotebookPortao"));
-const RedesWifiSantaFelicidade = lazy(() => import("./pages/servico-bairro/RedesWifiSantaFelicidade"));
+// RedesWifiSantaFelicidade legado desativado; rota agora usa RedesWifiSantaFelicidadeAncora (indexável).
 const FormatacaoCampoComprido = lazy(() => import("./pages/servico-bairro/FormatacaoCampoComprido"));
 const RemocaoVirusBatel = lazy(() => import("./pages/servico-bairro/RemocaoVirusBatel"));
 const MontagemPcCIC = lazy(() => import("./pages/servico-bairro/MontagemPcCIC"));
@@ -388,6 +388,21 @@ const ManutencaoTvCentro = lazy(() => import("./pages/servico-bairro/ManutencaoT
 const ManutencaoTvAguaVerde = lazy(() => import("./pages/servico-bairro/ManutencaoTvAguaVerde"));
 const ManutencaoTvCic = lazy(() => import("./pages/servico-bairro/ManutencaoTvCic"));
 const ManutencaoTvPortao = lazy(() => import("./pages/servico-bairro/ManutencaoTvPortao"));
+// Onda 2 — completa 12 bairros-âncora indexáveis (Wi-Fi + TV Smart)
+const RedesWifiBigorrilho = lazy(() => import("./pages/servico-bairro/RedesWifiBigorrilho"));
+const RedesWifiCabral = lazy(() => import("./pages/servico-bairro/RedesWifiCabral"));
+const RedesWifiSantaFelicidadeAncora = lazy(() => import("./pages/servico-bairro/RedesWifiSantaFelicidadeAncora"));
+const RedesWifiBoaVista = lazy(() => import("./pages/servico-bairro/RedesWifiBoaVista"));
+const RedesWifiCristoRei = lazy(() => import("./pages/servico-bairro/RedesWifiCristoRei"));
+const RedesWifiCajuru = lazy(() => import("./pages/servico-bairro/RedesWifiCajuru"));
+const RedesWifiBoqueirao = lazy(() => import("./pages/servico-bairro/RedesWifiBoqueirao"));
+const ManutencaoTvBigorrilho = lazy(() => import("./pages/servico-bairro/ManutencaoTvBigorrilho"));
+const ManutencaoTvCabral = lazy(() => import("./pages/servico-bairro/ManutencaoTvCabral"));
+const ManutencaoTvSantaFelicidade = lazy(() => import("./pages/servico-bairro/ManutencaoTvSantaFelicidade"));
+const ManutencaoTvBoaVista = lazy(() => import("./pages/servico-bairro/ManutencaoTvBoaVista"));
+const ManutencaoTvCristoRei = lazy(() => import("./pages/servico-bairro/ManutencaoTvCristoRei"));
+const ManutencaoTvCajuru = lazy(() => import("./pages/servico-bairro/ManutencaoTvCajuru"));
+const ManutencaoTvBoqueirao = lazy(() => import("./pages/servico-bairro/ManutencaoTvBoqueirao"));
 
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
@@ -827,9 +842,23 @@ const App = () => (
             <Route path="/servicos/manutencao-tv/agua-verde" element={<ManutencaoTvAguaVerde />} />
             <Route path="/servicos/manutencao-tv/cic" element={<ManutencaoTvCic />} />
             <Route path="/servicos/manutencao-tv/portao" element={<ManutencaoTvPortao />} />
+            {/* Onda 2 — 7 bairros âncora restantes (Wi-Fi + TV Smart) */}
+            <Route path="/servicos/redes-wifi/bigorrilho" element={<RedesWifiBigorrilho />} />
+            <Route path="/servicos/redes-wifi/cabral" element={<RedesWifiCabral />} />
+            <Route path="/servicos/redes-wifi/boa-vista" element={<RedesWifiBoaVista />} />
+            <Route path="/servicos/redes-wifi/cristo-rei" element={<RedesWifiCristoRei />} />
+            <Route path="/servicos/redes-wifi/cajuru" element={<RedesWifiCajuru />} />
+            <Route path="/servicos/redes-wifi/boqueirao" element={<RedesWifiBoqueirao />} />
+            <Route path="/servicos/manutencao-tv/bigorrilho" element={<ManutencaoTvBigorrilho />} />
+            <Route path="/servicos/manutencao-tv/cabral" element={<ManutencaoTvCabral />} />
+            <Route path="/servicos/manutencao-tv/santa-felicidade" element={<ManutencaoTvSantaFelicidade />} />
+            <Route path="/servicos/manutencao-tv/boa-vista" element={<ManutencaoTvBoaVista />} />
+            <Route path="/servicos/manutencao-tv/cristo-rei" element={<ManutencaoTvCristoRei />} />
+            <Route path="/servicos/manutencao-tv/cajuru" element={<ManutencaoTvCajuru />} />
+            <Route path="/servicos/manutencao-tv/boqueirao" element={<ManutencaoTvBoqueirao />} />
             <Route path="/servicos/backup-recuperacao/centro" element={<BackupCentro />} />
             <Route path="/servicos/conserto-pc-notebook/portao" element={<ConsertoNotebookPortao />} />
-            <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidade />} />
+            <Route path="/servicos/redes-wifi/santa-felicidade" element={<RedesWifiSantaFelicidadeAncora />} />
             <Route path="/servicos/formatacao-computador/campo-comprido" element={<FormatacaoCampoComprido />} />
             <Route path="/servicos/remocao-virus/batel" element={<RemocaoVirusBatel />} />
             <Route path="/servicos/montagem-pc/cic" element={<MontagemPcCIC />} />

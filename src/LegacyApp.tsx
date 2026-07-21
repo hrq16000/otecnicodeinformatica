@@ -403,6 +403,15 @@ const ManutencaoTvBoaVista = lazy(() => import("./pages/servico-bairro/Manutenca
 const ManutencaoTvCristoRei = lazy(() => import("./pages/servico-bairro/ManutencaoTvCristoRei"));
 const ManutencaoTvCajuru = lazy(() => import("./pages/servico-bairro/ManutencaoTvCajuru"));
 const ManutencaoTvBoqueirao = lazy(() => import("./pages/servico-bairro/ManutencaoTvBoqueirao"));
+// Onda 3 — 4 novos bairros âncora (Wi-Fi + TV Smart)
+const RedesWifiJardimAmericas = lazy(() => import("./pages/servico-bairro/RedesWifiJardimAmericas"));
+const ManutencaoTvJardimAmericas = lazy(() => import("./pages/servico-bairro/ManutencaoTvJardimAmericas"));
+const RedesWifiEcoville = lazy(() => import("./pages/servico-bairro/RedesWifiEcoville"));
+const ManutencaoTvEcoville = lazy(() => import("./pages/servico-bairro/ManutencaoTvEcoville"));
+const RedesWifiAltoXV = lazy(() => import("./pages/servico-bairro/RedesWifiAltoXV"));
+const ManutencaoTvAltoXV = lazy(() => import("./pages/servico-bairro/ManutencaoTvAltoXV"));
+const RedesWifiReboucas = lazy(() => import("./pages/servico-bairro/RedesWifiReboucas"));
+const ManutencaoTvReboucas = lazy(() => import("./pages/servico-bairro/ManutencaoTvReboucas"));
 
 // Dynamic service+city page
 const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));

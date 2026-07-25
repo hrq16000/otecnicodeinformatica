@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,13 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { CalendarIcon, Clock, MapPin, Wrench, User, Phone, MessageSquare, CheckCircle2, ArrowRight, Send } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import {
+  trackFunnelAgendarClick,
+  trackFunnelAgendarSubmit,
+  trackFunnelModalOpen,
+  trackFunnelModalImpression,
+} from "@/lib/funnelAnalytics";
+
 
 const WHATSAPP_NUMBER = "5541997086380";
 
@@ -80,6 +87,12 @@ export const SchedulingModal = ({ isOpen, onClose, initialService }: SchedulingM
   const isStep2Complete = formData.date && formData.time;
   const isStep3Complete = formData.name && formData.phone;
 
+  useEffect(() => {
+    if (!isOpen) return;
+    trackFunnelModalOpen({ ctaLocation: "scheduling_modal", hasPreset: !!initialService });
+    trackFunnelModalImpression({ ctaLocation: "scheduling_modal" });
+  }, [isOpen, initialService]);
+
   const handleWhatsAppSubmit = () => {
     const serviceLabel = services.find((s) => s.value === formData.service)?.label || formData.service;
     const regionLabel = regions.find((r) => r.value === formData.region)?.label || formData.region;
@@ -103,10 +116,24 @@ Aguardo confirmação do agendamento.
 Li e concordo com a política de preços (A partir de R$ 69,99).`;
 
     trackCTAClick("whatsapp", `agendamento_${formData.service}`);
+    trackFunnelAgendarClick({
+      equipamento: formData.service,
+      sintoma: formData.description || null,
+      modalidade: "agendamento",
+      ctaLocation: "scheduling_modal",
+    });
+    trackFunnelAgendarSubmit({
+      servico: formData.service,
+      regiao: formData.region,
+      hasDate: !!formData.date,
+      hasTime: !!formData.time,
+      ctaLocation: "scheduling_modal",
+    });
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     onClose();
   };
+
 
   const resetForm = () => {
     setStep(1);

@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      click_events: {
+        Row: {
+          bairro: string | null
+          cidade: string | null
+          created_at: string
+          cta_location: string | null
+          equipamento: string | null
+          event_type: string
+          id: string
+          modalidade: string | null
+          path: string | null
+          problema: string | null
+          servico: string | null
+          session_id: string | null
+        }
+        Insert: {
+          bairro?: string | null
+          cidade?: string | null
+          created_at?: string
+          cta_location?: string | null
+          equipamento?: string | null
+          event_type: string
+          id?: string
+          modalidade?: string | null
+          path?: string | null
+          problema?: string | null
+          servico?: string | null
+          session_id?: string | null
+        }
+        Update: {
+          bairro?: string | null
+          cidade?: string | null
+          created_at?: string
+          cta_location?: string | null
+          equipamento?: string | null
+          event_type?: string
+          id?: string
+          modalidade?: string | null
+          path?: string | null
+          problema?: string | null
+          servico?: string | null
+          session_id?: string | null
+        }
+        Relationships: []
+      }
       funnel_submissions: {
         Row: {
           atendido_em: string | null

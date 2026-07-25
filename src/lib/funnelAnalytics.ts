@@ -1,9 +1,13 @@
 /**
  * Helpers de tracking de eventos do funil para GA4 (window.gtag).
  * Falha silenciosa quando gtag não está carregado (dev / adblock).
+ * Cliques em WhatsApp/Ligar também são persistidos em `click_events`
+ * (Supabase) para alimentar o dashboard admin por bairro/serviço.
  */
 import { readUtms } from "./utmCapture";
 import { getSessionId } from "./funnelSubmission";
+import { supabase } from "@/integrations/supabase/client";
+
 
 type GtagFn = (...args: unknown[]) => void;
 
@@ -171,15 +175,60 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
   }
 }
 
+function persistClickEvent(eventType: "wa_click" | "call_click", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  const payload = {
+    event_type: eventType,
+    cta_location: location,
+    modalidade: ctx.modalidade,
+    equipamento: ctx.equipamento,
+    problema: ctx.problema,
+    servico: typeof extra.servico === "string" ? extra.servico : null,
+    bairro: typeof extra.bairro === "string" ? extra.bairro : null,
+    cidade: typeof extra.cidade === "string" ? extra.cidade : null,
+    session_id: getSessionId(),
+    path: window.location.pathname,
+  };
+  // Fire-and-forget; nunca bloqueia o clique.
+  void supabase.from("click_events").insert(payload).then(({ error }) => {
+    if (error && (window as unknown as { __funnelDebug?: boolean }).__funnelDebug) {
+      // eslint-disable-next-line no-console
+      console.debug("[click_events] insert failed", error.message);
+    }
+  });
+}
+
 export const trackWaClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
   track("wa_click", { cta_location: location, ...ctx, ...extra });
+  persistClickEvent("wa_click", location, ctx, extra);
 };
 
 export const trackCallClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
   track("call_click", { cta_location: location, ...ctx, ...extra });
+  persistClickEvent("call_click", location, ctx, extra);
 };
+
+/**
+ * Submit efetivo do modal "Agendar agora" (Agendar → WhatsApp). Complementa
+ * `trackFunnelAgendarClick` para medir taxa clique→envio dentro do modal.
+ */
+export const trackFunnelAgendarSubmit = (params: {
+  servico?: string | null;
+  regiao?: string | null;
+  hasDate?: boolean;
+  hasTime?: boolean;
+  ctaLocation?: string;
+}) =>
+  track("wa_funnel_agendar_submit", {
+    servico: params.servico || "unknown",
+    regiao: params.regiao || "unknown",
+    has_date: !!params.hasDate,
+    has_time: !!params.hasTime,
+    cta_location: params.ctaLocation || "scheduling_modal",
+  });
+
 
 /**
  * Clique em serviço interno dentro de páginas /problema/*.

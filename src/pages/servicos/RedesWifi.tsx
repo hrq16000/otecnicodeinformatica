@@ -106,18 +106,16 @@ const data: ServicoLandingData = {
     { label: "Remoção de vírus", to: "/servicos/remocao-virus" },
   ],
   dateModified: "2026-07-21",
-};
-
-const RedesWifi = () => (
-  <>
-    <ServicoLandingLayout data={data} />
+  extra: (
     <ServiceGallery
       id="galeria-wifi"
       title="O que está incluso no atendimento de Wi-Fi"
       subtitle="Da análise do ambiente até a configuração final: veja o que o técnico entrega em cada visita."
       images={wifiGalleryImages}
     />
-  </>
-);
+  ),
+};
+
+const RedesWifi = () => <ServicoLandingLayout data={data} />;
 
 export default RedesWifi;

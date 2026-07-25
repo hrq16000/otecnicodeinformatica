@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,13 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { CalendarIcon, Clock, MapPin, Wrench, User, Phone, MessageSquare, CheckCircle2, ArrowRight, Send } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import {
+  trackFunnelAgendarClick,
+  trackFunnelAgendarSubmit,
+  trackFunnelModalOpen,
+  trackFunnelModalImpression,
+} from "@/lib/funnelAnalytics";
+
 
 const WHATSAPP_NUMBER = "5541997086380";
 

@@ -1,9 +1,13 @@
 /**
  * Helpers de tracking de eventos do funil para GA4 (window.gtag).
  * Falha silenciosa quando gtag não está carregado (dev / adblock).
+ * Cliques em WhatsApp/Ligar também são persistidos em `click_events`
+ * (Supabase) para alimentar o dashboard admin por bairro/serviço.
  */
 import { readUtms } from "./utmCapture";
 import { getSessionId } from "./funnelSubmission";
+import { supabase } from "@/integrations/supabase/client";
+
 
 type GtagFn = (...args: unknown[]) => void;
 

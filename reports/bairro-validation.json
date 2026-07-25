@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-07-25T23:33:41.774Z",
+  "bairros": [
+    {
+      "slug": "batel",
+      "nome": "Batel",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "centro",
+      "nome": "Centro",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "agua-verde",
+      "nome": "Água Verde",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "cic",
+      "nome": "CIC",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "portao",
+      "nome": "Portão",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "bigorrilho",
+      "nome": "Bigorrilho",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "cabral",
+      "nome": "Cabral",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "santa-felicidade",
+      "nome": "Santa Felicidade",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "boa-vista",
+      "nome": "Boa Vista",
+      "palavrasProprias": 0,
+      "palavrasUnicas": 0,
+      "status": "warn:sem-narrativa"
+    },
+    {
+      "slug": "jardim-das-americas",
+      "nome": "Jardim das Américas",
+      "palavrasProprias": 232,
+      "palavrasUnicas": 209,
+      "status": "ok"
+    },
+    {
+      "slug": "ecoville",
+      "nome": "Ecoville",
+      "palavrasProprias": 235,
+      "palavrasUnicas": 203,
+      "status": "ok"
+    },
+    {
+      "slug": "alto-da-xv",
+      "nome": "Alto da XV",
+      "palavrasProprias": 213,
+      "palavrasUnicas": 195,
+      "status": "ok"
+    },
+    {
+      "slug": "reboucas",
+      "nome": "Rebouças",
+      "palavrasProprias": 215,
+      "palavrasUnicas": 185,
+      "status": "ok"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "jardim-das-americas",
+      "b": "ecoville",
+      "jaccard": 0.09,
+      "status": "ok"
+    },
+    {
+      "a": "jardim-das-americas",
+      "b": "alto-da-xv",
+      "jaccard": 0.107,
+      "status": "ok"
+    },
+    {
+      "a": "jardim-das-americas",
+      "b": "reboucas",
+      "jaccard": 0.126,
+      "status": "ok"
+    },
+    {
+      "a": "ecoville",
+      "b": "alto-da-xv",
+      "jaccard": 0.099,
+      "status": "ok"
+    },
+    {
+      "a": "ecoville",
+      "b": "reboucas",
+      "jaccard": 0.112,
+      "status": "ok"
+    },
+    {
+      "a": "alto-da-xv",
+      "b": "reboucas",
+      "jaccard": 0.098,
+      "status": "ok"
+    }
+  ]
+}

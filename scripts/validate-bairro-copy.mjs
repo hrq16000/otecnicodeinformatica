@@ -13,8 +13,9 @@
  * Bairros herdados (sem `narrativaLocal`) são grandfathered com WARN — só
  * quebram o build a partir da onda 3 (novos slugs com narrativa obrigatória).
  */
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+
 
 const STOPWORDS = new Set(
   ("a à ao aos as até com como da das de do dos e em entre é era eram essa esse essas esses esta estas este estes eu foi for foram há isso isto já lhe lhes mais mas me mesmo meu meus minha minhas na nas no nos nós num numa o os ou para pela pelas pelo pelos por qual quando que quem se sem ser será seu seus só sob sobre sua suas também te tem tém tinha tinham um uma umas uns você vocês")

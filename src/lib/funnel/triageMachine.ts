@@ -26,6 +26,7 @@ import {
   type SymptomMeta,
   type TriageAnswers,
 } from "./triageConfig";
+import { buildTemplateOpening, buildTrackingLine } from "@/lib/whatsappTemplates";
 
 // ─────────────────────────────────────────────────────────────
 // ETAPAS
@@ -295,6 +296,11 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
     ...EMPTY_ANSWERS,
     equipment: next,
     urgency: a.urgency, // urgência é neutra, pode ser preservada
+    // Qualificação é neutra em relação ao equipamento: preserva.
+    fields: {
+      ...(a.fields.nome ? { nome: a.fields.nome } : {}),
+      ...(a.fields.bairro ? { bairro: a.fields.bairro } : {}),
+    },
   };
 }
 
@@ -344,6 +350,8 @@ export function buildTriageSummary(a: TriageAnswers): SummaryRow[] {
   const eq = getEquipment(a.equipment);
   const rules = getPricingRules(a);
   const rows: SummaryRow[] = [];
+  if (a.fields.nome) rows.push({ label: "Nome", value: a.fields.nome });
+  if (a.fields.bairro) rows.push({ label: "Bairro/cidade", value: a.fields.bairro });
   if (eq) rows.push({ label: "Equipamento", value: eq.label });
 
   const marca = a.fields.marca || a.fields.console || a.fields["equip-nome"];
@@ -397,7 +405,15 @@ export function buildWhatsAppMessage(
 ): string {
   const rows = buildTriageSummary(a);
   const lines: string[] = [];
-  lines.push(`Olá! Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
+  lines.push(
+    buildTemplateOpening({
+      cat: a.equipment ?? "outro",
+      sym: getSymptomLabel(a),
+      bairro: a.fields.bairro,
+      nome: a.fields.nome,
+    }),
+  );
+  lines.push(`Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
   lines.push("");
   for (const r of rows) {
     if (r.label === "Observação adicional") continue; // vai por último
@@ -414,6 +430,14 @@ export function buildWhatsAppMessage(
     lines.push(`*Observação adicional:* ${obs.value}`);
   }
   lines.push("");
+  lines.push(
+    buildTrackingLine({
+      cat: a.equipment ?? "outro",
+      sym: getSymptomLabel(a),
+      bairro: a.fields.bairro,
+      servico: getPricingRules(a).routeLabel,
+    }),
+  );
   lines.push(`_Triagem ${triageId} · ${new Date().toLocaleString("pt-BR")} · v${TRIAGE_VERSION}_`);
   return lines.join("\n");
 }

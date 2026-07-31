@@ -1,7 +1,7 @@
 import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { GestorResponsavelSection } from "@/components/GestorResponsavelSection";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { useValidatedJsonLd } from "@/lib/schemaValidation";

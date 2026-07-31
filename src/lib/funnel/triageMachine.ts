@@ -77,12 +77,17 @@ function visible(fields: Field[], a: TriageAnswers): Field[] {
   return fields.filter((f) => !f.visibleWhen || f.visibleWhen(a));
 }
 
-/** Campos da etapa "identity" (identificação + sintoma). */
+/** Campos da etapa "identity" (qualificação + identificação + sintoma). */
 export function getIdentityFields(a: TriageAnswers): Field[] {
   const eq = getEquipment(a.equipment);
   if (!eq) return [];
-  return [...visible(eq.identityFields, a), eq.symptomField];
+  return [
+    ...QUALIFICATION_FIELDS,
+    ...visible(eq.identityFields, a),
+    eq.symptomField,
+  ];
 }
+
 
 /** Campos da etapa "details" (contextuais + evento + urgência). */
 export function getDetailsFields(a: TriageAnswers): Field[] {

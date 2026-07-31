@@ -172,12 +172,13 @@ const AdminDashboard = () => {
             </p>
           </div>
           <div className="flex gap-2 items-center">
-            <Select value={range} onValueChange={(v) => setRange(v as keyof typeof RANGES)}>
-              <SelectTrigger className="w-32"><SelectValue /></SelectTrigger>
+            <Select value={range} onValueChange={(v) => setRange(v as keyof typeof RANGES | "custom")}>
+              <SelectTrigger className="w-36"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="7d">Últimos 7 dias</SelectItem>
                 <SelectItem value="30d">Últimos 30 dias</SelectItem>
                 <SelectItem value="90d">Últimos 90 dias</SelectItem>
+                <SelectItem value="custom">Período personalizado</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="outline" size="sm" onClick={fetchData} disabled={loading}>
@@ -192,6 +193,69 @@ const AdminDashboard = () => {
             </Button>
           </div>
         </div>
+
+        {/* Filtros */}
+        <div className="flex flex-wrap gap-3 items-end mb-6 rounded-lg border border-border p-4">
+          {range === "custom" && (
+            <>
+              <label className="text-xs text-muted-foreground flex flex-col gap-1">
+                De
+                <input
+                  type="date"
+                  value={dateFrom}
+                  onChange={(e) => setDateFrom(e.target.value)}
+                  className="h-9 rounded-md border border-input bg-background px-2 text-sm"
+                />
+              </label>
+              <label className="text-xs text-muted-foreground flex flex-col gap-1">
+                Até
+                <input
+                  type="date"
+                  value={dateTo}
+                  onChange={(e) => setDateTo(e.target.value)}
+                  className="h-9 rounded-md border border-input bg-background px-2 text-sm"
+                />
+              </label>
+            </>
+          )}
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-muted-foreground">Bairro</span>
+            <Select value={bairro} onValueChange={setBairro}>
+              <SelectTrigger className="w-44"><SelectValue placeholder="Todos" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value={ALL}>Todos os bairros</SelectItem>
+                {bairroOptions.map((b) => (
+                  <SelectItem key={b} value={b}>{b}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-muted-foreground">Serviço</span>
+            <Select value={servico} onValueChange={setServico}>
+              <SelectTrigger className="w-52"><SelectValue placeholder="Todos" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value={ALL}>Todos os serviços</SelectItem>
+                {servicoOptions.map((s) => (
+                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          {(bairro !== ALL || servico !== ALL) && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => { setBairro(ALL); setServico(ALL); }}
+            >
+              Limpar filtros
+            </Button>
+          )}
+          <p className="text-xs text-muted-foreground ml-auto">
+            {rows.length} de {allRows.length} eventos
+          </p>
+        </div>
+
 
         {/* KPIs */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">

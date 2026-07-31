@@ -281,3 +281,52 @@ export const trackCtaVisible = (params: {
     visible_at_ms: params.visibleAtMs,
   });
 
+
+/**
+ * Qualificação curta (nome, bairro, urgência e sintoma) enviada imediatamente
+ * antes de abrir o WhatsApp. Envia ao GA4 e ao buffer global de observabilidade
+ * (`window.__APP_ERRORS__` / evento `app:error` — consumido pelo Sentry quando
+ * habilitado). Não inclui telefone nem qualquer contato direto.
+ */
+export const trackFunnelQualification = (params: {
+  nome?: string;
+  bairro?: string;
+  urgencia?: string | null;
+  sintoma?: string | null;
+  categoria?: string | null;
+  modalidade?: string | null;
+  triageId?: string;
+  originUrl?: string;
+}) => {
+  const payload = {
+    // nome não é enviado em claro ao analytics: só o indicador de preenchimento.
+    has_nome: Boolean(params.nome?.trim()),
+    bairro: params.bairro?.trim() || "unknown",
+    urgencia: params.urgencia || "unknown",
+    sintoma: params.sintoma || "unknown",
+    categoria: params.categoria || "unknown",
+    modalidade: params.modalidade || "unknown",
+    triage_id: params.triageId || "unknown",
+    origin_url: params.originUrl || "unknown",
+  };
+  track("wa_funnel_qualification", payload);
+  try {
+    const w = window as unknown as {
+      Sentry?: { addBreadcrumb?: (b: Record<string, unknown>) => void };
+      __APP_ERRORS__?: Array<Record<string, unknown>>;
+    };
+    w.Sentry?.addBreadcrumb?.({
+      category: "funnel",
+      level: "info",
+      message: "wa_funnel_qualification",
+      data: payload,
+    });
+    w.__APP_ERRORS__ = w.__APP_ERRORS__ || [];
+    w.__APP_ERRORS__.push({ kind: "funnel_qualification", ...payload, ts: Date.now() });
+    window.dispatchEvent(
+      new CustomEvent("app:funnel-qualification", { detail: payload }),
+    );
+  } catch {
+    /* noop */
+  }
+};

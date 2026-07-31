@@ -18,6 +18,7 @@ const TecnicoInformaticaAraucaria = lazy(() => import("./pages/TecnicoInformatic
 const TecnicoInformaticaCampoLargo = lazy(() => import("./pages/TecnicoInformaticaCampoLargo"));
 const TecnicoInformaticaPinhais = lazy(() => import("./pages/TecnicoInformaticaPinhais"));
 const Sobre = lazy(() => import("./pages/Sobre"));
+const GestorResponsavel = lazy(() => import("./pages/GestorResponsavel"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -514,6 +515,7 @@ const App = () => (
             <Route path="/tecnico-informatica-quatro-barras" element={<TecnicoInformaticaQuatroBarras />} />
             
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/gestor-responsavel" element={<GestorResponsavel />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/obrigado" element={<Obrigado />} />
             <Route path="/blog" element={<Blog />} />

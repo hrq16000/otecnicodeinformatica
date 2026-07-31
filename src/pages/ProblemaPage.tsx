@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import { ClusterLinks } from "@/components/ClusterLinks";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
@@ -633,6 +634,11 @@ const ProblemaPage = () => {
       </section>
       </AnimatedSection>
 
+      <ClusterLinks
+        titulo="Serviços, modalidades e regiões relacionadas"
+        categoria={data.categoria}
+        contexto={data.h1}
+      />
       <BlocoInteligencia />
       <InterlinkingBlock />
       <Footer />

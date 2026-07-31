@@ -11,6 +11,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle, Truck, AlertTriangle, ArrowRight, Camera } from "lucide-react";
@@ -131,6 +132,17 @@ const AtendimentoDomicilio = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocalBusinessJsonLd
+        scriptId="ld-localbusiness-domicilio"
+        path="/atendimento-domicilio"
+        name="Técnico em Curitiba — Atendimento em domicílio"
+        description="Atendimento técnico de informática em domicílio em Curitiba e região metropolitana, com diagnóstico no local antes do orçamento."
+        services={[
+          { name: "Atendimento técnico em domicílio", url: "/atendimento-domicilio" },
+          { name: "Manutenção de computador", url: "/servicos/manutencao-de-computador" },
+          { name: "Redes e Wi-Fi", url: "/servicos/redes-e-wifi" },
+        ]}
+      />
       <PageSEO title="Técnico de Informática em Domicílio em Curitiba | Atendimento" description="Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local." path="/atendimento-domicilio" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento a Domicílio", path: "/atendimento-domicilio" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <JsonLdSchema />

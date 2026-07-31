@@ -153,8 +153,33 @@ export const EMPTY_ANSWERS: TriageAnswers = {
 };
 
 // ─────────────────────────────────────────────────────────────
+// QUALIFICAÇÃO CURTA (obrigatória antes de abrir o WhatsApp)
+// nome + bairro/cidade — urgência e sintoma já existem no fluxo.
+// ─────────────────────────────────────────────────────────────
+export const QUALIFICATION_FIELDS: Field[] = [
+  {
+    id: "nome",
+    label: "Seu nome",
+    type: "text",
+    required: true,
+    minLength: 2,
+    placeholder: "Como podemos te chamar?",
+  },
+  {
+    id: "bairro",
+    label: "Bairro e cidade",
+    type: "text",
+    required: true,
+    minLength: 3,
+    placeholder: "Ex.: Batel, Curitiba",
+    helper: "Usamos para confirmar a região de atendimento e o deslocamento.",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
 // HELPERS DE CAMPO REUTILIZÁVEIS
 // ─────────────────────────────────────────────────────────────
+
 const modeloField: Field = {
   id: "modelo",
   label: "Marca e modelo (se souber)",

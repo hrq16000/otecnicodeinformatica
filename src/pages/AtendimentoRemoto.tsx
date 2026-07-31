@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { trackPageView } from "@/lib/analytics";
 import { MessageCircle, Zap, Download, MapPinOff, CheckCircle2, Ban, ShieldCheck, ArrowRight, Lock } from "lucide-react";
 
@@ -117,6 +118,17 @@ const AtendimentoRemoto = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocalBusinessJsonLd
+        scriptId="ld-localbusiness-remoto"
+        path="/atendimento-remoto"
+        name="Técnico em Curitiba — Suporte remoto"
+        description="Suporte técnico remoto para sistemas, programas, configurações e orientações, atendendo Curitiba e região metropolitana."
+        services={[
+          { name: "Suporte remoto", url: "/atendimento-remoto" },
+          { name: "Formatação e reinstalação de sistema", url: "/servicos/formatacao" },
+          { name: "Remoção de vírus", url: "/servicos/remocao-de-virus" },
+        ]}
+      />
       <PageSEO title="Suporte Remoto de Informática | Atendimento em Curitiba" description="Suporte remoto para configurações, sistemas, programas, acesso, orientações e problemas de informática que não exigem intervenção física." path="/atendimento-remoto" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento Remoto", path: "/atendimento-remoto" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <JsonLdSchema />

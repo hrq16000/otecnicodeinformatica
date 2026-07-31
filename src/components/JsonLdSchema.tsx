@@ -1,59 +1,27 @@
 import { useEffect } from 'react';
 import { validateAndInjectSchema } from '@/lib/schemaValidation';
+import { buildLocalBusinessSchema } from '@/lib/localBusinessJsonLd';
 
 const SITE = "https://tecnico.curitiba.br";
 const BUILD_DATE = new Date().toISOString();
 
+// NAP, área atendida e horários vêm da fonte única (localBusinessJsonLd.ts)
 const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": `${SITE}/#organization`,
-  "name": "Técnico Curitiba - Suporte em Informática",
-  "alternateName": ["Técnico de Informática Curitiba", "Assistência Técnica Curitiba"],
-  "description": "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Atendimento domiciliar no mesmo dia.",
-  "url": SITE,
-  "email": "contato@tecnico.curitiba.br",
-  "image": `${SITE}/og-image.png`,
-  "logo": `${SITE}/logo.png`,
-  "priceRange": "R$ 69,99 - R$ 500",
-  "currenciesAccepted": "BRL",
-  "foundingDate": "1999",
-  "slogan": "Assistência Técnica Nº1 de Curitiba e Região",
-  "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, PIX, Transferência Bancária",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Curitiba",
-    "addressRegion": "PR",
-    "postalCode": "80000-000",
-    "addressCountry": "BR"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": "-25.4284", "longitude": "-49.2733" },
-  "areaServed": [
-    { "@type": "City", "name": "Curitiba", "sameAs": "https://pt.wikipedia.org/wiki/Curitiba" },
-    { "@type": "City", "name": "São José dos Pinhais" },
-    { "@type": "City", "name": "Araucária" },
-    { "@type": "City", "name": "Campo Largo" },
-    { "@type": "City", "name": "Pinhais" },
-    { "@type": "City", "name": "Colombo" },
-    { "@type": "City", "name": "Almirante Tamandaré" },
-    { "@type": "City", "name": "Fazenda Rio Grande" },
-    { "@type": "City", "name": "Piraquara" },
-    { "@type": "City", "name": "Quatro Barras" },
-    { "@type": "City", "name": "Campo Magro" }
-  ],
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
-  ],
-  "sameAs": ["https://wa.me/5541997086380"],
-  "knowsAbout": [
+  ...buildLocalBusinessSchema({
+    path: "/",
+    description:
+      "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Diagnóstico honesto antes do orçamento.",
+  }),
+  slogan: "Assistência Técnica em Informática em Curitiba",
+  knowsAbout: [
     "Manutenção de computadores", "Conserto de notebooks", "Formatação Windows",
     "Remoção de vírus", "Upgrade de hardware", "Configuração de redes",
     "Suporte técnico em informática", "Instalação de câmeras CFTV",
     "Conserto de impressoras", "Assistência de eletrodomésticos inteligentes"
   ],
-  "hasMap": "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+em+Curitiba"
+  hasMap: "https://www.google.com/maps/search/?api=1&query=T%C3%A9cnico+em+Curitiba",
 };
+
 
 const faqSchema = {
   "@context": "https://schema.org",

@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
@@ -53,6 +54,17 @@ const ColetaEntrega = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocalBusinessJsonLd
+        scriptId="ld-localbusiness-coleta"
+        path="/coleta-e-entrega"
+        name="Técnico em Curitiba — Coleta e entrega"
+        description="Coleta e entrega de equipamentos em Curitiba e região metropolitana para reparos que exigem bancada, com prazo e condições informados na triagem."
+        services={[
+          { name: "Coleta e entrega de equipamentos", url: "/coleta-e-entrega" },
+          { name: "Manutenção de notebook", url: "/servicos/manutencao-de-notebook" },
+          { name: "Recuperação de dados", url: "/servicos/recuperacao-de-dados" },
+        ]}
+      />
       <PageSEO title="Coleta e Entrega de Computador e Notebook em Curitiba" description="Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada." path="/coleta-e-entrega" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Coleta e Entrega", path: "/coleta-e-entrega" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",

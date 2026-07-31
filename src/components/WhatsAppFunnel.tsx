@@ -16,6 +16,7 @@ import {
   trackFunnelAgendarImpression,
   trackFunnelModalOpen,
   trackFunnelModalImpression,
+  trackFunnelQualification,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
@@ -450,6 +451,16 @@ export const WhatsAppFunnel = () => {
         typeof window !== "undefined"
           ? `${window.location.origin}${window.location.pathname}${window.location.search}`
           : undefined;
+      trackFunnelQualification({
+        nome: answers.fields.nome,
+        bairro: answers.fields.bairro,
+        urgencia: answers.urgency,
+        sintoma: answers.symptom,
+        categoria: answers.equipment,
+        modalidade: rules.route,
+        triageId,
+        originUrl,
+      });
       const base = buildWhatsAppMessage(answers, triageId, originUrl);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${base}` : base;
 

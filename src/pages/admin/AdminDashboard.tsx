@@ -30,35 +30,63 @@ const RANGES: Record<string, number> = {
   "90d": 90,
 };
 
+const ALL = "__all__";
+
 const AdminDashboard = () => {
   const { loading: authLoading, session, isAdmin } = useAdminAuth();
-  const [rows, setRows] = useState<ClickEvent[]>([]);
+  const [allRows, setAllRows] = useState<ClickEvent[]>([]);
   const [loading, setLoading] = useState(false);
-  const [range, setRange] = useState<keyof typeof RANGES>("30d");
+  const [range, setRange] = useState<keyof typeof RANGES | "custom">("30d");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+  const [bairro, setBairro] = useState(ALL);
+  const [servico, setServico] = useState(ALL);
 
   const fetchData = async () => {
     if (!isAdmin) return;
     setLoading(true);
-    const since = new Date();
-    since.setDate(since.getDate() - RANGES[range]);
-    const { data, error } = await supabase
-      .from("click_events")
-      .select("*")
-      .gte("created_at", since.toISOString())
-      .order("created_at", { ascending: false })
-      .limit(5000);
+    let query = supabase.from("click_events").select("*");
+    if (range === "custom") {
+      if (dateFrom) query = query.gte("created_at", new Date(`${dateFrom}T00:00:00`).toISOString());
+      if (dateTo) query = query.lte("created_at", new Date(`${dateTo}T23:59:59`).toISOString());
+    } else {
+      const since = new Date();
+      since.setDate(since.getDate() - RANGES[range]);
+      query = query.gte("created_at", since.toISOString());
+    }
+    const { data, error } = await query.order("created_at", { ascending: false }).limit(5000);
     setLoading(false);
     if (error) {
       toast({ title: "Erro ao carregar", description: error.message, variant: "destructive" });
       return;
     }
-    setRows((data || []) as ClickEvent[]);
+    setAllRows((data || []) as ClickEvent[]);
   };
 
   useEffect(() => {
     void fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAdmin, range]);
+  }, [isAdmin, range, dateFrom, dateTo]);
+
+  const bairroOptions = useMemo(
+    () => [...new Set(allRows.map((r) => r.bairro).filter(Boolean) as string[])].sort(),
+    [allRows],
+  );
+  const servicoOptions = useMemo(
+    () => [...new Set(allRows.map((r) => r.servico).filter(Boolean) as string[])].sort(),
+    [allRows],
+  );
+
+  const rows = useMemo(
+    () =>
+      allRows.filter(
+        (r) =>
+          (bairro === ALL || (r.bairro || "—") === bairro) &&
+          (servico === ALL || (r.servico || "—") === servico),
+      ),
+    [allRows, bairro, servico],
+  );
+
 
   // Agregações
   const byBairroServico = useMemo(() => {

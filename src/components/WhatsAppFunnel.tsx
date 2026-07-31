@@ -446,7 +446,11 @@ export const WhatsAppFunnel = () => {
     submittingRef.current = true;
     try {
       const triageId = makeTriageId();
-      const base = buildWhatsAppMessage(answers, triageId);
+      const originUrl =
+        typeof window !== "undefined"
+          ? `${window.location.origin}${window.location.pathname}${window.location.search}`
+          : undefined;
+      const base = buildWhatsAppMessage(answers, triageId, originUrl);
       const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${base}` : base;
 
       try {

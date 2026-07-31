@@ -384,7 +384,11 @@ export function makeTriageId(): string {
   return `T-${stamp}-${rand}`;
 }
 
-export function buildWhatsAppMessage(a: TriageAnswers, triageId: string): string {
+export function buildWhatsAppMessage(
+  a: TriageAnswers,
+  triageId: string,
+  originUrl?: string,
+): string {
   const rows = buildTriageSummary(a);
   const lines: string[] = [];
   lines.push(`Olá! Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
@@ -392,6 +396,9 @@ export function buildWhatsAppMessage(a: TriageAnswers, triageId: string): string
   for (const r of rows) {
     if (r.label === "Observação adicional") continue; // vai por último
     lines.push(`*${r.label}:* ${r.value}`);
+  }
+  if (originUrl) {
+    lines.push(`*Página de origem:* ${originUrl}`);
   }
   lines.push("");
   lines.push("Confirmo que li e aceitei as condições apresentadas no funil.");

@@ -62,10 +62,14 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
   const path = opts.path ?? "/";
   const url = absoluteUrl(path);
 
+  const isHome = path === "/";
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": siteConfig.businessType,
-    "@id": `${siteConfig.baseUrl}/#organization`,
+    // Home mantém o @id canônico da organização; páginas internas usam @id
+    // próprio referenciando a mesma entidade (evita duplicidade de nó).
+    "@id": isHome ? `${siteConfig.baseUrl}/#organization` : `${url}#localbusiness`,
+    ...(isHome ? {} : { parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` } }),
     name: NAP.name,
     legalName: NAP.legalName,
     alternateName: [

@@ -116,11 +116,22 @@ describe("triageMachine — limpeza de respostas dependentes", () => {
 
 describe("triageMachine — validação e termos", () => {
   it("bloqueia identidade sem sintoma", () => {
-    const a = base({ equipment: "pc", fields: { tipo: "notebook", liga: "liga-normal" } });
+    const a = base({
+      equipment: "pc",
+      fields: { nome: "Ana", bairro: "Batel, Curitiba", tipo: "notebook", liga: "liga-normal" },
+    });
     const v = validateStep(1, a);
     expect(v.ok).toBe(false);
     expect(v.firstIncomplete).toBe("symptom");
   });
+
+  it("exige qualificação curta (nome e bairro) antes de seguir", () => {
+    const a = base({ equipment: "pc", fields: { tipo: "notebook" } });
+    const v = validateStep(1, a);
+    expect(v.ok).toBe(false);
+    expect(v.firstIncomplete).toBe("nome");
+  });
+
 
   it("coleta exige 4 aceites; remoto exige 2", () => {
     expect(getTermsForRoute("coleta")).toHaveLength(4);

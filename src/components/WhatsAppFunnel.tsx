@@ -272,9 +272,11 @@ export const WhatsAppFunnel = () => {
   const setCustomerType = useCallback(
     (value: CustomerType) => {
       setInvalidField(null);
-      // Idempotência: reselecionar o mesmo ramo (duplo clique/tap fantasma) não
-      // pode reemitir `wa_funnel_branch` nem descartar o que já foi respondido.
+      // Idempotência: duplo clique/tap fantasma no mesmo ramo não pode reemitir
+      // `wa_funnel_branch`, descartar respostas nem cancelar o avanço já agendado
+      // (clearTimers durante a transição deixava a triagem presa na etapa 0).
       if (answers.customerType === value) {
+        if (isTransitioning.current) return;
         clearTimers();
         advance();
         return;
@@ -284,11 +286,14 @@ export const WhatsAppFunnel = () => {
       setFunnelBranchContext({ customer_type: value });
       setErrorContext({ funnel_customer_type: value });
       trackFunnelBranch({ customerType: value, ctaLocation: originLocation });
+      // Troca real de ramo durante uma transição pendente: cancela e reagenda.
       clearTimers();
+      isTransitioning.current = false;
       advance();
     },
     [answers, commit, originLocation, advance, clearTimers],
   );
+
 
 
 

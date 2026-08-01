@@ -490,7 +490,7 @@ export const WhatsAppFunnel = () => {
       modalidade: rules.route,
       ctaLocation: originLocation,
     });
-    for (let s = 0; s < TOTAL_STEPS; s++) {
+    for (let s = 0; s < getSteps(answers).length; s++) {
       const v = validateStep(s, answers);
       if (!v.ok) {
         trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipment);

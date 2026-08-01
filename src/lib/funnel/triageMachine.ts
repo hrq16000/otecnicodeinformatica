@@ -703,10 +703,13 @@ export function loadPersisted(key: string): TriageAnswers | null {
     return {
       ...EMPTY_ANSWERS,
       ...a,
+      customerType: a.customerType === "business" || a.customerType === "residential" ? a.customerType : null,
       fields: a.fields && typeof a.fields === "object" ? a.fields : {},
+      business: a.business && typeof a.business === "object" ? a.business : {},
       termsAccepted: a.termsAccepted && typeof a.termsAccepted === "object" ? a.termsAccepted : {},
       equipment: EQUIPMENTS.some((e) => e.id === a.equipment) ? a.equipment! : null,
     };
+
   } catch {
     return null;
   }

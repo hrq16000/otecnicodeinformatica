@@ -486,13 +486,21 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
   };
 }
 
-/** Ao trocar PF × PJ, descarta tudo do ramo anterior (preserva só o nome). */
+/**
+ * Ao trocar PF × PJ, descarta TUDO do ramo anterior (equipamento, sintoma,
+ * campos condicionais, respostas `biz-`, aceites e modalidade) e preserva
+ * apenas o que é neutro entre ramos: nome, bairro/cidade e urgência.
+ */
 export function resetForCustomerType(a: TriageAnswers, next: CustomerType): TriageAnswers {
   if (a.customerType === next) return a;
   return {
     ...EMPTY_ANSWERS,
     customerType: next,
-    fields: a.fields.nome ? { nome: a.fields.nome } : {},
+    urgency: a.urgency,
+    fields: {
+      ...(a.fields.nome ? { nome: a.fields.nome } : {}),
+      ...(a.fields.bairro ? { bairro: a.fields.bairro } : {}),
+    },
   };
 }
 

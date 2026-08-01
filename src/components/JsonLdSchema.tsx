@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { validateAndInjectSchema } from '@/lib/schemaValidation';
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from '@/lib/jsonLdSlots';
 import { buildLocalBusinessSchema } from '@/lib/localBusinessJsonLd';
 
 const SITE = "https://tecnico.curitiba.br";
@@ -123,30 +122,17 @@ const navigationSchema = {
 };
 
 export const JsonLdSchema = () => {
-  useEffect(() => {
-    // Limpa schemas antigos
-    document.querySelectorAll('script[data-schema="true"]').forEach(s => s.remove());
-
-    const entries: Array<[string, Record<string, unknown>]> = [
-      ['ld-localbusiness', localBusinessSchema],
-      ['ld-faqpage', faqSchema],
-      ['ld-website', websiteSchema],
-      ['ld-organization', organizationSchema],
-      ['ld-webpage', webPageSchema],
-      ['ld-itemlist-services', serviceItemListSchema],
-      ['ld-navigation', navigationSchema],
-    ];
-
-    entries.forEach(([id, schema]) => {
-      const ok = validateAndInjectSchema(id, schema);
-      const el = document.getElementById(id);
-      if (ok && el) el.setAttribute('data-schema', 'true');
-    });
-
-    return () => {
-      document.querySelectorAll('script[data-schema="true"]').forEach(s => s.remove());
-    };
-  }, []);
+  // Entidades institucionais globais — um slot cada, cedidos a schemas de rota.
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.global);
+  useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.global);
+  useJsonLdSlot(SCHEMA_SLOTS.website, websiteSchema, SLOT_PRIORITY.global);
+  useJsonLdSlot(SCHEMA_SLOTS.organization, organizationSchema, SLOT_PRIORITY.global);
+  useJsonLdSlot(SCHEMA_SLOTS.itemListServices, serviceItemListSchema, SLOT_PRIORITY.global);
+  useJsonLdSlot(SCHEMA_SLOTS.siteNavigation, navigationSchema, SLOT_PRIORITY.global);
+  // WebPage é ancorado na home (#webpage-home): só vale na própria home.
+  const isHome =
+    typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === '';
+  useJsonLdSlot(SCHEMA_SLOTS.webPage, isHome ? webPageSchema : null, SLOT_PRIORITY.global);
 
   return null;
 };

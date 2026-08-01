@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -122,14 +123,12 @@ const FAQ = () => {
     )
   };
 
+  useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.page);
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title="FAQ Técnico Curitiba | Preço, Prazo e Garantia" description="Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
       <JsonLdSchema />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <Header />
       <main>
         {/* Hero */}

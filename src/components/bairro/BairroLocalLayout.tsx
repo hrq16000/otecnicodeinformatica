@@ -17,6 +17,7 @@ import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES_ATENDIMENTO } from "@/lib/cidadesData";
 import { servicoByPath, type BairroLocalData } from "@/lib/bairrosData";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
@@ -40,6 +41,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ComputerRepairService"],
+    "@id": `${absoluteUrl(path)}#localbusiness`,
     name: `${siteConfig.brandName} — ${data.nome}`,
     description: data.metaDescription,
     url: absoluteUrl(path),
@@ -55,12 +57,16 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
     mainEntity: data.faqLocal.map((f) => ({
       "@type": "Question",
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
   };
+
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.page);
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,8 +80,6 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
           { name: data.nome, path },
         ]}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <FastHeader />
       <main className="pt-[var(--site-header-height)]">

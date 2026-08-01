@@ -4,6 +4,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -152,6 +153,8 @@ const hubSchema = {
 };
 
 const EmpresaDeTiCuritiba = () => {
+  useJsonLdSlot(SCHEMA_SLOTS.service, hubSchema, SLOT_PRIORITY.page);
+
   useEffect(() => {
     trackPageView(PATH, "Empresa de TI em Curitiba");
   }, []);
@@ -168,10 +171,6 @@ const EmpresaDeTiCuritiba = () => {
         ]}
       />
       <JsonLdSchema />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubSchema) }}
-      />
       <Header />
       <Breadcrumbs items={[{ label: "Empresa de TI em Curitiba" }]} />
 

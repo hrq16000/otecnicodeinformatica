@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 const SITE_NAME = "Técnico em Curitiba";
 const BASE_URL = "https://tecnico.curitiba.br";
@@ -75,33 +76,22 @@ export const PageSEO = ({
     });
   }, [description, noindex, ogType, title, url, versionedOg]);
 
-  // Inject BreadcrumbList structured data
-  useEffect(() => {
-    if (!breadcrumbs || breadcrumbs.length === 0) return;
-    const existing = document.querySelectorAll('script[data-breadcrumb-schema="true"]');
-    existing.forEach(s => s.remove());
-
-    const schema = {
+  // BreadcrumbList: slot único e determinístico (chave estável `breadcrumb`).
+  const breadcrumbSchema = useMemo(() => {
+    if (!breadcrumbs || breadcrumbs.length === 0) return null;
+    return {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": breadcrumbs.map((item, index) => ({
+      "@id": `${url}#breadcrumb`,
+      itemListElement: breadcrumbs.map((item, index) => ({
         "@type": "ListItem",
-        "position": index + 1,
-        "name": item.name,
-        "item": `${BASE_URL}${item.path}`
-      }))
+        position: index + 1,
+        name: item.name,
+        item: `${BASE_URL}${item.path}`,
+      })),
     };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.setAttribute('data-breadcrumb-schema', 'true');
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
-
-    return () => {
-      document.querySelectorAll('script[data-breadcrumb-schema="true"]').forEach(s => s.remove());
-    };
-  }, [breadcrumbs]);
+  }, [breadcrumbs, url]);
+  useJsonLdSlot(SCHEMA_SLOTS.breadcrumb, breadcrumbSchema, SLOT_PRIORITY.page);
 
   return null;
 };

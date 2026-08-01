@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { IMAGES } from "@/lib/images";
 import { Link } from "react-router-dom";
@@ -122,6 +123,8 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     }
   };
 
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localSchema, SLOT_PRIORITY.page);
+
   const getCityLink = () => {
     switch (data.cidade) {
       case "Curitiba": return "/tecnico-informatica-curitiba";
@@ -147,7 +150,6 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         { name: data.nome, path: `/bairros/${data.slug}` }
       ]} />
       <JsonLdSchema />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }} />
       <Header />
       <Breadcrumbs
         items={[

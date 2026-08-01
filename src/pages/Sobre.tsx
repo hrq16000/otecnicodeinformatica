@@ -11,6 +11,7 @@ import {
   Building2,
   ArrowRight,
 } from "lucide-react";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
@@ -60,7 +61,10 @@ const Sobre = () => {
     },
   };
 
+  useJsonLdSlot(SCHEMA_SLOTS.organization, orgSchema, SLOT_PRIORITY.page);
+
   return (
+
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte"
@@ -68,8 +72,7 @@ const Sobre = () => {
         path="/sobre"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-
+      
       <FastHeader />
       <main className="pt-[var(--site-header-height)]">
         <Breadcrumbs items={[{ label: "Sobre" }]} />

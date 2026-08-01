@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -39,6 +40,7 @@ export const CidadeLandingLayout = ({ data }: { data: CidadeData }) => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ComputerRepairService"],
+    "@id": `${absoluteUrl(path)}#localbusiness`,
     name: `${siteConfig.brandName} — ${data.cidade}`,
     description: data.metaDescription,
     url: absoluteUrl(path),
@@ -54,12 +56,16 @@ export const CidadeLandingLayout = ({ data }: { data: CidadeData }) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
     mainEntity: data.faqs.map((f) => ({
       "@type": "Question",
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
   };
+
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.faq, faqSchema, SLOT_PRIORITY.page);
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,8 +79,6 @@ export const CidadeLandingLayout = ({ data }: { data: CidadeData }) => {
           { name: data.cidade, path },
         ]}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <FastHeader />
       <main className="pt-[var(--site-header-height)]">

@@ -1,4 +1,5 @@
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 const trackFooterWhatsApp = (location: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
@@ -104,6 +105,11 @@ const localBusinessSchema = {
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // LocalBusiness institucional: slot global, cedido a schemas de rota mais específicos.
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.global);
+
+
+
   return (
     <footer className="bg-[hsl(var(--hero-bg))] text-white">
       <div className="container mx-auto py-12 md:py-14">
@@ -151,7 +157,6 @@ export const Footer = () => {
         </div>
       </div>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
     </footer>
   );
 };

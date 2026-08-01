@@ -106,11 +106,23 @@ function checkCurated(distDir: string) {
     const robots = html.match(/<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i)?.[1];
     if (!robots) fail(route.path, "sem meta robots explícito");
 
-    const blocks = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
-      .map((m) => m[1].trim())
-      .filter(Boolean);
+    const scripts = [...html.matchAll(
+      /<script([^>]*)type=["']application\/ld\+json["']([^>]*)>([\s\S]*?)<\/script>/gi,
+    )].map((m) => ({ attrs: `${m[1]} ${m[2]}`, body: m[3].trim() })).filter((s) => s.body);
+    const blocks = scripts.map((s) => s.body);
     if (!blocks.length) fail(route.path, "sem JSON-LD estático");
+
+    // Governança de slots: chave estável única por HTML (data-schema-key).
+    const slotCount = new Map<string, number>();
+    for (const s of scripts) {
+      const slot = s.attrs.match(/data-schema-key=["']([^"']+)["']/)?.[1];
+      if (!slot) { fail(route.path, "JSON-LD estático sem data-schema-key (slot)"); continue; }
+      slotCount.set(slot, (slotCount.get(slot) ?? 0) + 1);
+    }
+    for (const [slot, n] of slotCount) if (n > 1) fail(route.path, `slot JSON-LD duplicado: ${slot} (${n}x)`);
+
     let hasBreadcrumb = route.path === "/";
+    const ID_REQUIRED = new Set(["BreadcrumbList", "Service", "WebPage", "AboutPage", "ContactPage", "LocalBusiness"]);
     for (const b of blocks) {
       let parsed: unknown;
       try { parsed = JSON.parse(b); } catch (e) { fail(route.path, `JSON-LD inválido: ${(e as Error).message}`); continue; }
@@ -118,7 +130,16 @@ function checkCurated(distDir: string) {
       for (const node of flat as Array<Record<string, unknown>>) {
         if (!node["@type"]) fail(route.path, "JSON-LD sem @type");
         if (JSON.stringify(node).includes("aggregateRating")) fail(route.path, "aggregateRating proibido");
-        if (node["@type"] === "BreadcrumbList") {
+        const types = Array.isArray(node["@type"]) ? (node["@type"] as string[]) : [String(node["@type"])];
+        const id = typeof node["@id"] === "string" ? (node["@id"] as string) : "";
+        if (types.some((t) => ID_REQUIRED.has(t))) {
+          if (!id) fail(route.path, `entidade ${types[0]} sem @id estável`);
+          else if (!id.startsWith(SITE) || !id.includes("#")) fail(route.path, `@id fora do padrão canônico: ${id}`);
+          else if (!/#(organization|website)$/.test(id) && !id.startsWith(`${expected}#`) && !(route.path === "/" && id.startsWith(`${SITE}/#`))) {
+            fail(route.path, `@id "${id}" não é coerente com o canonical "${expected}"`);
+          }
+        }
+        if (types.includes("BreadcrumbList")) {
           hasBreadcrumb = true;
           for (const item of (node.itemListElement as Array<Record<string, unknown>>) ?? []) {
             const url = String(item.item ?? "");
@@ -129,6 +150,7 @@ function checkCurated(distDir: string) {
       }
     }
     if (!hasBreadcrumb) fail(route.path, "sem BreadcrumbList estático");
+
 
     const noscript = html.match(/<noscript>\s*<div style="min-height:100vh([\s\S]*?)<\/noscript>/i)?.[1] ?? "";
     const internal = [...noscript.matchAll(/href=["'](\/[^"'#]*)["']/g)].map((m) => m[1]).filter((h) => h !== "/logo.webp");

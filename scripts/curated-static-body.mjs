@@ -269,6 +269,7 @@ function breadcrumbList(path) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${SITE}${path === "/" ? "/" : path}#breadcrumb`,
     itemListElement: crumbs.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -303,6 +304,7 @@ export function jsonLdFor(route) {
     out.push({
       "@context": "https://schema.org",
       "@type": "Service",
+      "@id": `${url}#service`,
       name: h1For(route),
       serviceType: h1For(route),
       description: route.description,
@@ -321,6 +323,7 @@ export function jsonLdFor(route) {
     out.push({
       "@context": "https://schema.org",
       "@type": type,
+      "@id": `${url}#webpage`,
       name: h1For(route),
       description: route.description,
       url,
@@ -335,7 +338,25 @@ export function jsonLdFor(route) {
   return out;
 }
 
-/** Tipo principal (string) de um schema — usado para deduplicação client-side. */
+/**
+ * Slot (chave estável) de cada entidade estruturada. Mesma convenção do
+ * runtime em src/lib/jsonLdSlots.ts — o client adota (upsert) o nó estático
+ * pela chave, nunca por coincidência de @type.
+ */
+export function slotFor(schema) {
+  const types = Array.isArray(schema["@type"]) ? schema["@type"] : [schema["@type"]];
+  if (types.includes("BreadcrumbList")) return "breadcrumb";
+  if (types.includes("WebSite")) return "website";
+  if (types.includes("Organization") && !types.some((t) => /Business|Service/.test(t))) return "organization";
+  if (types.some((t) => /LocalBusiness|ComputerRepairService|ProfessionalService/.test(t))) return "local-business";
+  if (types.includes("Service")) return "service";
+  if (types.includes("FAQPage")) return "faq";
+  if (types.includes("AboutPage")) return "about-page";
+  if (types.includes("ContactPage")) return "contact-page";
+  return "web-page";
+}
+
+/** Tipo principal (string) de um schema — usado para diagnóstico. */
 export function primaryType(schema) {
   const t = schema["@type"];
   return Array.isArray(t) ? t[0] : t;
@@ -346,7 +367,7 @@ export function jsonLdScriptsFor(route) {
   return jsonLdFor(route)
     .map((schema, i) => {
       const types = (Array.isArray(schema["@type"]) ? schema["@type"] : [schema["@type"]]).join(" ");
-      return `<script type="application/ld+json" id="ld-static-${i}" data-static-jsonld="1" data-jsonld-type="${esc(types)}">${JSON.stringify(schema)}</script>`;
+      return `<script type="application/ld+json" id="ld-static-${i}" data-static-jsonld="1" data-schema-key="${slotFor(schema)}" data-jsonld-type="${esc(types)}">${JSON.stringify(schema)}</script>`;
     })
     .join("\n    ");
 }

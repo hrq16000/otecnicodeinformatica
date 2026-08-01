@@ -63,9 +63,51 @@ export const resetFunnelBranchContext = () => {
   branchContext = { customer_type: "unknown" };
 };
 
+/**
+ * Chaves proibidas na telemetria da triagem (GA4/Sentry/breadcrumbs).
+ * Dados pessoais, texto livre e identificadores de patrimônio nunca saem
+ * do navegador por estes helpers — apenas dimensões categóricas.
+ */
+export const BLOCKED_TELEMETRY_KEYS = [
+  "nome", "name", "nome_completo", "contato",
+  "empresa", "company", "business_name", "biz-empresa", "razao_social", "cnpj",
+  "descricao", "description", "biz-descricao", "detalhes", "observacao", "final_notes",
+  "mensagem", "message", "wa_message", "text",
+  "telefone", "phone", "whatsapp", "email",
+  "endereco", "address", "rua", "numero", "complemento", "cep",
+  "lat", "lng", "latitude", "longitude", "ip",
+  "marca", "modelo", "serial", "patrimonio",
+  "foto", "fotos", "photo", "photos",
+  "answers", "triage", "triage_answers", "state", "fields", "business",
+];
+
+const BLOCKED_SET = new Set(BLOCKED_TELEMETRY_KEYS.map((k) => k.toLowerCase()));
+/** Limite defensivo de cardinalidade para valores string. */
+const MAX_VALUE_LEN = 80;
+
+/** Remove PII/texto livre e limita a cardinalidade de qualquer payload. */
+export function sanitizeTelemetry(input: Record<string, unknown>): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(input)) {
+    if (BLOCKED_SET.has(k.toLowerCase())) continue;
+    if (v === undefined || v === null) continue;
+    if (typeof v === "string") {
+      out[k] = v.length > MAX_VALUE_LEN ? v.slice(0, MAX_VALUE_LEN) : v;
+      continue;
+    }
+    if (typeof v === "number" || typeof v === "boolean") { out[k] = v; continue; }
+    if (Array.isArray(v)) {
+      out[k] = v.filter((i) => typeof i === "string").slice(0, 6).join("|").slice(0, MAX_VALUE_LEN);
+      continue;
+    }
+    // Objetos completos (estado da triagem) nunca são enviados.
+  }
+  return out;
+}
+
 export function track(name: string, params: Record<string, unknown> = {}) {
   const g = gtag();
-  const payload = baseParams({ ...branchContext, ...params });
+  const payload = sanitizeTelemetry(baseParams({ ...branchContext, ...params }));
   // eslint-disable-next-line no-console
   if (typeof window !== "undefined" && (window as unknown as { __funnelDebug?: boolean }).__funnelDebug) {
     console.debug(`[funnel:ga4] ${name}`, payload);
@@ -374,10 +416,10 @@ export const trackFunnelQualification = (params: {
       category: "funnel",
       level: "info",
       message: "wa_funnel_qualification",
-      data: payload,
+      data: sanitizeTelemetry(payload),
     });
     w.__APP_ERRORS__ = w.__APP_ERRORS__ || [];
-    w.__APP_ERRORS__.push({ kind: "funnel_qualification", ...payload, ts: Date.now() });
+    w.__APP_ERRORS__.push({ kind: "funnel_qualification", ...sanitizeTelemetry(payload), ts: Date.now() });
     window.dispatchEvent(
       new CustomEvent("app:funnel-qualification", { detail: payload }),
     );

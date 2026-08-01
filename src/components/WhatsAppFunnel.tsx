@@ -598,8 +598,6 @@ export const WhatsAppFunnel = () => {
     fieldRefs.current.set(id, el);
   };
 
-  const stepName = STEPS[step];
-
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
@@ -612,10 +610,11 @@ export const WhatsAppFunnel = () => {
             Triagem antes do atendimento
           </DialogTitle>
           <DialogDescription className="text-xs">
-            O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {TOTAL_STEPS}.
+            O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {totalSteps}.
           </DialogDescription>
           <div className={`mt-1.5 flex gap-1 transition-transform ${pulse && !REDUCED_MOTION ? "scale-y-150" : ""}`}>
-            {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
+            {Array.from({ length: totalSteps }).map((_, i) => (
+
               <div
                 key={i}
                 className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-muted"}`}

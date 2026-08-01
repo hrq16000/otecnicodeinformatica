@@ -327,6 +327,45 @@ const AdminDashboard = () => {
           </div>
         </div>
 
+        {/* Conversão do funil WhatsApp */}
+        <div className="rounded-lg border border-border p-4 mb-6">
+          <h2 className="font-semibold mb-1">Conversão do funil WhatsApp</h2>
+          <p className="text-xs text-muted-foreground mb-4">
+            Sessões que abriram a triagem × sessões que chegaram ao clique de WhatsApp, no
+            período e filtros selecionados.
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <p className="text-xs text-muted-foreground">Aberturas do funil</p>
+              <p className="text-2xl font-bold">{funnelStats.opens}</p>
+              <p className="text-[11px] text-muted-foreground">{funnelStats.sessions} sessões</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Sessões convertidas</p>
+              <p className="text-2xl font-bold text-accent">{funnelStats.converted}</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Taxa de conversão</p>
+              <p className="text-2xl font-bold">{funnelStats.rate.toFixed(1)}%</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Tempo mediano até converter</p>
+              <p className="text-2xl font-bold">
+                {funnelStats.medianSeconds === null
+                  ? "—"
+                  : funnelStats.medianSeconds < 60
+                    ? `${Math.round(funnelStats.medianSeconds)}s`
+                    : `${Math.floor(funnelStats.medianSeconds / 60)}m ${Math.round(funnelStats.medianSeconds % 60)}s`}
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-secondary" aria-hidden="true">
+            <div className="h-full bg-accent" style={{ width: `${Math.min(100, funnelStats.rate)}%` }} />
+          </div>
+        </div>
+
+
+
         {/* Timeline */}
         <div className="rounded-lg border border-border p-4 mb-6">
           <h2 className="font-semibold mb-3">Evolução por dia</h2>

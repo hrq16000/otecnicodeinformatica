@@ -25,8 +25,7 @@ import { resolve, join } from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
-const HOME_H1 = "Técnico de Informática em Curitiba";
-const HOME_INTRO_TOKEN = "Conserto de PC e notebook";
+const LEGACY_FALLBACK_INTRO = "Conserto de PC e notebook, formatação, remoção de vírus e SSD";
 
 interface CuratedRoute { path: string; title: string; description: string }
 
@@ -72,6 +71,11 @@ function checkCurated(distDir: string) {
   const routes = CURATED_ROUTES as CuratedRoute[];
   const known = new Set(routes.map((r) => r.path));
   const seen = new Map<string, string>();
+  // H1 real da home no build atual — nenhuma rota interna pode repeti-lo.
+  const homeFile = join(distDir, "index.html");
+  const homeH1 = existsSync(homeFile)
+    ? textOf(readFileSync(homeFile, "utf8").match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "")
+    : "";
   const failures: string[] = [];
   const fail = (p: string, msg: string) => failures.push(`${p} → ${msg}`);
 
@@ -90,8 +94,8 @@ function checkCurated(distDir: string) {
     const intro = ps[0] ?? "";
 
     if (route.path !== "/") {
-      if (h1 === HOME_H1) fail(route.path, `usa o H1 fallback da homepage ("${HOME_H1}")`);
-      if (intro.includes(HOME_INTRO_TOKEN)) fail(route.path, "usa o parágrafo fallback da homepage");
+      if (homeH1 && h1 === homeH1) fail(route.path, `usa o H1 fallback da homepage ("${homeH1}")`);
+      if (intro.includes(LEGACY_FALLBACK_INTRO)) fail(route.path, "usa o parágrafo fallback da homepage");
     }
     if (!intro) fail(route.path, "sem primeiro parágrafo estático");
 

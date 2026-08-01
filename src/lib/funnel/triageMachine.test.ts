@@ -120,14 +120,14 @@ describe("triageMachine — validação e termos", () => {
       equipment: "pc",
       fields: { nome: "Ana", bairro: "Batel, Curitiba", tipo: "notebook", liga: "liga-normal" },
     });
-    const v = validateStep(1, a);
+    const v = validateStep(2, a);
     expect(v.ok).toBe(false);
     expect(v.firstIncomplete).toBe("symptom");
   });
 
   it("exige qualificação curta (nome e bairro) antes de seguir", () => {
     const a = base({ equipment: "pc", fields: { tipo: "notebook" } });
-    const v = validateStep(1, a);
+    const v = validateStep(2, a);
     expect(v.ok).toBe(false);
     expect(v.firstIncomplete).toBe("nome");
   });

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { act, render, screen, cleanup, waitFor, within } from "@testing-library/react";
+import { act, render, screen, cleanup, waitFor, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 
@@ -139,6 +139,7 @@ describe("Triagem V5 — TV não liga → COLETA", () => {
     await waitFor(() => expect(dialog().textContent).toMatch(/O que aconteceu/i), { timeout: 3000 });
 
     await clickText("LED");
+    await fillQualification();
     await clickText("Não liga");
 
     await waitFor(() => expect(dialog().textContent).toMatch(/urgência/i), { timeout: 3000 });

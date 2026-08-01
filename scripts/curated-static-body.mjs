@@ -263,6 +263,47 @@ function localBusiness(path, { name, description, areaServed } = {}) {
   };
 }
 
+/**
+ * Organization — entidade institucional única do documento.
+ * Espelha src/lib/organizationJsonLd.ts. Todos os `publisher`/`provider`/
+ * `parentOrganization` referenciam este `@id` (nunca repetem o objeto).
+ */
+function organization() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE}/#organization`,
+    name: SITE_CONFIG.brandName,
+    alternateName: ["Técnico Curitiba", "Técnico de Informática Curitiba"],
+    legalName: SITE_CONFIG.legalName,
+    url: `${SITE}/`,
+    logo: `${SITE}/logo.png`,
+    email: SITE_CONFIG.email,
+    telephone: SITE_CONFIG.phoneE164,
+    foundingDate: SITE_CONFIG.foundedYear,
+    areaServed: SITE_CONFIG.serviceArea.map((name) => ({ "@type": "City", name })),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+      areaServed: "BR-PR",
+    },
+    sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`],
+  };
+}
+
+function website() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE}/#website`,
+    name: SITE_CONFIG.brandName,
+    url: `${SITE}/`,
+    inLanguage: "pt-BR",
+    publisher: { "@id": `${SITE}/#organization` },
+  };
+}
+
 function breadcrumbList(path) {
   const crumbs = breadcrumbFor(path);
   if (crumbs.length < 2) return null;
@@ -284,19 +325,10 @@ export function jsonLdFor(route) {
   const path = route.path;
   const url = `${SITE}${path === "/" ? "/" : path}`;
   const fam = familyOf(path);
-  const out = [];
+  const out = [organization(), website()];
 
   if (fam === "home") {
     out.push(localBusiness("/", { description: route.description }));
-    out.push({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": `${SITE}/#website`,
-      name: SITE_CONFIG.brandName,
-      url: `${SITE}/`,
-      inLanguage: "pt-BR",
-      publisher: { "@id": `${SITE}/#organization` },
-    });
     return out;
   }
 

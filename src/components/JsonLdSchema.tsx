@@ -1,5 +1,6 @@
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from '@/lib/jsonLdSlots';
 import { buildLocalBusinessSchema } from '@/lib/localBusinessJsonLd';
+import { buildOrganizationSchema } from '@/lib/organizationJsonLd';
 
 const SITE = "https://tecnico.curitiba.br";
 const BUILD_DATE = new Date().toISOString();
@@ -54,22 +55,7 @@ const websiteSchema = {
   }
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${SITE}/#organization`,
-  "name": "Técnico em Curitiba",
-  "alternateName": ["Técnico Curitiba", "Técnico de Informática Curitiba"],
-  "url": SITE,
-  "logo": `${SITE}/logo.png`,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "availableLanguage": "Portuguese",
-    "areaServed": "BR-PR"
-  },
-  "sameAs": ["https://wa.me/5541997086380"]
-};
+const organizationSchema = buildOrganizationSchema();
 
 // WebPage com Speakable — extração prioritária para Bing Copilot / AI Overviews
 const webPageSchema = {

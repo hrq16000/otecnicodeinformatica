@@ -52,6 +52,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
   },
 ];
 
+
 // JSON-LD LocalBusiness — sem aggregateRating/review inventado. Telefone só aqui e em wa.me.
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -107,6 +108,8 @@ export const Footer = () => {
 
   // LocalBusiness institucional: slot global, cedido a schemas de rota mais específicos.
   useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.global);
+  // Organization/WebSite vivem em <InstitutionalJsonLd /> na raiz do app,
+  // garantindo a entidade única mesmo em rotas sem rodapé.
 
 
 

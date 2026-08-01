@@ -6,6 +6,7 @@ import ConsentBanner from "./components/ConsentBanner";
 import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
+import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -196,6 +197,7 @@ const HomeApp = () => {
   return (
     <AppErrorBoundary>
       <AppInit />
+      <InstitutionalJsonLd />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
       {showNavLoader ? <NavigationOverlay /> : null}
       {isHomeRoute(routePath) ? (

@@ -215,24 +215,34 @@ export const WhatsAppFunnel = () => {
   }, [step, goTo, clearTimers]);
 
   // Auto-advance depois de uma seleção que completa a etapa.
+  const AUTO_ADVANCE_STEPS = ["equipment", "identity", "details", "business-need", "business-context", "business-modality"];
   const maybeAutoAdvance = useCallback(
     (nextAnswers: TriageAnswers) => {
-      const name = STEPS[step];
-      if (name !== "equipment" && name !== "identity" && name !== "details") return;
+      const name = getStepName(step, nextAnswers);
+      if (!AUTO_ADVANCE_STEPS.includes(name)) return;
       if (!validateStep(step, nextAnswers).ok) return;
       clearTimers();
       advance();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [step, advance, clearTimers],
   );
 
+  /** Aplica uma resposta ao estado, respeitando o roteamento por prefixo. */
+  const applyField = useCallback((prev: TriageAnswers, id: string, value: string): TriageAnswers => {
+    if (id === "symptom") return resetForSymptom(prev, value);
+    if (id.startsWith("biz-")) {
+      const next = { ...prev, business: { ...prev.business, [id]: value } };
+      // Trocar necessidade/engajamento invalida modalidade incompatível.
+      return id === "biz-intent" || id === "biz-engagement" ? resetBusinessDependents(next) : next;
+    }
+    return { ...prev, fields: { ...prev.fields, [id]: value } };
+  }, []);
+
   /** Estado resultante de uma seleção — determinístico, sem depender do setState. */
   const computeNext = useCallback(
-    (id: string, value: string): TriageAnswers => {
-      if (id === "symptom") return resetForSymptom(answers, value);
-      return { ...answers, fields: { ...answers.fields, [id]: value } };
-    },
-    [answers],
+    (id: string, value: string): TriageAnswers => applyField(answers, id, value),
+    [answers, applyField],
   );
 
   // ---------- field updates ----------
@@ -240,18 +250,28 @@ export const WhatsAppFunnel = () => {
     (id: string, value: string) => {
       setInvalidField(null);
       setAnswers((prev) => {
-        let next: TriageAnswers;
-        if (id === "symptom") {
-          next = resetForSymptom(prev, value);
-        } else {
-          next = { ...prev, fields: { ...prev.fields, [id]: value } };
-        }
+        const next = applyField(prev, id, value);
         persist(STORAGE_KEY, next);
         return next;
       });
     },
-    [],
+    [applyField],
   );
+
+  const setCustomerType = useCallback(
+    (value: CustomerType) => {
+      setInvalidField(null);
+      const next = resetForCustomerType(answers, value);
+      commit(next);
+      setFunnelBranchContext({ customer_type: value });
+      setErrorContext({ funnel_customer_type: value });
+      trackFunnelBranch({ customerType: value, ctaLocation: originLocation });
+      clearTimers();
+      advance();
+    },
+    [answers, commit, originLocation, advance, clearTimers],
+  );
+
 
   const setEquipment = useCallback(
     (id: EquipmentId) => {

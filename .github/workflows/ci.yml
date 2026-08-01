@@ -23,6 +23,8 @@ jobs:
         run: npm run lint --silent || echo "::warning::lint reported issues"
       - name: CTA funnel gate
         run: npm run check:cta-funnel
+      - name: Internal links + sitemap gate
+        run: npm run check:internal-links
       - name: Build
         run: npm run build
       - name: JSON-LD validation

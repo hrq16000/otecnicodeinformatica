@@ -72,12 +72,12 @@ const searchData: SearchItem[] = [
   { title: "Técnico no Jardim das Américas", path: "/bairros/jardim-das-americas", category: "bairro", keywords: ["jardim das américas", "curitiba"] },
   { title: "Técnico no Jardim Social", path: "/bairros/jardim-social", category: "bairro", keywords: ["jardim social", "curitiba"] },
   { title: "Técnico na Fazendinha", path: "/bairros/fazendinha", category: "bairro", keywords: ["fazendinha", "curitiba"] },
-  { title: "Técnico no Capão da Imbuia", path: "/bairros/capao-imbuia", category: "bairro", keywords: ["capão da imbuia", "curitiba"] },
+  { title: "Técnico no Capão da Imbuia", path: "/bairros/capao-da-imbuia", category: "bairro", keywords: ["capão da imbuia", "curitiba"] },
   { title: "Técnico no Alto Boqueirão", path: "/bairros/alto-boqueirao", category: "bairro", keywords: ["alto boqueirão", "curitiba"] },
   { title: "Técnico no São Francisco", path: "/bairros/sao-francisco", category: "bairro", keywords: ["são francisco", "curitiba"] },
 
   // Bairros de SJP
-  { title: "Técnico no Centro – SJP", path: "/bairros/centro-sjp", category: "bairro", keywords: ["centro", "sjp", "são josé"] },
+  { title: "Técnico no Centro – SJP", path: "/tecnico-informatica-sao-jose-pinhais", category: "bairro", keywords: ["centro", "sjp", "são josé"] },
   { title: "Técnico no Afonso Pena – SJP", path: "/bairros/afonso-pena", category: "bairro", keywords: ["afonso pena", "sjp", "aeroporto"] },
   { title: "Técnico no Guatupê – SJP", path: "/bairros/guatupe", category: "bairro", keywords: ["guatupê", "sjp"] },
   { title: "Técnico no Aristocrata – SJP", path: "/bairros/aristocrata", category: "bairro", keywords: ["aristocrata", "sjp"] },
@@ -128,7 +128,7 @@ const searchData: SearchItem[] = [
   { title: "Técnico no Palmital – Colombo", path: "/bairros/palmital-colombo", category: "bairro", keywords: ["palmital", "colombo"] },
   { title: "Técnico no Atuba – Colombo", path: "/bairros/atuba-colombo", category: "bairro", keywords: ["atuba", "colombo"] },
   { title: "Técnico no Fátima – Colombo", path: "/bairros/fatima-colombo", category: "bairro", keywords: ["fátima", "colombo"] },
-  { title: "Técnico no Gabirobal – Colombo", path: "/bairros/gabirobal-colombo", category: "bairro", keywords: ["gabirobal", "colombo"] },
+  { title: "Técnico no Gabirobal – Colombo", path: "/bairros/gabirobal", category: "bairro", keywords: ["gabirobal", "colombo"] },
 
   // Bairros de Pinhais
   { title: "Técnico no Centro – Pinhais", path: "/bairros/centro-pinhais", category: "bairro", keywords: ["centro", "pinhais"] },

@@ -3789,7 +3789,7 @@ Em Curitiba, nosso diagnóstico identifica a causa exata da tela preta — e só
     relatedPages: [
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
       { to: "/servicos/conserto-placa", label: "Conserto de Placa" },
       { to: "/como-funciona", label: "Como Funciona" }
@@ -3900,7 +3900,7 @@ O pior erro que você pode cometer é desligar o computador à força durante um
     quandoNaoCompensa: "Quando o PC já tinha múltiplos problemas acumulados (vírus, disco defeituoso, sistema muito antigo). Nesses casos, formatação limpa é mais eficiente.",
     whatsappMessage: "Olá! Meu Windows travou na atualização e não consigo usar o computador. Podem me ajudar?",
     relatedPages: [
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
       { to: "/servicos/formatacao-computador", label: "Formatação" },
@@ -4013,7 +4013,7 @@ O mais perigoso é ignorar: se a causa for superaquecimento, cada reinicializaç
     whatsappMessage: "Olá! Meu computador está reiniciando sozinho do nada. Podem fazer um diagnóstico?",
     relatedPages: [
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
       { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
@@ -4507,7 +4507,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
       { to: "/problemas/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
-      { to: "/virus-ransomware-curitiba", label: "Vírus e Ransomware" },
+      { to: "/problemas/pc-com-virus-ransomware-curitiba", label: "Vírus e Ransomware" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4606,7 +4606,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     quandoNaoCompensa: "Quando o hardware é tão antigo que o fabricante nunca lançou driver para Windows 10/11 e não existe driver genérico funcional.",
     whatsappMessage: "Olá! Meu computador está com erro de driver e dispositivos não funcionam. Podem me ajudar?",
     relatedPages: [
-      { to: "/erro-tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/som-nao-funciona-curitiba", label: "Som Não Funciona" },
       { to: "/problemas/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
       { to: "/servicos/formatacao-computador", label: "Formatação" },
@@ -4713,7 +4713,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     whatsappMessage: "Olá! Meu PC está com suspeita de memória RAM defeituosa (telas azuis, travamentos). Podem diagnosticar?",
     relatedPages: [
       { to: "/problemas/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
-      { to: "/erro-tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
       { to: "/como-funciona", label: "Como Funciona" },
@@ -5213,7 +5213,7 @@ No Windows, execute no Prompt de Comando como administrador:
 \`powercfg /batteryreport\`
 O relatório mostra a capacidade original vs. atual e o número de ciclos.`,
     relatedPages: [
-      { to: "/computador-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
+      { to: "/problemas/pc-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
       { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/computador-com-cheiro-de-queimado-curitiba", label: "Cheiro de Queimado" },
@@ -5296,11 +5296,11 @@ Utilizamos ferramentas especializadas como AdwCleaner, Malwarebytes, HitmanPro e
 - Não insira senhas ou dados bancários até o computador ser limpo
 - Procure assistência técnica profissional para remoção completa`,
     relatedPages: [
-      { to: "/remocao-virus-malware-curitiba", label: "Remoção de Vírus" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/servicos/remocao-virus", label: "Serviço Remoção de Vírus" },
       { to: "/servicos/formatacao-computador", label: "Formatação" },
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
   },
@@ -5386,10 +5386,10 @@ O código 0x0000007B traduz-se como INACCESSIBLE_BOOT_DEVICE. Em termos simples:
 - Ao clonar discos, use ferramentas que ajustam automaticamente o esquema de partição
 - Mantenha um pen drive de recuperação do Windows atualizado`,
     relatedPages: [
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
-      { to: "/hd-com-defeito-curitiba", label: "HD com Defeito" },
+      { to: "/problemas/hd-fazendo-barulho-curitiba", label: "HD com Defeito" },
       { to: "/problemas/erro-particao-windows-curitiba", label: "Erro de Partição" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
@@ -6278,7 +6278,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Alternativas ao F8 para Acessar o Modo Seguro\n\nNo Windows 10/11, o F8 está desabilitado por padrão. Alternativas:\n\n1. **Via Configurações**: Configurações → Atualização → Recuperação → Reiniciar agora → Solução de Problemas → Opções Avançadas → Configurações de Inicialização\n2. **Via msconfig**: Execute msconfig → aba Inicialização do Sistema → marque \"Inicialização segura\"\n3. **Via Shift+Reiniciar**: Na tela de login, segure Shift e clique em Reiniciar\n4. **Forçar Recuperação**: Desligue o PC 3 vezes durante o boot para ativar o Reparo Automático\n\n## Quando o Modo Seguro é Essencial\n\nO Modo Seguro carrega apenas drivers básicos, permitindo remover programas problemáticos, desinstalar drivers incompatíveis e executar antivírus em ambiente limpo.`,
     relatedPages: [
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
-      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
       { to: "/servicos/formatacao-computador", label: "Formatação" },
     ]
@@ -6323,7 +6323,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu PC está com erro 0xc000021a e não liga. Preciso de ajuda técnica em Curitiba.",
     conteudoExtra: `## O Que Significa o Erro 0xc000021a\n\nEste código indica que um dos dois processos mais críticos do Windows falhou:\n\n- **csrss.exe** (Client/Server Runtime Subsystem): Gerencia console, criação/destruição de threads e funções críticas do kernel\n- **winlogon.exe**: Responsável pelo login, logoff e carregamento do perfil do usuário\n\nQuando qualquer um desses processos termina inesperadamente, o Windows não pode continuar e exibe a tela azul.\n\n## Passos de Emergência\n\n1. **Não force reinicializações repetidas** — isso pode piorar a corrupção\n2. **Acesse o Ambiente de Recuperação** — use uma mídia de instalação USB do Windows\n3. **Tente a Restauração do Sistema** — se houver pontos de restauração disponíveis\n4. **Não formate sem backup** — seus dados provavelmente estão intactos no disco`,
     relatedPages: [
-      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/erro-0x0000007b-curitiba", label: "Erro 0x0000007B" },
       { to: "/problemas/pc-nao-entra-modo-seguro-curitiba", label: "PC Não Entra no Modo Seguro" },
       { to: "/servicos/formatacao-computador", label: "Formatação" },
@@ -6469,7 +6469,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## O Que Fazer Quando Aparece o Erro 0xc00000e\n\n1. **Não entre em pânico**: Seus dados provavelmente estão seguros — o erro é no bootloader, não nos arquivos\n2. **Verifique a ordem de boot**: Entre na BIOS (Del, F2 ou F12 ao ligar) e confirme que o disco correto está como primeiro boot\n3. **Tente o Reparo Automático**: Se o Windows oferece "Opções avançadas", tente "Reparo de Inicialização"\n4. **Não formate**: Formatar apaga seus dados — o erro pode ser resolvido sem perda\n5. **Desligue o PC**: Tentativas repetidas de ligar com disco defeituoso podem agravar o problema\n\n## Erro Após Clonagem de SSD\n\nSe o erro apareceu após migrar para um SSD novo, o problema quase certamente é que o BCD não foi transferido. Nosso técnico reconfigura o bootloader no novo SSD sem necessidade de reinstalar o Windows, preservando todos os programas e configurações.`,
     relatedPages: [
       { label: "Erro 0xc000021a", to: "/problemas/erro-0xc000021a-curitiba" },
-      { label: "Tela Azul (BSOD)", to: "/tela-azul-bsod-curitiba" },
+      { label: "Tela Azul (BSOD)", to: "/problemas/tela-azul-windows-curitiba" },
       { label: "PC Não Liga", to: "/problemas/computador-nao-liga-curitiba" },
       { label: "Formatação", to: "/servicos/formatacao-computador" },
     ]
@@ -6519,8 +6519,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## O Que Fazer Quando o PC Congela\n\n1. **Aguarde 2-3 minutos**: Às vezes o sistema está processando e pode voltar ao normal\n2. **Ctrl+Alt+Del**: Tente abrir o Gerenciador de Tarefas para fechar o programa travado\n3. **Verifique a temperatura**: Toque na saída de ar — se estiver muito quente, desligue e aguarde esfriar\n4. **Monitore a frequência**: Anote quando os travamentos ocorrem (horário, programa aberto, tempo de uso)\n5. **Faça backup**: Se travamentos são frequentes, faça backup dos dados importantes imediatamente\n\n## Superaquecimento — A Causa Mais Comum\n\nEm Curitiba, especialmente nos meses mais quentes, o superaquecimento é a causa #1 de travamentos. Notebooks usados sobre cama, almofada ou superfícies que bloqueiam a ventilação são os mais afetados. Uma limpeza preventiva a cada 12 meses evita esse problema.`,
     relatedPages: [
       { label: "PC Lento", to: "/problemas/computador-lento-curitiba" },
-      { label: "Tela Azul (BSOD)", to: "/tela-azul-bsod-curitiba" },
-      { label: "Superaquecimento", to: "/computador-superaquecendo-curitiba" },
+      { label: "Tela Azul (BSOD)", to: "/problemas/tela-azul-windows-curitiba" },
+      { label: "Superaquecimento", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "Conserto de PC", to: "/servicos/conserto-pc-notebook" },
     ]
   },
@@ -6569,7 +6569,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu computador está fazendo muito barulho. Preciso de diagnóstico em Curitiba.",
     conteudoExtra: `## Identificando o Tipo de Ruído\n\n- **Ventilação alta constante**: Provavelmente poeira ou pasta térmica seca → limpeza resolve\n- **Cliques rítmicos**: HD mecânico com falha → **faça backup imediatamente**\n- **Raspagem/ranger**: Ventoinha com rolamento gasto → substituição do cooler\n- **Vibração/ressonância**: Parafusos soltos ou HD sem borrachas → reposicionamento\n- **Zumbido agudo sob carga**: Coil whine → ajuste de software ou troca de componente\n\n## Manutenção Preventiva — Evite Ruídos\n\nA limpeza interna a cada 6-12 meses previne a maioria dos problemas de ruído. Em ambientes com pets ou muita poeira, recomendamos limpeza a cada 6 meses. A troca de pasta térmica a cada 2-3 anos mantém as temperaturas baixas e os coolers silenciosos.\n\n## SSD — A Solução Silenciosa\n\nSe seu computador ainda usa HD mecânico, a troca por SSD elimina completamente o ruído do disco, além de acelerar o sistema em até 10x. É o upgrade com melhor custo-benefício disponível.`,
     relatedPages: [
-      { label: "Superaquecimento", to: "/computador-superaquecendo-curitiba" },
+      { label: "Superaquecimento", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "PC Lento", to: "/problemas/computador-lento-curitiba" },
       { label: "HD com Barulho", to: "/problemas/hd-fazendo-barulho-curitiba" },
       { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
@@ -6672,8 +6672,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/notebook-sem-webcam-curitiba", label: "Notebook Sem Webcam" },
       { to: "/problemas/notebook-lento-curitiba", label: "Notebook Lento" },
       { to: "/problemas/notebook-nao-liga-curitiba", label: "Notebook Não Liga" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -6724,8 +6724,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/erro-0xc00000e-curitiba", label: "Erro 0xc00000e" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
-      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -6982,8 +6982,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/computador-sem-wifi-curitiba", label: "PC Sem Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
-      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
@@ -7031,10 +7031,10 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Cuidados Preventivos com o Teclado do Notebook\n\n### Proteção contra líquidos\nUse uma película protetora de silicone sobre o teclado. Evite consumir bebidas próximo ao notebook. Em caso de derramamento, desligue imediatamente, vire o notebook de cabeça para baixo e procure assistência técnica.\n\n### Limpeza periódica\nUse ar comprimido a cada 2-3 meses para remover detritos sob as teclas. Nunca use aspirador de pó diretamente sobre o teclado, pois pode gerar eletricidade estática.\n\n### Teclado externo para uso prolongado\nPara quem digita muitas horas por dia, usar um teclado externo preserva o teclado interno e oferece melhor ergonomia.\n\n## Modelos Mais Comuns com Problema de Teclado em Curitiba\n\n- **Dell Inspiron 15 série 3000/5000** — flat cable com histórico de mau contato\n- **Lenovo IdeaPad 3/5** — teclas com mecanismo frágil\n- **Acer Aspire 5** — sensibilidade a líquidos por design do chassi\n- **Samsung Book** — desgaste prematuro das membranas`,
     whatsappMessage: "Olá! O teclado do meu notebook não está funcionando. Preciso de diagnóstico e reparo em Curitiba.",
     relatedPages: [
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/problemas/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7083,9 +7083,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
       { to: "/problemas/erro-0x80004005-curitiba", label: "Erro 0x80004005" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7132,9 +7132,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu PC/notebook não está enviando som pelo HDMI para a TV. Preciso de ajuda em Curitiba.",
     relatedPages: [
       { to: "/problemas/notebook-sem-audio-curitiba", label: "Notebook Sem Áudio" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7186,7 +7186,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
       { to: "/problemas/pc-travando-em-jogos-curitiba", label: "PC Travando em Jogos" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7235,7 +7235,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/notebook-teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
@@ -7283,11 +7283,11 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## O Que É o Erro 0xc000021a em Detalhes\n\n### Processos críticos do Windows\nO Windows depende de dois processos essenciais para funcionar:\n\n- **csrss.exe** (Client/Server Runtime Subsystem): Gerencia a criação e exclusão de threads e processos. Sem ele, o Windows não consegue executar nenhum programa.\n- **winlogon.exe**: Controla o processo de login, bloqueio de tela e o SAS (Secure Attention Sequence - Ctrl+Alt+Del).\n\nQuando qualquer um desses processos falha, o Windows não tem como se recuperar e exibe o erro 0xc000021a.\n\n### Diferença entre telas azuis\n- **0xc000021a**: Processo crítico do usermode falhou — geralmente software/driver\n- **0x0000007E**: Exceção do sistema não tratada — geralmente driver\n- **0x00000050**: Falha de página em memória — geralmente RAM defeituosa\n\n### Prevenção\n- Crie pontos de restauração antes de instalar drivers ou atualizações importantes\n- Mantenha um backup regular dos seus dados\n- Não force o desligamento do PC durante atualizações do Windows\n- Use antivírus atualizado para prevenir infecções por rootkits`,
     whatsappMessage: "Olá! Meu PC está com tela azul erro 0xc000021a e não inicia. Preciso de ajuda urgente em Curitiba.",
     relatedPages: [
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
-      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7336,7 +7336,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7384,7 +7384,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Guia: Como Melhorar seu Wi-Fi Antes de Chamar um Técnico\n\n### 1. Reinicie o roteador corretamente\nDesligue da tomada, aguarde 30 segundos e religue. Isso limpa a memória e pode resolver problemas temporários.\n\n### 2. Verifique a posição do roteador\n- Coloque em local central e elevado (não no chão)\n- Longe de paredes grossas, espelhos e aquários\n- Afastado de micro-ondas e telefones sem fio\n\n### 3. Use a banda 5GHz quando possível\nA banda 5GHz é mais rápida e menos congestionada, ideal para dispositivos próximos ao roteador. A banda 2.4GHz tem maior alcance mas é mais lenta e sujeita a interferência.\n\n## Wi-Fi 5 vs Wi-Fi 6: Vale a Troca?\n\n| Recurso | Wi-Fi 5 (AC) | Wi-Fi 6 (AX) |\n|---------|-------------|-------------|\n| Velocidade máxima | 3.5 Gbps | 9.6 Gbps |\n| Dispositivos simultâneos | Bom | Excelente (OFDMA) |\n| Alcance | Bom | Melhor (BSS Coloring) |\n| Consumo de bateria | Normal | Otimizado (TWT) |\n| Preço médio | R$200-400 | R$400-800 |\n\nSe você tem mais de 10 dispositivos conectados ou plano acima de 300 Mbps, o Wi-Fi 6 faz diferença significativa.`,
     whatsappMessage: "Olá! Meu Wi-Fi está caindo toda hora. Preciso de diagnóstico e solução em Curitiba.",
     relatedPages: [
-      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
@@ -7439,7 +7439,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/monitor-piscando-curitiba", label: "Monitor Piscando" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7489,7 +7489,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0x800f081f-curitiba", label: "Erro 0x800f081f" },
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7539,7 +7539,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
       { to: "/problemas/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
-      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7589,8 +7589,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu HD externo não está sendo reconhecido pelo computador. Tenho dados importantes nele. Preciso de diagnóstico urgente.",
     relatedPages: [
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
-      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
-      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7640,7 +7640,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/problemas/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/redes-wifi-curitiba", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
     ]
@@ -7738,8 +7738,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/erro-0x80240034-curitiba", label: "Erro 0x80240034" },
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
-      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul BSOD" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul BSOD" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7786,7 +7786,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Como Identificar a Causa em Casa\n\nDesative o reinício automático: Propriedades do Sistema → Avançado → Inicialização e Recuperação → desmarque 'Reiniciar automaticamente'. Assim você verá a tela azul com o código do erro.\n\n## Importância da Fonte de Alimentação\n\nA fonte é o componente mais negligenciado. Uma fonte de má qualidade pode danificar todos os outros componentes. Invista em fontes 80 Plus de marcas reconhecidas.`,
     relatedPages: [
       { to: "/problemas/computador-travando-curitiba", label: "Computador Travando" },
-      { to: "/tela-azul-bsod-curitiba", label: "Tela Azul BSOD" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul BSOD" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/servicos", label: "Todos os Serviços" }
@@ -7933,9 +7933,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## SSD SATA vs NVMe — Cuidados na Instalação\n\nSSDs M.2 existem em dois tipos: SATA e NVMe. Eles usam o mesmo conector físico mas são eletricamente diferentes. Verifique a compatibilidade do slot antes de comprar.\n\n## Vida Útil do SSD\n\nSSDs modernos duram 5-10 anos em uso normal. Use CrystalDiskInfo para monitorar a saúde. Quando atingir 80%+ de desgaste, faça backup e planeje a substituição.`,
     relatedPages: [
       { to: "/problemas/hd-externo-nao-reconhece-curitiba", label: "HD Externo Não Reconhece" },
-      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7983,7 +7983,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
       { to: "/problemas/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
-      { to: "/conserto-pc-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -8309,7 +8309,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
     ],
   },
@@ -8356,10 +8356,10 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Temperaturas Ideais Para Gaming\n\n| Componente | Temperatura Ideal | Limite Crítico |\n|---|---|---|\n| CPU | 60-75°C | 90°C+ |\n| GPU | 65-80°C | 95°C+ |\n| RAM | 35-45°C | 60°C+ |\n\n## Potência de Fonte Recomendada\n\n- RTX 3060 / RX 6600: mínimo 550W\n- RTX 4070 / RX 7800 XT: mínimo 650W\n- RTX 4080/4090: mínimo 850W\n\nSempre use fontes 80 Plus Bronze ou superior para estabilidade.`,
     whatsappMessage: "Olá! Meu PC está travando em jogos. Gostaria de agendar um diagnóstico gamer.",
     relatedPages: [
-      { to: "/computador-lento", label: "Computador Lento" },
+      { to: "/servicos/computador-lento", label: "Computador Lento" },
       { to: "/problemas/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
       { to: "/problemas/placa-de-video-nao-funciona-curitiba", label: "Placa de Vídeo Não Funciona" },
-      { to: "/montagem-pc", label: "Montagem de PC" },
+      { to: "/servicos/montagem-pc", label: "Montagem de PC" },
     ],
   },
 
@@ -8404,9 +8404,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Erros de Driver Mais Comuns\n\n- **Código 43**: O Windows parou este dispositivo porque ele reportou problemas\n- **Código 28**: Drivers não instalados para este dispositivo\n- **Código 31**: O dispositivo não está funcionando corretamente\n- **Código 10**: O dispositivo não pode iniciar\n\n## Como Evitar Problemas de Driver\n\n1. Baixe drivers apenas do site oficial do fabricante\n2. Nunca use programas de "atualização automática de drivers"\n3. Antes de atualizar, crie um ponto de restauração\n4. Use o bloqueio de atualizações do Windows para drivers estáveis`,
     whatsappMessage: "Olá! Estou com erro de driver no Windows. Gostaria de agendar um diagnóstico.",
     relatedPages: [
-      { to: "/computador-lento", label: "Computador Lento" },
-      { to: "/tela-azul-curitiba", label: "Tela Azul (BSOD)" },
-      { to: "/formatacao-computador", label: "Formatação de Computador" },
+      { to: "/servicos/computador-lento", label: "Computador Lento" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
+      { to: "/servicos/formatacao-computador", label: "Formatação de Computador" },
       { to: "/problemas/erro-0x80070057-curitiba", label: "Erro 0x80070057" },
     ],
   },
@@ -8452,8 +8452,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Categorias de Cabo de Rede\n\n| Categoria | Velocidade | Frequência | Uso Recomendado |\n|---|---|---|---|\n| Cat5 | 100Mbps | 100MHz | Obsoleto |\n| Cat5e | 1Gbps | 100MHz | Residencial |\n| Cat6 | 1Gbps (10Gbps até 55m) | 250MHz | Residencial/Comercial |\n| Cat6a | 10Gbps | 500MHz | Comercial/Data Center |\n\n## Padrão de Crimpagem\n\nO padrão mais utilizado no Brasil é o **T568B**:\n1. Branco-Laranja\n2. Laranja\n3. Branco-Verde\n4. Azul\n5. Branco-Azul\n6. Verde\n7. Branco-Marrom\n8. Marrom`,
     whatsappMessage: "Olá! Estou com problema no cabo de rede / internet cabeada. Gostaria de agendar um diagnóstico.",
     relatedPages: [
-      { to: "/redes-wifi", label: "Redes Wi-Fi" },
-      { to: "/computador-lento", label: "Computador Lento" },
+      { to: "/servicos/redes-wifi", label: "Redes Wi-Fi" },
+      { to: "/servicos/computador-lento", label: "Computador Lento" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
@@ -8501,8 +8501,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Como Identificar o Tipo de Barulho do HD\n\nCada tipo de som indica uma falha diferente:\n\n- **Clique repetitivo (click of death):** Cabeça de leitura falhando — falha mais grave\n- **Zumbido alto:** Motor spindle com rolamentos gastos\n- **Chiado ou raspagem:** Cabeça tocando os pratos — dano físico ativo\n- **Bipe eletrônico:** Motor travado, não consegue girar os pratos\n\n## SSD vs HD: Por Que Migrar\n\nApós uma falha de HD, recomendamos sempre a migração para SSD:\n\n- **Zero partes móveis:** Elimina risco de falha mecânica\n- **5x a 10x mais rápido:** Boot do Windows em 15 segundos\n- **Resistente a impactos:** Ideal para notebooks\n- **Silencioso:** Operação completamente sem ruído\n- **Menor consumo:** Aumenta autonomia da bateria em notebooks`,
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD e Memória" },
-      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
@@ -8553,7 +8553,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/pc-travando-jogos-curitiba", label: "PC Travando em Jogos" },
       { to: "/problemas/notebook-desligando-sozinho-curitiba", label: "Notebook Desligando" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/conserto-pc-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8601,9 +8601,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## O Que Consome Mais Espaço no Windows\n\n| Item | Espaço Típico |\n|------|---------------|\n| Windows + Atualizações | 30-60GB |\n| Pasta WinSxS | 5-20GB |\n| Cache de navegadores | 2-10GB |\n| Arquivos temporários | 1-5GB |\n| Pontos de restauração | 5-15GB |\n| Lixeira | 1-10GB |\n\n## Quanto de Espaço Livre Manter\n\n- **Mínimo absoluto:** 10% do disco\n- **Recomendado:** 15-20% livre\n- **Ideal para SSD:** 20-25% livre (preserva performance e vida útil)`,
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/upgrade-ssd-memoria-curitiba", label: "Upgrade SSD e Memória" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
-      { to: "/backup-recuperacao-curitiba", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8650,7 +8650,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     whatsappMessage: "Olá! Meu computador não está conectando no WiFi. Preciso de diagnóstico para identificar se é problema de hardware ou configuração. Podem me ajudar?",
     conteudoExtra: `## Checklist Rápido Antes de Chamar o Técnico\n\n1. Verifique se o WiFi funciona em outros dispositivos (celular, tablet)\n2. Reinicie o roteador (desligue 30 segundos e religue)\n3. Verifique se o modo avião não está ativado\n4. Tente esquecer a rede WiFi e reconectar com a senha\n5. Verifique se há tecla de atalho para WiFi no notebook (Fn+F2, Fn+F5)\n\n## WiFi 5 vs WiFi 6: Vale o Upgrade?\n\n| Característica | WiFi 5 (ac) | WiFi 6 (ax) |\n|---------------|-------------|-------------|\n| Velocidade máxima | 866 Mbps | 2.4 Gbps |\n| Latência | Normal | Até 75% menor |\n| Múltiplos dispositivos | Limitado | Excelente (OFDMA) |\n| Alcance | Bom | Superior |\n| Preço adaptador | R$30-80 | R$60-150 |`,
     relatedPages: [
-      { to: "/redes-wifi-curitiba", label: "Redes WiFi" },
+      { to: "/servicos/redes-wifi", label: "Redes WiFi" },
       { to: "/problemas/cabo-rede-nao-funciona-curitiba", label: "Cabo de Rede" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
@@ -8701,7 +8701,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
-      { to: "/redes-wifi-curitiba", label: "Redes WiFi" },
+      { to: "/servicos/redes-wifi", label: "Redes WiFi" },
       { to: "/problemas/cabo-rede-nao-funciona-curitiba", label: "Cabo de Rede" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
@@ -8753,7 +8753,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/notebook-touchpad-nao-funciona-curitiba", label: "Touchpad Não Funciona" },
-      { to: "/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8802,8 +8802,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/remocao-virus-curitiba", label: "Remoção de Vírus" },
-      { to: "/formatacao-computador-curitiba", label: "Formatação" },
+      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao-computador", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8853,7 +8853,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Superaquecimento" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
-      { to: "/tela-azul-curitiba", label: "Tela Azul" },
+      { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8902,7 +8902,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
       { to: "/problemas/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8951,8 +8951,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/erro-registro-windows-curitiba", label: "Erro no Registro do Windows" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Erro de Disco Cheio" },
-      { to: "/computador-lento", label: "Computador Lento" },
-      { to: "/formatacao-computador", label: "Formatação de Computador" },
+      { to: "/servicos/computador-lento", label: "Computador Lento" },
+      { to: "/servicos/formatacao-computador", label: "Formatação de Computador" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -9001,8 +9001,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/notebook-tela-escura-curitiba", label: "Notebook com Tela Escura" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
-      { to: "/manutencao-tv", label: "Manutenção de TV" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/manutencao-tv", label: "Manutenção de TV" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -9052,7 +9052,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/monitor-piscando-curitiba", label: "Monitor Piscando" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -10232,15 +10232,15 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## A Matemática do Display\n\n### Celular: Display = 30-50% do custo de fabricação\n- Galaxy S24 Ultra custa ~R$ 9.000\n- Display AMOLED original: ~R$ 1.500-2.000 (peça)\n- Proporção: ~20% do preço de varejo, ~45% do custo de fabricação\n\n### TV: Display = 60-85% do custo de fabricação\n- TV OLED 55" custa ~R$ 5.000-8.000\n- Painel OLED: ~R$ 2.500-4.000 (peça)\n- Proporção: ~50% do preço de varejo, ~75% do custo de fabricação\n\n## Por Que o Técnico Não Pode Cobrar Mais Barato?\n\nO técnico é intermediário. Ele compra a peça de distribuidores que importam de fábricas. A cadeia é:\n\n**Fábrica → Importador → Distribuidor → Técnico → Você**\n\nCada elo adiciona margem mínima. O preço alto vem da origem — da fábrica.\n\n## LCD vs AMOLED vs OLED: Entenda\n\n### LCD (Mais barato)\n- Usa backlight (luz traseira) + cristal líquido\n- Presente em celulares básicos e TVs baratas\n- Fabricação mais simples = peça mais acessível\n\n### AMOLED (Caro)\n- Cada pixel emite própria luz\n- Pretos perfeitos, cores vibrantes\n- Presente em celulares intermediários e premium\n- Fabricação complexa = peça cara\n\n### OLED (Muito caro)\n- Mesma tecnologia do AMOLED em escala grande\n- Presente em TVs de alta gama\n- Painéis grandes são extremamente difíceis de fabricar sem defeitos\n- Peça mais cara em eletrônicos de consumo\n\n## Conclusão: O Que Fazer?\n\n1. **Sempre faça diagnóstico** — pode não ser o display\n2. **Considere o compatível** — 85-90% da qualidade por 40-60% do preço\n3. **Compare com aparelho novo** — às vezes faz mais sentido\n4. **Proteja depois** — película + capinha/suporte de qualidade`,
     relatedPages: [...RELATED_BASE, { label: "Tela Celular", to: "/problemas/quanto-custa-trocar-tela-celular-curitiba" }, { label: "Tela TV", to: "/problemas/quanto-custa-trocar-tela-tv-curitiba" }, { label: "TV Tela Quebrada", to: "/problemas/tv-tela-quebrada-curitiba" }],
   },
-  {slug:"tv-travando-lenta-curitiba",title:"Smart TV Travando e Lenta em Curitiba | Conserto",metaDescription:"Smart TV travando, lenta ou apps demorados? Diagnóstico e conserto em Curitiba.",h1:"Smart TV Travando e Lenta — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`Smart TVs ficam lentas por cache, firmware desatualizado ou hardware fraco. Muitas vezes é software resolvido com reset. Em outros casos, placa principal com defeito.\n\n**Trazer a TV à oficina.**`,sintomas:[{titulo:"Apps demoram para abrir",desc:"Netflix, YouTube levam 30+ segundos.",gravidade:"Simples"},{titulo:"TV congela durante uso",desc:"Imagem trava. RAM ou processador sobrecarregado.",gravidade:"Médio"},{titulo:"Menu da TV lento",desc:"Configurações demoram para responder.",gravidade:"Simples"},{titulo:"TV reinicia ao abrir app",desc:"Falta de RAM faz o sistema reiniciar.",gravidade:"Médio"}],causas:[{titulo:"Cache acumulado",desc:"Apps lotam a memória interna.",tipo:"software"},{titulo:"Firmware desatualizado",desc:"Versões antigas com bugs.",tipo:"software"},{titulo:"Hardware subdimensionado",desc:"TVs baratas não acompanham apps modernos.",tipo:"hardware"},{titulo:"Placa principal com defeito",desc:"Componentes falhando.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Reset de fábrica + firmware.",tempo:"1 a 2 horas",custo:"R$ 80 a R$ 150"},{nivel:"Médio",desc:"Troca de eMMC ou regravação.",tempo:"3 a 7 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Placa principal.",tempo:"5 a 15 dias",custo:"R$ 300 a R$ 800"}],riscos:["Reset apaga configurações","TVs antigas sem atualizações"],diagnostico:"Teste de software e hardware. Presencial.",solucao:"Reset, firmware, eMMC ou placa principal.",quandoCompensa:"TVs de até 5 anos.",quandoNaoCompensa:"TVs 7+ anos. Use Chromecast/Fire Stick.",whatsappMessage:"Olá! Minha Smart TV está travando. Podem diagnosticar?",conteudoExtra:`## Antes de Levar\n\n1. Desligue da tomada por 2 min\n2. Limpe cache dos apps\n3. Atualize firmware\n4. Reset de fábrica\n\n## Alternativa\n- Chromecast (R$ 250-350)\n- Fire Stick (R$ 300-400)`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Desliga Sozinha",to:"/tv-desliga-sozinha-curitiba"}]},
-  {slug:"tv-sem-hdmi-curitiba",title:"TV Não Reconhece HDMI em Curitiba | Sem Sinal",metaDescription:"TV não reconhece HDMI? Sem sinal ou tela preta? Diagnóstico em Curitiba.",h1:"TV Não Reconhece HDMI — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Porta HDMI é a principal conexão de vídeo. Problema pode ser cabo, porta queimada ou chip HDMI danificado por descarga estática.\n\n**Orçamento presencial.**`,sintomas:[{titulo:"Sem sinal ao conectar",desc:"Tela preta ou 'Sem Sinal'.",gravidade:"Simples"},{titulo:"Imagem intermitente",desc:"Imagem pisca via HDMI.",gravidade:"Médio"},{titulo:"Só uma porta funciona",desc:"Outras pararam.",gravidade:"Médio"},{titulo:"HDMI sem áudio",desc:"Vídeo OK mas sem som.",gravidade:"Simples"}],causas:[{titulo:"Cabo defeituoso",desc:"Causa mais comum.",tipo:"hardware"},{titulo:"Porta queimada",desc:"Descarga estática com TV ligada.",tipo:"hardware"},{titulo:"Chip HDMI danificado",desc:"Requer microsoldagem.",tipo:"hardware"},{titulo:"Incompatibilidade",desc:"Resolução não suportada.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Troca de cabo.",tempo:"Imediato",custo:"R$ 30 a R$ 80"},{nivel:"Médio",desc:"Troca da porta HDMI.",tempo:"3 a 7 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Chip HDMI. Microsoldagem.",tempo:"7 a 15 dias",custo:"R$ 400 a R$ 900"}],riscos:["Conectar HDMI com TV ligada queima porta"],diagnostico:"Teste com cabos e portas diferentes. Presencial.",solucao:"Troca de cabo, conector ou microsoldagem.",quandoCompensa:"Sempre vale investigar.",quandoNaoCompensa:"Placa principal em TV barata.",whatsappMessage:"Olá! TV não reconhece HDMI. Podem diagnosticar?",conteudoExtra:`## NUNCA conecte HDMI com TV ligada\n\n## Antes de Levar\n1. Teste outro cabo\n2. Teste outra porta\n3. Teste dispositivo em outra TV`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Sem Imagem",to:"/tv-sem-imagem-curitiba"}]},
-  {slug:"tv-imagem-fantasma-curitiba",title:"TV com Imagem Fantasma em Curitiba | Conserto",metaDescription:"TV com imagem fantasma, duplicada ou sombra? Diagnóstico em Curitiba.",h1:"TV com Imagem Fantasma — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Ghosting mostra sombra/duplicação. Em OLED pode ser burn-in (permanente). Em LED/LCD geralmente é T-CON ou flat cable.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Sombra da imagem",desc:"Cópia fantasma ao lado.",gravidade:"Médio"},{titulo:"Burn-in (OLED)",desc:"Logo permanece visível.",gravidade:"Complexo"},{titulo:"Rastro em cenas rápidas",desc:"Motion blur excessivo.",gravidade:"Simples"},{titulo:"Cores desalinhadas",desc:"Bordas coloridas.",gravidade:"Médio"}],causas:[{titulo:"T-CON com defeito",desc:"Timing dos pixels falhando.",tipo:"hardware"},{titulo:"Flat cable solto",desc:"Cabos entre T-CON e painel.",tipo:"hardware"},{titulo:"Burn-in OLED",desc:"Dano permanente.",tipo:"hardware"},{titulo:"Configuração",desc:"Motion smoothing.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Ajuste de configurações.",tempo:"Imediato",custo:"R$ 0 a R$ 100"},{nivel:"Médio",desc:"T-CON ou flat cables.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Burn-in OLED. Painel.",tempo:"15+ dias",custo:"R$ 2.000 a R$ 5.000+"}],riscos:["Burn-in é irreversível"],diagnostico:"Teste com fontes, T-CON e flat cables. Presencial.",solucao:"Configurações, T-CON/flat cable ou painel.",quandoCompensa:"T-CON ou flat cable sempre.",quandoNaoCompensa:"Burn-in severo em OLED.",whatsappMessage:"Olá! TV com imagem fantasma. Podem diagnosticar?",conteudoExtra:`## Prevenir Burn-in OLED\n1. Evite imagens estáticas\n2. Protetor de tela\n3. Reduza brilho\n4. Ative pixel shift`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Listras",to:"/tv-listras-na-tela-curitiba"}]},
-  {slug:"tv-demora-ligar-curitiba",title:"TV Demora Para Ligar em Curitiba | Capacitores",metaDescription:"TV demora para ligar? Diagnóstico de fonte e capacitores em Curitiba.",h1:"TV Demora Para Ligar — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`TV saudável liga em 5-15s. Se demora 30+, geralmente capacitores desgastados na fonte.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"LED pisca antes de ligar",desc:"Capacitores fracos.",gravidade:"Médio"},{titulo:"30+ segundos para imagem",desc:"Fonte ou backlight.",gravidade:"Médio"},{titulo:"Liga na 2ª tentativa",desc:"Fonte instável.",gravidade:"Médio"},{titulo:"Estalo ao ligar",desc:"Capacitor ou relé.",gravidade:"Médio"}],causas:[{titulo:"Capacitores desgastados",desc:"Incham com o tempo (3-7 anos).",tipo:"hardware"},{titulo:"Backlight enfraquecendo",desc:"LEDs exigem mais energia.",tipo:"hardware"},{titulo:"Firmware corrompido",desc:"Inicialização lenta.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Troca de capacitores.",tempo:"3 a 7 dias",custo:"R$ 150 a R$ 300"},{nivel:"Médio",desc:"Placa fonte ou backlight.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 500"},{nivel:"Complexo",desc:"Placa principal + fonte.",tempo:"7 a 15 dias",custo:"R$ 400 a R$ 800"}],riscos:["Capacitores podem estourar","Problema piora progressivamente"],diagnostico:"Medição de tensões, inspeção de capacitores. Presencial.",solucao:"Troca de capacitores, reparo da fonte.",quandoCompensa:"Quase sempre — reparo barato.",quandoNaoCompensa:"Múltiplas placas em TV antiga.",whatsappMessage:"Olá! TV demora para ligar. Podem diagnosticar?",conteudoExtra:`## Sinais de Capacitores\n- Demora mais a cada semana\n- Melhor quando quente\n- Piora no frio`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/tv-nao-liga-curitiba"}]},
-  {slug:"tv-cheiro-queimado-curitiba",title:"TV com Cheiro de Queimado em Curitiba | URGENTE",metaDescription:"TV com cheiro de queimado? DESLIGUE imediatamente. Diagnóstico urgente em Curitiba.",h1:"TV com Cheiro de Queimado — Desligue Imediatamente!",categoria:"Problemas de TV",intro:`**DESLIGUE DA TOMADA IMEDIATAMENTE.** Cheiro de queimado indica curto-circuito ou componente superaquecido. Risco de incêndio.\n\n**URGENTE — Trazer à oficina.**`,sintomas:[{titulo:"Cheiro de plástico queimado",desc:"DESLIGUE.",gravidade:"Complexo"},{titulo:"Fumaça",desc:"Curto ativo. DESLIGUE DA TOMADA.",gravidade:"Complexo"},{titulo:"Estalo + cheiro",desc:"Capacitor estourou.",gravidade:"Complexo"}],causas:[{titulo:"Capacitor estourado",desc:"Idade ou sobretensão.",tipo:"hardware"},{titulo:"Curto na fonte",desc:"Causa mais comum.",tipo:"hardware"},{titulo:"Surto elétrico",desc:"Pico de tensão (raio).",tipo:"hardware"},{titulo:"Ventilação bloqueada",desc:"TV em nicho sem ar.",tipo:"erro-humano"}],cenarios:[{nivel:"Simples",desc:"Capacitor isolado.",tempo:"3 a 7 dias",custo:"R$ 150 a R$ 300"},{nivel:"Médio",desc:"Fonte queimada.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 600"},{nivel:"Complexo",desc:"Curto propagou.",tempo:"10 a 20 dias",custo:"R$ 500 a R$ 1.200"}],riscos:["RISCO DE INCÊNDIO","Danos se propagam","Gases tóxicos"],diagnostico:"Inspeção visual e teste de continuidade. Presencial.",solucao:"Substituição de componentes danificados.",quandoCompensa:"Dano restrito à fonte.",quandoNaoCompensa:"Curto em todas as placas.",whatsappMessage:"Olá! TV com cheiro de queimado. Já desliguei. Urgente?",conteudoExtra:`## O Que Fazer\n1. DESLIGUE DA TOMADA\n2. Ventile o ambiente\n3. NÃO ligue novamente\n4. Traga à oficina`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/tv-nao-liga-curitiba"}]},
-  {slug:"tv-controle-nao-funciona-curitiba",title:"Controle Remoto da TV Não Funciona em Curitiba",metaDescription:"Controle remoto não funciona? Diagnóstico de sensor IR em Curitiba.",h1:"Controle Remoto Não Funciona — Soluções em Curitiba",categoria:"Problemas de TV",intro:`Na maioria é problema do controle (pilhas). Quando o controle está OK, pode ser sensor IR ou placa.\n\n**Orçamento presencial.**`,sintomas:[{titulo:"TV não responde",desc:"Pilha, controle ou sensor.",gravidade:"Simples"},{titulo:"Alguns botões falham",desc:"Membrana desgastada.",gravidade:"Simples"},{titulo:"Funciona só de perto",desc:"LED fraco ou sensor bloqueado.",gravidade:"Simples"}],causas:[{titulo:"Pilhas fracas",desc:"Troque primeiro.",tipo:"hardware"},{titulo:"Controle defeituoso",desc:"Membrana ou LED queimado.",tipo:"hardware"},{titulo:"Sensor IR bloqueado",desc:"Objeto na frente.",tipo:"erro-humano"},{titulo:"Placa do sensor",desc:"Receptora IR defeituosa.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Pilhas ou controle universal.",tempo:"Imediato",custo:"R$ 5 a R$ 80"},{nivel:"Médio",desc:"Reparo do sensor IR.",tempo:"3 a 7 dias",custo:"R$ 100 a R$ 250"},{nivel:"Complexo",desc:"Placa principal.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 500"}],riscos:["Universais podem não ter todas as funções"],diagnostico:"Teste com câmera do celular. Presencial.",solucao:"Pilhas, controle novo ou reparo.",quandoCompensa:"Sempre — barato.",quandoNaoCompensa:"Nunca.",whatsappMessage:"Olá! Controle da TV não funciona. Podem ajudar?",conteudoExtra:`## Teste com Câmera\n1. Abra câmera do celular\n2. Aponte LED do controle\n3. Pressione botão\n4. Luz roxa = controle OK`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/tv-nao-liga-curitiba"}]},
-  {slug:"tv-sem-cores-curitiba",title:"TV Sem Cores / Preto e Branco em Curitiba",metaDescription:"TV em preto e branco ou cores erradas? Diagnóstico em Curitiba.",h1:"TV Sem Cores — Conserto em Curitiba",categoria:"Problemas de TV",intro:`TV em preto e branco ou cores erradas? Pode ser configuração de acessibilidade ou T-CON/flat cable.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Preto e branco",desc:"Configuração, T-CON ou flat cable.",gravidade:"Médio"},{titulo:"Cores invertidas",desc:"Acessibilidade ou T-CON.",gravidade:"Simples a Médio"},{titulo:"Uma cor dominante",desc:"Flat cable ou T-CON.",gravidade:"Médio"},{titulo:"Cores desbotadas",desc:"Backlight ou configuração.",gravidade:"Simples"}],causas:[{titulo:"Acessibilidade ativada",desc:"Filtro de cor acidental.",tipo:"software"},{titulo:"Flat cable solto",desc:"Informação de cor não chega.",tipo:"hardware"},{titulo:"T-CON defeituoso",desc:"Controlador de cor.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Desativar filtro de cor.",tempo:"Imediato",custo:"R$ 0"},{nivel:"Médio",desc:"Flat cables ou T-CON.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Degeneração do painel.",tempo:"N/A",custo:"Ver custo de painel"}],riscos:["Flat cables delicados","Degeneração progressiva"],diagnostico:"Configurações, fontes, flat cables. Presencial.",solucao:"Configurações, flat cables ou T-CON.",quandoCompensa:"Configuração (grátis) ou T-CON.",quandoNaoCompensa:"Degeneração do painel.",whatsappMessage:"Olá! TV sem cores. Podem diagnosticar?",conteudoExtra:`## Verifique Antes\n1. Acessibilidade > Filtro de Cor > Desativar\n2. Teste outra fonte\n3. Reset de imagem`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Listras",to:"/tv-listras-na-tela-curitiba"}]},
-  {slug:"tv-nao-conecta-wifi-bluetooth-curitiba",title:"TV Não Conecta Wi-Fi/Bluetooth em Curitiba",metaDescription:"Smart TV sem Wi-Fi ou Bluetooth? Módulo wireless defeituoso? Conserto em Curitiba.",h1:"TV Não Conecta Wi-Fi nem Bluetooth — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Wi-Fi e Bluetooth usam mesmo módulo. Quando ambos falham, é o módulo. Pode ser software (reset) ou hardware (troca).\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Não encontra redes",desc:"Módulo desativado ou defeituoso.",gravidade:"Médio"},{titulo:"Conecta e cai",desc:"Módulo, roteador ou interferência.",gravidade:"Simples a Médio"},{titulo:"Bluetooth não pareia",desc:"Não encontra dispositivos.",gravidade:"Médio"}],causas:[{titulo:"Módulo defeituoso",desc:"Peça substituível.",tipo:"hardware"},{titulo:"Antena desconectada",desc:"Vibração ou transporte.",tipo:"hardware"},{titulo:"Firmware",desc:"Bugs de conectividade.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Reset de rede ou firmware.",tempo:"1 hora",custo:"R$ 80 a R$ 150"},{nivel:"Médio",desc:"Troca do módulo.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Placa principal.",tempo:"7 a 15 dias",custo:"R$ 350 a R$ 700"}],riscos:["TV perde funções smart"],diagnostico:"Software, módulo, antenas. Presencial.",solucao:"Reset, firmware ou troca do módulo.",quandoCompensa:"Sempre — módulo barato.",quandoNaoCompensa:"Placa principal em TV barata.",whatsappMessage:"Olá! TV não conecta Wi-Fi. Podem diagnosticar?",conteudoExtra:`## Alternativa\n- Cabo Ethernet\n- Chromecast/Fire Stick`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Sem Wi-Fi",to:"/tv-sem-wifi-curitiba"}]},
-  {slug:"tv-pixel-morto-curitiba",title:"TV com Pixel Morto em Curitiba | Diagnóstico",metaDescription:"TV com ponto preto ou colorido fixo? Diagnóstico de pixel morto em Curitiba.",h1:"TV com Pixel Morto ou Preso — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`Pixel morto = ponto preto permanente. Pixel preso = cor fixa. Presos às vezes recuperáveis. Mortos são permanentes.\n\n**Avaliação presencial.**`,sintomas:[{titulo:"Ponto preto fixo",desc:"Pixel morto.",gravidade:"Simples"},{titulo:"Ponto colorido fixo",desc:"Pixel preso.",gravidade:"Simples"},{titulo:"Cluster de pixels",desc:"Grupo próximo.",gravidade:"Médio"},{titulo:"Novos pixels",desc:"T-CON ou degeneração.",gravidade:"Médio"}],causas:[{titulo:"Defeito de fabricação",desc:"Tolerância normal.",tipo:"hardware"},{titulo:"Impacto",desc:"Pressão pontual.",tipo:"erro-humano"},{titulo:"T-CON",desc:"Afeta linhas inteiras.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Pixel preso — software.",tempo:"1 hora",custo:"R$ 50 a R$ 100"},{nivel:"Médio",desc:"T-CON.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Pixel morto no painel. Sem reparo.",tempo:"N/A",custo:"Inviável"}],riscos:["Pixels mortos são permanentes"],diagnostico:"Telas de cor sólida. Presencial.",solucao:"Recuperação de presos ou avaliação.",quandoCompensa:"Se é T-CON.",quandoNaoCompensa:"Troca de painel por pixels.",whatsappMessage:"Olá! TV com pixels mortos. Podem avaliar?",conteudoExtra:`## Morto vs Preso\n| Tipo | Recuperável? |\n|------|---------|\n| Morto | Não |\n| Preso | Às vezes |`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Manchas",to:"/tv-manchas-na-tela-curitiba"}]},
+  {slug:"tv-travando-lenta-curitiba",title:"Smart TV Travando e Lenta em Curitiba | Conserto",metaDescription:"Smart TV travando, lenta ou apps demorados? Diagnóstico e conserto em Curitiba.",h1:"Smart TV Travando e Lenta — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`Smart TVs ficam lentas por cache, firmware desatualizado ou hardware fraco. Muitas vezes é software resolvido com reset. Em outros casos, placa principal com defeito.\n\n**Trazer a TV à oficina.**`,sintomas:[{titulo:"Apps demoram para abrir",desc:"Netflix, YouTube levam 30+ segundos.",gravidade:"Simples"},{titulo:"TV congela durante uso",desc:"Imagem trava. RAM ou processador sobrecarregado.",gravidade:"Médio"},{titulo:"Menu da TV lento",desc:"Configurações demoram para responder.",gravidade:"Simples"},{titulo:"TV reinicia ao abrir app",desc:"Falta de RAM faz o sistema reiniciar.",gravidade:"Médio"}],causas:[{titulo:"Cache acumulado",desc:"Apps lotam a memória interna.",tipo:"software"},{titulo:"Firmware desatualizado",desc:"Versões antigas com bugs.",tipo:"software"},{titulo:"Hardware subdimensionado",desc:"TVs baratas não acompanham apps modernos.",tipo:"hardware"},{titulo:"Placa principal com defeito",desc:"Componentes falhando.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Reset de fábrica + firmware.",tempo:"1 a 2 horas",custo:"R$ 80 a R$ 150"},{nivel:"Médio",desc:"Troca de eMMC ou regravação.",tempo:"3 a 7 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Placa principal.",tempo:"5 a 15 dias",custo:"R$ 300 a R$ 800"}],riscos:["Reset apaga configurações","TVs antigas sem atualizações"],diagnostico:"Teste de software e hardware. Presencial.",solucao:"Reset, firmware, eMMC ou placa principal.",quandoCompensa:"TVs de até 5 anos.",quandoNaoCompensa:"TVs 7+ anos. Use Chromecast/Fire Stick.",whatsappMessage:"Olá! Minha Smart TV está travando. Podem diagnosticar?",conteudoExtra:`## Antes de Levar\n\n1. Desligue da tomada por 2 min\n2. Limpe cache dos apps\n3. Atualize firmware\n4. Reset de fábrica\n\n## Alternativa\n- Chromecast (R$ 250-350)\n- Fire Stick (R$ 300-400)`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Desliga Sozinha",to:"/problemas/tv-desliga-sozinha-curitiba"}]},
+  {slug:"tv-sem-hdmi-curitiba",title:"TV Não Reconhece HDMI em Curitiba | Sem Sinal",metaDescription:"TV não reconhece HDMI? Sem sinal ou tela preta? Diagnóstico em Curitiba.",h1:"TV Não Reconhece HDMI — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Porta HDMI é a principal conexão de vídeo. Problema pode ser cabo, porta queimada ou chip HDMI danificado por descarga estática.\n\n**Orçamento presencial.**`,sintomas:[{titulo:"Sem sinal ao conectar",desc:"Tela preta ou 'Sem Sinal'.",gravidade:"Simples"},{titulo:"Imagem intermitente",desc:"Imagem pisca via HDMI.",gravidade:"Médio"},{titulo:"Só uma porta funciona",desc:"Outras pararam.",gravidade:"Médio"},{titulo:"HDMI sem áudio",desc:"Vídeo OK mas sem som.",gravidade:"Simples"}],causas:[{titulo:"Cabo defeituoso",desc:"Causa mais comum.",tipo:"hardware"},{titulo:"Porta queimada",desc:"Descarga estática com TV ligada.",tipo:"hardware"},{titulo:"Chip HDMI danificado",desc:"Requer microsoldagem.",tipo:"hardware"},{titulo:"Incompatibilidade",desc:"Resolução não suportada.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Troca de cabo.",tempo:"Imediato",custo:"R$ 30 a R$ 80"},{nivel:"Médio",desc:"Troca da porta HDMI.",tempo:"3 a 7 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Chip HDMI. Microsoldagem.",tempo:"7 a 15 dias",custo:"R$ 400 a R$ 900"}],riscos:["Conectar HDMI com TV ligada queima porta"],diagnostico:"Teste com cabos e portas diferentes. Presencial.",solucao:"Troca de cabo, conector ou microsoldagem.",quandoCompensa:"Sempre vale investigar.",quandoNaoCompensa:"Placa principal em TV barata.",whatsappMessage:"Olá! TV não reconhece HDMI. Podem diagnosticar?",conteudoExtra:`## NUNCA conecte HDMI com TV ligada\n\n## Antes de Levar\n1. Teste outro cabo\n2. Teste outra porta\n3. Teste dispositivo em outra TV`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Sem Imagem",to:"/problemas/tv-sem-imagem-curitiba"}]},
+  {slug:"tv-imagem-fantasma-curitiba",title:"TV com Imagem Fantasma em Curitiba | Conserto",metaDescription:"TV com imagem fantasma, duplicada ou sombra? Diagnóstico em Curitiba.",h1:"TV com Imagem Fantasma — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Ghosting mostra sombra/duplicação. Em OLED pode ser burn-in (permanente). Em LED/LCD geralmente é T-CON ou flat cable.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Sombra da imagem",desc:"Cópia fantasma ao lado.",gravidade:"Médio"},{titulo:"Burn-in (OLED)",desc:"Logo permanece visível.",gravidade:"Complexo"},{titulo:"Rastro em cenas rápidas",desc:"Motion blur excessivo.",gravidade:"Simples"},{titulo:"Cores desalinhadas",desc:"Bordas coloridas.",gravidade:"Médio"}],causas:[{titulo:"T-CON com defeito",desc:"Timing dos pixels falhando.",tipo:"hardware"},{titulo:"Flat cable solto",desc:"Cabos entre T-CON e painel.",tipo:"hardware"},{titulo:"Burn-in OLED",desc:"Dano permanente.",tipo:"hardware"},{titulo:"Configuração",desc:"Motion smoothing.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Ajuste de configurações.",tempo:"Imediato",custo:"R$ 0 a R$ 100"},{nivel:"Médio",desc:"T-CON ou flat cables.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Burn-in OLED. Painel.",tempo:"15+ dias",custo:"R$ 2.000 a R$ 5.000+"}],riscos:["Burn-in é irreversível"],diagnostico:"Teste com fontes, T-CON e flat cables. Presencial.",solucao:"Configurações, T-CON/flat cable ou painel.",quandoCompensa:"T-CON ou flat cable sempre.",quandoNaoCompensa:"Burn-in severo em OLED.",whatsappMessage:"Olá! TV com imagem fantasma. Podem diagnosticar?",conteudoExtra:`## Prevenir Burn-in OLED\n1. Evite imagens estáticas\n2. Protetor de tela\n3. Reduza brilho\n4. Ative pixel shift`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Listras",to:"/problemas/tv-listras-na-tela-curitiba"}]},
+  {slug:"tv-demora-ligar-curitiba",title:"TV Demora Para Ligar em Curitiba | Capacitores",metaDescription:"TV demora para ligar? Diagnóstico de fonte e capacitores em Curitiba.",h1:"TV Demora Para Ligar — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`TV saudável liga em 5-15s. Se demora 30+, geralmente capacitores desgastados na fonte.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"LED pisca antes de ligar",desc:"Capacitores fracos.",gravidade:"Médio"},{titulo:"30+ segundos para imagem",desc:"Fonte ou backlight.",gravidade:"Médio"},{titulo:"Liga na 2ª tentativa",desc:"Fonte instável.",gravidade:"Médio"},{titulo:"Estalo ao ligar",desc:"Capacitor ou relé.",gravidade:"Médio"}],causas:[{titulo:"Capacitores desgastados",desc:"Incham com o tempo (3-7 anos).",tipo:"hardware"},{titulo:"Backlight enfraquecendo",desc:"LEDs exigem mais energia.",tipo:"hardware"},{titulo:"Firmware corrompido",desc:"Inicialização lenta.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Troca de capacitores.",tempo:"3 a 7 dias",custo:"R$ 150 a R$ 300"},{nivel:"Médio",desc:"Placa fonte ou backlight.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 500"},{nivel:"Complexo",desc:"Placa principal + fonte.",tempo:"7 a 15 dias",custo:"R$ 400 a R$ 800"}],riscos:["Capacitores podem estourar","Problema piora progressivamente"],diagnostico:"Medição de tensões, inspeção de capacitores. Presencial.",solucao:"Troca de capacitores, reparo da fonte.",quandoCompensa:"Quase sempre — reparo barato.",quandoNaoCompensa:"Múltiplas placas em TV antiga.",whatsappMessage:"Olá! TV demora para ligar. Podem diagnosticar?",conteudoExtra:`## Sinais de Capacitores\n- Demora mais a cada semana\n- Melhor quando quente\n- Piora no frio`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/problemas/tv-nao-liga-curitiba"}]},
+  {slug:"tv-cheiro-queimado-curitiba",title:"TV com Cheiro de Queimado em Curitiba | URGENTE",metaDescription:"TV com cheiro de queimado? DESLIGUE imediatamente. Diagnóstico urgente em Curitiba.",h1:"TV com Cheiro de Queimado — Desligue Imediatamente!",categoria:"Problemas de TV",intro:`**DESLIGUE DA TOMADA IMEDIATAMENTE.** Cheiro de queimado indica curto-circuito ou componente superaquecido. Risco de incêndio.\n\n**URGENTE — Trazer à oficina.**`,sintomas:[{titulo:"Cheiro de plástico queimado",desc:"DESLIGUE.",gravidade:"Complexo"},{titulo:"Fumaça",desc:"Curto ativo. DESLIGUE DA TOMADA.",gravidade:"Complexo"},{titulo:"Estalo + cheiro",desc:"Capacitor estourou.",gravidade:"Complexo"}],causas:[{titulo:"Capacitor estourado",desc:"Idade ou sobretensão.",tipo:"hardware"},{titulo:"Curto na fonte",desc:"Causa mais comum.",tipo:"hardware"},{titulo:"Surto elétrico",desc:"Pico de tensão (raio).",tipo:"hardware"},{titulo:"Ventilação bloqueada",desc:"TV em nicho sem ar.",tipo:"erro-humano"}],cenarios:[{nivel:"Simples",desc:"Capacitor isolado.",tempo:"3 a 7 dias",custo:"R$ 150 a R$ 300"},{nivel:"Médio",desc:"Fonte queimada.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 600"},{nivel:"Complexo",desc:"Curto propagou.",tempo:"10 a 20 dias",custo:"R$ 500 a R$ 1.200"}],riscos:["RISCO DE INCÊNDIO","Danos se propagam","Gases tóxicos"],diagnostico:"Inspeção visual e teste de continuidade. Presencial.",solucao:"Substituição de componentes danificados.",quandoCompensa:"Dano restrito à fonte.",quandoNaoCompensa:"Curto em todas as placas.",whatsappMessage:"Olá! TV com cheiro de queimado. Já desliguei. Urgente?",conteudoExtra:`## O Que Fazer\n1. DESLIGUE DA TOMADA\n2. Ventile o ambiente\n3. NÃO ligue novamente\n4. Traga à oficina`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/problemas/tv-nao-liga-curitiba"}]},
+  {slug:"tv-controle-nao-funciona-curitiba",title:"Controle Remoto da TV Não Funciona em Curitiba",metaDescription:"Controle remoto não funciona? Diagnóstico de sensor IR em Curitiba.",h1:"Controle Remoto Não Funciona — Soluções em Curitiba",categoria:"Problemas de TV",intro:`Na maioria é problema do controle (pilhas). Quando o controle está OK, pode ser sensor IR ou placa.\n\n**Orçamento presencial.**`,sintomas:[{titulo:"TV não responde",desc:"Pilha, controle ou sensor.",gravidade:"Simples"},{titulo:"Alguns botões falham",desc:"Membrana desgastada.",gravidade:"Simples"},{titulo:"Funciona só de perto",desc:"LED fraco ou sensor bloqueado.",gravidade:"Simples"}],causas:[{titulo:"Pilhas fracas",desc:"Troque primeiro.",tipo:"hardware"},{titulo:"Controle defeituoso",desc:"Membrana ou LED queimado.",tipo:"hardware"},{titulo:"Sensor IR bloqueado",desc:"Objeto na frente.",tipo:"erro-humano"},{titulo:"Placa do sensor",desc:"Receptora IR defeituosa.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Pilhas ou controle universal.",tempo:"Imediato",custo:"R$ 5 a R$ 80"},{nivel:"Médio",desc:"Reparo do sensor IR.",tempo:"3 a 7 dias",custo:"R$ 100 a R$ 250"},{nivel:"Complexo",desc:"Placa principal.",tempo:"5 a 10 dias",custo:"R$ 250 a R$ 500"}],riscos:["Universais podem não ter todas as funções"],diagnostico:"Teste com câmera do celular. Presencial.",solucao:"Pilhas, controle novo ou reparo.",quandoCompensa:"Sempre — barato.",quandoNaoCompensa:"Nunca.",whatsappMessage:"Olá! Controle da TV não funciona. Podem ajudar?",conteudoExtra:`## Teste com Câmera\n1. Abra câmera do celular\n2. Aponte LED do controle\n3. Pressione botão\n4. Luz roxa = controle OK`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Não Liga",to:"/problemas/tv-nao-liga-curitiba"}]},
+  {slug:"tv-sem-cores-curitiba",title:"TV Sem Cores / Preto e Branco em Curitiba",metaDescription:"TV em preto e branco ou cores erradas? Diagnóstico em Curitiba.",h1:"TV Sem Cores — Conserto em Curitiba",categoria:"Problemas de TV",intro:`TV em preto e branco ou cores erradas? Pode ser configuração de acessibilidade ou T-CON/flat cable.\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Preto e branco",desc:"Configuração, T-CON ou flat cable.",gravidade:"Médio"},{titulo:"Cores invertidas",desc:"Acessibilidade ou T-CON.",gravidade:"Simples a Médio"},{titulo:"Uma cor dominante",desc:"Flat cable ou T-CON.",gravidade:"Médio"},{titulo:"Cores desbotadas",desc:"Backlight ou configuração.",gravidade:"Simples"}],causas:[{titulo:"Acessibilidade ativada",desc:"Filtro de cor acidental.",tipo:"software"},{titulo:"Flat cable solto",desc:"Informação de cor não chega.",tipo:"hardware"},{titulo:"T-CON defeituoso",desc:"Controlador de cor.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Desativar filtro de cor.",tempo:"Imediato",custo:"R$ 0"},{nivel:"Médio",desc:"Flat cables ou T-CON.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Degeneração do painel.",tempo:"N/A",custo:"Ver custo de painel"}],riscos:["Flat cables delicados","Degeneração progressiva"],diagnostico:"Configurações, fontes, flat cables. Presencial.",solucao:"Configurações, flat cables ou T-CON.",quandoCompensa:"Configuração (grátis) ou T-CON.",quandoNaoCompensa:"Degeneração do painel.",whatsappMessage:"Olá! TV sem cores. Podem diagnosticar?",conteudoExtra:`## Verifique Antes\n1. Acessibilidade > Filtro de Cor > Desativar\n2. Teste outra fonte\n3. Reset de imagem`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Listras",to:"/problemas/tv-listras-na-tela-curitiba"}]},
+  {slug:"tv-nao-conecta-wifi-bluetooth-curitiba",title:"TV Não Conecta Wi-Fi/Bluetooth em Curitiba",metaDescription:"Smart TV sem Wi-Fi ou Bluetooth? Módulo wireless defeituoso? Conserto em Curitiba.",h1:"TV Não Conecta Wi-Fi nem Bluetooth — Conserto em Curitiba",categoria:"Problemas de TV",intro:`Wi-Fi e Bluetooth usam mesmo módulo. Quando ambos falham, é o módulo. Pode ser software (reset) ou hardware (troca).\n\n**Trazer à oficina.**`,sintomas:[{titulo:"Não encontra redes",desc:"Módulo desativado ou defeituoso.",gravidade:"Médio"},{titulo:"Conecta e cai",desc:"Módulo, roteador ou interferência.",gravidade:"Simples a Médio"},{titulo:"Bluetooth não pareia",desc:"Não encontra dispositivos.",gravidade:"Médio"}],causas:[{titulo:"Módulo defeituoso",desc:"Peça substituível.",tipo:"hardware"},{titulo:"Antena desconectada",desc:"Vibração ou transporte.",tipo:"hardware"},{titulo:"Firmware",desc:"Bugs de conectividade.",tipo:"software"}],cenarios:[{nivel:"Simples",desc:"Reset de rede ou firmware.",tempo:"1 hora",custo:"R$ 80 a R$ 150"},{nivel:"Médio",desc:"Troca do módulo.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 400"},{nivel:"Complexo",desc:"Placa principal.",tempo:"7 a 15 dias",custo:"R$ 350 a R$ 700"}],riscos:["TV perde funções smart"],diagnostico:"Software, módulo, antenas. Presencial.",solucao:"Reset, firmware ou troca do módulo.",quandoCompensa:"Sempre — módulo barato.",quandoNaoCompensa:"Placa principal em TV barata.",whatsappMessage:"Olá! TV não conecta Wi-Fi. Podem diagnosticar?",conteudoExtra:`## Alternativa\n- Cabo Ethernet\n- Chromecast/Fire Stick`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Sem Wi-Fi",to:"/problemas/tv-sem-wifi-curitiba"}]},
+  {slug:"tv-pixel-morto-curitiba",title:"TV com Pixel Morto em Curitiba | Diagnóstico",metaDescription:"TV com ponto preto ou colorido fixo? Diagnóstico de pixel morto em Curitiba.",h1:"TV com Pixel Morto ou Preso — Diagnóstico em Curitiba",categoria:"Problemas de TV",intro:`Pixel morto = ponto preto permanente. Pixel preso = cor fixa. Presos às vezes recuperáveis. Mortos são permanentes.\n\n**Avaliação presencial.**`,sintomas:[{titulo:"Ponto preto fixo",desc:"Pixel morto.",gravidade:"Simples"},{titulo:"Ponto colorido fixo",desc:"Pixel preso.",gravidade:"Simples"},{titulo:"Cluster de pixels",desc:"Grupo próximo.",gravidade:"Médio"},{titulo:"Novos pixels",desc:"T-CON ou degeneração.",gravidade:"Médio"}],causas:[{titulo:"Defeito de fabricação",desc:"Tolerância normal.",tipo:"hardware"},{titulo:"Impacto",desc:"Pressão pontual.",tipo:"erro-humano"},{titulo:"T-CON",desc:"Afeta linhas inteiras.",tipo:"hardware"}],cenarios:[{nivel:"Simples",desc:"Pixel preso — software.",tempo:"1 hora",custo:"R$ 50 a R$ 100"},{nivel:"Médio",desc:"T-CON.",tempo:"3 a 10 dias",custo:"R$ 200 a R$ 500"},{nivel:"Complexo",desc:"Pixel morto no painel. Sem reparo.",tempo:"N/A",custo:"Inviável"}],riscos:["Pixels mortos são permanentes"],diagnostico:"Telas de cor sólida. Presencial.",solucao:"Recuperação de presos ou avaliação.",quandoCompensa:"Se é T-CON.",quandoNaoCompensa:"Troca de painel por pixels.",whatsappMessage:"Olá! TV com pixels mortos. Podem avaliar?",conteudoExtra:`## Morto vs Preso\n| Tipo | Recuperável? |\n|------|---------|\n| Morto | Não |\n| Preso | Às vezes |`,relatedPages:[...RELATED_BASE,{label:"Conserto de TV",to:"/servicos/conserto-tv"},{label:"TV Manchas",to:"/problemas/tv-manchas-na-tela-curitiba"}]},
   // ===== PÁGINAS DE LISTRAS NA TELA =====
   {
     slug: "celular-listras-na-tela-curitiba",
@@ -10339,7 +10339,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "TV Não Liga", to: "/problemas/tv-nao-liga-curitiba" },
       { label: "TV Sem Imagem", to: "/problemas/tv-sem-imagem-curitiba" },
       { label: "Conserto de TV", to: "/servicos/conserto-tv" },
-      { label: "TV Imagem Fantasma", to: "/tv-imagem-fantasma-curitiba" },
+      { label: "TV Imagem Fantasma", to: "/problemas/tv-imagem-fantasma-curitiba" },
       { label: "Custo Troca Tela TV", to: "/problemas/quanto-custa-trocar-tela-tv-curitiba" },
       { label: "Celular com Listras", to: "/problemas/celular-listras-na-tela-curitiba" }
     ],
@@ -10436,7 +10436,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "TV com Listras", to: "/problemas/tv-listras-na-tela-curitiba" },
       { label: "TV Sem Imagem", to: "/problemas/tv-sem-imagem-curitiba" },
       { label: "Conserto de TV", to: "/servicos/conserto-tv" },
-      { label: "TV Imagem Fantasma", to: "/tv-imagem-fantasma-curitiba" },
+      { label: "TV Imagem Fantasma", to: "/problemas/tv-imagem-fantasma-curitiba" },
       { label: "Custo Troca Tela TV", to: "/problemas/quanto-custa-trocar-tela-tv-curitiba" },
       { label: "Celular com Listras", to: "/problemas/celular-listras-na-tela-curitiba" }
     ],
@@ -10591,7 +10591,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "TV com Listras", to: "/problemas/tv-listras-na-tela-curitiba" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Reparo Placa Notebook", to: "/problemas/reparo-placa-mae-notebook-curitiba" },
-      { label: "TV Cheiro Queimado", to: "/tv-cheiro-queimado-curitiba" }
+      { label: "TV Cheiro Queimado", to: "/problemas/tv-cheiro-queimado-curitiba" }
     ],
   },
   {
@@ -10920,7 +10920,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Reparo Placa Som", to: "/problemas/reparo-placa-som-amplificador-curitiba" },
       { label: "TV Não Liga", to: "/problemas/tv-nao-liga-curitiba" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-      { label: "TV Demora Ligar", to: "/tv-demora-ligar-curitiba" },
+      { label: "TV Demora Ligar", to: "/problemas/tv-demora-ligar-curitiba" },
       { label: "Por Que Custa Caro", to: "/problemas/por-que-conserto-placa-mae-custa-caro-curitiba" }
     ],
   },

@@ -15,14 +15,14 @@ const benefits = [
 
 const headlines: { text: string; path: string }[] = [
   { text: "Computador lento? Não liga? Travando ou com vírus?", path: "/servicos/computador-lento" },
-  { text: "Notebook esquentando? Tela preta? Sem Wi-Fi?", path: "/notebook-superaquecendo-o-que-fazer" },
-  { text: "PC travou de vez? Perdeu arquivos? Tela azul?", path: "/tela-azul-da-morte-causas-e-solucoes" },
+  { text: "Notebook esquentando? Tela preta? Sem Wi-Fi?", path: "/problemas/notebook-superaquecendo-curitiba" },
+  { text: "PC travou de vez? Perdeu arquivos? Tela azul?", path: "/problemas/tela-azul-windows-curitiba" },
   { text: "Vírus no computador? Pop-ups? Dados em risco?", path: "/servicos/remocao-virus" },
   { text: "Computador não liga? Fazendo barulho? Lento demais?", path: "/servicos/computador-nao-liga" },
   { text: "Notebook caiu? Teclado parou? Bateria viciada?", path: "/servicos/conserto-pc-notebook" },
   { text: "Smart TV sem sinal? Celular travando? Monitor apagou?", path: "/servicos/manutencao-tv" },
   { text: "Tela quebrada? Placa queimou? HD com defeito?", path: "/servicos/conserto-placa" },
-  { text: "Computador reiniciando sozinho? Desligando do nada?", path: "/computador-reiniciando-sozinho" },
+  { text: "Computador reiniciando sozinho? Desligando do nada?", path: "/problemas/computador-reiniciando-sozinho-curitiba" },
   { text: "Wi-Fi caindo toda hora? Internet lenta demais?", path: "/servicos/redes-wifi" },
   { text: "Impressora não imprime? Rede fora do ar?", path: "/servicos/redes-wifi" },
   { text: "Notebook não carrega? Fonte queimou? Conector solto?", path: "/servicos/conserto-pc-notebook" },
@@ -30,9 +30,9 @@ const headlines: { text: string; path: string }[] = [
   { text: "Arquivos sumiram? HD fazendo barulho estranho?", path: "/servicos/backup-recuperacao" },
   { text: "Câmera de segurança parou? DVR sem imagem?", path: "/cftv" },
   { text: "Computador pegando vírus toda hora? Sem proteção?", path: "/servicos/remocao-virus" },
-  { text: "Tela azul da morte? Erro crítico no sistema?", path: "/tela-azul-da-morte-causas-e-solucoes" },
+  { text: "Tela azul da morte? Erro crítico no sistema?", path: "/problemas/tela-azul-windows-curitiba" },
   { text: "PC novo e já está lento? Muitos programas?", path: "/servicos/computador-lento" },
-  { text: "Notebook superaquecendo? Ventilador barulhento?", path: "/notebook-superaquecendo-o-que-fazer" },
+  { text: "Notebook superaquecendo? Ventilador barulhento?", path: "/problemas/notebook-superaquecendo-curitiba" },
   { text: "Mouse e teclado sem funcionar? USB com defeito?", path: "/servicos/conserto-pc-notebook" },
 ];
 

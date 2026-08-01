@@ -57,7 +57,7 @@ export const ProblemasDestaque = () => {
 
           <div className="text-center mt-6">
             <Link
-              to="/problemas-reais-casos"
+              to="/problemas-reais-e-casos"
               className="inline-flex items-center gap-2 text-accent font-semibold hover:underline underline-grow text-sm gradient-text-hover"
             >
               Ver todos os problemas que resolvemos

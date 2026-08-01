@@ -175,8 +175,20 @@ test.describe("Triagem PF × PJ — hardening (2.1)", () => {
     await page.reload();
     await page.waitForLoadState("networkidle");
     dialog = await openFunnel(page);
+
+    // Por design a triagem reabre na etapa 0, mas o ramo escolhido continua
+    // persistido e pré-selecionado — nada é reperguntado do zero.
+    const persisted = await page.evaluate(() => sessionStorage.getItem("triage_state_6.0"));
+    expect(persisted).toContain('"customerType":"business"');
+    const pj = dialog.getByRole("radio", { name: /Para uma empresa ou organização/i });
+    await expect(pj).toHaveAttribute("aria-checked", "true");
+
+    // E seguir adiante volta direto ao ramo PJ, sem grade residencial.
+    await pj.click();
     await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+    await expect(dialog.getByRole("radio", { name: /Notebook/i })).toHaveCount(0);
   });
+
 
   test("sessão antiga (v5) é migrada para PF sem travar o funil", async ({ page }) => {
     await page.goto(HOME);

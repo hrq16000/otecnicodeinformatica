@@ -22,7 +22,7 @@ export const WHATSAPP_NUMBER = siteConfig.whatsappNumber;
 export const BRAND_NAME = siteConfig.brandName;
 
 /** Bump SEMPRE que regras/termos/estrutura mudarem (invalida estado antigo). */
-export const TRIAGE_VERSION = "5.0";
+export const TRIAGE_VERSION = "6.0";
 export const STORAGE_KEY = `triage_state_${TRIAGE_VERSION}`;
 
 // ─────────────────────────────────────────────────────────────

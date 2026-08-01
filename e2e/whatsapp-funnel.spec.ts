@@ -23,6 +23,12 @@ async function openFunnel(page: Page) {
   return dialog;
 }
 
+/** Etapa 0 (PF × PJ) — segue pelo ramo residencial. */
+async function chooseResidential(dialog: ReturnType<Page["getByRole"]>) {
+  await dialog.getByRole("radio", { name: /Para mim ou minha residência/i }).click();
+  await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible({ timeout: 5000 });
+}
+
 test.describe("Triagem V5 — funil ramificado por equipamento", () => {
   test.beforeEach(async ({ page, context }) => {
     await installGtagSpy(page);

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
+import { upsertCanonical } from "@/lib/canonicalUrl";
 import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroPremium } from "@/components/home/HeroPremium";

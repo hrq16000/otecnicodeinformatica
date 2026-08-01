@@ -163,6 +163,14 @@ export const WhatsAppFunnel = () => {
   const totalSteps = steps.length;
   const business = isBusiness(answers);
 
+  // Mantém o contexto de analytics/erros alinhado ao ramo (inclui estado restaurado).
+  useEffect(() => {
+    const ct = answers.customerType ?? "unknown";
+    setFunnelBranchContext({ customer_type: ct });
+    setErrorContext({ funnel_customer_type: ct });
+  }, [answers.customerType]);
+
+
   // ---------- navigation ----------
   const goTo = useCallback((s: number) => {
     setStep(Math.max(0, Math.min(s, totalSteps - 1)));

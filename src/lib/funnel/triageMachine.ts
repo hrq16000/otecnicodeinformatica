@@ -551,9 +551,41 @@ export function buildTriageSummary(a: TriageAnswers): SummaryRow[] {
   const eq = getEquipment(a.equipment);
   const rules = getPricingRules(a);
   const rows: SummaryRow[] = [];
+
+  if (isBusiness(a)) {
+    rows.push({ label: "Tipo de atendimento", value: "Empresa / organização" });
+    if (a.fields.nome) rows.push({ label: "Contato", value: a.fields.nome });
+    if (a.business["biz-empresa"]) rows.push({ label: "Empresa", value: a.business["biz-empresa"] });
+    const intent = businessLabel(BUSINESS_INTENT_OPTIONS, a.business["biz-intent"]);
+    if (intent) rows.push({ label: "Necessidade", value: intent });
+    const engagement = businessLabel(BUSINESS_ENGAGEMENT_OPTIONS, a.business["biz-engagement"]);
+    if (engagement) rows.push({ label: "Formato", value: engagement });
+    const devices = businessLabel(BUSINESS_DEVICE_RANGE_OPTIONS, a.business["biz-device-range"]);
+    if (devices) rows.push({ label: "Equipamentos", value: devices });
+    const env = getBusinessEnvironmentLabels(a);
+    if (env.length) rows.push({ label: "Ambiente", value: env.join(" · ") });
+    const impact = businessLabel(BUSINESS_IMPACT_OPTIONS, a.business["biz-impact"]);
+    if (impact) rows.push({ label: "Impacto", value: impact });
+    if (a.business["biz-descricao"]) {
+      rows.push({ label: "Descrição", value: a.business["biz-descricao"].trim() });
+    }
+    if (a.fields.bairro) rows.push({ label: "Bairro/cidade", value: a.fields.bairro });
+    if (a.urgency) {
+      const u = URGENCY_LABEL(a.urgency);
+      if (u) rows.push({ label: "Urgência", value: u });
+    }
+    rows.push({ label: "Modalidade indicada", value: rules.routeLabel });
+    rows.push({ label: "Valor mínimo informado", value: rules.minPrice });
+    rows.push({ label: "Prazo informado", value: rules.prazo });
+    if (isRecurring(a)) rows.push({ label: "Observação", value: RECURRING_NOTICE });
+    if (a.finalNotes.trim()) rows.push({ label: "Observação adicional", value: a.finalNotes.trim() });
+    return rows;
+  }
+
   if (a.fields.nome) rows.push({ label: "Nome", value: a.fields.nome });
   if (a.fields.bairro) rows.push({ label: "Bairro/cidade", value: a.fields.bairro });
   if (eq) rows.push({ label: "Equipamento", value: eq.label });
+
 
   const marca = a.fields.marca || a.fields.console || a.fields["equip-nome"];
   const modelo = a.fields.modelo;

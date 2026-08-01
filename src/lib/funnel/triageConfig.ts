@@ -88,7 +88,7 @@ export type EquipmentId =
   | "videogame"
   | "outro";
 
-export type FieldType = "single" | "chips" | "text" | "textarea";
+export type FieldType = "single" | "chips" | "text" | "textarea" | "multi";
 
 export interface FieldOption {
   value: string;

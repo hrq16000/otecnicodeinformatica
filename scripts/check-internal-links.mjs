@@ -121,6 +121,8 @@ const errors = [];
 const warnings = [];
 
 for (const { file, url } of sitemapUrls) {
+  // Entradas de sitemap-index apontam para outros .xml, não para rotas.
+  if (url.endsWith(".xml")) continue;
   if (!url.startsWith(CANONICAL)) {
     errors.push(`[${file}] domínio não canônico: ${url}`);
     continue;

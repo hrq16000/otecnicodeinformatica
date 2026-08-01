@@ -484,6 +484,27 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
   };
 }
 
+/** Ao trocar PF × PJ, descarta tudo do ramo anterior (preserva só o nome). */
+export function resetForCustomerType(a: TriageAnswers, next: CustomerType): TriageAnswers {
+  if (a.customerType === next) return a;
+  return {
+    ...EMPTY_ANSWERS,
+    customerType: next,
+    fields: a.fields.nome ? { nome: a.fields.nome } : {},
+  };
+}
+
+/** Ao trocar a necessidade/engajamento PJ, limpa a modalidade incompatível. */
+export function resetBusinessDependents(a: TriageAnswers): TriageAnswers {
+  const allowed = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+  const chosen = a.business["biz-modality"];
+  if (!chosen || allowed.some((o) => o.value === chosen)) return a;
+  const business = { ...a.business };
+  delete business["biz-modality"];
+  return { ...a, business };
+}
+
+
 /** Ao trocar o sintoma, descarta respostas contextuais que dependiam dele. */
 export function resetForSymptom(a: TriageAnswers, nextSymptom: string): TriageAnswers {
   if (a.symptom === nextSymptom) return a;

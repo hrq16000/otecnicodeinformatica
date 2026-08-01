@@ -105,6 +105,11 @@ const localBusinessSchema = {
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // LocalBusiness institucional: slot global, cedido a schemas de rota mais específicos.
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, localBusinessSchema, SLOT_PRIORITY.global);
+
+
+
   return (
     <footer className="bg-[hsl(var(--hero-bg))] text-white">
       <div className="container mx-auto py-12 md:py-14">

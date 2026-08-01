@@ -1,6 +1,7 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Home } from "lucide-react";
-import { Helmet } from "react-helmet";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 interface BreadcrumbItem {
   label: string;
@@ -14,24 +15,26 @@ interface BreadcrumbsProps {
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   const allItems = [{ label: "Início", href: "/" }, ...items];
 
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: allItems.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.label,
-      item: item.href ? `https://tecnico.curitiba.br${item.href}` : undefined,
-    })),
-  };
+  const schemaData = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: allItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.label,
+        item: item.href ? `https://tecnico.curitiba.br${item.href}` : undefined,
+      })),
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [JSON.stringify(allItems)],
+  );
+
+  // Mesmo slot do PageSEO: o breadcrumb da rota (prioridade maior) prevalece.
+  useJsonLdSlot(SCHEMA_SLOTS.breadcrumb, schemaData, SLOT_PRIORITY.component);
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-      </Helmet>
       <nav
         aria-label="Breadcrumb"
         className="bg-muted/50 border-b border-border"

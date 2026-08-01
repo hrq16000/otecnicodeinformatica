@@ -270,7 +270,23 @@ const EmpresaDeTiCuritiba = () => {
           </section>
         </AnimatedSection>
 
+        {/* ═══ Sinais + CTA de meio de página ═══ */}
+        <AnimatedSection>
+          <EmpresaSinaisSection whatsappUrl={whatsappUrl} />
+        </AnimatedSection>
+
+        {/* ═══ Como funciona em 4 passos ═══ */}
+        <AnimatedSection>
+          <EmpresaPassosSection />
+        </AnimatedSection>
+
+        {/* ═══ Segmentos atendidos ═══ */}
+        <AnimatedSection>
+          <EmpresaSegmentosSection />
+        </AnimatedSection>
+
         {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
+
         <AnimatedSection>
           <section className="py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">

@@ -201,6 +201,11 @@ export function validateAndInjectSchema(
   }
 
   document.getElementById(scriptId)?.remove();
+  // Deduplicação pós-hidratação: o prerender injeta JSON-LD estático marcado
+  // com data-static-jsonld. Ao inserir a versão client-side da MESMA entidade,
+  // removemos o nó estático para que exista exatamente um por @type.
+  removeStaticJsonLdFor(schema);
+
   const el = document.createElement("script");
   el.id = scriptId;
   el.type = "application/ld+json";

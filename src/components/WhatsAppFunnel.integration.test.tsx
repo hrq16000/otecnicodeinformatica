@@ -62,6 +62,18 @@ async function clickText(label: string | RegExp) {
   await act(async () => { btn.click(); });
 }
 
+/** Preenche a qualificação obrigatória (nome + bairro) da etapa de identidade. */
+async function fillQualification() {
+  const d = dialog();
+  const inputs = Array.from(d.querySelectorAll<HTMLInputElement>("input[type='text'], input:not([type])"));
+  const values = ["Cliente Teste", "Batel"];
+  for (let i = 0; i < inputs.length && i < values.length; i += 1) {
+    await act(async () => {
+      fireEvent.change(inputs[i], { target: { value: values[i] } });
+    });
+  }
+}
+
 function getWaUrl(): URL | null {
   for (let i = openSpy.mock.calls.length - 1; i >= 0; i -= 1) {
     const arg = openSpy.mock.calls[i][0];
@@ -88,6 +100,7 @@ describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
 
     await clickText("Notebook");
     await clickText("Liga e inicia normalmente");
+    await fillQualification();
     await clickText("Instalar ou configurar programa");
 
     // auto-advance → detalhes

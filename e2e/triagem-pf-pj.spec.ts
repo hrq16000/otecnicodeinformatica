@@ -8,15 +8,27 @@ import { test, expect, type Page } from "@playwright/test";
 
 const HOME = "/";
 
+/**
+ * O `index.html` cria seu próprio `window.gtag` (que empurra para `dataLayer`),
+ * sobrescrevendo qualquer stub anterior. Por isso o espião intercepta o
+ * `dataLayer.push` — assim capturamos os eventos GA4 reais do app.
+ */
 async function installSpies(page: Page) {
   await page.addInitScript(() => {
-    (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls = [];
-    (window as unknown as { dataLayer: unknown[] }).dataLayer = [];
-    (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = function (...args: unknown[]) {
-      (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls.push(args);
+    const calls: unknown[][] = [];
+    (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls = calls;
+    const layer: unknown[] = [];
+    const nativePush = layer.push.bind(layer);
+    (layer as unknown as { push: (...a: unknown[]) => number }).push = (...args: unknown[]) => {
+      for (const entry of args) {
+        calls.push(Array.from(entry as ArrayLike<unknown>));
+      }
+      return nativePush(...(args as never[]));
     };
+    (window as unknown as { dataLayer: unknown[] }).dataLayer = layer;
   });
 }
+
 
 /** Modal da triagem — nome acessível próprio, para não colidir com o banner de cookies (também role=dialog). */
 function funnelDialog(page: Page) {

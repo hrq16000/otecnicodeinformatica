@@ -17,6 +17,9 @@ import {
   trackFunnelModalOpen,
   trackFunnelModalImpression,
   trackFunnelQualification,
+  trackFunnelBranch,
+  trackFunnelBusinessProfile,
+  setFunnelBranchContext,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
@@ -25,31 +28,43 @@ import { TriageField } from "@/components/funnel/TriageField";
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,
+  CUSTOMER_TYPE_OPTIONS,
+  RECURRING_NOTICE,
   URGENCY_OPTIONS,
   WHATSAPP_NUMBER,
   STORAGE_KEY,
   getEquipment,
+  type CustomerType,
   type EquipmentId,
   type TriageAnswers,
 } from "@/lib/funnel/triageConfig";
 import {
-  STEPS,
-  TOTAL_STEPS,
   buildTriageSummary,
   buildWhatsAppMessage,
   clearPersisted,
   determineServiceRoute,
+  getBusinessContextFields,
+  getBusinessModalityFields,
+  getBusinessNeedFields,
   getDetailsFields,
   getIdentityFields,
   getPricingRules,
-  getTermsForRoute,
+  getStepName,
+  getSteps,
+  getTermsForAnswers,
+  isBusiness,
+  isRecurring,
   loadPersisted,
   makeTriageId,
   persist,
+  resetBusinessDependents,
+  resetForCustomerType,
   resetForEquipment,
   resetForSymptom,
   validateStep,
 } from "@/lib/funnel/triageMachine";
+import { setErrorContext } from "@/lib/errorReporter";
+
 
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
 const REDUCED_MOTION =
@@ -142,14 +157,25 @@ export const WhatsAppFunnel = () => {
   // ---------- derivations ----------
   const equipment = getEquipment(answers.equipment);
   const rules = useMemo(() => getPricingRules(answers), [answers]);
-  const terms = useMemo(() => getTermsForRoute(determineServiceRoute(answers)), [answers]);
+  const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
   const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
+  const steps = useMemo(() => getSteps(answers), [answers]);
+  const totalSteps = steps.length;
+  const business = isBusiness(answers);
+
+  // Mantém o contexto de analytics/erros alinhado ao ramo (inclui estado restaurado).
+  useEffect(() => {
+    const ct = answers.customerType ?? "unknown";
+    setFunnelBranchContext({ customer_type: ct });
+    setErrorContext({ funnel_customer_type: ct });
+  }, [answers.customerType]);
+
 
   // ---------- navigation ----------
   const goTo = useCallback((s: number) => {
-    setStep(Math.max(0, Math.min(s, TOTAL_STEPS - 1)));
+    setStep(Math.max(0, Math.min(s, totalSteps - 1)));
     setInvalidField(null);
-  }, []);
+  }, [totalSteps]);
 
   const doPulse = useCallback(() => {
     setPulse(true);
@@ -162,11 +188,12 @@ export const WhatsAppFunnel = () => {
     doPulse();
     const delay = REDUCED_MOTION ? 0 : 420;
     advanceTimer.current = setTimeout(() => {
-      setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+      setStep((s) => Math.min(s + 1, totalSteps - 1));
       setInvalidField(null);
       isTransitioning.current = false;
     }, delay);
-  }, [doPulse]);
+
+  }, [doPulse, totalSteps]);
 
   const focusFirstIncomplete = useCallback((s: number, a: TriageAnswers) => {
     const v = validateStep(s, a);
@@ -199,24 +226,34 @@ export const WhatsAppFunnel = () => {
   }, [step, goTo, clearTimers]);
 
   // Auto-advance depois de uma seleção que completa a etapa.
+  const AUTO_ADVANCE_STEPS = ["equipment", "identity", "details", "business-need", "business-context", "business-modality"];
   const maybeAutoAdvance = useCallback(
     (nextAnswers: TriageAnswers) => {
-      const name = STEPS[step];
-      if (name !== "equipment" && name !== "identity" && name !== "details") return;
+      const name = getStepName(step, nextAnswers);
+      if (!AUTO_ADVANCE_STEPS.includes(name)) return;
       if (!validateStep(step, nextAnswers).ok) return;
       clearTimers();
       advance();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [step, advance, clearTimers],
   );
 
+  /** Aplica uma resposta ao estado, respeitando o roteamento por prefixo. */
+  const applyField = useCallback((prev: TriageAnswers, id: string, value: string): TriageAnswers => {
+    if (id === "symptom") return resetForSymptom(prev, value);
+    if (id.startsWith("biz-")) {
+      const next = { ...prev, business: { ...prev.business, [id]: value } };
+      // Trocar necessidade/engajamento invalida modalidade incompatível.
+      return id === "biz-intent" || id === "biz-engagement" ? resetBusinessDependents(next) : next;
+    }
+    return { ...prev, fields: { ...prev.fields, [id]: value } };
+  }, []);
+
   /** Estado resultante de uma seleção — determinístico, sem depender do setState. */
   const computeNext = useCallback(
-    (id: string, value: string): TriageAnswers => {
-      if (id === "symptom") return resetForSymptom(answers, value);
-      return { ...answers, fields: { ...answers.fields, [id]: value } };
-    },
-    [answers],
+    (id: string, value: string): TriageAnswers => applyField(answers, id, value),
+    [answers, applyField],
   );
 
   // ---------- field updates ----------
@@ -224,18 +261,28 @@ export const WhatsAppFunnel = () => {
     (id: string, value: string) => {
       setInvalidField(null);
       setAnswers((prev) => {
-        let next: TriageAnswers;
-        if (id === "symptom") {
-          next = resetForSymptom(prev, value);
-        } else {
-          next = { ...prev, fields: { ...prev.fields, [id]: value } };
-        }
+        const next = applyField(prev, id, value);
         persist(STORAGE_KEY, next);
         return next;
       });
     },
-    [],
+    [applyField],
   );
+
+  const setCustomerType = useCallback(
+    (value: CustomerType) => {
+      setInvalidField(null);
+      const next = resetForCustomerType(answers, value);
+      commit(next);
+      setFunnelBranchContext({ customer_type: value });
+      setErrorContext({ funnel_customer_type: value });
+      trackFunnelBranch({ customerType: value, ctaLocation: originLocation });
+      clearTimers();
+      advance();
+    },
+    [answers, commit, originLocation, advance, clearTimers],
+  );
+
 
   const setEquipment = useCallback(
     (id: EquipmentId) => {
@@ -362,10 +409,26 @@ export const WhatsAppFunnel = () => {
     };
   }, [openFunnel]);
 
+  const stepName = getStepName(step, answers);
+
   useEffect(() => {
     if (!open) return;
-    trackFunnelStep(step, answers.equipment, answers.symptom, originLocation);
-  }, [open, step, answers.equipment, answers.symptom, originLocation]);
+    trackFunnelStep(step, answers.equipment, answers.symptom, originLocation, stepName);
+  }, [open, step, answers.equipment, answers.symptom, originLocation, stepName]);
+
+  // Perfil empresarial: dispara ao concluir a etapa de contexto do ramo PJ.
+  useEffect(() => {
+    if (!open || !business) return;
+    if (stepName !== "business-modality") return;
+    trackFunnelBusinessProfile({
+      intent: answers.business["biz-intent"],
+      engagement: answers.business["biz-engagement"],
+      deviceRange: answers.business["biz-device-range"],
+      impact: answers.business["biz-impact"],
+      modalidade: rules.route,
+    });
+  }, [open, business, stepName, answers.business, rules.route]);
+
 
   // Modal open/impression — dispara quando o Dialog transiciona para aberto.
   const wasOpenRef = useRef(false);
@@ -435,7 +498,7 @@ export const WhatsAppFunnel = () => {
       modalidade: rules.route,
       ctaLocation: originLocation,
     });
-    for (let s = 0; s < TOTAL_STEPS; s++) {
+    for (let s = 0; s < getSteps(answers).length; s++) {
       const v = validateStep(s, answers);
       if (!v.ok) {
         trackFunnelBlocked(`submit_invalid_step_${s}`, answers.equipment);
@@ -543,8 +606,6 @@ export const WhatsAppFunnel = () => {
     fieldRefs.current.set(id, el);
   };
 
-  const stepName = STEPS[step];
-
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
@@ -557,10 +618,11 @@ export const WhatsAppFunnel = () => {
             Triagem antes do atendimento
           </DialogTitle>
           <DialogDescription className="text-xs">
-            O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {TOTAL_STEPS}.
+            O WhatsApp humano abre <strong>somente após a triagem</strong>. Etapa {step + 1} de {totalSteps}.
           </DialogDescription>
           <div className={`mt-1.5 flex gap-1 transition-transform ${pulse && !REDUCED_MOTION ? "scale-y-150" : ""}`}>
-            {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
+            {Array.from({ length: totalSteps }).map((_, i) => (
+
               <div
                 key={i}
                 className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-muted"}`}
@@ -580,7 +642,127 @@ export const WhatsAppFunnel = () => {
               />
             ) : (
               <>
-                {/* ETAPA 0 — equipamento */}
+                {/* ETAPA 0 — PF × PJ */}
+                {stepName === "customer" && (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium">Este atendimento é para quem?</p>
+                    <p className="text-xs text-muted-foreground">
+                      A triagem muda conforme o contexto: residencial ou empresarial.
+                    </p>
+                    <div className="grid gap-2">
+                      {CUSTOMER_TYPE_OPTIONS.map((o) => {
+                        const active = answers.customerType === o.value;
+                        return (
+                          <button
+                            key={o.value}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            onClick={() => setCustomerType(o.value as CustomerType)}
+                            className={`min-h-12 rounded-xl border px-4 py-3 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                              active ? "border-primary bg-primary/10 font-medium" : "border-border bg-card hover:border-primary/60"
+                            }`}
+                          >
+                            {o.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 1: necessidade */}
+                {stepName === "business-need" && (
+                  <div className="space-y-4">
+                    <p className="text-sm font-medium">Atendimento para empresa</p>
+                    {getBusinessNeedFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id.startsWith("biz-") ? answers.business[f.id] ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
+                      />
+                    ))}
+                    {isRecurring(answers) && (
+                      <p className="rounded-lg border border-border bg-card/50 p-2.5 text-xs leading-snug text-foreground/80">
+                        {RECURRING_NOTICE}
+                      </p>
+                    )}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 2: ambiente e impacto */}
+                {stepName === "business-context" && (
+                  <div className="space-y-4">
+                    {getBusinessContextFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={answers.business[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
+                      />
+                    ))}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 3: modalidade + localização + urgência */}
+                {stepName === "business-modality" && (
+                  <div className="space-y-4">
+                    {getBusinessModalityFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id.startsWith("biz-") ? answers.business[f.id] ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                      />
+                    ))}
+                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>
+                      <p className="text-sm font-medium">Qual a urgência? <span className="text-destructive">*</span></p>
+                      <div role="radiogroup" className="grid gap-1.5">
+                        {URGENCY_OPTIONS.map((u) => {
+                          const active = answers.urgency === u.value;
+                          return (
+                            <button
+                              key={u.value}
+                              type="button"
+                              role="radio"
+                              aria-checked={active}
+                              onClick={() => setUrgency(u.value)}
+                              className={`min-h-11 rounded-lg border px-3 py-2.5 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                                active ? "border-primary bg-primary/10 font-medium" : "border-border bg-card hover:border-primary/60"
+                              }`}
+                            >
+                              {u.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="rounded-xl border-2 border-primary/40 bg-primary/5 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Modalidade indicada</p>
+                      <p className="mt-1 text-lg font-bold text-foreground">{rules.routeLabel}</p>
+                      <p className="mt-2 text-sm leading-snug text-foreground/80">{rules.explanation}</p>
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      <InfoBox title="Valor mínimo" value={rules.minPrice} />
+                      <InfoBox title="Prazo estimado" value={rules.prazo} />
+                    </div>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* ETAPA 1 — equipamento */}
+
                 {stepName === "equipment" && (
                   <div className="space-y-3">
                     <p className="text-sm font-medium">Qual o equipamento?</p>
@@ -604,6 +786,8 @@ export const WhatsAppFunnel = () => {
                         );
                       })}
                     </div>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+
                   </div>
                 )}
 

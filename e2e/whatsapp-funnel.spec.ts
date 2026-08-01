@@ -23,6 +23,18 @@ async function openFunnel(page: Page) {
   return dialog;
 }
 
+/** Etapa 0 (PF × PJ) — segue pelo ramo residencial. */
+/** Preenche a qualificação obrigatória da etapa de identidade. */
+async function fillQualification(dialog: ReturnType<Page["getByRole"]>) {
+  await dialog.getByLabel(/Seu nome/i).fill("Cliente Teste");
+  await dialog.getByLabel(/bairro/i).first().fill("Batel");
+}
+
+async function chooseResidential(dialog: ReturnType<Page["getByRole"]>) {
+  await dialog.getByRole("radio", { name: /Para mim ou minha residência/i }).click();
+  await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible({ timeout: 5000 });
+}
+
 test.describe("Triagem V5 — funil ramificado por equipamento", () => {
   test.beforeEach(async ({ page, context }) => {
     await installGtagSpy(page);
@@ -33,6 +45,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
     await expect(dialog.getByText("Outro", { exact: true }).first()).toBeVisible();
     await expect(dialog.getByText(/Só orçamento/i)).toHaveCount(0);
   });
@@ -41,10 +54,12 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
 
     await dialog.getByRole("button", { name: /^TV$/i }).first().click();
     await expect(dialog.getByText(/O que aconteceu/i)).toBeVisible();
     await dialog.getByRole("radio", { name: /^LED$/i }).click();
+    await fillQualification(dialog);
     await dialog.getByRole("radio", { name: /^Não liga$/i }).click();
 
     await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();
@@ -61,10 +76,12 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
 
     await dialog.getByRole("button", { name: /PC \/ Notebook/i }).click();
     await dialog.getByRole("radio", { name: /^Notebook$/i }).click();
     await dialog.getByRole("radio", { name: /Liga e inicia normalmente/i }).click();
+    await fillQualification(dialog);
     await dialog.getByRole("radio", { name: /Instalar ou configurar programa/i }).click();
 
     await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();
@@ -122,6 +139,7 @@ test.describe("Triagem V5 — mobile", () => {
     await page.goto(HOME);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
     await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible();
   });
 });

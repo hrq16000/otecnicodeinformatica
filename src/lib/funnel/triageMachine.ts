@@ -13,6 +13,17 @@ import {
   EMPTY_ANSWERS,
   PRICING,
   QUALIFICATION_FIELDS,
+  QUALIFICATION_NOME,
+  QUALIFICATION_BAIRRO,
+  BUSINESS_FIELDS,
+  BUSINESS_INTENT_OPTIONS,
+  BUSINESS_ENGAGEMENT_OPTIONS,
+  BUSINESS_DEVICE_RANGE_OPTIONS,
+  BUSINESS_ENVIRONMENT_OPTIONS,
+  BUSINESS_IMPACT_OPTIONS,
+  BUSINESS_MODALITY_OPTIONS,
+  RECURRING_NOTICE,
+  getBusinessModalityValues,
   PRAZO_COLETA,
   ROUTE_LABEL,
   ROUTE_MIN_PRICE,
@@ -20,8 +31,10 @@ import {
   TRIAGE_VERSION,
   BRAND_NAME,
   getEquipment,
+  type CustomerType,
   type EquipmentConfig,
   type Field,
+  type FieldOption,
   type ServiceRoute,
   type SymptomMeta,
   type TriageAnswers,
@@ -29,19 +42,53 @@ import {
 import { buildTemplateOpening, buildTrackingLine } from "@/lib/whatsappTemplates";
 
 // ─────────────────────────────────────────────────────────────
-// ETAPAS
+// ETAPAS — a sequência depende do ramo (PF × PJ), mas o motor é o mesmo.
 // ─────────────────────────────────────────────────────────────
-export const STEPS = [
-  "equipment", // 0
-  "identity",  // 1 — identificação + sintoma
-  "details",   // 2 — contexto + urgência
-  "modality",  // 3 — modalidade definida (informativo)
-  "terms",     // 4 — ciência e aceite
-  "review",    // 5 — revisão + WhatsApp
+export const RESIDENTIAL_STEPS = [
+  "customer",  // 0 — PF × PJ
+  "equipment", // 1
+  "identity",  // 2 — identificação + sintoma
+  "details",   // 3 — contexto + urgência
+  "modality",  // 4 — modalidade definida (informativo)
+  "terms",     // 5 — ciência e aceite
+  "review",    // 6 — revisão + WhatsApp
 ] as const;
 
-export type StepName = (typeof STEPS)[number];
-export const TOTAL_STEPS = STEPS.length;
+export const BUSINESS_STEPS = [
+  "customer",          // 0
+  "business-need",     // 1 — nome, empresa, necessidade, avulso × recorrente
+  "business-context",  // 2 — equipamentos, ambiente, impacto, descrição
+  "business-modality", // 3 — modalidade, localização, urgência
+  "terms",             // 4
+  "review",            // 5
+] as const;
+
+export type StepName =
+  | (typeof RESIDENTIAL_STEPS)[number]
+  | (typeof BUSINESS_STEPS)[number];
+
+/** Sequência de etapas do ramo atual. PJ só após escolher "empresa". */
+export function getSteps(a: TriageAnswers): readonly StepName[] {
+  return a.customerType === "business" ? BUSINESS_STEPS : RESIDENTIAL_STEPS;
+}
+
+export function getStepName(step: number, a: TriageAnswers): StepName {
+  const steps = getSteps(a);
+  return steps[Math.max(0, Math.min(step, steps.length - 1))];
+}
+
+export function getTotalSteps(a: TriageAnswers): number {
+  return getSteps(a).length;
+}
+
+/** Compat: sequência residencial (ramo padrão). */
+export const STEPS = RESIDENTIAL_STEPS;
+export const TOTAL_STEPS = RESIDENTIAL_STEPS.length;
+
+export const isBusiness = (a: TriageAnswers): boolean => a.customerType === "business";
+export const isRecurring = (a: TriageAnswers): boolean =>
+  isBusiness(a) && a.business["biz-engagement"] === "recurring_evaluation";
+
 
 // ─────────────────────────────────────────────────────────────
 // SINTOMA / EVENTO
@@ -103,15 +150,77 @@ export function getDetailsFields(a: TriageAnswers): Field[] {
 }
 
 // ─────────────────────────────────────────────────────────────
+// CAMPOS DO RAMO EMPRESARIAL
+// ─────────────────────────────────────────────────────────────
+/** Etapa "business-need": nome, empresa, necessidade e tipo de engajamento. */
+export function getBusinessNeedFields(_a: TriageAnswers): Field[] {
+  return [
+    QUALIFICATION_NOME,
+    BUSINESS_FIELDS.empresa,
+    BUSINESS_FIELDS.intent,
+    BUSINESS_FIELDS.engagement,
+  ];
+}
+
+/** Etapa "business-context": ambiente e impacto. */
+export function getBusinessContextFields(a: TriageAnswers): Field[] {
+  const out: Field[] = [BUSINESS_FIELDS.deviceRange, BUSINESS_FIELDS.environment];
+  // Avaliação recorrente não pergunta impacto de incidente pontual.
+  if (!isRecurring(a)) out.push(BUSINESS_FIELDS.impact);
+  out.push(
+    isRecurring(a)
+      ? {
+          ...BUSINESS_FIELDS.descricao,
+          label: "Descreva brevemente o ambiente e o que a empresa precisa",
+        }
+      : BUSINESS_FIELDS.descricao,
+  );
+  return out;
+}
+
+/** Etapa "business-modality": modalidade condicional + localização. */
+export function getBusinessModalityFields(a: TriageAnswers): Field[] {
+  const options = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+  return [
+    { ...BUSINESS_FIELDS.modality, options },
+    QUALIFICATION_BAIRRO,
+  ];
+}
+
+function businessLabel(options: FieldOption[], value?: string): string {
+  if (!value) return "";
+  return options.find((o) => o.value === value)?.label ?? value;
+}
+
+/** Rótulos legíveis do ambiente (campo múltiplo, valores separados por vírgula). */
+export function getBusinessEnvironmentLabels(a: TriageAnswers): string[] {
+  const raw = a.business["biz-environment"] || "";
+  return raw
+    .split(",")
+    .map((v) => v.trim())
+    .filter(Boolean)
+    .map((v) => businessLabel(BUSINESS_ENVIRONMENT_OPTIONS, v));
+}
+
+
+// ─────────────────────────────────────────────────────────────
 // DETERMINAÇÃO DA MODALIDADE
 // ─────────────────────────────────────────────────────────────
 const PC_NOT_WORKING = ["nao-liga", "liga-nao-inicia", "liga-desliga"];
 
 export function determineServiceRoute(a: TriageAnswers): ServiceRoute {
+  // Ramo empresarial: a modalidade é escolhida entre as opções compatíveis.
+  if (isBusiness(a)) {
+    const chosen = a.business["biz-modality"] as ServiceRoute | undefined;
+    const allowed = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+    if (chosen && allowed.some((o) => o.value === chosen)) return chosen;
+    return "orientacao";
+  }
   const eq = getEquipment(a.equipment);
   if (!eq) return "coleta";
   // Equipamentos com rota fixa → sempre coleta.
   if (eq.forcedRoute) return eq.forcedRoute;
+
 
   // PC / Notebook — única categoria com remoto/visita.
   if (eq.id === "pc") {
@@ -142,7 +251,29 @@ export function getPricingRules(a: TriageAnswers): PricingRules {
   const meta = getSymptomMeta(a);
   const equipLabel = eq?.label ?? "equipamento";
 
+  if (isBusiness(a)) {
+    const recurring = isRecurring(a);
+    const explanation = recurring
+      ? `${RECURRING_NOTICE} Nesta etapa fazemos apenas o entendimento inicial: escopo, valores e formato são definidos depois da avaliação.`
+      : route === "orientacao"
+        ? `Vamos entender a necessidade da empresa antes de indicar a modalidade. Qualquer serviço executado respeita o valor mínimo de ${PRICING.minGeral}.`
+        : route === "coleta"
+          ? `O equipamento da empresa precisa ser avaliado em bancada. O valor mínimo é de ${PRICING.coletaMin}, com peças não inclusas.`
+          : route === "visita"
+            ? `O atendimento no endereço da empresa custa ${PRICING.visita} por até 30 minutos. Se for identificada necessidade de bancada, coleta ou peças, você será informado antes.`
+            : `A demanda pode ser compatível com atendimento remoto. A confirmação é feita no WhatsApp e o valor mínimo é de ${PRICING.minGeral}.`;
+
+    return {
+      route,
+      routeLabel: ROUTE_LABEL[route],
+      minPrice: recurring ? "Definido após avaliação" : ROUTE_MIN_PRICE[route],
+      prazo: recurring ? "Definido após avaliação" : ROUTE_PRAZO[route],
+      explanation,
+    };
+  }
+
   let explanation = "";
+
   if (route === "remoto") {
     explanation =
       "Pelas informações fornecidas, o serviço pode ser compatível com atendimento remoto, pois o computador está funcionando e a solicitação envolve instalação ou configuração. A confirmação será feita no WhatsApp.";
@@ -209,6 +340,16 @@ export function getTermsForRoute(route: ServiceRoute): TermItem[] {
     ];
   }
 
+  if (route === "orientacao") {
+    return [
+      ...base,
+      {
+        id: "orientacao-valor",
+        text: `Estou ciente de que esta etapa é apenas de entendimento da necessidade e que qualquer serviço executado respeita o valor mínimo de ${PRICING.minGeral}, definido após avaliação.`,
+      },
+    ];
+  }
+
   // remoto
   return [
     ...base,
@@ -218,6 +359,27 @@ export function getTermsForRoute(route: ServiceRoute): TermItem[] {
     },
   ];
 }
+
+/**
+ * Termos efetivos considerando o ramo. PJ recorrente troca os termos de preço
+ * por ciência neutra de que escopo e valores dependem de avaliação.
+ */
+export function getTermsForAnswers(a: TriageAnswers): TermItem[] {
+  if (isRecurring(a)) {
+    return [
+      {
+        id: "ciencia-geral",
+        text: "Esta triagem é obrigatória e registra minha ciência de que o WhatsApp será aberto apenas para agendar o entendimento inicial da necessidade da empresa.",
+      },
+      {
+        id: "pj-recorrente",
+        text: `${RECURRING_NOTICE} Estou ciente de que não há plano, escopo, prazo de resposta ou valor definidos nesta etapa.`,
+      },
+    ];
+  }
+  return getTermsForRoute(determineServiceRoute(a));
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // VALIDAÇÃO POR ETAPA
@@ -232,6 +394,7 @@ export interface ValidationResult {
 function fieldValue(a: TriageAnswers, f: Field): string {
   if (f.id === "symptom") return a.symptom ?? "";
   if (f.id === "__event") return a.fields.__event ?? "";
+  if (f.id.startsWith("biz-")) return a.business[f.id] ?? "";
   return a.fields[f.id] ?? "";
 }
 
@@ -243,25 +406,43 @@ function fieldComplete(a: TriageAnswers, f: Field): boolean {
   return true;
 }
 
+function validateFields(a: TriageAnswers, fields: Field[]): ValidationResult | null {
+  for (const f of fields) {
+    if (!fieldComplete(a, f)) {
+      return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
+    }
+  }
+  return null;
+}
+
 export function validateStep(step: number, a: TriageAnswers): ValidationResult {
-  const name = STEPS[step];
+  const name = getStepName(step, a);
+  if (name === "customer") {
+    return a.customerType ? { ok: true } : { ok: false, reason: "Selecione para quem é o atendimento." };
+  }
   if (name === "equipment") {
     return a.equipment ? { ok: true } : { ok: false, reason: "Selecione o equipamento." };
   }
   if (name === "identity") {
-    for (const f of getIdentityFields(a)) {
-      if (!fieldComplete(a, f)) {
-        return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
-      }
+    return validateFields(a, getIdentityFields(a)) ?? { ok: true };
+  }
+  if (name === "details") {
+    const invalid = validateFields(a, getDetailsFields(a));
+    if (invalid) return invalid;
+    if (!a.urgency) {
+      return { ok: false, firstIncomplete: "__urgency", reason: "Selecione a urgência." };
     }
     return { ok: true };
   }
-  if (name === "details") {
-    for (const f of getDetailsFields(a)) {
-      if (!fieldComplete(a, f)) {
-        return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
-      }
-    }
+  if (name === "business-need") {
+    return validateFields(a, getBusinessNeedFields(a)) ?? { ok: true };
+  }
+  if (name === "business-context") {
+    return validateFields(a, getBusinessContextFields(a)) ?? { ok: true };
+  }
+  if (name === "business-modality") {
+    const invalid = validateFields(a, getBusinessModalityFields(a));
+    if (invalid) return invalid;
     if (!a.urgency) {
       return { ok: false, firstIncomplete: "__urgency", reason: "Selecione a urgência." };
     }
@@ -271,8 +452,7 @@ export function validateStep(step: number, a: TriageAnswers): ValidationResult {
     return { ok: true };
   }
   if (name === "terms") {
-    const route = determineServiceRoute(a);
-    for (const t of getTermsForRoute(route)) {
+    for (const t of getTermsForAnswers(a)) {
       if (!a.termsAccepted[t.id]) {
         return { ok: false, firstIncomplete: t.id, reason: "Confirme todos os itens para continuar." };
       }
@@ -294,8 +474,10 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
   if (a.equipment === next) return a;
   return {
     ...EMPTY_ANSWERS,
+    customerType: a.customerType, // ramo PF/PJ é anterior ao equipamento
     equipment: next,
     urgency: a.urgency, // urgência é neutra, pode ser preservada
+
     // Qualificação é neutra em relação ao equipamento: preserva.
     fields: {
       ...(a.fields.nome ? { nome: a.fields.nome } : {}),
@@ -303,6 +485,27 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
     },
   };
 }
+
+/** Ao trocar PF × PJ, descarta tudo do ramo anterior (preserva só o nome). */
+export function resetForCustomerType(a: TriageAnswers, next: CustomerType): TriageAnswers {
+  if (a.customerType === next) return a;
+  return {
+    ...EMPTY_ANSWERS,
+    customerType: next,
+    fields: a.fields.nome ? { nome: a.fields.nome } : {},
+  };
+}
+
+/** Ao trocar a necessidade/engajamento PJ, limpa a modalidade incompatível. */
+export function resetBusinessDependents(a: TriageAnswers): TriageAnswers {
+  const allowed = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+  const chosen = a.business["biz-modality"];
+  if (!chosen || allowed.some((o) => o.value === chosen)) return a;
+  const business = { ...a.business };
+  delete business["biz-modality"];
+  return { ...a, business };
+}
+
 
 /** Ao trocar o sintoma, descarta respostas contextuais que dependiam dele. */
 export function resetForSymptom(a: TriageAnswers, nextSymptom: string): TriageAnswers {
@@ -350,9 +553,41 @@ export function buildTriageSummary(a: TriageAnswers): SummaryRow[] {
   const eq = getEquipment(a.equipment);
   const rules = getPricingRules(a);
   const rows: SummaryRow[] = [];
+
+  if (isBusiness(a)) {
+    rows.push({ label: "Tipo de atendimento", value: "Empresa / organização" });
+    if (a.fields.nome) rows.push({ label: "Contato", value: a.fields.nome });
+    if (a.business["biz-empresa"]) rows.push({ label: "Empresa", value: a.business["biz-empresa"] });
+    const intent = businessLabel(BUSINESS_INTENT_OPTIONS, a.business["biz-intent"]);
+    if (intent) rows.push({ label: "Necessidade", value: intent });
+    const engagement = businessLabel(BUSINESS_ENGAGEMENT_OPTIONS, a.business["biz-engagement"]);
+    if (engagement) rows.push({ label: "Formato", value: engagement });
+    const devices = businessLabel(BUSINESS_DEVICE_RANGE_OPTIONS, a.business["biz-device-range"]);
+    if (devices) rows.push({ label: "Equipamentos", value: devices });
+    const env = getBusinessEnvironmentLabels(a);
+    if (env.length) rows.push({ label: "Ambiente", value: env.join(" · ") });
+    const impact = businessLabel(BUSINESS_IMPACT_OPTIONS, a.business["biz-impact"]);
+    if (impact) rows.push({ label: "Impacto", value: impact });
+    if (a.business["biz-descricao"]) {
+      rows.push({ label: "Descrição", value: a.business["biz-descricao"].trim() });
+    }
+    if (a.fields.bairro) rows.push({ label: "Bairro/cidade", value: a.fields.bairro });
+    if (a.urgency) {
+      const u = URGENCY_LABEL(a.urgency);
+      if (u) rows.push({ label: "Urgência", value: u });
+    }
+    rows.push({ label: "Modalidade indicada", value: rules.routeLabel });
+    rows.push({ label: "Valor mínimo informado", value: rules.minPrice });
+    rows.push({ label: "Prazo informado", value: rules.prazo });
+    if (isRecurring(a)) rows.push({ label: "Observação", value: RECURRING_NOTICE });
+    if (a.finalNotes.trim()) rows.push({ label: "Observação adicional", value: a.finalNotes.trim() });
+    return rows;
+  }
+
   if (a.fields.nome) rows.push({ label: "Nome", value: a.fields.nome });
   if (a.fields.bairro) rows.push({ label: "Bairro/cidade", value: a.fields.bairro });
   if (eq) rows.push({ label: "Equipamento", value: eq.label });
+
 
   const marca = a.fields.marca || a.fields.console || a.fields["equip-nome"];
   const modelo = a.fields.modelo;
@@ -404,15 +639,22 @@ export function buildWhatsAppMessage(
   originUrl?: string,
 ): string {
   const rows = buildTriageSummary(a);
+  const business = isBusiness(a);
   const lines: string[] = [];
-  lines.push(
-    buildTemplateOpening({
-      cat: a.equipment ?? "outro",
-      sym: getSymptomLabel(a),
-      bairro: a.fields.bairro,
-      nome: a.fields.nome,
-    }),
-  );
+  if (business) {
+    const quem = a.fields.nome ? `Olá, aqui é ${a.fields.nome}.` : "Olá!";
+    const empresa = a.business["biz-empresa"] ? ` da ${a.business["biz-empresa"]}` : "";
+    lines.push(`${quem} Preciso de atendimento técnico para uma empresa${empresa}.`);
+  } else {
+    lines.push(
+      buildTemplateOpening({
+        cat: a.equipment ?? "outro",
+        sym: getSymptomLabel(a),
+        bairro: a.fields.bairro,
+        nome: a.fields.nome,
+      }),
+    );
+  }
   lines.push(`Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
   lines.push("");
   for (const r of rows) {
@@ -432,12 +674,13 @@ export function buildWhatsAppMessage(
   lines.push("");
   lines.push(
     buildTrackingLine({
-      cat: a.equipment ?? "outro",
-      sym: getSymptomLabel(a),
+      cat: business ? "empresa" : (a.equipment ?? "outro"),
+      sym: business ? businessLabel(BUSINESS_INTENT_OPTIONS, a.business["biz-intent"]) : getSymptomLabel(a),
       bairro: a.fields.bairro,
       servico: getPricingRules(a).routeLabel,
     }),
   );
+
   lines.push(`_Triagem ${triageId} · ${new Date().toLocaleString("pt-BR")} · v${TRIAGE_VERSION}_`);
   return lines.join("\n");
 }
@@ -462,10 +705,13 @@ export function loadPersisted(key: string): TriageAnswers | null {
     return {
       ...EMPTY_ANSWERS,
       ...a,
+      customerType: a.customerType === "business" || a.customerType === "residential" ? a.customerType : null,
       fields: a.fields && typeof a.fields === "object" ? a.fields : {},
+      business: a.business && typeof a.business === "object" ? a.business : {},
       termsAccepted: a.termsAccepted && typeof a.termsAccepted === "object" ? a.termsAccepted : {},
       equipment: EQUIPMENTS.some((e) => e.id === a.equipment) ? a.equipment! : null,
     };
+
   } catch {
     return null;
   }

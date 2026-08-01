@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { act, render, screen, cleanup, waitFor, within } from "@testing-library/react";
+import { act, render, screen, cleanup, waitFor, within, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { WhatsAppFunnel } from "./WhatsAppFunnel";
 
@@ -44,6 +44,9 @@ async function openFunnel() {
     window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
   });
   await screen.findByRole("dialog", {}, { timeout: 3000 });
+  // Etapa 0 (PF × PJ): os cenários residenciais seguem pelo ramo PF.
+  await clickText(/Para mim ou minha residência/i);
+  await waitFor(() => expect(dialog().textContent).toMatch(/Qual o equipamento/i), { timeout: 3000 });
 }
 
 function dialog() {
@@ -57,6 +60,18 @@ async function clickText(label: string | RegExp) {
   const btn = buttons.find((b) => matches((b.textContent || "").trim()));
   if (!btn) throw new Error(`Botão "${label}" não encontrado. Disponíveis: ${buttons.map((b) => b.textContent).join(" | ")}`);
   await act(async () => { btn.click(); });
+}
+
+/** Preenche a qualificação obrigatória (nome + bairro) da etapa de identidade. */
+async function fillQualification() {
+  const d = dialog();
+  const inputs = Array.from(d.querySelectorAll<HTMLInputElement>("input[type='text'], input:not([type])"));
+  const values = ["Cliente Teste", "Batel"];
+  for (let i = 0; i < inputs.length && i < values.length; i += 1) {
+    await act(async () => {
+      fireEvent.change(inputs[i], { target: { value: values[i] } });
+    });
+  }
 }
 
 function getWaUrl(): URL | null {
@@ -76,7 +91,7 @@ async function checkAllTerms() {
 }
 
 describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
-  it("roteia para atendimento remoto e gera mensagem com a modalidade correta", async () => {
+  it("roteia para atendimento remoto e gera mensagem com a modalidade correta", { timeout: 20000 }, async () => {
     renderFunnel();
     await openFunnel();
 
@@ -85,6 +100,7 @@ describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
 
     await clickText("Notebook");
     await clickText("Liga e inicia normalmente");
+    await fillQualification();
     await clickText("Instalar ou configurar programa");
 
     // auto-advance → detalhes
@@ -115,7 +131,7 @@ describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
 });
 
 describe("Triagem V5 — TV não liga → COLETA", () => {
-  it("exige aceites de coleta e gera mensagem com R$ 299,99", async () => {
+  it("exige aceites de coleta e gera mensagem com R$ 299,99", { timeout: 20000 }, async () => {
     renderFunnel();
     await openFunnel();
 
@@ -123,6 +139,7 @@ describe("Triagem V5 — TV não liga → COLETA", () => {
     await waitFor(() => expect(dialog().textContent).toMatch(/O que aconteceu/i), { timeout: 3000 });
 
     await clickText("LED");
+    await fillQualification();
     await clickText("Não liga");
 
     await waitFor(() => expect(dialog().textContent).toMatch(/urgência/i), { timeout: 3000 });

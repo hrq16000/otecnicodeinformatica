@@ -22,7 +22,7 @@ export const WHATSAPP_NUMBER = siteConfig.whatsappNumber;
 export const BRAND_NAME = siteConfig.brandName;
 
 /** Bump SEMPRE que regras/termos/estrutura mudarem (invalida estado antigo). */
-export const TRIAGE_VERSION = "5.0";
+export const TRIAGE_VERSION = "6.0";
 export const STORAGE_KEY = `triage_state_${TRIAGE_VERSION}`;
 
 // ─────────────────────────────────────────────────────────────
@@ -43,24 +43,27 @@ export const PRAZO_COLETA = "3 a 60 dias úteis (pode ser maior se houver encome
 // ─────────────────────────────────────────────────────────────
 // MODALIDADES
 // ─────────────────────────────────────────────────────────────
-export type ServiceRoute = "remoto" | "visita" | "coleta";
+export type ServiceRoute = "remoto" | "visita" | "coleta" | "orientacao";
 
 export const ROUTE_LABEL: Record<ServiceRoute, string> = {
   remoto: "Atendimento remoto",
   visita: "Visita técnica",
   coleta: "Coleta e entrega",
+  orientacao: "Orientação técnica antes de definir",
 };
 
 export const ROUTE_MIN_PRICE: Record<ServiceRoute, string> = {
   remoto: PRICING.minGeral,
   visita: PRICING.visita,
   coleta: PRICING.coletaMin,
+  orientacao: `A definir — mínimo de ${PRICING.minGeral} para serviço executado`,
 };
 
 export const ROUTE_PRAZO: Record<ServiceRoute, string> = {
   remoto: "Combinado no WhatsApp (serviço compatível)",
   visita: "Agendamento conforme disponibilidade",
   coleta: PRAZO_COLETA,
+  orientacao: "Combinado no WhatsApp após entender a necessidade",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -71,6 +74,7 @@ export const URGENCY_OPTIONS = [
   { value: "semana", label: "Esta semana" },
   { value: "sem-pressa", label: "Sem pressa" },
 ];
+
 
 // ─────────────────────────────────────────────────────────────
 // TIPOS DE CAMPO / ESTADO
@@ -84,7 +88,7 @@ export type EquipmentId =
   | "videogame"
   | "outro";
 
-export type FieldType = "single" | "chips" | "text" | "textarea";
+export type FieldType = "single" | "chips" | "text" | "textarea" | "multi";
 
 export interface FieldOption {
   value: string;
@@ -133,10 +137,20 @@ export interface EquipmentConfig {
   contextFields: Field[];
 }
 
+/** PF (residencial) × PJ (empresa/organização). */
+export type CustomerType = "residential" | "business";
+
+/** Atendimento avulso × interesse em avaliação de suporte recorrente. */
+export type BusinessEngagement = "one_time" | "recurring_evaluation";
+
 export interface TriageAnswers {
+  /** Ramo do funil. `null` só antes da primeira escolha. */
+  customerType: CustomerType | null;
   equipment: EquipmentId | null;
   /** Respostas de identificação e contexto, chaveadas por field.id. */
   fields: Record<string, string>;
+  /** Respostas exclusivas do ramo empresarial (prefixo `biz-`). */
+  business: Record<string, string>;
   symptom: string | null;
   urgency: string | null;
   termsAccepted: Record<string, boolean>;
@@ -144,13 +158,105 @@ export interface TriageAnswers {
 }
 
 export const EMPTY_ANSWERS: TriageAnswers = {
+  customerType: null,
   equipment: null,
   fields: {},
+  business: {},
   symptom: null,
   urgency: null,
   termsAccepted: {},
   finalNotes: "",
 };
+
+// ─────────────────────────────────────────────────────────────
+// RAMO EMPRESARIAL (PJ) — catálogo declarativo
+// Sem planos mensais, sem SLA, sem promessa de disponibilidade.
+// ─────────────────────────────────────────────────────────────
+export const CUSTOMER_TYPE_OPTIONS: FieldOption[] = [
+  { value: "residential", label: "Para mim ou minha residência" },
+  { value: "business", label: "Para uma empresa ou organização" },
+];
+
+export const BUSINESS_INTENT_OPTIONS: FieldOption[] = [
+  { value: "pontual", label: "Resolver um problema pontual" },
+  { value: "recorrente", label: "Avaliar suporte recorrente" },
+  { value: "rede", label: "Configurar ou corrigir rede e Wi-Fi" },
+  { value: "dados", label: "Backup, arquivos ou recuperação de dados" },
+  { value: "remoto", label: "Suporte remoto" },
+  { value: "nao-sei", label: "Ainda não sei identificar" },
+];
+
+export const BUSINESS_ENGAGEMENT_OPTIONS: FieldOption[] = [
+  { value: "one_time", label: "Atendimento avulso (uma demanda agora)" },
+  { value: "recurring_evaluation", label: "Avaliação para suporte recorrente" },
+];
+
+export const BUSINESS_DEVICE_RANGE_OPTIONS: FieldOption[] = [
+  { value: "1", label: "1 equipamento" },
+  { value: "2-5", label: "2 a 5 equipamentos" },
+  { value: "6-15", label: "6 a 15 equipamentos" },
+  { value: "16-30", label: "16 a 30 equipamentos" },
+  { value: "30+", label: "Mais de 30" },
+  { value: "nao-sei", label: "Ainda não sei" },
+];
+
+export const BUSINESS_ENVIRONMENT_OPTIONS: FieldOption[] = [
+  { value: "servidor", label: "Servidor" },
+  { value: "nas", label: "NAS ou armazenamento de rede" },
+  { value: "pc-central", label: "Computador principal que compartilha arquivos" },
+  { value: "rede", label: "Roteador ou rede empresarial" },
+  { value: "nenhum", label: "Não existe" },
+  { value: "nao-sei", label: "Não sei informar" },
+];
+
+export const BUSINESS_IMPACT_OPTIONS: FieldOption[] = [
+  { value: "uma-pessoa", label: "Uma pessoa está sem trabalhar" },
+  { value: "algumas", label: "Algumas pessoas estão afetadas" },
+  { value: "empresa-toda", label: "A empresa inteira está afetada" },
+  { value: "preventiva", label: "É uma melhoria preventiva" },
+  { value: "avaliacao", label: "É uma avaliação para suporte recorrente" },
+];
+
+export const BUSINESS_MODALITY_OPTIONS: Record<string, FieldOption> = {
+  remoto: { value: "remoto", label: "Atendimento remoto" },
+  visita: { value: "visita", label: "Atendimento no endereço" },
+  coleta: { value: "coleta", label: "Coleta ou bancada" },
+  orientacao: { value: "orientacao", label: "Preciso de orientação" },
+};
+
+/**
+ * Modalidades compatíveis por necessidade. Rede não sugere coleta como
+ * principal; recuperação de dados não promete solução remota; avaliação
+ * recorrente nunca vira visita imediata por padrão.
+ */
+export function getBusinessModalityValues(
+  intent: string | undefined,
+  engagement: string | undefined,
+): FieldOption[] {
+  if (engagement === "recurring_evaluation") {
+    return [BUSINESS_MODALITY_OPTIONS.orientacao, BUSINESS_MODALITY_OPTIONS.visita, BUSINESS_MODALITY_OPTIONS.remoto];
+  }
+  switch (intent) {
+    case "rede":
+      return [BUSINESS_MODALITY_OPTIONS.visita, BUSINESS_MODALITY_OPTIONS.remoto, BUSINESS_MODALITY_OPTIONS.orientacao];
+    case "dados":
+      return [BUSINESS_MODALITY_OPTIONS.coleta, BUSINESS_MODALITY_OPTIONS.visita, BUSINESS_MODALITY_OPTIONS.orientacao];
+    case "remoto":
+      return [BUSINESS_MODALITY_OPTIONS.remoto, BUSINESS_MODALITY_OPTIONS.orientacao];
+    default:
+      return [
+        BUSINESS_MODALITY_OPTIONS.visita,
+        BUSINESS_MODALITY_OPTIONS.remoto,
+        BUSINESS_MODALITY_OPTIONS.coleta,
+        BUSINESS_MODALITY_OPTIONS.orientacao,
+      ];
+  }
+}
+
+/** Texto neutro do interesse recorrente — sem preço, prazo, SLA ou escopo. */
+export const RECURRING_NOTICE =
+  "O atendimento recorrente é definido após avaliação do ambiente e das necessidades da empresa.";
+
 
 // ─────────────────────────────────────────────────────────────
 // QUALIFICAÇÃO CURTA (obrigatória antes de abrir o WhatsApp)
@@ -175,6 +281,77 @@ export const QUALIFICATION_FIELDS: Field[] = [
     helper: "Usamos para confirmar a região de atendimento e o deslocamento.",
   },
 ];
+
+export const QUALIFICATION_NOME = QUALIFICATION_FIELDS[0];
+export const QUALIFICATION_BAIRRO = QUALIFICATION_FIELDS[1];
+
+// ─────────────────────────────────────────────────────────────
+// CAMPOS DO RAMO EMPRESARIAL (ids sempre com prefixo `biz-`)
+// ─────────────────────────────────────────────────────────────
+export const BUSINESS_FIELDS: Record<string, Field> = {
+  empresa: {
+    id: "biz-empresa",
+    label: "Nome da empresa ou estabelecimento (opcional)",
+    type: "text",
+    required: false,
+    placeholder: "Ex.: Padaria Central",
+    helper: "Não pedimos CNPJ nem razão social.",
+  },
+  intent: {
+    id: "biz-intent",
+    label: "Que tipo de atendimento a empresa precisa?",
+    type: "single",
+    required: true,
+    options: BUSINESS_INTENT_OPTIONS,
+  },
+  engagement: {
+    id: "biz-engagement",
+    label: "É uma demanda avulsa ou avaliação de suporte recorrente?",
+    type: "single",
+    required: true,
+    options: BUSINESS_ENGAGEMENT_OPTIONS,
+  },
+  deviceRange: {
+    id: "biz-device-range",
+    label: "Quantos computadores precisam de suporte?",
+    type: "single",
+    required: true,
+    options: BUSINESS_DEVICE_RANGE_OPTIONS,
+  },
+  environment: {
+    id: "biz-environment",
+    label: "Existe algum equipamento central no ambiente?",
+    type: "multi",
+    required: true,
+    helper: "Pode marcar mais de uma opção. Serve apenas para o diagnóstico inicial.",
+    options: BUSINESS_ENVIRONMENT_OPTIONS,
+  },
+  impact: {
+    id: "biz-impact",
+    label: "Como isso está afetando a operação?",
+    type: "single",
+    required: true,
+    options: BUSINESS_IMPACT_OPTIONS,
+  },
+  descricao: {
+    id: "biz-descricao",
+    label: "Descreva brevemente o que está acontecendo",
+    type: "textarea",
+    required: true,
+    minLength: 10,
+    placeholder: "Informe mensagens de erro, equipamentos afetados e quando o problema começou.",
+    helper: "Não informe senhas, chaves de acesso ou dados sensíveis.",
+  },
+  modality: {
+    id: "biz-modality",
+    label: "Como prefere o atendimento?",
+    type: "single",
+    required: true,
+    options: Object.values(BUSINESS_MODALITY_OPTIONS),
+  },
+};
+
+
 
 // ─────────────────────────────────────────────────────────────
 // HELPERS DE CAMPO REUTILIZÁVEIS

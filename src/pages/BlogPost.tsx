@@ -52,6 +52,8 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [posts, setPosts] = useState<PostsMap | null>(cachedPosts);
 
+  useCanonical(`https://tecnico.curitiba.br/blog/${slug}`);
+
   useEffect(() => {
     let cancelled = false;
     if (!posts) {

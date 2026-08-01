@@ -1,3 +1,4 @@
+import { upsertCanonical } from "@/lib/canonicalUrl";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, MessageCircle, Clock, MapPin, Wrench, Truck, Monitor, ArrowRight } from "lucide-react";
@@ -99,8 +100,7 @@ const Obrigado = () => {
       "content",
       "Sua mensagem foi enviada. Veja próximos passos, prazos e como acompanhar o atendimento pelo WhatsApp.",
     );
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = absoluteUrl("/obrigado");
+    upsertCanonical(absoluteUrl("/obrigado"));
     setMeta('meta[property="og:url"]', "content", absoluteUrl("/obrigado"));
     setMeta('meta[property="og:title"]', "content", "Obrigado — Técnico em Curitiba");
     setMeta(

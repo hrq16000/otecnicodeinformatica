@@ -163,6 +163,8 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
 ];
 
 const PoliticaPrivacidade = () => {
+  useCanonical(CANONICAL);
+
   return (
     <>
       <Helmet>

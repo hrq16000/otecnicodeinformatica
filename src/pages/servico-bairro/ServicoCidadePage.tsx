@@ -1,3 +1,4 @@
+import { upsertCanonical } from "@/lib/canonicalUrl";
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { 
@@ -31,13 +32,7 @@ const ServicoCidadePage = () => {
         `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio no mesmo dia. Sem sair de casa. WhatsApp.`
       );
     }
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = `https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`;
+    upsertCanonical(`https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`);
     // Página herdada serviço×cidade (thin) — não deve competir com os serviços canônicos.
     let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
     if (!robots) {

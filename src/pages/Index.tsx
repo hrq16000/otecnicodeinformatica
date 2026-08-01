@@ -22,8 +22,7 @@ const Index = () => {
       if (el) el.setAttribute(attr, value);
     };
     setMeta('meta[name="description"]', "content", siteConfig.homeDescription);
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (canonical) canonical.href = `${siteConfig.baseUrl}/`;
+    upsertCanonical(`${siteConfig.baseUrl}/`);
     setMeta('meta[property="og:url"]', "content", `${siteConfig.baseUrl}/`);
     setMeta('meta[property="og:title"]', "content", siteConfig.homeTitle);
     setMeta('meta[property="og:description"]', "content", siteConfig.homeDescription);

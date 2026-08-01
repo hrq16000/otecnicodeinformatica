@@ -65,6 +65,8 @@ const ProblemaPage = () => {
   const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
+  useCanonical(`https://tecnico.curitiba.br/problemas/${data.slug}`);
+
   useEffect(() => {
     if (!slug) { setLoading(false); return; }
     let active = true;

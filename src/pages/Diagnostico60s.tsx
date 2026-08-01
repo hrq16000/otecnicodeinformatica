@@ -50,6 +50,8 @@ export default function Diagnostico60s() {
     return { kind: "node", node: r.node, equipmentSlug: equipment.slug, path: r.path };
   }, [eq, pathParam]);
 
+  useCanonical("https://tecnico.curitiba.br/diagnostico-60s");
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [eq, pathParam]);

@@ -93,6 +93,8 @@ const TermosCondicoes = () => {
   const description =
     "Conserto de placas em Curitiba: orçamento grátis pelo WhatsApp, visita técnica a partir de R$ 99,99, diagnóstico R$ 90, reparo mínimo R$ 300. Política transparente.";
 
+  useCanonical(CANONICAL);
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>

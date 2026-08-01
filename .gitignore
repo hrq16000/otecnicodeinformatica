@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# RODADA 4B.1 — artefatos de migração gerados
+reports/
+redirects/rollback/

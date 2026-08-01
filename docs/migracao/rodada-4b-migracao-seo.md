@@ -176,3 +176,25 @@ antes da Etapa 17.
 
 **Próximo passo recomendado:** informar o repositório/hospedagem do domínio
 antigo e confirmar o número oficial de WhatsApp.
+
+## RODADA 4B.1 — Ativação controlada (ferramental)
+
+Estado: **PREPARADO / NÃO PUBLICADO** (`published: false`). Nenhum redirect,
+DNS, número ou conteúdo foi alterado em produção nesta rodada.
+
+| Comando | Função |
+| --- | --- |
+| `npm run migration:matrix` | Regera a matriz (622 URLs → 612 regras + 10 mantidas). |
+| `npm run check:nap -- --confirm=5541997086380` | Extrai WhatsApp/NAP do domínio antigo e do novo; **falha** sem a confirmação do número oficial e ao encontrar o legado 5541997452053. |
+| `npm run check:redirects` | Amostra (11 críticas + 30). Gera `reports/redirect-gate.json` e `reports/redirect-gate.md`. |
+| `npm run check:redirects:all` | Matriz completa, com coverage e lista de URLs pendentes. |
+| `node scripts/check-redirects.mjs --batch=100 --offset=200` | Validação por lotes. |
+| `npm run migration:publish -- --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS"` | Marca `published: true` **somente** com a lista de URLs aprovada e a frase exata; gera pacote de rollback antes de qualquer mutação. |
+| `npm run migration:rollback -- --rollback=redirects/rollback/<pasta>` | Restaura o mapa anterior. |
+
+Relatório consolidado do gate (`reports/redirect-gate.md`): status por origem
+(sucesso/falha/pendente), status inicial, `Location`, número de saltos, status
+final, canonical final, `noindex` e observação — pronto para anexar à aprovação.
+
+Pendências operacionais mantidas: controle da hospedagem/edge do domínio antigo,
+acesso ao Search Console das duas propriedades e autorização explícita de deploy.

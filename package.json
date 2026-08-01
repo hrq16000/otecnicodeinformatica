@@ -45,7 +45,11 @@
     "e2e:matrix:merge": "playwright merge-reports --reporter json ./all-blob-reports > merged-report/results.json",
     "e2e:matrix:report": "node scripts/consolidate-e2e-failures.mjs merged-report/results.json --out docs/e2e-inventario-falhas.md",
     "migration:matrix": "node scripts/build-migration-matrix.mjs",
-    "check:redirects": "node scripts/check-redirects.mjs"
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "migration:publish": "node scripts/publish-redirects.mjs",
+    "migration:rollback": "node scripts/publish-redirects.mjs --rollback",
+    "check:nap": "node scripts/check-nap-whatsapp.mjs",
+    "check:redirects:all": "node scripts/check-redirects.mjs --all"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

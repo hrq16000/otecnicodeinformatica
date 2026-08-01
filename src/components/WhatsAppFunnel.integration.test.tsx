@@ -46,6 +46,7 @@ async function openFunnel() {
   await screen.findByRole("dialog", {}, { timeout: 3000 });
   // Etapa 0 (PF × PJ): os cenários residenciais seguem pelo ramo PF.
   await clickText(/Para mim ou minha residência/i);
+  await waitFor(() => expect(dialog().textContent).toMatch(/Qual o equipamento/i), { timeout: 3000 });
 }
 
 function dialog() {

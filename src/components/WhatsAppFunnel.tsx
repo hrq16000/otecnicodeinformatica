@@ -193,7 +193,7 @@ export const WhatsAppFunnel = () => {
       isTransitioning.current = false;
     }, delay);
 
-  }, [doPulse]);
+  }, [doPulse, totalSteps]);
 
   const focusFirstIncomplete = useCallback((s: number, a: TriageAnswers) => {
     const v = validateStep(s, a);

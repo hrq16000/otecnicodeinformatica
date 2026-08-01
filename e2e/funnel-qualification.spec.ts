@@ -30,7 +30,7 @@ async function installSpies(page: Page) {
       w.dataLayer.push(args);
     };
     // Buffer de observabilidade consumido pelo Sentry quando habilitado.
-    window.addEventListener("app:error", (e) => {
+    window.addEventListener("app:funnel-qualification", (e) => {
       w.__appErrors.push((e as CustomEvent).detail);
     });
     const nativeOpen = window.open.bind(window);
@@ -107,18 +107,22 @@ test.describe("Qualificação curta antes do WhatsApp", () => {
     expect(String(qual!.bairro)).toMatch(/Batel/i);
     expect(String(qual!.urgencia)).not.toBe("unknown");
     expect(String(qual!.sintoma ?? "")).not.toHaveLength(0);
-    expect(String(qual!.origin_url ?? qual!.originUrl ?? "")).toContain("utm_campaign=qualification_e2e");
+    expect(String(qual!.origin_url ?? "")).toContain("utm_campaign=qualification_e2e");
     // Nunca enviar o nome em claro para o analytics.
     expect(JSON.stringify(qual)).not.toContain("Cliente Teste");
 
     // 2) Buffer de observabilidade (Sentry) recebeu o mesmo contexto
-    const appErrors = await page.evaluate(
-      () => (window as unknown as { __appErrors: AppError[] }).__appErrors,
-    );
-    const sentryHit = appErrors.find((e) =>
-      JSON.stringify(e).includes("wa_funnel_qualification"),
-    );
-    expect(sentryHit, "qualificação não chegou ao buffer de observabilidade").toBeTruthy();
+    const obs = await page.evaluate(() => ({
+      events: (window as unknown as { __appErrors: AppError[] }).__appErrors,
+      buffer:
+        (window as unknown as { __APP_ERRORS__?: Array<Record<string, unknown>> })
+          .__APP_ERRORS__ ?? [],
+    }));
+    expect(obs.events.length, "evento app:funnel-qualification não disparou").toBeGreaterThan(0);
+    const buffered = obs.buffer.find((e) => e.kind === "funnel_qualification");
+    expect(buffered, "qualificação não chegou ao buffer de observabilidade").toBeTruthy();
+    expect(String(buffered!.bairro)).toMatch(/Batel/i);
+    expect(String(buffered!.origin_url)).toContain("qualification_e2e");
 
     // 3) A abertura do WhatsApp carrega cat / sym / cidade-bairro e a URL de origem
     const opened = await page.evaluate(

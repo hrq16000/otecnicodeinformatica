@@ -1,6 +1,6 @@
 # Relatório de Validação de Bairros
 
-Gerado em: 2026-07-25T23:33:41.774Z
+Gerado em: 2026-08-01T03:56:48.278Z
 Bairros indexáveis: 13
 
 ## Contagem de palavras próprias

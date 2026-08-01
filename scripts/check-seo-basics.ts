@@ -126,7 +126,7 @@ function checkCurated(distDir: string) {
     }
     if (!hasBreadcrumb) fail(route.path, "sem BreadcrumbList estático");
 
-    const noscript = html.match(/<noscript>([\s\S]*?)<\/noscript>/i)?.[1] ?? "";
+    const noscript = html.match(/<noscript>\s*<div style="min-height:100vh([\s\S]*?)<\/noscript>/i)?.[1] ?? "";
     const internal = [...noscript.matchAll(/href=["'](\/[^"'#]*)["']/g)].map((m) => m[1]).filter((h) => h !== "/logo.webp");
     if (new Set(internal).size < 3) fail(route.path, `links internos contextuais insuficientes (${new Set(internal).size})`);
 

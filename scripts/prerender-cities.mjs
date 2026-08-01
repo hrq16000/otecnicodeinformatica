@@ -223,7 +223,7 @@ async function writePage(distDir, routePath, html) {
 // específico da rota e injeta o JSON-LD estático no <head>.
 function applyStaticShell(html, route) {
   let out = html.replace(
-    /<noscript>[\s\S]*?<\/noscript>/i,
+    /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
     `<noscript>${staticBodyFor(route)}\n      </noscript>`,
   );
   // Remove qualquer JSON-LD estático previamente injetado (idempotência).

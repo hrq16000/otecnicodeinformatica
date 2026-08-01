@@ -39,7 +39,7 @@ const CFTVPage = () => {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp."
+        "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1998. WhatsApp."
       );
     }
     trackPageView("/cftv", "CFTV");
@@ -51,7 +51,7 @@ const CFTVPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp." path="/cftv" noindex breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
+      <PageSEO title="Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350" description="Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1998. WhatsApp." path="/cftv" noindex breadcrumbs={[{ name: "Início", path: "/" }, { name: "CFTV", path: "/cftv" }]} />
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -83,7 +83,7 @@ const CFTVPage = () => {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 mb-6">
                 <Shield className="h-4 w-4 text-accent" />
-                <span className="text-accent text-sm font-semibold">Desde 1999 protegendo patrimônios</span>
+                <span className="text-accent text-sm font-semibold">Desde 1998 protegendo patrimônios</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
@@ -472,7 +472,7 @@ const ArticleSection = () => (
           <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-6">
             <p className="text-foreground font-semibold text-sm">
               💡 A Mileuma Soluções / Mestre dos Serviços realiza instalação profissional de kits Intelbras em 
-              Curitiba, São José dos Pinhais e Litoral do Paraná desde 1999. Kit completo a partir de R$ 1.350 
+              Curitiba, São José dos Pinhais e Litoral do Paraná desde 1998. Kit completo a partir de R$ 1.350 
               com garantia de 1 ano.
             </p>
           </div>

@@ -6,6 +6,7 @@ import ConsentBanner from "./components/ConsentBanner";
 import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
+import { sweepStaticJsonLd } from "./lib/schemaValidation";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -82,8 +83,19 @@ const AppInit = () => {
   useEffect(() => {
     import("@/lib/utmCapture").then(({ captureUtmsFromUrl }) => captureUtmsFromUrl());
   }, []);
+  // Deduplicação do JSON-LD estático do prerender após a hidratação.
+  useEffect(() => {
+    const run = () => sweepStaticJsonLd();
+    const t1 = window.setTimeout(run, 300);
+    const t2 = window.setTimeout(run, 1500);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
+  }, []);
   return null;
 };
+
 
 const isHomeRoute = (pathname?: string) => {
   const path = (pathname ?? (typeof window === "undefined" ? "/" : window.location.pathname)).replace(/\/+$/, "") || "/";

@@ -149,7 +149,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
                 <Award className="h-8 w-8 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-primary text-lg mb-2">Mestre dos Serviços — Desde 1999</h3>
+                <h3 className="font-heading font-bold text-primary text-lg mb-2">Mestre dos Serviços — Desde 1998</h3>
                 <p className="text-muted-foreground text-sm">
                   Mais de 25 anos protegendo patrimônios em {city} e região. Equipe especializada da Mileuma Soluções 
                   com instalação profissional, garantia real e suporte contínuo.

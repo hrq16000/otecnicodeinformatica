@@ -170,7 +170,24 @@ export function getSchemaReport(): SchemaReportEntry[] {
  */
 const SCHEMA_TELEPHONE = "+5541997086380";
 
+/**
+ * Remove os scripts JSON-LD estáticos (prerender) cujo @type coincide com o
+ * schema que está sendo injetado no cliente. Garante uma única representação
+ * lógica de cada entidade por página após a hidratação.
+ */
+function removeStaticJsonLdFor(schema: JsonLd) {
+  if (typeof document === "undefined") return;
+  const raw = (schema as Record<string, unknown>)["@type"];
+  const types = new Set((Array.isArray(raw) ? raw : [raw]).filter(Boolean).map(String));
+  if (!types.size) return;
+  document.querySelectorAll<HTMLScriptElement>("script[data-static-jsonld]").forEach((el) => {
+    const staticTypes = (el.dataset.jsonldType ?? "").split(/\s+/).filter(Boolean);
+    if (staticTypes.some((t) => types.has(t))) el.remove();
+  });
+}
+
 export function validateAndInjectSchema(
+
   scriptId: string,
   schema: JsonLd,
 ): boolean {
@@ -201,6 +218,11 @@ export function validateAndInjectSchema(
   }
 
   document.getElementById(scriptId)?.remove();
+  // Deduplicação pós-hidratação: o prerender injeta JSON-LD estático marcado
+  // com data-static-jsonld. Ao inserir a versão client-side da MESMA entidade,
+  // removemos o nó estático para que exista exatamente um por @type.
+  removeStaticJsonLdFor(schema);
+
   const el = document.createElement("script");
   el.id = scriptId;
   el.type = "application/ld+json";
@@ -210,6 +232,35 @@ export function validateAndInjectSchema(
   return true;
 }
 
+
+/**
+ * Varredura global pós-hidratação: remove qualquer JSON-LD estático do
+ * prerender cujo @type já esteja representado por um nó client-side.
+ * Mantém os nós estáticos sem equivalente dinâmico (ex.: AboutPage),
+ * garantindo exatamente uma representação lógica por entidade.
+ */
+export function sweepStaticJsonLd() {
+  if (typeof document === "undefined") return;
+  const dynamicTypes = new Set<string>();
+  document
+    .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]:not([data-static-jsonld])')
+    .forEach((el) => {
+      try {
+        const parsed = JSON.parse(el.textContent ?? "");
+        for (const node of Array.isArray(parsed) ? parsed : [parsed]) {
+          const raw = (node as Record<string, unknown>)?.["@type"];
+          for (const t of Array.isArray(raw) ? raw : [raw]) if (t) dynamicTypes.add(String(t));
+        }
+      } catch {
+        /* bloco inválido: ignorado aqui, o gate estático já reprova */
+      }
+    });
+  if (!dynamicTypes.size) return;
+  document.querySelectorAll<HTMLScriptElement>("script[data-static-jsonld]").forEach((el) => {
+    const types = (el.dataset.jsonldType ?? "").split(/\s+/).filter(Boolean);
+    if (types.some((t) => dynamicTypes.has(t))) el.remove();
+  });
+}
 
 /** Hook React: injeta + remove na desmontagem, com validação. */
 import { useEffect } from "react";

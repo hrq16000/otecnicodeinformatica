@@ -27,8 +27,8 @@ const reporter: ReporterDescription[] =
     ? [["list"], ["blob", { outputDir: `blob-report/${browser}-${shardTag}` }]]
     : [
         ["list"],
-        ["json", { outputFile: `playwright-report/${browser}/results.json` }],
-        ["html", { outputFolder: `playwright-report/${browser}/html`, open: "never" }],
+        ["json", { outputFile: `playwright-report/${browser}-${shardTag}/results.json` }],
+        ["html", { outputFolder: `playwright-report/${browser}-${shardTag}/html`, open: "never" }],
       ];
 
 export default defineConfig({

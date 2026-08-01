@@ -90,7 +90,7 @@ const ProblemasReaisCasos = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Problemas Reais e Casos Técnicos | Assistência Técnica Curitiba" description="Conheça casos reais de problemas técnicos: upgrade que causou curto, GPU desgastada, placa mãe comprometida e mais. Aprenda com exemplos reais e evite prejuízos." path="/problemas-reais-casos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Problemas Reais", path: "/problemas-reais-casos" }]} />
+      <PageSEO noindex title="Problemas Reais e Casos Técnicos | Assistência Técnica Curitiba" description="Conheça casos reais de problemas técnicos: upgrade que causou curto, GPU desgastada, placa mãe comprometida e mais. Aprenda com exemplos reais e evite prejuízos." path="/problemas-reais-e-casos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Problemas Reais", path: "/problemas-reais-e-casos" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [

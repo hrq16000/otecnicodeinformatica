@@ -251,7 +251,29 @@ export function getPricingRules(a: TriageAnswers): PricingRules {
   const meta = getSymptomMeta(a);
   const equipLabel = eq?.label ?? "equipamento";
 
+  if (isBusiness(a)) {
+    const recurring = isRecurring(a);
+    const explanation = recurring
+      ? `${RECURRING_NOTICE} Nesta etapa fazemos apenas o entendimento inicial: escopo, valores e formato são definidos depois da avaliação.`
+      : route === "orientacao"
+        ? `Vamos entender a necessidade da empresa antes de indicar a modalidade. Qualquer serviço executado respeita o valor mínimo de ${PRICING.minGeral}.`
+        : route === "coleta"
+          ? `O equipamento da empresa precisa ser avaliado em bancada. O valor mínimo é de ${PRICING.coletaMin}, com peças não inclusas.`
+          : route === "visita"
+            ? `O atendimento no endereço da empresa custa ${PRICING.visita} por até 30 minutos. Se for identificada necessidade de bancada, coleta ou peças, você será informado antes.`
+            : `A demanda pode ser compatível com atendimento remoto. A confirmação é feita no WhatsApp e o valor mínimo é de ${PRICING.minGeral}.`;
+
+    return {
+      route,
+      routeLabel: ROUTE_LABEL[route],
+      minPrice: recurring ? "Definido após avaliação" : ROUTE_MIN_PRICE[route],
+      prazo: recurring ? "Definido após avaliação" : ROUTE_PRAZO[route],
+      explanation,
+    };
+  }
+
   let explanation = "";
+
   if (route === "remoto") {
     explanation =
       "Pelas informações fornecidas, o serviço pode ser compatível com atendimento remoto, pois o computador está funcionando e a solicitação envolve instalação ou configuração. A confirmação será feita no WhatsApp.";

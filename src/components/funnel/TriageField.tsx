@@ -106,7 +106,48 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
           </div>
         )}
 
+        {field.type === "multi" && (
+          <div aria-labelledby={`${field.id}-label`} className="grid gap-1.5">
+            {field.options?.map((o) => {
+              const selected = value.split(",").map((v) => v.trim()).filter(Boolean);
+              const active = selected.includes(o.value);
+              return (
+                <button
+                  key={o.value}
+                  type="button"
+                  role="checkbox"
+                  aria-checked={active}
+                  onClick={() => {
+                    const next = active
+                      ? selected.filter((v) => v !== o.value)
+                      : [...selected, o.value];
+                    const joined = next.join(",");
+                    onChange(joined);
+                    onSelect?.(joined);
+                  }}
+                  className={`min-h-11 text-left px-3 py-2.5 rounded-lg border text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    active
+                      ? "border-primary bg-primary/10 font-medium"
+                      : "border-border bg-card hover:border-primary/60"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span
+                      aria-hidden="true"
+                      className={`h-3.5 w-3.5 shrink-0 rounded-[4px] border-2 ${
+                        active ? "border-primary bg-primary" : "border-muted-foreground/40"
+                      }`}
+                    />
+                    {o.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {field.type === "text" && (
+
           <Input
             id={field.id}
             value={value}

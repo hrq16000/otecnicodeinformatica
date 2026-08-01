@@ -6,6 +6,7 @@ import ConsentBanner from "./components/ConsentBanner";
 import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
+import { sweepStaticJsonLd } from "./lib/schemaValidation";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));

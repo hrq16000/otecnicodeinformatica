@@ -233,6 +233,35 @@ export function validateAndInjectSchema(
 }
 
 
+/**
+ * Varredura global pós-hidratação: remove qualquer JSON-LD estático do
+ * prerender cujo @type já esteja representado por um nó client-side.
+ * Mantém os nós estáticos sem equivalente dinâmico (ex.: AboutPage),
+ * garantindo exatamente uma representação lógica por entidade.
+ */
+export function sweepStaticJsonLd() {
+  if (typeof document === "undefined") return;
+  const dynamicTypes = new Set<string>();
+  document
+    .querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]:not([data-static-jsonld])')
+    .forEach((el) => {
+      try {
+        const parsed = JSON.parse(el.textContent ?? "");
+        for (const node of Array.isArray(parsed) ? parsed : [parsed]) {
+          const raw = (node as Record<string, unknown>)?.["@type"];
+          for (const t of Array.isArray(raw) ? raw : [raw]) if (t) dynamicTypes.add(String(t));
+        }
+      } catch {
+        /* bloco inválido: ignorado aqui, o gate estático já reprova */
+      }
+    });
+  if (!dynamicTypes.size) return;
+  document.querySelectorAll<HTMLScriptElement>("script[data-static-jsonld]").forEach((el) => {
+    const types = (el.dataset.jsonldType ?? "").split(/\s+/).filter(Boolean);
+    if (types.some((t) => dynamicTypes.has(t))) el.remove();
+  });
+}
+
 /** Hook React: injeta + remove na desmontagem, com validação. */
 import { useEffect } from "react";
 export function useValidatedJsonLd(scriptId: string, schema: JsonLd | null) {

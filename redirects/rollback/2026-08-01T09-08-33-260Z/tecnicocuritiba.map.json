@@ -2,7 +2,7 @@
   "source_domain": "https://tecnicocuritiba.com.br",
   "target_domain": "https://tecnico.curitiba.br",
   "generated_from": "docs/migracao/old-paths.txt",
-  "published": true,
+  "published": false,
   "rules": [
     {
       "from": "/",
@@ -3064,8 +3064,5 @@
       "to": "https://tecnico.curitiba.br/precos-e-politicas",
       "status": 301
     }
-  ],
-  "published_at": "2026-08-01T09:08:33.283Z",
-  "approved_urls": 612,
-  "rollback_package": "redirects/rollback/2026-08-01T09-08-33-260Z"
+  ]
 }

@@ -1,0 +1,40 @@
+{
+  "confirmed_official": "5541997086380",
+  "legacy": "5541997452053",
+  "old": [
+    {
+      "url": "https://tecnicocuritiba.com.br/",
+      "status": 200,
+      "finalUrl": "https://tecnicocuritiba.com.br/",
+      "name": "Técnico em Curitiba",
+      "address": "",
+      "phones": [
+        "996151234",
+        "41997452053"
+      ],
+      "whatsapp": [
+        "5541997452053"
+      ]
+    }
+  ],
+  "new": [
+    {
+      "url": "https://tecnico.curitiba.br/",
+      "status": 200,
+      "finalUrl": "https://tecnico.curitiba.br/",
+      "name": "Técnico em Curitiba",
+      "address": "Curitiba",
+      "phones": [
+        "5541997086380",
+        "41997086380"
+      ],
+      "whatsapp": [
+        "5541997086380"
+      ]
+    }
+  ],
+  "violations": [
+    "número legado ainda servido em https://tecnicocuritiba.com.br/",
+    "https://tecnicocuritiba.com.br/ não expõe o número oficial"
+  ]
+}

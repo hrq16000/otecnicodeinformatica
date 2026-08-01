@@ -118,3 +118,94 @@ test.describe("Triagem PF × PJ", () => {
     expect(new Set(keys).size).toBe(keys.length);
   });
 });
+
+/**
+ * Rodada 2.1 — hardening: troca de ramo, persistência, duplo clique e mobile.
+ */
+test.describe("Triagem PF × PJ — hardening (2.1)", () => {
+  test.beforeEach(async ({ page, context }) => {
+    await installSpies(page);
+    await context.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
+  });
+
+  test("PJ → PF descarta campos empresariais do estado persistido", async ({ page }) => {
+    await page.goto(HOME);
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+
+    await dialog.getByRole("radio", { name: /Para uma empresa ou organização/i }).click();
+    await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+    await dialog.getByRole("button", { name: /Voltar/i }).click();
+    await dialog.getByRole("radio", { name: /Para mim ou minha residência/i }).click();
+    await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible({ timeout: 5000 });
+
+    const persisted = await page.evaluate(() => {
+      const raw = sessionStorage.getItem("triage_state_6.0");
+      return raw ? JSON.parse(raw) : null;
+    });
+    expect(persisted?.answers?.customerType).toBe("residential");
+    expect(Object.keys(persisted?.answers?.business ?? {})).toHaveLength(0);
+  });
+
+  test("estado do ramo sobrevive ao reload da página", async ({ page }) => {
+    await page.goto(HOME);
+    await page.waitForLoadState("networkidle");
+    let dialog = await openFunnel(page);
+    await dialog.getByRole("radio", { name: /Para uma empresa ou organização/i }).click();
+    await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+
+    await page.reload();
+    await page.waitForLoadState("networkidle");
+    dialog = await openFunnel(page);
+    await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+  });
+
+  test("sessão antiga (v5) é migrada para PF sem travar o funil", async ({ page }) => {
+    await page.goto(HOME);
+    await page.evaluate(() => {
+      sessionStorage.clear();
+      sessionStorage.setItem(
+        "triage_state_5.0",
+        JSON.stringify({
+          version: "5.0",
+          answers: { equipment: "tv", symptom: "nao-liga", fields: { nome: "Ana", bairro: "Batel, Curitiba" } },
+        }),
+      );
+    });
+    await page.reload();
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+    await expect(dialog).toBeVisible();
+    const migrated = await page.evaluate(() => {
+      const raw = sessionStorage.getItem("triage_state_6.0");
+      return raw ? JSON.parse(raw) : null;
+    });
+    expect(migrated?.answers?.customerType).toBe("residential");
+    expect(await page.evaluate(() => sessionStorage.getItem("triage_state_5.0"))).toBeNull();
+  });
+
+  test("duplo clique na escolha do ramo não duplica o evento de bifurcação", async ({ page }) => {
+    await page.goto(HOME);
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+    const opt = dialog.getByRole("radio", { name: /Para uma empresa ou organização/i });
+    await opt.dblclick();
+    await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+    const events = await gtagEvents(page);
+    const branches = events.filter((c) => c[1] === "wa_funnel_branch");
+    expect(branches.length).toBeLessThanOrEqual(1);
+  });
+
+  test("mobile 320px: escolha PF/PJ visível e sem rolagem horizontal", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.goto(HOME);
+    await page.waitForLoadState("networkidle");
+    const dialog = await openFunnel(page);
+    await expect(dialog.getByRole("radio", { name: /Para mim ou minha residência/i })).toBeVisible();
+    await expect(dialog.getByRole("radio", { name: /Para uma empresa ou organização/i })).toBeVisible();
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    );
+    expect(overflow).toBe(false);
+  });
+});

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useCanonical } from "@/lib/canonicalUrl";
 import { ArrowLeft, MessageCircle, CalendarCheck, CheckCircle2 } from "lucide-react";
 import {
   EQUIPMENTS,
@@ -111,7 +112,6 @@ export default function Diagnostico60s() {
           name="description"
           content="Descubra em 60 segundos o que está acontecendo com seu notebook, TV, celular, impressora ou Wi-Fi. Diagnóstico guiado + WhatsApp direto com técnico em Curitiba."
         />
-        <link rel="canonical" href="https://tecnico.curitiba.br/diagnostico-60s" />
         <meta property="og:title" content="Diagnóstico em 60s — TecnicoCuritiba" />
         <meta property="og:url" content="https://tecnico.curitiba.br/diagnostico-60s" />
         <meta property="og:type" content="website" />

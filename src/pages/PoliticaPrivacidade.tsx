@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { useCanonical } from "@/lib/canonicalUrl";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -170,7 +171,6 @@ const PoliticaPrivacidade = () => {
           name="description"
           content="Política de Privacidade e LGPD do Técnico Curitiba: como coletamos, usamos e protegemos seus dados, cookies, GA4, Google Ads e seus direitos."
         />
-        <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="Política de Privacidade | Técnico Curitiba" />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="article" />

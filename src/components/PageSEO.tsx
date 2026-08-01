@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { upsertCanonical } from "@/lib/canonicalUrl";
 
 const SITE_NAME = "Técnico em Curitiba";
 const BASE_URL = "https://tecnico.curitiba.br";
@@ -44,15 +45,6 @@ export const PageSEO = ({
       }
       Object.entries(attrs).forEach(([key, value]) => el!.setAttribute(key, value));
     };
-    const upsertLink = (rel: string, href: string) => {
-      let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
-      if (!el) {
-        el = document.createElement("link");
-        el.rel = rel;
-        document.head.appendChild(el);
-      }
-      el.href = href;
-    };
 
     upsertMeta('meta[name="description"]', { name: "description", content: description });
     upsertMeta('meta[property="og:type"]', { property: "og:type", content: ogType });
@@ -69,7 +61,7 @@ export const PageSEO = ({
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: versionedOg });
-    upsertLink("canonical", url);
+    upsertCanonical(url);
     upsertMeta('meta[name="robots"]', {
       name: "robots",
       content: noindex ? "noindex, follow" : "index, follow",

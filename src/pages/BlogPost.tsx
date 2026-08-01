@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useCanonical } from "@/lib/canonicalUrl";
 import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -235,7 +236,6 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.title} | Blog | Técnico em Curitiba</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://tecnico.curitiba.br/blog/${slug}`} />
         {/* robots/googlebot são gerenciados via efeito (registro editorial) */}
         <meta property="og:type" content={approved ? "article" : "website"} />
         <meta property="og:title" content={post.title} />

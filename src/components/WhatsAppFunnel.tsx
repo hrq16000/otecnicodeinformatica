@@ -778,6 +778,8 @@ export const WhatsAppFunnel = () => {
                         );
                       })}
                     </div>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+
                   </div>
                 )}
 

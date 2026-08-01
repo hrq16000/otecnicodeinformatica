@@ -272,6 +272,13 @@ export const WhatsAppFunnel = () => {
   const setCustomerType = useCallback(
     (value: CustomerType) => {
       setInvalidField(null);
+      // Idempotência: reselecionar o mesmo ramo (duplo clique/tap fantasma) não
+      // pode reemitir `wa_funnel_branch` nem descartar o que já foi respondido.
+      if (answers.customerType === value) {
+        clearTimers();
+        advance();
+        return;
+      }
       const next = resetForCustomerType(answers, value);
       commit(next);
       setFunnelBranchContext({ customer_type: value });
@@ -282,6 +289,7 @@ export const WhatsAppFunnel = () => {
     },
     [answers, commit, originLocation, advance, clearTimers],
   );
+
 
 
   const setEquipment = useCallback(

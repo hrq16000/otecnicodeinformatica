@@ -11,6 +11,7 @@ import { ClusterLinks } from "@/components/ClusterLinks";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Helmet } from "react-helmet";
+import { useCanonical } from "@/lib/canonicalUrl";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick, trackProblemaServiceClick, trackProblemaLinkBroken } from "@/lib/funnelAnalytics";
 import { auditInternalLink } from "@/lib/internalLinkAudit";
@@ -63,6 +64,8 @@ const ProblemaPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
+
+  useCanonical(`https://tecnico.curitiba.br/problemas/${data.slug}`);
 
   useEffect(() => {
     if (!slug) { setLoading(false); return; }
@@ -213,7 +216,6 @@ const ProblemaPage = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href={`https://tecnico.curitiba.br/problemas/${data.slug}`} />
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
         {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
         {localBusinessSchema && <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>}

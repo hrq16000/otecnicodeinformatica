@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { useCanonical } from "@/lib/canonicalUrl";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -56,6 +57,8 @@ const faqJsonLd = {
   })),
 };
 
+// LocalBusiness NÃO é emitido aqui: o slot global (Footer) é o dono único
+// da entidade https://tecnico.curitiba.br/#localbusiness.
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -65,32 +68,13 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://tecnico.curitiba.br/#localbusiness",
-  name: "Técnico Curitiba — Assistência Técnica em Informática",
-  url: "https://tecnico.curitiba.br/",
-  telephone: "+5541997086380",
-  areaServed: [
-    { "@type": "City", name: "Curitiba" },
-    { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
-  ],
-  priceRange: "R$ 90 – R$ 500",
-  sameAs: ["https://wa.me/5541997086380"],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+5541997086380",
-    availableLanguage: ["Portuguese"],
-    areaServed: "BR",
-  },
-};
 
 const TermosCondicoes = () => {
   const title = "Termos, Preços e Condições | Assistência Técnica Curitiba";
   const description =
     "Conserto de placas em Curitiba: orçamento grátis pelo WhatsApp, visita técnica a partir de R$ 99,99, diagnóstico R$ 90, reparo mínimo R$ 300. Política transparente.";
+
+  useCanonical(CANONICAL);
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,7 +82,6 @@ const TermosCondicoes = () => {
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content="conserto de placas Curitiba, diagnóstico R$ 90, visita técnica R$ 99,90, reparo mínimo R$ 300, orçamento grátis WhatsApp, assistência técnica Curitiba" />
-        <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={CANONICAL} />
@@ -108,7 +91,6 @@ const TermosCondicoes = () => {
         <meta name="twitter:description" content={description} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
       </Helmet>
 
       <Header />

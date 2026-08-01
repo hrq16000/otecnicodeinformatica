@@ -248,8 +248,8 @@ function localBusiness(path, { name, description, areaServed } = {}) {
   return {
     "@context": "https://schema.org",
     "@type": SITE_CONFIG.businessType,
-    "@id": isHome ? `${SITE}/#organization` : `${url}#localbusiness`,
-    ...(isHome ? {} : { parentOrganization: { "@id": `${SITE}/#organization` } }),
+    "@id": isHome ? `${SITE}/#localbusiness` : `${url}#localbusiness`,
+    parentOrganization: { "@id": `${SITE}/#organization` },
     name: name ?? NAP.name,
     legalName: NAP.legalName,
     foundingDate: SITE_CONFIG.foundedYear,

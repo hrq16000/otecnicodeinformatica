@@ -66,10 +66,11 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": siteConfig.businessType,
-    // Home mantém o @id canônico da organização; páginas internas usam @id
-    // próprio referenciando a mesma entidade (evita duplicidade de nó).
-    "@id": isHome ? `${siteConfig.baseUrl}/#organization` : `${url}#localbusiness`,
-    ...(isHome ? {} : { parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` } }),
+    // A entidade institucional (#organization) tem dono único (JsonLdSchema).
+    // Todo LocalBusiness — inclusive o da home — usa @id próprio e referencia
+    // a organização por parentOrganization (nunca duplica o mesmo @id).
+    "@id": isHome ? `${siteConfig.baseUrl}/#localbusiness` : `${url}#localbusiness`,
+    parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` },
     name: NAP.name,
     legalName: NAP.legalName,
     alternateName: [

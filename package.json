@@ -33,6 +33,7 @@
     "check:internal-links": "node scripts/check-internal-links.mjs",
     "check:internal-links:strict": "node scripts/check-internal-links.mjs --strict",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
+    "check:recurring-language": "node scripts/check-recurring-language.mjs",
     "check:public-data-exposure": "node scripts/check-public-data-exposure.mjs",
     "check:security-findings": "node scripts/check-security-findings-baseline.mjs",
     "check:security-headers": "node scripts/check-security-headers.mjs",

@@ -17,6 +17,9 @@ import {
   trackFunnelModalOpen,
   trackFunnelModalImpression,
   trackFunnelQualification,
+  trackFunnelBranch,
+  trackFunnelBusinessProfile,
+  setFunnelBranchContext,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";

@@ -474,8 +474,10 @@ export function resetForEquipment(a: TriageAnswers, next: TriageAnswers["equipme
   if (a.equipment === next) return a;
   return {
     ...EMPTY_ANSWERS,
+    customerType: a.customerType, // ramo PF/PJ é anterior ao equipamento
     equipment: next,
     urgency: a.urgency, // urgência é neutra, pode ser preservada
+
     // Qualificação é neutra em relação ao equipamento: preserva.
     fields: {
       ...(a.fields.nome ? { nome: a.fields.nome } : {}),

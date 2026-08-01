@@ -99,6 +99,10 @@ function checkCurated(distDir: string) {
     }
     if (!intro) fail(route.path, "sem primeiro parágrafo estático");
 
+    const canonicalNodes = [...html.matchAll(/<link[^>]+rel=["']canonical["'][^>]*>/gi)];
+    if (canonicalNodes.length !== 1) {
+      fail(route.path, `esperado exatamente 1 <link rel="canonical">, encontrou ${canonicalNodes.length}`);
+    }
     const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)?.[1];
     const expected = `${SITE}${route.path === "/" ? "/" : route.path}`;
     if (canonical !== expected) fail(route.path, `canonical "${canonical}" != self "${expected}"`);
@@ -122,6 +126,7 @@ function checkCurated(distDir: string) {
     for (const [slot, n] of slotCount) if (n > 1) fail(route.path, `slot JSON-LD duplicado: ${slot} (${n}x)`);
 
     let hasBreadcrumb = route.path === "/";
+    const idSeen = new Map<string, number>();
     const ID_REQUIRED = new Set(["BreadcrumbList", "Service", "WebPage", "AboutPage", "ContactPage", "LocalBusiness"]);
     for (const b of blocks) {
       let parsed: unknown;
@@ -132,6 +137,7 @@ function checkCurated(distDir: string) {
         if (JSON.stringify(node).includes("aggregateRating")) fail(route.path, "aggregateRating proibido");
         const types = Array.isArray(node["@type"]) ? (node["@type"] as string[]) : [String(node["@type"])];
         const id = typeof node["@id"] === "string" ? (node["@id"] as string) : "";
+        if (id) idSeen.set(id, (idSeen.get(id) ?? 0) + 1);
         if (types.some((t) => ID_REQUIRED.has(t))) {
           if (!id) fail(route.path, `entidade ${types[0]} sem @id estável`);
           else if (!id.startsWith(SITE) || !id.includes("#")) fail(route.path, `@id fora do padrão canônico: ${id}`);
@@ -150,6 +156,9 @@ function checkCurated(distDir: string) {
       }
     }
     if (!hasBreadcrumb) fail(route.path, "sem BreadcrumbList estático");
+    for (const [dupId, n] of idSeen) {
+      if (n > 1) fail(route.path, `@id duplicado entre entidades JSON-LD: ${dupId} (${n}x)`);
+    }
 
 
     const noscript = html.match(/<noscript>\s*<div style="min-height:100vh([\s\S]*?)<\/noscript>/i)?.[1] ?? "";

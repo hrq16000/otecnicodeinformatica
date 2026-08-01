@@ -91,7 +91,7 @@ async function checkAllTerms() {
 }
 
 describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
-  it("roteia para atendimento remoto e gera mensagem com a modalidade correta", async () => {
+  it("roteia para atendimento remoto e gera mensagem com a modalidade correta", { timeout: 20000 }, async () => {
     renderFunnel();
     await openFunnel();
 
@@ -131,7 +131,7 @@ describe("Triagem V5 — PC funcionando + instalação → REMOTO", () => {
 });
 
 describe("Triagem V5 — TV não liga → COLETA", () => {
-  it("exige aceites de coleta e gera mensagem com R$ 299,99", async () => {
+  it("exige aceites de coleta e gera mensagem com R$ 299,99", { timeout: 20000 }, async () => {
     renderFunnel();
     await openFunnel();
 

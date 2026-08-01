@@ -154,14 +154,17 @@ export const WhatsAppFunnel = () => {
   // ---------- derivations ----------
   const equipment = getEquipment(answers.equipment);
   const rules = useMemo(() => getPricingRules(answers), [answers]);
-  const terms = useMemo(() => getTermsForRoute(determineServiceRoute(answers)), [answers]);
+  const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
   const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
+  const steps = useMemo(() => getSteps(answers), [answers]);
+  const totalSteps = steps.length;
+  const business = isBusiness(answers);
 
   // ---------- navigation ----------
   const goTo = useCallback((s: number) => {
-    setStep(Math.max(0, Math.min(s, TOTAL_STEPS - 1)));
+    setStep(Math.max(0, Math.min(s, totalSteps - 1)));
     setInvalidField(null);
-  }, []);
+  }, [totalSteps]);
 
   const doPulse = useCallback(() => {
     setPulse(true);
@@ -174,10 +177,11 @@ export const WhatsAppFunnel = () => {
     doPulse();
     const delay = REDUCED_MOTION ? 0 : 420;
     advanceTimer.current = setTimeout(() => {
-      setStep((s) => Math.min(s + 1, TOTAL_STEPS - 1));
+      setStep((s) => Math.min(s + 1, totalSteps - 1));
       setInvalidField(null);
       isTransitioning.current = false;
     }, delay);
+
   }, [doPulse]);
 
   const focusFirstIncomplete = useCallback((s: number, a: TriageAnswers) => {

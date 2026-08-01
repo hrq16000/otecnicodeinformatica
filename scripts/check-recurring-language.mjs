@@ -46,7 +46,8 @@ for (const file of FILES) {
     continue; // arquivo opcional
   }
   src.split("\n").forEach((line, i) => {
-    if (line.trim().startsWith("*") || line.trim().startsWith("//")) return; // comentários
+    const t = line.trim();
+    if (t.startsWith("*") || t.startsWith("//") || t.startsWith("/*")) return; // comentários
     for (const rx of FORBIDDEN) {
       if (rx.test(line)) {
         failures += 1;

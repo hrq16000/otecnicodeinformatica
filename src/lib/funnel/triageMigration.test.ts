@@ -199,8 +199,24 @@ describe("PJ recorrente — verdade comercial", () => {
     }
   });
 
-  it("mantém o mínimo oficial de R$ 99,99 como referência, não orçamento fechado", () => {
+  it("recorrente não apresenta valor fechado — fica sob avaliação", () => {
     const msg = buildWhatsAppMessage(recorrente, "T-TESTE");
+    expect(msg).toMatch(/Definido após avaliação/i);
+    expect(msg).not.toMatch(/or[çc]amento fechado/i);
+  });
+
+  it("PJ avulso mantém o mínimo oficial de R$ 99,99 como referência", () => {
+    const avulso: TriageAnswers = {
+      ...recorrente,
+      business: {
+        ...recorrente.business,
+        "biz-intent": "pontual",
+        "biz-engagement": "one_time",
+        "biz-impact": "algumas",
+        "biz-modality": "visita",
+      },
+    };
+    const msg = buildWhatsAppMessage(avulso, "T-TESTE");
     expect(msg).toMatch(/R\$ 99,99/);
     expect(msg).not.toMatch(/or[çc]amento fechado/i);
   });

@@ -209,10 +209,18 @@ export function getBusinessEnvironmentLabels(a: TriageAnswers): string[] {
 const PC_NOT_WORKING = ["nao-liga", "liga-nao-inicia", "liga-desliga"];
 
 export function determineServiceRoute(a: TriageAnswers): ServiceRoute {
+  // Ramo empresarial: a modalidade é escolhida entre as opções compatíveis.
+  if (isBusiness(a)) {
+    const chosen = a.business["biz-modality"] as ServiceRoute | undefined;
+    const allowed = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+    if (chosen && allowed.some((o) => o.value === chosen)) return chosen;
+    return "orientacao";
+  }
   const eq = getEquipment(a.equipment);
   if (!eq) return "coleta";
   // Equipamentos com rota fixa → sempre coleta.
   if (eq.forcedRoute) return eq.forcedRoute;
+
 
   // PC / Notebook — única categoria com remoto/visita.
   if (eq.id === "pc") {

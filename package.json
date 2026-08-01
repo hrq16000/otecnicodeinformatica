@@ -43,7 +43,9 @@
     "preview:category-prompts": "bun scripts/preview-category-prompts.ts",
     "e2e:matrix:shard": "playwright test --config=playwright.ci.config.ts",
     "e2e:matrix:merge": "playwright merge-reports --reporter json ./all-blob-reports > merged-report/results.json",
-    "e2e:matrix:report": "node scripts/consolidate-e2e-failures.mjs merged-report/results.json --out docs/e2e-inventario-falhas.md"
+    "e2e:matrix:report": "node scripts/consolidate-e2e-failures.mjs merged-report/results.json --out docs/e2e-inventario-falhas.md",
+    "migration:matrix": "node scripts/build-migration-matrix.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

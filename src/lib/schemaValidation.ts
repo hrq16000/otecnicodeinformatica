@@ -170,7 +170,24 @@ export function getSchemaReport(): SchemaReportEntry[] {
  */
 const SCHEMA_TELEPHONE = "+5541997086380";
 
+/**
+ * Remove os scripts JSON-LD estáticos (prerender) cujo @type coincide com o
+ * schema que está sendo injetado no cliente. Garante uma única representação
+ * lógica de cada entidade por página após a hidratação.
+ */
+function removeStaticJsonLdFor(schema: JsonLd) {
+  if (typeof document === "undefined") return;
+  const raw = (schema as Record<string, unknown>)["@type"];
+  const types = new Set((Array.isArray(raw) ? raw : [raw]).filter(Boolean).map(String));
+  if (!types.size) return;
+  document.querySelectorAll<HTMLScriptElement>("script[data-static-jsonld]").forEach((el) => {
+    const staticTypes = (el.dataset.jsonldType ?? "").split(/\s+/).filter(Boolean);
+    if (staticTypes.some((t) => types.has(t))) el.remove();
+  });
+}
+
 export function validateAndInjectSchema(
+
   scriptId: string,
   schema: JsonLd,
 ): boolean {

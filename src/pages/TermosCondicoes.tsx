@@ -57,6 +57,8 @@ const faqJsonLd = {
   })),
 };
 
+// LocalBusiness NÃO é emitido aqui: o slot global (Footer) é o dono único
+// da entidade https://tecnico.curitiba.br/#localbusiness.
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -66,27 +68,6 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://tecnico.curitiba.br/#localbusiness",
-  name: "Técnico Curitiba — Assistência Técnica em Informática",
-  url: "https://tecnico.curitiba.br/",
-  telephone: "+5541997086380",
-  areaServed: [
-    { "@type": "City", name: "Curitiba" },
-    { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
-  ],
-  priceRange: "R$ 90 – R$ 500",
-  sameAs: ["https://wa.me/5541997086380"],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+5541997086380",
-    availableLanguage: ["Portuguese"],
-    areaServed: "BR",
-  },
-};
 
 const TermosCondicoes = () => {
   const title = "Termos, Preços e Condições | Assistência Técnica Curitiba";
@@ -110,7 +91,6 @@ const TermosCondicoes = () => {
         <meta name="twitter:description" content={description} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>
       </Helmet>
 
       <Header />

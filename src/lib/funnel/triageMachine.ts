@@ -394,6 +394,7 @@ export interface ValidationResult {
 function fieldValue(a: TriageAnswers, f: Field): string {
   if (f.id === "symptom") return a.symptom ?? "";
   if (f.id === "__event") return a.fields.__event ?? "";
+  if (f.id.startsWith("biz-")) return a.business[f.id] ?? "";
   return a.fields[f.id] ?? "";
 }
 
@@ -405,25 +406,43 @@ function fieldComplete(a: TriageAnswers, f: Field): boolean {
   return true;
 }
 
+function validateFields(a: TriageAnswers, fields: Field[]): ValidationResult | null {
+  for (const f of fields) {
+    if (!fieldComplete(a, f)) {
+      return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
+    }
+  }
+  return null;
+}
+
 export function validateStep(step: number, a: TriageAnswers): ValidationResult {
-  const name = STEPS[step];
+  const name = getStepName(step, a);
+  if (name === "customer") {
+    return a.customerType ? { ok: true } : { ok: false, reason: "Selecione para quem é o atendimento." };
+  }
   if (name === "equipment") {
     return a.equipment ? { ok: true } : { ok: false, reason: "Selecione o equipamento." };
   }
   if (name === "identity") {
-    for (const f of getIdentityFields(a)) {
-      if (!fieldComplete(a, f)) {
-        return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
-      }
+    return validateFields(a, getIdentityFields(a)) ?? { ok: true };
+  }
+  if (name === "details") {
+    const invalid = validateFields(a, getDetailsFields(a));
+    if (invalid) return invalid;
+    if (!a.urgency) {
+      return { ok: false, firstIncomplete: "__urgency", reason: "Selecione a urgência." };
     }
     return { ok: true };
   }
-  if (name === "details") {
-    for (const f of getDetailsFields(a)) {
-      if (!fieldComplete(a, f)) {
-        return { ok: false, firstIncomplete: f.id, reason: `Preencha: ${f.label}` };
-      }
-    }
+  if (name === "business-need") {
+    return validateFields(a, getBusinessNeedFields(a)) ?? { ok: true };
+  }
+  if (name === "business-context") {
+    return validateFields(a, getBusinessContextFields(a)) ?? { ok: true };
+  }
+  if (name === "business-modality") {
+    const invalid = validateFields(a, getBusinessModalityFields(a));
+    if (invalid) return invalid;
     if (!a.urgency) {
       return { ok: false, firstIncomplete: "__urgency", reason: "Selecione a urgência." };
     }
@@ -433,14 +452,16 @@ export function validateStep(step: number, a: TriageAnswers): ValidationResult {
     return { ok: true };
   }
   if (name === "terms") {
-    const route = determineServiceRoute(a);
-    for (const t of getTermsForRoute(route)) {
+    for (const t of getTermsForAnswers(a)) {
       if (!a.termsAccepted[t.id]) {
         return { ok: false, firstIncomplete: t.id, reason: "Confirme todos os itens para continuar." };
       }
     }
     return { ok: true };
   }
+  return { ok: true };
+}
+
   return { ok: true };
 }
 

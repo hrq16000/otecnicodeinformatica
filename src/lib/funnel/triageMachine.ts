@@ -150,6 +150,60 @@ export function getDetailsFields(a: TriageAnswers): Field[] {
 }
 
 // ─────────────────────────────────────────────────────────────
+// CAMPOS DO RAMO EMPRESARIAL
+// ─────────────────────────────────────────────────────────────
+/** Etapa "business-need": nome, empresa, necessidade e tipo de engajamento. */
+export function getBusinessNeedFields(_a: TriageAnswers): Field[] {
+  return [
+    QUALIFICATION_NOME,
+    BUSINESS_FIELDS.empresa,
+    BUSINESS_FIELDS.intent,
+    BUSINESS_FIELDS.engagement,
+  ];
+}
+
+/** Etapa "business-context": ambiente e impacto. */
+export function getBusinessContextFields(a: TriageAnswers): Field[] {
+  const out: Field[] = [BUSINESS_FIELDS.deviceRange, BUSINESS_FIELDS.environment];
+  // Avaliação recorrente não pergunta impacto de incidente pontual.
+  if (!isRecurring(a)) out.push(BUSINESS_FIELDS.impact);
+  out.push(
+    isRecurring(a)
+      ? {
+          ...BUSINESS_FIELDS.descricao,
+          label: "Descreva brevemente o ambiente e o que a empresa precisa",
+        }
+      : BUSINESS_FIELDS.descricao,
+  );
+  return out;
+}
+
+/** Etapa "business-modality": modalidade condicional + localização. */
+export function getBusinessModalityFields(a: TriageAnswers): Field[] {
+  const options = getBusinessModalityValues(a.business["biz-intent"], a.business["biz-engagement"]);
+  return [
+    { ...BUSINESS_FIELDS.modality, options },
+    QUALIFICATION_BAIRRO,
+  ];
+}
+
+function businessLabel(options: FieldOption[], value?: string): string {
+  if (!value) return "";
+  return options.find((o) => o.value === value)?.label ?? value;
+}
+
+/** Rótulos legíveis do ambiente (campo múltiplo, valores separados por vírgula). */
+export function getBusinessEnvironmentLabels(a: TriageAnswers): string[] {
+  const raw = a.business["biz-environment"] || "";
+  return raw
+    .split(",")
+    .map((v) => v.trim())
+    .filter(Boolean)
+    .map((v) => businessLabel(BUSINESS_ENVIRONMENT_OPTIONS, v));
+}
+
+
+// ─────────────────────────────────────────────────────────────
 // DETERMINAÇÃO DA MODALIDADE
 // ─────────────────────────────────────────────────────────────
 const PC_NOT_WORKING = ["nao-liga", "liga-nao-inicia", "liga-desliga"];

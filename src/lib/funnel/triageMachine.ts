@@ -340,6 +340,16 @@ export function getTermsForRoute(route: ServiceRoute): TermItem[] {
     ];
   }
 
+  if (route === "orientacao") {
+    return [
+      ...base,
+      {
+        id: "orientacao-valor",
+        text: `Estou ciente de que esta etapa é apenas de entendimento da necessidade e que qualquer serviço executado respeita o valor mínimo de ${PRICING.minGeral}, definido após avaliação.`,
+      },
+    ];
+  }
+
   // remoto
   return [
     ...base,
@@ -349,6 +359,27 @@ export function getTermsForRoute(route: ServiceRoute): TermItem[] {
     },
   ];
 }
+
+/**
+ * Termos efetivos considerando o ramo. PJ recorrente troca os termos de preço
+ * por ciência neutra de que escopo e valores dependem de avaliação.
+ */
+export function getTermsForAnswers(a: TriageAnswers): TermItem[] {
+  if (isRecurring(a)) {
+    return [
+      {
+        id: "ciencia-geral",
+        text: "Esta triagem é obrigatória e registra minha ciência de que o WhatsApp será aberto apenas para agendar o entendimento inicial da necessidade da empresa.",
+      },
+      {
+        id: "pj-recorrente",
+        text: `${RECURRING_NOTICE} Estou ciente de que não há plano, escopo, prazo de resposta ou valor definidos nesta etapa.`,
+      },
+    ];
+  }
+  return getTermsForRoute(determineServiceRoute(a));
+}
+
 
 // ─────────────────────────────────────────────────────────────
 // VALIDAÇÃO POR ETAPA

@@ -20,6 +20,21 @@ declare global {
 
 const MAX_BUFFER = 25;
 
+/**
+ * Contexto adicional anexado a todo erro reportado (ex.: ramo da triagem
+ * PF × PJ). Chaves neutras — nunca dados pessoais.
+ */
+let errorContext: Record<string, unknown> = {};
+
+export const setErrorContext = (partial: Record<string, unknown>) => {
+  errorContext = { ...errorContext, ...partial };
+  if (typeof window !== "undefined") {
+    (window as unknown as { __APP_ERROR_CONTEXT__?: Record<string, unknown> }).__APP_ERROR_CONTEXT__ = errorContext;
+  }
+};
+
+export const getErrorContext = () => ({ ...errorContext });
+
 const push = (entry: Record<string, unknown>) => {
   if (typeof window === "undefined") return;
   window.__APP_ERRORS__ = window.__APP_ERRORS__ || [];
@@ -35,9 +50,11 @@ const report = (kind: string, payload: Record<string, unknown>) => {
     url: typeof location !== "undefined" ? location.href : "",
     ua: typeof navigator !== "undefined" ? navigator.userAgent : "",
     ts: Date.now(),
+    ...errorContext,
     ...payload,
   };
   push(entry);
+
   try {
     // eslint-disable-next-line no-console
     console.error(`[app:error:${kind}]`, entry);

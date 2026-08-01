@@ -1,12 +1,12 @@
 import { useMemo } from "react";
-import { useValidatedJsonLd } from "@/lib/schemaValidation";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import {
   buildLocalBusinessSchema,
   type LocalBusinessOptions,
 } from "@/lib/localBusinessJsonLd";
 
 interface Props extends LocalBusinessOptions {
-  /** id do <script> injetado (único por página). */
+  /** @deprecated mantido por compatibilidade — o slot `local-business` é a chave real. */
   scriptId?: string;
 }
 
@@ -15,7 +15,7 @@ interface Props extends LocalBusinessOptions {
  * Usa a mesma fonte de verdade em todo o site.
  */
 export const LocalBusinessJsonLd = ({
-  scriptId = "ld-localbusiness-page",
+  scriptId: _scriptId,
   ...opts
 }: Props) => {
   const schema = useMemo(
@@ -23,7 +23,7 @@ export const LocalBusinessJsonLd = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [opts.path, opts.name, opts.description, JSON.stringify(opts.services), JSON.stringify(opts.areaServed)],
   );
-  useValidatedJsonLd(scriptId, schema);
+  useJsonLdSlot(SCHEMA_SLOTS.localBusiness, schema, SLOT_PRIORITY.page);
   return null;
 };
 

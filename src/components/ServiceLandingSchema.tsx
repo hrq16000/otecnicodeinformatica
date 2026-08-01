@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { validateAndInjectSchema } from "@/lib/schemaValidation";
+import { useMemo } from "react";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 /**
  * JSON-LD por landing de serviço: Service + Offer + FAQPage + WebPage + Speakable.
@@ -32,7 +32,7 @@ export const ServiceLandingSchema = ({
   faqs,
   dateModified,
 }: ServiceLandingSchemaProps) => {
-  useEffect(() => {
+  const schemas = useMemo(() => {
     const url = `${BASE_URL}${path}`;
     const modified = dateModified ?? new Date().toISOString();
 
@@ -102,18 +102,12 @@ export const ServiceLandingSchema = ({
       mainEntity: { "@id": `${url}#service` },
     };
 
-    const ids = [
-      [`service-schema-svc-${path}`, serviceSchema],
-      [`service-schema-faq-${path}`, faqSchema],
-      [`service-schema-page-${path}`, webPageSchema],
-    ] as const;
-
-    ids.forEach(([id, s]) => validateAndInjectSchema(id, s));
-
-    return () => {
-      ids.forEach(([id]) => document.getElementById(id)?.remove());
-    };
+    return { serviceSchema, faqSchema, webPageSchema };
   }, [serviceName, description, path, priceFrom, category, faqs, dateModified]);
+
+  useJsonLdSlot(SCHEMA_SLOTS.service, schemas.serviceSchema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.faq, schemas.faqSchema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.webPage, schemas.webPageSchema, SLOT_PRIORITY.page);
 
   return null;
 };

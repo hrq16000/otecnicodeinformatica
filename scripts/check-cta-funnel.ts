@@ -54,10 +54,13 @@ for (const file of files) {
 
 const funnel = readFileSync(join(ROOT, "src/components/WhatsAppFunnel.tsx"), "utf8");
 const analytics = readFileSync(join(ROOT, "src/lib/funnelAnalytics.ts"), "utf8");
-// V5 semantics: valor mínimo R$ 99,99 é confirmado via etapa de termos (validateStep) antes do submit.
-// O gate garante que a string do valor mínimo aparece, que `minimumAccepted` é registrado nos eventos
-// e que a submissão valida todos os passos antes de abrir o WhatsApp.
-if (!funnel.includes("R$ 99,99") || !funnel.includes("minimumAccepted") || !/for \(let s = 0; s < TOTAL_STEPS/.test(funnel)) {
+// V6 semantics (PF × PJ): valor mínimo R$ 99,99 é confirmado via etapa de termos (validateStep)
+// antes do submit. O laço de validação percorre as etapas do ramo atual (`getSteps(answers)`),
+// que pode ser residencial (7) ou empresarial (6).
+const validatesAllSteps =
+  /for \(let s = 0; s < TOTAL_STEPS/.test(funnel) ||
+  /for \(let s = 0; s < getSteps\(answers\)\.length/.test(funnel);
+if (!funnel.includes("R$ 99,99") || !funnel.includes("minimumAccepted") || !validatesAllSteps) {
   violations.push("src/components/WhatsAppFunnel.tsx deve exigir confirmação do valor mínimo R$ 99,99 antes de abrir WhatsApp");
 }
 if (!analytics.includes("click_location") || !analytics.includes("app_version")) {

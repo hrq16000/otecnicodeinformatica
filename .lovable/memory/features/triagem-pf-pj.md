@@ -29,3 +29,10 @@ Campos PJ usam prefixo `biz-` e vivem em `answers.business` (separado de `answer
 ## Testes
 - `src/lib/funnel/triageMachine.test.ts`, `WhatsAppFunnel.integration.test.tsx` (helpers `chooseResidential`/`fillQualification`).
 - `e2e/triagem-pf-pj.spec.ts` — bifurcação, eventos e unicidade de JSON-LD após navegação SPA.
+
+## Rodada 2.1 — hardening
+- `normalizeAnswers` / `migrateLegacyAnswers` / `LEGACY_STORAGE_KEYS`: sessões v1–v5 migram para PF (residencial), preservando nome/bairro/equipamento/sintoma; aceites são refeitos; corrompidas e versões futuras caem em fallback nulo. Migração idempotente e limpa as chaves legadas.
+- `resetForCustomerType` preserva nome, bairro e urgência (neutros) e descarta todo o resto do ramo anterior.
+- `sanitizeTelemetry` + `BLOCKED_TELEMETRY_KEYS` em `funnelAnalytics.ts`: nenhum evento GA4/breadcrumb pode carregar nome, empresa, descrição, endereço, telefone, coordenadas, marca/modelo ou o objeto da triagem; strings limitadas a 80 chars.
+- Gate `npm run check:recurring-language` (scripts/check-recurring-language.mjs) falha se surgir mensalidade, SLA, horas, fidelidade, monitoramento 24, zero downtime ou prazo garantido no funil PJ.
+- `scripts/check-cta-funnel.ts` aceita o laço dinâmico `getSteps(answers).length` (regressão da Rodada 2).

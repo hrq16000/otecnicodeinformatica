@@ -47,6 +47,8 @@ const Sobre = () => {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness", "ComputerRepairService"],
+    // @id canônico e único da entidade institucional (mesma identidade em todo o site).
+    "@id": `${siteConfig.baseUrl}/#organization`,
     name: siteConfig.brandName,
     legalName: siteConfig.legalName,
     url: siteConfig.baseUrl,

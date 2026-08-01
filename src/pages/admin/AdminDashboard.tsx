@@ -79,7 +79,8 @@ const AdminDashboard = () => {
     [allRows],
   );
 
-  const rows = useMemo(
+  /** Linhas filtradas por bairro/serviço (todos os tipos de evento). */
+  const filteredAll = useMemo(
     () =>
       allRows.filter(
         (r) =>
@@ -88,6 +89,57 @@ const AdminDashboard = () => {
       ),
     [allRows, bairro, servico],
   );
+
+  /** Somente cliques de conversão (wa/ligação) — base das tabelas e do CSV. */
+  const rows = useMemo(
+    () => filteredAll.filter((r) => r.event_type === "wa_click" || r.event_type === "call_click"),
+    [filteredAll],
+  );
+
+  /**
+   * Funil: aberturas (`funnel_open`) × conversões (`wa_click`) por sessão,
+   * com mediana do tempo entre a primeira abertura e a primeira conversão.
+   */
+  const funnelStats = useMemo(() => {
+    const opens = filteredAll.filter((r) => r.event_type === "funnel_open");
+    const firstOpen = new Map<string, number>();
+    for (const r of opens) {
+      if (!r.session_id) continue;
+      const t = new Date(r.created_at).getTime();
+      const cur = firstOpen.get(r.session_id);
+      if (cur === undefined || t < cur) firstOpen.set(r.session_id, t);
+    }
+    const firstConv = new Map<string, number>();
+    for (const r of filteredAll) {
+      if (r.event_type !== "wa_click" || !r.session_id) continue;
+      const t = new Date(r.created_at).getTime();
+      const cur = firstConv.get(r.session_id);
+      if (cur === undefined || t < cur) firstConv.set(r.session_id, t);
+    }
+    const deltas: number[] = [];
+    let converted = 0;
+    for (const [sid, openAt] of firstOpen) {
+      const conv = firstConv.get(sid);
+      if (conv === undefined || conv < openAt) continue;
+      converted++;
+      deltas.push((conv - openAt) / 1000);
+    }
+    deltas.sort((a, b) => a - b);
+    const median = deltas.length
+      ? deltas.length % 2
+        ? deltas[(deltas.length - 1) / 2]
+        : (deltas[deltas.length / 2 - 1] + deltas[deltas.length / 2]) / 2
+      : null;
+    const sessions = firstOpen.size;
+    return {
+      opens: opens.length,
+      sessions,
+      converted,
+      rate: sessions ? (converted / sessions) * 100 : 0,
+      medianSeconds: median,
+    };
+  }, [filteredAll]);
+
 
 
   // Agregações

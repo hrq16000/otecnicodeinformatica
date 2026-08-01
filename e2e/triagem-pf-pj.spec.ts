@@ -18,11 +18,16 @@ async function installSpies(page: Page) {
   });
 }
 
+/** Modal da triagem — nome acessível próprio, para não colidir com o banner de cookies (também role=dialog). */
+function funnelDialog(page: Page) {
+  return page.getByRole("dialog", { name: /Triagem antes do atendimento/i });
+}
+
 async function openFunnel(page: Page) {
   await page.evaluate(() => {
     window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
   });
-  const dialog = page.getByRole("dialog");
+  const dialog = funnelDialog(page);
   await expect(dialog).toBeVisible({ timeout: 5000 });
   return dialog;
 }
@@ -30,6 +35,7 @@ async function openFunnel(page: Page) {
 function gtagEvents(page: Page) {
   return page.evaluate(() => (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls || []);
 }
+
 
 test.describe("Triagem PF × PJ", () => {
   test.beforeEach(async ({ page, context }) => {

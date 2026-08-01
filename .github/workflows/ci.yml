@@ -65,45 +65,116 @@ jobs:
 
 
   e2e-full-matrix:
-    # Suíte completa por navegador. Informativo: registra o baseline de cada
-    # engine sem bloquear o merge — o gate bloqueante continua sendo o job `e2e`.
+    # Suíte completa por navegador, PARTICIONADA em shards oficiais do Playwright.
+    # OBSERVACIONAL: registra o baseline de cada engine sem bloquear o merge —
+    # o gate bloqueante continua sendo o job `e2e`.
+    name: e2e ${{ matrix.browser }} shard ${{ matrix.shard }}/${{ matrix.totalShards }} (observacional)
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 25
     needs: build
     continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
         browser: [chromium, firefox, webkit]
+        shard: [1, 2, 3, 4]
+        totalShards: [4]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: npm
       - name: Install deps
         run: npm ci --no-audit --no-fund
       - name: Install Playwright browser (${{ matrix.browser }})
+        # Instalação oficial com dependências de sistema — sem LD_LIBRARY_PATH custom.
         run: npx playwright install --with-deps ${{ matrix.browser }}
-      - name: Build
+      - name: Build (uma única vez por job)
         run: npm run build
       - name: Start preview
         run: npx vite preview --port 8080 &
-      - name: Wait for server
-        run: npx wait-on http://localhost:8080 --timeout 60000
-      - name: Run full suite (${{ matrix.browser }})
-        run: npx playwright test --config=playwright.ci.config.ts
+      - name: Wait for server (healthcheck HTTP)
+        run: npx wait-on http-get://localhost:8080/ --timeout 90000
+      - name: Run shard ${{ matrix.shard }}/${{ matrix.totalShards }} (${{ matrix.browser }})
+        run: npx playwright test --config=playwright.ci.config.ts --shard=${{ matrix.shard }}/${{ matrix.totalShards }}
         env:
           PW_BROWSER: ${{ matrix.browser }}
+          PW_REPORT_MODE: blob
+          PW_SHARD_TAG: ${{ matrix.shard }}
           E2E_BASE_URL: http://localhost:8080
           E2E_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           E2E_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-      - name: Upload report (${{ matrix.browser }})
+      - name: Rerun seletivo apenas das specs que falharam (evidência de flakiness)
+        # Não substitui o resultado original: gera blob separado, claramente rotulado.
+        if: failure()
+        run: npx playwright test --config=playwright.ci.config.ts --last-failed
+        continue-on-error: true
+        env:
+          PW_BROWSER: ${{ matrix.browser }}
+          PW_REPORT_MODE: blob
+          PW_SHARD_TAG: ${{ matrix.shard }}-rerun
+          E2E_BASE_URL: http://localhost:8080
+          E2E_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          E2E_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      - name: Upload blob report (${{ matrix.browser }}-${{ matrix.shard }})
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ matrix.browser }}
-          path: playwright-report/${{ matrix.browser }}
+          name: playwright-blob-${{ matrix.browser }}-${{ matrix.shard }}
+          path: blob-report/
           retention-days: 7
+          if-no-files-found: ignore
+      - name: Upload traces/screenshots (${{ matrix.browser }}-${{ matrix.shard }})
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-evidence-${{ matrix.browser }}-${{ matrix.shard }}
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  e2e-matrix-report:
+    # Consolida os blobs de todos os shards/engines. Roda mesmo com shards falhando,
+    # mas NÃO converte falha em sucesso: o relatório mostra o resultado real.
+    name: e2e matriz — relatório consolidado (observacional)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: e2e-full-matrix
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+      - name: Download all blob reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: playwright-blob-*
+          merge-multiple: true
+          path: all-blob-reports
+      - name: Merge into HTML
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
+        env:
+          PLAYWRIGHT_HTML_OUTPUT_DIR: merged-report/html
+      - name: Merge into JSON
+        run: mkdir -p merged-report && npx playwright merge-reports --reporter json ./all-blob-reports > merged-report/results.json
+      - name: Consolidar, deduplicar e classificar falhas
+        run: node scripts/consolidate-e2e-failures.mjs merged-report/results.json --out merged-report/inventario-falhas.md
+      - name: Resumo por navegador
+        if: always()
+        run: cat merged-report/inventario-falhas.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload relatório consolidado
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-consolidado
+          path: merged-report/
+          retention-days: 14
+
 
   indexnow:
     runs-on: ubuntu-latest

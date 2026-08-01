@@ -8309,7 +8309,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/conserto-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
     ],
   },

@@ -40,7 +40,10 @@
     "check:security-headers": "node scripts/check-security-headers.mjs",
     "check:security-headers:file": "bun scripts/check-security-headers.ts",
     "check:security": "npm run check:public-data-exposure && npm run check:security-findings",
-    "preview:category-prompts": "bun scripts/preview-category-prompts.ts"
+    "preview:category-prompts": "bun scripts/preview-category-prompts.ts",
+    "e2e:matrix:shard": "playwright test --config=playwright.ci.config.ts",
+    "e2e:matrix:merge": "playwright merge-reports --reporter json ./all-blob-reports > merged-report/results.json",
+    "e2e:matrix:report": "node scripts/consolidate-e2e-failures.mjs merged-report/results.json --out docs/e2e-inventario-falhas.md"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

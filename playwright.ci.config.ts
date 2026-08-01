@@ -1,27 +1,47 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices, type ReporterDescription } from "@playwright/test";
 
 /**
  * Configuração usada exclusivamente pelo CI para a suíte completa por navegador.
- * Cada job da matriz roda com PW_BROWSER=chromium|firefox|webkit, permitindo
- * registrar resultados separados sem alterar a config local do agente.
+ *
+ * Cada job da matriz roda com:
+ *   PW_BROWSER=chromium|firefox|webkit
+ *   --shard=<i>/<n>  (sharding oficial do Playwright)
+ *
+ * Modos de relatório (PW_REPORT_MODE):
+ *   - "blob"  → gera blob report por shard, consolidado depois com `merge-reports`.
+ *   - default → list + json + html locais (uso no sandbox/dev).
+ *
+ * Retries = 0 por padrão: a matriz não deve mascarar falhas. O rerun seletivo
+ * do CI é um passo separado (`--last-failed`) cujo resultado é publicado como
+ * evidência de flakiness, nunca como substituto do resultado original.
  */
 const browser = (process.env.PW_BROWSER || "chromium") as "chromium" | "firefox" | "webkit";
 const deviceName =
   browser === "firefox" ? "Desktop Firefox" : browser === "webkit" ? "Desktop Safari" : "Desktop Chrome";
 
+const reportMode = process.env.PW_REPORT_MODE || "local";
+const shardTag = process.env.PW_SHARD_TAG || "1";
+
+const reporter: ReporterDescription[] =
+  reportMode === "blob"
+    ? [["list"], ["blob", { outputDir: `blob-report/${browser}-${shardTag}` }]]
+    : [
+        ["list"],
+        ["json", { outputFile: `playwright-report/${browser}/results.json` }],
+        ["html", { outputFolder: `playwright-report/${browser}/html`, open: "never" }],
+      ];
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: true,
-  retries: 1,
+  // Sem retries: falha reproduzida é falha registrada.
+  retries: 0,
   workers: 2,
   timeout: 45_000,
   expect: { timeout: 10_000 },
-  reporter: [
-    ["list"],
-    ["json", { outputFile: `playwright-report/${browser}/results.json` }],
-    ["html", { outputFolder: `playwright-report/${browser}/html`, open: "never" }],
-  ],
+  reporter,
+  outputDir: `test-results/${browser}-${shardTag}`,
   use: {
     baseURL: process.env.E2E_BASE_URL || "http://localhost:8080",
     trace: "retain-on-failure",

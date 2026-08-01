@@ -213,7 +213,11 @@ const EmpresaDeTiCuritiba = () => {
           </div>
         </section>
 
+        {/* ═══ Prova rápida (abaixo do hero) ═══ */}
+        <EmpresaTrustBar />
+
         {/* ═══ Intro ═══ */}
+
         <AnimatedSection>
           <section className="py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">

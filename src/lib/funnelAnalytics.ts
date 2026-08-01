@@ -276,7 +276,7 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
   }
 }
 
-function persistClickEvent(eventType: "wa_click" | "call_click", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
+function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   const payload = {
     event_type: eventType,

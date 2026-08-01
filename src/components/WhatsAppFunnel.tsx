@@ -25,31 +25,43 @@ import { TriageField } from "@/components/funnel/TriageField";
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,
+  CUSTOMER_TYPE_OPTIONS,
+  RECURRING_NOTICE,
   URGENCY_OPTIONS,
   WHATSAPP_NUMBER,
   STORAGE_KEY,
   getEquipment,
+  type CustomerType,
   type EquipmentId,
   type TriageAnswers,
 } from "@/lib/funnel/triageConfig";
 import {
-  STEPS,
-  TOTAL_STEPS,
   buildTriageSummary,
   buildWhatsAppMessage,
   clearPersisted,
   determineServiceRoute,
+  getBusinessContextFields,
+  getBusinessModalityFields,
+  getBusinessNeedFields,
   getDetailsFields,
   getIdentityFields,
   getPricingRules,
-  getTermsForRoute,
+  getStepName,
+  getSteps,
+  getTermsForAnswers,
+  isBusiness,
+  isRecurring,
   loadPersisted,
   makeTriageId,
   persist,
+  resetBusinessDependents,
+  resetForCustomerType,
   resetForEquipment,
   resetForSymptom,
   validateStep,
 } from "@/lib/funnel/triageMachine";
+import { setErrorContext } from "@/lib/errorReporter";
+
 
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
 const REDUCED_MOTION =

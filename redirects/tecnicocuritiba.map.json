@@ -300,6 +300,46 @@
       "status": 301
     },
     {
+      "from": "/atendimento/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/afonso-pena",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/aviacao",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/cidade-jardim",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/guatupe",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/sao-pedro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/autor/tecnico-curitiba",
+      "to": "https://tecnico.curitiba.br/gestor-responsavel",
+      "status": 301
+    },
+    {
       "from": "/bairros/academia-sjp",
       "to": "https://tecnico.curitiba.br/bairros/academia-sjp",
       "status": 301
@@ -1547,6 +1587,11 @@
     {
       "from": "/gestor-responsavel",
       "to": "https://tecnico.curitiba.br/gestor-responsavel",
+      "status": 301
+    },
+    {
+      "from": "/manutencao-notebook-pc-curitiba",
+      "to": "https://tecnico.curitiba.br/servicos/manutencao-de-notebook",
       "status": 301
     },
     {

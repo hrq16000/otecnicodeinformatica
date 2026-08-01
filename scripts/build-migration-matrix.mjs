@@ -38,6 +38,13 @@ const EXPLICIT = {
   "/servicos/redes-wifi": { to: "/servicos/redes-e-wifi", type: "consolidada", why: "slug canônico novo" },
   "/servicos/upgrade-ssd-memoria": { to: "/servicos/upgrade-ssd-ram", type: "consolidada", why: "slug canônico novo" },
   "/servicos/backup-recuperacao": { to: "/servicos/recuperacao-de-dados", type: "consolidada", why: "slug canônico novo" },
+  "/manutencao-notebook-pc-curitiba": { to: "/servicos/manutencao-de-notebook", type: "equivalente", why: "mesma intenção: manutenção de notebook/PC em Curitiba" },
+  "/autor/tecnico-curitiba": { to: "/gestor-responsavel", type: "utilitária", why: "página de autor → gestor responsável (E-E-A-T)" },
+};
+
+// Slugs de cidade divergentes entre os dois portais.
+const CITY_SLUG_ALIAS = {
+  "sao-jose-dos-pinhais": "sao-jose-pinhais",
 };
 
 // Prefixos consolidados (intenção idêntica, hierarquia antiga descontinuada).
@@ -45,7 +52,7 @@ const PREFIX_RULES = [
   // /atendimento/<cidade>/<bairro> e /atendimento/<cidade> → hub de cidade real
   {
     test: /^\/atendimento\/([^/]+)(?:\/[^/]+)?$/,
-    map: (m) => `/tecnico-informatica-${m[1]}`,
+    map: (m) => `/tecnico-informatica-${CITY_SLUG_ALIAS[m[1]] ?? m[1]}`,
     type: "consolidada",
     why: "hierarquia /atendimento descontinuada; intenção local preservada no hub de cidade",
   },

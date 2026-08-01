@@ -44,6 +44,8 @@ async function openFunnel() {
     window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
   });
   await screen.findByRole("dialog", {}, { timeout: 3000 });
+  // Etapa 0 (PF × PJ): os cenários residenciais seguem pelo ramo PF.
+  await clickText(/Para mim ou minha residência/i);
 }
 
 function dialog() {

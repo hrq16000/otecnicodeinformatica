@@ -16,7 +16,7 @@ import {
 import { EMPTY_ANSWERS, type TriageAnswers } from "./triageConfig";
 
 function base(patch: Partial<TriageAnswers>): TriageAnswers {
-  return { ...EMPTY_ANSWERS, ...patch, fields: { ...(patch.fields ?? {}) } };
+  return { ...EMPTY_ANSWERS, customerType: "residential", ...patch, fields: { ...(patch.fields ?? {}) } };
 }
 
 describe("triageMachine — regras de modalidade", () => {

@@ -13,6 +13,17 @@ import {
   EMPTY_ANSWERS,
   PRICING,
   QUALIFICATION_FIELDS,
+  QUALIFICATION_NOME,
+  QUALIFICATION_BAIRRO,
+  BUSINESS_FIELDS,
+  BUSINESS_INTENT_OPTIONS,
+  BUSINESS_ENGAGEMENT_OPTIONS,
+  BUSINESS_DEVICE_RANGE_OPTIONS,
+  BUSINESS_ENVIRONMENT_OPTIONS,
+  BUSINESS_IMPACT_OPTIONS,
+  BUSINESS_MODALITY_OPTIONS,
+  RECURRING_NOTICE,
+  getBusinessModalityValues,
   PRAZO_COLETA,
   ROUTE_LABEL,
   ROUTE_MIN_PRICE,
@@ -20,8 +31,10 @@ import {
   TRIAGE_VERSION,
   BRAND_NAME,
   getEquipment,
+  type CustomerType,
   type EquipmentConfig,
   type Field,
+  type FieldOption,
   type ServiceRoute,
   type SymptomMeta,
   type TriageAnswers,
@@ -29,19 +42,53 @@ import {
 import { buildTemplateOpening, buildTrackingLine } from "@/lib/whatsappTemplates";
 
 // ─────────────────────────────────────────────────────────────
-// ETAPAS
+// ETAPAS — a sequência depende do ramo (PF × PJ), mas o motor é o mesmo.
 // ─────────────────────────────────────────────────────────────
-export const STEPS = [
-  "equipment", // 0
-  "identity",  // 1 — identificação + sintoma
-  "details",   // 2 — contexto + urgência
-  "modality",  // 3 — modalidade definida (informativo)
-  "terms",     // 4 — ciência e aceite
-  "review",    // 5 — revisão + WhatsApp
+export const RESIDENTIAL_STEPS = [
+  "customer",  // 0 — PF × PJ
+  "equipment", // 1
+  "identity",  // 2 — identificação + sintoma
+  "details",   // 3 — contexto + urgência
+  "modality",  // 4 — modalidade definida (informativo)
+  "terms",     // 5 — ciência e aceite
+  "review",    // 6 — revisão + WhatsApp
 ] as const;
 
-export type StepName = (typeof STEPS)[number];
-export const TOTAL_STEPS = STEPS.length;
+export const BUSINESS_STEPS = [
+  "customer",          // 0
+  "business-need",     // 1 — nome, empresa, necessidade, avulso × recorrente
+  "business-context",  // 2 — equipamentos, ambiente, impacto, descrição
+  "business-modality", // 3 — modalidade, localização, urgência
+  "terms",             // 4
+  "review",            // 5
+] as const;
+
+export type StepName =
+  | (typeof RESIDENTIAL_STEPS)[number]
+  | (typeof BUSINESS_STEPS)[number];
+
+/** Sequência de etapas do ramo atual. PJ só após escolher "empresa". */
+export function getSteps(a: TriageAnswers): readonly StepName[] {
+  return a.customerType === "business" ? BUSINESS_STEPS : RESIDENTIAL_STEPS;
+}
+
+export function getStepName(step: number, a: TriageAnswers): StepName {
+  const steps = getSteps(a);
+  return steps[Math.max(0, Math.min(step, steps.length - 1))];
+}
+
+export function getTotalSteps(a: TriageAnswers): number {
+  return getSteps(a).length;
+}
+
+/** Compat: sequência residencial (ramo padrão). */
+export const STEPS = RESIDENTIAL_STEPS;
+export const TOTAL_STEPS = RESIDENTIAL_STEPS.length;
+
+export const isBusiness = (a: TriageAnswers): boolean => a.customerType === "business";
+export const isRecurring = (a: TriageAnswers): boolean =>
+  isBusiness(a) && a.business["biz-engagement"] === "recurring_evaluation";
+
 
 // ─────────────────────────────────────────────────────────────
 // SINTOMA / EVENTO

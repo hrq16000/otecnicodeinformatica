@@ -43,24 +43,27 @@ export const PRAZO_COLETA = "3 a 60 dias úteis (pode ser maior se houver encome
 // ─────────────────────────────────────────────────────────────
 // MODALIDADES
 // ─────────────────────────────────────────────────────────────
-export type ServiceRoute = "remoto" | "visita" | "coleta";
+export type ServiceRoute = "remoto" | "visita" | "coleta" | "orientacao";
 
 export const ROUTE_LABEL: Record<ServiceRoute, string> = {
   remoto: "Atendimento remoto",
   visita: "Visita técnica",
   coleta: "Coleta e entrega",
+  orientacao: "Orientação técnica antes de definir",
 };
 
 export const ROUTE_MIN_PRICE: Record<ServiceRoute, string> = {
   remoto: PRICING.minGeral,
   visita: PRICING.visita,
   coleta: PRICING.coletaMin,
+  orientacao: `A definir — mínimo de ${PRICING.minGeral} para serviço executado`,
 };
 
 export const ROUTE_PRAZO: Record<ServiceRoute, string> = {
   remoto: "Combinado no WhatsApp (serviço compatível)",
   visita: "Agendamento conforme disponibilidade",
   coleta: PRAZO_COLETA,
+  orientacao: "Combinado no WhatsApp após entender a necessidade",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -71,6 +74,7 @@ export const URGENCY_OPTIONS = [
   { value: "semana", label: "Esta semana" },
   { value: "sem-pressa", label: "Sem pressa" },
 ];
+
 
 // ─────────────────────────────────────────────────────────────
 // TIPOS DE CAMPO / ESTADO

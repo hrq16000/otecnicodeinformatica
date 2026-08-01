@@ -282,6 +282,77 @@ export const QUALIFICATION_FIELDS: Field[] = [
   },
 ];
 
+export const QUALIFICATION_NOME = QUALIFICATION_FIELDS[0];
+export const QUALIFICATION_BAIRRO = QUALIFICATION_FIELDS[1];
+
+// ─────────────────────────────────────────────────────────────
+// CAMPOS DO RAMO EMPRESARIAL (ids sempre com prefixo `biz-`)
+// ─────────────────────────────────────────────────────────────
+export const BUSINESS_FIELDS: Record<string, Field> = {
+  empresa: {
+    id: "biz-empresa",
+    label: "Nome da empresa ou estabelecimento (opcional)",
+    type: "text",
+    required: false,
+    placeholder: "Ex.: Padaria Central",
+    helper: "Não pedimos CNPJ nem razão social.",
+  },
+  intent: {
+    id: "biz-intent",
+    label: "Que tipo de atendimento a empresa precisa?",
+    type: "single",
+    required: true,
+    options: BUSINESS_INTENT_OPTIONS,
+  },
+  engagement: {
+    id: "biz-engagement",
+    label: "É uma demanda avulsa ou avaliação de suporte recorrente?",
+    type: "single",
+    required: true,
+    options: BUSINESS_ENGAGEMENT_OPTIONS,
+  },
+  deviceRange: {
+    id: "biz-device-range",
+    label: "Quantos computadores precisam de suporte?",
+    type: "single",
+    required: true,
+    options: BUSINESS_DEVICE_RANGE_OPTIONS,
+  },
+  environment: {
+    id: "biz-environment",
+    label: "Existe algum equipamento central no ambiente?",
+    type: "multi",
+    required: true,
+    helper: "Pode marcar mais de uma opção. Serve apenas para o diagnóstico inicial.",
+    options: BUSINESS_ENVIRONMENT_OPTIONS,
+  },
+  impact: {
+    id: "biz-impact",
+    label: "Como isso está afetando a operação?",
+    type: "single",
+    required: true,
+    options: BUSINESS_IMPACT_OPTIONS,
+  },
+  descricao: {
+    id: "biz-descricao",
+    label: "Descreva brevemente o que está acontecendo",
+    type: "textarea",
+    required: true,
+    minLength: 10,
+    placeholder: "Informe mensagens de erro, equipamentos afetados e quando o problema começou.",
+    helper: "Não informe senhas, chaves de acesso ou dados sensíveis.",
+  },
+  modality: {
+    id: "biz-modality",
+    label: "Como prefere o atendimento?",
+    type: "single",
+    required: true,
+    options: Object.values(BUSINESS_MODALITY_OPTIONS),
+  },
+};
+
+
+
 // ─────────────────────────────────────────────────────────────
 // HELPERS DE CAMPO REUTILIZÁVEIS
 // ─────────────────────────────────────────────────────────────

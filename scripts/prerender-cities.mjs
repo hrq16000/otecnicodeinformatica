@@ -357,7 +357,7 @@ export async function prerenderCities(distDir) {
       /\s*<script type="application\/ld\+json" id="ld-static-\d+"[\s\S]*?<\/script>/gi,
       "",
     );
-    homeHtml = homeHtml.replace(/<\/head>/i, `    ${jsonLdScriptsFor(homeRoute)}\n  </head>`);
+    homeHtml = applyStaticShell(homeHtml, homeRoute);
     await fs.writeFile(indexPath, homeHtml, "utf8");
   }
 

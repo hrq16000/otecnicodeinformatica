@@ -462,9 +462,6 @@ export function validateStep(step: number, a: TriageAnswers): ValidationResult {
   return { ok: true };
 }
 
-  return { ok: true };
-}
-
 export function getFirstIncompleteField(step: number, a: TriageAnswers): string | undefined {
   return validateStep(step, a).firstIncomplete;
 }

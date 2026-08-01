@@ -61,7 +61,10 @@ const Sobre = () => {
     },
   };
 
+  useJsonLdSlot(SCHEMA_SLOTS.organization, orgSchema, SLOT_PRIORITY.page);
+
   return (
+
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte"

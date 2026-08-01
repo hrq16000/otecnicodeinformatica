@@ -47,9 +47,25 @@ function baseParams(extra: Record<string, unknown> = {}) {
   };
 }
 
+/**
+ * Contexto do ramo da triagem (PF × PJ). Fica em módulo para que TODO evento
+ * do funil carregue `customer_type` sem alterar cada assinatura.
+ */
+let branchContext: Record<string, unknown> = { customer_type: "unknown" };
+
+export const setFunnelBranchContext = (partial: Record<string, unknown>) => {
+  branchContext = { ...branchContext, ...partial };
+};
+
+export const getFunnelBranchContext = () => ({ ...branchContext });
+
+export const resetFunnelBranchContext = () => {
+  branchContext = { customer_type: "unknown" };
+};
+
 export function track(name: string, params: Record<string, unknown> = {}) {
   const g = gtag();
-  const payload = baseParams(params);
+  const payload = baseParams({ ...branchContext, ...params });
   // eslint-disable-next-line no-console
   if (typeof window !== "undefined" && (window as unknown as { __funnelDebug?: boolean }).__funnelDebug) {
     console.debug(`[funnel:ga4] ${name}`, payload);
@@ -64,8 +80,47 @@ export function track(name: string, params: Record<string, unknown> = {}) {
 export const trackFunnelOpen = (location: string, hasPreset = false) =>
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
 
-export const trackFunnelStep = (step: number, equipamento?: string | null, sintoma?: string | null, ctaLocation = "unknown") =>
-  track("wa_funnel_step", { step, equipamento: equipamento || "none", sintoma: sintoma || "none", ctaLocation });
+/** Escolha do ramo PF × PJ (primeira etapa da triagem). */
+export const trackFunnelBranch = (params: {
+  customerType: "residential" | "business";
+  ctaLocation?: string;
+}) =>
+  track("wa_funnel_branch", {
+    customer_type: params.customerType,
+    cta_location: params.ctaLocation || "wa_funnel",
+  });
+
+/** Escolhas estruturais do ramo empresarial (sem dados pessoais). */
+export const trackFunnelBusinessProfile = (params: {
+  intent?: string;
+  engagement?: string;
+  deviceRange?: string;
+  impact?: string;
+  modalidade?: string;
+}) =>
+  track("wa_funnel_business_profile", {
+    business_intent: params.intent || "unknown",
+    business_engagement: params.engagement || "unknown",
+    business_device_range: params.deviceRange || "unknown",
+    business_impact: params.impact || "unknown",
+    modalidade: params.modalidade || "unknown",
+  });
+
+export const trackFunnelStep = (
+  step: number,
+  equipamento?: string | null,
+  sintoma?: string | null,
+  ctaLocation = "unknown",
+  stepName?: string,
+) =>
+  track("wa_funnel_step", {
+    step,
+    step_name: stepName || "unknown",
+    equipamento: equipamento || "none",
+    sintoma: sintoma || "none",
+    ctaLocation,
+  });
+
 
 export const trackFunnelSubmit = (params: {
   equipamento?: string | null;

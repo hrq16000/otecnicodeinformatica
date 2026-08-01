@@ -6,6 +6,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
+import { staticBodyFor, jsonLdScriptsFor } from "./curated-static-body.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
@@ -88,17 +89,17 @@ export const CFTV_ROUTES = [
   {
     path: "/cftv", city: "Curitiba e Região", hub: true,
     title: "Kit 4 Câmeras de Segurança Intelbras | Instalação Profissional em Curitiba e Região | R$ 1.350",
-    description: "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1999. WhatsApp.",
+    description: "Kit 4 Câmeras Intelbras com instalação profissional inclusa e acesso remoto pelo celular. R$ 1.350 completo. Atendemos Curitiba, São José dos Pinhais, Itapoá e Guaratuba. Desde 1998. WhatsApp.",
   },
   {
     path: "/cftv/curitiba", city: "Curitiba",
     title: "Câmeras de Segurança em Curitiba | Kit 4 Câmeras Intelbras R$ 1.350 | Instalação Profissional",
-    description: "Instalação de câmeras de segurança Intelbras em Curitiba. Kit 4 câmeras com DVR, HD e acesso remoto por R$ 1.350. Desde 1999. WhatsApp.",
+    description: "Instalação de câmeras de segurança Intelbras em Curitiba. Kit 4 câmeras com DVR, HD e acesso remoto por R$ 1.350. Desde 1998. WhatsApp.",
   },
   {
     path: "/cftv/sao-jose-dos-pinhais", city: "São José dos Pinhais",
     title: "Câmeras de Segurança em São José dos Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
-    description: "Kit 4 câmeras Intelbras com instalação profissional em São José dos Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em São José dos Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1998. WhatsApp.",
   },
   {
     path: "/cftv/litoral", city: "Litoral do Paraná",
@@ -113,17 +114,17 @@ export const CFTV_ROUTES = [
   {
     path: "/cftv/araucaria", city: "Araucária",
     title: "Câmeras de Segurança em Araucária | Kit Intelbras R$ 1.350 | Instalação Inclusa",
-    description: "Kit 4 câmeras Intelbras com instalação profissional em Araucária. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Araucária. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1998. WhatsApp.",
   },
   {
     path: "/cftv/campo-largo", city: "Campo Largo",
     title: "Câmeras de Segurança em Campo Largo | Kit Intelbras R$ 1.350 | Instalação Inclusa",
-    description: "Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Campo Largo. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1998. WhatsApp.",
   },
   {
     path: "/cftv/pinhais", city: "Pinhais",
     title: "Câmeras de Segurança em Pinhais | Kit Intelbras R$ 1.350 | Instalação Inclusa",
-    description: "Kit 4 câmeras Intelbras com instalação profissional em Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1999. WhatsApp.",
+    description: "Kit 4 câmeras Intelbras com instalação profissional em Pinhais. Acesso remoto pelo celular. R$ 1.350 completo. Desde 1998. WhatsApp.",
   },
 ];
 
@@ -349,11 +350,22 @@ export async function prerenderCities(distDir) {
 
   // --- rotas CURADAS (serviços, cidades âncora, institucionais) ---
   // "/" já sai correto no index.html base; as demais recebem canonical/og por rota.
+  // --- HOME: mantém o corpo estático próprio, ganha JSON-LD estático ---
+  const homeRoute = CURATED_ROUTES.find((r) => r.path === "/");
+  if (homeRoute) {
+    let homeHtml = baseHtml.replace(
+      /\s*<script type="application\/ld\+json" id="ld-static-\d+"[\s\S]*?<\/script>/gi,
+      "",
+    );
+    homeHtml = homeHtml.replace(/<\/head>/i, `    ${jsonLdScriptsFor(homeRoute)}\n  </head>`);
+    await fs.writeFile(indexPath, homeHtml, "utf8");
+  }
+
   let curated = 0;
   for (const route of CURATED_ROUTES) {
     if (route.path === "/") continue;
     const url = `${SITE}${route.path}`;
-    const html = injectCuratedMeta(baseHtml, url, route.title, route.description);
+    const html = applyStaticShell(injectCuratedMeta(baseHtml, url, route.title, route.description), route);
     await writePage(distDir, route.path, html);
     curated++;
   }

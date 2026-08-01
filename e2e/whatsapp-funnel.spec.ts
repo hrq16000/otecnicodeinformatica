@@ -39,6 +39,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
     await expect(dialog.getByText("Outro", { exact: true }).first()).toBeVisible();
     await expect(dialog.getByText(/Só orçamento/i)).toHaveCount(0);
   });
@@ -47,6 +48,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
 
     await dialog.getByRole("button", { name: /^TV$/i }).first().click();
     await expect(dialog.getByText(/O que aconteceu/i)).toBeVisible();
@@ -67,6 +69,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await page.goto(`${HOME}${UTM_QS}`);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
 
     await dialog.getByRole("button", { name: /PC \/ Notebook/i }).click();
     await dialog.getByRole("radio", { name: /^Notebook$/i }).click();
@@ -128,6 +131,7 @@ test.describe("Triagem V5 — mobile", () => {
     await page.goto(HOME);
     await page.waitForLoadState("networkidle");
     const dialog = await openFunnel(page);
+    await chooseResidential(dialog);
     await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible();
   });
 });

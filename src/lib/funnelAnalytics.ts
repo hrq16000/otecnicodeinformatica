@@ -119,8 +119,12 @@ export function track(name: string, params: Record<string, unknown> = {}) {
   g?.("event", name, payload);
 }
 
-export const trackFunnelOpen = (location: string, hasPreset = false) =>
+export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
+  // Persistido para permitir medir abertura → conversão (wa_click) no painel.
+  persistClickEvent("funnel_open", location, readTriageFallback(), {});
+};
+
 
 /** Escolha do ramo PF × PJ (primeira etapa da triagem). */
 export const trackFunnelBranch = (params: {

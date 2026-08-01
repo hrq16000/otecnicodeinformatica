@@ -16,6 +16,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { buildOrganizationSchema } from "@/lib/organizationJsonLd";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -44,24 +45,8 @@ const Sobre = () => {
 
   const waHref = whatsappLink("Olá! Quero saber mais sobre o atendimento do Técnico em Curitiba.");
 
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness", "ComputerRepairService"],
-    // @id canônico e único da entidade institucional (mesma identidade em todo o site).
-    "@id": `${siteConfig.baseUrl}/#organization`,
-    name: siteConfig.brandName,
-    legalName: siteConfig.legalName,
-    url: siteConfig.baseUrl,
-    telephone: siteConfig.phoneE164,
-    description: siteConfig.defaultDescription,
-    areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Curitiba",
-      addressRegion: "PR",
-      addressCountry: "BR",
-    },
-  };
+  const orgSchema = buildOrganizationSchema();
+
 
   useJsonLdSlot(SCHEMA_SLOTS.organization, orgSchema, SLOT_PRIORITY.page);
 

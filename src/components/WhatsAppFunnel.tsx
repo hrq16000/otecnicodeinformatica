@@ -401,10 +401,26 @@ export const WhatsAppFunnel = () => {
     };
   }, [openFunnel]);
 
+  const stepName = getStepName(step, answers);
+
   useEffect(() => {
     if (!open) return;
-    trackFunnelStep(step, answers.equipment, answers.symptom, originLocation);
-  }, [open, step, answers.equipment, answers.symptom, originLocation]);
+    trackFunnelStep(step, answers.equipment, answers.symptom, originLocation, stepName);
+  }, [open, step, answers.equipment, answers.symptom, originLocation, stepName]);
+
+  // Perfil empresarial: dispara ao concluir a etapa de contexto do ramo PJ.
+  useEffect(() => {
+    if (!open || !business) return;
+    if (stepName !== "business-modality") return;
+    trackFunnelBusinessProfile({
+      intent: answers.business["biz-intent"],
+      engagement: answers.business["biz-engagement"],
+      deviceRange: answers.business["biz-device-range"],
+      impact: answers.business["biz-impact"],
+      modalidade: rules.route,
+    });
+  }, [open, business, stepName, answers.business, rules.route]);
+
 
   // Modal open/impression — dispara quando o Dialog transiciona para aberto.
   const wasOpenRef = useRef(false);

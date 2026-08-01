@@ -8,21 +8,38 @@ import { test, expect, type Page } from "@playwright/test";
 
 const HOME = "/";
 
+/**
+ * O `index.html` cria seu próprio `window.gtag` (que empurra para `dataLayer`),
+ * sobrescrevendo qualquer stub anterior. Por isso o espião intercepta o
+ * `dataLayer.push` — assim capturamos os eventos GA4 reais do app.
+ */
 async function installSpies(page: Page) {
   await page.addInitScript(() => {
-    (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls = [];
-    (window as unknown as { dataLayer: unknown[] }).dataLayer = [];
-    (window as unknown as { gtag: (...a: unknown[]) => void }).gtag = function (...args: unknown[]) {
-      (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls.push(args);
+    const calls: unknown[][] = [];
+    (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls = calls;
+    const layer: unknown[] = [];
+    const nativePush = layer.push.bind(layer);
+    (layer as unknown as { push: (...a: unknown[]) => number }).push = (...args: unknown[]) => {
+      for (const entry of args) {
+        calls.push(Array.from(entry as ArrayLike<unknown>));
+      }
+      return nativePush(...(args as never[]));
     };
+    (window as unknown as { dataLayer: unknown[] }).dataLayer = layer;
   });
+}
+
+
+/** Modal da triagem — nome acessível próprio, para não colidir com o banner de cookies (também role=dialog). */
+function funnelDialog(page: Page) {
+  return page.getByRole("dialog", { name: /Triagem antes do atendimento/i });
 }
 
 async function openFunnel(page: Page) {
   await page.evaluate(() => {
     window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location: "test" } }));
   });
-  const dialog = page.getByRole("dialog");
+  const dialog = funnelDialog(page);
   await expect(dialog).toBeVisible({ timeout: 5000 });
   return dialog;
 }
@@ -30,6 +47,7 @@ async function openFunnel(page: Page) {
 function gtagEvents(page: Page) {
   return page.evaluate(() => (window as unknown as { __gtagCalls: unknown[][] }).__gtagCalls || []);
 }
+
 
 test.describe("Triagem PF × PJ", () => {
   test.beforeEach(async ({ page, context }) => {
@@ -157,8 +175,20 @@ test.describe("Triagem PF × PJ — hardening (2.1)", () => {
     await page.reload();
     await page.waitForLoadState("networkidle");
     dialog = await openFunnel(page);
+
+    // Por design a triagem reabre na etapa 0, mas o ramo escolhido continua
+    // persistido e pré-selecionado — nada é reperguntado do zero.
+    const persisted = await page.evaluate(() => sessionStorage.getItem("triage_state_6.0"));
+    expect(persisted).toContain('"customerType":"business"');
+    const pj = dialog.getByRole("radio", { name: /Para uma empresa ou organização/i });
+    await expect(pj).toHaveAttribute("aria-checked", "true");
+
+    // E seguir adiante volta direto ao ramo PJ, sem grade residencial.
+    await pj.click();
     await expect(dialog.getByText(/Atendimento para empresa/i)).toBeVisible({ timeout: 5000 });
+    await expect(dialog.getByRole("radio", { name: /Notebook/i })).toHaveCount(0);
   });
+
 
   test("sessão antiga (v5) é migrada para PF sem travar o funil", async ({ page }) => {
     await page.goto(HOME);

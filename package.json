@@ -29,6 +29,8 @@
     "check:editorial-pilot": "node scripts/check-editorial-pilot.mjs",
     "check:editorial-technical-review": "node scripts/check-editorial-technical-review.mjs",
     "check:bairro-copy": "node scripts/validate-bairro-copy.mjs",
+    "check:internal-links": "node scripts/check-internal-links.mjs",
+    "check:internal-links:strict": "node scripts/check-internal-links.mjs --strict",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",
     "check:public-data-exposure": "node scripts/check-public-data-exposure.mjs",
     "check:security-findings": "node scripts/check-security-findings-baseline.mjs",

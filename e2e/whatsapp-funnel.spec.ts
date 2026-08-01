@@ -24,6 +24,12 @@ async function openFunnel(page: Page) {
 }
 
 /** Etapa 0 (PF × PJ) — segue pelo ramo residencial. */
+/** Preenche a qualificação obrigatória da etapa de identidade. */
+async function fillQualification(dialog: ReturnType<Page["getByRole"]>) {
+  await dialog.getByLabel(/Seu nome/i).fill("Cliente Teste");
+  await dialog.getByLabel(/bairro/i).first().fill("Batel");
+}
+
 async function chooseResidential(dialog: ReturnType<Page["getByRole"]>) {
   await dialog.getByRole("radio", { name: /Para mim ou minha residência/i }).click();
   await expect(dialog.getByText(/Qual o equipamento/i)).toBeVisible({ timeout: 5000 });
@@ -53,6 +59,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await dialog.getByRole("button", { name: /^TV$/i }).first().click();
     await expect(dialog.getByText(/O que aconteceu/i)).toBeVisible();
     await dialog.getByRole("radio", { name: /^LED$/i }).click();
+    await fillQualification(dialog);
     await dialog.getByRole("radio", { name: /^Não liga$/i }).click();
 
     await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();
@@ -74,6 +81,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
     await dialog.getByRole("button", { name: /PC \/ Notebook/i }).click();
     await dialog.getByRole("radio", { name: /^Notebook$/i }).click();
     await dialog.getByRole("radio", { name: /Liga e inicia normalmente/i }).click();
+    await fillQualification(dialog);
     await dialog.getByRole("radio", { name: /Instalar ou configurar programa/i }).click();
 
     await expect(dialog.getByText(/Qual a urgência/i)).toBeVisible();

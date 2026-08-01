@@ -13,7 +13,7 @@ import { toast } from "@/hooks/use-toast";
 type ClickEvent = {
   id: string;
   created_at: string;
-  event_type: "wa_click" | "call_click";
+  event_type: "wa_click" | "call_click" | "funnel_open" | string;
   servico: string | null;
   bairro: string | null;
   cidade: string | null;
@@ -22,7 +22,9 @@ type ClickEvent = {
   equipamento: string | null;
   problema: string | null;
   path: string | null;
+  session_id: string | null;
 };
+
 
 const RANGES: Record<string, number> = {
   "7d": 7,

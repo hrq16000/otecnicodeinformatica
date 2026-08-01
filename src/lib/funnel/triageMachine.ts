@@ -686,36 +686,140 @@ export function buildWhatsAppMessage(
 }
 
 // ─────────────────────────────────────────────────────────────
-// PERSISTÊNCIA COM VERSIONAMENTO (fail-safe)
+// PERSISTÊNCIA COM VERSIONAMENTO + MIGRAÇÃO SELETIVA (fail-safe)
 // ─────────────────────────────────────────────────────────────
 interface PersistShape {
   version: string;
   answers: TriageAnswers;
 }
 
+/** Versões anteriores reconhecidas (migráveis para o schema v6). */
+export const LEGACY_TRIAGE_VERSIONS = ["1.0", "2.0", "3.0", "4.0", "4.1", "5.0"] as const;
+export const LEGACY_STORAGE_KEYS = LEGACY_TRIAGE_VERSIONS.map((v) => `triage_state_${v}`);
+
+const isPlainObject = (v: unknown): v is Record<string, unknown> =>
+  !!v && typeof v === "object" && !Array.isArray(v);
+
+const strMap = (v: unknown): Record<string, string> => {
+  if (!isPlainObject(v)) return {};
+  const out: Record<string, string> = {};
+  for (const [k, val] of Object.entries(v)) {
+    if (typeof val === "string" && val.trim()) out[k] = val;
+    else if (typeof val === "number" || typeof val === "boolean") out[k] = String(val);
+  }
+  return out;
+};
+
+const boolMap = (v: unknown): Record<string, boolean> => {
+  if (!isPlainObject(v)) return {};
+  const out: Record<string, boolean> = {};
+  for (const [k, val] of Object.entries(v)) if (val === true) out[k] = true;
+  return out;
+};
+
+/**
+ * Normaliza qualquer estado (v6 ou anterior) para o contrato v6, descartando
+ * apenas o que for incompatível com o ramo. Idempotente por construção.
+ */
+export function normalizeAnswers(input: unknown): TriageAnswers {
+  const a = isPlainObject(input) ? input : {};
+  const customerType =
+    a.customerType === "business" || a.customerType === "residential" ? a.customerType : null;
+  const fields = strMap(a.fields);
+  const business = strMap(a.business);
+  const equipment = EQUIPMENTS.some((e) => e.id === a.equipment)
+    ? (a.equipment as TriageAnswers["equipment"])
+    : null;
+  const urgency =
+    typeof a.urgency === "string" && URGENCY_OPTIONS.some((o) => o.value === a.urgency)
+      ? a.urgency
+      : null;
+  const symptom = typeof a.symptom === "string" && a.symptom.trim() ? a.symptom : null;
+
+  const base: TriageAnswers = {
+    ...EMPTY_ANSWERS,
+    customerType,
+    equipment,
+    fields,
+    business,
+    symptom,
+    urgency,
+    termsAccepted: boolMap(a.termsAccepted),
+    finalNotes: typeof a.finalNotes === "string" ? a.finalNotes : "",
+  };
+
+  // Coerência de ramo: nenhum campo do ramo oposto sobrevive.
+  if (base.customerType === "business") {
+    return {
+      ...base,
+      equipment: null,
+      symptom: null,
+      fields: {
+        ...(fields.nome ? { nome: fields.nome } : {}),
+        ...(fields.bairro ? { bairro: fields.bairro } : {}),
+      },
+    };
+  }
+  return { ...base, business: {} };
+}
+
+/** Sessão de versão anterior → ramo residencial, preservando o compatível. */
+export function migrateLegacyAnswers(input: unknown): TriageAnswers {
+  const normalized = normalizeAnswers(input);
+  return {
+    ...normalized,
+    customerType: "residential",
+    business: {},
+    // Aceites são versionados pelos termos: precisam ser refeitos.
+    termsAccepted: {},
+  };
+}
+
 export function loadPersisted(key: string): TriageAnswers | null {
   try {
     const raw = sessionStorage.getItem(key);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<PersistShape>;
-    // Descarta estado de versão incompatível.
-    if (parsed.version !== TRIAGE_VERSION || !parsed.answers) return null;
-    const a = parsed.answers;
-    // Sanitização defensiva contra estruturas antigas/corrompidas.
-    return {
-      ...EMPTY_ANSWERS,
-      ...a,
-      customerType: a.customerType === "business" || a.customerType === "residential" ? a.customerType : null,
-      fields: a.fields && typeof a.fields === "object" ? a.fields : {},
-      business: a.business && typeof a.business === "object" ? a.business : {},
-      termsAccepted: a.termsAccepted && typeof a.termsAccepted === "object" ? a.termsAccepted : {},
-      equipment: EQUIPMENTS.some((e) => e.id === a.equipment) ? a.equipment! : null,
-    };
-
+    if (raw) {
+      const parsed = JSON.parse(raw) as Partial<PersistShape>;
+      if (parsed && parsed.version === TRIAGE_VERSION && isPlainObject(parsed.answers)) {
+        return normalizeAnswers(parsed.answers);
+      }
+      // Versão desconhecida/futura na chave atual: fallback seguro.
+      sessionStorage.removeItem(key);
+    }
+    return migrateFromLegacy(key);
   } catch {
+    try { sessionStorage.removeItem(key); } catch { /* noop */ }
     return null;
   }
 }
+
+/** Migra a primeira sessão antiga válida encontrada e limpa as chaves legadas. */
+function migrateFromLegacy(currentKey: string): TriageAnswers | null {
+  let migrated: TriageAnswers | null = null;
+  for (const legacyKey of LEGACY_STORAGE_KEYS) {
+    let raw: string | null = null;
+    try { raw = sessionStorage.getItem(legacyKey); } catch { raw = null; }
+    if (!raw) continue;
+    if (!migrated) {
+      try {
+        const parsed = JSON.parse(raw) as Partial<PersistShape>;
+        const answers = isPlainObject(parsed?.answers) ? parsed.answers : parsed;
+        const candidate = migrateLegacyAnswers(answers);
+        const hasContent =
+          !!candidate.equipment ||
+          !!candidate.symptom ||
+          Object.keys(candidate.fields).length > 0;
+        if (hasContent) migrated = candidate;
+      } catch {
+        migrated = null; // sessão corrompida: descarta, sem quebrar o funil
+      }
+    }
+    try { sessionStorage.removeItem(legacyKey); } catch { /* noop */ }
+  }
+  if (migrated) persist(currentKey, migrated);
+  return migrated;
+}
+
 
 export function persist(key: string, answers: TriageAnswers): void {
   try {

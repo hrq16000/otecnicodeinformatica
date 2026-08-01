@@ -637,15 +637,22 @@ export function buildWhatsAppMessage(
   originUrl?: string,
 ): string {
   const rows = buildTriageSummary(a);
+  const business = isBusiness(a);
   const lines: string[] = [];
-  lines.push(
-    buildTemplateOpening({
-      cat: a.equipment ?? "outro",
-      sym: getSymptomLabel(a),
-      bairro: a.fields.bairro,
-      nome: a.fields.nome,
-    }),
-  );
+  if (business) {
+    const quem = a.fields.nome ? `Olá, aqui é ${a.fields.nome}.` : "Olá!";
+    const empresa = a.business["biz-empresa"] ? ` da ${a.business["biz-empresa"]}` : "";
+    lines.push(`${quem} Preciso de atendimento técnico para uma empresa${empresa}.`);
+  } else {
+    lines.push(
+      buildTemplateOpening({
+        cat: a.equipment ?? "outro",
+        sym: getSymptomLabel(a),
+        bairro: a.fields.bairro,
+        nome: a.fields.nome,
+      }),
+    );
+  }
   lines.push(`Concluí a triagem obrigatória pelo site ${BRAND_NAME}.`);
   lines.push("");
   for (const r of rows) {
@@ -665,12 +672,13 @@ export function buildWhatsAppMessage(
   lines.push("");
   lines.push(
     buildTrackingLine({
-      cat: a.equipment ?? "outro",
-      sym: getSymptomLabel(a),
+      cat: business ? "empresa" : (a.equipment ?? "outro"),
+      sym: business ? businessLabel(BUSINESS_INTENT_OPTIONS, a.business["biz-intent"]) : getSymptomLabel(a),
       bairro: a.fields.bairro,
       servico: getPricingRules(a).routeLabel,
     }),
   );
+
   lines.push(`_Triagem ${triageId} · ${new Date().toLocaleString("pt-BR")} · v${TRIAGE_VERSION}_`);
   return lines.join("\n");
 }

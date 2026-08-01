@@ -119,8 +119,12 @@ export function track(name: string, params: Record<string, unknown> = {}) {
   g?.("event", name, payload);
 }
 
-export const trackFunnelOpen = (location: string, hasPreset = false) =>
+export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
+  // Persistido para permitir medir abertura → conversão (wa_click) no painel.
+  persistClickEvent("funnel_open", location, readTriageFallback(), {});
+};
+
 
 /** Escolha do ramo PF × PJ (primeira etapa da triagem). */
 export const trackFunnelBranch = (params: {
@@ -272,7 +276,7 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
   }
 }
 
-function persistClickEvent(eventType: "wa_click" | "call_click", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
+function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   const payload = {
     event_type: eventType,

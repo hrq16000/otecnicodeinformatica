@@ -13,7 +13,7 @@ import { toast } from "@/hooks/use-toast";
 type ClickEvent = {
   id: string;
   created_at: string;
-  event_type: "wa_click" | "call_click";
+  event_type: "wa_click" | "call_click" | "funnel_open" | string;
   servico: string | null;
   bairro: string | null;
   cidade: string | null;
@@ -22,7 +22,9 @@ type ClickEvent = {
   equipamento: string | null;
   problema: string | null;
   path: string | null;
+  session_id: string | null;
 };
+
 
 const RANGES: Record<string, number> = {
   "7d": 7,
@@ -77,7 +79,8 @@ const AdminDashboard = () => {
     [allRows],
   );
 
-  const rows = useMemo(
+  /** Linhas filtradas por bairro/serviço (todos os tipos de evento). */
+  const filteredAll = useMemo(
     () =>
       allRows.filter(
         (r) =>
@@ -86,6 +89,57 @@ const AdminDashboard = () => {
       ),
     [allRows, bairro, servico],
   );
+
+  /** Somente cliques de conversão (wa/ligação) — base das tabelas e do CSV. */
+  const rows = useMemo(
+    () => filteredAll.filter((r) => r.event_type === "wa_click" || r.event_type === "call_click"),
+    [filteredAll],
+  );
+
+  /**
+   * Funil: aberturas (`funnel_open`) × conversões (`wa_click`) por sessão,
+   * com mediana do tempo entre a primeira abertura e a primeira conversão.
+   */
+  const funnelStats = useMemo(() => {
+    const opens = filteredAll.filter((r) => r.event_type === "funnel_open");
+    const firstOpen = new Map<string, number>();
+    for (const r of opens) {
+      if (!r.session_id) continue;
+      const t = new Date(r.created_at).getTime();
+      const cur = firstOpen.get(r.session_id);
+      if (cur === undefined || t < cur) firstOpen.set(r.session_id, t);
+    }
+    const firstConv = new Map<string, number>();
+    for (const r of filteredAll) {
+      if (r.event_type !== "wa_click" || !r.session_id) continue;
+      const t = new Date(r.created_at).getTime();
+      const cur = firstConv.get(r.session_id);
+      if (cur === undefined || t < cur) firstConv.set(r.session_id, t);
+    }
+    const deltas: number[] = [];
+    let converted = 0;
+    for (const [sid, openAt] of firstOpen) {
+      const conv = firstConv.get(sid);
+      if (conv === undefined || conv < openAt) continue;
+      converted++;
+      deltas.push((conv - openAt) / 1000);
+    }
+    deltas.sort((a, b) => a - b);
+    const median = deltas.length
+      ? deltas.length % 2
+        ? deltas[(deltas.length - 1) / 2]
+        : (deltas[deltas.length / 2 - 1] + deltas[deltas.length / 2]) / 2
+      : null;
+    const sessions = firstOpen.size;
+    return {
+      opens: opens.length,
+      sessions,
+      converted,
+      rate: sessions ? (converted / sessions) * 100 : 0,
+      medianSeconds: median,
+    };
+  }, [filteredAll]);
+
 
 
   // Agregações
@@ -272,6 +326,45 @@ const AdminDashboard = () => {
             <p className="text-3xl font-bold">{totals.total}</p>
           </div>
         </div>
+
+        {/* Conversão do funil WhatsApp */}
+        <div className="rounded-lg border border-border p-4 mb-6">
+          <h2 className="font-semibold mb-1">Conversão do funil WhatsApp</h2>
+          <p className="text-xs text-muted-foreground mb-4">
+            Sessões que abriram a triagem × sessões que chegaram ao clique de WhatsApp, no
+            período e filtros selecionados.
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <p className="text-xs text-muted-foreground">Aberturas do funil</p>
+              <p className="text-2xl font-bold">{funnelStats.opens}</p>
+              <p className="text-[11px] text-muted-foreground">{funnelStats.sessions} sessões</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Sessões convertidas</p>
+              <p className="text-2xl font-bold text-accent">{funnelStats.converted}</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Taxa de conversão</p>
+              <p className="text-2xl font-bold">{funnelStats.rate.toFixed(1)}%</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Tempo mediano até converter</p>
+              <p className="text-2xl font-bold">
+                {funnelStats.medianSeconds === null
+                  ? "—"
+                  : funnelStats.medianSeconds < 60
+                    ? `${Math.round(funnelStats.medianSeconds)}s`
+                    : `${Math.floor(funnelStats.medianSeconds / 60)}m ${Math.round(funnelStats.medianSeconds % 60)}s`}
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-secondary" aria-hidden="true">
+            <div className="h-full bg-accent" style={{ width: `${Math.min(100, funnelStats.rate)}%` }} />
+          </div>
+        </div>
+
+
 
         {/* Timeline */}
         <div className="rounded-lg border border-border p-4 mb-6">

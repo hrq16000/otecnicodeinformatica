@@ -8,6 +8,13 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import {
+  EmpresaTrustBar,
+  EmpresaSinaisSection,
+  EmpresaPassosSection,
+  EmpresaSegmentosSection,
+} from "@/components/empresa/EmpresaConversao";
+
 import { siteConfig } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import {
@@ -213,7 +220,11 @@ const EmpresaDeTiCuritiba = () => {
           </div>
         </section>
 
+        {/* ═══ Prova rápida (abaixo do hero) ═══ */}
+        <EmpresaTrustBar />
+
         {/* ═══ Intro ═══ */}
+
         <AnimatedSection>
           <section className="py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">
@@ -266,7 +277,23 @@ const EmpresaDeTiCuritiba = () => {
           </section>
         </AnimatedSection>
 
+        {/* ═══ Sinais + CTA de meio de página ═══ */}
+        <AnimatedSection>
+          <EmpresaSinaisSection whatsappUrl={whatsappUrl} />
+        </AnimatedSection>
+
+        {/* ═══ Como funciona em 4 passos ═══ */}
+        <AnimatedSection>
+          <EmpresaPassosSection />
+        </AnimatedSection>
+
+        {/* ═══ Segmentos atendidos ═══ */}
+        <AnimatedSection>
+          <EmpresaSegmentosSection />
+        </AnimatedSection>
+
         {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
+
         <AnimatedSection>
           <section className="py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">

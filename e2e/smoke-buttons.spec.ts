@@ -29,7 +29,7 @@ test.describe("smoke: home CTAs", () => {
     const waLinks = page.locator('a[href*="wa.me/"]');
     await expect(waLinks.first()).toBeVisible({ timeout: 8000 });
     const href = await waLinks.first().getAttribute("href");
-    expect(href).toMatch(/wa\.me\/5541997452053/);
+    expect(href).toMatch(/wa\.me\/5541997086380/);
 
     // Clique não deve quebrar a página (sem navegação real — interceptamos)
     let clicked = false;

@@ -64,7 +64,7 @@ test.describe("/assistencia-tecnica-curitiba — SEO, schema, meta, CTA tracking
 
     // LocalBusiness: required fields + Curitiba in areaServed, no PostalAddress
     expect((localBusiness as { name?: string }).name).toBeTruthy();
-    expect((localBusiness as { telephone?: string }).telephone).toMatch(/\+?55.*4197452053/);
+    expect((localBusiness as { telephone?: string }).telephone).toMatch(/\+?55.*41997086380/);
     const area = JSON.stringify((localBusiness as { areaServed?: unknown }).areaServed || "");
     expect(area.toLowerCase()).toContain("curitiba");
 
@@ -152,7 +152,7 @@ test.describe("/assistencia-tecnica-curitiba — SEO, schema, meta, CTA tracking
     // Prevent navigation to wa.me so the test stays on the page.
     await page.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
 
-    const ctas = page.locator('a[href*="wa.me/5541997452053"]');
+    const ctas = page.locator('a[href*="wa.me/5541997086380"]');
     const count = await ctas.count();
     expect(count, "Page should expose at least one WhatsApp CTA").toBeGreaterThan(0);
 

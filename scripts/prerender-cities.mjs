@@ -218,6 +218,20 @@ async function writePage(distDir, routePath, html) {
   await fs.writeFile(path.join(outDir, "index.html"), html, "utf8");
 }
 
+// Substitui o conteúdo do <noscript> dentro do #root pelo corpo estático
+// específico da rota e injeta o JSON-LD estático no <head>.
+function applyStaticShell(html, route) {
+  let out = html.replace(
+    /<noscript>[\s\S]*?<\/noscript>/i,
+    `<noscript>${staticBodyFor(route)}\n      </noscript>`,
+  );
+  // Remove qualquer JSON-LD estático previamente injetado (idempotência).
+  out = out.replace(/\s*<script type="application\/ld\+json" id="ld-static-\d+"[\s\S]*?<\/script>/gi, "");
+  const scripts = jsonLdScriptsFor(route);
+  out = out.replace(/<\/head>/i, `    ${scripts}\n  </head>`);
+  return out;
+}
+
 // Injeção cirúrgica para rotas CURADAS: preserva og:image e demais tags do
 // index.html base, apenas reescrevendo title/description/canonical/og:url e
 // os alternates hreflang para a URL da rota (self-referente).
@@ -238,6 +252,7 @@ function injectCuratedMeta(html, url, title, description) {
   // Rotas curadas recebem robots explícito index,follow (não herdado silenciosamente).
   return setRobots(out, ROBOTS_INDEX);
 }
+
 
 // ─────────────────────────────────────────────────────────────
 // BLOG EDITORIAL — extração de slugs + metadados (fail-closed).

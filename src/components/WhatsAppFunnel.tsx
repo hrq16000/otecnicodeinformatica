@@ -634,7 +634,127 @@ export const WhatsAppFunnel = () => {
               />
             ) : (
               <>
-                {/* ETAPA 0 — equipamento */}
+                {/* ETAPA 0 — PF × PJ */}
+                {stepName === "customer" && (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium">Este atendimento é para quem?</p>
+                    <p className="text-xs text-muted-foreground">
+                      A triagem muda conforme o contexto: residencial ou empresarial.
+                    </p>
+                    <div className="grid gap-2">
+                      {CUSTOMER_TYPE_OPTIONS.map((o) => {
+                        const active = answers.customerType === o.value;
+                        return (
+                          <button
+                            key={o.value}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            onClick={() => setCustomerType(o.value as CustomerType)}
+                            className={`min-h-12 rounded-xl border px-4 py-3 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                              active ? "border-primary bg-primary/10 font-medium" : "border-border bg-card hover:border-primary/60"
+                            }`}
+                          >
+                            {o.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 1: necessidade */}
+                {stepName === "business-need" && (
+                  <div className="space-y-4">
+                    <p className="text-sm font-medium">Atendimento para empresa</p>
+                    {getBusinessNeedFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id.startsWith("biz-") ? answers.business[f.id] ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
+                      />
+                    ))}
+                    {isRecurring(answers) && (
+                      <p className="rounded-lg border border-border bg-card/50 p-2.5 text-xs leading-snug text-foreground/80">
+                        {RECURRING_NOTICE}
+                      </p>
+                    )}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 2: ambiente e impacto */}
+                {stepName === "business-context" && (
+                  <div className="space-y-4">
+                    {getBusinessContextFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={answers.business[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                        onSelect={(v) => maybeAutoAdvance(computeNext(f.id, v))}
+                      />
+                    ))}
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* PJ — ETAPA 3: modalidade + localização + urgência */}
+                {stepName === "business-modality" && (
+                  <div className="space-y-4">
+                    {getBusinessModalityFields(answers).map((f) => (
+                      <TriageField
+                        key={f.id}
+                        ref={registerRef(f.id)}
+                        field={f}
+                        value={f.id.startsWith("biz-") ? answers.business[f.id] ?? "" : answers.fields[f.id] ?? ""}
+                        invalid={invalidField === f.id}
+                        onChange={(v) => setField(f.id, v)}
+                      />
+                    ))}
+                    <div ref={registerRef("__urgency")} className={`space-y-1.5 scroll-mt-4 ${invalidField === "__urgency" ? "rounded-lg ring-2 ring-destructive/70 animate-pulse" : ""}`}>
+                      <p className="text-sm font-medium">Qual a urgência? <span className="text-destructive">*</span></p>
+                      <div role="radiogroup" className="grid gap-1.5">
+                        {URGENCY_OPTIONS.map((u) => {
+                          const active = answers.urgency === u.value;
+                          return (
+                            <button
+                              key={u.value}
+                              type="button"
+                              role="radio"
+                              aria-checked={active}
+                              onClick={() => setUrgency(u.value)}
+                              className={`min-h-11 rounded-lg border px-3 py-2.5 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                                active ? "border-primary bg-primary/10 font-medium" : "border-border bg-card hover:border-primary/60"
+                              }`}
+                            >
+                              {u.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="rounded-xl border-2 border-primary/40 bg-primary/5 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Modalidade indicada</p>
+                      <p className="mt-1 text-lg font-bold text-foreground">{rules.routeLabel}</p>
+                      <p className="mt-2 text-sm leading-snug text-foreground/80">{rules.explanation}</p>
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      <InfoBox title="Valor mínimo" value={rules.minPrice} />
+                      <InfoBox title="Prazo estimado" value={rules.prazo} />
+                    </div>
+                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} />
+                  </div>
+                )}
+
+                {/* ETAPA 1 — equipamento */}
+
                 {stepName === "equipment" && (
                   <div className="space-y-3">
                     <p className="text-sm font-medium">Qual o equipamento?</p>

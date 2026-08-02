@@ -47,6 +47,9 @@
     "migration:matrix": "node scripts/build-migration-matrix.mjs",
     "check:redirects": "node scripts/check-redirects.mjs",
     "migration:publish": "node scripts/publish-redirects.mjs",
+    "migration:publish:dry": "node scripts/publish-redirects.mjs --dry-run",
+    "report:jsonld": "node scripts/report-jsonld-coverage.mjs dist",
+    "report:jsonld:strict": "node scripts/report-jsonld-coverage.mjs dist --strict",
     "migration:rollback": "node scripts/publish-redirects.mjs --rollback",
     "check:nap": "node scripts/check-nap-whatsapp.mjs",
     "check:redirects:all": "node scripts/check-redirects.mjs --all"

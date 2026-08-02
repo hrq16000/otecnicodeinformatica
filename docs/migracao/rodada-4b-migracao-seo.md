@@ -198,3 +198,17 @@ final, canonical final, `noindex` e observação — pronto para anexar à aprov
 
 Pendências operacionais mantidas: controle da hospedagem/edge do domínio antigo,
 acesso ao Search Console das duas propriedades e autorização explícita de deploy.
+
+## Rodada 4B.2 — Relatórios, dry-run e checklist
+
+| Ferramenta | Comando | Saída |
+| --- | --- | --- |
+| Relatório consolidado JSON-LD + social tags | `npm run report:jsonld` (ou `report:jsonld:strict`) | `reports/jsonld-coverage.md` / `.json` |
+| Simulação de publicação (sem mutar arquivos) | `npm run migration:publish:dry -- --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS"` | diff no stdout |
+| NAP/WhatsApp nas 10 URLs mantidas + domínio novo | `npm run check:nap -- --confirm=5541997086380` | `reports/nap-whatsapp.json` |
+| Redirects com cobertura total | `npm run check:redirects:all` | `reports/redirect-gate.md` / `.json` |
+| Checklist de publicação | — | `docs/migracao/checklist-publicacao.md` |
+
+Estado atual: `published: false`. Aprovação validada em dry-run (612/612 origens
+conferem). Bloqueio ativo: o domínio antigo ainda serve o número legado em todas
+as 10 URLs mantidas e as 612 regras ainda não estão aplicadas na edge.

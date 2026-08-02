@@ -105,13 +105,26 @@ test.describe("JSON-LD — governança por slots", () => {
         await page.goto(target, { waitUntil: "networkidle" });
       }
       await page.waitForLoadState("networkidle");
+
+      // O breadcrumb da nova rota é reescrito pelo slot após a hidratação da
+      // rota — aguardar o upsert em vez de ler um único frame (anti-flake).
+      await expect
+        .poll(
+          async () => {
+            const current = await readNodes(page);
+            const c = current.find((n) => n.type === "BreadcrumbList");
+            return c?.raw?.includes(target) ?? false;
+          },
+          {
+            timeout: 15000,
+            message: `spa:${target}: BreadcrumbList ausente ou desatualizado após a navegação`,
+          },
+        )
+        .toBe(true);
+
       const nodes = await readNodes(page);
       assertHealthy(nodes, `spa:${target}`);
 
-      // O breadcrumb precisa refletir a rota atual, não a anterior.
-      const crumb = nodes.find((n) => n.type === "BreadcrumbList");
-      expect(crumb, `spa:${target}: sem BreadcrumbList`).toBeTruthy();
-      expect(crumb?.raw, `spa:${target}: breadcrumb desatualizado`).toContain(target);
 
       // Entidades exclusivas da home não podem permanecer.
       expect(

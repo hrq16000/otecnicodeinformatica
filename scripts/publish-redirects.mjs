@@ -4,6 +4,7 @@
 //
 // Uso:
 //   node scripts/publish-redirects.mjs --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS"
+//   node scripts/publish-redirects.mjs --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS" --dry-run
 //   node scripts/publish-redirects.mjs --rollback=redirects/rollback/<pasta>
 //
 // Regras:
@@ -64,6 +65,33 @@ if (missing.length || extra.length) {
 // Pacote de rollback ANTES de qualquer mutação.
 const stamp = new Date().toISOString().replace(/[:.]/g, "-");
 const dir = `redirects/rollback/${stamp}`;
+
+// --dry-run: simula a publicação, mostra o diff do mapa e do rollback e sai
+// sem escrever nada em disco.
+if (args.includes("--dry-run")) {
+  const after = {
+    ...map,
+    published: true,
+    published_at: "<timestamp na publicação real>",
+    approved_urls: approved.length,
+    rollback_package: dir,
+  };
+  const keys = ["published", "published_at", "approved_urls", "rollback_package"];
+  console.log(`DRY-RUN: nenhuma alteração escrita em disco.`);
+  console.log(`Aprovação validada: ${approved.length}/${map.rules.length} origens conferem.`);
+  console.log(`Frase de aprovação aceita: "${expectedPhrase}"`);
+  console.log("\nDiff simulado de " + MAP_PATH + ":");
+  for (const k of keys) {
+    const before = k in map ? JSON.stringify(map[k]) : "(ausente)";
+    console.log(`  - ${k}: ${before}\n  + ${k}: ${JSON.stringify(after[k])}`);
+  }
+  console.log("\nPacote de rollback que seria criado:");
+  console.log(`  + ${dir}/tecnicocuritiba.map.json (cópia do mapa atual, published=${map.published === true})`);
+  console.log(`  + ${dir}/ROLLBACK.md (instruções + commit atual)`);
+  console.log(`\nPara publicar de verdade, repita o comando sem --dry-run.`);
+  process.exit(0);
+}
+
 mkdirSync(dir, { recursive: true });
 copyFileSync(MAP_PATH, `${dir}/tecnicocuritiba.map.json`);
 

@@ -3,6 +3,18 @@
   "target_domain": "https://tecnico.curitiba.br",
   "generated_from": "docs/migracao/old-paths.txt",
   "published": false,
+  "kept_urls": [
+    "/atendimento/balsa-nova",
+    "/atendimento/balsa-nova/centro",
+    "/atendimento/contenda",
+    "/atendimento/contenda/centro",
+    "/atendimento/mandirituba",
+    "/atendimento/mandirituba/centro",
+    "/atendimento/rio-branco-do-sul",
+    "/atendimento/rio-branco-do-sul/centro",
+    "/atendimento/tijucas-do-sul",
+    "/atendimento/tijucas-do-sul/centro"
+  ],
   "rules": [
     {
       "from": "/",

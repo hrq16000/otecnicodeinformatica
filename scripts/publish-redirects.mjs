@@ -4,6 +4,7 @@
 //
 // Uso:
 //   node scripts/publish-redirects.mjs --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS"
+//   node scripts/publish-redirects.mjs --approval=docs/migracao/aprovacao-urls.txt --approve="APROVO 612 REGRAS" --dry-run
 //   node scripts/publish-redirects.mjs --rollback=redirects/rollback/<pasta>
 //
 // Regras:

@@ -16,16 +16,18 @@ const STRICT = process.argv.includes("--strict");
 const OFFICIAL = "https://tecnico.curitiba.br";
 
 // Rotas obrigatórias: home, atendimento e as 7 rotas de keyword.
-const REQUIRED_LOCALBUSINESS = ["/", "/atendimento-remoto", "/contato"];
-const KEYWORD_ROUTES = [
-  "/formatacao-de-computador-curitiba",
-  "/remocao-de-virus-curitiba",
-  "/upgrade-ssd-curitiba",
-  "/upgrade-memoria-ram-curitiba",
-  "/conserto-de-notebook-curitiba",
-  "/suporte-tecnico-remoto",
-  "/assistencia-tecnica-empresas-curitiba",
-];
+const REQUIRED_LOCALBUSINESS = ["/", "/atendimento-remoto", "/atendimento-domicilio"];
+// Aliases de keyword → destino canônico (Navigate replace no router).
+const KEYWORD_ROUTES = {
+  "/formatacao-de-computador-curitiba": "/servicos/formatacao",
+  "/remocao-de-virus-curitiba": "/servicos/remocao-de-virus",
+  "/upgrade-ssd-curitiba": "/servicos/upgrade-ssd-ram",
+  "/upgrade-memoria-ram-curitiba": "/servicos/upgrade-ssd-ram",
+  "/conserto-de-notebook-curitiba": "/servicos/manutencao-de-notebook",
+  "/suporte-tecnico-remoto": "/atendimento-remoto",
+  "/assistencia-tecnica-empresas-curitiba": "/servicos/suporte-tecnico-empresarial",
+};
+const ROUTER_SRC = "src/LegacyApp.tsx";
 
 async function walk(dir) {
   const out = [];
@@ -71,7 +73,17 @@ async function analyze(file) {
       entities.push({ __parseError: true });
     }
   }
-  const byType = (t) => entities.filter((e) => typesOf(e).includes(t));
+  // Dedupe por @id: uma entidade com @type array (LocalBusiness +
+  // ProfessionalService) é UMA entidade, não duas.
+  const uniq = [];
+  const seen = new Set();
+  for (const e of entities) {
+    const key = e["@id"] ?? JSON.stringify(e).slice(0, 200);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniq.push(e);
+  }
+  const byType = (t) => uniq.filter((e) => typesOf(e).includes(t));
   const lb = byType("LocalBusiness")[0] ?? byType("ProfessionalService")[0] ?? null;
   const bc = byType("BreadcrumbList")[0] ?? null;
 
@@ -95,7 +107,11 @@ async function analyze(file) {
       url: lb.url ?? null,
       id: lb["@id"] ?? null,
     },
-    localBusinessCount: byType("LocalBusiness").length + byType("ProfessionalService").length,
+      localBusinessCount: new Set(
+      [...byType("LocalBusiness"), ...byType("ProfessionalService")].map(
+        (e) => e["@id"] ?? "anon",
+      ),
+    ).size,
     breadcrumb: bc && { items: (bc.itemListElement ?? []).length },
     breadcrumbCount: byType("BreadcrumbList").length,
     organizationCount: byType("Organization").length,

@@ -822,6 +822,17 @@ const App = () => (
             <Route path="/servicos/redes-wifi" element={<Navigate to="/servicos/redes-e-wifi" replace />} />
             <Route path="/servicos/backup-recuperacao" element={<Navigate to="/servicos/recuperacao-de-dados" replace />} />
 
+            {/* Aliases de keyword (raiz) → páginas canônicas de serviço.
+                Evita canibalização: uma única URL indexável por intenção. */}
+            <Route path="/formatacao-de-computador-curitiba" element={<Navigate to="/servicos/formatacao" replace />} />
+            <Route path="/remocao-de-virus-curitiba" element={<Navigate to="/servicos/remocao-de-virus" replace />} />
+            <Route path="/upgrade-ssd-curitiba" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
+            <Route path="/upgrade-memoria-ram-curitiba" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
+            <Route path="/conserto-de-notebook-curitiba" element={<Navigate to="/servicos/manutencao-de-notebook" replace />} />
+            <Route path="/suporte-tecnico-remoto" element={<Navigate to="/atendimento-remoto" replace />} />
+            <Route path="/assistencia-tecnica-empresas-curitiba" element={<Navigate to="/servicos/suporte-tecnico-empresarial" replace />} />
+
+
             {/* Páginas herdadas/thin — mantidas funcionando, mas com noindex */}
             <Route path="/servicos/montagem-pc" element={<MontagemPc />} />
             <Route path="/servicos/computador-lento" element={<ComputadorLento />} />

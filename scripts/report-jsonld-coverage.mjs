@@ -160,14 +160,28 @@ for (const r of REQUIRED_LOCALBUSINESS) {
     if (!p.localBusiness.openingHours) problems.push(`${r}: LocalBusiness sem horários`);
   }
 }
-for (const r of KEYWORD_ROUTES) {
-  const p = find(r);
-  if (!p) {
-    problems.push(`rota de keyword sem HTML estático: ${r}`);
-    continue;
-  }
-  if (!p.canonical.length) problems.push(`${r}: canonical ausente`);
+// Aliases de keyword: não têm HTML estático próprio (são Navigate replace no
+// router). Exigimos que o alias esteja declarado e que o destino canônico
+// exista no dist com canonical apontando para si mesmo.
+const routerSrc = await fs.readFile(ROUTER_SRC, "utf8").catch(() => "");
+const keywordRows = [];
+for (const [alias, target] of Object.entries(KEYWORD_ROUTES)) {
+  const declared = routerSrc.includes(`path="${alias}"`) && routerSrc.includes(`to="${target}"`);
+  const dest = find(target);
+  if (!declared) problems.push(`alias de keyword não declarado em ${ROUTER_SRC}: ${alias} → ${target}`);
+  if (!dest) problems.push(`destino canônico do alias ${alias} ausente no dist: ${target}`);
+  else if (!dest.canonical.length) problems.push(`${target}: canonical ausente (destino de ${alias})`);
+  else if (dest.canonical.some((c) => c.includes(alias)))
+    problems.push(`${target}: canonical aponta para o alias ${alias} (canibalização)`);
+  keywordRows.push({
+    alias,
+    target,
+    declared,
+    canonical: dest?.canonical ?? [],
+    robots: dest?.robots ?? [],
+  });
 }
+
 
 const yesno = (v) => (v ? "sim" : "não");
 const lines = [

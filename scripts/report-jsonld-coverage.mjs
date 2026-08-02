@@ -208,14 +208,14 @@ const lines = [
     .filter((p) => p.breadcrumb)
     .map((p) => `| \`${p.route}\` | ${p.breadcrumbCount} | ${p.breadcrumb.items} |`),
   "",
-  "## Rotas de keyword — canonical e robots",
+  "## Rotas de keyword — alias, destino canônico e robots",
   "",
-  "| Rota | canonical | robots |",
-  "| --- | --- | --- |",
-  ...KEYWORD_ROUTES.map((r) => {
-    const p = find(r);
-    return `| \`${r}\` | ${p ? p.canonical.join(", ") || "—" : "sem HTML estático"} | ${p ? p.robots.join(", ") || "—" : "—"} |`;
-  }),
+  "| Alias | Declarado no router | Destino canônico | canonical do destino | robots |",
+  "| --- | --- | --- | --- | --- |",
+  ...keywordRows.map(
+    (k) =>
+      `| \`${k.alias}\` | ${yesno(k.declared)} | \`${k.target}\` | ${k.canonical.join(", ") || "—"} | ${k.robots.join(", ") || "—"} |`,
+  ),
   "",
   "## og:image e Twitter Card",
   "",

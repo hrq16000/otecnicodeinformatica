@@ -115,7 +115,19 @@ const SectionTitle = ({ eyebrow, title, sub }: { eyebrow?: string; title: string
   </div>
 );
 
+/** Link de transparência obrigatório junto de qualquer CTA único. */
+const TermosLink = ({ className = "" }: { className?: string }) => (
+  <p className={`text-xs text-muted-foreground ${className}`}>
+    Antes de agendar, confira os{" "}
+    <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-foreground">
+      termos, condições, valores e prazos
+    </a>
+    .
+  </p>
+);
+
 const FunnelButton = ({ loc, msg, children, variant = "accent" }: { loc: string; msg: string; children: React.ReactNode; variant?: "accent" | "ghost" }) => (
+
   <a
     href={wa(msg)}
     target="_blank"

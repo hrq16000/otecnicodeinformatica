@@ -282,7 +282,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "HD, SSD SATA e NVMe: o que muda na prática",
+        paragrafos: [
+          "O HD mecânico depende de partes móveis, e é por isso que domina a lista de gargalos em máquinas antigas: qualquer tarefa que exija muitos acessos pequenos ao disco fica presa esperando. O SSD elimina esse tempo de espera, e é daí que vem a sensação de máquina nova na inicialização, na abertura de programas e na resposta do sistema.",
+          "Entre SSD SATA e NVMe existe diferença de barramento, mas o impacto percebido no uso comum é bem menor do que o salto de HD para SSD. Por isso não prometemos número de segundos nem multiplicador de velocidade: indicamos o que o equipamento aceita e o que muda de fato no seu tipo de uso.",
+          "A memória atua em outra frente: ela não acelera o que já cabe, evita o engasgo quando falta espaço. Máquinas com pouca RAM passam a usar o disco como apoio e travam em multitarefa. Ampliar ajuda quem trabalha com muitas abas, planilhas grandes, edição ou máquinas virtuais; para uso leve, o SSD costuma resolver sozinho.",
+        ],
+      },
+      {
+        titulo: "Compatibilidade e peças: o que é avaliado antes",
+        paragrafos: [
+          "Nenhuma peça é indicada sem olhar o equipamento. Verificamos qual conexão o modelo aceita (SATA 2,5 polegadas, M.2 SATA ou M.2 NVMe), se há slot livre, o tipo e a frequência da memória suportada, o limite total reconhecido pela placa e se o sistema instalado aproveita o que será colocado. Notebook fino com slot único e memória soldada, por exemplo, muda completamente a recomendação.",
+          "Peças são orçadas separadamente da mão de obra e a garantia do componente segue o fornecedor. Você pode fornecer o SSD ou a memória que já possui — nesse caso conferimos a compatibilidade antes de instalar. Não trabalhamos com preço fixo de componente, porque modelo, capacidade e disponibilidade mudam o valor.",
+        ],
+      },
+      {
+        titulo: "Clonagem ou instalação limpa?",
+        paragrafos: [
+          "A clonagem mantém sistema, programas e arquivos como estavam e é a opção mais confortável quando o ambiente atual está saudável. Ela exige que o disco de origem seja lido sem erro: disco em falha pode interromper a cópia no meio do caminho.",
+          "A instalação limpa é preferível quando o sistema já apresentava travamento, infecção ou anos de acúmulo — levar esse problema para dentro do SSD apenas deixa o mesmo desconforto mais rápido. Nos dois caminhos, a recomendação é ter uma cópia dos arquivos antes: upgrade é procedimento controlado, mas qualquer trabalho sobre disco tem risco.",
+          "Se a máquina desliga sozinha, esquenta muito ou reinicia em uso pesado, trocar disco e memória não resolve. Antes do upgrade vale o diagnóstico de hardware, porque o sintoma tem origem elétrica ou térmica.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Instalação limpa do sistema", to: "/servicos/formatacao" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 5 ─────────────────────────────────────────────────────────
@@ -409,7 +440,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Coleta e entrega", to: "/coleta-e-entrega" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Perda lógica x perda física: por que a diferença muda tudo",
+        paragrafos: [
+          "Na perda lógica o dispositivo continua sendo reconhecido: houve exclusão acidental, formatação, corrupção de partição ou falha do sistema de arquivos. O conteúdo em geral ainda está gravado, e a chance depende de quanto foi escrito por cima desde o incidente. Por isso o pedido mais importante é parar de usar o aparelho imediatamente.",
+          "Na perda física o dispositivo apresenta comportamento anormal: ruído, aquecimento incomum, sumiço intermitente ou capacidade errada. Aqui não se roda software de recuperação sobre o disco original, porque cada tentativa força um hardware já comprometido. O caminho é avaliar e, quando viável, trabalhar sobre uma cópia de imagem em vez do disco doente.",
+          "SSD merece um parágrafo próprio: como o controlador gerencia os blocos internamente e há descarte automático de dados apagados, a recuperação em SSD tem limite técnico maior do que em HD, e falha de controladora frequentemente encerra o caso. Preferimos dizer isso na primeira conversa a cobrar por uma tentativa sem perspectiva.",
+        ],
+      },
+      {
+        titulo: "O que precisa ficar claro antes de começar",
+        paragrafos: [
+          "Recuperação de dados é tentativa técnica, não resultado garantido. Existem mídias cujo conteúdo não retorna, e isso é dito antes da execução, nunca depois. Também não usamos percentual de sucesso: cada caso depende do tipo de falha e do histórico do dispositivo.",
+          "Tentativas anteriores atrapalham. Mídia já aberta, congelada, ligada repetidamente ou submetida a programas de recuperação chega em condição pior. Parte dos casos que não avançam tinham chance antes da improvisação em casa.",
+          "Alguns cenários exigem terceiros: falha mecânica interna pode demandar ambiente controlado e peças doadoras de laboratório especializado, com prazo e custo próprios. O orçamento sempre depende do estado real da mídia, avaliado antes, e o acesso ao conteúdo respeita a autorização do cliente e a política de privacidade publicada no site.",
+        ],
+      },
+      {
+        titulo: "Backup é mais barato do que tentar recuperar",
+        paragrafos: [
+          "A maior parte das perdas que chegam até nós teria sido evitada por uma rotina simples: uma cópia local em disco externo e outra fora de casa, em nuvem. Configuramos essa rotina, testamos a restauração — backup que nunca foi restaurado não é backup — e explicamos o que costuma ficar de fora, como caixas de e-mail e pastas de programas.",
+          "Quando o disco ainda funciona mas dá sinais de desgaste, a ordem é copiar tudo primeiro e só depois planejar a troca por SSD. Se o equipamento sequer inicia, a avaliação começa pela manutenção do computador, porque o problema pode estar fora do disco.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Política de privacidade", to: "/politica-de-privacidade" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 7 ─────────────────────────────────────────────────────────

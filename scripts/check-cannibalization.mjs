@@ -97,7 +97,24 @@ const pages = CURATED_ROUTES.filter((r) => ALL || P0.has(r.path)).map((r) => {
 
 const failures = [];
 const warn = [];
-const add = (msg) => failures.push(msg);
+// Rotas de família geográfica (cidade/bairro) usam template data-driven e
+// compartilham fraseado por construção — no modo --all viram aviso, nunca
+// bloqueio. O gate duro vale para as páginas comerciais P0.
+const familyKey = (p) => {
+  if (p.startsWith("/bairros/")) return "bairros";
+  if (p.startsWith("/tecnico-informatica-")) return "cidades";
+  return null;
+};
+const isTemplatePair = (a, b) => {
+  const fa = familyKey(a);
+  const fb = familyKey(b);
+  return Boolean(fa) && fa === fb && !(P0.has(a) && P0.has(b));
+};
+const add = (msg, a, b) => {
+  if (a && b && isTemplatePair(a, b)) warn.push(`${msg} [família de template — informativo]`);
+  else if (a && b && (!P0.has(a) || !P0.has(b)) && ALL) warn.push(`${msg} [fora do escopo P0 — informativo]`);
+  else failures.push(msg);
+};
 
 // 1. Duplicidade exata de title / H1 / description
 const seen = (field) => {

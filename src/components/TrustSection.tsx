@@ -1,22 +1,27 @@
 import { 
   MapPin, UserCheck, FileText, Receipt, CreditCard, Shield
 } from "lucide-react";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FloatingParticles } from "@/components/FloatingParticles";
+import { siteConfig } from "@/lib/siteConfig";
+import { GARANTIA, NOTA_FISCAL, experienciaLabelCurto } from "@/lib/politicaComercial";
 
 const trustItems = [
-  { icon: MapPin, title: "Atendimento Local", description: "Presencial em toda Curitiba" },
-  { icon: UserCheck, title: "Técnico Identificado", description: "Profissional de confiança" },
-  { icon: FileText, title: "Garantia por Escrito", description: "Serviço com segurança" },
-  { icon: Receipt, title: "Nota Fiscal", description: "Quando necessário" },
-  { icon: CreditCard, title: "Pagamento Facilitado", description: "Diversas formas de pagamento" },
+  { icon: MapPin, title: "Atendimento Local", description: "Curitiba e região metropolitana" },
+  { icon: UserCheck, title: "Técnico Identificado", description: "Atendimento com identificação" },
+  { icon: FileText, title: "Garantia por Escrito", description: GARANTIA.servicoLabel },
+  { icon: Receipt, title: "Nota Fiscal", description: NOTA_FISCAL.servicoLabel },
+  { icon: CreditCard, title: "Pagamento Facilitado", description: "PIX, cartão, dinheiro e transferência" },
   { icon: Shield, title: "Sem Surpresas", description: "Orçamento antes de executar" },
 ];
 
-const stats = [
-  { value: 5000, suffix: "+", label: "Clientes atendidos" },
-  { value: 20, suffix: "+", label: "Anos de experiência" },
-  { value: 98, suffix: "%", label: "Satisfação" },
+/**
+ * Dados verificáveis (não são métricas de marketing).
+ * Proibido publicar nº de clientes, % de satisfação ou nota inventada.
+ */
+const dadosVerificaveis = [
+  { valor: experienciaLabelCurto, label: "Atuação em informática" },
+  { valor: siteConfig.cnpj, label: `CNPJ · ${siteConfig.legalEntityName}` },
+  { valor: "Curitiba + RMC", label: "Área de atendimento" },
 ];
 
 export const TrustSection = () => {
@@ -29,19 +34,20 @@ export const TrustSection = () => {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/[0.03] blur-[80px] pointer-events-none orb-float" />
 
       <div className="container mx-auto relative z-10">
-        {/* Stats */}
+        {/* Dados verificáveis */}
         <div className="flex flex-wrap justify-center gap-10 md:gap-20 mb-12 md:mb-16">
-          {stats.map((stat, i) => (
+          {dadosVerificaveis.map((item, i) => (
             <div key={i} className="text-center slide-up-stagger" style={{ animationDelay: `${i * 120}ms` }}>
-              <div className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight glow-pulse-text">
-                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+              <div className="text-xl md:text-3xl font-heading font-bold text-white tracking-tight">
+                {item.valor}
               </div>
-              <p className="text-white/80 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{stat.label}</p>
+              <p className="text-white/80 text-sm mt-1.5 tracking-wide uppercase text-[11px] font-medium">{item.label}</p>
               {/* Glowing underline */}
               <div className="glow-separator mt-2 w-12 mx-auto" />
             </div>
           ))}
         </div>
+
 
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 tracking-tight reveal-text">

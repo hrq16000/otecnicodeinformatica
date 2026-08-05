@@ -122,4 +122,28 @@ ${
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(OUT, html);
 console.log(`[security] report written to ${OUT}`);
+
+// Resumo legível por máquina — consumido pelo gate de CI e pela notificação Slack.
+const found = rows.filter((r) => r.status !== "NOT FOUND");
+const summary = {
+  generatedAt: new Date().toISOString(),
+  commit: process.env.GITHUB_SHA ?? null,
+  ref: process.env.GITHUB_REF ?? null,
+  staticScanOk: staticScan.ok,
+  found: found.map((f) => ({ internal_id: f.id, status: f.status, description: f.desc })),
+  notFound: rows.filter((r) => r.status === "NOT FOUND").map((r) => r.id),
+};
+writeFileSync(`${OUT_DIR}/security-scan-summary.json`, JSON.stringify(summary, null, 2));
+console.log(`[security] summary written to ${OUT_DIR}/security-scan-summary.json`);
+
+if (found.length > 0) {
+  console.error(
+    `[security] FAILED: ${found.length} monitored internal_id(s) FOUND: ${found
+      .map((f) => f.id)
+      .join(", ")}`,
+  );
+  process.exit(1);
+}
 if (!staticScan.ok) process.exit(1);
+console.log("[security] OK — nenhum internal_id monitorado com status FOUND ✔");
+

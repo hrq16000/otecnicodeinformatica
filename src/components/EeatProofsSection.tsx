@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { BadgeCheck, FileCheck2, Wrench, Users, ClipboardCheck, ExternalLink } from "lucide-react";
 import {
   dadosVerificaveis,
@@ -158,13 +157,14 @@ export const EeatProofsSection = ({
 
           <p className="mt-8 text-sm text-muted-foreground">
             Responsabilidade técnica de {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
-            <Link to="/gestor-responsavel" className="text-primary underline">
+            {/* Âncoras nativas: a home é montada fora do Router (shell estático). */}
+            <a href="/gestor-responsavel" className="text-primary underline">
               Ver quem responde tecnicamente
-            </Link>{" "}
+            </a>{" "}
             ·{" "}
-            <Link to="/precos-e-politicas" className="text-primary underline">
+            <a href="/precos-e-politicas" className="text-primary underline">
               política de preços e garantia
-            </Link>
+            </a>
           </p>
         </div>
       </div>

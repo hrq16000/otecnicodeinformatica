@@ -1,265 +1,178 @@
-import { useEffect } from "react";
-import { PageSEO } from "@/components/PageSEO";
-import { ServiceLandingSchema } from "@/components/ServiceLandingSchema";
-import { PrecoVisitaTecnica } from "@/components/PrecoVisitaTecnica";
 import { Link } from "react-router-dom";
-import { Wrench, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { InterlinkingBlock } from "@/components/InterlinkingBlock";
-import { RealImageSection } from "@/components/RealImageSection";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { ServicoLandingLayout, type ServicoLandingData } from "@/components/servico/ServicoLandingLayout";
 
-const WHATSAPP_NUMBER = "5541997086380";
+// RODADA 4C — página dominante da intenção "conserto/manutenção de computador e
+// notebook em Curitiba". Sem promessa de prazo de chegada, sem afirmar que todo
+// defeito é reparável, sem preço fechado de peça.
 
-const ConsertoPcNotebook = () => {
-  useEffect(() => {
-    document.title = "Conserto de PC e Notebook em Curitiba | Hardware - Técnico Curitiba";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Conserto de computador e notebook em Curitiba. Reparo de hardware, placa-mãe, fonte, tela, teclado. Diagnóstico com coleta e entrega. Garantia.");
-    }
-    trackPageView("/servicos/conserto-pc-notebook", "Conserto de PC e Notebook");
-  }, []);
-
-  const handleWhatsAppClick = () => {
-    trackCTAClick("whatsapp", "conserto-pc-notebook");
-    const message = encodeURIComponent("Olá! Meu computador/notebook precisa de conserto. Podem me ajudar?");
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      <PageSEO title="Conserto de PC e Notebook em Curitiba a partir de R$ 99,99 | Técnico Curitiba" description="Conserto de computador e notebook em Curitiba a partir de R$ 99,99 (visita técnica). Hardware, placa-mãe, fonte, tela, teclado, garantia e atendimento em até 30 min." path="/servicos/conserto-pc-notebook"  breadcrumbs={[
-        { name: "Início", path: "/" },
-        { name: "Serviços", path: "/servicos" },
-        { name: "Conserto PC/Notebook", path: "/servicos/conserto-pc-notebook" }
-      ]} />
-      <ServiceLandingSchema
-        serviceName="Conserto de PC e Notebook"
-        description="Diagnóstico e reparo de hardware em computadores e notebooks: placa-mãe, fonte, tela, teclado, dobradiças e conectores. Visita técnica em Curitiba a partir de R$ 99,99."
-        path="/servicos/conserto-pc-notebook"
-        priceFrom={99.99}
-        faqs={[
-          { question: "Quanto custa consertar um notebook em Curitiba?", answer: "A visita técnica e o diagnóstico começam em R$ 99,99. O valor do reparo depende da peça defeituosa — informamos o orçamento fechado antes de executar qualquer serviço." },
-          { question: "Vocês consertam placa-mãe de notebook?", answer: "Sim. Fazemos reparo de placa-mãe a nível de componente — trocas de chip de carga, capacitores, BGA (chipset/GPU) — com garantia. Quando não compensa reparar, indicamos com transparência." },
-          { question: "Tem coleta e entrega para equipamentos maiores?", answer: "Sim. Para desktops, all-in-one e notebooks com tela quebrada oferecemos coleta e entrega em Curitiba e região, com prazo combinado por WhatsApp." },
-          { question: "Quanto tempo demora o conserto?", answer: "Reparos simples (fonte, memória, SSD, software) saem no mesmo dia. Reparos de placa e BGA levam de 3 a 7 dias úteis dependendo da peça." },
-          { question: "Vocês dão garantia no serviço?", answer: "Sim. Toda mão de obra tem garantia de 90 dias e as peças trocadas têm a garantia do fabricante, registrada na ordem de serviço." },
-        ]}
-      />
-      <Header />
-      <Breadcrumbs
-        items={[
-          { label: "Serviços", href: "/servicos" },
-          { label: "Conserto de PC e Notebook" },
-        ]}
-      />
-      
-      {/* Hero Section */}
-      <section className="relative pt-10 pb-10 hero-gradient overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-breathe" />
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '2s' }} />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 shimmer">
-              <Wrench className="h-5 w-5" />
-              <span className="font-medium">Reparo Especializado</span>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
-              Conserto de PC e Notebook em Curitiba
-            </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto fade-section">
-              Reparo de hardware profissional para computadores e notebooks. Diagnóstico preciso, peças de qualidade e garantia no serviço.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-section">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Solicitar Orçamento
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <RealImageSection imageKey="notebookReparo" caption="Reparo profissional de notebooks e PCs" />
-
-      {/* Aviso Coleta */}
-      <section className="py-6 bg-accent/5 border-y border-accent/10">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <PrecoVisitaTecnica tipo="coleta" />
-          </div>
-        </div>
-      </section>
-
-      {/* Tipos de Conserto */}
-      <section className="relative py-16 bg-background overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            O Que Consertamos
+const Extra = (
+  <>
+    {/* O que não está incluído */}
+    <section className="py-14 md:py-16 bg-secondary">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-4 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            O que não está incluído no conserto
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              { title: "Placa-Mãe", desc: "Reparo de trilhas, capacitores e componentes" },
-              { title: "Fonte de Alimentação", desc: "Substituição e reparo de fontes queimadas" },
-              { title: "Tela de Notebook", desc: "Troca de LCD/LED quebrada ou com defeito" },
-              { title: "Teclado", desc: "Substituição de teclados danificados" },
-              { title: "Bateria", desc: "Troca de baterias viciadas ou sem carga" },
-              { title: "Cooler/Ventilação", desc: "Limpeza e troca de coolers com ruído" },
-              { title: "Dobradiças", desc: "Reparo de dobradiças quebradas de notebook" },
-              { title: "Conector de Carga", desc: "Reparo de entrada de carregador" },
-              { title: "Placa de Vídeo", desc: "Diagnóstico e reparo de GPU" },
-            ].map((item, index) => (
-              <div key={index} className="group flex gap-4 p-4 bg-secondary rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10" style={{ animationDelay: `${index * 60}ms` }}>
-                <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
-                <div>
-                  <h3 className="font-bold text-primary">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ul className="space-y-3 text-muted-foreground">
+            <li>
+              <strong className="text-foreground">Peças de reposição.</strong> Fonte, bateria, tela, dobradiça,
+              teclado, SSD ou memória são orçados à parte, com aprovação antes da compra.
+            </li>
+            <li>
+              <strong className="text-foreground">Recuperação de dados de mídia danificada.</strong> Conserto de
+              hardware não é recuperação de arquivos — esse caso é tratado em{" "}
+              <Link className="underline" to="/servicos/backup-recuperacao">
+                backup e recuperação de dados
+              </Link>
+              .
+            </li>
+            <li>
+              <strong className="text-foreground">Licenças de software de terceiros.</strong> Programas pagos
+              precisam de licença do próprio cliente.
+            </li>
+            <li>
+              <strong className="text-foreground">Garantia sobre defeito latente não relacionado.</strong> A
+              garantia cobre o reparo executado, conforme as{" "}
+              <Link className="underline" to="/precos-e-politicas">
+                condições publicadas
+              </Link>
+              .
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <RealImageSection imageKey="ferramentas" caption="Ferramentas especializadas para conserto de hardware" />
-
-      {/* Problemas Comuns */}
-      <section className="py-10 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Problemas Comuns que Resolvemos
+    {/* Quando o reparo pode não compensar */}
+    <section className="py-14 md:py-16 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-4 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            Quando o reparo pode não compensar
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              "Computador não liga",
-              "Notebook não carrega bateria",
-              "Tela preta ou sem imagem",
-              "Superaquecimento e desligamentos",
-              "Ruídos estranhos no cooler",
-              "Teclado com teclas falhando",
-              "Tela do notebook quebrada",
-              "Lentidão extrema do hardware",
-            ].map((item, index) => (
-              <div key={index} className="group flex items-center gap-3 p-4 bg-background rounded-lg stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
-                <AlertCircle className="h-5 w-5 text-accent flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                <span className="text-foreground">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Processo */}
-      <section className="relative py-16 bg-background overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Como Funciona o Conserto
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { step: "1", title: "Contato", desc: "Descreva o problema via WhatsApp" },
-              { step: "2", title: "Diagnóstico", desc: "Identificamos a causa do defeito" },
-              { step: "3", title: "Orçamento", desc: "Aprovação antes de iniciar o reparo" },
-              { step: "4", title: "Reparo", desc: "Conserto com peças de qualidade" },
-            ].map((item, index) => (
-              <div key={index} className="group text-center p-6 bg-secondary rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg" style={{ animationDelay: `${index * 80}ms` }}>
-                <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 shadow-[0_0_16px_hsl(var(--accent)/0.3)]">
-                  {item.step}
-                </div>
-                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Diferenciais */}
-      <section className="py-10 bg-secondary">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Por Que Escolher a Técnico Curitiba?
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { title: "Diagnóstico Preciso", desc: "Identificamos o problema real" },
-              { title: "Peças de Qualidade", desc: "Componentes originais e compatíveis" },
-              { title: "Garantia", desc: "Garantia no serviço e nas peças" },
-              { title: "Coleta e Entrega", desc: "Buscamos e entregamos na sua casa" },
-            ].map((item, index) => (
-              <div key={index} className="group text-center p-6 bg-background rounded-xl stagger-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg" style={{ animationDelay: `${index * 80}ms` }}>
-                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-10 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-6 reveal-text">
-            Perguntas Frequentes
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              { q: "Quanto custa o diagnóstico?", a: "O diagnóstico com coleta custa R$99 caso desista do serviço. Se aprovar o orçamento, o valor é incluso no reparo." },
-              { q: "Quanto tempo demora o conserto?", a: "Depende do problema e disponibilidade de peças. Consertos simples levam 1-2 dias. Reparos complexos podem levar até 7 dias." },
-              { q: "Vocês trabalham com todas as marcas?", a: "Sim! Consertamos Dell, HP, Lenovo, Acer, Asus, Samsung, Apple e todas as outras marcas." },
-              { q: "Vocês têm peças em estoque?", a: "Mantemos as peças mais comuns em estoque. Para componentes específicos, encomendamos com prazo de 1-3 dias." },
-              { q: "Qual a garantia do serviço?", a: "Oferecemos garantia de 90 dias no serviço e nas peças substituídas." },
-            ].map((item, index) => (
-              <div key={index} className="group bg-secondary p-6 rounded-xl stagger-item transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ animationDelay: `${index * 60}ms` }}>
-                <h3 className="font-bold text-foreground mb-2">{item.q}</h3>
-                <p className="text-muted-foreground">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="relative py-16 bg-primary overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-breathe" />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl font-heading font-bold text-white mb-4 reveal-text">
-            Computador com Defeito? Resolva Agora!
-          </h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Entre em contato e receba um orçamento sem compromisso. Atendemos em toda Curitiba e região!
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Nem todo defeito vale o conserto. Placa-mãe com corrosão extensa por líquido, notebook com chassi
+            partido somado a falha elétrica, equipamento cuja peça saiu de linha e só existe em lote usado, ou
+            reparo cujo custo se aproxima do valor de mercado da máquina: nesses casos dizemos abertamente que
+            não compensa e explicamos por quê. Você decide com a informação na mão, e o critério que usamos está
+            detalhado em{" "}
+            <Link className="underline" to="/quando-nao-compensa">
+              quando o conserto não compensa
+            </Link>
+            .
           </p>
-          <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105" onClick={handleWhatsAppClick}>
-            <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar Orçamento
-          </Button>
+          <p className="leading-relaxed text-muted-foreground">
+            Em parte dos equipamentos antigos que chegam como “sem conserto”, o problema real é armazenamento
+            desgastado ou memória insuficiente — situação resolvida por{" "}
+            <Link className="underline" to="/servicos/upgrade-ssd-memoria">
+              instalação de SSD e reforço de memória
+            </Link>{" "}
+            por uma fração do custo de troca da máquina.
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
+  </>
+);
 
-      {/* Serviços Relacionados */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-foreground text-center mb-4">Serviços Relacionados</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/servicos/upgrade-ssd-memoria" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Upgrade SSD/Memória</Link>
-            <Link to="/servicos/formatacao-computador" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Formatação</Link>
-            <Link to="/atendimento-domicilio" className="px-5 py-2.5 bg-secondary rounded-lg hover:bg-accent/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-sm">Atendimento Domiciliar</Link>
-          </div>
-        </div>
-      </section>
-      <InterlinkingBlock />
-      <Footer />
-    </div>
-  );
+const data: ServicoLandingData = {
+  path: "conserto-pc-notebook",
+  trackingKey: "conserto-pc-notebook",
+  metaTitle: "Conserto de PC e Notebook em Curitiba | Diagnóstico e Reparo",
+  metaDescription:
+    "Conserto de computador e notebook em Curitiba: não liga, tela azul, superaquecimento, ruído, portas e tela. Diagnóstico primeiro, orçamento aprovado antes do reparo.",
+  serviceName: "Conserto de PC e Notebook",
+  serviceDescription:
+    "Diagnóstico e reparo de computadores e notebooks em Curitiba, separando falha de software, falha de hardware e reparo de placa sob avaliação, com orçamento aprovado antes da execução.",
+  eyebrow: "Conserto e manutenção em Curitiba",
+  h1: "Conserto de PC e notebook em Curitiba",
+  h1Accent: "com diagnóstico antes do orçamento",
+  intro:
+    "Antes de trocar peça, é preciso saber o que realmente falhou. Avaliamos o equipamento para separar problema de software, defeito de hardware e caso de reparo de placa, e só então apresentamos o orçamento para você aprovar.",
+  whatsappMessage: "Olá! Meu computador/notebook apresentou um problema e preciso de avaliação.",
+  incluso: [
+    { title: "Diagnóstico do defeito", desc: "Testes de alimentação, memória, armazenamento, temperatura e sistema para identificar a origem real." },
+    { title: "Separação software x hardware", desc: "Muito 'defeito' é sistema corrompido ou driver — evitamos troca de peça desnecessária." },
+    { title: "Limpeza interna e pasta térmica", desc: "Quando o quadro é superaquecimento, desligamento ou ruído de cooler." },
+    { title: "Substituição de componentes", desc: "Fonte, memória, armazenamento, bateria, teclado, dobradiça, cooler e conectores." },
+    { title: "Reparo de placa sob avaliação", desc: "Circuito de carga e falhas pontuais são avaliados caso a caso, sem garantia prévia de viabilidade." },
+    { title: "Testes antes da entrega", desc: "Ligamos, carregamos e usamos o equipamento para confirmar que o sintoma não retorna." },
+  ],
+  sinais: [
+    "Não liga, não dá sinal de energia ou liga e desliga em seguida",
+    "Liga com ventoinha girando, mas a tela permanece sem vídeo",
+    "Reinicia sozinho, desliga durante o uso ou trava em pontos aleatórios",
+    "Tela azul recorrente, mesmo depois de reinstalar o sistema",
+    "Esquenta muito, fica com o cooler alto ou reduz a velocidade ao trabalhar",
+    "Ruído de clique, arranhado ou zumbido vindo de dentro do gabinete",
+    "Entradas USB, HDMI ou conector de carga soltos ou sem resposta",
+    "Teclas falhando, touchpad instável, bateria que não segura carga",
+    "Tela trincada, com manchas, listras ou dobradiça quebrada",
+    "Sumiço de espaço, arquivos corrompidos ou lentidão súbita de leitura",
+  ],
+  processo: [
+    { step: "1", title: "Relato do sintoma", desc: "Você descreve pelo WhatsApp o que acontece, quando começou e o que já tentaram." },
+    { step: "2", title: "Diagnóstico", desc: "Testes no equipamento para isolar a causa entre sistema, componente e placa." },
+    { step: "3", title: "Orçamento aprovado", desc: "Explicamos o que foi encontrado, o que é reparável e o custo. Nada é executado antes do seu ok." },
+    { step: "4", title: "Reparo e testes", desc: "Execução, uso prolongado do equipamento para validar e entrega com o que foi feito descrito." },
+  ],
+  fatoresValor: [
+    { title: "Tipo de falha", desc: "Ajuste de sistema, troca de componente e reparo de placa exigem tempo e recurso muito diferentes." },
+    { title: "Peça necessária", desc: "Peças são orçadas à parte, conforme disponibilidade e modelo — não trabalhamos com preço fixo de componente." },
+    { title: "Acesso ao interior", desc: "Alguns notebooks exigem desmontagem completa para trocar cooler, teclado ou conector de carga." },
+    { title: "Intervenção anterior", desc: "Equipamento já aberto por terceiros costuma exigir revisão de parafusos, flats e conectores." },
+    { title: "Modalidade", desc: "Atendimento no endereço, remoto ou com coleta influenciam o formato e o custo do serviço." },
+    { title: "Volume de dados", desc: "Quando há necessidade de cópia de arquivos antes do reparo, o tempo de serviço aumenta." },
+  ],
+  atendimento: {
+    residencial:
+      "Computador de casa, notebook de estudo e máquina de home office. Casos simples podem ser resolvidos no endereço; desmontagem e reparo de placa normalmente exigem coleta.",
+    empresarial:
+      "Estação parada no escritório, computador de balcão ou notebook de uso profissional em atendimento avulso. Demanda contínua é avaliada em suporte para empresas.",
+  },
+  extra: Extra,
+  blocoLocal: [
+    {
+      titulo: "Como decidimos entre reparo, substituição e upgrade",
+      paragrafos: [
+        "O primeiro corte é elétrico: o equipamento recebe energia? Notebook que não acende LED de carga, desktop que não gira ventoinha e fonte sem tensão estável apontam para alimentação, e não para sistema. Esse teste evita o erro comum de formatar uma máquina cujo problema é elétrico.",
+        "O segundo corte é de estabilidade. Travamento em uso pesado, desligamento após alguns minutos e ruído crescente de cooler costumam ter origem térmica: pasta ressecada, dissipador obstruído por poeira ou ventoinha no fim da vida. Curitiba tem períodos secos e poeirentos que aceleram esse acúmulo, principalmente em desktops apoiados no chão.",
+        "O terceiro corte é de armazenamento. HD com setores ruins produz lentidão intermitente, travamento ao abrir arquivo e barulho de clique — sintoma que se confunde com vírus. Nesse caso a conversa muda: antes de qualquer intervenção, cuidamos da cópia dos dados, porque uso continuado piora o quadro.",
+        "Só depois disso entra a discussão de reparo de placa. Ela é sempre apresentada como avaliação, nunca como resultado garantido: existem falhas cujo componente não é mais fabricado ou cuja trilha está comprometida a ponto de o reparo não se sustentar.",
+      ],
+    },
+    {
+      titulo: "Conserto em Curitiba: como o atendimento acontece",
+      paragrafos: [
+        "Atendemos Curitiba e municípios vizinhos. Problemas de sistema, configuração e periférico costumam ser resolvidos no local ou remotamente. Reparos que exigem bancada — desmontagem de notebook, troca de tela, revisão de placa — são feitos com retirada do equipamento e devolução após os testes.",
+        "Se você ainda não sabe qual caminho serve para o seu caso, comece pelo atendimento técnico para computador e notebook na cidade e descreva o sintoma: a triagem indica se dá para resolver a distância, se vale uma visita ou se o equipamento precisa ir para a bancada.",
+      ],
+    },
+  ],
+  linksLocais: [
+    { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+    { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+    { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+    { label: "Preços e políticas", to: "/precos-e-politicas" },
+  ],
+  faqs: [
+    { question: "Vocês descobrem o defeito antes de cobrar o reparo?", answer: "Sim. O diagnóstico vem primeiro. Explicamos o que foi encontrado e o custo do reparo, e o serviço só é executado depois da sua aprovação." },
+    { question: "Meu notebook liga mas não aparece nada na tela. É a tela?", answer: "Nem sempre. Esse sintoma também aparece em falha de memória, de vídeo integrado e de conector interno. O teste com monitor externo é um dos primeiros passos para separar os casos." },
+    { question: "Todo defeito de placa-mãe tem conserto?", answer: "Não. Alguns são reparáveis, outros não compensam ou não têm mais componente disponível. Tratamos reparo de placa como avaliação, e informamos quando o caminho é substituir a peça ou o equipamento." },
+    { question: "O conserto resolve lentidão?", answer: "Depende da causa. Lentidão por sistema é resolvida com manutenção ou formatação; lentidão por HD desgastado ou memória insuficiente é resolvida com upgrade de armazenamento e memória." },
+    { question: "Preciso fazer cópia dos meus arquivos antes?", answer: "Recomendamos sempre. Reparo mexe em hardware e qualquer procedimento tem risco; se você não conseguir copiar, avise antes para tratarmos os dados como prioridade." },
+    { question: "Vocês consertam no mesmo dia?", answer: "Não trabalhamos com promessa de prazo. O tempo depende do tipo de falha, da agenda e da disponibilidade de peça — a estimativa é informada após o diagnóstico." },
+  ],
+  relacionados: [
+    { label: "Formatação de computador", to: "/servicos/formatacao-computador" },
+    { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-memoria" },
+    { label: "Backup e recuperação de dados", to: "/servicos/backup-recuperacao" },
+    { label: "Computador não liga", to: "/servicos/computador-nao-liga" },
+  ],
+  dateModified: "2026-08-05",
 };
+
+const ConsertoPcNotebook = () => <ServicoLandingLayout data={data} />;
 
 export default ConsertoPcNotebook;

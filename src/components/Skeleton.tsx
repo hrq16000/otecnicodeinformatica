@@ -24,7 +24,7 @@ export const SkeletonText = ({ lines = 3, className = "" }: { lines?: number; cl
 );
 
 export const SkeletonHero = () => (
-  <div className="hero-gradient pt-24 pb-14 md:pt-28 md:pb-18 animate-pulse">
+  <div className="hero-gradient hero-gradient--lcp pt-24 pb-14 md:pt-28 md:pb-18 animate-pulse">
     <div className="container mx-auto">
       <div className="grid lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-4 order-2 lg:order-1">

@@ -30,7 +30,7 @@ export const HeroSection = () => {
         <SchedulingModal isOpen={isSchedulingOpen} onClose={() => setIsSchedulingOpen(false)} />
       </Suspense>
     )}
-    <section className="hero-gradient pt-8 pb-14 sm:pt-10 md:pt-12 md:pb-18 lg:pt-14 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
+    <section className="hero-gradient hero-gradient--lcp pt-8 pb-14 sm:pt-10 md:pt-12 md:pb-18 lg:pt-14 lg:pb-24 relative overflow-hidden noise-overlay" aria-label="Técnico de informática em Curitiba">
       {/* Lightweight critical background: no extra image request before first interaction */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-[hsl(var(--hero-bg))] to-[hsl(var(--hero-bg-end))]" />

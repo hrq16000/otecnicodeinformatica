@@ -146,7 +146,17 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
           </div>
         )}
 
-        {field.type === "text" && (
+        {field.type === "text" && field.id === "bairro" && (
+          <LocalidadeInput
+            id={field.id}
+            value={value}
+            onChange={onChange}
+            placeholder={field.placeholder}
+            ariaDescribedBy={field.helper ? describedById : undefined}
+          />
+        )}
+
+        {field.type === "text" && field.id !== "bairro" && (
 
           <Input
             id={field.id}
@@ -157,6 +167,7 @@ export const TriageField = forwardRef<HTMLDivElement, Props>(
             onChange={(e) => onChange(e.target.value)}
           />
         )}
+
 
         {field.type === "textarea" && (
           <Textarea

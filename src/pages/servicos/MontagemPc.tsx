@@ -17,7 +17,7 @@ const MontagemPc = () => {
     document.title = "Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu valor do atendimento.");
+      metaDescription.setAttribute("content", "Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu atendimento.");
     }
     trackPageView("/servicos/montagem-pc", "Montagem de PC");
   }, []);
@@ -30,7 +30,7 @@ const MontagemPc = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba" description="Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu valor do atendimento." path="/servicos/montagem-pc"  breadcrumbs={[
+      <PageSEO noindex title="Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba" description="Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu atendimento." path="/servicos/montagem-pc"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Montagem de PC", path: "/servicos/montagem-pc" }
@@ -59,7 +59,7 @@ const MontagemPc = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="200">
               <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Solicitar valor do atendimento
+                Solicitar atendimento
               </Button>
             </div>
           </div>
@@ -158,7 +158,7 @@ const MontagemPc = () => {
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
             {[
-              { q: "Posso escolher as peças?", a: "Claro! Você pode trazer suas peças ou escolher junto conosco. Damos sugestões baseadas no seu valor do atendimento e necessidade." },
+              { q: "Posso escolher as peças?", a: "Claro! Você pode trazer suas peças ou escolher junto conosco. Damos sugestões baseadas no seu atendimento e necessidade." },
               { q: "Vocês vendem as peças?", a: "Podemos ajudar na compra das peças em lojas parceiras com bons preços, ou você pode adquirir por conta própria." },
               { q: "Qual a garantia?", a: "As peças têm garantia do fabricante. O serviço de montagem tem garantia de 90 dias." },
               { q: "Quanto tempo demora?", a: "Com todas as peças disponíveis, a montagem leva de 1 a 2 dias úteis." },
@@ -188,7 +188,7 @@ const MontagemPc = () => {
           </p>
           <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar valor do atendimento
+            Solicitar atendimento
           </Button>
         </div>
       </section>

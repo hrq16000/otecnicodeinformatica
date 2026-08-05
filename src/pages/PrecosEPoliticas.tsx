@@ -112,7 +112,7 @@ const PrecosEPoliticas = () => {
     trackPageView("/precos-e-politicas", "Preços e Políticas");
   }, []);
 
-  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um valor do atendimento para [DESCREVA O SERVIÇO].";
+  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um valor para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -566,7 +566,7 @@ const PrecosEPoliticas = () => {
               <Button variant="heroWhatsapp" size="lg" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
-                  Solicitar valor do atendimento via WhatsApp
+                  Solicitar atendimento via WhatsApp
                 </a>
               </Button>
               <p className="text-primary-foreground/60 text-sm mt-4">

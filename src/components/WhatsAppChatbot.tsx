@@ -340,7 +340,7 @@ const chatFlow = {
   whatsapp_tela: { redirect: true, mensagem: "Olá! Preciso trocar a tela do meu notebook.\n\nMarca/Modelo: [MARCA E MODELO EXATO]\nTipo: [TOUCH ou COMUM]\nProblema: [DESCREVA]\n\nVou enviar fotos do dano." },
   whatsapp_upgrade: { redirect: true, mensagem: "Olá! Gostaria de fazer upgrade no meu equipamento.\n\nMarca/Modelo: [MARCA E MODELO]\nUpgrade desejado: [SSD/RAM/OUTRO]\n\nGostaria de verificar compatibilidade antes de comprar." },
   whatsapp_montagem: { redirect: true, mensagem: "Olá! Gostaria de consultoria para montagem de PC.\n\nUso: [JOGOS/TRABALHO/ESCRITÓRIO]\nvalor do atendimento: [VALOR DISPONÍVEL]\n\nPreciso de ajuda para escolher os componentes." },
-  whatsapp_cftv: { redirect: true, mensagem: "Olá! Tenho interesse em câmeras de segurança (CFTV).\n\nLocal: [RESIDÊNCIA/COMÉRCIO/EMPRESA]\nEndereço: [CIDADE/BAIRRO]\nQuantidade estimada: [CÂMERAS]\n\nGostaria de um valor do atendimento." },
+  whatsapp_cftv: { redirect: true, mensagem: "Olá! Tenho interesse em câmeras de segurança (CFTV).\n\nLocal: [RESIDÊNCIA/COMÉRCIO/EMPRESA]\nEndereço: [CIDADE/BAIRRO]\nQuantidade estimada: [CÂMERAS]\n\nGostaria de um valor." },
 };
 
 type ChatFlowKey = keyof typeof chatFlow;

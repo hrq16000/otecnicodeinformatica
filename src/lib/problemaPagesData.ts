@@ -1686,7 +1686,7 @@ Antes de comprar qualquer peça, é ESSENCIAL identificar qual componente está 
 
 **Editor de vídeo** — Premiere Pro em PC com 8GB RAM e GPU fraca. Solução: 32GB RAM + SSD NVMe para scratch disk + GPU com pelo menos 4GB VRAM.
 
-**Gamer** — Jogos modernos (GTA V, Cyberpunk, Valorant) em PC antigo. Solução: depende do valor do atendimento — pode ser upgrade gradual (SSD → RAM → GPU) ou montagem completa otimizada.
+**Gamer** — Jogos modernos (GTA V, Cyberpunk, Valorant) em PC antigo. Solução: depende do valor do serviço — pode ser upgrade gradual (SSD → RAM → GPU) ou montagem completa otimizada.
 
 ### Upgrade Gradual vs Montagem Nova
 

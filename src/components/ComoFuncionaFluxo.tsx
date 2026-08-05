@@ -26,7 +26,7 @@ const steps = [
   {
     id: "aprovacao",
     icon: CheckCircle2,
-    title: "3. Aprovação do valor do atendimento",
+    title: "3. Aprovação do valor do serviço",
     desc: "Você recebe o valor fechado por escrito. Só seguimos depois da sua aprovação — sem surpresa na conta.",
     msg: "Quero entender preço e prazo antes de aprovar o serviço.",
   },

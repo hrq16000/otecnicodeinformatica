@@ -158,7 +158,7 @@ export const HomeSections = () => {
           <SectionTitle
             eyebrow="O que resolvemos"
             title="Serviços de informática em Curitiba"
-            sub="Foco em notebook, PC e suporte empresarial. valor do atendimento conforme avaliação, sem valor inventado."
+            sub="Foco em notebook, PC e suporte empresarial. valor conforme avaliação, sem valor inventado."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
@@ -320,7 +320,7 @@ export const HomeSections = () => {
               {siteConfig.pricingDisclaimer}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor do atendimento para meu equipamento.">
+              <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor para meu equipamento.">
                 solicitar atendimento
               </FunnelButton>
               <a

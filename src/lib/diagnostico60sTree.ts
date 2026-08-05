@@ -99,7 +99,7 @@ export const EQUIPMENTS: Equipment[] = [
                 advice:
                   "Combo ideal: SSD + 8GB RAM (mín.) + formatação limpa. Resolve 95% dos casos de PC lento.",
                 waMessage: wa(
-                  "meu notebook está muito lento e nunca foi formatado — quero valor do atendimento de SSD + RAM + formatação.",
+                  "meu notebook está muito lento e nunca foi formatado — quero agendar atendimento de SSD + RAM + formatação.",
                 ),
                 relatedHref: "/servicos/upgrade-ssd-memoria",
                 relatedLabel: "Upgrade SSD + RAM em Curitiba",
@@ -229,7 +229,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Troca de tela (display ou touch).",
           advice:
             "Se só o vidro trincou mas a imagem funciona, ainda é troca de display completo nos modelos atuais.",
-          waMessage: wa("meu celular está com a tela quebrada — quero valor do atendimento de troca."),
+          waMessage: wa("meu celular está com a tela quebrada — quero agendar atendimento de troca."),
           relatedHref: "/servicos/conserto-celular",
           relatedLabel: "Conserto de celular em Curitiba",
         },
@@ -325,7 +325,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Sinal fraco — caso clássico para mesh.",
           advice:
             "Sistema mesh (2–3 pontos) resolve casas/comércios médios. Faço projeto + instalação em Curitiba.",
-          waMessage: wa("meu Wi-Fi não pega em alguns cômodos — quero valor do atendimento de mesh."),
+          waMessage: wa("meu Wi-Fi não pega em alguns cômodos — quero agendar atendimento de mesh."),
           relatedHref: "/servicos/redes-wifi",
           relatedLabel: "Instalação de mesh em Curitiba",
         },

@@ -69,7 +69,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp para entender sintoma, uso e urgência",
-      "Diagnóstico técnico antes de qualquer valor do atendimento",
+      "Diagnóstico técnico antes de informar qualquer valor",
       "valor aprovado por você antes da execução",
       "Manutenção preventiva sugerida para máquinas que rodam o dia inteiro",
     ],
@@ -168,7 +168,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Olá! Preciso de um técnico de informática no Água Verde, em Curitiba. Pode me orientar?",
     introducaoLocal: [
       "No Água Verde, o perfil que mais aparece é o de quem trabalha de casa e não pode ficar com o notebook parado. Por isso, boa parte das solicitações envolve notebook lento, aquecimento, tela ou teclado com defeito e a necessidade de um upgrade de SSD para dar sobrevida à máquina.",
-      "Também há forte procura por formatação com backup e remoção de vírus em computadores usados por vários membros da família. Tudo começa pela triagem no WhatsApp, com diagnóstico antes de qualquer valor do atendimento e sem troca de peça sem necessidade.",
+      "Também há forte procura por formatação com backup e remoção de vírus em computadores usados por vários membros da família. Tudo começa pela triagem no WhatsApp, com diagnóstico antes de informar qualquer valor e sem troca de peça sem necessidade.",
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp com foco em notebook e PC de uso diário",

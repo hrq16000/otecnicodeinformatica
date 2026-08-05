@@ -115,7 +115,7 @@ const ConsertoCelular = () => {
 
             <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar valor do atendimento via WhatsApp
+              Solicitar atendimento via WhatsApp
             </Button>
           </div>
         </div>
@@ -265,14 +265,14 @@ const ConsertoCelular = () => {
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
-            Celular com Defeito? Solicite um valor do atendimento
+            Celular com Defeito? Solicite um valor
           </h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
             Entre em contato pelo WhatsApp e descreva o problema. Atendimento humanizado, valor transparente e sem compromisso.
           </p>
           <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar valor do atendimento pelo WhatsApp
+            Solicitar atendimento pelo WhatsApp
           </Button>
         </div>
       </section>

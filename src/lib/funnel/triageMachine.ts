@@ -321,7 +321,7 @@ export function getTermsForRoute(route: ServiceRoute): TermItem[] {
       },
       {
         id: "coleta-cancel",
-        text: `Estou ciente de que, em caso de cancelamento, desistência ou não aprovação do valor do atendimento, será cobrado ${PRICING.coletaCancel} pelo diagnóstico, análise e permanência do equipamento na fila técnica.`,
+        text: `Estou ciente de que, em caso de cancelamento, desistência ou não aprovação do valor do serviço, será cobrado ${PRICING.coletaCancel} pelo diagnóstico, análise e permanência do equipamento na fila técnica.`,
       },
       {
         id: "coleta-prazo",

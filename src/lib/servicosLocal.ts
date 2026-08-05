@@ -90,7 +90,7 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
       { question: "Onde consertar meu notebook em Curitiba?", answer: "Atendemos toda Curitiba e região metropolitana em domicílio ou por coleta e entrega. Basta descrever o problema pelo WhatsApp que orientamos o próximo passo e o formato de atendimento ideal." },
       { question: "Quanto custa a assistência técnica de notebook em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99. O valor final depende do modelo do notebook, da peça necessária (tela, teclado, bateria, dobradiça) e da complexidade do reparo. Você só aprova depois de saber o valor." },
       { question: "Qual assistência técnica de notebook atende a minha marca?", answer: "Atendemos as principais marcas do mercado — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — para os defeitos mais comuns de tela, teclado, bateria, aquecimento e desempenho. Modelos e peças específicas são confirmados no diagnóstico." },
-      { question: "O conserto de notebook é feito conforme a disponibilidade da agenda?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem conforme a disponibilidade da agenda. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo no valor do atendimento." },
+      { question: "O conserto de notebook é feito conforme a disponibilidade da agenda?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem conforme a disponibilidade da agenda. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo junto com o valor." },
     ],
     linksLocais: [
       ...REGIOES,
@@ -127,7 +127,7 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     ],
     faqsLocais: [
       { question: "Vocês fazem manutenção de computador a domicílio em Curitiba?", answer: "Sim. Atendemos em domicílio em Curitiba e região com horário agendado, e também por coleta e entrega quando o reparo exige bancada." },
-      { question: "Meu PC vive travando em Curitiba, o que pode ser?", answer: "Travamentos costumam estar ligados a superaquecimento, fonte instável, memória ou software. Fazemos o diagnóstico para identificar a causa correta antes de qualquer valor do atendimento." },
+      { question: "Meu PC vive travando em Curitiba, o que pode ser?", answer: "Travamentos costumam estar ligados a superaquecimento, fonte instável, memória ou software. Fazemos o diagnóstico para identificar a causa correta antes de informar qualquer valor." },
       { question: "A assistência técnica de computador atende empresas?", answer: "Sim. Atendemos residências e também empresas, com manutenção de estações de trabalho, rede, impressoras e rotinas de backup, de forma pontual ou recorrente sob consulta." },
       { question: "Quanto custa a manutenção de computador em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99 e o valor final depende do componente afetado e da necessidade de peça. Nada é executado sem a sua aprovação." },
     ],

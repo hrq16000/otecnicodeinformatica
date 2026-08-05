@@ -79,7 +79,7 @@ export const OrcamentoNotebookCalculator = ({
   const handleWhats = () => {
     trackCTAClick("whatsapp", "calculadora-orcamento-notebook");
     const msg = encodeURIComponent(
-      `Olá! Usei a calculadora do site e gostaria de um valor do atendimento:\n\n` +
+      `Olá! Usei a calculadora do site e gostaria de um valor:\n\n` +
         `• Problema: ${problema.label}\n` +
         `• Marca: ${marca}\n` +
         `• Cidade: ${cidade}\n` +

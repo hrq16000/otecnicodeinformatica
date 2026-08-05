@@ -441,7 +441,7 @@ const DiagnosticoTecnico = () => {
 
 const faqItems = [
   { q: "O diagnóstico é pago mesmo?", a: "Sim. O diagnóstico envolve tempo técnico, ferramentas e conhecimento profissional. O valor é abatido do reparo quando aprovado." },
-  { q: "Posso ter um valor do atendimento sem diagnóstico?", a: "Estimativas podem ser feitas via WhatsApp com base na descrição do problema. Porém, o valor final depende do diagnóstico presencial." },
+  { q: "Posso ter um valor sem diagnóstico?", a: "Estimativas podem ser feitas via WhatsApp com base na descrição do problema. Porém, o valor final depende do diagnóstico presencial." },
   { q: "E se eu não aprovar o reparo?", a: "Você paga apenas o valor do diagnóstico. Não há obrigação de realizar o reparo." },
   { q: "Quanto tempo demora o diagnóstico?", a: "Diagnóstico presencial: 30 a 60 minutos. Em laboratório: 1 a 5 dias úteis dependendo da complexidade." },
   { q: "O diagnóstico pode ser feito remotamente?", a: "Sim, para problemas de software, lentidão e configurações. Para problemas de hardware, é necessário diagnóstico presencial." },

@@ -152,7 +152,7 @@ const ServicoCidadePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="300">
               <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform">
                 <MessageCircle className="mr-2 h-5 w-5" />
-                {isSemVisita ? "Solicitar valor do atendimento" : "Chamar pelo WhatsApp"}
+                {isSemVisita ? "Solicitar atendimento" : "Chamar pelo WhatsApp"}
               </Button>
             </div>
           </div>

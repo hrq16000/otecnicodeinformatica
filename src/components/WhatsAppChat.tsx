@@ -20,7 +20,7 @@ const presetMessages = [
   },
   {
     label: "valor do atendimento geral",
-    message: "Olá! Gostaria de solicitar um valor do atendimento para [DESCREVA O SERVIÇO]."
+    message: "Olá! Gostaria de solicitar um valor para [DESCREVA O SERVIÇO]."
   }
 ];
 

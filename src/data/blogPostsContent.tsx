@@ -2001,7 +2001,7 @@ docker run -d --name db --network minha-rede postgres
           </p>
           <p className="text-muted-foreground mb-0">
             Os sistemas afetados podem exibir o erro <strong>UNMOUNTABLE_BOOT_VOLUME</strong> ou <strong>UNEXPECTED_KERNEL_MODE_TRAP</strong>. 
-            Em alguns casos, a única solução definitiva é <strong>formatar e reinstalar o Windows</strong>.
+            Em alguns casos, o caminho mais consistente é <strong>formatar e reinstalar o Windows</strong>.
           </p>
         </div>
 
@@ -2026,7 +2026,7 @@ docker run -d --name db --network minha-rede postgres
           <p className="text-muted-foreground mb-0">
             Se você instalou a atualização e está enfrentando tela preta, travamentos ou erros de inicialização, 
             um <strong>técnico especializado em Windows 11</strong> pode ajudar a recuperar seu sistema ou fazer uma 
-            <strong> formatação segura</strong> preservando seus arquivos. Atendimento em Curitiba e região no mesmo dia.
+            <strong> formatação segura</strong> preservando seus arquivos. Atendimento em Curitiba e região conforme a agenda disponível.
           </p>
         </div>
       </>

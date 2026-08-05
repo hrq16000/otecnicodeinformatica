@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Conserto de Notebook em Araucária | Todas as Marcas | Técnico Curitiba",
-  metaDescription: "Conserto de notebook em Araucária. Tela, teclado, placa-mãe, bateria. Todas as marcas. Orçamento grátis e atendimento domiciliar.",
+  metaDescription: "Conserto de notebook em Araucária. Tela, teclado, placa-mãe, bateria. Todas as marcas. atendimento sem compromisso e atendimento domiciliar.",
   
   servico: "Conserto de Notebook",
   servicoSlug: "conserto-pc-notebook",
@@ -11,10 +11,10 @@ const data: ServicoBairroData = {
   cidade: "Araucária",
   
   h1: "Conserto de Notebook em Araucária",
-  subtitulo: "Notebook quebrado ou com defeito? Consertamos todas as marcas com técnico local em Araucária. Orçamento grátis.",
+  subtitulo: "Notebook quebrado ou com defeito? Consertamos todas as marcas com técnico local em Araucária. atendimento sem compromisso.",
   
   precoBase: "R$ 149,99",
-  precoDescricao: "Orçamento gratuito. Valor varia conforme o reparo necessário.",
+  precoDescricao: "atendimento sem compromisso. Valor varia conforme o reparo necessário.",
   
   descricaoLonga: `Se você está em Araucária e precisa de conserto de notebook, nossa equipe técnica atende 
     toda a cidade com diagnóstico preciso e reparo rápido. Trabalhamos com todas as marcas e modelos, 
@@ -23,7 +23,7 @@ const data: ServicoBairroData = {
     industrial. Buscamos e entregamos o notebook no seu endereço em Araucária.`,
   
   beneficios: [
-    "Orçamento gratuito sem compromisso",
+    "atendimento sem compromisso sem compromisso",
     "Todas as marcas de notebook",
     "Troca de tela, teclado e bateria",
     "Reparo de placa-mãe",
@@ -36,7 +36,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Contato", descricao: "Envie o problema pelo WhatsApp" },
     { titulo: "Diagnóstico", descricao: "Identificamos o defeito" },
-    { titulo: "Orçamento", descricao: "Aprovação antes do reparo" },
+    { titulo: "valor do atendimento", descricao: "Aprovação antes do reparo" },
     { titulo: "Entrega", descricao: "Notebook consertado e entregue" },
   ],
   
@@ -47,7 +47,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto tempo leva o conserto?", 
-      resposta: "Reparos simples: Conforme agenda. Reparos em placa-mãe: 3 a 5 dias úteis. Informamos o prazo no orçamento." 
+      resposta: "Reparos simples: Conforme agenda. Reparos em placa-mãe: 3 a 5 dias úteis. Informamos o prazo no valor do atendimento." 
     },
     { 
       pergunta: "Consertam MacBook?", 

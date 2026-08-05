@@ -150,7 +150,7 @@ const searchData: SearchItem[] = [
   // Páginas gerais
   { title: "Como Funciona o Atendimento", path: "/como-funciona", category: "pagina", keywords: ["como funciona", "atendimento", "processo"] },
   { title: "Preços e Políticas", path: "/precos-e-politicas", category: "pagina", keywords: ["preço", "valor", "quanto custa", "tabela", "política"] },
-  { title: "Diagnóstico Técnico", path: "/diagnostico-tecnico", category: "pagina", keywords: ["diagnóstico", "avaliação", "orçamento"] },
+  { title: "Diagnóstico Técnico", path: "/diagnostico-tecnico", category: "pagina", keywords: ["diagnóstico", "avaliação", "valor do atendimento"] },
   { title: "Atendimento a Domicílio", path: "/atendimento-domicilio", category: "pagina", keywords: ["domicílio", "casa", "residência", "visita"] },
   { title: "Coleta e Entrega", path: "/coleta-e-entrega", category: "pagina", keywords: ["coleta", "entrega", "buscar", "levar"] },
   { title: "Atendimento Remoto", path: "/atendimento-remoto", category: "pagina", keywords: ["remoto", "online", "distância", "teamviewer"] },

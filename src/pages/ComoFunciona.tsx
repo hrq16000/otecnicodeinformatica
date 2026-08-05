@@ -248,7 +248,7 @@ const ComoFunciona = () => {
                   A mão de obra começa a partir de <strong className="text-accent">R$ 99,99</strong> quando há visita ou diagnóstico presencial aplicável. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais.
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
-                  Os valores podem variar conforme a complexidade do serviço, a necessidade de peças e a localização. O orçamento é informado antes da execução. Veja os detalhes na página de preços e políticas.
+                  Os valores podem variar conforme a complexidade do serviço, a necessidade de peças e a localização. O valor do atendimento é informado antes da execução. Veja os detalhes na página de preços e políticas.
                 </p>
                 <Button variant="cta" size="lg" asChild>
                   <Link to="/valores">
@@ -306,7 +306,7 @@ const ComoFunciona = () => {
                 ))}
               </div>
               <p className="text-center text-sm text-muted-foreground mt-6">
-                Em todos os casos, o orçamento é informado e aprovado <strong>antes</strong> da execução do serviço. Sem surpresas.
+                Em todos os casos, o valor do atendimento é informado e aprovado <strong>antes</strong> da execução do serviço. Sem surpresas.
               </p>
             </div>
           </div>
@@ -732,9 +732,9 @@ const etapas = [
     items: [
       "Serviço realizado somente após sua aprovação explícita",
       "Acompanhamento em tempo real da execução",
-      "Sem cobranças surpresa — orçamento previamente informado",
+      "Sem cobranças surpresa — valor do atendimento previamente informado",
     ],
-    detail: "Você aprova o valor e o escopo do serviço antes de qualquer execução. Se durante o atendimento surgir algo que altere o orçamento, consultamos você antes de prosseguir. Essa é a nossa política de transparência.",
+    detail: "Você aprova o valor e o escopo do serviço antes de qualquer execução. Se durante o atendimento surgir algo que altere o valor do atendimento, consultamos você antes de prosseguir. Essa é a nossa política de transparência.",
   },
   {
     icon: Shield,
@@ -785,15 +785,15 @@ const servicos = [
 ];
 
 const confiancaItems = [
-  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no orçamento aprovado." },
+  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
   { icon: Clock, title: "Atendimento Rápido — Conforme agenda", desc: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
-  { icon: Eye, title: "Transparência Total nos Valores", desc: "Orçamento informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
+  { icon: Eye, title: "Transparência Total nos Valores", desc: "valor do atendimento informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
   { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 30 a 90 dias. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },
 ];
 
 const faqItems = [
   { question: "Quanto custa a visita técnica?", answer: "Quando há visita ou diagnóstico presencial aplicável, a mão de obra começa a partir de R$ 99,99. O valor final depende da avaliação do problema e do tempo necessário. Consulte os detalhes em /precos-e-politicas." },
-  { question: "O valor pode mudar depois do orçamento?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
+  { question: "O valor pode mudar depois do valor do atendimento?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
   { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },
   { question: "Em quanto tempo conseguem atender?", answer: "Na maioria dos casos, sim. Nosso objetivo é atender conforme a disponibilidade da agenda, dependendo da disponibilidade de agenda e da sua localização. Entre em contato via WhatsApp para verificar a disponibilidade." },
   { question: "O serviço tem garantia?", answer: "Sim. Todos os serviços possuem garantia por escrito de 30 a 90 dias, dependendo do tipo de serviço. Peças possuem garantia do fabricante. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional." },

@@ -201,7 +201,7 @@ const TecnicoInformaticaCuritibaAds = () => {
               <div className="flex items-center justify-center gap-6 mt-8 text-white/80 text-sm">
                 <span>✓ Sem compromisso</span>
                 <span>✓ Resposta rápida</span>
-                <span>✓ Orçamento grátis</span>
+                <span>✓ atendimento sem compromisso</span>
               </div>
             </div>
           </div>

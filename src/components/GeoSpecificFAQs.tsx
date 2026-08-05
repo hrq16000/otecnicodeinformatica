@@ -37,7 +37,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
   "batel": [
     {
       question: "Quanto custa formatação de notebook no Batel?",
-      answer: "A formatação de notebook no Batel parte de R$ 69,99. O valor final depende da complexidade: backup de dados, instalação de programas específicos, etc. Orçamento sem compromisso."
+      answer: "A formatação de notebook no Batel parte de R$ 69,99. O valor final depende da complexidade: backup de dados, instalação de programas específicos, etc. atendimento sem compromisso."
     },
     {
       question: "Atendem residências e apartamentos no Batel?",

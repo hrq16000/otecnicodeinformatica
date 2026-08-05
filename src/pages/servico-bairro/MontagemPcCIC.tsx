@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Montagem de PC Personalizado no CIC Curitiba | Gamer e Workstation | Técnico Curitiba",
-  metaDescription: "Montagem de PC gamer e workstation no CIC, Curitiba. Peças de qualidade, montagem profissional e teste completo. Orçamento personalizado.",
+  metaDescription: "Montagem de PC gamer e workstation no CIC, Curitiba. Peças de qualidade, montagem profissional e teste completo. valor do atendimento personalizado.",
   
   servico: "Montagem de PC",
   servicoSlug: "montagem-pc",
@@ -35,7 +35,7 @@ const data: ServicoBairroData = {
   ],
   
   processoPasso: [
-    { titulo: "Consulta", descricao: "Entendemos sua necessidade e orçamento disponível" },
+    { titulo: "Consulta", descricao: "Entendemos sua necessidade e valor do atendimento disponível" },
     { titulo: "Peças", descricao: "Selecionamos os melhores componentes compatíveis" },
     { titulo: "Montagem", descricao: "Montamos com cuidado profissional e testes" },
     { titulo: "Entrega", descricao: "Entregamos funcionando com Windows e programas" },

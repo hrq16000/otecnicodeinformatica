@@ -60,7 +60,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no CIC – Curitiba",
     subtitulo:
-      "Atendimento para residências e empresas no maior bairro de Curitiba, começando por triagem no WhatsApp e diagnóstico antes do orçamento.",
+      "Atendimento para residências e empresas no maior bairro de Curitiba, começando por triagem no WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no CIC, em Curitiba. Pode me orientar?",
     introducaoLocal: [
@@ -69,8 +69,8 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp para entender sintoma, uso e urgência",
-      "Diagnóstico técnico antes de qualquer orçamento",
-      "Orçamento aprovado por você antes da execução",
+      "Diagnóstico técnico antes de qualquer valor do atendimento",
+      "valor aprovado por você antes da execução",
       "Manutenção preventiva sugerida para máquinas que rodam o dia inteiro",
     ],
     atendimentoLocal: [
@@ -112,17 +112,17 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para home office. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no Batel – Curitiba",
     subtitulo:
-      "Suporte para residências, home office e pequenos escritórios no Batel, com triagem por WhatsApp e diagnóstico antes do orçamento.",
+      "Suporte para residências, home office e pequenos escritórios no Batel, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Batel, em Curitiba. Pode me orientar?",
     introducaoLocal: [
       "O Batel reúne muita gente que trabalha em casa e depende do computador o tempo todo. Por isso, os pedidos mais comuns na região envolvem notebook lento ou esquentando, necessidade de formatação com backup e Wi-Fi estável o suficiente para reuniões online.",
-      "O atendimento começa por triagem no WhatsApp. A partir da descrição do problema, orientamos os primeiros passos e definimos se o caso pode ser resolvido no local, de forma remota ou se precisa seguir para bancada — sempre com diagnóstico antes do orçamento.",
+      "O atendimento começa por triagem no WhatsApp. A partir da descrição do problema, orientamos os primeiros passos e definimos se o caso pode ser resolvido no local, de forma remota ou se precisa seguir para bancada — sempre com diagnóstico antes de informar o valor.",
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp com foco em home office e residências",
       "Diagnóstico honesto antes de trocar qualquer peça",
-      "Orçamento aprovado por você antes de executar",
+      "valor aprovado por você antes de executar",
       "Orientação sobre desempenho e estabilidade de rede",
     ],
     atendimentoLocal: [
@@ -163,12 +163,12 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no Água Verde – Curitiba",
     subtitulo:
-      "Manutenção de notebook e PC para quem trabalha e estuda em casa no Água Verde, com triagem por WhatsApp e orçamento transparente.",
+      "Manutenção de notebook e PC para quem trabalha e estuda em casa no Água Verde, com triagem por WhatsApp e valor transparente.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Água Verde, em Curitiba. Pode me orientar?",
     introducaoLocal: [
       "No Água Verde, o perfil que mais aparece é o de quem trabalha de casa e não pode ficar com o notebook parado. Por isso, boa parte das solicitações envolve notebook lento, aquecimento, tela ou teclado com defeito e a necessidade de um upgrade de SSD para dar sobrevida à máquina.",
-      "Também há forte procura por formatação com backup e remoção de vírus em computadores usados por vários membros da família. Tudo começa pela triagem no WhatsApp, com diagnóstico antes de qualquer orçamento e sem troca de peça sem necessidade.",
+      "Também há forte procura por formatação com backup e remoção de vírus em computadores usados por vários membros da família. Tudo começa pela triagem no WhatsApp, com diagnóstico antes de qualquer valor do atendimento e sem troca de peça sem necessidade.",
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp com foco em notebook e PC de uso diário",
@@ -214,18 +214,18 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no Centro de Curitiba",
     subtitulo:
-      "Atendimento ágil para lojas, consultórios e escritórios do Centro de Curitiba, com triagem por WhatsApp e diagnóstico antes do orçamento.",
+      "Atendimento ágil para lojas, consultórios e escritórios do Centro de Curitiba, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Centro de Curitiba. Pode me orientar?",
     introducaoLocal: [
       "O Centro de Curitiba tem ritmo comercial: lojas, escritórios de advocacia e contabilidade, imobiliárias e consultórios que não podem ficar com o computador parado no meio do expediente. Os chamados mais comuns envolvem PC de balcão travando, lentidão com sistemas e planilhas e rede instável afetando o atendimento.",
-      "Como cada hora parada pesa no comércio, priorizamos triagem rápida pelo WhatsApp e diagnóstico objetivo. A partir daí, indicamos se o caso é resolvido no local, de forma remota ou por coleta — sempre com orçamento aprovado antes da execução.",
+      "Como cada hora parada pesa no comércio, priorizamos triagem rápida pelo WhatsApp e diagnóstico objetivo. A partir daí, indicamos se o caso é resolvido no local, de forma remota ou por coleta — sempre com valor aprovado antes da execução.",
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp pensando na rotina comercial",
       "Diagnóstico rápido para reduzir tempo de parada",
       "Backup antes de reinstalar sistemas de equipe",
-      "Orçamento aprovado antes de qualquer serviço",
+      "valor aprovado antes de qualquer serviço",
     ],
     atendimentoLocal: [
       "Reparo de PC de escritório que trava no expediente",
@@ -265,18 +265,18 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Atendimento a domicílio a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no Portão – Curitiba",
     subtitulo:
-      "Conserto de notebook, PC e redes para casas e comércios do Portão, com triagem por WhatsApp e orçamento aprovado por você.",
+      "Conserto de notebook, PC e redes para casas e comércios do Portão, com triagem por WhatsApp e valor aprovado por você.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Portão, em Curitiba. Pode me orientar?",
     introducaoLocal: [
       "O Portão tem um perfil familiar e comercial ao mesmo tempo: casas com um ou mais computadores usados por toda a família e pequenos comércios que dependem de um PC estável para vender e emitir nota. Por isso aparecem muito computador lento e cheio de programas, notebook esquentando e Wi-Fi que não cobre a casa inteira.",
-      "O atendimento começa pela triagem no WhatsApp. A partir do relato, orientamos os primeiros passos e definimos a melhor forma de resolver — no local, remotamente ou por coleta — com diagnóstico antes do orçamento.",
+      "O atendimento começa pela triagem no WhatsApp. A partir do relato, orientamos os primeiros passos e definimos a melhor forma de resolver — no local, remotamente ou por coleta — com diagnóstico antes de informar o valor.",
     ],
     operacaoLocal: [
       "Triagem pelo WhatsApp para residências e comércio do bairro",
       "Diagnóstico antes de indicar troca de peças",
       "Foco em reduzir o tempo de parada do comércio",
-      "Orçamento aprovado por você antes de executar",
+      "valor aprovado por você antes de executar",
     ],
     atendimentoLocal: [
       "Formatação com backup dos arquivos da família",

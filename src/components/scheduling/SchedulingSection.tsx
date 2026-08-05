@@ -35,7 +35,7 @@ export const SchedulingSection = () => {
     { icon: Clock, text: "Atendimento conforme a agenda" },
     { icon: MapPin, text: "Técnico vai até você" },
     { icon: Shield, text: "Garantia em todos os serviços" },
-    { icon: CheckCircle, text: "Orçamento sem compromisso" },
+    { icon: CheckCircle, text: "atendimento sem compromisso" },
   ];
 
   return (
@@ -146,7 +146,7 @@ export const SchedulingSection = () => {
                     💰 <strong>Visita técnica:</strong> A partir de R$ 69,99
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Orçamento transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline underline-grow">Ver detalhes</a>
+                    valor transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline underline-grow">Ver detalhes</a>
                   </p>
                 </div>
               </div>

@@ -59,8 +59,8 @@ const tvTriagemFaq = [
     a: "Fonte: TV não liga, LED de standby apagado ou piscando. Backlight: LED de standby acende mas a tela fica preta (com áudio funcionando). T-CON/flat cable: linhas horizontais/verticais fixas ou dobras estranhas na imagem. Painel LCD: manchas escuras, sombras permanentes ou trincos visíveis — nesse último caso o reparo raramente compensa.",
   },
   {
-    q: "Como definimos o orçamento e a taxa mínima de coleta?",
-    a: `A taxa mínima de coleta é ${COLETA_TAXA_MINIMA_LABEL} e cobre a retirada, o transporte seguro e o diagnóstico em bancada. O valor do reparo em si é orçado por escrito após identificar o componente defeituoso e nunca é executado sem sua aprovação. Prazo padrão: ${PRAZO_LONGO}. O diagnóstico custa ${DIAGNOSTICO_VALOR_LABEL} e é abatido do serviço se aprovado.`,
+    q: "Como definimos o valor do atendimento e a taxa mínima de coleta?",
+    a: `A taxa mínima de coleta é ${COLETA_TAXA_MINIMA_LABEL} e cobre a retirada, o transporte seguro e o diagnóstico em bancada. O valor do reparo em si é informado por escrito após identificar o componente defeituoso e nunca é executado sem sua aprovação. Prazo padrão: ${PRAZO_LONGO}. O diagnóstico custa ${DIAGNOSTICO_VALOR_LABEL} e é abatido do serviço se aprovado.`,
   },
   {
     q: "Quando não vale a pena consertar uma Smart TV?",
@@ -183,7 +183,7 @@ const ManutencaoTV = () => {
                 { step: "1", titulo: "Contato pelo WhatsApp", desc: "Descreva o defeito, modelo e marca da TV. Envie fotos ou vídeos se possível — ajuda muito no pré-diagnóstico." },
                 { step: "2", titulo: "Coleta do equipamento", desc: "Agendamos a coleta no seu endereço. O técnico transporta com cuidado profissional." },
                 { step: "3", titulo: "Diagnóstico em bancada", desc: "Análise detalhada da placa-fonte, T-CON, mainboard e backlight. Identificação precisa do componente defeituoso." },
-                { step: "4", titulo: "Orçamento e aprovação", desc: `Valor informado antes de qualquer reparo. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada. Prazo: ${PRAZO_LONGO}.` },
+                { step: "4", titulo: "valor do atendimento e aprovação", desc: `Valor informado antes de qualquer reparo. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada. Prazo: ${PRAZO_LONGO}.` },
                 { step: "5", titulo: "Reparo e devolução", desc: "Após aprovação, executamos o reparo e devolvemos a TV no seu endereço com garantia." },
               ].map((s, i) => (
                 <div key={s.step} className="flex items-start gap-4 bg-background rounded-lg p-5 border border-border hover:-translate-y-0.5 hover:shadow-lg hover:border-accent/20 transition-all duration-300 group stagger-item" style={{ animationDelay: `${i * 100}ms` }}>
@@ -251,7 +251,7 @@ const ManutencaoTV = () => {
         images={tvGalleryImages}
       />
 
-      {/* FAQ de triagem — o que fazer antes da coleta, sinais de falha, critério de orçamento */}
+      {/* FAQ de triagem — o que fazer antes da coleta, sinais de falha, critério de valor do atendimento */}
       <section className="py-10 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">

@@ -53,7 +53,7 @@ export const MODALIDADES_ATENDIMENTO: { label: string; to: string; desc: string 
   { label: "Atendimento em domicílio", to: "/atendimento-domicilio", desc: "Avaliação e reparo no local, quando o problema permite atendimento presencial." },
   { label: "Suporte remoto", to: "/atendimento-remoto", desc: "Configurações, sistemas e orientações resolvidos à distância, sem deslocamento." },
   { label: "Coleta e entrega", to: "/coleta-e-entrega", desc: "Retirada agendada quando o serviço precisa de bancada, com devolução ao final." },
-  { label: "Diagnóstico técnico", to: "/diagnostico-tecnico", desc: "Etapa de avaliação para identificar a causa antes de qualquer orçamento." },
+  { label: "Diagnóstico técnico", to: "/diagnostico-tecnico", desc: "Etapa de avaliação para identificar a causa antes de qualquer valor do atendimento." },
 ];
 
 // Bairros curados de Curitiba — a landing de Curitiba é a página-mãe deles.
@@ -70,7 +70,7 @@ export const PROCESSO_ATENDIMENTO = [
   { step: "1", title: "Triagem", desc: "Você descreve o problema pelo WhatsApp e recebe as primeiras orientações." },
   { step: "2", title: "Avaliação", desc: "Diagnóstico técnico do equipamento para entender a real causa." },
   { step: "3", title: "Orientação", desc: "Explicamos o que foi encontrado em linguagem clara, sem empurrar peça." },
-  { step: "4", title: "Orçamento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
+  { step: "4", title: "valor do atendimento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
   { step: "5", title: "Execução", desc: "Serviço realizado com peças e procedimentos adequados." },
 ];
 
@@ -87,12 +87,12 @@ export const CIDADES: Record<string, CidadeData> = {
     h1: "Técnico de informática em Curitiba para",
     h1Accent: "PC e notebook",
     subtitulo:
-      "Atendimento técnico em informática na capital paranaense, com triagem por WhatsApp, orçamento transparente e garantia sobre o serviço realizado.",
+      "Atendimento técnico em informática na capital paranaense, com triagem por WhatsApp, valor transparente e garantia sobre o serviço realizado.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Curitiba. Pode me orientar?",
     proposta: [
       "Curitiba concentra muita gente que depende do computador todos os dias: home office, faculdade, profissionais liberais e empresas de todos os portes. Quando o notebook trava, o PC fica lento ou o Wi-Fi cai no meio de uma reunião, a rotina para. Nosso foco é resolver isso com clareza, sem termos técnicos confusos e sem cobrança surpresa.",
       "Atendemos residências e empresas em Curitiba com atendimento a domicílio ou por coleta e entrega, conforme o tipo de problema. Casos simples costumam ser resolvidos na primeira visita; reparos de bancada (placa, tela de notebook, recuperação de dados) seguem para a oficina com o seu acompanhamento.",
-      "Trabalhamos com diagnóstico primeiro, orçamento depois. Você entende o que está acontecendo com o equipamento antes de aprovar qualquer coisa — e decide com calma.",
+      "Trabalhamos com diagnóstico primeiro, valor do atendimento depois. Você entende o que está acontecendo com o equipamento antes de aprovar qualquer coisa — e decide com calma.",
     ],
     perfilLocal: [
       "Alta demanda por suporte a home office e estudo remoto",
@@ -130,12 +130,12 @@ export const CIDADES: Record<string, CidadeData> = {
     h1: "Técnico em São José dos Pinhais para notebook, PC e informática",
     h1Accent: "para casa e empresa",
     subtitulo:
-      "Suporte técnico em informática em São José dos Pinhais, com triagem por WhatsApp, orçamento claro e garantia sobre o serviço.",
+      "Suporte técnico em informática em São José dos Pinhais, com triagem por WhatsApp, valor do atendimento claro e garantia sobre o serviço.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em São José dos Pinhais. Pode me orientar?",
     proposta: [
       "São José dos Pinhais tem um perfil que mistura forte presença industrial e comercial com bairros residenciais em crescimento. Isso significa demanda tanto de famílias que precisam do computador de casa funcionando quanto de empresas que dependem de estações e rede estáveis para trabalhar.",
       "Atendemos a cidade com atendimento a domicílio ou por coleta e entrega. Para o dia a dia residencial, resolvemos lentidão, vírus, formatação e Wi-Fi; para o lado empresarial, damos suporte a estações, backup e rede, de forma pontual ou recorrente sob consulta.",
-      "Nossa postura é sempre a mesma: primeiro entender o problema, depois orçar. Você aprova antes de qualquer execução e sabe exatamente o que será feito.",
+      "Nossa postura é sempre a mesma: primeiro entender o problema, depois avaliar o valor. Você aprova antes de qualquer execução e sabe exatamente o que será feito.",
     ],
     perfilLocal: [
       "Bairros residenciais em expansão com muitos home offices",
@@ -154,7 +154,7 @@ export const CIDADES: Record<string, CidadeData> = {
     faqs: [
       { question: "O atendimento em São José dos Pinhais é a domicílio?", answer: "Sim, atendemos a domicílio ou por coleta e entrega, com horário combinado pelo WhatsApp. A escolha depende do tipo de serviço — casos de bancada seguem para a oficina." },
       { question: "Vocês dão suporte para empresas na cidade?", answer: "Sim. Fazemos suporte a estações de trabalho, servidores locais e rede, de forma pontual ou recorrente sob consulta, pensando em reduzir paradas." },
-      { question: "Qual o valor do diagnóstico?", answer: "A partir de R$ 99,99 quando aplicável. O valor final depende do equipamento, deslocamento, urgência, complexidade e peças. Você aprova o orçamento antes da execução." },
+      { question: "Qual o valor do diagnóstico?", answer: "A partir de R$ 99,99 quando aplicável. O valor final depende do equipamento, deslocamento, urgência, complexidade e peças. Você aprova o valor antes da execução." },
       { question: "Atendem tanto notebook quanto desktop?", answer: "Sim, atendemos notebooks e desktops: formatação, remoção de vírus, upgrade de SSD/RAM, reparo de hardware, redes e recuperação de dados." },
       { question: "Recuperação de dados tem garantia?", answer: "Não. Recuperação de dados é sempre uma tentativa, pois depende do estado da mídia. Somos transparentes sobre as chances antes de iniciar." },
     ],
@@ -172,12 +172,12 @@ export const CIDADES: Record<string, CidadeData> = {
     h1: "Técnico em Pinhais para notebook, PC e informática",
     h1Accent: "rápido e transparente",
     subtitulo:
-      "Assistência técnica em informática em Pinhais, com triagem por WhatsApp, diagnóstico honesto e orçamento aprovado por você.",
+      "Assistência técnica em informática em Pinhais, com triagem por WhatsApp, diagnóstico honesto e valor aprovado por você.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Pinhais. Pode me orientar?",
     proposta: [
       "Pinhais é uma cidade compacta e densa, colada a Curitiba, o que favorece um atendimento ágil. O perfil é bastante residencial e de pequenos comércios, com muita gente usando o computador para trabalho, estudo e serviços do dia a dia.",
       "Atendemos Pinhais com atendimento a domicílio ou por coleta e entrega. Resolvemos os casos mais comuns — lentidão, vírus, formatação, upgrade de SSD e Wi-Fi instável — e encaminhamos para bancada os reparos que exigem estrutura, sempre com seu acompanhamento.",
-      "Você fala direto com quem vai resolver o problema. Primeiro o diagnóstico, depois o orçamento — e nada é feito sem sua aprovação.",
+      "Você fala direto com quem vai resolver o problema. Primeiro o diagnóstico, depois o valor do atendimento — e nada é feito sem sua aprovação.",
     ],
     perfilLocal: [
       "Proximidade com Curitiba facilita a logística de atendimento",
@@ -214,12 +214,12 @@ export const CIDADES: Record<string, CidadeData> = {
     h1: "Técnico em Colombo para notebook, PC e informática",
     h1Accent: "sem enrolação",
     subtitulo:
-      "Suporte técnico em informática em Colombo, com triagem por WhatsApp, orçamento transparente e garantia sobre o serviço realizado.",
+      "Suporte técnico em informática em Colombo, com triagem por WhatsApp, valor transparente e garantia sobre o serviço realizado.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Colombo. Pode me orientar?",
     proposta: [
       "Colombo é uma das cidades mais populosas da região metropolitana de Curitiba, com bairros residenciais extensos. Boa parte dos moradores trabalha ou estuda usando o computador, então lentidão, vírus e sistema travado atrapalham diretamente a rotina.",
       "Atendemos Colombo com atendimento a domicílio ou por coleta e entrega. Os problemas mais comuns — formatação, remoção de vírus, upgrade de SSD, reparo de notebook e Wi-Fi — costumam ser tratados de forma direta; casos de bancada seguem para a oficina.",
-      "Sem promessa de valor fechado por telefone: primeiro avaliamos o equipamento, depois apresentamos o orçamento para você decidir.",
+      "Sem promessa de valor fechado por telefone: primeiro avaliamos o equipamento, depois apresentamos o valor do atendimento para você decidir.",
     ],
     perfilLocal: [
       "Bairros residenciais extensos e população em crescimento",
@@ -237,7 +237,7 @@ export const CIDADES: Record<string, CidadeData> = {
     ],
     faqs: [
       { question: "Vocês atendem a domicílio em Colombo?", answer: "Sim, com atendimento a domicílio ou por coleta e entrega. O horário é combinado pelo WhatsApp e a logística depende do bairro e do tipo de serviço." },
-      { question: "Qual o valor do diagnóstico em Colombo?", answer: "A partir de R$ 99,99 quando aplicável. O valor final depende do equipamento, deslocamento, urgência, complexidade e peças. Você aprova o orçamento antes da execução." },
+      { question: "Qual o valor do diagnóstico em Colombo?", answer: "A partir de R$ 99,99 quando aplicável. O valor final depende do equipamento, deslocamento, urgência, complexidade e peças. Você aprova o valor antes da execução." },
       { question: "Atendem empresas e comércios em Colombo?", answer: "Sim. Fazemos suporte a estações de trabalho, rede e backup, de forma pontual ou recorrente sob consulta." },
       { question: "Dá para deixar o computador antigo mais rápido?", answer: "Na maioria dos casos, sim — a troca por SSD e o aumento de memória trazem ganho perceptível. Não prometemos porcentagem fixa; o resultado depende do hardware." },
       { question: "Vocês recuperam arquivos perdidos?", answer: "Fazemos a tentativa de recuperação de dados. Não há garantia, pois depende do estado da mídia, e explicamos as chances antes de iniciar." },
@@ -256,12 +256,12 @@ export const CIDADES: Record<string, CidadeData> = {
     h1: "Técnico em Araucária para notebook, PC e informática",
     h1Accent: "para residências e empresas",
     subtitulo:
-      "Assistência técnica em informática em Araucária, com triagem por WhatsApp, diagnóstico honesto e orçamento aprovado por você.",
+      "Assistência técnica em informática em Araucária, com triagem por WhatsApp, diagnóstico honesto e valor aprovado por você.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Araucária. Pode me orientar?",
     proposta: [
       "Araucária tem forte perfil industrial e empresarial, ao lado de bairros residenciais consolidados. Isso gera dois tipos de demanda bem distintos: o computador de casa que precisa voltar a funcionar e o ambiente de trabalho que não pode parar.",
       "Atendemos a cidade com atendimento a domicílio ou por coleta e entrega para uso residencial, e com suporte a estações, rede e backup para empresas — pontual ou recorrente, sob consulta. Formatação, upgrade de SSD, remoção de vírus e redes são os pedidos mais frequentes.",
-      "Em todos os casos, seguimos a mesma lógica: diagnóstico primeiro, orçamento depois, execução só com sua aprovação.",
+      "Em todos os casos, seguimos a mesma lógica: diagnóstico primeiro, valor do atendimento depois, execução só com sua aprovação.",
     ],
     perfilLocal: [
       "Presença industrial e empresarial relevante",
@@ -296,14 +296,14 @@ export const CIDADES: Record<string, CidadeData> = {
       "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em Campo Largo",
     h1: "Técnico em Campo Largo para notebook, PC e informática",
-    h1Accent: "com orçamento claro",
+    h1Accent: "com valor do atendimento claro",
     subtitulo:
       "Suporte técnico em informática em Campo Largo, com triagem por WhatsApp, diagnóstico honesto e garantia sobre o serviço realizado.",
     whatsappMessage: "Olá! Preciso de um técnico de informática em Campo Largo. Pode me orientar?",
     proposta: [
       "Campo Largo tem território amplo, com áreas urbanas, comércio local e regiões mais afastadas. Esse espalhamento torna o atendimento planejado ainda mais importante: combinamos tudo antes pelo WhatsApp para organizar visita ou coleta sem desperdício de tempo.",
       "Atendemos residências e comércios da cidade com atendimento a domicílio ou por coleta e entrega. Formatação, remoção de vírus, upgrade de SSD, reparo de notebook e Wi-Fi instável estão entre os serviços mais pedidos, e reparos de bancada seguem para a oficina.",
-      "Como em toda a região, o método é o mesmo: entender o problema primeiro, orçar depois e executar apenas com a sua aprovação.",
+      "Como em toda a região, o método é o mesmo: entender o problema primeiro, avaliar o valor depois e executar apenas com a sua aprovação.",
     ],
     perfilLocal: [
       "Território amplo, com áreas urbanas e mais afastadas",

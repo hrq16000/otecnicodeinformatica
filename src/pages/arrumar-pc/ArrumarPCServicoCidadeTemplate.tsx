@@ -20,7 +20,7 @@ interface Props {
 export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
   const path = `/arrumar-pc/servico/${servico.slug}/${cidade.slug}`;
   const title = `${servico.nome} em ${cidade.cidade} ${cidade.estado} — Técnico online | Técnico Curitiba`;
-  const description = `${servico.nome} para ${cidade.cidade}/${cidade.estado} via WhatsApp + acesso remoto seguro. ${servico.descricao} Orçamento grátis, paga só se resolver.`;
+  const description = `${servico.nome} para ${cidade.cidade}/${cidade.estado} via WhatsApp + acesso remoto seguro. ${servico.descricao} atendimento sem compromisso, paga só se resolver.`;
   const msg = `Olá! Estou em ${cidade.cidade}/${cidade.estado} e preciso de ${servico.nome.toLowerCase()} pelo atendimento remoto.`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
@@ -59,7 +59,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
     },
     {
       q: `Quanto custa ${servico.nome.toLowerCase()} em ${cidade.cidade}?`,
-      a: `O diagnóstico é gratuito. Você recebe o orçamento antes do serviço e só paga se aprovar e o problema for resolvido. Pagamento por PIX, cartão ou boleto.`,
+      a: `O diagnóstico é gratuito. Você recebe o valor antes do serviço e só paga se aprovar e o problema for resolvido. Pagamento por PIX, cartão ou boleto.`,
     },
     {
       q: "É seguro deixar acessar meu computador?",
@@ -175,7 +175,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
               {[
                 { t: "1. WhatsApp", d: `Você chama no WhatsApp dizendo que está em ${cidade.cidade}.` },
                 { t: "2. Diagnóstico", d: "Conectamos no seu PC via AnyDesk/TeamViewer e analisamos o problema." },
-                { t: "3. Orçamento", d: "Passamos preço e prazo antes de executar qualquer serviço." },
+                { t: "3. valor do atendimento", d: "Passamos preço e prazo antes de executar qualquer serviço." },
                 { t: "4. Solução", d: "Resolvemos na hora. Paga só depois, por PIX, cartão ou boleto." },
               ].map((s) => (
                 <li key={s.t} className="bg-card border border-border rounded-xl p-5">

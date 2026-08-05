@@ -7,7 +7,7 @@ import { MessageCircle, Calculator } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 
 /**
- * Calculadora de orçamento — Conserto de Notebook em Curitiba.
+ * Calculadora de valor do atendimento — Conserto de Notebook em Curitiba.
  * Mobile-first, acessível (labels + radiogroup), plug-and-play.
  * Estima faixa de preço com base em problema + marca + cidade
  * e gera mensagem pré-preenchida no WhatsApp.
@@ -79,13 +79,13 @@ export const OrcamentoNotebookCalculator = ({
   const handleWhats = () => {
     trackCTAClick("whatsapp", "calculadora-orcamento-notebook");
     const msg = encodeURIComponent(
-      `Olá! Usei a calculadora do site e gostaria de um orçamento:\n\n` +
+      `Olá! Usei a calculadora do site e gostaria de um valor do atendimento:\n\n` +
         `• Problema: ${problema.label}\n` +
         `• Marca: ${marca}\n` +
         `• Cidade: ${cidade}\n` +
         `• Estimativa do site: ${fmt(min)} – ${fmt(max)}\n` +
         `• Prazo estimado: ${problema.tempo}\n\n` +
-        `Podem confirmar o orçamento fechado?`,
+        `Podem confirmar o valor fechado?`,
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   };
@@ -96,17 +96,17 @@ export const OrcamentoNotebookCalculator = ({
         variant === "compact" ? "max-w-xl" : "max-w-2xl"
       } mx-auto`}
       data-funnel-skip="1"
-      aria-label="Calculadora de orçamento de conserto de notebook em Curitiba"
+      aria-label="Calculadora de valor do atendimento de conserto de notebook em Curitiba"
     >
       <div className="flex items-center gap-2 mb-4">
         <Calculator className="h-5 w-5 text-accent" aria-hidden />
         <h3 className="text-lg md:text-xl font-heading font-bold text-foreground">
-          Calculadora de orçamento — Conserto de Notebook
+          Calculadora de valor do atendimento — Conserto de Notebook
         </h3>
       </div>
       <p className="text-sm text-muted-foreground mb-5">
         Em 3 cliques você vê a faixa estimada. A partir de{" "}
-        <strong>R$ 99,99 — formatação em até 30 minutos</strong>. Orçamento fechado sempre após diagnóstico.
+        <strong>R$ 99,99 — formatação em até 30 minutos</strong>. valor fechado sempre após diagnóstico.
       </p>
 
       <fieldset className="mb-5">
@@ -190,11 +190,11 @@ export const OrcamentoNotebookCalculator = ({
         className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300"
       >
         <MessageCircle className="mr-2 h-5 w-5" />
-        Confirmar orçamento no WhatsApp
+        Confirmar valor do atendimento no WhatsApp
       </Button>
 
       <p className="text-[11px] text-muted-foreground mt-3 text-center">
-        Valores estimados com base em casos atendidos em Curitiba. Orçamento final é
+        Valores estimados com base em casos atendidos em Curitiba. valor final é
         sempre fechado após diagnóstico — você só paga se aprovar.
       </p>
       {/* Hidden input para acessibilidade de leitores de tela com a faixa atual */}

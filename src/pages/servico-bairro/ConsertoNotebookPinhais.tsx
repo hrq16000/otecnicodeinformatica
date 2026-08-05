@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Conserto de Notebook em Pinhais | Todas as Marcas | Técnico Curitiba",
-  metaDescription: "Conserto de notebook em Pinhais. Tela, teclado, bateria, placa-mãe. Orçamento grátis, busca e entrega domiciliar.",
+  metaDescription: "Conserto de notebook em Pinhais. Tela, teclado, bateria, placa-mãe. atendimento sem compromisso, busca e entrega domiciliar.",
   
   servico: "Conserto de Notebook",
   servicoSlug: "conserto-pc-notebook",
@@ -11,10 +11,10 @@ const data: ServicoBairroData = {
   cidade: "Pinhais",
   
   h1: "Conserto de Notebook em Pinhais",
-  subtitulo: "Notebook com problema em Pinhais? Consertamos todas as marcas com orçamento grátis e busca domiciliar.",
+  subtitulo: "Notebook com problema em Pinhais? Consertamos todas as marcas com atendimento sem compromisso e busca domiciliar.",
   
   precoBase: "R$ 139,99",
-  precoDescricao: "Orçamento gratuito. Valor conforme o reparo necessário.",
+  precoDescricao: "atendimento sem compromisso. Valor conforme o reparo necessário.",
   
   descricaoLonga: `Precisa de conserto de notebook em Pinhais? Nossa equipe técnica atende toda a cidade com 
     diagnóstico rápido e reparo de qualidade. Trabalhamos com todas as marcas: Dell, HP, Lenovo, Acer, 
@@ -23,7 +23,7 @@ const data: ServicoBairroData = {
     Pinhais e devolvemos consertado.`,
   
   beneficios: [
-    "Orçamento 100% gratuito",
+    "valor do atendimento 100% gratuito",
     "Todas as marcas de notebook",
     "Troca de tela e teclado",
     "Reparo de placa-mãe",
@@ -54,8 +54,8 @@ const data: ServicoBairroData = {
       resposta: "Reparos simples: Conforme agenda. Placa-mãe: 3 a 5 dias úteis." 
     },
     { 
-      pergunta: "O orçamento é realmente grátis?", 
-      resposta: "Sim! Diagnóstico e orçamento são 100% gratuitos. Você só paga se aprovar o serviço." 
+      pergunta: "O valor do atendimento é realmente grátis?", 
+      resposta: "Sim! Diagnóstico e valor do atendimento são 100% gratuitos. Você só paga se aprovar o serviço." 
     },
   ],
   

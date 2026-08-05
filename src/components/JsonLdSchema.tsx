@@ -10,7 +10,7 @@ const localBusinessSchema = {
   ...buildLocalBusinessSchema({
     path: "/",
     description:
-      "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Diagnóstico honesto antes do orçamento.",
+      "Técnico de informática em Curitiba e região metropolitana. Formatação, conserto de computadores e notebooks, remoção de vírus, upgrade SSD, redes. Diagnóstico honesto antes de informar o valor.",
   }),
   slogan: "Assistência Técnica em Informática em Curitiba",
   knowsAbout: [
@@ -28,7 +28,7 @@ const faqSchema = {
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Quanto custa o serviço de técnico de informática em Curitiba?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A visita técnica começa em R$ 69,99. Orçamento no local e você só paga se aprovar. Aceitamos PIX, cartão e dinheiro." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "A visita técnica começa em R$ 69,99. valor do atendimento no local e você só paga se aprovar. Aceitamos PIX, cartão e dinheiro." } },
     { "@type": "Question", "name": "O técnico vai até minha casa ou empresa?",
       "acceptedAnswer": { "@type": "Answer", "text": "Sim. Atendimento domiciliar em toda Curitiba e região metropolitana (São José dos Pinhais, Araucária, Campo Largo, Pinhais, Colombo). O técnico vai com todas as ferramentas." } },
     { "@type": "Question", "name": "Quanto tempo demora para o técnico chegar?",

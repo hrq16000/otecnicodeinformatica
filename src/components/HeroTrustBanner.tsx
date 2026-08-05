@@ -28,7 +28,7 @@ const TRUST_SLIDES: Slide[] = [
     kind: "trust",
     icon: BadgeCheck,
     title: "Diagnóstico transparente",
-    desc: "Técnico identificado e orçamento aprovado antes de qualquer serviço.",
+    desc: "Técnico identificado e valor aprovado antes de qualquer serviço.",
   },
   {
     kind: "trust",

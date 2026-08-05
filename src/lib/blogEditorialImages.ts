@@ -14,7 +14,7 @@
 //   - requiredElements / forbiddenElements / privacyRisks
 //
 // Requisitos de privacidade e propriedade estão descritos por brief e
-// reforçados por REQUIRED_ASSET_SPEC (aplicável a qualquer captura futura).
+// refinformados por REQUIRED_ASSET_SPEC (aplicável a qualquer captura futura).
 // ─────────────────────────────────────────────────────────────
 
 export type ImageBriefStatus = "briefed" | "captured" | "approved";

@@ -253,7 +253,7 @@ const CFTVPage = () => {
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Atendimento local e direto em Curitiba e região, com projeto adequado ao seu imóvel,
-                orçamento aprovado antes da instalação e sem promessa que não podemos cumprir.
+                valor aprovado antes da instalação e sem promessa que não podemos cumprir.
               </p>
             </div>
 

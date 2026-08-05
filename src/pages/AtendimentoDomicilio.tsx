@@ -128,7 +128,7 @@ const faqs = [
   {
     question: "As peças estão incluídas na visita?",
     answer:
-      "Não automaticamente. A visita cobre a mão de obra e a avaliação; peças e materiais, quando necessários, são orçados à parte e só trocados após a sua aprovação.",
+      "Não automaticamente. A visita cobre a mão de obra e a avaliação; peças e materiais, quando necessários, são informados à parte e só trocados após a sua aprovação.",
   },
   {
     question: "Preciso desmontar ou preparar alguma coisa antes da visita?",
@@ -143,7 +143,7 @@ const faqs = [
   {
     question: "O que acontece se o problema não for resolvido no local?",
     answer:
-      "A avaliação feita na visita é aproveitada: você recebe o diagnóstico do que foi encontrado e a orientação do próximo passo — coleta para bancada, orçamento de peça ou indicação de substituição quando o reparo não compensa. Nada segue sem a sua aprovação.",
+      "A avaliação feita na visita é aproveitada: você recebe o diagnóstico do que foi encontrado e a orientação do próximo passo — coleta para bancada, valor do atendimento de peça ou indicação de substituição quando o reparo não compensa. Nada segue sem a sua aprovação.",
   },
   {
     question: "Qual a área de atendimento?",
@@ -187,7 +187,7 @@ const AtendimentoDomicilio = () => {
         scriptId="ld-localbusiness-domicilio"
         path="/atendimento-domicilio"
         name="Técnico em Curitiba — Atendimento em domicílio"
-        description="Atendimento técnico de informática em domicílio em Curitiba e região metropolitana, com diagnóstico no local antes do orçamento."
+        description="Atendimento técnico de informática em domicílio em Curitiba e região metropolitana, com diagnóstico no local antes de informar o valor."
         services={[
           { name: "Atendimento técnico em domicílio", url: "/atendimento-domicilio" },
           { name: "Manutenção de computador", url: "/servicos/manutencao-de-computador" },
@@ -247,7 +247,7 @@ const AtendimentoDomicilio = () => {
                   Antes de marcar a visita, conversamos pelo WhatsApp sobre o sintoma. Enviar
                   informações e fotos do equipamento ajuda a avaliar a modalidade certa. O
                   atendimento em domicílio não garante resolução imediata, e peças e materiais
-                  não estão automaticamente incluídos — quando necessários, são orçados à parte.
+                  não estão automaticamente incluídos — quando necessários, são informados à parte.
                 </p>
               </div>
             </div>
@@ -271,7 +271,7 @@ const AtendimentoDomicilio = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Entre em Contato pelo WhatsApp</h3>
                     <p className="text-muted-foreground">
-                      Descreva o problema do seu computador e informe seu endereço em Curitiba. Respondemos rapidamente com disponibilidade e orçamento estimado.
+                      Descreva o problema do seu computador e informe seu endereço em Curitiba. Respondemos rapidamente com disponibilidade e valor estimado.
                     </p>
                   </div>
                 </div>

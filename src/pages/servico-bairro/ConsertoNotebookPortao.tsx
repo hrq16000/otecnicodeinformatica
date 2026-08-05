@@ -36,7 +36,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Contato", descricao: "Descreva o problema pelo WhatsApp" },
     { titulo: "Diagnóstico", descricao: "Avaliação gratuita do notebook" },
-    { titulo: "Orçamento", descricao: "Valor aprovado antes de iniciar o reparo" },
+    { titulo: "valor do atendimento", descricao: "Valor aprovado antes de iniciar o reparo" },
     { titulo: "Reparo", descricao: "Conserto profissional com peças de qualidade" },
   ],
   
@@ -47,7 +47,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto custa trocar a tela do notebook?", 
-      resposta: "O valor varia conforme o modelo. Telas comuns a partir de R$ 250. Fazemos orçamento gratuito e sem compromisso." 
+      resposta: "O valor varia conforme o modelo. Telas comuns a partir de R$ 250. Fazemos atendimento sem compromisso e sem compromisso." 
     },
     { 
       pergunta: "Meu notebook não liga, tem conserto?", 

@@ -38,7 +38,7 @@ const benefits = [
   {
     icon: Wrench,
     title: "Garantia em Todo Serviço",
-    description: "Orçamento antes da execução. Garantia por escrito em todos os reparos realizados.",
+    description: "valor do atendimento antes da execução. Garantia por escrito em todos os reparos realizados.",
   },
 ];
 
@@ -75,7 +75,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Fazenda Rio Grande?",
-    answer: "A visita técnica começa em R$ 69,99. O diagnóstico é feito no local e apresentamos o orçamento antes de qualquer serviço.",
+    answer: "A visita técnica começa em R$ 69,99. O diagnóstico é feito no local e apresentamos o valor antes de qualquer serviço.",
   },
   {
     question: "Fazem coleta e entrega em Fazenda Rio Grande?",
@@ -119,7 +119,7 @@ const TecnicoInformaticaFazendaRioGrande = () => {
       <main>
         <PageHero
           title="Técnico de Informática em Fazenda Rio Grande"
-          subtitle="Assistência técnica de computadores e notebooks para moradores e empresas de Fazenda Rio Grande, com triagem por WhatsApp e diagnóstico antes do orçamento."
+          subtitle="Assistência técnica de computadores e notebooks para moradores e empresas de Fazenda Rio Grande, com triagem por WhatsApp e diagnóstico antes de informar o valor."
           ctaText="Falar com Técnico"
         />
 

@@ -38,7 +38,7 @@ const benefits = [
   {
     icon: Wrench,
     title: "Serviço Garantido",
-    description: "Diagnóstico transparente, orçamento antes da execução e garantia por escrito.",
+    description: "Diagnóstico transparente, valor antes da execução e garantia por escrito.",
   },
 ];
 
@@ -75,7 +75,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Almirante Tamandaré?",
-    answer: "A visita técnica começa em R$ 69,99. Fazemos diagnóstico no local e apresentamos o orçamento antes de qualquer execução.",
+    answer: "A visita técnica começa em R$ 69,99. Fazemos diagnóstico no local e apresentamos o valor antes de qualquer execução.",
   },
   {
     question: "Em quanto tempo conseguem atender?",

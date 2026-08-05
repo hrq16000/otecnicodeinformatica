@@ -21,14 +21,14 @@ import {
 
 const faqCategories = [
   {
-    category: "Preços e Orçamento",
+    category: "Preços e valor do atendimento",
     questions: [
       {
         question: "Quanto custa chamar um técnico em Curitiba?",
         answer: "Quando há visita ou diagnóstico presencial aplicável, o atendimento começa a partir de R$ 99,99. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais. Passamos a estimativa antes de iniciar."
       },
       {
-        question: "O orçamento é passado antes do serviço?",
+        question: "O valor do atendimento é passado antes do serviço?",
         answer: "Sim. Você recebe orientação, prazo estimado e condições antes de qualquer execução. O serviço só avança após o seu alinhamento. Estimativas iniciais são feitas pelo WhatsApp; casos que exigem análise podem precisar de diagnóstico presencial ou em laboratório."
       },
     ]

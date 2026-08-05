@@ -18,7 +18,7 @@ const CANONICAL = "https://tecnico.curitiba.br/termos-e-condicoes";
 
 const faq = [
   {
-    q: "Quanto custa o orçamento pelo WhatsApp?",
+    q: "Quanto custa o valor do atendimento pelo WhatsApp?",
     a: "Totalmente grátis. Envie fotos, vídeos e a descrição do problema pelo WhatsApp. Respondemos em até 30 minutos em horário comercial.",
   },
   {
@@ -72,7 +72,7 @@ const breadcrumbJsonLd = {
 const TermosCondicoes = () => {
   const title = "Termos, Preços e Condições | Assistência Técnica Curitiba";
   const description =
-    "Conserto de placas em Curitiba: orçamento grátis pelo WhatsApp, visita técnica a partir de R$ 99,99, diagnóstico R$ 90, reparo mínimo R$ 300. Política transparente.";
+    "Conserto de placas em Curitiba: atendimento sem compromisso pelo WhatsApp, visita técnica a partir de R$ 99,99, diagnóstico R$ 90, reparo mínimo R$ 300. Política transparente.";
 
   useCanonical(CANONICAL);
 
@@ -81,7 +81,7 @@ const TermosCondicoes = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="conserto de placas Curitiba, diagnóstico R$ 90, visita técnica R$ 99,90, reparo mínimo R$ 300, orçamento grátis WhatsApp, assistência técnica Curitiba" />
+        <meta name="keywords" content="conserto de placas Curitiba, diagnóstico R$ 90, visita técnica R$ 99,90, reparo mínimo R$ 300, atendimento sem compromisso WhatsApp, assistência técnica Curitiba" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={CANONICAL} />
@@ -109,7 +109,7 @@ const TermosCondicoes = () => {
             {
               icon: MessageCircle,
               tone: "text-emerald-600",
-              title: "Orçamento por WhatsApp",
+              title: "valor do atendimento por WhatsApp",
               price: "Grátis",
               desc: "Envie fotos, vídeos e detalhes pelo WhatsApp. Nada é cobrado para receber a proposta.",
             },
@@ -149,7 +149,7 @@ const TermosCondicoes = () => {
           <h2 id="como-funciona" className="text-2xl font-bold mb-6">Como funciona nosso atendimento</h2>
           <ol className="space-y-3">
             {[
-              { icon: MessageCircle, title: "1. Orçamento por WhatsApp", desc: "Você manda fotos e detalhes. Resposta em até 30 min em horário comercial." },
+              { icon: MessageCircle, title: "1. valor do atendimento por WhatsApp", desc: "Você manda fotos e detalhes. Resposta em até 30 min em horário comercial." },
               { icon: Home, title: "2. Visita técnica (opcional)", desc: "A partir de R$ 99,99 por até 30 min. Combo 2h por R$ 299,99 para serviços mais longos." },
               { icon: Wrench, title: "3. Diagnóstico em bancada", desc: "Para casos complexos (placas, consoles, TVs). R$ 90 só se você cancelar o reparo." },
               { icon: ShieldCheck, title: "4. Reparo aprovado", desc: "Valor mínimo R$ 300 para eletrônicos complexos. Acima de R$ 500, autorização prévia." },
@@ -198,7 +198,7 @@ const TermosCondicoes = () => {
 
         {/* CTA */}
         <section className="text-center rounded-xl border border-border bg-card p-8">
-          <h2 className="text-2xl font-bold mb-2">Pronto para um orçamento transparente?</h2>
+          <h2 className="text-2xl font-bold mb-2">Pronto para um valor transparente?</h2>
           <p className="text-muted-foreground mb-6">
             Toda conversa começa com nossas perguntas rápidas para já chegar com tudo pronto no WhatsApp.
           </p>

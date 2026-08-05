@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Conserto de Notebook no Batel Curitiba | Reparo Profissional | Técnico Curitiba",
-  metaDescription: "Conserto de notebook no Batel, Curitiba. Reparo de tela, teclado, bateria, placa-mãe e mais. Técnico especializado com atendimento premium. Orçamento grátis.",
+  metaDescription: "Conserto de notebook no Batel, Curitiba. Reparo de tela, teclado, bateria, placa-mãe e mais. Técnico especializado com atendimento premium. atendimento sem compromisso.",
   
   servico: "Conserto de Notebook",
   servicoSlug: "conserto-pc-notebook",
@@ -11,10 +11,10 @@ const data: ServicoBairroData = {
   cidade: "Curitiba",
   
   h1: "Conserto de Notebook no Batel – Curitiba",
-  subtitulo: "Reparo profissional para notebooks de todas as marcas. Atendimento premium no Batel com orçamento sem compromisso.",
+  subtitulo: "Reparo profissional para notebooks de todas as marcas. Atendimento premium no Batel com atendimento sem compromisso.",
   
   precoBase: "R$ 69,99",
-  precoDescricao: "Visita técnica + diagnóstico. Orçamento grátis para moradores do Batel.",
+  precoDescricao: "Visita técnica + diagnóstico. atendimento sem compromisso para moradores do Batel.",
   
   descricaoLonga: `O Batel é um dos bairros mais sofisticados de Curitiba, e nosso serviço de conserto 
     de notebook atende às expectativas de qualidade da região. Reparamos notebooks de todas as 
@@ -38,7 +38,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Agendamento", descricao: "Confirme via WhatsApp o melhor horário" },
     { titulo: "Diagnóstico", descricao: "Técnico avalia o problema no local" },
-    { titulo: "Orçamento", descricao: "Apresentamos opções de reparo e valores" },
+    { titulo: "valor do atendimento", descricao: "Apresentamos opções de reparo e valores" },
     { titulo: "Reparo", descricao: "Conserto rápido com peças de qualidade" },
   ],
   

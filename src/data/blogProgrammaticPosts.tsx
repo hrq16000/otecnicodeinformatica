@@ -431,7 +431,7 @@ const defs: PostDef[] = [
       { h: "Passo 1 — Acesse o cooler", p: "PC: abra a lateral, solte os 4 parafusos do cooler ou trava. Notebook: remova a tampa inferior, desconecte a bateria, solte os parafusos numerados do cooler." },
       { h: "Passo 2 — Remova a pasta antiga", p: "Com cotonete embebido em álcool isopropílico, limpe completamente o die da CPU/GPU e a base do cooler. Tem que ficar espelhado." },
       { h: "Passo 3 — Aplique a nova pasta", p: "Para CPUs pequenas: gota do tamanho de um grão de arroz no centro. Para CPUs grandes: linha fina ou método X. Nunca espalhe com o dedo — o cooler espalha sozinho." },
-      { h: "Passo 4 — Reinstale o cooler", p: "Aperte os parafusos em X, gradualmente, sem forçar. Em notebooks, siga a ordem numerada estampada no cooler." },
+      { h: "Passo 4 — Reinstale o cooler", p: "Aperte os parafusos em X, gradualmente, sem favaliar o valor. Em notebooks, siga a ordem numerada estampada no cooler." },
       { h: "Passo 5 — Teste", p: "Após ligar, monitore com HWMonitor por 15 minutos. Em uso normal, a temperatura deve cair 10-20°C em relação ao que estava antes." },
     ],
     whenToCall: "Em notebooks modernos (especialmente gamer e Apple), a troca é delicada e exige desmontagem completa. Oriento por vídeo-chamada ou indico técnico próximo da sua cidade.",

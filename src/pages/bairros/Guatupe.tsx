@@ -11,7 +11,7 @@ const Guatupe = () => {
     subtitulo: "Assistência técnica profissional no Guatupê e região. Soluções rápidas para problemas de informática.",
     descricaoLonga: `O Guatupê é um bairro tradicional e bem estruturado de São José dos Pinhais, com forte presença residencial e comercial. Nossa equipe de técnicos de informática atende toda a região do Guatupê, oferecendo serviços de alta qualidade com foco na satisfação do cliente.
 
-    Seja para residências ou empresas, oferecemos diagnóstico preciso, orçamento transparente e soluções eficientes. Nosso compromisso é resolver seu problema de informática no primeiro atendimento sempre que possível.`,
+    Seja para residências ou empresas, oferecemos diagnóstico preciso, valor transparente e soluções eficientes. Nosso compromisso é resolver seu problema de informática no primeiro atendimento sempre que possível.`,
     pontosReferencia: [
       "Centro de Convenções",
       "Região Industrial",

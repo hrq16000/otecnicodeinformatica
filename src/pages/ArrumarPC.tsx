@@ -44,7 +44,7 @@ const beneficios = [
     icon: ShieldCheck,
     title: "Garantia + transparência",
     description:
-      "Orçamento antes de qualquer cobrança. Pagamento só após o problema ser resolvido. PIX, cartão ou boleto.",
+      "valor do atendimento antes de qualquer cobrança. Pagamento só após o problema ser resolvido. PIX, cartão ou boleto.",
   },
   {
     icon: Wrench,
@@ -76,7 +76,7 @@ const comoFunciona = [
   {
     n: "2",
     titulo: "Diagnóstico gratuito",
-    desc: "O técnico avalia o problema e te passa o orçamento antes de qualquer cobrança.",
+    desc: "O técnico avalia o problema e te passa o valor antes de qualquer cobrança.",
   },
   {
     n: "3",
@@ -101,7 +101,7 @@ const faqs = [
   },
   {
     q: "Quanto custa arrumar o PC online?",
-    a: "Damos orçamento gratuito antes de iniciar. Serviços simples (configuração, instalação de driver, dicas) muitas vezes saem mais baratos que uma visita técnica. Você só paga se aprovar.",
+    a: "Damos atendimento sem compromisso antes de iniciar. Serviços simples (configuração, instalação de driver, dicas) muitas vezes saem mais baratos que uma visita técnica. Você só paga se aprovar.",
   },
   {
     q: "Como faço o pagamento?",
@@ -153,7 +153,7 @@ const ArrumarPC = () => {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Arrumar PC online — Técnico de informática para todo Brasil | Técnico Curitiba"
-        description="Arrume seu PC ou notebook de qualquer lugar do Brasil via WhatsApp + acesso remoto. Formatação, vírus, lentidão, tela azul, Wi-Fi. Orçamento grátis, paga só se resolver."
+        description="Arrume seu PC ou notebook de qualquer lugar do Brasil via WhatsApp + acesso remoto. Formatação, vírus, lentidão, tela azul, Wi-Fi. atendimento sem compromisso, paga só se resolver."
         path="/arrumar-pc"
         breadcrumbs={[
           { name: "Início", path: "/" },
@@ -179,7 +179,7 @@ const ArrumarPC = () => {
         <BenefitsGrid
           benefits={beneficios}
           title="Por que arrumar seu PC com a gente"
-          subtitle="Atendimento direto com o técnico, orçamento transparente e garantia em todo serviço."
+          subtitle="Atendimento direto com o técnico, valor transparente e garantia em todo serviço."
         />
 
         {/* PROBLEMAS QUE RESOLVEMOS */}

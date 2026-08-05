@@ -26,7 +26,7 @@ const DiagnosticoTecnico = () => {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content",
-        "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento."
+        "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor do atendimento."
       );
     }
     trackPageView("/diagnostico-tecnico", "Diagnóstico Técnico");
@@ -37,7 +37,7 @@ const DiagnosticoTecnico = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Diagnóstico Técnico de Computador e Notebook em Curitiba" description="Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
+      <PageSEO title="Diagnóstico Técnico de Computador e Notebook em Curitiba" description="Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor do atendimento." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -108,7 +108,7 @@ const DiagnosticoTecnico = () => {
                   O diagnóstico técnico é o processo de <strong className="text-foreground">identificação precisa da causa de um problema</strong> em um equipamento eletrônico. Não se trata de um "chute" ou de tentar coisas aleatórias — é uma investigação metódica que envolve testes com equipamentos profissionais, análise de componentes e experiência técnica acumulada.
                 </p>
                 <p>
-                  Muitos clientes confundem diagnóstico com orçamento. <strong className="text-foreground">São coisas diferentes.</strong> Um orçamento é uma estimativa de valor. O diagnóstico é o trabalho técnico real de descobrir o que está errado. Sem diagnóstico correto, qualquer reparo é um tiro no escuro.
+                  Muitos clientes confundem diagnóstico com valor do atendimento. <strong className="text-foreground">São coisas diferentes.</strong> Um valor do atendimento é uma estimativa de valor. O diagnóstico é o trabalho técnico real de descobrir o que está errado. Sem diagnóstico correto, qualquer reparo é um tiro no escuro.
                 </p>
                 <p>
                   Em Curitiba e região metropolitana, nosso diagnóstico técnico pode ser realizado no local (visita a domicílio), remotamente (para problemas de software) ou em laboratório (para casos que exigem bancada e equipamentos específicos).
@@ -170,7 +170,7 @@ const DiagnosticoTecnico = () => {
                       "Testa componentes individualmente",
                       "Avalia riscos e viabilidade",
                       "Informa ao cliente a situação real",
-                      "Gera orçamento fundamentado",
+                      "Gera valor do atendimento fundamentado",
                     ].map((t, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
@@ -441,7 +441,7 @@ const DiagnosticoTecnico = () => {
 
 const faqItems = [
   { q: "O diagnóstico é pago mesmo?", a: "Sim. O diagnóstico envolve tempo técnico, ferramentas e conhecimento profissional. O valor é abatido do reparo quando aprovado." },
-  { q: "Posso ter um orçamento sem diagnóstico?", a: "Estimativas podem ser feitas via WhatsApp com base na descrição do problema. Porém, o valor final depende do diagnóstico presencial." },
+  { q: "Posso ter um valor do atendimento sem diagnóstico?", a: "Estimativas podem ser feitas via WhatsApp com base na descrição do problema. Porém, o valor final depende do diagnóstico presencial." },
   { q: "E se eu não aprovar o reparo?", a: "Você paga apenas o valor do diagnóstico. Não há obrigação de realizar o reparo." },
   { q: "Quanto tempo demora o diagnóstico?", a: "Diagnóstico presencial: 30 a 60 minutos. Em laboratório: 1 a 5 dias úteis dependendo da complexidade." },
   { q: "O diagnóstico pode ser feito remotamente?", a: "Sim, para problemas de software, lentidão e configurações. Para problemas de hardware, é necessário diagnóstico presencial." },

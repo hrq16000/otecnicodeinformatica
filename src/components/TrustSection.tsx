@@ -11,7 +11,7 @@ const trustItems = [
   { icon: FileText, title: "Garantia por Escrito", description: GARANTIA.servicoLabel },
   { icon: Receipt, title: "Nota Fiscal", description: NOTA_FISCAL.servicoLabel },
   { icon: CreditCard, title: "Pagamento Facilitado", description: "PIX, cartão, dinheiro e transferência" },
-  { icon: Shield, title: "Sem Surpresas", description: "Orçamento antes de executar" },
+  { icon: Shield, title: "Sem Surpresas", description: "valor do atendimento antes de executar" },
 ];
 
 /**

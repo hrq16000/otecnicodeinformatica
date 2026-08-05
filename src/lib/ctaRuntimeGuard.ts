@@ -30,7 +30,7 @@ function installClickGuard() {
       const looksLikeCta =
         el.dataset.ctaLocation ||
         el.getAttribute("data-wa-funnel") ||
-        /whatsapp|agendar|ligar|fale|orçamento|agora/.test(text);
+        /whatsapp|agendar|ligar|fale|valor do atendimento|agora/.test(text);
       if (!looksLikeCta) return;
       const tracked = window.__ctaTracked;
       setTimeout(() => {

@@ -130,7 +130,7 @@ const TERMS = [
   },
   {
     id: "orcamento",
-    text: "Orçamento preciso somente após diagnóstico presencial no laboratório. Estimativas por WhatsApp são aproximadas.",
+    text: "valor do atendimento preciso somente após diagnóstico presencial no laboratório. Estimativas por WhatsApp são aproximadas.",
   },
   {
     id: "garantia_transporte",

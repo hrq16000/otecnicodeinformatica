@@ -58,7 +58,7 @@ const MODALITY_COPY: Record<Modality, {
     steps: [
       "Prepare o equipamento (acessórios, senha, backup se possível).",
       "Combine a coleta pelo WhatsApp — endereço e janela de horário.",
-      "Após o laudo, você decide se aprova o orçamento.",
+      "Após o laudo, você decide se aprova o valor do atendimento.",
     ],
     cta: "Ver mensagem no WhatsApp",
   },

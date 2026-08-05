@@ -162,7 +162,7 @@ const Contato = () => {
                   "Você fala direto com o técnico, sem call center",
                   "Triagem que organiza o seu pedido antes do diagnóstico",
                   "Atendimento em Curitiba e região metropolitana",
-                  "Orçamento informado antes de qualquer execução",
+                  "valor do atendimento informado antes de qualquer execução",
                   "Foco em informática: notebook, PC, redes e suporte empresarial",
                 ].map((item, index) => (
                   <div key={index} className="group flex items-center gap-3 glass-card gradient-border rounded-lg p-4 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] transition-all duration-300 stagger-item" style={{ animationDelay: `${index * 50}ms` }}>

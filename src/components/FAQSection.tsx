@@ -14,7 +14,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "Quanto custa o serviço de técnico de informática em Curitiba?",
-    answer: "O valor da visita técnica começa em R$ 69,99. O orçamento é feito no local e você só paga se aprovar o serviço. Aceitamos PIX, cartão de crédito, débito e dinheiro. Não cobramos taxa de deslocamento dentro de Curitiba e região metropolitana."
+    answer: "O valor da visita técnica começa em R$ 69,99. O valor do atendimento é feito no local e você só paga se aprovar o serviço. Aceitamos PIX, cartão de crédito, débito e dinheiro. Não cobramos taxa de deslocamento dentro de Curitiba e região metropolitana."
   },
   {
     question: "O técnico vai até minha casa ou empresa?",
@@ -30,11 +30,11 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Os serviços têm garantia?",
-    answer: "Sim. O serviço executado tem 90 dias de garantia sobre a mão de obra, registrada por escrito no orçamento aprovado. Peças e componentes seguem a garantia do fornecedor/fabricante."
+    answer: "Sim. O serviço executado tem 90 dias de garantia sobre a mão de obra, registrada por escrito no valor aprovado. Peças e componentes seguem a garantia do fornecedor/fabricante."
   },
   {
     question: "Vocês atendem empresas também?",
-    answer: "Sim. Atendemos pequenas e médias empresas com suporte técnico contínuo, manutenção preventiva e configuração de redes e servidores. O escopo e a periodicidade são combinados caso a caso, sempre com orçamento por escrito."
+    answer: "Sim. Atendemos pequenas e médias empresas com suporte técnico contínuo, manutenção preventiva e configuração de redes e servidores. O escopo e a periodicidade são combinados caso a caso, sempre com valor por escrito."
   },
   {
     question: "Como funciona o atendimento remoto?",

@@ -103,8 +103,8 @@ export const HomePricingBlock = () => {
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               <Sparkles className="h-4 w-4 text-accent flex-shrink-0" />
               <span>
-                <strong className="text-foreground">Importante:</strong> Orçamento gratuito somente estimado via WhatsApp. 
-                Orçamento preciso somente com compromisso. Para celular, TV, placa e ferramentas: orçamento somente após coleta (taxa mínima R$ 300).
+                <strong className="text-foreground">Importante:</strong> atendimento sem compromisso somente estimado via WhatsApp. 
+                valor do atendimento preciso somente com compromisso. Para celular, TV, placa e ferramentas: valor do atendimento somente após coleta (taxa mínima R$ 300).
               </span>
             </p>
           </div>

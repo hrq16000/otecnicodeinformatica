@@ -1026,7 +1026,7 @@ const FallbackView = ({
 // Backward-compat export (componentes legados podem importar isto).
 export const TransparencyNote = ({ className = "" }: { className?: string }) => (
   <p className={`text-xs text-muted-foreground leading-relaxed ${className}`}>
-    📌 <strong>Transparência:</strong> orçamento inicial por WhatsApp. Visita técnica para PC/Notebook a partir de
+    📌 <strong>Transparência:</strong> valor do atendimento inicial por WhatsApp. Visita técnica para PC/Notebook a partir de
     {" "}R$ 99,99 (30 min) · coleta e entrega a partir de R$ 299,99.{" "}
     <a href="/termos-e-condicoes" className="underline hover:text-foreground">Ver termos</a>
   </p>

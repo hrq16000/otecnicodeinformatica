@@ -23,7 +23,7 @@ const benefits = [
   { icon: MapPin, title: "Cobertura em Campo Magro", description: "Atendemos do Centro à região rural. Conhecemos os acessos da cidade." },
   { icon: Clock, title: "Deslocamento de 35-55 Minutos", description: "Acesso pela Estrada do Cerne (PR-090). Agendamento flexível." },
   { icon: Shield, title: "Técnico Experiente", description: "Mais de 20 anos. Profissional identificado com ferramentas profissionais." },
-  { icon: Wrench, title: "Garantia por Escrito", description: "Orçamento antes da execução. Garantia em todos os serviços." },
+  { icon: Wrench, title: "Garantia por Escrito", description: "valor do atendimento antes da execução. Garantia em todos os serviços." },
 ];
 
 const bairros = [
@@ -45,7 +45,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Campo Magro a domicílio?", answer: "Sim. Atendemos Campo Magro com visita agendada. O deslocamento pela PR-090 leva de 35 a 55 minutos." },
-  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com orçamento transparente." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com valor transparente." },
   { question: "Atendem na zona rural?", answer: "Sim, desde que haja acesso por via pavimentada. Consulte pelo WhatsApp para confirmar cobertura no seu endereço." },
 ];
 

@@ -179,10 +179,10 @@ describe("Triagem V5 — guard de submit", () => {
     expect(getWaUrl()).toBeNull();
   });
 
-  it("não existe mais a categoria 'Outro / Só orçamento' e sim 'Outro'", async () => {
+  it("não existe mais a categoria 'Outro / Só valor do atendimento' e sim 'Outro'", async () => {
     renderFunnel();
     await openFunnel();
-    expect(dialog().textContent).not.toMatch(/Só orçamento/i);
+    expect(dialog().textContent).not.toMatch(/Só valor do atendimento/i);
     expect(within(dialog()).getByText("Outro")).toBeInTheDocument();
   });
 });

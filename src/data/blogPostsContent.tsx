@@ -380,7 +380,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
     category: "Linux",
     content: (
       <>
-        <p className="lead">Você está cansado de lentidão, vírus e atualizações forçadas do Windows? A migração para Linux pode ser a solução — mas <strong>não é para todos</strong>. Veja quando vale a pena e como fazer a transição.</p>
+        <p className="lead">Você está cansado de lentidão, vírus e atualizações finformadas do Windows? A migração para Linux pode ser a solução — mas <strong>não é para todos</strong>. Veja quando vale a pena e como fazer a transição.</p>
 
         <h2>Quando Vale a Pena Trocar</h2>
         <ul>
@@ -725,7 +725,7 @@ sudo add-apt-repository --remove ppa:ondrej/php`}</code></pre>
 Package: firefox
 Pin: release a=jammy-security
 Pin-Priority: 1000`}</code></pre>
-        <p>O pinning permite forçar uma versão específica de um pacote, útil quando você precisa manter uma versão estável mesmo com repositórios mais novos adicionados.</p>
+        <p>O pinning permite favaliar o valor uma versão específica de um pacote, útil quando você precisa manter uma versão estável mesmo com repositórios mais novos adicionados.</p>
 
         <h2>DNF — Fedora, RHEL, CentOS Stream, AlmaLinux</h2>
         <p>O DNF (Dandified YUM) é o gerenciador padrão da família Red Hat — dominante em servidores corporativos.</p>
@@ -1232,7 +1232,7 @@ docker run -d --name db --network minha-rede postgres
 
         <h2>No Dia a Dia</h2>
         <h3>10. Planejar Viagens</h3>
-        <p>"Monte um roteiro de 5 dias em Lisboa com orçamento de R$ 5.000 incluindo passagens." A IA sugere voos, hotéis, restaurantes e pontos turísticos.</p>
+        <p>"Monte um roteiro de 5 dias em Lisboa com valor do atendimento de R$ 5.000 incluindo passagens." A IA sugere voos, hotéis, restaurantes e pontos turísticos.</p>
 
         <h3>11. Receitas com o Que Tem na Geladeira</h3>
         <p>"Tenho frango, batata, cebola e creme de leite. Qual receita posso fazer?" Personalizado e instantâneo.</p>
@@ -2464,7 +2464,7 @@ docker run -d --name db --network minha-rede postgres
 
   "erros-comuns-upgrade-computador": {
     title: "5 Erros Comuns ao Fazer Upgrade no Computador (e Como Evitar Prejuízo)",
-    excerpt: "Comprar RAM incompatível, instalar SSD errado, forçar peças no slot — veja os erros que causam prejuízo.",
+    excerpt: "Comprar RAM incompatível, instalar SSD errado, favaliar o valor peças no slot — veja os erros que causam prejuízo.",
     date: "2026-04-06",
     readTime: "8 min",
     category: "Manutenção",
@@ -2480,8 +2480,8 @@ docker run -d --name db --network minha-rede postgres
         <p>Existem SSDs SATA (2.5") e SSDs NVMe (M.2). Nem toda placa-mãe tem slot M.2, e mesmo as que têm podem suportar apenas SATA no slot M.2, não NVMe. Instalar o tipo errado significa que o SSD simplesmente <strong>não será reconhecido</strong>.</p>
         <p><strong>Como evitar:</strong> Verifique no manual se há slot M.2 e se ele suporta NVMe ou apenas SATA.</p>
 
-        <h2>3. Forçar Peças no Slot Errado</h2>
-        <p>Memória DDR4 não encaixa em slot DDR3 — os encaixes são diferentes propositalmente. Mas vemos casos de clientes que <strong>forçaram a peça e quebraram o slot ou a própria memória</strong>. O mesmo vale para conectores de energia, cabos SATA e até ventoinhas.</p>
+        <h2>3. Favaliar o valor Peças no Slot Errado</h2>
+        <p>Memória DDR4 não encaixa em slot DDR3 — os encaixes são diferentes propositalmente. Mas vemos casos de clientes que <strong>favaliar o valoram a peça e quebraram o slot ou a própria memória</strong>. O mesmo vale para conectores de energia, cabos SATA e até ventoinhas.</p>
         <p><strong>Regra de ouro:</strong> Se não encaixou com pressão leve, está errado. Nunca force.</p>
 
         <h2>4. Não Reinstalar o Windows Após Trocar HD por SSD</h2>
@@ -2596,7 +2596,7 @@ docker run -d --name db --network minha-rede postgres
           <li>Análise de software: sistema operacional, drivers, malwares</li>
           <li>Verificação de temperatura e voltagem</li>
           <li>Identificação da causa raiz, não apenas do sintoma</li>
-          <li>Orçamento detalhado com opções de solução</li>
+          <li>valor detalhado com opções de solução</li>
         </ul>
 
         <h2>Por Que Não é Grátis?</h2>
@@ -3412,7 +3412,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li>❌ Usar pasta térmica demais (causa vazamento para os componentes ao redor)</li>
           <li>❌ Usar álcool 70% (contém água que pode danificar componentes)</li>
-          <li>❌ Forçar o dissipador sem alinhar corretamente</li>
+          <li>❌ Favaliar o valor o dissipador sem alinhar corretamente</li>
           <li>❌ Esquecer de reconectar o cabo do ventilador</li>
           <li>❌ Apertar os parafusos fora de ordem (pressão desigual)</li>
         </ul>
@@ -3741,7 +3741,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Perdeu Dados? Podemos Ajudar</h3>
-          <p className="text-muted-foreground mb-0">Fazemos diagnóstico e recuperação de dados em HD, SSD e pen drives. Atendimento em Curitiba e região com orçamento prévio.</p>
+          <p className="text-muted-foreground mb-0">Fazemos diagnóstico e recuperação de dados em HD, SSD e pen drives. Atendimento em Curitiba e região com valor prévio.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>
@@ -4099,7 +4099,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Instalação de Rede em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Fazemos cabeamento estruturado, crimpagem, certificação e passagem de cabos em residências e empresas. Orçamento sem compromisso.</p>
+          <p className="text-muted-foreground mb-0">Fazemos cabeamento estruturado, crimpagem, certificação e passagem de cabos em residências e empresas. atendimento sem compromisso.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>
@@ -5308,7 +5308,7 @@ Import-Csv "C:\\usuarios.csv" | ForEach-Object {
           <li><strong>Bloqueio de conta</strong> — bloquear após 5 tentativas incorretas por 30 minutos</li>
           <li><strong>Mapeamento de unidades de rede</strong> — drives compartilhados por departamento</li>
           <li><strong>Restrição de Painel de Controle</strong> — impedir alterações em configurações de rede</li>
-          <li><strong>Configuração de proxy</strong> — forçar uso do proxy corporativo</li>
+          <li><strong>Configuração de proxy</strong> — favaliar o valor uso do proxy corporativo</li>
           <li><strong>Papel de parede corporativo</strong> — identidade visual nos desktops</li>
           <li><strong>Instalação de software</strong> — distribuir programas automaticamente</li>
           <li><strong>Windows Update (WSUS)</strong> — controlar atualizações centralizadamente</li>
@@ -5564,7 +5564,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -5604,7 +5604,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Fazer Upgrade Para SSD NVMe em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer upgrade para ssd nvme em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer upgrade para ssd nvme em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -5679,7 +5679,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -5719,7 +5719,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Recuperar Dados de HD Com Defeito em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza recuperar dados de hd com defeito em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza recuperar dados de hd com defeito em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -5794,7 +5794,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -5834,7 +5834,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Trocar a Tela do Notebook em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza trocar a tela do notebook em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza trocar a tela do notebook em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -5909,7 +5909,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -5949,7 +5949,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Fazer Backup Completo do Windows 11 em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer backup completo do windows 11 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer backup completo do windows 11 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6091,7 +6091,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -6131,7 +6131,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Resolver Tela Azul do Windows (BSOD) em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza resolver tela azul do windows (bsod) em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza resolver tela azul do windows (bsod) em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6206,7 +6206,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -6246,7 +6246,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Fazer Overclock de CPU com Segurança em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer overclock de cpu com segurança em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer overclock de cpu com segurança em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6321,7 +6321,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <ul>
           <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
           <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Forçar conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
+          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
           <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
           <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
           <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
@@ -6361,7 +6361,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Montar um PC Gamer em 2026 em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza montar um pc gamer em 2026 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e orçamento transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza montar um pc gamer em 2026 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>

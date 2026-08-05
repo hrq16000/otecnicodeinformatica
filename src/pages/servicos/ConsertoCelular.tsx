@@ -52,15 +52,15 @@ const cidades = [
 
 const ConsertoCelular = () => {
   useEffect(() => {
-    document.title = "Conserto de Celular em Curitiba e Região | Orçamento sem Compromisso | Técnico Curitiba";
+    document.title = "Conserto de Celular em Curitiba e Região | valor do atendimento sem Compromisso | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Conserto de celular e smartphone em Curitiba e região metropolitana. iPhone, Samsung, Motorola, Xiaomi. Orçamento humanizado sem compromisso. Troca de tela, bateria e mais.");
+    if (meta) meta.setAttribute("content", "Conserto de celular e smartphone em Curitiba e região metropolitana. iPhone, Samsung, Motorola, Xiaomi. valor do atendimento humanizado sem compromisso. Troca de tela, bateria e mais.");
     trackPageView("/servicos/conserto-celular", "Conserto de Celular");
   }, []);
 
   const handleWhatsAppClick = () => {
     trackCTAClick("whatsapp", "conserto-celular");
-    const msg = encodeURIComponent("Olá! Preciso de orçamento para conserto de celular. Qual o procedimento?");
+    const msg = encodeURIComponent("Olá! Preciso de valor do atendimento para conserto de celular. Qual o procedimento?");
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   };
 
@@ -79,8 +79,8 @@ const ConsertoCelular = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO noindex
-        title="Conserto de Celular em Curitiba e Região | Orçamento sem Compromisso"
-        description="Conserto de celular e smartphone. iPhone, Samsung, Motorola, Xiaomi. Orçamento humanizado sem compromisso."
+        title="Conserto de Celular em Curitiba e Região | valor do atendimento sem Compromisso"
+        description="Conserto de celular e smartphone. iPhone, Samsung, Motorola, Xiaomi. valor do atendimento humanizado sem compromisso."
         path="/servicos/conserto-celular"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Conserto de Celular", path: "/servicos/conserto-celular" }]}
       />
@@ -115,7 +115,7 @@ const ConsertoCelular = () => {
 
             <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar Orçamento via WhatsApp
+              Solicitar valor do atendimento via WhatsApp
             </Button>
           </div>
         </div>
@@ -132,7 +132,7 @@ const ConsertoCelular = () => {
               {[
                 { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema do celular, modelo e envie fotos. ${REGRA_ORCAMENTO_GRATIS}.` },
                 { step: "2", titulo: "Coleta do Aparelho", desc: `Organizamos a coleta no seu endereço ou você traz à oficina. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
-                { step: "3", titulo: "Diagnóstico e Orçamento", desc: "Avaliamos o aparelho e informamos o valor do reparo. Orçamento preciso somente após coleta." },
+                { step: "3", titulo: "Diagnóstico e valor do atendimento", desc: "Avaliamos o aparelho e informamos o valor do reparo. valor do atendimento preciso somente após coleta." },
                 { step: "4", titulo: "Reparo Rápido", desc: `Após aprovação, realizamos o conserto. Prazo: ${PRAZO_RAPIDO}.` },
               ].map((p, i) => (
                 <div key={i} className="text-center p-6 bg-secondary rounded-xl">
@@ -199,7 +199,7 @@ const ConsertoCelular = () => {
               {[
                 { icon: Users, titulo: "Atendimento Humanizado", desc: "Explicamos o problema com clareza. Sem jargão técnico, sem pressão para aprovar." },
                 { icon: Shield, titulo: "Garantia no Serviço", desc: "Todo reparo conta com garantia. Peças de qualidade e mão de obra profissional." },
-                { icon: CheckCircle, titulo: "Orçamento Transparente", desc: "Valor informado antes de qualquer execução. Você só paga se aprovar o serviço." },
+                { icon: CheckCircle, titulo: "valor do atendimento Transparente", desc: "Valor informado antes de qualquer execução. Você só paga se aprovar o serviço." },
                 { icon: Clock, titulo: "Prazo Rápido", desc: `Prazo para celular: ${PRAZO_RAPIDO}. Informamos desde o início.` },
               ].map((d, i) => (
                 <div key={i} className="text-center p-6 bg-background rounded-xl">
@@ -223,11 +223,11 @@ const ConsertoCelular = () => {
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 { q: "Vocês fazem visita técnica para celular?", a: `Não. ${REGRA_COLETA_SEM_VISITA} Organizamos coleta e entrega com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                { q: "Quanto custa o conserto?", a: `${REGRA_ORCAMENTO_GRATIS}. Orçamento preciso somente após coleta do aparelho, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
+                { q: "Quanto custa o conserto?", a: `${REGRA_ORCAMENTO_GRATIS}. valor do atendimento preciso somente após coleta do aparelho, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { q: "Trocam tela de iPhone?", a: "Sim. Trabalhamos com telas originais e compatíveis de alta qualidade para todos os modelos de iPhone." },
                 { q: "Quanto tempo leva o reparo?", a: `Prazo padrão para celular: ${PRAZO_RAPIDO}.` },
                 { q: "Quais formas de pagamento?", a: "PIX, dinheiro e cartão. Consulte condições pelo WhatsApp." },
-                { q: "A garantia cobre o quê?", a: "Cobre o serviço realizado e a peça trocada pelo prazo informado no orçamento." },
+                { q: "A garantia cobre o quê?", a: "Cobre o serviço realizado e a peça trocada pelo prazo informado no valor do atendimento." },
               ].map((faq, i) => (
                 <div key={i} className="bg-secondary p-6 rounded-xl">
                   <h3 className="font-bold text-foreground mb-2">{faq.q}</h3>
@@ -265,14 +265,14 @@ const ConsertoCelular = () => {
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
-            Celular com Defeito? Solicite um Orçamento
+            Celular com Defeito? Solicite um valor do atendimento
           </h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Entre em contato pelo WhatsApp e descreva o problema. Atendimento humanizado, orçamento transparente e sem compromisso.
+            Entre em contato pelo WhatsApp e descreva o problema. Atendimento humanizado, valor transparente e sem compromisso.
           </p>
           <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar Orçamento pelo WhatsApp
+            Solicitar valor do atendimento pelo WhatsApp
           </Button>
         </div>
       </section>

@@ -51,7 +51,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     icon: ShieldCheck,
     body: (
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>Responder solicitações de orçamento e suporte pelo WhatsApp/telefone.</li>
+        <li>Responder solicitações de valor do atendimento e suporte pelo WhatsApp/telefone.</li>
         <li>Executar e dar garantia ao serviço técnico contratado.</li>
         <li>Emitir nota fiscal e cumprir obrigações legais/fiscais.</li>
         <li>Melhorar o site, medir desempenho de campanhas e prevenir fraude.</li>

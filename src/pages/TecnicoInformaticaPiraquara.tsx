@@ -23,7 +23,7 @@ const benefits = [
   { icon: MapPin, title: "Atendimento em Todo Piraquara", description: "Cobrimos do Centro ao Jardim Primavera. Técnico com conhecimento da região." },
   { icon: Clock, title: "Chegamos em 40-60 Minutos", description: "Acesso pela BR-116 e Estrada do Encanamento. Agendamento conforme a disponibilidade da agenda quando possível." },
   { icon: Shield, title: "Técnico identificado", description: "Atuação em informática desde 1998, com equipamento profissional e registro do atendimento." },
-  { icon: Wrench, title: "Garantia em Todo Serviço", description: "Diagnóstico transparente, orçamento antes da execução e garantia por escrito." },
+  { icon: Wrench, title: "Garantia em Todo Serviço", description: "Diagnóstico transparente, valor antes da execução e garantia por escrito." },
 ];
 
 const bairros = [
@@ -49,7 +49,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Piraquara a domicílio?", answer: "Sim. Atendemos todos os bairros de Piraquara com visita agendada. O deslocamento leva de 40 a 60 minutos dependendo do bairro." },
-  { question: "Qual o valor da visita técnica em Piraquara?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com orçamento antes da execução." },
+  { question: "Qual o valor da visita técnica em Piraquara?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com valor antes da execução." },
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços de bancada (reparo de placa, troca de tela), coletamos e devolvemos no seu endereço." },
   { question: "Atendem empresas em Piraquara?", answer: "Sim. Suporte para escritórios, comércios e pequenas empresas com manutenção de rede, backup e suporte contínuo." },
 ];

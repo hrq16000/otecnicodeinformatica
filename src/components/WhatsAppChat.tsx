@@ -19,8 +19,8 @@ const presetMessages = [
     message: "Olá! Preciso de suporte remoto. Meu computador está [DESCREVA O PROBLEMA]."
   },
   {
-    label: "Orçamento geral",
-    message: "Olá! Gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO]."
+    label: "valor do atendimento geral",
+    message: "Olá! Gostaria de solicitar um valor do atendimento para [DESCREVA O SERVIÇO]."
   }
 ];
 

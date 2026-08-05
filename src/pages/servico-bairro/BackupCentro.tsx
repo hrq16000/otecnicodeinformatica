@@ -36,7 +36,7 @@ const data: ServicoBairroData = {
   
   processoPasso: [
     { titulo: "Avaliação", descricao: "Analisamos a situação e chances de recuperação" },
-    { titulo: "Orçamento", descricao: "Informamos o valor antes de qualquer procedimento" },
+    { titulo: "valor do atendimento", descricao: "Informamos o valor antes de qualquer procedimento" },
     { titulo: "Execução", descricao: "Realizamos backup ou recuperação com ferramentas profissionais" },
     { titulo: "Entrega", descricao: "Seus dados seguros e organizados de volta" },
   ],
@@ -48,7 +48,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto custa recuperar dados?", 
-      resposta: "O valor varia conforme a complexidade. Recuperações simples (arquivos deletados) a partir de R$ 89,99. Casos de HD com defeito físico têm orçamento personalizado." 
+      resposta: "O valor varia conforme a complexidade. Recuperações simples (arquivos deletados) a partir de R$ 89,99. Casos de HD com defeito físico têm valor do atendimento personalizado." 
     },
     { 
       pergunta: "Vocês configuram backup automático?", 

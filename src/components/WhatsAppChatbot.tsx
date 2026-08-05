@@ -212,7 +212,7 @@ const chatFlow = {
 
   // ===== PERGUNTAS OBRIGATÓRIAS =====
   perguntas_obrigatorias: {
-    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: A partir de R$ 69,99\n• Diagnóstico é pago e abatido do reparo\n• Não existe orçamento gratuito presencial",
+    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: A partir de R$ 69,99\n• Diagnóstico é pago e abatido do reparo\n• Não existe atendimento sem compromisso presencial",
     opcoes: [
       { label: "Enviar dados pelo WhatsApp", proximo: "whatsapp_visita" },
     ]
@@ -241,7 +241,7 @@ const chatFlow = {
   },
 
   precos: {
-    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 69,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 90-100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe orçamento gratuito presencial.** Estimativas via WhatsApp são aproximadas.",
+    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 69,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 90-100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe atendimento sem compromisso presencial.** Estimativas via WhatsApp são aproximadas.",
     opcoes: [
       { label: "Ver tabela completa no site", proximo: "link_precos" },
       { label: "Quero agendar um serviço", proximo: "tipo_equipamento" },
@@ -339,8 +339,8 @@ const chatFlow = {
   whatsapp_tv: { redirect: true, mensagem: "Olá! Preciso de reparo na minha TV.\n\nMarca/Modelo: [MARCA E MODELO]\nTamanho: [POLEGADAS]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\n\nVou enviar fotos/vídeo do defeito." },
   whatsapp_tela: { redirect: true, mensagem: "Olá! Preciso trocar a tela do meu notebook.\n\nMarca/Modelo: [MARCA E MODELO EXATO]\nTipo: [TOUCH ou COMUM]\nProblema: [DESCREVA]\n\nVou enviar fotos do dano." },
   whatsapp_upgrade: { redirect: true, mensagem: "Olá! Gostaria de fazer upgrade no meu equipamento.\n\nMarca/Modelo: [MARCA E MODELO]\nUpgrade desejado: [SSD/RAM/OUTRO]\n\nGostaria de verificar compatibilidade antes de comprar." },
-  whatsapp_montagem: { redirect: true, mensagem: "Olá! Gostaria de consultoria para montagem de PC.\n\nUso: [JOGOS/TRABALHO/ESCRITÓRIO]\nOrçamento: [VALOR DISPONÍVEL]\n\nPreciso de ajuda para escolher os componentes." },
-  whatsapp_cftv: { redirect: true, mensagem: "Olá! Tenho interesse em câmeras de segurança (CFTV).\n\nLocal: [RESIDÊNCIA/COMÉRCIO/EMPRESA]\nEndereço: [CIDADE/BAIRRO]\nQuantidade estimada: [CÂMERAS]\n\nGostaria de um orçamento." },
+  whatsapp_montagem: { redirect: true, mensagem: "Olá! Gostaria de consultoria para montagem de PC.\n\nUso: [JOGOS/TRABALHO/ESCRITÓRIO]\nvalor do atendimento: [VALOR DISPONÍVEL]\n\nPreciso de ajuda para escolher os componentes." },
+  whatsapp_cftv: { redirect: true, mensagem: "Olá! Tenho interesse em câmeras de segurança (CFTV).\n\nLocal: [RESIDÊNCIA/COMÉRCIO/EMPRESA]\nEndereço: [CIDADE/BAIRRO]\nQuantidade estimada: [CÂMERAS]\n\nGostaria de um valor do atendimento." },
 };
 
 type ChatFlowKey = keyof typeof chatFlow;

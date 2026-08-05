@@ -79,7 +79,7 @@ const ServicoCidadePage = () => {
   };
 
   const beneficios = isSemVisita ? [
-    { icon: CheckCircle, titulo: "Orçamento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
+    { icon: CheckCircle, titulo: "valor do atendimento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
     { icon: Clock, titulo: "Prazo Transparente", descricao: "Informamos o prazo desde o início. Atualizações por WhatsApp" },
     { icon: Shield, titulo: "Garantia no Serviço", descricao: "Todo reparo conta com garantia. Peças de qualidade" },
     { icon: Star, titulo: "Atendimento Humanizado", descricao: "Explicamos o problema com clareza, sem jargão técnico" },
@@ -87,7 +87,7 @@ const ServicoCidadePage = () => {
     { icon: MapPin, titulo: `Atendimento Local em ${cidade.nome}`, descricao: "Técnico vai até seu endereço com todas as ferramentas" },
     { icon: Clock, titulo: "Atendimento conforme a agenda", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
     { icon: Shield, titulo: "Garantia em Todos os Serviços", descricao: "Serviço garantido. Se precisar, voltamos sem custo" },
-    { icon: Star, titulo: "Orçamento Grátis", descricao: "Avaliação sem compromisso. Você só paga se aprovar" },
+    { icon: Star, titulo: "valor do atendimento Grátis", descricao: "Avaliação sem compromisso. Você só paga se aprovar" },
   ];
 
   return (
@@ -118,12 +118,12 @@ const ServicoCidadePage = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
-              {servico.nome} em {cidade.nome}{isSemVisita ? " – Orçamento sem Compromisso" : " – Técnico a Domicílio"}
+              {servico.nome} em {cidade.nome}{isSemVisita ? " – valor do atendimento sem Compromisso" : " – Técnico a Domicílio"}
             </h1>
 
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               {isSemVisita 
-                ? `Orçamento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
+                ? `valor do atendimento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
                 : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
               }
             </p>
@@ -143,7 +143,7 @@ const ServicoCidadePage = () => {
             <div className="flex flex-wrap justify-center gap-3 mb-8 reveal-text" data-reveal-delay="200">
               {(isSemVisita 
                 ? [["✓ Sem compromisso"], ["✓ Todas as marcas"], ["✓ Garantia"]]
-                : [["✓ Conforme agenda"], ["✓ Sem sair de casa"], ["✓ Orçamento grátis"]]
+                : [["✓ Conforme agenda"], ["✓ Sem sair de casa"], ["✓ atendimento sem compromisso"]]
               ).map(([text], i) => (
                 <span key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">{text}</span>
               ))}
@@ -152,7 +152,7 @@ const ServicoCidadePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="300">
               <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick} className="hover:scale-105 transition-transform">
                 <MessageCircle className="mr-2 h-5 w-5" />
-                {isSemVisita ? "Solicitar Orçamento" : "Chamar pelo WhatsApp"}
+                {isSemVisita ? "Solicitar valor do atendimento" : "Chamar pelo WhatsApp"}
               </Button>
             </div>
           </div>

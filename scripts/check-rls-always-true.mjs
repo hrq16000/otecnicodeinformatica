@@ -60,11 +60,27 @@ function buildState(files) {
       const cmd = (body.match(/\bFOR\s+(ALL|SELECT|INSERT|UPDATE|DELETE)\b/i) || [])[1]?.toUpperCase() || "ALL";
       const using = /\bUSING\s*\(\s*true\s*\)/i.test(body);
       const check = /\bWITH\s+CHECK\s*\(\s*true\s*\)/i.test(body);
+
+      // Localiza a linha exata do CREATE POLICY e das cláusulas always-true,
+      // para que o desenvolvedor consiga corrigir sem caçar o SQL manualmente.
+      const startLine = sql.slice(0, m.index).split("\n").length;
+      const statement = (m[0] || "").trim();
+      const stmtLines = statement.split("\n");
+      const offenders = [];
+      stmtLines.forEach((text, i) => {
+        if (/\bUSING\s*\(\s*true\s*\)/i.test(text) || /\bWITH\s+CHECK\s*\(\s*true\s*\)/i.test(text)) {
+          offenders.push({ line: startLine + i, text: text.trim() });
+        }
+      });
+
       state.set(`${table}::${name}`, {
         file,
         name,
         table,
         cmd,
+        line: startLine,
+        statement,
+        offenders,
         alwaysTrue: using || check,
         clauses: [using && "USING(true)", check && "WITH CHECK(true)"].filter(Boolean),
       });
@@ -86,22 +102,38 @@ for (const h of all) {
   else violations.push(h);
 }
 
+/** `--explain` (ou `--sql`) imprime a política, o arquivo:linha e o SQL ofensor. */
+const EXPLAIN = process.argv.includes("--explain") || process.argv.includes("--sql");
+
+function explain(p, stream = console.error) {
+  stream(`     ↳ ${p.file}:${p.line}`);
+  for (const o of p.offenders) stream(`        L${o.line}: ${o.text}`);
+  if (EXPLAIN) {
+    stream("        --- statement ---");
+    for (const l of p.statement.split("\n")) stream(`        ${l}`);
+  }
+}
 
 console.log(`[security] ${FINDING_ID} guard — scanned ${files.length} migration file(s)`);
 for (const a of allowed) {
   console.log(`  \u2139 allowlisted: ${a.table} ${a.cmd} "${a.name}" — ${a.reason}`);
+  if (EXPLAIN) explain(a, console.log);
 }
 
 if (violations.length > 0) {
   console.error(`\n[security] FAILED: ${violations.length} always-true RLS policy(ies) detected (${FINDING_ID}):`);
   for (const v of violations) {
     console.error(`  \u2717 ${v.table} ${v.cmd} "${v.name}" ${v.clauses.join(" + ")}  (${v.file})`);
+    explain(v);
   }
   console.error(
     "\nReplace the literal `true` with a scoped predicate (e.g. auth.uid() = user_id or " +
       "has_role(auth.uid(), 'admin')). If the openness is intentional, add the table to " +
       "ALLOWLIST in scripts/check-rls-always-true.mjs with a justification in the same PR.",
   );
+  if (process.argv.includes("--json")) {
+    console.log("__JSON__" + JSON.stringify({ findingId: FINDING_ID, files: files.length, allowed, violations }));
+  }
   process.exit(1);
 }
 
@@ -111,3 +143,4 @@ console.log(`[security] OK — no unexpected always-true RLS policies \u2714`);
 if (process.argv.includes("--json")) {
   console.log("__JSON__" + JSON.stringify({ findingId: FINDING_ID, files: files.length, allowed, violations }));
 }
+

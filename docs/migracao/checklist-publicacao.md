@@ -106,6 +106,17 @@ sendo passo manual e é registrada como pendência no relatório 5C.1.
 Sem a frase exata **`APROVO 612 REGRAS`** e sem a lista completa de 612 origens,
 o script bloqueia e nada é alterado.
 
+## 6B. Simulação local ANTES de publicar (offline)
+
+| # | Passo | Comando |
+| --- | --- | --- |
+| 6B.1 | Simular a matriz contra as origens + kept_urls | `npm run simulate:redirects` |
+| 6B.2 | Modo bloqueante (conflitos, loops, cadeias, kept colidindo, destino fora do canônico, 301 genérico para `/`) | `npm run simulate:redirects:strict` |
+| 6B.3 | Simular contra uma lista própria de URLs | `node scripts/simulate-redirects.mjs --urls=docs/migracao/old-paths.txt --enforce` |
+
+Artefatos: `reports/redirect-simulation.md` e `reports/redirect-simulation.json`.
+Nada é enviado à rede — é validação puramente local da fonte de verdade.
+
 ## 7. Pós-publicação
 
 - [ ] Aplicar as 612 regras 301 na edge do domínio antigo.
@@ -113,6 +124,30 @@ o script bloqueia e nada é alterado.
 - [ ] Search Console: solicitar "Alteração de endereço" e reenviar sitemaps.
 - [ ] `npm run indexnow:ping`.
 - [ ] Manter o domínio antigo ativo por, no mínimo, 12 meses.
+
+### 7A. Verificação pós-publicação no Cloudflare
+
+| # | Passo | Comando |
+| --- | --- | --- |
+| 7A.1 | Confirmar que as 612 regras estão ATIVAS no ruleset e que as 41 críticas retornam o `Location` exato | `npm run verify:cf` |
+| 7A.2 | Mesma verificação em modo bloqueante | `npm run verify:cf:strict` |
+| 7A.3 | Purgar cache/CDN (automático no publish; manual quando necessário) | `npm run purge:cf` · simulação: `npm run purge:cf:dry` |
+| 7A.4 | Purge total da zona | `node scripts/purge-cloudflare-cache.mjs --all` |
+
+O `scripts/publish-cloudflare-redirects.mjs` já dispara o purge das URLs
+afetadas logo após aplicar o ruleset. Use `--no-purge` para desligar e
+`--purge-all` para purgar a zona inteira.
+
+### 7B. Relatório HTML de evidências para aprovação
+
+| # | Passo | Comando |
+| --- | --- | --- |
+| 7B.1 | Gerar evidências das 41 URLs críticas | `npm run report:critical-evidence` |
+| 7B.2 | Amostra rápida | `node scripts/report-critical-evidence.mjs --limit=10` |
+
+Cada bloco traz cabeçalhos HTTP (incluindo `cf-cache-status`), cadeia completa
+de redirect, `<head>` final, trechos de JSON-LD, links `wa.me`/`tel:` e a prova
+de ausência do número legado. Artefato: `reports/critical-evidence.html`.
 
 ## Locais dos artefatos
 
@@ -125,4 +160,8 @@ reports/nap-whatsapp.json      evidência NAP/WhatsApp por URL
 redirects/tecnicocuritiba.map.json   matriz de 612 regras + 10 URLs mantidas
 redirects/rollback/<stamp>/    pacote de rollback gerado na publicação
 docs/migracao/aprovacao-urls.txt     lista das 612 origens para aprovação
+reports/redirect-simulation.md       simulação local da matriz (offline)
+reports/cloudflare-publish-verification.md  verificação pós-publicação (ruleset + 41 críticas)
+reports/critical-evidence.html       relatório HTML de evidências para aprovação
+redirects/rollback/cloudflare/       backups do ruleset Cloudflare
 ```

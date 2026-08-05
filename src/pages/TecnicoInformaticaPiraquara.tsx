@@ -22,7 +22,7 @@ import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home
 const benefits = [
   { icon: MapPin, title: "Atendimento em Todo Piraquara", description: "Cobrimos do Centro ao Jardim Primavera. Técnico com conhecimento da região." },
   { icon: Clock, title: "Chegamos em 40-60 Minutos", description: "Acesso pela BR-116 e Estrada do Encanamento. Agendamento conforme a disponibilidade da agenda quando possível." },
-  { icon: Shield, title: "Técnico Credenciado", description: "Mais de 20 anos de experiência. Profissional identificado com equipamento profissional." },
+  { icon: Shield, title: "Técnico identificado", description: "Atuação em informática desde 1998, com equipamento profissional e registro do atendimento." },
   { icon: Wrench, title: "Garantia em Todo Serviço", description: "Diagnóstico transparente, orçamento antes da execução e garantia por escrito." },
 ];
 

@@ -21,7 +21,7 @@ const FAQS = [
   { question: "Minha impressora não puxa papel, é caro consertar?", answer: "Geralmente não. Na maioria dos casos é a borrachinha do rolo de tração ressecada (R$ 99 a R$ 180 já com peça). Em casos de engrenagem quebrada o orçamento pode subir, mas avaliamos antes." },
   { question: "Atendem em domicílio ou só na loja?", answer: "Atendemos em domicílio em toda Curitiba e região metropolitana, com deslocamento médio de 30 a 60 minutos. Para impressoras corporativas grandes também fazemos coleta e entrega." },
   { question: "Vale a pena consertar minha impressora ou comprar uma nova?", answer: "Como regra: se o orçamento ficar abaixo de 60% do valor de uma equivalente nova, vale consertar. Em impressoras com tanque de tinta (EcoTank, Smart Tank) quase sempre compensa pelo custo da tinta original." },
-  { question: "Vocês recarregam cartucho ou trocam toner?", answer: "Sim. Recarga de cartucho a partir de R$ 49,99, toner original e compatível em estoque. Também instalamos sistemas de bulk ink (tanque externo) com garantia de 6 meses." },
+  { question: "Vocês recarregam cartucho ou trocam toner?", answer: "Sim. Recarga de cartucho a partir de R$ 49,99, toner original e compatível em estoque. Também instalamos sistemas de bulk ink (tanque externo) com garantia do fornecedor do sistema." },
 ];
 
 const ConsertoImpressoraCuritiba = () => {

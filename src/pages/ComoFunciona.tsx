@@ -785,7 +785,7 @@ const servicos = [
 ];
 
 const confiancaItems = [
-  { icon: BadgeCheck, title: "Atendimento Profissional e Certificado", desc: "Técnicos com experiência comprovada em assistência técnica de informática. Emitimos nota fiscal e fornecemos garantia por escrito em todos os serviços realizados." },
+  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no orçamento aprovado." },
   { icon: Clock, title: "Atendimento Rápido — Conforme agenda", desc: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
   { icon: Eye, title: "Transparência Total nos Valores", desc: "Orçamento informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
   { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 30 a 90 dias. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },

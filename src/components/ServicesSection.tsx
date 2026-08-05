@@ -146,7 +146,7 @@ const allServices: Service[] = [
     benefit: "Atendimento prioritário para manter a operação rodando.",
     link: "/servicos/suporte-tecnico-empresarial",
     preco: "Sob consulta",
-    tempo: "SLA combinado",
+    tempo: "Prazo combinado",
     waMessage: "Olá! Quero contratar suporte de TI para minha empresa em Curitiba.",
     details: { what: "Suporte remoto/presencial, rede, backup e estações.", bring: "Quantidade de computadores e urgências atuais." },
   },

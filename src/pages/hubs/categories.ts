@@ -105,7 +105,7 @@ export const CATEGORIES: Record<CategoryId, CategoryData> = {
     ],
     faqs: [
       { q: "Conserto de PS5 com HDMI queimado tem garantia?", a: "Sim. 90 dias de garantia em microsoldagem de HDMI executada na nossa bancada." },
-      { q: "Vale a pena trocar pasta térmica do PS4/Xbox?", a: "Sim — superaquecimento é a causa nº1 de falha de chip. Manutenção preventiva custa muito menos que reparo de placa." },
+      { q: "Vale a pena trocar pasta térmica do PS4/Xbox?", a: "Sim — superaquecimento é uma das principais causas de falha de chip. Manutenção preventiva custa muito menos que reparo de placa." },
       { q: "Atendem Nintendo Switch?", a: "Sim: troca de bateria, joycon drift, leitor de cartucho, conector de carga e HDMI da dock." },
     ],
     precoVisita: "R$ 300 (mínimo · diagnóstico incluso)",

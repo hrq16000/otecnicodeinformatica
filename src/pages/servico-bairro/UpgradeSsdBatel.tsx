@@ -29,7 +29,7 @@ const data: ServicoBairroData = {
     "Upgrade de memória RAM DDR4/DDR5",
     "Boot do Windows em menos de 15 segundos",
     "Programas abrindo instantaneamente",
-    "Garantia de 1 ano nas peças",
+    "Garantia de 90 dias sobre o serviço executado (peças seguem a garantia do fornecedor)",
     "Atendimento a domicílio no Batel",
   ],
   

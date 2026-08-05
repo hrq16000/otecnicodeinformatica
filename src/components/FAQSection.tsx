@@ -30,11 +30,11 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Os serviços têm garantia?",
-    answer: "Sim, todos os nossos serviços têm garantia por escrito. A formatação e limpeza têm 30 dias de garantia. Serviços de hardware como troca de SSD, memória RAM e outras peças têm de 90 dias a 1 ano de garantia, dependendo do componente instalado."
+    answer: "Sim. O serviço executado tem 90 dias de garantia sobre a mão de obra, registrada por escrito no orçamento aprovado. Peças e componentes seguem a garantia do fornecedor/fabricante."
   },
   {
     question: "Vocês atendem empresas também?",
-    answer: "Sim! Atendemos pequenas e médias empresas com contratos de suporte técnico contínuo, manutenção preventiva, configuração de redes e servidores. Oferecemos planos mensais com SLA garantido e atendimento prioritário."
+    answer: "Sim. Atendemos pequenas e médias empresas com suporte técnico contínuo, manutenção preventiva e configuração de redes e servidores. O escopo e a periodicidade são combinados caso a caso, sempre com orçamento por escrito."
   },
   {
     question: "Como funciona o atendimento remoto?",

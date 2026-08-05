@@ -89,7 +89,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
     {
       icon: Shield,
       title: "Profissional Identificado",
-      description: "Técnico credenciado, com identificação e equipamentos profissionais. Segurança para sua família.",
+      description: "Técnico identificado, com equipamentos profissionais e registro do atendimento. Segurança para sua família.",
     },
     {
       icon: Wrench,

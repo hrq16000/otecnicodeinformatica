@@ -52,7 +52,7 @@ const MODALITY_COPY: Record<Modality, {
   },
   coleta: {
     title: "Coleta e entrega em andamento",
-    intro: "Como o serviço exige bancada, combinamos a coleta do equipamento. O diagnóstico completo acontece em nosso laboratório com laudo técnico.",
+    intro: "Como o serviço exige bancada, combinamos a coleta do equipamento. O diagnóstico completo acontece em bancada, com registro técnico do que foi verificado.",
     prazo: "Coleta agendada por WhatsApp; laudo em 1–3 dias úteis após recebimento.",
     icon: Truck,
     steps: [

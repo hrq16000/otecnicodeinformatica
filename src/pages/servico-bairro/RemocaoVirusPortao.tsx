@@ -32,7 +32,7 @@ const data: ServicoBairroData = {
     "Recuperação de arquivos sequestrados",
     "Instalação de antivírus profissional",
     "Otimização do sistema pós-limpeza",
-    "Garantia de 30 dias contra reinfecção",
+    "Garantia de 90 dias sobre o serviço executado",
   ],
   
   processoPasso: [

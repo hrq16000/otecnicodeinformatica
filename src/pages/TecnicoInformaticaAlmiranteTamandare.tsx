@@ -33,7 +33,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Técnico Experiente",
-    description: "Mais de 20 anos de experiência em assistência técnica. Profissional identificado e credenciado.",
+    description: "Atuação em informática desde 1998. Profissional identificado, com registro do atendimento por escrito.",
   },
   {
     icon: Wrench,

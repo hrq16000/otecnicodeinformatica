@@ -32,8 +32,8 @@ const benefits = [
   },
   {
     icon: Shield,
-    title: "Profissional Credenciado",
-    description: "Técnico identificado, com equipamento profissional e mais de 20 anos de experiência.",
+    title: "Profissional identificado",
+    description: "Técnico identificado, com equipamento profissional e atuação em informática desde 1998.",
   },
   {
     icon: Wrench,

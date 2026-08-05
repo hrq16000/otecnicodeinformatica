@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { TermosCtaLink } from "@/components/TermosCtaLink";
+import { LocalidadeInput } from "@/components/funnel/LocalidadeInput";
 import { geoSuggestion, subscribeGeo } from "@/lib/geoContext";
 import { trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES, REGRA_CANCELAMENTO, NOTA_VISITA_AVULSA } from "@/lib/precosConfig";
@@ -117,6 +118,92 @@ const OrdemDeServico = () => {
     }
   };
 
+  const baixarPdf = async () => {
+    const n = garantirNumero();
+    const { jsPDF } = await import("jspdf");
+    const doc = new jsPDF({ unit: "pt", format: "a4" });
+    const M = 48;
+    const W = doc.internal.pageSize.getWidth();
+    let y = M;
+
+    doc.setFillColor(15, 42, 56);
+    doc.rect(0, 0, W, 84, "F");
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("Ordem de serviço", M, 42);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text("Técnico em Curitiba · tecnico.curitiba.br", M, 62);
+    doc.setFontSize(11);
+    doc.text(n, W - M, 42, { align: "right" });
+    y = 116;
+
+    doc.setTextColor(20, 28, 38);
+    const linha = (label: string, valor: string) => {
+      if (!valor) return;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.text(label, M, y);
+      doc.setFont("helvetica", "normal");
+      const partes = doc.splitTextToSize(valor, W - M * 2 - 130);
+      doc.text(partes, M + 130, y);
+      y += Math.max(16, partes.length * 14) + 4;
+    };
+
+    linha("Data", new Date().toLocaleDateString("pt-BR"));
+    linha("Cliente", form.nome);
+    linha("Bairro/cidade", form.local);
+    linha("Equipamento", form.equipamento);
+    linha("Marca/modelo", form.marcaModelo);
+    linha("Acessórios", form.acessorios);
+    linha("Problema relatado", form.sintoma);
+
+    y += 8;
+    doc.setDrawColor(210, 216, 222);
+    doc.line(M, y, W - M, y);
+    y += 24;
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.text("Modalidade e condições", M, y);
+    y += 18;
+    doc.setFontSize(10);
+    doc.text(modalidade.titulo, M, y);
+    y += 16;
+    doc.setFont("helvetica", "normal");
+    doc.text(`${modalidade.valorLabel} — ${modalidade.unidade}`, M, y);
+    y += 18;
+    for (const d of modalidade.detalhes) {
+      const partes = doc.splitTextToSize(`• ${d}`, W - M * 2);
+      doc.text(partes, M, y);
+      y += partes.length * 13 + 2;
+    }
+
+    y += 12;
+    doc.setFont("helvetica", "bold");
+    doc.text("Cancelamento", M, y);
+    y += 14;
+    doc.setFont("helvetica", "normal");
+    const cancel = doc.splitTextToSize(REGRA_CANCELAMENTO, W - M * 2);
+    doc.text(cancel, M, y);
+    y += cancel.length * 13 + 10;
+    const nota = doc.splitTextToSize(NOTA_VISITA_AVULSA, W - M * 2);
+    doc.text(nota, M, y);
+    y += nota.length * 13 + 18;
+
+    doc.setFontSize(9);
+    doc.setTextColor(110, 118, 128);
+    const rodape = doc.splitTextToSize(
+      "Documento de registro do atendimento. Peças, componentes e licenças não estão inclusos. Condições completas em tecnico.curitiba.br/precos-e-politicas.",
+      W - M * 2,
+    );
+    doc.text(rodape, M, y);
+
+    doc.save(`${n}.pdf`);
+    toast.success("PDF da ordem de serviço gerado.");
+  };
+
   const baixar = () => {
     const n = garantirNumero();
     const conteudo = resumo.replace(/^Ordem de serviço.*$/m, `Ordem de serviço ${n}`);
@@ -166,10 +253,10 @@ const OrdemDeServico = () => {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="os-local">Bairro e cidade</Label>
-            <Input
+            <LocalidadeInput
               id="os-local"
               value={form.local}
-              onChange={(e) => set("local")(e.target.value)}
+              onChange={set("local")}
               placeholder="Ex.: Batel, Curitiba"
             />
           </div>

@@ -52,7 +52,7 @@ const CURITIBA_BAIRROS = [
   "Mercês",
   "Mossunguê",
   "Novo Mundo",
-  "パ".replace("パ", "Parolin"),
+  "Parolin",
   "Pilarzinho",
   "Pinheirinho",
   "Portão",
@@ -72,7 +72,7 @@ const CURITIBA_BAIRROS = [
   "Umbará",
   "Vila Izabel",
   "Vista Alegre",
-Ravine_PLACEHOLDER,
+  "Xaxim",
 ];
 
 /** Cidades da Região Metropolitana atendidas. */

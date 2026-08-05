@@ -40,6 +40,7 @@ const ArrumarPCServicoCidade = lazy(() => import("./pages/arrumar-pc/ArrumarPCSe
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
+const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));
 const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
@@ -938,6 +939,7 @@ const App = () => (
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/privacidade" element={<Navigate to="/politica-de-privacidade" replace />} />
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
+            <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
 
             {/* Admin */}
             <Route path="/admin" element={<Navigate to="/admin/funnel" replace />} />

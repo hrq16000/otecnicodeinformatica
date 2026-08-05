@@ -37,7 +37,6 @@ export const NAP = {
     addressCountry: siteConfig.country,
   },
   telephone: siteConfig.phoneE164,
-  email: siteConfig.email,
 } as const;
 
 export const AREA_SERVED = siteConfig.serviceArea.map((name) => ({
@@ -72,8 +71,7 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     "@id": isHome ? `${siteConfig.baseUrl}/#localbusiness` : `${url}#localbusiness`,
     parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` },
     name: NAP.name,
-    legalName: NAP.legalName,
-    alternateName: [
+      alternateName: [
       "Técnico de Informática Curitiba",
       "Assistência Técnica em Informática Curitiba",
     ],
@@ -83,7 +81,6 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     mainEntityOfPage: url,
     image: siteConfig.defaultOgImage,
     logo: `${siteConfig.baseUrl}/logo.png`,
-    email: NAP.email,
     telephone: NAP.telephone,
     address: NAP.address,
     geo: {

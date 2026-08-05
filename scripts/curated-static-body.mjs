@@ -25,12 +25,9 @@ export const SITE = "https://tecnico.curitiba.br";
 export const SITE_CONFIG = {
   brandName: "Técnico em Curitiba",
   legalName: "Técnico em Curitiba — Assistência Técnica em Informática",
-  legalEntityName: "Ping Soluções",
-  cnpj: "41.723.708/0001-58",
   foundedYear: "1998",
   phoneE164: "+5541997086380",
   whatsappNumber: "5541997086380",
-  email: "contato@tecnico.curitiba.br",
   primaryCity: "Curitiba",
   region: "PR",
   country: "BR",
@@ -247,7 +244,7 @@ export function staticBodyFor(route) {
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>
-          <p style="margin:0 0 8px;font-size:.9rem;opacity:.9">${esc(SITE_CONFIG.legalEntityName)} — CNPJ ${esc(SITE_CONFIG.cnpj)} — atuação em informática desde ${esc(SITE_CONFIG.foundedYear)}. Contato oficial: <a href="mailto:${SITE_CONFIG.email}" style="color:#7fd4ec">${esc(SITE_CONFIG.email)}</a>.</p>
+          <p style="margin:0 0 8px;font-size:.9rem;opacity:.9">${esc(SITE_CONFIG.brandName)} — atuação em informática desde ${esc(SITE_CONFIG.foundedYear)} em Curitiba e região metropolitana. Atendimento exclusivamente pelo WhatsApp.</p>
           <ul style="line-height:1.9;padding-left:20px;font-size:.9rem">
             <li><a href="/gestor-responsavel" style="color:#7fd4ec">Gestor responsável e escopo técnico</a></li>
             <li><a href="/precos-e-politicas" style="color:#7fd4ec">Preços, garantia e políticas</a></li>
@@ -290,7 +287,6 @@ function organization() {
     name: SITE_CONFIG.brandName,
     alternateName: ["Técnico Curitiba", "Técnico de Informática Curitiba"],
     legalName: SITE_CONFIG.legalName,
-    taxID: SITE_CONFIG.cnpj,
     url: `${SITE}/`,
     logo: `${SITE}/logo.png`,
     email: SITE_CONFIG.email,

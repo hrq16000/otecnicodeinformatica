@@ -40,7 +40,6 @@ export function buildOrganizationSchema() {
     legalName: siteConfig.legalName,
     url: `${siteConfig.baseUrl}/`,
     logo: `${siteConfig.baseUrl}/logo.png`,
-    email: siteConfig.email,
     telephone: siteConfig.phoneE164,
     foundingDate: siteConfig.foundedYear,
     areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),

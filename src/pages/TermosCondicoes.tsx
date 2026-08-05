@@ -79,7 +79,8 @@ const breadcrumbJsonLd = {
 const TermosCondicoes = () => {
   const title = "Termos, Preços e Condições | Assistência Técnica Curitiba";
   const description =
-    "Conserto de placas em Curitiba: atendimento sem compromisso pelo WhatsApp, visita técnica a partir de R$ 99,99, diagnóstico R$ 90, reparo mínimo R$ 300. Política transparente.";
+    "Termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h.";
+
 
   useCanonical(CANONICAL);
 
@@ -88,7 +89,7 @@ const TermosCondicoes = () => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="conserto de placas Curitiba, diagnóstico R$ 90, visita técnica R$ 99,90, reparo mínimo R$ 300, atendimento sem compromisso WhatsApp, assistência técnica Curitiba" />
+        <meta name="keywords" content="termos e condições assistência técnica Curitiba, visita técnica R$ 99,99, pacote 2 horas R$ 279,99, coleta e entrega R$ 299,99, prazos e garantia" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={CANONICAL} />

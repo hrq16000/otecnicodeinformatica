@@ -129,7 +129,7 @@ const TERMS = [
     text: `Prazo para TV, monitor, notebook e PC: ${PRAZOS[1].prazo}.`,
   },
   {
-    id: "orcamento",
+    id: "valor",
     text: "Valor preciso somente após diagnóstico presencial no laboratório. Estimativas por WhatsApp são aproximadas.",
   },
   {

@@ -58,7 +58,7 @@ const MARCA_MULTIPLIER: Record<string, number> = {
 const fmt = (v: number) =>
   v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-export const OrcamentoNotebookCalculator = ({
+export const ValorNotebookCalculator = ({
   variant = "default",
 }: {
   variant?: "default" | "compact";
@@ -77,7 +77,7 @@ export const OrcamentoNotebookCalculator = ({
   const max = Math.round(problema.max * mult);
 
   const handleWhats = () => {
-    trackCTAClick("whatsapp", "calculadora-orcamento-notebook");
+    trackCTAClick("whatsapp", "calculadora-valor-notebook");
     const msg = encodeURIComponent(
       `Olá! Usei a calculadora do site e gostaria de um valor:\n\n` +
         `• Problema: ${problema.label}\n` +
@@ -203,4 +203,4 @@ export const OrcamentoNotebookCalculator = ({
   );
 };
 
-export default OrcamentoNotebookCalculator;
+export default ValorNotebookCalculator;

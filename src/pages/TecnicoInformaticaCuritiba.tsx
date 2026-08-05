@@ -150,7 +150,7 @@ const NO_ENDERECO_NAO = [
   "Leitura de disco com falha, que exige tempo e ambiente controlado",
 ];
 
-const ORCAMENTO = [
+const VALORES = [
   "Tipo de equipamento e facilidade de acesso interno",
   "Se o problema é de software, de hardware ou os dois somados",
   "Necessidade de peça e disponibilidade dela no mercado",
@@ -492,7 +492,7 @@ const TecnicoInformaticaCuritiba = () => {
               caminho necessário para resolver. Os fatores mais comuns são:
             </p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {ORCAMENTO.map((o) => (
+              {VALORES.map((o) => (
                 <li key={o} className="flex gap-3 text-sm text-muted-foreground">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   <span>{o}</span>

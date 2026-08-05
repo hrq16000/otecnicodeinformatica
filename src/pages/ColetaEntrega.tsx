@@ -22,7 +22,7 @@ import {
   DIAGNOSTICO_VALOR_LABEL,
   EQUIPAMENTOS_COLETA,
   PRAZOS,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
 } from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997086380";
@@ -282,7 +282,7 @@ const ColetaEntrega = () => {
               </h2>
               <div className="bg-secondary rounded-2xl p-6 md:p-8 border-2 border-accent/20 text-center">
                 <p className="text-muted-foreground mb-4">
-                  A coleta e entrega está <strong className="text-accent">inclusa no valor do reparo</strong> quando o serviço é aprovado. {REGRA_ORCAMENTO_GRATIS}. valor preciso somente com compromisso.
+                  A coleta e entrega está <strong className="text-accent">inclusa no valor do reparo</strong> quando o serviço é aprovado. {REGRA_ESTIMATIVA_GRATIS}. valor preciso somente com compromisso.
                 </p>
                 <div className="bg-accent/10 rounded-xl p-4 mb-4">
                   <p className="text-sm text-foreground font-medium">

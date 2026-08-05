@@ -16,7 +16,7 @@ import {
 import {
   COLETA_TAXA_MINIMA_LABEL,
   PRAZO_LONGO,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
   REGRA_COLETA_SEM_VISITA,
   MSG_COLETA_RESUMO,
 } from "@/lib/coletaConfig";
@@ -101,7 +101,7 @@ const ConsertoTV = () => {
               Conserto de TV em Curitiba e Região Metropolitana
             </h1>
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-              {REGRA_ORCAMENTO_GRATIS}. Coleta e entrega disponível para toda a região.
+              {REGRA_ESTIMATIVA_GRATIS}. Coleta e entrega disponível para toda a região.
             </p>
 
             <div className="bg-white/10 rounded-xl p-4 mb-8 max-w-lg mx-auto">
@@ -131,7 +131,7 @@ const ConsertoTV = () => {
             </h2>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema da sua TV e envie fotos. ${REGRA_ORCAMENTO_GRATIS}.` },
+                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema da sua TV e envie fotos. ${REGRA_ESTIMATIVA_GRATIS}.` },
                 { step: "2", titulo: "Coleta ou Entrega", desc: `Organizamos coleta no seu endereço ou você traz à oficina. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { step: "3", titulo: "Diagnóstico e valor", desc: "Diagnóstico completo em bancada. valor preciso somente após coleta." },
                 { step: "4", titulo: "Reparo e Devolução", desc: `Após aprovação, realizamos o conserto e devolvemos. Prazo: ${PRAZO_LONGO}.` },
@@ -224,7 +224,7 @@ const ConsertoTV = () => {
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 { q: "Vocês fazem visita técnica para TV?", a: `Não. ${REGRA_COLETA_SEM_VISITA} Organizamos coleta e entrega com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                { q: "Quanto custa o conserto de TV?", a: `${REGRA_ORCAMENTO_GRATIS}. valor preciso somente após coleta, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
+                { q: "Quanto custa o conserto de TV?", a: `${REGRA_ESTIMATIVA_GRATIS}. valor preciso somente após coleta, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { q: "Consertam TV de tela quebrada?", a: "Avaliamos caso a caso. Em muitos modelos, a troca do painel tem custo próximo ao de uma TV nova. Orientamos com honestidade." },
                 { q: "Quanto tempo leva o conserto?", a: `Prazo padrão para TV: ${PRAZO_LONGO}, dependendo do defeito e disponibilidade de peças.` },
                 { q: "Quais formas de pagamento?", a: "PIX, dinheiro e cartão. Consulte condições pelo WhatsApp." },

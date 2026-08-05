@@ -36,7 +36,7 @@ import {
   DIAGNOSTICO_VALOR_LABEL,
   EQUIPAMENTOS_COLETA,
   PRAZOS,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
 } from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997086380";
@@ -241,7 +241,7 @@ const PrecosEPoliticas = () => {
                 </div>
                 <div className="bg-accent/5 rounded-xl p-5 mt-6 border border-accent/20 space-y-3">
                   <p className="text-sm text-muted-foreground text-center">
-                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">{COLETA_TAXA_MINIMA_LABEL}</strong> com coleta e entrega inclusa. {REGRA_ORCAMENTO_GRATIS}.
+                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">{COLETA_TAXA_MINIMA_LABEL}</strong> com coleta e entrega inclusa. {REGRA_ESTIMATIVA_GRATIS}.
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 mt-3">
                     {PRAZOS.map((p, i) => (
@@ -277,7 +277,7 @@ const PrecosEPoliticas = () => {
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <strong>NÃO</strong> existe atendimento sem compromisso presencial — {REGRA_ORCAMENTO_GRATIS.toLowerCase()}
+                        <strong>NÃO</strong> existe atendimento sem compromisso presencial — {REGRA_ESTIMATIVA_GRATIS.toLowerCase()}
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />

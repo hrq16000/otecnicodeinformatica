@@ -15,7 +15,7 @@ import {
 import {
   COLETA_TAXA_MINIMA_LABEL,
   PRAZO_RAPIDO,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
   REGRA_COLETA_SEM_VISITA,
   MSG_COLETA_RESUMO,
 } from "@/lib/coletaConfig";
@@ -100,7 +100,7 @@ const ConsertoCelular = () => {
               Conserto de Celular em Curitiba e Região Metropolitana
             </h1>
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-              Troca de tela, bateria, conector e mais. {REGRA_ORCAMENTO_GRATIS}. Coleta e entrega disponível.
+              Troca de tela, bateria, conector e mais. {REGRA_ESTIMATIVA_GRATIS}. Coleta e entrega disponível.
             </p>
 
             <div className="bg-white/10 rounded-xl p-4 mb-8 max-w-lg mx-auto">
@@ -130,7 +130,7 @@ const ConsertoCelular = () => {
             </h2>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema do celular, modelo e envie fotos. ${REGRA_ORCAMENTO_GRATIS}.` },
+                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema do celular, modelo e envie fotos. ${REGRA_ESTIMATIVA_GRATIS}.` },
                 { step: "2", titulo: "Coleta do Aparelho", desc: `Organizamos a coleta no seu endereço ou você traz à oficina. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { step: "3", titulo: "Diagnóstico e valor", desc: "Avaliamos o aparelho e informamos o valor do reparo. valor preciso somente após coleta." },
                 { step: "4", titulo: "Reparo Rápido", desc: `Após aprovação, realizamos o conserto. Prazo: ${PRAZO_RAPIDO}.` },
@@ -223,7 +223,7 @@ const ConsertoCelular = () => {
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 { q: "Vocês fazem visita técnica para celular?", a: `Não. ${REGRA_COLETA_SEM_VISITA} Organizamos coleta e entrega com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                { q: "Quanto custa o conserto?", a: `${REGRA_ORCAMENTO_GRATIS}. valor preciso somente após coleta do aparelho, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
+                { q: "Quanto custa o conserto?", a: `${REGRA_ESTIMATIVA_GRATIS}. valor preciso somente após coleta do aparelho, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { q: "Trocam tela de iPhone?", a: "Sim. Trabalhamos com telas originais e compatíveis de alta qualidade para todos os modelos de iPhone." },
                 { q: "Quanto tempo leva o reparo?", a: `Prazo padrão para celular: ${PRAZO_RAPIDO}.` },
                 { q: "Quais formas de pagamento?", a: "PIX, dinheiro e cartão. Consulte condições pelo WhatsApp." },

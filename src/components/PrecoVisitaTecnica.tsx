@@ -4,7 +4,7 @@ import {
   COLETA_TAXA_MINIMA_LABEL,
   VISITA_MINIMA_LABEL,
   PRAZOS,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
   isColetaCategory,
   CATEGORIAS_COLETA_SLUGS,
 } from "@/lib/coletaConfig";
@@ -29,7 +29,7 @@ export const PrecoVisitaTecnica = ({ tipo, className = "", showLink = true, comp
         <div className={`ml-6 mt-1.5 space-y-1 ${compact ? "text-xs" : "text-sm"}`}>
           <p className="text-muted-foreground flex items-center gap-1.5">
             <MessageCircle className="h-3 w-3 text-accent flex-shrink-0" />
-            {REGRA_ORCAMENTO_GRATIS}. valor preciso após coleta.
+            {REGRA_ESTIMATIVA_GRATIS}. valor preciso após coleta.
           </p>
           {PRAZOS.map((p, i) => (
             <p key={i} className="text-muted-foreground">
@@ -52,7 +52,7 @@ export const PrecoVisitaTecnica = ({ tipo, className = "", showLink = true, comp
         Visita técnica a partir de <span className="text-accent font-bold">{VISITA_MINIMA_LABEL}</span>
       </span>
       <p className={`${compact ? "text-xs" : "text-sm"} text-muted-foreground mt-0.5`}>
-        {REGRA_ORCAMENTO_GRATIS}. Diagnóstico presencial é pago.
+        {REGRA_ESTIMATIVA_GRATIS}. Diagnóstico presencial é pago.
       </p>
       {showLink && (
         <Link to="/valores" className="text-accent text-sm hover:underline inline-flex items-center gap-1 mt-1">

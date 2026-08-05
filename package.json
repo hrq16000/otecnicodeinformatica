@@ -59,7 +59,16 @@
     "audit:kept-urls": "node scripts/audit-kept-urls.mjs",
     "report:gsc": "node scripts/gsc-migration-report.mjs",
     "monitor:redirects": "node scripts/monitor-redirects-daily.mjs",
-    "check:redirects:all": "node scripts/check-redirects.mjs --all"
+    "check:redirects:all": "node scripts/check-redirects.mjs --all",
+    "simulate:redirects": "node scripts/simulate-redirects.mjs",
+    "simulate:redirects:strict": "node scripts/simulate-redirects.mjs --enforce",
+    "purge:cf": "node scripts/purge-cloudflare-cache.mjs",
+    "purge:cf:dry": "node scripts/purge-cloudflare-cache.mjs --dry-run",
+    "verify:cf": "node scripts/verify-cloudflare-publish.mjs",
+    "verify:cf:strict": "node scripts/verify-cloudflare-publish.mjs --enforce",
+    "report:critical-evidence": "node scripts/report-critical-evidence.mjs",
+    "check:cannibalization": "node scripts/check-cannibalization.mjs",
+    "check:cannibalization:all": "node scripts/check-cannibalization.mjs --all"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

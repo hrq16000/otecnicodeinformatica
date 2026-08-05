@@ -25,6 +25,10 @@ jobs:
         run: npm run check:cta-funnel
       - name: Internal links + sitemap gate
         run: npm run check:internal-links
+      - name: Orphan page components gate
+        run: npm run check:orphan-pages
+      - name: Cannibalization gate (P0)
+        run: npm run check:cannibalization
       - name: Build
         run: npm run build
       - name: JSON-LD validation

@@ -9,7 +9,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
-import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { getUniqueImage } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
@@ -17,6 +17,7 @@ import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
+import { EditorialCta, EditorialRelatedLinks } from "@/components/editorial/EditorialCta";
 import {
   isEditorialApproved,
   getEditorialApproval,
@@ -373,34 +374,13 @@ const BlogPost = () => {
                 </div>
               )}
 
-              {/* Snippet WhatsApp contextual no fim do tutorial */}
-              <div className="not-prose mt-12 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/10 via-background to-primary/10 p-6 md:p-8 shadow-lg">
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-accent mb-1">Precisa de ajuda agora?</p>
-                    <h3 className="font-heading font-bold text-primary text-lg md:text-xl mb-1">
-                      Resolva esse problema com um técnico em Curitiba
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Atendimento conforme a agenda, diagnóstico grátis e você aprova antes. Fale direto com o técnico.
-                    </p>
-                  </div>
-                  <a
-                    href={`https://wa.me/5541997086380?text=${encodeURIComponent(`Olá! Li o artigo "${post.title}" e preciso de ajuda.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cta="blog-article-bottom"
-                    data-click-location={`blog/${slug}`}
-                    className="inline-flex items-center justify-center gap-2 bg-[hsl(145,63%,42%)] hover:bg-[hsl(145,63%,36%)] text-white font-bold px-6 py-3 rounded-xl shadow-md transition-colors whitespace-nowrap"
-                    onClick={() => {
-                      try { (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "click_whatsapp", { click_location: `blog/${slug}` }); } catch { /* noop */ }
-                    }}
-                  >
-                    <CheckCircle className="h-5 w-5" />
-                    WhatsApp Agora
-                  </a>
-                </div>
-              </div>
+              {/* Cluster editorial (Rodada 4F): conteúdos relacionados + CTA de triagem */}
+              <EditorialRelatedLinks
+                slug={slug ?? ""}
+                titles={Object.fromEntries(Object.entries(posts).map(([k, v]) => [k, v.title]))}
+              />
+              <EditorialCta slug={slug ?? ""} titulo={post.title} />
+
 
               <BlogPostFAQ category={post.category} slug={slug ?? ""} />
             </article>

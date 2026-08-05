@@ -23,8 +23,6 @@ type PostDef = {
   whenToCall: string;
 };
 
-const WA = "https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20um%20problema%20no%20PC.";
-
 const renderPost = (d: PostDef): React.ReactNode => (
   <>
     <p className="lead">{d.lead}</p>
@@ -41,15 +39,13 @@ const renderPost = (d: PostDef): React.ReactNode => (
         )}
       </React.Fragment>
     ))}
-    <h2>Quando chamar um técnico</h2>
+    <h2>Quando procurar avaliação técnica</h2>
     <p>{d.whenToCall}</p>
     <p>
-      <strong>
-        <a href={WA} target="_blank" rel="noopener noreferrer">
-          Fale com o Técnico Curitiba no WhatsApp
-        </a>
-      </strong>{" "}
-      — atendimento remoto para todo o Brasil. Diagnóstico gratuito, você paga apenas se o problema for resolvido.
+      Se o sintoma persistir depois das verificações seguras acima, interrompa os testes:
+      insistir pode agravar o defeito ou colocar os seus arquivos em risco. O passo seguinte é
+      uma avaliação técnica, que identifica a causa antes de qualquer reparo — o valor só é
+      informado depois dessa avaliação.
     </p>
   </>
 );

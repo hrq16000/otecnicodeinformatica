@@ -80,7 +80,9 @@
     "check:trust-claims": "node scripts/check-trust-claims.mjs",
     "check:forbidden-copy": "node scripts/check-forbidden-copy.mjs",
     "check:copy": "npm run check:forbidden-copy && npm run check:trust-claims",
-    "report:local-audit": "node scripts/report-local-audit.mjs"
+    "report:local-audit": "node scripts/report-local-audit.mjs",
+    "check:editorial-cluster": "node scripts/check-editorial-cluster.mjs",
+    "report:editorial": "node scripts/report-editorial-inventory.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

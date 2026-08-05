@@ -7,6 +7,7 @@ import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
@@ -491,6 +492,7 @@ const AtendimentoDomicilio = () => {
 
         <TrustSection />
         <CTASection />
+        <PilarEditorialLinks pilar="/atendimento-domicilio" />
       </main>
       <RealImageSection imageKey="atendimentoDomiciliar" secondaryImageKey="tecnicoTrabalhando" layout="duo" caption="Atendimento técnico diretamente na sua casa" secondaryCaption="Diagnóstico profissional a domicílio" />
       <BlocoInteligencia />

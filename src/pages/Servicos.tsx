@@ -61,7 +61,7 @@ const Servicos = () => {
       <LocalBusinessJsonLd
         path="/servicos"
         description={DESCRIPTION}
-        services={CARDS.map((c) => c.slug.replace(/-/g, " "))}
+        services={CARDS.map((c) => ({ name: c.slug.replace(/-/g, " "), url: `/servicos/${c.slug}` }))}
       />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />

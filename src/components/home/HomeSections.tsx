@@ -158,7 +158,7 @@ export const HomeSections = () => {
           <SectionTitle
             eyebrow="O que resolvemos"
             title="Serviços de informática em Curitiba"
-            sub="Foco em notebook, PC e suporte empresarial. valor conforme avaliação, sem valor inventado."
+            sub="Foco em notebook, PC e suporte empresarial. Valor definido após avaliação, sem número inventado."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (

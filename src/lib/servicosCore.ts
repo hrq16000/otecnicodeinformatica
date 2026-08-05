@@ -294,7 +294,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         paragrafos: [
           "Aqui tratamos de computador de mesa. Notebook tem desmontagem, refrigeração e peças próprias e é atendido na página específica de manutenção de notebook.",
           "Também não fazemos reparo em nível de componente na placa-mãe, como retrabalho de BGA ou substituição de chip. Quando o diagnóstico aponta esse caminho, dizemos que o serviço é de laboratório especializado em vez de empurrar uma tentativa cara e incerta.",
-          "Não trabalhamos com preço fechado por telefone. Sem ver o comportamento do equipamento, qualquer valor seria chute; o valor do atendimento sai depois da avaliação e só é executado após sua aprovação.",
+          "Não trabalhamos com preço fechado por telefone. Sem ver o comportamento do equipamento, qualquer estimativa seria chute; o valor sai depois da avaliação e só é executado após sua aprovação.",
         ],
       },
       {

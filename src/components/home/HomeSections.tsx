@@ -21,15 +21,16 @@ const pains = [
 ];
 
 const services = [
-  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao" },
-  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook" },
-  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc" },
-  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade" },
-  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus" },
-  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup" },
-  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes" },
-  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa" },
+  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao", href: "/servicos/formatacao" },
+  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook", href: "/servicos/manutencao-de-notebook" },
+  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc", href: "/servicos/manutencao-de-computador" },
+  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade", href: "/servicos/upgrade-ssd-ram" },
+  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus", href: "/servicos/remocao-de-virus" },
+  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup", href: "/servicos/recuperacao-de-dados" },
+  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes", href: "/servicos/redes-e-wifi" },
+  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa", href: "/servicos/suporte-tecnico-empresarial" },
 ];
+
 
 const steps = [
   "Você inicia o atendimento pelo WhatsApp.",
@@ -163,21 +164,30 @@ export const HomeSections = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <div key={s.t} className="flex flex-col rounded-xl border border-border bg-card p-5 transition-shadow hover:shadow-[var(--shadow-md)]">
-                <h3 className="font-heading text-base font-bold leading-snug text-foreground">{s.t}</h3>
+                <h3 className="font-heading text-base font-bold leading-snug text-foreground">
+                  <a href={s.href} className="transition-colors hover:text-accent hover:underline">
+                    {s.t}
+                  </a>
+                </h3>
                 <p className="mt-1.5 flex-1 text-sm text-muted-foreground">{s.d}</p>
                 <a
-                  href={wa(`Olá! Tenho interesse em: ${s.t}.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track(s.loc)}
+                  href={s.href}
                   data-cta-location={s.loc}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-accent hover:underline"
                 >
-                  Iniciar atendimento →
+                  Ver conteúdo completo do serviço →
                 </a>
               </div>
             ))}
           </div>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            <a href="/servicos" className="font-semibold text-accent hover:underline">Ver todos os serviços</a>
+            {" · "}
+            <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-foreground">
+              termos, condições, valores e prazos
+            </a>
+          </p>
+
         </div>
       </section>
 

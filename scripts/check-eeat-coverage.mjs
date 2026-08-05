@@ -6,7 +6,8 @@
  * locais indexáveis ficam sem os mínimos de confiança:
  *
  *   1. Componente de provas E-E-A-T montado na página (data-eeat-section).
- *   2. Identidade verificável no HTML: razão social + CNPJ + ano de atuação.
+ *   2. Identidade verificável no HTML: marca + ano de atuação + praça.
+ *      (Razão social, CNPJ e e-mail são PROIBIDOS no HTML público.)
  *   3. Organization/LocalBusiness com o @id institucional canônico.
  *   4. Caminho de verificação: link para /gestor-responsavel e para
  *      /precos-e-politicas (garantia e política de preço).
@@ -28,7 +29,7 @@ const SITEMAPS = ["public/sitemap-bairros.xml", "public/sitemap-regioes.xml"];
 
 const P0 = ["/", "/tecnico-informatica-curitiba", "/atendimento-domicilio", "/empresa-de-ti-curitiba"];
 
-const IDENTITY = [/Ping Solu[çc][õo]es/i, /41\.723\.708\/0001-58/, /\b1998\b/];
+const IDENTITY = [/T[ée]cnico em Curitiba/i, /\b1998\b/, /Curitiba/i];
 const UNVERIFIABLE = [
   /\bnota\s*[45](?:[.,]\d)?\s*(?:estrelas|\/\s*5)/i,
   /\b\d+(?:[.,]\d+)?\s*(?:mil\s*)?(?:clientes|atendimentos)\s*(?:satisfeitos|realizados)/i,
@@ -90,7 +91,7 @@ for (const path of [...P0, ...localPaths]) {
   // 2. identidade verificável
   const missingIdentity = IDENTITY.filter((re) => !re.test(html));
   if (missingIdentity.length) {
-    errors.push(`${path}: identidade verificável incompleta no HTML (${missingIdentity.length} item[ns] ausente[s]: razão social/CNPJ/ano)`);
+    errors.push(`${path}: identidade verificável incompleta no HTML (${missingIdentity.length} item[ns] ausente[s]: marca/ano/praça)`);
     row.issues++;
   }
 

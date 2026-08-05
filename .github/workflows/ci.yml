@@ -50,8 +50,17 @@ jobs:
         run: npm run check:local-interlinking
       - name: E-E-A-T coverage gate
         run: npm run check:eeat
+      # Gate de indexação: serve o build e valida status, content-type,
+      # canonical self-referente, robots e JSON-LD de cada rota do sitemap,
+      # além de garantir que nenhum alias 301 tenha canonical próprio.
+      - name: Gate de saúde de indexação (rotas + aliases)
+        run: |
+          npx vite preview --port 4321 --strictPort &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:4321/ && break; sleep 1; done
+          node scripts/check-index-health.mjs --base=http://localhost:4321 --strict
       - name: Relatório HTML de auditoria local
         run: npm run report:local-audit
+
       - name: Upload relatório de auditoria local
         if: always()
         uses: actions/upload-artifact@v4

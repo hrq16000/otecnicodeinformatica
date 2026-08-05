@@ -2,6 +2,13 @@
 // Runs once on mount; intercepts clicks and appends utm_source/medium/campaign
 // derived from the current page so GA4/Ads can attribute lead origin.
 
+import {
+  DEFAULT_UTM_SOURCE,
+  campaignFromPath,
+  normalizeTrackingLabel,
+  normalizeUtmMedium,
+} from '@/lib/trackingTaxonomy';
+
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
 
 function isWhatsAppUrl(href: string): boolean {
@@ -14,14 +21,13 @@ function isWhatsAppUrl(href: string): boolean {
 }
 
 function deriveCampaign(): string {
-  const path = window.location.pathname.replace(/^\/+|\/+$/g, "") || "home";
-  return path.replace(/\//g, "_").slice(0, 80);
+  return campaignFromPath(window.location.pathname);
 }
 
 function deriveMedium(el: HTMLElement | null): string {
   if (!el) return "cta";
   const cls = (el.closest("[data-wa-medium]") as HTMLElement | null)?.dataset.waMedium;
-  if (cls) return cls;
+  if (cls) return normalizeUtmMedium(cls);
   // Heuristics by location
   if (el.closest("header")) return "header";
   if (el.closest("footer")) return "footer";
@@ -35,7 +41,7 @@ function deriveMedium(el: HTMLElement | null): string {
 function deriveSource(el: HTMLElement | null): string | null {
   if (!el) return null;
   const src = (el.closest("[data-wa-source]") as HTMLElement | null)?.dataset.waSource;
-  return src && src.trim() ? src.trim() : null;
+  return src && src.trim() ? normalizeTrackingLabel(src) : null;
 }
 
 function readEntryUtms(): Record<string, string> {
@@ -60,12 +66,12 @@ function withUtm(href: string, medium: string, campaign: string, location: strin
 
     // 2) Fallbacks por local de clique (não sobrescreve UTMs de campanha).
     //    data-wa-source define a origem site-side (ex.: whatsapp_cta).
-    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", source || "site");
-    if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", medium);
+    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", source || DEFAULT_UTM_SOURCE);
+    if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", normalizeUtmMedium(medium));
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
 
     // 3) Marca o local de clique (sempre).
-    u.searchParams.set("click_location", location);
+    u.searchParams.set("click_location", normalizeTrackingLabel(location));
 
     // Mantém text por último para preservar ordem/encoding
     if (text !== null) {

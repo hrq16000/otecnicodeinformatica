@@ -8,7 +8,6 @@ import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const BASE_URL = "https://tecnico.curitiba.br";
-const TODAY = new Date().toISOString().slice(0, 10);
 
 // ── Curadoria explícita ──────────────────────────────────────────
 const MAIN = [
@@ -69,7 +68,7 @@ function buildUrlset(entries) {
   const urls = entries
     .map(
       (e) =>
-        `  <url><loc>${BASE_URL}${e.path}</loc><lastmod>${TODAY}</lastmod><changefreq>${e.changefreq}</changefreq><priority>${e.priority}</priority></url>`,
+        `  <url><loc>${BASE_URL}${e.path}</loc><changefreq>${e.changefreq}</changefreq><priority>${e.priority}</priority></url>`,
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
@@ -99,7 +98,7 @@ for (const name of ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news
 const indexXml =
   `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   active
-    .map(([name]) => `  <sitemap><loc>${BASE_URL}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`)
+    .map(([name]) => `  <sitemap><loc>${BASE_URL}/${name}</loc></sitemap>`)
     .join("\n") +
   `\n</sitemapindex>\n`;
 

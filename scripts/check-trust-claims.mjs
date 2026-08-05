@@ -50,7 +50,9 @@ const RULES = [
 
 const allow = existsSync(ALLOWLIST_PATH) ? JSON.parse(readFileSync(ALLOWLIST_PATH, "utf8")) : { exceptions: [] };
 const isAllowed = (file, ruleId) =>
-  allow.exceptions.some((e) => e.rule === ruleId && (file === e.file || file.startsWith(e.file)));
+  allow.exceptions.some(
+    (e) => (e.rule === ruleId || e.rule === "*") && (file === e.file || file.startsWith(e.file)),
+  );
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {

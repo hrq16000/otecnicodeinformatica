@@ -1,11 +1,12 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { TermosCtaLink } from "@/components/TermosCtaLink";
-import { geoSuggestion } from "@/lib/geoContext";
+import { geoSuggestion, subscribeGeo } from "@/lib/geoContext";
+import { trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES, REGRA_CANCELAMENTO, NOTA_VISITA_AVULSA } from "@/lib/precosConfig";
 import { toast } from "sonner";
 
@@ -37,6 +38,14 @@ const OrdemDeServico = () => {
     modalidadeId: MODALIDADES[0].id,
   }));
   const [numero, setNumero] = useState<string | null>(null);
+
+  // Pré-preenche bairro/cidade assim que a detecção (IP ou precisa) resolver,
+  // sem sobrescrever o que o usuário já digitou.
+  useEffect(() => subscribeGeo(() => {
+    const sugestao = geoSuggestion();
+    if (!sugestao) return;
+    setForm((p) => (p.local.trim() ? p : { ...p, local: sugestao }));
+  }), []);
 
   const set = (k: keyof OsForm) => (v: string) => setForm((p) => ({ ...p, [k]: v }));
 
@@ -77,10 +86,26 @@ const OrdemDeServico = () => {
     garantirNumero();
   };
 
+  const mensagemWhatsApp = (n: string) =>
+    [
+      `Olá! Registrei a ordem de serviço ${n}.`,
+      "",
+      `Modalidade: ${modalidade.titulo}`,
+      `Valor: ${modalidade.valorLabel} (${modalidade.unidade})`,
+      form.local ? `Bairro/cidade: ${form.local}` : "",
+      `Equipamento: ${form.equipamento}${form.marcaModelo ? ` (${form.marcaModelo})` : ""}`,
+      `Problema: ${form.sintoma}`,
+      "",
+      "Registro completo:",
+      resumo.replace(/^Ordem de serviço.*$/m, `Ordem de serviço ${n}`),
+    ]
+      .filter(Boolean)
+      .join("\n");
+
   const copiar = async () => {
     const n = garantirNumero();
     try {
-      await navigator.clipboard.writeText(resumo.replace(/^Ordem de serviço.*$/m, `Ordem de serviço ${n}`));
+      await navigator.clipboard.writeText(mensagemWhatsApp(n));
       toast.success("Conteúdo copiado — cole no WhatsApp.");
     } catch {
       toast.error("Não foi possível copiar automaticamente. Selecione o texto abaixo.");
@@ -101,11 +126,12 @@ const OrdemDeServico = () => {
 
   const enviar = () => {
     const n = garantirNumero();
+    trackCTAClick("whatsapp", "ordem-de-servico");
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {
         detail: {
           location: "ordem-de-servico",
-          message: `Olá! Registrei a ordem de serviço ${n}.\n\n${resumo}`,
+          message: mensagemWhatsApp(n),
         },
       }),
     );

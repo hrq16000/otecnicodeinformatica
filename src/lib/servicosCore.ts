@@ -184,7 +184,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Coleta e entrega", to: "/coleta-e-entrega" },
       { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Os três defeitos que mais chegam em notebook",
+        paragrafos: [
+          "O primeiro é superaquecimento: ventoinha barulhenta, base quente, quedas em jogo ou videochamada e desligamento repentino. Quase sempre é pasta térmica ressecada somada a dissipador entupido de poeira e pelo de animal — serviço de bancada, com limpeza física e troca da interface térmica, não algo que se resolve por software.",
+          "O segundo é não ligar. Aqui é preciso separar fonte, conector de energia, bateria e placa. Um notebook que acende LED mas não dá vídeo tem causa diferente de um que não reage a nada. Fazemos essa separação no diagnóstico antes de falar em peça, porque trocar carregador por chute é o erro mais caro do usuário.",
+          "O terceiro é dano físico: dobradiça estourada, tela trincada, teclado com líquido, porta de carga solta. Líquido é urgência real — quanto mais tempo ligado, maior a corrosão. O certo é desligar, não tentar secar com secador e levar o equipamento o quanto antes.",
+        ],
+      },
+      {
+        titulo: "Conserto ou troca: como avaliamos peças de notebook",
+        paragrafos: [
+          "Notebook tem peça cara e componente soldado. Antes de indicar reparo, comparamos o custo total do serviço com o valor de mercado do equipamento e com o que ele ainda entrega para o seu uso. Se a soma passar de boa parte do valor do aparelho e o desempenho continuar limitado, dizemos isso com clareza — mesmo perdendo o serviço.",
+          "Há casos intermediários que valem muito a pena: máquina com placa saudável e apenas disco lento ou pouca memória volta a ser produtiva com upgrade, por uma fração do preço de um modelo novo. Já placa com dano por líquido ou falha de chip gráfico entra em outra faixa de risco, e explicamos a chance real de sucesso antes de qualquer autorização.",
+          "Trabalhamos com peças compatíveis e informamos quando o item é original, paralelo ou recondicionado. Você aprova o orçamento antes da execução; nada é trocado sem sua confirmação.",
+        ],
+      },
+      {
+        titulo: "Prazo, retirada e o que não fazemos",
+        paragrafos: [
+          "Limpeza interna e troca de pasta costumam ficar prontas no mesmo dia. Serviços que dependem de peça específica seguem o prazo de reposição, informado na aprovação. Quando o equipamento precisa de bancada, oferecemos coleta e entrega em Curitiba e região para você não perder o dia.",
+          "Não fazemos remoção de senha de equipamento sem comprovação de propriedade, não trabalhamos com desbloqueio de conta de fabricante e não assumimos reparo de placa com dano estrutural irreversível — nesses casos indicamos o caminho honesto, que às vezes é migrar seus dados e planejar a substituição.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 3 ─────────────────────────────────────────────────────────
@@ -438,7 +469,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Limpar, formatar ou preservar: como decidimos",
+        paragrafos: [
+          "Nem toda infecção exige reinstalar o sistema. Adware de navegador, extensão sequestradora, tarefa agendada maliciosa e atalho contaminado saem com limpeza dirigida, preservando programas e arquivos no lugar. Esse é o cenário mais comum de quem chega reclamando de pop-up e página inicial trocada.",
+          "Reinstalar passa a ser a escolha certa quando a ameaça tocou componentes do sistema, quando há vários malwares somados a anos de acúmulo, ou quando a máquina volta a apresentar sintoma depois da limpeza. Nesses casos, insistir em remover peça por peça custa mais tempo do que reinstalar e devolve uma máquina menos confiável.",
+          "Em ransomware, a conversa é outra e precisa ser honesta: arquivos criptografados por famílias recentes normalmente não têm decriptador público. Avaliamos a extensão, verificamos se existe ferramenta legítima disponível e priorizamos preservar o disco original antes de qualquer tentativa. Não prometemos recuperação que não podemos entregar, e não intermediamos pagamento de resgate.",
+        ],
+      },
+      {
+        titulo: "O que fazer agora, antes do atendimento",
+        paragrafos: [
+          "Se aparecerem cobranças estranhas ou logins suspeitos, desconecte a máquina da internet e troque as senhas críticas por outro aparelho — e-mail principal primeiro, depois banco e redes sociais. Trocar senha no computador infectado apenas entrega a senha nova ao invasor.",
+          "Não instale três antivírus ao mesmo tempo tentando resolver: eles se bloqueiam e mascaram o diagnóstico. Também evite rodar limpadores de registro baixados de anúncio, que costumam ser a própria origem do problema.",
+          "Se houver arquivo importante sem cópia, avise na triagem. A ordem correta é preservar dados, depois limpar — inverter essa ordem é o que costuma transformar um caso simples em perda definitiva.",
+        ],
+      },
+      {
+        titulo: "Depois da limpeza: o que reduz reinfecção",
+        paragrafos: [
+          "Entregamos com antivírus nativo ativo e configurado, extensões revisadas, inicialização enxuta, contas de administrador separadas do uso diário quando faz sentido e atualizações pendentes aplicadas. A maior parte das reinfecções acontece por software pirata, instalador baixado de link patrocinado e anexo de e-mail — orientamos caso a caso com exemplos do que a pessoa realmente usa.",
+          "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 6 ─────────────────────────────────────────────────────────
@@ -596,7 +658,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Por que o Wi-Fi cai em parte da casa (e o repetidor nem sempre resolve)",
+        paragrafos: [
+          "A queixa mais comum não é falta de internet, é falta de cobertura. O roteador costuma ficar onde o cabo da operadora entrou — hall, área de serviço, atrás da TV — e o sinal ainda precisa atravessar parede de concreto, laje, caixa d'água e espelho. Em imóveis alongados ou sobrados de Curitiba, o resultado é sempre o mesmo: sala com sinal cheio e quarto dos fundos com conexão que cai na videochamada.",
+          "Repetidor simples entrega metade da banda, porque escuta e retransmite pelo mesmo rádio. Quando ele é instalado justamente onde o sinal já chegava fraco, o problema piora: o celular gruda no repetidor ruim em vez de voltar ao roteador. Por isso medimos antes de indicar equipamento — em muitos casos, reposicionar o roteador e corrigir canal resolve sem custo de hardware.",
+          "Em prédios com muitas redes vizinhas, a faixa de 2,4 GHz vive congestionada. Separar as bandas, fixar canal limpo e priorizar 5 GHz para os aparelhos próximos costuma devolver estabilidade imediata, sem trocar nada.",
+        ],
+      },
+      {
+        titulo: "Quando mesh e cabo valem o investimento",
+        paragrafos: [
+          "Mesh faz sentido quando existem dois ou três ambientes distantes com uso pesado ao mesmo tempo: home office com reunião por vídeo, TV em streaming e alguém jogando. Os nós conversam entre si e o aparelho troca de ponto sem derrubar a chamada.",
+          "Quando há passagem de cabo possível — conduíte livre, forro acessível, canaleta discreta — levar um ponto cabeado até o nó distante é a melhor decisão de custo-benefício: a rede fica estável mesmo com a casa cheia de dispositivos. Explicamos essa alternativa antes de vender equipamento a mais.",
+          "Também deixamos claro o limite honesto: se o plano contratado entrega pouca banda ou a fibra chega instável, nenhum roteador conserta. Nesse caso o problema é da operadora e orientamos como registrar a reclamação com medição em mãos.",
+        ],
+      },
+      {
+        titulo: "O que fica configurado e o que não está incluído",
+        paragrafos: [
+          "Entregamos senha forte com WPA2/WPA3, nome de rede padronizado, bandas organizadas, canal escolhido por medição, rede de visitantes separada dos dispositivos da casa, firmware atualizado e senha de administração do roteador alterada — este último ponto é o mais esquecido e o mais explorado por invasores.",
+          "Não está incluído: obra civil, quebra de parede, instalação de infraestrutura nova de conduíte, contrato com a operadora e suporte a equipamento em falha de fábrica. Câmeras, automação e servidores entram como escopo à parte, avaliado na triagem.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Suporte para empresas", to: "/empresa-de-ti-curitiba" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 8 ─────────────────────────────────────────────────────────

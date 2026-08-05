@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { EeatProofsSection } from "@/components/EeatProofsSection";
 
 const ReviewsGrid = lazy(() =>
   import("@/components/ReviewsGrid").then((m) => ({ default: m.ReviewsGrid })),
@@ -407,6 +408,9 @@ export const HomeSections = () => {
           </div>
         </div>
       </section>
+
+      {/* 9b. PROVAS DE E-E-A-T (só renderiza com dado real cadastrado) */}
+      <EeatProofsSection className="bg-secondary/40" />
 
       {/* 10. CTA FINAL */}
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white md:py-20">

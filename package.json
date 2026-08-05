@@ -73,7 +73,11 @@
     "check:rls-always-true": "node scripts/check-rls-always-true.mjs",
     "report:security": "node scripts/report-security-scan.mjs",
     "notify:security": "node scripts/notify-security-slack.mjs",
-    "check:local-hierarchy": "node scripts/check-local-hierarchy.mjs"
+    "check:local-hierarchy": "node scripts/check-local-hierarchy.mjs",
+    "check:local-interlinking": "node scripts/check-local-interlinking.mjs",
+    "check:jsonld-p0": "node scripts/check-jsonld-p0.mjs",
+    "check:eeat": "node scripts/check-eeat-coverage.mjs",
+    "report:local-audit": "node scripts/report-local-audit.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

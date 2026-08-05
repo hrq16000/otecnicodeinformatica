@@ -12,7 +12,9 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
+import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { siteConfig } from "@/lib/siteConfig";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle, Truck, AlertTriangle, ArrowRight, Camera } from "lucide-react";
 
@@ -68,6 +70,40 @@ const noLocal = [
   "Diagnóstico complexo que exige bancada e tempo estendido",
 ];
 
+/** Serviços que costumam ser resolvidos na casa/escritório, com o limite real de cada um. */
+const SERVICOS_NO_ENDERECO = [
+  {
+    titulo: "Computador lento, travando ou cheio de pop-up",
+    desc: "Limpeza de sistema, remoção de vírus e programas indesejados, ajuste de inicialização e atualização do Windows.",
+    limite: "Se houver suspeita de disco ou memória com defeito, o teste segue para bancada.",
+  },
+  {
+    titulo: "Wi-Fi fraco, oscilando ou sem sinal em parte do imóvel",
+    desc: "Avaliação do posicionamento do roteador, canais, configuração de rede e repetidor já existente.",
+    limite: "Passagem de cabo, obra e ponto de rede novo dependem de avaliação separada.",
+  },
+  {
+    titulo: "Impressora não imprime ou some da rede",
+    desc: "Reinstalação de driver, compartilhamento, fila travada e configuração em mais de um computador.",
+    limite: "Defeito mecânico ou de cabeça de impressão exige assistência da marca.",
+  },
+  {
+    titulo: "Backup, migração e organização de arquivos",
+    desc: "Configuração de backup em nuvem ou HD externo e transferência de arquivos entre equipamentos.",
+    limite: "Recuperação de dados de disco danificado é feita em laboratório.",
+  },
+  {
+    titulo: "Configuração de computador novo",
+    desc: "Instalação de programas de trabalho, contas, e-mail, impressora e transferência do que estava na máquina antiga.",
+    limite: "Montagem e upgrade de hardware podem exigir bancada.",
+  },
+  {
+    titulo: "Smart TV, streaming e dispositivos conectados",
+    desc: "Conexão à rede, ajuste de aplicativos e integração com a internet da casa.",
+    limite: "Falha de painel ou placa da TV não é reparada no local.",
+  },
+];
+
 const faqs = [
   {
     question: "Quais serviços podem ser feitos no local?",
@@ -93,6 +129,21 @@ const faqs = [
     question: "As peças estão incluídas na visita?",
     answer:
       "Não automaticamente. A visita cobre a mão de obra e a avaliação; peças e materiais, quando necessários, são orçados à parte e só trocados após a sua aprovação.",
+  },
+  {
+    question: "Preciso desmontar ou preparar alguma coisa antes da visita?",
+    answer:
+      "Não. Basta deixar o equipamento acessível e ligado à energia, com a senha de acesso à mão. Se o problema for de rede ou Wi-Fi, ter o acesso ao roteador (ou o contato da operadora) agiliza bastante o atendimento no local.",
+  },
+  {
+    question: "Vocês atendem em apartamento, condomínio e escritório?",
+    answer:
+      "Sim. Em condomínios e prédios comerciais com controle de acesso, o agendamento é combinado com antecedência para você liberar a entrada na portaria. Informe pelo WhatsApp se houver regra específica do prédio.",
+  },
+  {
+    question: "O que acontece se o problema não for resolvido no local?",
+    answer:
+      "A avaliação feita na visita é aproveitada: você recebe o diagnóstico do que foi encontrado e a orientação do próximo passo — coleta para bancada, orçamento de peça ou indicação de substituição quando o reparo não compensa. Nada segue sem a sua aprovação.",
   },
   {
     question: "Qual a área de atendimento?",
@@ -381,6 +432,62 @@ const AtendimentoDomicilio = () => {
             </div>
           </div>
         </section>
+
+        {/* Serviços resolvidos no endereço — exclusivo desta modalidade */}
+        <section className="py-10 md:py-14 bg-background" aria-labelledby="servicos-no-endereco">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-5xl">
+              <h2 id="servicos-no-endereco" className="text-2xl md:text-3xl font-bold text-foreground">
+                O que costuma ser resolvido no seu endereço
+              </h2>
+              <p className="mt-2 max-w-3xl text-muted-foreground">
+                Estes são os casos em que a visita técnica compensa: o problema é confirmado e tratado
+                no local, sem tirar o equipamento de casa ou do escritório. Cada item abaixo passa por
+                triagem no WhatsApp antes do agendamento.
+              </p>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {SERVICOS_NO_ENDERECO.map((item) => (
+                  <article key={item.titulo} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="font-semibold text-foreground">{item.titulo}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      <span className="font-medium text-foreground">Quando não dá no local:</span> {item.limite}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-xl border border-border bg-secondary/50 p-6 text-center">
+                <p className="text-foreground font-medium">
+                  Não sabe se o seu caso resolve no local? Descreva o sintoma — a triagem indica
+                  visita ou coleta antes de qualquer agendamento.
+                </p>
+                <div className="mt-4 flex justify-center">
+                  <Button variant="whatsapp" size="lg" asChild onClick={() => trackCTAClick("whatsapp", "domicilio_servicos_endereco")}>
+                    <a
+                      href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                        "Olá! Quero saber se o meu caso resolve em atendimento no meu endereço.",
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cta-location="domicilio_servicos_endereco"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      Avaliar meu caso no WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <EeatProofsSection
+          titulo="Quem vai até o seu endereço"
+          descricao="Atendimento no seu endereço exige confiança. Estes são os dados verificáveis da empresa e as regras que valem para toda visita técnica."
+          className="bg-secondary/40"
+        />
 
         <TrustSection />
         <CTASection />

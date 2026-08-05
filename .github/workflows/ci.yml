@@ -35,6 +35,21 @@ jobs:
         run: npm run build
       - name: JSON-LD validation
         run: npm run validate:jsonld
+      - name: JSON-LD gate das 4 páginas P0
+        run: npm run check:jsonld-p0
+      - name: Interlinking local gate (mãe ⇄ bairros/cidades)
+        run: npm run check:local-interlinking
+      - name: E-E-A-T coverage gate
+        run: npm run check:eeat
+      - name: Relatório HTML de auditoria local
+        run: npm run report:local-audit
+      - name: Upload relatório de auditoria local
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-audit-report
+          path: reports/local-audit.html
+          retention-days: 30
 
   e2e:
     runs-on: ubuntu-latest

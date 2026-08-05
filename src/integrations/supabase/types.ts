@@ -20,6 +20,7 @@ export type Database = {
           cidade: string | null
           created_at: string
           cta_location: string | null
+          customer_type: string | null
           equipamento: string | null
           event_type: string
           id: string
@@ -34,6 +35,7 @@ export type Database = {
           cidade?: string | null
           created_at?: string
           cta_location?: string | null
+          customer_type?: string | null
           equipamento?: string | null
           event_type: string
           id?: string
@@ -48,6 +50,7 @@ export type Database = {
           cidade?: string | null
           created_at?: string
           cta_location?: string | null
+          customer_type?: string | null
           equipamento?: string | null
           event_type?: string
           id?: string

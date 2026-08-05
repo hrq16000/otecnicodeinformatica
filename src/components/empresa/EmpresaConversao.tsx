@@ -23,11 +23,13 @@ import {
  * existentes na página — não toca no funil de triagem PF × PJ.
  */
 
+// Provas verificáveis apenas. Proibido prometer prazo, SLA ou "mesmo dia" —
+// a operação não garante janela de atendimento por escrito.
 export const provasRapidas = [
-  { icon: Clock, label: "Atendimento no mesmo dia", desc: "Chamados urgentes priorizados em Curitiba e RMC." },
   { icon: FileCheck2, label: "Orçamento antes da execução", desc: "Nada é executado sem a sua aprovação por escrito." },
-  { icon: ShieldCheck, label: "Garantia no serviço", desc: "Reparo e configuração com garantia formal." },
-  { icon: Laptop, label: "Presencial ou remoto", desc: "Visita no escritório ou acesso remoto no mesmo dia." },
+  { icon: ShieldCheck, label: "Garantia no serviço", desc: "Reparo e configuração com garantia formal registrada." },
+  { icon: Laptop, label: "Presencial ou remoto", desc: "Visita no escritório ou acesso remoto, conforme o chamado." },
+  { icon: Clock, label: "Chamado com prazo combinado", desc: "A janela de atendimento é acordada no início, caso a caso." },
 ];
 
 const sinais = [

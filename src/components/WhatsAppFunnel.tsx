@@ -349,6 +349,14 @@ export const WhatsAppFunnel = () => {
     setFallback(null);
     setStep(0);
     setOpen(true);
+    // Sugestão de bairro/cidade detectada (IP ou localização precisa).
+    // Só preenche quando o campo está vazio — o usuário pode editar.
+    const sugestao = geoSuggestion();
+    if (sugestao) {
+      setAnswers((prev) =>
+        prev.fields.bairro ? prev : { ...prev, fields: { ...prev.fields, bairro: sugestao } },
+      );
+    }
     captureUtmsFromUrl();
     trackFunnelOpen(loc, !!preset);
   }, []);

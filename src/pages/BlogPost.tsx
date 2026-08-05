@@ -9,7 +9,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView } from "@/lib/analytics";
-import { Calendar, Clock, ArrowLeft, CheckCircle } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { getUniqueImage } from "@/lib/blogImages";
 import { getCategoryCover } from "@/lib/categoryCovers";
@@ -17,6 +17,7 @@ import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
 import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
+import { EditorialCta, EditorialRelatedLinks } from "@/components/editorial/EditorialCta";
 import {
   isEditorialApproved,
   getEditorialApproval,

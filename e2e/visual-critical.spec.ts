@@ -43,11 +43,22 @@ const CONTRAST_PROBE = `() => {
     }
     return [255, 255, 255];
   };
+  const hasOverlay = (root) =>
+    Array.from(root.children).some((c) => {
+      const s = getComputedStyle(c);
+      return (
+        (s.position === 'absolute' || s.position === 'fixed') &&
+        s.backgroundImage !== 'none'
+      );
+    });
+  // Texto sobre gradiente (no próprio elemento, em um ancestral ou em um
+  // overlay absoluto irmão) não é medível por cor computada.
   const onGradient = (el) => {
     let n = el;
     while (n) {
       const st = getComputedStyle(n);
       if (st.backgroundImage && st.backgroundImage !== 'none') return true;
+      if (hasOverlay(n)) return true;
       n = n.parentElement;
     }
     return false;

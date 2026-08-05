@@ -568,6 +568,70 @@ const TecnicoInformaticaCuritiba = () => {
           </div>
         </section>
 
+        {/* 13B. Cobertura local — distribuição de autoridade para bairros e cidades */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
+              Atendimento por bairro e nas cidades vizinhas
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Esta página responde pela busca geral por técnico de informática em Curitiba. Quando a
+              dúvida é sobre um bairro específico ou sobre uma cidade da região metropolitana, as
+              páginas abaixo trazem a logística e os serviços mais pedidos em cada lugar.
+            </p>
+
+            <div className="mt-7 grid gap-7 md:grid-cols-2">
+              <div>
+                <h3 className="font-heading text-base font-bold text-foreground">
+                  Bairros de Curitiba
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {[
+                    { to: "/bairros/batel", label: "Atendimento técnico no Batel" },
+                    { to: "/bairros/agua-verde", label: "Suporte de informática no Água Verde" },
+                    { to: "/bairros/centro", label: "Técnico para computador no Centro" },
+                    { to: "/bairros/portao", label: "Assistência em informática no Portão" },
+                    { to: "/bairros/cic", label: "Atendimento na CIC (Cidade Industrial)" },
+                  ].map((l) => (
+                    <li key={l.to}>
+                      <Link to={l.to} className="font-medium text-foreground hover:text-accent hover:underline">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-base font-bold text-foreground">
+                  Cidades da região metropolitana
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {[
+                    { to: "/tecnico-informatica-sao-jose-pinhais", label: "Suporte técnico em São José dos Pinhais" },
+                    { to: "/tecnico-informatica-pinhais", label: "Manutenção de computador em Pinhais" },
+                    { to: "/tecnico-informatica-colombo", label: "Atendimento de informática em Colombo" },
+                    { to: "/tecnico-informatica-araucaria", label: "Assistência técnica em Araucária" },
+                    { to: "/tecnico-informatica-campo-largo", label: "Técnico para notebook em Campo Largo" },
+                  ].map((l) => (
+                    <li key={l.to}>
+                      <Link to={l.to} className="font-medium text-foreground hover:text-accent hover:underline">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  A cobertura fora de Curitiba depende da agenda e do tipo de reparo; a confirmação
+                  vem na triagem, sem promessa de prazo antes do diagnóstico.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
         {/* 14. FAQ */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto max-w-3xl">

@@ -38,23 +38,45 @@ function walk(dir) {
 const POLICY_RE =
   /CREATE\s+POLICY\s+(?:"([^"]+)"|'([^']+)'|([\w.]+))([\s\S]*?);/gi;
 
-function analyze(sql, file) {
-  const hits = [];
-  for (const m of sql.matchAll(POLICY_RE)) {
-    const name = m[1] || m[2] || m[3];
-    const body = m[4] || "";
-    const table = (body.match(/\bON\s+(?:public\.)?"?(\w+)"?/i) || [])[1] || "unknown";
-    const cmd = (body.match(/\bFOR\s+(ALL|SELECT|INSERT|UPDATE|DELETE)\b/i) || [])[1]?.toUpperCase() || "ALL";
-    const using = /\bUSING\s*\(\s*true\s*\)/i.test(body);
-    const check = /\bWITH\s+CHECK\s*\(\s*true\s*\)/i.test(body);
-    if (!using && !check) continue;
-    hits.push({ file, name, table, cmd, clauses: [using && "USING(true)", check && "WITH CHECK(true)"].filter(Boolean) });
+const DROP_RE = /DROP\s+POLICY\s+(?:IF\s+EXISTS\s+)?(?:"([^"]+)"|'([^']+)'|([\w.]+))\s+ON\s+(?:public\.)?"?(\w+)"?/gi;
+
+/**
+ * Replays every migration in chronological order and keeps the FINAL state of
+ * each policy (table + name). DROP POLICY and re-CREATE with the same name are
+ * honored, so a historically permissive policy that was later tightened is not
+ * reported as a violation.
+ */
+function buildState(files) {
+  const state = new Map(); // `${table}::${name}` -> policy | null
+  for (const file of files) {
+    const sql = readFileSync(file, "utf8");
+    for (const m of sql.matchAll(DROP_RE)) {
+      state.delete(`${m[4]}::${m[1] || m[2] || m[3]}`);
+    }
+    for (const m of sql.matchAll(POLICY_RE)) {
+      const name = m[1] || m[2] || m[3];
+      const body = m[4] || "";
+      const table = (body.match(/\bON\s+(?:public\.)?"?(\w+)"?/i) || [])[1] || "unknown";
+      const cmd = (body.match(/\bFOR\s+(ALL|SELECT|INSERT|UPDATE|DELETE)\b/i) || [])[1]?.toUpperCase() || "ALL";
+      const using = /\bUSING\s*\(\s*true\s*\)/i.test(body);
+      const check = /\bWITH\s+CHECK\s*\(\s*true\s*\)/i.test(body);
+      state.set(`${table}::${name}`, {
+        file,
+        name,
+        table,
+        cmd,
+        alwaysTrue: using || check,
+        clauses: [using && "USING(true)", check && "WITH CHECK(true)"].filter(Boolean),
+      });
+    }
   }
-  return hits;
+  return [...state.values()].filter((p) => p.alwaysTrue);
 }
 
-const files = walk(MIGRATIONS_DIR).filter((f) => f.endsWith(".sql"));
-const all = files.flatMap((f) => analyze(readFileSync(f, "utf8"), f));
+const files = walk(MIGRATIONS_DIR)
+  .filter((f) => f.endsWith(".sql"))
+  .sort();
+const all = buildState(files);
 
 const allowed = [];
 const violations = [];
@@ -63,6 +85,7 @@ for (const h of all) {
   if (rule && rule.commands.includes(h.cmd)) allowed.push({ ...h, reason: rule.reason });
   else violations.push(h);
 }
+
 
 console.log(`[security] ${FINDING_ID} guard — scanned ${files.length} migration file(s)`);
 for (const a of allowed) {

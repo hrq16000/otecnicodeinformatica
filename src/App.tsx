@@ -7,6 +7,7 @@ import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import { WhatsAppFunnel } from "./components/WhatsAppFunnel";
 import { WhatsAppFloat } from "./components/WhatsAppFloat";
 import { InstitutionalJsonLd } from "./components/InstitutionalJsonLd";
+import { GeoAutoDetect } from "./components/GeoAutoDetect";
 
 
 const LegacyApp = lazy(() => import("./LegacyApp"));
@@ -34,6 +35,7 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),
   "/arrumar-pc": () => import("./pages/ArrumarPC"),
   "/obrigado": () => import("./pages/Obrigado"),
+  "/ordem-de-servico": () => import("./pages/OrdemDeServico"),
 };
 
 const warmRoute = (pathname = "") => {
@@ -197,6 +199,7 @@ const HomeApp = () => {
   return (
     <AppErrorBoundary>
       <AppInit />
+      <GeoAutoDetect />
       <InstitutionalJsonLd />
       <InstantNavigation setRoutePath={setRoutePath} setShowNavLoader={setShowNavLoader} />
       {showNavLoader ? <NavigationOverlay /> : null}

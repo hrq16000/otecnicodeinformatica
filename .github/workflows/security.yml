@@ -60,6 +60,24 @@ jobs:
       - name: Verify every public-schema CREATE TABLE has RLS + GRANT
         run: bun scripts/check-rls-migrations.ts
 
+      # 5b) Fail the build when finding SUPA_rls_policy_always_true reappears
+      #     (RLS policy with a literal `true` USING / WITH CHECK predicate).
+      - name: Guard SUPA_rls_policy_always_true
+        run: node scripts/check-rls-always-true.mjs
+
+      # 5c) Human-readable HTML summary of the security posture (uploaded below).
+      - name: Generate security scan HTML report
+        if: always()
+        run: node scripts/report-security-scan.mjs
+
+      - name: Upload security report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-report
+          path: reports/security-scan.html
+
+
       # 6) Guard against SEO regressions on the landing shell (title / desc / unique H1).
       - name: Verify SEO basics on index.html
         run: bun scripts/check-seo-basics.ts index.html

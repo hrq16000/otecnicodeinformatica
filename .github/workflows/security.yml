@@ -66,16 +66,38 @@ jobs:
         run: node scripts/check-rls-always-true.mjs
 
       # 5c) Human-readable HTML summary of the security posture (uploaded below).
-      - name: Generate security scan HTML report
+      #     Sai com código 1 quando qualquer internal_id monitorado está FOUND,
+      #     bloqueando o merge (marque este job como required no branch protection).
+      - name: Generate security scan HTML report (gate)
+        id: security_report
         if: always()
         run: node scripts/report-security-scan.mjs
 
+      # 5d) Notificação Slack quando qualquer internal_id monitorado é FOUND.
+      - name: Notify Slack on monitored findings
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/notify-security-slack.mjs
+
+      # 5e) Histórico versionado por commit: um artefato por execução.
       - name: Upload security report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: security-scan-report
-          path: reports/security-scan.html
+          name: security-scan-report-${{ github.sha }}-${{ github.run_number }}
+          path: |
+            reports/security-scan.html
+            reports/security-scan-summary.json
+          retention-days: 90
+
+      - name: Fail the job when monitored findings were reported
+        if: always() && steps.security_report.outcome == 'failure'
+        run: |
+          echo "::error::Relatório de segurança marcou internal_id(s) monitorado(s) como FOUND."
+          node scripts/check-rls-always-true.mjs --explain || true
+          exit 1
+
 
 
       # 6) Guard against SEO regressions on the landing shell (title / desc / unique H1).

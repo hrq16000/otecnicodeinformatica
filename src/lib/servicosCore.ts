@@ -438,7 +438,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Limpar, formatar ou preservar: como decidimos",
+        paragrafos: [
+          "Nem toda infecção exige reinstalar o sistema. Adware de navegador, extensão sequestradora, tarefa agendada maliciosa e atalho contaminado saem com limpeza dirigida, preservando programas e arquivos no lugar. Esse é o cenário mais comum de quem chega reclamando de pop-up e página inicial trocada.",
+          "Reinstalar passa a ser a escolha certa quando a ameaça tocou componentes do sistema, quando há vários malwares somados a anos de acúmulo, ou quando a máquina volta a apresentar sintoma depois da limpeza. Nesses casos, insistir em remover peça por peça custa mais tempo do que reinstalar e devolve uma máquina menos confiável.",
+          "Em ransomware, a conversa é outra e precisa ser honesta: arquivos criptografados por famílias recentes normalmente não têm decriptador público. Avaliamos a extensão, verificamos se existe ferramenta legítima disponível e priorizamos preservar o disco original antes de qualquer tentativa. Não prometemos recuperação que não podemos entregar, e não intermediamos pagamento de resgate.",
+        ],
+      },
+      {
+        titulo: "O que fazer agora, antes do atendimento",
+        paragrafos: [
+          "Se aparecerem cobranças estranhas ou logins suspeitos, desconecte a máquina da internet e troque as senhas críticas por outro aparelho — e-mail principal primeiro, depois banco e redes sociais. Trocar senha no computador infectado apenas entrega a senha nova ao invasor.",
+          "Não instale três antivírus ao mesmo tempo tentando resolver: eles se bloqueiam e mascaram o diagnóstico. Também evite rodar limpadores de registro baixados de anúncio, que costumam ser a própria origem do problema.",
+          "Se houver arquivo importante sem cópia, avise na triagem. A ordem correta é preservar dados, depois limpar — inverter essa ordem é o que costuma transformar um caso simples em perda definitiva.",
+        ],
+      },
+      {
+        titulo: "Depois da limpeza: o que reduz reinfecção",
+        paragrafos: [
+          "Entregamos com antivírus nativo ativo e configurado, extensões revisadas, inicialização enxuta, contas de administrador separadas do uso diário quando faz sentido e atualizações pendentes aplicadas. A maior parte das reinfecções acontece por software pirata, instalador baixado de link patrocinado e anexo de e-mail — orientamos caso a caso com exemplos do que a pessoa realmente usa.",
+          "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 6 ─────────────────────────────────────────────────────────

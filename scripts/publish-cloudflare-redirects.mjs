@@ -100,4 +100,17 @@ const applied = await api(`/zones/${zone}/rulesets/${target.id}`, {
 
 console.log(`PUBLICADO no Cloudflare: ${applied.rules?.length ?? 0} regras ativas (ruleset ${target.id}).`);
 console.log(`rollback: node scripts/publish-cloudflare-redirects.mjs --rollback=redirects/rollback/cloudflare/${stamp}.json`);
-console.log("Próximo: npm run check:redirects:critical e npm run check:redirects:all");
+
+// Purge automático do cache/CDN — evita que o edge continue servindo o
+// conteúdo antigo das URLs que passaram a redirecionar. Use --no-purge para pular.
+if (!args.includes("--no-purge")) {
+  try {
+    const { purgeCloudflareCache } = await import("./purge-cloudflare-cache.mjs");
+    const result = await purgeCloudflareCache({ all: args.includes("--purge-all") });
+    console.log(`cache purgado: ${JSON.stringify(result)}`);
+  } catch (e) {
+    console.error(`AVISO: purge de cache falhou (${e.message}). Rode "npm run purge:cf" manualmente.`);
+  }
+}
+
+console.log("Próximo: npm run verify:cf:strict, npm run check:redirects:critical e npm run report:critical-evidence");

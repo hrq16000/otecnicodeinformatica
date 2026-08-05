@@ -86,7 +86,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Quando formatar resolve e quando é só desperdício",
+        paragrafos: [
+          "Formatar corrige o que é software: sistema corrompido, atualização malsucedida, perfil de usuário quebrado, infecção persistente, acúmulo de anos de instalações e serviços disputando a inicialização. Nesses cenários a máquina volta previsível já no primeiro boot.",
+          "Formatar não corrige hardware. Se o gargalo é HD mecânico, memória insuficiente ou superaquecimento, a máquina fica boa por alguns dias e volta a arrastar — porque a causa continua no lugar. Por isso avaliamos antes: em boa parte dos atendimentos, migrar para SSD entrega mais resultado do que reinstalar o Windows.",
+          "Há ainda o caso em que formatar é arriscado: disco com setores defeituosos ou com arquivos importantes sem cópia. Nessa situação a prioridade é preservar os dados primeiro, e só depois decidir o que fazer com o sistema.",
+        ],
+      },
+      {
+        titulo: "Backup, licença e o que você precisa separar antes",
+        paragrafos: [
+          "Antes de reinstalar, copiamos documentos, fotos, downloads e área de trabalho. Vale avisar sobre o que costuma escapar: e-mails configurados em programa local, favoritos e senhas do navegador, arquivos de sistemas de trabalho e licenças de softwares pagos. Se existir algo assim, avise na triagem para incluirmos na cópia.",
+          "Sobre licença: máquinas com Windows de fábrica normalmente reativam sozinhas pela chave gravada na placa. Quando não há licença válida, explicamos como regularizar — não entregamos ativação irregular.",
+          "Você também recebe orientação de senhas: contas do navegador, e-mail e serviços precisam ser acessíveis depois da reinstalação. Perder acesso à conta principal costuma dar mais trabalho do que a própria formatação.",
+        ],
+      },
+      {
+        titulo: "Como fica a máquina na entrega",
+        paragrafos: [
+          "Entregamos com Windows atualizado, drivers corretos do modelo, navegador, leitor de PDF, compactador e antivírus ativos, inicialização enxuta e os arquivos restaurados nas pastas originais. Programas específicos do seu trabalho podem ser instalados se você fornecer instalador e licença.",
+          "O tempo típico é de algumas horas e varia com o volume de dados. Se a máquina for antiga e o disco estiver lento, avisamos: a formatação vai demorar mais e o resultado será limitado pelo hardware — cenário em que o upgrade de SSD e memória costuma ser o passo mais inteligente.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 2 ─────────────────────────────────────────────────────────
@@ -218,7 +249,38 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
       { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Como isolamos a causa em um PC de mesa",
+        paragrafos: [
+          "A vantagem do desktop é que quase tudo pode ser testado separadamente. Diante de um PC que não liga, a sequência começa pela alimentação: fonte, botão, cabo e sinais da placa. Se há energia mas não há vídeo, a investigação passa para memória, placa de vídeo e placa-mãe, testando com peças conhecidas em vez de trocar por suposição.",
+          "Reinício sozinho e desligamento repentino raramente são 'defeito do Windows'. Costumam vir de fonte perdendo capacidade, temperatura alta por dissipador saturado de poeira ou pasta térmica ressecada, e memória instável. Tela azul recorrente pede leitura do erro e teste de memória e disco antes de qualquer conclusão.",
+          "Lentidão tem duas origens bem diferentes: sistema comprometido, que se resolve com limpeza ou reinstalação, e hardware defasado, que só melhora com disco e memória adequados. Diagnosticar antes evita o pior desperdício — formatar uma máquina cujo gargalo era o HD.",
+        ],
+      },
+      {
+        titulo: "O que esta página não cobre",
+        paragrafos: [
+          "Aqui tratamos de computador de mesa. Notebook tem desmontagem, refrigeração e peças próprias e é atendido na página específica de manutenção de notebook.",
+          "Também não fazemos reparo em nível de componente na placa-mãe, como retrabalho de BGA ou substituição de chip. Quando o diagnóstico aponta esse caminho, dizemos que o serviço é de laboratório especializado em vez de empurrar uma tentativa cara e incerta.",
+          "Não trabalhamos com preço fechado por telefone. Sem ver o comportamento do equipamento, qualquer valor seria chute; o orçamento sai depois da avaliação e só é executado após sua aprovação.",
+        ],
+      },
+      {
+        titulo: "Quando o conserto não compensa",
+        paragrafos: [
+          "Existe um ponto em que o reparo custa quase o mesmo que uma máquina melhor: placa-mãe de plataforma obsoleta somada a fonte e memória de padrão antigo é o caso clássico. Nessas horas dizemos com clareza que o dinheiro rende mais em substituição — e explicamos qual peça atual pode ser aproveitada.",
+          "Em outros casos o oposto é verdadeiro: um desktop de plataforma ainda atual costuma ter vida longa com troca de fonte, limpeza e migração para SSD. A recomendação é feita com os números na mesa, sem pressa e sem pressão para fechar.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-05",
   },
 
   // 4 ─────────────────────────────────────────────────────────

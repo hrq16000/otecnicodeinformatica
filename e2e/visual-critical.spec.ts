@@ -37,6 +37,15 @@ const CONTRAST_PROBE = `() => {
     }
     return [255, 255, 255];
   };
+  const onGradient = (el) => {
+    let n = el;
+    while (n) {
+      const st = getComputedStyle(n);
+      if (st.backgroundImage && st.backgroundImage !== 'none') return true;
+      n = n.parentElement;
+    }
+    return false;
+  };
   const bad = [];
   const nodes = document.querySelectorAll('h1,h2,h3,h4,p,li,a,span,strong,label');
   nodes.forEach((el) => {
@@ -46,6 +55,8 @@ const CONTRAST_PROBE = `() => {
     if (style.visibility === 'hidden' || style.display === 'none' || style.opacity === '0') return;
     const rect = el.getBoundingClientRect();
     if (rect.width < 4 || rect.height < 4) return;
+    if (style.webkitTextFillColor === 'rgba(0, 0, 0, 0)') return;
+    if (onGradient(el)) return;
     const fg = parse(style.color);
     const bg = bgOf(el);
     const l1 = luminance(fg), l2 = luminance(bg);

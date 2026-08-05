@@ -232,14 +232,22 @@ export const HomeSections = () => {
                   — problemas de software resolvidos à distância.
                 </li>
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <FunnelButton
                   loc="home_router_pf"
                   msg="Olá! Sou pessoa física e preciso de atendimento para o meu equipamento."
                 >
                   Sou pessoa física
                 </FunnelButton>
+                <a
+                  href="/atendimento-domicilio"
+                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  Ver atendimento residencial
+                </a>
               </div>
+              <TermosLink className="mt-3" />
+
             </div>
 
             <div className="flex flex-col rounded-2xl border border-accent/30 bg-accent/[0.04] p-6">
@@ -274,14 +282,22 @@ export const HomeSections = () => {
                   — conexão estável em todo o escritório.
                 </li>
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <FunnelButton
                   loc="home_router_pj"
                   msg="Olá! Represento uma empresa em Curitiba e preciso de suporte de informática."
                 >
                   Somos empresa
                 </FunnelButton>
+                <a
+                  href="/empresa-de-ti-curitiba"
+                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  Ver atendimento empresarial
+                </a>
               </div>
+              <TermosLink className="mt-3" />
+
             </div>
           </div>
         </div>

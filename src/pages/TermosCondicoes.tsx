@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
+import { PrecoModalidades } from "@/components/PrecoModalidades";
+
 import {
   MessageCircle,
   Home,

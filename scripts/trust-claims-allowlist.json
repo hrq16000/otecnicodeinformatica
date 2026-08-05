@@ -65,6 +65,36 @@
       "file": "src/pages/admin",
       "rule": "*",
       "why": "Painel interno, não público."
+    },
+    {
+      "file": "src/pages/CFTV.tsx",
+      "rule": "garantia-divergente",
+      "why": "Vertical CFTV: garantia de 1 ano é do equipamento Intelbras (fabricante) e da instalação do kit — regra própria, distinta da mão de obra de informática."
+    },
+    {
+      "file": "src/pages/CFTV.tsx",
+      "rule": "plano-mensal",
+      "why": "Afirma a AUSÊNCIA de mensalidade de monitoramento (fato do kit local), não venda de plano."
+    },
+    {
+      "file": "src/pages/cftv/CFTVCityTemplate.tsx",
+      "rule": "garantia-divergente",
+      "why": "Mesma regra da vertical CFTV (equipamento + instalação)."
+    },
+    {
+      "file": "src/pages/cftv/CFTVCityTemplate.tsx",
+      "rule": "plano-mensal",
+      "why": "Afirma ausência de mensalidade."
+    },
+    {
+      "file": "src/lib/politicaComercial.ts",
+      "rule": "plano-mensal",
+      "why": "Fonte central declara explicitamente que NÃO há plano mensal."
+    },
+    {
+      "file": "src/lib/politicaComercial.ts",
+      "rule": "filial",
+      "why": "Fonte central declara explicitamente que NÃO há filial."
     }
   ],
   "_scope": "Conteúdo editorial (blog, páginas de problema, marcas) descreve terceiros e legislação — fora do escopo do gate de claims institucionais."

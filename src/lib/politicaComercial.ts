@@ -56,9 +56,7 @@ export const GARANTIA = {
 // NOTA FISCAL (Etapa 9)
 // ─────────────────────────────────────────────────────────────
 export const NOTA_FISCAL = {
-  /** Emissão confirmada operacionalmente pela entidade abaixo. */
-  emissorLabel: `${siteConfig.legalEntityName} — CNPJ ${siteConfig.cnpj}`,
-  servicoLabel: "Nota fiscal de serviço emitida mediante solicitação, em nome do CNPJ acima",
+  servicoLabel: "Nota fiscal de serviço emitida mediante solicitação",
   pecaLabel: "Peças adquiridas acompanham a nota do fornecedor quando aplicável",
   /** Nunca usar "nota fiscal garantida" nem prometer faturamento/boleto. */
   ressalvaLabel:

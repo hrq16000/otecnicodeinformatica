@@ -46,7 +46,7 @@ const diferenciais = [
   {
     icon: FileText,
     title: "Nota fiscal de serviço",
-    description: `Nota fiscal emitida por ${siteConfig.legalEntityName} (CNPJ ${siteConfig.cnpj}) mediante solicitação, com os dados do tomador confirmados antes da conclusão.`,
+    description: "Nota fiscal de serviço emitida mediante solicitação, com os dados do tomador confirmados antes da conclusão.",
   },
   {
     icon: Users,

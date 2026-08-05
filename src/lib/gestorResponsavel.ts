@@ -39,7 +39,7 @@ export const GESTOR: GestorResponsavel = {
   nome: "",
   cargo: "Responsável técnico",
   bio: [
-    `${siteConfig.legalEntityName} (CNPJ ${siteConfig.cnpj}) atua com manutenção e suporte em informática desde ${siteConfig.foundedYear}, atendendo residências, profissionais autônomos e empresas em ${siteConfig.primaryCity} e região metropolitana.`,
+    `O ${siteConfig.brandName} atua com manutenção e suporte em informática desde ${siteConfig.foundedYear}, atendendo residências, profissionais autônomos e empresas em ${siteConfig.primaryCity} e região metropolitana.`,
     "A responsabilidade técnica é institucional: todo atendimento passa por triagem documentada, diagnóstico antes de valor do atendimento e registro do que foi executado. Nenhum serviço é aprovado sem o cliente entender o problema, o escopo e o valor mínimo aplicável.",
     "O escopo cobre desde manutenção preventiva e formatação até reparos de bancada, recuperação de dados, redes Wi-Fi e suporte contínuo para pequenas empresas — sempre com critério explícito de quando o reparo não compensa.",
   ],

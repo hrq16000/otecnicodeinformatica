@@ -18,7 +18,7 @@ export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) =>
     {
       icon: Award,
       title: experienciaLabel,
-      description: `${siteConfig.legalEntityName} — CNPJ ${siteConfig.cnpj}`,
+      description: `${siteConfig.brandName} — Curitiba e região metropolitana`,
     },
     {
       icon: Clock,

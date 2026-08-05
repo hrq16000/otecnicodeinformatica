@@ -20,8 +20,8 @@ const trustItems = [
  */
 const dadosVerificaveis = [
   { valor: experienciaLabelCurto, label: "Atuação em informática" },
-  { valor: siteConfig.cnpj, label: `CNPJ · ${siteConfig.legalEntityName}` },
-  { valor: "Curitiba + RMC", label: "Área de atendimento" },
+  { valor: "Curitiba", label: "Base de atendimento" },
+  { valor: "PF e PJ", label: "Residencial e empresarial" },
 ];
 
 export const TrustSection = () => {

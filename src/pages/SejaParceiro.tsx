@@ -38,7 +38,7 @@ const requisitos = [
   "Disponibilidade para atendimento a domicílio na região de Curitiba",
   "Boa comunicação e comprometimento com prazos",
   "Conduta profissional e ética no atendimento ao cliente",
-  "CNPJ ou MEI ativo (desejável, mas não obrigatório)",
+  "Atuação formalizada (desejável, mas não obrigatório)",
 ];
 
 const especialidades = [

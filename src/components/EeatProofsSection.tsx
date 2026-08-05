@@ -156,7 +156,7 @@ export const EeatProofsSection = ({
           )}
 
           <p className="mt-8 text-sm text-muted-foreground">
-            Responsabilidade técnica de {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
+            Responsabilidade técnica do {siteConfig.brandName}.{" "}
             {/* Âncoras nativas: a home é montada fora do Router (shell estático). */}
             <a href="/gestor-responsavel" className="text-primary underline">
               Ver quem responde tecnicamente

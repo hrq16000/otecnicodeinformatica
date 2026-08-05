@@ -231,7 +231,6 @@ const Sobre = () => {
               <strong className="text-foreground">
                 {GESTOR.nome.trim() ? `${GESTOR.nome} — ${GESTOR.cargo}` : GESTOR.cargo.toLowerCase()}
               </strong>{" "}
-              e faturados por {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
               {GARANTIA.servicoLabel} e {NOTA_FISCAL.servicoLabel.toLowerCase()}.
             </p>
 

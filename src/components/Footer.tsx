@@ -59,16 +59,13 @@ const localBusinessSchema = {
   "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
   "@id": `${siteConfig.baseUrl}/#localbusiness`,
   name: siteConfig.legalName,
-  legalName: siteConfig.legalEntityName,
   alternateName: siteConfig.brandName,
-  taxID: siteConfig.cnpj,
   foundingDate: siteConfig.foundedYear,
   description: siteConfig.defaultDescription,
   image: `${siteConfig.baseUrl}/logo.webp`,
   logo: `${siteConfig.baseUrl}/logo.webp`,
   url: siteConfig.baseUrl,
   telephone: siteConfig.phoneE164,
-  email: siteConfig.email,
   priceRange: "$$",
   currenciesAccepted: "BRL",
   paymentAccepted: "Cash, Credit Card, Debit Card, PIX",
@@ -155,7 +152,7 @@ export const Footer = () => {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteConfig.brandName} — {siteConfig.primaryCity}, {siteConfig.region}. Todos os direitos reservados.</p>
-          <p>{siteConfig.legalEntityName} · desde {siteConfig.foundedYear} · CNPJ {siteConfig.cnpj}</p>
+          <p>Atuação em informática desde {siteConfig.foundedYear}</p>
           <p>{siteConfig.serviceArea.filter((c) => c !== "Região Metropolitana de Curitiba").join(" · ")}</p>
         </div>
       </div>

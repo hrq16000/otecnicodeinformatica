@@ -10,10 +10,10 @@
  */
 
 // === VALORES ===
-export const COLETA_TAXA_MINIMA = 300;
-export const COLETA_TAXA_MINIMA_LABEL = `R$ ${COLETA_TAXA_MINIMA}`;
-export const DIAGNOSTICO_VALOR = 90;
-export const DIAGNOSTICO_VALOR_LABEL = `R$ ${DIAGNOSTICO_VALOR}`;
+export const COLETA_TAXA_MINIMA = 299.99;
+export const COLETA_TAXA_MINIMA_LABEL = "R$ 299,99";
+export const DIAGNOSTICO_VALOR = 99.99;
+export const DIAGNOSTICO_VALOR_LABEL = "R$ 99,99";
 
 // === PRAZOS ===
 export const PRAZO_RAPIDO = "2 a 3 dias úteis"; // Celular, Rádio, Caixa de Som

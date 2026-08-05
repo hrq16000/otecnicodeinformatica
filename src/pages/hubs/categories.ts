@@ -44,7 +44,7 @@ export const CATEGORIES: Record<CategoryId, CategoryData> = {
       "Atualização de firmware",
     ],
     faqs: [
-      { q: "Quanto custa o conserto de TV?", a: "O reparo mínimo é R$ 300 (já com diagnóstico). Após avaliar, enviamos valor do atendimento exato antes de qualquer execução. Se você desistir, paga só R$ 90 do diagnóstico." },
+      { q: "Quanto custa o conserto de TV?", a: "O reparo mínimo é R$ 300 (já com diagnóstico). Após avaliar, enviamos valor do atendimento exato antes de qualquer execução. Se você desistir, paga só R$ 99,99 do diagnóstico." },
       { q: "Vocês buscam minha TV?", a: "Sim. Trabalhamos com Coleta e Entrega (taxa conforme distância). O prazo é de 15 a 60 dias úteis para TV/Monitor por se tratar de bancada e peças sob encomenda." },
       { q: "Vale a pena consertar TV antiga?", a: "Depende do laudo. Se a peça for cara (display, por exemplo), avisamos antes — nunca executamos sem sua autorização por escrito." },
     ],

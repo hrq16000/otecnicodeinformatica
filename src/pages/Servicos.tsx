@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
@@ -56,6 +57,11 @@ const Servicos = () => {
           { name: "Início", path: "/" },
           { name: "Serviços", path: "/servicos" },
         ]}
+      />
+      <LocalBusinessJsonLd
+        path="/servicos"
+        description={DESCRIPTION}
+        services={CARDS.map((c) => ({ name: c.slug.replace(/-/g, " "), url: `/servicos/${c.slug}` }))}
       />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />

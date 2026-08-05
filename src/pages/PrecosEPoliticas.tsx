@@ -8,9 +8,11 @@ import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
+import { TermosConteudo } from "@/components/TermosConteudo";
 
-import { trackPageView } from "@/lib/analytics";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { 
   Check, 
   AlertTriangle, 
@@ -101,26 +103,32 @@ const servicosPrecos = [
   },
 ];
 
-const PrecosEPoliticas = () => {
+interface PrecosEPoliticasProps {
+  /** Rota efetiva (alias /termos-e-condicoes aponta canonical para /precos-e-politicas). */
+  path?: string;
+}
+
+const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProps) => {
   useEffect(() => {
-    document.title = "Preços e Políticas | Técnico em Curitiba";
+    document.title = "Termos, Condições, Valores e Prazos | Técnico em Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor informado após avaliação e regras claras sobre peças, prazos e dados."
+        "Ponto único de termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h."
       );
     }
-    trackPageView("/precos-e-politicas", "Preços e Políticas");
-  }, []);
+    trackPageView(path, "Termos, Condições, Valores e Prazos");
+  }, [path]);
 
   const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um valor para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor informado após avaliação e regras claras sobre peças, prazos e dados." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
+      <PageSEO title="Termos, Condições, Valores e Prazos | Técnico em Curitiba" description="Ponto único de termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Termos, Condições, Valores e Prazos", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
+      <LocalBusinessJsonLd path="/precos-e-politicas" description="Termos, condições, valores e prazos do atendimento técnico de informática em Curitiba e Região Metropolitana." />
       <Header />
       <main>
         {/* Hero */}
@@ -129,10 +137,10 @@ const PrecosEPoliticas = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
-                Preços e Políticas
+                Termos, Condições, Valores e Prazos
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
-                Valores de referência e regras claras • O valor final depende da avaliação
+                Ponto único de consulta: modalidades, valores, condições, prazos e regras de cancelamento
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
@@ -207,13 +215,12 @@ const PrecosEPoliticas = () => {
                 🛠️ Serviços com Execução no Local
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Para serviços que exigem mais tempo no local: formatações complexas, configurações de rede, montagem e manutenção.
+                Para serviços que exigem mais tempo no local: formatações, configurações de rede, upgrades com peça já em mãos.
               </p>
-              <div className="grid sm:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { tempo: "até 1 hora", valor: "R$ 168,99" },
-                  { tempo: "até 2 horas", valor: "R$ 199,99" },
-                  { tempo: "até 3 horas", valor: "R$ 249,99" },
+                  { tempo: "cada 30 minutos (avulso)", valor: "R$ 99,99" },
+                  { tempo: "pacote pré-acordado de até 2 horas", valor: "R$ 279,99" },
                 ].map((t, i) => (
                   <div key={i} className="bg-background rounded-xl p-6 text-center">
                     <Clock className="h-6 w-6 text-primary mx-auto mb-2" />
@@ -224,7 +231,7 @@ const PrecosEPoliticas = () => {
               </div>
               <div className="bg-accent/5 rounded-xl p-4 mt-6 border border-accent/20">
                 <p className="text-sm text-muted-foreground text-center">
-                  <strong className="text-foreground">Como funciona:</strong> O técnico permanece o tempo necessário para resolver. A cobrança é pelo tempo contratado. O foco é na resolução rápida e eficiente do problema.
+                  <strong className="text-foreground">Como funciona:</strong> a cobrança é pelo tempo técnico aplicado no endereço, sem promessa de solução no local e sem peças inclusas. O que não for resolvível em visita é convertido em coleta e entrega.
                 </p>
               </div>
             </div>
@@ -440,7 +447,7 @@ const PrecosEPoliticas = () => {
                     <div className="bg-accent/10 rounded-lg p-4">
                       <p className="font-semibold text-foreground mb-2">Desistência após agendamento de coleta:</p>
                       <p className="text-muted-foreground">
-                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 90</strong>, 
+                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 99,99</strong>, 
                         que inclui logística de coleta e entrega do equipamento.
                       </p>
                     </div>
@@ -563,18 +570,29 @@ const PrecosEPoliticas = () => {
             </div>
           </div>
         </section>
+        {/* Termos, condições e FAQ — conteúdo fundido (fonte única) */}
+        <section id="termos" className="py-10 md:py-14 bg-background scroll-mt-24">
+          <TermosConteudo />
+        </section>
+
         {/* CTA Final */}
         <section className="py-8 md:py-10 bg-primary">
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-                Solicite Seu valor do atendimento Agora
+                Solicite seu atendimento agora
               </h2>
               <p className="text-primary-foreground/80 mb-6">
                 Envie os detalhes do seu problema e receba o valor personalizado
               </p>
               <Button variant="heroWhatsapp" size="lg" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta-location="precos-termos-final"
+                  onClick={() => trackCTAClick("whatsapp", "precos-termos-final")}
+                >
                   <MessageCircle className="h-5 w-5" />
                   Solicitar atendimento via WhatsApp
                 </a>

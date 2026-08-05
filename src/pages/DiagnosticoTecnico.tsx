@@ -282,7 +282,7 @@ const DiagnosticoTecnico = () => {
                   </div>
                   <div className="flex justify-between items-center bg-background rounded-lg p-3">
                     <span className="text-sm font-medium">Diagnóstico com Coleta</span>
-                    <span className="font-bold text-accent">R$ 90 - R$ 100</span>
+                    <span className="font-bold text-accent">R$ 99,99 - R$ 100</span>
                   </div>
                   <div className="flex justify-between items-center bg-background rounded-lg p-3">
                     <span className="text-sm font-medium">Diagnóstico Remoto</span>

@@ -106,7 +106,7 @@ const chatFlow = {
   },
 
   triagem_hardware_grave: {
-    mensagem: "**Equipamento não liga / reinicia** — isso pode ser:\n\n🟡 **Médio:** Fonte defeituosa, carregador ruim, memória solta\n🔴 **Complexo:** Placa mãe com curto, capacitor queimado, GPU danificada\n\n⚠️ **Importante:** Só o diagnóstico profissional diferencia um problema de R$ 100 de um de R$ 800.\n\n**💰 Diagnóstico:** R$ 90-100 (abatido do reparo se aprovado)\n**Pré-aprovado:** até R$ 300-400 (reparos dentro desse valor são executados automaticamente)\n\nComo prefere proceder?",
+    mensagem: "**Equipamento não liga / reinicia** — isso pode ser:\n\n🟡 **Médio:** Fonte defeituosa, carregador ruim, memória solta\n🔴 **Complexo:** Placa mãe com curto, capacitor queimado, GPU danificada\n\n⚠️ **Importante:** Só o diagnóstico profissional diferencia um problema de R$ 100 de um de R$ 800.\n\n**💰 Diagnóstico:** R$ 99,99 a R$ 100 (abatido do reparo se aprovado)\n**Pré-aprovado:** até R$ 300-400 (reparos dentro desse valor são executados automaticamente)\n\nComo prefere proceder?",
     opcoes: [
       { label: "Visita diagnóstica no local", proximo: "perguntas_obrigatorias" },
       { label: "Coleta para bancada", proximo: "perguntas_coleta" },
@@ -219,7 +219,7 @@ const chatFlow = {
   },
 
   perguntas_coleta: {
-    mensagem: "Para agendar a **coleta**, precisamos de:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço completo (com CEP)\n• Marca e modelo do equipamento\n• Idade e origem (novo/usado)\n• Descrição detalhada do problema\n• Histórico de reparos\n\n📸 **Envie obrigatoriamente:**\n• Fotos do equipamento e do defeito\n• Vídeo do problema (se aplicável)\n\n**💰 Política:**\n• Pré-aprovado: R$ 300 a R$ 400\n• Acima: consultamos antes\n• Desistência: taxa de R$ 90-100\n• Prazo: 15 a 60 dias",
+    mensagem: "Para agendar a **coleta**, precisamos de:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço completo (com CEP)\n• Marca e modelo do equipamento\n• Idade e origem (novo/usado)\n• Descrição detalhada do problema\n• Histórico de reparos\n\n📸 **Envie obrigatoriamente:**\n• Fotos do equipamento e do defeito\n• Vídeo do problema (se aplicável)\n\n**💰 Política:**\n• Pré-aprovado: R$ 300 a R$ 400\n• Acima: consultamos antes\n• Desistência: taxa de R$ 99,99 a R$ 100\n• Prazo: 15 a 60 dias",
     opcoes: [
       { label: "Enviar dados pelo WhatsApp", proximo: "whatsapp_coleta" },
     ]
@@ -234,14 +234,14 @@ const chatFlow = {
   },
 
   diagnostico_coleta: {
-    mensagem: "**Diagnóstico com Coleta**\n\n📋 **Como funciona:**\n• Buscamos seu equipamento em casa\n• Diagnóstico completo em laboratório\n• Reparos até R$ 300 executados automaticamente\n• Acima de R$ 300 = consultamos antes\n• Coleta + entrega inclusas\n\n⚠️ **Em caso de desistência:**\nTaxa de diagnóstico: R$ 90 a R$ 100\n\n📸 **Precisamos de:** fotos/vídeo do defeito, marca e modelo, endereço completo.",
+    mensagem: "**Diagnóstico com Coleta**\n\n📋 **Como funciona:**\n• Buscamos seu equipamento em casa\n• Diagnóstico completo em laboratório\n• Reparos até R$ 300 executados automaticamente\n• Acima de R$ 300 = consultamos antes\n• Coleta + entrega inclusas\n\n⚠️ **Em caso de desistência:**\nTaxa de diagnóstico: R$ 99,99 a R$ 100\n\n📸 **Precisamos de:** fotos/vídeo do defeito, marca e modelo, endereço completo.",
     opcoes: [
       { label: "Agendar coleta pelo WhatsApp", proximo: "whatsapp_coleta" },
     ]
   },
 
   precos: {
-    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 69,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 90-100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe atendimento sem compromisso presencial.** Estimativas via WhatsApp são aproximadas.",
+    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 69,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 99,99 a R$ 100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe atendimento sem compromisso presencial.** Estimativas via WhatsApp são aproximadas.",
     opcoes: [
       { label: "Ver tabela completa no site", proximo: "link_precos" },
       { label: "Quero agendar um serviço", proximo: "tipo_equipamento" },
@@ -332,7 +332,7 @@ const chatFlow = {
 
   // ===== ESTADOS FINAIS (REDIRECT WHATSAPP) =====
   whatsapp_visita: { redirect: true, mensagem: "Olá! Gostaria de agendar uma visita técnica.\n\nNome: [NOME]\nEndereço: [ENDEREÇO/BAIRRO]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\nPreferência: [DATA/HORÁRIO]\n\nEstou ciente da política de preços (A partir de R$ 69,99)." },
-  whatsapp_coleta: { redirect: true, mensagem: "Olá! Gostaria de agendar diagnóstico com coleta.\n\nNome: [NOME]\nEndereço: [ENDEREÇO COMPLETO + CEP]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nOrigem: [NOVO/USADO]\nProblema: [DESCREVA]\nHistórico: [REPAROS ANTERIORES?]\n\nEstou ciente da taxa de R$90-100 (desistência) e pré-aprovado até R$300-400." },
+  whatsapp_coleta: { redirect: true, mensagem: "Olá! Gostaria de agendar diagnóstico com coleta.\n\nNome: [NOME]\nEndereço: [ENDEREÇO COMPLETO + CEP]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nOrigem: [NOVO/USADO]\nProblema: [DESCREVA]\nHistórico: [REPAROS ANTERIORES?]\n\nEstou ciente da taxa de R$ 99,99 a R$ 100 (desistência) e pré-aprovado até R$300-400." },
   whatsapp_remoto: { redirect: true, mensagem: "Olá! Preciso de suporte remoto.\n\nNome: [NOME]\nEquipamento: [MARCA/MODELO]\nProblema: [DESCREVA]\n\nEstou disponível agora." },
   whatsapp_geral: { redirect: true, mensagem: "Olá! Vim pelo site e gostaria de mais informações sobre os serviços de informática." },
   whatsapp_urgente: { redirect: true, mensagem: "🚨 URGENTE — Caiu líquido no meu notebook!\n\nMarca/Modelo: [MODELO]\nTipo de líquido: [ÁGUA/CAFÉ/OUTRO]\nQuanto tempo faz: [TEMPO]\n\nJá desliguei o equipamento. Preciso de atendimento urgente!" },

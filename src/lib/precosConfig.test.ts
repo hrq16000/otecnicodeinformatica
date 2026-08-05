@@ -37,7 +37,7 @@ describe("precosConfig — sem margem de erro", () => {
   it("informa que peças não estão inclusas em todas as modalidades", () => {
     for (const m of MODALIDADES) {
       expect(m.detalhes.join(" ").toLowerCase()).toMatch(/peças/);
-      expect(m.detalhes.join(" ").toLowerCase()).toMatch(/não (estão )?inclus/);
+      expect(m.detalhes.join(" ").toLowerCase()).toMatch(/não (estão inclus|inclui)/);
     }
     expect(NOTA_VISITA_AVULSA).toMatch(/sem compromisso/);
     expect(NOTA_VISITA_AVULSA).toMatch(/R\$ 99,99/);

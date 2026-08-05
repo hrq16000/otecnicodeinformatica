@@ -17,7 +17,7 @@ const PROCESSO_PADRAO = [
   { step: "1", title: "Triagem", desc: "Você descreve o problema pelo WhatsApp e enviamos as primeiras orientações." },
   { step: "2", title: "Avaliação", desc: "Diagnóstico técnico do equipamento para entender a real causa." },
   { step: "3", title: "Orientação", desc: "Explicamos o que foi encontrado, em linguagem clara, sem empurrar peça." },
-  { step: "4", title: "Orçamento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
+  { step: "4", title: "Valor do atendimento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
   { step: "5", title: "Execução", desc: "Realizamos o serviço com peças e procedimentos adequados." },
   { step: "6", title: "Entrega e validação", desc: "Testamos junto com você e entregamos funcionando." },
 ];
@@ -126,13 +126,13 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "manutencao-notebook",
     metaTitle: "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
     metaDescription:
-      "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp.",
+      "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes de informar o valor via WhatsApp.",
     serviceName: "Manutenção de Notebook",
     serviceDescription:
       "Diagnóstico e manutenção de notebooks: limpeza interna, troca de pasta térmica, tela, teclado, bateria e desempenho, com atendimento em Curitiba e região.",
     eyebrow: "Notebook em Curitiba",
     h1: "Assistência técnica de notebook em Curitiba",
-    h1Accent: "diagnóstico antes do orçamento",
+    h1Accent: "diagnóstico antes de informar o valor",
     intro:
       "Notebook que não liga, esquenta e desliga, ficou lento ou está com tela, teclado ou bateria com defeito? Atendemos as marcas mais comuns do mercado e começamos sempre pelo diagnóstico, para identificar a causa real antes de falar em peça ou preço. Nem toda placa tem reparo viável, e explicamos isso com honestidade. Descreva o sintoma pelo WhatsApp e combinamos o próximo passo.",
     whatsappMessage: "Olá! Meu notebook está com problema. Podem avaliar?",
@@ -174,7 +174,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Vale a pena consertar ou é melhor trocar?", answer: "Depende do custo do reparo frente ao valor do aparelho. Após o diagnóstico explicamos com honestidade quando compensa consertar e quando não vale." },
       { question: "Vocês trocam tela e teclado?", answer: "Sim, avaliamos e substituímos tela, dobradiça, teclado, bateria e conectores, conforme o modelo e a disponibilidade de peça. Nem toda placa, porém, tem reparo viável." },
       { question: "Preciso levar o notebook até vocês?", answer: "Atendemos em domicílio e também por coleta e entrega em Curitiba e região, conforme o tipo de serviço." },
-      { question: "Quanto tempo leva a manutenção?", answer: "Serviços simples podem sair conforme a disponibilidade da agenda; reparos que dependem de peça específica levam mais tempo. Informamos o prazo no orçamento." },
+      { question: "Quanto tempo leva a manutenção?", answer: "Serviços simples podem sair conforme a disponibilidade da agenda; reparos que dependem de peça específica levam mais tempo. Informamos o prazo junto com o valor." },
     ],
     relacionados: [
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
@@ -198,7 +198,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         paragrafos: [
           "Notebook tem peça cara e componente soldado. Antes de indicar reparo, comparamos o custo total do serviço com o valor de mercado do equipamento e com o que ele ainda entrega para o seu uso. Se a soma passar de boa parte do valor do aparelho e o desempenho continuar limitado, dizemos isso com clareza — mesmo perdendo o serviço.",
           "Há casos intermediários que valem muito a pena: máquina com placa saudável e apenas disco lento ou pouca memória volta a ser produtiva com upgrade, por uma fração do preço de um modelo novo. Já placa com dano por líquido ou falha de chip gráfico entra em outra faixa de risco, e explicamos a chance real de sucesso antes de qualquer autorização.",
-          "Trabalhamos com peças compatíveis e informamos quando o item é original, paralelo ou recondicionado. Você aprova o orçamento antes da execução; nada é trocado sem sua confirmação.",
+          "Trabalhamos com peças compatíveis e informamos quando o item é original, paralelo ou recondicionado. Você aprova o valor antes da execução; nada é trocado sem sua confirmação.",
         ],
       },
       {
@@ -224,7 +224,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "manutencao-computador",
     metaTitle: "Assistência Técnica de Computador em Curitiba | PC",
     metaDescription:
-      "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp.",
+      "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes de informar o valor via WhatsApp.",
     serviceName: "Manutenção de Computador (Desktop)",
     serviceDescription:
       "Diagnóstico e manutenção de PCs desktop: fonte, memória, armazenamento, placa-mãe, travamentos e limpeza, com atendimento em Curitiba e região.",
@@ -294,7 +294,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         paragrafos: [
           "Aqui tratamos de computador de mesa. Notebook tem desmontagem, refrigeração e peças próprias e é atendido na página específica de manutenção de notebook.",
           "Também não fazemos reparo em nível de componente na placa-mãe, como retrabalho de BGA ou substituição de chip. Quando o diagnóstico aponta esse caminho, dizemos que o serviço é de laboratório especializado em vez de empurrar uma tentativa cara e incerta.",
-          "Não trabalhamos com preço fechado por telefone. Sem ver o comportamento do equipamento, qualquer valor seria chute; o orçamento sai depois da avaliação e só é executado após sua aprovação.",
+          "Não trabalhamos com preço fechado por telefone. Sem ver o comportamento do equipamento, qualquer estimativa seria chute; o valor sai depois da avaliação e só é executado após sua aprovação.",
         ],
       },
       {
@@ -388,7 +388,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         titulo: "Compatibilidade e peças: o que é avaliado antes",
         paragrafos: [
           "Nenhuma peça é indicada sem olhar o equipamento. Verificamos qual conexão o modelo aceita (SATA 2,5 polegadas, M.2 SATA ou M.2 NVMe), se há slot livre, o tipo e a frequência da memória suportada, o limite total reconhecido pela placa e se o sistema instalado aproveita o que será colocado. Notebook fino com slot único e memória soldada, por exemplo, muda completamente a recomendação.",
-          "Peças são orçadas separadamente da mão de obra e a garantia do componente segue o fornecedor. Você pode fornecer o SSD ou a memória que já possui — nesse caso conferimos a compatibilidade antes de instalar. Não trabalhamos com preço fixo de componente, porque modelo, capacidade e disponibilidade mudam o valor.",
+          "Peças são informadas separadamente da mão de obra e a garantia do componente segue o fornecedor. Você pode fornecer o SSD ou a memória que já possui — nesse caso conferimos a compatibilidade antes de instalar. Não trabalhamos com preço fixo de componente, porque modelo, capacidade e disponibilidade mudam o valor.",
         ],
       },
       {
@@ -578,7 +578,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         paragrafos: [
           "Recuperação de dados é tentativa técnica, não resultado garantido. Existem mídias cujo conteúdo não retorna, e isso é dito antes da execução, nunca depois. Também não usamos percentual de sucesso: cada caso depende do tipo de falha e do histórico do dispositivo.",
           "Tentativas anteriores atrapalham. Mídia já aberta, congelada, ligada repetidamente ou submetida a programas de recuperação chega em condição pior. Parte dos casos que não avançam tinham chance antes da improvisação em casa.",
-          "Alguns cenários exigem terceiros: falha mecânica interna pode demandar ambiente controlado e peças doadoras de laboratório especializado, com prazo e custo próprios. O orçamento sempre depende do estado real da mídia, avaliado antes, e o acesso ao conteúdo respeita a autorização do cliente e a política de privacidade publicada no site.",
+          "Alguns cenários exigem terceiros: falha mecânica interna pode demandar ambiente controlado e peças doadoras de laboratório especializado, com prazo e custo próprios. O valor sempre depende do estado real da mídia, avaliado antes, e o acesso ao conteúdo respeita a autorização do cliente e a política de privacidade publicada no site.",
         ],
       },
       {

@@ -112,7 +112,7 @@ export const EQUIPMENT_BRANCHES: EquipmentBranch[] = [
   },
   {
     id: "outro",
-    label: "Outro / Só orçamento",
+    label: "Outro / Só o valor",
     emoji: "💬",
     marcaLabel: "Conte sobre o equipamento",
     marcaOptions: [],

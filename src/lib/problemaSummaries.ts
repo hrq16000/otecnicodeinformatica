@@ -807,7 +807,7 @@ export const problemaSummaries: ProblemaSummary[] = [
     "slug": "pc-com-tela-congelada-curitiba",
     "h1": "PC com Tela Congelada em Curitiba — Computador Trava e Não Responde",
     "categoria": "Problemas de Computador",
-    "introSnippet": "O computador congela completamente — o mouse para, o teclado não responde e a única saída é forçar o desligamento pelo botão de energia. Esse problema pode ser aleatório ou ocorrer",
+    "introSnippet": "O computador congela completamente — o mouse para, o teclado não responde e a única saída é favaliar o valor o desligamento pelo botão de energia. Esse problema pode ser aleatório ou ocorrer",
     "gravidade": "Médio a complexo"
   },
   {
@@ -1388,7 +1388,7 @@ export const problemaSummaries: ProblemaSummary[] = [
     "slug": "tv-sem-hdmi-curitiba",
     "h1": "TV Não Reconhece HDMI — Conserto em Curitiba",
     "categoria": "Problemas de TV",
-    "introSnippet": "Porta HDMI é a principal conexão de vídeo. Problema pode ser cabo, porta queimada ou chip HDMI danificado por descarga estática.  Orçamento presencial.",
+    "introSnippet": "Porta HDMI é a principal conexão de vídeo. Problema pode ser cabo, porta queimada ou chip HDMI danificado por descarga estática.  valor do atendimento presencial.",
     "gravidade": "Simples"
   },
   {
@@ -1416,7 +1416,7 @@ export const problemaSummaries: ProblemaSummary[] = [
     "slug": "tv-controle-nao-funciona-curitiba",
     "h1": "Controle Remoto Não Funciona — Soluções em Curitiba",
     "categoria": "Problemas de TV",
-    "introSnippet": "Na maioria é problema do controle (pilhas). Quando o controle está OK, pode ser sensor IR ou placa.  Orçamento presencial.",
+    "introSnippet": "Na maioria é problema do controle (pilhas). Quando o controle está OK, pode ser sensor IR ou placa.  valor do atendimento presencial.",
     "gravidade": "Simples"
   },
   {

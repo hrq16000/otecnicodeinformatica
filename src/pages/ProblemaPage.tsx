@@ -57,7 +57,7 @@ const diagnosticoSteps = [
   { icon: Zap, label: "Teste Elétrico", desc: "Multímetro e medição de curto-circuito" },
   { icon: ThermometerSun, label: "Câmera Térmica", desc: "Identificação de componente em curto" },
   { icon: Cpu, label: "Teste de Firmware", desc: "Leitura de BIOS/chip com programador" },
-  { icon: ClipboardCheck, label: "Laudo Técnico", desc: "Relatório com diagnóstico e orçamento" },
+  { icon: ClipboardCheck, label: "Laudo Técnico", desc: "Relatório com diagnóstico e valor" },
 ];
 
 const ProblemaPage = () => {

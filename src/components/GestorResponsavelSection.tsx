@@ -27,8 +27,7 @@ export const GestorResponsavelSection = ({
           </div>
 
           <p className="mt-2 text-sm text-muted-foreground">
-            {siteConfig.legalEntityName} · CNPJ {siteConfig.cnpj} · atuação desde{" "}
-            {siteConfig.foundedYear}
+            {siteConfig.brandName} · atuação em informática desde {siteConfig.foundedYear}
           </p>
 
           <div className="mt-5 space-y-3 text-muted-foreground">

@@ -13,7 +13,7 @@ const CapelaVelhaAraucaria = () => {
       "Atendimento a domicílio na Capela Velha com assistência técnica completa e horário agendado.",
     descricaoLonga: `A Capela Velha é um dos bairros mais tradicionais e populosos de Araucária, com grande movimentação residencial e comercial.
 
-Se você precisa de suporte para computador ou notebook, nosso técnico atende a Capela Velha com rapidez e foco em solução definitiva. Trabalhamos com manutenção preventiva, remoção de vírus, upgrades e reparos de hardware, sempre com transparência no orçamento e orientação para evitar novos problemas.`,
+Se você precisa de suporte para computador ou notebook, nosso técnico atende a Capela Velha com rapidez e foco em solução definitiva. Trabalhamos com manutenção preventiva, remoção de vírus, upgrades e reparos de hardware, sempre com transparência no valor do atendimento e orientação para evitar novos problemas.`,
     pontosReferencia: [
       "Região da Capela Velha",
       "Av. Archelau de Almeida Torres",

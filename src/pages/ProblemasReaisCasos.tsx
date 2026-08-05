@@ -31,7 +31,7 @@ const casos = [
     equipamento: "PC Gamer com RTX 3060",
     problema: "Cliente comprou uma placa de vídeo 'nova' por um preço muito abaixo do mercado. Após 2 semanas, o PC começou a apresentar artefatos visuais, tela congelando e reinícios aleatórios.",
     diagnostico: "GPU com desgaste prematuro por uso prolongado em mineração de criptomoedas. Memórias GDDR6 com temperatura de operação permanentemente elevada, causando degradação dos chips.",
-    solucao: "A placa não tinha reparo viável — os chips de memória estavam permanentemente danificados. O cliente precisou comprar uma placa nova. Prejuízo total: valor da placa usada + nova.",
+    solucao: "A placa não tinha reparo viável — os chips de memória estavam permanentemente danificados. O cliente precisou comprar uma placa nova. Prejuízo total: Valor da placa usada + nova.",
     licao: "Placas de vídeo usadas de mineração podem parecer funcionais nos primeiros dias, mas o desgaste aparece rapidamente. Sempre verifique a procedência e, se possível, peça um diagnóstico antes de comprar hardware usado.",
     icon: Cpu,
   },
@@ -65,7 +65,7 @@ const casos = [
   {
     titulo: "Reballing de GPU: O Mito e a Realidade",
     equipamento: "Notebook HP Pavilion Gaming",
-    problema: "Cliente foi informado por outro técnico que precisava de 'reballing' na GPU. O orçamento: R$ 600. O cliente buscou uma segunda opinião.",
+    problema: "Cliente foi informado por outro técnico que precisava de 'reballing' na GPU. O valor do atendimento: R$ 600. O cliente buscou uma segunda opinião.",
     diagnostico: "O problema real era superaquecimento crônico por obstrução do sistema de ventilação. A pasta térmica estava completamente ressecada e a ventoinha acumulava 5mm de poeira compactada.",
     solucao: "Limpeza completa do sistema de refrigeração + troca de pasta térmica de qualidade. Custo: R$ 150. O problema nunca foi na GPU — era térmico. O 'reballing' teria sido desnecessário e arriscado.",
     licao: "Reballing é um procedimento real, mas raramente necessário. Muitos técnicos usam o termo para justificar cobranças altas. Sempre busque uma segunda opinião e peça explicações detalhadas sobre o diagnóstico.",

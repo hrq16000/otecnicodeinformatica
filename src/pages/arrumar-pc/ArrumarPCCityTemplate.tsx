@@ -45,7 +45,7 @@ const beneficios = [
     icon: ShieldCheck,
     title: "Paga só se resolver",
     description:
-      "Orçamento gratuito antes do serviço. PIX, cartão ou boleto após o problema ser resolvido.",
+      "atendimento sem compromisso antes do serviço. PIX, cartão ou boleto após o problema ser resolvido.",
   },
   {
     icon: Wrench,
@@ -71,7 +71,7 @@ const problemasComuns = [
 export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
   const path = `/arrumar-pc/${data.slug}`;
   const title = `Arrumar PC em ${data.cidade} ${data.estado} — Técnico online | Técnico Curitiba`;
-  const description = `Técnico de informática online para ${data.cidade}/${data.estado}. Formatação, vírus, lentidão, tela azul e Wi-Fi via WhatsApp + acesso remoto. Orçamento grátis, paga só se resolver.`;
+  const description = `Técnico de informática online para ${data.cidade}/${data.estado}. Formatação, vírus, lentidão, tela azul e Wi-Fi via WhatsApp + acesso remoto. atendimento sem compromisso, paga só se resolver.`;
   const msg = `Olá! Estou em ${data.cidade}/${data.estado} e preciso arrumar meu PC pelo atendimento remoto.`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
@@ -110,7 +110,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
     },
     {
       q: "Quanto custa para arrumar o PC?",
-      a: "O diagnóstico é gratuito. Você recebe o orçamento antes do serviço e só paga se aprovar e o problema for resolvido.",
+      a: "O diagnóstico é gratuito. Você recebe o valor antes do serviço e só paga se aprovar e o problema for resolvido.",
     },
     {
       q: "É seguro deixar acessar meu computador?",
@@ -181,7 +181,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
         <BenefitsGrid
           benefits={beneficios}
           title={`Por que escolher para ${data.cidade}`}
-          subtitle="Atendimento direto com técnico, orçamento transparente, garantia em todo serviço."
+          subtitle="Atendimento direto com técnico, valor transparente, garantia em todo serviço."
         />
 
         <section className="container mx-auto px-4 py-16 md:py-20">

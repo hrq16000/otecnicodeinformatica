@@ -55,7 +55,7 @@ export const BlocoInteligencia = ({ compact = false }: BlocoInteligenciaProps) =
             <p className="text-muted-foreground text-sm leading-relaxed">
               Envolve <strong>tempo técnico</strong>, ferramentas especializadas e conhecimento acumulado. 
               O valor é abatido do reparo quando aprovado. 
-              "Orçamento grátis" geralmente significa diagnóstico superficial — e risco de trocar peças erradas.
+              "atendimento sem compromisso" geralmente significa diagnóstico superficial — e risco de trocar peças erradas.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export const BlocoInteligencia = ({ compact = false }: BlocoInteligenciaProps) =
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Instalar peças incompatíveis, usar ferramentas improvisadas (chave de fenda errada, faca) 
-              ou forçar conectores causa <strong>curto-circuito e danos irreversíveis</strong>. 
+              ou favaliar o valor conectores causa <strong>curto-circuito e danos irreversíveis</strong>. 
               Já recebemos placas destruídas por upgrades mal feitos.
             </p>
           </div>

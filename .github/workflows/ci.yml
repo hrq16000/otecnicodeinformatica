@@ -31,6 +31,10 @@ jobs:
         run: npm run check:cannibalization
       - name: Local hierarchy gate (bairros/cidades)
         run: npm run check:local-hierarchy
+      - name: Gate de copy proibido (CNPJ, razão social, e-mail, telefone, "orçamento")
+        run: npm run check:forbidden-copy
+      - name: Gate de claims de confiança
+        run: npm run check:trust-claims
       - name: Build
         run: npm run build
       - name: JSON-LD validation

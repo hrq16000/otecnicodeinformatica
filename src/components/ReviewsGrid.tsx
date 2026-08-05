@@ -60,7 +60,7 @@ const TrustProofFallback = ({
     },
     {
       icon: Clock,
-      title: "Orçamento sem compromisso",
+      title: "atendimento sem compromisso",
       desc: "Você aprova o valor antes de começarmos. Sem surpresas na conta.",
     },
     {
@@ -118,7 +118,7 @@ const TrustProofFallback = ({
               }
             >
               <MessageCircle className="w-5 h-5" />
-              Pedir orçamento pelo WhatsApp
+              solicitar atendimento pelo WhatsApp
             </Button>
           </div>
         )}

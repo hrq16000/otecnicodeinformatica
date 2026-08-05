@@ -99,7 +99,7 @@ export const EQUIPMENTS: Equipment[] = [
                 advice:
                   "Combo ideal: SSD + 8GB RAM (mín.) + formatação limpa. Resolve 95% dos casos de PC lento.",
                 waMessage: wa(
-                  "meu notebook está muito lento e nunca foi formatado — quero orçamento de SSD + RAM + formatação.",
+                  "meu notebook está muito lento e nunca foi formatado — quero agendar atendimento de SSD + RAM + formatação.",
                 ),
                 relatedHref: "/servicos/upgrade-ssd-memoria",
                 relatedLabel: "Upgrade SSD + RAM em Curitiba",
@@ -173,7 +173,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Provável fonte de alimentação ou placa principal.",
           advice:
             "Teste outra tomada. Se LED pisca em padrão (ex.: 3x), é código de erro do fabricante — informe ao técnico.",
-          waMessage: wa("minha TV não liga / LED piscando — preciso de orçamento."),
+          waMessage: wa("minha TV não liga / LED piscando — preciso de valor do atendimento."),
           relatedHref: "/conserto-tv-curitiba",
           relatedLabel: "Conserto de TV em Curitiba",
         },
@@ -207,7 +207,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Alto-falantes, amplificador da placa principal.",
           advice:
             "Teste com fone Bluetooth ou soundbar. Se sai som por aí, é o alto-falante; se nada, é placa principal.",
-          waMessage: wa("minha TV está sem som — preciso de orçamento."),
+          waMessage: wa("minha TV está sem som — preciso de valor do atendimento."),
           relatedHref: "/conserto-tv-curitiba",
           relatedLabel: "Conserto de TV",
         },
@@ -229,7 +229,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Troca de tela (display ou touch).",
           advice:
             "Se só o vidro trincou mas a imagem funciona, ainda é troca de display completo nos modelos atuais.",
-          waMessage: wa("meu celular está com a tela quebrada — quero orçamento de troca."),
+          waMessage: wa("meu celular está com a tela quebrada — quero agendar atendimento de troca."),
           relatedHref: "/servicos/conserto-celular",
           relatedLabel: "Conserto de celular em Curitiba",
         },
@@ -325,7 +325,7 @@ export const EQUIPMENTS: Equipment[] = [
           description: "Sinal fraco — caso clássico para mesh.",
           advice:
             "Sistema mesh (2–3 pontos) resolve casas/comércios médios. Faço projeto + instalação em Curitiba.",
-          waMessage: wa("meu Wi-Fi não pega em alguns cômodos — quero orçamento de mesh."),
+          waMessage: wa("meu Wi-Fi não pega em alguns cômodos — quero agendar atendimento de mesh."),
           relatedHref: "/servicos/redes-wifi",
           relatedLabel: "Instalação de mesh em Curitiba",
         },

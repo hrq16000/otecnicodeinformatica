@@ -40,11 +40,11 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O orçamento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },
+  { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O valor do atendimento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },
   { q: "Vocês atendem notebook e computador?", a: "Sim. Atendemos notebook, PC e periféricos, com foco em informática." },
   { q: "Fazem atendimento empresarial?", a: "Sim. Prestamos suporte técnico para empresas: estações, rede e manutenção preventiva." },
-  { q: "Tem recuperação de dados?", a: "Sim, avaliamos cada caso. A recuperação depende da condição real do disco e é orçada após diagnóstico." },
-  { q: "O orçamento é fechado antes do serviço?", a: "Sim. Você aprova o valor antes de qualquer reparo. Nada é executado sem sua confirmação." },
+  { q: "Tem recuperação de dados?", a: "Sim, avaliamos cada caso. A recuperação depende da condição real do disco e é informada após diagnóstico." },
+  { q: "O valor do atendimento é fechado antes do serviço?", a: "Sim. Você aprova o valor antes de qualquer reparo. Nada é executado sem sua confirmação." },
   { q: "O atendimento é pelo WhatsApp?", a: "Sim, o contato e a triagem acontecem pelo WhatsApp para agilizar o diagnóstico." },
   { q: "O número fica visível no site?", a: "O contato é feito diretamente pelo botão de atendimento, que abre a triagem por WhatsApp." },
   { q: "Em quanto tempo conseguem atender?", a: "Sempre que houver disponibilidade na agenda, buscamos atender conforme a disponibilidade da agenda. A confirmação vem na triagem." },
@@ -158,7 +158,7 @@ export const HomeSections = () => {
           <SectionTitle
             eyebrow="O que resolvemos"
             title="Serviços de informática em Curitiba"
-            sub="Foco em notebook, PC e suporte empresarial. Orçamento conforme avaliação, sem valor inventado."
+            sub="Foco em notebook, PC e suporte empresarial. Valor definido após avaliação, sem número inventado."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
@@ -309,7 +309,7 @@ export const HomeSections = () => {
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                O orçamento depende do problema e é aprovado por você antes do reparo.
+                O valor do atendimento depende do problema e é aprovado por você antes do reparo.
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
@@ -320,8 +320,8 @@ export const HomeSections = () => {
               {siteConfig.pricingDisclaimer}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <FunnelButton loc="pricing_cta" msg="Olá! Quero um orçamento para meu equipamento.">
-                Pedir orçamento
+              <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor para meu equipamento.">
+                solicitar atendimento
               </FunnelButton>
               <a
                 href="/precos-e-politicas"

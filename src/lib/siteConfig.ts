@@ -11,9 +11,8 @@ export const siteConfig = {
   brandName: "Técnico em Curitiba",
   legalName: "Técnico em Curitiba — Assistência Técnica em Informática",
 
-  // Identidade legal (dados reais fornecidos pelo cliente — não inventar)
-  legalEntityName: "Ping Soluções",
-  cnpj: "41.723.708/0001-58",
+  // Identidade operacional. Razão social, CNPJ e e-mail NÃO são publicados
+  // em nenhum lugar do site (nem no DOM, nem em JSON-LD).
   foundedYear: "1998",
 
   // Domínio (sem www)
@@ -38,7 +37,6 @@ export const siteConfig = {
   // Contato — número NUNCA exibido como texto; só em wa.me / JSON-LD.
   whatsappNumber: "5541997086380",
   phoneE164: "+5541997086380",
-  email: "contato@tecnico.curitiba.br",
 
   // Localização / negócio
   primaryCity: "Curitiba",

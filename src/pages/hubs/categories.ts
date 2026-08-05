@@ -40,11 +40,11 @@ export const CATEGORIES: Record<CategoryId, CategoryData> = {
       "Troca de T-CON",
       "Reparo de placa principal",
       "Reparo de backlight (LEDs)",
-      "Troca de tela (sob orçamento)",
+      "Troca de tela (sob valor do atendimento)",
       "Atualização de firmware",
     ],
     faqs: [
-      { q: "Quanto custa o conserto de TV?", a: "O reparo mínimo é R$ 300 (já com diagnóstico). Após avaliar, enviamos orçamento exato antes de qualquer execução. Se você desistir, paga só R$ 90 do diagnóstico." },
+      { q: "Quanto custa o conserto de TV?", a: "O reparo mínimo é R$ 300 (já com diagnóstico). Após avaliar, enviamos valor do atendimento exato antes de qualquer execução. Se você desistir, paga só R$ 90 do diagnóstico." },
       { q: "Vocês buscam minha TV?", a: "Sim. Trabalhamos com Coleta e Entrega (taxa conforme distância). O prazo é de 15 a 60 dias úteis para TV/Monitor por se tratar de bancada e peças sob encomenda." },
       { q: "Vale a pena consertar TV antiga?", a: "Depende do laudo. Se a peça for cara (display, por exemplo), avisamos antes — nunca executamos sem sua autorização por escrito." },
     ],
@@ -73,7 +73,7 @@ export const CATEGORIES: Record<CategoryId, CategoryData> = {
       "Recapacitação de placas de áudio",
     ],
     faqs: [
-      { q: "O conserto de caixa de som vale a pena?", a: "JBL, Bose e similares: vale a pena quando a peça é barata (bateria, alto-falante). Diagnosticamos e enviamos orçamento antes." },
+      { q: "O conserto de caixa de som vale a pena?", a: "JBL, Bose e similares: vale a pena quando a peça é barata (bateria, alto-falante). Diagnosticamos e enviamos valor antes." },
       { q: "Qual o prazo para som?", a: "Equipamentos menores (caixas, soundbars): 2 a 3 dias úteis. Receivers e home-theater: 5 a 10 dias úteis." },
       { q: "Atendem qualquer marca?", a: "Sim: JBL, Bose, Sony, LG, Samsung, Yamaha, Marantz, Edifier, Philips e outras." },
     ],
@@ -135,7 +135,7 @@ export const CATEGORIES: Record<CategoryId, CategoryData> = {
       "Reparo de Face ID / sensor",
     ],
     faqs: [
-      { q: "Quanto custa trocar a tela do iPhone?", a: "Depende do modelo. Após você enviar foto e modelo no WhatsApp, retornamos com orçamento em até 30 min. Reparos de placa começam em R$ 300." },
+      { q: "Quanto custa trocar a tela do iPhone?", a: "Depende do modelo. Após você enviar foto e modelo no WhatsApp, retornamos com valor do atendimento em até 30 min. Reparos de placa começam em R$ 300." },
       { q: "Vocês usam peça original?", a: "Oferecemos as duas opções (original e similar premium). Você escolhe antes da execução." },
       { q: "Celular molhado tem conserto?", a: "Na maioria dos casos sim, se você não tentou ligar depois. Quanto mais rápido trouxer, maior a chance de recuperar dados." },
     ],

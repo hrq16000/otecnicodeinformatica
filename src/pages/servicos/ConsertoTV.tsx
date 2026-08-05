@@ -16,7 +16,7 @@ import {
 import {
   COLETA_TAXA_MINIMA_LABEL,
   PRAZO_LONGO,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
   REGRA_COLETA_SEM_VISITA,
   MSG_COLETA_RESUMO,
 } from "@/lib/coletaConfig";
@@ -53,15 +53,15 @@ const cidades = [
 
 const ConsertoTV = () => {
   useEffect(() => {
-    document.title = "Conserto de TV em Curitiba e Região | Orçamento sem Compromisso | Técnico Curitiba";
+    document.title = "Conserto de TV em Curitiba e Região | Atendimento sem Compromisso | Técnico Curitiba";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Conserto de TV LED, LCD, OLED e Smart TV em Curitiba e região metropolitana. Orçamento humanizado sem compromisso. Samsung, LG, Sony, TCL e todas as marcas.");
+    if (meta) meta.setAttribute("content", "Conserto de TV LED, LCD, OLED e Smart TV em Curitiba e região metropolitana. atendimento humanizado sem compromisso. Samsung, LG, Sony, TCL e todas as marcas.");
     trackPageView("/servicos/conserto-tv", "Conserto de TV");
   }, []);
 
   const handleWhatsAppClick = () => {
     trackCTAClick("whatsapp", "conserto-tv");
-    const msg = encodeURIComponent("Olá! Preciso de orçamento para conserto de TV. Qual o procedimento?");
+    const msg = encodeURIComponent("Olá! Preciso de atendimento para conserto de TV. Qual o procedimento?");
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   };
 
@@ -80,8 +80,8 @@ const ConsertoTV = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO noindex
-        title="Conserto de TV em Curitiba e Região | Orçamento sem Compromisso"
-        description="Conserto de TV LED, LCD, OLED e Smart TV. Orçamento humanizado. Samsung, LG, Sony, TCL e todas as marcas."
+        title="Conserto de TV em Curitiba e Região | Atendimento sem Compromisso"
+        description="Conserto de TV LED, LCD, OLED e Smart TV. atendimento humanizado. Samsung, LG, Sony, TCL e todas as marcas."
         path="/servicos/conserto-tv"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Conserto de TV", path: "/servicos/conserto-tv" }]}
       />
@@ -101,7 +101,7 @@ const ConsertoTV = () => {
               Conserto de TV em Curitiba e Região Metropolitana
             </h1>
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-              {REGRA_ORCAMENTO_GRATIS}. Coleta e entrega disponível para toda a região.
+              {REGRA_ESTIMATIVA_GRATIS}. Coleta e entrega disponível para toda a região.
             </p>
 
             <div className="bg-white/10 rounded-xl p-4 mb-8 max-w-lg mx-auto">
@@ -116,7 +116,7 @@ const ConsertoTV = () => {
 
             <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar Orçamento via WhatsApp
+              Solicitar atendimento via WhatsApp
             </Button>
           </div>
         </div>
@@ -131,9 +131,9 @@ const ConsertoTV = () => {
             </h2>
             <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {[
-                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema da sua TV e envie fotos. ${REGRA_ORCAMENTO_GRATIS}.` },
+                { step: "1", titulo: "Contato pelo WhatsApp", desc: `Descreva o problema da sua TV e envie fotos. ${REGRA_ESTIMATIVA_GRATIS}.` },
                 { step: "2", titulo: "Coleta ou Entrega", desc: `Organizamos coleta no seu endereço ou você traz à oficina. Taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
-                { step: "3", titulo: "Diagnóstico e Orçamento", desc: "Diagnóstico completo em bancada. Orçamento preciso somente após coleta." },
+                { step: "3", titulo: "Diagnóstico e valor", desc: "Diagnóstico completo em bancada. valor preciso somente após coleta." },
                 { step: "4", titulo: "Reparo e Devolução", desc: `Após aprovação, realizamos o conserto e devolvemos. Prazo: ${PRAZO_LONGO}.` },
               ].map((p, i) => (
                 <div key={i} className="text-center p-6 bg-secondary rounded-xl">
@@ -200,7 +200,7 @@ const ConsertoTV = () => {
               {[
                 { icon: Users, titulo: "Atendimento Humanizado", desc: "Explicamos o problema com clareza, sem jargão técnico. Você entende antes de aprovar." },
                 { icon: Shield, titulo: "Garantia no Serviço", desc: "Todo reparo conta com garantia. Se o problema voltar, consertamos novamente." },
-                { icon: CheckCircle, titulo: "Orçamento Transparente", desc: "Informamos o valor exato antes de qualquer execução. Sem surpresas na hora de pagar." },
+                { icon: CheckCircle, titulo: "Valor Transparente", desc: "Informamos o valor exato antes de qualquer execução. Sem surpresas na hora de pagar." },
                 { icon: Clock, titulo: "Prazo Informado", desc: `Prazo para TV: ${PRAZO_LONGO}. Atualizações por WhatsApp.` },
               ].map((d, i) => (
                 <div key={i} className="text-center p-6 bg-background rounded-xl">
@@ -224,7 +224,7 @@ const ConsertoTV = () => {
             <div className="max-w-3xl mx-auto space-y-4">
               {[
                 { q: "Vocês fazem visita técnica para TV?", a: `Não. ${REGRA_COLETA_SEM_VISITA} Organizamos coleta e entrega com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL}.` },
-                { q: "Quanto custa o conserto de TV?", a: `${REGRA_ORCAMENTO_GRATIS}. Orçamento preciso somente após coleta, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
+                { q: "Quanto custa o conserto de TV?", a: `${REGRA_ESTIMATIVA_GRATIS}. valor preciso somente após coleta, com taxa mínima de ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.` },
                 { q: "Consertam TV de tela quebrada?", a: "Avaliamos caso a caso. Em muitos modelos, a troca do painel tem custo próximo ao de uma TV nova. Orientamos com honestidade." },
                 { q: "Quanto tempo leva o conserto?", a: `Prazo padrão para TV: ${PRAZO_LONGO}, dependendo do defeito e disponibilidade de peças.` },
                 { q: "Quais formas de pagamento?", a: "PIX, dinheiro e cartão. Consulte condições pelo WhatsApp." },
@@ -266,14 +266,14 @@ const ConsertoTV = () => {
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
-            Sua TV com Defeito? Solicite um Orçamento
+            Sua TV com Defeito? Solicite um valor
           </h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Entre em contato pelo WhatsApp e descreva o problema. Atendimento humanizado, orçamento transparente e sem compromisso.
+            Entre em contato pelo WhatsApp e descreva o problema. Atendimento humanizado, valor transparente e sem compromisso.
           </p>
           <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar Orçamento pelo WhatsApp
+            Solicitar atendimento pelo WhatsApp
           </Button>
         </div>
       </section>

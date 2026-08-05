@@ -26,8 +26,8 @@ const steps = [
   {
     id: "aprovacao",
     icon: CheckCircle2,
-    title: "3. Aprovação do orçamento",
-    desc: "Você recebe o orçamento fechado por escrito. Só seguimos depois da sua aprovação — sem surpresa na conta.",
+    title: "3. Aprovação do valor do serviço",
+    desc: "Você recebe o valor fechado por escrito. Só seguimos depois da sua aprovação — sem surpresa na conta.",
     msg: "Quero entender preço e prazo antes de aprovar o serviço.",
   },
   {
@@ -56,7 +56,7 @@ export const ComoFuncionaFluxo = () => {
           </h2>
           <p className="text-muted-foreground">
             Fluxo transparente: WhatsApp → orientação → aprovação → execução.
-            Você só paga depois de aprovar o orçamento.
+            Você só paga depois de aprovar o valor do atendimento.
           </p>
         </header>
 

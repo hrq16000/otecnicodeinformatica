@@ -115,9 +115,9 @@ const faqs = [
       "Trabalhamos com autônomos, escritórios, comércios e pequenas e médias empresas de Curitiba e região metropolitana. O escopo é adequado ao número de máquinas e à complexidade da rede.",
   },
   {
-    question: "Como funciona o orçamento do suporte de TI?",
+    question: "Como funciona o valor do atendimento do suporte de TI?",
     answer:
-      "Começa com uma avaliação para entender o ambiente e a demanda. A partir daí apresentamos o orçamento, que só é executado após a sua aprovação. O diagnóstico começa a partir de " +
+      "Começa com uma avaliação para entender o ambiente e a demanda. A partir daí apresentamos o valor do atendimento, que só é executado após a sua aprovação. O diagnóstico começa a partir de " +
       siteConfig.minPriceLabel + ".",
   },
   {

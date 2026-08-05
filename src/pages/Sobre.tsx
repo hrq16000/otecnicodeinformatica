@@ -29,7 +29,7 @@ const CTA_CLASS =
 const comoTrabalhamos = [
   { title: "Triagem por WhatsApp", desc: "Você descreve o problema e recebe as primeiras orientações antes de qualquer deslocamento." },
   { title: "Diagnóstico primeiro", desc: "Avaliamos o equipamento para entender a causa real, sem chutes e sem empurrar peça." },
-  { title: "Orçamento aprovado por você", desc: "Nada é executado sem sua aprovação. Você sabe o que será feito e quanto custa." },
+  { title: "Valor aprovado por você", desc: "Nada é executado sem sua aprovação. Você sabe o que será feito e quanto custa." },
   { title: "Garantia sobre o serviço", desc: "O serviço realizado tem garantia. Explicamos as condições em cada caso." },
 ];
 
@@ -58,7 +58,7 @@ const Sobre = () => {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte"
-        description="Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e orçamento transparente."
+        description="Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
         path="/sobre"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}
       />
@@ -73,7 +73,7 @@ const Sobre = () => {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent">
                 <ShieldCheck className="h-4 w-4" />
-                Diagnóstico honesto, orçamento transparente
+                Diagnóstico honesto, valor transparente
               </span>
               <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
                 Sobre o <span className="text-accent">Técnico em Curitiba</span>
@@ -99,7 +99,7 @@ const Sobre = () => {
                   entende o que está acontecendo com o equipamento e decide com clareza.
                 </p>
                 <p>
-                  Nosso trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, orçamento e
+                  Nosso trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, valor do atendimento e
                   execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio;
                   reparos que exigem bancada seguem para a oficina com o seu acompanhamento.
                 </p>
@@ -196,7 +196,7 @@ const Sobre = () => {
               <Eye className="h-8 w-8 text-accent" />
               <h3 className="mt-3 text-lg font-semibold text-foreground">Transparência</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Diagnóstico antes do orçamento e nenhuma execução sem sua aprovação.
+                Diagnóstico antes de informar o valor e nenhuma execução sem sua aprovação.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6">
@@ -231,7 +231,6 @@ const Sobre = () => {
               <strong className="text-foreground">
                 {GESTOR.nome.trim() ? `${GESTOR.nome} — ${GESTOR.cargo}` : GESTOR.cargo.toLowerCase()}
               </strong>{" "}
-              e faturados por {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
               {GARANTIA.servicoLabel} e {NOTA_FISCAL.servicoLabel.toLowerCase()}.
             </p>
 

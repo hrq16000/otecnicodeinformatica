@@ -23,12 +23,12 @@ export const CURATED_ROUTES = [
   {
     "path": "/servicos/manutencao-de-notebook",
     "title": "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
-    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes do orçamento via WhatsApp."
+    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes de informar o valor via WhatsApp."
   },
   {
     "path": "/servicos/manutencao-de-computador",
     "title": "Assistência Técnica de Computador em Curitiba | PC",
-    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes do orçamento via WhatsApp."
+    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes de informar o valor via WhatsApp."
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
@@ -58,7 +58,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/sobre",
     "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
-    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e orçamento transparente."
+    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
   },
   {
     "path": "/como-funciona",
@@ -68,7 +68,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/precos-e-politicas",
     "title": "Preços e Políticas | Técnico em Curitiba",
-    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados."
+    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados."
   },
   {
     "path": "/faq",
@@ -158,7 +158,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/diagnostico-tecnico",
     "title": "Diagnóstico Técnico de Computador e Notebook em Curitiba",
-    "description": "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o orçamento."
+    "description": "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor."
   },
   {
     "path": "/equipamentos-atendidos",

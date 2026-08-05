@@ -386,7 +386,7 @@ Li e concordo com a política de preços (A partir de R$ 69,99).`;
             </div>
 
             <p className="text-xs text-muted-foreground text-center">
-              💰 Visita técnica: A partir de R$ 69,99 • Orçamento sem compromisso
+              💰 Visita técnica: A partir de R$ 69,99 • atendimento sem compromisso
             </p>
           </div>
         )}

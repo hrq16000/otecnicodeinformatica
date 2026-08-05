@@ -47,7 +47,7 @@ type FaqItem = { pergunta: string; resposta: string };
 export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqItem[] {
   const faqs: Record<string, FaqItem[]> = {
     "formatacao-computador": [
-      { pergunta: `Quanto custa formatar computador em ${cidadeNome}?`, resposta: `Entre em contato pelo WhatsApp para orçamento gratuito. Atendemos em ${cidadeNome} a domicílio.` },
+      { pergunta: `Quanto custa formatar computador em ${cidadeNome}?`, resposta: `Entre em contato pelo WhatsApp para atendimento sem compromisso. Atendemos em ${cidadeNome} a domicílio.` },
       { pergunta: "Quanto tempo leva a formatação?", resposta: "Em média 2 a 4 horas, dependendo do equipamento e programas a instalar." },
       { pergunta: "Vou perder meus arquivos?", resposta: "Fazemos backup antes de formatar. Documentos, fotos e arquivos ficam protegidos." },
       { pergunta: `O técnico vai até minha casa em ${cidadeNome}?`, resposta: `Sim. Fazemos atendimento a domicílio em ${cidadeNome}. Sem precisar sair de casa.` },
@@ -63,7 +63,7 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
     "conserto-notebook": [
       { pergunta: "Notebook esquentando muito é perigoso?", resposta: "Sim. Superaquecimento causa danos permanentes. Limpeza interna resolve na maioria dos casos." },
       { pergunta: "Vale mais consertar ou comprar um novo?", resposta: "Depende da idade e do defeito. Avaliamos no local e damos opinião honesta antes de cobrar." },
-      { pergunta: `Quanto custa em ${cidadeNome}?`, resposta: "Orçamento gratuito pelo WhatsApp. O técnico avalia no local antes de qualquer cobrança." },
+      { pergunta: `Quanto custa em ${cidadeNome}?`, resposta: "atendimento sem compromisso pelo WhatsApp. O técnico avalia no local antes de qualquer cobrança." },
       { pergunta: "Trocam pasta térmica?", resposta: "Sim, incluída na limpeza completa." },
       { pergunta: "Atendem qualquer marca?", resposta: "Sim. Dell, HP, Lenovo, Acer, Asus, Samsung, Positivo e todas as demais." },
     ],
@@ -100,10 +100,10 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
       { pergunta: "É seguro?", resposta: "Sim. Usamos ferramentas profissionais com criptografia. Você controla e acompanha tudo." },
       { pergunta: "Quais problemas resolvem remotamente?", resposta: "Vírus, lentidão, erros de sistema, instalação de programas, configurações de email e muito mais." },
       { pergunta: "Precisa instalar algum programa?", resposta: "Enviamos um link seguro. O programa roda apenas durante o atendimento." },
-      { pergunta: "Quanto custa?", resposta: "Entre em contato pelo WhatsApp para orçamento. Atendimento remoto geralmente é mais rápido e econômico." },
+      { pergunta: "Quanto custa?", resposta: "Entre em contato pelo WhatsApp para valor do atendimento. Atendimento remoto geralmente é mais rápido e econômico." },
     ],
     "conserto-pc": [
-      { pergunta: `Quanto custa consertar PC em ${cidadeNome}?`, resposta: `Entre em contato pelo WhatsApp para orçamento gratuito. Atendemos em ${cidadeNome} a domicílio.` },
+      { pergunta: `Quanto custa consertar PC em ${cidadeNome}?`, resposta: `Entre em contato pelo WhatsApp para atendimento sem compromisso. Atendemos em ${cidadeNome} a domicílio.` },
       { pergunta: "Quais defeitos vocês consertam?", resposta: "PC que não liga, tela azul, lentidão, superaquecimento, fontes queimadas, placas com defeito e mais." },
       { pergunta: "Consertam PC gamer?", resposta: "Sim. Trabalhamos com diagnóstico e reparo de desktops gamers, incluindo placas de vídeo e refrigeração." },
       { pergunta: `Atendem a domicílio em ${cidadeNome}?`, resposta: `Sim. O técnico vai até seu endereço em ${cidadeNome} com ferramentas profissionais.` },
@@ -111,7 +111,7 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
     ],
     "conserto-tv": [
       { pergunta: `Vocês fazem visita técnica para TV em ${cidadeNome}?`, resposta: `Não. Para TVs, o equipamento precisa ser trazido à oficina ou podemos organizar coleta em ${cidadeNome}. Não realizamos visita técnica a domicílio para televisores.` },
-      { pergunta: "Quanto custa consertar TV?", resposta: "O valor depende do defeito e da peça necessária. Fazemos diagnóstico e informamos o orçamento antes de qualquer execução. Sem compromisso." },
+      { pergunta: "Quanto custa consertar TV?", resposta: "O valor depende do defeito e da peça necessária. Fazemos diagnóstico e informamos o valor antes de qualquer execução. Sem compromisso." },
       { pergunta: "Consertam Smart TV?", resposta: "Sim. LED, LCD, OLED, Smart TV de todas as marcas: Samsung, LG, Sony, TCL, Philips e mais." },
       { pergunta: "Quanto tempo leva?", resposta: "Depende do defeito e disponibilidade de peças. Em geral, de 3 a 10 dias úteis." },
       { pergunta: "Consertam tela quebrada de TV?", resposta: "Avaliamos caso a caso. Em muitos modelos, a troca do painel custa quase o valor de uma TV nova. Orientamos com honestidade." },

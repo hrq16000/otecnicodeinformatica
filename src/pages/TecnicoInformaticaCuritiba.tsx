@@ -132,7 +132,7 @@ const PASSOS = [
   "Você descreve o equipamento e o sintoma pela triagem, sem precisar de termos técnicos.",
   "A triagem indica a modalidade compatível: no endereço, remoto ou coleta.",
   "O diagnóstico identifica a causa provável e o que precisa ser feito.",
-  "O orçamento é apresentado antes da execução; peças só entram com aprovação.",
+  "O valor do atendimento é apresentado antes da execução; peças só entram com aprovação.",
   "Depois do serviço, você recebe a orientação do que foi alterado e do que observar.",
 ];
 
@@ -150,7 +150,7 @@ const NO_ENDERECO_NAO = [
   "Leitura de disco com falha, que exige tempo e ambiente controlado",
 ];
 
-const ORCAMENTO = [
+const VALORES = [
   "Tipo de equipamento e facilidade de acesso interno",
   "Se o problema é de software, de hardware ou os dois somados",
   "Necessidade de peça e disponibilidade dela no mercado",
@@ -200,12 +200,12 @@ const FAQS = [
   {
     question: "Como é feito o diagnóstico?",
     answer:
-      "A triagem por WhatsApp levanta equipamento, sintoma e contexto de uso. O diagnóstico técnico confirma a causa provável testando os componentes envolvidos. Só depois disso o orçamento é apresentado, com o que pode e o que não pode ser resolvido.",
+      "A triagem por WhatsApp levanta equipamento, sintoma e contexto de uso. O diagnóstico técnico confirma a causa provável testando os componentes envolvidos. Só depois disso o valor do atendimento é apresentado, com o que pode e o que não pode ser resolvido.",
   },
   {
     question: "As peças estão incluídas no valor do atendimento?",
     answer:
-      "Não. Peças e materiais são orçados à parte e só são adquiridos após sua aprovação. O atendimento inicial cobre o deslocamento e a avaliação técnica conforme a política vigente.",
+      "Não. Peças e materiais são informados à parte e só são adquiridos após sua aprovação. O atendimento inicial cobre o deslocamento e a avaliação técnica conforme a política vigente.",
   },
   {
     question: "É possível recuperar arquivos de um disco com problema?",
@@ -316,7 +316,7 @@ const TecnicoInformaticaCuritiba = () => {
             </p>
             <p>
               É isso que esta página organiza: os problemas mais atendidos na cidade, o que dá para
-              resolver no seu endereço, o que exige bancada, o que influencia o orçamento e quando
+              resolver no seu endereço, o que exige bancada, o que influencia o valor do atendimento e quando
               o reparo deixa de fazer sentido. Cada serviço tem uma página própria, com escopo e
               limites detalhados — os links aparecem ao longo do texto.
             </p>
@@ -481,18 +481,18 @@ const TecnicoInformaticaCuritiba = () => {
           </div>
         </section>
 
-        {/* 10. Orçamento */}
+        {/* 10. valor do atendimento */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto max-w-3xl">
             <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
-              O que influencia o orçamento
+              O que influencia o valor do atendimento
             </h2>
             <p className="mt-4 text-muted-foreground">
               O valor não depende só do sintoma relatado: depende do que o diagnóstico encontra e do
               caminho necessário para resolver. Os fatores mais comuns são:
             </p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {ORCAMENTO.map((o) => (
+              {VALORES.map((o) => (
                 <li key={o} className="flex gap-3 text-sm text-muted-foreground">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   <span>{o}</span>

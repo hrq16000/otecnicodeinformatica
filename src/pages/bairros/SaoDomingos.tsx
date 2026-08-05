@@ -11,7 +11,7 @@ const SaoDomingos = () => {
     subtitulo: "Serviços de informática profissionais no São Domingos. Atendimento rápido e de qualidade.",
     descricaoLonga: `O bairro São Domingos em São José dos Pinhais é uma região residencial com boa infraestrutura e acesso facilitado. Nossa equipe de técnicos de informática atende toda a região do São Domingos e bairros vizinhos, oferecendo serviços completos de manutenção e suporte.
 
-    Trabalhamos com compromisso e transparência, oferecendo diagnóstico gratuito e orçamento detalhado antes de qualquer serviço. Nossa missão é entregar soluções que realmente funcionem, evitando que você precise chamar o técnico novamente pelo mesmo problema.`,
+    Trabalhamos com compromisso e transparência, oferecendo diagnóstico gratuito e valor detalhado antes de qualquer serviço. Nossa missão é entregar soluções que realmente funcionem, evitando que você precise chamar o técnico novamente pelo mesmo problema.`,
     pontosReferencia: [
       "Centro de SJP",
       "São Cristóvão",

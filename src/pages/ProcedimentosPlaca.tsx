@@ -16,7 +16,7 @@ const PROCEDIMENTOS = [
     slug: "reflow-bga-curitiba",
     title: "Reflow BGA",
     icon: Flame,
-    desc: "Reaquecimento das soldas BGA para restabelecer contato elétrico. Solução rápida e acessível — porém temporária. Indicado quando o orçamento é limitado ou o equipamento é antigo.",
+    desc: "Reaquecimento das soldas BGA para restabelecer contato elétrico. Solução rápida e acessível — porém temporária. Indicado quando o valor do atendimento é limitado ou o equipamento é antigo.",
     preco: "R$ 150 – R$ 350",
     garantia: "Sem garantia",
     indicacao: "GPU com artefatos, notebook/console sem vídeo",

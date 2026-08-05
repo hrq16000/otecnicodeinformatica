@@ -46,9 +46,9 @@ export const isColetaCategory = (slug: string): boolean => {
   return CATEGORIAS_COLETA_SLUGS.some(cat => lower.includes(cat));
 };
 
-// === REGRAS DE ORÇAMENTO ===
-export const REGRA_ORCAMENTO_GRATIS = "Estimativa gratuita somente via WhatsApp";
-export const REGRA_ORCAMENTO_PRECISO = `Orçamento preciso somente com compromisso — taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada`;
+// === REGRAS DE VALOR ===
+export const REGRA_ESTIMATIVA_GRATIS = "Estimativa gratuita somente via WhatsApp";
+export const REGRA_VALOR_PRECISO = `Valor preciso somente com compromisso — taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada`;
 export const REGRA_COLETA_SEM_VISITA = "Sem visita técnica a domicílio. Serviço realizado em laboratório com coleta e entrega.";
 
 // === VISITA TÉCNICA (serviços rápidos) ===
@@ -57,5 +57,5 @@ export const VISITA_MINIMA_LABEL = "R$ 99,99";
 
 // === MENSAGENS PADRONIZADAS ===
 export const MSG_COLETA_RESUMO = `Sem visita técnica. Coleta e entrega inclusa — taxa mínima ${COLETA_TAXA_MINIMA_LABEL} pré-aprovada.`;
-export const MSG_ORCAMENTO_APOS_COLETA = "Orçamento somente após coleta";
+export const MSG_VALOR_APOS_COLETA = "Valor do atendimento somente após coleta";
 export const MSG_DIAGNOSTICO_DESISTENCIA = `Em caso de desistência, o diagnóstico custa ${DIAGNOSTICO_VALOR_LABEL}.`;

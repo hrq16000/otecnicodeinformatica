@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Conserto de Notebook em Campo Largo | Todas as Marcas | Técnico Curitiba",
-  metaDescription: "Conserto de notebook em Campo Largo. Tela, teclado, bateria, placa-mãe. Todas as marcas. Orçamento grátis e busca domiciliar.",
+  metaDescription: "Conserto de notebook em Campo Largo. Tela, teclado, bateria, placa-mãe. Todas as marcas. atendimento sem compromisso e busca domiciliar.",
   
   servico: "Conserto de Notebook",
   servicoSlug: "conserto-pc-notebook",
@@ -11,10 +11,10 @@ const data: ServicoBairroData = {
   cidade: "Campo Largo",
   
   h1: "Conserto de Notebook em Campo Largo",
-  subtitulo: "Notebook com defeito? Consertamos todas as marcas com orçamento grátis e busca em Campo Largo.",
+  subtitulo: "Notebook com defeito? Consertamos todas as marcas com atendimento sem compromisso e busca em Campo Largo.",
   
   precoBase: "R$ 149,99",
-  precoDescricao: "Orçamento gratuito. Valor conforme o reparo necessário.",
+  precoDescricao: "atendimento sem compromisso. Valor conforme o reparo necessário.",
   
   descricaoLonga: `Precisa de conserto de notebook em Campo Largo? Nossa equipe técnica atende toda a cidade com 
     diagnóstico preciso e reparo de qualidade. Trabalhamos com Dell, HP, Lenovo, Acer, Asus, Samsung e 
@@ -22,7 +22,7 @@ const data: ServicoBairroData = {
     Buscamos o notebook no seu endereço em Campo Largo e entregamos após o conserto.`,
   
   beneficios: [
-    "Orçamento gratuito",
+    "atendimento sem compromisso",
     "Todas as marcas atendidas",
     "Troca de tela e teclado",
     "Reparo de placa-mãe",

@@ -47,7 +47,7 @@ const GestorResponsavelPage = () => {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Responsável técnico | Técnico em Curitiba"
-        description={`Quem responde tecnicamente pelos atendimentos: ${siteConfig.legalEntityName}, atuação em informática desde ${siteConfig.foundedYear} em Curitiba e região. Escopo, área de atuação e critérios de diagnóstico.`}
+        description={`Quem responde tecnicamente pelos atendimentos: ${siteConfig.brandName}, atuação em informática desde ${siteConfig.foundedYear} em Curitiba e região. Escopo, área de atuação e critérios de diagnóstico.`}
         path={PATH}
         breadcrumbs={[
           { name: "Início", path: "/" },
@@ -57,7 +57,7 @@ const GestorResponsavelPage = () => {
       <LocalBusinessJsonLd
         scriptId="ld-localbusiness-gestor"
         path={PATH}
-        description={`Responsabilidade técnica de ${siteConfig.legalEntityName} em Curitiba e região metropolitana desde ${siteConfig.foundedYear}.`}
+        description={`Responsabilidade técnica do ${siteConfig.brandName} em Curitiba e região metropolitana desde ${siteConfig.foundedYear}.`}
       />
       <FastHeader />
       <div aria-hidden="true" className="h-[var(--site-header-height)]" />

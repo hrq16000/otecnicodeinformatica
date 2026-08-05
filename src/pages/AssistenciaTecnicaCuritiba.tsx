@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 
 const WA = "5541997086380";
-const WA_TEXT = "Olá! Preciso de um orçamento de assistência técnica em Curitiba.";
+const WA_TEXT = "Olá! Preciso de um valor de assistência técnica em Curitiba.";
 const waUrl = `https://wa.me/${WA}?text=${encodeURIComponent(WA_TEXT)}`;
 
 // Emits GA4 cta_click + generate_lead with utm_*/gclid (see analytics.ts)
@@ -62,8 +62,8 @@ const nearbyCities = [
 
 const faqs = [
   {
-    question: "Quanto custa um orçamento de assistência técnica em Curitiba?",
-    answer: "O diagnóstico e o orçamento são gratuitos e sem compromisso. Você só aprova o serviço se concordar com o valor e o prazo apresentados pelo técnico.",
+    question: "Quanto custa um valor de assistência técnica em Curitiba?",
+    answer: "O diagnóstico e o valor do atendimento são gratuitos e sem compromisso. Você só aprova o serviço se concordar com o valor e o prazo apresentados pelo técnico.",
   },
   {
     question: "Vocês têm garantia no reparo de consoles (PS5, Xbox, Switch)?",
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     question: "Usam peças originais nos reparos?",
-    answer: "Trabalhamos com peças originais ou de qualidade equivalente comprovada. Sempre informamos a origem da peça no orçamento para você decidir com transparência.",
+    answer: "Trabalhamos com peças originais ou de qualidade equivalente comprovada. Sempre informamos a origem da peça no valor do atendimento para você decidir com transparência.",
   },
 ];
 
@@ -177,7 +177,7 @@ const differentials = [
   { icon: Clock, title: "Diagnóstico Rápido", text: "Avaliação técnica em até 24h." },
   { icon: ShieldCheck, title: "Garantia de 90 dias", text: "Em todo serviço executado." },
   { icon: Sparkles, title: "Peças de qualidade", text: "Componentes testados e originais." },
-  { icon: CheckCircle2, title: "Orçamento sem compromisso", text: "Preço justo e transparente." },
+  { icon: CheckCircle2, title: "atendimento sem compromisso", text: "Preço justo e transparente." },
   { icon: Wrench, title: "Atende toda Curitiba", text: "Retirada e entrega via motoboy opcional." },
   { icon: Star, title: "Técnico identificado", text: "Atuação em informática desde 1998." },
 ];
@@ -332,7 +332,7 @@ export default function AssistenciaTecnicaCuritiba() {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Assistência Técnica de Consoles em Curitiba | PS5, Xbox, Nintendo e Placa de Vídeo"
-        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. Orçamento rápido pelo WhatsApp."
+        description="Assistência técnica especializada em Curitiba: PlayStation, Xbox, Nintendo Switch, placas de vídeo, computadores, notebooks e smartphones. valor do atendimento rápido pelo WhatsApp."
         path="/assistencia-tecnica-curitiba"
         breadcrumbs={[
           { name: "Início", path: "/" },
@@ -412,7 +412,7 @@ export default function AssistenciaTecnicaCuritiba() {
                 <Button asChild variant="heroWhatsapp" size="lg" className="atc-pulse" onClick={onWa("hero")}>
                   <a href={waUrl} target="_blank" rel="noopener noreferrer" data-wa-medium="hero">
                     <MessageCircle className="h-5 w-5" />
-                    Solicitar Orçamento no WhatsApp
+                    Solicitar atendimento no WhatsApp
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white">
@@ -423,7 +423,7 @@ export default function AssistenciaTecnicaCuritiba() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2.5">
-                {["Orçamento Grátis", "Garantia 90 dias", "Peças Originais", "Atende toda Curitiba"].map((t) => (
+                {["Valor do atendimento Grátis", "Garantia 90 dias", "Peças Originais", "Atende toda Curitiba"].map((t) => (
                   <span key={t} className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/15 px-3 py-1.5 text-sm text-white/90">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
                     {t}
@@ -616,7 +616,7 @@ export default function AssistenciaTecnicaCuritiba() {
               Pronto para resolver o problema do seu aparelho?
             </h2>
             <p className="mt-4 text-white/90 text-lg max-w-2xl mx-auto">
-              Atendimento direto com o profissional via WhatsApp. Resposta rápida, orçamento gratuito.
+              Atendimento direto com o profissional via WhatsApp. Resposta rápida, atendimento sem compromisso.
             </p>
             <div className="mt-8">
               <Button asChild variant="heroWhatsapp" size="lg" className="atc-pulse text-base md:text-lg px-8" onClick={onWa("final_cta")}>

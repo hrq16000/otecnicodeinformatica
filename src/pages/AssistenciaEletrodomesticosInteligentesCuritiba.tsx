@@ -17,7 +17,7 @@ const DESC =
 
 const FAQS = [
   { question: "O que são eletrodomésticos inteligentes?", answer: "São aparelhos com Wi-Fi/Bluetooth que se conectam a apps no celular e a assistentes como Alexa, Google Home e SmartThings. Ex.: geladeiras com câmera interna, ares-condicionados controlados por voz, máquinas de lavar com programa remoto, robôs aspiradores e fogões inteligentes." },
-  { question: "Quanto custa configurar um eletrodoméstico inteligente em Curitiba?", answer: "A visita técnica para configuração começa em R$ 129,99 e inclui pareamento, integração com Alexa/Google Home, ajuste de Wi-Fi e treinamento de uso. Conserto de placa eletrônica varia conforme modelo, sempre com orçamento prévio." },
+  { question: "Quanto custa configurar um eletrodoméstico inteligente em Curitiba?", answer: "A visita técnica para configuração começa em R$ 129,99 e inclui pareamento, integração com Alexa/Google Home, ajuste de Wi-Fi e treinamento de uso. Conserto de placa eletrônica varia conforme modelo, sempre com valor prévio." },
   { question: "Atendem aparelhos de qual marca?", answer: "Samsung (SmartThings), LG (ThinQ), Electrolux, Brastemp, Consul, Midea, Philco, Mondial, Xiaomi, Roborock, iRobot Roomba, Britânia, Multilaser e Positivo Casa Inteligente. Geladeira, máquina de lavar, lava-louça, micro-ondas, fogão, coifa, ar-condicionado, robô aspirador, fritadeira air fryer e cafeteira Wi-Fi." },
   { question: "Meu eletrodoméstico inteligente perdeu o Wi-Fi, dá para arrumar?", answer: "Sim. Na maioria dos casos é roteador trocado, mudança de senha ou banda dual incompatível (alguns aparelhos exigem 2.4GHz separada). Reconfiguramos a rede e o app em até 1 hora, a partir de R$ 99,99." },
   { question: "Vocês integram tudo no Alexa ou Google Home?", answer: "Sim. Criamos as rotinas (\"Alexa, modo cinema\", \"Ok Google, bom dia\"), agrupamos cômodos, configuramos automações por horário e por sensores, e treinamos a família a usar — tudo em uma visita só." },
@@ -93,7 +93,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
           <p className="text-2xl font-bold text-primary">
             Visita técnica + configuração a partir de <span className="text-accent">R$ 129,99</span>
           </p>
-          <p className="text-muted-foreground mt-2">Garantia de 90 dias · Orçamento sem compromisso · Atendimento conforme a agenda</p>
+          <p className="text-muted-foreground mt-2">Garantia de 90 dias · atendimento sem compromisso · Atendimento conforme a agenda</p>
         </div>
       </section>
 
@@ -152,7 +152,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
             {[
               { i: <Refrigerator className="w-7 h-7 text-accent" />, t: "Especialistas em IoT", d: "Diagnóstico técnico real, não \"reinstala o app\"." },
               { i: <Shield className="w-7 h-7 text-accent" />, t: "Garantia de 90 dias", d: "Em serviços e peças, formalizada por escrito." },
-              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Orçamento antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
+              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Valor antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
             ].map((b) => (
               <div key={b.t} className="text-center p-6 rounded-xl border bg-card">
                 <div className="mx-auto mb-3 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">{b.i}</div>

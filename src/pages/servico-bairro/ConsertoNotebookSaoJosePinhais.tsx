@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Conserto de Notebook em São José dos Pinhais | Técnico Especializado | Técnico Curitiba",
-  metaDescription: "Conserto de notebook e PC em São José dos Pinhais. Tela, teclado, placa-mãe, fonte. Atendimento domiciliar em todos os bairros. Orçamento grátis.",
+  metaDescription: "Conserto de notebook e PC em São José dos Pinhais. Tela, teclado, placa-mãe, fonte. Atendimento domiciliar em todos os bairros. atendimento sem compromisso.",
   
   servico: "Conserto de Notebook",
   servicoSlug: "conserto-pc-notebook",
@@ -14,7 +14,7 @@ const data: ServicoBairroData = {
   subtitulo: "Notebook com defeito? Consertamos tela, teclado, bateria, dobradiça e placa-mãe com técnico local em SJP.",
   
   precoBase: "R$ 149,99",
-  precoDescricao: "Orçamento gratuito. Preço varia conforme o tipo de reparo necessário.",
+  precoDescricao: "atendimento sem compromisso. Preço varia conforme o tipo de reparo necessário.",
   
   descricaoLonga: `São José dos Pinhais possui milhares de profissionais e estudantes que dependem de notebooks 
     no dia a dia. Quando o equipamento apresenta defeito, a produtividade para. Nossa equipe especializada 
@@ -24,7 +24,7 @@ const data: ServicoBairroData = {
     Cruzeiro e em toda a cidade.`,
   
   beneficios: [
-    "Orçamento gratuito e sem compromisso",
+    "atendimento sem compromisso e sem compromisso",
     "Todas as marcas de notebooks",
     "Troca de tela, teclado e bateria",
     "Reparo de placa-mãe e dobradiça",
@@ -37,7 +37,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Contato", descricao: "Descreva o problema do notebook" },
     { titulo: "Diagnóstico", descricao: "Identificamos o defeito exato" },
-    { titulo: "Orçamento", descricao: "Aprovação antes de qualquer reparo" },
+    { titulo: "Valor do atendimento", descricao: "Aprovação antes de qualquer reparo" },
     { titulo: "Conserto", descricao: "Reparo com peças de qualidade" },
   ],
   
@@ -51,8 +51,8 @@ const data: ServicoBairroData = {
       resposta: "Reparos simples (teclado, memória) são feitos conforme a disponibilidade da agenda. Reparos em placa-mãe podem levar 3 a 5 dias úteis dependendo da complexidade." 
     },
     { 
-      pergunta: "O orçamento é realmente gratuito?", 
-      resposta: "Sim, o diagnóstico e orçamento são 100% gratuitos. Você só paga se aprovar o serviço." 
+      pergunta: "O valor é realmente gratuito?", 
+      resposta: "Sim, o diagnóstico e valor são 100% gratuitos. Você só paga se aprovar o serviço." 
     },
     { 
       pergunta: "Vocês buscam e entregam o notebook?", 

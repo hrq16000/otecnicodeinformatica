@@ -23,7 +23,7 @@ const benefits = [
   { icon: MapPin, title: "Atendimento em Quatro Barras", description: "Cobrimos toda a cidade. Técnico com conhecimento do acesso pela BR-116." },
   { icon: Clock, title: "Chegamos em 40-55 Minutos", description: "Acesso rápido pela BR-116 sentido Joinville. Agendamento conforme a disponibilidade da agenda." },
   { icon: Shield, title: "Profissional identificado", description: "Atuação em informática desde 1998, identificado e equipado profissionalmente." },
-  { icon: Wrench, title: "Serviço Garantido", description: "Orçamento antes da execução. Garantia por escrito em todos os serviços." },
+  { icon: Wrench, title: "Serviço Garantido", description: "Valor antes da execução. Garantia por escrito em todos os serviços." },
 ];
 
 const bairros = [
@@ -45,7 +45,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Quatro Barras a domicílio?", answer: "Sim. Atendemos Quatro Barras com visita agendada. Deslocamento de 40 a 55 minutos pela BR-116." },
-  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local e orçamento antes de qualquer execução." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local e valor antes de qualquer execução." },
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços que exigem bancada, coletamos e devolvemos no seu endereço." },
 ];
 
@@ -85,7 +85,7 @@ const TecnicoInformaticaQuatroBarras = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center reveal-text">Assistência Técnica em Quatro Barras</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="mb-4"><strong className="text-foreground">Quatro Barras</strong> está na região nordeste da região metropolitana de Curitiba, com acesso rápido pela BR-116. Cidade com cerca de 25 mil habitantes e perfil residencial, tem demanda crescente por <strong className="text-foreground">serviços de informática de qualidade</strong>.</p>
-              <p>Nosso técnico atende Quatro Barras com o mesmo padrão de qualidade de Curitiba: diagnóstico transparente, orçamento antes da execução e garantia por escrito. Para casos que exigem bancada, fazemos coleta e entrega.</p>
+              <p>Nosso técnico atende Quatro Barras com o mesmo padrão de qualidade de Curitiba: diagnóstico transparente, valor antes da execução e garantia por escrito. Para casos que exigem bancada, fazemos coleta e entrega.</p>
             </div>
             <div className="grid sm:grid-cols-3 gap-4 mt-8">
               <div className="bg-background rounded-lg p-4 text-center border border-border hover:-translate-y-0.5 transition-all group"><Home className="h-8 w-8 text-accent mx-auto mb-2 group-hover:scale-110 transition-transform" /><h3 className="font-semibold text-foreground">Residências</h3><p className="text-sm text-muted-foreground">Visita agendada</p></div>

@@ -8,7 +8,7 @@
  *
  * GOVERNANÇA (não negociável):
  *  - Nada aqui pode ser inventado. Toda regra publicada precisa refletir a
- *    operação real (orçamento, ordem de serviço, política publicada).
+ *    operação real (valor, ordem de serviço, política publicada).
  *  - Proibido: SLA, prazo garantido, plano/preço mensal, "garantia total",
  *    "nota fiscal garantida", certificação/credenciamento sem emissor,
  *    número de clientes, percentual de satisfação, avaliação inventada.
@@ -37,7 +37,7 @@ export const GARANTIA = {
   pecasLabel: "Peças e componentes seguem a garantia do fornecedor/fabricante",
   /** Registro formal — o que sustenta a garantia. */
   registroLabel:
-    "A garantia é registrada por escrito no orçamento aprovado e no registro do atendimento",
+    "A garantia é registrada por escrito no valor aprovado e no registro do atendimento",
   /** Reparos de natureza limitada (ex.: microssolda/TAB) podem ter cobertura menor. */
   ressalvaLabel:
     "Reparos de natureza limitada (microssolda, reballing, flat cable) podem ter cobertura reduzida — o prazo aplicável é informado por escrito antes da aprovação",
@@ -56,9 +56,7 @@ export const GARANTIA = {
 // NOTA FISCAL (Etapa 9)
 // ─────────────────────────────────────────────────────────────
 export const NOTA_FISCAL = {
-  /** Emissão confirmada operacionalmente pela entidade abaixo. */
-  emissorLabel: `${siteConfig.legalEntityName} — CNPJ ${siteConfig.cnpj}`,
-  servicoLabel: "Nota fiscal de serviço emitida mediante solicitação, em nome do CNPJ acima",
+  servicoLabel: "Nota fiscal de serviço emitida mediante solicitação",
   pecaLabel: "Peças adquiridas acompanham a nota do fornecedor quando aplicável",
   /** Nunca usar "nota fiscal garantida" nem prometer faturamento/boleto. */
   ressalvaLabel:
@@ -91,7 +89,7 @@ export const PROCESSO_ATENDIMENTO: EtapaProcesso[] = [
   { titulo: "Solicitação e triagem", descricao: "Você descreve o problema pelo WhatsApp. Identificamos se é atendimento residencial ou empresarial e qual modalidade se aplica." },
   { titulo: "Classificação do atendimento", descricao: "Definimos a modalidade: remoto, no endereço, coleta e entrega ou bancada." },
   { titulo: "Avaliação ou diagnóstico", descricao: "Verificação técnica do equipamento antes de qualquer execução. Nada é reparado antes de entender a causa." },
-  { titulo: "Orçamento e aprovação", descricao: "Escopo e valor registrados por escrito. Nenhum serviço adicional é executado sem sua aprovação." },
+  { titulo: "Valor e aprovação", descricao: "Escopo e valor registrados por escrito. Nenhum serviço adicional é executado sem sua aprovação." },
   { titulo: "Execução", descricao: "Serviço realizado dentro do escopo aprovado. Mudança de escopo volta para aprovação." },
   { titulo: "Testes", descricao: "Verificação do que foi reparado, incluindo estabilidade quando o caso exigir." },
   { titulo: "Entrega ou conclusão", descricao: "Devolução ou encerramento do atendimento com o registro do que foi feito." },
@@ -101,8 +99,8 @@ export const PROCESSO_ATENDIMENTO: EtapaProcesso[] = [
 /** Diferenças reais por modalidade — evita prometer prazo único. */
 export const PROCESSO_POR_MODALIDADE = {
   remoto: "Diagnóstico e execução na mesma sessão autorizada, apenas para casos de software e configuração.",
-  domicilio: "Avaliação no endereço, orçamento na hora e execução após aprovação. Casos que exigem bancada são convertidos em coleta.",
-  coleta: "Retirada, avaliação em bancada, orçamento por escrito, execução após aprovação e devolução.",
+  domicilio: "Avaliação no endereço, valor informado na hora e execução após aprovação. Casos que exigem bancada são convertidos em coleta.",
+  coleta: "Retirada, avaliação em bancada, valor por escrito, execução após aprovação e devolução.",
   bancada: "Casos que exigem ferramenta de bancada: prazo depende da disponibilidade de peça e da complexidade, informado após a avaliação.",
   empresarial: "Triagem por chamado, priorização combinada com o responsável e registro do que foi executado. Sem plano mensal padronizado.",
 } as const;

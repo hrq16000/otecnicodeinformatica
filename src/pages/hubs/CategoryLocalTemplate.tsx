@@ -19,7 +19,7 @@ const WHATSAPP_NUMBER = "5541997086380";
 const beneficios = [
   { icon: Package, title: "Coleta e Entrega", description: "Buscamos seu equipamento em casa e devolvemos consertado. Sem precisar deslocar até a loja." },
   { icon: ShieldCheck, title: "Garantia em todo serviço", description: "90 dias de garantia escrita sobre a peça e a mão-de-obra." },
-  { icon: Wrench, title: "Diagnóstico transparente", description: "Orçamento exato antes de qualquer execução. Você autoriza tudo por escrito." },
+  { icon: Wrench, title: "Diagnóstico transparente", description: "Valor do atendimento exato antes de qualquer execução. Você autoriza tudo por escrito." },
   { icon: Clock, title: "Prazo combinado", description: "Atualizações de andamento por WhatsApp. Sem surpresa." },
 ];
 
@@ -44,7 +44,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     : "";
   const title = `${category.titlePrefix} em ${cityLabel} | Coleta e Entrega · Técnico Curitiba`;
   const description = local
-    ? `${category.titlePrefix} em ${cityLabel}/${local.uf} com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e orçamento sem compromisso pelo WhatsApp.`
+    ? `${category.titlePrefix} em ${cityLabel}/${local.uf} com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e atendimento sem compromisso pelo WhatsApp.`
     : "";
   const msg = `Olá! Preciso de ${category.titlePrefix.toLowerCase()} em ${cityLabel}.`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
@@ -147,7 +147,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
                 </div>
                 <div className="min-w-0">
                   <p className="font-semibold text-foreground group-hover:text-accent transition-colors">{s}</p>
-                  <p className="text-xs text-muted-foreground">Pedir orçamento →</p>
+                  <p className="text-xs text-muted-foreground">solicitar atendimento →</p>
                 </div>
               </a>
             ))}
@@ -164,7 +164,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
               {[
                 { n: "1", t: "Triagem no WhatsApp", d: "Você envia fotos/vídeo e responde 5 perguntas no funil." },
                 { n: "2", t: "Coleta agendada", d: "Buscamos no seu endereço com proteção e nota de retirada." },
-                { n: "3", t: "Diagnóstico + orçamento", d: `Avaliação em bancada. ${category.precoVisita}.` },
+                { n: "3", t: "Diagnóstico + valor do atendimento", d: `Avaliação em bancada. ${category.precoVisita}.` },
                 { n: "4", t: "Reparo + entrega", d: `${category.prazoEntrega} · garantia de 90 dias.` },
               ].map((s) => (
                 <div key={s.n} className="rounded-xl border border-border bg-card p-4 text-center">
@@ -286,7 +286,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
         <PageHero
           title={`${category.emoji} ${category.titlePrefix} em Curitiba e RMC`}
           subtitle={`Cobertura completa para ${category.nome.toLowerCase()}: coleta e entrega em toda a Região Metropolitana, diagnóstico incluso e garantia escrita.`}
-          ctaText="Pedir orçamento no WhatsApp"
+          ctaText="solicitar atendimento no WhatsApp"
         />
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-2">
@@ -314,10 +314,10 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h3 className="text-xl font-bold mb-3">Como funciona</h3>
             <p className="text-muted-foreground">
-              Triagem rápida pelo WhatsApp (com fotos/vídeo) → coleta agendada → diagnóstico em bancada → orçamento por escrito → reparo + entrega com garantia de 90 dias.
+              Triagem rápida pelo WhatsApp (com fotos/vídeo) → coleta agendada → diagnóstico em bancada → valor por escrito → reparo + entrega com garantia de 90 dias.
             </p>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Quero orçamento de ${category.titlePrefix}.`)}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Quero valor do atendimento de ${category.titlePrefix}.`)}`}
               data-cta-location="category_local_how_it_works"
               className="inline-flex items-center gap-2 mt-5 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white px-5 py-3 rounded-lg font-semibold"
             >

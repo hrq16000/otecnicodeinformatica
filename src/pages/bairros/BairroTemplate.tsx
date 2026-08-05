@@ -302,7 +302,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                         <Button variant="whatsapp" className="w-full hover:scale-[1.02] transition-transform" asChild onClick={handleWhatsAppClick}>
                           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                             <MessageCircle className="h-5 w-5" />
-                            Solicitar Orçamento
+                            Solicitar atendimento
                           </a>
                         </Button>
                       </div>
@@ -499,7 +499,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 { question: `Vocês atendem a domicílio no ${data.nome}?`, answer: `Sim. Fazemos atendimento a domicílio no ${data.nome} (${data.cidade}) com horário agendado. Levamos ferramentas e fazemos diagnóstico no local sempre que possível.` },
                 { question: `Quanto tempo demora para o técnico chegar no ${data.nome}?`, answer: `Em geral, ${data.tempoDeslocamento.toLowerCase()}. O tempo pode variar conforme trânsito e disponibilidade do dia.` },
                 { question: `Quais serviços vocês fazem no ${data.nome}?`, answer: `Os mais comuns são ${data.servicosDestaque.slice(0, 4).join(", ")}. Também realizamos diagnóstico e manutenção preventiva.` },
-                { question: `Qual o valor da visita técnica no ${data.nome}?`, answer: "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o orçamento antes de executar qualquer serviço adicional." },
+                { question: `Qual o valor da visita técnica no ${data.nome}?`, answer: "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o valor informado antes de executar qualquer serviço adicional." },
               ]}
             />
           )}

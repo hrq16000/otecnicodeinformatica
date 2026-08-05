@@ -25,7 +25,7 @@ const CTA_BASE =
 
 const CARDS = [
   { slug: "formatacao", icon: Monitor, blurb: "Windows lento ou corrompido? Formatação com backup e sistema pronto para o uso." },
-  { slug: "manutencao-de-notebook", icon: Laptop, blurb: "Aquecimento, tela, teclado, bateria e lentidão — com diagnóstico antes do orçamento." },
+  { slug: "manutencao-de-notebook", icon: Laptop, blurb: "Aquecimento, tela, teclado, bateria e lentidão — com diagnóstico antes de informar o valor." },
   { slug: "manutencao-de-computador", icon: Cpu, blurb: "Desktop travando ou sem vídeo? Fonte, memória, armazenamento e placa-mãe avaliados." },
   { slug: "upgrade-ssd-ram", icon: HardDrive, blurb: "Ganho real de desempenho com SSD e memória, respeitando a compatibilidade." },
   { slug: "remocao-de-virus", icon: ShieldCheck, blurb: "Pop-ups, lentidão e navegador sequestrado, com atenção aos seus dados." },
@@ -114,7 +114,7 @@ const Servicos = () => {
           </h2>
           <p className="mb-8 max-w-2xl text-muted-foreground">
             Encontre o serviço adequado para seu computador, notebook, rede ou empresa. Cada página
-            explica os sintomas atendidos, o processo e o que pode influenciar o orçamento.
+            explica os sintomas atendidos, o processo e o que pode influenciar o valor do atendimento.
           </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CARDS.map(({ slug, icon: Icon, blurb }) => {

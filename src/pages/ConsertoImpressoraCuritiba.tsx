@@ -16,11 +16,11 @@ const DESC =
   "Conserto de impressoras a jato de tinta, laser e multifuncionais em Curitiba a partir de R$ 99,99. HP, Epson, Brother, Canon, Samsung. Atendimento domiciliar conforme a disponibilidade da agenda.";
 
 const FAQS = [
-  { question: "Quanto custa consertar uma impressora em Curitiba?", answer: "O orçamento começa em R$ 99,99 para diagnóstico + limpeza. Trocas de cabeça de impressão, fusor ou rolo de tração variam por modelo — orçamento sempre fechado antes do conserto, sem surpresa." },
+  { question: "Quanto custa consertar uma impressora em Curitiba?", answer: "O atendimento começa em R$ 99,99 para diagnóstico + limpeza. Trocas de cabeça de impressão, fusor ou rolo de tração variam por modelo — valor sempre fechado antes do conserto, sem surpresa." },
   { question: "Vocês trabalham com qual marca de impressora?", answer: "HP, Epson, Brother, Canon, Samsung, Lexmark, Ricoh, Xerox e Pantum. Fazemos jato de tinta, tanque de tinta (EcoTank, Smart Tank, MegaTank), laser mono/colorida e multifuncionais." },
-  { question: "Minha impressora não puxa papel, é caro consertar?", answer: "Geralmente não. Na maioria dos casos é a borrachinha do rolo de tração ressecada (R$ 99 a R$ 180 já com peça). Em casos de engrenagem quebrada o orçamento pode subir, mas avaliamos antes." },
+  { question: "Minha impressora não puxa papel, é caro consertar?", answer: "Geralmente não. Na maioria dos casos é a borrachinha do rolo de tração ressecada (R$ 99 a R$ 180 já com peça). Em casos de engrenagem quebrada o valor pode subir, mas avaliamos antes." },
   { question: "Atendem em domicílio ou só na loja?", answer: "Atendemos em domicílio em toda Curitiba e região metropolitana, com deslocamento médio de 30 a 60 minutos. Para impressoras corporativas grandes também fazemos coleta e entrega." },
-  { question: "Vale a pena consertar minha impressora ou comprar uma nova?", answer: "Como regra: se o orçamento ficar abaixo de 60% do valor de uma equivalente nova, vale consertar. Em impressoras com tanque de tinta (EcoTank, Smart Tank) quase sempre compensa pelo custo da tinta original." },
+  { question: "Vale a pena consertar minha impressora ou comprar uma nova?", answer: "Como regra: se o conserto ficar abaixo de 60% do valor de uma equivalente nova, vale consertar. Em impressoras com tanque de tinta (EcoTank, Smart Tank) quase sempre compensa pelo custo da tinta original." },
   { question: "Vocês recarregam cartucho ou trocam toner?", answer: "Sim. Recarga de cartucho a partir de R$ 49,99, toner original e compatível em estoque. Também instalamos sistemas de bulk ink (tanque externo) com garantia do fornecedor do sistema." },
 ];
 
@@ -32,7 +32,7 @@ const ConsertoImpressoraCuritiba = () => {
 
   const waClick = () => {
     trackCTAClick("whatsapp", "conserto-impressora");
-    const msg = encodeURIComponent("Olá! Minha impressora está com problema, gostaria de orçamento.");
+    const msg = encodeURIComponent("Olá! Minha impressora está com problema, gostaria de agendar atendimento.");
     window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, "_blank");
   };
   const callClick = () => {
@@ -73,7 +73,7 @@ const ConsertoImpressoraCuritiba = () => {
           <p className="tldr text-xl text-white/90 max-w-3xl mx-auto mb-8" data-speakable="true">
             Conserto, limpeza e recarga de impressoras HP, Epson, Brother, Canon e Samsung
             em Curitiba e região, <strong>a partir de R$ 99,99</strong>. Visita técnica
-            domiciliar em até 60 minutos, orçamento fechado antes do conserto e garantia de 90 dias.
+            domiciliar em até 60 minutos, valor fechado antes do conserto e garantia de 90 dias.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" onClick={waClick} className="bg-[#25D366] hover:bg-[#128C7E] text-white">
@@ -91,7 +91,7 @@ const ConsertoImpressoraCuritiba = () => {
           <p className="text-2xl font-bold text-primary">
             Diagnóstico + limpeza a partir de <span className="text-accent">R$ 99,99</span>
           </p>
-          <p className="text-muted-foreground mt-2">Garantia de 90 dias no serviço · Orçamento sem compromisso</p>
+          <p className="text-muted-foreground mt-2">Garantia de 90 dias no serviço · atendimento sem compromisso</p>
         </div>
       </section>
 
@@ -145,7 +145,7 @@ const ConsertoImpressoraCuritiba = () => {
             </table>
           </div>
           <p className="text-xs text-muted-foreground text-center mt-3">
-            Valores orientativos para Curitiba e região. Orçamento fechado antes do conserto.
+            Valores orientativos para Curitiba e região. valor fechado antes do conserto.
           </p>
         </div>
       </section>
@@ -157,7 +157,7 @@ const ConsertoImpressoraCuritiba = () => {
             {[
               { i: <Clock className="w-7 h-7 text-accent" />, t: "Atendimento conforme a agenda", d: "Visita domiciliar em 30-60 min em toda Curitiba." },
               { i: <Shield className="w-7 h-7 text-accent" />, t: "Garantia de 90 dias", d: "Em serviços e peças trocadas, formalizada por escrito." },
-              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Orçamento antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
+              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Valor antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
             ].map((b) => (
               <div key={b.t} className="text-center p-6 rounded-xl border bg-card">
                 <div className="mx-auto mb-3 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">{b.i}</div>

@@ -8,7 +8,7 @@ type FAQItem = { q: string; a: string };
 const BASE_FAQ: FAQItem[] = [
   {
     q: "Quanto custa o atendimento em Curitiba?",
-    a: "A visita técnica em Curitiba começa em R$ 99,99 e o orçamento do serviço é apresentado antes da execução. Você só aprova se concordar.",
+    a: "A visita técnica em Curitiba começa em R$ 99,99 e o valor do atendimento do serviço é apresentado antes da execução. Você só aprova se concordar.",
   },
   {
     q: "Em quanto tempo o técnico atende?",

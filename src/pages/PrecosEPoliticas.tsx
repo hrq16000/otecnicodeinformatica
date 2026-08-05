@@ -36,7 +36,7 @@ import {
   DIAGNOSTICO_VALOR_LABEL,
   EQUIPAMENTOS_COLETA,
   PRAZOS,
-  REGRA_ORCAMENTO_GRATIS,
+  REGRA_ESTIMATIVA_GRATIS,
 } from "@/lib/coletaConfig";
 
 const WHATSAPP_NUMBER = "5541997086380";
@@ -106,18 +106,18 @@ const PrecosEPoliticas = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados."
+        "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor informado após avaliação e regras claras sobre peças, prazos e dados."
       );
     }
     trackPageView("/precos-e-politicas", "Preços e Políticas");
   }, []);
 
-  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um orçamento para [DESCREVA O SERVIÇO].";
+  const whatsappMessage = "Olá! Vi a página de preços e políticas e gostaria de solicitar um valor para [DESCREVA O SERVIÇO].";
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, orçamento após avaliação e regras claras sobre peças, prazos e dados." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
+      <PageSEO title="Preços e Políticas | Técnico em Curitiba" description="Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor informado após avaliação e regras claras sobre peças, prazos e dados." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Preços e Políticas", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -130,12 +130,12 @@ const PrecosEPoliticas = () => {
                 Preços e Políticas
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
-                Valores de referência e regras claras • O orçamento final depende da avaliação
+                Valores de referência e regras claras • O valor final depende da avaliação
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
                   { icon: BadgeCheck, text: "Valores de referência" },
-                  { icon: Star, text: "Orçamento após avaliação" },
+                  { icon: Star, text: "Valor informado após avaliação" },
                   { icon: FileText, text: "Regras transparentes" },
                 ].map((badge, i) => (
                   <div key={i} className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 flex items-center gap-2 stagger-item hover:bg-white/15 transition-colors" style={{ animationDelay: `${i * 100}ms` }}>
@@ -241,7 +241,7 @@ const PrecosEPoliticas = () => {
                 </div>
                 <div className="bg-accent/5 rounded-xl p-5 mt-6 border border-accent/20 space-y-3">
                   <p className="text-sm text-muted-foreground text-center">
-                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">{COLETA_TAXA_MINIMA_LABEL}</strong> com coleta e entrega inclusa. {REGRA_ORCAMENTO_GRATIS}.
+                    <strong className="text-foreground">Taxa mínima pré-aprovada:</strong> <strong className="text-accent">{COLETA_TAXA_MINIMA_LABEL}</strong> com coleta e entrega inclusa. {REGRA_ESTIMATIVA_GRATIS}.
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 mt-3">
                     {PRAZOS.map((p, i) => (
@@ -277,7 +277,7 @@ const PrecosEPoliticas = () => {
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <strong>NÃO</strong> existe orçamento gratuito presencial — {REGRA_ORCAMENTO_GRATIS.toLowerCase()}
+                        <strong>NÃO</strong> existe atendimento sem compromisso presencial — {REGRA_ESTIMATIVA_GRATIS.toLowerCase()}
                       </li>
                       <li className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
@@ -354,7 +354,7 @@ const PrecosEPoliticas = () => {
               </div>
 
               <p className="text-sm text-muted-foreground mt-6 text-center">
-                * Valores sujeitos a variação conforme complexidade. Orçamento sempre informado antes do serviço.
+                * Valores sujeitos a variação conforme complexidade. valor do atendimento sempre informado antes do serviço.
               </p>
             </div>
           </div>
@@ -409,7 +409,7 @@ const PrecosEPoliticas = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Orçamento pré-aprovado de até R$ 300 em reparos</span>
+                      <span className="text-muted-foreground">Valor do atendimento pré-aprovado de até R$ 300 em reparos</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
@@ -516,7 +516,7 @@ const PrecosEPoliticas = () => {
                 Casos que exigem análise
               </h2>
               <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Alguns atendimentos — como recuperação de dados, defeitos intermitentes ou problemas de hardware mais profundos — só podem ser orçados após avaliação do equipamento.
+                Alguns atendimentos — como recuperação de dados, defeitos intermitentes ou problemas de hardware mais profundos — só podem ser informados após avaliação do equipamento.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-secondary rounded-xl p-6">
@@ -526,7 +526,7 @@ const PrecosEPoliticas = () => {
                       "Avaliação antes de qualquer execução",
                       "Explicação clara das possibilidades e limites",
                       "Recuperação de dados não é garantida",
-                      "Orçamento e prazo informados antes de prosseguir",
+                      "Valor do atendimento e prazo informados antes de prosseguir",
                     ].map((t, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
@@ -558,15 +558,15 @@ const PrecosEPoliticas = () => {
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-                Solicite Seu Orçamento Agora
+                Solicite Seu valor do atendimento Agora
               </h2>
               <p className="text-primary-foreground/80 mb-6">
-                Envie os detalhes do seu problema e receba um orçamento personalizado
+                Envie os detalhes do seu problema e receba o valor personalizado
               </p>
               <Button variant="heroWhatsapp" size="lg" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
-                  Solicitar Orçamento via WhatsApp
+                  Solicitar atendimento via WhatsApp
                 </a>
               </Button>
               <p className="text-primary-foreground/60 text-sm mt-4">

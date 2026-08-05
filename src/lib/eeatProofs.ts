@@ -52,22 +52,20 @@ export interface CasoReal {
  * fonte única de verdade preenchida com dados reais fornecidos pelo cliente.
  */
 export const dadosVerificaveis: ProvaVerificavel[] = [
-  { label: "Razão social", value: siteConfig.legalEntityName, fonte: "Cadastro CNPJ" },
-  { label: "CNPJ", value: siteConfig.cnpj, fonte: "Receita Federal" },
-  { label: "Atuação desde", value: siteConfig.foundedYear, fonte: "Histórico da empresa" },
+  { label: "Atuação desde", value: siteConfig.foundedYear, fonte: "Histórico da operação" },
   { label: "Área de atendimento", value: siteConfig.serviceArea.join(" · "), fonte: "Operação declarada" },
-  { label: "E-mail de contato", value: siteConfig.email, fonte: "Canal oficial" },
-  { label: "Canal de atendimento", value: "WhatsApp oficial", fonte: "Canal oficial", url: `https://wa.me/${siteConfig.whatsappNumber}` },
+  { label: "Modalidades", value: "A domicílio · coleta e entrega · remoto", fonte: "Operação declarada" },
   { label: "Diagnóstico a partir de", value: siteConfig.minPriceLabel, fonte: "Política de preços publicada" },
+  { label: "Garantia do serviço", value: "90 dias sobre a mão de obra", fonte: "Política publicada" },
 ];
 
 /** Compromissos operacionais — só entram itens que a operação cumpre sempre. */
 export const compromissosOperacionais: string[] = [
-  "Diagnóstico antes de qualquer orçamento — nada é executado sem aprovação.",
-  "Orçamento registrado por escrito no WhatsApp, com escopo e valor.",
+  "Diagnóstico antes de informar qualquer valor — nada é executado sem aprovação.",
+  "Valor registrado por escrito no WhatsApp, com escopo e valor.",
   "Garantia formal do serviço executado, registrada no mesmo canal.",
   "Critério explícito de quando o reparo não compensa — indicamos a substituição.",
-  "Peças e materiais orçados à parte, nunca embutidos sem aviso.",
+  "Peças e materiais informados à parte, nunca embutidos sem aviso.",
 ];
 
 /**

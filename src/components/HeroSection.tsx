@@ -105,7 +105,7 @@ export const HeroSection = () => {
 
             <div className="flex items-center justify-center lg:justify-start gap-2 mt-3 text-white/80 text-sm opacity-0 animate-[heroFadeIn_0.5s_ease-out_0.8s_forwards] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
               <CheckCircle className="h-3.5 w-3.5 text-trust" />
-              <span>Resposta em até 5 minutos • Orçamento sem compromisso</span>
+              <span>Resposta em até 5 minutos • atendimento sem compromisso</span>
             </div>
           </div>
           

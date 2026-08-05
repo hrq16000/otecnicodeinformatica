@@ -13,7 +13,7 @@ const AraucariaCentro = () => {
       "Assistência técnica em informática no Centro de Araucária com atendimento a domicílio e soluções rápidas.",
     descricaoLonga: `O Centro de Araucária concentra comércio, serviços e residências, com grande demanda por suporte de informática para computadores e notebooks.
 
-Atendemos a região central com diagnóstico claro, orçamento transparente e foco em resolver o problema na primeira visita. Se o seu PC está lento, travando, com vírus ou com falhas de hardware, nosso técnico vai até você com equipamentos profissionais para executar o serviço com segurança.`,
+Atendemos a região central com diagnóstico claro, valor transparente e foco em resolver o problema na primeira visita. Se o seu PC está lento, travando, com vírus ou com falhas de hardware, nosso técnico vai até você com equipamentos profissionais para executar o serviço com segurança.`,
     pontosReferencia: [
       "Prefeitura de Araucária",
       "Terminal Central",

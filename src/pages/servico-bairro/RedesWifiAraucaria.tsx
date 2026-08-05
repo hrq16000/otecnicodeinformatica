@@ -57,7 +57,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Vocês fornecem os equipamentos?", 
-      resposta: "Podemos fornecer ou você pode comprar. Recomendamos as melhores marcas (TP-Link, Intelbras, Ubiquiti) conforme sua necessidade e orçamento." 
+      resposta: "Podemos fornecer ou você pode comprar. Recomendamos as melhores marcas (TP-Link, Intelbras, Ubiquiti) conforme sua necessidade e valor do atendimento." 
     },
   ],
   

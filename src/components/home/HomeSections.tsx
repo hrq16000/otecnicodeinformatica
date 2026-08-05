@@ -501,7 +501,15 @@ export const HomeSections = () => {
               Começar triagem agora
             </a>
           </div>
+          <p className="mt-4 text-xs text-white/70">
+            Antes de agendar, confira os{" "}
+            <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-white">
+              termos, condições, valores e prazos
+            </a>
+            .
+          </p>
         </div>
+
       </section>
     </>
   );

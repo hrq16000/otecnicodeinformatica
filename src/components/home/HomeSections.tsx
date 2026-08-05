@@ -57,7 +57,7 @@ const authorityHubs: { t: string; d: string; links: { href: string; label: strin
     t: "Serviços mais procurados",
     d: "Páginas com escopo, prazo e limites de cada reparo.",
     links: [
-      { href: "/servicos/formatacao-de-computador", label: "Formatação de computador" },
+      { href: "/servicos/formatacao", label: "Formatação de computador" },
       { href: "/servicos/manutencao-de-notebook", label: "Manutenção de notebook" },
       { href: "/servicos/upgrade-ssd-ram", label: "Upgrade de SSD e memória" },
       { href: "/servicos/recuperacao-de-dados", label: "Recuperação de dados" },
@@ -80,7 +80,7 @@ const authorityHubs: { t: string; d: string; links: { href: string; label: strin
     d: "Conteúdo técnico para identificar o problema antes do contato.",
     links: [
       { href: "/diagnostico-60s", label: "Diagnóstico em 60 segundos" },
-      { href: "/problemas-reais-casos", label: "Problemas reais e casos" },
+      { href: "/problemas-reais-e-casos", label: "Problemas reais e casos" },
       { href: "/marcas", label: "Marcas atendidas" },
       { href: "/tecnico-informatica-curitiba", label: "Técnico de informática em Curitiba" },
       { href: "/blog", label: "Blog técnico" },

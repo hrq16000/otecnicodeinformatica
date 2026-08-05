@@ -488,7 +488,7 @@ const ComoFunciona = () => {
                   },
                   {
                     nivel: "Médio",
-                    cor: "text-yellow-600 dark:text-yellow-400",
+                    cor: "text-yellow-800 dark:text-yellow-300",
                     bgCor: "bg-yellow-500/10",
                     exemplo: "Notebook não liga → Fonte defeituosa + bateria viciada",
                     tempo: "1-3 horas ou coleta para bancada",

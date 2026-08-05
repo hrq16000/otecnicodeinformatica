@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { TermosCtaLink } from "@/components/TermosCtaLink";
 import { geoSuggestion } from "@/lib/geoContext";
-import { siteConfig } from "@/lib/siteConfig";
+import { MODALIDADES, REGRA_CANCELAMENTO, NOTA_VISITA_AVULSA } from "@/lib/precosConfig";
+import { toast } from "sonner";
 
 interface OsForm {
   nome: string;
@@ -15,10 +16,8 @@ interface OsForm {
   marcaModelo: string;
   sintoma: string;
   acessorios: string;
-  modalidade: string;
+  modalidadeId: string;
 }
-
-const MODALIDADES = ["No local (domicílio/empresa)", "Coleta e entrega", "Remoto"];
 
 const gerarNumero = () => {
   const d = new Date();
@@ -35,37 +34,73 @@ const OrdemDeServico = () => {
     marcaModelo: "",
     sintoma: "",
     acessorios: "",
-    modalidade: MODALIDADES[0],
+    modalidadeId: MODALIDADES[0].id,
   }));
   const [numero, setNumero] = useState<string | null>(null);
 
   const set = (k: keyof OsForm) => (v: string) => setForm((p) => ({ ...p, [k]: v }));
 
-  const pronta = form.nome.trim().length >= 2 && form.equipamento.trim().length >= 2 && form.sintoma.trim().length >= 5;
+  const modalidade = MODALIDADES.find((m) => m.id === form.modalidadeId) ?? MODALIDADES[0];
+
+  const pronta =
+    form.nome.trim().length >= 2 && form.equipamento.trim().length >= 2 && form.sintoma.trim().length >= 5;
 
   const resumo = useMemo(() => {
     const linhas = [
       `Ordem de serviço ${numero ?? ""}`.trim(),
+      `Data: ${new Date().toLocaleDateString("pt-BR")}`,
       `Cliente: ${form.nome}`,
       form.local ? `Bairro/cidade: ${form.local}` : "",
       `Equipamento: ${form.equipamento}`,
       form.marcaModelo ? `Marca/modelo: ${form.marcaModelo}` : "",
-      `Modalidade: ${form.modalidade}`,
       form.acessorios ? `Acessórios entregues: ${form.acessorios}` : "",
       `Problema relatado: ${form.sintoma}`,
-      `Valor mínimo de avaliação técnica: ${siteConfig.minPriceLabel}`,
+      "",
+      `Modalidade: ${modalidade.titulo}`,
+      `Valor: ${modalidade.valorLabel} (${modalidade.unidade})`,
+      ...modalidade.detalhes.map((d) => `- ${d}`),
+      "",
+      `Cancelamento: ${REGRA_CANCELAMENTO}`,
+      NOTA_VISITA_AVULSA,
     ].filter(Boolean);
     return linhas.join("\n");
-  }, [form, numero]);
+  }, [form, numero, modalidade]);
+
+  const garantirNumero = () => {
+    const n = numero ?? gerarNumero();
+    if (!numero) setNumero(n);
+    return n;
+  };
 
   const gerar = () => {
     if (!pronta) return;
-    setNumero(gerarNumero());
+    garantirNumero();
+  };
+
+  const copiar = async () => {
+    const n = garantirNumero();
+    try {
+      await navigator.clipboard.writeText(resumo.replace(/^Ordem de serviço.*$/m, `Ordem de serviço ${n}`));
+      toast.success("Conteúdo copiado — cole no WhatsApp.");
+    } catch {
+      toast.error("Não foi possível copiar automaticamente. Selecione o texto abaixo.");
+    }
+  };
+
+  const baixar = () => {
+    const n = garantirNumero();
+    const conteudo = resumo.replace(/^Ordem de serviço.*$/m, `Ordem de serviço ${n}`);
+    const blob = new Blob([conteudo], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${n}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const enviar = () => {
-    const n = numero ?? gerarNumero();
-    if (!numero) setNumero(n);
+    const n = garantirNumero();
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {
         detail: {
@@ -85,10 +120,12 @@ const OrdemDeServico = () => {
         noindex
       />
       <main className="container mx-auto max-w-3xl px-4 py-12">
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Ordem de serviço</h1>
+        <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          Ordem de serviço
+        </h1>
         <p className="mt-3 text-muted-foreground">
-          Preencha os dados do equipamento e do problema. A ordem gerada serve como registro do atendimento
-          e pode ser impressa ou enviada para continuar a triagem.
+          Preencha os dados do equipamento e do problema. A ordem gerada serve como registro do atendimento,
+          traz a modalidade escolhida com as condições aplicáveis e pode ser baixada, impressa ou copiada.
         </p>
 
         <div className="mt-8 grid gap-5">
@@ -119,16 +156,31 @@ const OrdemDeServico = () => {
             <Label htmlFor="os-modalidade">Modalidade de atendimento</Label>
             <select
               id="os-modalidade"
-              className="h-10 rounded-md border border-input bg-background px-3 text-sm"
-              value={form.modalidade}
-              onChange={(e) => set("modalidade")(e.target.value)}
+              className="h-10 rounded-md border border-input bg-background px-3 text-sm text-foreground"
+              value={form.modalidadeId}
+              onChange={(e) => set("modalidadeId")(e.target.value)}
             >
               {MODALIDADES.map((m) => (
-                <option key={m} value={m}>
-                  {m}
+                <option key={m.id} value={m.id}>
+                  {m.titulo} — {m.valorLabel}
                 </option>
               ))}
             </select>
+            <div className="rounded-lg border border-border bg-card p-4 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">
+                {modalidade.valorLabel}{" "}
+                <span className="text-xs font-normal uppercase tracking-wide">({modalidade.unidade})</span>
+              </p>
+              <p className="mt-2">{modalidade.resumo}</p>
+              <ul className="mt-2 space-y-1">
+                {modalidade.detalhes.map((d) => (
+                  <li key={d} className="flex gap-2">
+                    <span className="text-accent" aria-hidden="true">▸</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="os-acess">Acessórios entregues</Label>
@@ -147,21 +199,27 @@ const OrdemDeServico = () => {
               Solicitar atendimento
             </Button>
             {numero ? (
-              <Button variant="outline" onClick={() => window.print()}>
-                Imprimir
-              </Button>
+              <>
+                <Button variant="outline" onClick={copiar}>
+                  Copiar para o WhatsApp
+                </Button>
+                <Button variant="outline" onClick={baixar}>
+                  Baixar documento
+                </Button>
+                <Button variant="outline" onClick={() => window.print()}>
+                  Imprimir
+                </Button>
+              </>
             ) : null}
           </div>
           <TermosCtaLink />
         </div>
 
         {numero ? (
-          <section className="mt-10 rounded-xl border border-border bg-card p-6">
-            <h2 className="text-xl font-semibold">Registro {numero}</h2>
-            <pre className="mt-4 whitespace-pre-wrap text-sm text-muted-foreground">{resumo}</pre>
-            <p className="mt-4 text-xs text-muted-foreground">
-              {siteConfig.pricingDisclaimer}
-            </p>
+          <section className="mt-10 rounded-xl border border-border bg-card p-6" data-testid="os-documento">
+            <h2 className="font-heading text-xl font-semibold text-foreground">Registro {numero}</h2>
+            <pre className="mt-4 whitespace-pre-wrap font-sans text-sm text-muted-foreground">{resumo}</pre>
+            <p className="mt-4 text-xs text-muted-foreground">{REGRA_CANCELAMENTO}</p>
           </section>
         ) : null}
       </main>

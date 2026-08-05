@@ -58,11 +58,14 @@
     /* Reforçado para garantir contraste AA em texto secundário. */
     --muted-foreground: 205 22% 32%;
 
-    /* Acento: azul elétrico / ciano controlado */
-    --accent: 197 90% 42%;
+    /* Acento: azul elétrico / ciano controlado.
+       35% de luminosidade garante contraste AA (>=4.5:1) para texto pequeno
+       sobre fundos claros e mantém texto branco legível sobre o acento. */
+    --accent: 197 90% 33%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Escurecido para contraste AA em texto de alerta sobre fundos claros. */
+    --destructive: 0 72% 40%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 14% 90%;
@@ -85,8 +88,9 @@
     --z-toast: 110;
 
     /* Nova paleta técnica premium */
-    --whatsapp: 145 63% 42%;
-    --whatsapp-hover: 145 63% 36%;
+    /* Escurecido para contraste AA (>=4.5:1) do texto branco no botão. */
+    --whatsapp: 145 63% 32%;
+    --whatsapp-hover: 145 63% 27%;
     /* Acento herdado (mantém o nome por compatibilidade) — agora ciano elétrico */
     --cta-orange: 197 90% 42%;
     --cta-orange-hover: 197 90% 35%;

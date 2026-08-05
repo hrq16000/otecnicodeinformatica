@@ -214,6 +214,32 @@ const Sobre = () => {
           </div>
         </section>
 
+        {/* Provas verificáveis (E-E-A-T) */}
+        <EeatProofsSection className="border-y border-border/60 bg-secondary/40" />
+
+        {/* Responsabilidade técnica */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 md:p-8">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Responsabilidade técnica
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              {experienciaLabel}. Os atendimentos são executados sob a responsabilidade técnica de{" "}
+              <strong className="text-foreground">{GESTOR.nome}</strong> — {GESTOR.funcao} — e faturados por{" "}
+              {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}). {GARANTIA.servicoLabel} e{" "}
+              {NOTA_FISCAL.servicoLabel.toLowerCase()}.
+            </p>
+            <Link
+              to="/gestor-responsavel"
+              className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
+            >
+              Conhecer o gestor responsável <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+
+
+
         {/* CTA final */}
         <section className="pb-14">
           <div className="container mx-auto">

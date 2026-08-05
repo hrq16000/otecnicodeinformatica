@@ -122,7 +122,7 @@ const seen = (field) => {
   for (const p of pages) {
     const key = norm(p[field]);
     if (!key) continue;
-    if (map.has(key)) add(`${field} idêntico entre ${map.get(key)} e ${p.path}: "${p[field]}"`);
+    if (map.has(key)) add(`${field} idêntico entre ${map.get(key)} e ${p.path}: "${p[field]}"`, map.get(key), p.path);
     else map.set(key, p.path);
   }
 };
@@ -138,7 +138,7 @@ for (let i = 0; i < pages.length; i += 1) {
       const sa = field === "intro" ? shingles(a[field]) : new Set(tokens(a[field]));
       const sb = field === "intro" ? shingles(b[field]) : new Set(tokens(b[field]));
       const score = jaccard(sa, sb);
-      if (score > limit) add(`${field} quase idêntico (${score.toFixed(2)} > ${limit}) entre ${a.path} e ${b.path}`);
+      if (score > limit) add(`${field} quase idêntico (${score.toFixed(2)} > ${limit}) entre ${a.path} e ${b.path}`, a.path, b.path);
       else if (score > limit - 0.12 && score > 0) warn.push(`${field} próximo (${score.toFixed(2)}) entre ${a.path} e ${b.path}`);
     }
   }

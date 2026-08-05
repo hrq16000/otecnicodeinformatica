@@ -22,6 +22,7 @@ import {
   setFunnelBranchContext,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
+import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";

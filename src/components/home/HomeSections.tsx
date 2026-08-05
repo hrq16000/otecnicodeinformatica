@@ -1,6 +1,14 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
+import {
+  VALOR_VISITA_LABEL,
+  VALOR_PACOTE_2H_LABEL,
+  VALOR_COLETA_MINIMO_LABEL,
+  REGRA_CANCELAMENTO,
+  QUANDO_VISITA_COMPATIVEL,
+} from "@/lib/precosConfig";
+
 
 const ReviewsGrid = lazy(() =>
   import("@/components/ReviewsGrid").then((m) => ({ default: m.ReviewsGrid })),
@@ -21,15 +29,16 @@ const pains = [
 ];
 
 const services = [
-  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao" },
-  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook" },
-  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc" },
-  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade" },
-  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus" },
-  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup" },
-  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes" },
-  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa" },
+  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao", href: "/servicos/formatacao" },
+  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook", href: "/servicos/manutencao-de-notebook" },
+  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc", href: "/servicos/manutencao-de-computador" },
+  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade", href: "/servicos/upgrade-ssd-ram" },
+  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus", href: "/servicos/remocao-de-virus" },
+  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup", href: "/servicos/recuperacao-de-dados" },
+  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes", href: "/servicos/redes-e-wifi" },
+  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa", href: "/servicos/suporte-tecnico-empresarial" },
 ];
+
 
 const steps = [
   "Você inicia o atendimento pelo WhatsApp.",
@@ -114,7 +123,19 @@ const SectionTitle = ({ eyebrow, title, sub }: { eyebrow?: string; title: string
   </div>
 );
 
+/** Link de transparência obrigatório junto de qualquer CTA único. */
+const TermosLink = ({ className = "" }: { className?: string }) => (
+  <p className={`text-xs text-muted-foreground ${className}`}>
+    Antes de agendar, confira os{" "}
+    <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-foreground">
+      termos, condições, valores e prazos
+    </a>
+    .
+  </p>
+);
+
 const FunnelButton = ({ loc, msg, children, variant = "accent" }: { loc: string; msg: string; children: React.ReactNode; variant?: "accent" | "ghost" }) => (
+
   <a
     href={wa(msg)}
     target="_blank"
@@ -163,21 +184,30 @@ export const HomeSections = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <div key={s.t} className="flex flex-col rounded-xl border border-border bg-card p-5 transition-shadow hover:shadow-[var(--shadow-md)]">
-                <h3 className="font-heading text-base font-bold leading-snug text-foreground">{s.t}</h3>
+                <h3 className="font-heading text-base font-bold leading-snug text-foreground">
+                  <a href={s.href} className="transition-colors hover:text-accent hover:underline">
+                    {s.t}
+                  </a>
+                </h3>
                 <p className="mt-1.5 flex-1 text-sm text-muted-foreground">{s.d}</p>
                 <a
-                  href={wa(`Olá! Tenho interesse em: ${s.t}.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track(s.loc)}
+                  href={s.href}
                   data-cta-location={s.loc}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-accent hover:underline"
                 >
-                  Iniciar atendimento →
+                  Ver conteúdo completo do serviço →
                 </a>
               </div>
             ))}
           </div>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            <a href="/servicos" className="font-semibold text-accent hover:underline">Ver todos os serviços</a>
+            {" · "}
+            <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-foreground">
+              termos, condições, valores e prazos
+            </a>
+          </p>
+
         </div>
       </section>
 
@@ -222,14 +252,22 @@ export const HomeSections = () => {
                   — problemas de software resolvidos à distância.
                 </li>
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <FunnelButton
                   loc="home_router_pf"
                   msg="Olá! Sou pessoa física e preciso de atendimento para o meu equipamento."
                 >
                   Sou pessoa física
                 </FunnelButton>
+                <a
+                  href="/atendimento-domicilio"
+                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  Ver atendimento residencial
+                </a>
               </div>
+              <TermosLink className="mt-3" />
+
             </div>
 
             <div className="flex flex-col rounded-2xl border border-accent/30 bg-accent/[0.04] p-6">
@@ -264,14 +302,22 @@ export const HomeSections = () => {
                   — conexão estável em todo o escritório.
                 </li>
               </ul>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap items-center gap-3">
                 <FunnelButton
                   loc="home_router_pj"
                   msg="Olá! Represento uma empresa em Curitiba e preciso de suporte de informática."
                 >
                   Somos empresa
                 </FunnelButton>
+                <a
+                  href="/empresa-de-ti-curitiba"
+                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  Ver atendimento empresarial
+                </a>
               </div>
+              <TermosLink className="mt-3" />
+
             </div>
           </div>
         </div>
@@ -305,17 +351,37 @@ export const HomeSections = () => {
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                Diagnóstico/visita a partir de <strong className="text-foreground">{siteConfig.minPriceLabel}</strong>, quando aplicável.
+                <span>
+                  Diagnóstico/visita a partir de <strong className="text-foreground">{VALOR_VISITA_LABEL}</strong> — no
+                  atendimento avulso é <strong className="text-foreground">visita técnica de inspeção sem compromisso</strong>,
+                  a partir de R$ 99,99 por até (ou a cada) 30 minutos de atendimento.
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                O valor do atendimento depende do problema e é aprovado por você antes do reparo.
+                <span>
+                  Pacote pré-acordado de visita técnica de até 2 horas por{" "}
+                  <strong className="text-foreground">{VALOR_PACOTE_2H_LABEL}</strong>, sem promessas e sem peças inclusas.
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                Peças, componentes e materiais não estão inclusos, quando aplicável.
+                <span>
+                  Na maioria dos casos: diagnóstico com compromisso e tentativa de reparos compatíveis, com coleta e entrega
+                  inclusas, valor mínimo pré-aprovado de <strong className="text-foreground">{VALOR_COLETA_MINIMO_LABEL}</strong>.
+                  Peças não inclusas.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                <span>{REGRA_CANCELAMENTO}</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                <span>{QUANDO_VISITA_COMPATIVEL}</span>
               </li>
             </ul>
+
             <p className="mt-5 rounded-lg bg-secondary p-4 text-sm text-muted-foreground">
               {siteConfig.pricingDisclaimer}
             </p>
@@ -330,6 +396,8 @@ export const HomeSections = () => {
                 Ver preços e políticas
               </a>
             </div>
+            <TermosLink className="mt-3" />
+
           </div>
         </div>
       </section>
@@ -433,7 +501,15 @@ export const HomeSections = () => {
               Começar triagem agora
             </a>
           </div>
+          <p className="mt-4 text-xs text-white/70">
+            Antes de agendar, confira os{" "}
+            <a href="/termos-e-condicoes" className="underline underline-offset-2 hover:text-white">
+              termos, condições, valores e prazos
+            </a>
+            .
+          </p>
         </div>
+
       </section>
     </>
   );

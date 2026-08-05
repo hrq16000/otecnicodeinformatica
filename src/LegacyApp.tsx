@@ -315,14 +315,10 @@ const TecnicoInformaticaCuritibaAds = lazy(() => import("./pages/ads/TecnicoInfo
 
 // Páginas de Serviços Individuais
 const ServicoCore = lazy(() => import("./pages/servicos/ServicoCore"));
-const FormatacaoComputador = lazy(() => import("./pages/servicos/FormatacaoComputador"));
 const RemocaoVirus = lazy(() => import("./pages/servicos/RemocaoVirus"));
-const UpgradeSsdMemoria = lazy(() => import("./pages/servicos/UpgradeSsdMemoria"));
-const ConsertoPcNotebook = lazy(() => import("./pages/servicos/ConsertoPcNotebook"));
 const ConsertoNotebookCuritiba = lazy(() => import("./pages/servicos/ConsertoNotebookCuritiba"));
 
 const RedesWifi = lazy(() => import("./pages/servicos/RedesWifi"));
-const BackupRecuperacao = lazy(() => import("./pages/servicos/BackupRecuperacao"));
 const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
 const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
 const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));

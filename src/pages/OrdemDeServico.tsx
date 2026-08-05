@@ -41,11 +41,16 @@ const OrdemDeServico = () => {
 
   // Pré-preenche bairro/cidade assim que a detecção (IP ou precisa) resolver,
   // sem sobrescrever o que o usuário já digitou.
-  useEffect(() => subscribeGeo(() => {
-    const sugestao = geoSuggestion();
-    if (!sugestao) return;
-    setForm((p) => (p.local.trim() ? p : { ...p, local: sugestao }));
-  }), []);
+  useEffect(() => {
+    const unsubscribe = subscribeGeo(() => {
+      const sugestao = geoSuggestion();
+      if (!sugestao) return;
+      setForm((p) => (p.local.trim() ? p : { ...p, local: sugestao }));
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const set = (k: keyof OsForm) => (v: string) => setForm((p) => ({ ...p, [k]: v }));
 

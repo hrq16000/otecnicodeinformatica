@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
@@ -420,6 +421,7 @@ const EmpresaDeTiCuritiba = () => {
             </Button>
           </div>
         </section>
+        <PilarEditorialLinks pilar="/empresa-de-ti-curitiba" />
       </main>
 
       <Footer />

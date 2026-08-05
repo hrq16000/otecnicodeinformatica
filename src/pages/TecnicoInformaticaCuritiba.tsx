@@ -15,6 +15,7 @@ import {
 import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
+import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
@@ -702,6 +703,7 @@ const TecnicoInformaticaCuritiba = () => {
           descricao="Antes de mandar mensagem, confira com quem você vai falar: identificação da empresa, canal oficial e as regras que valem para todo atendimento em Curitiba."
           className="bg-secondary/40"
         />
+        <PilarEditorialLinks pilar="/servicos/manutencao-de-computador" />
       </main>
       <Footer />
     </div>

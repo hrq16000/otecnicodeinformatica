@@ -1,0 +1,35 @@
+name: Monitor de redirects (pós-migração)
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # diário, 06:17 UTC (03:17 America/Sao_Paulo)
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Monitorar redirects (críticas + amostra rotativa)
+        run: node scripts/monitor-redirects-daily.mjs --sample=120
+
+      - name: Auditar as 10 URLs mantidas (número legado)
+        continue-on-error: true
+        run: node scripts/audit-kept-urls.mjs --confirm=5541997086380
+
+      - name: Publicar relatório no resumo do job
+        if: always()
+        run: cat reports/daily/latest.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar artefatos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: redirect-monitor
+          path: |
+            reports/daily/
+            reports/kept-urls-audit.md

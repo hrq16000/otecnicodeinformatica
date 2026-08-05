@@ -321,9 +321,13 @@ const OrdemDeServico = () => {
                 <Button variant="outline" onClick={copiar}>
                   Copiar para o WhatsApp
                 </Button>
-                <Button variant="outline" onClick={baixar}>
-                  Baixar documento
+                <Button variant="outline" onClick={baixarPdf}>
+                  Baixar PDF
                 </Button>
+                <Button variant="outline" onClick={baixar}>
+                  Baixar .txt
+                </Button>
+
                 <Button variant="outline" onClick={() => window.print()}>
                   Imprimir
                 </Button>

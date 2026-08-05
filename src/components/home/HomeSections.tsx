@@ -396,6 +396,8 @@ export const HomeSections = () => {
                 Ver preços e políticas
               </a>
             </div>
+            <TermosLink className="mt-3" />
+
           </div>
         </div>
       </section>

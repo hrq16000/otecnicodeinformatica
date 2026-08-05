@@ -51,6 +51,44 @@ const faqs = [
 
 const areas = siteConfig.serviceArea.filter((a) => a !== "Região Metropolitana de Curitiba");
 
+/** Hubs de distribuição de autoridade: cada bloco cobre uma intenção distinta. */
+const authorityHubs: { t: string; d: string; links: { href: string; label: string }[] }[] = [
+  {
+    t: "Serviços mais procurados",
+    d: "Páginas com escopo, prazo e limites de cada reparo.",
+    links: [
+      { href: "/servicos/formatacao-de-computador", label: "Formatação de computador" },
+      { href: "/servicos/manutencao-de-notebook", label: "Manutenção de notebook" },
+      { href: "/servicos/upgrade-ssd-ram", label: "Upgrade de SSD e memória" },
+      { href: "/servicos/recuperacao-de-dados", label: "Recuperação de dados" },
+      { href: "/servicos", label: "Ver todos os serviços" },
+    ],
+  },
+  {
+    t: "Como o atendimento funciona",
+    d: "Formatos, valores e o que esperar antes de agendar.",
+    links: [
+      { href: "/como-funciona", label: "Como funciona o atendimento" },
+      { href: "/precos-e-politicas", label: "Preços e políticas" },
+      { href: "/equipamentos-atendidos", label: "Equipamentos atendidos" },
+      { href: "/quando-nao-compensa", label: "Quando não compensa consertar" },
+      { href: "/faq", label: "Perguntas frequentes" },
+    ],
+  },
+  {
+    t: "Diagnóstico e referência",
+    d: "Conteúdo técnico para identificar o problema antes do contato.",
+    links: [
+      { href: "/diagnostico-60s", label: "Diagnóstico em 60 segundos" },
+      { href: "/problemas-reais-casos", label: "Problemas reais e casos" },
+      { href: "/marcas", label: "Marcas atendidas" },
+      { href: "/tecnico-informatica-curitiba", label: "Técnico de informática em Curitiba" },
+      { href: "/blog", label: "Blog técnico" },
+    ],
+  },
+];
+
+
 // ── UI helpers ───────────────────────────────────────────────────
 const SectionTitle = ({ eyebrow, title, sub }: { eyebrow?: string; title: string; sub?: string }) => (
   <div className="mx-auto mb-10 max-w-2xl text-center">

@@ -77,6 +77,9 @@
     "check:local-interlinking": "node scripts/check-local-interlinking.mjs",
     "check:jsonld-p0": "node scripts/check-jsonld-p0.mjs",
     "check:eeat": "node scripts/check-eeat-coverage.mjs",
+    "check:trust-claims": "node scripts/check-trust-claims.mjs",
+    "check:forbidden-copy": "node scripts/check-forbidden-copy.mjs",
+    "check:copy": "npm run check:forbidden-copy && npm run check:trust-claims",
     "report:local-audit": "node scripts/report-local-audit.mjs"
   },
   "dependencies": {

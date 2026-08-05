@@ -202,7 +202,7 @@ export const HomeSections = () => {
                   — diagnóstico do ambiente e organização do suporte.
                 </li>
                 <li>
-                  <a href="/suporte-empresas" className="font-semibold text-accent hover:underline">
+                  <a href="/servicos/suporte-tecnico-empresarial" className="font-semibold text-accent hover:underline">
                     Suporte técnico empresarial
                   </a>{" "}
                   — atendimento recorrente sob demanda.

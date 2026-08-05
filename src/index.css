@@ -58,8 +58,10 @@
     /* Reforçado para garantir contraste AA em texto secundário. */
     --muted-foreground: 205 22% 32%;
 
-    /* Acento: azul elétrico / ciano controlado */
-    --accent: 197 90% 42%;
+    /* Acento: azul elétrico / ciano controlado.
+       35% de luminosidade garante contraste AA (>=4.5:1) para texto pequeno
+       sobre fundos claros e mantém texto branco legível sobre o acento. */
+    --accent: 197 90% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;

@@ -1,7 +1,7 @@
 # Relatório de Validação de Bairros
 
-Gerado em: 2026-08-01T05:53:57.184Z
-Bairros indexáveis: 13
+Gerado em: 2026-08-05T06:43:05.789Z
+Bairros indexáveis: 11
 
 ## Contagem de palavras próprias
 
@@ -17,8 +17,6 @@ Bairros indexáveis: 13
 | santa-felicidade | Santa Felicidade | 0 | 0 | warn:sem-narrativa |
 | boa-vista | Boa Vista | 0 | 0 | warn:sem-narrativa |
 | jardim-das-americas | Jardim das Américas | 232 | 209 | ok |
-| ecoville | Ecoville | 235 | 203 | ok |
-| alto-da-xv | Alto da XV | 213 | 195 | ok |
 | reboucas | Rebouças | 215 | 185 | ok |
 
 ## Similaridade Jaccard (limite ≤ 0.55)
@@ -26,10 +24,5 @@ Bairros indexáveis: 13
 | A | B | Jaccard | Status |
 | --- | --- | --- | --- |
 | jardim-das-americas | reboucas | 0.126 | ok |
-| ecoville | reboucas | 0.112 | ok |
-| jardim-das-americas | alto-da-xv | 0.107 | ok |
-| ecoville | alto-da-xv | 0.099 | ok |
-| alto-da-xv | reboucas | 0.098 | ok |
-| jardim-das-americas | ecoville | 0.090 | ok |
 
 **Resultado: OK — pronto para indexar.**

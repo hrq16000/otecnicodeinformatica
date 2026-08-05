@@ -86,6 +86,17 @@ const authorityHubs: { t: string; d: string; links: { href: string; label: strin
       { href: "/blog", label: "Blog técnico" },
     ],
   },
+  {
+    t: "Cobertura local",
+    d: "Bairros de Curitiba e cidades da região com página própria.",
+    links: [
+      { href: "/tecnico-informatica-curitiba", label: "Atendimento em Curitiba (página principal)" },
+      { href: "/bairros/batel", label: "Atendimento técnico no Batel" },
+      { href: "/bairros/agua-verde", label: "Suporte de informática no Água Verde" },
+      { href: "/tecnico-informatica-sao-jose-pinhais", label: "Suporte técnico em São José dos Pinhais" },
+      { href: "/tecnico-informatica-pinhais", label: "Manutenção de computador em Pinhais" },
+    ],
+  },
 ];
 
 
@@ -357,7 +368,7 @@ export const HomeSections = () => {
             title="Encontre a página certa para o seu caso"
             sub="Cada bloco leva direto ao conteúdo específico, sem repetir a mesma explicação."
           />
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {authorityHubs.map((hub) => (
               <nav key={hub.t} aria-label={hub.t} className="rounded-2xl border border-border bg-card p-6">
                 <h3 className="font-heading text-base font-bold text-foreground">{hub.t}</h3>

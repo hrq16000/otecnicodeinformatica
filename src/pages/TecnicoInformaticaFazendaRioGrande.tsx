@@ -71,7 +71,7 @@ const servicos = [
 const localFaqs = [
   {
     question: "Vocês atendem Fazenda Rio Grande a domicílio?",
-    answer: "Sim. Atendemos todos os bairros de Fazenda Rio Grande com visita técnica agendada. O deslocamento leva em torno de 40 a 60 minutos dependendo do bairro.",
+    answer: "O atendimento em Fazenda Rio Grande é avaliado caso a caso na triagem pelo WhatsApp. A disponibilidade de visita, a data e a modalidade (no local ou por coleta) são confirmadas antes do agendamento — sem promessa de deslocamento imediato.",
   },
   {
     question: "Qual o valor da visita técnica em Fazenda Rio Grande?",
@@ -79,11 +79,11 @@ const localFaqs = [
   },
   {
     question: "Fazem coleta e entrega em Fazenda Rio Grande?",
-    answer: "Sim. Para serviços que exigem bancada (reparo de placa, troca de tela), fazemos coleta no seu endereço e devolvemos quando pronto.",
+    answer: "Serviços de bancada (reparo de placa, troca de tela) podem seguir por coleta e entrega quando houver disponibilidade na rota do dia. Isso é confirmado na triagem, antes de qualquer combinação.",
   },
   {
-    question: "Atendem no mesmo dia em Fazenda Rio Grande?",
-    answer: "Sempre que possível, sim. Depende da agenda do dia e do horário do contato. Para urgências, tentamos encaixe prioritário.",
+    question: "Existe atendimento garantido no mesmo dia?",
+    answer: "Não trabalhamos com garantia de atendimento no mesmo dia. A data possível é informada na triagem, conforme a agenda e o tipo de reparo.",
   },
 ];
 
@@ -119,13 +119,13 @@ const TecnicoInformaticaFazendaRioGrande = () => {
       <main>
         <PageHero
           title="Técnico de Informática em Fazenda Rio Grande"
-          subtitle="Assistência técnica profissional em Fazenda Rio Grande. Atendimento a domicílio com diagnóstico transparente e serviço garantido."
+          subtitle="Assistência técnica de computadores e notebooks para moradores e empresas de Fazenda Rio Grande, com triagem por WhatsApp e diagnóstico antes do orçamento."
           ctaText="Falar com Técnico"
         />
 
-        <BenefitsGrid benefits={benefits} title="Suporte Técnico em Fazenda Rio Grande" subtitle="Atendimento profissional para toda a cidade" />
+        <BenefitsGrid benefits={benefits} title="Suporte Técnico em Fazenda Rio Grande" subtitle="Atendimento avaliado caso a caso na triagem" />
 
-        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento técnico a domicílio em Fazenda Rio Grande" />
+        <RealImageSection imageKey="atendimentoDomiciliar" caption="Atendimento técnico a domicílio realizado pela equipe" />
 
         <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />

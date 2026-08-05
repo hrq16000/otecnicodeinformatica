@@ -49,8 +49,8 @@ const PROBLEMAS = [
     titulo: "Notebook que não liga ou fica sem vídeo",
     texto:
       "Equipamento que não dá sinal, liga e apaga ou acende sem imagem exige teste de fonte, bateria, memória e placa. Esse tipo de verificação normalmente não termina em uma visita: costuma seguir para bancada.",
-    href: "/servicos/conserto-de-notebook",
-    anchor: "conserto de notebook",
+    href: "/servicos/manutencao-de-notebook",
+    anchor: "manutenção de notebook",
   },
   {
     titulo: "Aquecimento e desligamento repentino",

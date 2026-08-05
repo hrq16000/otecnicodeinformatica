@@ -238,7 +238,7 @@ export const EQUIPMENTS: Equipment[] = [
           label: "Não carrega / bateria viciada",
           description: "Conector de carga ou bateria.",
           advice:
-            "Teste outro cabo. Se persistir, geralmente é conector de carga (R$ 90–180) ou bateria (R$ 120–250).",
+            "Teste outro cabo. Se persistir, geralmente é conector de carga (R$ 99,99 a R$ 180) ou bateria (R$ 120–250).",
           waMessage: wa("meu celular não carrega direito — pode ser conector ou bateria."),
           relatedHref: "/servicos/conserto-celular",
           relatedLabel: "Conserto de celular",

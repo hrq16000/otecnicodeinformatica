@@ -144,7 +144,7 @@ const ComputadorNaoLiga = () => {
                 <li>Perda de garantia do equipamento</li>
                 <li>Componente bom danificado durante a tentativa</li>
               </ul>
-              <p className="font-medium text-foreground mt-3">O diagnóstico profissional custa R$ 90 — muito menos do que o prejuízo de uma tentativa errada.</p>
+              <p className="font-medium text-foreground mt-3">O diagnóstico profissional custa R$ 99,99 — muito menos do que o prejuízo de uma tentativa errada.</p>
             </div>
           </div>
         </div>

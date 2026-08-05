@@ -440,7 +440,7 @@ const PrecosEPoliticas = () => {
                     <div className="bg-accent/10 rounded-lg p-4">
                       <p className="font-semibold text-foreground mb-2">Desistência após agendamento de coleta:</p>
                       <p className="text-muted-foreground">
-                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 90</strong>, 
+                        Será cobrada taxa de diagnóstico de <strong className="text-accent">R$ 99,99</strong>, 
                         que inclui logística de coleta e entrega do equipamento.
                       </p>
                     </div>

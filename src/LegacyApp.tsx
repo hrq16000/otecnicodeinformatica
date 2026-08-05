@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { redirectRoutes } from "@/routes/redirectRoutes";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureUtmsFromUrl } from "@/lib/utmCapture";
 import { RouteLoader } from "@/components/RouteLoader";
@@ -481,6 +482,8 @@ const App = () => (
         <AppInit />
         <Suspense fallback={<RouteLoader />}>
           <Routes>
+            {/* Matriz única de redirects 301 (src/lib/redirectMatrix.ts) */}
+            {redirectRoutes()}
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Index />} />
             <Route path="/servicos" element={<Servicos />} />
@@ -490,7 +493,6 @@ const App = () => (
             <Route path="/arrumar-pc/online" element={<ArrumarPC />} />
             <Route path="/arrumar-pc/servico/:servico/:cidade" element={<ArrumarPCServicoCidade />} />
             <Route path="/arrumar-pc/:cidade" element={<ArrumarPCCity />} />
-            <Route path="/suporte-empresas" element={<Navigate to="/servicos/suporte-tecnico-empresarial" replace />} />
             <Route path="/empresa-de-ti-curitiba" element={<EmpresaDeTiCuritiba />} />
             <Route path="/precos-e-politicas" element={<PrecosEPoliticas />} />
             <Route path="/valores" element={<PrecosEPoliticas />} />
@@ -808,23 +810,9 @@ const App = () => (
             <Route path="/servicos/suporte-tecnico-empresarial" element={<ServicoCore slug="suporte-tecnico-empresarial" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
-            <Route path="/servicos/formatacao-computador" element={<Navigate to="/servicos/formatacao" replace />} />
-            <Route path="/servicos/remocao-virus" element={<Navigate to="/servicos/remocao-de-virus" replace />} />
-            <Route path="/servicos/upgrade-ssd-memoria" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
-            <Route path="/servicos/conserto-pc-notebook" element={<Navigate to="/servicos/manutencao-de-computador" replace />} />
-            <Route path="/servicos/conserto-notebook-curitiba" element={<Navigate to="/servicos/manutencao-de-notebook" replace />} />
-            <Route path="/servicos/redes-wifi" element={<Navigate to="/servicos/redes-e-wifi" replace />} />
-            <Route path="/servicos/backup-recuperacao" element={<Navigate to="/servicos/recuperacao-de-dados" replace />} />
 
             {/* Aliases de keyword (raiz) → páginas canônicas de serviço.
                 Evita canibalização: uma única URL indexável por intenção. */}
-            <Route path="/formatacao-de-computador-curitiba" element={<Navigate to="/servicos/formatacao" replace />} />
-            <Route path="/remocao-de-virus-curitiba" element={<Navigate to="/servicos/remocao-de-virus" replace />} />
-            <Route path="/upgrade-ssd-curitiba" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
-            <Route path="/upgrade-memoria-ram-curitiba" element={<Navigate to="/servicos/upgrade-ssd-ram" replace />} />
-            <Route path="/conserto-de-notebook-curitiba" element={<Navigate to="/servicos/manutencao-de-notebook" replace />} />
-            <Route path="/suporte-tecnico-remoto" element={<Navigate to="/atendimento-remoto" replace />} />
-            <Route path="/assistencia-tecnica-empresas-curitiba" element={<Navigate to="/servicos/suporte-tecnico-empresarial" replace />} />
 
 
             {/* Páginas herdadas/thin — mantidas funcionando, mas com noindex */}
@@ -926,18 +914,12 @@ const App = () => (
             <Route path="/marcas/:slug" element={<MarcaPage />} />
             
             {/* Redirects das URLs antigas de procedimentos */}
-            <Route path="/reflow-bga-curitiba" element={<Navigate to="/procedimentos/reflow-bga-curitiba" replace />} />
-            <Route path="/reballing-bga-curitiba" element={<Navigate to="/procedimentos/reballing-bga-curitiba" replace />} />
-            <Route path="/troca-chip-bga-curitiba" element={<Navigate to="/procedimentos/troca-chip-bga-curitiba" replace />} />
-            <Route path="/microsoldagem-celular-curitiba" element={<Navigate to="/procedimentos/microsoldagem-celular-curitiba" replace />} />
-            <Route path="/recapacitacao-placa-eletronica-curitiba" element={<Navigate to="/procedimentos/recapacitacao-placa-eletronica-curitiba" replace />} />
             
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-            <Route path="/privacidade" element={<Navigate to="/politica-de-privacidade" replace />} />
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
 

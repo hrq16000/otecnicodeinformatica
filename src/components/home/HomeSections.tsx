@@ -1,6 +1,14 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
+import {
+  VALOR_VISITA_LABEL,
+  VALOR_PACOTE_2H_LABEL,
+  VALOR_COLETA_MINIMO_LABEL,
+  REGRA_CANCELAMENTO,
+  QUANDO_VISITA_COMPATIVEL,
+} from "@/lib/precosConfig";
+
 
 const ReviewsGrid = lazy(() =>
   import("@/components/ReviewsGrid").then((m) => ({ default: m.ReviewsGrid })),
@@ -343,17 +351,37 @@ export const HomeSections = () => {
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                Diagnóstico/visita a partir de <strong className="text-foreground">{siteConfig.minPriceLabel}</strong>, quando aplicável.
+                <span>
+                  Diagnóstico/visita a partir de <strong className="text-foreground">{VALOR_VISITA_LABEL}</strong> — no
+                  atendimento avulso é <strong className="text-foreground">visita técnica de inspeção sem compromisso</strong>,
+                  a partir de R$ 99,99 por até (ou a cada) 30 minutos de atendimento.
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                O valor do atendimento depende do problema e é aprovado por você antes do reparo.
+                <span>
+                  Pacote pré-acordado de visita técnica de até 2 horas por{" "}
+                  <strong className="text-foreground">{VALOR_PACOTE_2H_LABEL}</strong>, sem promessas e sem peças inclusas.
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
-                Peças, componentes e materiais não estão inclusos, quando aplicável.
+                <span>
+                  Na maioria dos casos: diagnóstico com compromisso e tentativa de reparos compatíveis, com coleta e entrega
+                  inclusas, valor mínimo pré-aprovado de <strong className="text-foreground">{VALOR_COLETA_MINIMO_LABEL}</strong>.
+                  Peças não inclusas.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                <span>{REGRA_CANCELAMENTO}</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent" aria-hidden="true">▸</span>
+                <span>{QUANDO_VISITA_COMPATIVEL}</span>
               </li>
             </ul>
+
             <p className="mt-5 rounded-lg bg-secondary p-4 text-sm text-muted-foreground">
               {siteConfig.pricingDisclaimer}
             </p>

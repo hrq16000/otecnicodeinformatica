@@ -1,0 +1,18 @@
+{
+  "_doc": "Exceções do gate de confiança (scripts/check-trust-claims.mjs). Cada entrada exige justificativa real. Não usar para esconder claim inventado.",
+  "exceptions": [
+    { "file": "src/lib/politicaComercial.ts", "rule": "garantia-divergente", "why": "Fonte única da regra de garantia — descreve exclusões e ressalvas." },
+    { "file": "src/lib/politicaComercial.ts", "rule": "nf-garantida", "why": "Texto proíbe explicitamente o termo." },
+    { "file": "src/lib/politicaComercial.ts", "rule": "certificado", "why": "Comentário de governança citando o termo proibido." },
+    { "file": "src/lib/siteConfig.ts", "rule": "whatsapp-divergente", "why": "Fonte única do número oficial." },
+    { "file": "src/lib/localBusinessJsonLd.ts", "rule": "whatsapp-divergente", "why": "Deriva de siteConfig." },
+    { "file": "src/lib/schemaValidation.ts", "rule": "whatsapp-divergente", "why": "Telefone institucional do JSON-LD (mesmo número oficial em formato E.164)." },
+    { "file": "src/lib/problemaPagesData.ts", "rule": "garantia-divergente", "why": "Conteúdo editorial explicando garantia de fabricante/terceiros e limites de reparo, não promessa própria." },
+    { "file": "src/lib/problemaPagesData.ts", "rule": "sla", "why": "Termo aparece em conteúdo técnico educativo." },
+    { "file": "src/lib/brandsData.ts", "rule": "garantia-divergente", "why": "Descreve garantia de fábrica das marcas, não a nossa." },
+    { "file": "src/lib/brandsData.ts", "rule": "assistencia-autorizada", "why": "Conteúdo editorial referindo assistências autorizadas dos fabricantes (terceiros)." },
+    { "file": "src/data/blogPostsContent.tsx", "rule": "garantia-divergente", "why": "Conteúdo editorial sobre garantia de fabricantes e direitos do consumidor." },
+    { "file": "src/data/blogPostsContent.tsx", "rule": "assistencia-autorizada", "why": "Referência a assistências autorizadas de fabricantes (terceiros)." },
+    { "file": "src/pages/admin", "rule": "certificado", "why": "Painel administrativo interno, não indexado e não público." }
+  ]
+}

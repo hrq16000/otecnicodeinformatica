@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Portal Italiano",
   ],
   
-  tempoAtendimento: "Agendamento para o mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para o Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Formatação", slug: "formatacao-computador" },

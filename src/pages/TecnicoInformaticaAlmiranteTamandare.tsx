@@ -28,7 +28,7 @@ const benefits = [
   {
     icon: Clock,
     title: "Deslocamento de 30-50 Minutos",
-    description: "Acesso rápido pela Rodovia dos Minérios e BR-476. Agendamento no mesmo dia quando possível.",
+    description: "Acesso rápido pela Rodovia dos Minérios e BR-476. Agendamento conforme a disponibilidade da agenda quando possível.",
   },
   {
     icon: Shield,
@@ -78,7 +78,7 @@ const localFaqs = [
     answer: "A visita técnica começa em R$ 69,99. Fazemos diagnóstico no local e apresentamos o orçamento antes de qualquer execução.",
   },
   {
-    question: "Atendem no mesmo dia?",
+    question: "Em quanto tempo conseguem atender?",
     answer: "Sim, sempre que a agenda permitir. Para urgências, tentamos encaixe prioritário. Recomendamos agendar pelo WhatsApp o mais cedo possível.",
   },
   {

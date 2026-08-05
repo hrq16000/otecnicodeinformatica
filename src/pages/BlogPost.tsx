@@ -382,7 +382,7 @@ const BlogPost = () => {
                       Resolva esse problema com um técnico em Curitiba
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      Atendimento no mesmo dia, diagnóstico grátis e você aprova antes. Fale direto com o técnico.
+                      Atendimento conforme a agenda, diagnóstico grátis e você aprova antes. Fale direto com o técnico.
                     </p>
                   </div>
                   <a

@@ -12,7 +12,7 @@ const BASE_FAQ: FAQItem[] = [
   },
   {
     q: "Em quanto tempo o técnico atende?",
-    a: "Atendemos no mesmo dia em Curitiba e região metropolitana, conforme disponibilidade da agenda. Confirme o horário pelo WhatsApp.",
+    a: "Atendemos conforme a disponibilidade da agenda em Curitiba e região metropolitana, conforme disponibilidade da agenda. Confirme o horário pelo WhatsApp.",
   },
   {
     q: "Atende em domicílio ou só na bancada?",

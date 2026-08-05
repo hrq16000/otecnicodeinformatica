@@ -43,7 +43,7 @@ const data: ServicoBairroData = {
   faq: [
     { 
       pergunta: "Atendem emergências em Campo Largo?", 
-      resposta: "Sim! Para casos urgentes temos atendimento prioritário no mesmo dia." 
+      resposta: "Sim! Para casos urgentes temos atendimento prioritário conforme a disponibilidade da agenda." 
     },
     { 
       pergunta: "Vocês atendem na Ferraria e região rural?", 

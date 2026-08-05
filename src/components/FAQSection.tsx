@@ -22,7 +22,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Quanto tempo demora para o técnico chegar?",
-    answer: "Na maioria dos casos, conseguimos atender no mesmo dia. O tempo médio de deslocamento varia de 30 a 60 minutos dependendo da sua localização em Curitiba. Para urgências, oferecemos atendimento prioritário com chegada mais rápida."
+    answer: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. O tempo médio de deslocamento varia de 30 a 60 minutos dependendo da sua localização em Curitiba. Para urgências, oferecemos atendimento prioritário com chegada mais rápida."
   },
   {
     question: "Vocês consertam notebook de qualquer marca?",

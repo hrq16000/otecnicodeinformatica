@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Remoção de Vírus no Centro de Curitiba | Limpeza Completa | Técnico Curitiba",
-  metaDescription: "Remoção de vírus e malware no Centro de Curitiba. Limpeza completa, proteção avançada e antivírus profissional. Atendimento no mesmo dia. A partir de R$ 79,99.",
+  metaDescription: "Remoção de vírus e malware no Centro de Curitiba. Limpeza completa, proteção avançada e antivírus profissional. Atendimento conforme a agenda. A partir de R$ 79,99.",
   
   servico: "Remoção de Vírus",
   servicoSlug: "remocao-virus",
@@ -69,7 +69,7 @@ const data: ServicoBairroData = {
     "Rodoferroviária",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia",
+  tempoAtendimento: "Atendimento conforme a agenda",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

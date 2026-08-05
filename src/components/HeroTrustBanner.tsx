@@ -39,7 +39,7 @@ const TRUST_SLIDES: Slide[] = [
   {
     kind: "trust",
     icon: Clock,
-    title: "Atendimento no mesmo dia",
+    title: "Atendimento conforme a agenda",
     desc: "Resposta em até 5 minutos pelo WhatsApp, sem compromisso.",
   },
   {

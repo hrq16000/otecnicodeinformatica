@@ -11,9 +11,9 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 const WHATSAPP = "5541997086380";
 const PATH = "/conserto-impressora-curitiba";
 
-const TITLE = "Conserto de Impressora em Curitiba | Técnico no Mesmo Dia";
+const TITLE = "Conserto de Impressora em Curitiba | Técnico no Conforme agenda";
 const DESC =
-  "Conserto de impressoras a jato de tinta, laser e multifuncionais em Curitiba a partir de R$ 99,99. HP, Epson, Brother, Canon, Samsung. Atendimento domiciliar no mesmo dia.";
+  "Conserto de impressoras a jato de tinta, laser e multifuncionais em Curitiba a partir de R$ 99,99. HP, Epson, Brother, Canon, Samsung. Atendimento domiciliar conforme a disponibilidade da agenda.";
 
 const FAQS = [
   { question: "Quanto custa consertar uma impressora em Curitiba?", answer: "O orçamento começa em R$ 99,99 para diagnóstico + limpeza. Trocas de cabeça de impressão, fusor ou rolo de tração variam por modelo — orçamento sempre fechado antes do conserto, sem surpresa." },
@@ -65,7 +65,7 @@ const ConsertoImpressoraCuritiba = () => {
       <section className="pt-14 pb-12 bg-gradient-to-br from-primary to-primary/80">
         <div className="container mx-auto px-4 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-white/15 px-4 py-2 rounded-full mb-6">
-            <Printer className="w-5 h-5" /> <span className="font-medium">Atendimento no mesmo dia</span>
+            <Printer className="w-5 h-5" /> <span className="font-medium">Atendimento conforme a agenda</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4">
             Conserto de Impressora em Curitiba
@@ -155,7 +155,7 @@ const ConsertoImpressoraCuritiba = () => {
           <h2 className="text-3xl font-heading font-bold text-center mb-8">Por que escolher a Técnico Curitiba</h2>
           <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
-              { i: <Clock className="w-7 h-7 text-accent" />, t: "Atendimento no mesmo dia", d: "Visita domiciliar em 30-60 min em toda Curitiba." },
+              { i: <Clock className="w-7 h-7 text-accent" />, t: "Atendimento conforme a agenda", d: "Visita domiciliar em 30-60 min em toda Curitiba." },
               { i: <Shield className="w-7 h-7 text-accent" />, t: "Garantia de 90 dias", d: "Em serviços e peças trocadas, formalizada por escrito." },
               { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Orçamento antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
             ].map((b) => (
@@ -190,7 +190,7 @@ const ConsertoImpressoraCuritiba = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold mb-4">Sua impressora parou no meio de um trabalho?</h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Chame agora — atendemos no mesmo dia em toda Curitiba e região.
+            Chame agora — atendemos conforme a disponibilidade da agenda em toda Curitiba e região.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" onClick={waClick} className="bg-[#25D366] hover:bg-[#128C7E] text-white">

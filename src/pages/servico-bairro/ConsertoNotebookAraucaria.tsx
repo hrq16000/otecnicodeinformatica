@@ -47,7 +47,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto tempo leva o conserto?", 
-      resposta: "Reparos simples: mesmo dia. Reparos em placa-mãe: 3 a 5 dias úteis. Informamos o prazo no orçamento." 
+      resposta: "Reparos simples: Conforme agenda. Reparos em placa-mãe: 3 a 5 dias úteis. Informamos o prazo no orçamento." 
     },
     { 
       pergunta: "Consertam MacBook?", 

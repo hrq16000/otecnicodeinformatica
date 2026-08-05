@@ -253,7 +253,7 @@ export const CoverageMapSection = () => {
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-accent" />
                     </span>
                     <span className="font-medium text-foreground">
-                      {isBusinessHours ? "Atendimento no mesmo dia" : "Próximo atendimento às 8h"}
+                      {isBusinessHours ? "Atendimento conforme a agenda" : "Próximo atendimento às 8h"}
                     </span>
                   </div>
                   <span className="text-muted-foreground">•</span>

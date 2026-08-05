@@ -61,7 +61,7 @@ const allServices: Service[] = [
     benefit: "PC rápido como novo, com seus arquivos preservados.",
     link: "/servicos/formatacao",
     preco: "R$ 99,99",
-    tempo: "Mesmo dia",
+    tempo: "Conforme agenda",
     waMessage: "Olá! Quero formatar meu computador com Windows + programas. Pode me passar o passo a passo?",
     details: { what: "Backup, Windows, drivers e programas essenciais.", bring: "Carregador, senhas e lista dos programas usados." },
   },

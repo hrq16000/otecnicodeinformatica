@@ -32,7 +32,7 @@ export const SchedulingSection = () => {
   const services = useMemo(() => shuffleAndPick(allServices, 6), []);
 
   const benefits = [
-    { icon: Clock, text: "Atendimento no mesmo dia" },
+    { icon: Clock, text: "Atendimento conforme a agenda" },
     { icon: MapPin, text: "Técnico vai até você" },
     { icon: Shield, text: "Garantia em todos os serviços" },
     { icon: CheckCircle, text: "Orçamento sem compromisso" },

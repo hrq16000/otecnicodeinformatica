@@ -31,12 +31,12 @@ const PROBLEMAS: Problema[] = [
   { id: "formatacao", label: "Formatação / lentidão", min: 99.99, max: 180, tempo: "30 min – 2h" },
   { id: "tela", label: "Tela trincada ou sem imagem", min: 350, max: 900, tempo: "24h após peça" },
   { id: "teclado", label: "Teclado / líquido derramado", min: 220, max: 550, tempo: "24h" },
-  { id: "bateria", label: "Bateria não segura carga", min: 250, max: 600, tempo: "Mesmo dia" },
+  { id: "bateria", label: "Bateria não segura carga", min: 250, max: 600, tempo: "Conforme agenda" },
   { id: "carga", label: "Não carrega / conector solto", min: 180, max: 420, tempo: "24h" },
   { id: "naoliga", label: "Não liga / sem vídeo", min: 199, max: 1200, tempo: "2 – 7 dias" },
   { id: "esquenta", label: "Esquenta / desliga sozinho", min: 149, max: 320, tempo: "24h" },
   { id: "placa", label: "Reparo de placa-mãe / BGA", min: 450, max: 1800, tempo: "3 – 7 dias" },
-  { id: "ssd", label: "Upgrade SSD / Memória", min: 199, max: 750, tempo: "Mesmo dia" },
+  { id: "ssd", label: "Upgrade SSD / Memória", min: 199, max: 750, tempo: "Conforme agenda" },
 ];
 
 const MARCAS = [

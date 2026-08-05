@@ -52,7 +52,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Qual o prazo de atendimento em Araucária?", 
-      resposta: "Agendamos para o mesmo dia ou próximo dia útil. Confirmamos disponibilidade via WhatsApp." 
+      resposta: "Agendamos para o Conforme agenda ou próximo dia útil. Confirmamos disponibilidade via WhatsApp." 
     },
     { 
       pergunta: "Tem taxa extra por ser Araucária?", 
@@ -69,7 +69,7 @@ const data: ServicoBairroData = {
     "Distrito Industrial",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

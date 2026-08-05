@@ -69,7 +69,7 @@ const data: ServicoBairroData = {
     "Colégio Medianeira",
   ],
   
-  tempoAtendimento: "Diagnóstico no mesmo dia",
+  tempoAtendimento: "Diagnóstico conforme a disponibilidade da agenda",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

@@ -68,7 +68,7 @@ const data: ServicoBairroData = {
     "Parque das Águas",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

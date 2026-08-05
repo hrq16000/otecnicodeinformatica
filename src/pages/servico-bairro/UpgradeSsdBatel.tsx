@@ -69,7 +69,7 @@ const data: ServicoBairroData = {
     "Praça Osório",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia",
+  tempoAtendimento: "Atendimento conforme a agenda",
   
   servicosRelacionados: [
     { nome: "Conserto de Notebook", slug: "conserto-pc-notebook" },

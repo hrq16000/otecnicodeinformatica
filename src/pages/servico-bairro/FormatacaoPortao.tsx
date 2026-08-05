@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Portão Curitiba | Rápido e Seguro | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Portão, Curitiba. Windows 10/11, backup completo e drivers. Atendimento a domicílio no mesmo dia. a partir de R$ 99,99.",
+  metaDescription: "Formatação de computador e notebook no Portão, Curitiba. Windows 10/11, backup completo e drivers. Atendimento a domicílio conforme a disponibilidade da agenda. a partir de R$ 99,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",
@@ -31,7 +31,7 @@ const data: ServicoBairroData = {
     "Otimização de inicialização do sistema",
     "Restauração organizada dos seus arquivos",
     "Garantia de 90 dias no serviço",
-    "Atendimento a domicílio no mesmo dia",
+    "Atendimento a domicílio conforme a disponibilidade da agenda",
   ],
   
   processoPasso: [
@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Praça do Portão",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia",
+  tempoAtendimento: "Atendimento conforme a agenda",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

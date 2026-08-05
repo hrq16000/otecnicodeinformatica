@@ -21,7 +21,7 @@ const data: ServicoBairroData = {
     Sprada e condomínios da região. Realizamos formatação completa com backup de todos os seus 
     arquivos, instalação do Windows 10 ou 11 original, drivers atualizados, Office, navegadores 
     e antivírus. O Campo Comprido tem crescido muito e atendemos a demanda crescente com 
-    prioridade e atendimento no mesmo dia.`,
+    prioridade e Atendimento conforme a agenda.`,
   
   beneficios: [
     "Backup completo antes da formatação",
@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Condor Campo Comprido",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia",
+  tempoAtendimento: "Atendimento conforme a agenda",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

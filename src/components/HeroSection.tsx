@@ -9,7 +9,7 @@ const WHATSAPP_NUMBER = "5541997086380";
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico.";
 
 const trustSignals = [
-  { icon: Clock, text: "Atendimento no mesmo dia" },
+  { icon: Clock, text: "Atendimento conforme a agenda" },
   { icon: Shield, text: "Garantia em todos os serviços" },
   { icon: MapPin, text: "A domicílio ou remoto" },
 ];
@@ -65,7 +65,7 @@ export const HeroSection = () => {
             
             <p className="text-lg md:text-xl text-white/95 mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0 motion-safe:opacity-0 motion-safe:animate-[heroFadeUp_0.6s_ease-out_0.35s_forwards] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
               <strong className="text-white">Conserto de computadores e notebooks</strong> com atendimento 
-              <strong className="text-white"> a domicílio</strong> no mesmo dia. Formatação, remoção de vírus, 
+              <strong className="text-white"> a domicílio</strong> conforme a disponibilidade da agenda. Formatação, remoção de vírus, 
               upgrade SSD e mais.
             </p>
 

@@ -13,7 +13,7 @@ const PATH = "/assistencia-eletrodomesticos-inteligentes-curitiba";
 
 const TITLE = "Assistência Eletrodomésticos Inteligentes em Curitiba | Smart Home";
 const DESC =
-  "Configuração, conserto e integração de eletrodomésticos inteligentes em Curitiba: geladeira, lava-louça, fogão, ar-condicionado e robôs Wi-Fi. Alexa, Google Home, SmartThings. Atendimento no mesmo dia.";
+  "Configuração, conserto e integração de eletrodomésticos inteligentes em Curitiba: geladeira, lava-louça, fogão, ar-condicionado e robôs Wi-Fi. Alexa, Google Home, SmartThings. Atendimento conforme a agenda.";
 
 const FAQS = [
   { question: "O que são eletrodomésticos inteligentes?", answer: "São aparelhos com Wi-Fi/Bluetooth que se conectam a apps no celular e a assistentes como Alexa, Google Home e SmartThings. Ex.: geladeiras com câmera interna, ares-condicionados controlados por voz, máquinas de lavar com programa remoto, robôs aspiradores e fogões inteligentes." },
@@ -75,7 +75,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
             Configuração, conserto e integração de <strong>geladeiras, ares-condicionados,
             máquinas de lavar, robôs aspiradores e fogões Wi-Fi</strong> em Curitiba e
             região, a partir de <strong>R$ 129,99</strong>. Integração com Alexa, Google
-            Home e SmartThings, atendimento domiciliar no mesmo dia.
+            Home e SmartThings, atendimento domiciliar conforme a disponibilidade da agenda.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" onClick={waClick} className="bg-[#25D366] hover:bg-[#128C7E] text-white">
@@ -93,7 +93,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
           <p className="text-2xl font-bold text-primary">
             Visita técnica + configuração a partir de <span className="text-accent">R$ 129,99</span>
           </p>
-          <p className="text-muted-foreground mt-2">Garantia de 90 dias · Orçamento sem compromisso · Atendimento no mesmo dia</p>
+          <p className="text-muted-foreground mt-2">Garantia de 90 dias · Orçamento sem compromisso · Atendimento conforme a agenda</p>
         </div>
       </section>
 
@@ -185,7 +185,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold mb-4">Seu eletrodoméstico inteligente parou de funcionar?</h2>
           <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-            Atendemos no mesmo dia em toda Curitiba e região. Diagnóstico real, conserto com garantia.
+            Atendemos conforme a disponibilidade da agenda em toda Curitiba e região. Diagnóstico real, conserto com garantia.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button size="lg" onClick={waClick} className="bg-[#25D366] hover:bg-[#128C7E] text-white">

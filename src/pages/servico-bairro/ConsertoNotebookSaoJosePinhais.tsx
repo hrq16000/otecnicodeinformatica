@@ -48,7 +48,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto tempo leva o conserto de notebook em SJP?", 
-      resposta: "Reparos simples (teclado, memória) são feitos no mesmo dia. Reparos em placa-mãe podem levar 3 a 5 dias úteis dependendo da complexidade." 
+      resposta: "Reparos simples (teclado, memória) são feitos conforme a disponibilidade da agenda. Reparos em placa-mãe podem levar 3 a 5 dias úteis dependendo da complexidade." 
     },
     { 
       pergunta: "O orçamento é realmente gratuito?", 

@@ -12,7 +12,7 @@ const data = {
     ao Aeroporto Internacional. Nossa assistência técnica atende residências e empresas locais 
     com serviços completos de informática. Atendemos também bairros vizinhos como Aviação e Costeira.`,
   pontosReferencia: ["Aeroporto Afonso Pena", "Aviação", "Costeira", "Guatupê"],
-  tempoDeslocamento: "Atendimento no mesmo dia",
+  tempoDeslocamento: "Atendimento conforme a agenda",
   servicosDestaque: ["Formatação", "Remoção de vírus", "Upgrade", "Rede Wi-Fi", "Backup", "Suporte remoto"]
 };
 

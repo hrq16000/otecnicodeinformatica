@@ -71,7 +71,7 @@ const data: ServicoBairroData = {
     "Praça Espanha",
   ],
   
-  tempoAtendimento: "Atendimento agendado no mesmo dia",
+  tempoAtendimento: "Atendimento agendado conforme a disponibilidade da agenda",
   
   servicosRelacionados: [
     { nome: "Formatação", slug: "formatacao-computador" },

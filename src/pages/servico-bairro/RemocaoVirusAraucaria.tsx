@@ -43,7 +43,7 @@ const data: ServicoBairroData = {
   faq: [
     { 
       pergunta: "Vocês atendem emergências em Araucária?", 
-      resposta: "Sim! Para casos urgentes como ransomware em empresas, temos atendimento prioritário no mesmo dia." 
+      resposta: "Sim! Para casos urgentes como ransomware em empresas, temos atendimento prioritário conforme a disponibilidade da agenda." 
     },
     { 
       pergunta: "Atendem empresas do polo industrial?", 

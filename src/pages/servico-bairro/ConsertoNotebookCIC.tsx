@@ -49,7 +49,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Qual o prazo de conserto para empresas?", 
-      resposta: "Priorizamos atendimentos empresariais. Reparos simples são feitos no mesmo dia. Casos complexos em até 48h úteis." 
+      resposta: "Priorizamos atendimentos empresariais. Reparos simples são feitos conforme a disponibilidade da agenda. Casos complexos em até 48h úteis." 
     },
     { 
       pergunta: "Fazem manutenção preventiva?", 

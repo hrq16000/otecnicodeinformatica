@@ -55,7 +55,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Qual o prazo para atendimento?", 
-      resposta: "Agendamos para o mesmo dia ou próximo dia útil, dependendo da demanda." 
+      resposta: "Agendamos para o Conforme agenda ou próximo dia útil, dependendo da demanda." 
     },
   ],
   
@@ -68,7 +68,7 @@ const data: ServicoBairroData = {
     "Ferraria",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

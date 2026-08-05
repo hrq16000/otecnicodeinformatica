@@ -1,7 +1,9 @@
 import { forwardRef } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { LocalidadeInput } from "@/components/funnel/LocalidadeInput";
 import type { Field } from "@/lib/funnel/triageConfig";
+
 
 interface Props {
   field: Field;

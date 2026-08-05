@@ -69,6 +69,7 @@
     "report:critical-evidence": "node scripts/report-critical-evidence.mjs",
     "check:cannibalization": "node scripts/check-cannibalization.mjs",
     "check:cannibalization:all": "node scripts/check-cannibalization.mjs --all",
+    "check:orphan-pages": "node scripts/check-orphan-pages.mjs",
     "check:rls-always-true": "node scripts/check-rls-always-true.mjs",
     "report:security": "node scripts/report-security-scan.mjs"
   },

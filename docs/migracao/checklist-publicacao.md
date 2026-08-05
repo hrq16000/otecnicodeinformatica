@@ -60,6 +60,39 @@ formatação. Qualquer ocorrência do legado **falha** o gate.
 | 5.1 | Amostra prioritária | `npm run check:redirects` | `reports/redirect-gate.md` |
 | 5.2 | Cobertura total das 612 regras (cadeia, hops, status final, canonical/robots) | `npm run check:redirects:all` | `reports/redirect-gate.json` |
 | 5.3 | Coverage 100% e 0 falhas | leitura do cabeçalho do relatório | — |
+| 5.4 | 41 URLs críticas em produção (status inicial/final, Location, saltos, canonical, robots, título, nº legado) | `npm run check:redirects:critical -- --enforce` | `reports/critical-redirects.md` |
+| 5.5 | Auditoria das 10 URLs mantidas (nº legado em HTML/JSON-LD/wa.me/tel:/assets) | `npm run audit:kept-urls -- --confirm=5541997086380` | `reports/kept-urls-audit.md` |
+
+## 5B. Exportação e publicação na camada de edge
+
+A fonte de verdade continua sendo `redirects/tecnicocuritiba.map.json`; os
+arquivos abaixo são **gerados**, nunca editados à mão.
+
+| # | Passo | Comando | Artefato |
+| --- | --- | --- | --- |
+| 5B.1 | Exportar para todas as plataformas | `npm run migration:export` | `redirects/export/*` |
+| 5B.2 | Simular publicação no Cloudflare | `npm run migration:cf:dry` | stdout |
+| 5B.3 | Publicar ruleset no Cloudflare (com backup automático) | `npm run migration:cf:publish -- --approve="APROVO 612 REGRAS"` | `redirects/rollback/cloudflare/<stamp>.json` |
+| 5B.4 | Rollback do Cloudflare | `node scripts/publish-cloudflare-redirects.mjs --rollback=redirects/rollback/cloudflare/<stamp>.json` | — |
+
+Formatos gerados: `cloudflare-bulk-redirects.csv` (Bulk Redirects),
+`cloudflare-ruleset.json` (Transform/Redirect Rules via API),
+`nginx.conf` (`map` + `return 301`), `apache.htaccess` (RewriteRule por origem)
+e `netlify-_redirects.txt`. Requisitos do publicador Cloudflare:
+`CLOUDFLARE_API_TOKEN` (Zone → Config Rules → Edit) e `CLOUDFLARE_ZONE_ID`
+da zona do domínio antigo.
+
+## 5C. Search Console e monitoramento
+
+| # | Passo | Comando | Artefato |
+| --- | --- | --- | --- |
+| 5C.1 | Relatório de propriedades, sitemaps e indexação | `npm run report:gsc` | `reports/gsc-migration.md` |
+| 5C.2 | Enviar sitemap do domínio novo | `npm run report:gsc -- --submit-sitemap` | mesmo relatório |
+| 5C.3 | Monitoramento diário de erros, loops e cadeias | `npm run monitor:redirects -- --strict` | `reports/daily/latest.md` |
+
+A "Alteração de endereço" **não existe na API** do Search Console: continua
+sendo passo manual e é registrada como pendência no relatório 5C.1.
+
 
 ## 6. Aprovação e publicação
 

@@ -23,7 +23,7 @@ import {
  * existentes na página — não toca no funil de triagem PF × PJ.
  */
 
-// Provas verificáveis apenas. Proibido prometer prazo, SLA ou "mesmo dia" —
+// Provas verificáveis apenas. Proibido prometer prazo, SLA ou "Conforme agenda" —
 // a operação não garante janela de atendimento por escrito.
 export const provasRapidas = [
   { icon: FileCheck2, label: "Orçamento antes da execução", desc: "Nada é executado sem a sua aprovação por escrito." },

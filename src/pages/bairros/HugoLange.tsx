@@ -10,7 +10,7 @@ const data = {
   subtitulo: "Atendimento profissional a domicílio no Hugo Lange. Diagnóstico, reparo e suporte técnico com garantia.",
   descricaoLonga: `Hugo Lange é um bairro nobre e arborizado de Curitiba, próximo ao Jardim Botânico e ao Cabral. Com perfil predominantemente residencial e ruas tranquilas, é um dos bairros mais charmosos da cidade. Nosso técnico de informática atende Hugo Lange a domicílio com discrição e profissionalismo, realizando diagnóstico, formatação, conserto de notebooks, configuração de smart home e suporte premium para residências e home offices.`,
   pontosReferencia: ["Jardim Botânico (próximo)", "Rua Fernando Amaro", "Alto da Rua XV", "Praça da Ucrânia", "Rua Agostinho Merlin"],
-  tempoDeslocamento: "Atendimento agendado no mesmo dia",
+  tempoDeslocamento: "Atendimento agendado conforme a disponibilidade da agenda",
   servicosDestaque: [
     "Formatação de computador",
     "Conserto de notebook",

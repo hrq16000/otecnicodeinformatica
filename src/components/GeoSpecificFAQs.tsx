@@ -16,8 +16,8 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
   // Curitiba - Centro
   "centro": [
     {
-      question: "Atendem no mesmo dia no Centro de Curitiba?",
-      answer: "Sim! O Centro de Curitiba é uma das regiões com maior disponibilidade. Na maioria dos casos, conseguimos atendimento no mesmo dia, especialmente para urgências em escritórios e empresas da região central."
+      question: "Atendem conforme a disponibilidade da agenda no Centro de Curitiba?",
+      answer: "Sim! O Centro de Curitiba é uma das regiões com maior disponibilidade. Na maioria dos casos, conseguimos Atendimento conforme a agenda, especialmente para urgências em escritórios e empresas da região central."
     },
     {
       question: "Tem estacionamento fácil para o técnico no Centro?",
@@ -152,7 +152,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
   // Pinhais
   "centro-pinhais": [
     {
-      question: "Atendem no mesmo dia em Pinhais?",
+      question: "Em quanto tempo conseguem atender em Pinhais?",
       answer: "Na maioria dos casos, sim. Pinhais é bem próximo de Curitiba e conseguimos encaixar atendimentos com boa agilidade, especialmente pela manhã."
     },
     {

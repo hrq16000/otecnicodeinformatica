@@ -90,7 +90,7 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
       { question: "Onde consertar meu notebook em Curitiba?", answer: "Atendemos toda Curitiba e região metropolitana em domicílio ou por coleta e entrega. Basta descrever o problema pelo WhatsApp que orientamos o próximo passo e o formato de atendimento ideal." },
       { question: "Quanto custa a assistência técnica de notebook em Curitiba?", answer: "O diagnóstico começa a partir de R$ 99,99. O valor final depende do modelo do notebook, da peça necessária (tela, teclado, bateria, dobradiça) e da complexidade do reparo. Você só aprova depois de saber o valor." },
       { question: "Qual assistência técnica de notebook atende a minha marca?", answer: "Atendemos as principais marcas do mercado — Dell, Lenovo, Acer, Samsung, HP, Asus, Positivo, LG e Vaio — para os defeitos mais comuns de tela, teclado, bateria, aquecimento e desempenho. Modelos e peças específicas são confirmados no diagnóstico." },
-      { question: "O conserto de notebook é feito no mesmo dia?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem no mesmo dia. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo no orçamento." },
+      { question: "O conserto de notebook é feito conforme a disponibilidade da agenda?", answer: "Serviços simples, como limpeza interna e troca de pasta térmica, muitas vezes saem conforme a disponibilidade da agenda. Reparos que dependem de peça específica levam mais tempo, e informamos o prazo no orçamento." },
     ],
     linksLocais: [
       ...REGIOES,

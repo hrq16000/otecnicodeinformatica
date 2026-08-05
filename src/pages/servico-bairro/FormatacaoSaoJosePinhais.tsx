@@ -57,7 +57,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Qual o tempo de atendimento em SJP?", 
-      resposta: "Conseguimos agendar para o mesmo dia ou próximo dia útil, dependendo da demanda. Confirmamos disponibilidade via WhatsApp." 
+      resposta: "Conseguimos agendar para o Conforme agenda ou próximo dia útil, dependendo da demanda. Confirmamos disponibilidade via WhatsApp." 
     },
   ],
   
@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Distrito Industrial",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

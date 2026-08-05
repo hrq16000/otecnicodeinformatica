@@ -15,18 +15,20 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Headphones, Clock, Building, CreditCard, FileText, CheckCircle, Users, Shield } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5541997086380";
+import { siteConfig } from "@/lib/siteConfig";
+
 const WHATSAPP_MESSAGE = "Olá! Preciso de suporte técnico para minha empresa.";
 
 const services = [
   {
     icon: Headphones,
     title: "Suporte Contínuo",
-    description: "Acompanhamento técnico permanente para sua empresa funcionar sem interrupções. Planos mensais com atendimento prioritário.",
+    description: "Acompanhamento técnico recorrente, com escopo e periodicidade combinados por escrito com o responsável da empresa.",
   },
   {
     icon: Clock,
-    title: "SLA Personalizado",
-    description: "Tempo de resposta garantido conforme a necessidade do seu negócio. Atendimento emergencial quando você mais precisa.",
+    title: "Prioridade combinada",
+    description: "A janela de atendimento é combinada com o responsável e confirmada na triagem de cada chamado.",
   },
   {
     icon: Building,
@@ -36,25 +38,25 @@ const services = [
   {
     icon: CreditCard,
     title: "Pagamento Facilitado",
-    description: "Aceitamos pagamento faturado para empresas. Nota fiscal emitida em todos os serviços realizados.",
+    description: "Pagamento faturado disponível para empresas mediante acordo. Nota fiscal de serviço emitida mediante solicitação.",
   },
 ];
 
 const diferenciais = [
   {
     icon: FileText,
-    title: "Nota Fiscal Garantida",
-    description: "Emitimos nota fiscal de serviços para todos os atendimentos, facilitando sua contabilidade e controle de despesas de TI.",
+    title: "Nota fiscal de serviço",
+    description: `Nota fiscal emitida por ${siteConfig.legalEntityName} (CNPJ ${siteConfig.cnpj}) mediante solicitação, com os dados do tomador confirmados antes da conclusão.`,
   },
   {
     icon: Users,
     title: "Equipe Especializada",
-    description: "Contamos com parcerias em todas as regiões de Curitiba e do Brasil, garantindo cobertura ampla e atendimento de alto padrão.",
+    description: "Atendimento realizado a partir de Curitiba, com escopo técnico documentado. Não há unidade física fora da sede em Curitiba.",
   },
   {
     icon: Shield,
     title: "Confidencialidade",
-    description: "Tratamos os dados da sua empresa com total sigilo e segurança. Políticas de privacidade e termos de confidencialidade quando necessário.",
+    description: "O acesso aos dados é limitado ao necessário para o diagnóstico e o reparo. Termo de confidencialidade pode ser firmado quando a empresa solicitar.",
   },
 ];
 
@@ -65,7 +67,7 @@ const SuporteEmpresas = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com planos mensais, nota fiscal e pagamento faturado. Manutenção de computadores corporativos."
+        "Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com escopo combinado, nota fiscal de serviço e pagamento faturado. Manutenção de computadores corporativos."
       );
     }
     trackPageView("/suporte-empresas", "Suporte Empresas");
@@ -77,7 +79,7 @@ const SuporteEmpresas = () => {
         { id: "service-faturado", name: "Pagamento Faturado PJ", desc: "Atendimento técnico corporativo com pagamento faturado (boleto/30 dias) para empresas em Curitiba." },
         { id: "service-nfe", name: "Emissão de NF-e", desc: "Nota fiscal eletrônica em todos os atendimentos PJ, conforme legislação do Município de Curitiba." },
         { id: "service-infra", name: "Projetos de Infraestrutura de TI", desc: "Cabeamento estruturado, redes Wi-Fi corporativas, racks e configuração de servidores para PMEs." },
-        { id: "service-premium", name: "Atendimento Premium PJ", desc: "SLA prioritário, técnico dedicado e janela de atendimento garantida para contratos mensais." },
+        { id: "service-premium", name: "Atendimento recorrente PJ", desc: "Prioridade e janela de atendimento combinadas por escrito com o responsável da empresa." },
       ];
       services.forEach((s) => {
         validateAndInjectSchema(s.id, {
@@ -104,13 +106,13 @@ const SuporteEmpresas = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com planos mensais, nota fiscal e pagamento faturado. Manutenção de computadores corporativos." path="/suporte-empresas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Suporte Empresas", path: "/suporte-empresas" }]} />
+      <PageSEO noindex title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com escopo combinado, nota fiscal de serviço e pagamento faturado. Manutenção de computadores corporativos." path="/suporte-empresas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Suporte Empresas", path: "/suporte-empresas" }]} />
       <JsonLdSchema />
       <Header />
       <main>
         <PageHero
           title="Suporte Técnico para Empresas"
-          subtitle="Soluções de TI para pequenas e médias empresas em Curitiba. Planos mensais, atendimento prioritário e nota fiscal garantida."
+          subtitle="Soluções de TI para pequenas e médias empresas em Curitiba. Escopo combinado por escrito, prioridade acordada e nota fiscal de serviço."
           ctaText="Solicitar Proposta Comercial"
         />
 
@@ -272,10 +274,10 @@ const SuporteEmpresas = () => {
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                Atendimento Avulso ou Plano Mensal
+                Atendimento avulso ou acompanhamento recorrente
               </h2>
               <p className="text-muted-foreground mb-8">
-                Oferecemos flexibilidade para atender sua empresa da melhor forma. Escolha entre chamados avulsos quando precisar ou um plano mensal com suporte contínuo e valor fixo.
+                Sua empresa escolhe entre chamados avulsos, pagos por atendimento, ou um acompanhamento recorrente com escopo e periodicidade definidos por escrito.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -291,11 +293,11 @@ const SuporteEmpresas = () => {
                   <div className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full w-fit mx-auto mb-3">
                     RECOMENDADO
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">Plano Mensal</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Acompanhamento recorrente</h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Valor fixo mensal com suporte ilimitado, manutenção preventiva inclusa e atendimento prioritário para sua empresa.
+                    Escopo, periodicidade das visitas e prioridade combinados com o responsável e registrados por escrito antes de iniciar.
                   </p>
-                  <p className="text-accent font-bold">Consulte valores personalizados</p>
+                  <p className="text-accent font-bold">Escopo e valores definidos após avaliação</p>
                 </div>
               </div>
             </div>

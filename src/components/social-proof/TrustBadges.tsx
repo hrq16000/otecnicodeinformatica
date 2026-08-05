@@ -1,5 +1,7 @@
 import { Shield, Award, Clock, CheckCircle, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/lib/siteConfig";
+import { GARANTIA, experienciaLabel } from "@/lib/politicaComercial";
 
 interface TrustBadgeProps {
   variant?: "inline" | "card" | "minimal";
@@ -10,23 +12,23 @@ export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) =>
   const badges = [
     {
       icon: Shield,
-      title: "Profissionais Verificados",
-      description: "Equipe técnica certificada e documentada",
+      title: "Técnico identificado",
+      description: "Atendimento com identificação e registro do que foi executado",
     },
     {
       icon: Award,
-      title: "Mais de 20 anos de experiência",
-      description: "Atendendo Curitiba e região desde 2005",
+      title: experienciaLabel,
+      description: `${siteConfig.legalEntityName} — CNPJ ${siteConfig.cnpj}`,
     },
     {
       icon: Clock,
-      title: "Garantia em todos os serviços",
-      description: "Cobertura de até 90 dias após o atendimento",
+      title: GARANTIA.servicoLabel,
+      description: GARANTIA.pecasLabel,
     },
     {
       icon: Lock,
-      title: "Ambiente seguro",
-      description: "Proteção de dados e privacidade garantida",
+      title: "Acesso técnico controlado",
+      description: "Acesso limitado ao necessário para o diagnóstico, autorizado por você",
     },
   ];
 

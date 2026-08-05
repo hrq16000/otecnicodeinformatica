@@ -115,7 +115,7 @@ const CFTVPage = () => {
               </div>
 
               <div className="flex flex-wrap gap-6 mt-8 text-white/80 text-sm">
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" /> Instalação no mesmo dia</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" /> Instalação conforme a disponibilidade da agenda</span>
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" /> Garantia de 1 ano</span>
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" /> Sem mensalidade</span>
               </div>
@@ -167,7 +167,7 @@ const CFTVPage = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-6">
               {[
-                { icon: Camera, title: "4 Câmeras HD Intelbras", desc: "Câmeras de alta definição da marca líder de mercado no Brasil. Imagem nítida em qualquer condição." },
+                { icon: Camera, title: "4 Câmeras HD Intelbras", desc: "Câmeras de alta definição da marca amplamente utilizada no Brasil. Imagem nítida em qualquer condição." },
                 { icon: Moon, title: "Visão Noturna Infravermelho", desc: "Enxergue tudo mesmo no escuro total. As câmeras captam imagens de alta qualidade em até 30 metros." },
                 { icon: HardDrive, title: "DVR + HD para Gravação 24h", desc: "Gravador digital com HD incluso. Armazena dias de gravação contínua com acesso ao histórico." },
                 { icon: Smartphone, title: "Acesso Remoto pelo Celular", desc: "Veja suas câmeras ao vivo de qualquer lugar pelo app no celular. Android e iPhone." },

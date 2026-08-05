@@ -28,7 +28,7 @@ const data: ServicoBairroData = {
     "PC até 10x mais rápido",
     "Upgrade de memória RAM disponível",
     "Instalação no seu endereço",
-    "Garantia de 1 ano no SSD",
+    "Garantia de 90 dias sobre o serviço executado (peças seguem a garantia do fornecedor)",
     "Processo em menos de 2 horas",
     "Técnico local em Pinhais",
   ],

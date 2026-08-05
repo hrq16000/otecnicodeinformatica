@@ -68,7 +68,7 @@ const data: ServicoBairroData = {
     "Terminal Central SJP",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

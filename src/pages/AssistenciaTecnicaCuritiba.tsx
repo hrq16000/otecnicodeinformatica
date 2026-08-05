@@ -179,7 +179,7 @@ const differentials = [
   { icon: Sparkles, title: "Peças de qualidade", text: "Componentes testados e originais." },
   { icon: CheckCircle2, title: "Orçamento sem compromisso", text: "Preço justo e transparente." },
   { icon: Wrench, title: "Atende toda Curitiba", text: "Retirada e entrega via motoboy opcional." },
-  { icon: Star, title: "Técnicos certificados", text: "Mais de 5 anos de experiência." },
+  { icon: Star, title: "Técnico identificado", text: "Atuação em informática desde 1998." },
 ];
 
 export default function AssistenciaTecnicaCuritiba() {

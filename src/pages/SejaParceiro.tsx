@@ -29,7 +29,7 @@ const beneficios = [
   { icon: Clock, title: "Flexibilidade de horários", desc: "Você define sua disponibilidade — atenda quando e onde quiser, sem compromisso de horário fixo." },
   { icon: Star, title: "Avaliações e reputação", desc: "Construa sua reputação com avaliações dos clientes e ganhe destaque na rede de parceiros." },
   { icon: MapPin, title: "Cobertura regional", desc: "Cubra bairros e cidades da sua região — quanto mais disponível, mais chamados recebe." },
-  { icon: Award, title: "Certificação parceiro", desc: "Receba selo de Técnico Parceiro Certificado após aprovação, aumentando a confiança dos clientes." },
+  { icon: Award, title: "Selo de parceiro", desc: "Após a aprovação no processo interno, você passa a constar como técnico parceiro da rede." },
 ];
 
 const requisitos = [

@@ -30,7 +30,7 @@ const data: ServicoBairroData = {
     "Teste de estresse de CPU, GPU e RAM",
     "Configuração de BIOS e XMP otimizados",
     "Entrega e instalação no seu local",
-    "Garantia de 1 ano na montagem",
+    "Garantia de 90 dias sobre o serviço executado (peças seguem a garantia do fornecedor)",
     "Suporte pós-montagem incluso",
   ],
   

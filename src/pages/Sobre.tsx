@@ -19,6 +19,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildOrganizationSchema } from "@/lib/organizationJsonLd";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { EeatProofsSection } from "@/components/EeatProofsSection";
+import { GESTOR } from "@/lib/gestorResponsavel";
+import { GARANTIA, NOTA_FISCAL, experienciaLabel } from "@/lib/politicaComercial";
 
 const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
@@ -213,6 +216,35 @@ const Sobre = () => {
             </div>
           </div>
         </section>
+
+        {/* Provas verificáveis (E-E-A-T) */}
+        <EeatProofsSection className="border-y border-border/60 bg-secondary/40" />
+
+        {/* Responsabilidade técnica */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 md:p-8">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Responsabilidade técnica
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              {experienciaLabel}. Os atendimentos são executados sob a supervisão do{" "}
+              <strong className="text-foreground">
+                {GESTOR.nome.trim() ? `${GESTOR.nome} — ${GESTOR.cargo}` : GESTOR.cargo.toLowerCase()}
+              </strong>{" "}
+              e faturados por {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
+              {GARANTIA.servicoLabel} e {NOTA_FISCAL.servicoLabel.toLowerCase()}.
+            </p>
+
+            <Link
+              to="/gestor-responsavel"
+              className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
+            >
+              Conhecer o gestor responsável <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+
+
 
         {/* CTA final */}
         <section className="pb-14">

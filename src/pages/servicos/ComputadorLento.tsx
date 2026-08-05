@@ -14,7 +14,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 const WHATSAPP_NUMBER = "5541997086380";
 
 const causas = [
-  { titulo: "HD antigo ou sem SSD", desc: "A causa nº 1 de lentidão. HDs mecânicos são até 10x mais lentos que SSDs. A troca resolve em 90% dos casos.", solucao: "Upgrade para SSD" },
+  { titulo: "HD antigo ou sem SSD", desc: "Uma das causas mais comuns de lentidão. HDs mecânicos são até 10x mais lentos que SSDs. A troca resolve em 90% dos casos.", solucao: "Upgrade para SSD" },
   { titulo: "Pouca memória RAM", desc: "Com menos de 8GB, o Windows 10/11 usa o disco como memória virtual, travando tudo.", solucao: "Expansão de RAM" },
   { titulo: "Vírus e malware", desc: "Programas maliciosos consomem processamento em segundo plano sem você perceber.", solucao: "Limpeza profissional" },
   { titulo: "Windows corrompido", desc: "Atualizações mal-sucedidas, registro cheio de lixo, drivers incompatíveis.", solucao: "Formatação limpa" },

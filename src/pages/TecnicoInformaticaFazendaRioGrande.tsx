@@ -27,13 +27,13 @@ const benefits = [
   },
   {
     icon: Clock,
-    title: "Atendimento no Mesmo Dia",
+    title: "Atendimento conforme a agenda",
     description: "Agendamento flexível com prioridade para urgências. Deslocamento via Contorno Sul.",
   },
   {
     icon: Shield,
-    title: "Profissional Credenciado",
-    description: "Técnico identificado, com equipamento profissional e mais de 20 anos de experiência.",
+    title: "Profissional identificado",
+    description: "Técnico identificado, com equipamento profissional e atuação em informática desde 1998.",
   },
   {
     icon: Wrench,
@@ -82,8 +82,8 @@ const localFaqs = [
     answer: "Serviços de bancada (reparo de placa, troca de tela) podem seguir por coleta e entrega quando houver disponibilidade na rota do dia. Isso é confirmado na triagem, antes de qualquer combinação.",
   },
   {
-    question: "Existe atendimento garantido no mesmo dia?",
-    answer: "Não trabalhamos com garantia de atendimento no mesmo dia. A data possível é informada na triagem, conforme a agenda e o tipo de reparo.",
+    question: "Existe atendimento garantido conforme a disponibilidade da agenda?",
+    answer: "Não trabalhamos com garantia de Atendimento conforme a agenda. A data possível é informada na triagem, conforme a agenda e o tipo de reparo.",
   },
 ];
 

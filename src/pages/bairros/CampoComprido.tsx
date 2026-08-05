@@ -25,7 +25,7 @@ const data = {
     "CIC",
     "Santo Inácio"
   ],
-  tempoDeslocamento: "Atendimento no mesmo dia - região oeste",
+  tempoDeslocamento: "Atendimento conforme a agenda - região oeste",
   servicosDestaque: [
     "Computador lento",
     "Notebook não liga",

@@ -47,7 +47,7 @@ const faqs = [
   { q: "O orçamento é fechado antes do serviço?", a: "Sim. Você aprova o valor antes de qualquer reparo. Nada é executado sem sua confirmação." },
   { q: "O atendimento é pelo WhatsApp?", a: "Sim, o contato e a triagem acontecem pelo WhatsApp para agilizar o diagnóstico." },
   { q: "O número fica visível no site?", a: "O contato é feito diretamente pelo botão de atendimento, que abre a triagem por WhatsApp." },
-  { q: "Atende no mesmo dia?", a: "Sempre que houver disponibilidade na agenda, buscamos atender no mesmo dia. A confirmação vem na triagem." },
+  { q: "Em quanto tempo conseguem atender?", a: "Sempre que houver disponibilidade na agenda, buscamos atender conforme a disponibilidade da agenda. A confirmação vem na triagem." },
 ];
 
 const areas = siteConfig.serviceArea.filter((a) => a !== "Região Metropolitana de Curitiba");

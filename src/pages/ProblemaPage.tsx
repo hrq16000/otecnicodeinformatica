@@ -138,7 +138,7 @@ const ProblemaPage = () => {
     },
     {
       question: "Quanto tempo demora após entrar em contato pelo WhatsApp?",
-      answer: "Respondemos em minutos no horário comercial. Serviços remotos podem começar no mesmo dia; visitas e coletas são agendadas conforme sua janela. Nada é executado sem sua aprovação explícita.",
+      answer: "Respondemos em minutos no horário comercial. Serviços remotos podem começar conforme a disponibilidade da agenda; visitas e coletas são agendadas conforme sua janela. Nada é executado sem sua aprovação explícita.",
     },
   ] : [];
 

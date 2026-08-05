@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Instalação de Redes Wi-Fi em Araucária | Internet Rápida | Técnico Curitiba",
-  metaDescription: "Instalação e configuração de redes Wi-Fi em Araucária. Wi-Fi empresarial, residencial, repetidores e mesh. Técnico especializado. Atendimento no mesmo dia.",
+  metaDescription: "Instalação e configuração de redes Wi-Fi em Araucária. Wi-Fi empresarial, residencial, repetidores e mesh. Técnico especializado. Atendimento conforme a agenda.",
   
   servico: "Instalação de Redes Wi-Fi",
   servicoSlug: "redes-wifi",
@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Região Industrial",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Formatação", slug: "formatacao-computador" },

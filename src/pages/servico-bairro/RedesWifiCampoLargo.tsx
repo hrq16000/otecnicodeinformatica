@@ -68,7 +68,7 @@ const data: ServicoBairroData = {
     "São Marcos",
   ],
   
-  tempoAtendimento: "Agendamento para mesmo dia ou próximo",
+  tempoAtendimento: "Agendamento para Conforme agenda ou próximo",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

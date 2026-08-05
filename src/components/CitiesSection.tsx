@@ -59,7 +59,7 @@ export const CitiesSection = () => {
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto reveal-text" data-reveal-delay="100">
             Oferecemos <strong>assistência técnica de informática a domicílio</strong> em toda a região metropolitana de Curitiba. 
-            Atendimento rápido no mesmo dia para residências e empresas.
+            Atendimento conforme a agenda para residências e empresas.
           </p>
           <div className="glow-separator max-w-xs mx-auto mt-5" />
           
@@ -69,7 +69,7 @@ export const CitiesSection = () => {
               <MapPin className="h-3.5 w-3.5 text-accent" /> Curitiba e região metropolitana
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
-              <Clock className="h-3.5 w-3.5 text-accent" /> Atendimento no mesmo dia (sujeito à agenda)
+              <Clock className="h-3.5 w-3.5 text-accent" /> Atendimento conforme a agenda 
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
               <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Orçamento aprovado antes do serviço

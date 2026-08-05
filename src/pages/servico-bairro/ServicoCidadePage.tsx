@@ -29,7 +29,7 @@ const ServicoCidadePage = () => {
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content",
-        `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio no mesmo dia. Sem sair de casa. WhatsApp.`
+        `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
       );
     }
     upsertCanonical(`https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`);
@@ -85,7 +85,7 @@ const ServicoCidadePage = () => {
     { icon: Star, titulo: "Atendimento Humanizado", descricao: "Explicamos o problema com clareza, sem jargão técnico" },
   ] : [
     { icon: MapPin, titulo: `Atendimento Local em ${cidade.nome}`, descricao: "Técnico vai até seu endereço com todas as ferramentas" },
-    { icon: Clock, titulo: "Atendimento no Mesmo Dia", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
+    { icon: Clock, titulo: "Atendimento conforme a agenda", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
     { icon: Shield, titulo: "Garantia em Todos os Serviços", descricao: "Serviço garantido. Se precisar, voltamos sem custo" },
     { icon: Star, titulo: "Orçamento Grátis", descricao: "Avaliação sem compromisso. Você só paga se aprovar" },
   ];
@@ -143,7 +143,7 @@ const ServicoCidadePage = () => {
             <div className="flex flex-wrap justify-center gap-3 mb-8 reveal-text" data-reveal-delay="200">
               {(isSemVisita 
                 ? [["✓ Sem compromisso"], ["✓ Todas as marcas"], ["✓ Garantia"]]
-                : [["✓ Mesmo dia"], ["✓ Sem sair de casa"], ["✓ Orçamento grátis"]]
+                : [["✓ Conforme agenda"], ["✓ Sem sair de casa"], ["✓ Orçamento grátis"]]
               ).map(([text], i) => (
                 <span key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 text-white px-4 py-2 rounded-lg text-sm font-medium">{text}</span>
               ))}

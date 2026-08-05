@@ -466,7 +466,7 @@ const ColetaFormulario = () => {
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="md:col-span-2">
                         <Label>Rua / Avenida *</Label>
-                        <Input value={form.street} onChange={(e) => updateField("street", e.target.value)} placeholder="Rua Exemplo" />
+                        <Input value={form.street} onChange={(e) => updateField("street", e.target.value)} placeholder="Nome da rua" />
                       </div>
                       <div>
                         <Label>Número *</Label>

@@ -90,8 +90,8 @@ export function getFaqPorServico(servicoSlug: string, cidadeNome: string): FaqIt
     ],
     "suporte-empresas": [
       { pergunta: `Atendem pequenas empresas em ${cidadeNome}?`, resposta: "Sim, nosso foco são residências e pequenas e médias empresas em toda a RMC." },
-      { pergunta: "Oferecem contratos de manutenção?", resposta: "Sim. Planos mensais com visitas periódicas e suporte remoto ilimitado." },
-      { pergunta: "Quanto tempo para atender uma chamada?", resposta: "Em geral no mesmo dia. Para contratos, temos SLA definido." },
+      { pergunta: "Oferecem contratos de manutenção?", resposta: "Sim. O escopo, a periodicidade das visitas e o suporte remoto são combinados caso a caso e registrados por escrito." },
+      { pergunta: "Quanto tempo para atender uma chamada?", resposta: "Depende da disponibilidade da agenda e da modalidade. A janela de atendimento é confirmada na triagem." },
       { pergunta: "Trabalham com TI terceirizada?", resposta: "Sim. Assumimos toda a gestão de TI da empresa: hardware, rede, software e suporte." },
       { pergunta: `Atendem em ${cidadeNome}?`, resposta: `Sim, atendemos empresas em ${cidadeNome} e toda a região metropolitana de Curitiba.` },
     ],

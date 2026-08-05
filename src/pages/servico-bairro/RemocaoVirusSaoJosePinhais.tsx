@@ -69,7 +69,7 @@ const data: ServicoBairroData = {
     "Terminal de Ônibus de SJP",
   ],
   
-  tempoAtendimento: "Atendimento emergencial no mesmo dia",
+  tempoAtendimento: "Atendimento emergencial conforme a disponibilidade da agenda",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

@@ -42,8 +42,8 @@ const data: ServicoBairroData = {
   
   faq: [
     { 
-      pergunta: "Atendem no mesmo dia em Pinhais?", 
-      resposta: "Sim! Para casos urgentes temos disponibilidade no mesmo dia. Consulte via WhatsApp." 
+      pergunta: "Em quanto tempo conseguem atender em Pinhais?", 
+      resposta: "Sim! Para casos urgentes temos disponibilidade conforme a disponibilidade da agenda. Consulte via WhatsApp." 
     },
     { 
       pergunta: "Pinhais tem taxa extra?", 
@@ -68,7 +68,7 @@ const data: ServicoBairroData = {
     "Terminal de Ônibus",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia disponível",
+  tempoAtendimento: "Atendimento conforme a agenda disponível",
   
   servicosRelacionados: [
     { nome: "Formatação de Computador", slug: "formatacao-computador" },

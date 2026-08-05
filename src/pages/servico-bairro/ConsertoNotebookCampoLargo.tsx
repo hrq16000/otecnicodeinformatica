@@ -50,7 +50,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto tempo leva o conserto?", 
-      resposta: "Reparos simples no mesmo dia. Placa-mãe: 3 a 5 dias úteis." 
+      resposta: "Reparos simples conforme a disponibilidade da agenda. Placa-mãe: 3 a 5 dias úteis." 
     },
     { 
       pergunta: "Atendem no sábado?", 

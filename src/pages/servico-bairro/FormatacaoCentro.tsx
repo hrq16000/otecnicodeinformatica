@@ -2,7 +2,7 @@ import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplat
 
 const data: ServicoBairroData = {
   metaTitle: "Formatação de Computador no Centro de Curitiba | Atendimento Rápido | Técnico Curitiba",
-  metaDescription: "Formatação de computador e notebook no Centro de Curitiba. Windows 10/11, backup completo, drivers e programas. Atendimento no mesmo dia. a partir de R$ 99,99.",
+  metaDescription: "Formatação de computador e notebook no Centro de Curitiba. Windows 10/11, backup completo, drivers e programas. Atendimento conforme a agenda. a partir de R$ 99,99.",
   
   servico: "Formatação de Computador",
   servicoSlug: "formatacao-computador",
@@ -11,7 +11,7 @@ const data: ServicoBairroData = {
   cidade: "Curitiba",
   
   h1: "Formatação de Computador no Centro de Curitiba",
-  subtitulo: "Reinstalação completa do Windows com backup de dados. Técnico especializado no Centro com atendimento no mesmo dia.",
+  subtitulo: "Reinstalação completa do Windows com backup de dados. Técnico especializado no Centro com Atendimento conforme a agenda.",
   
   precoBase: "R$ 69,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio ou no local.",
@@ -31,7 +31,7 @@ const data: ServicoBairroData = {
     "Otimização para máximo desempenho",
     "Restauração de arquivos na organização original",
     "Garantia de 90 dias no serviço",
-    "Atendimento no mesmo dia",
+    "Atendimento conforme a agenda",
   ],
   
   processoPasso: [
@@ -44,7 +44,7 @@ const data: ServicoBairroData = {
   faq: [
     { 
       pergunta: "Qual o tempo de atendimento no Centro?", 
-      resposta: "Por ser região central, conseguimos atendimento no mesmo dia na maioria dos casos. Tempo de chegada estimado: 30-60 minutos após confirmação." 
+      resposta: "Por ser região central, conseguimos Atendimento conforme a agenda na maioria dos casos. Tempo de chegada estimado: 30-60 minutos após confirmação." 
     },
     { 
       pergunta: "Vocês atendem empresas no Centro?", 
@@ -70,7 +70,7 @@ const data: ServicoBairroData = {
     "Rodoferroviária",
   ],
   
-  tempoAtendimento: "Atendimento no mesmo dia",
+  tempoAtendimento: "Atendimento conforme a agenda",
   
   servicosRelacionados: [
     { nome: "Remoção de Vírus", slug: "remocao-virus" },

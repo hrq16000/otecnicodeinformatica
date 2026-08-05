@@ -22,6 +22,7 @@ import {
   setFunnelBranchContext,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
+import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";
@@ -348,6 +349,14 @@ export const WhatsAppFunnel = () => {
     setFallback(null);
     setStep(0);
     setOpen(true);
+    // Sugestão de bairro/cidade detectada (IP ou localização precisa).
+    // Só preenche quando o campo está vazio — o usuário pode editar.
+    const sugestao = geoSuggestion();
+    if (sugestao) {
+      setAnswers((prev) =>
+        prev.fields.bairro ? prev : { ...prev, fields: { ...prev.fields, bairro: sugestao } },
+      );
+    }
     captureUtmsFromUrl();
     trackFunnelOpen(loc, !!preset);
   }, []);

@@ -1,0 +1,82 @@
+# Pós-publicação do ruleset de redirects (tecnicocuritiba.com.br → tecnico.curitiba.br)
+#
+# Roda a simulação offline, a verificação estrita no edge Cloudflare e o dry-run
+# do purge de cache, publicando os relatórios como artefatos para download.
+#
+# Disparos:
+#   • manual (workflow_dispatch)
+#   • repository_dispatch com event_type = redirects-published (chamado pelo publish)
+name: Redirects — verificação pós-publicação
+
+on:
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: "Falhar o job quando a verificação no edge não estiver 100%"
+        type: boolean
+        default: true
+  repository_dispatch:
+    types: [redirects-published]
+
+concurrency:
+  group: redirects-post-publish
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Simulação offline da matriz (conflitos, loops, canônicos)
+        run: npm run simulate:redirects
+
+      - name: Verificação estrita no edge (612 regras + 41 URLs críticas)
+        id: verify
+        continue-on-error: ${{ github.event_name == 'workflow_dispatch' && inputs.strict == false }}
+        run: npm run verify:cf:strict
+
+      - name: Evidências das URLs críticas (headers, cadeia, JSON-LD, wa.me/tel:)
+        if: always()
+        run: npm run report:critical-evidence
+
+      - name: Dry-run do purge de cache
+        if: always()
+        run: npm run purge:cf:dry
+
+      - name: Publicar artefatos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: redirects-post-publish-reports
+          path: |
+            reports/redirect-simulation.json
+            reports/redirect-simulation.md
+            reports/cloudflare-publish-verification.json
+            reports/cloudflare-publish-verification.md
+            reports/critical-evidence.html
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo "## Verificação pós-publicação"
+            echo ""
+            [ -f reports/redirect-simulation.md ] && sed -n '1,40p' reports/redirect-simulation.md
+            echo ""
+            [ -f reports/cloudflare-publish-verification.md ] && sed -n '1,60p' reports/cloudflare-publish-verification.md
+          } >> "$GITHUB_STEP_SUMMARY"

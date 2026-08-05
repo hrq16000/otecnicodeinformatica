@@ -107,58 +107,20 @@ const TermosCondicoes = () => {
       />
 
       <main className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Pricing summary */}
-        <section className="grid sm:grid-cols-2 gap-4 mb-12" aria-labelledby="precos">
-          <h2 id="precos" className="sr-only">Resumo de preços</h2>
-          {[
-            {
-              icon: MessageCircle,
-              tone: "text-emerald-600",
-              title: "Valor do atendimento por WhatsApp",
-              price: "Grátis",
-              desc: "Envie fotos, vídeos e detalhes pelo WhatsApp. Nada é cobrado para receber a proposta.",
-            },
-            {
-              icon: Home,
-              tone: "text-blue-600",
-              title: "Visita técnica em Curitiba",
-              price: "A partir de R$ 99,99",
-              desc: "Até 30 minutos de inspeção superficial. Combo 2h: R$ 299,99. Não inclui peças nem abertura.",
-            },
-            {
-              icon: Wrench,
-              tone: "text-amber-600",
-              title: "Diagnóstico em bancada",
-              price: "R$ 90",
-              desc: "Cobrado apenas se você desistir após análise/coleta. Se aprovar o reparo, entra no valor final.",
-            },
-            {
-              icon: ShieldCheck,
-              tone: "text-violet-600",
-              title: "Reparo de placa / TV / PC",
-              price: "R$ 300 a R$ 500",
-              desc: "Faixa pré-aprovada. Reparos acima de R$ 500 só com sua autorização explícita.",
-            },
-          ].map((c) => (
-            <article key={c.title} className="rounded-xl border border-border bg-card p-5 hover:shadow-lg transition-shadow">
-              <c.icon className={`h-7 w-7 ${c.tone} mb-3`} />
-              <h3 className="text-base font-semibold mb-1">{c.title}</h3>
-              <p className="text-lg font-bold text-foreground mb-2">{c.price}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
-            </article>
-          ))}
-        </section>
+        {/* Modalidades e valores — fonte única */}
+        <PrecoModalidades className="mb-12" />
 
         {/* How it works */}
         <section className="mb-12" aria-labelledby="como-funciona">
-          <h2 id="como-funciona" className="text-2xl font-bold mb-6">Como funciona nosso atendimento</h2>
+          <h2 id="como-funciona" className="text-2xl font-bold mb-6">Como funciona o atendimento</h2>
           <ol className="space-y-3">
             {[
-              { icon: MessageCircle, title: "1. valor do atendimento por WhatsApp", desc: "Você manda fotos e detalhes. Resposta em até 30 min em horário comercial." },
-              { icon: Home, title: "2. Visita técnica (opcional)", desc: "A partir de R$ 99,99 por até 30 min. Combo 2h por R$ 299,99 para serviços mais longos." },
-              { icon: Wrench, title: "3. Diagnóstico em bancada", desc: "Para casos complexos (placas, consoles, TVs). R$ 90 só se você cancelar o reparo." },
-              { icon: ShieldCheck, title: "4. Reparo aprovado", desc: "Valor mínimo R$ 300 para eletrônicos complexos. Acima de R$ 500, autorização prévia." },
-              { icon: CheckCircle2, title: "5. Garantia de 90 dias", desc: "Sobre o serviço executado. Peças seguem garantia do fabricante." },
+              { icon: MessageCircle, title: "1. Triagem pelo WhatsApp", desc: "Você descreve o problema e envia fotos. A triagem define a modalidade adequada ao caso." },
+              { icon: Home, title: "2. Visita técnica de inspeção (avulsa)", desc: "A partir de R$ 99,99 por até (ou a cada) 30 minutos. Sem compromisso de solução no local e sem peças inclusas." },
+              { icon: Clock, title: "3. Pacote de até 2 horas (opcional)", desc: "R$ 279,99 pré-acordado antes do deslocamento, sem promessas de resultado e sem peças inclusas." },
+              { icon: Wrench, title: "4. Diagnóstico com compromisso + coleta", desc: "Caminho da maioria dos casos: coleta e entrega inclusas, valor mínimo pré-aprovado de R$ 299,99. Peças não inclusas." },
+              { icon: AlertTriangle, title: "5. Cancelamento", desc: "Válido somente até 24 horas corridas após a coleta. Após esse prazo não é compatível cancelamento ou desistência do diagnóstico." },
+              { icon: CheckCircle2, title: "6. Garantia de 90 dias", desc: "Sobre a mão de obra do serviço executado. Peças seguem a garantia do fornecedor/fabricante." },
             ].map((s) => (
               <li key={s.title} className="flex gap-4 p-4 rounded-lg border border-border bg-card">
                 <s.icon className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
@@ -170,6 +132,7 @@ const TermosCondicoes = () => {
             ))}
           </ol>
         </section>
+
 
         {/* When it's not worth it */}
         <section className="mb-12 rounded-xl border border-amber-500/30 bg-amber-500/5 p-5">

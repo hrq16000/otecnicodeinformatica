@@ -16,6 +16,7 @@ import {
 } from "@/components/empresa/EmpresaConversao";
 
 import { siteConfig } from "@/lib/siteConfig";
+import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import {
   MessageCircle,
@@ -388,6 +389,12 @@ const EmpresaDeTiCuritiba = () => {
             </div>
           </section>
         </AnimatedSection>
+
+        <EeatProofsSection
+          titulo="Com quem sua empresa vai contratar"
+          descricao="Dados cadastrais, canal oficial e compromissos operacionais — o mínimo que um responsável por compras precisa conferir antes de abrir um chamado."
+          className="bg-background"
+        />
 
         {/* ═══ CTA final ═══ */}
         <section className="py-14 bg-secondary">

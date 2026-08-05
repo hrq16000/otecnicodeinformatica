@@ -64,6 +64,44 @@ export const resetFunnelBranchContext = () => {
 };
 
 /**
+ * Rotas cujo público é inequivocamente PJ (empresa). Usadas apenas como
+ * *fallback* quando o usuário ainda não passou pela bifurcação PF × PJ da
+ * triagem — nunca sobrescrevem uma escolha explícita do usuário.
+ */
+const BUSINESS_PATH_HINTS = [
+  "/empresa-de-ti-curitiba",
+  "/servicos/suporte-tecnico-empresarial",
+  "/servicos/redes-e-wifi-empresarial",
+  "/empresa",
+];
+
+/**
+ * Resolve a intenção PF × PJ do clique, na ordem:
+ *   1. ramo escolhido na triagem (memória do módulo);
+ *   2. ramo persistido na sessão (usuário voltou depois);
+ *   3. dica pela rota (páginas exclusivamente empresariais);
+ *   4. "unknown" — nunca chutamos residencial.
+ */
+export function resolveCustomerType(): "residential" | "business" | "unknown" {
+  const fromBranch = branchContext.customer_type;
+  if (fromBranch === "residential" || fromBranch === "business") return fromBranch;
+  if (typeof window === "undefined") return "unknown";
+  try {
+    const raw = sessionStorage.getItem("wa-funnel:last-triage");
+    if (raw) {
+      const parsed = JSON.parse(raw) as Record<string, unknown>;
+      const t = parsed.customer_type ?? parsed.customerType;
+      if (t === "residential" || t === "business") return t;
+    }
+  } catch {
+    /* sessão indisponível — segue para a dica de rota */
+  }
+  const path = window.location.pathname;
+  if (BUSINESS_PATH_HINTS.some((p) => path === p || path.startsWith(`${p}/`))) return "business";
+  return "unknown";
+}
+
+/**
  * Chaves proibidas na telemetria da triagem (GA4/Sentry/breadcrumbs).
  * Dados pessoais, texto livre e identificadores de patrimônio nunca saem
  * do navegador por estes helpers — apenas dimensões categóricas.
@@ -287,6 +325,7 @@ function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open",
     servico: typeof extra.servico === "string" ? extra.servico : null,
     bairro: typeof extra.bairro === "string" ? extra.bairro : null,
     cidade: typeof extra.cidade === "string" ? extra.cidade : null,
+    customer_type: resolveCustomerType(),
     session_id: getSessionId(),
     path: window.location.pathname,
   };
@@ -301,13 +340,13 @@ function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open",
 
 export const trackWaClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
-  track("wa_click", { cta_location: location, ...ctx, ...extra });
+  track("wa_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
   persistClickEvent("wa_click", location, ctx, extra);
 };
 
 export const trackCallClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
-  track("call_click", { cta_location: location, ...ctx, ...extra });
+  track("call_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
   persistClickEvent("call_click", location, ctx, extra);
 };
 

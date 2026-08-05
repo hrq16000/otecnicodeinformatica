@@ -26,6 +26,7 @@ export const SITE_CONFIG = {
   brandName: "Técnico em Curitiba",
   legalName: "Técnico em Curitiba — Assistência Técnica em Informática",
   legalEntityName: "Ping Soluções",
+  cnpj: "41.723.708/0001-58",
   foundedYear: "1998",
   phoneE164: "+5541997086380",
   whatsappNumber: "5541997086380",
@@ -186,7 +187,14 @@ export function linksFor(path) {
       out = ["/tecnico-informatica-curitiba", ...siblings(CIDADES, path, 2), "/servicos", "/coleta-e-entrega"];
       break;
     case "cidade-mae":
-      out = ["/servicos", ...siblings(BAIRROS, path, 2), "/atendimento-domicilio", "/precos-e-politicas"];
+      // A página-mãe distribui autoridade para bairros-âncora E cidades da RMC.
+      out = [
+        "/servicos",
+        ...siblings(BAIRROS, path, 2),
+        ...siblings(CIDADES, path, 2),
+        "/atendimento-domicilio",
+        "/precos-e-politicas",
+      ];
       break;
     case "empresa":
       out = ["/servicos/suporte-tecnico-empresarial", "/servicos/redes-e-wifi", "/atendimento-remoto", "/contato"];
@@ -238,6 +246,12 @@ export function staticBodyFor(route) {
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>
+          <p style="margin:0 0 8px;font-size:.9rem;opacity:.9">${esc(SITE_CONFIG.legalEntityName)} — CNPJ ${esc(SITE_CONFIG.cnpj)} — atuação em informática desde ${esc(SITE_CONFIG.foundedYear)}. Contato oficial: <a href="mailto:${SITE_CONFIG.email}" style="color:#7fd4ec">${esc(SITE_CONFIG.email)}</a>.</p>
+          <ul style="line-height:1.9;padding-left:20px;font-size:.9rem">
+            <li><a href="/gestor-responsavel" style="color:#7fd4ec">Gestor responsável e escopo técnico</a></li>
+            <li><a href="/precos-e-politicas" style="color:#7fd4ec">Preços, garantia e políticas</a></li>
+          </ul>
           <p style="margin-top:22px;font-size:.85rem;opacity:.85">Para uma experiência completa, ative o JavaScript no seu navegador.</p>
         </div>`;
 }
@@ -276,6 +290,7 @@ function organization() {
     name: SITE_CONFIG.brandName,
     alternateName: ["Técnico Curitiba", "Técnico de Informática Curitiba"],
     legalName: SITE_CONFIG.legalName,
+    taxID: SITE_CONFIG.cnpj,
     url: `${SITE}/`,
     logo: `${SITE}/logo.png`,
     email: SITE_CONFIG.email,

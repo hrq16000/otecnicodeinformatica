@@ -16,6 +16,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -695,6 +696,12 @@ const TecnicoInformaticaCuritiba = () => {
             </nav>
           </div>
         </section>
+
+        <EeatProofsSection
+          titulo="Quem responde tecnicamente pelo atendimento em Curitiba"
+          descricao="Antes de mandar mensagem, confira com quem você vai falar: identificação da empresa, canal oficial e as regras que valem para todo atendimento em Curitiba."
+          className="bg-secondary/40"
+        />
       </main>
       <Footer />
     </div>

@@ -28,11 +28,17 @@ const CONTRAST_PROBE = `() => {
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
   };
   const parse = (s) => (s.match(/\\d+(\\.\\d+)?/g) || []).slice(0, 3).map(Number);
+  const alphaOf = (s) => {
+    const nums = (s.match(/\\d+(\\.\\d+)?/g) || []).map(Number);
+    return nums.length >= 4 ? nums[3] : 1;
+  };
+  // Só considera fundos praticamente opacos: camadas translúcidas (bg-accent/5)
+  // não representam a cor real percebida e geram falso positivo.
   const bgOf = (el) => {
     let n = el;
     while (n) {
       const c = getComputedStyle(n).backgroundColor;
-      if (c && !c.includes('rgba(0, 0, 0, 0)') && c !== 'transparent') return parse(c);
+      if (c && c !== 'transparent' && alphaOf(c) >= 0.9) return parse(c);
       n = n.parentElement;
     }
     return [255, 255, 255];

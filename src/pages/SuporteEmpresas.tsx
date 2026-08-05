@@ -51,7 +51,7 @@ const diferenciais = [
   {
     icon: Users,
     title: "Equipe Especializada",
-    description: "Atendimento realizado a partir de Curitiba, com escopo técnico documentado. Não mantemos filial nem unidade física em outras cidades.",
+    description: "Atendimento realizado a partir de Curitiba, com escopo técnico documentado. Não há unidade física fora da sede em Curitiba.",
   },
   {
     icon: Shield,

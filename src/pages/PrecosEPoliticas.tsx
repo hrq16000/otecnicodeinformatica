@@ -12,7 +12,7 @@ import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
 
-import { trackPageView } from "@/lib/analytics";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { 
   Check, 
   AlertTriangle, 
@@ -586,7 +586,13 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
                 Envie os detalhes do seu problema e receba o valor personalizado
               </p>
               <Button variant="heroWhatsapp" size="lg" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta-location="precos-termos-final"
+                  onClick={() => trackCTAClick("whatsapp", "precos-termos-final")}
+                >
                   <MessageCircle className="h-5 w-5" />
                   Solicitar atendimento via WhatsApp
                 </a>

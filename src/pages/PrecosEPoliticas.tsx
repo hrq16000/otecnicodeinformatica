@@ -148,7 +148,15 @@ const PrecosEPoliticas = () => {
           </div>
         </section>
 
+        {/* Modalidades e valores — fonte única */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <PrecoModalidades className="max-w-4xl mx-auto" />
+          </div>
+        </section>
+
         {/* Link para Como Funciona */}
+
         <section className="py-6 bg-secondary">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto text-center bg-background rounded-xl p-6 border border-accent/20">

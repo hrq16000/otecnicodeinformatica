@@ -131,28 +131,102 @@ export const HomeSections = () => {
         </div>
       </section>
 
-      {/* 4. RESIDENCIAL x EMPRESARIAL */}
+      {/* 4. ROTEADOR PF × PJ — separa a intenção antes de abrir a triagem */}
       <section className="border-y border-border bg-secondary py-14 md:py-18">
         <div className="container mx-auto">
-          <SectionTitle eyebrow="Para quem atendemos" title="Residencial e empresarial" />
+          <SectionTitle
+            eyebrow="Escolha o caminho certo"
+            title="Você é pessoa física ou empresa?"
+            sub="A triagem muda conforme o perfil: em casa o foco é o equipamento; na empresa, a operação que não pode parar."
+          />
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <h3 className="font-heading text-lg font-bold text-foreground">Residencial</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <div className="flex flex-col rounded-2xl border border-border bg-card p-6">
+              <span className="w-fit rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                Pessoa física
+              </span>
+              <h3 className="mt-3 font-heading text-lg font-bold text-foreground">
+                Residencial e uso pessoal
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 Notebook e PC lentos, formatação, remoção de vírus, upgrade de SSD/RAM,
                 backup de fotos e documentos, Wi-Fi doméstico e recuperação de dados.
+                O atendimento pode ser no endereço, remoto ou com coleta, conforme o caso.
               </p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/atendimento-domicilio" className="font-semibold text-accent hover:underline">
+                    Atendimento em domicílio
+                  </a>{" "}
+                  — o técnico vai até o seu endereço.
+                </li>
+                <li>
+                  <a href="/coleta-e-entrega" className="font-semibold text-accent hover:underline">
+                    Coleta e entrega
+                  </a>{" "}
+                  — quando o reparo exige bancada.
+                </li>
+                <li>
+                  <a href="/atendimento-remoto" className="font-semibold text-accent hover:underline">
+                    Atendimento remoto
+                  </a>{" "}
+                  — problemas de software resolvidos à distância.
+                </li>
+              </ul>
+              <div className="mt-6">
+                <FunnelButton
+                  loc="home_router_pf"
+                  msg="Olá! Sou pessoa física e preciso de atendimento para o meu equipamento."
+                >
+                  Sou pessoa física
+                </FunnelButton>
+              </div>
             </div>
-            <div className="rounded-2xl border border-accent/30 bg-accent/[0.04] p-6">
-              <h3 className="font-heading text-lg font-bold text-foreground">Empresarial</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+
+            <div className="flex flex-col rounded-2xl border border-accent/30 bg-accent/[0.04] p-6">
+              <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-accent">
+                Empresa
+              </span>
+              <h3 className="mt-3 font-heading text-lg font-bold text-foreground">
+                Empresarial e profissional
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 Estações de trabalho, rede e cabeamento, suporte técnico contínuo,
-                manutenção preventiva e resposta a urgências operacionais.
+                manutenção preventiva e resposta a urgências operacionais. A triagem
+                empresarial prioriza o que impede a equipe de trabalhar.
               </p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/empresa-de-ti-curitiba" className="font-semibold text-accent hover:underline">
+                    Empresa de TI em Curitiba
+                  </a>{" "}
+                  — diagnóstico do ambiente e organização do suporte.
+                </li>
+                <li>
+                  <a href="/suporte-empresas" className="font-semibold text-accent hover:underline">
+                    Suporte técnico empresarial
+                  </a>{" "}
+                  — atendimento recorrente sob demanda.
+                </li>
+                <li>
+                  <a href="/servicos/redes-e-wifi" className="font-semibold text-accent hover:underline">
+                    Redes e Wi-Fi
+                  </a>{" "}
+                  — conexão estável em todo o escritório.
+                </li>
+              </ul>
+              <div className="mt-6">
+                <FunnelButton
+                  loc="home_router_pj"
+                  msg="Olá! Represento uma empresa em Curitiba e preciso de suporte de informática."
+                >
+                  Somos empresa
+                </FunnelButton>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* 5. COMO FUNCIONA */}
       <section className="py-14 md:py-18">
@@ -236,6 +310,36 @@ export const HomeSections = () => {
           </div>
         </div>
       </section>
+
+      {/* 8B. DISTRIBUIDORA DE AUTORIDADE — hub de links internos por intenção */}
+      <section className="py-14 md:py-18">
+        <div className="container mx-auto">
+          <SectionTitle
+            eyebrow="Continue por aqui"
+            title="Encontre a página certa para o seu caso"
+            sub="Cada bloco leva direto ao conteúdo específico, sem repetir a mesma explicação."
+          />
+          <div className="grid gap-5 md:grid-cols-3">
+            {authorityHubs.map((hub) => (
+              <nav key={hub.t} aria-label={hub.t} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-heading text-base font-bold text-foreground">{hub.t}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{hub.d}</p>
+                <ul className="mt-4 space-y-2 text-sm">
+                  {hub.links.map((l) => (
+                    <li key={l.href}>
+                      <a href={l.href} className="font-medium text-foreground transition-colors hover:text-accent hover:underline">
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       {/* 9. FAQ */}
       <section className="py-14 md:py-18">

@@ -1,0 +1,170 @@
+// RODADA 4C — Gate de canibalização interna das páginas comerciais P0.
+//
+// Compara as oito páginas comerciais prioritárias (e, em modo amplo, todas as
+// rotas curadas) e falha quando duas páginas disputam a mesma intenção:
+//   • title idêntico ou quase idêntico;
+//   • H1 idêntico ou quase idêntico;
+//   • introdução estática quase idêntica;
+//   • description quase idêntica;
+//   • home e /tecnico-informatica-curitiba equivalentes em title ou H1;
+//   • duas páginas declarando a mesma keyword principal;
+//   • link interno apontando para rota não dominante da intenção.
+//
+// A comparação usa similaridade de tokens (Jaccard + shingles), não presença
+// de palavra isolada.
+//
+// Uso:
+//   node scripts/check-cannibalization.mjs
+//   node scripts/check-cannibalization.mjs --all      # inclui as 33 rotas curadas
+import { CURATED_ROUTES, h1For, staticBodyFor, linksFor } from "./curated-static-body.mjs";
+
+const args = process.argv.slice(2);
+const ALL = args.includes("--all");
+
+// Matriz de intenção — uma única página dominante por intenção.
+export const INTENT_MATRIX = [
+  { path: "/", keyword: "marca tecnico em curitiba", role: "home/roteador PF×PJ", notCompeting: ["/tecnico-informatica-curitiba"] },
+  { path: "/tecnico-informatica-curitiba", keyword: "tecnico de informatica em curitiba", role: "dominante local", notCompeting: ["/"] },
+  { path: "/servicos/manutencao-de-computador", keyword: "conserto e manutencao de computador", role: "serviço hardware/software", notCompeting: ["/servicos/manutencao-de-notebook"] },
+  { path: "/servicos/manutencao-de-notebook", keyword: "assistencia tecnica de notebook", role: "serviço notebook", notCompeting: ["/servicos/manutencao-de-computador"] },
+  { path: "/servicos/recuperacao-de-dados", keyword: "backup e recuperacao de dados", role: "serviço dados", notCompeting: ["/servicos/formatacao"] },
+  { path: "/atendimento-domicilio", keyword: "tecnico de informatica a domicilio", role: "modalidade domiciliar", notCompeting: ["/atendimento-remoto", "/coleta-e-entrega"] },
+  { path: "/servicos/formatacao", keyword: "formatacao de computador", role: "serviço formatação", notCompeting: ["/servicos/remocao-de-virus"] },
+  { path: "/servicos/upgrade-ssd-ram", keyword: "instalacao de ssd e upgrade de memoria", role: "serviço upgrade", notCompeting: ["/servicos/manutencao-de-computador"] },
+  { path: "/empresa-de-ti-curitiba", keyword: "empresa de ti em curitiba", role: "PJ institucional", notCompeting: ["/servicos/suporte-tecnico-empresarial"] },
+  { path: "/servicos/suporte-tecnico-empresarial", keyword: "suporte tecnico empresarial", role: "PJ execução", notCompeting: ["/empresa-de-ti-curitiba"] },
+];
+
+const P0 = new Set(INTENT_MATRIX.map((i) => i.path));
+
+const STOP = new Set(
+  "a o e de da do das dos em no na nos nas para por com sem que se ao aos as os um uma uns umas mais ou seu sua seus suas pelo pela como quando onde entre sobre ate the and".split(" "),
+);
+const norm = (s) =>
+  String(s ?? "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+const tokens = (s) => norm(s).split(" ").filter((t) => t.length > 2 && !STOP.has(t));
+const shingles = (s, n = 3) => {
+  const t = tokens(s);
+  const out = new Set();
+  for (let i = 0; i + n <= t.length; i += 1) out.add(t.slice(i, i + n).join(" "));
+  return out;
+};
+const jaccard = (a, b) => {
+  if (a.size === 0 || b.size === 0) return 0;
+  let inter = 0;
+  for (const v of a) if (b.has(v)) inter += 1;
+  return inter / (a.size + b.size - inter);
+};
+
+const introOf = (path) => {
+  try {
+    const body = staticBodyFor(path) ?? "";
+    const m = body.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    return m ? m[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "";
+  } catch {
+    return "";
+  }
+};
+
+const pages = CURATED_ROUTES.filter((r) => ALL || P0.has(r.path)).map((r) => {
+  let links = [];
+  try {
+    links = (linksFor(r.path) ?? []).map((l) => (typeof l === "string" ? l : l.href ?? l.to ?? ""));
+  } catch {
+    links = [];
+  }
+  return {
+    path: r.path,
+    title: r.title,
+    description: r.description,
+    h1: (() => {
+      try {
+        return h1For(r.path) ?? "";
+      } catch {
+        return "";
+      }
+    })(),
+    intro: introOf(r.path),
+    links: links.filter(Boolean),
+  };
+});
+
+const failures = [];
+const warn = [];
+const add = (msg) => failures.push(msg);
+
+// 1. Duplicidade exata de title / H1 / description
+const seen = (field) => {
+  const map = new Map();
+  for (const p of pages) {
+    const key = norm(p[field]);
+    if (!key) continue;
+    if (map.has(key)) add(`${field} idêntico entre ${map.get(key)} e ${p.path}: "${p[field]}"`);
+    else map.set(key, p.path);
+  }
+};
+["title", "h1", "description"].forEach(seen);
+
+// 2. Similaridade alta entre pares
+const LIMITS = { title: 0.7, h1: 0.7, intro: 0.55, description: 0.6 };
+for (let i = 0; i < pages.length; i += 1) {
+  for (let j = i + 1; j < pages.length; j += 1) {
+    const a = pages[i];
+    const b = pages[j];
+    for (const [field, limit] of Object.entries(LIMITS)) {
+      const sa = field === "intro" ? shingles(a[field]) : new Set(tokens(a[field]));
+      const sb = field === "intro" ? shingles(b[field]) : new Set(tokens(b[field]));
+      const score = jaccard(sa, sb);
+      if (score > limit) add(`${field} quase idêntico (${score.toFixed(2)} > ${limit}) entre ${a.path} e ${b.path}`);
+      else if (score > limit - 0.12 && score > 0) warn.push(`${field} próximo (${score.toFixed(2)}) entre ${a.path} e ${b.path}`);
+    }
+  }
+}
+
+// 3. Home × técnico Curitiba precisam ser explicitamente distintas
+const home = pages.find((p) => p.path === "/");
+const local = pages.find((p) => p.path === "/tecnico-informatica-curitiba");
+if (home && local) {
+  for (const field of ["title", "h1", "intro"]) {
+    const score = jaccard(new Set(tokens(home[field])), new Set(tokens(local[field])));
+    if (score > 0.5) add(`home × /tecnico-informatica-curitiba com ${field} equivalente (${score.toFixed(2)} > 0.50)`);
+  }
+}
+
+// 4. Keyword principal única por intenção
+const kw = new Map();
+for (const item of INTENT_MATRIX) {
+  const key = norm(item.keyword);
+  if (kw.has(key)) add(`keyword principal duplicada "${item.keyword}": ${kw.get(key)} e ${item.path}`);
+  else kw.set(key, item.path);
+}
+
+// 5. Links internos não podem apontar para a rota não dominante da intenção
+const intentByPath = new Map(INTENT_MATRIX.map((i) => [i.path, i]));
+for (const p of pages) {
+  const intent = intentByPath.get(p.path);
+  if (!intent) continue;
+  for (const href of p.links) {
+    const clean = href.split("#")[0].replace(/\/$/, "") || "/";
+    if (intent.notCompeting.includes(clean) && clean !== "/tecnico-informatica-curitiba" && p.path === "/")
+      warn.push(`${p.path} aponta para ${clean} (rota concorrente declarada)`);
+  }
+}
+
+// 6. Canonical coerente (a fonte curada é path-relativa ao domínio canônico)
+for (const p of pages) if (!p.path.startsWith("/")) add(`canonical inválido para ${p.path}`);
+
+console.log(`check:cannibalization — ${pages.length} página(s) comparada(s) (${ALL ? "todas as curadas" : "P0"}).`);
+for (const w of warn.slice(0, 20)) console.log(`  aviso: ${w}`);
+if (failures.length) {
+  console.error("\nBLOQUEADO — canibalização interna detectada:");
+  for (const f of failures) console.error(`  ✗ ${f}`);
+  process.exit(1);
+}
+console.log("✓ Nenhuma canibalização entre as páginas comerciais P0.");

@@ -333,7 +333,7 @@ export function buildTvBairroData(bairroSlug: string): ServicoBairroData {
       "Diagnóstico em bancada com câmera térmica",
       "Reparo de fonte, T-CON, mainboard e backlight",
       "Troca de painel LCD quando compensa (avaliação transparente)",
-      "valor por escrito antes de qualquer reparo",
+      "Valor por escrito antes de qualquer reparo",
       "Garantia formal por WhatsApp",
     ],
     processoPasso: [

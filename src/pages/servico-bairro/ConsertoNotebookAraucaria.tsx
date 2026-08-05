@@ -36,7 +36,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Contato", descricao: "Envie o problema pelo WhatsApp" },
     { titulo: "Diagnóstico", descricao: "Identificamos o defeito" },
-    { titulo: "valor do atendimento", descricao: "Aprovação antes do reparo" },
+    { titulo: "Valor do atendimento", descricao: "Aprovação antes do reparo" },
     { titulo: "Entrega", descricao: "Notebook consertado e entregue" },
   ],
   

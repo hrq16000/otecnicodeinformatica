@@ -38,7 +38,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Agendamento", descricao: "Confirme via WhatsApp o melhor horário" },
     { titulo: "Diagnóstico", descricao: "Técnico avalia o problema no local" },
-    { titulo: "valor do atendimento", descricao: "Apresentamos opções de reparo e valores" },
+    { titulo: "Valor do atendimento", descricao: "Apresentamos opções de reparo e valores" },
     { titulo: "Reparo", descricao: "Conserto rápido com peças de qualidade" },
   ],
   

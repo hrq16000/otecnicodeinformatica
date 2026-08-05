@@ -72,7 +72,7 @@ export const CitiesSection = () => {
               <Clock className="h-3.5 w-3.5 text-accent" /> Atendimento conforme a agenda 
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
-              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> valor aprovado antes do serviço
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Valor aprovado antes do serviço
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-semibold text-foreground/80">
               <MessageCircle className="h-3.5 w-3.5 text-accent" /> Contato direto pelo WhatsApp
@@ -165,7 +165,7 @@ export const CitiesSection = () => {
             <p className="mt-3">
               Diferente de grandes empresas que usam call centers, aqui você fala diretamente com o técnico 
               que vai realizar o serviço. Isso garante <strong>atendimento personalizado</strong>, 
-              <strong> valor transparente</strong> e <strong>resolução rápida</strong> do seu problema.
+              <strong> Valor transparente</strong> e <strong>resolução rápida</strong> do seu problema.
               Todos os serviços têm garantia e você só paga se aprovar o valor do atendimento.
             </p>
           </div>

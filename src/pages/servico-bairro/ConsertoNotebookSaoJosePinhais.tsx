@@ -37,7 +37,7 @@ const data: ServicoBairroData = {
   processoPasso: [
     { titulo: "Contato", descricao: "Descreva o problema do notebook" },
     { titulo: "Diagnóstico", descricao: "Identificamos o defeito exato" },
-    { titulo: "valor do atendimento", descricao: "Aprovação antes de qualquer reparo" },
+    { titulo: "Valor do atendimento", descricao: "Aprovação antes de qualquer reparo" },
     { titulo: "Conserto", descricao: "Reparo com peças de qualidade" },
   ],
   
@@ -51,8 +51,8 @@ const data: ServicoBairroData = {
       resposta: "Reparos simples (teclado, memória) são feitos conforme a disponibilidade da agenda. Reparos em placa-mãe podem levar 3 a 5 dias úteis dependendo da complexidade." 
     },
     { 
-      pergunta: "O valor do atendimento é realmente gratuito?", 
-      resposta: "Sim, o diagnóstico e valor do atendimento são 100% gratuitos. Você só paga se aprovar o serviço." 
+      pergunta: "O valor é realmente gratuito?", 
+      resposta: "Sim, o diagnóstico e valor são 100% gratuitos. Você só paga se aprovar o serviço." 
     },
     { 
       pergunta: "Vocês buscam e entregam o notebook?", 

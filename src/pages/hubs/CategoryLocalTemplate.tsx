@@ -19,7 +19,7 @@ const WHATSAPP_NUMBER = "5541997086380";
 const beneficios = [
   { icon: Package, title: "Coleta e Entrega", description: "Buscamos seu equipamento em casa e devolvemos consertado. Sem precisar deslocar até a loja." },
   { icon: ShieldCheck, title: "Garantia em todo serviço", description: "90 dias de garantia escrita sobre a peça e a mão-de-obra." },
-  { icon: Wrench, title: "Diagnóstico transparente", description: "valor do atendimento exato antes de qualquer execução. Você autoriza tudo por escrito." },
+  { icon: Wrench, title: "Diagnóstico transparente", description: "Valor do atendimento exato antes de qualquer execução. Você autoriza tudo por escrito." },
   { icon: Clock, title: "Prazo combinado", description: "Atualizações de andamento por WhatsApp. Sem surpresa." },
 ];
 

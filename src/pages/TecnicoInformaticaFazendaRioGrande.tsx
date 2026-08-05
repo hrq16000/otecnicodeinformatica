@@ -38,7 +38,7 @@ const benefits = [
   {
     icon: Wrench,
     title: "Garantia em Todo Serviço",
-    description: "valor do atendimento antes da execução. Garantia por escrito em todos os reparos realizados.",
+    description: "Valor antes da execução. Garantia por escrito em todos os reparos realizados.",
   },
 ];
 

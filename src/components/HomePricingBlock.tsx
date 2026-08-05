@@ -104,7 +104,7 @@ export const HomePricingBlock = () => {
               <Sparkles className="h-4 w-4 text-accent flex-shrink-0" />
               <span>
                 <strong className="text-foreground">Importante:</strong> atendimento sem compromisso somente estimado via WhatsApp. 
-                valor do atendimento preciso somente com compromisso. Para celular, TV, placa e ferramentas: valor do atendimento somente após coleta (taxa mínima R$ 300).
+                valor preciso somente com compromisso. Para celular, TV, placa e ferramentas: Valor do atendimento somente após coleta (taxa mínima R$ 300).
               </span>
             </p>
           </div>

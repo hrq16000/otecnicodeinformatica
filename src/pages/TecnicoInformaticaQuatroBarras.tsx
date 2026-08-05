@@ -23,7 +23,7 @@ const benefits = [
   { icon: MapPin, title: "Atendimento em Quatro Barras", description: "Cobrimos toda a cidade. Técnico com conhecimento do acesso pela BR-116." },
   { icon: Clock, title: "Chegamos em 40-55 Minutos", description: "Acesso rápido pela BR-116 sentido Joinville. Agendamento conforme a disponibilidade da agenda." },
   { icon: Shield, title: "Profissional identificado", description: "Atuação em informática desde 1998, identificado e equipado profissionalmente." },
-  { icon: Wrench, title: "Serviço Garantido", description: "valor do atendimento antes da execução. Garantia por escrito em todos os serviços." },
+  { icon: Wrench, title: "Serviço Garantido", description: "Valor antes da execução. Garantia por escrito em todos os serviços." },
 ];
 
 const bairros = [

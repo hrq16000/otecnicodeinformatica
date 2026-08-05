@@ -70,7 +70,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     operacaoLocal: [
       "Triagem pelo WhatsApp para entender sintoma, uso e urgência",
       "Diagnóstico técnico antes de informar qualquer valor",
-      "valor aprovado por você antes da execução",
+      "Valor aprovado por você antes da execução",
       "Manutenção preventiva sugerida para máquinas que rodam o dia inteiro",
     ],
     atendimentoLocal: [
@@ -122,7 +122,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     operacaoLocal: [
       "Triagem pelo WhatsApp com foco em home office e residências",
       "Diagnóstico honesto antes de trocar qualquer peça",
-      "valor aprovado por você antes de executar",
+      "Valor aprovado por você antes de executar",
       "Orientação sobre desempenho e estabilidade de rede",
     ],
     atendimentoLocal: [
@@ -225,7 +225,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Triagem pelo WhatsApp pensando na rotina comercial",
       "Diagnóstico rápido para reduzir tempo de parada",
       "Backup antes de reinstalar sistemas de equipe",
-      "valor aprovado antes de qualquer serviço",
+      "Valor aprovado antes de qualquer serviço",
     ],
     atendimentoLocal: [
       "Reparo de PC de escritório que trava no expediente",
@@ -276,7 +276,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Triagem pelo WhatsApp para residências e comércio do bairro",
       "Diagnóstico antes de indicar troca de peças",
       "Foco em reduzir o tempo de parada do comércio",
-      "valor aprovado por você antes de executar",
+      "Valor aprovado por você antes de executar",
     ],
     atendimentoLocal: [
       "Formatação com backup dos arquivos da família",

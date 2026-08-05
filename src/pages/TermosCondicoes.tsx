@@ -109,7 +109,7 @@ const TermosCondicoes = () => {
             {
               icon: MessageCircle,
               tone: "text-emerald-600",
-              title: "valor do atendimento por WhatsApp",
+              title: "Valor do atendimento por WhatsApp",
               price: "Grátis",
               desc: "Envie fotos, vídeos e detalhes pelo WhatsApp. Nada é cobrado para receber a proposta.",
             },

@@ -79,7 +79,7 @@ const ServicoCidadePage = () => {
   };
 
   const beneficios = isSemVisita ? [
-    { icon: CheckCircle, titulo: "valor do atendimento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
+    { icon: CheckCircle, titulo: "Atendimento sem Compromisso", descricao: "Avaliamos o equipamento e informamos o valor antes de executar" },
     { icon: Clock, titulo: "Prazo Transparente", descricao: "Informamos o prazo desde o início. Atualizações por WhatsApp" },
     { icon: Shield, titulo: "Garantia no Serviço", descricao: "Todo reparo conta com garantia. Peças de qualidade" },
     { icon: Star, titulo: "Atendimento Humanizado", descricao: "Explicamos o problema com clareza, sem jargão técnico" },
@@ -87,7 +87,7 @@ const ServicoCidadePage = () => {
     { icon: MapPin, titulo: `Atendimento Local em ${cidade.nome}`, descricao: "Técnico vai até seu endereço com todas as ferramentas" },
     { icon: Clock, titulo: "Atendimento conforme a agenda", descricao: "Agende pelo WhatsApp e receba o técnico ainda hoje" },
     { icon: Shield, titulo: "Garantia em Todos os Serviços", descricao: "Serviço garantido. Se precisar, voltamos sem custo" },
-    { icon: Star, titulo: "valor do atendimento Grátis", descricao: "Avaliação sem compromisso. Você só paga se aprovar" },
+    { icon: Star, titulo: "Valor do atendimento Grátis", descricao: "Avaliação sem compromisso. Você só paga se aprovar" },
   ];
 
   return (
@@ -118,12 +118,12 @@ const ServicoCidadePage = () => {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 reveal-text">
-              {servico.nome} em {cidade.nome}{isSemVisita ? " – valor do atendimento sem Compromisso" : " – Técnico a Domicílio"}
+              {servico.nome} em {cidade.nome}{isSemVisita ? " – Atendimento sem Compromisso" : " – Técnico a Domicílio"}
             </h1>
 
             <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto reveal-text" data-reveal-delay="100">
               {isSemVisita 
-                ? `valor do atendimento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
+                ? `atendimento humanizado para ${servico.nome.toLowerCase()} em ${cidade.nome}. Traga o equipamento para avaliação.`
                 : `Atendemos no seu endereço em ${cidade.nome} ainda hoje`
               }
             </p>

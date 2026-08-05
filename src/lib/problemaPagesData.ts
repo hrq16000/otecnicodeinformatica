@@ -884,7 +884,7 @@ Conecte o notebook a uma TV ou monitor via HDMI. Se a imagem aparecer, o problem
   {
     slug: "notebook-com-tela-quebrada-curitiba",
     title: "Tela de Notebook Quebrada em Curitiba | Troca",
-    metaDescription: "Tela de notebook quebrada ou trincada? Troca de tela LCD/LED em Curitiba. Diagnóstico e valor do atendimento no mesmo dia.",
+    metaDescription: "Tela de notebook quebrada ou trincada? Troca de tela LCD/LED em Curitiba. Diagnóstico e valor no mesmo dia.",
     h1: "Notebook com Tela Quebrada em Curitiba — Troca de Tela",
     categoria: "Notebook",
     intro: `Tela quebrada é um dos danos mais comuns em notebooks — uma queda, pressão na mochila ou até fechar com algo entre tela e teclado já pode trincar ou quebrar o display. A boa notícia é que a troca de tela é um reparo relativamente simples e com boa disponibilidade de peças para a maioria dos modelos.`,
@@ -912,7 +912,7 @@ Conecte o notebook a uma TV ou monitor via HDMI. Se a imagem aparecer, o problem
     relatedPages: [...RELATED_BASE, { label: "Notebook Sem Imagem", to: "/problemas/notebook-sem-imagem-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }],
     conteudoExtra: `### Qual o Modelo da Minha Tela?
 
-Para valor do atendimento preciso, precisamos do modelo exato do notebook (geralmente na etiqueta na parte inferior) ou o part number da tela (etiqueta atrás do painel). Com essa informação, conseguimos verificar disponibilidade e preço rapidamente.`,
+Para valor preciso, precisamos do modelo exato do notebook (geralmente na etiqueta na parte inferior) ou o part number da tela (etiqueta atrás do painel). Com essa informação, conseguimos verificar disponibilidade e preço rapidamente.`,
   },
 
   {
@@ -9061,10 +9061,10 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "celular-nao-liga-curitiba",
     title: "Celular Não Liga em Curitiba | Conserto Profissional",
-    metaDescription: "Celular não liga? Tela preta, sem resposta ao botão? Diagnóstico e conserto de celular em Curitiba. Atendimento presencial na oficina com valor do atendimento humanizado.",
+    metaDescription: "Celular não liga? Tela preta, sem resposta ao botão? Diagnóstico e conserto de celular em Curitiba. Atendimento presencial na oficina com atendimento humanizado.",
     h1: "Celular Não Liga — Diagnóstico e Conserto em Curitiba",
     categoria: "Problemas de Celular",
-    intro: `Um celular que não liga gera pânico imediato — fotos, contatos, apps bancários, tudo parece perdido. Mas na maioria dos casos o problema tem solução, desde que o diagnóstico seja feito por um técnico qualificado.\n\nAs causas mais comuns vão desde bateria totalmente descarregada até placa queimada por curto-circuito. O importante é não tentar resolver sozinho: abrir o celular sem ferramentas adequadas pode danificar flex cables, conectores e componentes delicados.\n\nEm nossa oficina em Curitiba, realizamos diagnóstico completo com valor do atendimento humanizado — você só paga se aprovar o serviço.`,
+    intro: `Um celular que não liga gera pânico imediato — fotos, contatos, apps bancários, tudo parece perdido. Mas na maioria dos casos o problema tem solução, desde que o diagnóstico seja feito por um técnico qualificado.\n\nAs causas mais comuns vão desde bateria totalmente descarregada até placa queimada por curto-circuito. O importante é não tentar resolver sozinho: abrir o celular sem ferramentas adequadas pode danificar flex cables, conectores e componentes delicados.\n\nEm nossa oficina em Curitiba, realizamos diagnóstico completo com atendimento humanizado — você só paga se aprovar o serviço.`,
     sintomas: [
       { titulo: "Nenhuma reação ao pressionar o botão power", desc: "Celular completamente morto, sem vibração, sem LED, sem som. Pode ser bateria zerada, conector de carga danificado ou placa com curto.", gravidade: "Médio a complexo" },
       { titulo: "Vibra mas tela fica preta", desc: "O celular responde ao botão (vibra ou emite som) mas a tela não acende. Problema no display, flat cable ou conector da tela.", gravidade: "Médio" },
@@ -9089,7 +9089,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       "Abrir o celular sem ferramentas adequadas danifica flex cables",
       "Dados podem ser perdidos se a memória interna estiver comprometida",
     ],
-    diagnostico: "Diagnóstico completo com teste de bateria, conector, display e placa. Atendimento presencial na oficina. valor do atendimento humanizado — sem valores passados por chat.",
+    diagnostico: "Diagnóstico completo com teste de bateria, conector, display e placa. Atendimento presencial na oficina. atendimento humanizado — sem valores passados por chat.",
     solucao: "Depende do diagnóstico: troca de bateria, conector, display ou reparo de placa. Sempre com peças de qualidade e garantia do serviço.",
     quandoCompensa: "Celulares de médio e alto valor (acima de R$ 1.000 novo) quase sempre compensam reparo. Troca de bateria e conector são reparos baratos e muito eficientes.",
     quandoNaoCompensa: "Celulares muito antigos (mais de 4 anos) ou de baixo valor original (abaixo de R$ 500 novo) com problema de placa podem não compensar o reparo.",
@@ -9108,7 +9108,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     metaDescription: "Tela do celular quebrada ou trincada? Troca de display em Curitiba. Samsung, Motorola, iPhone, Xiaomi. Saiba por que display é a peça mais cara do celular.",
     h1: "Tela de Celular Quebrada — Troca de Display em Curitiba",
     categoria: "Problemas de Celular",
-    intro: `A tela quebrada é o problema mais comum em celulares — e também o reparo mais caro. O display (conjunto de vidro + painel + touch) é o componente de maior valor do aparelho, podendo representar 40% a 70% do preço do celular novo.\n\n**Por que é tão caro?** Displays AMOLED de modelos premium (Samsung Galaxy S/Note, iPhone Pro/Pro Max, Xiaomi 13/14) são fabricados com tecnologia de altíssima precisão. Só a peça original pode custar de **R$ 800 a R$ 2.000** ou mais, dependendo do modelo. Displays compatíveis são mais acessíveis, mas ainda assim representam um custo significativo.\n\nTrabalhamos com displays originais e compatíveis de alta qualidade para todas as principais marcas. O valor do atendimento é feito na hora, presencialmente na oficina.\n\n**Importante:** Não passamos valores de troca de tela por WhatsApp ou telefone. Cada modelo tem um display específico e o preço varia conforme disponibilidade, tipo (original vs compatível) e tecnologia (LCD vs AMOLED). Atendimento presencial com valor do atendimento humanizado.`,
+    intro: `A tela quebrada é o problema mais comum em celulares — e também o reparo mais caro. O display (conjunto de vidro + painel + touch) é o componente de maior valor do aparelho, podendo representar 40% a 70% do preço do celular novo.\n\n**Por que é tão caro?** Displays AMOLED de modelos premium (Samsung Galaxy S/Note, iPhone Pro/Pro Max, Xiaomi 13/14) são fabricados com tecnologia de altíssima precisão. Só a peça original pode custar de **R$ 800 a R$ 2.000** ou mais, dependendo do modelo. Displays compatíveis são mais acessíveis, mas ainda assim representam um custo significativo.\n\nTrabalhamos com displays originais e compatíveis de alta qualidade para todas as principais marcas. O valor do atendimento é feito na hora, presencialmente na oficina.\n\n**Importante:** Não passamos valores de troca de tela por WhatsApp ou telefone. Cada modelo tem um display específico e o preço varia conforme disponibilidade, tipo (original vs compatível) e tecnologia (LCD vs AMOLED). Atendimento presencial com atendimento humanizado.`,
     sintomas: [
       { titulo: "Tela trincada mas funcionando", desc: "O vidro está quebrado mas o touch e a imagem funcionam normalmente. É só o vidro protetor/externo que quebrou.", gravidade: "Simples" },
       { titulo: "Tela com manchas pretas ou coloridas", desc: "Após a queda, surgiram manchas escuras ou coloridas que crescem com o tempo. O LCD/AMOLED está danificado internamente.", gravidade: "Médio" },
@@ -9152,7 +9152,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     metaDescription: "Celular lento, travando ou demorando para abrir apps? Diagnóstico e otimização profissional em Curitiba. Samsung, Motorola, iPhone, Xiaomi.",
     h1: "Celular Lento ou Travando — Solução Profissional em Curitiba",
     categoria: "Problemas de Celular",
-    intro: `Celular lento é uma das queixas mais frustrantes. Apps demoram para abrir, o teclado trava, vídeos engasgam, e tudo que deveria ser rápido se torna um exercício de paciência.\n\nAs causas são variadas: pode ser excesso de apps, memória cheia, bateria degradada que reduz o desempenho, ou até mesmo hardware com problemas. Em muitos casos, uma limpeza e otimização profissional resolve. Em outros, pode ser necessário trocar a bateria ou a memória interna.\n\nAtendimento presencial na oficina em Curitiba, com diagnóstico e valor do atendimento humanizado.`,
+    intro: `Celular lento é uma das queixas mais frustrantes. Apps demoram para abrir, o teclado trava, vídeos engasgam, e tudo que deveria ser rápido se torna um exercício de paciência.\n\nAs causas são variadas: pode ser excesso de apps, memória cheia, bateria degradada que reduz o desempenho, ou até mesmo hardware com problemas. Em muitos casos, uma limpeza e otimização profissional resolve. Em outros, pode ser necessário trocar a bateria ou a memória interna.\n\nAtendimento presencial na oficina em Curitiba, com diagnóstico e atendimento humanizado.`,
     sintomas: [
       { titulo: "Apps demoram para abrir", desc: "Tempo de carregamento muito acima do normal. Apps ficam com tela branca por segundos antes de funcionar.", gravidade: "Simples a médio" },
       { titulo: "Teclado trava ao digitar", desc: "Letras aparecem com atraso, o teclado congela ou fecha sozinho. Geralmente falta de RAM.", gravidade: "Simples" },
@@ -9455,7 +9455,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     metaDescription: "Câmera do celular com erro, foto embaçada, foco travado ou app não abre? Conserto de câmera de celular em Curitiba. Diagnóstico presencial.",
     h1: "Câmera do Celular Não Funciona — Conserto em Curitiba",
     categoria: "Problemas de Celular",
-    intro: `A câmera é um dos recursos mais usados do celular. Quando para de funcionar — seja a câmera traseira ou frontal — é extremamente frustrante. O problema pode ser simples (software) ou mais sério (hardware).\n\nErro no app da câmera, foto embaçada, foco que não trava, câmera preta, flash que não funciona — cada sintoma aponta para uma causa diferente.\n\nDiagnóstico e conserto presencial na oficina em Curitiba, com valor do atendimento humanizado.`,
+    intro: `A câmera é um dos recursos mais usados do celular. Quando para de funcionar — seja a câmera traseira ou frontal — é extremamente frustrante. O problema pode ser simples (software) ou mais sério (hardware).\n\nErro no app da câmera, foto embaçada, foco que não trava, câmera preta, flash que não funciona — cada sintoma aponta para uma causa diferente.\n\nDiagnóstico e conserto presencial na oficina em Curitiba, com atendimento humanizado.`,
     sintomas: [
       { titulo: "App da câmera fecha sozinho", desc: "Ao abrir a câmera, o app crasha imediatamente. Pode ser software ou módulo da câmera com defeito.", gravidade: "Simples a médio" },
       { titulo: "Foto embaçada ou sem foco", desc: "As fotos saem desfocadas mesmo em boa iluminação. Lente suja, arranhada ou motor de foco travado.", gravidade: "Simples a médio" },
@@ -10172,7 +10172,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     metaDescription: "Quanto custa trocar a tela da TV? Painel LED, QLED e OLED: preços por tamanho e quando vale a pena. Guia completo em Curitiba.",
     h1: "Quanto Custa Trocar a Tela da TV? Guia Completo de Preços",
     categoria: "Problemas de TV",
-    intro: `A pergunta que mais recebemos sobre TVs é: "quanto custa trocar a tela?" E a resposta, infelizmente, quase nunca é o que o cliente espera ouvir.\n\nO painel (tela) representa **70% a 85% do custo de fabricação da TV**. Só a peça de reposição pode custar de **R$ 600 a R$ 5.000**, dependendo do tamanho e tecnologia. Somando mão de obra, o custo total frequentemente se aproxima — ou até ultrapassa — o preço de uma TV nova.\n\nPor isso, antes de qualquer decisão, o diagnóstico é fundamental. Nem todo problema visual é de painel. Muitos defeitos que parecem "tela quebrada" são na verdade problemas em outras placas (T-CON, fonte, backlight) com reparo muito mais acessível.\n\n**valor do atendimento apenas presencial — traga a TV à oficina.**`,
+    intro: `A pergunta que mais recebemos sobre TVs é: "quanto custa trocar a tela?" E a resposta, infelizmente, quase nunca é o que o cliente espera ouvir.\n\nO painel (tela) representa **70% a 85% do custo de fabricação da TV**. Só a peça de reposição pode custar de **R$ 600 a R$ 5.000**, dependendo do tamanho e tecnologia. Somando mão de obra, o custo total frequentemente se aproxima — ou até ultrapassa — o preço de uma TV nova.\n\nPor isso, antes de qualquer decisão, o diagnóstico é fundamental. Nem todo problema visual é de painel. Muitos defeitos que parecem "tela quebrada" são na verdade problemas em outras placas (T-CON, fonte, backlight) com reparo muito mais acessível.\n\n**valor apenas presencial — traga a TV à oficina.**`,
     sintomas: [
       { titulo: "Painel trincado por impacto", desc: "Trinca física visível com imagem distorcida ao redor do ponto de impacto.", gravidade: "Complexo" },
       { titulo: "Manchas que crescem", desc: "Cristal líquido vazando internamente. Manchas escuras progressivas.", gravidade: "Complexo" },

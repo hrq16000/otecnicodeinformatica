@@ -423,7 +423,7 @@ export default function AssistenciaTecnicaCuritiba() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-2.5">
-                {["valor do atendimento Grátis", "Garantia 90 dias", "Peças Originais", "Atende toda Curitiba"].map((t) => (
+                {["Valor do atendimento Grátis", "Garantia 90 dias", "Peças Originais", "Atende toda Curitiba"].map((t) => (
                   <span key={t} className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/15 px-3 py-1.5 text-sm text-white/90">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
                     {t}

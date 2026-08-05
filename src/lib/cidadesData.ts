@@ -70,7 +70,7 @@ export const PROCESSO_ATENDIMENTO = [
   { step: "1", title: "Triagem", desc: "Você descreve o problema pelo WhatsApp e recebe as primeiras orientações." },
   { step: "2", title: "Avaliação", desc: "Diagnóstico técnico do equipamento para entender a real causa." },
   { step: "3", title: "Orientação", desc: "Explicamos o que foi encontrado em linguagem clara, sem empurrar peça." },
-  { step: "4", title: "valor do atendimento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
+  { step: "4", title: "Valor do atendimento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
   { step: "5", title: "Execução", desc: "Serviço realizado com peças e procedimentos adequados." },
 ];
 

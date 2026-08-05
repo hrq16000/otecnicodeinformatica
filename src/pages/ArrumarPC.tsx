@@ -44,7 +44,7 @@ const beneficios = [
     icon: ShieldCheck,
     title: "Garantia + transparência",
     description:
-      "valor do atendimento antes de qualquer cobrança. Pagamento só após o problema ser resolvido. PIX, cartão ou boleto.",
+      "Valor antes de qualquer cobrança. Pagamento só após o problema ser resolvido. PIX, cartão ou boleto.",
   },
   {
     icon: Wrench,

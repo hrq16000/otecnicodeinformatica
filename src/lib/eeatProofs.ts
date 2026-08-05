@@ -64,7 +64,7 @@ export const dadosVerificaveis: ProvaVerificavel[] = [
 /** Compromissos operacionais — só entram itens que a operação cumpre sempre. */
 export const compromissosOperacionais: string[] = [
   "Diagnóstico antes de informar qualquer valor — nada é executado sem aprovação.",
-  "valor registrado por escrito no WhatsApp, com escopo e valor.",
+  "Valor registrado por escrito no WhatsApp, com escopo e valor.",
   "Garantia formal do serviço executado, registrada no mesmo canal.",
   "Critério explícito de quando o reparo não compensa — indicamos a substituição.",
   "Peças e materiais informados à parte, nunca embutidos sem aviso.",

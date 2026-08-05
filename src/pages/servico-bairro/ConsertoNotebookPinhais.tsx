@@ -23,7 +23,7 @@ const data: ServicoBairroData = {
     Pinhais e devolvemos consertado.`,
   
   beneficios: [
-    "valor do atendimento 100% gratuito",
+    "Valor do atendimento 100% gratuito",
     "Todas as marcas de notebook",
     "Troca de tela e teclado",
     "Reparo de placa-mãe",
@@ -54,8 +54,8 @@ const data: ServicoBairroData = {
       resposta: "Reparos simples: Conforme agenda. Placa-mãe: 3 a 5 dias úteis." 
     },
     { 
-      pergunta: "O valor do atendimento é realmente grátis?", 
-      resposta: "Sim! Diagnóstico e valor do atendimento são 100% gratuitos. Você só paga se aprovar o serviço." 
+      pergunta: "O valor é realmente grátis?", 
+      resposta: "Sim! Diagnóstico e valor são 100% gratuitos. Você só paga se aprovar o serviço." 
     },
   ],
   

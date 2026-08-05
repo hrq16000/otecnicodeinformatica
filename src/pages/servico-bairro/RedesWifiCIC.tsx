@@ -56,7 +56,7 @@ const data: ServicoBairroData = {
     },
     { 
       pergunta: "Quanto custa um sistema mesh?", 
-      resposta: "O valor varia conforme a área. Fazemos valor do atendimento personalizado considerando o tamanho do espaço e número de dispositivos." 
+      resposta: "O valor varia conforme a área. Fazemos valor personalizado considerando o tamanho do espaço e número de dispositivos." 
     },
   ],
   

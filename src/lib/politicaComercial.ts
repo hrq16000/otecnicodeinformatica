@@ -8,7 +8,7 @@
  *
  * GOVERNANÇA (não negociável):
  *  - Nada aqui pode ser inventado. Toda regra publicada precisa refletir a
- *    operação real (valor do atendimento, ordem de serviço, política publicada).
+ *    operação real (valor, ordem de serviço, política publicada).
  *  - Proibido: SLA, prazo garantido, plano/preço mensal, "garantia total",
  *    "nota fiscal garantida", certificação/credenciamento sem emissor,
  *    número de clientes, percentual de satisfação, avaliação inventada.

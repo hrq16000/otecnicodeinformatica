@@ -152,7 +152,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
             {[
               { i: <Refrigerator className="w-7 h-7 text-accent" />, t: "Especialistas em IoT", d: "Diagnóstico técnico real, não \"reinstala o app\"." },
               { i: <Shield className="w-7 h-7 text-accent" />, t: "Garantia de 90 dias", d: "Em serviços e peças, formalizada por escrito." },
-              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "valor do atendimento antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
+              { i: <CheckCircle className="w-7 h-7 text-accent" />, t: "Valor antes", d: "Você só paga se aprovar. Sem taxa surpresa." },
             ].map((b) => (
               <div key={b.t} className="text-center p-6 rounded-xl border bg-card">
                 <div className="mx-auto mb-3 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">{b.i}</div>

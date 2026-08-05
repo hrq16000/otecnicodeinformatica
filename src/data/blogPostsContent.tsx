@@ -2596,7 +2596,7 @@ docker run -d --name db --network minha-rede postgres
           <li>Análise de software: sistema operacional, drivers, malwares</li>
           <li>Verificação de temperatura e voltagem</li>
           <li>Identificação da causa raiz, não apenas do sintoma</li>
-          <li>valor detalhado com opções de solução</li>
+          <li>Valor detalhado com opções de solução</li>
         </ul>
 
         <h2>Por Que Não é Grátis?</h2>

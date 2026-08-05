@@ -7,7 +7,7 @@ import { MessageCircle, Calculator } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
 
 /**
- * Calculadora de valor do atendimento — Conserto de Notebook em Curitiba.
+ * Calculadora de valor — Conserto de Notebook em Curitiba.
  * Mobile-first, acessível (labels + radiogroup), plug-and-play.
  * Estima faixa de preço com base em problema + marca + cidade
  * e gera mensagem pré-preenchida no WhatsApp.
@@ -96,12 +96,12 @@ export const OrcamentoNotebookCalculator = ({
         variant === "compact" ? "max-w-xl" : "max-w-2xl"
       } mx-auto`}
       data-funnel-skip="1"
-      aria-label="Calculadora de valor do atendimento de conserto de notebook em Curitiba"
+      aria-label="Calculadora de valor de conserto de notebook em Curitiba"
     >
       <div className="flex items-center gap-2 mb-4">
         <Calculator className="h-5 w-5 text-accent" aria-hidden />
         <h3 className="text-lg md:text-xl font-heading font-bold text-foreground">
-          Calculadora de valor do atendimento — Conserto de Notebook
+          Calculadora de valor — Conserto de Notebook
         </h3>
       </div>
       <p className="text-sm text-muted-foreground mb-5">

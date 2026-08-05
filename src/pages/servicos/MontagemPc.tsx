@@ -134,7 +134,7 @@ const MontagemPc = () => {
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
               { step: "1", title: "Conversa", desc: "Entendemos sua necessidade e valor do atendimento" },
-              { step: "2", title: "valor do atendimento", desc: "Montamos a configuração ideal" },
+              { step: "2", title: "Valor do atendimento", desc: "Montamos a configuração ideal" },
               { step: "3", title: "Aprovação", desc: "Você aprova as peças escolhidas" },
               { step: "4", title: "Montagem", desc: "Montamos, testamos e entregamos" },
             ].map((item, index) => (

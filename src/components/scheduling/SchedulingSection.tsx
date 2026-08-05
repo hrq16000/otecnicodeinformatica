@@ -146,7 +146,7 @@ export const SchedulingSection = () => {
                     💰 <strong>Visita técnica:</strong> A partir de R$ 69,99
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    valor transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline underline-grow">Ver detalhes</a>
+                    Valor transparente • Sem surpresas • <a href="/valores" className="text-accent hover:underline underline-grow">Ver detalhes</a>
                   </p>
                 </div>
               </div>

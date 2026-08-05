@@ -16,7 +16,7 @@ type Testimonial = {
 const differentials = [
   { icon: MapPin, title: "Atendimento local", desc: "Curitiba e região metropolitana, sem terceirizar." },
   { icon: ShieldCheck, title: "Aprovação prévia", desc: "Você só autoriza depois de saber o que será feito." },
-  { icon: Wallet, title: "Preço claro", desc: "valor do atendimento antes da execução, sem surpresa." },
+  { icon: Wallet, title: "Preço claro", desc: "Valor antes da execução, sem surpresa." },
   { icon: Clock, title: "Conforme agenda do dia", desc: "Janela de atendimento conforme agenda do dia." },
 ];
 

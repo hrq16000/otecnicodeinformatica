@@ -8,7 +8,7 @@ export const PricingBanner = () => {
             Visita técnica a partir de <span className="text-accent">R$ 69,99</span>
           </p>
           <p className="text-muted-foreground text-sm">
-            valor estimado grátis pelo WhatsApp — rápido e sem compromisso.
+            Valor estimado grátis pelo WhatsApp — rápido e sem compromisso.
             <a href="/valores" className="text-accent hover:underline ml-1">
               Ver detalhes →
             </a>

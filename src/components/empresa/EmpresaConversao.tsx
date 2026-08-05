@@ -26,7 +26,7 @@ import {
 // Provas verificáveis apenas. Proibido prometer prazo, SLA ou "Conforme agenda" —
 // a operação não garante janela de atendimento por escrito.
 export const provasRapidas = [
-  { icon: FileCheck2, label: "valor do atendimento antes da execução", desc: "Nada é executado sem a sua aprovação por escrito." },
+  { icon: FileCheck2, label: "Valor antes da execução", desc: "Nada é executado sem a sua aprovação por escrito." },
   { icon: ShieldCheck, label: "Garantia no serviço", desc: "Reparo e configuração com garantia formal registrada." },
   { icon: Laptop, label: "Presencial ou remoto", desc: "Visita no escritório ou acesso remoto, conforme o chamado." },
   { icon: Clock, label: "Chamado com prazo combinado", desc: "A janela de atendimento é acordada no início, caso a caso." },
@@ -44,7 +44,7 @@ const sinais = [
 const passos = [
   { n: "1", t: "Você conta a situação", d: "Pelo WhatsApp, em poucos minutos, sem formulário longo nem visita comercial." },
   { n: "2", t: "Diagnóstico do ambiente", d: `Avaliação de equipamentos, rede e rotinas a partir de ${siteConfig.minPriceLabel}.` },
-  { n: "3", t: "valor do atendimento e prioridades", d: "Você recebe o que é urgente, o que pode esperar e quanto custa cada frente." },
+  { n: "3", t: "Valor do atendimento e prioridades", d: "Você recebe o que é urgente, o que pode esperar e quanto custa cada frente." },
   { n: "4", t: "Execução e acompanhamento", d: "Presencial ou remoto, com registro do que foi feito em cada máquina." },
 ];
 

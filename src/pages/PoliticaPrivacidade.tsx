@@ -8,9 +8,7 @@ import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lu
 
 const CANONICAL = "https://tecnico.curitiba.br/politica-de-privacidade";
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
-const CNPJ = "41.723.708/0001-58";
 const WHATSAPP = "5541997086380";
-const EMAIL = "contato@tecnico.curitiba.br";
 const UPDATED = "24/06/2026";
 
 const sections: { id: string; title: string; icon: typeof ShieldCheck; body: React.ReactNode }[] = [
@@ -23,11 +21,11 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         <p>
           Esta Política de Privacidade aplica-se ao site{" "}
           <strong>tecnico.curitiba.br</strong>, operado por <strong>{COMPANY}</strong>,
-          inscrita no CNPJ {CNPJ}, com atendimento em Curitiba e Região Metropolitana – PR.
+          com atendimento em Curitiba e Região Metropolitana – PR.
         </p>
         <p className="mt-2">
-          Contato do encarregado (DPO): <a href={`mailto:${EMAIL}`} className="text-accent underline">{EMAIL}</a>{" "}
-          ou WhatsApp.
+          Contato do encarregado (DPO): exclusivamente pelo WhatsApp oficial, pelo botão de
+          atendimento disponível em todas as páginas deste site.
         </p>
       </>
     ),
@@ -130,7 +128,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         </ul>
         <p className="mt-2">
           Para exercer, envie o pedido pelo e-mail{" "}
-          <a href={`mailto:${EMAIL}`} className="text-accent underline">{EMAIL}</a>.
+          o WhatsApp oficial, pelo botão de atendimento deste site.
           Respondemos em até 15 dias.
         </p>
       </>
@@ -154,8 +152,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     icon: Mail,
     body: (
       <ul className="list-disc pl-5 space-y-1.5">
-        <li>WhatsApp: <a className="text-accent underline" href={`https://wa.me/${WHATSAPP}`} data-cta-location="privacy_contact_whatsapp">Clique para chamar no WhatsApp</a></li>
-        <li>E-mail: <a className="text-accent underline" href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <li>WhatsApp: <a className="text-accent underline" href={`https://wa.me/${WHATSAPP}`} data-cta-location="privacy_contact_whatsapp">Solicitar atendimento pelo WhatsApp</a></li>
         <li>Endereço: Curitiba e Região Metropolitana – PR</li>
       </ul>
     ),

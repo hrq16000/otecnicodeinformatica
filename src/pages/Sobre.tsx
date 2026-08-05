@@ -227,11 +227,14 @@ const Sobre = () => {
               Responsabilidade técnica
             </h2>
             <p className="mt-3 text-muted-foreground">
-              {experienciaLabel}. Os atendimentos são executados sob a responsabilidade técnica de{" "}
-              <strong className="text-foreground">{GESTOR.nome}</strong> — {GESTOR.funcao} — e faturados por{" "}
-              {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}). {GARANTIA.servicoLabel} e{" "}
-              {NOTA_FISCAL.servicoLabel.toLowerCase()}.
+              {experienciaLabel}. Os atendimentos são executados sob a supervisão do{" "}
+              <strong className="text-foreground">
+                {GESTOR.nome.trim() ? `${GESTOR.nome} — ${GESTOR.cargo}` : GESTOR.cargo.toLowerCase()}
+              </strong>{" "}
+              e faturados por {siteConfig.legalEntityName} (CNPJ {siteConfig.cnpj}).{" "}
+              {GARANTIA.servicoLabel} e {NOTA_FISCAL.servicoLabel.toLowerCase()}.
             </p>
+
             <Link
               to="/gestor-responsavel"
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"

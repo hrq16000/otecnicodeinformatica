@@ -68,7 +68,9 @@
     "verify:cf:strict": "node scripts/verify-cloudflare-publish.mjs --enforce",
     "report:critical-evidence": "node scripts/report-critical-evidence.mjs",
     "check:cannibalization": "node scripts/check-cannibalization.mjs",
-    "check:cannibalization:all": "node scripts/check-cannibalization.mjs --all"
+    "check:cannibalization:all": "node scripts/check-cannibalization.mjs --all",
+    "check:rls-always-true": "node scripts/check-rls-always-true.mjs",
+    "report:security": "node scripts/report-security-scan.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

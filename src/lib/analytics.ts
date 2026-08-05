@@ -1,3 +1,5 @@
+import { GA4_EVENTS, normalizeTrackingLabel } from '@/lib/trackingTaxonomy';
+
 // Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
 
 declare global {
@@ -76,7 +78,9 @@ const ensureLeadId = (ctaType: 'whatsapp' | 'phone' | 'chatbot'): { leadId: stri
 };
 
 // Track CTA clicks for conversions
-export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', location: string) => {
+export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLocation: string) => {
+  // Padroniza o rótulo: sem acento, snake_case — relatórios GA4/Ads consistentes.
+  const location = normalizeTrackingLabel(rawLocation);
   if (typeof window !== 'undefined') {
     window.__lastCtaType = ctaType;
     window.__lastCtaLocation = location;
@@ -106,20 +110,20 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', locatio
     };
 
     // cta_click sempre dispara (mede CTR / engajamento por dispositivo)
-    window.gtag('event', 'cta_click', payload);
+    window.gtag('event', GA4_EVENTS.ctaClick, payload);
 
     // Eventos GA4 nomeados — facilitam Key Events e relatórios por dispositivo.
     if (ctaType === 'whatsapp') {
-      window.gtag('event', 'click_whatsapp', payload);
+      window.gtag('event', GA4_EVENTS.whatsapp, payload);
     } else if (ctaType === 'phone') {
-      window.gtag('event', 'click_call', payload);
+      window.gtag('event', GA4_EVENTS.call, payload);
     }
 
     // generate_lead + conversão do Ads disparam APENAS no primeiro clique da
     // sessão (dedup via lead_id em sessionStorage). Cliques repetidos viram
     // engajamento (cta_click) e não contam como novo lead/conversão.
     if (isNew && (ctaType === 'whatsapp' || ctaType === 'phone')) {
-      window.gtag('event', 'generate_lead', {
+      window.gtag('event', GA4_EVENTS.lead, {
         ...payload,
         currency: 'BRL',
         method: ctaType,

@@ -215,13 +215,15 @@
     background: linear-gradient(160deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 62%, hsl(197 55% 26%) 100%);
     /* Reserva mínima de altura para zerar CLS no mobile enquanto fontes/imagens
        do hero (LCP) ainda estão carregando. Mantém viewport estável. */
-    min-height: 560px;
   }
+  /* Reserva de altura só no hero LCP (home): heros curtos de páginas
+     internas não devem gerar área vazia enorme no mobile. */
+  .hero-gradient--lcp { min-height: 520px; }
   @media (min-width: 640px) {
-    .hero-gradient { min-height: 620px; }
+    .hero-gradient--lcp { min-height: 600px; }
   }
   @media (min-width: 1024px) {
-    .hero-gradient { min-height: 640px; }
+    .hero-gradient--lcp { min-height: 640px; }
   }
 
   .premium-gradient {

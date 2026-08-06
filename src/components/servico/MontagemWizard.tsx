@@ -12,6 +12,7 @@ import { downloadMontagemChecklistPdf } from "@/lib/montagemChecklistPdf";
 import { downloadMontagemOsPdf, gerarProtocoloMontagem } from "@/lib/montagemOsPdf";
 import { trackOsPdfDownload } from "@/lib/funnelAnalytics";
 import { TERMOS_URL } from "@/lib/precosConfig";
+import { saveOsRecord } from "@/lib/osRegistry";
 
 /**
  * Mini-wizard de montagem: coleta configuração pretendida, origem das peças e
@@ -36,6 +37,8 @@ const ORIGEM_PECAS = [
 
 const MODALIDADES_WIZARD = ["Bancada (coleta e entrega)", "No local", "Ainda não sei"];
 
+const PERIODOS = ["Manhã (8h–12h)", "Tarde (13h–18h)", "Qualquer período"];
+
 const STEPS = ["Configuração", "Peças", "Aceite"] as const;
 
 export const MontagemWizard = () => {
@@ -49,6 +52,8 @@ export const MontagemWizard = () => {
   const [enviaFotos, setEnviaFotos] = useState(false);
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
+  const [periodo, setPeriodo] = useState("");
+  const [diaPreferido, setDiaPreferido] = useState("");
   const [aceite, setAceite] = useState(false);
   const [lgpd, setLgpd] = useState(false);
   const [gerando, setGerando] = useState(false);
@@ -57,6 +62,13 @@ export const MontagemWizard = () => {
   const [tentou, setTentou] = useState(false);
 
   const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
+
+  const janela = useMemo(() => {
+    const dia = diaPreferido
+      ? new Date(`${diaPreferido}T12:00:00`).toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" })
+      : "";
+    return [dia, periodo].filter(Boolean).join(" · ");
+  }, [diaPreferido, periodo]);
 
   const mensagem = useMemo(() => {
     return [
@@ -70,12 +82,13 @@ export const MontagemWizard = () => {
       enviaFotos ? "• Vou enviar fotos das peças aqui pelo atendimento." : "",
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
+      janela ? `• Janela preferida: ${janela}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
       lgpd ? "• Autorizo o uso dos dados e arquivos enviados apenas para este atendimento (LGPD)." : "",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo, lgpd]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, janela, protocolo, lgpd]);
 
   // Campos obrigatórios pendentes no passo atual — usados para o destaque pulsante.
   const pendentes: string[] =
@@ -152,10 +165,23 @@ export const MontagemWizard = () => {
         enviaFotos,
         cidade: cidade.trim() || undefined,
         modalidade: modalidade || undefined,
+        janela: janela || undefined,
         consentimentoLgpd: lgpd,
       });
+      saveOsRecord({
+        protocolo: numero,
+        criadoEm: Date.now(),
+        servico: "Montagem e configuração de computador",
+        modelo: modelo.trim() || undefined,
+        cidade: cidade.trim() || undefined,
+        modalidade: modalidade || undefined,
+        janela: janela || undefined,
+      });
       trackOsPdfDownload({ protocolo: numero, origem: "wizard_montagem", servico: "montagem-de-pc" });
-      toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+      toast({
+        title: `Ordem de serviço ${numero}`,
+        description: "PDF baixado — acompanhe o andamento em /status-da-ordem-de-servico.",
+      });
 
     } catch {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
@@ -329,6 +355,40 @@ export const MontagemWizard = () => {
                       </button>
                     ))}
                   </div>
+                </div>
+              </div>
+              <div className="grid gap-4 rounded-lg border border-border bg-muted/20 p-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="wz-dia">Dia preferido (opcional)</Label>
+                  <Input
+                    id="wz-dia"
+                    type="date"
+                    value={diaPreferido}
+                    min={new Date().toISOString().slice(0, 10)}
+                    onChange={(e) => setDiaPreferido(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <span className="text-sm font-medium">Período preferido</span>
+                  <div className="flex flex-wrap gap-2">
+                    {PERIODOS.map((p) => (
+                      <button
+                        key={p}
+                        type="button"
+                        onClick={() => setPeriodo(periodo === p ? "" : p)}
+                        aria-pressed={periodo === p}
+                        className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition ${
+                          periodo === p ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
+                        }`}
+                      >
+                        {p}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    A preferência vai junto na mensagem e na ordem de serviço. A confirmação da agenda é feita no
+                    atendimento.
+                  </p>
                 </div>
               </div>
             </>

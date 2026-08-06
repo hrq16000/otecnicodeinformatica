@@ -1198,8 +1198,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
       { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
+      { label: "Computador lento: causas e correções", to: "/problemas/computador-lento" },
+      { label: "Notebook que não liga: diagnóstico", to: "/problemas/notebook-nao-liga" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
+
     blocoLocal: [
       {
         titulo: "A dependência tecnológica de quem trabalha em casa",

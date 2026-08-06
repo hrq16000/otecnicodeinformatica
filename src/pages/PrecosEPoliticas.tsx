@@ -13,6 +13,8 @@ import { PrecosServiceSchema } from "@/components/PrecosServiceSchema";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+
 import { PAGAMENTO, NOTA_FISCAL } from "@/lib/politicaComercial";
 
 import { trackPageView, trackCTAClick } from "@/lib/analytics";

@@ -337,7 +337,9 @@ export const MontagemWizard = () => {
                 <pre className="mt-2 whitespace-pre-wrap break-words text-sm text-muted-foreground">{mensagem}</pre>
               </div>
 
-              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border p-4 text-sm">
+              <label
+                className={`flex cursor-pointer items-start gap-3 rounded-lg border border-border p-4 text-sm${alerta("aceite")}`}
+              >
                 <Checkbox checked={aceite} onCheckedChange={(v) => setAceite(v === true)} aria-label="Aceite das condições" />
                 <span className="text-muted-foreground">
                   Li e aceito os{" "}
@@ -352,34 +354,66 @@ export const MontagemWizard = () => {
                   <Link to="/politica-de-pecas-do-cliente" className="font-medium text-[hsl(var(--accent))] underline">
                     política de peças do cliente
                   </Link>
-                  , incluindo a regra de valor declarado e depreciação do equipamento.
+                  , incluindo a regra de valor declarado e depreciação do equipamento.{" "}
+                  <span className="text-destructive">*</span>
                 </span>
               </label>
-              {!aceite && <p className="text-xs text-muted-foreground">O aceite é obrigatório para continuar.</p>}
+              {invalido("aceite") && (
+                <p className="text-xs font-medium text-destructive">Marque o aceite das condições para continuar.</p>
+              )}
+
+              <label
+                className={`flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-muted/20 p-4 text-sm${alerta("lgpd")}`}
+              >
+                <Checkbox checked={lgpd} onCheckedChange={(v) => setLgpd(v === true)} aria-label="Consentimento LGPD" />
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">Consentimento (LGPD):</strong> autorizo o uso dos dados desta
+                  solicitação (configuração, peças, cidade/bairro) e das fotos que eu enviar no atendimento{" "}
+                  <strong className="text-foreground">exclusivamente</strong> para triagem, orçamento e execução deste
+                  serviço. Os dados ficam no histórico da conversa de WhatsApp e na ordem de serviço; o site não
+                  armazena arquivos. Posso pedir a exclusão a qualquer momento pelo próprio atendimento.{" "}
+                  <span className="text-destructive">*</span>
+                </span>
+              </label>
+              {invalido("lgpd") && (
+                <p className="text-xs font-medium text-destructive">
+                  É preciso autorizar o uso dos dados para abrir o atendimento.
+                </p>
+              )}
             </>
           )}
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <Button
               type="button"
               variant="ghost"
-              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              className="w-full sm:w-auto"
+              onClick={() => {
+                setTentou(false);
+                setStep((s) => Math.max(0, s - 1));
+              }}
               disabled={step === 0}
             >
               <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" /> Voltar
             </Button>
 
             {step < 2 ? (
-              <Button type="button" onClick={() => setStep((s) => s + 1)} disabled={!canNext}>
+              <Button type="button" className="w-full sm:w-auto" onClick={avancar}>
                 Continuar <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Button>
             ) : (
-              <div className="flex flex-wrap gap-2">
-                <Button type="button" variant="outline" onClick={baixarOs} disabled={!aceite || gerandoOs}>
+              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  onClick={baixarOs}
+                  disabled={pendentes.length > 0 || gerandoOs}
+                >
                   <FileText className="mr-1 h-4 w-4" aria-hidden="true" />
                   {gerandoOs ? "Gerando OS..." : "Gerar ordem de serviço (PDF)"}
                 </Button>
-                <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
+                <Button type="button" className="w-full sm:w-auto" onClick={enviar} data-cta-location="wizard_montagem">
                   <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
                 </Button>
               </div>

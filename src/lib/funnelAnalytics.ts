@@ -334,6 +334,8 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
 
 function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
   if (typeof window === "undefined") return;
+  const path = window.location.pathname;
+  const utms = readUtms();
   const payload = {
     event_type: eventType,
     cta_location: location,
@@ -345,7 +347,15 @@ function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open",
     cidade: typeof extra.cidade === "string" ? extra.cidade : null,
     customer_type: resolveCustomerType(),
     session_id: getSessionId(),
-    path: window.location.pathname,
+    path,
+    // Segmentação do dashboard: tipo de rota + campanha de origem.
+    route_type: routeTypeFromPath(path),
+    utm_source: utms.utm_source || DEFAULT_UTM_SOURCE,
+    utm_medium: normalizeUtmMedium(
+      (utms.utm_medium as string | undefined) ||
+        (typeof extra.utm_medium === "string" ? extra.utm_medium : undefined),
+    ),
+    utm_campaign: utms.utm_campaign || campaignFromPath(path),
   };
   // Fire-and-forget; nunca bloqueia o clique.
   void supabase.from("click_events").insert(payload).then(({ error }) => {

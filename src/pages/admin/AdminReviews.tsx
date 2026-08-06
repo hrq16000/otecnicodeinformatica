@@ -370,18 +370,38 @@ const AdminReviews = () => {
             ))}
           </div>
 
-          <div className="flex flex-col md:flex-row gap-3 mb-4">
-            <Input placeholder="Buscar por nome, comentário, bairro..." value={search} onChange={(e) => setSearch(e.target.value)} className="md:max-w-md" />
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-3 mb-4">
+            <Input placeholder="Buscar por nome, comentário, bairro ou nº da OS..." value={search} onChange={(e) => setSearch(e.target.value)} className="md:max-w-md" />
             <Select value={filter} onValueChange={(v) => setFilter(v as Filter)}>
-              <SelectTrigger className="md:w-48"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="md:w-56"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Todas</SelectItem>
                 <SelectItem value="pending">Pendentes (não verificadas)</SelectItem>
                 <SelectItem value="published">Publicadas</SelectItem>
                 <SelectItem value="hidden">Ocultas</SelectItem>
+                <SelectItem value="unauthorized">Sem autorização do cliente</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value={bairroFilter} onValueChange={setBairroFilter}>
+              <SelectTrigger className="md:w-48"><SelectValue placeholder="Bairro" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Todos os bairros</SelectItem>
+                {bairroOptions.map((b) => (
+                  <SelectItem key={b} value={b}>{b}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={servicoFilter} onValueChange={setServicoFilter}>
+              <SelectTrigger className="md:w-56"><SelectValue placeholder="Serviço" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Todos os serviços</SelectItem>
+                {servicoOptions.map((s) => (
+                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
+
 
           {loading ? (
             <div className="flex justify-center py-12"><Loader2 className="w-6 h-6 animate-spin" /></div>

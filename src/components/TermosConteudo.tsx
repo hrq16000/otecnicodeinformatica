@@ -175,6 +175,58 @@ export const TermosConteudo = ({ withJsonLd = true, className = "" }: Props) => 
       </div>
     </section>
 
+    <section className="mb-12" aria-labelledby="limites-tecnicos-termos">
+      <h2 id="limites-tecnicos-termos" className="text-2xl font-bold mb-6 text-foreground">
+        Limites técnicos declarados antes de começar
+      </h2>
+      <div className="space-y-4 text-muted-foreground">
+        <p>
+          Transparência também é dizer o que o serviço não alcança. Nem todo equipamento tem reparo viável e
+          nem todo sintoma tem solução definitiva na primeira intervenção. Declaramos esses limites antes de
+          iniciar, para que a decisão de seguir seja sua e informada — nunca uma surpresa depois da conta.
+        </p>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <strong className="text-foreground">Peça descontinuada ou sem fornecedor confiável:</strong> em
+            modelos antigos, a peça compatível pode não existir no mercado ou vir apenas de origem incerta.
+            Nesses casos informamos e não aplicamos componente sem procedência.
+          </li>
+          <li>
+            <strong className="text-foreground">Reparo em nível de placa:</strong> depende de bancada e do
+            estado da placa. Placa com corrosão avançada, trilha rompida em várias camadas ou reparo anterior
+            malfeito pode não ter recuperação estável — e dizemos isso antes de cobrar tentativa.
+          </li>
+          <li>
+            <strong className="text-foreground">Dano por líquido e por surto elétrico:</strong> o efeito é
+            progressivo. Mesmo com limpeza bem-sucedida, pode haver falha posterior em outro componente. Não
+            prometemos estabilidade permanente nesses casos.
+          </li>
+          <li>
+            <strong className="text-foreground">Recuperação de dados:</strong> é tentativa técnica, não
+            resultado contratado. Mídia com dano físico severo, gravação por cima do conteúdo ou criptografia
+            sem chave podem inviabilizar a leitura.
+          </li>
+          <li>
+            <strong className="text-foreground">Falha intermitente:</strong> quando o defeito não se
+            reproduz em teste, o diagnóstico exige observação por período maior. Informamos o que já foi
+            descartado em vez de trocar peças por tentativa.
+          </li>
+          <li>
+            <strong className="text-foreground">Escopo:</strong> atuamos em informática, redes e Wi-Fi.
+            Fora disso — obra elétrica, eletrodoméstico, celular — indicamos que não é o nosso serviço.
+          </li>
+        </ul>
+        <p>
+          Quando um desses limites aparece durante a avaliação, você recebe o cenário completo: o que foi
+          confirmado, o que ainda é incerto, o custo de seguir e a alternativa de parar. O critério de
+          viabilidade está detalhado em{" "}
+          <Link to="/quando-nao-compensa" className="underline hover:text-foreground">quando não compensa reparar</Link>.
+        </p>
+      </div>
+    </section>
+
+
+
     <section className="mb-12" aria-labelledby="prazos-garantia-termos">
       <h2 id="prazos-garantia-termos" className="text-2xl font-bold mb-6 text-foreground">
         Prazos, garantia e cuidado com seus dados

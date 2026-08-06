@@ -59,7 +59,23 @@ export interface TechnicalCasePhoto {
   exifStripped: boolean;
   /** Revisão de tela, etiqueta, documento e reflexo concluída. */
   screenReviewed: boolean;
+  /** Assinatura perceptual (aHash) para detectar evidência repetida. */
+  fingerprint?: string;
+  /** Métricas técnicas da evidência, preenchidas na validação automática. */
+  quality?: {
+    width: number;
+    height: number;
+    /** EXIF encontrado no arquivo original (antes da re-codificação). */
+    exifFound?: boolean;
+    /** Energia de borda média — imagens muito lisas tendem a ser genéricas. */
+    edgeEnergy: number;
+    /** Quantidade de faixas de cor distintas. */
+    colorBuckets: number;
+    /** Suspeita automática de foto genérica/ilustrativa. */
+    genericSuspect: boolean;
+  };
 }
+
 
 /** Medição real. Só existe quando houve instrumento e método. */
 export interface TechnicalCaseMeasurement {

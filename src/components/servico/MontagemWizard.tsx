@@ -343,6 +343,40 @@ export const MontagemWizard = () => {
                   </div>
                 </div>
               </div>
+              <div className="grid gap-4 rounded-lg border border-border bg-muted/20 p-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="wz-dia">Dia preferido (opcional)</Label>
+                  <Input
+                    id="wz-dia"
+                    type="date"
+                    value={diaPreferido}
+                    min={new Date().toISOString().slice(0, 10)}
+                    onChange={(e) => setDiaPreferido(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <span className="text-sm font-medium">Período preferido</span>
+                  <div className="flex flex-wrap gap-2">
+                    {PERIODOS.map((p) => (
+                      <button
+                        key={p}
+                        type="button"
+                        onClick={() => setPeriodo(periodo === p ? "" : p)}
+                        aria-pressed={periodo === p}
+                        className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition ${
+                          periodo === p ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
+                        }`}
+                      >
+                        {p}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    A preferência vai junto na mensagem e na ordem de serviço. A confirmação da agenda é feita no
+                    atendimento.
+                  </p>
+                </div>
+              </div>
             </>
           )}
 

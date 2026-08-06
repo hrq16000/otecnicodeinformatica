@@ -134,10 +134,8 @@ const Servicos = () => {
         />
         <div className="container relative z-10 mx-auto py-14 md:py-20">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--accent))]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-              Serviços em Curitiba
-            </span>
+            <ExperienciaBadge tone="hero" suffix="Serviços em Curitiba" />
+
             <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
               Serviços de informática em Curitiba
             </h1>

@@ -633,8 +633,8 @@ export function jsonLdFor(route) {
         "@id": `${url}#faq`,
         mainEntity: route.faq.map((f) => ({
           "@type": "Question",
-          name: f.pergunta,
-          acceptedAnswer: { "@type": "Answer", text: f.resposta },
+          name: f.pergunta ?? f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.resposta ?? f.answer },
         })),
       });
     }
@@ -681,10 +681,11 @@ export function jsonLdFor(route) {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "@id": `${url}#faq`,
+      // Aceita ambos os formatos de origem (pergunta/resposta e question/answer).
       mainEntity: route.faq.map((f) => ({
         "@type": "Question",
-        name: f.pergunta,
-        acceptedAnswer: { "@type": "Answer", text: f.resposta },
+        name: f.pergunta ?? f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.resposta ?? f.answer },
       })),
     });
   }

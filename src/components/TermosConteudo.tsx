@@ -1,3 +1,4 @@
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
@@ -63,6 +64,12 @@ const faqJsonLd = {
   })),
 };
 
+/** Registra o FAQPage no slot único `faq` (evita duplicidade com o global). */
+const TermosFaqJsonLd = () => {
+  useJsonLdSlot(SCHEMA_SLOTS.faq, faqJsonLd, SLOT_PRIORITY.page);
+  return null;
+};
+
 interface Props {
   /** Renderiza também o JSON-LD de FAQPage (default: true). */
   withJsonLd?: boolean;
@@ -72,9 +79,7 @@ interface Props {
 export const TermosConteudo = ({ withJsonLd = true, className = "" }: Props) => (
   <div className={`container mx-auto px-4 max-w-4xl ${className}`}>
     {withJsonLd && (
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-      </Helmet>
+      <TermosFaqJsonLd />
     )}
 
     <PrecoModalidades className="mb-12" />

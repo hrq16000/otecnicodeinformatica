@@ -31,6 +31,7 @@ const EquipamentosAtendidos = lazy(() => import("./pages/EquipamentosAtendidos")
 const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));
 const SegurancaDosDados = lazy(() => import("./pages/SegurancaDosDados"));
+const PoliticaPecasCliente = lazy(() => import("./pages/PoliticaPecasCliente"));
 const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
@@ -526,6 +527,7 @@ const App = () => (
             <Route path="/diagnostico-60s" element={<Diagnostico60s />} />
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
             <Route path="/seguranca-dos-dados" element={<SegurancaDosDados />} />
+            <Route path="/politica-de-pecas-do-cliente" element={<PoliticaPecasCliente />} />
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
             <Route path="/coleta-formulario" element={<ColetaFormulario />} />

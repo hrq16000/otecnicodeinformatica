@@ -55,6 +55,7 @@
     "report:jsonld": "node scripts/report-jsonld-coverage.mjs dist",
     "report:jsonld:strict": "node scripts/report-jsonld-coverage.mjs dist --strict",
     "migration:rollback": "node scripts/publish-redirects.mjs --rollback",
+    "check:cf-zone": "node scripts/check-cloudflare-zone.mjs",
     "check:nap": "node scripts/check-nap-whatsapp.mjs",
     "migration:export": "node scripts/export-redirects.mjs",
     "migration:cf:dry": "node scripts/publish-cloudflare-redirects.mjs --dry-run",

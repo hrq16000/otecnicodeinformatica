@@ -64,9 +64,13 @@ const runUrl =
   process.env.GITHUB_SERVER_URL && process.env.GITHUB_RUN_ID
     ? `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
     : null;
-const artifactsLine = runUrl
+const runbookUrl = process.env.GITHUB_SERVER_URL
+  ? `${process.env.GITHUB_SERVER_URL}/${repo}/blob/main/docs/runbook-deploy.md`
+  : "docs/runbook-deploy.md";
+const artifactsLine = (runUrl
   ? `Artefatos do relatório: ${runUrl}#artifacts (web-vitals.md, rank-tracking.md, weekly-seo.md)`
-  : "Artefatos locais em reports/ (web-vitals.md, rank-tracking.md, weekly-seo.md).";
+  : "Artefatos locais em reports/ (web-vitals.md, rank-tracking.md, weekly-seo.md).") +
+  `\nRunbook de deploy/rollback: ${runbookUrl}`;
 
 if (!alerts.length && !ALWAYS) {
   console.log("[alertas] nenhuma regressão de Web Vitals, rank ou indexação — nada a notificar.");

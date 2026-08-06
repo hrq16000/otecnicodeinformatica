@@ -39,6 +39,12 @@ jobs:
           npm run check:soft404
           npm run check:sitemap-source
 
+      - name: Pré-voo de zona Cloudflare (proxied e sob nosso controle)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_NAME: tecnico.curitiba.br
+        run: npm run check:cf-zone -- --enforce
+
       - name: Publicar worker de borda (301 + 404 real)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

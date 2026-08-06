@@ -1,5 +1,6 @@
 import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout";
 import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
+import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
 
@@ -23,8 +24,14 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : base;
 
-  // Blocos de política/checklist exigidos pelo gate de montagem (Rodada 3L).
-  const extra = slug === "montagem-de-pc" ? <MontagemPoliticaBlocos /> : undefined;
+  // Blocos de política/checklist + wizard de solicitação (Rodada 3L / wizard).
+  const extra =
+    slug === "montagem-de-pc" ? (
+      <>
+        <MontagemPoliticaBlocos />
+        <MontagemWizard />
+      </>
+    ) : undefined;
 
   return <ServicoLandingLayout data={{ ...data, extra }} />;
 };

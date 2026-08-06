@@ -220,13 +220,28 @@ async function writePage(distDir, routePath, html) {
   await fs.writeFile(path.join(outDir, "index.html"), html, "utf8");
 }
 
-// Substitui o conteúdo do <noscript> dentro do #root pelo corpo estático
-// específico da rota e injeta o JSON-LD estático no <head>.
+/**
+ * Promove o corpo estático da rota para DENTRO do #root (HTML real, sem
+ * depender de JavaScript). Substitui o splash + o <noscript> genérico do
+ * shell, de modo que o conteúdo principal já venha no HTML servido.
+ * O React substitui esse nó na hidratação (createRoot().render).
+ */
+export function injectRootBody(html, body) {
+  const marker = `<div id="root">`;
+  const start = html.indexOf(marker);
+  if (start === -1) return html;
+  const scriptAt = html.indexOf(`<script type="module"`, start);
+  if (scriptAt === -1) return html;
+  const closeAt = html.lastIndexOf("</div>", scriptAt);
+  if (closeAt === -1) return html;
+  const before = html.slice(0, start + marker.length);
+  const after = html.slice(closeAt);
+  return `${before}\n      <div data-static-shell="1">${body}\n      </div>\n    ${after}`;
+}
+
+// Injeta o corpo estático da rota no #root (HTML real) e o JSON-LD no <head>.
 function applyStaticShell(html, route) {
-  let out = html.replace(
-    /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
-    `<noscript>${staticBodyFor(route)}\n      </noscript>`,
-  );
+  let out = injectRootBody(html, staticBodyFor(route));
   // Remove qualquer JSON-LD estático previamente injetado (idempotência).
   out = out.replace(/\s*<script type="application\/ld\+json" id="ld-static-\d+"[\s\S]*?<\/script>/gi, "");
   const scripts = jsonLdScriptsFor(route);

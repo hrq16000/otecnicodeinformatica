@@ -147,10 +147,29 @@ async function checkStaticHtml(posts) {
     const h = await read(fp);
     const url = `${SITE}/blog/${post.slug}`;
 
-    // robots — exatamente 1, noindex,follow
+    const approved = isWaveApproved(post.slug);
+
+    // robots — exatamente 1; noindex,follow fora da onda, index,follow na onda
     const robotsAll = h.match(/<meta\s+name=["']robots["'][^>]*>/gi) || [];
     if (robotsAll.length !== 1) fail(`/blog/${post.slug}: esperado exatamente 1 meta robots (achou ${robotsAll.length})`);
-    else if (!/noindex,\s*follow/i.test(robotsAll[0])) fail(`/blog/${post.slug}: robots deve ser noindex, follow`);
+    else if (approved) {
+      if (/noindex/i.test(robotsAll[0])) fail(`/blog/${post.slug}: artigo da onda deve ser index, follow`);
+    } else if (!/noindex,\s*follow/i.test(robotsAll[0])) {
+      fail(`/blog/${post.slug}: robots deve ser noindex, follow`);
+    }
+
+    if (approved) {
+      // Conteúdo estático próprio + rich results do artigo.
+      if (!/"@type":\s*\[\s*"BlogPosting"/.test(h)) fail(`/blog/${post.slug}: BlogPosting ausente no HTML estático`);
+      if (!/"@type":\s*"BreadcrumbList"/.test(h)) fail(`/blog/${post.slug}: BreadcrumbList ausente`);
+      if (count(h, /<h1[\s>]/gi) !== 1) fail(`/blog/${post.slug}: HTML estático deve ter exatamente 1 <h1>`);
+      const wave = EDITORIAL_WAVE.find((a) => a.slug === post.slug);
+      if (!h.includes(`content="${SITE}${wave.cover}"`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
+      if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
+      if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
+      if (!/wa\.me\/5541997086380/.test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
+    }
+
 
     // canonical — exatamente 1, self
     const canonAll = h.match(/<link\s+rel=["']canonical["'][^>]*>/gi) || [];
@@ -180,20 +199,27 @@ async function checkStaticHtml(posts) {
 
     checked++;
   }
-  note(`HTML inicial: ${checked}/${posts.length} artigos verificados (noindex,follow + canonical self)`);
+  note(`HTML inicial: ${checked}/${posts.length} artigos verificados (${EDITORIAL_WAVE_SLUGS.length} indexáveis da onda)`);
 }
 
 // ── 5. Sitemaps ────────────────────────────────────────────
 async function checkSitemaps() {
   const pub = path.join(ROOT, "public");
   const files = (await fs.readdir(pub)).filter((f) => /^sitemap.*\.xml$/.test(f));
+  const allowedBlog = new Set([
+    `${SITE}/blog`,
+    ...EDITORIAL_WAVE_SLUGS.map((s) => `${SITE}/blog/${s}`),
+  ]);
   for (const f of files) {
     const src = await read(path.join(pub, f));
-    if (/\/blog\//.test(src) || /<loc>[^<]*\/blog<\/loc>/.test(src))
-      fail(`sitemap ${f}: contém referência a /blog`);
+    for (const m of src.matchAll(/<loc>([^<]*\/blog[^<]*)<\/loc>/g)) {
+      if (!allowedBlog.has(m[1]))
+        fail(`sitemap ${f}: URL de blog fora da onda editorial (${m[1]})`);
+    }
     if (/\/problemas?\//.test(src)) fail(`sitemap ${f}: contém páginas de problemas`);
     if (/\/marcas?\//.test(src)) fail(`sitemap ${f}: contém páginas de marcas`);
   }
+
   // Expectativa derivada do manifesto curado — nunca de um número fixo.
   const { ACTIVE_SITEMAPS, CURATED_PATHS } = await import("./lib/curated-urls.mjs");
   let total = 0;

@@ -2,9 +2,8 @@
 // Nada é publicado: o arquivo sai direto para o disco do operador.
 import { createPdf, downloadBlob } from "@/lib/pdfDoc";
 import { siteConfig } from "@/lib/siteConfig";
-import type { DraftCase } from "@/lib/technicalCaseDraftStore";
-import { auditEvidenceSet, reviewedPhotoCountSafe } from "@/lib/technicalCaseHelpers";
-import { buildRequirements, scoreCase } from "@/lib/technicalCaseAudit";
+import { auditEvidenceSet, type DraftCase } from "@/lib/technicalCaseDraftStore";
+import { buildRequirements, reviewedPhotoCount, scoreCase } from "@/lib/technicalCaseAudit";
 
 export async function generateCasePdf(c: DraftCase): Promise<Blob> {
   const pdf = await createPdf();

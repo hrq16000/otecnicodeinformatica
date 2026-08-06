@@ -3,6 +3,8 @@ import { upsertCanonical } from "@/lib/canonicalUrl";
 import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroPremium } from "@/components/home/HeroPremium";
+import { TrustStrip } from "@/components/TrustStrip";
+
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { siteConfig } from "@/lib/siteConfig";
 

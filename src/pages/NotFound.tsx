@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import PageSEO from "@/components/PageSEO";
+
+const TITLE_404 = "Página não encontrada | Técnico Curitiba";
+const DESC_404 =
+  "A página que você tentou acessar não existe ou foi movida. Veja os serviços disponíveis ou volte para a página inicial.";
 
 /**
  * Página 404 própria.
@@ -19,6 +22,22 @@ const NotFound = () => {
     if (import.meta.env.DEV) {
       console.warn("404: rota inexistente:", location.pathname);
     }
+    document.title = TITLE_404;
+
+    const desc = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (desc) desc.setAttribute("content", DESC_404);
+
+    // Canonical herdado do shell/prerender não pode sobreviver numa 404.
+    document.head.querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    document.head.querySelectorAll('script[type="application/ld+json"]').forEach((el) => el.remove());
+
+    let robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.setAttribute("name", "robots");
+      document.head.appendChild(robots);
+    }
+    robots.setAttribute("content", "noindex, nofollow");
   }, [location.pathname]);
 
   const abrirTriagem = () => {
@@ -29,12 +48,6 @@ const NotFound = () => {
 
   return (
     <>
-      <PageSEO
-        title="Página não encontrada | Técnico Curitiba"
-        description="A página que você tentou acessar não existe ou foi movida. Veja os serviços disponíveis ou volte para a página inicial."
-        noindex
-        canonical={null}
-      />
       <main className="mx-auto flex min-h-[70vh] w-full max-w-2xl flex-col justify-center gap-6 px-5 py-16">
         <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Erro 404</p>
         <h1 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">

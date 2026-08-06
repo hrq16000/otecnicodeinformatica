@@ -135,21 +135,24 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           }}
           aria-hidden="true"
         />
-        <div className="container relative z-10 mx-auto py-14 md:py-20">
+        <div className="container relative z-10 mx-auto py-8 sm:py-12 md:py-20">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--accent))]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
               {data.eyebrow}
             </span>
-            <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
+            <h1 className="mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl md:text-5xl">
               {data.h1}
               {data.h1Accent && <span className="text-[hsl(var(--accent))]"> {data.h1Accent}</span>}
             </h1>
-            <ExperienciaBadge className="mt-4" />
-            <p className="tldr mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg" data-speakable>
+            <ExperienciaBadge className="mt-3 sm:mt-4" />
+            <p
+              className="tldr mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-white/85 sm:mt-5 sm:text-base md:text-lg"
+              data-speakable
+            >
               {data.intro}
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row">
               <a
                 href={waHref}
                 target="_blank"

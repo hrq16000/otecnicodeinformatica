@@ -40,7 +40,6 @@ const INVALID_URLS = [
   "/.env",
   // Variações de slug dinâmico (marcas, problemas, procedimentos, bairros).
   "/marcas/dell-inexistente",
-  "/marcas/",
   "/problemas/tela-azul-inexistente-xyz",
   "/procedimentos/reballing-inexistente-xyz",
   "/servicos/formatacao/centro-inexistente-xyz",

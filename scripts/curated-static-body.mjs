@@ -485,7 +485,9 @@ export function staticBodyFor(route) {
     .map((c, i) =>
       i === crumbs.length - 1
         ? `<span aria-current="page">${esc(c.name)}</span>`
-        : `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`,
+        : c.path
+          ? `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`
+          : `<span>${esc(c.name)}</span> ›`,
     )
     .join(" ");
   const faqHtml = route.faq?.length
@@ -622,7 +624,7 @@ function breadcrumbList(path) {
       "@type": "ListItem",
       position: i + 1,
       name: c.name,
-      item: `${SITE}${c.path === "/" ? "/" : c.path}`,
+      ...(c.path ? { item: `${SITE}${c.path === "/" ? "/" : c.path}` } : {}),
     })),
   };
 }

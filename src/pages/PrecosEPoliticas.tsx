@@ -9,6 +9,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
+import { PrecosServiceSchema } from "@/components/PrecosServiceSchema";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
 

@@ -6,6 +6,7 @@
 // NÃO adicionar rotas fora do manifesto curado (scripts/lib/curated-urls.mjs).
 import { SERVICO_BAIRRO } from "./lib/curated-urls.mjs";
 import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
+import { priorityFaq } from "./lib/priority-faq.mjs";
 
 const BASE_ROUTES = [
   {

@@ -55,6 +55,12 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  "notebook-superaquecendo-o-que-fazer": {
+    src: "/blog/notebook-superaquecendo-o-que-fazer.jpg",
+    alt: "Base de notebook sobre suporte ventilado em bancada técnica clara",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

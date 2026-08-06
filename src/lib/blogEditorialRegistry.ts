@@ -122,7 +122,10 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
 // Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
 export const EDITORIAL_PILOT_SLUGS = [
   "como-instalar-windows-11-do-zero",
-  "notebook-superaquecendo-o-que-fazer",
+  // Rodada 3F: despromovidos por sobreposição de intenção com as páginas
+  // de sintoma /problemas/notebook-nao-liga e /problemas/computador-lento.
+  "notebook-nao-liga-o-que-fazer",
+  "computador-lento-causas-solucoes",
 ] as const;
 
 

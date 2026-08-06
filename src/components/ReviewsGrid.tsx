@@ -118,7 +118,7 @@ const TrustProofFallback = ({
               }
             >
               <MessageCircle className="w-5 h-5" />
-              solicitar atendimento pelo WhatsApp
+              falar com o técnico pelo WhatsApp
             </Button>
           </div>
         )}

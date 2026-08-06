@@ -46,6 +46,8 @@ jobs:
         run: npm run validate:jsonld
       - name: JSON-LD gate das 4 páginas P0
         run: npm run check:jsonld-p0
+      - name: Gate de rich results (LocalBusiness/Service/FAQPage)
+        run: npm run check:rich-results:strict
       - name: Interlinking local gate (mãe ⇄ bairros/cidades)
         run: npm run check:local-interlinking
       - name: E-E-A-T coverage gate

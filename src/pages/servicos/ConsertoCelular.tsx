@@ -115,7 +115,7 @@ const ConsertoCelular = () => {
 
             <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar atendimento via WhatsApp
+              Falar sobre meu celular
             </Button>
           </div>
         </div>
@@ -272,7 +272,7 @@ const ConsertoCelular = () => {
           </p>
           <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar atendimento pelo WhatsApp
+            Agendar o reparo do celular
           </Button>
         </div>
       </section>

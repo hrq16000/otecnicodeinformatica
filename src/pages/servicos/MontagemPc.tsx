@@ -59,7 +59,7 @@ const MontagemPc = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal-text" data-reveal-delay="200">
               <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300" onClick={handleWhatsAppClick}>
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Solicitar atendimento
+                Montar meu PC com o técnico
               </Button>
             </div>
           </div>
@@ -188,7 +188,7 @@ const MontagemPc = () => {
           </p>
           <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white shadow-[0_0_24px_rgba(37,211,102,0.3)] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] transition-all duration-300" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar atendimento
+            Agendar a montagem do PC
           </Button>
         </div>
       </section>

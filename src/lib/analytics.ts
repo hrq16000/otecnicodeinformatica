@@ -150,6 +150,32 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLoca
   }
 };
 
+/**
+ * Engajamento com a FAQ (abrir/fechar pergunta) — medido ANTES do WhatsApp/ligação.
+ * Inclui route_type e o contexto de UTM/dispositivo, igual aos eventos de CTA.
+ */
+export const trackFaqToggle = (
+  question: string,
+  action: 'open' | 'close',
+  section = 'faq',
+  index?: number,
+) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  const payload = {
+    event_category: 'engagement',
+    event_label: `${section}_${normalizeTrackingLabel(question)}`,
+    faq_action: action,
+    faq_question: question.slice(0, 100),
+    faq_section: normalizeTrackingLabel(section),
+    ...(typeof index === 'number' ? { faq_index: index + 1 } : {}),
+    page_path: window.location.pathname,
+    route_type: routeTypeFromPath(window.location.pathname),
+    ...getDeviceContext(),
+    ...getUtmContext(),
+  };
+  window.gtag('event', GA4_EVENTS.faqToggle, payload);
+};
+
 // Track page views
 export const trackPageView = (pagePath: string, pageTitle: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
@@ -159,3 +185,4 @@ export const trackPageView = (pagePath: string, pageTitle: string) => {
     });
   }
 };
+

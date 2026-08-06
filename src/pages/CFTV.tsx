@@ -6,7 +6,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView, trackCTAClick, trackFaqToggle } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
 import {
   MessageCircle,
@@ -400,8 +400,13 @@ const FAQSection = () => {
             <div key={i} className="border border-primary/10 rounded-xl overflow-hidden">
               <button
                 className="w-full flex items-center justify-between p-5 text-left bg-muted/30 hover:bg-muted/50 transition-colors"
-                onClick={() => setOpen(open === i ? null : i)}
+                onClick={() => {
+                  const willOpen = open !== i;
+                  trackFaqToggle(faq.q, willOpen ? "open" : "close", "faq_cftv", i);
+                  setOpen(willOpen ? i : null);
+                }}
               >
+
                 <span className="font-semibold text-foreground pr-4">{faq.q}</span>
                 {open === i ? <ChevronUp className="h-5 w-5 text-accent flex-shrink-0" /> : <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />}
               </button>

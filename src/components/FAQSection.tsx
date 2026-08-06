@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
-import { trackCTAClick } from "@/lib/analytics";
+import { trackCTAClick, trackFaqToggle } from "@/lib/analytics";
 import { whatsappLink } from "@/lib/siteConfig";
 
 const WHATSAPP_URL = whatsappLink("Olá! Vi a FAQ e quero um atendimento em Curitiba.");
+
 
 
 interface FAQItem {
@@ -50,8 +51,11 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    const willOpen = openIndex !== index;
+    trackFaqToggle(faqs[index].question, willOpen ? "open" : "close", "faq_home", index);
+    setOpenIndex(willOpen ? index : null);
   };
+
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-background relative overflow-hidden spotlight-sweep mesh-gradient-warm" aria-labelledby="faq-heading">

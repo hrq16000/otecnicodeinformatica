@@ -5,6 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trackFaqToggle } from "@/lib/analytics";
+
 
 export type LocalFAQItem = {
   question: string;
@@ -47,8 +49,19 @@ export const LocalFAQSection = ({ title, faqs }: LocalFAQSectionProps) => {
             {title}
           </h2>
           
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-3"
+            onValueChange={(value) => {
+              const idx = value ? Number(value.replace("item-", "")) : -1;
+              if (idx >= 0 && faqs[idx]) {
+                trackFaqToggle(faqs[idx].question, "open", "faq_local", idx);
+              }
+            }}
+          >
             {faqs.map((item, idx) => (
+
               <AccordionItem 
                 key={idx} 
                 value={`item-${idx}`}

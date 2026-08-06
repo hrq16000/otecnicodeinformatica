@@ -35,6 +35,24 @@ jobs:
           GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
         run: npm run monitor:indexing:alert
 
+      - name: Status HTTP em produção (200/301/404)
+        if: always()
+        run: npm run verify:prod-status
+
+      - name: Core Web Vitals das URLs prioritárias
+        if: always()
+        env:
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: npm run monitor:vitals:alert
+
+      - name: Rank tracking local (WoW por consulta × URL)
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run report:rank-tracking
+
       - name: Relatório semanal de busca
         if: always()
         env:

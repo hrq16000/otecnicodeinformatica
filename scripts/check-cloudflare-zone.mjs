@@ -68,9 +68,10 @@ const api = async (path) => {
 
 let zone = null;
 try {
-  if (zoneIdEnv) {
+  if (/^[0-9a-f]{32}$/.test(zoneIdEnv ?? "")) {
     zone = await api(`/zones/${zoneIdEnv}`);
   } else {
+    if (zoneIdEnv) log("[cf-zone] CLOUDFLARE_ZONE_ID inválido — caindo para busca por nome da zona.");
     for (const name of ZONE_CANDIDATES) {
       const found = await api(`/zones?name=${encodeURIComponent(name)}`);
       if (found?.length) {

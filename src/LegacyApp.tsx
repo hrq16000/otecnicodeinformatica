@@ -946,6 +946,7 @@ const App = () => (
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
             <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />
+            <Route path="/status-os" element={<StatusOs />} />
             <Route path="/depoimentos" element={<Depoimentos />} />
             <Route path="/como-avaliar" element={<ComoAvaliar />} />
 

@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { GarantiaNotaFiscalPagamento } from "@/components/comercial/GarantiaNotaFiscalPagamento";
+import { QrContatoBlock } from "@/components/contato/QrContatoBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";

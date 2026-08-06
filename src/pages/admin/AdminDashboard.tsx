@@ -147,6 +147,40 @@ const AdminDashboard = () => {
 
 
   // Agregações
+  /** Conversões por tipo de rota (home, PF, PJ, serviço, local, institucional). */
+  const byRouteType = useMemo(() => {
+    const map = new Map<string, { key: string; wa: number; call: number; total: number }>();
+    for (const r of rows) {
+      const key = r.route_type || "—";
+      const cur = map.get(key) || { key, wa: 0, call: 0, total: 0 };
+      if (r.event_type === "wa_click") cur.wa++;
+      else cur.call++;
+      cur.total++;
+      map.set(key, cur);
+    }
+    return [...map.values()].sort((a, b) => b.total - a.total);
+  }, [rows]);
+
+  /** Conversões por campanha (utm_source / utm_medium / utm_campaign). */
+  const byCampaign = useMemo(() => {
+    const map = new Map<
+      string,
+      { source: string; medium: string; campaign: string; wa: number; call: number; total: number }
+    >();
+    for (const r of rows) {
+      const source = r.utm_source || "—";
+      const medium = r.utm_medium || "—";
+      const campaign = r.utm_campaign || "—";
+      const key = `${source}::${medium}::${campaign}`;
+      const cur = map.get(key) || { source, medium, campaign, wa: 0, call: 0, total: 0 };
+      if (r.event_type === "wa_click") cur.wa++;
+      else cur.call++;
+      cur.total++;
+      map.set(key, cur);
+    }
+    return [...map.values()].sort((a, b) => b.total - a.total);
+  }, [rows]);
+
   const byBairroServico = useMemo(() => {
     const map = new Map<string, { bairro: string; servico: string; wa: number; call: number; total: number }>();
     for (const r of rows) {

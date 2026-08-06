@@ -15,6 +15,7 @@ export interface MontagemOsData {
   enviaFotos?: boolean;
   cidade?: string;
   modalidade?: string;
+  janela?: string;
   consentimentoLgpd?: boolean;
 }
 

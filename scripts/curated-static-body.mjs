@@ -193,6 +193,24 @@ const PROBLEMA_LINKS = {
 
 /** Saídas obrigatórias do cluster empresarial (contrato editorial da onda 3D). */
 const SERVICO_LINKS = {
+  // Saídas para o cluster de sintoma: sem esses links o HTML servido deixava
+  // /problemas/* órfão (só existiam no bundle React).
+  "/servicos/manutencao-de-notebook": [
+    "/problemas/notebook-nao-liga",
+    "/servicos",
+    "/servicos/formatacao",
+    "/servicos/upgrade-ssd-ram",
+    "/precos-e-politicas",
+    "/contato",
+  ],
+  "/servicos/manutencao-de-computador": [
+    "/problemas/computador-lento",
+    "/servicos",
+    "/servicos/formatacao",
+    "/servicos/upgrade-ssd-ram",
+    "/precos-e-politicas",
+    "/contato",
+  ],
   "/servicos/suporte-tecnico-empresarial": [
     "/empresa-de-ti-curitiba",
     "/servicos/manutencao-preventiva-empresas",
@@ -235,7 +253,13 @@ export function linksFor(path) {
       out = ["/servicos", "/tecnico-informatica-curitiba", "/como-funciona", "/precos-e-politicas", "/contato"];
       break;
     case "hub-servicos":
-      out = [...siblings(SERVICOS, path, 4), "/precos-e-politicas", "/contato"];
+      out = [
+        ...siblings(SERVICOS, path, 3),
+        "/problemas/notebook-nao-liga",
+        "/problemas/computador-lento",
+        "/precos-e-politicas",
+        "/contato",
+      ];
       break;
     case "servico-bairro": {
       const parent = `/servicos/${path.split("/")[2]}`;

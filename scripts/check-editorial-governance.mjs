@@ -209,6 +209,8 @@ async function checkStaticHtml(posts) {
 async function checkSitemaps() {
   const pub = path.join(ROOT, "public");
   const files = (await fs.readdir(pub)).filter((f) => /^sitemap.*\.xml$/.test(f));
+  const { PROBLEMAS: CURATED_PROBLEMAS } = await import("./lib/curated-urls.mjs");
+  const allowedProblemas = new Set(CURATED_PROBLEMAS.map((e) => e.path));
   const allowedBlog = new Set([
     `${SITE}/blog`,
     ...EDITORIAL_WAVE_SLUGS.map((s) => `${SITE}/blog/${s}`),
@@ -219,7 +221,12 @@ async function checkSitemaps() {
       if (!allowedBlog.has(m[1]))
         fail(`sitemap ${f}: URL de blog fora da onda editorial (${m[1]})`);
     }
-    if (/\/problemas?\//.test(src)) fail(`sitemap ${f}: contém páginas de problemas`);
+    // Páginas de problema são indexáveis desde a onda 3B/3C: só podem estar no
+    // sitemap se declaradas no manifesto curado (fonte única), nunca por acaso.
+    for (const m of src.matchAll(/<loc>[^<]*?(\/problemas?\/[^<]*)<\/loc>/g)) {
+      if (!allowedProblemas.has(m[1]))
+        fail(`sitemap ${f}: página de problema fora do manifesto curado (${m[1]})`);
+    }
     if (/\/marcas?\//.test(src)) fail(`sitemap ${f}: contém páginas de marcas`);
   }
 
@@ -234,7 +241,7 @@ async function checkSitemaps() {
     fail(
       `sitemap principal: manifesto curado declara ${CURATED_PATHS.length} URLs, sitemap emitiu ${total} (rode npm run sitemap)`,
     );
-  note(`sitemaps: 0 artigos/problemas/marcas; principal = ${total} URLs`);
+  note(`sitemaps: blog/problemas/marcas conforme manifesto curado; principal = ${total} URLs`);
 }
 
 // ── 6. Datas ───────────────────────────────────────────────

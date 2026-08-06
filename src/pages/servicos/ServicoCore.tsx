@@ -6,6 +6,8 @@ import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
+import { siteConfig } from "@/lib/siteConfig";
+
 
 /**
  * Página de serviço essencial (data-driven). Recebe o slug canônico e

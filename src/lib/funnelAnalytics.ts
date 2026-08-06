@@ -34,18 +34,30 @@ function gtag(): GtagFn | null {
 
 function baseParams(extra: Record<string, unknown> = {}) {
   const location = extra.click_location || extra.cta_location || "unknown";
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+  const utms = readUtms();
   return {
     event_category: "wa_funnel",
-    page_path: typeof window !== "undefined" ? window.location.pathname : "/",
+    page_path: path,
+    // Segmentação PF/PJ/serviço/local no GA4 e Google Ads.
+    route_type: routeTypeFromPath(path),
     app_version: typeof window !== "undefined" ? window.__APP_VERSION__ || "dev" : "server",
     session_id: typeof window !== "undefined" ? getSessionId() : "server",
     ...getDeviceContext(),
-    ...readUtms(),
+    // UTMs padronizados: preserva campanha real, completa o que faltar.
+    utm_source: utms.utm_source || DEFAULT_UTM_SOURCE,
+    utm_medium: normalizeUtmMedium(
+      (utms.utm_medium as string | undefined) ||
+        (typeof extra.utm_medium === "string" ? extra.utm_medium : undefined),
+    ),
+    utm_campaign: utms.utm_campaign || campaignFromPath(path),
+    ...utms,
     ...extra,
     click_location: location,
     cta_location: location,
   };
 }
+
 
 /**
  * Contexto do ramo da triagem (PF × PJ). Fica em módulo para que TODO evento

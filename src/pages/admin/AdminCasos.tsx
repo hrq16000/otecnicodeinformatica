@@ -212,6 +212,74 @@ export default function AdminCasos() {
     toast({ title: "Pacote de auditoria gerado", description: "Somente leitura — nada foi publicado." });
   };
 
+  const runImport = () => {
+    const res = importCases(importText);
+    setImportIssues(res.issues.map((i) => `Linha ${i.row} · ${i.field}: ${i.message}`));
+    if (res.drafts.length === 0) {
+      toast({
+        title: "Nada importado",
+        description: `${res.skipped} registro(s) recusado(s) na validação.`,
+        variant: "destructive",
+      });
+      return;
+    }
+    let list = drafts;
+    for (const d of res.drafts) list = upsertDraft(d);
+    setDrafts(list);
+    setActiveId(res.drafts[0].id);
+    setImportText("");
+    toast({
+      title: `${res.drafts.length} caso(s) importado(s)`,
+      description: `${res.skipped} recusado(s). Todos entram como rascunho e ainda precisam de evidências validadas.`,
+    });
+  };
+
+  const exportCasePdf = async (c: DraftCase) => {
+    setBusy(true);
+    try {
+      await downloadCasePdf(c);
+      toast({ title: "PDF do caso gerado", description: "Documento interno — nada foi publicado." });
+    } catch {
+      toast({ title: "Falha ao gerar o PDF", variant: "destructive" });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const createBlock = () => {
+    const b = newBlock(`Bloco de prova ${blocks.length + 1}`);
+    setBlocks(upsertBlock(b));
+    setActiveBlockId(b.id);
+  };
+
+  const toggleCaseInBlock = (caseId: string) => {
+    if (!activeBlock) return;
+    const has = activeBlock.caseIds.includes(caseId);
+    const next: ProofBlock = {
+      ...activeBlock,
+      caseIds: has ? activeBlock.caseIds.filter((i) => i !== caseId) : [...activeBlock.caseIds, caseId],
+    };
+    setBlocks(upsertBlock(next));
+  };
+
+  const exportBlockPdf = async () => {
+    if (!activeBlock || !blockEval) return;
+    setBusy(true);
+    try {
+      const blob = await generateProofBlockPdf(
+        activeBlock.name,
+        blockEval.cases,
+        blockEval.pendencias,
+        `${blockEval.recommendation} — ${blockEval.rationale}`,
+      );
+      downloadBlob(blob, `${activeBlock.id}.pdf`);
+      toast({ title: "PDF do bloco gerado", description: "Somente leitura — nada foi publicado." });
+    } catch {
+      toast({ title: "Falha ao gerar o PDF do bloco", variant: "destructive" });
+    } finally {
+      setBusy(false);
+    }
+  };
 
 
   const handleFile = async (file: File) => {

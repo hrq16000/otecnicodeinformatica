@@ -392,21 +392,69 @@ export const ConsultaOsPorCelular = () => {
                   <p className="mt-4 rounded-lg bg-muted/50 p-3 text-sm text-foreground">{os.observacoes_publicas}</p>
                 ) : null}
 
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="mt-4"
-                  onClick={() => trackWaClick("status_os_falar_atendimento", { protocolo: os.protocolo })}
-                >
-                  <a
-                    href={whatsappLink(`Olá! Quero falar sobre a ordem de serviço ${os.protocolo}.`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    onClick={() => trackWaClick("status_os_falar_atendimento", { protocolo: os.protocolo })}
                   >
-                    <MessageCircle className="h-4 w-4" aria-hidden /> Falar sobre esta OS
-                  </a>
-                </Button>
+                    <a
+                      href={whatsappLink(`Olá! Quero falar sobre a ordem de serviço ${os.protocolo}.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-4 w-4" aria-hidden /> Falar sobre esta OS
+                    </a>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={gerandoPdf === os.protocolo}
+                    onClick={async () => {
+                      setGerandoPdf(os.protocolo);
+                      try {
+                        await Promise.race([
+                          baixarPdfOs({
+                            protocolo: os.protocolo,
+                            status: os.status,
+                            equipamento: os.equipamento,
+                            marcaModelo: os.marca_modelo,
+                            modalidade: os.modalidade,
+                            sintomas: os.sintomas,
+                            previsao: os.previsao_conclusao,
+                            observacoes: os.observacoes_publicas,
+                            etapas: os.etapas,
+                            fotos: os.fotos,
+                            progresso: pct,
+                          }),
+                          new Promise((_, reject) =>
+                            setTimeout(() => reject(new Error("timeout")), 15000),
+                          ),
+                        ]);
+                        track("os_pdf_download", { protocolo: os.protocolo });
+                      } catch {
+                        toast({
+                          title: "Não foi possível gerar o PDF",
+                          description:
+                            "Tente novamente em alguns segundos. Se persistir, fale pelo WhatsApp que enviamos o resumo da OS.",
+                          variant: "destructive",
+                        });
+                      } finally {
+                        setGerandoPdf(null);
+                      }
+                    }}
+                  >
+                    {gerandoPdf === os.protocolo ? (
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                    ) : (
+                      <FileDown className="h-4 w-4" aria-hidden />
+                    )}
+                    {gerandoPdf === os.protocolo ? "Gerando PDF..." : "Baixar PDF da OS"}
+                  </Button>
+                </div>
+
               </article>
             );
           })}

@@ -385,7 +385,7 @@ function editorialStaticBody(post, wave) {
             <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Todos os serviços de informática</a></li>
             <li style="margin:4px 0"><a href="/blog" style="color:#7fd4ec">Outros guias técnicos</a></li>
           </ul>
-          <p style="margin:12px 0 0"><a href="https://wa.me/5541997086380?text=${waText}" rel="noopener" style="color:#7fd4ec;font-weight:600">Falar no WhatsApp sobre o meu caso</a></p>
+          <p style="margin:12px 0 0"><a href="/contato?assunto=${waText}" data-cta-location="editorial_static" style="color:#7fd4ec;font-weight:600">Falar sobre o meu caso (triagem antes do WhatsApp)</a></p>
           <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Publicado por Técnico em Curitiba · <a href="${url}" style="color:#7fd4ec">${htmlEscape(url)}</a></p>
         </div>`;
 }

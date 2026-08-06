@@ -20,6 +20,8 @@
 //     aggregateRating inventado.
 // 10. Conteúdo editorial (/blog): proíbe Person fictício, jobTitle e
 //     BlogPosting/Article tratados como aprovados (governança fail-closed).
+//     Exceção: artigos da onda editorial aprovada (scripts/lib/editorial-wave.mjs)
+//     podem declarar BlogPosting/Article/TechArticle — Person/jobTitle seguem proibidos.
 // 11. Conta HTMLs, blocos e erros; encerra com código != 0 se houver erro.
 //
 // Uso:
@@ -30,6 +32,10 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { JSDOM } from "jsdom";
+import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+
+// Slugs aprovados na onda editorial: podem declarar BlogPosting/Article.
+const APPROVED_EDITORIAL_SLUGS = new Set(EDITORIAL_WAVE.map((e) => e.slug));
 
 const ROOT = process.argv[2] ?? "dist";
 const OFFICIAL_HOST = "tecnico.curitiba.br";
@@ -123,7 +129,7 @@ function isSiteUrl(u) {
   }
 }
 
-function validateEntity(entity, file, blockIndex, isEditorial) {
+function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditorial = false, isEditorialHub = false) {
   // @context (quando presente) deve ser https://schema.org.
   if ("@context" in entity) {
     const ctx = entity["@context"];
@@ -146,7 +152,17 @@ function validateEntity(entity, file, blockIndex, isEditorial) {
     }
 
     if (isEditorial) {
+      const isArticleType = types.some((t) => t !== "Person" && EDITORIAL_FORBIDDEN_TYPES.has(t));
+      // O hub /blog só pode listar artigos da onda aprovada (fail-closed).
+      if (isEditorialHub && isArticleType) {
+        const slug = String(node.url ?? node["@id"] ?? "").match(/\/blog\/([^/?#]+)/)?.[1] ?? null;
+        if (!slug || !APPROVED_EDITORIAL_SLUGS.has(slug)) {
+          push(file, `hub /blog lista artigo não aprovado (${slug ?? "sem url"})`, blockIndex);
+        }
+      }
       for (const t of types) {
+        // Onda aprovada (ou hub validado acima): Article/BlogPosting são esperados.
+        if ((isApprovedEditorial || isEditorialHub) && t !== "Person") continue;
         if (EDITORIAL_FORBIDDEN_TYPES.has(t)) {
           push(file, `tipo editorial proibido "${t}" (governança fail-closed)`, blockIndex);
         }
@@ -202,7 +218,12 @@ async function main() {
     const nodes = [...dom.window.document.querySelectorAll('script[type="application/ld+json"]')];
     if (nodes.length > 0) htmlWithLd++;
 
-    const isEditorial = /(^|\/)blog(\/|$)/.test(file.replace(/\\/g, "/"));
+    const posixFile = file.replace(/\\/g, "/");
+    const isEditorial = /(^|\/)blog(\/|$)/.test(posixFile);
+    const editorialSlug = posixFile.match(/\/blog\/([^/]+)\/index\.html$/)?.[1] ?? null;
+    const isApprovedEditorial =
+      isEditorial && editorialSlug != null && APPROVED_EDITORIAL_SLUGS.has(editorialSlug);
+    const isEditorialHub = /\/blog\/index\.html$/.test(posixFile);
 
     nodes.forEach((node, i) => {
       blockCount++;
@@ -219,7 +240,7 @@ async function main() {
         return;
       }
       for (const entity of topLevelEntities(parsed)) {
-        validateEntity(entity, file, i, isEditorial);
+        validateEntity(entity, file, i, isEditorial, isApprovedEditorial, isEditorialHub);
       }
     });
   }

@@ -86,6 +86,7 @@
     "check:copy": "npm run check:forbidden-copy && npm run check:trust-claims",
     "report:local-audit": "node scripts/report-local-audit.mjs",
     "check:editorial-cluster": "node scripts/check-editorial-cluster.mjs",
+    "check:editorial-no-direct-wa": "node scripts/check-editorial-no-direct-wa.mjs",
     "report:editorial": "node scripts/report-editorial-inventory.mjs",
     "check:index-health": "node scripts/check-index-health.mjs",
     "check:index-health:ci": "node scripts/check-index-health.mjs --base=http://localhost:8080",

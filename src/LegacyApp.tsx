@@ -416,7 +416,7 @@ const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoBairr
 // Dynamic problem/intent pages (50 páginas de intenção de busca)
 const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 const NotebookNaoLiga = lazy(() => import("./pages/problemas/NotebookNaoLiga"));
-const ComputadorLento = lazy(() => import("./pages/problemas/ComputadorLento"));
+const ProblemaComputadorLento = lazy(() => import("./pages/problemas/ComputadorLento"));
 
 // Procedimentos Técnicos hub
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
@@ -919,7 +919,7 @@ const App = () => (
             
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/notebook-nao-liga" element={<NotebookNaoLiga />} />
-            <Route path="/problemas/computador-lento" element={<ComputadorLento />} />
+            <Route path="/problemas/computador-lento" element={<ProblemaComputadorLento />} />
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />

@@ -29,6 +29,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     slug === "montagem-de-pc" ? (
       <>
         <MontagemPoliticaBlocos />
+        <MontagemComoFunciona />
         <MontagemWizard />
       </>
     ) : undefined;

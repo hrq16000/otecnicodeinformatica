@@ -209,6 +209,37 @@ const BASE_ROUTES = [
     "description": "Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia."
   },
   {
+    "path": "/problemas/computador-lento",
+    "title": "Computador Lento? Diagnóstico Técnico em Curitiba",
+    "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.",
+    "h1": "Computador lento: sintomas, causas possíveis e o que realmente resolve",
+    "subtitulo": "Lentidão quase nunca tem uma causa única: armazenamento, memória, temperatura e software se manifestam de formas diferentes e exigem soluções diferentes.",
+    "blocos": [
+      {
+        "titulo": "Lentidão é sintoma, não diagnóstico",
+        "paragrafos": [
+          "Existem quatro famílias de causa bem diferentes: armazenamento, memória, temperatura e software. Demora para ligar aponta para o disco; travar com vários programas abertos aponta para memória; piorar com o tempo de uso aponta para aquecimento; ficar lento de repente após uma atualização aponta para software.",
+          "A triagem pergunta quando a lentidão aparece e o que está aberto no momento. Ela orienta a modalidade de atendimento, mas a causa só é confirmada com o equipamento avaliado."
+        ]
+      },
+      {
+        "titulo": "O que você pode observar antes do atendimento",
+        "paragrafos": [
+          "Reiniciar e notar se a lentidão aparece logo ou depois de um tempo, conferir o espaço livre do disco do sistema, observar aquecimento e ruído do cooler, anotar quais programas estão abertos e se o problema também ocorre sem internet.",
+          "O que não recomendamos: instalar \"otimizadores\" baixados por anúncio, acumular mais de um antivírus e desativar serviços do sistema por tutorial."
+        ]
+      },
+      {
+        "titulo": "O que resolve cada tipo de causa",
+        "paragrafos": [
+          "Instalação de SSD é a intervenção de maior impacto quando o sistema ainda roda em HD mecânico. Ampliação de memória é indicada quando a máquina trava com muitos programas abertos, respeitando o limite suportado pela placa.",
+          "Limpeza interna resolve a lentidão ligada ao aquecimento. Formatação resolve o que é software — sistema corrompido, infecção persistente ou acúmulo de instalações — e não corrige disco lento nem falta de memória.",
+          "Quando a placa não suporta mais memória, quando o processador limita o uso pretendido ou quando a soma das peças se aproxima do valor de um equipamento equivalente, explicamos o cenário e a alternativa, incluindo a migração dos seus dados."
+        ]
+      }
+    ]
+  },
+  {
     "path": "/problemas/notebook-nao-liga",
     "title": "Notebook Não Liga? Assistência Técnica em Curitiba",
     "description": "Notebook não liga ou liga sem imagem? Entenda os sinais, as causas possíveis, os testes externos seguros e como funciona o diagnóstico técnico em Curitiba.",

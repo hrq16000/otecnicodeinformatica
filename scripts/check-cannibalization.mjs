@@ -33,6 +33,10 @@ export const INTENT_MATRIX = [
   { path: "/servicos/upgrade-ssd-ram", keyword: "instalacao de ssd e upgrade de memoria", role: "serviço upgrade", notCompeting: ["/servicos/manutencao-de-computador"] },
   { path: "/empresa-de-ti-curitiba", keyword: "empresa de ti em curitiba", role: "PJ institucional", notCompeting: ["/servicos/suporte-tecnico-empresarial"] },
   { path: "/servicos/suporte-tecnico-empresarial", keyword: "suporte tecnico empresarial", role: "PJ execução", notCompeting: ["/empresa-de-ti-curitiba"] },
+  // Cluster de sintoma (Rodada 3B/3C): intenção informacional de diagnóstico,
+  // dominante para a busca por sintoma — nunca para a busca por serviço.
+  { path: "/problemas/notebook-nao-liga", keyword: "notebook nao liga", role: "sintoma notebook", notCompeting: ["/servicos/manutencao-de-notebook", "/servicos/formatacao"] },
+  { path: "/problemas/computador-lento", keyword: "computador lento", role: "sintoma lentidao", notCompeting: ["/servicos/manutencao-de-computador", "/servicos/formatacao", "/servicos/upgrade-ssd-ram"] },
 ];
 
 const P0 = new Set(INTENT_MATRIX.map((i) => i.path));

@@ -686,6 +686,7 @@ const ComoFunciona = () => {
                     { to: "/servicos/manutencao-de-computador", label: "Manutenção de computador" },
                     { to: "/servicos/formatacao", label: "Formatação de computador" },
                     { to: "/problemas/notebook-nao-liga", label: "Notebook não liga" },
+                    { to: "/problemas/computador-lento", label: "Computador lento" },
                   ].map((l) => (
                     <li key={l.to}>
                       <Link to={l.to} className="text-primary-foreground/90 underline underline-offset-4 hover:text-primary-foreground">

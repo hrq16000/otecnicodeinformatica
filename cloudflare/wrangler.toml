@@ -2,16 +2,25 @@ name = "tecnico-curitiba-edge"
 main = "worker.js"
 compatibility_date = "2026-01-01"
 
-# Substitua a rota pelo padrão da zona antes do primeiro deploy:
+# PRÉ-REQUISITO: `tecnico.curitiba.br` precisa estar em uma zona Cloudflare da
+# SUA conta. Como `curitiba.br` é um domínio de registro e não pode ser
+# adicionado como zona, use uma **zona de subdomínio** (Cloudflare > Add site >
+# `tecnico.curitiba.br`) e delegue os NS no painel do registro. Só então o
+# tráfego passa pelo edge e o worker consegue devolver 404 real.
+#
+# Antes de qualquer deploy rode o pré-voo (somente leitura):
+#   npm run check:cf-zone -- --enforce
 #   npx wrangler deploy --config cloudflare/wrangler.toml
-# Requer CLOUDFLARE_API_TOKEN (Workers Scripts: Edit) e CLOUDFLARE_ACCOUNT_ID.
+# Requer CLOUDFLARE_API_TOKEN (Workers Scripts: Edit + Workers Routes: Edit +
+# Zone: Read) e CLOUDFLARE_ACCOUNT_ID.
 [[routes]]
 pattern = "tecnico.curitiba.br/*"
-zone_name = "curitiba.br"
+zone_name = "tecnico.curitiba.br"
 
 [[routes]]
 pattern = "www.tecnico.curitiba.br/*"
-zone_name = "curitiba.br"
+zone_name = "tecnico.curitiba.br"
+
 
 [build]
 command = "npm run build"

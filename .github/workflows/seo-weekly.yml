@@ -63,6 +63,16 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: npm run report:weekly-seo
 
+      - name: Relatório semanal da Rodada 3C (5 páginas)
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run report:weekly-3c
+
+
+
       - name: Smoke de borda (rotas, aliases 301 e 404 reais)
         if: always()
         run: npm run smoke:edge:prod -- --report-only

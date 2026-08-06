@@ -86,6 +86,8 @@ const handlePreloadError = (err: unknown) => {
 const AppInit = () => {
   useEffect(() => {
     import("@/lib/utmCapture").then(({ captureUtmsFromUrl }) => captureUtmsFromUrl());
+    // Atribuição first-touch (SEO × Ads × orgânico) usada nos cliques de CTA.
+    import("@/lib/attribution").then(({ captureAttribution }) => captureAttribution());
   }, []);
   return null;
 };

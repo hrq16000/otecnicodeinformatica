@@ -100,6 +100,8 @@
     "verify:prod-status": "node scripts/check-soft-404.mjs --base=https://tecnico.curitiba.br",
     "monitor:indexing:alert": "node scripts/monitor-gsc-indexing.mjs --alert",
     "report:weekly-seo": "node scripts/report-weekly-seo.mjs",
+    "report:weekly-3c": "node scripts/report-weekly-3c.mjs",
+    "report:weekly-3c:alert": "node scripts/report-weekly-3c.mjs --alert",
     "check:priority-urls": "node scripts/check-priority-urls-guard.mjs",
     "check:priority-urls:dist": "node scripts/check-priority-urls-guard.mjs dist",
     "report:post-deploy": "node scripts/report-post-deploy.mjs dist",

@@ -1,0 +1,2 @@
+ALTER TABLE public.click_events ADD COLUMN IF NOT EXISTS attribution_channel text;
+CREATE INDEX IF NOT EXISTS click_events_attribution_channel_idx ON public.click_events (attribution_channel, created_at DESC);

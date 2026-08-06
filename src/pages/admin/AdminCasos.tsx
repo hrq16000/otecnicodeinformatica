@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Check, ClipboardCopy, Download, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { Check, ClipboardCopy, Download, FileDown, FileUp, Layers, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import {
   TECHNICAL_CASE_CATEGORIES,
   type TechnicalCaseCategory,
@@ -20,6 +20,7 @@ import {
 } from "@/lib/technicalCases";
 import {
   anonymizeDraft,
+  auditEvidenceSet,
   buildChecklist,
   canTransition,
   checkEvidenceUrl,
@@ -40,11 +41,27 @@ import {
   reviewedPhotoCount,
   scoreCase,
 } from "@/lib/technicalCaseAudit";
+import { downloadCasePdf, generateProofBlockPdf } from "@/lib/technicalCasePdf";
+import { downloadBlob } from "@/lib/pdfDoc";
+import {
+  importCases,
+  IMPORT_CSV_TEMPLATE,
+  IMPORT_JSON_TEMPLATE,
+} from "@/lib/technicalCaseImport";
+import {
+  evaluateBlock,
+  newBlock,
+  readBlocks,
+  removeBlock,
+  upsertBlock,
+  type ProofBlock,
+} from "@/lib/technicalCaseProofBlocks";
 import {
   TechnicalCaseSummary,
   TechnicalCaseEvidence,
   TechnicalCaseProcess,
 } from "@/components/casos/TechnicalCaseBlocks";
+
 
 
 const PHOTO_KINDS: TechnicalCasePhotoKind[] = [

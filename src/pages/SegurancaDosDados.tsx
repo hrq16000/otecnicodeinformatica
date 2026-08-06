@@ -92,6 +92,16 @@ const FAQS = [
       "Não. Nenhum serviço técnico honesto pode prometer proteção absoluta ou ausência total de risco. O que garantimos é o cuidado no procedimento, a informação antecipada sobre o risco de cada etapa e a decisão sempre nas suas mãos.",
   },
   {
+    question: "O técnico precisa conhecer minha senha?",
+    answer:
+      "Somente quando o serviço não pode ser executado sem a senha do próprio equipamento ou da conta local, informada no momento do atendimento e alterável depois. Senhas bancárias, códigos de autenticação e credenciais de sistemas de terceiros não devem ser enviados por mensagem. Solicitamos apenas o acesso necessário, explicamos o procedimento, encerramos a sessão ao final e não guardamos credenciais depois do atendimento.",
+  },
+  {
+    question: "Quem deve resolver problemas em sistemas de terceiros?",
+    answer:
+      "O fornecedor que mantém a plataforma. O acesso ao computador não garante acesso ou correção de sistemas mantidos por terceiros: licença, disponibilidade, servidor, correção de erro interno, atualização, recuperação de conta e regras de autenticação pertencem a quem opera o sistema. Verificamos a máquina, validamos a conectividade, registramos o erro por escrito e orientamos o contato com o fornecedor responsável.",
+  },
+  {
     question: "Como são tratados dados de empresas?",
     answer:
       "Com o mesmo princípio de acesso mínimo, acrescido da definição de quem autoriza o quê. Em ambiente corporativo, alterações em contas, políticas e sistemas dependem da autorização de quem responde pela empresa, e não do usuário do equipamento.",
@@ -395,6 +405,95 @@ const SegurancaDosDados = () => {
             Do lado do cliente: manter backup próprio sempre que possível, indicar corretamente onde estão os arquivos
             importantes, informar se há conteúdo sensível no equipamento, não enviar senhas bancárias ou códigos por
             mensagem e conferir o resultado antes de encerrar o atendimento.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Sistemas, credenciais e acessos de terceiros</h2>
+          <p className="mb-3 text-muted-foreground">
+            Boa parte dos incidentes de empresa envolve algo que não está dentro do computador:
+            um sistema contratado, um certificado, um e-mail corporativo, um provedor ou um
+            fornecedor de software. Nesses casos, a responsabilidade se divide em três — e a
+            divisão precisa estar clara antes do atendimento começar.
+          </p>
+          <p className="mb-6 text-muted-foreground">
+            <strong className="text-foreground">
+              O acesso ao computador não garante acesso ou correção de sistemas mantidos por
+              terceiros.
+            </strong>{" "}
+            <strong className="text-foreground">
+              Senhas, códigos de autenticação e credenciais bancárias não devem ser enviados por
+              mensagem.
+            </strong>{" "}
+            Quando o problema pertence ao sistema externo, pode ser necessário acionar o fornecedor
+            responsável.
+          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                titulo: "Responsabilidade do cliente",
+                itens: [
+                  "Possuir licença legítima do sistema utilizado",
+                  "Indicar quem autoriza alterações e acessos",
+                  "Manter acesso ao e-mail de recuperação",
+                  "Preservar os códigos de autenticação",
+                  "Saber quem é o fornecedor do sistema",
+                  "Manter contratos e cadastros em dia",
+                  "Informar restrições internas de acesso",
+                  "Manter backup próprio dos arquivos",
+                  "Não compartilhar senha sem necessidade",
+                ],
+              },
+              {
+                titulo: "Responsabilidade do técnico",
+                itens: [
+                  "Solicitar apenas o acesso necessário ao serviço",
+                  "Explicar o procedimento antes de executar",
+                  "Evitar armazenar credenciais após o atendimento",
+                  "Encerrar as sessões abertas ao final",
+                  "Não alterar configuração além do autorizado",
+                  "Registrar por escrito as limitações encontradas",
+                  "Orientar o contato com o fornecedor quando for o caso",
+                  "Não burlar proteção, bloqueio ou restrição",
+                ],
+              },
+              {
+                titulo: "Responsabilidade do fornecedor",
+                itens: [
+                  "Licença e condições de uso do sistema",
+                  "Disponibilidade da plataforma e do servidor",
+                  "Correção de erro interno do próprio sistema",
+                  "Atualizações e compatibilidade das versões",
+                  "Recuperação de conta e de acesso",
+                  "Suporte ao funcionamento do sistema",
+                  "Regras de autenticação e permissões",
+                  "Integrações e documentação técnica",
+                ],
+              },
+            ].map((col) => (
+              <div key={col.titulo} className="rounded-xl border border-border bg-card p-5">
+                <h3 className="mb-3 font-semibold text-foreground">{col.titulo}</h3>
+                <ul className="space-y-2">
+                  {col.itens.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            O que o suporte pode executar dentro do ambiente da empresa — e o que depende do
+            fornecedor — está descrito em{" "}
+            <Link
+              to="/servicos/suporte-tecnico-empresarial"
+              className="font-semibold text-accent hover:underline"
+            >
+              suporte técnico empresarial
+            </Link>
+            .
           </p>
         </section>
 

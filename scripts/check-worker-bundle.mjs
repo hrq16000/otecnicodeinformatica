@@ -34,6 +34,7 @@ console.log(`  manifesto: ${(manifest.validExact ?? []).length} rotas exatas, ` 
   `${(manifest.redirects ?? []).length} aliases, ${(manifest.assetFiles ?? []).length} assets`);
 
 let bundled = null;
+let gzReported = null;
 try {
   const out = execFileSync(
     "npx",
@@ -41,7 +42,13 @@ try {
     { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], timeout: 180000 },
   );
   console.log(out.trim().split("\n").map((l) => `  wrangler: ${l}`).join("\n"));
-  if (existsSync(".wrangler/dry/worker.js")) bundled = statSync(".wrangler/dry/worker.js").size;
+  // "Total Upload: 99.27 KiB / gzip: 24.63 KiB"
+  const m = out.match(/Total Upload:\s*([\d.]+)\s*KiB\s*\/\s*gzip:\s*([\d.]+)\s*KiB/i);
+  if (m) {
+    bundled = Number(m[1]) * 1024;
+    gzReported = Number(m[2]) * 1024;
+  }
+  if (bundled === null && existsSync(".wrangler/dry/worker.js")) bundled = statSync(".wrangler/dry/worker.js").size;
 } catch (e) {
   console.log(`  wrangler indisponível (${String(e.message).split("\n")[0]}) — usando estimativa local.`);
 }
@@ -53,7 +60,9 @@ if (bundled === null) {
 }
 
 const raw = bundled;
-const gz = gzipSync(Buffer.alloc(0)).length + Math.round(raw * 0.28); // proporção observada p/ JSON+JS
+const gz = gzReported ?? gzipSync(Buffer.alloc(0)).length + Math.round(raw * 0.28);
+console.log(`  origem da medida: ${gzReported !== null ? "wrangler dry-run (real)" : "estimativa local"}`);
+
 console.log(`  bundle bruto (estimado/real): ${kb(raw)}`);
 console.log(`  bundle comprimido estimado:   ${kb(gz)}`);
 console.log(`  limite com margem (${SAFETY * 100}%):      ${kb(LIMIT * SAFETY)}`);

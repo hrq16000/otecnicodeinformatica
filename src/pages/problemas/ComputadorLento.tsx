@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, ArrowRight, CheckCircle2, Gauge, MessageCircle, ShieldCheck } from "lucide-react";
+import { ChecklistPdfCard } from "@/components/problemas/ChecklistPdfCard";
+import { DIAGNOSTICO_CHECKLISTS } from "@/lib/diagnosticoChecklists";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -251,6 +253,11 @@ const ComputadorLento = () => {
             modalidade de atendimento, mas a causa só é confirmada com o equipamento avaliado.
           </p>
         </section>
+
+        <div className="mb-12">
+          <ChecklistPdfCard checklist={DIAGNOSTICO_CHECKLISTS["computador-lento"]} />
+        </div>
+
 
         <section className="mb-12">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Sintomas que ajudam a separar as causas</h2>

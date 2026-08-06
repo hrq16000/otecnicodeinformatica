@@ -199,13 +199,103 @@ export const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 export const MIN_EVIDENCE_WIDTH = 640;
 export const MIN_EVIDENCE_HEIGHT = 360;
 
+export type EvidenceQuality = NonNullable<TechnicalCasePhoto["quality"]>;
+
 export interface EvidenceProcessResult {
   ok: boolean;
   errors: string[];
+  /** Avisos que não bloqueiam o envio, mas entram no checklist. */
+  warnings: string[];
   /** JPEG re-codificado (sem EXIF) em data URL. */
   dataUrl?: string;
   width?: number;
   height?: number;
+  fingerprint?: string;
+  quality?: EvidenceQuality;
+}
+
+/** Procura o marcador APP1/Exif no arquivo original (JPEG e WebP). */
+async function detectExif(file: Blob): Promise<boolean> {
+  try {
+    const head = new Uint8Array(await file.slice(0, 65536).arrayBuffer());
+    for (let i = 0; i < head.length - 5; i++) {
+      if (head[i] === 0x45 && head[i + 1] === 0x78 && head[i + 2] === 0x69 && head[i + 3] === 0x66) {
+        return true; // "Exif"
+      }
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Assinatura perceptual (aHash 8×8) + métricas de textura.
+ * Usada para detectar evidência duplicada e foto genérica/ilustrativa.
+ */
+function analyzeCanvas(source: CanvasImageSource, width: number, height: number): { fingerprint: string; edgeEnergy: number; colorBuckets: number } | null {
+  const small = document.createElement("canvas");
+  small.width = 32;
+  small.height = 32;
+  const ctx = small.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return null;
+  ctx.drawImage(source, 0, 0, 32, 32);
+  const { data } = ctx.getImageData(0, 0, 32, 32);
+
+  const lum: number[] = [];
+  const buckets = new Set<string>();
+  for (let i = 0; i < data.length; i += 4) {
+    const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+    lum.push(0.299 * r + 0.587 * g + 0.114 * b);
+    buckets.add(`${r >> 5}-${g >> 5}-${b >> 5}`);
+  }
+
+  // aHash 8×8 a partir da média das células
+  let bits = "";
+  const cellAvgs: number[] = [];
+  for (let by = 0; by < 8; by++) {
+    for (let bx = 0; bx < 8; bx++) {
+      let sum = 0;
+      for (let y = 0; y < 4; y++) for (let x = 0; x < 4; x++) sum += lum[(by * 4 + y) * 32 + (bx * 4 + x)];
+      cellAvgs.push(sum / 16);
+    }
+  }
+  const mean = cellAvgs.reduce((a, b) => a + b, 0) / cellAvgs.length;
+  for (const v of cellAvgs) bits += v >= mean ? "1" : "0";
+  const fingerprint = (bits.match(/.{1,4}/g) ?? []).map((n) => parseInt(n, 2).toString(16)).join("");
+
+  // Energia de borda (gradiente médio) — fotos reais de bancada têm textura alta
+  let energy = 0;
+  for (let y = 1; y < 31; y++) {
+    for (let x = 1; x < 31; x++) {
+      const c = lum[y * 32 + x];
+      energy += Math.abs(c - lum[y * 32 + x + 1]) + Math.abs(c - lum[(y + 1) * 32 + x]);
+    }
+  }
+  void width;
+  void height;
+  return { fingerprint, edgeEnergy: Math.round(energy / (30 * 30 * 2)), colorBuckets: buckets.size };
+}
+
+function buildQuality(
+  width: number,
+  height: number,
+  exifFound: boolean,
+  metrics: { edgeEnergy: number; colorBuckets: number },
+): EvidenceQuality {
+  const genericSuspect = metrics.edgeEnergy < 6 || metrics.colorBuckets < 12;
+  return { width, height, exifFound, ...metrics, genericSuspect };
+}
+
+function qualityWarnings(q: EvidenceQuality): string[] {
+  const w: string[] = [];
+  if (q.genericSuspect) {
+    w.push(
+      `Possível imagem genérica/ilustrativa (textura ${q.edgeEnergy}, ${q.colorBuckets} faixas de cor). Substitua por foto real do atendimento.`,
+    );
+  }
+  if (q.exifFound) w.push("EXIF encontrado no arquivo original — removido na re-codificação.");
+  return w;
 }
 
 /**
@@ -220,14 +310,16 @@ export async function processEvidenceFile(file: File): Promise<EvidenceProcessRe
   if (file.size > MAX_UPLOAD_BYTES) {
     errors.push(`Arquivo acima de ${Math.round(MAX_UPLOAD_BYTES / 1024 / 1024)} MB.`);
   }
-  if (errors.length) return { ok: false, errors };
+  if (errors.length) return { ok: false, errors, warnings: [] };
 
+  const exifFound = await detectExif(file);
   const bitmap = await createImageBitmap(file).catch(() => null);
-  if (!bitmap) return { ok: false, errors: ["Arquivo de imagem ilegível."] };
+  if (!bitmap) return { ok: false, errors: ["Arquivo de imagem ilegível."], warnings: [] };
 
   if (bitmap.width < MIN_EVIDENCE_WIDTH || bitmap.height < MIN_EVIDENCE_HEIGHT) {
     return {
       ok: false,
+      warnings: [],
       errors: [
         `Dimensões insuficientes (${bitmap.width}×${bitmap.height}). Mínimo ${MIN_EVIDENCE_WIDTH}×${MIN_EVIDENCE_HEIGHT}.`,
       ],
@@ -242,34 +334,108 @@ export async function processEvidenceFile(file: File): Promise<EvidenceProcessRe
   canvas.width = w;
   canvas.height = h;
   const ctx = canvas.getContext("2d");
-  if (!ctx) return { ok: false, errors: ["Não foi possível processar a imagem neste navegador."] };
+  if (!ctx) return { ok: false, errors: ["Não foi possível processar a imagem neste navegador."], warnings: [] };
   ctx.drawImage(bitmap, 0, 0, w, h);
+  const metrics = analyzeCanvas(bitmap, w, h);
   bitmap.close?.();
 
-  return { ok: true, errors: [], dataUrl: canvas.toDataURL("image/jpeg", 0.82), width: w, height: h };
+  const quality = metrics ? buildQuality(w, h, exifFound, metrics) : undefined;
+  return {
+    ok: true,
+    errors: [],
+    warnings: quality ? qualityWarnings(quality) : [],
+    dataUrl: canvas.toDataURL("image/jpeg", 0.82),
+    width: w,
+    height: h,
+    fingerprint: metrics?.fingerprint,
+    quality,
+  };
 }
 
 /** Confere que uma URL de evidência responde 200 e tem dimensões mínimas. */
 export async function checkEvidenceUrl(url: string): Promise<EvidenceProcessResult> {
-  if (!/^https?:\/\/|^\//.test(url)) return { ok: false, errors: ["URL inválida."] };
+  if (!/^https?:\/\/|^\//.test(url)) return { ok: false, errors: ["URL inválida."], warnings: [] };
   try {
     const res = await fetch(url, { method: "GET" });
-    if (!res.ok) return { ok: false, errors: [`HTTP ${res.status} ao buscar a evidência.`] };
+    if (!res.ok) return { ok: false, errors: [`HTTP ${res.status} ao buscar a evidência.`], warnings: [] };
     const blob = await res.blob();
     if (!ALLOWED_IMAGE_TYPES.includes(blob.type)) {
-      return { ok: false, errors: [`Tipo não permitido (${blob.type || "desconhecido"}).`] };
+      return { ok: false, errors: [`Tipo não permitido (${blob.type || "desconhecido"}).`], warnings: [] };
     }
+    const exifFound = await detectExif(blob);
     const bitmap = await createImageBitmap(blob).catch(() => null);
-    if (!bitmap) return { ok: false, errors: ["Imagem ilegível na URL informada."] };
+    if (!bitmap) return { ok: false, errors: ["Imagem ilegível na URL informada."], warnings: [] };
     const { width, height } = bitmap;
-    bitmap.close?.();
     if (width < MIN_EVIDENCE_WIDTH || height < MIN_EVIDENCE_HEIGHT) {
-      return { ok: false, errors: [`Dimensões insuficientes (${width}×${height}).`] };
+      bitmap.close?.();
+      return { ok: false, errors: [`Dimensões insuficientes (${width}×${height}).`], warnings: [] };
     }
-    return { ok: true, errors: [], width, height };
+    const metrics = analyzeCanvas(bitmap, width, height);
+    bitmap.close?.();
+    const quality = metrics ? buildQuality(width, height, exifFound, metrics) : undefined;
+    return {
+      ok: true,
+      errors: [],
+      warnings: quality ? qualityWarnings(quality) : [],
+      width,
+      height,
+      fingerprint: metrics?.fingerprint,
+      quality,
+    };
   } catch {
-    return { ok: false, errors: ["Falha de rede ao validar a URL."] };
+    return { ok: false, errors: ["Falha de rede ao validar a URL."], warnings: [] };
   }
+}
+
+/** Distância de Hamming entre duas assinaturas hexadecimais. */
+export function fingerprintDistance(a: string, b: string): number {
+  if (!a || !b || a.length !== b.length) return 64;
+  let d = 0;
+  for (let i = 0; i < a.length; i++) {
+    let x = parseInt(a[i], 16) ^ parseInt(b[i], 16);
+    while (x) {
+      d += x & 1;
+      x >>= 1;
+    }
+  }
+  return d;
+}
+
+export interface EvidenceSetIssue {
+  index: number;
+  kind: "duplicada" | "generica" | "exif" | "ilustrativa";
+  message: string;
+}
+
+/** Auditoria do conjunto de evidências: duplicidade, genérica, EXIF. */
+export function auditEvidenceSet(photos: TechnicalCasePhoto[]): EvidenceSetIssue[] {
+  const issues: EvidenceSetIssue[] = [];
+  photos.forEach((p, i) => {
+    if (p.quality?.genericSuspect) {
+      issues.push({
+        index: i,
+        kind: "generica",
+        message: `Foto ${i + 1}: suspeita de imagem genérica (textura ${p.quality.edgeEnergy}, ${p.quality.colorBuckets} faixas de cor). Substitua por foto real do atendimento.`,
+      });
+    }
+    if (p.quality?.exifFound && !p.exifStripped) {
+      issues.push({ index: i, kind: "exif", message: `Foto ${i + 1}: EXIF detectado e ainda não removido.` });
+    }
+    if (!p.fromService) {
+      issues.push({ index: i, kind: "ilustrativa", message: `Foto ${i + 1}: marcada como ilustrativa — não conta como prova.` });
+    }
+    for (let j = 0; j < i; j++) {
+      const other = photos[j];
+      const same =
+        (p.src && p.src === other.src) ||
+        (!!p.fingerprint && !!other.fingerprint && fingerprintDistance(p.fingerprint, other.fingerprint) <= 4);
+      if (same) {
+        issues.push({ index: i, kind: "duplicada", message: `Foto ${i + 1}: praticamente idêntica à foto ${j + 1}. Substitua por outro ângulo/etapa.` });
+        break;
+      }
+    }
+  });
+  return issues;
 }
 
 export function validatePhotoMetadata(p: TechnicalCasePhoto): string[] {
@@ -280,8 +446,10 @@ export function validatePhotoMetadata(p: TechnicalCasePhoto): string[] {
   if (!p.kind) errs.push("classificação obrigatória");
   if (!p.exifStripped) errs.push("EXIF não confirmado como removido");
   if (!p.screenReviewed) errs.push("revisão de tela/etiqueta pendente");
+  if (p.quality?.genericSuspect) errs.push("suspeita de foto genérica — substituir");
   return errs;
 }
+
 
 // ── Checklist operacional ──────────────────────────────────────────────────
 export interface ChecklistItem {
@@ -294,6 +462,7 @@ export interface ChecklistItem {
 export function buildChecklist(c: DraftCase): ChecklistItem[] {
   const pii = scanPii(c);
   const photoErrs = c.evidence.photos.flatMap(validatePhotoMetadata);
+  const evidenceIssues = auditEvidenceSet(c.evidence.photos);
   const item = (id: string, label: string, done: boolean, hint?: string): ChecklistItem => ({
     id,
     label,
@@ -312,6 +481,13 @@ export function buildChecklist(c: DraftCase): ChecklistItem[] {
     item("recomendacoes", "Recomendações ao cliente", c.recommendations.length > 0),
     item("os", "Referência interna do atendimento", !!c.evidence.workOrderReference?.trim()),
     item("evidencia", "Evidências válidas (tipo, alt, EXIF, dimensões)", c.evidence.photos.length > 0 && photoErrs.length === 0, photoErrs.join("; ")),
+    item(
+      "evidencia-conjunto",
+      "Conjunto de evidências sem duplicidade ou foto genérica",
+      c.evidence.photos.length > 0 && evidenceIssues.length === 0,
+      evidenceIssues.map((i) => i.message).join(" "),
+    ),
+
     item("autorizacao", "Autorização do cliente registrada", c.evidence.customerAuthorization),
     item("revisao", "Revisão técnica concluída", c.evidence.technicalReview && /^\d{4}-\d{2}-\d{2}/.test(c.reviewedAt || "")),
     item("anonimizacao", "Anonimização confirmada (nome, série, dados, tela)",

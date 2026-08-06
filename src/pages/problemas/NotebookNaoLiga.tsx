@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AlertTriangle, ArrowRight, CheckCircle2, MessageCircle, Search, ShieldCheck } from "lucide-react";
+import { ChecklistPdfCard } from "@/components/problemas/ChecklistPdfCard";
+import { DIAGNOSTICO_CHECKLISTS } from "@/lib/diagnosticoChecklists";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -255,6 +257,11 @@ const NotebookNaoLiga = () => {
             simples em um reparo caro.
           </p>
         </section>
+
+        <div className="mb-12">
+          <ChecklistPdfCard checklist={DIAGNOSTICO_CHECKLISTS["notebook-nao-liga"]} />
+        </div>
+
 
         <section className="mb-12 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">

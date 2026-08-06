@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Check, ClipboardCopy, Download, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { Check, ClipboardCopy, Download, FileDown, FileUp, Layers, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import {
   TECHNICAL_CASE_CATEGORIES,
   type TechnicalCaseCategory,
@@ -20,6 +20,7 @@ import {
 } from "@/lib/technicalCases";
 import {
   anonymizeDraft,
+  auditEvidenceSet,
   buildChecklist,
   canTransition,
   checkEvidenceUrl,
@@ -40,11 +41,27 @@ import {
   reviewedPhotoCount,
   scoreCase,
 } from "@/lib/technicalCaseAudit";
+import { downloadCasePdf, generateProofBlockPdf } from "@/lib/technicalCasePdf";
+import { downloadBlob } from "@/lib/pdfDoc";
+import {
+  importCases,
+  IMPORT_CSV_TEMPLATE,
+  IMPORT_JSON_TEMPLATE,
+} from "@/lib/technicalCaseImport";
+import {
+  evaluateBlock,
+  newBlock,
+  readBlocks,
+  removeBlock,
+  upsertBlock,
+  type ProofBlock,
+} from "@/lib/technicalCaseProofBlocks";
 import {
   TechnicalCaseSummary,
   TechnicalCaseEvidence,
   TechnicalCaseProcess,
 } from "@/components/casos/TechnicalCaseBlocks";
+
 
 
 const PHOTO_KINDS: TechnicalCasePhotoKind[] = [
@@ -108,12 +125,20 @@ export default function AdminCasos() {
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<"todos" | TechnicalCaseStatus>("todos");
   const [categoryFilter, setCategoryFilter] = useState<"todas" | TechnicalCaseCategory>("todas");
+  const [showImport, setShowImport] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importIssues, setImportIssues] = useState<string[]>([]);
+  const [blocks, setBlocks] = useState<ProofBlock[]>([]);
+  const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
 
   useEffect(() => {
     document.title = "Casos técnicos (interno) — Admin";
     const list = readDrafts();
     setDrafts(list);
     setActiveId(list[0]?.id ?? null);
+    const bl = readBlocks();
+    setBlocks(bl);
+    setActiveBlockId(bl[0]?.id ?? null);
   }, []);
 
   const active = useMemo(() => drafts.find((d) => d.id === activeId) ?? null, [drafts, activeId]);
@@ -121,6 +146,13 @@ export default function AdminCasos() {
   const checklist = useMemo(() => (active ? buildChecklist(active) : []), [active]);
   const requirements = useMemo(() => (active ? buildRequirements(active) : []), [active]);
   const score = useMemo(() => (active ? scoreCase(active) : null), [active]);
+  const evidenceIssues = useMemo(() => (active ? auditEvidenceSet(active.evidence.photos) : []), [active]);
+  const activeBlock = useMemo(() => blocks.find((b) => b.id === activeBlockId) ?? null, [blocks, activeBlockId]);
+  const blockEval = useMemo(
+    () => (activeBlock ? evaluateBlock(activeBlock, drafts) : null),
+    [activeBlock, drafts],
+  );
+
 
   const visibleDrafts = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -180,6 +212,74 @@ export default function AdminCasos() {
     toast({ title: "Pacote de auditoria gerado", description: "Somente leitura — nada foi publicado." });
   };
 
+  const runImport = () => {
+    const res = importCases(importText);
+    setImportIssues(res.issues.map((i) => `Linha ${i.row} · ${i.field}: ${i.message}`));
+    if (res.drafts.length === 0) {
+      toast({
+        title: "Nada importado",
+        description: `${res.skipped} registro(s) recusado(s) na validação.`,
+        variant: "destructive",
+      });
+      return;
+    }
+    let list = drafts;
+    for (const d of res.drafts) list = upsertDraft(d);
+    setDrafts(list);
+    setActiveId(res.drafts[0].id);
+    setImportText("");
+    toast({
+      title: `${res.drafts.length} caso(s) importado(s)`,
+      description: `${res.skipped} recusado(s). Todos entram como rascunho e ainda precisam de evidências validadas.`,
+    });
+  };
+
+  const exportCasePdf = async (c: DraftCase) => {
+    setBusy(true);
+    try {
+      await downloadCasePdf(c);
+      toast({ title: "PDF do caso gerado", description: "Documento interno — nada foi publicado." });
+    } catch {
+      toast({ title: "Falha ao gerar o PDF", variant: "destructive" });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const createBlock = () => {
+    const b = newBlock(`Bloco de prova ${blocks.length + 1}`);
+    setBlocks(upsertBlock(b));
+    setActiveBlockId(b.id);
+  };
+
+  const toggleCaseInBlock = (caseId: string) => {
+    if (!activeBlock) return;
+    const has = activeBlock.caseIds.includes(caseId);
+    const next: ProofBlock = {
+      ...activeBlock,
+      caseIds: has ? activeBlock.caseIds.filter((i) => i !== caseId) : [...activeBlock.caseIds, caseId],
+    };
+    setBlocks(upsertBlock(next));
+  };
+
+  const exportBlockPdf = async () => {
+    if (!activeBlock || !blockEval) return;
+    setBusy(true);
+    try {
+      const blob = await generateProofBlockPdf(
+        activeBlock.name,
+        blockEval.cases,
+        blockEval.pendencias,
+        `${blockEval.recommendation} — ${blockEval.rationale}`,
+      );
+      downloadBlob(blob, `${activeBlock.id}.pdf`);
+      toast({ title: "PDF do bloco gerado", description: "Somente leitura — nada foi publicado." });
+    } catch {
+      toast({ title: "Falha ao gerar o PDF do bloco", variant: "destructive" });
+    } finally {
+      setBusy(false);
+    }
+  };
 
 
   const handleFile = async (file: File) => {
@@ -204,11 +304,17 @@ export default function AdminCasos() {
             fromService: true,
             exifStripped: true,
             screenReviewed: false,
+            fingerprint: res.fingerprint,
+            quality: res.quality,
           },
         ],
       },
     });
-    toast({ title: "Evidência processada", description: `EXIF removido · ${res.width}×${res.height}px.` });
+    toast({
+      title: "Evidência processada",
+      description: [`EXIF removido · ${res.width}×${res.height}px.`, ...res.warnings].join(" "),
+      variant: res.warnings.length ? "destructive" : undefined,
+    });
   };
 
   const handleUrl = async () => {
@@ -233,13 +339,20 @@ export default function AdminCasos() {
             fromService: true,
             exifStripped: false,
             screenReviewed: false,
+            fingerprint: res.fingerprint,
+            quality: res.quality,
           },
         ],
       },
     });
     setUrlInput("");
-    toast({ title: "URL validada", description: `HTTP 200 · ${res.width}×${res.height}px.` });
+    toast({
+      title: "URL validada",
+      description: [`HTTP 200 · ${res.width}×${res.height}px.`, ...res.warnings].join(" "),
+      variant: res.warnings.length ? "destructive" : undefined,
+    });
   };
+
 
   const setStatus = (next: TechnicalCaseStatus) => {
     if (!active) return;
@@ -275,6 +388,9 @@ export default function AdminCasos() {
             <Button variant="outline" onClick={() => void copyTemplate()}>
               <ClipboardCopy className="mr-2 h-4 w-4" /> Modelo do formulário
             </Button>
+            <Button variant="outline" onClick={() => setShowImport((v) => !v)}>
+              <FileUp className="mr-2 h-4 w-4" /> Importar JSON/CSV
+            </Button>
             <Button variant="outline" disabled={drafts.length === 0} onClick={downloadAudit}>
               <Download className="mr-2 h-4 w-4" /> Pacote de auditoria
             </Button>
@@ -283,6 +399,44 @@ export default function AdminCasos() {
             </Button>
           </div>
         </header>
+
+        {showImport && (
+          <Card className="mb-6 space-y-3 p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-heading text-lg font-bold text-foreground">Importação preenchível</h2>
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" variant="ghost" onClick={() => setImportText(IMPORT_JSON_TEMPLATE)}>
+                  Modelo JSON
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => setImportText(IMPORT_CSV_TEMPLATE)}>
+                  Modelo CSV
+                </Button>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Cole um JSON (lista de casos) ou um CSV com cabeçalho. Listas em uma célula são separadas por
+              <code className="mx-1">|</code>. Campos obrigatórios e varredura de dados pessoais rodam antes
+              de gravar: registros com problema são recusados por inteiro.
+            </p>
+            <Textarea rows={10} value={importText} onChange={(e) => setImportText(e.target.value)}
+              placeholder="Cole aqui o JSON ou CSV dos atendimentos" className="font-mono text-xs" />
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={runImport} disabled={!importText.trim()}>
+                <Upload className="mr-2 h-4 w-4" /> Validar e importar
+              </Button>
+              <Button variant="ghost" onClick={() => { setImportText(""); setImportIssues([]); }}>Limpar</Button>
+            </div>
+            {importIssues.length > 0 && (
+              <div className="rounded-lg border border-destructive/40 bg-destructive/5 p-3">
+                <p className="text-sm font-medium text-destructive">Registros recusados</p>
+                <ul className="mt-1 list-disc pl-5 text-xs text-destructive">
+                  {importIssues.map((i) => <li key={i}>{i}</li>)}
+                </ul>
+              </div>
+            )}
+          </Card>
+        )}
+
 
         <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
           <aside className="space-y-3">
@@ -649,7 +803,22 @@ export default function AdminCasos() {
                     </ul>
                   </div>
                 )}
+
+                {evidenceIssues.length > 0 && (
+                  <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-3">
+                    <p className="text-sm font-semibold text-destructive">Evidências a substituir</p>
+                    <ul className="mt-1 list-disc pl-5 text-sm text-destructive">
+                      {evidenceIssues.map((i) => <li key={`${i.kind}-${i.index}`}>{i.message}</li>)}
+                    </ul>
+                  </div>
+                )}
+
+                <Button variant="outline" disabled={busy} onClick={() => void exportCasePdf(active)}>
+                  <FileDown className="mr-2 h-4 w-4" /> Exportar este caso em PDF
+                </Button>
               </Card>
+
+
 
 
 
@@ -682,6 +851,100 @@ export default function AdminCasos() {
             </div>
           )}
         </div>
+
+        {/* Blocos de prova */}
+        <Card className="mt-8 space-y-4 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-heading text-lg font-bold text-foreground">
+              <Layers className="mr-2 inline h-5 w-5" /> Blocos de prova
+            </h2>
+            <Button variant="outline" onClick={createBlock}>
+              <Plus className="mr-2 h-4 w-4" /> Novo bloco
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Agrupe casos aprovados para avaliar a recomendação editorial do conjunto. Agrupar não publica
+            nada — o bloco existe só para decisão interna.
+          </p>
+
+          {blocks.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Nenhum bloco criado.</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {blocks.map((b) => (
+                <button key={b.id} onClick={() => setActiveBlockId(b.id)}
+                  className={`rounded-full border px-3 py-1 text-sm transition ${
+                    b.id === activeBlockId ? "border-accent bg-accent/10 text-foreground" : "border-border text-muted-foreground"
+                  }`}>
+                  {b.name} · {b.caseIds.length}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {activeBlock && blockEval && (
+            <div className="space-y-4 rounded-xl border border-border p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Input value={activeBlock.name} className="max-w-xs"
+                  onChange={(e) => setBlocks(upsertBlock({ ...activeBlock, name: e.target.value }))} />
+                <Button variant="ghost" size="sm"
+                  onClick={() => {
+                    const next = removeBlock(activeBlock.id);
+                    setBlocks(next);
+                    setActiveBlockId(next[0]?.id ?? null);
+                  }}>
+                  <Trash2 className="mr-2 h-4 w-4" /> Excluir bloco
+                </Button>
+              </div>
+
+              <div className="grid gap-2 md:grid-cols-2">
+                {drafts.map((d) => (
+                  <label key={d.id} className="flex items-start gap-2 rounded-lg border border-border p-2 text-sm">
+                    <input type="checkbox" className="mt-1" checked={activeBlock.caseIds.includes(d.id)}
+                      onChange={() => toggleCaseInBlock(d.id)} />
+                    <span>
+                      {d.title || d.id}
+                      <span className="ml-2 text-xs text-muted-foreground">{d.status} · {scoreCase(d).total}/14</span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/30 p-3 text-sm">
+                <p className="font-semibold text-foreground">
+                  <ShieldCheck className="mr-2 inline h-4 w-4" /> {blockEval.recommendation}
+                </p>
+                <p className="mt-1 text-muted-foreground">{blockEval.rationale}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {blockEval.approvedCount} aprovado(s) · média {blockEval.averageScore}/14 ·
+                  {" "}{blockEval.services.length} serviço(s)
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-foreground">Checklist único de pendências</p>
+                {blockEval.pendencias.length === 0 ? (
+                  <p className="mt-1 text-sm text-muted-foreground">Nenhuma pendência aberta neste bloco.</p>
+                ) : (
+                  <ul className="mt-1 space-y-1 text-sm">
+                    {blockEval.pendencias.map((p) => (
+                      <li key={p} className="flex items-start gap-2">
+                        <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+                        <span className="text-foreground">{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <Button variant="outline" disabled={busy || blockEval.cases.length === 0}
+                onClick={() => void exportBlockPdf()}>
+                <FileDown className="mr-2 h-4 w-4" /> Exportar bloco em PDF
+              </Button>
+            </div>
+          )}
+        </Card>
+
       </main>
     </>
   );

@@ -234,7 +234,21 @@ const ComputadorLento = () => {
         </div>
       </section>
 
+      {/* Rodada 3P — piloto visual de sintoma: confiança + sumário da página. */}
+      <TrustStrip />
+
       <main className="container mx-auto max-w-4xl px-4 py-12">
+        <PageTableOfContents
+          className="mb-12"
+          items={[
+            { id: "causas-familias", label: "Lentidão é sintoma, não diagnóstico" },
+            { id: "sintomas", label: "Sintomas que separam as causas" },
+            { id: "causas", label: "Causas possíveis" },
+            { id: "opcoes", label: "O que resolve cada causa" },
+            { id: "faq", label: "Perguntas frequentes" },
+          ]}
+        />
+
         <section id="causas-familias" className="scroll-mt-24 mb-12">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Lentidão é sintoma, não diagnóstico</h2>
           <p className="mb-3 text-muted-foreground">

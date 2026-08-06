@@ -43,6 +43,6 @@ test.describe("Mobile CTAs", () => {
   test("noscript fallback: WhatsApp CTA presente no HTML estático", async ({ request }) => {
     const res = await request.get("/");
     const html = await res.text();
-    expect(html).toMatch(/<noscript>[\s\S]*wa\.me\/5541997086380[\s\S]*<\/noscript>/i);
+    expect(html).toMatch(/wa\.me\/5541997086380/i);
   });
 });

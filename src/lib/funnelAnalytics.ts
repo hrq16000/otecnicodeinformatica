@@ -6,6 +6,12 @@
  */
 import { readUtms } from "./utmCapture";
 import { getSessionId } from "./funnelSubmission";
+import {
+  DEFAULT_UTM_SOURCE,
+  campaignFromPath,
+  normalizeUtmMedium,
+  routeTypeFromPath,
+} from "./trackingTaxonomy";
 import { supabase } from "@/integrations/supabase/client";
 
 

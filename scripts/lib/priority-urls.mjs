@@ -25,13 +25,8 @@ export const P0_PATHS = [
 /** Página de preços/políticas — sempre auditada junto com as P0. */
 export const PRECOS_PATH = "/precos-e-politicas";
 
-/** Pilares de apoio (hubs comerciais consolidados). */
-export const PILAR_PATHS = [
-  "/servicos",
-  "/assistencia-tecnica-curitiba",
-  "/atendimento-remoto",
-  "/faq",
-];
+/** Pilares de apoio (hubs comerciais já presentes no manifesto curado). */
+export const PILAR_PATHS = ["/servicos", "/atendimento-remoto", "/faq"];
 
 /** Artigos indexáveis da primeira onda editorial. */
 export const EDITORIAL_PATHS = EDITORIAL_WAVE_SLUGS.map((slug) => `/blog/${slug}`);

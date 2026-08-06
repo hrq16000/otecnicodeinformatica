@@ -187,7 +187,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* VISITA TÉCNICA — Serviços Rápidos */}
-        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
+        <section id="visita-tecnica" className="scroll-mt-24 py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -245,7 +245,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* EXCEÇÃO — Coleta e Entrega */}
-        <section className="py-8 md:py-10 bg-background">
+        <section id="coleta-e-entrega" className="scroll-mt-24 py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -330,7 +330,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* Tabela Completa de Serviços */}
-        <section className="py-8 md:py-10 bg-background">
+        <section id="tabela-de-servicos" className="scroll-mt-24 py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
@@ -384,7 +384,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* Políticas */}
-        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
+        <section id="politicas-de-atendimento" className="scroll-mt-24 py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">

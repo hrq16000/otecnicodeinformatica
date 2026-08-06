@@ -304,11 +304,17 @@ export default function AdminCasos() {
             fromService: true,
             exifStripped: true,
             screenReviewed: false,
+            fingerprint: res.fingerprint,
+            quality: res.quality,
           },
         ],
       },
     });
-    toast({ title: "Evidência processada", description: `EXIF removido · ${res.width}×${res.height}px.` });
+    toast({
+      title: "Evidência processada",
+      description: [`EXIF removido · ${res.width}×${res.height}px.`, ...res.warnings].join(" "),
+      variant: res.warnings.length ? "destructive" : undefined,
+    });
   };
 
   const handleUrl = async () => {
@@ -333,13 +339,20 @@ export default function AdminCasos() {
             fromService: true,
             exifStripped: false,
             screenReviewed: false,
+            fingerprint: res.fingerprint,
+            quality: res.quality,
           },
         ],
       },
     });
     setUrlInput("");
-    toast({ title: "URL validada", description: `HTTP 200 · ${res.width}×${res.height}px.` });
+    toast({
+      title: "URL validada",
+      description: [`HTTP 200 · ${res.width}×${res.height}px.`, ...res.warnings].join(" "),
+      variant: res.warnings.length ? "destructive" : undefined,
+    });
   };
+
 
   const setStatus = (next: TechnicalCaseStatus) => {
     if (!active) return;

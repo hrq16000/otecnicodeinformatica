@@ -12,6 +12,7 @@ import { downloadMontagemChecklistPdf } from "@/lib/montagemChecklistPdf";
 import { downloadMontagemOsPdf, gerarProtocoloMontagem } from "@/lib/montagemOsPdf";
 import { trackOsPdfDownload } from "@/lib/funnelAnalytics";
 import { TERMOS_URL } from "@/lib/precosConfig";
+import { saveOsRecord } from "@/lib/osRegistry";
 
 /**
  * Mini-wizard de montagem: coleta configuração pretendida, origem das peças e

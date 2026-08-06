@@ -803,7 +803,22 @@ export default function AdminCasos() {
                     </ul>
                   </div>
                 )}
+
+                {evidenceIssues.length > 0 && (
+                  <div className="rounded-xl border border-destructive/40 bg-destructive/5 p-3">
+                    <p className="text-sm font-semibold text-destructive">Evidências a substituir</p>
+                    <ul className="mt-1 list-disc pl-5 text-sm text-destructive">
+                      {evidenceIssues.map((i) => <li key={`${i.kind}-${i.index}`}>{i.message}</li>)}
+                    </ul>
+                  </div>
+                )}
+
+                <Button variant="outline" disabled={busy} onClick={() => void exportCasePdf(active)}>
+                  <FileDown className="mr-2 h-4 w-4" /> Exportar este caso em PDF
+                </Button>
               </Card>
+
+
 
 
 

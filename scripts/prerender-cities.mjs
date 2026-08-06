@@ -597,11 +597,8 @@ export async function prerenderCities(distDir) {
         serviceType: cat.titlePrefix,
         provider: { "@type": "LocalBusiness", name: "Técnico em Curitiba", url: SITE, telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
         areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: meta.cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
-        offers: {
-          "@type": "Offer", priceCurrency: "BRL", price: "300",
-          priceSpecification: { "@type": "PriceSpecification", priceCurrency: "BRL", minPrice: "300" },
-          availability: "https://schema.org/InStock", url: meta.url,
-        },
+        // Sem Offer: estas páginas legadas (noindex) não exibem preço visível —
+        // markup de preço sem conteúdo correspondente quebra a paridade JSON-LD.
         description: meta.description,
         url: meta.url,
       };
@@ -626,7 +623,8 @@ export async function prerenderCities(distDir) {
       areaServed: r.hub
         ? { "@type": "AdministrativeArea", name: "Curitiba e Região Metropolitana" }
         : { "@type": "City", name: r.city },
-      offers: { "@type": "Offer", price: "1350.00", priceCurrency: "BRL", availability: "https://schema.org/InStock", url },
+      // Sem Offer: página legada (noindex) sem preço visível — ver gate
+      // scripts/check-jsonld-content-parity.mjs.
       description: r.description,
       url,
     };

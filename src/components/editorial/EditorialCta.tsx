@@ -5,6 +5,7 @@ import {
   getEditorialEntry,
   type CtaBranch,
 } from "@/lib/editorialClusters";
+import { isEditorialApproved, getApprovedSlugs } from "@/lib/blogEditorialRegistry";
 
 /**
  * CTA editorial da Rodada 4F.

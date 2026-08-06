@@ -589,6 +589,70 @@ export default function AdminCasos() {
                 </div>
               </Card>
 
+              {/* Auditoria visual por caso */}
+              <Card className="space-y-4 p-5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h2 className="font-heading text-lg font-bold text-foreground">
+                    5.1 Auditoria editorial do caso
+                  </h2>
+                  {score && (
+                    <Badge className={score.total >= 11
+                      ? "bg-emerald-500/15 text-emerald-600"
+                      : score.total >= 8 ? "bg-amber-500/15 text-amber-600" : "bg-muted text-muted-foreground"}>
+                      {score.total}/14 · {score.recommendation}
+                    </Badge>
+                  )}
+                </div>
+
+                <p className="text-sm text-muted-foreground">
+                  Fotos revisadas: {reviewedPhotoCount(active)}/{MIN_REVIEWED_PHOTOS} exigidas
+                  (foto do atendimento, com alt, legenda, EXIF e tela conferidos).
+                </p>
+
+                <div className="grid gap-3 md:grid-cols-2">
+                  {["Diagnóstico", "Resultado", "Limitações", "Evidências", "Privacidade", "Revisão"].map((group) => {
+                    const items = requirements.filter((r) => r.group === group);
+                    if (items.length === 0) return null;
+                    const okCount = items.filter((i) => i.done).length;
+                    return (
+                      <div key={group} className="rounded-xl border border-border p-3">
+                        <p className="mb-2 text-sm font-semibold text-foreground">
+                          {group} <span className="text-xs font-normal text-muted-foreground">{okCount}/{items.length}</span>
+                        </p>
+                        <ul className="space-y-1.5 text-sm">
+                          {items.map((i) => (
+                            <li key={i.id} className="flex items-start gap-2">
+                              {i.done
+                                ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                                : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
+                              <span className={i.done ? "text-muted-foreground" : "text-foreground"}>
+                                {i.label}
+                                {!i.done && i.missing
+                                  ? <span className="block text-xs text-red-500">Falta: {i.missing}</span>
+                                  : null}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {score && (
+                  <div className="rounded-xl border border-border p-3">
+                    <p className="mb-2 text-sm font-semibold text-foreground">Pontuação editorial</p>
+                    <ul className="grid gap-1 text-sm text-muted-foreground md:grid-cols-2">
+                      {score.criteria.map((c) => (
+                        <li key={c.label}>{c.label}: <strong className="text-foreground">{c.score}</strong> — {c.note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </Card>
+
+
+
               {/* Rascunho de revisão interna */}
               <Card className="space-y-4 p-5">
                 <h2 className="font-heading text-lg font-bold text-foreground">6. Rascunho de revisão interna</h2>

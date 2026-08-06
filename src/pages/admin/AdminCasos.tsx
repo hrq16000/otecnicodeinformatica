@@ -851,6 +851,100 @@ export default function AdminCasos() {
             </div>
           )}
         </div>
+
+        {/* Blocos de prova */}
+        <Card className="mt-8 space-y-4 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-heading text-lg font-bold text-foreground">
+              <Layers className="mr-2 inline h-5 w-5" /> Blocos de prova
+            </h2>
+            <Button variant="outline" onClick={createBlock}>
+              <Plus className="mr-2 h-4 w-4" /> Novo bloco
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Agrupe casos aprovados para avaliar a recomendação editorial do conjunto. Agrupar não publica
+            nada — o bloco existe só para decisão interna.
+          </p>
+
+          {blocks.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Nenhum bloco criado.</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {blocks.map((b) => (
+                <button key={b.id} onClick={() => setActiveBlockId(b.id)}
+                  className={`rounded-full border px-3 py-1 text-sm transition ${
+                    b.id === activeBlockId ? "border-accent bg-accent/10 text-foreground" : "border-border text-muted-foreground"
+                  }`}>
+                  {b.name} · {b.caseIds.length}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {activeBlock && blockEval && (
+            <div className="space-y-4 rounded-xl border border-border p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Input value={activeBlock.name} className="max-w-xs"
+                  onChange={(e) => setBlocks(upsertBlock({ ...activeBlock, name: e.target.value }))} />
+                <Button variant="ghost" size="sm"
+                  onClick={() => {
+                    const next = removeBlock(activeBlock.id);
+                    setBlocks(next);
+                    setActiveBlockId(next[0]?.id ?? null);
+                  }}>
+                  <Trash2 className="mr-2 h-4 w-4" /> Excluir bloco
+                </Button>
+              </div>
+
+              <div className="grid gap-2 md:grid-cols-2">
+                {drafts.map((d) => (
+                  <label key={d.id} className="flex items-start gap-2 rounded-lg border border-border p-2 text-sm">
+                    <input type="checkbox" className="mt-1" checked={activeBlock.caseIds.includes(d.id)}
+                      onChange={() => toggleCaseInBlock(d.id)} />
+                    <span>
+                      {d.title || d.id}
+                      <span className="ml-2 text-xs text-muted-foreground">{d.status} · {scoreCase(d).total}/14</span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/30 p-3 text-sm">
+                <p className="font-semibold text-foreground">
+                  <ShieldCheck className="mr-2 inline h-4 w-4" /> {blockEval.recommendation}
+                </p>
+                <p className="mt-1 text-muted-foreground">{blockEval.rationale}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {blockEval.approvedCount} aprovado(s) · média {blockEval.averageScore}/14 ·
+                  {" "}{blockEval.services.length} serviço(s)
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-foreground">Checklist único de pendências</p>
+                {blockEval.pendencias.length === 0 ? (
+                  <p className="mt-1 text-sm text-muted-foreground">Nenhuma pendência aberta neste bloco.</p>
+                ) : (
+                  <ul className="mt-1 space-y-1 text-sm">
+                    {blockEval.pendencias.map((p) => (
+                      <li key={p} className="flex items-start gap-2">
+                        <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />
+                        <span className="text-foreground">{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <Button variant="outline" disabled={busy || blockEval.cases.length === 0}
+                onClick={() => void exportBlockPdf()}>
+                <FileDown className="mr-2 h-4 w-4" /> Exportar bloco em PDF
+              </Button>
+            </div>
+          )}
+        </Card>
+
       </main>
     </>
   );

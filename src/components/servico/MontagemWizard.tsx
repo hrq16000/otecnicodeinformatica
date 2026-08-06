@@ -52,21 +52,25 @@ export const MontagemWizard = () => {
   const [gerandoOs, setGerandoOs] = useState(false);
   const [protocolo, setProtocolo] = useState<string | null>(null);
 
+  const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
+
   const mensagem = useMemo(() => {
-    const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
     return [
       "Olá! Quero montar/configurar um computador.",
+      protocolo ? `• Ordem de serviço aberta: ${protocolo}` : "",
       modelo ? `• Configuração pretendida: ${modelo}` : "",
       uso ? `• Uso pretendido: ${uso}` : "",
       origemLabel ? `• Peças: ${origemLabel}` : "",
       pecas.trim() ? `• Peças que já tenho: ${pecas.trim()}` : "",
+      identificacao.trim() ? `• Identificação (série/nota): ${identificacao.trim()}` : "",
+      enviaFotos ? "• Vou enviar fotos das peças aqui pelo atendimento." : "",
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origem, pecas, cidade, modalidade]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo]);
 
   const canNext = step === 0 ? modelo.trim().length >= 3 && !!uso : step === 1 ? !!origem : aceite;
 
@@ -89,6 +93,31 @@ export const MontagemWizard = () => {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
     } finally {
       setGerando(false);
+    }
+  };
+
+  const baixarOs = async () => {
+    if (!aceite) return;
+    setGerandoOs(true);
+    const numero = protocolo ?? gerarProtocoloMontagem();
+    if (!protocolo) setProtocolo(numero);
+    try {
+      await downloadMontagemOsPdf({
+        protocolo: numero,
+        modelo,
+        uso,
+        origemPecas: origemLabel,
+        pecas: pecas.trim() || undefined,
+        identificacaoPecas: identificacao.trim() || undefined,
+        enviaFotos,
+        cidade: cidade.trim() || undefined,
+        modalidade: modalidade || undefined,
+      });
+      toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+    } catch {
+      toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
+    } finally {
+      setGerandoOs(false);
     }
   };
 

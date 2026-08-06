@@ -37,6 +37,9 @@ type Review = {
   created_at: string;
   client_phone: string | null;
   service_closed_at: string | null;
+  authorized_publication?: boolean | null;
+  origin_protocol?: string | null;
+
 };
 
 type Filter = "all" | "pending" | "published" | "hidden";

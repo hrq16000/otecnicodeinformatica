@@ -506,7 +506,8 @@ async function writeBlogPostPage(distDir, baseHtml, post) {
 
   let html = injectMeta(baseHtml, {
     path: routePath, url, title, description,
-    ogImage: cover, jsonLd: [article, breadcrumb], robots: ROBOTS_INDEX,
+    ogImage: cover, ogImageWidth: 1200, ogImageHeight: 630,
+    jsonLd: [article, breadcrumb], robots: ROBOTS_INDEX,
   });
   html = html
     .replace(/<meta property="og:type" content="website">/i, `<meta property="og:type" content="article">`)

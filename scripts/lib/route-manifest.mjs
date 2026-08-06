@@ -105,12 +105,21 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
   const routerPaths = await readRouterPaths(root);
   const redirects = await readRedirectMatrix(root);
   const prerendered = await readPrerenderedPaths(distDir);
+  // Slugs dinâmicos não pré-renderizados, extraídos das fontes reais de dados
+  // (scripts/dump-dynamic-slugs.ts). Fecham /marcas/:slug, /problemas/:slug e
+  // /procedimentos/:slug contra soft-404.
+  let dynamicSlugs = [];
+  try {
+    dynamicSlugs = JSON.parse(await fs.readFile(path.join(distDir, "dynamic-slugs.json"), "utf8")).paths || [];
+  } catch {
+    dynamicSlugs = [];
+  }
   const redirectFrom = new Set(redirects.map((r) => r.from));
 
   const validExact = new Set(["/"]);
   const validPatterns = [];
 
-  for (const p of [...routerPaths, ...prerendered, ...CURATED_PATHS]) {
+  for (const p of [...routerPaths, ...prerendered, ...CURATED_PATHS, ...dynamicSlugs]) {
     if (redirectFrom.has(p)) continue; // alias nunca é rota válida
     if (p.includes(":") || p.includes("*")) validPatterns.push(p);
     else validExact.add(p);
@@ -137,6 +146,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
       validPatterns: validPatterns.length,
       redirects: redirects.length,
       prerendered: prerendered.length,
+      dynamicSlugs: dynamicSlugs.length,
       curated: CURATED_PATHS.length,
       private: [...validExact].filter(isPrivate).length,
     },

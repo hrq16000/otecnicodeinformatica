@@ -235,7 +235,7 @@ const ComputadorLento = () => {
       </section>
 
       <main className="container mx-auto max-w-4xl px-4 py-12">
-        <section className="mb-12">
+        <section id="causas-familias" className="scroll-mt-24 mb-12">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Lentidão é sintoma, não diagnóstico</h2>
           <p className="mb-3 text-muted-foreground">
             O erro mais comum é tratar toda lentidão como se fosse a mesma coisa e formatar por padrão. Na prática,
@@ -259,7 +259,7 @@ const ComputadorLento = () => {
         </div>
 
 
-        <section className="mb-12">
+        <section id="sintomas" className="scroll-mt-24 mb-12">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Sintomas que ajudam a separar as causas</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {SINTOMAS.map((s) => (
@@ -271,7 +271,7 @@ const ComputadorLento = () => {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="causas" className="scroll-mt-24 mb-12">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Causas possíveis, sem afirmar diagnóstico</h2>
           <p className="mb-4 text-muted-foreground">
             As origens abaixo aparecem com frequência nos atendimentos. Costumam se somar: um HD mecânico com pouco
@@ -312,7 +312,7 @@ const ComputadorLento = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="opcoes" className="scroll-mt-24 mb-12">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Opções que resolvem cada tipo de causa</h2>
           <div className="space-y-4">
             {OPCOES.map((o) => (
@@ -452,7 +452,7 @@ const ComputadorLento = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="faq" className="scroll-mt-24 mb-12">
 
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>
           <div className="space-y-5">

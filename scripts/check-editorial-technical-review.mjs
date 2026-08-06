@@ -92,7 +92,8 @@ const slugsMatch = registry.match(/EDITORIAL_PILOT_SLUGS\s*=\s*\[([\s\S]*?)\]/);
 const pilotSlugs = slugsMatch
   ? [...slugsMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1])
   : [];
-if (pilotSlugs.length !== 8) fail(`Esperado 8 slugs-piloto, encontrados ${pilotSlugs.length}.`);
+if (pilotSlugs.length !== EXPECTED_PILOTS.length)
+  fail(`Esperado ${EXPECTED_PILOTS.length} slugs-piloto, encontrados ${pilotSlugs.length}.`);
 for (const s of EXPECTED_PILOTS) {
   if (!pilotSlugs.includes(s)) fail(`Piloto esperado ausente do registro: ${s}`);
 }
@@ -190,7 +191,9 @@ if (!exists("src/lib/blogEditorialImages.ts")) {
 const imagesSrc = exists("src/lib/blogEditorialImages.ts") ? read("src/lib/blogEditorialImages.ts") : "";
 const imgSection = imagesSrc.slice(imagesSrc.indexOf("EDITORIAL_IMAGE_BRIEFS"));
 const imgBlocks = extractSlugBlocks(imgSection);
-if (imgBlocks.size !== 8) fail(`Esperado 8 briefings de imagem, encontrados ${imgBlocks.size}.`);
+// Briefings de imagem seguem existindo para todos os candidatos (pilotos + promovidos).
+if (imgBlocks.size !== ALL_PILOT_CANDIDATES.length)
+  fail(`Esperado ${ALL_PILOT_CANDIDATES.length} briefings de imagem, encontrados ${imgBlocks.size}.`);
 for (const slug of EXPECTED_PILOTS) {
   const block = imgBlocks.get(slug);
   if (!block) {

@@ -3,7 +3,7 @@
 // GATE DOS OITO CONTEÚDOS-PILOTO (Onda editorial — PROMPT 31)
 //
 // Verificações OBJETIVAS. Nenhuma avaliação semântica subjetiva.
-// Garante que os oito pilotos existem, foram reescritos, seguem
+// Garante que os pilotos em revisão existem, foram reescritos, seguem
 // fail-closed (noindex, fora do sitemap, sem aprovação, sem autor
 // pessoal, sem schema de publicação) e apontam apenas para rotas
 // curadas.
@@ -287,4 +287,4 @@ if (errors.length) {
   errors.forEach((e) => console.error(`  ✗ ${e}`));
   process.exit(1);
 }
-console.log("\n✅ Gate dos oito pilotos aprovado.");
+console.log("\n✅ Gate da fila-piloto editorial aprovado.");

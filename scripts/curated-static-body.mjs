@@ -178,6 +178,19 @@ export function breadcrumbFor(path) {
   return crumbs;
 }
 
+/** Saídas obrigatórias por página de sintoma (contrato editorial da onda 3C). */
+const PROBLEMA_LINKS = {
+  "/problemas/computador-lento": [
+    "/servicos/manutencao-de-computador",
+    "/servicos/formatacao",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/remocao-de-virus",
+    "/servicos/recuperacao-de-dados",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+};
+
 export function linksFor(path) {
   const fam = familyOf(path);
   let out = [];
@@ -200,7 +213,8 @@ export function linksFor(path) {
       break;
     }
     case "problema":
-      out = [
+      // Cada sintoma aponta para os serviços que realmente resolvem aquele cenário.
+      out = PROBLEMA_LINKS[path] ?? [
         "/servicos/manutencao-de-notebook",
         "/precos-e-politicas",
         "/como-funciona",
@@ -242,7 +256,7 @@ export function linksFor(path) {
     default:
       out = ["/servicos", "/como-funciona", "/faq", "/contato"];
   }
-  return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, 6);
+  return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, PROBLEMA_LINKS[path]?.length ?? 6);
 }
 
 const WA_BASE = `https://wa.me/${SITE_CONFIG.whatsappNumber}`;

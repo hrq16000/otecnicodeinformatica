@@ -793,6 +793,15 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
       {
+        titulo: "Impressoras e periféricos conectados à rede",
+        paragrafos: [
+          "O atendimento de impressoras e periféricos nesta página se limita à configuração, comunicação e compartilhamento em rede. Defeitos mecânicos ou eletrônicos dependem de assistência específica para o equipamento. Isso significa que trabalhamos com o aparelho que já funciona e precisa ser encontrado, compartilhado ou reconectado — não com reparo do equipamento em si.",
+          "O que resolvemos: impressora já funcional que sumiu da rede, compartilhamento entre os computadores da casa ou do escritório, instalação do driver oficial do fabricante, fila de impressão travada, endereço IP fixo para o aparelho parar de trocar de número, descoberta na rede quando um computador enxerga e o outro não, comunicação entre dispositivos e reconexão depois da troca de roteador ou de senha do Wi-Fi. Quando o modelo suporta, também configuramos a conexão Wi-Fi do próprio aparelho e a digitalização em rede.",
+          "Armazenamento simples em rede — uma pasta compartilhada entre as estações ou um disco ligado ao roteador — entra no mesmo escopo de conectividade, dentro do que a estrutura atual permite. Estruturas maiores, com servidor de arquivos e controle de permissões por setor, são avaliadas no suporte técnico empresarial.",
+          "O que está fora, sem exceção: reparo mecânico, troca de cabeçote, recarga, manutenção de fusor, reparo eletrônico, conserto de placa, manutenção de plotter, suporte universal a equipamento antigo e fornecimento de toner ou tinta. Se a avaliação indicar falha física do aparelho, dizemos isso com clareza e orientamos a procurar a assistência do fabricante, em vez de cobrar por uma tentativa que não resolve.",
+        ],
+      },
+      {
         titulo: "O que fica configurado e o que não está incluído",
         paragrafos: [
           "Entregamos senha forte com WPA2/WPA3, nome de rede padronizado, bandas organizadas, canal escolhido por medição, rede de visitantes separada dos dispositivos da casa, firmware atualizado e senha de administração do roteador alterada — este último ponto é o mais esquecido e o mais explorado por invasores.",

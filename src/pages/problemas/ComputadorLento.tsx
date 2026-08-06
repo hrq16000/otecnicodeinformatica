@@ -325,7 +325,15 @@ const ComputadorLento = () => {
             <AlertTriangle className="h-6 w-6 text-destructive" /> Quando lentidão é sinal de alerta
           </h2>
           <ul className="space-y-2 text-muted-foreground">
-            <li>• Ruído de clique no disco, travamentos longos e arquivos que somem: prioridade é preservar os dados.</li>
+            <li>
+              • Ruído de clique no disco, travamentos longos e arquivos que somem: a prioridade deixa de ser desempenho
+              e passa a ser preservar o conteúdo, com{" "}
+              <Link to="/servicos/recuperacao-de-dados" className="font-medium text-accent hover:underline">
+                recuperação de dados
+              </Link>{" "}
+              avaliada antes de qualquer tentativa de reparo no disco.
+            </li>
+
             <li>• Desligamentos sozinho junto com a lentidão: pode envolver temperatura ou alimentação.</li>
             <li>• Telas azuis recorrentes: exigem investigação de memória, armazenamento e drivers, não formatação direta.</li>
             <li>• Lentidão surgida logo após queda de energia: o sistema ou o disco podem ter sido afetados.</li>

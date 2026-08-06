@@ -454,9 +454,9 @@ const IdleEnhancements = () => {
 
   useEffect(() => {
     const activate = () => setEnabled(true);
-    const idleId = typeof window.requestIdleCallback === "function"
+    const idleId: number = typeof window.requestIdleCallback === "function"
       ? window.requestIdleCallback(activate, { timeout: 4500 })
-      : globalThis.setTimeout(activate, 2500);
+      : (globalThis.setTimeout(activate, 2500) as unknown as number);
 
     return () => {
       if (typeof window.cancelIdleCallback === "function") {
@@ -464,6 +464,7 @@ const IdleEnhancements = () => {
       } else {
         globalThis.clearTimeout(idleId);
       }
+
     };
   }, []);
 

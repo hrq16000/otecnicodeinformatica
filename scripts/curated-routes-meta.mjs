@@ -503,8 +503,68 @@ const BASE_ROUTES = [
   {
     "path": "/coleta-e-entrega",
     "title": "Coleta e Entrega de Computador e Notebook em Curitiba",
-    "description": "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada."
+    "description": "Coleta e entrega agendada para computadores e notebooks que precisam de diagnóstico, manutenção ou serviço técnico em bancada.",
+    "blocos": [
+      {
+        "titulo": "Como funciona a coleta e entrega",
+        "paragrafos": [
+          "A coleta e entrega é a modalidade indicada quando o serviço não pode ser concluído no local: reparo de placa, troca de tela, diagnóstico demorado, recuperação de dados e qualquer caso que exija bancada, ferramenta específica ou tempo estendido de teste. Em vez de você transportar o equipamento, buscamos na sua casa ou empresa em Curitiba e região, executamos o serviço em laboratório e devolvemos no endereço combinado.",
+          "O fluxo tem quatro etapas. Primeiro, a triagem pelo WhatsApp: você descreve o equipamento e o sintoma, e confirmamos se o caso é compatível com coleta. Depois, o agendamento da retirada em janela combinada. Na coleta, o equipamento é identificado e os acessórios recebidos são registrados — fonte, cabo, carregador, base — para que a devolução confira item a item. Por último, o diagnóstico em bancada e a apresentação do valor.",
+          "Nada é executado por conta própria. Após o recebimento fazemos o diagnóstico e a execução só acontece depois da sua aprovação do valor do serviço. Peças e componentes, quando necessários, ficam fora do valor-base e também dependem de autorização expressa antes da compra."
+        ]
+      },
+      {
+        "titulo": "Valores, taxa mínima e regra da estimativa",
+        "paragrafos": [
+          "A coleta e entrega está inclusa no valor do reparo quando o serviço é aprovado. A taxa mínima pré-aprovada dessa modalidade é de R$ 299,99, e ela existe porque envolve deslocamento em duas pontas, transporte com responsabilidade sobre o equipamento e ocupação de bancada.",
+          "Estimativa gratuita somente via WhatsApp: pelo relato do sintoma conseguimos indicar o cenário provável e a faixa de trabalho, mas valor preciso só existe com compromisso, depois que o equipamento é aberto e testado. Preferimos dizer isso antes a inventar um número por telefone e corrigir depois.",
+          "Se você desistir após o diagnóstico, paga apenas o valor do diagnóstico, R$ 99,99, e agendamos a devolução do equipamento no mesmo estado em que foi recebido, com os acessórios registrados na coleta. As regras completas de pagamento e emissão de nota fiscal estão descritas na página de preços e políticas."
+        ]
+      },
+      {
+        "titulo": "Prazos reais por tipo de equipamento",
+        "paragrafos": [
+          "Celular, rádio e caixa de som: 2 a 3 dias úteis. TV, monitor, notebook e PC: 15 a 60 dias úteis. Esses prazos não são estimativa de marketing — refletem fila do laboratório, tempo de teste e, principalmente, disponibilidade de peça compatível, que é o fator que mais alonga reparo em equipamento antigo ou com componente descontinuado.",
+          "O prazo depende do tipo de falha. Serviço de software, limpeza e reinstalação de sistema costuma sair muito antes do limite superior da faixa. Reparo em nível de placa, dano por líquido e substituição de tela dependem de importação ou de fornecedor específico e ficam na parte alta da faixa.",
+          "Sempre que o prazo estimado mudar durante o serviço, você é avisado com o motivo — peça atrasada, falha adicional encontrada em teste ou necessidade de observação prolongada em defeito intermitente. Preferimos comunicar a mudança a deixar você sem previsão."
+        ]
+      },
+      {
+        "titulo": "Cuidados com o equipamento e com seus dados",
+        "paragrafos": [
+          "O equipamento é identificado na retirada e mantido sob controle durante todo o serviço. Recomendamos backup antes de qualquer intervenção que envolva armazenamento, e quando possível fazemos cópia preventiva. O acesso a arquivos se limita ao necessário para o serviço autorizado.",
+          "Esta modalidade não inclui visita técnica de reparo a domicílio: o serviço é realizado em laboratório, com coleta e entrega. Se o seu caso pode ser resolvido no local ou por acesso remoto, dizemos isso na triagem e indicamos a modalidade mais barata para você — não empurramos coleta quando ela não é necessária."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "pergunta": "Quais equipamentos podem usar a coleta e entrega?",
+        "resposta": "Computadores de mesa e notebooks que precisam de diagnóstico, manutenção ou reparo em bancada. É a modalidade indicada quando o serviço não pode ser concluído no local."
+      },
+      {
+        "pergunta": "Quando a coleta é mais adequada que o atendimento no local?",
+        "resposta": "Quando o caso exige bancada, ferramentas específicas ou tempo estendido de diagnóstico — por exemplo reparo de placa, troca de tela ou recuperação de dados."
+      },
+      {
+        "pergunta": "Como funciona o agendamento?",
+        "resposta": "Fazemos uma triagem pelo WhatsApp antes de agendar. Na coleta, identificamos o equipamento e registramos os acessórios recebidos. A taxa mínima pré-aprovada é de R$ 299,99."
+      },
+      {
+        "pergunta": "O reparo é executado direto?",
+        "resposta": "Não. Após o recebimento fazemos o diagnóstico e a execução só acontece depois da sua aprovação do valor do serviço. Peças e componentes, quando necessários, ficam fora do valor-base."
+      },
+      {
+        "pergunta": "Qual o prazo?",
+        "resposta": "Celular / Rádio / Caixa de Som: 2 a 3 dias úteis. TV / Monitor / Notebook / PC: 15 a 60 dias úteis. O prazo depende do tipo de falha e da fila do laboratório."
+      },
+      {
+        "pergunta": "E se eu desistir após o diagnóstico?",
+        "resposta": "Você paga apenas o valor do diagnóstico (R$ 99,99) e agendamos a devolução do equipamento."
+      }
+    ]
   },
+
   {
     "path": "/diagnostico-tecnico",
     "title": "Diagnóstico Técnico de Computador e Notebook em Curitiba",

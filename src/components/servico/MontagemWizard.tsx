@@ -153,7 +153,9 @@ export const MontagemWizard = () => {
         modalidade: modalidade || undefined,
         consentimentoLgpd: lgpd,
       });
+      trackOsPdfDownload({ protocolo: numero, origem: "wizard_montagem", servico: "montagem-de-pc" });
       toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+
     } catch {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
     } finally {

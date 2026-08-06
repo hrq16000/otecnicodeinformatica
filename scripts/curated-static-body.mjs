@@ -449,7 +449,7 @@ export function staticBodyFor(route) {
       route.faq
         .map(
           (f) =>
-            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta)}</p>`,
+            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta ?? f.question)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta ?? f.answer)}</p>`,
         )
         .join("")
     : "";

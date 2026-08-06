@@ -269,6 +269,33 @@ function extractField(block, name) {
   return m ? m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\") : undefined;
 }
 
+// Texto puro de um trecho JSX (sem tags, sem expressões).
+function plainText(jsx) {
+  return jsx
+    .replace(/\{[^{}]*\}/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Primeiro parágrafo (lead) real do artigo — nunca texto inventado. */
+function extractLead(block) {
+  const m = block.match(/<p className="lead">([\s\S]*?)<\/p>/) || block.match(/<p>([\s\S]*?)<\/p>/);
+  return m ? plainText(m[1]) : "";
+}
+
+/** H2 reais do artigo, na ordem em que aparecem. */
+function extractHeadings(block) {
+  return [...block.matchAll(/<h2>([\s\S]*?)<\/h2>/g)].map((m) => plainText(m[1])).filter(Boolean);
+}
+
+function countWords(block) {
+  const idx = block.indexOf("content:");
+  const body = idx >= 0 ? block.slice(idx) : block;
+  return plainText(body).split(" ").filter(Boolean).length;
+}
+
+
 export async function getBlogPosts(rootDir = ".") {
   const posts = [];
   const seen = new Set();
@@ -288,11 +315,20 @@ export async function getBlogPosts(rootDir = ".") {
     const excerpt = extractField(block, "excerpt");
     const date = extractField(block, "date");
     const category = extractField(block, "category");
+    const readTime = extractField(block, "readTime");
     if (!title) continue;
     if (seen.has(slug)) { duplicates.push(slug); continue; }
     seen.add(slug);
-    posts.push({ slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE, category: category ?? "", origin: "manual" });
+    posts.push({
+      slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE,
+      category: category ?? "", origin: "manual",
+      readTime: readTime ?? "10 min",
+      lead: extractLead(block),
+      headings: extractHeadings(block),
+      wordCount: countWords(block),
+    });
   }
+
 
   // --- Programáticos (defs em blogProgrammaticPosts.tsx) ---
   const progPath = path.join(rootDir, "src/data/blogProgrammaticPosts.tsx");

@@ -45,6 +45,8 @@ const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
 const StatusOs = lazy(() => import("./pages/StatusOs"));
+const Depoimentos = lazy(() => import("./pages/Depoimentos"));
+const ComoAvaliar = lazy(() => import("./pages/ComoAvaliar"));
 const Avaliar = lazy(() => import("./pages/Avaliar"));
 const ExcluirMeusDados = lazy(() => import("./pages/ExcluirMeusDados"));
 
@@ -944,6 +946,8 @@ const App = () => (
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
             <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />
+            <Route path="/depoimentos" element={<Depoimentos />} />
+            <Route path="/como-avaliar" element={<ComoAvaliar />} />
 
             {/* Admin */}
             <Route path="/admin" element={<Navigate to="/admin/funnel" replace />} />

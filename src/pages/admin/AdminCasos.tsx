@@ -248,32 +248,65 @@ export default function AdminCasos() {
               nenhum dado de cliente deve ser digitado.
             </p>
           </div>
-          <Button onClick={create}>
-            <Plus className="mr-2 h-4 w-4" /> Novo caso
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={() => void copyTemplate()}>
+              <ClipboardCopy className="mr-2 h-4 w-4" /> Modelo do formulário
+            </Button>
+            <Button variant="outline" disabled={drafts.length === 0} onClick={downloadAudit}>
+              <Download className="mr-2 h-4 w-4" /> Pacote de auditoria
+            </Button>
+            <Button onClick={create}>
+              <Plus className="mr-2 h-4 w-4" /> Novo caso
+            </Button>
+          </div>
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
-          <aside className="space-y-2">
-            {drafts.length === 0 && (
-              <p className="text-sm text-muted-foreground">Nenhum rascunho ainda.</p>
+          <aside className="space-y-3">
+            <Input value={query} placeholder="Buscar por título, ID, OS ou serviço"
+              onChange={(e) => setQuery(e.target.value)} />
+            <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v as typeof statusFilter)}>
+              <SelectTrigger><SelectValue placeholder="Status" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="todos">Todos os status</SelectItem>
+                {STATUS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <Select value={categoryFilter} onValueChange={(v) => setCategoryFilter(v as typeof categoryFilter)}>
+              <SelectTrigger><SelectValue placeholder="Serviço" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="todas">Todos os serviços</SelectItem>
+                {TECHNICAL_CASE_CATEGORIES.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground">
+              {visibleDrafts.length} de {drafts.length} caso(s) · meta da coleta: 3
+            </p>
+
+            {visibleDrafts.length === 0 && (
+              <p className="text-sm text-muted-foreground">Nenhum caso corresponde ao filtro.</p>
             )}
-            {drafts.map((d) => (
-              <button
-                key={d.id}
-                onClick={() => { setActiveId(d.id); setShowPreview(false); }}
-                className={`w-full rounded-xl border p-3 text-left text-sm transition ${
-                  d.id === activeId ? "border-accent bg-accent/5" : "border-border hover:bg-muted/50"
-                }`}
-              >
-                <span className="block font-medium text-foreground">{d.title || "(sem título)"}</span>
-                <span className="mt-1 flex items-center gap-2">
-                  <Badge className={statusTone[d.status]}>{d.status}</Badge>
-                  <span className="text-xs text-muted-foreground">{d.equipment.category}</span>
-                </span>
-              </button>
-            ))}
+            {visibleDrafts.map((d) => {
+              const s = scoreCase(d);
+              return (
+                <button
+                  key={d.id}
+                  onClick={() => { setActiveId(d.id); setShowPreview(false); }}
+                  className={`w-full rounded-xl border p-3 text-left text-sm transition ${
+                    d.id === activeId ? "border-accent bg-accent/5" : "border-border hover:bg-muted/50"
+                  }`}
+                >
+                  <span className="block font-medium text-foreground">{d.title || "(sem título)"}</span>
+                  <span className="mt-1 flex flex-wrap items-center gap-2">
+                    <Badge className={statusTone[d.status]}>{d.status}</Badge>
+                    <span className="text-xs text-muted-foreground">{d.equipment.category}</span>
+                    <span className="text-xs text-muted-foreground">{s.total}/14</span>
+                  </span>
+                </button>
+              );
+            })}
           </aside>
+
 
           {!active ? (
             <Card className="p-6 text-sm text-muted-foreground">

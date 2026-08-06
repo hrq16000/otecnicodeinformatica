@@ -156,6 +156,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
     redirects,
     privatePrefixes: PRIVATE_PREFIXES,
     assetPrefixes: ASSET_PREFIXES,
+    assetFiles,
     curated: [...CURATED_PATHS].sort(),
   };
 }

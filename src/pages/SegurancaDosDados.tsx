@@ -251,6 +251,69 @@ const SegurancaDosDados = () => {
           </p>
         </section>
 
+        {/* Passo a passo: antes, durante e depois */}
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
+            Passo a passo: antes, durante e depois do atendimento
+          </h2>
+          <p className="mb-6 text-muted-foreground">
+            A sequência abaixo vale para qualquer modalidade — remoto, domicílio ou coleta. Ela existe para que
+            você saiba, em cada etapa, o que está sendo acessado, o que depende da sua autorização e o que
+            acontece com as cópias feitas durante o serviço.
+          </p>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                fase: "Antes",
+                itens: [
+                  "Triagem descreve o problema e define a modalidade adequada",
+                  "Orientação para separar e copiar arquivos importantes, quando houver tempo hábil",
+                  "Você informa se existe conteúdo sensível no equipamento",
+                  "Diagnóstico e valor do serviço apresentados antes da execução",
+                  "Autorização registrada na conversa para etapas que alteram o conteúdo",
+                ],
+              },
+              {
+                fase: "Durante",
+                itens: [
+                  "Acesso limitado ao necessário para executar o que foi combinado",
+                  "Sessão remota só com sua liberação e acompanhamento na tela",
+                  "Nenhum pedido de senha bancária, código de autenticação ou dado de pagamento",
+                  "Mudança de escopo é comunicada e reautorizada antes de continuar",
+                  "Cópias temporárias apenas quando o serviço exige, nunca por padrão",
+                ],
+              },
+              {
+                fase: "Depois",
+                itens: [
+                  "Conferência do resultado com você antes de encerrar",
+                  "Acesso remoto encerrado e orientação para remover o programa se não for mais usado",
+                  "Cópias temporárias descartadas após a validação da entrega",
+                  "Orientação de rotina de cópia para reduzir risco em serviços futuros",
+                  "Registro do que foi executado permanece na conversa da triagem",
+                ],
+              },
+            ].map((etapa, i) => (
+              <div key={etapa.fase} className="rounded-xl border border-border bg-secondary p-5">
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <h3 className="text-lg font-bold text-foreground">{etapa.fase}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {etapa.itens.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="mb-12">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <KeyRound className="h-6 w-6 text-accent" /> Senhas e credenciais

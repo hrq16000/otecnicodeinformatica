@@ -23,6 +23,10 @@ type ClickEvent = {
   problema: string | null;
   path: string | null;
   session_id: string | null;
+  route_type: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
 };
 
 
@@ -143,6 +147,40 @@ const AdminDashboard = () => {
 
 
   // Agregações
+  /** Conversões por tipo de rota (home, PF, PJ, serviço, local, institucional). */
+  const byRouteType = useMemo(() => {
+    const map = new Map<string, { key: string; wa: number; call: number; total: number }>();
+    for (const r of rows) {
+      const key = r.route_type || "—";
+      const cur = map.get(key) || { key, wa: 0, call: 0, total: 0 };
+      if (r.event_type === "wa_click") cur.wa++;
+      else cur.call++;
+      cur.total++;
+      map.set(key, cur);
+    }
+    return [...map.values()].sort((a, b) => b.total - a.total);
+  }, [rows]);
+
+  /** Conversões por campanha (utm_source / utm_medium / utm_campaign). */
+  const byCampaign = useMemo(() => {
+    const map = new Map<
+      string,
+      { source: string; medium: string; campaign: string; wa: number; call: number; total: number }
+    >();
+    for (const r of rows) {
+      const source = r.utm_source || "—";
+      const medium = r.utm_medium || "—";
+      const campaign = r.utm_campaign || "—";
+      const key = `${source}::${medium}::${campaign}`;
+      const cur = map.get(key) || { source, medium, campaign, wa: 0, call: 0, total: 0 };
+      if (r.event_type === "wa_click") cur.wa++;
+      else cur.call++;
+      cur.total++;
+      map.set(key, cur);
+    }
+    return [...map.values()].sort((a, b) => b.total - a.total);
+  }, [rows]);
+
   const byBairroServico = useMemo(() => {
     const map = new Map<string, { bairro: string; servico: string; wa: number; call: number; total: number }>();
     for (const r of rows) {
@@ -177,7 +215,7 @@ const AdminDashboard = () => {
   const maxDay = Math.max(1, ...byDay.map(d => d.wa + d.call));
 
   const exportCsv = () => {
-    const cols = ["created_at", "event_type", "servico", "bairro", "cidade", "cta_location", "modalidade", "equipamento", "problema", "path"];
+    const cols = ["created_at", "event_type", "route_type", "servico", "bairro", "cidade", "cta_location", "modalidade", "equipamento", "problema", "path", "utm_source", "utm_medium", "utm_campaign"];
     const csv = [
       cols.join(","),
       ...rows.map(r => cols.map(c => `"${String((r as any)[c] ?? "").replace(/"/g, '""')}"`).join(",")),
@@ -386,6 +424,80 @@ const AdminDashboard = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Conversões por tipo de rota */}
+        <div className="rounded-lg border border-border overflow-hidden mb-6">
+          <div className="p-4 border-b border-border">
+            <h2 className="font-semibold">Conversões por tipo de rota</h2>
+            <p className="text-xs text-muted-foreground">
+              Home, PF, PJ, serviço, local e institucional — segmentação usada no GA4.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted text-xs">
+                <tr>
+                  <th className="px-3 py-2 text-left">Tipo de rota</th>
+                  <th className="px-3 py-2 text-right">WhatsApp</th>
+                  <th className="px-3 py-2 text-right">Ligar</th>
+                  <th className="px-3 py-2 text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {byRouteType.length === 0 && (
+                  <tr><td colSpan={4} className="text-center py-6 text-muted-foreground">Nenhum evento no período.</td></tr>
+                )}
+                {byRouteType.map((r) => (
+                  <tr key={r.key} className="border-t border-border">
+                    <td className="px-3 py-2">{r.key}</td>
+                    <td className="px-3 py-2 text-right text-accent font-medium">{r.wa}</td>
+                    <td className="px-3 py-2 text-right text-primary font-medium">{r.call}</td>
+                    <td className="px-3 py-2 text-right font-bold">{r.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Conversões por campanha */}
+        <div className="rounded-lg border border-border overflow-hidden mb-6">
+          <div className="p-4 border-b border-border">
+            <h2 className="font-semibold">Conversões por campanha (UTM)</h2>
+            <p className="text-xs text-muted-foreground">
+              Origem, mídia e campanha capturadas no primeiro hit da sessão.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted text-xs">
+                <tr>
+                  <th className="px-3 py-2 text-left">Origem</th>
+                  <th className="px-3 py-2 text-left">Mídia</th>
+                  <th className="px-3 py-2 text-left">Campanha</th>
+                  <th className="px-3 py-2 text-right">WhatsApp</th>
+                  <th className="px-3 py-2 text-right">Ligar</th>
+                  <th className="px-3 py-2 text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {byCampaign.length === 0 && (
+                  <tr><td colSpan={6} className="text-center py-6 text-muted-foreground">Nenhum evento no período.</td></tr>
+                )}
+                {byCampaign.map((r) => (
+                  <tr key={`${r.source}-${r.medium}-${r.campaign}`} className="border-t border-border">
+                    <td className="px-3 py-2">{r.source}</td>
+                    <td className="px-3 py-2">{r.medium}</td>
+                    <td className="px-3 py-2">{r.campaign}</td>
+                    <td className="px-3 py-2 text-right text-accent font-medium">{r.wa}</td>
+                    <td className="px-3 py-2 text-right text-primary font-medium">{r.call}</td>
+                    <td className="px-3 py-2 text-right font-bold">{r.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 

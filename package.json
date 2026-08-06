@@ -90,7 +90,13 @@
     "report:editorial": "node scripts/report-editorial-inventory.mjs",
     "check:index-health": "node scripts/check-index-health.mjs",
     "check:index-health:ci": "node scripts/check-index-health.mjs --base=http://localhost:8080",
-    "check:index-health:strict": "node scripts/check-index-health.mjs --strict"
+    "check:index-health:strict": "node scripts/check-index-health.mjs --strict",
+    "monitor:indexing": "node scripts/monitor-gsc-indexing.mjs",
+    "monitor:indexing:alert": "node scripts/monitor-gsc-indexing.mjs --alert",
+    "report:weekly-seo": "node scripts/report-weekly-seo.mjs",
+    "check:priority-urls": "node scripts/check-priority-urls-guard.mjs",
+    "check:priority-urls:dist": "node scripts/check-priority-urls-guard.mjs dist",
+    "report:post-deploy": "node scripts/report-post-deploy.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

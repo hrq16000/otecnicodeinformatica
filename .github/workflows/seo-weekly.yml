@@ -1,0 +1,59 @@
+name: SEO weekly monitoring
+
+# Relatório semanal de busca + monitoramento de indexação das URLs prioritárias.
+# Alerta (falha do job) quando uma URL prioritária perde indexação, sai do
+# sitemap ou vira noindex.
+on:
+  schedule:
+    - cron: "0 9 * * 1" # segunda-feira, 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  seo-monitoring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (HTML estático)
+        run: npm run build
+
+      - name: Guard de URLs prioritárias (sitemap + noindex + canonical)
+        run: npm run check:priority-urls:dist
+
+      - name: Relatório pós-deploy (rich results + NAP)
+        run: npm run report:post-deploy
+
+      - name: Monitoramento de indexação (GSC)
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run monitor:indexing:alert
+
+      - name: Relatório semanal de busca
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: npm run report:weekly-seo
+
+      - name: Publicar relatórios como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-weekly-reports
+          path: |
+            reports/weekly-seo.md
+            reports/weekly-seo.json
+            reports/gsc-indexing.md
+            reports/gsc-indexing.json
+            reports/post-deploy-rich-results.md
+          if-no-files-found: warn

@@ -27,8 +27,12 @@ export type Database = {
           modalidade: string | null
           path: string | null
           problema: string | null
+          route_type: string | null
           servico: string | null
           session_id: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
         }
         Insert: {
           bairro?: string | null
@@ -42,8 +46,12 @@ export type Database = {
           modalidade?: string | null
           path?: string | null
           problema?: string | null
+          route_type?: string | null
           servico?: string | null
           session_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Update: {
           bairro?: string | null
@@ -57,8 +65,12 @@ export type Database = {
           modalidade?: string | null
           path?: string | null
           problema?: string | null
+          route_type?: string | null
           servico?: string | null
           session_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }

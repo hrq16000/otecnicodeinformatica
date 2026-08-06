@@ -366,6 +366,26 @@ function breadcrumbList(path) {
   };
 }
 
+/** Nó Service padrão da rota (provider sempre = Organization oficial). */
+function serviceNode(route, { name } = {}) {
+  const url = `${SITE}${route.path === "/" ? "/" : route.path}`;
+  const label = name ?? h1For(route);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: label,
+    serviceType: label,
+    description: route.description,
+    url,
+    areaServed: SITE_CONFIG.serviceArea.map((n) => ({ "@type": "City", name: n })),
+    provider: { "@id": `${SITE}/#organization` },
+  };
+}
+
+/** Rotas P0 fora das famílias de serviço que também precisam de Service. */
+const EXTRA_SERVICE_PATHS = new Set(["/", "/precos-e-politicas"]);
+
 /** JSON-LD estático da rota — um nó lógico por entidade. */
 export function jsonLdFor(route) {
   const path = route.path;
@@ -375,28 +395,44 @@ export function jsonLdFor(route) {
 
   if (fam === "home") {
     out.push(localBusiness("/", { description: route.description }));
+    out.push(
+      serviceNode(route, { name: "Assistência técnica de informática em Curitiba e região" }),
+    );
+    if (route.faq?.length) {
+      out.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: route.faq.map((f) => ({
+          "@type": "Question",
+          name: f.pergunta,
+          acceptedAnswer: { "@type": "Answer", text: f.resposta },
+        })),
+      });
+    }
     return out;
   }
 
-  if (fam === "servico" || fam === "servico-bairro" || fam === "hub-servicos" || fam === "empresa") {
-    out.push({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": `${url}#service`,
-      name: h1For(route),
-      serviceType: h1For(route),
-      description: route.description,
-      url,
-      areaServed: SITE_CONFIG.serviceArea.map((n) => ({ "@type": "City", name: n })),
-      provider: { "@id": `${SITE}/#organization` },
-    });
-  } else if (fam === "bairro" || fam === "cidade" || fam === "cidade-mae" || fam === "modalidade") {
+  if (
+    fam === "servico" ||
+    fam === "servico-bairro" ||
+    fam === "hub-servicos" ||
+    fam === "empresa" ||
+    fam === "modalidade" ||
+    fam === "cidade-mae" ||
+    EXTRA_SERVICE_PATHS.has(path)
+  ) {
+    out.push(serviceNode(route));
+  }
+
+  const hasService = out.some((n) => n["@type"] === "Service");
+  if (fam === "bairro" || fam === "cidade" || fam === "cidade-mae" || fam === "modalidade") {
     const local =
       fam === "cidade" || fam === "bairro"
         ? [h1For(route).replace(/^Técnico (de Informática )?(em|no|na) /i, "").split("(")[0].split("|")[0].trim()]
         : undefined;
     out.push(localBusiness(path, { name: h1For(route), description: route.description, areaServed: local }));
-  } else {
+  } else if (!hasService) {
     const type = fam === "sobre" ? "AboutPage" : fam === "contato" ? "ContactPage" : "WebPage";
     out.push({
       "@context": "https://schema.org",

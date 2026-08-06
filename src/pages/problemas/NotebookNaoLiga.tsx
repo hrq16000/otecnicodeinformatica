@@ -153,18 +153,10 @@ const NotebookNaoLiga = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO
-        title={TITLE}
-        description={DESCRIPTION}
-        path={PATH}
-        breadcrumbs={[
-          { name: "Início", path: "/" },
-          { name: "Serviços", path: "/servicos" },
-          { name: "Notebook não liga", path: PATH },
-        ]}
-      />
+      <PageSEO title={TITLE} description={DESCRIPTION} path={PATH} />
       <Header />
-      <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Notebook não liga" }]} />
+      {/* "Problemas" é nível taxonômico, não rota: fica sem link no visual e sem URL no BreadcrumbList. */}
+      <Breadcrumbs items={[{ label: "Problemas" }, { label: "Notebook não liga" }]} />
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
         <div className="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-14">

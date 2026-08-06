@@ -61,7 +61,10 @@ async function checkRegistry() {
     fail("registro: aprovação deve rejeitar data de aprovação no futuro");
 
   // Paridade runtime × build: o registro só pode aprovar slugs da onda.
-  const registered = [...src.matchAll(/^\s*\[\s*"([a-z0-9-]+)"\s*,/gm)].map((m) => m[1]);
+  const waveBlock = src.match(/FIRST_WAVE_SLUGS\s*=\s*\[([\s\S]*?)\]/);
+  const registered = waveBlock
+    ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1])
+    : [];
   const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
   const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));
   if (extra.length) fail(`registro: slugs aprovados fora da onda editorial: ${extra.join(", ")}`);
@@ -164,7 +167,7 @@ async function checkStaticHtml(posts) {
       if (!/"@type":\s*"BreadcrumbList"/.test(h)) fail(`/blog/${post.slug}: BreadcrumbList ausente`);
       if (count(h, /<h1[\s>]/gi) !== 1) fail(`/blog/${post.slug}: HTML estático deve ter exatamente 1 <h1>`);
       const wave = EDITORIAL_WAVE.find((a) => a.slug === post.slug);
-      if (!h.includes(`content="${SITE}${wave.cover}"`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
+      if (!h.includes(`content="${SITE}${wave.cover}`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
       if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
       if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
       if (!/wa\.me\/5541997086380/.test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);

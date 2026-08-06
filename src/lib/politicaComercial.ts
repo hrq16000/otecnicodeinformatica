@@ -64,6 +64,27 @@ export const NOTA_FISCAL = {
 } as const;
 
 // ─────────────────────────────────────────────────────────────
+// PAGAMENTO (bloco público de /precos-e-politicas)
+// ─────────────────────────────────────────────────────────────
+export const PAGAMENTO = {
+  /** Quando se paga — regra real da operação. */
+  momentoLabel:
+    "O pagamento acontece na conclusão do atendimento, depois que o serviço aprovado foi executado e testado com você",
+  aprovacaoLabel:
+    "Nenhum valor é cobrado sem aprovação prévia: o escopo e o valor são apresentados antes da execução",
+  formasLabel:
+    "As formas de pagamento aceitas são confirmadas na triagem pelo WhatsApp e reconfirmadas no fechamento do atendimento",
+  pecasLabel:
+    "Peças e componentes são cobrados à parte do valor do serviço e só entram na conta após a sua autorização",
+  desistenciaLabel:
+    "Em caso de desistência após o diagnóstico, é devido apenas o valor do diagnóstico informado antes",
+  /** Antifraude — regra de segurança, não promessa comercial. */
+  seguraLabel:
+    "Não solicitamos pagamento antecipado por links enviados de números desconhecidos nem depósito em conta de terceiros. Na dúvida, confirme pelo WhatsApp oficial do site",
+} as const;
+
+
+// ─────────────────────────────────────────────────────────────
 // DADOS, BACKUP E PRIVACIDADE (Etapa 7)
 // ─────────────────────────────────────────────────────────────
 export const POLITICA_DADOS = [
@@ -131,6 +152,7 @@ export const AREA_ATENDIMENTO = {
 export default {
   GARANTIA,
   NOTA_FISCAL,
+  PAGAMENTO,
   POLITICA_DADOS,
   PROCESSO_ATENDIMENTO,
   PROCESSO_POR_MODALIDADE,

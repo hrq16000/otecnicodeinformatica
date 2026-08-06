@@ -8,6 +8,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import {
@@ -115,6 +116,7 @@ const ColetaEntrega = () => {
         <section className="relative hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
+              <ExperienciaBadge className="mb-4" />
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
                 Coleta e entrega agendada para equipamentos de informática
               </h1>
@@ -133,6 +135,13 @@ const ColetaEntrega = () => {
                   </Link>
                 </Button>
               </div>
+              <p className="mt-5 text-sm text-white/80">
+                {REGRA_ESTIMATIVA_GRATIS}.{" "}
+                <Link to="/precos-e-politicas#pagamento-e-nota-fiscal" className="font-semibold text-accent underline underline-offset-4">
+                  Pagamento e nota fiscal
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </section>

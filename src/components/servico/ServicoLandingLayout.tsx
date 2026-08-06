@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
+import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -109,6 +110,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
               {data.h1}
               {data.h1Accent && <span className="text-[hsl(var(--accent))]"> {data.h1Accent}</span>}
             </h1>
+            <ExperienciaBadge className="mt-4" />
             <p className="tldr mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg" data-speakable>
               {data.intro}
             </p>

@@ -11,14 +11,15 @@ interface TrustBadgeProps {
 export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) => {
   const badges = [
     {
-      icon: Shield,
-      title: "Técnico identificado",
-      description: "Atendimento com identificação e registro do que foi executado",
-    },
-    {
       icon: Award,
       title: experienciaLabel,
       description: `${siteConfig.brandName} — Curitiba e região metropolitana`,
+      highlight: true,
+    },
+    {
+      icon: Shield,
+      title: "Técnico identificado",
+      description: "Atendimento com identificação e registro do que foi executado",
     },
     {
       icon: Clock,
@@ -66,10 +67,20 @@ export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) =>
       {badges.map((badge, index) => (
         <div
           key={index}
-          className="flex flex-col items-center text-center p-4 bg-muted/50 rounded-xl border border-border/50"
+          className={cn(
+            "flex flex-col items-center text-center p-4 rounded-xl border",
+            badge.highlight
+              ? "bg-accent/10 border-accent/40 shadow-sm"
+              : "bg-muted/50 border-border/50",
+          )}
         >
-          <div className="w-12 h-12 bg-trust/10 rounded-full flex items-center justify-center mb-3">
-            <badge.icon className="h-6 w-6 text-trust" />
+          <div
+            className={cn(
+              "w-12 h-12 rounded-full flex items-center justify-center mb-3",
+              badge.highlight ? "bg-accent/20" : "bg-trust/10",
+            )}
+          >
+            <badge.icon className={cn("h-6 w-6", badge.highlight ? "text-accent" : "text-trust")} />
           </div>
           <h3 className="font-semibold text-sm text-foreground mb-1">
             {badge.title}

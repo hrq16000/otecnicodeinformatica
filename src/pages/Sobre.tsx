@@ -15,6 +15,7 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
+import { GarantiaNotaFiscalPagamento } from "@/components/comercial/GarantiaNotaFiscalPagamento";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildOrganizationSchema } from "@/lib/organizationJsonLd";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";

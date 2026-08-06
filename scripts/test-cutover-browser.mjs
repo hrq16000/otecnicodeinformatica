@@ -29,7 +29,16 @@ const NOT_FOUND = "/rota-inexistente-cutover-gate";
 const results = [];
 const fail = [];
 
-const browser = await chromium.launch({ channel: process.env.CUTOVER_CHANNEL ?? "chromium" });
+let browser;
+try {
+  browser = await chromium.launch();
+} catch (e) {
+  console.error("INDISPONÍVEL: não foi possível iniciar o Chromium neste ambiente.");
+  console.error(`  motivo: ${String(e.message).split("\n")[0]}`);
+  console.error("  execute este gate em CI (actions/setup + npx playwright install --with-deps chromium)");
+  console.error("  ou em uma máquina com as bibliotecas de sistema do Chromium.");
+  process.exit(2); // 2 = ambiente sem navegador (≠ 1 = falha real de gate)
+}
 const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await context.newPage();
 

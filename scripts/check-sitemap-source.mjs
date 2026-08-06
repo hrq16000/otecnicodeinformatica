@@ -39,14 +39,30 @@ const routerFiles = ["src/LegacyApp.tsx", "src/App.tsx"].filter((f) => {
   try { statSync(join(ROOT, f)); return true; } catch { return false; }
 });
 const staticRoutes = new Set(["/"]);
+const dynamicRoutes = [];
 for (const file of routerFiles) {
   const src = readFileSync(join(ROOT, file), "utf8");
   for (const m of src.matchAll(/<Route\s+[^>]*path=(?:"([^"]+)"|\{`([^`]+)`\})/g)) {
     const raw = (m[1] ?? m[2] ?? "").trim();
-    if (!raw || raw === "*" || raw.includes(":") || raw.includes("*")) continue;
-    staticRoutes.add((raw.startsWith("/") ? raw : `/${raw}`).replace(/\/$/, "") || "/");
+    if (!raw || raw === "*") continue;
+    const p = (raw.startsWith("/") ? raw : `/${raw}`).replace(/\/$/, "") || "/";
+    if (p.includes(":") || p.includes("*")) {
+      dynamicRoutes.push(
+        new RegExp(
+          "^" +
+            p
+              .replace(/[.+?^${}()|[\]\\]/g, "\\$&")
+              .replace(/:[A-Za-z0-9_]+/g, "[^/]+")
+              .replace(/\*/g, ".*") +
+            "$",
+        ),
+      );
+    } else {
+      staticRoutes.add(p);
+    }
   }
 }
+const hasRoute = (p) => staticRoutes.has(p) || dynamicRoutes.some((re) => re.test(p));
 
 // ── 2. Redirects / aliases ──────────────────────────────────────────────────
 const redirectSrc = readFileSync(join(ROOT, "src/lib/redirectMatrix.ts"), "utf8");
@@ -84,7 +100,7 @@ if (emitted.length !== new Set(emitted.map((e) => e.path)).size) {
 
 // ── 5. Rota real, sem redirect/alias ────────────────────────────────────────
 for (const { file, path: p } of emitted) {
-  if (!staticRoutes.has(p)) fail(`[${file}] URL sem rota estática própria: ${p}`);
+  if (!hasRoute(p)) fail(`[${file}] URL sem rota correspondente (404): ${p}`);
   if (redirectFrom.has(p)) fail(`[${file}] URL é origem de redirect/alias: ${p}`);
 }
 

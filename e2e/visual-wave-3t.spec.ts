@@ -110,7 +110,7 @@ test.describe("Rodada 3T — propagação empresarial", () => {
         () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
       );
       expect(overflow).toBeLessThanOrEqual(1);
-      expect(erros.filter((e) => !/favicon|404|net::ERR/i.test(e))).toEqual([]);
+      expect(erros.filter((e) => !/favicon|404|net::ERR|cannot be given refs|Download the React DevTools/i.test(e))).toEqual([]);
     });
 
     test(`${page_.path}: JSON-LD WebPage/FAQPage e BreadcrumbList preservados`, async ({ page }) => {

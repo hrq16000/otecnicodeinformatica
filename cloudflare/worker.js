@@ -36,6 +36,16 @@ export default {
       return new Response("edge desabilitado: manifesto inválido", { status: 503 });
     }
     const url = new URL(request.url);
+
+    // Health-check público e sem segredos: estado do manifesto, versão do
+    // build e contagens de rotas/aliases/assets.
+    if (url.pathname === HEALTH_PATH) {
+      return new Response(JSON.stringify(healthPayload(compiled, manifest, manifestProblems), null, 2), {
+        status: manifestProblems.length ? 503 : 200,
+        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex, nofollow" },
+      });
+    }
+
     const d = decide({ host: url.hostname, method: request.method, pathname: url.pathname, search: url.search }, compiled);
 
     if (d.action === "reject") return new Response("host não atendido", { status: 421 });

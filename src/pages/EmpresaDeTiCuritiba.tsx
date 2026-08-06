@@ -234,21 +234,21 @@ const EmpresaDeTiCuritiba = () => {
 
       <main>
         {/* ═══ HERO ═══ */}
-        <section className="relative pt-10 pb-10 md:pt-14 md:pb-14 overflow-hidden hero-gradient">
+        <section className="relative pt-6 pb-7 md:pt-14 md:pb-14 overflow-hidden hero-gradient">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-breathe" />
             <div className="absolute bottom-1/3 left-1/5 w-56 h-56 bg-primary/8 rounded-full blur-[80px] animate-breathe" style={{ animationDelay: "2s" }} />
           </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-6">
                 <Building2 className="h-4 w-4" />
-                <span className="font-medium text-sm">Soluções de TI para empresas • Curitiba e região</span>
+                <span className="font-medium text-xs md:text-sm">Soluções de TI para empresas • Curitiba e região</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4">
+              <h1 className="text-[1.6rem] leading-tight sm:text-4xl md:text-5xl font-heading font-bold text-white mb-3 md:mb-4">
                 Soluções de TI para empresas em Curitiba
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-5 md:mb-8 max-w-2xl mx-auto">
                 Como organizar e melhorar a informática da sua empresa: diagnóstico do
                 ambiente, computadores, redes, manutenção preventiva e a organização do
                 suporte técnico — com orientação clara antes de qualquer investimento.
@@ -257,7 +257,7 @@ const EmpresaDeTiCuritiba = () => {
                 <Button
                   variant="heroWhatsapp"
                   size="lg"
-                  className="text-base md:text-lg px-8 hover:scale-105 transition-transform"
+                  className="min-h-14 w-full sm:w-auto text-base md:text-lg px-8 hover:scale-105 transition-transform"
                   asChild
                   onClick={() => trackCTAClick("whatsapp", "empresa_ti_hub_hero")}
                 >
@@ -273,6 +273,23 @@ const EmpresaDeTiCuritiba = () => {
 
         {/* ═══ Prova rápida (abaixo do hero) ═══ */}
         <EmpresaTrustBar />
+
+        {/* ═══ Sumário navegável (apresentação — não cria URLs nem schema) ═══ */}
+        <section className="bg-background pt-8">
+          <div className="container mx-auto px-4">
+            <PageTableOfContents
+              className="mx-auto max-w-3xl"
+              items={[
+                { id: "escopo", label: "O que abrange a solução de TI" },
+                { id: "contextos", label: "Contextos atendidos" },
+                { id: "cobertura", label: "Bairros e cidades atendidas" },
+                { id: "relacionados", label: "Serviços relacionados" },
+                { id: "faq", label: "Perguntas frequentes" },
+              ]}
+            />
+          </div>
+        </section>
+
 
         {/* ═══ Intro ═══ */}
 

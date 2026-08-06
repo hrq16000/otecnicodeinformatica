@@ -8,7 +8,7 @@
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs",
     "build": "vite build",
-    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist",
+    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && node scripts/generate-route-manifest.mjs dist && node scripts/check-soft-404.mjs",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
     "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "check:seo:curated": "bun scripts/check-seo-basics.ts --curated dist",
@@ -96,7 +96,10 @@
     "report:weekly-seo": "node scripts/report-weekly-seo.mjs",
     "check:priority-urls": "node scripts/check-priority-urls-guard.mjs",
     "check:priority-urls:dist": "node scripts/check-priority-urls-guard.mjs dist",
-    "report:post-deploy": "node scripts/report-post-deploy.mjs dist"
+    "report:post-deploy": "node scripts/report-post-deploy.mjs dist",
+    "routes:manifest": "node scripts/generate-route-manifest.mjs dist",
+    "check:soft404": "node scripts/check-soft-404.mjs",
+    "serve:dist": "node scripts/serve-dist.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

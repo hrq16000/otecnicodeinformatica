@@ -1431,7 +1431,17 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Os limites também são claros. Montagem correta não é sinônimo de desempenho máximo: um conjunto bem montado entrega o que aqueles componentes conseguem entregar, e nenhuma montagem elimina a limitação de uma peça. Não fornecemos peças de estoque próprio, não trabalhamos com catálogo fechado de componentes e não indicamos marca sem base técnica. Peças adquiridas a pedido dependem da sua autorização de item, valor e fornecedor, e são cobradas à parte da mão de obra.",
         ],
       },
+      {
+        titulo: "Workstation e estações de trabalho pesadas: levantamento de requisitos antes da configuração",
+        paragrafos: [
+          "Quem trabalha com desenho técnico, modelagem, edição de vídeo, fotografia em alta resolução ou planilhas e bases de dados muito grandes não precisa do mesmo computador de quem joga. O ponto de partida não é escolher peça, é entender a rotina: quais programas você usa de fato, qual o tamanho típico dos arquivos abertos ao mesmo tempo, se o trabalho depende mais de processador, de memória ou de placa de vídeo, quantos monitores e em qual resolução, e o que hoje trava ou obriga a esperar. Sem essas respostas, qualquer configuração é chute caro.",
+          "O checklist de requisitos que usamos na avaliação cobre sete pontos: (1) programas e versões utilizados, com os requisitos publicados pelo próprio fabricante do software; (2) volume e tamanho médio dos arquivos de projeto; (3) memória necessária para o número de projetos abertos simultaneamente; (4) espaço e velocidade de armazenamento, separando disco de sistema, disco de trabalho e área de arquivos concluídos; (5) saídas de vídeo e resolução por monitor; (6) dissipação térmica esperada para uso prolongado em carga contínua; (7) rotina de cópia dos arquivos, porque estação de trabalho sem backup é risco concentrado.",
+          "Sobre desempenho, a regra é a mesma de qualquer montagem nossa, e ela não muda por o computador ser chamado de workstation: não prometemos tempo de renderização, número de quadros, fluidez em projeto específico nem ausência de gargalo. Quando o fabricante do componente declara certificação para determinado programa, tratamos isso como informação de terceiro e registramos como tal — não como garantia nossa. Exigência de desempenho contratual, validação homologada ou suporte ao funcionamento interno do software pertence ao fornecedor do programa, não a nós.",
+          "Os critérios de validação na entrega também são específicos: reconhecimento de toda a memória instalada, leitura correta de cada unidade de armazenamento, teste de memória com ciclo definido, carga controlada de processador e placa de vídeo com acompanhamento de temperatura, estabilidade por período definido, funcionamento simultâneo de todas as saídas de vídeo na resolução pretendida e drivers oficiais instalados a partir do site do fabricante. Você recebe por escrito o que foi testado e o que ficou fora. Se a máquina for de empresa, a mesma configuração pode ser padronizada e registrada máquina a máquina — o acompanhamento dessas estações no dia a dia fica no suporte técnico empresarial.",
+        ],
+      },
     ],
+
     dateModified: "2026-08-06",
   },
 };

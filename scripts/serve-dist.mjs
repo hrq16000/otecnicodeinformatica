@@ -12,6 +12,7 @@ import http from "node:http";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { resolvePath } from "./lib/route-manifest.mjs";
+import { HEALTH_PATH, healthPayload, compileManifest, assertManifestSane } from "./lib/edge-router.mjs";
 
 const PORT = Number(process.argv[2] || process.env.PORT || 4180);
 const DIST = path.resolve(process.argv[3] || "dist");
@@ -54,11 +55,24 @@ export async function createServer({ distDir = DIST } = {}) {
       res.end(req.method === "HEAD" ? undefined : body);
     };
 
+    // 0. Health-check de paridade com o Worker.
+    if (pathname === HEALTH_PATH) {
+      const compiled = compileManifest(manifest);
+      const problems = assertManifestSane(compiled);
+      return send(
+        problems.length ? 503 : 200,
+        JSON.stringify(healthPayload(compiled, manifest, problems), null, 2),
+        "application/json; charset=utf-8",
+        { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
+      );
+    }
+
     // 1. Aliases da matriz têm precedência sobre arquivos (equivalente ao `301!`).
     const alias = resolvePath(manifest, pathname);
     if (alias.kind === "redirect") {
       return send(301, "", "text/html; charset=utf-8", { Location: alias.location + (url.search || "") });
     }
+
 
     // 2. Arquivo real (assets, sitemaps, robots, páginas pré-renderizadas).
     const candidates = [path.join(distDir, pathname), path.join(distDir, pathname, "index.html")];

@@ -13,7 +13,7 @@
  */
 import manifest from "../dist/route-manifest.json";
 import notFoundHtml from "../dist/404.html";
-import { compileManifest, decide, assertManifestSane, ORIGIN_PLACEHOLDER } from "../scripts/lib/edge-router.mjs";
+import { compileManifest, decide, assertManifestSane, ORIGIN_PLACEHOLDER, HEALTH_PATH, healthPayload } from "../scripts/lib/edge-router.mjs";
 
 const compiled = compileManifest(manifest);
 const manifestProblems = assertManifestSane(compiled);
@@ -31,11 +31,23 @@ function notFound(method) {
 
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // Health-check público e sem segredos: estado do manifesto, versão do
+    // build e contagens de rotas/aliases/assets. Responde mesmo em fail-safe.
+    if (url.pathname === HEALTH_PATH) {
+      return new Response(JSON.stringify(healthPayload(compiled, manifest, manifestProblems), null, 2), {
+        status: manifestProblems.length ? 503 : 200,
+        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex, nofollow" },
+      });
+    }
+
     if (manifestProblems.length) {
       // Fail-safe: manifesto implausível não pode transformar o site em 404.
       return new Response("edge desabilitado: manifesto inválido", { status: 503 });
     }
-    const url = new URL(request.url);
+
+
     const d = decide({ host: url.hostname, method: request.method, pathname: url.pathname, search: url.search }, compiled);
 
     if (d.action === "reject") return new Response("host não atendido", { status: 421 });

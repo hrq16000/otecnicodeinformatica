@@ -274,8 +274,18 @@ jobs:
         run: npm run lh:desktop
       - name: Lighthouse mobile (bloqueante)
         run: npm run lh:mobile
+      - name: Resumo Lighthouse (LCP/CLS/TTFB/A11y)
+        if: always()
+        run: node scripts/report-lighthouse-summary.mjs
       - name: Budgets de performance (FCP/LCP/CLS/TTFB/A11y)
         run: node scripts/check-performance-budgets.mjs
+      - name: Upload resumo Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-summary
+          path: reports/lighthouse-summary.*
+          if-no-files-found: ignore
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4

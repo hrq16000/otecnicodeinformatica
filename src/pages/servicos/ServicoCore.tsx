@@ -6,6 +6,7 @@ import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
+import { visualDoServico } from "@/lib/servicoVisual3q";
 import { siteConfig } from "@/lib/siteConfig";
 
 

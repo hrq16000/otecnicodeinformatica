@@ -7,6 +7,7 @@ import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidad
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
 import { visualDoServico } from "@/lib/servicoVisual3q";
+import { visualEmpresarial } from "@/lib/servicoVisual3r";
 import { siteConfig } from "@/lib/siteConfig";
 
 

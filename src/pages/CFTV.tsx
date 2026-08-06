@@ -6,7 +6,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView, trackCTAClick, trackFaqToggle } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
 import {
   MessageCircle,

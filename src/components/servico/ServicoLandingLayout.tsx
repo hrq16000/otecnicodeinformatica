@@ -135,7 +135,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       </section>
 
       {/* O que está incluso */}
-      <section className="py-14 md:py-16 bg-background">
+      <section id="incluso" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             O que está incluso
@@ -158,7 +158,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       </section>
 
       {/* Sinais de que você precisa do serviço */}
-      <section className="py-14 md:py-16 bg-secondary">
+      <section id="quando-chamar" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Quando faz sentido chamar o técnico
@@ -178,7 +178,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       </section>
 
       {/* Como funciona */}
-      <section className="py-14 md:py-16 bg-background">
+      <section id="como-funciona" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Como funciona
@@ -199,7 +199,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
       {/* O que pode influenciar o valor */}
       {data.fatoresValor && data.fatoresValor.length > 0 && (
-        <section className="py-14 md:py-16 bg-secondary">
+        <section id="fatores-valor" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
               O que pode influenciar o valor
@@ -272,7 +272,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
 
       {/* FAQ */}
-      <section className="py-14 md:py-16 bg-secondary">
+      <section id="faq" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Perguntas frequentes

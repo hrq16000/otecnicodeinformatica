@@ -241,6 +241,8 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
       {data.extra}
 
+      <EditorialContentLinks path={`/servicos/${data.path}`} />
+
       {/* Conteúdo local aprofundado — reforço de SEO local em Curitiba */}
       {data.blocoLocal && data.blocoLocal.length > 0 && (
         <section className="py-14 md:py-16 bg-background">

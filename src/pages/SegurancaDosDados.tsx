@@ -428,6 +428,8 @@ const SegurancaDosDados = () => {
           </div>
         </section>
 
+        <EditorialContentLinks path={PATH} />
+
         <section className="rounded-xl bg-secondary p-6 text-center">
           <h2 className="mb-3 text-2xl font-bold text-foreground">Ficou com alguma dúvida antes de entregar o equipamento?</h2>
           <p className="mx-auto mb-5 max-w-2xl text-muted-foreground">

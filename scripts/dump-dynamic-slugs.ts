@@ -1,0 +1,26 @@
+// Exporta, a partir das fontes reais de dados do app, os slugs válidos das
+// rotas dinâmicas que não são pré-renderizadas (/marcas/:slug, /problemas/:slug,
+// /procedimentos/:slug). Sem isso, qualquer slug inventado responderia 200
+// (soft-404). Executado com bun no postbuild.
+//
+// Uso: bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json
+
+import { writeFileSync } from "node:fs";
+import { brandsData } from "../src/lib/brandsData";
+import { problemaPages } from "../src/lib/problemaPagesData";
+
+const out = process.argv[2] || "dist/dynamic-slugs.json";
+
+const brandSlugs = brandsData.map((b) => `/marcas/${b.slug}`);
+
+const problemaSlugs: string[] = [];
+const procedimentoSlugs: string[] = [];
+for (const page of problemaPages) {
+  const slug = (page as { slug: string }).slug;
+  problemaSlugs.push(`/problemas/${slug}`);
+  procedimentoSlugs.push(`/procedimentos/${slug}`);
+}
+
+const paths = [...new Set([...brandSlugs, ...problemaSlugs, ...procedimentoSlugs])].sort();
+writeFileSync(out, `${JSON.stringify({ generatedAt: new Date().toISOString(), paths }, null, 2)}\n`);
+console.log(`[dynamic-slugs] ${paths.length} rotas dinâmicas válidas → ${out}`);

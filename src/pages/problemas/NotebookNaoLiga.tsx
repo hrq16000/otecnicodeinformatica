@@ -235,7 +235,7 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
-        <section className="mb-12">
+        <section id="testes" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Testes externos que você pode fazer com segurança</h2>
           <p className="mb-4 text-muted-foreground">
             São verificações que não exigem abrir o equipamento e não aumentam o risco. Se nenhuma delas mudar o

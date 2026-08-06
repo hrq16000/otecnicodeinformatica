@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Check, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { Check, ClipboardCopy, Download, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import {
   TECHNICAL_CASE_CATEGORIES,
   type TechnicalCaseCategory,
@@ -33,10 +33,19 @@ import {
   type DraftCase,
 } from "@/lib/technicalCaseDraftStore";
 import {
+  buildAuditPackage,
+  buildRequirements,
+  CASE_FORM_TEMPLATE,
+  MIN_REVIEWED_PHOTOS,
+  reviewedPhotoCount,
+  scoreCase,
+} from "@/lib/technicalCaseAudit";
+import {
   TechnicalCaseSummary,
   TechnicalCaseEvidence,
   TechnicalCaseProcess,
 } from "@/components/casos/TechnicalCaseBlocks";
+
 
 const PHOTO_KINDS: TechnicalCasePhotoKind[] = [
   "equipamento-recebido",

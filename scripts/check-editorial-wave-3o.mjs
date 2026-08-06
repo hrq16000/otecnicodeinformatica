@@ -52,8 +52,9 @@ const SOFTWARE = /autocad|revit|lumion|solidworks|photoshop|premiere|sketchup|ar
 
 // Promessas de desempenho proibidas no corpo editorial.
 const PROMESSAS = [
-  /garante\s+(o\s+)?desempenho/i,
-  /desempenho\s+garantido/i,
+  // Negações ("não garante desempenho") são permitidas — só a promessa afirmativa falha.
+  /(?<!n[ãa]o\s)garante\s+(o\s+)?desempenho/i,
+  /(?<!n[ãa]o\s[ée]\s)desempenho\s+garantido/i,
   /\bfps\s+garantid/i,
   /tempo\s+de\s+render\w*\s+garantid/i,
   /performance\s+garantida/i,

@@ -36,6 +36,8 @@ const ORIGEM_PECAS = [
 
 const MODALIDADES_WIZARD = ["Bancada (coleta e entrega)", "No local", "Ainda não sei"];
 
+const PERIODOS = ["Manhã (8h–12h)", "Tarde (13h–18h)", "Qualquer período"];
+
 const STEPS = ["Configuração", "Peças", "Aceite"] as const;
 
 export const MontagemWizard = () => {

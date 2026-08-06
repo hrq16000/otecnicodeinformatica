@@ -176,6 +176,9 @@ const report = {
   pages: pageRows,
   localQueries: queryRows,
   conversions,
+  campaigns,
+  funnel: funnelRows,
+  totals,
 };
 writeFileSync("reports/weekly-seo.json", JSON.stringify(report, null, 2));
 
@@ -185,13 +188,16 @@ const md = [
   ``,
   `Propriedade \`${site}\` · comparação com ${previous.start} a ${previous.end}.`,
   ``,
-  `## URLs prioritárias`,
+  `**Totais das URLs prioritárias:** ${totals.impressions} impressões · ${totals.clicks} cliques · ${totals.conversions} conversões (WhatsApp + ligar)` +
+    `${totals.clicks ? ` · taxa ${( (totals.conversions / totals.clicks) * 100).toFixed(1)}%` : ""}.`,
   ``,
-  `| Grupo | URL | Cliques (WoW) | Impressões (WoW) | CTR % (WoW) | Posição (ganho) |`,
-  `| --- | --- | --- | --- | --- | --- |`,
-  ...pageRows.map(
+  `## URLs prioritárias (busca × conversão)`,
+  ``,
+  `| Grupo | URL | Cliques (WoW) | Impressões (WoW) | CTR % (WoW) | Posição (ganho) | Conversões | Taxa % |`,
+  `| --- | --- | --- | --- | --- | --- | --- | --- |`,
+  ...funnelRows.map(
     (r) =>
-      `| ${r.group} | ${r.path} | ${r.clicks} (${sign(r.clicksWow)}) | ${r.impressions} (${sign(r.impressionsWow)}) | ${r.ctr} (${sign(r.ctrWow)}) | ${r.position ?? "—"} (${sign(r.positionWow)}) |`,
+      `| ${r.group} | ${r.path} | ${r.clicks} (${sign(r.clicksWow)}) | ${r.impressions} (${sign(r.impressionsWow)}) | ${r.ctr} (${sign(r.ctrWow)}) | ${r.position ?? "—"} (${sign(r.positionWow)}) | ${r.conversions} | ${r.conversionRate ?? "—"} |`,
   ),
   ``,
   `## Consultas locais monitoradas`,

@@ -15,11 +15,16 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { P0_PATHS, PRECOS_PATH, BASE_URL } from "./lib/priority-urls.mjs";
+import { PRIORITY_FAQ_PATHS } from "./lib/priority-faq.mjs";
+
+/** Só exigimos FAQPage onde a página realmente exibe perguntas frequentes. */
+const FAQ_EXPECTED = new Set(PRIORITY_FAQ_PATHS);
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
 const ORG_ID = `${BASE_URL}/#organization`;
 const ROUTES = [...P0_PATHS, PRECOS_PATH];
 const errors = [];
+const warnings = [];
 const rows = [];
 
 if (!existsSync(DIST)) {
@@ -62,7 +67,9 @@ for (const path of ROUTES) {
   // FAQPage
   const faqs = typed("FAQPage");
   const faqQuestions = faqs.flatMap((f) => [].concat(f.mainEntity ?? []));
-  if (!faqs.length) errors.push(`${path}: FAQPage ausente`);
+  const faqExpected = FAQ_EXPECTED.has(path);
+  if (!faqs.length && faqExpected) errors.push(`${path}: FAQPage ausente`);
+  else if (!faqs.length) warnings.push(`${path}: sem bloco de FAQ visível — FAQPage não aplicável`);
   else if (!faqQuestions.length) errors.push(`${path}: FAQPage sem mainEntity`);
   else {
     const empty = faqQuestions.filter(
@@ -133,12 +140,14 @@ writeFileSync(
     ``,
     `NAP consistente entre páginas: **${uniqueNap.size <= 1 ? "sim" : "não"}**`,
     ``,
+    warnings.length ? `## Observações\n\n${warnings.map((w) => `- ${w}`).join("\n")}\n` : "",
     errors.length ? `## Falhas\n\n${errors.map((e) => `- ${e}`).join("\n")}` : `Sem falhas.`,
   ].join("\n"),
 );
 
 console.log("── Relatório pós-deploy (rich results + NAP) ──");
 for (const r of rows) console.log(`  ${r.path}: FAQ ${r.faq} · Service ${r.service} · Org ${r.nap}`);
+for (const w of warnings) console.log(`  ⚠ ${w}`);
 if (errors.length) {
   console.error(`\n✖ ${errors.length} problema(s):\n${errors.map((e) => `  · ${e}`).join("\n")}`);
   process.exit(1);

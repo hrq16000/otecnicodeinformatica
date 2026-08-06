@@ -80,6 +80,24 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
   const handleCta = () => trackCTAClick("whatsapp", data.trackingKey);
 
+  // Rodada 3Q — caixas editoriais contextuais (no máximo três por página).
+  const caixas = (data.caixas ?? []).slice(0, 3);
+  const caixasBlock =
+    caixas.length > 0 ? (
+      <section id="pontos-de-atencao" className="scroll-mt-24 bg-background py-14 md:py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            {data.caixasTitulo ?? "Pontos de atenção"}
+          </h2>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {caixas.map((caixa) => (
+              <EditorialCallout key={caixa.titulo} caixa={caixa} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null;
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO

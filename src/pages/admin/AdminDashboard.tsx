@@ -427,6 +427,80 @@ const AdminDashboard = () => {
           </div>
         </div>
 
+        {/* Conversões por tipo de rota */}
+        <div className="rounded-lg border border-border overflow-hidden mb-6">
+          <div className="p-4 border-b border-border">
+            <h2 className="font-semibold">Conversões por tipo de rota</h2>
+            <p className="text-xs text-muted-foreground">
+              Home, PF, PJ, serviço, local e institucional — segmentação usada no GA4.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted text-xs">
+                <tr>
+                  <th className="px-3 py-2 text-left">Tipo de rota</th>
+                  <th className="px-3 py-2 text-right">WhatsApp</th>
+                  <th className="px-3 py-2 text-right">Ligar</th>
+                  <th className="px-3 py-2 text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {byRouteType.length === 0 && (
+                  <tr><td colSpan={4} className="text-center py-6 text-muted-foreground">Nenhum evento no período.</td></tr>
+                )}
+                {byRouteType.map((r) => (
+                  <tr key={r.key} className="border-t border-border">
+                    <td className="px-3 py-2">{r.key}</td>
+                    <td className="px-3 py-2 text-right text-accent font-medium">{r.wa}</td>
+                    <td className="px-3 py-2 text-right text-primary font-medium">{r.call}</td>
+                    <td className="px-3 py-2 text-right font-bold">{r.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Conversões por campanha */}
+        <div className="rounded-lg border border-border overflow-hidden mb-6">
+          <div className="p-4 border-b border-border">
+            <h2 className="font-semibold">Conversões por campanha (UTM)</h2>
+            <p className="text-xs text-muted-foreground">
+              Origem, mídia e campanha capturadas no primeiro hit da sessão.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted text-xs">
+                <tr>
+                  <th className="px-3 py-2 text-left">Origem</th>
+                  <th className="px-3 py-2 text-left">Mídia</th>
+                  <th className="px-3 py-2 text-left">Campanha</th>
+                  <th className="px-3 py-2 text-right">WhatsApp</th>
+                  <th className="px-3 py-2 text-right">Ligar</th>
+                  <th className="px-3 py-2 text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {byCampaign.length === 0 && (
+                  <tr><td colSpan={6} className="text-center py-6 text-muted-foreground">Nenhum evento no período.</td></tr>
+                )}
+                {byCampaign.map((r) => (
+                  <tr key={`${r.source}-${r.medium}-${r.campaign}`} className="border-t border-border">
+                    <td className="px-3 py-2">{r.source}</td>
+                    <td className="px-3 py-2">{r.medium}</td>
+                    <td className="px-3 py-2">{r.campaign}</td>
+                    <td className="px-3 py-2 text-right text-accent font-medium">{r.wa}</td>
+                    <td className="px-3 py-2 text-right text-primary font-medium">{r.call}</td>
+                    <td className="px-3 py-2 text-right font-bold">{r.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* Agregado bairro × serviço */}
         <div className="rounded-lg border border-border overflow-hidden">
           <div className="p-4 border-b border-border">

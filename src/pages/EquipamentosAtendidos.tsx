@@ -322,6 +322,69 @@ const EquipamentosAtendidos = () => {
           );
         })}
 
+        {/* Matriz equipamento × modalidade */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="mx-auto max-w-5xl">
+              <h2 className="mb-3 text-2xl md:text-3xl font-bold text-foreground">
+                Matriz: qual modalidade cada situação exige
+              </h2>
+              <p className="mb-6 text-muted-foreground">
+                A tabela abaixo mostra o encaminhamento mais comum por tipo de equipamento e sintoma. É uma
+                orientação inicial: a modalidade final é confirmada na triagem, depois que você descreve o caso.
+              </p>
+              <div className="overflow-x-auto rounded-xl border border-border bg-background">
+                <table className="w-full min-w-[640px] text-left text-sm">
+                  <caption className="sr-only">
+                    Modalidade de atendimento indicada por equipamento e situação
+                  </caption>
+                  <thead>
+                    <tr className="border-b border-border bg-secondary/60">
+                      <th scope="col" className="p-3 font-bold text-foreground">Equipamento</th>
+                      <th scope="col" className="p-3 font-bold text-foreground">Situação</th>
+                      <th scope="col" className="p-3 font-bold text-foreground">Modalidade indicada</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Notebook", "Lentidão, sistema travando, programa ou e-mail", "Remoto"],
+                      ["Notebook", "Bateria, teclado, dobradiça, superaquecimento", "Coleta e entrega"],
+                      ["Desktop", "Sistema corrompido, vírus, configuração", "Remoto ou domicílio"],
+                      ["Desktop", "Não liga, reinicia sozinho, ruído e poeira", "Domicílio ou coleta"],
+                      ["PC gamer / workstation", "Queda de desempenho sob carga, temperatura", "Domicílio (avaliação) e coleta se houver peça"],
+                      ["All in One", "Qualquer falha física", "Coleta e entrega"],
+                      ["Rede e Wi-Fi", "Sinal fraco, canal, roteador e repetidor", "Domicílio"],
+                      ["Rede e Wi-Fi", "Configuração de senha, rede de visitantes, impressora", "Remoto"],
+                      ["Armazenamento", "Disco lento, troca por SSD, clonagem", "Domicílio ou coleta"],
+                      ["Armazenamento", "Disco não reconhecido, ruído, arquivos perdidos", "Coleta com avaliação prévia"],
+                      ["Posto de home office", "Monitor extra, dock, headset, webcam, impressora", "Remoto ou domicílio"],
+                      ["Avaliação especial", "Dano por líquido, bloqueio de conta, sinal de queima", "Coleta com avaliação antes de qualquer previsão"],
+                    ].map(([eq, sit, mod]) => (
+                      <tr key={`${eq}-${sit}`} className="border-b border-border last:border-0">
+                        <th scope="row" className="p-3 font-semibold text-foreground">{eq}</th>
+                        <td className="p-3 text-muted-foreground">{sit}</td>
+                        <td className="p-3 text-muted-foreground">{mod}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Situações com peça, teste prolongado ou risco para os dados sempre passam por bancada. Entenda o
+                método na página de{" "}
+                <Link to="/diagnostico-tecnico" className="font-semibold text-accent hover:underline">
+                  diagnóstico técnico
+                </Link>{" "}
+                e as condições em{" "}
+                <Link to="/precos-e-politicas" className="font-semibold text-accent hover:underline">
+                  preços e políticas
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="mx-auto max-w-4xl">

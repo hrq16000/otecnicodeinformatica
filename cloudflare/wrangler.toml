@@ -18,7 +18,12 @@ main = "worker.js"
 compatibility_date = "2026-01-01"
 
 [vars]
-# Placeholder bloqueante — substituir pelo CNAME real do Lovable no cutover.
+# Modelo de origem (Rodada 2A.3, Fase 6):
+#   "dns"      → fetch(request); a origem é o CNAME proxied da própria zona.
+#                Preferido: não inventa hostname, preserva Host/cookies/método.
+#   "explicit" → fetch(LOVABLE_ORIGIN); só com evidência de que o DNS não serve.
+ORIGIN_MODE = "dns"
+# Só é lido quando ORIGIN_MODE = "explicit".
 LOVABLE_ORIGIN = "LOVABLE_ORIGIN_NOT_CONFIGURED"
 
 [[routes]]

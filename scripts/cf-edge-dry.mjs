@@ -30,8 +30,12 @@ for (const r of routes) {
 info.push(`rotas: ${routes.join(", ") || "(nenhuma ativa)"}`);
 
 const origin = toml.match(/LOVABLE_ORIGIN\s*=\s*"([^"]+)"/)?.[1];
-info.push(`origem: ${origin}`);
-const blockedByOrigin = origin === ORIGIN_PLACEHOLDER;
+const originMode = toml.match(/ORIGIN_MODE\s*=\s*"([^"]+)"/)?.[1] ?? "dns";
+info.push(`modelo de origem: ${originMode}`);
+info.push(`origem explícita: ${origin}`);
+if (!["dns", "explicit"].includes(originMode)) problems.push(`ORIGIN_MODE inválido: ${originMode}`);
+// No modelo "dns" a origem vem do CNAME proxied da zona — não há placeholder bloqueante.
+const blockedByOrigin = originMode === "explicit" && origin === ORIGIN_PLACEHOLDER;
 
 if (!existsSync("dist/route-manifest.json")) {
   problems.push("dist/route-manifest.json ausente — rode npm run build");

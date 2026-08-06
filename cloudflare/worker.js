@@ -35,7 +35,6 @@ export default {
       // Fail-safe: manifesto implausível não pode transformar o site em 404.
       return new Response("edge desabilitado: manifesto inválido", { status: 503 });
     }
-    const origin = env?.LOVABLE_ORIGIN ?? ORIGIN_PLACEHOLDER;
     const url = new URL(request.url);
     const d = decide({ host: url.hostname, method: request.method, pathname: url.pathname, search: url.search }, compiled);
 
@@ -49,11 +48,19 @@ export default {
     }
     if (d.action === "notfound") return notFound(request.method);
 
+    // MODELO DE ORIGEM (Rodada 2A.3, Fase 6)
+    // Padrão = "dns": a Worker Route roda antes da origem e o registro CNAME
+    // proxied da própria zona define para onde a Cloudflare envia o request.
+    // fetch(request) preserva host público, método, query, headers, cookies e
+    // body — sem hostname inventado, sem risco de recursão/SNI/CORS.
+    const mode = env?.ORIGIN_MODE ?? "dns";
+    if (mode === "dns") return fetch(request);
+
+    // Modelo alternativo (explícito) — só usar com evidência de que o DNS não serve.
+    const origin = env?.LOVABLE_ORIGIN ?? ORIGIN_PLACEHOLDER;
     if (origin === ORIGIN_PLACEHOLDER) {
       return new Response("origem não configurada", { status: 503 });
     }
-
-    // Proxy transparente para a origem: preserva método, query, headers, cookies e body.
     const target = new URL(url.pathname + url.search, `https://${origin}`);
     const proxied = new Request(target.toString(), request);
     proxied.headers.set("host", origin);

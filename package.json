@@ -115,7 +115,9 @@
     "migration:cf:bulk:test": "node --test scripts/lib/bulk-redirects.test.mjs",
     "migration:cf:bulk:verify": "node scripts/publish-cloudflare-bulk-redirects.mjs --verify",
     "migration:cf:bulk:publish": "node scripts/publish-cloudflare-bulk-redirects.mjs",
-    "migration:cf:bulk:rollback": "node scripts/publish-cloudflare-bulk-redirects.mjs --rollback"
+    "migration:cf:bulk:rollback": "node scripts/publish-cloudflare-bulk-redirects.mjs --rollback",
+    "cf:edge:bundle": "node scripts/check-worker-bundle.mjs",
+    "test:cutover-browser": "node scripts/test-cutover-browser.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

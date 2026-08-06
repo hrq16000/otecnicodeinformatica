@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackReviewLinkOpen, trackReviewSubmit } from "@/lib/funnelAnalytics";
+import { checkAntiSpam, markSubmitted, alreadySubmitted } from "@/lib/reviewAntiSpam";
+
 
 const MIN_COMMENT = 10;
 
@@ -28,8 +30,13 @@ const Avaliar = () => {
   const [tentou, setTentou] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  // Anti-spam: honeypot invisível + tempo mínimo de permanência.
+  const [honeypot, setHoneypot] = useState("");
+  const [openedAt] = useState(() => Date.now());
+  const [duplicado, setDuplicado] = useState(false);
 
   useEffect(() => {
+    setDuplicado(alreadySubmitted(protocolo));
     trackReviewLinkOpen({
       protocolo: protocolo || null,
       utmSource: params.get("utm_source"),
@@ -37,6 +44,7 @@ const Avaliar = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   const erros = useMemo(
     () => ({
@@ -61,7 +69,18 @@ const Avaliar = () => {
       });
       return;
     }
+    const verdict = checkAntiSpam({ honeypot, openedAt, protocolo });
+    if (verdict.ok === false) {
+      if (verdict.reason === "duplicate") setDuplicado(true);
+      toast({
+        title: "Envio não concluído",
+        description: verdict.message,
+        variant: "destructive",
+      });
+      return;
+    }
     setEnviando(true);
+
     const { error } = await supabase.from("reviews").insert({
       author_name: nome.trim().slice(0, 80),
       rating,
@@ -85,6 +104,7 @@ const Avaliar = () => {
       });
       return;
     }
+    markSubmitted(protocolo);
     trackReviewSubmit({ rating, authorized: autoriza, servico, bairro });
     setEnviado(true);
   };
@@ -113,20 +133,33 @@ const Avaliar = () => {
             )}
           </p>
 
-          {enviado ? (
+          {enviado || duplicado ? (
             <div className="mt-8 rounded-2xl border border-border bg-card p-6 text-center">
               <CheckCircle2 className="mx-auto h-10 w-10 text-accent" aria-hidden="true" />
               <h2 className="mt-3 font-heading text-xl font-semibold text-foreground">
-                Avaliação registrada
+                {enviado ? "Avaliação registrada" : "Avaliação já recebida"}
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                {autoriza
-                  ? "Obrigado! Seu comentário passará por conferência antes de aparecer no site."
-                  : "Obrigado! Seu retorno ficará apenas como feedback interno, sem publicação."}
+                {!enviado
+                  ? "Este atendimento já tem uma avaliação registrada por aqui. Se precisar corrigir algo, fale com a gente pelo WhatsApp."
+                  : autoriza
+                    ? "Obrigado! Seu comentário passará por conferência antes de aparecer no site."
+                    : "Obrigado! Seu retorno ficará apenas como feedback interno, sem publicação."}
               </p>
             </div>
           ) : (
             <div className="mt-8 space-y-6 rounded-2xl border border-border bg-card p-5 md:p-7">
+              {/* honeypot anti-bot — invisível para pessoas, ignorado por leitores de tela */}
+              <input
+                type="text"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-0 w-0 opacity-0"
+              />
+
               <fieldset>
                 <legend className="text-sm font-semibold text-foreground">Sua nota</legend>
                 <div

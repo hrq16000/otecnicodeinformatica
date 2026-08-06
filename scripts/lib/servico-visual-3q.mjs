@@ -338,7 +338,7 @@ export const SERVICO_VISUAL_3Q = {
         titulo: "Impressoras e periféricos em rede",
         itens: [
           "O atendimento de impressoras e periféricos se limita à configuração, comunicação e compartilhamento em rede.",
-          "Não realizamos reparo físico de impressora.",
+          "O escopo não inclui manutenção física do aparelho de impressão.",
           "Compartilhamento entre computadores da mesma rede entra no escopo.",
         ],
       },

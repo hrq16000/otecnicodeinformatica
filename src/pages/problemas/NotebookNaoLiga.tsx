@@ -8,6 +8,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { TrustStrip } from "@/components/TrustStrip";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -165,18 +167,18 @@ const NotebookNaoLiga = () => {
       <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Notebook não liga" }]} />
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
-        <div className="container mx-auto max-w-4xl px-4 py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-accent">Sintoma · Curitiba e região</p>
-          <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
+        <div className="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-14">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent sm:mb-3 sm:text-sm">
+            Sintoma · Curitiba e região
+          </p>
+          <h1 className="mb-3 text-[1.7rem] font-bold leading-[1.12] sm:mb-4 sm:text-3xl md:text-4xl">
             Notebook não liga: o que pode estar acontecendo e como é feito o diagnóstico
           </h1>
-          <p className="mb-6 text-base leading-relaxed opacity-95">
-            Um notebook que não dá sinal de energia, que acende a luz e fica com a tela apagada ou que liga e desliga
-            em seguida costuma assustar — principalmente quando há trabalho ou estudo dentro dele. Esta página explica
-            os sinais que ajudam a separar os cenários, as causas que podem estar envolvidas, o que dá para verificar
-            por fora com segurança, o que não deve ser tentado e como funciona a avaliação técnica antes de qualquer
-            valor. Nenhum diagnóstico é feito à distância: a solução depende da causa confirmada em bancada ou no
-            atendimento.
+          {/* Resumo do hero derivado da introdução aprovada — o texto completo permanece no corpo. */}
+          <p className="mb-4 text-[0.95rem] leading-relaxed opacity-95 sm:mb-6 sm:text-base">
+            Sem sinal de energia, com a luz acesa e a tela apagada ou ligando e desligando: esta página separa esses
+            cenários, mostra o que dá para verificar por fora com segurança e como é feita a avaliação antes de
+            qualquer valor.
           </p>
           <Button asChild size="lg" className="min-h-14">
             <a href={waHref} onClick={cta("hero")} data-cta-location="problema_hero">
@@ -186,8 +188,32 @@ const NotebookNaoLiga = () => {
         </div>
       </section>
 
+      {/* Padrão visual de sintoma (piloto /problemas/computador-lento): confiança + sumário. */}
+      <TrustStrip />
+
       <main className="container mx-auto max-w-4xl px-4 py-12">
-        <section className="mb-12">
+        <PageTableOfContents
+          className="mb-12"
+          items={[
+            { id: "energia-vs-imagem", label: "Não liga x liga sem imagem" },
+            { id: "sinais", label: "Sinais observáveis" },
+            { id: "causas", label: "Causas possíveis" },
+            { id: "testes", label: "Testes seguros por fora" },
+            { id: "nao-insistir", label: "Quando não insistir" },
+            { id: "diagnostico", label: "Como funciona o diagnóstico" },
+            { id: "faq", label: "Perguntas frequentes" },
+          ]}
+        />
+
+        <section id="energia-vs-imagem" className="mb-12 scroll-mt-24">
+          <p className="tldr mb-6 text-muted-foreground" data-speakable>
+            Um notebook que não dá sinal de energia, que acende a luz e fica com a tela apagada ou que liga e desliga
+            em seguida costuma assustar — principalmente quando há trabalho ou estudo dentro dele. Esta página explica
+            os sinais que ajudam a separar os cenários, as causas que podem estar envolvidas, o que dá para verificar
+            por fora com segurança, o que não deve ser tentado e como funciona a avaliação técnica antes de qualquer
+            valor. Nenhum diagnóstico é feito à distância: a solução depende da causa confirmada em bancada ou no
+            atendimento.
+          </p>
           <h2 className="mb-4 text-2xl font-bold text-foreground">
             "Não liga" e "liga sem imagem" são problemas diferentes
           </h2>
@@ -207,7 +233,7 @@ const NotebookNaoLiga = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="sinais" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Sinais observáveis que ajudam no diagnóstico</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {SINAIS.map((s) => (
@@ -219,7 +245,7 @@ const NotebookNaoLiga = () => {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="causas" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Causas possíveis, sem afirmar diagnóstico</h2>
           <p className="mb-4 text-muted-foreground">
             A lista abaixo reúne as origens mais comuns para esse sintoma. Nenhuma delas pode ser confirmada apenas
@@ -235,7 +261,7 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
-        <section className="mb-12">
+        <section id="testes" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Testes externos que você pode fazer com segurança</h2>
           <p className="mb-4 text-muted-foreground">
             São verificações que não exigem abrir o equipamento e não aumentam o risco. Se nenhuma delas mudar o
@@ -263,7 +289,7 @@ const NotebookNaoLiga = () => {
         </div>
 
 
-        <section className="mb-12 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
+        <section id="nao-insistir" className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <AlertTriangle className="h-6 w-6 text-destructive" /> Situações em que não se deve insistir
           </h2>
@@ -276,7 +302,7 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
-        <section className="mb-12">
+        <section id="diagnostico" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <Search className="h-6 w-6 text-accent" /> Como funciona o diagnóstico
           </h2>
@@ -304,7 +330,20 @@ const NotebookNaoLiga = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        {/* CTA intermediário — mesmo fluxo e contexto do hero. */}
+        <div className="mb-12 rounded-xl border border-border bg-muted/40 p-6 text-center">
+          <p className="mb-4 text-muted-foreground">
+            Já sabe o que acontece ao apertar o botão de energia? Descrever esse comportamento é o que define o
+            próximo passo do diagnóstico.
+          </p>
+          <Button asChild size="lg" className="min-h-14">
+            <a href={waHref} onClick={cta("meio")} data-cta-location="problema_meio">
+              <MessageCircle className="mr-2 h-5 w-5" /> Iniciar diagnóstico
+            </a>
+          </Button>
+        </div>
+
+        <section id="arquivos" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <ShieldCheck className="h-6 w-6 text-accent" /> Seus arquivos podem continuar preservados
           </h2>
@@ -372,7 +411,7 @@ const NotebookNaoLiga = () => {
         </section>
 
 
-        <section className="mb-12">
+        <section id="faq" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>
           <div className="space-y-5">
             {FAQS.map((f) => (

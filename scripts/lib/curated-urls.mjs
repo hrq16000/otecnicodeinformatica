@@ -12,6 +12,8 @@
  * canônica (não alias, não redirect) e aprovada pela hierarquia local.
  */
 
+import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
+
 export const BASE_URL = "https://tecnico.curitiba.br";
 
 export const MAIN = [

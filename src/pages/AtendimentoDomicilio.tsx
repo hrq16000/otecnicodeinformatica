@@ -15,7 +15,8 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
-import { siteConfig } from "@/lib/siteConfig";
+import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle, Truck, AlertTriangle, ArrowRight, Camera } from "lucide-react";
 
@@ -99,10 +100,11 @@ const SERVICOS_NO_ENDERECO = [
     limite: "Montagem e upgrade de hardware podem exigir bancada.",
   },
   {
-    titulo: "Smart TV, streaming e dispositivos conectados",
-    desc: "Conexão à rede, ajuste de aplicativos e integração com a internet da casa.",
-    limite: "Falha de painel ou placa da TV não é reparada no local.",
+    titulo: "Monitor, periféricos e posto de trabalho",
+    desc: "Segundo monitor, dock, teclado, mouse, headset e organização do posto de home office já existente.",
+    limite: "Reparo interno de monitor ou de periférico com defeito físico não é feito no local.",
   },
+
 ];
 
 const faqs = [
@@ -151,30 +153,60 @@ const faqs = [
     answer:
       "Atendemos Curitiba e a Região Metropolitana. A localização pode influenciar o agendamento e o deslocamento, combinados antes da visita.",
   },
+  {
+    question: "É necessário levar o equipamento até vocês?",
+    answer:
+      "Na modalidade em domicílio, não: o atendimento acontece no seu endereço. O equipamento só sai do local quando a avaliação indica bancada, e nesse caso a coleta é combinada com você antes.",
+  },
+  {
+    question: "Posso solicitar atendimento para vários computadores?",
+    answer:
+      "Sim. Informe na triagem a quantidade de equipamentos e o sintoma de cada um. Isso influencia o tempo previsto da visita e o escopo do atendimento, que é combinado antes do agendamento.",
+  },
+  {
+    question: "É necessário ter alguém no local durante o atendimento?",
+    answer:
+      "Sim. É preciso uma pessoa responsável presente para liberar o acesso, autorizar os procedimentos e conferir o resultado ao final. Em empresas, quem autoriza alterações deve estar disponível ao menos por contato.",
+  },
+  {
+    question: "O técnico precisa acessar meus arquivos?",
+    answer:
+      "Somente quando o serviço exige, como em backup, migração ou formatação. O acesso é limitado ao necessário e sempre com a sua autorização. As práticas completas estão descritas na página de segurança dos dados.",
+  },
+  {
+    question: "Como funciona o cancelamento da visita?",
+    answer:
+      "Avise pelo WhatsApp com a maior antecedência possível para reagendar sem transtorno. Cancelamento após o técnico já estar em deslocamento pode implicar cobrança do deslocamento, conforme as condições publicadas em preços e políticas.",
+  },
+  {
+    question: "O valor pode mudar após a avaliação no local?",
+    answer:
+      "O valor da visita e da avaliação é informado antes. Se a avaliação revelar um serviço maior, peça necessária ou necessidade de bancada, o novo escopo é apresentado e só é executado após a sua aprovação.",
+  },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
+
 
 const AtendimentoDomicilio = () => {
   useEffect(() => {
-    document.title = "Técnico de Informática em Domicílio em Curitiba | Atendimento";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local."
-      );
-    }
     trackPageView("/atendimento-domicilio", "Atendimento Domicílio");
   }, []);
+
+  useJsonLdSlot(
+    SCHEMA_SLOTS.faq,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl("/atendimento-domicilio")}#faq`,
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+    SLOT_PRIORITY.page,
+  );
+
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -196,7 +228,6 @@ const AtendimentoDomicilio = () => {
         ]}
       />
       <PageSEO title="Técnico de Informática em Domicílio em Curitiba | Atendimento" description="Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local." path="/atendimento-domicilio" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Atendimento a Domicílio", path: "/atendimento-domicilio" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -384,6 +415,67 @@ const AtendimentoDomicilio = () => {
           </div>
         </section>
 
+        {/* Preparação, peças e fatores de valor */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-4 text-2xl md:text-3xl font-bold text-foreground">
+                Preparação antes da visita, peças e o que influencia o valor
+              </h2>
+              <p className="mb-6 text-muted-foreground">
+                Uma visita bem preparada rende muito mais. Deixe o equipamento acessível e ligado à energia, tenha a
+                senha do computador à mão, garanta a presença de uma pessoa responsável no local e, em condomínio ou
+                prédio comercial, avise a portaria com antecedência. Se o caso envolve rede, o acesso ao roteador — ou
+                o contato da operadora — evita que o atendimento pare no meio.
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl bg-background p-5">
+                  <h3 className="mb-2 font-semibold text-foreground">Acesso ao equipamento e autorização</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Nada é executado sem a sua aprovação. Procedimentos que alteram o conteúdo do equipamento, como
+                    formatação ou troca de armazenamento, são explicados antes, com o risco envolvido. O tratamento de
+                    arquivos e credenciais está detalhado em{" "}
+                    <Link to="/seguranca-dos-dados" className="font-semibold text-accent hover:underline">
+                      segurança dos dados
+                    </Link>
+                    .
+                  </p>
+                </div>
+                <div className="rounded-xl bg-background p-5">
+                  <h3 className="mb-2 font-semibold text-foreground">Peças e materiais</h3>
+                  <p className="text-sm text-muted-foreground">
+                    A visita cobre deslocamento, avaliação e mão de obra. Peças, cabos e materiais não estão incluídos
+                    automaticamente: quando necessários, são informados à parte e só adquiridos ou trocados após a sua
+                    autorização. Peça indisponível no momento pode exigir retorno agendado.
+                  </p>
+                </div>
+                <div className="rounded-xl bg-background p-5">
+                  <h3 className="mb-2 font-semibold text-foreground">Fatores que influenciam o valor</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Complexidade do problema confirmado, quantidade de equipamentos, tempo previsto no local,
+                    necessidade de peça, localização e eventual retorno. As condições comerciais vigentes estão em{" "}
+                    <Link to="/precos-e-politicas" className="font-semibold text-accent hover:underline">
+                      preços e políticas
+                    </Link>
+                    .
+                  </p>
+                </div>
+                <div className="rounded-xl bg-background p-5">
+                  <h3 className="mb-2 font-semibold text-foreground">Área atendida</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Curitiba e Região Metropolitana. A distância influencia o agendamento e o deslocamento, ambos
+                    combinados antes da visita. Veja também quais aparelhos entram no escopo em{" "}
+                    <Link to="/equipamentos-atendidos" className="font-semibold text-accent hover:underline">
+                      equipamentos atendidos
+                    </Link>
+                    .
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Serviços relacionados */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
@@ -392,13 +484,14 @@ const AtendimentoDomicilio = () => {
             </h2>
             <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
               {[
-                { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+                { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+                { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
+                { label: "Como funciona", to: "/como-funciona" },
                 { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
-                { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-                { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
                 { label: "Coleta e entrega", to: "/coleta-e-entrega" },
                 { label: "Preços e políticas", to: "/precos-e-politicas" },
               ].map((l) => (
+
                 <Link
                   key={l.to}
                   to={l.to}

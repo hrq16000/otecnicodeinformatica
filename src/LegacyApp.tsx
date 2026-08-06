@@ -30,6 +30,7 @@ const Diagnostico60s = lazy(() => import("./pages/Diagnostico60s"));
 const EquipamentosAtendidos = lazy(() => import("./pages/EquipamentosAtendidos"));
 const ProblemasReaisCasos = lazy(() => import("./pages/ProblemasReaisCasos"));
 const ColetaEntrega = lazy(() => import("./pages/ColetaEntrega"));
+const SegurancaDosDados = lazy(() => import("./pages/SegurancaDosDados"));
 const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
@@ -523,6 +524,7 @@ const App = () => (
             <Route path="/diagnostico-tecnico" element={<DiagnosticoTecnico />} />
             <Route path="/diagnostico-60s" element={<Diagnostico60s />} />
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
+            <Route path="/seguranca-dos-dados" element={<SegurancaDosDados />} />
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
             <Route path="/coleta-formulario" element={<ColetaFormulario />} />
@@ -812,6 +814,7 @@ const App = () => (
             <Route path="/servicos/suporte-tecnico-empresarial" element={<ServicoCore slug="suporte-tecnico-empresarial" />} />
             <Route path="/servicos/manutencao-preventiva-empresas" element={<ServicoCore slug="manutencao-preventiva-empresas" />} />
             <Route path="/servicos/backup-para-empresas" element={<ServicoCore slug="backup-para-empresas" />} />
+            <Route path="/servicos/suporte-home-office" element={<ServicoCore slug="suporte-home-office" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
 

@@ -108,6 +108,8 @@ const SHORT_LABEL = {
   "/equipamentos-atendidos": "Equipamentos atendidos",
   "/quando-nao-compensa": "Quando não compensa reparar",
   "/problemas/notebook-nao-liga": "Notebook não liga",
+  "/seguranca-dos-dados": "Segurança dos dados",
+  "/servicos/suporte-home-office": "Suporte para home office",
 };
 
 export function labelFor(path) {
@@ -235,6 +237,14 @@ const SERVICO_LINKS = {
     "/como-funciona",
     "/precos-e-politicas",
   ],
+  "/servicos/suporte-home-office": [
+    "/atendimento-remoto",
+    "/atendimento-domicilio",
+    "/servicos/redes-e-wifi",
+    "/servicos/backup-para-empresas",
+    "/seguranca-dos-dados",
+    "/precos-e-politicas",
+  ],
   "/servicos/redes-e-wifi": [
     "/servicos/suporte-tecnico-empresarial",
     "/empresa-de-ti-curitiba",
@@ -245,7 +255,46 @@ const SERVICO_LINKS = {
   ],
 };
 
+/** Saídas obrigatórias das modalidades e hubs institucionais (onda 3E). */
+const PAGE_LINKS = {
+  "/atendimento-remoto": [
+    "/servicos/suporte-home-office",
+    "/servicos/suporte-tecnico-empresarial",
+    "/seguranca-dos-dados",
+    "/como-funciona",
+    "/precos-e-politicas",
+    "/atendimento-domicilio",
+  ],
+  "/atendimento-domicilio": [
+    "/equipamentos-atendidos",
+    "/servicos/suporte-home-office",
+    "/como-funciona",
+    "/precos-e-politicas",
+    "/coleta-e-entrega",
+    "/atendimento-remoto",
+  ],
+  "/equipamentos-atendidos": [
+    "/servicos/manutencao-de-notebook",
+    "/servicos/manutencao-de-computador",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/recuperacao-de-dados",
+    "/servicos/redes-e-wifi",
+    "/servicos/suporte-home-office",
+  ],
+  "/seguranca-dos-dados": [
+    "/precos-e-politicas",
+    "/servicos/formatacao",
+    "/servicos/recuperacao-de-dados",
+    "/servicos/backup-para-empresas",
+    "/atendimento-remoto",
+    "/como-funciona",
+  ],
+};
+
 export function linksFor(path) {
+  if (PAGE_LINKS[path]) {
+    return [...new Set(PAGE_LINKS[path].filter((p) => p !== path && BY_PATH.has(p)))];
+  }
   const fam = familyOf(path);
   let out = [];
   switch (fam) {

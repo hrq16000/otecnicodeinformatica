@@ -7,11 +7,12 @@
   <url><loc>https://tecnico.curitiba.br/sobre</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tecnico.curitiba.br/contato</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tecnico.curitiba.br/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/atendimento-domicilio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/atendimento-remoto</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tecnico.curitiba.br/equipamentos-atendidos</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tecnico.curitiba.br/atendimento-domicilio</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tecnico.curitiba.br/atendimento-remoto</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tecnico.curitiba.br/equipamentos-atendidos</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tecnico.curitiba.br/diagnostico-tecnico</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tecnico.curitiba.br/coleta-e-entrega</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tecnico.curitiba.br/quando-nao-compensa</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tecnico.curitiba.br/seguranca-dos-dados</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tecnico.curitiba.br/empresa-de-ti-curitiba</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

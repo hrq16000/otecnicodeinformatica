@@ -30,6 +30,7 @@ export const MAIN = [
   { path: "/diagnostico-tecnico", changefreq: "monthly", priority: "0.6" },
   { path: "/coleta-e-entrega", changefreq: "monthly", priority: "0.6" },
   { path: "/quando-nao-compensa", changefreq: "monthly", priority: "0.5" },
+  { path: "/seguranca-dos-dados", changefreq: "monthly", priority: "0.6" },
 ];
 
 /** Hubs de SEO temáticos (entram no sitemap-main). */
@@ -47,6 +48,7 @@ export const SERVICOS = [
   "/servicos/suporte-tecnico-empresarial",
   "/servicos/manutencao-preventiva-empresas",
   "/servicos/backup-para-empresas",
+  "/servicos/suporte-home-office",
 ].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
 
 /** Hubs de cidade reais (NÃO 215 bairros). */

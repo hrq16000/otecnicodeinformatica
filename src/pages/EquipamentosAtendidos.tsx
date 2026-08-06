@@ -9,112 +9,230 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import {
-  Monitor, Laptop, Tv, HardDrive, Wifi, Server, Cpu, Printer,
-  MessageCircle, ArrowRight, CheckCircle2, AlertTriangle, Wrench,
-  Radio, Smartphone, Cable,
+  Monitor, Laptop, HardDrive, Wifi, Server, Cpu, Keyboard,
+  MessageCircle, ArrowRight, CheckCircle2, AlertTriangle, Ban, MonitorSmartphone,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const PATH = "/equipamentos-atendidos";
+const TITLE = "Equipamentos Atendidos | Técnico em Curitiba";
+const DESCRIPTION =
+  "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.";
 
 const equipamentos = [
   {
-    icon: Monitor,
-    nome: "Computadores Desktop",
-    desc: "PCs de mesa, workstations, all-in-ones e micro PCs",
-    servicos: ["Formatação e instalação de sistema", "Upgrade de SSD, memória RAM e placa de vídeo", "Limpeza interna e troca de pasta térmica", "Diagnóstico de problemas de inicialização", "Montagem completa personalizada"],
-    cenarios: "Computadores desktop são os mais versáteis para reparo. Na maioria dos casos, é possível trocar qualquer componente individualmente, o que torna o reparo viável e econômico. Problemas comuns incluem superaquecimento por acúmulo de poeira, fontes de alimentação instáveis e HDs em fim de vida útil.",
-  },
-  {
     icon: Laptop,
-    nome: "Notebooks e Ultrabooks",
-    desc: "Todas as marcas: Dell, Lenovo, HP, Acer, Asus, Samsung, Apple",
-    servicos: ["Troca de tela, teclado e bateria", "Upgrade de SSD e memória RAM", "Reparo de dobradiças e carcaça", "Limpeza do sistema de refrigeração", "Diagnóstico de placa mãe"],
-    cenarios: "Notebooks exigem cuidado especial por conta dos componentes compactos e integrados. Problemas de superaquecimento são muito comuns — a pasta térmica resseca após 2-3 anos de uso. Quedas e impactos podem danificar telas, dobradiças e conectores internos. O diagnóstico profissional é fundamental para identificar se o reparo compensa.",
+    nome: "Notebooks e ultrabooks",
+    desc: "Dell, Lenovo, HP, Acer, Asus, Samsung, Positivo, Vaio e similares",
+    problemas: [
+      "Lentidão, travamento e superaquecimento no uso diário",
+      "Não liga, não dá imagem ou desliga sozinho",
+      "Bateria que não segura carga e conector de energia com mau contato",
+      "Teclado, dobradiça e carcaça com dano de uso ou queda",
+      "Disco em fim de vida e falhas ao iniciar o sistema",
+    ],
+    servico: { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+    modalidade: "Casos de software resolvem remotamente ou no local; falha física normalmente exige coleta e bancada.",
+    limite: "Reparo com microssolda, dano por líquido e placa-mãe passam por avaliação antes de qualquer previsão.",
   },
   {
-    icon: Tv,
-    nome: "Smart TVs e Monitores",
-    desc: "LED, OLED, QLED — todas as marcas e tamanhos",
-    servicos: ["Diagnóstico de tela (LEDs, painel, T-CON)", "Reparo de fonte de alimentação", "Troca de LEDs de retroiluminação", "Atualização de firmware", "Configuração de smart features"],
-    cenarios: "TVs modernas têm componentes delicados. O problema mais comum é falha nos LEDs de retroiluminação — a TV liga mas a tela fica escura. Muitos confundem com 'tela queimada' e descartam a TV, quando o reparo custa uma fração do preço de uma nova. Problemas na placa fonte também são frequentes e geralmente reparáveis.",
+    icon: Monitor,
+    nome: "Computadores desktop",
+    desc: "PCs de mesa domésticos e de escritório, montados ou de fabricante",
+    problemas: [
+      "Computador lento, cheio de programas na inicialização ou com pop-ups",
+      "Não liga, reinicia sozinho ou apresenta tela azul",
+      "Ruído e aquecimento por acúmulo de poeira e pasta térmica ressecada",
+      "Fonte instável e HD em fim de vida útil",
+      "Sistema corrompido após atualização ou infecção",
+    ],
+    servico: { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+    modalidade: "Boa parte é resolvida em visita ao endereço; troca de peça pode exigir bancada.",
+    limite: "Componentes precisam estar disponíveis no mercado; equipamentos muito antigos podem não compensar reparo.",
   },
   {
-    icon: HardDrive,
-    nome: "HDs, SSDs e Dispositivos de Armazenamento",
-    desc: "HDs mecânicos, SSDs SATA e NVMe, pendrives, cartões de memória",
-    servicos: ["Recuperação de dados de HD com defeito", "Clonagem de disco para migração", "Diagnóstico de setores defeituosos", "Backup profissional de dados", "Upgrade de HD para SSD"],
-    cenarios: "HDs mecânicos têm vida útil limitada (3-5 anos em média). Ruídos anormais, lentidão extrema e arquivos corrompidos são sinais de falha iminente. A recuperação de dados é possível na maioria dos casos, mas quanto mais o HD é utilizado após a falha, menor a chance de sucesso. SSDs são mais duráveis mas também falham — e quando falham, a recuperação é mais complexa.",
+    icon: Cpu,
+    nome: "PC gamer",
+    desc: "Máquinas de alto desempenho com placa de vídeo dedicada",
+    problemas: [
+      "Queda de desempenho e engasgos em jogos e edição",
+      "Temperatura alta, ventoinha ruidosa e desligamento sob carga",
+      "Instabilidade após troca de peça ou de fonte subdimensionada",
+      "Erros de driver de vídeo e travamento de tela",
+      "Necessidade de upgrade de memória, SSD ou armazenamento adicional",
+    ],
+    servico: { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
+    modalidade: "Diagnóstico térmico e de estabilidade costuma exigir bancada e testes sob carga.",
+    limite: "Não fazemos overclock extremo nem assumimos responsabilidade por configuração fora de especificação do fabricante.",
   },
   {
-    icon: Wifi,
-    nome: "Roteadores e Equipamentos de Rede",
-    desc: "Roteadores, switches, access points, mesh, repetidores",
-    servicos: ["Configuração e otimização de Wi-Fi", "Instalação de rede cabeada", "Configuração de firewall e segurança", "Extensão de cobertura com mesh", "Diagnóstico de problemas de conexão"],
-    cenarios: "Problemas de Wi-Fi nem sempre são do provedor de internet. Roteadores mal configurados, posicionamento inadequado, interferência de vizinhos e firmware desatualizado são causas comuns. Uma configuração profissional pode dobrar a velocidade percebida sem trocar o plano de internet.",
+    icon: MonitorSmartphone,
+    nome: "All in One",
+    desc: "Computadores integrados ao monitor, comuns em recepções e consultórios",
+    problemas: [
+      "Lentidão e sistema desatualizado",
+      "Superaquecimento por ventilação restrita do gabinete integrado",
+      "Falha ao iniciar e disco com setores defeituosos",
+      "Dificuldade de upgrade por limitação de projeto",
+    ],
+    servico: { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+    modalidade: "Serviço de software no local; abertura e troca de componente em bancada.",
+    limite: "Peças de All in One são específicas do modelo e nem sempre têm reposição disponível.",
   },
   {
     icon: Server,
-    nome: "Servidores e Equipamentos Empresariais",
-    desc: "Servidores rack, torre, NAS, sistemas de backup corporativo",
-    servicos: ["Configuração e manutenção preventiva", "Migração de dados entre servidores", "Configuração de RAID e backup", "Instalação de sistemas de monitoramento", "Suporte técnico remoto e presencial"],
-    cenarios: "Servidores empresariais exigem atenção especializada. Tempo de inatividade representa prejuízo direto para o negócio. Manutenção preventiva regular (limpeza, verificação de discos, logs de erro) é essencial para evitar falhas catastróficas. Oferecemos contratos de manutenção para empresas.",
+    nome: "Estações de trabalho e equipamentos empresariais",
+    desc: "Máquinas de uso profissional, estações compartilhadas e infraestrutura de escritório",
+    problemas: [
+      "Parque de máquinas heterogêneo e sem padronização",
+      "Lentidão generalizada afetando produtividade da equipe",
+      "Falta de rotina de manutenção e de cópia de arquivos",
+      "Compartilhamento de arquivos e impressoras instável",
+    ],
+    servico: { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+    modalidade: "Combinação de visita técnica e suporte remoto, conforme o caso.",
+    limite: "Alterações em contas, políticas e sistemas corporativos dependem de autorização de quem responde pela empresa.",
   },
   {
-    icon: Printer,
-    nome: "Impressoras e Periféricos",
-    desc: "Impressoras jato de tinta, laser, multifuncionais, scanners",
-    servicos: ["Configuração e instalação", "Limpeza de cabeçote", "Diagnóstico de falhas de impressão", "Configuração de rede", "Instalação de drivers"],
-    cenarios: "Impressoras requerem manutenção regular para funcionar corretamente. Cabeçotes entupidos por falta de uso, toners falsificados que danificam o mecanismo e drivers incompatíveis são problemas recorrentes.",
+    icon: Wifi,
+    nome: "Redes e conectividade",
+    desc: "Roteadores, access points, mesh, repetidores e switches compatíveis",
+    problemas: [
+      "Wi-Fi fraco em parte do imóvel e queda de conexão",
+      "Roteador mal posicionado, canal congestionado ou firmware antigo",
+      "Rede lenta em horário de pico com vários dispositivos",
+      "Impressora ou pasta compartilhada que some da rede",
+    ],
+    servico: { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+    modalidade: "Avaliação no local costuma ser necessária; ajustes de configuração podem ser remotos.",
+    limite: "Obra, passagem de cabo e ponto de rede novo são avaliados à parte; falha do provedor é responsabilidade da operadora.",
   },
   {
-    icon: Radio,
-    nome: "Equipamentos de Áudio e Som",
-    desc: "Caixas de som, receivers, amplificadores, equipamentos de som profissional",
-    servicos: ["Diagnóstico de áudio", "Reparo de amplificadores", "Configuração de sistemas de som", "Troca de componentes eletrônicos"],
-    cenarios: "Equipamentos de áudio podem apresentar ruídos, chiados ou perda total de som. Capacitores eletrolíticos são os componentes que mais falham com o tempo. Em muitos casos, a troca de poucos componentes restaura o equipamento completamente.",
+    icon: HardDrive,
+    nome: "Armazenamento e arquivos",
+    desc: "HD mecânico, SSD SATA e NVMe, HD externo, pendrive e cartão de memória",
+    problemas: [
+      "Disco lento, com ruído anormal ou não reconhecido",
+      "Arquivos corrompidos e sistema que não inicia",
+      "Necessidade de migrar dados para equipamento novo",
+      "Perda de arquivos após formatação ou exclusão acidental",
+    ],
+    servico: { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+    modalidade: "Sempre avaliação física primeiro; nunca prometemos resultado antes do teste da mídia.",
+    limite: "Dano severo de mídia pode inviabilizar a leitura. Recuperação é tentativa, não garantia.",
+  },
+  {
+    icon: Keyboard,
+    nome: "Periféricos e posto de home office",
+    desc: "Monitor adicional, dock, teclado, mouse, headset, webcam e impressora já compatível",
+    problemas: [
+      "Segundo monitor não reconhecido ou com resolução errada",
+      "Câmera e microfone falhando em reuniões",
+      "Impressora que parou de imprimir ou saiu da rede",
+      "Posto de trabalho desorganizado e cabeamento improvisado",
+    ],
+    servico: { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
+    modalidade: "Maioria resolve em atendimento remoto; instalação física no local.",
+    limite: "Defeito mecânico de impressora e reparo interno de periférico ficam com a assistência da marca.",
+  },
+];
+
+const foraDoEscopo = [
+  "Celulares e smartphones",
+  "Televisores e equipamentos de áudio e vídeo",
+  "Eletrodomésticos em geral",
+  "Câmeras e sistemas de CFTV",
+  "Videogames e consoles",
+  "Impressoras como vertical de reparo independente",
+  "Equipamentos industriais e automação",
+  "Tablets, exceto configurações já ligadas ao ambiente atendido",
+];
+
+const faqs = [
+  {
+    question: "Vocês atendem qualquer marca de notebook e computador?",
+    answer:
+      "Atendemos as marcas de mercado mais comuns em Curitiba, como Dell, Lenovo, HP, Acer, Asus, Samsung, Positivo e máquinas montadas. O que define a viabilidade não é a marca, e sim a disponibilidade de peça e o resultado da avaliação técnica.",
+  },
+  {
+    question: "MacBook está incluído?",
+    answer:
+      "Somente mediante avaliação prévia. Parte dos serviços de sistema, arquivos e configuração é possível, mas reparos que dependem de peça específica ou ferramenta proprietária podem ser encaminhados para assistência especializada. Confirme o caso na triagem antes de agendar.",
+  },
+  {
+    question: "Por que televisores e celulares não estão na lista?",
+    answer:
+      "Porque este portal trabalha com informática: computadores, notebooks, redes, armazenamento e o posto de trabalho. Listar aparelhos fora dessa capacidade real geraria expectativa que não conseguiríamos cumprir.",
+  },
+  {
+    question: "Como sei qual modalidade de atendimento serve para o meu equipamento?",
+    answer:
+      "Depende do sintoma. Problema de sistema, configuração ou programa costuma resolver por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem coleta e bancada.",
+  },
+  {
+    question: "Vocês atendem mais de um equipamento na mesma visita?",
+    answer:
+      "Sim. Informe na triagem a quantidade de máquinas e o problema de cada uma, porque isso define o tempo previsto e o escopo do atendimento, combinados antes do agendamento.",
+  },
+  {
+    question: "Equipamento muito antigo ainda vale a pena consertar?",
+    answer:
+      "Nem sempre. Quando o custo do reparo se aproxima do valor de um equipamento equivalente, orientamos a substituição. Essa análise faz parte do diagnóstico e está detalhada na página sobre quando não compensa reparar.",
   },
 ];
 
 const EquipamentosAtendidos = () => {
   useEffect(() => {
-    document.title = "Equipamentos Atendidos | Assistência Técnica Curitiba - Computadores, Notebooks, TVs";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content",
-        "Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia."
-      );
-    }
-    trackPageView("/equipamentos-atendidos", "Equipamentos Atendidos");
+    trackPageView(PATH, "Equipamentos Atendidos");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso de assistência técnica para meu equipamento.")}`;
+  useJsonLdSlot(
+    SCHEMA_SLOTS.webPage,
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${absoluteUrl(PATH)}#webpage`,
+      name: "Equipamentos atendidos pela assistência técnica de informática",
+      description: DESCRIPTION,
+      url: absoluteUrl(PATH),
+      inLanguage: "pt-BR",
+      isPartOf: { "@id": `${absoluteUrl("/")}#website` },
+      publisher: { "@id": `${absoluteUrl("/")}#organization` },
+    },
+    SLOT_PRIORITY.page,
+  );
+
+  const whatsappUrl = whatsappLink("Olá! Preciso de assistência técnica para o meu equipamento de informática.");
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `equipamentos-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Equipamentos Atendidos | Assistência Técnica Curitiba - Computadores, Notebooks, TVs" description="Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia." path="/equipamentos-atendidos" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Equipamentos Atendidos", path: "/equipamentos-atendidos" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-          { "@type": "ListItem", position: 2, name: "Equipamentos Atendidos", item: "https://tecnico.curitiba.br/equipamentos-atendidos" },
-        ],
-      })}} />
+      <PageSEO
+        title={TITLE}
+        description={DESCRIPTION}
+        path={PATH}
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Equipamentos Atendidos", path: PATH },
+        ]}
+      />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Equipamentos Atendidos" }]} />
 
       <main>
-        {/* HERO */}
         <section className="relative hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Equipamentos Que Atendemos em Curitiba e Região
+                Equipamentos atendidos em Curitiba e região
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Trabalhamos com computadores, notebooks, Smart TVs, roteadores, servidores e muito mais. Cada tipo de equipamento exige conhecimento específico — e nós temos experiência com todos.
+                Este é o mapa do que realmente atendemos em informática: notebooks, desktops, PC gamer, All in One,
+                estações de trabalho, redes, armazenamento e o posto de home office. Para cada categoria, os problemas
+                mais comuns, o serviço correspondente, a modalidade provável e o limite honesto do que é possível.
               </p>
               <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("hero")}>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -125,7 +243,6 @@ const EquipamentosAtendidos = () => {
           </div>
         </section>
 
-        {/* Imagem de equipamentos */}
         <section className="py-0 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto -mt-8 relative z-20">
@@ -136,11 +253,29 @@ const EquipamentosAtendidos = () => {
           </div>
         </section>
 
-        {/* LISTA DE EQUIPAMENTOS */}
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="mb-3 text-2xl md:text-3xl font-bold text-foreground">Como usar esta página</h2>
+              <p className="mb-3 text-muted-foreground leading-relaxed">
+                Cada bloco abaixo funciona como uma porta de entrada: você identifica o seu equipamento, confere se o
+                sintoma aparece na lista de problemas comuns e segue para a página do serviço que executa o reparo. A
+                indicação de modalidade evita a frustração mais comum da assistência técnica — marcar uma visita para
+                um problema que só se resolve em bancada, ou levar o equipamento para algo que se resolveria remotamente.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Os limites declarados em cada categoria não são ressalva burocrática: são o resultado real da avaliação
+                técnica. Peça sem reposição, mídia com dano severo e equipamento fora da nossa capacidade operacional
+                são informados antes, e não depois do serviço iniciado.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {equipamentos.map((eq, i) => {
           const Icon = eq.icon;
           return (
-            <section key={i} className={`py-8 md:py-10 ${i % 2 === 0 ? "bg-background" : "bg-secondary"}`}>
+            <section key={eq.nome} className={`py-8 md:py-10 ${i % 2 === 0 ? "bg-secondary" : "bg-background"}`}>
               <div className="container mx-auto">
                 <div className="max-w-4xl mx-auto">
                   <div className="flex items-center gap-4 mb-6">
@@ -155,18 +290,30 @@ const EquipamentosAtendidos = () => {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-bold text-foreground mb-3">Serviços disponíveis:</h3>
+                      <h3 className="font-bold text-foreground mb-3">Problemas mais comuns</h3>
                       <ul className="space-y-2">
-                        {eq.servicos.map((s, j) => (
-                          <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        {eq.problemas.map((s) => (
+                          <li key={s} className="flex items-start gap-2 text-sm text-muted-foreground">
                             <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {s}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-foreground mb-3">Cenários comuns:</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{eq.cenarios}</p>
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-bold text-foreground mb-1">Modalidade provável</h3>
+                        <p className="text-sm text-muted-foreground">{eq.modalidade}</p>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-foreground mb-1">Limitações</h3>
+                        <p className="text-sm text-muted-foreground">{eq.limite}</p>
+                      </div>
+                      <Link
+                        to={eq.servico.to}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+                      >
+                        {eq.servico.label} <ArrowRight className="h-4 w-4" />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -175,46 +322,94 @@ const EquipamentosAtendidos = () => {
           );
         })}
 
-        {/* BLOCO DE INTELIGÊNCIA */}
-        <section className="py-8 md:py-10 bg-accent/5">
+        <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Entenda Antes de Chamar o Técnico
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { icon: AlertTriangle, title: "Diagnóstico ≠ Execução", desc: "O diagnóstico identifica o problema. O reparo só é feito com sua aprovação. São etapas distintas com custos separados." },
-                  { icon: Wrench, title: "Por Que Diagnóstico Tem Custo", desc: "Envolve tempo técnico, ferramentas profissionais e conhecimento especializado. Diagnosticar corretamente evita gastos desnecessários." },
-                  { icon: AlertTriangle, title: "Problemas Simples Podem Ser Complexos", desc: "Um notebook 'que não liga' pode ter desde um carregador defeituoso até uma placa mãe danificada. Só o diagnóstico revela." },
-                  { icon: Cpu, title: "Quando Compensa Reparar vs Trocar", desc: "Se o reparo custa mais de 40-50% do valor de um equipamento novo equivalente, geralmente não compensa. O técnico orienta sobre isso." },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="bg-background rounded-xl p-5 flex gap-4">
-                      <div className="bg-primary rounded-lg p-2 h-fit flex-shrink-0">
-                        <Icon className="h-5 w-5 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-4 text-2xl md:text-3xl font-bold text-foreground">Equipamentos sujeitos a avaliação</h2>
+              <p className="mb-4 text-muted-foreground">
+                Alguns casos não têm resposta antes do teste: MacBook, equipamento com histórico de dano por líquido,
+                máquina com bloqueio de conta do fabricante, placa com sinal de queima e mídias de armazenamento com
+                falha física. Nessas situações, a avaliação vem primeiro e o encaminhamento é decidido depois — inclusive
+                a indicação de assistência especializada quando for o caminho correto.
+              </p>
+              <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-6">
+                <h3 className="mb-3 flex items-center gap-2 font-bold text-foreground">
+                  <Ban className="h-5 w-5 text-destructive" /> O que não faz parte do escopo
+                </h3>
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {foraDoEscopo.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" /> {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA FINAL */}
+        <section className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-5 text-2xl md:text-3xl font-bold text-foreground">Modalidades de atendimento</h2>
+              <div className="grid gap-4 md:grid-cols-3">
+                <Link to="/atendimento-remoto" className="rounded-xl bg-background p-5 transition-colors hover:ring-1 hover:ring-accent">
+                  <h3 className="mb-1 font-bold text-foreground">Atendimento remoto</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Sistema, programas, e-mail, configurações e orientação, com autorização e acompanhamento na tela.
+                  </p>
+                </Link>
+                <Link to="/atendimento-domicilio" className="rounded-xl bg-background p-5 transition-colors hover:ring-1 hover:ring-accent">
+                  <h3 className="mb-1 font-bold text-foreground">Atendimento em domicílio</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Verificação e execução no seu endereço, indicada para rede, instalação e avaliação inicial.
+                  </p>
+                </Link>
+                <Link to="/coleta-e-entrega" className="rounded-xl bg-background p-5 transition-colors hover:ring-1 hover:ring-accent">
+                  <h3 className="mb-1 font-bold text-foreground">Coleta e entrega</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Para falha física, troca de peça e testes prolongados que exigem bancada e ambiente controlado.
+                  </p>
+                </Link>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Ainda em dúvida? O{" "}
+                <Link to="/diagnostico-tecnico" className="font-semibold text-accent hover:underline">
+                  diagnóstico técnico
+                </Link>{" "}
+                explica como a causa é confirmada, e{" "}
+                <Link to="/quando-nao-compensa" className="font-semibold text-accent hover:underline">
+                  quando não compensa reparar
+                </Link>{" "}
+                ajuda na decisão entre consertar e substituir.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-8 md:py-10 bg-background">
+          <div className="container mx-auto">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="mb-6 text-2xl md:text-3xl font-bold text-foreground">
+                Perguntas frequentes sobre equipamentos atendidos
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((f) => (
+                  <div key={f.question} className="rounded-xl border border-border bg-card p-5">
+                    <h3 className="mb-2 font-bold text-foreground">{f.question}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-10 md:py-20 bg-primary">
           <div className="container mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Seu Equipamento Precisa de Atenção?
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Seu equipamento precisa de atenção?</h2>
             <p className="text-white/90 mb-8 max-w-xl mx-auto">
-              Não importa o tipo de equipamento — temos a experiência e as ferramentas certas para diagnosticar e resolver.
+              Descreva o equipamento e o sintoma na triagem. Indicamos a modalidade certa antes de qualquer agendamento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("cta-final")}>

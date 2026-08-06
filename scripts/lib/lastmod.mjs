@@ -9,6 +9,12 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Quarta onda editorial (Rodada 3E) — modalidades, home office e dados
+  "/atendimento-remoto": "2026-08-06",
+  "/atendimento-domicilio": "2026-08-06",
+  "/equipamentos-atendidos": "2026-08-06",
+  "/servicos/suporte-home-office": "2026-08-06",
+  "/seguranca-dos-dados": "2026-08-06",
   // Segunda onda editorial (Rodada 3C) + microgate 3C.1
   "/servicos/upgrade-ssd-ram": "2026-08-06",
   "/servicos/recuperacao-de-dados": "2026-08-06",

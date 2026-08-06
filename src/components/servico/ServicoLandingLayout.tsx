@@ -14,6 +14,10 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { EditorialCallout } from "@/components/servico/EditorialCallout";
 import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
 import type { ServicoCaixa } from "@/lib/servicoVisual3q";
+import {
+  EMPRESARIAL_SERVICO_HERO,
+  EMPRESARIAL_CONTEXTO_CARDS,
+} from "@/lib/visualEmpresarial3s";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -66,13 +70,17 @@ export interface ServicoLandingData {
   blocoLocal?: { titulo: string; paragrafos: string[] }[];
   /** Links internos contextuais para bairros/cidades e problemas próximos */
   linksLocais?: { label: string; to: string }[];
+  /** Rodada 3S — variante visual da página (padrão: residencial) */
+  variante?: "residencial" | "empresarial";
 }
+
 
 const CTA_BASE =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
 
 export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => {
   const waHref = whatsappLink(data.whatsappMessage);
+  const isEmpresarial = data.variante === "empresarial";
 
   useEffect(() => {
     trackPageView(`/servicos/${data.path}`, data.serviceName);
@@ -135,13 +143,13 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           }}
           aria-hidden="true"
         />
-        <div className="container relative z-10 mx-auto py-8 sm:py-12 md:py-20">
+        <div className={`container relative z-10 mx-auto py-8 sm:py-12 ${isEmpresarial ? "md:py-9" : "md:py-20"}`}>
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-              {data.eyebrow}
+              {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.contexto : data.eyebrow}
             </span>
-            <h1 className="mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl md:text-5xl">
+            <h1 className={`mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl ${isEmpresarial ? "md:text-[2.6rem]" : "md:text-5xl"}`}>
               {data.h1}
               {data.h1Accent && <span className="text-[hsl(var(--accent))]"> {data.h1Accent}</span>}
             </h1>
@@ -152,7 +160,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             >
               {data.intro}
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">
               <a
                 href={waHref}
                 target="_blank"
@@ -161,16 +169,45 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
                 data-cta-location={`${data.trackingKey}_hero`}
                 className={CTA_BASE}
               >
-                Iniciar atendimento no WhatsApp
+                {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
               </a>
+              {isEmpresarial && (
+                <Link
+                  to={EMPRESARIAL_SERVICO_HERO.ctaSecundario.to}
+                  data-cta-secundario="empresarial"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+                >
+                  {EMPRESARIAL_SERVICO_HERO.ctaSecundario.label}
+                </Link>
+              )}
             </div>
             <p className="mt-5 text-sm text-white/70">
-              Curitiba e região • A partir de {siteConfig.minPriceLabel}
-              {data.precoNota ? ` (${data.precoNota})` : ""} • Diagnóstico honesto, sem promessa falsa
+              {isEmpresarial
+                ? EMPRESARIAL_SERVICO_HERO.condicoes
+                : `Curitiba e região • A partir de ${siteConfig.minPriceLabel}${
+                    data.precoNota ? ` (${data.precoNota})` : ""
+                  } • Diagnóstico honesto, sem promessa falsa`}
             </p>
           </div>
         </div>
       </section>
+
+      {/* Rodada 3S — contexto B2B logo abaixo do hero (só variante empresarial) */}
+      {isEmpresarial && (
+        <section className="border-b border-border bg-secondary py-8" aria-label="Contexto do atendimento empresarial">
+          <div className="container mx-auto grid gap-4 px-4 md:grid-cols-3">
+            {EMPRESARIAL_CONTEXTO_CARDS.map((card) => (
+              <div key={card.titulo} className="rounded-xl border border-border bg-card p-5">
+                <h2 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
+                  {card.titulo}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{card.texto}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
 
       {/* Rodada 3P — piloto visual: resumo objetivo + sumário da página. */}
       {(data.resumo?.length || data.toc?.length) && (
@@ -379,7 +416,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-heading font-bold">
-            Vamos resolver isso hoje?
+            {isEmpresarial ? "Quer organizar o suporte da sua empresa?" : "Vamos resolver isso hoje?"}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-white/80">
             Fale direto com o técnico pelo WhatsApp. Diagnóstico honesto e valor aprovado antes de
@@ -393,7 +430,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             data-cta-location={`${data.trackingKey}_final`}
             className={`${CTA_BASE} mt-7`}
           >
-            Iniciar atendimento no WhatsApp
+            {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
           </a>
         </div>
       </section>

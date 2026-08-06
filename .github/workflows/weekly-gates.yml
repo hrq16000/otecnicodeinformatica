@@ -44,6 +44,12 @@ jobs:
       - name: Inventário editorial
         run: npm run report:editorial
 
+      # ── Padrões visuais por família de página
+      - name: Padrão visual de sintomas (3R)
+        run: npm run check:visual-wave-3r
+      - name: Padrão visual empresarial (3S)
+        run: npm run check:visual-wave-3s
+
       # ── CTAs e copy
       - name: CTA funnel gate
         run: npm run check:cta-funnel

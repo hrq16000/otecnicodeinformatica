@@ -101,33 +101,72 @@ const queryRows = [...queriesNow.values()]
 
 // Conversões (opcional — só quando o backend estiver acessível pelo job).
 let conversions = null;
+let campaigns = null;
 const sbUrl = process.env.SUPABASE_URL;
 const sbKey = process.env.SUPABASE_ANON_KEY;
 if (sbUrl && sbKey) {
   try {
     const since = new Date(`${previous.start}T00:00:00Z`).toISOString();
     const res = await fetch(
-      `${sbUrl.replace(/\/$/, "")}/rest/v1/click_events?select=event_type,path,created_at&created_at=gte.${since}`,
+      `${sbUrl.replace(/\/$/, "")}/rest/v1/click_events?select=event_type,path,created_at,utm_source,utm_medium,utm_campaign&created_at=gte.${since}`,
       { headers: { apikey: sbKey, Authorization: `Bearer ${sbKey}` } },
     );
     if (res.ok) {
       const events = await res.json();
       const byPath = new Map();
+      const byCampaign = new Map();
       for (const e of events) {
         const path = e.path || "/";
         const cur = byPath.get(path) || { path, group: groupOf(path), wa: 0, call: 0 };
         if (e.event_type === "wa_click") cur.wa += 1;
         else if (e.event_type === "call_click") cur.call += 1;
         byPath.set(path, cur);
+
+        const source = e.utm_source || "(direto/orgânico)";
+        const medium = e.utm_medium || "(none)";
+        const campaign = e.utm_campaign || "(sem campanha)";
+        const key = `${source}|${medium}|${campaign}`;
+        const c = byCampaign.get(key) || { source, medium, campaign, wa: 0, call: 0 };
+        if (e.event_type === "wa_click") c.wa += 1;
+        else if (e.event_type === "call_click") c.call += 1;
+        byCampaign.set(key, c);
       }
       conversions = [...byPath.values()]
         .filter((r) => r.wa + r.call > 0)
         .sort((a, b) => b.wa + b.call - (a.wa + a.call));
+      campaigns = [...byCampaign.values()]
+        .filter((r) => r.wa + r.call > 0)
+        .sort((a, b) => b.wa + b.call - (a.wa + a.call))
+        .slice(0, 25);
     }
   } catch {
     conversions = null;
+    campaigns = null;
   }
 }
+
+/**
+ * Consolidado GSC × conversões: impressões, cliques, CTR e conversões por rota
+ * prioritária (mesma taxonomia de eventos usada no GA4 — wa_click/call_click).
+ */
+const convByPath = new Map((conversions ?? []).map((c) => [c.path, c]));
+const funnelRows = pageRows.map((r) => {
+  const c = convByPath.get(r.path);
+  const conv = (c?.wa ?? 0) + (c?.call ?? 0);
+  return {
+    ...r,
+    conversions: conv,
+    conversionRate: r.clicks ? Number(((conv / r.clicks) * 100).toFixed(1)) : null,
+  };
+});
+const totals = funnelRows.reduce(
+  (acc, r) => ({
+    clicks: acc.clicks + r.clicks,
+    impressions: acc.impressions + r.impressions,
+    conversions: acc.conversions + r.conversions,
+  }),
+  { clicks: 0, impressions: 0, conversions: 0 },
+);
 
 const report = {
   generatedAt: new Date().toISOString(),

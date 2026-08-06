@@ -347,6 +347,7 @@ const Sobre = () => {
           </div>
         </section>
       </main>
+      <GarantiaNotaFiscalPagamento compact />
       <Footer />
     </div>
   );

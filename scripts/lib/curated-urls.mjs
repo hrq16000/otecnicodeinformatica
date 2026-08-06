@@ -91,10 +91,12 @@ export const ACTIVE_SITEMAPS = [
   ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
   ["sitemap-regioes.xml", REGIOES],
   ["sitemap-bairros.xml", BAIRROS],
+  ["sitemap-editorial.xml", EDITORIAL],
 ];
 
 /** Sub-sitemaps herdados, mantidos vazios de propósito. */
 export const EMPTY_SITEMAPS = ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"];
+
 
 /** Conjunto plano de todas as URLs indexáveis declaradas. */
 export const CURATED_PATHS = ACTIVE_SITEMAPS.flatMap(([, entries]) => entries.map((e) => e.path));

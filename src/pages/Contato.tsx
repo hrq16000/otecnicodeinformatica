@@ -209,7 +209,11 @@ const Contato = () => {
       </main>
       <RealImageSection imageKey="clienteSatisfeito" caption="Atendimento humanizado e profissional" />
       <BlocoInteligencia />
+      <div className="container mx-auto px-4 pb-4">
+        <QrContatoBlock location="contato" />
+      </div>
       <GarantiaNotaFiscalPagamento compact />
+
       <InterlinkingBlock />
       <Footer />
     </div>

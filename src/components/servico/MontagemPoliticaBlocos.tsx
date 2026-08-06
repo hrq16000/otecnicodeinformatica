@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { CheckCircle2, ShieldCheck, Cpu, PackageCheck } from "lucide-react";
 import {
   PECAS_DO_CLIENTE,
@@ -20,6 +21,14 @@ export const MontagemPoliticaBlocos = () => (
         <h2 className="text-2xl font-bold md:text-3xl">
           Peças fornecidas pelo cliente: como tratamos compatibilidade, procedência e troca
         </h2>
+        <p className="mt-3 text-muted-foreground">
+          Regras completas, com prazo de troca, integridade no recebimento e a separação entre garantia
+          da peça e garantia da mão de obra, estão na{" "}
+          <Link to="/politica-de-pecas-do-cliente" className="font-medium text-[hsl(var(--accent))] underline">
+            política de peças do cliente
+          </Link>
+          .
+        </p>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="rounded-xl border border-border bg-card p-5">
             <h3 className="flex items-center gap-2 font-semibold">

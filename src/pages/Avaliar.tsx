@@ -132,20 +132,33 @@ const Avaliar = () => {
             )}
           </p>
 
-          {enviado ? (
+          {enviado || duplicado ? (
             <div className="mt-8 rounded-2xl border border-border bg-card p-6 text-center">
               <CheckCircle2 className="mx-auto h-10 w-10 text-accent" aria-hidden="true" />
               <h2 className="mt-3 font-heading text-xl font-semibold text-foreground">
-                Avaliação registrada
+                {enviado ? "Avaliação registrada" : "Avaliação já recebida"}
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                {autoriza
-                  ? "Obrigado! Seu comentário passará por conferência antes de aparecer no site."
-                  : "Obrigado! Seu retorno ficará apenas como feedback interno, sem publicação."}
+                {!enviado
+                  ? "Este atendimento já tem uma avaliação registrada por aqui. Se precisar corrigir algo, fale com a gente pelo WhatsApp."
+                  : autoriza
+                    ? "Obrigado! Seu comentário passará por conferência antes de aparecer no site."
+                    : "Obrigado! Seu retorno ficará apenas como feedback interno, sem publicação."}
               </p>
             </div>
           ) : (
             <div className="mt-8 space-y-6 rounded-2xl border border-border bg-card p-5 md:p-7">
+              {/* honeypot anti-bot — invisível para pessoas, ignorado por leitores de tela */}
+              <input
+                type="text"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-0 w-0 opacity-0"
+              />
+
               <fieldset>
                 <legend className="text-sm font-semibold text-foreground">Sua nota</legend>
                 <div

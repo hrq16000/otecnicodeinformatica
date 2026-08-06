@@ -1,5 +1,5 @@
 // Ordem de serviço de montagem gerada a partir dos dados do mini-wizard.
-// Documento de registro (abertura de atendimento) — não é orçamento fechado
+// Documento de registro (abertura de atendimento) — não fecha valor
 // nem promessa de desempenho. Gerado no navegador sob clique.
 import { createPdf, downloadBlob } from "@/lib/pdfDoc";
 import { siteConfig, absoluteUrl } from "@/lib/siteConfig";

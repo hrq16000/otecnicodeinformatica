@@ -74,4 +74,8 @@ jobs:
             reports/gsc-indexing.md
             reports/gsc-indexing.json
             reports/post-deploy-rich-results.md
+            reports/web-vitals.md
+            reports/web-vitals.json
+            reports/rank-tracking.md
+            reports/rank-tracking.json
           if-no-files-found: warn

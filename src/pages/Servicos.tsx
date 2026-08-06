@@ -122,6 +122,13 @@ const Servicos = () => {
             Encontre o serviço adequado para seu computador, notebook, rede ou empresa. Cada página
             explica os sintomas atendidos, o processo e o que pode influenciar o valor do atendimento.
           </p>
+          <p className="mb-8 max-w-2xl text-muted-foreground">
+            Procurando pelo sintoma?{" "}
+            <Link to="/problemas/notebook-nao-liga" className="font-medium text-[hsl(var(--accent))] hover:underline">
+              Notebook não liga: sinais, causas possíveis e diagnóstico
+            </Link>
+            .
+          </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CARDS.map(({ slug, icon: Icon, blurb }) => {
               const data = SERVICOS_CORE[slug];

@@ -88,6 +88,14 @@ export const SERVICO_BAIRRO = [
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
 
 /**
+ * Cluster de problemas (sintomas). Piloto controlado da Rodada 3B: só entram
+ * URLs com conteúdo próprio de sintoma, distinto da página de serviço-mãe.
+ */
+export const PROBLEMAS = [
+  { path: "/problemas/notebook-nao-liga", changefreq: "monthly", priority: "0.6" },
+];
+
+/**
  * Onda editorial indexável (Rodada 4H). O hub /blog só é declarado aqui
  * porque passou a listar artigos aprovados de verdade. Cada artigo vem de
  * `scripts/lib/editorial-wave.mjs` — espelho de APPROVED_EDITORIAL_CONTENT.
@@ -108,11 +116,12 @@ export const ACTIVE_SITEMAPS = [
   ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
   ["sitemap-regioes.xml", REGIOES],
   ["sitemap-bairros.xml", BAIRROS],
+  ["sitemap-problemas.xml", PROBLEMAS],
   ["sitemap-editorial.xml", EDITORIAL],
 ];
 
 /** Sub-sitemaps herdados, mantidos vazios de propósito. */
-export const EMPTY_SITEMAPS = ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"];
+export const EMPTY_SITEMAPS = ["sitemap-marcas.xml", "sitemap-news.xml"];
 
 
 /** Conjunto plano de todas as URLs indexáveis declaradas. */

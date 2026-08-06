@@ -665,6 +665,36 @@ const ComoFunciona = () => {
               <p className="text-primary-foreground/60 text-sm mt-6">
                 Atendimento de segunda a sábado via WhatsApp
               </p>
+              <nav aria-label="Páginas relacionadas" className="mt-8 border-t border-primary-foreground/20 pt-6 text-left">
+                <h3 className="mb-3 text-base font-semibold text-primary-foreground">
+                  Antes de iniciar a triagem, vale conferir
+                </h3>
+                <p className="mb-4 text-sm text-primary-foreground/80">
+                  A triagem inicial orienta a modalidade de atendimento, mas não substitui o diagnóstico técnico:
+                  a causa só é confirmada com o equipamento avaliado. Peças e materiais são tratados à parte do
+                  serviço, prazos dependem de fila, complexidade, testes e disponibilidade de peça, e nenhuma
+                  execução adicional acontece sem a sua autorização. Cancelamento, desistência e garantia seguem
+                  as políticas vigentes, conforme o serviço efetivamente executado.
+                </p>
+                <ul className="grid gap-2 text-sm sm:grid-cols-2">
+                  {[
+                    { to: "/precos-e-politicas", label: "Preços e políticas" },
+                    { to: "/faq", label: "Dúvidas frequentes" },
+                    { to: "/contato", label: "Contato" },
+                    { to: "/servicos", label: "Todos os serviços" },
+                    { to: "/servicos/manutencao-de-notebook", label: "Manutenção de notebook" },
+                    { to: "/servicos/manutencao-de-computador", label: "Manutenção de computador" },
+                    { to: "/servicos/formatacao", label: "Formatação de computador" },
+                    { to: "/problemas/notebook-nao-liga", label: "Notebook não liga" },
+                  ].map((l) => (
+                    <li key={l.to}>
+                      <Link to={l.to} className="text-primary-foreground/90 underline underline-offset-4 hover:text-primary-foreground">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
           </div>
         </section>

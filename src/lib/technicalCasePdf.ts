@@ -59,7 +59,7 @@ export async function generateCasePdf(c: DraftCase): Promise<Blob> {
   }
 
   pdf.heading(
-    `Evidências — ${c.evidence.photos.length} foto(s), ${reviewedPhotoCountSafe(c)} revisada(s)`,
+    `Evidências — ${c.evidence.photos.length} foto(s), ${reviewedPhotoCount(c)} revisada(s)`,
   );
   if (c.evidence.photos.length === 0) pdf.paragraph("(nenhuma evidência anexada)", { muted: true });
   c.evidence.photos.forEach((p, i) =>
@@ -118,7 +118,7 @@ export async function generateProofBlockPdf(
     pdf.heading(`${c.id} — ${c.title || "(sem título)"}`);
     pdf.keyValue("Status", `${c.status} · ${s.total}/14 · ${s.recommendation}`);
     pdf.keyValue("Serviço", `/servicos/${c.serviceSlug}`);
-    pdf.keyValue("Evidências revisadas", String(reviewedPhotoCountSafe(c)));
+    pdf.keyValue("Evidências revisadas", String(reviewedPhotoCount(c)));
     (c.confirmedDiagnosis.length ? c.confirmedDiagnosis : ["(diagnóstico pendente)"]).forEach((d) => pdf.bullet(d));
   });
 

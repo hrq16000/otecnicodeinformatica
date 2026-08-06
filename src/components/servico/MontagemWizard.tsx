@@ -164,10 +164,23 @@ export const MontagemWizard = () => {
         enviaFotos,
         cidade: cidade.trim() || undefined,
         modalidade: modalidade || undefined,
+        janela: janela || undefined,
         consentimentoLgpd: lgpd,
       });
+      saveOsRecord({
+        protocolo: numero,
+        criadoEm: Date.now(),
+        servico: "Montagem e configuração de computador",
+        modelo: modelo.trim() || undefined,
+        cidade: cidade.trim() || undefined,
+        modalidade: modalidade || undefined,
+        janela: janela || undefined,
+      });
       trackOsPdfDownload({ protocolo: numero, origem: "wizard_montagem", servico: "montagem-de-pc" });
-      toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+      toast({
+        title: `Ordem de serviço ${numero}`,
+        description: "PDF baixado — acompanhe o andamento em /status-da-ordem-de-servico.",
+      });
 
     } catch {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });

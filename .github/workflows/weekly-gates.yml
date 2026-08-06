@@ -39,6 +39,8 @@ jobs:
         run: npm run check:editorial-governance
       - name: Cluster editorial e interlinking artigo ⇄ pilar
         run: npm run check:editorial-cluster
+      - name: Onda editorial empresarial (3O)
+        run: npm run check:editorial-wave-3o
       - name: Inventário editorial
         run: npm run report:editorial
 

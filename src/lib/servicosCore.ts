@@ -77,13 +77,19 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Formatar sempre deixa o computador rápido?", answer: "Nem sempre. Formatar resolve problemas de software, mas lentidão também pode vir de HD antigo, pouca memória ou superaquecimento. Por isso avaliamos a causa antes: às vezes um SSD resolve mais que formatar." },
       { question: "Em quanto tempo fica pronto?", answer: "Em geral de 2 a 4 horas, variando conforme o hardware e o volume de dados a copiar e restaurar." },
       { question: "Atendem em domicílio ou por coleta?", answer: "Atendemos em Curitiba e região, com opção de atendimento em domicílio ou coleta e entrega do equipamento." },
+      { question: "O backup está incluído?", answer: "A cópia dos seus arquivos faz parte do procedimento sempre que o armazenamento permite leitura. Volumes muito grandes, discos com falha ou pedidos de mídia adicional são tratados como escopo à parte e informados antes da execução." },
+      { question: "A licença do Windows está incluída?", answer: "Não fornecemos ativação irregular. Máquinas com licença de fábrica normalmente reativam pela chave gravada na placa; quando não existe licença válida, explicamos como regularizar antes de concluir a instalação." },
+      { question: "Quais programas são instalados?", answer: "Navegador, leitor de PDF, compactador, antivírus e o pacote de produtividade compatível com o seu uso. Programas específicos de trabalho podem ser instalados desde que você forneça instalador e licença." },
+      { question: "É possível recuperar arquivos antes da formatação?", answer: "Na maioria dos casos, sim, e essa é a primeira etapa. Quando o disco apresenta setores defeituosos ou falha de leitura, a prioridade passa a ser preservar os dados, e a reinstalação só é discutida depois disso." },
+      { question: "O serviço possui garantia?", answer: "Sim, conforme o serviço executado e as condições publicadas na página de preços e políticas. A garantia cobre o serviço realizado, não novas infecções ou alterações feitas depois da entrega." },
     ],
     relacionados: [
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
-      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+
       { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
     blocoLocal: [
@@ -96,11 +102,27 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
       {
+        titulo: "Instalação limpa, restauração e o que pode ser preservado",
+        paragrafos: [
+          "A instalação limpa apaga a partição do sistema e recria tudo do zero: é o caminho quando o Windows está corrompido, quando houve infecção persistente ou quando anos de instalações deixaram a máquina imprevisível. A restauração do próprio fabricante devolve o estado de fábrica, mas traz de volta o conjunto original de programas e nem sempre resolve o problema que motivou o atendimento.",
+          "O que costuma ser preservado com a cópia prévia: documentos, fotos, downloads, área de trabalho, favoritos e, quando aplicável, perfis de programas usados no dia a dia. O que não retorna sozinho: programas instalados, configurações internas de sistema e licenças que dependem de chave própria.",
+          "Preparação do disco também entra no escopo: verificação da saúde do armazenamento, particionamento adequado e, quando indicado, migração do sistema para SSD. Se o disco estiver com falha de leitura, a reinstalação é interrompida e o assunto passa a ser preservação de dados.",
+        ],
+      },
+      {
         titulo: "Backup, licença e o que você precisa separar antes",
         paragrafos: [
           "Antes de reinstalar, copiamos documentos, fotos, downloads e área de trabalho. Vale avisar sobre o que costuma escapar: e-mails configurados em programa local, favoritos e senhas do navegador, arquivos de sistemas de trabalho e licenças de softwares pagos. Se existir algo assim, avise na triagem para incluirmos na cópia.",
           "Sobre licença: máquinas com Windows de fábrica normalmente reativam sozinhas pela chave gravada na placa. Quando não há licença válida, explicamos como regularizar — não entregamos ativação irregular.",
           "Você também recebe orientação de senhas: contas do navegador, e-mail e serviços precisam ser acessíveis depois da reinstalação. Perder acesso à conta principal costuma dar mais trabalho do que a própria formatação.",
+        ],
+      },
+      {
+        titulo: "Nem todo computador lento precisa ser formatado",
+        paragrafos: [
+          "Antes de recomendar a reinstalação do sistema, é necessário diferenciar falhas de software, armazenamento, memória, aquecimento e outros problemas físicos. Formatar um equipamento cujo gargalo é disco no fim da vida ou memória insuficiente devolve alguns dias de melhora e o problema retorna, porque a causa continua no lugar.",
+          "Formatação também não corrige fonte defeituosa, bateria, tela, teclado, conector, memória com defeito, armazenamento fisicamente danificado, placa-mãe ou desligamentos por temperatura. Esses cenários pertencem à manutenção de computador ou à manutenção de notebook, conforme o equipamento.",
+          "Quando o diagnóstico indica origem física, dizemos isso mesmo que o pedido inicial tenha sido formatar. Reinstalar sistema em máquina com hardware comprometido é o tipo de serviço que gera retrabalho e desconfiança — e não é assim que trabalhamos.",
         ],
       },
       {
@@ -175,14 +197,23 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Vocês trocam tela e teclado?", answer: "Sim, avaliamos e substituímos tela, dobradiça, teclado, bateria e conectores, conforme o modelo e a disponibilidade de peça. Nem toda placa, porém, tem reparo viável." },
       { question: "Preciso levar o notebook até vocês?", answer: "Atendemos em domicílio e também por coleta e entrega em Curitiba e região, conforme o tipo de serviço." },
       { question: "Quanto tempo leva a manutenção?", answer: "Serviços simples podem sair conforme a disponibilidade da agenda; reparos que dependem de peça específica levam mais tempo. Informamos o prazo junto com o valor." },
+      { question: "Meu notebook não liga. O que devo fazer?", answer: "Teste outra tomada, observe se algum LED acende e remova periféricos externos. Se não houver mudança, evite novas tentativas — principalmente após líquido, queda, cheiro ou aquecimento — e encaminhe para diagnóstico. Os sinais e as causas possíveis estão detalhados na página sobre notebook que não liga." },
+      { question: "Notebook aquecendo precisa de limpeza?", answer: "Aquecimento pode estar relacionado a poeira acumulada e pasta térmica ressecada, mas também a ventoinha com desgaste, dissipador obstruído ou uso intenso sem ventilação. A limpeza é indicada depois da avaliação, não antes dela." },
+      { question: "Vale a pena trocar SSD ou memória?", answer: "Quando a placa está saudável e o gargalo é disco lento ou memória insuficiente, o upgrade costuma entregar ganho real de desempenho. Isso é avaliado no diagnóstico, junto da compatibilidade do modelo." },
+      { question: "A manutenção apaga meus arquivos?", answer: "Serviços de hardware não têm como objetivo apagar dados. Ainda assim, quando há risco envolvido — armazenamento suspeito ou reinstalação de sistema — avisamos antes e tratamos a preservação dos arquivos como etapa separada." },
+      { question: "É possível informar o valor sem diagnóstico?", answer: "Não com precisão. O mesmo sintoma pode ter causas de custo muito diferente. Informamos antes as condições comerciais vigentes, publicadas em preços e políticas; o valor do reparo vem depois da causa confirmada e depende da sua autorização." },
+      { question: "Peças estão incluídas?", answer: "Não. Peças, componentes e materiais são tratados à parte do serviço e só são adquiridos após a sua aprovação. Informamos se o item é original, paralelo ou recondicionado." },
+      { question: "Há garantia?", answer: "Sim, conforme o serviço efetivamente executado e a peça aplicada. As condições de garantia estão descritas na página de preços e políticas." },
     ],
     relacionados: [
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Notebook não liga", to: "/problemas/notebook-nao-liga" },
+      { label: "Como funciona o atendimento", to: "/como-funciona" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
       { label: "Coleta e entrega", to: "/coleta-e-entrega" },
-      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
     blocoLocal: [
       {
@@ -199,6 +230,22 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Notebook tem peça cara e componente soldado. Antes de indicar reparo, comparamos o custo total do serviço com o valor de mercado do equipamento e com o que ele ainda entrega para o seu uso. Se a soma passar de boa parte do valor do aparelho e o desempenho continuar limitado, dizemos isso com clareza — mesmo perdendo o serviço.",
           "Há casos intermediários que valem muito a pena: máquina com placa saudável e apenas disco lento ou pouca memória volta a ser produtiva com upgrade, por uma fração do preço de um modelo novo. Já placa com dano por líquido ou falha de chip gráfico entra em outra faixa de risco, e explicamos a chance real de sucesso antes de qualquer autorização.",
           "Trabalhamos com peças compatíveis e informamos quando o item é original, paralelo ou recondicionado. Você aprova o valor antes da execução; nada é trocado sem sua confirmação.",
+        ],
+      },
+      {
+        titulo: "Quando interromper o uso do notebook",
+        paragrafos: [
+          "Alguns sinais pedem que o equipamento seja desligado imediatamente: contato com líquido, cheiro de queimado, estalo, fumaça, bateria visivelmente inchada ou carcaça deformada. Nesses cenários, cada nova tentativa de ligar tende a ampliar o dano e a encarecer o reparo.",
+          "Outros sinais permitem uso vigiado, mas indicam avaliação próxima: desligamento repentino sob esforço, base muito quente, ventoinha em rotação máxima o tempo todo, travamentos frequentes e ruído metálico vindo do armazenamento. Se houver dados importantes sem cópia, a prioridade passa a ser preservar os arquivos antes de qualquer intervenção.",
+          "Quando o notebook simplesmente não dá sinal de energia, a investigação é específica desse sintoma e está detalhada na página sobre notebook que não liga, que explica os testes externos seguros e o que não deve ser tentado em casa.",
+        ],
+      },
+      {
+        titulo: "Peças, materiais e segurança dos seus arquivos",
+        paragrafos: [
+          "Peças e materiais são tratados de forma separada do serviço: só são adquiridos depois da sua aprovação e sempre informamos se o item é original, paralelo ou recondicionado, além da disponibilidade real para o modelo. Nenhuma substituição acontece sem autorização.",
+          "Sobre dados: procedimentos de hardware não têm o objetivo de apagar arquivos, mas nenhum equipamento com falha pode ser apresentado como livre de risco. Quando o armazenamento é suspeito ou quando o caso exige reinstalação do sistema, avisamos antes e tratamos a preservação dos arquivos como etapa própria. Intervenções de software, quando indicadas, seguem o escopo da página de formatação.",
+          "A garantia acompanha o serviço executado e a peça aplicada, conforme as regras publicadas em preços e políticas — não existe garantia universal para qualquer defeito futuro do aparelho.",
         ],
       },
       {
@@ -271,14 +318,22 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Vocês fazem limpeza e troca de pasta térmica?", answer: "Sim. A limpeza interna e a manutenção da refrigeração ajudam a reduzir travamentos e desligamentos por temperatura." },
       { question: "Atendem em domicílio?", answer: "Sim, em Curitiba e região, com opção de coleta e entrega quando o reparo precisa de bancada." },
       { question: "Vale a pena consertar um PC antigo?", answer: "Depende do custo do reparo e de um upgrade frente ao valor da máquina. Explicamos com transparência quando compensa investir." },
+      { question: "Computador lento precisa ser formatado?", answer: "Nem sempre. Lentidão pode estar relacionada a disco mecânico no fim da vida, memória insuficiente, temperatura alta ou sistema comprometido. A formatação só é indicada quando a causa é de software; o diagnóstico é o que faz essa separação." },
+      { question: "Como saber se o problema é fonte ou placa-mãe?", answer: "Pela descrição não é possível afirmar. No desktop, alimentação e placa são testadas de forma isolada, com componentes conhecidos, para identificar qual dos dois está envolvido antes de qualquer substituição." },
+      { question: "O computador pode ser avaliado no local?", answer: "Em parte dos casos, sim. Falhas intermitentes, testes com peças substitutas e reparos que exigem bancada costumam pedir coleta e entrega. A modalidade é definida na triagem, conforme o sintoma." },
+      { question: "Vale a pena trocar HD por SSD?", answer: "Quando o restante da plataforma está saudável, a migração para SSD costuma ser o upgrade de melhor retorno. A compatibilidade e o ganho esperado são avaliados no diagnóstico, sem promessa de desempenho de máquina nova." },
+      { question: "O diagnóstico inclui peças?", answer: "Não. O diagnóstico identifica a causa; peças, componentes e materiais têm valor à parte e só adquiridos após a sua autorização." },
+      { question: "O serviço possui garantia?", answer: "Sim, conforme o serviço executado e a peça aplicada, nas condições publicadas na página de preços e políticas." },
     ],
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Como funciona o atendimento", to: "/como-funciona" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
       { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
-      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
     ],
     blocoLocal: [
       {
@@ -287,6 +342,22 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "A vantagem do desktop é que quase tudo pode ser testado separadamente. Diante de um PC que não liga, a sequência começa pela alimentação: fonte, botão, cabo e sinais da placa. Se há energia mas não há vídeo, a investigação passa para memória, placa de vídeo e placa-mãe, testando com peças conhecidas em vez de trocar por suposição.",
           "Reinício sozinho e desligamento repentino raramente são 'defeito do Windows'. Costumam vir de fonte perdendo capacidade, temperatura alta por dissipador saturado de poeira ou pasta térmica ressecada, e memória instável. Tela azul recorrente pede leitura do erro e teste de memória e disco antes de qualquer conclusão.",
           "Lentidão tem duas origens bem diferentes: sistema comprometido, que se resolve com limpeza ou reinstalação, e hardware defasado, que só melhora com disco e memória adequados. Diagnosticar antes evita o pior desperdício — formatar uma máquina cujo gargalo era o HD.",
+        ],
+      },
+      {
+        titulo: "Manutenção de computador não é a mesma coisa que formatação",
+        paragrafos: [
+          "Manutenção de computador concentra o lado físico e a estabilidade: diagnóstico de falhas, energia, componentes, refrigeração, armazenamento, memória, montagem e conexão de partes. É o caminho quando a máquina não liga, trava, reinicia, esquenta, faz ruído ou perde desempenho por limitação de hardware.",
+          "Formatação é uma intervenção de software: reinstalação organizada do sistema, preparação do disco, drivers, atualizações e configuração inicial, indicada quando o sistema está comprometido. Ela não corrige fonte defeituosa, memória com falha, disco fisicamente danificado nem aquecimento. Por isso as duas páginas existem separadas, e a indicação vem do diagnóstico — nunca do palpite.",
+          "Na prática, os dois serviços podem se encontrar em um mesmo atendimento: substituir um disco no fim da vida e, em seguida, reinstalar o sistema no armazenamento novo. Quando isso acontece, o escopo é explicado item a item antes da autorização.",
+        ],
+      },
+      {
+        titulo: "Computadores residenciais e ambientes de empresa",
+        paragrafos: [
+          "Em casa, o desktop costuma ser usado para estudo, trabalho remoto, edição e jogos. O foco fica em estabilidade, temperatura e desempenho suficiente para o uso real, com atenção ao que já existe na máquina e pode ser aproveitado.",
+          "Em empresa, o mesmo defeito tem outro peso: uma estação parada interrompe atendimento, emissão fiscal ou produção. Nesses casos a prioridade é reduzir o tempo de indisponibilidade, padronizar as máquinas e organizar o que precisa de reposição. Ambientes com várias estações, servidores e rede são tratados de forma contínua na página de empresa de TI em Curitiba.",
+          "Prevenção também muda de escala: limpeza periódica, revisão de refrigeração, verificação da saúde dos discos e controle de energia evitam paradas repetidas e custos maiores de reparo mais adiante.",
         ],
       },
       {

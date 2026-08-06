@@ -107,6 +107,7 @@ const SHORT_LABEL = {
   "/diagnostico-tecnico": "Diagnóstico técnico",
   "/equipamentos-atendidos": "Equipamentos atendidos",
   "/quando-nao-compensa": "Quando não compensa reparar",
+  "/problemas/notebook-nao-liga": "Notebook não liga",
 };
 
 export function labelFor(path) {
@@ -119,6 +120,7 @@ export function labelFor(path) {
 /** Família da rota — decide breadcrumb, links e schema. */
 export function familyOf(path) {
   if (path === "/") return "home";
+  if (path.startsWith("/problemas/")) return "problema";
   if (/^\/servicos\/[^/]+\/[^/]+$/.test(path)) return "servico-bairro";
   if (path.startsWith("/servicos/")) return "servico";
   if (path === "/servicos") return "hub-servicos";
@@ -132,6 +134,7 @@ export function familyOf(path) {
     return "modalidade";
   return "institucional";
 }
+
 
 const SERVICOS = CURATED_ROUTES.filter((r) => r.path.startsWith("/servicos/")).map((r) => r.path);
 const SERVICO_BAIRRO_PATHS = CURATED_ROUTES.filter((r) =>
@@ -168,6 +171,7 @@ export function breadcrumbFor(path) {
     const parent = `/servicos/${path.split("/")[2]}`;
     if (BY_PATH.has(parent)) crumbs.push({ path: parent, name: labelFor(parent) });
   }
+  if (fam === "problema") crumbs.push({ path: "/servicos", name: "Serviços" });
   if (fam === "bairro" || fam === "cidade")
     crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
   crumbs.push({ path, name: labelFor(path) });
@@ -195,6 +199,15 @@ export function linksFor(path) {
       ];
       break;
     }
+    case "problema":
+      out = [
+        "/servicos/manutencao-de-notebook",
+        "/precos-e-politicas",
+        "/como-funciona",
+        "/quando-nao-compensa",
+        "/servicos",
+      ];
+      break;
     case "servico":
       out = ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
       break;
@@ -271,6 +284,15 @@ export function staticBodyFor(route) {
         .join("") +
       `</ul>`
     : "";
+  const blocosHtml = route.blocos?.length
+    ? route.blocos
+        .map(
+          (b) =>
+            `<h2 style="font-size:1.1rem;margin:24px 0 8px">${esc(b.titulo)}</h2>` +
+            b.paragrafos.map((t) => `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(t)}</p>`).join(""),
+        )
+        .join("")
+    : "";
   const subHtml = route.subtitulo
     ? `<p style="margin:0 0 16px;font-size:.98rem;opacity:.92">${esc(route.subtitulo)}</p>`
     : "";
@@ -286,6 +308,7 @@ export function staticBodyFor(route) {
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
           ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
+          ${blocosHtml}
           ${offersHtml}
           ${faqHtml}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>

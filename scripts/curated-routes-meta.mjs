@@ -8,6 +8,7 @@ import { SERVICO_BAIRRO } from "./lib/curated-urls.mjs";
 import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
 import { priorityFaq } from "./lib/priority-faq.mjs";
 import { priorityOffers } from "./lib/priority-offers.mjs";
+import { servicoBlocos } from "./lib/servico-blocos.mjs";
 
 const BASE_ROUTES = [
   {
@@ -68,7 +69,44 @@ const BASE_ROUTES = [
   {
     "path": "/como-funciona",
     "title": "Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo",
-    "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia."
+    "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
+    "blocos": [
+      {
+        "titulo": "1. Triagem inicial pelo WhatsApp",
+        "paragrafos": [
+          "O contato começa por uma triagem curta: equipamento, sintoma percebido, há quanto tempo acontece, se houve queda, líquido ou queda de energia, e a região de atendimento. Essas respostas indicam a modalidade mais adequada — remoto, domicílio ou bancada com coleta.",
+          "A triagem orienta a modalidade, mas não substitui o diagnóstico: a causa só é confirmada com o equipamento avaliado."
+        ]
+      },
+      {
+        "titulo": "2. Definição da modalidade de atendimento",
+        "paragrafos": [
+          "Atendimento remoto resolve o que é software: sistema lento por configuração, atualização travada, e-mail, impressora em rede e ajustes de conta. Atendimento em domicílio cobre o que depende do ambiente físico, como rede, cabeamento, montagem e limpeza. Bancada com coleta e entrega é o caminho quando há suspeita de placa, energia, tela ou armazenamento.",
+          "Quando a modalidade escolhida não resolve, explicamos o motivo e indicamos a alternativa antes de qualquer execução."
+        ]
+      },
+      {
+        "titulo": "3. Diagnóstico técnico antes de qualquer execução",
+        "paragrafos": [
+          "O diagnóstico segue uma ordem: energia, inicialização, imagem, sistema e armazenamento. Cada etapa elimina hipóteses e reduz a chance de troca desnecessária de peça.",
+          "Ao final, você recebe a explicação do que foi encontrado, o que pode ser feito e o valor correspondente ao serviço."
+        ]
+      },
+      {
+        "titulo": "4. Autorização, execução e testes",
+        "paragrafos": [
+          "Nenhuma execução adicional acontece sem a sua autorização. Peças, componentes e materiais são tratados à parte do serviço e dependem de disponibilidade e do modelo do equipamento.",
+          "Após o reparo, o equipamento passa por testes de uso real antes da devolução: inicialização, temperatura, estabilidade, rede e acesso aos arquivos."
+        ]
+      },
+      {
+        "titulo": "5. Prazos, cancelamento e garantia",
+        "paragrafos": [
+          "Prazos dependem de fila, complexidade, testes e disponibilidade de peça — por isso são confirmados na avaliação, e não na triagem. Cancelamento e desistência seguem as políticas vigentes, considerando o serviço efetivamente executado.",
+          "A garantia cobre o serviço executado e a peça aplicada, dentro do escopo descrito na página de preços e políticas. Falhas de causa diferente da tratada exigem nova avaliação."
+        ]
+      }
+    ]
   },
   {
     "path": "/precos-e-politicas",
@@ -171,6 +209,37 @@ const BASE_ROUTES = [
     "description": "Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia."
   },
   {
+    "path": "/problemas/notebook-nao-liga",
+    "title": "Notebook Não Liga? Assistência Técnica em Curitiba",
+    "description": "Notebook não liga ou liga sem imagem? Entenda os sinais, as causas possíveis, os testes externos seguros e como funciona o diagnóstico técnico em Curitiba.",
+    "h1": "Notebook não liga: o que pode estar acontecendo e como é feito o diagnóstico",
+    "blocos": [
+      {
+        "titulo": "\"Não liga\" e \"liga sem imagem\" são problemas diferentes",
+        "paragrafos": [
+          "Quando o equipamento não reage de nenhuma forma — sem LED, sem ventoinha, sem vibração —, a investigação começa pela alimentação: carregador, tomada, conector de energia, bateria e circuito de entrada da placa.",
+          "Quando existe algum sinal de vida, a investigação passa para memória, vídeo, tela, cabo interno, BIOS e armazenamento. Essa distinção evita o erro mais caro na prática: trocar peça por suposição."
+        ]
+      },
+      {
+        "titulo": "Testes externos que você pode fazer com segurança",
+        "paragrafos": [
+          "Testar outra tomada, observar se algum LED acende ou pisca, remover periféricos externos, conferir a integridade do carregador e registrar sons, piscadas ou mensagens na tela.",
+          "Não recomendamos desmontagem, medições com o aparelho energizado, intervenções na fonte ou ressolda. Após líquido, cheiro de queimado, estalo, bateria inchada ou queda, o correto é não insistir e encaminhar para avaliação."
+        ]
+      },
+      {
+        "titulo": "Como funciona o diagnóstico e o que influencia o reparo",
+        "paragrafos": [
+          "A avaliação confirma primeiro se há energia entrando, depois se o equipamento inicializa e, por fim, se apresenta imagem e carrega o sistema. Cada etapa elimina hipóteses e reduz troca desnecessária de peça.",
+          "O esforço e o valor variam conforme a causa confirmada, o modelo, a disponibilidade da peça e a necessidade de bancada. Peças e materiais são tratados à parte, e nada é executado sem a sua autorização.",
+          "Em boa parte dos casos os arquivos continuam preservados, porque a falha está na energia, na tela ou na placa. Quando a suspeita recai sobre o armazenamento, preservar os dados passa a ser prioridade."
+        ]
+      }
+    ],
+    "subtitulo": "Sinais que separam falta de energia de falta de imagem, causas possíveis, verificações seguras, situações em que não se deve insistir e como a avaliação técnica confirma a causa antes de qualquer valor informado."
+  },
+  {
     "path": "/quando-nao-compensa",
     "title": "Quando NÃO Compensa Reparar | Guia Técnico - Curitiba",
     "description": "Guia completo sobre quando compensa e quando NÃO compensa reparar computadores, notebooks, TVs e outros equipamentos. Dicas de um técnico profissional em Curitiba."
@@ -186,7 +255,8 @@ const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path
 const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
   const faq = priorityFaq(r.path);
   const offers = priorityOffers(r.path);
-  return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}) };
+  const blocos = r.blocos ?? servicoBlocos(r.path);
+  return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}), ...(blocos ? { blocos } : {}) };
 });
 
 export const CURATED_ROUTES = [...BASE_ROUTES_WITH_FAQ, ...SERVICO_BAIRRO_ROUTES];

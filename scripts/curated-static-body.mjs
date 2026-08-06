@@ -17,6 +17,46 @@
 // ─────────────────────────────────────────────────────────────
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
+import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+
+// Rodada 3G/A1 — segundo link de entrada dos artigos aprovados, servido
+// no HTML estático das páginas comerciais. Espelha
+// src/lib/editorialInboundLinks.ts e é derivado da onda editorial
+// aprovada (fail-closed: artigo noindex nunca aparece aqui).
+const EDITORIAL_LABELS = {
+  "quando-trocar-hd-por-ssd": "Quando vale trocar o HD por SSD",
+  "como-saber-se-pc-tem-virus-malware": "Como saber se o PC tem vírus ou malware",
+  "backup-como-proteger-seus-arquivos": "Backup: como proteger seus arquivos",
+  "como-melhorar-sinal-wifi-em-casa": "Como melhorar o sinal de Wi-Fi em casa",
+  "notebook-superaquecendo-o-que-fazer": "Notebook superaquecendo: o que fazer",
+};
+
+const EDITORIAL_EXTRA_INBOUND = {
+  "backup-como-proteger-seus-arquivos": ["/seguranca-dos-dados"],
+};
+
+const EDITORIAL_INBOUND = (() => {
+  const map = {};
+  for (const art of EDITORIAL_WAVE) {
+    const label = EDITORIAL_LABELS[art.slug];
+    if (!label) continue;
+    const alvos = [art.pilar, ...(EDITORIAL_EXTRA_INBOUND[art.slug] ?? [])];
+    for (const alvo of alvos) {
+      (map[alvo] ??= []).push({ slug: art.slug, label });
+    }
+  }
+  for (const k of Object.keys(map)) map[k] = map[k].slice(0, 3);
+  return map;
+})();
+
+function editorialInboundHtml(path) {
+  const itens = EDITORIAL_INBOUND[path] ?? [];
+  if (itens.length === 0) return "";
+  const li = itens
+    .map((i) => `<li><a href="/blog/${i.slug}" style="color:#7fd4ec">${esc(i.label)}</a></li>`)
+    .join("");
+  return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
+}
 
 export const SITE = "https://tecnico.curitiba.br";
 
@@ -441,6 +481,7 @@ export function staticBodyFor(route) {
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}
+          ${editorialInboundHtml(route.path)}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>

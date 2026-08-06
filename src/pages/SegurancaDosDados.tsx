@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { Button } from "@/components/ui/button";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
@@ -426,6 +427,8 @@ const SegurancaDosDados = () => {
             ))}
           </div>
         </section>
+
+        <EditorialContentLinks path={PATH} />
 
         <section className="rounded-xl bg-secondary p-6 text-center">
           <h2 className="mb-3 text-2xl font-bold text-foreground">Ficou com alguma dúvida antes de entregar o equipamento?</h2>

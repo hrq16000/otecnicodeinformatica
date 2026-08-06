@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -239,6 +240,8 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       )}
 
       {data.extra}
+
+      <EditorialContentLinks path={`/servicos/${data.path}`} />
 
       {/* Conteúdo local aprofundado — reforço de SEO local em Curitiba */}
       {data.blocoLocal && data.blocoLocal.length > 0 && (

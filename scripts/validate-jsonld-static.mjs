@@ -231,7 +231,7 @@ async function main() {
         return;
       }
       for (const entity of topLevelEntities(parsed)) {
-        validateEntity(entity, file, i, isEditorial);
+        validateEntity(entity, file, i, isEditorial, isApprovedEditorial);
       }
     });
   }

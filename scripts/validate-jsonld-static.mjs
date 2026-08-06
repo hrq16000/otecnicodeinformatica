@@ -129,7 +129,7 @@ function isSiteUrl(u) {
   }
 }
 
-function validateEntity(entity, file, blockIndex, isEditorial) {
+function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditorial = false) {
   // @context (quando presente) deve ser https://schema.org.
   if ("@context" in entity) {
     const ctx = entity["@context"];

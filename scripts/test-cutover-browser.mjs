@@ -15,11 +15,15 @@
 import { chromium } from "playwright";
 
 const BASE = (process.env.CUTOVER_BASE_URL ?? "https://tecnico.curitiba.br").replace(/\/$/, "");
+// Permite usar um Chromium de sistema quando o binário empacotado do Playwright
+// não tem as bibliotecas necessárias (sandbox/CI mínimo).
+const EXECUTABLE = process.env.CUTOVER_CHROMIUM_PATH || undefined;
 const PAGES = [
   { path: "/", name: "home", expect: 200 },
   { path: "/servicos", name: "serviços", expect: 200 },
   { path: "/servicos/formatacao", name: "rota profunda", expect: 200 },
   { path: "/tecnico-informatica-curitiba", name: "cidade", expect: 200 },
+  { path: "/bairros/batel", name: "bairro", expect: 200 },
   { path: "/faq", name: "faq", expect: 200 },
   { path: "/precos-e-politicas", name: "preços", expect: 200 },
 ];
@@ -31,12 +35,15 @@ const fail = [];
 
 let browser;
 try {
-  browser = await chromium.launch();
+  browser = await chromium.launch({
+    executablePath: EXECUTABLE,
+    args: ["--no-sandbox", "--disable-dev-shm-usage"],
+  });
 } catch (e) {
   console.error("INDISPONÍVEL: não foi possível iniciar o Chromium neste ambiente.");
   console.error(`  motivo: ${String(e.message).split("\n")[0]}`);
   console.error("  execute este gate em CI (actions/setup + npx playwright install --with-deps chromium)");
-  console.error("  ou em uma máquina com as bibliotecas de sistema do Chromium.");
+  console.error("  ou defina CUTOVER_CHROMIUM_PATH com um Chromium de sistema.");
   process.exit(2); // 2 = ambiente sem navegador (≠ 1 = falha real de gate)
 }
 const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
@@ -44,8 +51,12 @@ const page = await context.newPage();
 
 const consoleErrors = [];
 const networkErrors = [];
+const requestsByPage = new Map();
+let currentPage = "(inicial)";
+page.on("request", () => requestsByPage.set(currentPage, (requestsByPage.get(currentPage) ?? 0) + 1));
 page.on("console", (m) => m.type() === "error" && consoleErrors.push(`${page.url()} :: ${m.text().slice(0, 200)}`));
 page.on("requestfailed", (r) => networkErrors.push(`${r.url().slice(0, 160)} :: ${r.failure()?.errorText}`));
+
 
 async function visit(path) {
   const res = await page.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded", timeout: 45000 });

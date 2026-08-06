@@ -152,9 +152,17 @@ function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditori
     }
 
     if (isEditorial) {
+      const isArticleType = types.some((t) => t !== "Person" && EDITORIAL_FORBIDDEN_TYPES.has(t));
+      // O hub /blog só pode listar artigos da onda aprovada (fail-closed).
+      if (isEditorialHub && isArticleType) {
+        const slug = String(node.url ?? node["@id"] ?? "").match(/\/blog\/([^/?#]+)/)?.[1] ?? null;
+        if (!slug || !APPROVED_EDITORIAL_SLUGS.has(slug)) {
+          push(file, `hub /blog lista artigo não aprovado (${slug ?? "sem url"})`, blockIndex);
+        }
+      }
       for (const t of types) {
-        // Onda aprovada: Article/BlogPosting/TechArticle são esperados.
-        if (isApprovedEditorial && t !== "Person") continue;
+        // Onda aprovada (ou hub validado acima): Article/BlogPosting são esperados.
+        if ((isApprovedEditorial || isEditorialHub) && t !== "Person") continue;
         if (EDITORIAL_FORBIDDEN_TYPES.has(t)) {
           push(file, `tipo editorial proibido "${t}" (governança fail-closed)`, blockIndex);
         }

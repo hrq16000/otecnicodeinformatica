@@ -258,6 +258,18 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </div>
       </section>
 
+      {/* Rodada 3Q — CTA intermediário (mesmo fluxo de triagem do hero) */}
+      {data.ctaIntermediario && (
+        <InlineTriageCTA
+          href={waHref}
+          titulo={data.ctaIntermediario.titulo}
+          texto={data.ctaIntermediario.texto}
+          label={data.ctaIntermediario.label}
+          location={`${data.trackingKey}_meio`}
+          onClick={handleCta}
+        />
+      )}
+
       {/* O que pode influenciar o valor */}
       {data.fatoresValor && data.fatoresValor.length > 0 && (
         <section id="fatores-valor" className="scroll-mt-24 py-14 md:py-16 bg-secondary">

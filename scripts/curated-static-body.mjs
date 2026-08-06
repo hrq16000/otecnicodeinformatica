@@ -425,13 +425,14 @@ export function jsonLdFor(route) {
     out.push(serviceNode(route));
   }
 
+  const hasService = out.some((n) => n["@type"] === "Service");
   if (fam === "bairro" || fam === "cidade" || fam === "cidade-mae" || fam === "modalidade") {
     const local =
       fam === "cidade" || fam === "bairro"
         ? [h1For(route).replace(/^Técnico (de Informática )?(em|no|na) /i, "").split("(")[0].split("|")[0].trim()]
         : undefined;
     out.push(localBusiness(path, { name: h1For(route), description: route.description, areaServed: local }));
-  } else {
+  } else if (!hasService) {
     const type = fam === "sobre" ? "AboutPage" : fam === "contato" ? "ContactPage" : "WebPage";
     out.push({
       "@context": "https://schema.org",

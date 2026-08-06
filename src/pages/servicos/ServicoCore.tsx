@@ -42,8 +42,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       </>
     ) : undefined;
 
-  // Rodada 3P — piloto visual de serviço (apenas manutenção de notebook).
-  // Não propagar para os demais slugs nesta rodada.
+  // Rodada 3P — piloto visual de serviço (manutenção de notebook).
   const piloto =
     slug === "manutencao-de-notebook"
       ? {
@@ -63,8 +62,25 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
         }
       : {};
 
-  return <ServicoLandingLayout data={{ ...data, ...piloto, extra }} />;
+  // Rodada 3Q — propagação controlada do padrão visual para as seis
+  // páginas comerciais do escopo. Cada slug tem resumo, sumário, caixas
+  // e CTA intermediário próprios (nenhum conteúdo editorial alterado).
+  const visual = visualDoServico(slug as string);
+  const visual3q = visual
+    ? {
+        resumo: visual.resumo,
+        toc: visual.toc,
+        confianca: true,
+        caixas: visual.caixas,
+        caixasTitulo: visual.caixasTitulo,
+        caixasPosicao: visual.caixasPosicao,
+        ctaIntermediario: visual.ctaIntermediario,
+      }
+    : {};
+
+  return <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, extra }} />;
 };
+
 
 
 export default ServicoCore;

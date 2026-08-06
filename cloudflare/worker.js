@@ -13,7 +13,7 @@
  */
 import manifest from "../dist/route-manifest.json";
 import notFoundHtml from "../dist/404.html";
-import { compileManifest, decide, assertManifestSane, ORIGIN_PLACEHOLDER } from "../scripts/lib/edge-router.mjs";
+import { compileManifest, decide, assertManifestSane, ORIGIN_PLACEHOLDER, HEALTH_PATH, healthPayload } from "../scripts/lib/edge-router.mjs";
 
 const compiled = compileManifest(manifest);
 const manifestProblems = assertManifestSane(compiled);

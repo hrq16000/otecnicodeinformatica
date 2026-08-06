@@ -143,13 +143,13 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           }}
           aria-hidden="true"
         />
-        <div className={`container relative z-10 mx-auto py-8 sm:py-12 ${isEmpresarial ? "md:py-12" : "md:py-20"}`}>
+        <div className={`container relative z-10 mx-auto py-8 sm:py-12 ${isEmpresarial ? "md:py-9" : "md:py-20"}`}>
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
               {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.contexto : data.eyebrow}
             </span>
-            <h1 className="mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl md:text-5xl">
+            <h1 className={`mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl ${isEmpresarial ? "md:text-[2.6rem]" : "md:text-5xl"}`}>
               {data.h1}
               {data.h1Accent && <span className="text-[hsl(var(--accent))]"> {data.h1Accent}</span>}
             </h1>

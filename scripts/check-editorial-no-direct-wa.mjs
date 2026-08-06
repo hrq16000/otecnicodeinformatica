@@ -5,18 +5,25 @@
 // Todo contato originado em conteúdo editorial (/blog/**) deve passar pela
 // triagem central (funil), nunca por um link wa.me / api.whatsapp.com direto.
 //
-// Exceção única e explícita: a barra de fallback de hidratação, que só é
-// injetada quando o app falha em hidratar (modo degradado global, não é um
-// CTA editorial). Ela é identificada por data-cta-location="hydration_timeout_bar".
+// Exceções explícitas (modos degradados globais, não são CTAs editoriais):
+//   • data-cta-location="hydration_timeout_bar" — barra injetada só quando o
+//     app falha em hidratar.
+//   • data-cta-location="noscript_static" — shell <noscript> genérico do site,
+//     permitido apenas em artigos NÃO aprovados (noindex, sem corpo editorial
+//     próprio). Nos artigos da onda aprovada o CTA precisa ser a triagem.
 //
 // Uso: node scripts/check-editorial-no-direct-wa.mjs [dir=dist]
 // ─────────────────────────────────────────────────────────────
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+
+const APPROVED = new Set(EDITORIAL_WAVE.map((e) => e.slug));
 
 const ROOT = process.argv[2] ?? "dist";
-const ALLOWED_MARKER = 'data-cta-location="hydration_timeout_bar"';
+const ALWAYS_ALLOWED = ['data-cta-location="hydration_timeout_bar"'];
+const SHELL_ALLOWED = ['data-cta-location="noscript_static"'];
 const DIRECT_WA = /(wa\.me\/|api\.whatsapp\.com)/g;
 
 async function walk(dir) {
@@ -48,9 +55,11 @@ const files = await walk(blogDir);
 
 for (const file of files) {
   const html = await fs.readFile(file, "utf8");
+  const slug = file.replace(/\\/g, "/").match(/\/blog\/([^/]+)\/index\.html$/)?.[1] ?? null;
+  const allowed = APPROVED.has(slug) ? ALWAYS_ALLOWED : [...ALWAYS_ALLOWED, ...SHELL_ALLOWED];
   for (const match of html.matchAll(DIRECT_WA)) {
     const tag = surroundingTag(html, match.index);
-    if (tag.includes(ALLOWED_MARKER)) continue;
+    if (allowed.some((marker) => tag.includes(marker))) continue;
     errors.push(`${file}: CTA editorial com WhatsApp direto (${match[0]}) — use a triagem central`);
   }
 }

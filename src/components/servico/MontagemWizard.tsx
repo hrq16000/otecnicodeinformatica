@@ -133,7 +133,10 @@ export const MontagemWizard = () => {
   };
 
   const baixarOs = async () => {
-    if (!aceite) return;
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
     setGerandoOs(true);
     const numero = protocolo ?? gerarProtocoloMontagem();
     if (!protocolo) setProtocolo(numero);
@@ -148,6 +151,7 @@ export const MontagemWizard = () => {
         enviaFotos,
         cidade: cidade.trim() || undefined,
         modalidade: modalidade || undefined,
+        consentimentoLgpd: lgpd,
       });
       toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
     } catch {

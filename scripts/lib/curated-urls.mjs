@@ -1,0 +1,100 @@
+/**
+ * ============================================================================
+ * FONTE ÚNICA DE VERDADE — URLs INDEXÁVEIS CURADAS
+ * ============================================================================
+ * Todo URL indexável do projeto é declarado aqui, agrupado por sub-sitemap.
+ * `scripts/generate-sitemaps.mjs` emite o XML a partir deste manifesto e os
+ * gates (`check:editorial-governance`, `check:sitemap-source`) comparam o
+ * conjunto emitido com o conjunto declarado.
+ *
+ * Regra: o número de URLs NUNCA é a fonte da verdade — a lista é.
+ * Incluir uma URL aqui significa afirmar que ela é curada, indexável,
+ * canônica (não alias, não redirect) e aprovada pela hierarquia local.
+ */
+
+export const BASE_URL = "https://tecnico.curitiba.br";
+
+export const MAIN = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/servicos", changefreq: "weekly", priority: "0.9" },
+  { path: "/como-funciona", changefreq: "monthly", priority: "0.8" },
+  { path: "/precos-e-politicas", changefreq: "monthly", priority: "0.8" },
+  { path: "/sobre", changefreq: "monthly", priority: "0.6" },
+  { path: "/contato", changefreq: "monthly", priority: "0.7" },
+  { path: "/faq", changefreq: "monthly", priority: "0.7" },
+  { path: "/atendimento-domicilio", changefreq: "monthly", priority: "0.7" },
+  { path: "/atendimento-remoto", changefreq: "monthly", priority: "0.7" },
+  { path: "/equipamentos-atendidos", changefreq: "monthly", priority: "0.6" },
+  { path: "/diagnostico-tecnico", changefreq: "monthly", priority: "0.6" },
+  { path: "/coleta-e-entrega", changefreq: "monthly", priority: "0.6" },
+  { path: "/quando-nao-compensa", changefreq: "monthly", priority: "0.5" },
+];
+
+/** Hubs de SEO temáticos (entram no sitemap-main). */
+export const HUBS = [{ path: "/empresa-de-ti-curitiba", changefreq: "weekly", priority: "0.8" }];
+
+/** Serviços essenciais — slugs canônicos (nunca variações com redirect). */
+export const SERVICOS = [
+  "/servicos/formatacao",
+  "/servicos/manutencao-de-notebook",
+  "/servicos/manutencao-de-computador",
+  "/servicos/upgrade-ssd-ram",
+  "/servicos/remocao-de-virus",
+  "/servicos/recuperacao-de-dados",
+  "/servicos/redes-e-wifi",
+  "/servicos/suporte-tecnico-empresarial",
+].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
+
+/** Hubs de cidade reais (NÃO 215 bairros). */
+export const REGIOES = [
+  "/tecnico-informatica-curitiba",
+  "/tecnico-informatica-sao-jose-pinhais",
+  "/tecnico-informatica-pinhais",
+  "/tecnico-informatica-colombo",
+  "/tecnico-informatica-araucaria",
+  "/tecnico-informatica-campo-largo",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.7" }));
+
+/** Bairros âncora indexáveis (política de poda: conteúdo exclusivo real). */
+export const BAIRROS = [
+  "/bairros/cic",
+  "/bairros/batel",
+  "/bairros/agua-verde",
+  "/bairros/centro",
+  "/bairros/portao",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.65" }));
+
+/**
+ * Landings serviço × bairro-âncora (src/lib/servicoBairroFactory.ts).
+ * Auditadas na Rodada 4G: rota estática própria, canonical self, robots index,
+ * H1 e narrativa exclusivos por bairro, CTA do funil e links para o serviço-mãe
+ * e para o hub de Curitiba. Devem permanecer em sincronia com
+ * `GENERATED_INDEXABLE_PATHS`.
+ */
+export const SERVICO_BAIRRO = [
+  "/servicos/formatacao-computador/cic",
+  "/servicos/formatacao-computador/batel",
+  "/servicos/formatacao-computador/agua-verde",
+  "/servicos/remocao-virus/cic",
+  "/servicos/remocao-virus/agua-verde",
+  "/servicos/conserto-pc-notebook/centro",
+  "/servicos/conserto-pc-notebook/agua-verde",
+  "/servicos/upgrade-ssd-memoria/cic",
+  "/servicos/upgrade-ssd-memoria/centro",
+  "/servicos/upgrade-ssd-memoria/agua-verde",
+  "/servicos/upgrade-ssd-memoria/portao",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
+
+/** Sub-sitemaps ativos, na ordem em que aparecem no índice. */
+export const ACTIVE_SITEMAPS = [
+  ["sitemap-main.xml", [...MAIN, ...HUBS]],
+  ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
+  ["sitemap-regioes.xml", REGIOES],
+  ["sitemap-bairros.xml", BAIRROS],
+];
+
+/** Sub-sitemaps herdados, mantidos vazios de propósito. */
+export const EMPTY_SITEMAPS = ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"];
+
+/** Conjunto plano de todas as URLs indexáveis declaradas. */
+export const CURATED_PATHS = ACTIVE_SITEMAPS.flatMap(([, entries]) => entries.map((e) => e.path));

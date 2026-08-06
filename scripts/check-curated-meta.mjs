@@ -261,8 +261,11 @@ if (existsSync(distDir)) {
   }
 
 
-  // Sitemaps: total 33 URLs e nenhuma rota legada presente.
-  const sitemapFiles = ["sitemap-main.xml", "sitemap-servicos.xml", "sitemap-regioes.xml", "sitemap-bairros.xml"];
+  // Sitemaps: total = manifesto curado e nenhuma rota legada presente.
+  const { ACTIVE_SITEMAPS, CURATED_PATHS } = await import(
+    pathToFileURL(resolve(root, "scripts/lib/curated-urls.mjs")).href
+  );
+  const sitemapFiles = ACTIVE_SITEMAPS.map(([f]) => f);
   let sitemapTotal = 0;
   for (const f of sitemapFiles) {
     const sp = resolve(root, "public", f);
@@ -273,7 +276,8 @@ if (existsSync(distDir)) {
       if (xml.includes(`<loc>${SITE}${p}</loc>`)) fail(`rota legada ${p} presente em ${f} (deve ficar fora dos sitemaps)`);
     }
   }
-  if (sitemapTotal !== 33) fail(`sitemaps: total esperado 33 URLs, achou ${sitemapTotal}`);
+  if (sitemapTotal !== CURATED_PATHS.length)
+    fail(`sitemaps: manifesto curado declara ${CURATED_PATHS.length} URLs, sitemap tem ${sitemapTotal}`);
 } else {
   console.log("ℹ️  check-curated-meta: dist/ ausente (pré-build) — validação de indexabilidade legada adiada para pós-build.");
 }
@@ -417,7 +421,15 @@ if (existsSync(distDir)) {
     ...grabAll(/to:\s*"([^"]+)"/g, coreSrc),
     ...grabAll(/to:\s*"([^"]+)"/g, localSrc),
   ];
+  // Páginas institucionais obrigatórias (não indexáveis, fora do sitemap) são
+  // destinos legítimos de rodapé — não são rotas legadas nem quebradas.
+  const INSTITUCIONAIS_PERMITIDAS = new Set([
+    "/politica-de-privacidade",
+    "/termos-e-condicoes",
+    "/gestor-responsavel",
+  ]);
   for (const t of linkTargets) {
+    if (INSTITUCIONAIS_PERMITIDAS.has(t)) continue;
     if (!curatedByPath.has(t)) fail(`link interno para rota não curada/legada: ${t}`);
   }
 
@@ -672,5 +684,5 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, 6 cidades + 5 bairros curados sem doorway, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps com 33 URLs.`);
+console.log(`✅ check-curated-meta: OK — 8 serviços em paridade, 6 cidades + 5 bairros curados sem doorway, imagens sociais alinhadas, nome institucional "${OFFICIAL_NAME}", /valores sem canonical próprio, 108 rotas legadas noindex e sitemaps derivados do manifesto curado.`);
 

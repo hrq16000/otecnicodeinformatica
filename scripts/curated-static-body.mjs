@@ -79,6 +79,8 @@ const BY_PATH = new Map(CURATED_ROUTES.map((r) => [r.path, r]));
 
 /** Rótulo curto (H1) derivado do título curado da própria rota. */
 export function h1For(route) {
+  // Rotas com H1 explícito (espelho da fábrica serviço × bairro) mandam.
+  if (route.h1) return route.h1;
   const head = route.title.split("|")[0].trim();
   // Títulos muito curtos ganham o complemento do próprio título curado
   // (evita H1 genérico como "Equipamentos Atendidos").
@@ -117,6 +119,7 @@ export function labelFor(path) {
 /** Família da rota — decide breadcrumb, links e schema. */
 export function familyOf(path) {
   if (path === "/") return "home";
+  if (/^\/servicos\/[^/]+\/[^/]+$/.test(path)) return "servico-bairro";
   if (path.startsWith("/servicos/")) return "servico";
   if (path === "/servicos") return "hub-servicos";
   if (path.startsWith("/bairros/")) return "bairro";
@@ -131,6 +134,9 @@ export function familyOf(path) {
 }
 
 const SERVICOS = CURATED_ROUTES.filter((r) => r.path.startsWith("/servicos/")).map((r) => r.path);
+const SERVICO_BAIRRO_PATHS = CURATED_ROUTES.filter((r) =>
+  /^\/servicos\/[^/]+\/[^/]+$/.test(r.path),
+).map((r) => r.path);
 const BAIRROS = CURATED_ROUTES.filter((r) => r.path.startsWith("/bairros/")).map((r) => r.path);
 const CIDADES = CURATED_ROUTES.filter(
   (r) => r.path.startsWith("/tecnico-informatica-") && r.path !== "/tecnico-informatica-curitiba",
@@ -157,7 +163,11 @@ export function breadcrumbFor(path) {
   const fam = familyOf(path);
   const crumbs = [{ path: "/", name: "Início" }];
   if (fam === "home") return crumbs;
-  if (fam === "servico") crumbs.push({ path: "/servicos", name: "Serviços" });
+  if (fam === "servico" || fam === "servico-bairro") crumbs.push({ path: "/servicos", name: "Serviços" });
+  if (fam === "servico-bairro") {
+    const parent = `/servicos/${path.split("/")[2]}`;
+    if (BY_PATH.has(parent)) crumbs.push({ path: parent, name: labelFor(parent) });
+  }
   if (fam === "bairro" || fam === "cidade")
     crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
   crumbs.push({ path, name: labelFor(path) });
@@ -174,6 +184,17 @@ export function linksFor(path) {
     case "hub-servicos":
       out = [...siblings(SERVICOS, path, 4), "/precos-e-politicas", "/contato"];
       break;
+    case "servico-bairro": {
+      const parent = `/servicos/${path.split("/")[2]}`;
+      out = [
+        parent,
+        "/tecnico-informatica-curitiba",
+        ...siblings(SERVICO_BAIRRO_PATHS, path, 2),
+        "/atendimento-domicilio",
+        "/precos-e-politicas",
+      ];
+      break;
+    }
     case "servico":
       out = ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
       break;
@@ -230,6 +251,18 @@ export function staticBodyFor(route) {
         : `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`,
     )
     .join(" ");
+  const faqHtml = route.faq?.length
+    ? `<h2 style="font-size:1.1rem;margin:24px 0 8px">Perguntas frequentes</h2>` +
+      route.faq
+        .map(
+          (f) =>
+            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta)}</p>`,
+        )
+        .join("")
+    : "";
+  const subHtml = route.subtitulo
+    ? `<p style="margin:0 0 16px;font-size:.98rem;opacity:.92">${esc(route.subtitulo)}</p>`
+    : "";
   const linksHtml = links
     .map((p) => `<li><a href="${p}" style="color:#7fd4ec">${esc(labelFor(p))}</a></li>`)
     .join("");
@@ -240,7 +273,9 @@ export function staticBodyFor(route) {
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.9;margin:16px 0">${crumbHtml}</nav>
           <h1 style="font-size:1.6rem;line-height:1.25;margin:8px 0 12px">${esc(h1)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
+          ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
+          ${faqHtml}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>
@@ -343,7 +378,7 @@ export function jsonLdFor(route) {
     return out;
   }
 
-  if (fam === "servico" || fam === "hub-servicos" || fam === "empresa") {
+  if (fam === "servico" || fam === "servico-bairro" || fam === "hub-servicos" || fam === "empresa") {
     out.push({
       "@context": "https://schema.org",
       "@type": "Service",
@@ -377,6 +412,18 @@ export function jsonLdFor(route) {
   }
 
   const bc = breadcrumbList(path);
+  if (route.faq?.length) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      mainEntity: route.faq.map((f) => ({
+        "@type": "Question",
+        name: f.pergunta,
+        acceptedAnswer: { "@type": "Answer", text: f.resposta },
+      })),
+    });
+  }
   if (bc) out.push(bc);
   return out;
 }

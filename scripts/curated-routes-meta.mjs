@@ -3,8 +3,11 @@
 // Este mapa espelha os títulos/descrições curados apenas para crawlers SEM JS
 // (canonical/og:url por rota no HTML estático). Se um título de página mudar,
 // atualize também esta lista rodando a captura em scripts/prerender-curated.
-// NÃO adicionar rotas fora do sitemap curado (33 URLs).
-export const CURATED_ROUTES = [
+// NÃO adicionar rotas fora do manifesto curado (scripts/lib/curated-urls.mjs).
+import { SERVICO_BAIRRO } from "./lib/curated-urls.mjs";
+import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
+
+const BASE_ROUTES = [
   {
     "path": "/",
     "title": "Técnico em Curitiba | PC, Notebook, Wi-Fi e Suporte Empresarial",
@@ -53,7 +56,7 @@ export const CURATED_ROUTES = [
   {
     "path": "/servicos/suporte-tecnico-empresarial",
     "title": "Suporte Técnico para Empresas em Curitiba | Informática",
-    "description": "Execução de chamados de TI em Curitiba: computador parado no escritório, usuário sem acesso, impressora de rede, e-mail e limpeza preventiva. Escopo e limites por atendimento."
+    "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva."
   },
   {
     "path": "/sobre",
@@ -171,3 +174,9 @@ export const CURATED_ROUTES = [
     "description": "Guia completo sobre quando compensa e quando NÃO compensa reparar computadores, notebooks, TVs e outros equipamentos. Dicas de um técnico profissional em Curitiba."
   }
 ];
+
+// Landings serviço × bairro: metadados espelhados de servicoBairroFactory.ts
+// (H1 e FAQ reais), garantindo paridade entre HTML estático e hidratação.
+const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path)).filter(Boolean);
+
+export const CURATED_ROUTES = [...BASE_ROUTES, ...SERVICO_BAIRRO_ROUTES];

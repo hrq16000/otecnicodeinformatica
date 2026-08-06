@@ -34,6 +34,7 @@
     "check:editorial-technical-review": "node scripts/check-editorial-technical-review.mjs",
     "check:bairro-copy": "node scripts/validate-bairro-copy.mjs",
     "check:jsonld-refs": "node scripts/check-jsonld-references.mjs",
+    "check:sitemap-source": "node scripts/check-sitemap-source.mjs",
     "check:internal-links": "node scripts/check-internal-links.mjs",
     "check:internal-links:strict": "node scripts/check-internal-links.mjs --strict",
     "check:aggregate-rating": "node scripts/check-aggregate-rating.mjs",

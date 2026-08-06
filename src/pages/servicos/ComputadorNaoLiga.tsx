@@ -157,7 +157,7 @@ const ComputadorNaoLiga = () => {
             <h2 className="text-xl font-bold text-foreground mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
-                { label: "Conserto de PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+                { label: "Manutenção de Computador", to: "/servicos/manutencao-de-computador" },
                 { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
                 { label: "Quando Não Compensa Reparar", to: "/quando-nao-compensa" },
                 { label: "Preços e Políticas", to: "/precos-e-politicas" },

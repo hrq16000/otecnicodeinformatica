@@ -169,7 +169,7 @@ const ConsertoPlaca = () => {
             <h2 className="text-xl font-bold text-foreground mb-6 text-center">Páginas Relacionadas</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
-                { label: "Conserto de PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+                { label: "Manutenção de Computador", to: "/servicos/manutencao-de-computador" },
                 { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
                 { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
                 { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },

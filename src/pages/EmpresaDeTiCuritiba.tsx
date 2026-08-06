@@ -9,6 +9,7 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import {
   EmpresaTrustBar,
   EmpresaSinaisSection,
@@ -327,7 +328,7 @@ const EmpresaDeTiCuritiba = () => {
 
         {/* ═══ Serviços ═══ */}
         <AnimatedSection>
-          <section className="py-12 md:py-14 bg-secondary">
+          <section id="escopo" className="scroll-mt-24 py-12 md:py-14 bg-secondary">
             <div className="container mx-auto px-4">
               <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
                 O que abrange a solução de TI da sua empresa
@@ -357,6 +358,7 @@ const EmpresaDeTiCuritiba = () => {
 
         {/* ═══ Contextos atendidos (necessidade real, sem novas URLs) ═══ */}
         <AnimatedSection>
+          <div id="contextos" className="scroll-mt-24" />
           <EmpresaContextosSection />
         </AnimatedSection>
 
@@ -379,7 +381,7 @@ const EmpresaDeTiCuritiba = () => {
         {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
 
         <AnimatedSection>
-          <section className="py-12 md:py-14 bg-background">
+          <section id="cobertura" className="scroll-mt-24 py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">
               <div className="mx-auto max-w-4xl">
                 <h2 className="mb-2 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">
@@ -428,7 +430,7 @@ const EmpresaDeTiCuritiba = () => {
 
         {/* ═══ Serviços relacionados ═══ */}
         <AnimatedSection>
-          <section className="py-10 bg-secondary">
+          <section id="relacionados" className="scroll-mt-24 py-10 bg-secondary">
             <div className="container mx-auto px-4">
               <h2 className="mb-5 text-center text-xl font-heading font-bold text-foreground">
                 Serviços relacionados
@@ -451,7 +453,7 @@ const EmpresaDeTiCuritiba = () => {
 
         {/* ═══ FAQ ═══ */}
         <AnimatedSection>
-          <section className="py-14 md:py-16 bg-background">
+          <section id="faq" className="scroll-mt-24 py-14 md:py-16 bg-background">
             <div className="container mx-auto px-4">
               <div className="mx-auto max-w-3xl">
                 <h2 className="mb-8 text-center text-2xl md:text-3xl font-heading font-bold text-foreground">

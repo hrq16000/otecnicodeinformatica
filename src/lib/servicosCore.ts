@@ -449,6 +449,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
       { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
       ...LINKS_BASE,

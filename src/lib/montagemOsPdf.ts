@@ -43,6 +43,7 @@ export async function generateMontagemOsPdf(data: MontagemOsData): Promise<Blob>
   pdf.keyValue("Data de abertura", new Date().toLocaleDateString("pt-BR"));
   if (data.cidade) pdf.keyValue("Cidade/bairro", data.cidade);
   if (data.modalidade) pdf.keyValue("Modalidade preferida", data.modalidade);
+  if (data.janela) pdf.keyValue("Janela preferida de atendimento", data.janela);
 
   pdf.heading("Solicitação");
   pdf.keyValue("Configuração pretendida", data.modelo || "—");

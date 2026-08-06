@@ -176,8 +176,11 @@ export const HeroPremium = () => {
 
           <nav className="mt-6" aria-label="Serviços de informática">
             <ul className="flex flex-wrap gap-2">
-              {SERVICE_LINKS.map((s) => (
-                <li key={s.to}>
+              {SERVICE_LINKS.map((s, i) => (
+                // Rodada 3P — no mobile mostramos os 4 primeiros atalhos; os demais
+                // aparecem a partir de sm para não empurrar o conteúdo abaixo do CTA.
+                <li key={s.to} className={i >= 4 ? "hidden sm:block" : undefined}>
+
                   <a
                     href={s.to}
                     className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-[13px] font-medium text-white/90 transition-colors hover:border-[hsl(var(--accent))] hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"

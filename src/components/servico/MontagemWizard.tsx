@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { trackCTAClick } from "@/lib/analytics";
 import { downloadMontagemChecklistPdf } from "@/lib/montagemChecklistPdf";
 import { downloadMontagemOsPdf, gerarProtocoloMontagem } from "@/lib/montagemOsPdf";
+import { trackOsPdfDownload } from "@/lib/funnelAnalytics";
 import { TERMOS_URL } from "@/lib/precosConfig";
 
 /**
@@ -153,7 +154,9 @@ export const MontagemWizard = () => {
         modalidade: modalidade || undefined,
         consentimentoLgpd: lgpd,
       });
+      trackOsPdfDownload({ protocolo: numero, origem: "wizard_montagem", servico: "montagem-de-pc" });
       toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+
     } catch {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
     } finally {

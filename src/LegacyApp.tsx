@@ -44,6 +44,9 @@ const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
+const Avaliar = lazy(() => import("./pages/Avaliar"));
+const ExcluirMeusDados = lazy(() => import("./pages/ExcluirMeusDados"));
+
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminFunnel = lazy(() => import("./pages/admin/AdminFunnel"));
 const AdminReviews = lazy(() => import("./pages/admin/AdminReviews"));
@@ -454,9 +457,9 @@ const IdleEnhancements = () => {
 
   useEffect(() => {
     const activate = () => setEnabled(true);
-    const idleId = typeof window.requestIdleCallback === "function"
+    const idleId: number = typeof window.requestIdleCallback === "function"
       ? window.requestIdleCallback(activate, { timeout: 4500 })
-      : globalThis.setTimeout(activate, 2500);
+      : (globalThis.setTimeout(activate, 2500) as unknown as number);
 
     return () => {
       if (typeof window.cancelIdleCallback === "function") {
@@ -464,6 +467,7 @@ const IdleEnhancements = () => {
       } else {
         globalThis.clearTimeout(idleId);
       }
+
     };
   }, []);
 
@@ -528,6 +532,9 @@ const App = () => (
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
             <Route path="/seguranca-dos-dados" element={<SegurancaDosDados />} />
             <Route path="/politica-de-pecas-do-cliente" element={<PoliticaPecasCliente />} />
+            <Route path="/avaliar" element={<Avaliar />} />
+            <Route path="/excluir-meus-dados" element={<ExcluirMeusDados />} />
+
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
             <Route path="/coleta-formulario" element={<ColetaFormulario />} />

@@ -17,7 +17,7 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
-import { t24WaLink, t72WaLink, reviewWindow } from "@/lib/reviewRequest";
+import { t24WaLink, t72WaLink, reviewWindow, osFollowUpWaLink } from "@/lib/reviewRequest";
 import { pingIndexNow } from "@/lib/indexNow";
 
 type Review = {
@@ -37,6 +37,9 @@ type Review = {
   created_at: string;
   client_phone: string | null;
   service_closed_at: string | null;
+  authorized_publication?: boolean | null;
+  origin_protocol?: string | null;
+
 };
 
 type Filter = "all" | "pending" | "published" | "hidden";
@@ -130,8 +133,20 @@ const AdminReviews = () => {
     };
   }, [reviews]);
 
+  /** Reviews vindas do site só podem ir ao ar com autorização explícita do cliente. */
+  function canPublish(r: Review) {
+    return r.source !== "site" || r.authorized_publication === true;
+  }
+
   async function togglePublished(r: Review) {
     const next = !r.published;
+    if (next && !canPublish(r)) {
+      return toast({
+        title: "Sem autorização de publicação",
+        description: "O cliente não autorizou publicar este comentário no site.",
+        variant: "destructive",
+      });
+    }
     const { error } = await supabase
       .from("reviews")
       .update({ published: next })
@@ -142,17 +157,38 @@ const AdminReviews = () => {
   }
 
   async function approve(r: Review) {
+    const publicar = canPublish(r);
     const { error } = await supabase
       .from("reviews")
-      .update({ verified: true, published: true })
+      .update({ verified: true, published: publicar })
       .eq("id", r.id);
     if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
     setReviews((prev) =>
-      prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: true } : x)),
+      prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: publicar } : x)),
     );
-    void pingIndexNow(indexNowUrlsForReview(r));
-    toast({ title: "Review aprovada", description: "IndexNow notificado para Bing/Yandex." });
+    if (publicar) void pingIndexNow(indexNowUrlsForReview(r));
+    toast({
+      title: publicar ? "Review aprovada" : "Review verificada (não publicada)",
+      description: publicar
+        ? "IndexNow notificado para Bing/Yandex."
+        : "Cliente não autorizou a publicação — fica apenas como feedback interno.",
+    });
   }
+
+  async function reject(r: Review) {
+    if (!confirm("Rejeitar esta avaliação? Ela fica registrada, mas nunca vai ao ar.")) return;
+    const { error } = await supabase
+      .from("reviews")
+      .update({ verified: false, published: false })
+      .eq("id", r.id);
+    if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
+    setReviews((prev) =>
+      prev.map((x) => (x.id === r.id ? { ...x, verified: false, published: false } : x)),
+    );
+    toast({ title: "Avaliação rejeitada", description: "Mantida apenas como registro interno." });
+  }
+
+
 
   async function remove(id: string) {
     if (!confirm("Excluir esta review permanentemente?")) return;
@@ -351,6 +387,11 @@ const AdminReviews = () => {
                       </div>
                       {r.verified ? <Badge variant="default">Verificada</Badge> : <Badge variant="secondary">Pendente</Badge>}
                       {r.published ? <Badge variant="outline">Publicada</Badge> : <Badge variant="destructive">Oculta</Badge>}
+                      {r.source === "site" && (
+                        r.authorized_publication
+                          ? <Badge variant="outline">Autorizada pelo cliente</Badge>
+                          : <Badge variant="destructive">Sem autorização</Badge>
+                      )}
                     </div>
                     {r.comment && <p className="text-sm text-muted-foreground mb-2">"{r.comment}"</p>}
                     <div className="text-xs text-muted-foreground flex gap-3 flex-wrap">
@@ -359,11 +400,16 @@ const AdminReviews = () => {
                       {r.service_slug && <span>🔧 {r.service_slug}</span>}
                       {r.review_date && <span>📅 {new Date(r.review_date).toLocaleDateString("pt-BR")}</span>}
                       {r.source && <span>· {r.source}</span>}
+                      {r.origin_protocol && <span>· OS {r.origin_protocol}</span>}
                     </div>
                   </div>
                   <div className="flex gap-2 md:flex-col md:w-40">
                     {!r.verified && (
-                      <Button size="sm" onClick={() => approve(r)} className="flex-1"><Check className="w-4 h-4 mr-1" />Aprovar</Button>
+                      <>
+                        <Button size="sm" onClick={() => approve(r)} className="flex-1"><Check className="w-4 h-4 mr-1" />Aprovar</Button>
+                        <Button size="sm" variant="secondary" onClick={() => reject(r)} className="flex-1">Rejeitar</Button>
+                      </>
+
                     )}
                     <Button size="sm" variant="outline" onClick={() => togglePublished(r)} className="flex-1">
                       {r.published ? <><EyeOff className="w-4 h-4 mr-1" />Ocultar</> : <><Eye className="w-4 h-4 mr-1" />Publicar</>}
@@ -387,8 +433,35 @@ const AdminReviews = () => {
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
                       const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
+                      const sendOsFollowUp = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        window.open(
+                          osFollowUpWaLink(r.client_phone!, {
+                            clientName: r.author_name,
+                            protocolo: r.origin_protocol ?? undefined,
+                            servico: r.service_slug ?? undefined,
+                            bairro: r.neighborhood ?? undefined,
+                          }),
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
+                      };
                       return (
                         <>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            disabled={!hasPhone}
+                            onClick={sendOsFollowUp}
+                            className="flex-1"
+                            title={"Enviar link de avaliação no site (pós-OS)" + tipPhone}
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />Pós-OS
+                          </Button>
+
                           <Button
                             size="sm"
                             variant={win === "t24" ? "default" : "outline"}

@@ -201,6 +201,7 @@ export type Database = {
         Row: {
           author_name: string
           author_photo_url: string | null
+          authorized_publication: boolean
           city: string | null
           client_phone: string | null
           comment: string
@@ -208,6 +209,8 @@ export type Database = {
           google_review_url: string | null
           id: string
           neighborhood: string | null
+          origin_path: string | null
+          origin_protocol: string | null
           published: boolean
           rating: number
           review_date: string
@@ -220,6 +223,7 @@ export type Database = {
         Insert: {
           author_name: string
           author_photo_url?: string | null
+          authorized_publication?: boolean
           city?: string | null
           client_phone?: string | null
           comment: string
@@ -227,6 +231,8 @@ export type Database = {
           google_review_url?: string | null
           id?: string
           neighborhood?: string | null
+          origin_path?: string | null
+          origin_protocol?: string | null
           published?: boolean
           rating: number
           review_date?: string
@@ -239,6 +245,7 @@ export type Database = {
         Update: {
           author_name?: string
           author_photo_url?: string | null
+          authorized_publication?: boolean
           city?: string | null
           client_phone?: string | null
           comment?: string
@@ -246,6 +253,8 @@ export type Database = {
           google_review_url?: string | null
           id?: string
           neighborhood?: string | null
+          origin_path?: string | null
+          origin_protocol?: string | null
           published?: boolean
           rating?: number
           review_date?: string

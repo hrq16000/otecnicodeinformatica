@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { GarantiaNotaFiscalPagamento } from "@/components/comercial/GarantiaNotaFiscalPagamento";
+import { QrContatoBlock } from "@/components/contato/QrContatoBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
@@ -209,7 +210,11 @@ const Contato = () => {
       </main>
       <RealImageSection imageKey="clienteSatisfeito" caption="Atendimento humanizado e profissional" />
       <BlocoInteligencia />
+      <div className="container mx-auto px-4 pb-4">
+        <QrContatoBlock location="contato" />
+      </div>
       <GarantiaNotaFiscalPagamento compact />
+
       <InterlinkingBlock />
       <Footer />
     </div>

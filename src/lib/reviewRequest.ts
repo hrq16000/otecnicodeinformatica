@@ -87,3 +87,57 @@ export const reviewWindow = (
   if (h < 168) return "t72"; // até 7 dias
   return "expired";
 };
+
+// ============================================================
+// Avaliação no próprio site (link rastreável pós-Ordem de Serviço)
+// ============================================================
+
+const SITE_ORIGIN = "https://tecnico.curitiba.br";
+
+/** URL da página de avaliação com UTM + protocolo da OS. */
+export const buildOnsiteReviewUrl = (params: {
+  protocolo?: string;
+  servico?: string;
+  bairro?: string;
+  origin?: string;
+}): string => {
+  const q = new URLSearchParams({
+    utm_source: "whatsapp",
+    utm_medium: "pos_atendimento",
+    utm_campaign: "avaliacao_estrelas",
+  });
+  if (params.protocolo) q.set("os", params.protocolo);
+  if (params.servico) q.set("servico", params.servico);
+  if (params.bairro) q.set("bairro", params.bairro);
+  return `${params.origin ?? SITE_ORIGIN}/avaliar?${q.toString()}`;
+};
+
+/**
+ * Mensagem enviada logo após o fechamento do atendimento/OS:
+ * pede a avaliação com estrelas e explica a autorização de publicação.
+ */
+export const buildOsFollowUpMessage = (params: {
+  clientName?: string;
+  protocolo?: string;
+  servico?: string;
+  bairro?: string;
+}): string => {
+  const nome = params.clientName ? firstName(params.clientName) : "tudo bem";
+  const os = params.protocolo ? ` (OS ${params.protocolo})` : "";
+  const link = buildOnsiteReviewUrl({
+    protocolo: params.protocolo,
+    servico: params.servico,
+    bairro: params.bairro,
+  });
+  return (
+    `Olá, ${nome}! Atendimento finalizado${os}. ` +
+    `Se puder, deixe sua avaliação com estrelas em 1 minuto: ${link}\n\n` +
+    `No formulário você marca se autoriza (ou não) a publicação do comentário no site. ` +
+    `Sem autorização, a avaliação fica só como feedback interno.`
+  );
+};
+
+export const osFollowUpWaLink = (
+  phone: string,
+  params: Parameters<typeof buildOsFollowUpMessage>[0],
+) => buildWaMeUrl(phone, buildOsFollowUpMessage(params));

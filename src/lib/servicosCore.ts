@@ -888,7 +888,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Como funciona o atendimento recorrente?", answer: "Definimos escopo, itens acompanhados e periodicidade conforme a necessidade da empresa. Não é suporte ilimitado: o que está incluído e o que é cobrado à parte fica registrado antes de começar." },
       { question: "Fazem atendimento de emergência?", answer: "Avaliamos situações com operação parada e priorizamos o restabelecimento conforme a disponibilidade da agenda. Não mantemos plantão em regime ininterrupto." },
       { question: "Resolvem problemas de rede e impressão?", answer: "Sim, esses estão entre os chamados mais comuns. Casos que envolvem cobertura, cabeamento ou reestruturação da conectividade são conduzidos pela página de redes e Wi-Fi." },
+      { question: "Vocês acessam sistemas e contas de terceiros da empresa?", answer: "Somente quando a empresa autoriza, com credenciais fornecidas por quem tem poder para isso e apenas pelo tempo do atendimento. Atuamos na camada de acesso e configuração local: instalar, conectar, corrigir sessão, ajustar navegador, impressora ou permissão do sistema operacional. Não administramos a conta, não respondemos pelo funcionamento interno da plataforma e não substituímos o suporte do fornecedor dela." },
+      { question: "Quem responde quando o problema está no sistema do fornecedor?", answer: "O fornecedor. Nós identificamos e registramos que a falha está fora do computador — servidor do fabricante fora do ar, atualização do sistema, licença vencida, regra de acesso alterada — e entregamos essa constatação por escrito para você acionar quem mantém a plataforma. Não abrimos chamado em nome da empresa sem autorização expressa." },
+      { question: "Vocês guardam senhas da empresa?", answer: "Não mantemos credenciais depois do atendimento. Recomendamos que a empresa troque a senha usada em qualquer acesso pontual e que credenciais administrativas fiquem sob controle de um responsável interno. Trabalhamos com o mínimo de acesso necessário para resolver o chamado." },
     ],
+
     relacionados: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
@@ -918,6 +922,15 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
       {
+        titulo: "Sistemas, acessos e contas de terceiros: até onde vai a nossa responsabilidade",
+        paragrafos: [
+          "Boa parte dos chamados empresariais esbarra em algo que não é do computador: o sistema de gestão hospedado pelo fornecedor, o e-mail contratado de outra empresa, o certificado digital emitido por uma autoridade certificadora, o portal do banco, a plataforma fiscal, o armazenamento em nuvem da equipe. Esses ambientes têm dono, contrato e suporte próprios — e é importante deixar claro onde a nossa atuação começa e onde ela termina.",
+          "O que fazemos: instalar e configurar o cliente ou o acesso na estação, corrigir sessão que não abre, ajustar navegador e certificados locais, resolver impressão a partir do sistema, tratar permissão do Windows, conectividade e conflito com programas instalados, e orientar o usuário sobre o uso correto. Quando o acesso exige credencial, ela é fornecida por quem tem poder para autorizar, usada apenas durante o atendimento e não fica guardada conosco. Recomendamos a troca da senha após qualquer acesso pontual.",
+          "O que não fazemos: administrar contas de terceiros como se fôssemos o responsável delas, responder pelo funcionamento interno da plataforma, garantir disponibilidade de serviço que não é nosso, abrir chamado em nome da empresa sem autorização expressa ou assumir a gestão de licenças, renovações e faturas do fornecedor. Também não emitimos, renovamos nem validamos certificado digital — a emissão pertence à autoridade certificadora; nós tratamos apenas a instalação e o reconhecimento do dispositivo na máquina.",
+          "Quando o diagnóstico aponta que a falha está fora do computador, entregamos essa constatação por escrito, com o que foi verificado e descartado, para que a empresa acione o fornecedor com informação técnica em mãos. Isso costuma encurtar o atendimento do outro lado e evita que o chamado fique circulando entre partes sem responsável definido.",
+        ],
+      },
+      {
         titulo: "O que este suporte cobre e o que pertence a outra página",
         paragrafos: [
           "Esta página trata da execução do suporte: computadores, usuários, sistemas operacionais, programas compatíveis, periféricos, acessos, impressão, incidentes do dia a dia e manutenção corretiva das estações da equipe.",
@@ -926,6 +939,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
     ],
+
     linksLocais: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
@@ -1362,7 +1376,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "A garantia cobre defeito das peças?", answer: "Não. A nossa garantia é de 90 dias sobre a mão de obra do serviço executado: instalação, fixação, conexões, organização interna e configuração entregue funcionando. Peças e componentes seguem a garantia do fornecedor ou fabricante. Também ficam fora da cobertura alterações feitas depois pelo usuário, overclock, uso inadequado e dano por oscilação elétrica." },
       { question: "É possível aproveitar peças de outro computador?", answer: "Em muitos casos sim, principalmente gabinete, fonte em bom estado, armazenamento e, dependendo da geração, memória. A verificação é individual: componente antigo pode limitar o conjunto ou simplesmente não ser compatível com a plataforma nova. Avaliamos e dizemos o que vale aproveitar e o que é melhor substituir." },
       { question: "O valor pode ser informado antes de verificar a configuração?", answer: "Não de forma fechada. O serviço varia com a quantidade e o estado das peças, a complexidade do gabinete, a solução de refrigeração, a instalação de sistema e drivers, a bateria de testes e a modalidade de atendimento. Depois da verificação da configuração, apresentamos o escopo e o valor por escrito — e nada é executado sem a sua aprovação." },
+      { question: "Vocês montam workstation para arquitetura, engenharia ou edição?", answer: "Montamos e configuramos a máquina, com os mesmos critérios de compatibilidade, refrigeração e testes aplicados a qualquer desktop. O que precede a montagem é o levantamento de requisitos: quais programas você usa, o tamanho típico dos arquivos, se o trabalho é mais dependente de processador, memória ou placa de vídeo e quantos monitores serão ligados. A partir daí avaliamos a configuração — sem prometer tempo de renderização, fluidez ou desempenho em programa específico." },
+      { question: "Vocês garantem que o computador vai rodar bem um programa específico?", answer: "Não garantimos desempenho por software. Trabalhamos com os requisitos publicados pelo fabricante do programa e com a certificação declarada pelo fabricante do componente, quando existe, e deixamos registrado que essas informações são de terceiros. Nossa garantia cobre a montagem, a configuração e a estabilidade comprovada em teste, não o comportamento de um programa em um projeto específico." },
+      { question: "Quantos monitores a máquina suporta?", answer: "Depende das saídas de vídeo da placa instalada e da resolução usada em cada tela. Conferimos isso na avaliação da configuração e testamos as saídas antes da entrega. Se o número de monitores desejado não couber na placa escolhida, informamos antes da compra." },
     ],
+
     relacionados: [
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
@@ -1413,7 +1431,17 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Os limites também são claros. Montagem correta não é sinônimo de desempenho máximo: um conjunto bem montado entrega o que aqueles componentes conseguem entregar, e nenhuma montagem elimina a limitação de uma peça. Não fornecemos peças de estoque próprio, não trabalhamos com catálogo fechado de componentes e não indicamos marca sem base técnica. Peças adquiridas a pedido dependem da sua autorização de item, valor e fornecedor, e são cobradas à parte da mão de obra.",
         ],
       },
+      {
+        titulo: "Workstation e estações de trabalho pesadas: levantamento de requisitos antes da configuração",
+        paragrafos: [
+          "Quem trabalha com desenho técnico, modelagem, edição de vídeo, fotografia em alta resolução ou planilhas e bases de dados muito grandes não precisa do mesmo computador de quem joga. O ponto de partida não é escolher peça, é entender a rotina: quais programas você usa de fato, qual o tamanho típico dos arquivos abertos ao mesmo tempo, se o trabalho depende mais de processador, de memória ou de placa de vídeo, quantos monitores e em qual resolução, e o que hoje trava ou obriga a esperar. Sem essas respostas, qualquer configuração é chute caro.",
+          "O checklist de requisitos que usamos na avaliação cobre sete pontos: (1) programas e versões utilizados, com os requisitos publicados pelo próprio fabricante do software; (2) volume e tamanho médio dos arquivos de projeto; (3) memória necessária para o número de projetos abertos simultaneamente; (4) espaço e velocidade de armazenamento, separando disco de sistema, disco de trabalho e área de arquivos concluídos; (5) saídas de vídeo e resolução por monitor; (6) dissipação térmica esperada para uso prolongado em carga contínua; (7) rotina de cópia dos arquivos, porque estação de trabalho sem backup é risco concentrado.",
+          "Sobre desempenho, a regra é a mesma de qualquer montagem nossa, e ela não muda por o computador ser chamado de workstation: não prometemos tempo de renderização, número de quadros, fluidez em projeto específico nem ausência de gargalo. Quando o fabricante do componente declara certificação para determinado programa, tratamos isso como informação de terceiro e registramos como tal — não como garantia nossa. Exigência de desempenho contratual, validação homologada ou suporte ao funcionamento interno do software pertence ao fornecedor do programa, não a nós.",
+          "Os critérios de validação na entrega também são específicos: reconhecimento de toda a memória instalada, leitura correta de cada unidade de armazenamento, teste de memória com ciclo definido, carga controlada de processador e placa de vídeo com acompanhamento de temperatura, estabilidade por período definido, funcionamento simultâneo de todas as saídas de vídeo na resolução pretendida e drivers oficiais instalados a partir do site do fabricante. Você recebe por escrito o que foi testado e o que ficou fora. Se a máquina for de empresa, a mesma configuração pode ser padronizada e registrada máquina a máquina — o acompanhamento dessas estações no dia a dia fica no suporte técnico empresarial.",
+        ],
+      },
     ],
+
     dateModified: "2026-08-06",
   },
 };

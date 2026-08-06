@@ -13,7 +13,9 @@ import {
   EmpresaTrustBar,
   EmpresaSinaisSection,
   EmpresaPassosSection,
+  EmpresaContextosSection,
   EmpresaSegmentosSection,
+
 } from "@/components/empresa/EmpresaConversao";
 
 import { siteConfig } from "@/lib/siteConfig";
@@ -318,10 +320,16 @@ const EmpresaDeTiCuritiba = () => {
           <EmpresaPassosSection />
         </AnimatedSection>
 
+        {/* ═══ Contextos atendidos (necessidade real, sem novas URLs) ═══ */}
+        <AnimatedSection>
+          <EmpresaContextosSection />
+        </AnimatedSection>
+
         {/* ═══ Segmentos atendidos ═══ */}
         <AnimatedSection>
           <EmpresaSegmentosSection />
         </AnimatedSection>
+
 
         {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
 

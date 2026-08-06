@@ -67,7 +67,7 @@ export const ConsentBanner = () => {
           type="button"
           onClick={() => decide(false)}
           style={{
-            minHeight: 40, padding: "0 14px", borderRadius: 10,
+            minHeight: 44, padding: "0 14px", borderRadius: 10,
             border: "1px solid rgba(255,255,255,.25)", background: "transparent",
             color: "#fff", fontWeight: 600, cursor: "pointer",
           }}
@@ -78,7 +78,7 @@ export const ConsentBanner = () => {
           type="button"
           onClick={() => decide(true)}
           style={{
-            minHeight: 40, padding: "0 16px", borderRadius: 10,
+            minHeight: 44, padding: "0 16px", borderRadius: 10,
             border: "none", background: "hsl(145,63%,42%)",
             color: "#fff", fontWeight: 700, cursor: "pointer",
           }}

@@ -5,6 +5,7 @@
  * (Supabase) para alimentar o dashboard admin por bairro/serviço.
  */
 import { readUtms } from "./utmCapture";
+import { readAttribution } from "./attribution";
 import { getSessionId } from "./funnelSubmission";
 import {
   DEFAULT_UTM_SOURCE,
@@ -57,6 +58,9 @@ function baseParams(extra: Record<string, unknown> = {}) {
         (typeof extra.utm_medium === "string" ? extra.utm_medium : undefined),
     ),
     utm_campaign: utms.utm_campaign || campaignFromPath(path),
+    // Atribuição por origem (first-touch): ads | seo | social | referral | direto | campanha.
+    attribution_channel: readAttribution().channel,
+    attribution_source: readAttribution().source,
     ...utms,
     ...extra,
     click_location: location,
@@ -356,6 +360,7 @@ function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open",
         (typeof extra.utm_medium === "string" ? extra.utm_medium : undefined),
     ),
     utm_campaign: utms.utm_campaign || campaignFromPath(path),
+    attribution_channel: readAttribution().channel,
   };
   // Fire-and-forget; nunca bloqueia o clique.
   void supabase.from("click_events").insert(payload).then(({ error }) => {

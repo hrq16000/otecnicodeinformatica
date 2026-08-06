@@ -102,8 +102,34 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/montagem-de-pc",
     "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
-    "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas."
+    "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
+    "blocos": [
+      {
+        "titulo": "Peças fornecidas pelo cliente: compatibilidade, procedência e troca",
+        "paragrafos": [
+          "Antes de agendar a montagem conferimos a compatibilidade declarada a partir dos modelos exatos informados por você. No recebimento registramos o estado de cada item, incluindo acessórios, parafusos e cabos ausentes, tanto para peça lacrada quanto para peça usada. Dano prévio identificado, como pino torto, conector quebrado ou oxidação, é fotografado e comunicado antes de qualquer instalação.",
+          "Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante: a garantia do componente não é nossa e o prazo de troca é o do próprio fornecedor, não um prazo criado por nós. Componente usado ou fora de garantia só é montado com o seu aceite registrado do risco de falha. Se uma peça incompatível inviabilizar a montagem, cobramos apenas o que já foi executado e explicamos a troca necessária.",
+          "Peças adquiridas a pedido só são compradas após a sua autorização expressa do item, do valor e do fornecedor. Mão de obra e peça permanecem separadas no registro do atendimento, e a substituição ou devolução segue a regra do fornecedor."
+        ]
+      },
+      {
+        "titulo": "Checklist de BIOS/UEFI, drivers oficiais e testes finais",
+        "paragrafos": [
+          "A configuração de BIOS/UEFI faz parte da montagem: ordem de inicialização, reconhecimento do armazenamento e perfil de memória quando oficialmente suportado. Atualização de firmware não é rotina; acontece somente quando há motivo técnico e com autorização registrada, usando a versão estável do fabricante. Em placa sem recurso de recuperação, informamos o risco e não executamos sem aceite por escrito. Não realizamos overclock nem modificação não oficial de firmware.",
+          "Os drivers vêm sempre dos pacotes oficiais do fabricante de cada componente — chipset, vídeo, áudio, rede e armazenamento. Instalador genérico de terceiros costuma ser a origem de instabilidade em máquina recém-montada e por isso não é utilizado.",
+          "O checklist de entrega inclui reconhecimento de todos os componentes instalados, inicialização repetida com partida a frio, teste de memória com ciclo definido, verificação do estado e da leitura do armazenamento, carga controlada de processador e placa de vídeo com acompanhamento de temperatura, estabilidade por período definido e checagem de portas USB, áudio, vídeo e rede. Teste com duração definida não substitui uso prolongado, e não prometemos número de quadros por segundo nem percentual de ganho."
+        ]
+      },
+      {
+        "titulo": "Garantia da montagem, da configuração e da peça",
+        "paragrafos": [
+          "A garantia da montagem cobre a mão de obra do que executamos: instalação, fixação, conexões e organização interna. A garantia da configuração cobre BIOS, sistema e drivers entregues funcionando; alterações feitas depois pelo usuário saem da cobertura.",
+          "A garantia da peça é sempre do fabricante ou fornecedor, com prazo e canal definidos por ele, acionada com a nota correspondente. Ficam fora da cobertura defeito posterior sem relação com a montagem, alteração feita pelo cliente, overclock, uso inadequado, surto elétrico e dano físico."
+        ]
+      }
+    ]
   },
+
   {
     "path": "/servicos/suporte-home-office",
     "title": "Suporte Técnico para Home Office em Curitiba",

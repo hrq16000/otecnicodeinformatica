@@ -5,6 +5,7 @@ import {
   getEditorialEntry,
   type CtaBranch,
 } from "@/lib/editorialClusters";
+import { isEditorialApproved, getApprovedSlugs } from "@/lib/blogEditorialRegistry";
 
 /**
  * CTA editorial da Rodada 4F.
@@ -86,7 +87,12 @@ export function EditorialCta({
   );
 }
 
-/** Bloco "conteúdos relacionados" — no máximo 3 links, sempre com progressão lógica. */
+/**
+ * Bloco "conteúdos relacionados" — no máximo 3 links.
+ * Regra (Rodada 3G): só aponta para artigos com aprovação editorial válida
+ * (indexáveis e canônicos). Se a progressão lógica do cluster não sobrar
+ * nenhum destino aprovado, completa com outros artigos aprovados da onda.
+ */
 export function EditorialRelatedLinks({
   slug,
   titles,
@@ -96,10 +102,15 @@ export function EditorialRelatedLinks({
 }) {
   const entry = getEditorialEntry(slug);
   const cluster = entry ? EDITORIAL_CLUSTERS[entry.cluster] : undefined;
-  const relacionados = (entry?.relacionados ?? [])
-    .filter((s) => titles[s])
-    .slice(0, 3);
+  const elegivel = (s: string) => s !== slug && !!titles[s] && isEditorialApproved(s);
+
+  const preferidos = (entry?.relacionados ?? []).filter(elegivel);
+  const complementos = getApprovedSlugs().filter(
+    (s) => elegivel(s) && !preferidos.includes(s),
+  );
+  const relacionados = [...preferidos, ...complementos].slice(0, 3);
   if (!cluster || relacionados.length === 0) return null;
+
 
   return (
     <nav aria-label="Conteúdos relacionados" className="not-prose mt-10 rounded-2xl border border-border/60 bg-muted/30 p-6">

@@ -254,8 +254,8 @@ const BlogPost = () => {
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="900" />
+        <meta property="og:image:width" content={editorialCover ? "1200" : "1600"} />
+        <meta property="og:image:height" content={editorialCover ? "630" : "900"} />
         <meta property="og:image:alt" content={post.title} />
         {approved && (
           <>
@@ -336,7 +336,9 @@ const BlogPost = () => {
                 <img
                   src={heroImage}
                   srcSet={
-                    categoryCover
+                    editorialCover
+                      ? undefined
+                      : categoryCover
                       ? categoryCover.srcSet
                       : heroImage.includes("images.unsplash.com")
                       ? [400, 800, 1200, 1600]
@@ -345,13 +347,13 @@ const BlogPost = () => {
                       : undefined
                   }
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  alt={post.title}
+                  alt={editorialCover ? editorialCover.alt : post.title}
                   className="w-full h-full object-cover"
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  width={1600}
-                  height={900}
+                  width={editorialCover ? 1200 : 1600}
+                  height={editorialCover ? 630 : 900}
                 />
               </AspectRatio>
             </div>

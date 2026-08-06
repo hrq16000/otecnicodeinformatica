@@ -238,6 +238,10 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </div>
       </section>
 
+      {data.caixasPosicao === "apos-sinais" && caixasBlock}
+
+
+
       {/* Como funciona */}
       <section id="como-funciona" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">

@@ -49,9 +49,11 @@ export const MontagemWizard = () => {
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
   const [aceite, setAceite] = useState(false);
+  const [lgpd, setLgpd] = useState(false);
   const [gerando, setGerando] = useState(false);
   const [gerandoOs, setGerandoOs] = useState(false);
   const [protocolo, setProtocolo] = useState<string | null>(null);
+  const [tentou, setTentou] = useState(false);
 
   const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
 

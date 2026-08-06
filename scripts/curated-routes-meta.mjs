@@ -7,6 +7,7 @@
 import { SERVICO_BAIRRO } from "./lib/curated-urls.mjs";
 import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
 import { priorityFaq } from "./lib/priority-faq.mjs";
+import { priorityOffers } from "./lib/priority-offers.mjs";
 
 const BASE_ROUTES = [
   {
@@ -184,7 +185,8 @@ const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path
 // para que FAQPage estático e conteúdo visível fiquem em paridade.
 const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
   const faq = priorityFaq(r.path);
-  return faq ? { ...r, faq } : r;
+  const offers = priorityOffers(r.path);
+  return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}) };
 });
 
 export const CURATED_ROUTES = [...BASE_ROUTES_WITH_FAQ, ...SERVICO_BAIRRO_ROUTES];

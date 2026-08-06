@@ -59,6 +59,8 @@ jobs:
         run: npm run check:jsonld-p0
       - name: Rich results (LocalBusiness/Service/FAQPage)
         run: npm run check:rich-results:strict
+      - name: Paridade JSON-LD × conteúdo visível
+        run: npm run check:jsonld-parity
       - name: Interlinking local (mãe ⇄ bairros/cidades)
         run: npm run check:local-interlinking
 

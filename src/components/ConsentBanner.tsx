@@ -45,20 +45,20 @@ export const ConsentBanner = () => {
         left: "12px",
         right: "auto",
         bottom: "calc(12px + env(safe-area-inset-bottom, 0px))",
-        width: "min(360px, calc(100vw - 96px))",
+        width: "min(320px, calc(100vw - 108px))",
         background: "rgba(15,23,42,0.96)",
         color: "#fff",
         borderRadius: "12px",
-        padding: "12px 14px",
+        padding: "10px 12px",
         boxShadow: "0 14px 30px rgba(0,0,0,.35)",
         border: "1px solid rgba(255,255,255,.12)",
         backdropFilter: "blur(10px)",
         fontFamily: "Inter, system-ui, sans-serif",
-        fontSize: "13px",
+        fontSize: "12.5px",
         lineHeight: 1.4,
       }}
     >
-      <p style={{ margin: 0, marginBottom: 10 }}>
+      <p style={{ margin: 0, marginBottom: 8 }}>
         Usamos cookies para medir audiência.{" "}
         <a href="/termos-e-condicoes" style={{ color: "#fdba74", textDecoration: "underline" }}>Saiba mais</a>.
       </p>

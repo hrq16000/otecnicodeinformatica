@@ -249,6 +249,15 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
           "Para empresas em Curitiba, trabalhamos estabilidade, segurança e organização da rede, com atendimento pontual ou recorrente sob consulta. O diagnóstico separa o que é problema de Wi-Fi do que é limitação do provedor.",
         ],
       },
+      {
+        titulo: "Impressoras e periféricos conectados à rede",
+        paragrafos: [
+          "O atendimento de impressoras e periféricos nesta página se limita à configuração, comunicação e compartilhamento em rede. Defeitos mecânicos ou eletrônicos dependem de assistência específica para o equipamento. Isso significa que trabalhamos com o aparelho que já funciona e precisa ser encontrado, compartilhado ou reconectado — não com reparo do equipamento em si.",
+          "O que resolvemos: impressora já funcional que sumiu da rede, compartilhamento entre os computadores da casa ou do escritório, instalação do driver oficial do fabricante, fila de impressão travada, endereço IP fixo para o aparelho parar de trocar de número, descoberta na rede quando um computador enxerga e o outro não, comunicação entre dispositivos e reconexão depois da troca de roteador ou de senha do Wi-Fi. Quando o modelo suporta, também configuramos a conexão Wi-Fi do próprio aparelho e a digitalização em rede.",
+          "Armazenamento simples em rede — uma pasta compartilhada entre as estações ou um disco ligado ao roteador — entra no mesmo escopo de conectividade, dentro do que a estrutura atual permite. Estruturas maiores, com servidor de arquivos e controle de permissões por setor, são avaliadas no suporte técnico empresarial.",
+          "O que está fora, sem exceção: reparo mecânico, troca de cabeçote, recarga, manutenção de fusor, reparo eletrônico, conserto de placa, manutenção de plotter, suporte universal a equipamento antigo e fornecimento de toner ou tinta. Se a avaliação indicar falha física do aparelho, dizemos isso com clareza e orientamos a procurar a assistência do fabricante, em vez de cobrar por uma tentativa que não resolve.",
+        ],
+      },
     ],
     faqsLocais: [
       { question: "Vocês configuram Wi-Fi a domicílio em Curitiba?", answer: "Sim. Avaliamos o ambiente no local em Curitiba e região e configuramos roteador, repetidores ou mesh para melhorar cobertura e estabilidade." },
@@ -258,6 +267,8 @@ export const SERVICOS_LOCAL: Record<string, ServicoLocalData> = {
     linksLocais: [
       ...REGIOES,
       { label: "Suporte empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
       { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
     ],

@@ -327,6 +327,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
@@ -448,6 +449,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
       { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
       ...LINKS_BASE,
@@ -718,6 +720,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Repetidores e mesh", desc: "Ampliação de cobertura para áreas com sinal fraco." },
       { title: "Cabeamento", desc: "Passagem e organização de cabos quando faz sentido." },
       { title: "Rede empresarial", desc: "Segmentação, estabilidade e prioridade de tráfego sob avaliação." },
+      { title: "Impressora e periféricos em rede", desc: "Driver oficial, IP fixo, compartilhamento e fila — apenas conectividade, sem reparo do aparelho." },
       { title: "Testes de estabilidade", desc: "Validação de sinal e velocidade nos ambientes de uso." },
     ],
     sinais: [
@@ -751,7 +754,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Um roteador mais potente resolve?", answer: "Nem sempre. Potência não vence obstrução física nem congestionamento de canal. Em escritórios, dois pontos bem posicionados costumam entregar mais estabilidade do que um equipamento isolado mais caro." },
       { question: "É necessário instalar cabeamento?", answer: "Depende do layout e do uso. Quando existe passagem viável, levar cabo até o ponto distante é a solução mais estável para setores fixos. Onde não há infraestrutura, avaliamos alternativas sem prometer obra civil." },
       { question: "É possível separar redes de funcionários e visitantes?", answer: "Sim, quando o equipamento suporta rede de visitantes ou segmentação básica. É uma separação de uso, não uma solução completa de segurança corporativa." },
-      { question: "Vocês configuram impressoras de rede?", answer: "Sim, dentro do escopo de conectividade: endereço fixo, compartilhamento e reconhecimento pelas estações compatíveis. Falhas mecânicas e suprimentos ficam fora do serviço." },
+      { question: "Vocês configuram impressoras de rede?", answer: "Sim, dentro do escopo de conectividade: instalação do driver oficial, endereço IP fixo, compartilhamento entre as estações, fila de impressão, descoberta na rede, digitalização em rede quando o modelo suporta e reconexão após troca de roteador. O atendimento de impressoras e periféricos nesta página se limita à configuração, comunicação e compartilhamento em rede. Defeitos mecânicos ou eletrônicos dependem de assistência específica para o equipamento." },
+      { question: "Vocês consertam impressora com defeito?", answer: "Não. Reparo mecânico, troca de cabeçote, recarga, manutenção de fusor, reparo eletrônico, conserto de placa e manutenção de plotter estão fora do escopo, assim como o fornecimento de toner e tinta. Se a avaliação apontar falha física do aparelho, informamos e orientamos a assistência do fabricante." },
+      { question: "Dá para compartilhar uma pasta ou um disco na rede?", answer: "Sim, para compartilhamento simples entre os computadores do ambiente ou disco ligado ao roteador, dentro do que a estrutura atual permite. Servidor de arquivos com permissões por setor é escopo do suporte técnico empresarial." },
       { question: "Passam cabo de rede?", answer: "Quando faz sentido para estabilidade, avaliamos e realizamos o cabeamento e a organização dos pontos." },
       { question: "O valor pode ser definido sem avaliar o local?", answer: "Não para ambientes empresariais. Cobertura, número de pontos e infraestrutura existente só ficam claros com levantamento no local ou com informações detalhadas da planta e do uso." },
       { question: "Equipamentos estão incluídos?", answer: "Roteadores, access points, switches e cabos são tratados como material à parte. Informamos o que é necessário antes da execução e você decide se fornece ou se compramos conforme autorização." },
@@ -759,6 +764,8 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     relacionados: [
       { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
       { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
@@ -790,6 +797,15 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Divisórias metálicas, forro técnico, salas de reunião fechadas e vizinhança densa de redes fazem o ponto único de Wi-Fi entregar bem apenas no raio próximo. A saída realista costuma ser distribuir cobertura em dois ou três pontos, cabear os setores fixos e reservar o Wi-Fi para notebooks e celulares, mantendo caixa, servidor local e impressora principal em conexão cabeada.",
           "Também tratamos a parte esquecida: rede de visitantes separada da rede de trabalho, senha de administração dos equipamentos alterada, firmware atualizado, endereços fixos para impressoras e um registro simples do que existe — modelo dos equipamentos, onde está cada ponto e como a rede foi configurada. Sem essa documentação básica, todo atendimento futuro recomeça do zero.",
           "O limite fica explícito antes de começar: não prometemos cobertura perfeita em toda a área, disponibilidade ininterrupta, certificação de cabeamento que não executamos nem administração de equipamentos corporativos fora do que conseguimos suportar. Projetos de maior porte só são discutidos após vistoria no local.",
+        ],
+      },
+      {
+        titulo: "Impressoras e periféricos conectados à rede",
+        paragrafos: [
+          "O atendimento de impressoras e periféricos nesta página se limita à configuração, comunicação e compartilhamento em rede. Defeitos mecânicos ou eletrônicos dependem de assistência específica para o equipamento. Isso significa que trabalhamos com o aparelho que já funciona e precisa ser encontrado, compartilhado ou reconectado — não com reparo do equipamento em si.",
+          "O que resolvemos: impressora já funcional que sumiu da rede, compartilhamento entre os computadores da casa ou do escritório, instalação do driver oficial do fabricante, fila de impressão travada, endereço IP fixo para o aparelho parar de trocar de número, descoberta na rede quando um computador enxerga e o outro não, comunicação entre dispositivos e reconexão depois da troca de roteador ou de senha do Wi-Fi. Quando o modelo suporta, também configuramos a conexão Wi-Fi do próprio aparelho e a digitalização em rede.",
+          "Armazenamento simples em rede — uma pasta compartilhada entre as estações ou um disco ligado ao roteador — entra no mesmo escopo de conectividade, dentro do que a estrutura atual permite. Estruturas maiores, com servidor de arquivos e controle de permissões por setor, são avaliadas no suporte técnico empresarial.",
+          "O que está fora, sem exceção: reparo mecânico, troca de cabeçote, recarga, manutenção de fusor, reparo eletrônico, conserto de placa, manutenção de plotter, suporte universal a equipamento antigo e fornecimento de toner ou tinta. Se a avaliação indicar falha física do aparelho, dizemos isso com clareza e orientamos a procurar a assistência do fabricante, em vez de cobrar por uma tentativa que não resolve.",
         ],
       },
       {
@@ -1276,6 +1292,127 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     dateModified: "2026-08-06",
   },
+
+  // 12 ────────────────────────────────────────────────────────
+  // MONTAGEM DE PC (Rodada 3L) — construir e validar um conjunto novo.
+  // Não compete com manutenção (reparo) nem com upgrade (modernização).
+  "montagem-de-pc": {
+    path: "montagem-de-pc",
+    trackingKey: "montagem-de-pc",
+    metaTitle: "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
+    metaDescription:
+      "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
+    serviceName: "Montagem de PC e PC Gamer",
+    serviceDescription:
+      "Montagem, configuração e avaliação técnica de computadores desktop, PC Gamer e estações de trabalho em Curitiba e região, com verificação de compatibilidade, organização dos componentes e testes antes da entrega.",
+    eyebrow: "Montagem em Curitiba",
+    h1: "Montagem de PC e PC Gamer em Curitiba",
+    h1Accent: "com verificação de compatibilidade e testes antes da entrega",
+    intro:
+      "Montagem e configuração de computadores com verificação de compatibilidade, organização dos componentes e testes antes da entrega. Atendemos quem já comprou as peças, quem ainda está definindo a configuração e quem tem uma montagem feita por conta própria que ficou instável. O trabalho aqui é montar certo e comprovar que o conjunto liga, reconhece tudo e se mantém estável sob carga — não prometer número de quadros por segundo nem desempenho de jogo. Descreva o seu caso pela triagem no WhatsApp para começarmos pela verificação da configuração.",
+    whatsappMessage: "Olá! Quero montar/configurar um computador. Posso enviar a lista de peças para avaliação?",
+    incluso: [
+      { title: "Verificação de compatibilidade", desc: "Socket, chipset, geração, memória suportada, dimensões, conectores e alimentação conferidos antes da montagem." },
+      { title: "Montagem física", desc: "Instalação e fixação de processador, memória, placa-mãe, armazenamento, placa de vídeo e fonte no gabinete." },
+      { title: "Refrigeração a ar", desc: "Cooler, pasta térmica, posição das ventoinhas e fluxo de ar organizados conforme o gabinete." },
+      { title: "Organização interna", desc: "Passagem e amarração dos cabos dentro do que o gabinete permite, sem obstruir a ventilação." },
+      { title: "BIOS e firmware", desc: "Configuração básica, ordem de inicialização, reconhecimento do armazenamento e perfil de memória quando suportado." },
+      { title: "Sistema e drivers", desc: "Instalação legítima do sistema e drivers oficiais dos componentes instalados." },
+      { title: "Bateria de testes", desc: "Memória, armazenamento, temperatura sob carga, estabilidade, portas, rede, áudio e vídeo." },
+      { title: "Registro do atendimento", desc: "Componentes instalados, configurações aplicadas e testes executados registrados por escrito." },
+    ],
+    sinais: [
+      "Peças já compradas e nenhuma confiança para montar sozinho",
+      "Lista de componentes montada na internet sem certeza de compatibilidade",
+      "PC montado em casa que liga, mas reinicia ou trava sob carga",
+      "Máquina nova que não reconhece toda a memória ou o segundo SSD",
+      "Gabinete com cabos soltos e temperatura alta desde o primeiro dia",
+      "Computador de trabalho que precisa ser preparado antes de entrar em uso",
+      "Peças aproveitadas de outro computador sem saber o que ainda serve",
+      "Estação de trabalho que precisa de levantamento de requisitos antes da compra",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Quantidade de componentes", desc: "Uma montagem simples é diferente de um conjunto com várias unidades de armazenamento, ventoinhas e periféricos." },
+      { title: "Estado das peças", desc: "Componentes usados, sem acessórios ou com dano prévio exigem verificação adicional antes da instalação." },
+      { title: "Compatibilidade", desc: "Configurações com peças de gerações diferentes pedem conferência mais profunda e podem exigir troca de item." },
+      { title: "Firmware e configuração", desc: "Atualização autorizada de BIOS e ajustes específicos acrescentam etapas ao serviço." },
+      { title: "Complexidade e refrigeração", desc: "Gabinete apertado, muitos cabos e solução térmica mais elaborada aumentam o tempo de bancada." },
+      { title: "Sistema, drivers e testes", desc: "Instalação do sistema, drivers e a bateria de testes solicitada entram na composição do valor." },
+      { title: "Correções de montagem anterior", desc: "Refazer uma montagem instável envolve diagnóstico antes da correção." },
+      { title: "Modalidade", desc: "Bancada, atendimento no endereço ou coleta e entrega mudam a logística do atendimento em Curitiba e região." },
+    ],
+    atendimento: {
+      residencial:
+        "Uso doméstico, jogos e criação de conteúdo: montagem com as suas peças ou apoio para fechar a configuração antes da compra, com entrega testada e sistema pronto para uso.",
+      empresarial:
+        "Estações de trabalho e computadores de escritório: montagem padronizada, registro dos componentes por máquina e configuração alinhada ao uso do posto de trabalho. Estrutura de rede e rotina de TI seguem no suporte técnico empresarial.",
+    },
+    faqs: [
+      { question: "Vocês montam PC com peças compradas pelo cliente?", answer: "Sim, e é o cenário mais comum. Antes de agendar, conferimos a compatibilidade a partir dos modelos exatos que você comprou. No recebimento registramos o estado de cada item, incluindo acessórios e cabos que vieram na caixa. Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante — a garantia do componente não é nossa." },
+      { question: "Vocês ajudam a verificar se as peças são compatíveis?", answer: "Sim. Avaliamos socket e chipset entre processador e placa-mãe, geração e capacidade de memória suportadas, espaço físico do gabinete para cooler e placa de vídeo, conectores disponíveis para armazenamento e alimentação da GPU, além do consumo estimado do conjunto. Se algo não fecha, explicamos o que precisa mudar antes de você comprar." },
+      { question: "É possível montar um PC Gamer?", answer: "É. Montamos desktops com placa de vídeo dedicada, incluindo configurações voltadas para jogos e criação de conteúdo. O que não fazemos é prometer quantidade de quadros por segundo, percentual de ganho ou ausência de gargalo: o desempenho depende do conjunto escolhido, do jogo, da resolução e das configurações usadas. Nosso compromisso é montagem correta, refrigeração adequada e estabilidade comprovada em teste." },
+      { question: "Vocês atualizam a BIOS?", answer: "Somente quando existe motivo técnico, como suporte a um processador mais novo, e com a sua autorização registrada. A gravação de firmware tem risco real: uma interrupção de energia pode inutilizar a placa. Por isso trabalhamos com a versão estável publicada pelo fabricante e, em placas sem recurso de recuperação, não atualizamos sem o seu aceite expresso do risco." },
+      { question: "O sistema operacional está incluído?", answer: "A instalação do sistema faz parte do serviço quando você solicita, mas a licença é fornecida ou adquirida por você. Instalamos apenas sistema legítimo e não realizamos ativação irregular. Se preferir receber a máquina apenas montada e testada, sem sistema, isso também é possível." },
+      { question: "Os drivers são instalados?", answer: "Sim, sempre a partir dos pacotes oficiais do fabricante de cada componente: chipset, vídeo, áudio, rede e armazenamento. Evitamos instaladores genéricos de terceiros, que costumam ser a origem de instabilidade em máquinas recém-montadas." },
+      { question: "Vocês realizam testes antes da entrega?", answer: "Sim, e informamos exatamente quais. Verificamos o reconhecimento de todos os componentes, inicialização repetida e partida a frio, teste de memória com ciclo definido, estado e leitura do armazenamento, temperatura sob carga controlada, estabilidade por período definido e o funcionamento de portas USB, áudio, vídeo e rede. Teste com duração limitada não substitui o uso prolongado, e dizemos isso abertamente." },
+      { question: "A garantia cobre defeito das peças?", answer: "Não. A nossa garantia é de 90 dias sobre a mão de obra do serviço executado: instalação, fixação, conexões, organização interna e configuração entregue funcionando. Peças e componentes seguem a garantia do fornecedor ou fabricante. Também ficam fora da cobertura alterações feitas depois pelo usuário, overclock, uso inadequado e dano por oscilação elétrica." },
+      { question: "É possível aproveitar peças de outro computador?", answer: "Em muitos casos sim, principalmente gabinete, fonte em bom estado, armazenamento e, dependendo da geração, memória. A verificação é individual: componente antigo pode limitar o conjunto ou simplesmente não ser compatível com a plataforma nova. Avaliamos e dizemos o que vale aproveitar e o que é melhor substituir." },
+      { question: "O valor pode ser informado antes de verificar a configuração?", answer: "Não de forma fechada. O serviço varia com a quantidade e o estado das peças, a complexidade do gabinete, a solução de refrigeração, a instalação de sistema e drivers, a bateria de testes e a modalidade de atendimento. Depois da verificação da configuração, apresentamos o escopo e o valor por escrito — e nada é executado sem a sua aprovação." },
+    ],
+    relacionados: [
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      ...LINKS_BASE,
+    ],
+    blocoLocal: [
+      {
+        titulo: "Para quem esta montagem é indicada",
+        paragrafos: [
+          "O serviço atende quatro situações bem diferentes. A primeira é a de quem já comprou tudo, abriu as caixas e travou na hora de encaixar: as peças estão certas, mas falta segurança para manusear processador, cooler e alimentação sem risco. A segunda é a de quem ainda não comprou e precisa de alguém para conferir a lista antes de gastar, evitando a combinação que só aparece errada quando a máquina não dá vídeo.",
+          "A terceira é a de quem montou por conta própria e ficou com um computador que liga, mas reinicia sob carga, esquenta demais, não reconhece toda a memória ou perde o segundo SSD. Nesse caso o trabalho começa como diagnóstico da montagem existente, não como montagem nova. A quarta é a de empresa e profissional que precisa de estação de trabalho preparada e registrada, com os mesmos critérios aplicados em todas as máquinas.",
+          "Usos técnicos específicos — renderização profissional, inteligência artificial, CAD, engenharia, edição em resoluções muito altas, servidor — não são tratados como capacidade pronta aqui. São contextos que exigem levantamento de requisitos antes de qualquer definição de componentes, e é assim que conduzimos a conversa.",
+        ],
+      },
+      {
+        titulo: "Avaliação de compatibilidade: o que é conferido antes de montar",
+        paragrafos: [
+          "Compatibilidade não é uma checagem única, são várias camadas. Processador e placa-mãe precisam compartilhar socket e chipset, e a geração do processador precisa constar na lista de suporte da placa — em algumas combinações, o suporte só existe a partir de determinada versão de firmware. A memória tem que respeitar tipo, capacidade por módulo e quantidade de módulos que aquela placa aceita, e o perfil de velocidade anunciado na caixa só se aplica quando a placa suporta oficialmente esse perfil.",
+          "Depois vem o espaço físico, que é onde as listas feitas na internet costumam falhar: altura do cooler contra a lateral do gabinete, comprimento da placa de vídeo contra a gaiola de discos, formato da fonte, posição dos conectores frontais. Conectores também contam — quantas portas de armazenamento a placa oferece, se o slot de armazenamento rápido divide banda com outro slot, e se a fonte tem os conectores de alimentação que a placa de vídeo exige.",
+          "Por fim, a alimentação. Estimamos o consumo do conjunto pelos componentes declarados e avaliamos se a fonte tem margem para os picos de carga. Quando algum ponto não fecha, você recebe a informação antes da compra ou antes da montagem, com a alternativa correspondente. Essa conferência é documental e física; depende dos modelos exatos informados, e é por isso que pedimos a lista completa na triagem.",
+        ],
+      },
+      {
+        titulo: "Fonte, refrigeração e gabinete: as três decisões que mais causam instabilidade",
+        paragrafos: [
+          "Potência nominal escrita na caixa da fonte não define qualidade nem compatibilidade. O que importa é o consumo real dos componentes somado a uma margem de trabalho, a existência dos conectores certos para a placa de vídeo, a presença de proteções contra sobrecarga e curto, o formato físico que cabe no gabinete e o estado de conservação quando a peça é reaproveitada. Fonte no limite é a causa silenciosa de reinício sob carga em boa parte das montagens que chegam para correção.",
+          "Refrigeração a ar é a solução que executamos e comprovamos: cooler adequado ao processador, pasta térmica aplicada corretamente, ventoinhas posicionadas para criar um caminho coerente de entrada e saída de ar, espaço interno livre e cabos fora do fluxo. Temperatura, porém, não tem número universal: depende do ambiente, da carga aplicada, da poeira acumulada com o tempo e da própria peça. Medimos sob carga controlada e mostramos o resultado, sem prometer uma temperatura fixa.",
+          "O gabinete entra nessa conta mais do que a maioria imagina. Modelo com pouca entrada de ar frontal, painel fechado e sem passagem traseira de cabos limita qualquer configuração. Quando o gabinete escolhido restringe o conjunto, dizemos isso na avaliação em vez de montar e deixar o problema para você descobrir em julho, no primeiro dia quente.",
+        ],
+      },
+      {
+        titulo: "BIOS, sistema, drivers e organização interna",
+        paragrafos: [
+          "Com a máquina montada, a configuração começa na BIOS/UEFI: reconhecimento de todos os componentes, ordem de inicialização, detecção correta dos dispositivos de armazenamento e ativação do perfil de memória quando a placa suporta esse perfil oficialmente. Não realizamos overclock, não aplicamos modificação não oficial de firmware e não alteramos nada fora do que o fabricante suporta.",
+          "Atualização de firmware é exceção, não rotina. Só acontece quando existe motivo técnico claro e com autorização registrada, usando a versão estável publicada pelo fabricante. O risco é real: interrupção de energia durante a gravação pode inutilizar a placa. Em placa sem recurso de recuperação, explicamos o cenário e só seguimos com o seu aceite expresso — caso contrário, buscamos outro caminho.",
+          "Na sequência vem o sistema, instalado de forma legítima com licença fornecida por você, e os drivers, sempre baixados dos sites oficiais dos fabricantes dos componentes. Instalador genérico de terceiros é justamente o que costuma gerar tela azul em máquina nova. A organização dos cabos fecha a montagem: passagem pelos caminhos que o gabinete oferece, amarração discreta e nenhum cabo cruzando a frente das ventoinhas.",
+        ],
+      },
+      {
+        titulo: "Testes executados, correção de montagem instável e limites do serviço",
+        paragrafos: [
+          "Antes da entrega, a máquina passa por uma sequência definida: conferência do reconhecimento de todos os componentes, inicializações repetidas incluindo partida a frio, teste de memória com ciclo determinado, verificação do estado e da leitura dos dispositivos de armazenamento, carga controlada de processador e placa de vídeo com acompanhamento de temperatura, estabilidade por período definido e checagem de portas USB, áudio, vídeo e rede. Você recebe a lista do que foi testado — evitamos a expressão vaga de teste completo, porque teste sem escopo declarado não significa nada.",
+          "Quando o caso é uma montagem feita por outra pessoa, a ordem muda: primeiro isolamos a causa. Reinício sob carga, ausência de vídeo, memória não reconhecida e ruído anormal têm origens distintas, e cada uma é verificada com componente conhecido antes de qualquer substituição. Só depois do diagnóstico existe proposta de correção, sempre com escopo e valor aprovados por você.",
+          "Os limites também são claros. Montagem correta não é sinônimo de desempenho máximo: um conjunto bem montado entrega o que aqueles componentes conseguem entregar, e nenhuma montagem elimina a limitação de uma peça. Não fornecemos peças de estoque próprio, não trabalhamos com catálogo fechado de componentes e não indicamos marca sem base técnica. Peças adquiridas a pedido dependem da sua autorização de item, valor e fornecedor, e são cobradas à parte da mão de obra.",
+        ],
+      },
+    ],
+    dateModified: "2026-08-06",
+  },
 };
 
 /** Ordem canônica exibida no hub /servicos. */
@@ -1283,6 +1420,7 @@ export const SERVICOS_CORE_ORDER = [
   "formatacao",
   "manutencao-de-notebook",
   "manutencao-de-computador",
+  "montagem-de-pc",
   "upgrade-ssd-ram",
   "remocao-de-virus",
   "recuperacao-de-dados",

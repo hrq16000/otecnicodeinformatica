@@ -9,6 +9,9 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Rodada 3L — montagem de PC e periféricos em rede
+  "/servicos/montagem-de-pc": "2026-08-06",
+  "/servicos/redes-e-wifi": "2026-08-06",
   // Quarta onda editorial (Rodada 3E) — modalidades, home office e dados
   "/atendimento-remoto": "2026-08-06",
   "/atendimento-domicilio": "2026-08-06",

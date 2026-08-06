@@ -73,6 +73,7 @@
     "verify:cf": "node scripts/verify-cloudflare-publish.mjs",
     "verify:cf:strict": "node scripts/verify-cloudflare-publish.mjs --enforce",
     "report:critical-evidence": "node scripts/report-critical-evidence.mjs",
+    "check:pc-assembly-service": "node scripts/check-pc-assembly-service.mjs",
     "check:cannibalization": "node scripts/check-cannibalization.mjs",
     "check:cannibalization:all": "node scripts/check-cannibalization.mjs --all",
     "check:orphan-pages": "node scripts/check-orphan-pages.mjs",

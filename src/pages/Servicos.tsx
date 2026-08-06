@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Database,
   Wifi,
+  Wrench,
   Building2,
   ArrowRight,
 } from "lucide-react";
@@ -65,6 +66,7 @@ const CARDS = [
   { slug: "formatacao", icon: Monitor, blurb: "Windows lento ou corrompido? Formatação com backup e sistema pronto para o uso." },
   { slug: "manutencao-de-notebook", icon: Laptop, blurb: "Aquecimento, tela, teclado, bateria e lentidão — com diagnóstico antes de informar o valor." },
   { slug: "manutencao-de-computador", icon: Cpu, blurb: "Desktop travando ou sem vídeo? Fonte, memória, armazenamento e placa-mãe avaliados." },
+  { slug: "montagem-de-pc", icon: Wrench, blurb: "Peças novas ou já compradas: compatibilidade verificada, montagem e testes antes da entrega." },
   { slug: "upgrade-ssd-ram", icon: HardDrive, blurb: "Ganho real de desempenho com SSD e memória, respeitando a compatibilidade." },
   { slug: "remocao-de-virus", icon: ShieldCheck, blurb: "Pop-ups, lentidão e navegador sequestrado, com atenção aos seus dados." },
   { slug: "recuperacao-de-dados", icon: Database, blurb: "HD, SSD e pendrive: avaliação primeiro. Recuperação não é garantida." },

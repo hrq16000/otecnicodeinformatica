@@ -206,6 +206,12 @@ function hash(s) {
   return h;
 }
 
+/** Rótulos curtos de breadcrumb para o cluster de sintomas. */
+const PROBLEMA_CRUMB_LABEL = {
+  "/problemas/computador-lento": "Computador lento",
+  "/problemas/notebook-nao-liga": "Notebook não liga",
+};
+
 export function breadcrumbFor(path) {
   const fam = familyOf(path);
   const crumbs = [{ path: "/", name: "Início" }];

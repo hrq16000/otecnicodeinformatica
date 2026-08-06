@@ -436,7 +436,7 @@ export const MontagemWizard = () => {
                 <span className="text-muted-foreground">
                   <strong className="text-foreground">Consentimento (LGPD):</strong> autorizo o uso dos dados desta
                   solicitação (configuração, peças, cidade/bairro) e das fotos que eu enviar no atendimento{" "}
-                  <strong className="text-foreground">exclusivamente</strong> para triagem, orçamento e execução deste
+                  <strong className="text-foreground">exclusivamente</strong> para triagem, definição de valor e execução deste
                   serviço. Os dados ficam no histórico da conversa de WhatsApp e na ordem de serviço; o site não
                   armazena arquivos. Posso pedir a exclusão a qualquer momento pelo próprio atendimento.{" "}
                   <span className="text-destructive">*</span>

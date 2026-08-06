@@ -13,7 +13,7 @@ const MENSAGEM =
 
 const RETENCAO = [
   {
-    item: "Fotos e vídeos enviados no orçamento",
+    item: "Fotos e vídeos enviados na solicitação de valor",
     prazo: "30 dias após a conclusão ou desistência",
     base: "Execução do serviço solicitado",
   },

@@ -113,6 +113,32 @@ export const buildOnsiteReviewUrl = (params: {
 };
 
 /**
+ * Gancho de contexto por serviço/sintoma — aumenta a taxa de resposta porque
+ * a mensagem cita exatamente o que foi resolvido. Chave = trecho do slug.
+ */
+const SERVICE_HOOKS: Array<[RegExp, string]> = [
+  [/formata/, "Depois da formatação, o computador voltou a abrir rápido aí?"],
+  [/virus|malware/, "O computador seguiu limpo, sem pop-ups e sem travar?"],
+  [/notebook/, "O notebook está se comportando bem depois do reparo?"],
+  [/ssd|memoria|upgrade/, "Deu para sentir a diferença depois do upgrade?"],
+  [/rede|wifi|wi-fi/, "O Wi-Fi está estável nos cômodos que a gente ajustou?"],
+  [/impressora/, "A impressora seguiu imprimindo normalmente?"],
+  [/lento|travando/, "O computador continuou rápido nesses últimos dias?"],
+  [/nao-liga|não liga/, "O equipamento seguiu ligando normalmente?"],
+  [/montagem|gamer/, "A máquina montada está rodando redondinha?"],
+  [/backup|dados/, "Conseguiu acessar todos os arquivos recuperados?"],
+  [/empresa|corporativ|servidor/, "A operação da empresa seguiu estável depois do atendimento?"],
+];
+
+/** Frase de abertura contextual conforme o serviço/sintoma atendido. */
+export const serviceHook = (servico?: string): string => {
+  if (!servico) return "";
+  const s = servico.toLowerCase();
+  const found = SERVICE_HOOKS.find(([re]) => re.test(s));
+  return found ? ` ${found[1]}` : "";
+};
+
+/**
  * Mensagem enviada logo após o fechamento do atendimento/OS:
  * pede a avaliação com estrelas e explica a autorização de publicação.
  */
@@ -130,10 +156,48 @@ export const buildOsFollowUpMessage = (params: {
     bairro: params.bairro,
   });
   return (
-    `Olá, ${nome}! Atendimento finalizado${os}. ` +
+    `Olá, ${nome}! Atendimento finalizado${os}.${serviceHook(params.servico)} ` +
     `Se puder, deixe sua avaliação com estrelas em 1 minuto: ${link}\n\n` +
     `No formulário você marca se autoriza (ou não) a publicação do comentário no site. ` +
     `Sem autorização, a avaliação fica só como feedback interno.`
+  );
+};
+
+/**
+ * Lembrete de avaliação (reenvio) — mesmo link e mesmos UTMs da mensagem pós-OS,
+ * para quem ainda não respondeu depois do prazo configurado no painel.
+ */
+export const buildReviewReminderMessage = (params: {
+  clientName?: string;
+  protocolo?: string;
+  servico?: string;
+  bairro?: string;
+}): string => {
+  const nome = params.clientName ? firstName(params.clientName) : "tudo bem";
+  const os = params.protocolo ? ` da OS ${params.protocolo}` : "";
+  const link = buildOnsiteReviewUrl({
+    protocolo: params.protocolo,
+    servico: params.servico,
+    bairro: params.bairro,
+  });
+  return (
+    `Oi ${nome}, tudo certo? 😊 Passando só para lembrar da avaliação${os}.` +
+    `${serviceHook(params.servico)} São 30 segundos e ajuda muito um negócio local: ${link}\n\n` +
+    `Se preferir não publicar, é só deixar a autorização desmarcada — o retorno chega do mesmo jeito para a gente.`
+  );
+};
+
+/** Aviso ao cliente de que a avaliação foi aprovada e já está no site. */
+export const buildReviewPublishedMessage = (params: {
+  clientName?: string;
+  protocolo?: string;
+}): string => {
+  const nome = params.clientName ? firstName(params.clientName) : "tudo bem";
+  const os = params.protocolo ? ` (OS ${params.protocolo})` : "";
+  return (
+    `Olá, ${nome}! Sua avaliação${os} foi conferida e já está publicada em ${SITE_ORIGIN}/depoimentos. ` +
+    `Muito obrigado pelo retorno! 🙏\n\n` +
+    `Se quiser ajustar ou remover o comentário a qualquer momento, é só responder esta mensagem.`
   );
 };
 
@@ -141,3 +205,20 @@ export const osFollowUpWaLink = (
   phone: string,
   params: Parameters<typeof buildOsFollowUpMessage>[0],
 ) => buildWaMeUrl(phone, buildOsFollowUpMessage(params));
+
+export const reviewReminderWaLink = (
+  phone: string,
+  params: Parameters<typeof buildReviewReminderMessage>[0],
+) => buildWaMeUrl(phone, buildReviewReminderMessage(params));
+
+export const reviewPublishedWaLink = (
+  phone: string,
+  params: Parameters<typeof buildReviewPublishedMessage>[0],
+) => buildWaMeUrl(phone, buildReviewPublishedMessage(params));
+
+/** Horas decorridas desde o fechamento — usado para sugerir o reenvio. */
+export const shouldRemind = (
+  baseIso: string,
+  hoursThreshold: number,
+): boolean => hoursSince(baseIso) >= hoursThreshold;
+

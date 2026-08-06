@@ -147,7 +147,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             </h1>
             <ExperienciaBadge className="mt-3 sm:mt-4" />
             <p
-              className="tldr mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-white/85 sm:mt-5 sm:text-base md:text-lg"
+              className="tldr mt-3 line-clamp-5 max-w-2xl text-[0.95rem] leading-relaxed text-white/85 sm:mt-5 sm:line-clamp-none sm:text-base md:text-lg"
               data-speakable
             >
               {data.intro}

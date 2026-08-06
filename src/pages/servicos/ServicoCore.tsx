@@ -7,6 +7,7 @@ import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidad
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
 import { visualDoServico } from "@/lib/servicoVisual3q";
+import { visualEmpresarial } from "@/lib/servicoVisual3r";
 import { siteConfig } from "@/lib/siteConfig";
 
 
@@ -79,7 +80,15 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : {};
 
-  return <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, extra }} />;
+  // Rodada 3R — propagação de apresentação (resumo + sumário + faixa de
+  // confiança) para as páginas de serviço empresariais. Só se aplica
+  // quando o slug não pertence ao escopo fechado da 3Q.
+  const empresarial = visual ? undefined : visualEmpresarial(slug as string);
+  const visual3r = empresarial
+    ? { resumo: empresarial.resumo, toc: empresarial.toc, confianca: true }
+    : {};
+
+  return <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, ...visual3r, extra }} />;
 };
 
 

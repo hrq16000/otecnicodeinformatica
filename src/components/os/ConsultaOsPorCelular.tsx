@@ -1,10 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Smartphone, Loader2, AlertTriangle, MessageCircle, RefreshCw, Clock } from "lucide-react";
+import {
+  Smartphone,
+  Loader2,
+  AlertTriangle,
+  MessageCircle,
+  RefreshCw,
+  Clock,
+  ShieldCheck,
+  FileDown,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "@/hooks/use-toast";
 import { track, trackWaClick } from "@/lib/funnelAnalytics";
+import { baixarPdfOs } from "@/lib/osPdf";
 import { whatsappLink } from "@/lib/siteConfig";
 
 export interface OsEtapaRemota {
@@ -68,10 +81,12 @@ const slaInfo = (previsao?: string | null) => {
 
 export const ConsultaOsPorCelular = () => {
   const [telefone, setTelefone] = useState("");
+  const [consentimento, setConsentimento] = useState(false);
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
   const [ordens, setOrdens] = useState<OrdemRemota[] | null>(null);
   const [atualizadoEm, setAtualizadoEm] = useState<string | null>(null);
+  const [gerandoPdf, setGerandoPdf] = useState<string | null>(null);
   const ultimoTelefone = useRef<string | null>(null);
 
   const consultar = useCallback(async (valor: string, silencioso = false) => {
@@ -149,10 +164,60 @@ export const ConsultaOsPorCelular = () => {
         </div>
       </div>
 
+      {/* Transparência LGPD — obrigatória antes de qualquer consulta. */}
+      <div className="mt-4 rounded-xl border border-border bg-muted/40 p-4">
+        <p className="flex items-start gap-2 text-sm font-semibold text-foreground">
+          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+          Privacidade antes de exibir os dados
+        </p>
+        <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+          <li>
+            O celular informado é usado apenas para localizar as ordens vinculadas e para o registro
+            de segurança da consulta (data/hora e tentativa), nunca para envio de publicidade.
+          </li>
+          <li>
+            Ao continuar, são exibidos dados do atendimento: sintomas descritos, etapas com data/hora
+            e fotos enviadas no portal, por meio de links temporários que expiram sozinhos.
+          </li>
+          <li>
+            Você pode pedir a exclusão dos seus dados a qualquer momento em{" "}
+            <Link to="/excluir-meus-dados" className="underline underline-offset-2">
+              excluir meus dados
+            </Link>{" "}
+            e conferir a{" "}
+            <Link to="/politica-de-privacidade" className="underline underline-offset-2">
+              política de privacidade
+            </Link>
+            .
+          </li>
+        </ul>
+        <div className="mt-3 flex items-start gap-2">
+          <Checkbox
+            id="os-consentimento"
+            checked={consentimento}
+            onCheckedChange={(v) => {
+              const ok = v === true;
+              setConsentimento(ok);
+              if (ok) track("os_lookup_consent", { origem: "status_os" });
+              if (!ok) setOrdens(null);
+            }}
+            className="mt-0.5"
+          />
+          <Label htmlFor="os-consentimento" className="text-xs font-normal leading-relaxed text-foreground">
+            Li e concordo em exibir nesta tela os dados da minha ordem de serviço, incluindo sintomas
+            e fotos enviadas.
+          </Label>
+        </div>
+      </div>
+
       <form
         className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end"
         onSubmit={(e) => {
           e.preventDefault();
+          if (!consentimento) {
+            setErro("Marque o consentimento de privacidade para consultar a sua ordem de serviço.");
+            return;
+          }
           consultar(telefone);
         }}
       >
@@ -168,7 +233,7 @@ export const ConsultaOsPorCelular = () => {
             className="mt-1"
           />
         </div>
-        <Button type="submit" disabled={carregando} className="sm:w-auto">
+        <Button type="submit" disabled={carregando || !consentimento} className="sm:w-auto">
           {carregando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
           {carregando ? "Consultando..." : "Consultar minhas OS"}
         </Button>
@@ -177,6 +242,7 @@ export const ConsultaOsPorCelular = () => {
       <p className="mt-2 text-xs text-muted-foreground">
         Consulta limitada por segurança: poucas tentativas por minuto e sem exibição de dados completos.
       </p>
+
 
       {erro ? (
         <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/5 p-4">
@@ -326,21 +392,69 @@ export const ConsultaOsPorCelular = () => {
                   <p className="mt-4 rounded-lg bg-muted/50 p-3 text-sm text-foreground">{os.observacoes_publicas}</p>
                 ) : null}
 
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="mt-4"
-                  onClick={() => trackWaClick("status_os_falar_atendimento", { protocolo: os.protocolo })}
-                >
-                  <a
-                    href={whatsappLink(`Olá! Quero falar sobre a ordem de serviço ${os.protocolo}.`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    onClick={() => trackWaClick("status_os_falar_atendimento", { protocolo: os.protocolo })}
                   >
-                    <MessageCircle className="h-4 w-4" aria-hidden /> Falar sobre esta OS
-                  </a>
-                </Button>
+                    <a
+                      href={whatsappLink(`Olá! Quero falar sobre a ordem de serviço ${os.protocolo}.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-4 w-4" aria-hidden /> Falar sobre esta OS
+                    </a>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={gerandoPdf === os.protocolo}
+                    onClick={async () => {
+                      setGerandoPdf(os.protocolo);
+                      try {
+                        await Promise.race([
+                          baixarPdfOs({
+                            protocolo: os.protocolo,
+                            status: os.status,
+                            equipamento: os.equipamento,
+                            marcaModelo: os.marca_modelo,
+                            modalidade: os.modalidade,
+                            sintomas: os.sintomas,
+                            previsao: os.previsao_conclusao,
+                            observacoes: os.observacoes_publicas,
+                            etapas: os.etapas,
+                            fotos: os.fotos,
+                            progresso: pct,
+                          }),
+                          new Promise((_, reject) =>
+                            setTimeout(() => reject(new Error("timeout")), 15000),
+                          ),
+                        ]);
+                        track("os_pdf_download", { protocolo: os.protocolo });
+                      } catch {
+                        toast({
+                          title: "Não foi possível gerar o PDF",
+                          description:
+                            "Tente novamente em alguns segundos. Se persistir, fale pelo WhatsApp que enviamos o resumo da OS.",
+                          variant: "destructive",
+                        });
+                      } finally {
+                        setGerandoPdf(null);
+                      }
+                    }}
+                  >
+                    {gerandoPdf === os.protocolo ? (
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                    ) : (
+                      <FileDown className="h-4 w-4" aria-hidden />
+                    )}
+                    {gerandoPdf === os.protocolo ? "Gerando PDF..." : "Baixar PDF da OS"}
+                  </Button>
+                </div>
+
               </article>
             );
           })}

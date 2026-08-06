@@ -100,6 +100,11 @@ const BASE_ROUTES = [
     "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta."
   },
   {
+    "path": "/servicos/montagem-de-pc",
+    "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
+    "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas."
+  },
+  {
     "path": "/servicos/suporte-home-office",
     "title": "Suporte Técnico para Home Office em Curitiba",
     "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho."

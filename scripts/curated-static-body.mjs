@@ -150,6 +150,7 @@ const SHORT_LABEL = {
   "/problemas/notebook-nao-liga": "Notebook não liga",
   "/seguranca-dos-dados": "Segurança dos dados",
   "/servicos/suporte-home-office": "Suporte para home office",
+  "/servicos/montagem-de-pc": "Montagem de PC e PC Gamer",
 };
 
 export function labelFor(path) {
@@ -285,6 +286,14 @@ const SERVICO_LINKS = {
     "/seguranca-dos-dados",
     "/precos-e-politicas",
   ],
+  "/servicos/montagem-de-pc": [
+    "/servicos/manutencao-de-computador",
+    "/servicos/upgrade-ssd-ram",
+    "/equipamentos-atendidos",
+    "/precos-e-politicas",
+    "/como-funciona",
+    "/coleta-e-entrega",
+  ],
   "/servicos/redes-e-wifi": [
     "/servicos/suporte-tecnico-empresarial",
     "/empresa-de-ti-curitiba",
@@ -314,6 +323,7 @@ const PAGE_LINKS = {
     "/atendimento-remoto",
   ],
   "/equipamentos-atendidos": [
+    "/servicos/montagem-de-pc",
     "/servicos/manutencao-de-notebook",
     "/servicos/manutencao-de-computador",
     "/servicos/upgrade-ssd-ram",

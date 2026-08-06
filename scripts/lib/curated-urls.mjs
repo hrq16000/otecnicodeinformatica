@@ -49,6 +49,7 @@ export const SERVICOS = [
   "/servicos/manutencao-preventiva-empresas",
   "/servicos/backup-para-empresas",
   "/servicos/suporte-home-office",
+  "/servicos/montagem-de-pc",
 ].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
 
 /** Hubs de cidade reais (NÃO 215 bairros). */

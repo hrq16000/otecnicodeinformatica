@@ -33,6 +33,7 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/servicos/manutencao-preventiva-empresas": () => import("./pages/servicos/ServicoCore"),
   "/servicos/backup-para-empresas": () => import("./pages/servicos/ServicoCore"),
   "/servicos/suporte-home-office": () => import("./pages/servicos/ServicoCore"),
+  "/servicos/montagem-de-pc": () => import("./pages/servicos/ServicoCore"),
   "/seguranca-dos-dados": () => import("./pages/SegurancaDosDados"),
   "/empresa-de-ti-curitiba": () => import("./pages/EmpresaDeTiCuritiba"),
   "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),

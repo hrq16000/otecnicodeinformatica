@@ -41,6 +41,7 @@ export const INTENT_MATRIX = [
   // organização (empresarial); confiança durante o atendimento (segurança dos
   // dados) x prevenção (backup) x tentativa após perda (recuperação).
   { path: "/atendimento-remoto", keyword: "atendimento remoto de informatica", role: "modalidade remota", notCompeting: ["/atendimento-domicilio", "/servicos/suporte-home-office", "/servicos/suporte-tecnico-empresarial"] },
+  { path: "/servicos/montagem-de-pc", keyword: "montagem de pc em curitiba", role: "construir e validar um conjunto novo", notCompeting: ["/servicos/manutencao-de-computador", "/servicos/upgrade-ssd-ram", "/equipamentos-atendidos"] },
   { path: "/servicos/suporte-home-office", keyword: "suporte tecnico para home office", role: "contexto de trabalho em casa", notCompeting: ["/atendimento-remoto", "/servicos/suporte-tecnico-empresarial", "/servicos/redes-e-wifi"] },
   { path: "/seguranca-dos-dados", keyword: "seguranca dos dados na assistencia tecnica", role: "confiança e práticas no atendimento", notCompeting: ["/servicos/backup-para-empresas", "/servicos/recuperacao-de-dados", "/precos-e-politicas"] },
   { path: "/equipamentos-atendidos", keyword: "equipamentos atendidos assistencia tecnica", role: "hub de equipamentos", notCompeting: ["/servicos/manutencao-de-notebook", "/servicos/manutencao-de-computador"] },

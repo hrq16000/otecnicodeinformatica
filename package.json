@@ -23,6 +23,7 @@
     "lh:mobile": "lhci autorun --config=lighthouserc.mobile.json",
     "lh:all": "npm run build && npm run lh:desktop && npm run lh:mobile && npm run perf:budgets",
     "perf:budgets": "node scripts/check-performance-budgets.mjs",
+    "perf:report": "node scripts/report-lighthouse-summary.mjs",
     "ci:seo": "npm run build && npm run validate:jsonld && npm run test:e2e",
     "indexnow:ping": "node scripts/indexnow-ping.mjs",
     "check:cta-funnel": "bun scripts/check-cta-funnel.ts",

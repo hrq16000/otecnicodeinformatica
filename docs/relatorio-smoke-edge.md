@@ -1,7 +1,7 @@
 # Smoke tests de borda
 
-- Base: `http://localhost:34537`
-- Executado em: 2026-08-06T08:04:12.443Z
+- Base: `http://localhost:40739`
+- Executado em: 2026-08-06T08:05:56.004Z
 
 | Suíte | OK | Total |
 | --- | ---: | ---: |

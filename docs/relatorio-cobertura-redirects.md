@@ -1,7 +1,7 @@
 # Cobertura de redirects — declarado × observado
 
-- Base observada: `http://localhost:34537`
-- Gerado em: 2026-08-06T08:04:16.349Z
+- Base observada: `http://localhost:40739`
+- Gerado em: 2026-08-06T08:05:56.095Z
 - Cobertura de aliases corretos: **100%** (35/35)
 - Rotas válidas observadas: 55 · URLs inexistentes com 404: 60/60
 

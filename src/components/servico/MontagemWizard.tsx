@@ -323,11 +323,23 @@ export const MontagemWizard = () => {
                 Continuar <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Button>
             ) : (
-              <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
-                <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={baixarOs} disabled={!aceite || gerandoOs}>
+                  <FileText className="mr-1 h-4 w-4" aria-hidden="true" />
+                  {gerandoOs ? "Gerando OS..." : "Gerar ordem de serviço (PDF)"}
+                </Button>
+                <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
+                  <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
+                </Button>
+              </div>
             )}
           </div>
+          {protocolo && (
+            <p className="pt-1 text-xs text-muted-foreground">
+              Ordem de serviço <strong className="text-foreground">{protocolo}</strong> gerada. O número vai junto na
+              mensagem enviada ao técnico como prova de abertura.
+            </p>
+          )}
         </div>
 
         <div className="mt-6 rounded-xl border border-border bg-muted/20 p-5">

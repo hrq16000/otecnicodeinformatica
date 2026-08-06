@@ -20,6 +20,7 @@ import {
 } from "@/components/empresa/EmpresaConversao";
 
 import { ContextosEmpresariaisSection, RegistrarAntesSection } from "@/components/empresa/ContextosEmpresariaisSection";
+import { PilaresOperacionaisSection, MapaServicosEmpresariaisSection } from "@/components/empresa/HubEmpresarialBlocos";
 import { siteConfig } from "@/lib/siteConfig";
 import { EMPRESARIAL_HUB_HERO, EMPRESARIAL_CONTEXTO_CARDS } from "@/lib/visualEmpresarial3s";
 import { NOTA_FISCAL } from "@/lib/politicaComercial";
@@ -302,8 +303,10 @@ const EmpresaDeTiCuritiba = () => {
             <PageTableOfContents
               className="mx-auto max-w-3xl"
               items={[
+                { id: "pilares", label: "Pilares do atendimento empresarial" },
                 { id: "escopo", label: "O que abrange a solução de TI" },
                 { id: "contextos", label: "Contextos atendidos" },
+                { id: "mapa-servicos", label: "Mapa dos serviços empresariais" },
                 { id: "cobertura", label: "Bairros e cidades atendidas" },
                 { id: "relacionados", label: "Serviços relacionados" },
                 { id: "faq", label: "Perguntas frequentes" },
@@ -312,6 +315,11 @@ const EmpresaDeTiCuritiba = () => {
           </div>
         </section>
 
+
+        {/* ═══ Rodada 3S — pilares operacionais (caminhos reais) ═══ */}
+        <AnimatedSection>
+          <PilaresOperacionaisSection />
+        </AnimatedSection>
 
         {/* ═══ Intro ═══ */}
 
@@ -398,6 +406,11 @@ const EmpresaDeTiCuritiba = () => {
           <RegistrarAntesSection />
         </AnimatedSection>
 
+
+        {/* ═══ Rodada 3S — mapa dos serviços empresariais ═══ */}
+        <AnimatedSection>
+          <MapaServicosEmpresariaisSection />
+        </AnimatedSection>
 
         {/* ═══ Cobertura — bairros e cidades (links internos) ═══ */}
 

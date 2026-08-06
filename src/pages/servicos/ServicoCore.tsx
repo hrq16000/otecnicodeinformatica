@@ -5,6 +5,7 @@ import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona"
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
+import { SuporteEmpresarialBlocos } from "@/components/servico/SuporteEmpresarialBlocos";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
 import { visualDoServico } from "@/lib/servicoVisual3q";
@@ -35,7 +36,10 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
   // Blocos de política/checklist + wizard de solicitação (Rodada 3L / wizard).
   const extra =
     slug === "suporte-tecnico-empresarial" ? (
-      <SuporteModalidadesSection />
+      <>
+        <SuporteEmpresarialBlocos />
+        <SuporteModalidadesSection />
+      </>
     ) : slug === "montagem-de-pc" ? (
       <>
         <WorkstationSection />

@@ -81,6 +81,33 @@ check(
 check(!/aggregateRating|ratingValue/.test(hub), "hub: sem aggregateRating");
 check(/"@type": "FAQPage"/.test(hub) && /"@type": "Service"/.test(hub), "hub: JSON-LD limitado a Service + FAQPage");
 
+// 8. Blocos exclusivos do padrão empresarial (hub × serviço distintos)
+const hubBlocos = read("src/components/empresa/HubEmpresarialBlocos.tsx");
+const servicoBlocos = read("src/components/servico/SuporteEmpresarialBlocos.tsx");
+const semComentarios = (t) => t.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+const modalidades = read("src/components/servico/SuporteModalidadesSection.tsx");
+
+check(hub.includes("PilaresOperacionaisSection") && hub.includes("MapaServicosEmpresariaisSection"), "hub: pilares operacionais e mapa de serviços aplicados");
+const mapaEntradas = (hubBlocos.match(/^\s{4}to: "\/[a-z0-9/-]+",$/gm) || []).length;
+check(mapaEntradas <= 11 && /const MAPA = \[/.test(hubBlocos), "hub: mapa de serviços presente");
+check((hubBlocos.match(/label: "[^"]+",\n\s+to:/g) || []).length <= 7, "hub: mapa com no máximo sete entradas");
+check(!/wa\.me/.test(hubBlocos) && !/wa\.me/.test(servicoBlocos), "blocos 3S não criam CTA de WhatsApp extra");
+check(!/TI para (advogad|clínic|contad|arquitet)/i.test(hubBlocos), "hub: contextos sem falsa especialização por profissão");
+
+check(core.includes("SuporteEmpresarialBlocos"), "serviço: indicadores, fluxo e impacto aplicados");
+check(/id="escopo-empresarial"/.test(servicoBlocos) && /id="fluxo-empresarial"/.test(servicoBlocos) && /id="impacto"/.test(servicoBlocos), "serviço: âncoras de escopo, fluxo e impacto");
+check(/prazo e prioridade dependem de/i.test(servicoBlocos), "serviço: aviso de que prazo e prioridade não são automáticos");
+check(!/(sla|24 ?horas|tempo de resposta|chamados ilimitados)/i.test(semComentarios(servicoBlocos)), "serviço: sem SLA, cobertura 24h ou chamados ilimitados");
+check(!/R\$/.test(servicoBlocos) && !/R\$/.test(hubBlocos), "blocos 3S sem preço novo");
+check(/avulso/i.test(modalidades) && /recorrente/i.test(modalidades) && /não trabalhamos com suporte ilimitado/i.test(modalidades), "serviço: comparação avulso × recorrente sem promessa de ilimitado");
+
+// 9. Hub e serviço não compartilham o mesmo hero nem o mesmo resumo
+const hubHero = lib.match(/EMPRESARIAL_HUB_HERO[\s\S]*?\n\};/)?.[0] ?? "";
+const servHero = lib.match(/EMPRESARIAL_SERVICO_HERO[\s\S]*?\n\};/)?.[0] ?? "";
+const contexto = (t) => t.match(/contexto:\s*"?([^",]+)/)?.[1] ?? "";
+const cta = (t) => t.match(/ctaPrimario:\s*"([^"]+)"/)?.[1] ?? "";
+check(contexto(hubHero) !== contexto(servHero) && cta(hubHero) !== cta(servHero), "hub e serviço com hero e CTA distintos");
+
 for (const m of ok) console.log(`  ✓ ${m}`);
 if (errors.length) {
   console.error("\n✗ RODADA 3S com pendências:");

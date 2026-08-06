@@ -10,6 +10,10 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { TrustStrip } from "@/components/TrustStrip";
+import { EditorialCallout } from "@/components/servico/EditorialCallout";
+import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
+import type { ServicoCaixa } from "@/lib/servicoVisual3q";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -50,6 +54,14 @@ export interface ServicoLandingData {
   resumo?: { label: string; value: string }[];
   /** Rodada 3P (piloto visual) — sumário "Nesta página" */
   toc?: { id: string; label: string }[];
+  /** Rodada 3Q — faixa compacta de confiança (uma única ocorrência) */
+  confianca?: boolean;
+  /** Rodada 3Q — caixas editoriais contextuais (máximo três) */
+  caixas?: ServicoCaixa[];
+  caixasTitulo?: string;
+  caixasPosicao?: "antes-incluso" | "apos-sinais";
+  /** Rodada 3Q — CTA intermediário (mesmo fluxo de triagem) */
+  ctaIntermediario?: { titulo: string; texto: string; label: string };
   /** Conteúdo local aprofundado (H2 + parágrafos) para reforço de SEO local */
   blocoLocal?: { titulo: string; paragrafos: string[] }[];
   /** Links internos contextuais para bairros/cidades e problemas próximos */
@@ -67,6 +79,24 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
   }, [data.path, data.serviceName]);
 
   const handleCta = () => trackCTAClick("whatsapp", data.trackingKey);
+
+  // Rodada 3Q — caixas editoriais contextuais (no máximo três por página).
+  const caixas = (data.caixas ?? []).slice(0, 3);
+  const caixasBlock =
+    caixas.length > 0 ? (
+      <section id="pontos-de-atencao" className="scroll-mt-24 bg-background py-14 md:py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            {data.caixasTitulo ?? "Pontos de atenção"}
+          </h2>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {caixas.map((caixa) => (
+              <EditorialCallout key={caixa.titulo} caixa={caixa} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -165,6 +195,13 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </section>
       )}
 
+      {/* Rodada 3Q — faixa compacta de confiança (ocorrência única) */}
+      {data.confianca && <TrustStrip variant="compact" className="border-b border-border" />}
+
+      {data.caixasPosicao === "antes-incluso" && caixasBlock}
+
+
+
       {/* O que está incluso */}
       <section id="incluso" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -208,6 +245,10 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </div>
       </section>
 
+      {data.caixasPosicao === "apos-sinais" && caixasBlock}
+
+
+
       {/* Como funciona */}
       <section id="como-funciona" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -227,6 +268,18 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           </div>
         </div>
       </section>
+
+      {/* Rodada 3Q — CTA intermediário (mesmo fluxo de triagem do hero) */}
+      {data.ctaIntermediario && (
+        <InlineTriageCTA
+          href={waHref}
+          titulo={data.ctaIntermediario.titulo}
+          texto={data.ctaIntermediario.texto}
+          label={data.ctaIntermediario.label}
+          location={`${data.trackingKey}_meio`}
+          onClick={handleCta}
+        />
+      )}
 
       {/* O que pode influenciar o valor */}
       {data.fatoresValor && data.fatoresValor.length > 0 && (

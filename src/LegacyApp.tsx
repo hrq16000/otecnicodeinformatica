@@ -416,6 +416,7 @@ const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoBairr
 // Dynamic problem/intent pages (50 páginas de intenção de busca)
 const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 const NotebookNaoLiga = lazy(() => import("./pages/problemas/NotebookNaoLiga"));
+const ComputadorLento = lazy(() => import("./pages/problemas/ComputadorLento"));
 
 // Procedimentos Técnicos hub
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));

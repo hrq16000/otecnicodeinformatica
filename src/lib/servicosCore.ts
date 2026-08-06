@@ -718,6 +718,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { title: "Repetidores e mesh", desc: "Ampliação de cobertura para áreas com sinal fraco." },
       { title: "Cabeamento", desc: "Passagem e organização de cabos quando faz sentido." },
       { title: "Rede empresarial", desc: "Segmentação, estabilidade e prioridade de tráfego sob avaliação." },
+      { title: "Impressora e periféricos em rede", desc: "Driver oficial, IP fixo, compartilhamento e fila — apenas conectividade, sem reparo do aparelho." },
       { title: "Testes de estabilidade", desc: "Validação de sinal e velocidade nos ambientes de uso." },
     ],
     sinais: [

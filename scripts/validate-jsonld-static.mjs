@@ -22,6 +22,7 @@
 //     BlogPosting/Article tratados como aprovados (governança fail-closed).
 //     Exceção: artigos da onda editorial aprovada (scripts/lib/editorial-wave.mjs)
 //     podem declarar BlogPosting/Article/TechArticle — Person/jobTitle seguem proibidos.
+// 11. Conta HTMLs, blocos e erros; encerra com código != 0 se houver erro.
 //
 // Uso:
 //   node scripts/validate-jsonld-static.mjs            # valida dist/

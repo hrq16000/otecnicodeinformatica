@@ -255,6 +255,85 @@ const Servicos = () => {
         </div>
       </section>
 
+      {/* Cluster interno: empresas e remoto */}
+      <section className="py-14 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+              Atendimento para empresas e suporte remoto
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              Se a demanda é de uma empresa ou pode ser resolvida sem deslocamento, comece por estas páginas —
+              elas explicam escopo, limites e como a triagem funciona em cada caso.
+            </p>
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <Link
+                to="/empresa-de-ti-curitiba"
+                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-[hsl(var(--accent))]"
+              >
+                <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-[hsl(var(--accent))]">
+                  Empresa de TI em Curitiba
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Suporte técnico empresarial, manutenção preventiva, redes e backup — pontual ou recorrente.
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--accent))]">
+                  Ver atendimento PJ <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+              <Link
+                to="/atendimento-remoto"
+                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-[hsl(var(--accent))]"
+              >
+                <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-[hsl(var(--accent))]">
+                  Suporte técnico remoto
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  O que dá para resolver por acesso remoto, o que exige presença e como a sessão é conduzida.
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--accent))]">
+                  Ver atendimento remoto <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <GarantiaNotaFiscalPagamento />
+
+      {/* FAQ */}
+      <section className="py-14 md:py-16 bg-background" id="perguntas-frequentes">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+              Perguntas frequentes sobre os serviços
+            </h2>
+            <div className="mt-8 space-y-6">
+              {FAQS.map((f) => (
+                <div key={f.question} className="rounded-xl border border-border bg-card p-6">
+                  <h3 className="font-heading text-lg font-bold text-foreground">{f.question}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Mais dúvidas em{" "}
+              <Link to="/faq" className="font-semibold text-[hsl(var(--accent))] hover:underline">
+                dúvidas frequentes
+              </Link>{" "}
+              e em{" "}
+              <Link to="/precos-e-politicas" className="font-semibold text-[hsl(var(--accent))] hover:underline">
+                preços e políticas
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* CTA final */}
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white">
         <div className="container mx-auto px-4 text-center">

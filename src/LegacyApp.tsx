@@ -44,6 +44,7 @@ const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
+const StatusOs = lazy(() => import("./pages/StatusOs"));
 const Avaliar = lazy(() => import("./pages/Avaliar"));
 const ExcluirMeusDados = lazy(() => import("./pages/ExcluirMeusDados"));
 

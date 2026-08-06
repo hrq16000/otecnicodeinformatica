@@ -215,10 +215,11 @@ export function breadcrumbFor(path) {
     const parent = `/servicos/${path.split("/")[2]}`;
     if (BY_PATH.has(parent)) crumbs.push({ path: parent, name: labelFor(parent) });
   }
-  if (fam === "problema") crumbs.push({ path: "/servicos", name: "Serviços" });
+  // "Problemas" é nível taxonômico do cluster de sintomas: não existe rota, então vai sem URL.
+  if (fam === "problema") crumbs.push({ path: null, name: "Problemas" });
   if (fam === "bairro" || fam === "cidade")
     crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
-  crumbs.push({ path, name: labelFor(path) });
+  crumbs.push({ path, name: PROBLEMA_CRUMB_LABEL[path] ?? labelFor(path) });
   return crumbs;
 }
 

@@ -130,7 +130,8 @@
     "alert:edge:dry": "node scripts/alert-edge-errors.mjs --dry-run",
     "check:technical-cases": "node scripts/check-technical-cases.mjs",
     "check:sitemap-status": "node scripts/check-sitemap-status.mjs",
-    "alert:sitemap-status": "node scripts/alert-sitemap-status.mjs"
+    "alert:sitemap-status": "node scripts/alert-sitemap-status.mjs",
+    "check:visual-wave-3q": "node scripts/check-visual-wave-3q.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

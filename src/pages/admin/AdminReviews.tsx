@@ -112,14 +112,27 @@ const AdminReviews = () => {
       }
       if (filter === "published" && !(r.verified && r.published)) return false;
       if (filter === "hidden" && r.published) return false;
+      if (filter === "unauthorized" && !(r.source === "site" && !r.authorized_publication)) return false;
+      if (bairroFilter !== "all" && (r.neighborhood ?? "—") !== bairroFilter) return false;
+      if (servicoFilter !== "all" && (r.service_slug ?? "—") !== servicoFilter) return false;
       if (search) {
         const s = search.toLowerCase();
-        const hay = `${r.author_name} ${r.comment ?? ""} ${r.neighborhood ?? ""} ${r.city ?? ""} ${r.service_slug ?? ""}`.toLowerCase();
+        const hay = `${r.author_name} ${r.comment ?? ""} ${r.neighborhood ?? ""} ${r.city ?? ""} ${r.service_slug ?? ""} ${r.origin_protocol ?? ""}`.toLowerCase();
         if (!hay.includes(s)) return false;
       }
       return true;
     });
-  }, [reviews, filter, search]);
+  }, [reviews, filter, bairroFilter, servicoFilter, search]);
+
+  const bairroOptions = useMemo(
+    () => [...new Set(reviews.map((r) => r.neighborhood ?? "—"))].sort(),
+    [reviews],
+  );
+  const servicoOptions = useMemo(
+    () => [...new Set(reviews.map((r) => r.service_slug ?? "—"))].sort(),
+    [reviews],
+  );
+
 
   const stats = useMemo(() => {
     const pub = reviews.filter((r) => r.verified && r.published);

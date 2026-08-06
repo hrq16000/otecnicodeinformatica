@@ -433,8 +433,35 @@ const AdminReviews = () => {
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
                       const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
+                      const sendOsFollowUp = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        window.open(
+                          osFollowUpWaLink(r.client_phone!, {
+                            clientName: r.author_name,
+                            protocolo: r.origin_protocol ?? undefined,
+                            servico: r.service_slug ?? undefined,
+                            bairro: r.neighborhood ?? undefined,
+                          }),
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
+                      };
                       return (
                         <>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            disabled={!hasPhone}
+                            onClick={sendOsFollowUp}
+                            className="flex-1"
+                            title={"Enviar link de avaliação no site (pós-OS)" + tipPhone}
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />Pós-OS
+                          </Button>
+
                           <Button
                             size="sm"
                             variant={win === "t24" ? "default" : "outline"}

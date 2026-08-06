@@ -61,6 +61,18 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  "organizacao-de-ti-para-pequenos-escritorios": {
+    src: "/blog/organizacao-de-ti-para-pequenos-escritorios.jpg",
+    alt: "Estações de trabalho, impressora e equipamento de rede organizados em escritório pequeno",
+    width: 1200,
+    height: 630,
+  },
+  "como-escolher-uma-workstation": {
+    src: "/blog/como-escolher-uma-workstation.jpg",
+    alt: "Gabinete de estação de trabalho aberto sobre bancada técnica neutra",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

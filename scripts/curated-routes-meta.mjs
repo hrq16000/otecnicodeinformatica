@@ -80,7 +80,45 @@ const BASE_ROUTES = [
   {
     "path": "/seguranca-dos-dados",
     "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
-    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",
+    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",,
+    "blocos": [
+      {
+        "titulo": "Compromisso de acesso mínimo",
+        "paragrafos": [
+          "O princípio que organiza tudo aqui é simples: o acesso acompanha o serviço, nunca o contrário. Se o atendimento é uma configuração de rede, não há motivo para abrir pastas pessoais. Se o serviço é uma formatação com cópia dos arquivos, a manipulação das pastas de dados é parte inevitável do trabalho — e é explicada antes de começar.",
+          "Essa distinção importa porque promessas absolutas costumam ser falsas. Dizer que nenhum arquivo será visualizado em um serviço que exige localizar e copiar arquivos seria conveniente, mas não seria verdade. Preferimos descrever o que realmente acontece e deixar a decisão com você.",
+          "Nenhuma intervenção em equipamento ou armazenamento é totalmente livre de risco para os dados. Discos já em falha podem piorar durante a leitura, e sistemas corrompidos podem impedir a cópia de parte do conteúdo."
+        ]
+      },
+      {
+        "titulo": "Autorização e backup antes do atendimento",
+        "paragrafos": [
+          "Todo atendimento segue a mesma ordem: diagnóstico, explicação do que foi encontrado, valor do serviço e somente então execução. Etapas que alteram o conteúdo do equipamento — formatar, reinstalar sistema, apagar partição, trocar armazenamento, remover programas — dependem da sua autorização registrada na conversa da triagem. Em equipamentos de empresa, a autorização vem de quem responde pela organização.",
+          "Sempre que possível, mantenha uma cópia atualizada dos seus arquivos antes de qualquer serviço técnico. Uma cópia útil segue três regras práticas: estar fora do computador de origem, ter sido feita recentemente e já ter sido aberta ao menos uma vez para conferir que os arquivos abrem de verdade. Backup que ninguém testou é apenas uma expectativa."
+        ]
+      },
+      {
+        "titulo": "Senhas, credenciais e atendimento remoto",
+        "paragrafos": [
+          "Senhas bancárias, códigos de autenticação e credenciais sensíveis não devem ser enviados por mensagem — nem para nós. Quando o serviço exige a senha do próprio computador, ela deve ser informada apenas no momento do atendimento e pode ser alterada depois. Não solicitamos código recebido por SMS, aplicativo autenticador ou e-mail, nem dados de cartão ou pagamento durante uma sessão de acesso remoto.",
+          "O acesso remoto só acontece com autorização explícita e enquanto você acompanha a tela, com programa de fonte legítima indicada no atendimento. A sessão é encerrada ao final e, se o programa não for mais necessário, orientamos a remoção."
+        ]
+      },
+      {
+        "titulo": "Formatação, recuperação e cópias temporárias",
+        "paragrafos": [
+          "Na formatação, a sequência é sempre a mesma: localizar os dados, copiar o que for possível, confirmar com você o que foi copiado, reinstalar o sistema e devolver os arquivos. O que estiver fora das pastas indicadas por você pode passar despercebido — por isso a conferência da lista antes de formatar é uma etapa, não uma formalidade.",
+          "Na recuperação de dados, o material lido é gravado em uma área temporária até a entrega. Essa cópia existe pelo tempo necessário para você conferir o resultado e recebê-la; depois da validação, é descartada, salvo combinação diferente registrada no atendimento. Em equipamentos empresariais, a entrega é feita para a pessoa autorizada pela empresa."
+        ]
+      },
+      {
+        "titulo": "Limites técnicos e responsabilidade compartilhada",
+        "paragrafos": [
+          "Disco com falha mecânica ou eletrônica pode piorar durante a própria tentativa de leitura; conteúdo criptografado sem a chave correta não é acessível por caminho legítimo; equipamento bloqueado por conta do fabricante depende do titular da conta. Não somos empresa de cibersegurança, perícia digital ou auditoria de conformidade, e não existe garantia contra vazamento, invasão ou perda causada por fatores fora do atendimento.",
+          "Do lado do técnico: acessar apenas o necessário, explicar o risco antes da etapa, executar somente o que foi autorizado e descartar cópias temporárias após a entrega. Do lado do cliente: manter backup próprio sempre que possível, indicar onde estão os arquivos importantes, informar se há conteúdo sensível, não enviar senhas por mensagem e conferir o resultado antes de encerrar o atendimento."
+        ]
+      }
+    ]
     "faq": [
       {
         "pergunta": "O técnico precisa acessar meus arquivos?",
@@ -377,7 +415,46 @@ const BASE_ROUTES = [
   {
     "path": "/atendimento-remoto",
     "title": "Atendimento Remoto de Informática em Curitiba",
-    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",
+    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",,
+    "blocos": [
+      {
+        "titulo": "O que é atendimento remoto",
+        "paragrafos": [
+          "Atendimento remoto é o suporte técnico executado à distância, com um programa de acesso que permite ao técnico operar o seu computador enquanto você acompanha tudo na tela. É a modalidade indicada quando o equipamento liga, o sistema carrega e existe conexão de internet estável — ou seja, quando o problema está no software, na configuração ou no uso, e não em uma peça.",
+          "A vantagem é objetiva: sem deslocamento, o atendimento pode ser combinado para o horário que funciona para você e costuma resolver em uma única sessão o que exigiria uma visita inteira. Para quem trabalha em casa, isso significa voltar a produzir sem perder o dia esperando alguém chegar.",
+          "A limitação também é objetiva e é dita antes: nenhum acesso remoto conserta hardware. Se durante a triagem ficar claro que a causa é física, indicamos atendimento em domicílio ou coleta e entrega em vez de iniciar uma sessão que não resolveria o caso."
+        ]
+      },
+      {
+        "titulo": "Como a sessão começa",
+        "paragrafos": [
+          "A triagem pelo WhatsApp vem primeiro: você descreve o problema e conferimos se ele é compatível com acesso remoto. Casos que exigem intervenção física são redirecionados para visita ou coleta antes de qualquer cobrança.",
+          "Indicamos o programa de acesso e a origem oficial do download — nunca instale software de acesso enviado por remetente desconhecido ou por anúncio. A sessão só inicia quando você libera o acesso no próprio computador, e você acompanha a execução podendo interrompê-la a qualquer momento.",
+          "Ao final, o acesso é encerrado. Se o programa não for mais necessário, orientamos a remoção do computador. Não mantemos acesso permanente nem monitoramento contínuo."
+        ]
+      },
+      {
+        "titulo": "Segurança de senhas e arquivos",
+        "paragrafos": [
+          "O acesso remoto acontece somente com a sua autorização e sob o seu acompanhamento. Senhas bancárias, códigos de autenticação e credenciais sensíveis não devem ser enviados pelo WhatsApp, e nenhuma solicitação financeira é feita durante a sessão.",
+          "Dados pessoais são acessados apenas quando o próprio serviço exige — por isso não afirmamos que nenhum arquivo será aberto. As práticas completas de tratamento de arquivos, credenciais e cópias temporárias estão descritas na página de segurança dos dados."
+        ]
+      },
+      {
+        "titulo": "Residências, empresas e home office",
+        "paragrafos": [
+          "No uso residencial, o remoto resolve sistema travando, programas para instalar, e-mail desconfigurado e dúvidas de uso, sem ninguém precisar sair de casa. Em empresas, atende usuários com problema pontual de sistema, e-mail ou programa, enquanto demandas de estrutura e padronização seguem no suporte técnico empresarial.",
+          "Para quem trabalha em casa, o foco é câmera, microfone, reuniões, e-mail e arquivos de trabalho — contexto tratado em profundidade na página de suporte para home office."
+        ]
+      },
+      {
+        "titulo": "Fatores que influenciam o valor do atendimento",
+        "paragrafos": [
+          "Pesam na conta a complexidade do problema, o tempo de sessão, a quantidade de equipamentos, a qualidade da conexão e a eventual necessidade de retorno. Um ajuste pontual é diferente de reconfigurar sistema, contas e programas de trabalho.",
+          "Quando o remoto revela causa física, o caso migra para visita ou coleta, com escopo próprio. As condições comerciais vigentes estão publicadas em preços e políticas, e o valor é apresentado antes da sessão começar."
+        ]
+      }
+    ]
     "faq": [
       {
         "pergunta": "O que pode ser resolvido remotamente?",
@@ -426,7 +503,44 @@ const BASE_ROUTES = [
   {
     "path": "/equipamentos-atendidos",
     "title": "Equipamentos Atendidos | Técnico em Curitiba",
-    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",
+    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",,
+    "blocos": [
+      {
+        "titulo": "Como usar esta página",
+        "paragrafos": [
+          "Cada bloco desta página funciona como uma porta de entrada: você identifica o seu equipamento, confere se o sintoma aparece na lista de problemas comuns e segue para a página do serviço que executa o reparo. A indicação de modalidade evita a frustração mais comum da assistência técnica — marcar uma visita para um problema que só se resolve em bancada, ou levar o equipamento para algo que se resolveria remotamente.",
+          "Os limites declarados em cada categoria não são ressalva burocrática: são o resultado real da avaliação técnica. Peça sem reposição, mídia com dano severo e equipamento fora da nossa capacidade operacional são informados antes, e não depois do serviço iniciado."
+        ]
+      },
+      {
+        "titulo": "Computadores, notebooks e máquinas de alto desempenho",
+        "paragrafos": [
+          "Notebooks e ultrabooks das marcas de mercado chegam com lentidão, superaquecimento, bateria que não segura carga, teclado e dobradiça danificados ou disco em fim de vida. Casos de software resolvem remotamente ou no local; falha física normalmente exige coleta e bancada.",
+          "Desktops apresentam lentidão, reinício espontâneo, ruído por poeira, fonte instável e sistema corrompido — boa parte resolvida em visita ao endereço. PC gamer e All in One exigem atenção extra: o primeiro por temperatura e estabilidade sob carga, o segundo por ventilação restrita e peças específicas do modelo, nem sempre disponíveis para reposição."
+        ]
+      },
+      {
+        "titulo": "Redes, armazenamento e posto de trabalho",
+        "paragrafos": [
+          "Em redes, tratamos roteadores, access points, mesh, repetidores e switches compatíveis: Wi-Fi fraco em parte do imóvel, canal congestionado, firmware antigo e compartilhamento instável. Obra, passagem de cabo e ponto de rede novo são avaliados à parte, e falha do provedor é responsabilidade da operadora.",
+          "Em armazenamento, atendemos HD mecânico, SSD SATA e NVMe, HD externo, pendrive e cartão de memória, sempre com avaliação física antes de qualquer previsão — recuperação é tentativa, não garantia. No posto de home office, cuidamos de monitor adicional, dock, teclado, mouse, headset, webcam e impressora já compatível."
+        ]
+      },
+      {
+        "titulo": "Equipamentos sujeitos a avaliação e o que fica fora do escopo",
+        "paragrafos": [
+          "Alguns casos não têm resposta antes do teste: MacBook, equipamento com histórico de dano por líquido, máquina com bloqueio de conta do fabricante, placa com sinal de queima e mídias com falha física. Nessas situações a avaliação vem primeiro e o encaminhamento é decidido depois, inclusive a indicação de assistência especializada quando for o caminho correto.",
+          "Fora do escopo: celulares, televisores, equipamentos de áudio e vídeo, eletrodomésticos, CFTV, videogames, impressora como vertical de reparo independente, equipamentos industriais e tablets, exceto configurações já ligadas ao ambiente atendido. Listar aparelhos fora da capacidade real geraria expectativa que não conseguiríamos cumprir."
+        ]
+      },
+      {
+        "titulo": "Modalidades de atendimento por tipo de equipamento",
+        "paragrafos": [
+          "Problema de sistema, configuração ou programa costuma resolver por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em atendimento no domicílio. Falha física, troca de peça e testes prolongados pedem coleta e entrega, com bancada e ambiente controlado.",
+          "Em caso de dúvida, o diagnóstico técnico explica como a causa é confirmada, e a página sobre quando não compensa reparar ajuda na decisão entre consertar e substituir o equipamento."
+        ]
+      }
+    ]
     "faq": [
       {
         "pergunta": "Vocês atendem qualquer marca de notebook e computador?",

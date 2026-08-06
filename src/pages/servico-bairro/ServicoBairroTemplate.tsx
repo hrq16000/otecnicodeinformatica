@@ -228,6 +228,18 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                 Agendar no {data.bairro}
               </Button>
             </div>
+
+            {/* Prévia da mensagem que será enviada (transparência + contexto) */}
+            <div
+              className="mt-6 max-w-2xl mx-auto text-left bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4"
+              data-testid="wa-message-preview"
+            >
+              <p className="text-white/70 text-xs uppercase tracking-wide mb-2">
+                Prévia da mensagem no WhatsApp
+              </p>
+              <p className="text-white/90 text-sm whitespace-pre-line">{waPreview}</p>
+            </div>
+
           </div>
         </div>
       </section>

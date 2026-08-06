@@ -1,6 +1,5 @@
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { REGRA_CANCELAMENTO } from "@/lib/precosConfig";
 import {

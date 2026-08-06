@@ -80,7 +80,7 @@ const BASE_ROUTES = [
   {
     "path": "/seguranca-dos-dados",
     "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
-    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",,
+    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",
     "blocos": [
       {
         "titulo": "Compromisso de acesso mínimo",
@@ -415,7 +415,7 @@ const BASE_ROUTES = [
   {
     "path": "/atendimento-remoto",
     "title": "Atendimento Remoto de Informática em Curitiba",
-    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",,
+    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",
     "blocos": [
       {
         "titulo": "O que é atendimento remoto",
@@ -503,7 +503,7 @@ const BASE_ROUTES = [
   {
     "path": "/equipamentos-atendidos",
     "title": "Equipamentos Atendidos | Técnico em Curitiba",
-    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",,
+    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",
     "blocos": [
       {
         "titulo": "Como usar esta página",

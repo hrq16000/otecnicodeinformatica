@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { trackCTAClick } from "@/lib/analytics";
 import { downloadMontagemChecklistPdf } from "@/lib/montagemChecklistPdf";
 import { downloadMontagemOsPdf, gerarProtocoloMontagem } from "@/lib/montagemOsPdf";
+import { trackOsPdfDownload } from "@/lib/funnelAnalytics";
 import { TERMOS_URL } from "@/lib/precosConfig";
 
 /**

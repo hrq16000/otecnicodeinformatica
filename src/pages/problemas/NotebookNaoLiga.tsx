@@ -304,7 +304,20 @@ const NotebookNaoLiga = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        {/* CTA intermediário — mesmo fluxo e contexto do hero. */}
+        <div className="mb-12 rounded-xl border border-border bg-muted/40 p-6 text-center">
+          <p className="mb-4 text-muted-foreground">
+            Já sabe o que acontece ao apertar o botão de energia? Descrever esse comportamento é o que define o
+            próximo passo do diagnóstico.
+          </p>
+          <Button asChild size="lg" className="min-h-14">
+            <a href={waHref} onClick={cta("meio")} data-cta-location="problema_meio">
+              <MessageCircle className="mr-2 h-5 w-5" /> Iniciar diagnóstico
+            </a>
+          </Button>
+        </div>
+
+        <section id="arquivos" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <ShieldCheck className="h-6 w-6 text-accent" /> Seus arquivos podem continuar preservados
           </h2>

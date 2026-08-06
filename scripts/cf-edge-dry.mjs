@@ -8,7 +8,10 @@ import { compileManifest, assertManifestSane, ORIGIN_PLACEHOLDER, ALLOWED_HOSTS 
 const problems = [];
 const info = [];
 
-const toml = readFileSync("cloudflare/wrangler.toml", "utf8");
+const toml = readFileSync("cloudflare/wrangler.toml", "utf8")
+  .split("\n")
+  .filter((l) => !l.trim().startsWith("#"))
+  .join("\n");
 const name = toml.match(/^name\s*=\s*"([^"]+)"/m)?.[1];
 if (name !== "tecnico-curitiba-route-guard") problems.push(`nome do worker inesperado: ${name}`);
 info.push(`worker: ${name}`);

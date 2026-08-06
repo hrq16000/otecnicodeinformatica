@@ -11,14 +11,15 @@ interface TrustBadgeProps {
 export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) => {
   const badges = [
     {
-      icon: Shield,
-      title: "Técnico identificado",
-      description: "Atendimento com identificação e registro do que foi executado",
-    },
-    {
       icon: Award,
       title: experienciaLabel,
       description: `${siteConfig.brandName} — Curitiba e região metropolitana`,
+      highlight: true,
+    },
+    {
+      icon: Shield,
+      title: "Técnico identificado",
+      description: "Atendimento com identificação e registro do que foi executado",
     },
     {
       icon: Clock,

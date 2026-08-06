@@ -32,6 +32,10 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { JSDOM } from "jsdom";
+import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+
+// Slugs aprovados na onda editorial: podem declarar BlogPosting/Article.
+const APPROVED_EDITORIAL_SLUGS = new Set(EDITORIAL_WAVE.map((e) => e.slug));
 
 const ROOT = process.argv[2] ?? "dist";
 const OFFICIAL_HOST = "tecnico.curitiba.br";

@@ -54,3 +54,32 @@ export function campaignFromPath(pathname: string): string {
   const path = pathname.replace(/^\/+|\/+$/g, "") || "home";
   return normalizeTrackingLabel(path.replace(/\//g, "_")) || "home";
 }
+
+/**
+ * Tipo de rota para segmentar conversão real no GA4/Ads.
+ * home | pf | pj | servico | local | institucional | outro
+ */
+export type RouteType =
+  | "home"
+  | "pf"
+  | "pj"
+  | "servico"
+  | "local"
+  | "institucional"
+  | "outro";
+
+export function routeTypeFromPath(pathname: string): RouteType {
+  const p = (pathname || "/").toLowerCase().replace(/\/+$/, "") || "/";
+  if (p === "/") return "home";
+  if (/(empresa|empresas|corporativ|pj|suporte-empresas|ti-curitiba)/.test(p)) return "pj";
+  if (/(pessoa-fisica|residencial|domicilio|pf)\b/.test(p)) return "pf";
+  if (/^\/(servicos|servico|arrumar-pc|problemas|marcas|cftv)/.test(p)) return "servico";
+  if (/^\/(bairros?|tecnico-informatica-|assistencia-tecnica-)/.test(p)) return "local";
+  if (
+    /^\/(sobre|contato|faq|blog|precos-e-politicas|termos-e-condicoes|politica-privacidade|como-funciona|ordem-de-servico|seja-parceiro|status)/.test(
+      p,
+    )
+  )
+    return "institucional";
+  return "outro";
+}

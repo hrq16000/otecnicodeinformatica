@@ -18,6 +18,7 @@
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+import { SERVICO_VISUAL_3Q } from "./lib/servico-visual-3q.mjs";
 
 // Rodada 3G/A1 — segundo link de entrada dos artigos aprovados, servido
 // no HTML estático das páginas comerciais. Espelha
@@ -432,6 +433,42 @@ function waLink(route) {
   return `${WA_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
+/**
+ * Rodada 3Q — resumo, sumário navegável e caixas editoriais das seis
+ * páginas comerciais de serviço, servidos já no HTML inicial (paridade
+ * com o React). Fonte única: scripts/lib/servico-visual-3q.mjs.
+ */
+function visual3qHtml(path) {
+  const slug = path.startsWith("/servicos/") ? path.split("/")[2] : null;
+  const v = slug ? SERVICO_VISUAL_3Q[slug] : null;
+  if (!v) return "";
+  const resumo = v.resumo
+    .map((r) => `<li><strong>${esc(r.label)}:</strong> ${esc(r.value)}</li>`)
+    .join("");
+  const toc = v.toc
+    .map((t) => `<li><a href="#${t.id}" style="color:#7fd4ec">${esc(t.label)}</a></li>`)
+    .join("");
+  const caixas = v.caixas
+    .slice(0, 3)
+    .map(
+      (c) =>
+        `<h3 style="font-size:1rem;margin:14px 0 6px">${esc(c.titulo)}</h3>` +
+        `<ul style="line-height:1.7;padding-left:20px;font-size:.93rem;opacity:.94">` +
+        c.itens.map((i) => `<li>${esc(i)}</li>`).join("") +
+        `</ul>` +
+        (c.nota ? `<p style="margin:0 0 10px;font-size:.93rem">${esc(c.nota)}</p>` : ""),
+    )
+    .join("");
+  return (
+    `<p style="margin:18px 0 6px"><strong>Resumo do serviço</strong></p>` +
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">${resumo}</ul>` +
+    `<p style="margin:18px 0 6px"><strong>Nesta página</strong></p>` +
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">${toc}</ul>` +
+    `<h2 id="pontos-de-atencao" style="font-size:1.1rem;margin:24px 0 8px">${esc(v.caixasTitulo)}</h2>` +
+    caixas
+  );
+}
+
 /** HTML estático (dentro do <noscript> do #root) específico da rota. */
 export function staticBodyFor(route) {
   const h1 = h1For(route);
@@ -488,6 +525,7 @@ export function staticBodyFor(route) {
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
           ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
+          ${visual3qHtml(route.path)}
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}

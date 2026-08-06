@@ -316,3 +316,26 @@ adequado), DNS reinventariado sem divergência entre resolvedores.
 - Gate de navegador e wrangler dry-run: **executados com sucesso** nesta rodada
   (exit 0 / 24,63 KiB gzip); repetir em CI imediatamente antes do cutover.
 
+## 14. Rodada 2A.3.2 — validação dos dados manuais (06/08/2026)
+
+Entrada recebida: **somente placeholders** (`<VALOR_REAL>`). Nenhum dado real de
+Cloudflare, Lovable ou provedor de e-mail foi fornecido. Conforme a regra
+"não inventar valores ausentes", as Fases 1–4 **não puderam ser executadas**.
+
+Executado (somente leitura, nada publicado):
+
+| Gate | Resultado |
+| --- | --- |
+| `npm run cf:edge:test` | 12/12 ok |
+| `npm run cf:edge:dry` | APTO — worker `tecnico-curitiba-route-guard`, zona `tecnico.curitiba.br`, rota `tecnico.curitiba.br/*`, `ORIGIN_MODE=dns` (`fetch(request)`), manifesto 1032 rotas / 35 aliases / 700 assets |
+| `www` | sem Worker Route (permanece comentada); redirect 301 → apex será Redirect Rule da zona |
+| DNS autoritativo / NS / MX / Worker | **inalterados** |
+
+Bloqueantes externos remanescentes (dados a obter nos painéis):
+`CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_ZONE_ID`, `CLOUDFLARE_NAMESERVER_1/2`,
+`LOVABLE_PROXY_RECORD_NAME`, `LOVABLE_PROXY_CNAME`, `LOVABLE_PROXY_REQUIRED`,
+e a confirmação de e-mail (`EMAIL_IN_USE`, `EMAIL_PROVIDER`, `EMAIL_MX_TARGET`,
+`EMAIL_MAIL_HOST`, `EMAIL_SMTP_HOST`, `EMAIL_IMAP_HOST`).
+
+**Decisão: NÃO PRONTO PARA CUTOVER DE NAMESERVERS.**
+

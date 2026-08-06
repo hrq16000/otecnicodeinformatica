@@ -141,7 +141,73 @@ export const EmpresaPassosSection = () => (
 );
 
 /** Segmentos atendidos — reconhecimento imediato do público-alvo. */
+/**
+ * Contextos atendidos — necessidades reais por tipo de operação, sem criar URLs
+ * novas e sem prometer capacidade fora do escopo aprovado (sem conformidade
+ * legal, sem equipamento médico, sem SLA, sem suporte a software de terceiros).
+ */
+const contextos = [
+  {
+    titulo: "Escritórios com prazos e arquivos sensíveis",
+    desc: "Estações que não podem parar em semana de entrega, cópias organizadas dos arquivos de trabalho, impressão e digitalização em rede, múltiplos monitores e acesso de casa. Instalamos e configuramos certificado digital e clientes de sistemas na máquina; a emissão do certificado é da autoridade certificadora e o funcionamento interno do sistema é do fornecedor dele.",
+  },
+  {
+    titulo: "Recepção e atendimento ao público",
+    desc: "Computador de balcão lento, impressora que some da rede, Wi-Fi separado para visitantes e equipamento ligado o dia inteiro sem manutenção. Tratamos a informática do posto de atendimento — não damos suporte a equipamentos médicos, maquinário ou dispositivos com fabricante próprio.",
+  },
+  {
+    titulo: "Rotinas com fechamento e período de pico",
+    desc: "Operações que concentram trabalho em datas fixas e não podem descobrir disco cheio ou máquina travada no dia do fechamento. Manutenção preventiva antes do pico, verificação de armazenamento e cópias, e prioridade combinada previamente no atendimento recorrente.",
+  },
+  {
+    titulo: "Estações de trabalho pesadas",
+    desc: "Desenho técnico, modelagem, edição e bases grandes: levantamento de requisitos antes da compra, montagem padronizada e testes de memória, temperatura e estabilidade na entrega. Sem promessa de desempenho em programa específico.",
+  },
+  {
+    titulo: "Equipe híbrida e home office",
+    desc: "Notebooks que alternam entre casa e escritório, acesso remoto configurado, e-mail e arquivos disponíveis nos dois lugares e padronização das máquinas da equipe.",
+  },
+  {
+    titulo: "Operação pequena sem TI interna",
+    desc: "De duas a algumas dezenas de máquinas, sem ninguém responsável por informática. Chamado avulso quando algo para, ou acompanhamento recorrente com escopo e periodicidade definidos — nunca suporte ilimitado.",
+  },
+];
+
+export const EmpresaContextosSection = () => (
+  <section className="bg-secondary py-12 md:py-14">
+    <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-2 text-center text-2xl font-heading font-bold text-foreground md:text-3xl">
+          Contextos atendidos: o que resolvemos para empresas
+        </h2>
+        <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
+          Organizamos o atendimento por necessidade real, não por nome de profissão. Veja em qual
+          contexto a sua operação se encaixa — e o que fica explicitamente fora.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {contextos.map((c) => (
+            <div key={c.titulo} className="rounded-xl border border-border bg-card p-5">
+              <h3 className="mb-2 text-base font-bold text-foreground">{c.titulo}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          Fora do escopo em qualquer contexto: conformidade legal, auditoria, suporte ao
+          funcionamento interno de sistemas de terceiros, equipamentos médicos, plantão
+          ininterrupto e prazo de resposta garantido.{" "}
+          <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent underline underline-offset-2">
+            Ver limites do suporte empresarial
+          </Link>
+          <ArrowRight className="ml-1 inline h-3.5 w-3.5 text-accent" aria-hidden="true" />
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 export const EmpresaSegmentosSection = () => (
+
   <section className="bg-background py-12 md:py-14">
     <div className="container mx-auto px-4">
       <div className="mx-auto max-w-4xl">

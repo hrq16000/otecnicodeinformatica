@@ -29,7 +29,7 @@ const routeImportMap: Record<string, () => Promise<unknown>> = {
   "/equipamentos-atendidos": () => import("./pages/EquipamentosAtendidos"),
   "/atendimento-domicilio": () => import("./pages/AtendimentoDomicilio"),
   "/atendimento-remoto": () => import("./pages/AtendimentoRemoto"),
-  "/servicos/suporte-tecnico-empresarial": () => import("./pages/SuporteEmpresas"),
+  "/servicos/suporte-tecnico-empresarial": () => import("./pages/servicos/ServicoCore"),
   "/empresa-de-ti-curitiba": () => import("./pages/EmpresaDeTiCuritiba"),
   "/problemas-reais-e-casos": () => import("./pages/ProblemasReaisCasos"),
   "/coleta-e-entrega": () => import("./pages/ColetaEntrega"),

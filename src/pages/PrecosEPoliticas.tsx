@@ -9,6 +9,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
+import { PrecosServiceSchema } from "@/components/PrecosServiceSchema";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
 
@@ -129,6 +130,8 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
       <PageSEO title="Termos, Condições, Valores e Prazos | Técnico em Curitiba" description="Ponto único de termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Termos, Condições, Valores e Prazos", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <LocalBusinessJsonLd path="/precos-e-politicas" description="Termos, condições, valores e prazos do atendimento técnico de informática em Curitiba e Região Metropolitana." />
+      <PrecosServiceSchema path="/precos-e-politicas" />
+
       <Header />
       <main>
         {/* Hero */}

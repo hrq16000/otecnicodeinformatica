@@ -208,6 +208,7 @@ const Contato = () => {
       </main>
       <RealImageSection imageKey="clienteSatisfeito" caption="Atendimento humanizado e profissional" />
       <BlocoInteligencia />
+      <GarantiaNotaFiscalPagamento compact />
       <InterlinkingBlock />
       <Footer />
     </div>

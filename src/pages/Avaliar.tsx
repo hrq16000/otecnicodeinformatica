@@ -30,8 +30,13 @@ const Avaliar = () => {
   const [tentou, setTentou] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  // Anti-spam: honeypot invisível + tempo mínimo de permanência.
+  const [honeypot, setHoneypot] = useState("");
+  const [openedAt] = useState(() => Date.now());
+  const [duplicado, setDuplicado] = useState(false);
 
   useEffect(() => {
+    setDuplicado(alreadySubmitted(protocolo));
     trackReviewLinkOpen({
       protocolo: protocolo || null,
       utmSource: params.get("utm_source"),
@@ -39,6 +44,7 @@ const Avaliar = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   const erros = useMemo(
     () => ({

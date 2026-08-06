@@ -81,10 +81,12 @@ const slaInfo = (previsao?: string | null) => {
 
 export const ConsultaOsPorCelular = () => {
   const [telefone, setTelefone] = useState("");
+  const [consentimento, setConsentimento] = useState(false);
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
   const [ordens, setOrdens] = useState<OrdemRemota[] | null>(null);
   const [atualizadoEm, setAtualizadoEm] = useState<string | null>(null);
+  const [gerandoPdf, setGerandoPdf] = useState<string | null>(null);
   const ultimoTelefone = useRef<string | null>(null);
 
   const consultar = useCallback(async (valor: string, silencioso = false) => {

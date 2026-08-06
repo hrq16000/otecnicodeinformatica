@@ -12,6 +12,7 @@ import http from "node:http";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { resolvePath } from "./lib/route-manifest.mjs";
+import { HEALTH_PATH, healthPayload, compileManifest, assertManifestSane } from "./lib/edge-router.mjs";
 
 const PORT = Number(process.argv[2] || process.env.PORT || 4180);
 const DIST = path.resolve(process.argv[3] || "dist");

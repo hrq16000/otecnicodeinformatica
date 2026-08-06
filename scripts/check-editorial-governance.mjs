@@ -8,7 +8,7 @@
 //  - publisher institucional "Técnico em Curitiba";
 //  - /blog lista apenas aprovados e permanece noindex sem aprovados;
 //  - cada artigo possui HTML próprio com noindex,follow + canonical self;
-//  - zero artigos/problemas/marcas em sitemap; sitemap principal = 33 URLs;
+//  - zero artigos/problemas/marcas em sitemap; sitemap principal = manifesto curado (scripts/lib/curated-urls.mjs);
 //  - nenhuma data editorial gerada no build / data futura.
 // Falha com exit code != 0. Erros nunca são reduzidos a warnings.
 // ─────────────────────────────────────────────────────────────
@@ -174,14 +174,17 @@ async function checkSitemaps() {
     if (/\/problemas?\//.test(src)) fail(`sitemap ${f}: contém páginas de problemas`);
     if (/\/marcas?\//.test(src)) fail(`sitemap ${f}: contém páginas de marcas`);
   }
-  // Sitemap principal (soma dos ativos) deve continuar com 33 URLs.
-  const active = ["sitemap-main.xml", "sitemap-servicos.xml", "sitemap-regioes.xml", "sitemap-bairros.xml"];
+  // Expectativa derivada do manifesto curado — nunca de um número fixo.
+  const { ACTIVE_SITEMAPS, CURATED_PATHS } = await import("./lib/curated-urls.mjs");
   let total = 0;
-  for (const f of active) {
+  for (const [f] of ACTIVE_SITEMAPS) {
     const fp = path.join(pub, f);
     if (await exists(fp)) total += count(await read(fp), /<loc>/gi);
   }
-  if (total !== 33) fail(`sitemap principal: esperado 33 URLs, encontrou ${total}`);
+  if (total !== CURATED_PATHS.length)
+    fail(
+      `sitemap principal: manifesto curado declara ${CURATED_PATHS.length} URLs, sitemap emitiu ${total} (rode npm run sitemap)`,
+    );
   note(`sitemaps: 0 artigos/problemas/marcas; principal = ${total} URLs`);
 }
 

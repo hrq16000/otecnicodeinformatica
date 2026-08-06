@@ -85,6 +85,21 @@ export const SERVICO_BAIRRO = [
   "/servicos/upgrade-ssd-memoria/portao",
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
 
+/**
+ * Onda editorial indexável (Rodada 4H). O hub /blog só é declarado aqui
+ * porque passou a listar artigos aprovados de verdade. Cada artigo vem de
+ * `scripts/lib/editorial-wave.mjs` — espelho de APPROVED_EDITORIAL_CONTENT.
+ */
+export const EDITORIAL = [
+  { path: "/blog", changefreq: "weekly", priority: "0.6" },
+  ...EDITORIAL_WAVE_SLUGS.map((slug) => ({
+    path: `/blog/${slug}`,
+    changefreq: "monthly",
+    priority: "0.55",
+  })),
+];
+
+
 /** Sub-sitemaps ativos, na ordem em que aparecem no índice. */
 export const ACTIVE_SITEMAPS = [
   ["sitemap-main.xml", [...MAIN, ...HUBS]],

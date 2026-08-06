@@ -33,6 +33,7 @@ import { buildOnsiteReviewUrl } from "@/lib/reviewRequest";
 import { readUtms } from "@/lib/utmCapture";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { trackCTAClick } from "@/lib/analytics";
+import { ConsultaOsPorCelular } from "@/components/os/ConsultaOsPorCelular";
 
 const PATH = "/status-da-ordem-de-servico";
 const BASE_URL = "https://tecnico.curitiba.br";

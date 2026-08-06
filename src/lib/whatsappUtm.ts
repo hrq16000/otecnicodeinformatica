@@ -98,14 +98,20 @@ function withUtm(href: string, medium: string, campaign: string, location: strin
     if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", normalizeUtmMedium(medium));
     if (!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
 
-    // 3) Marca o local de clique (sempre).
+    // 3) Marca o local de clique e o tipo de rota (home/pf/pj/servico/local).
     u.searchParams.set("click_location", normalizeTrackingLabel(location));
+    u.searchParams.set("route_type", routeTypeFromPath(window.location.pathname));
 
-    // Mantém text por último para preservar ordem/encoding
+    // 4) Pré-preenche a mensagem com modalidade, valor, condições e local.
+    //    Só anexa uma vez (marcador CONDICOES_MARK) e nunca remove o texto do CTA.
     if (text !== null) {
+      const enriched = text.includes(CONDICOES_MARK)
+        ? text
+        : `${text.trim()}\n\n${buildCondicoesBlock()}`;
       u.searchParams.delete("text");
-      u.searchParams.set("text", text);
+      u.searchParams.set("text", enriched);
     }
+
     return u.toString();
   } catch {
     return href;

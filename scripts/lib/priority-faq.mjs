@@ -16,6 +16,7 @@ const SOURCES = {
   "/faq": "src/pages/FAQ.tsx",
   "/problemas/notebook-nao-liga": "src/pages/problemas/NotebookNaoLiga.tsx",
   "/problemas/computador-lento": "src/pages/problemas/ComputadorLento.tsx",
+  "/precos-e-politicas": "src/components/TermosConteudo.tsx",
 };
 
 const PAIR =
@@ -28,16 +29,22 @@ const unescape = (s) =>
     .replace(/\s+/g, " ")
     .trim();
 
+/** Par `q:`/`a:` usado pelo conteúdo canônico de termos e preços. */
+const PAIR_QA = /\bq:\s*"((?:[^"\\]|\\.)*)"\s*,\s*a:\s*(?:"((?:[^"\\]|\\.)*)"|`((?:[^`\\]|\\.)*)`)/g;
+
 /** FAQ da rota no formato usado pelo gerador estático, ou null. */
 export function priorityFaq(path) {
   const file = SOURCES[path];
   if (!file || !existsSync(file)) return null;
   const src = readFileSync(file, "utf8");
   const out = [];
-  for (const m of src.matchAll(PAIR)) {
-    const pergunta = unescape(m[1]);
-    const resposta = unescape(m[2] ?? m[3] ?? "");
-    if (pergunta && resposta) out.push({ pergunta, resposta });
+  for (const re of [PAIR, PAIR_QA]) {
+    for (const m of src.matchAll(re)) {
+      const pergunta = unescape(m[1]);
+      const resposta = unescape(m[2] ?? m[3] ?? "");
+      if (pergunta && resposta) out.push({ pergunta, resposta });
+    }
+    if (out.length) break;
   }
   return out.length ? out.slice(0, 10) : null;
 }

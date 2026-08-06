@@ -9,6 +9,7 @@ import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
 import { priorityFaq } from "./lib/priority-faq.mjs";
 import { priorityOffers } from "./lib/priority-offers.mjs";
 import { servicoBlocos } from "./lib/servico-blocos.mjs";
+import { servicoFaqs } from "./lib/servico-faqs.mjs";
 
 const BASE_ROUTES = [
   {
@@ -64,7 +65,42 @@ const BASE_ROUTES = [
   {
     "path": "/sobre",
     "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
-    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
+    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
+    "blocos": [
+      {
+        "titulo": "Quem somos e o que atendemos",
+        "paragrafos": [
+          "O Técnico em Curitiba é um serviço de assistência técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e região metropolitana. A proposta é simples: você fala direto com quem entende do problema, entende o que está acontecendo com o equipamento e decide com clareza.",
+          "O trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, valor do atendimento e execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio; reparos que exigem bancada seguem para a oficina com o seu acompanhamento.",
+          "O foco é informática: notebooks, computadores de mesa, formatação e sistema, upgrade de SSD e memória, remoção de vírus, recuperação de dados, redes e Wi-Fi e suporte empresarial. Nada de dispersar em áreas fora dessa competência."
+        ]
+      },
+      {
+        "titulo": "Como trabalhamos e o que não prometemos",
+        "paragrafos": [
+          "Triagem por WhatsApp, diagnóstico primeiro, valor aprovado por você e garantia sobre o serviço executado: essa é a sequência de qualquer atendimento. Nada é executado sem a sua aprovação, e as condições de garantia são explicadas caso a caso.",
+          "Transparência também é dizer o que não fazemos. Não prometemos preço fechado universal por telefone, porque o valor depende da avaliação real. Não garantimos recuperação de dados: é sempre uma tentativa que depende do estado da mídia. Não garantimos tempo fixo de chegada, já que horário e logística são combinados conforme a agenda.",
+          "Também não usamos avaliações falsas, número de estrelas inventado nem depoimentos fictícios, e não mantemos equipe fixa ou endereço comercial anunciado em cada cidade. Preferimos ser honestos a criar expectativa falsa."
+        ]
+      },
+
+      {
+        "titulo": "Por que diagnosticamos antes de falar em peça",
+        "paragrafos": [
+          "A maior parte do prejuízo em assistência técnica não vem do conserto caro: vem do conserto errado. Formatar uma máquina cujo gargalo era o disco mecânico, trocar memória quando o problema era temperatura, comprar fonte nova quando o defeito estava no botão. Em todos esses casos o cliente paga, a melhora é curta e o sintoma volta. Por isso a nossa ordem é fixa: entender, confirmar, informar e só então executar.",
+          "O diagnóstico segue eliminação por etapas. Primeiro confirmamos se há energia chegando, depois se o equipamento inicializa, em seguida se há imagem e se o sistema carrega. Cada etapa descartada reduz hipóteses e evita a troca de componente por suposição. Quando o comportamento é intermitente, testamos sob uso real em vez de confiar apenas em um teste rápido de bancada.",
+          "Também tratamos sintoma e serviço como coisas diferentes. Quem chega dizendo que o computador está lento ou que o notebook não liga está descrevendo um efeito, não uma causa. Traduzir esse efeito em causa provável é justamente o trabalho técnico — e é o que separa uma indicação honesta de uma venda de peça."
+        ]
+      },
+      {
+        "titulo": "Experiência acumulada e limites do escopo",
+        "paragrafos": [
+          "A atuação em informática vem desde 1998, período em que o equipamento do dia a dia deixou de ser o desktop de escritório e passou a incluir notebooks finos, armazenamento em estado sólido, redes domésticas com vários dispositivos e home office. Essa continuidade importa por um motivo prático: boa parte do diagnóstico rápido vem de já ter visto o mesmo padrão de falha antes, em modelos e gerações diferentes.",
+          "O escopo é deliberadamente estreito. Trabalhamos com computadores, notebooks, sistema, armazenamento, memória, segurança, redes e suporte a pequenas estruturas empresariais — e não com áreas fora dessa competência. Quando o caso exige laboratório especializado, como falha mecânica interna de disco, dizemos isso em vez de improvisar. Recusar um serviço fora do nosso alcance é parte de fazer bem o que está dentro dele.",
+          "Atendemos Curitiba e municípios da região metropolitana. Não mantemos loja anunciada em cada bairro nem equipe fixa em outras cidades: o atendimento acontece por visita técnica combinada ou por coleta e entrega, com as condições, valores de partida e prazos publicados na página de preços e políticas."
+        ]
+      }
+    ]
   },
   {
     "path": "/como-funciona",
@@ -111,7 +147,32 @@ const BASE_ROUTES = [
   {
     "path": "/precos-e-politicas",
     "title": "Preços e Políticas | Técnico em Curitiba",
-    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados."
+    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados.",
+    "blocos": [
+      {
+        "titulo": "Como o valor do atendimento é definido",
+        "paragrafos": [
+          "Não existe preço fechado por telefone para reparo, e isso não é falta de transparência: é o contrário. O que temos publicado é o ponto de partida de cada modalidade — visita técnica de inspeção a partir de R$ 99,99 por até (ou a cada) 30 minutos, pacote pré-acordado de até 2 horas por R$ 279,99 e diagnóstico com compromisso, coleta e entrega inclusas, com mínimo pré-aprovado de R$ 299,99. O valor final depende do que a avaliação confirmar.",
+          "Quatro fatores pesam no resultado: a causa real confirmada no diagnóstico, o modelo e o estado do equipamento, a necessidade de bancada e ferramenta específica, e a disponibilidade de peça compatível. Um mesmo sintoma — o computador que não liga, por exemplo — pode terminar em uma verificação simples de alimentação ou em um reparo de placa, e cobrar o mesmo pelos dois seria injusto com quem tem o caso mais leve.",
+          "Peças, componentes, licenças e materiais são sempre tratados à parte da mão de obra e só são adquiridos após a sua autorização. Nada além do que foi combinado é executado sem aprovação. Se o caminho técnico mudar durante o serviço, você é avisado antes, não depois."
+        ]
+      },
+      {
+        "titulo": "O que está incluído e o que não está",
+        "paragrafos": [
+          "Estão incluídos na modalidade contratada: a avaliação técnica do equipamento e a identificação da causa provável, a explicação em linguagem clara do que foi encontrado, a execução dos procedimentos autorizados dentro do escopo combinado, a coleta e entrega na modalidade de diagnóstico com compromisso e a garantia de 90 dias sobre a mão de obra do serviço executado.",
+          "Não estão incluídos: peças, componentes, licenças de software e materiais; abertura e reparo de placas na modalidade de visita avulsa; garantia de recuperação de dados, que é sempre uma tentativa; promessa de prazo fixo de chegada ou de conclusão sem avaliação; e serviços fora do escopo de informática e redes."
+        ]
+      },
+      {
+        "titulo": "Prazos, garantia e cuidado com seus dados",
+        "paragrafos": [
+          "O prazo depende da complexidade e da peça. Serviços de software, como reinstalação de sistema e limpeza, costumam ser mais rápidos do que reparos que dependem de componente específico. Trabalhamos com prazo estimado informado após a avaliação, e avisamos quando ele muda — em vez de prometer antes de olhar o equipamento.",
+          "A garantia de 90 dias cobre a mão de obra do serviço que foi executado, no mesmo defeito tratado. Peças e componentes seguem a garantia do fornecedor ou fabricante. Ficam de fora da garantia: falha de causa diferente da tratada, dano por queda, líquido, surto elétrico ou mau uso, intervenção de terceiros após o atendimento, e desgaste natural de bateria e de armazenamento.",
+          "Sobre dados: recomendamos backup antes de qualquer intervenção que envolva armazenamento, e quando possível fazemos cópia preventiva. O acesso a arquivos se limita ao necessário para o serviço autorizado. Tentativa de recuperação de conteúdo já perdido é outro serviço e não tem resultado garantido. Quando o reparo deixa de fazer sentido diante do valor do equipamento, dizemos isso abertamente."
+        ]
+      }
+    ]
   },
   {
     "path": "/faq",
@@ -284,7 +345,7 @@ const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path
 // P0 comerciais: anexa a FAQ real já exibida na página (sem inventar conteúdo),
 // para que FAQPage estático e conteúdo visível fiquem em paridade.
 const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
-  const faq = priorityFaq(r.path);
+  const faq = r.faq ?? priorityFaq(r.path) ?? servicoFaqs(r.path);
   const offers = priorityOffers(r.path);
   const blocos = r.blocos ?? servicoBlocos(r.path);
   return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}), ...(blocos ? { blocos } : {}) };

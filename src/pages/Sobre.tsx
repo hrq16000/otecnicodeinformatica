@@ -149,6 +149,79 @@ const Sobre = () => {
           </div>
         </section>
 
+        {/* Nossa forma de diagnosticar */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto max-w-3xl space-y-4 text-muted-foreground">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Por que diagnosticamos antes de falar em peça
+            </h2>
+            <p>
+              A maior parte do prejuízo em assistência técnica não vem do conserto caro: vem do conserto errado.
+              Formatar uma máquina cujo gargalo era o disco mecânico, trocar memória quando o problema era
+              temperatura, comprar fonte nova quando o defeito estava no botão. Em todos esses casos o cliente paga,
+              a melhora é curta e o sintoma volta. Por isso a nossa ordem é fixa: entender, confirmar, informar
+              e só então executar.
+            </p>
+            <p>
+              O diagnóstico segue eliminação por etapas. Primeiro confirmamos se há energia chegando, depois se o
+              equipamento inicializa, em seguida se há imagem e se o sistema carrega. Cada etapa descartada reduz
+              hipóteses e evita a troca de componente por suposição. Quando o comportamento é intermitente, testamos
+              sob uso real em vez de confiar apenas em um teste rápido de bancada.
+            </p>
+            <p>
+              Também tratamos sintoma e serviço como coisas diferentes. Quem chega dizendo{" "}
+              <Link to="/problemas/computador-lento" className="font-medium text-accent hover:underline">
+                “meu computador está lento”
+              </Link>{" "}
+              ou{" "}
+              <Link to="/problemas/notebook-nao-liga" className="font-medium text-accent hover:underline">
+                “meu notebook não liga”
+              </Link>{" "}
+              está descrevendo um efeito, não uma causa. Traduzir esse efeito em causa provável é justamente o
+              trabalho técnico — e é o que separa uma indicação honesta de uma venda de peça.
+            </p>
+          </div>
+        </section>
+
+        {/* Experiência e escopo */}
+        <section className="border-y border-border/60 bg-secondary/40 py-12 md:py-16">
+          <div className="container mx-auto max-w-3xl space-y-4 text-muted-foreground">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Experiência acumulada e limites do escopo
+            </h2>
+            <p>
+              A atuação em informática vem desde 1998, período em que o equipamento do dia a dia deixou de ser o
+              desktop de escritório e passou a incluir notebooks finos, armazenamento em estado sólido, redes
+              domésticas com vários dispositivos e home office. Essa continuidade importa por um motivo prático:
+              boa parte do diagnóstico rápido vem de já ter visto o mesmo padrão de falha antes, em modelos e
+              gerações diferentes.
+            </p>
+            <p>
+              O escopo é deliberadamente estreito. Trabalhamos com computadores, notebooks, sistema, armazenamento,
+              memória, segurança, redes e suporte a pequenas estruturas empresariais — e não com áreas fora dessa
+              competência. Quando o caso exige laboratório especializado, como falha mecânica interna de disco,
+              dizemos isso em vez de improvisar. Recusar um serviço fora do nosso alcance é parte de fazer bem
+              o que está dentro dele.
+            </p>
+            <p>
+              Atendemos Curitiba e municípios da região metropolitana. Não mantemos loja anunciada em cada bairro
+              nem equipe fixa em outras cidades: o atendimento acontece por visita técnica combinada ou por{" "}
+              <Link to="/coleta-e-entrega" className="font-medium text-accent hover:underline">
+                coleta e entrega
+              </Link>
+              , com as condições, valores de partida e prazos publicados em{" "}
+              <Link to="/precos-e-politicas" className="font-medium text-accent hover:underline">
+                preços e políticas
+              </Link>{" "}
+              e o fluxo detalhado em{" "}
+              <Link to="/como-funciona" className="font-medium text-accent hover:underline">
+                como funciona
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+
         {/* Residencial x empresarial */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto grid gap-6 lg:grid-cols-2">

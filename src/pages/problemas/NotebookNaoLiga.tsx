@@ -207,7 +207,7 @@ const NotebookNaoLiga = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="sinais" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Sinais observáveis que ajudam no diagnóstico</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {SINAIS.map((s) => (

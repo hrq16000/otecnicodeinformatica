@@ -272,7 +272,17 @@ const BASE_ROUTES = [
           "A garantia de 90 dias cobre a mão de obra do serviço que foi executado, no mesmo defeito tratado. Peças e componentes seguem a garantia do fornecedor ou fabricante. Ficam de fora da garantia: falha de causa diferente da tratada, dano por queda, líquido, surto elétrico ou mau uso, intervenção de terceiros após o atendimento, e desgaste natural de bateria e de armazenamento.",
           "Sobre dados: recomendamos backup antes de qualquer intervenção que envolva armazenamento, e quando possível fazemos cópia preventiva. O acesso a arquivos se limita ao necessário para o serviço autorizado. Tentativa de recuperação de conteúdo já perdido é outro serviço e não tem resultado garantido. Quando o reparo deixa de fazer sentido diante do valor do equipamento, dizemos isso abertamente."
         ]
+      },
+      {
+        "titulo": "Pagamento e nota fiscal",
+        "paragrafos": [
+          "O pagamento acontece na conclusão do atendimento, depois que o serviço aprovado foi executado e testado com você presente ou em contato. Nenhum valor é cobrado sem aprovação prévia: o escopo e o valor são apresentados antes da execução, e é você quem decide se o serviço segue. Em caso de desistência após o diagnóstico, é devido apenas o valor do diagnóstico informado antes de começar.",
+          "As formas de pagamento aceitas são confirmadas na triagem pelo WhatsApp e reconfirmadas no fechamento do atendimento, para evitar mal-entendido no momento da entrega. Peças e componentes são cobrados à parte do valor da mão de obra e só entram na conta depois da sua autorização expressa, com o valor apresentado antes da compra.",
+          "Sobre documento fiscal: a nota fiscal de serviço é emitida mediante solicitação, e as peças adquiridas acompanham a nota do fornecedor quando aplicável. Se a nota precisa sair em nome da empresa, informe os dados do tomador ainda na triagem, antes da conclusão do serviço — assim o documento sai correto de primeira, sem retrabalho de cancelamento e reemissão.",
+          "Segurança na cobrança: não solicitamos pagamento antecipado por links enviados de números desconhecidos, nem depósito em conta de terceiros. Qualquer cobrança que fuja do combinado no atendimento deve ser confirmada pelo WhatsApp oficial divulgado no site antes de ser paga."
+        ]
       }
+
     ]
   },
   {

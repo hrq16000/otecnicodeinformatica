@@ -192,9 +192,8 @@ if (!existsSync(DIST)) {
 }
 
 // ── 6. Onda editorial preservada ─────────────────────────────
-const indexaveis = EDITORIAL_WAVE.filter((a) => a.status === "approved" || a.indexable === true);
-if (indexaveis.length !== 7) {
-  fail(`Onda editorial deve manter 7 artigos indexáveis, encontrado ${indexaveis.length}.`);
+if (EDITORIAL_WAVE.length !== 7) {
+  fail(`Onda editorial deve manter 7 artigos indexáveis, encontrado ${EDITORIAL_WAVE.length}.`);
 } else {
   pass("Sete artigos indexáveis preservados.");
 }

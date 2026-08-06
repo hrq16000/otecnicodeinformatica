@@ -109,6 +109,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
               {data.h1}
               {data.h1Accent && <span className="text-[hsl(var(--accent))]"> {data.h1Accent}</span>}
             </h1>
+            <ExperienciaBadge className="mt-4" />
             <p className="tldr mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg" data-speakable>
               {data.intro}
             </p>

@@ -5,13 +5,14 @@
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { ACTIVE_SITEMAPS, BASE_URL, EMPTY_SITEMAPS } from "./lib/curated-urls.mjs";
+import { lastmodFor } from "./lib/lastmod.mjs";
 
 function buildUrlset(entries) {
   const urls = entries
-    .map(
-      (e) =>
-        `  <url><loc>${BASE_URL}${e.path}</loc><changefreq>${e.changefreq}</changefreq><priority>${e.priority}</priority></url>`,
-    )
+    .map((e) => {
+      const lastmod = e.lastmod ?? lastmodFor(e.path);
+      return `  <url><loc>${BASE_URL}${e.path}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${e.changefreq}</changefreq><priority>${e.priority}</priority></url>`;
+    })
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }

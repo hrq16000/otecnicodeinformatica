@@ -195,6 +195,13 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </section>
       )}
 
+      {/* Rodada 3Q — faixa compacta de confiança (ocorrência única) */}
+      {data.confianca && <TrustStrip variant="compact" className="border-b border-border" />}
+
+      {data.caixasPosicao === "antes-incluso" && caixasBlock}
+
+
+
       {/* O que está incluso */}
       <section id="incluso" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">

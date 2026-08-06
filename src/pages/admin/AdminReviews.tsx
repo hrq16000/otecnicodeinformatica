@@ -414,7 +414,25 @@ const AdminReviews = () => {
                 ))}
               </SelectContent>
             </Select>
+            <label className="flex items-center gap-2 text-sm text-muted-foreground">
+              Reenviar após
+              <Input
+                type="number"
+                min={1}
+                max={720}
+                value={reminderHours}
+                onChange={(e) => {
+                  const v = Math.max(1, Math.min(720, Number(e.target.value) || 1));
+                  setReminderHours(v);
+                  localStorage.setItem("review_reminder_hours", String(v));
+                }}
+                className="w-20"
+                aria-label="Prazo em horas para sugerir o reenvio do link de avaliação"
+              />
+              h
+            </label>
           </div>
+
 
 
           {loading ? (

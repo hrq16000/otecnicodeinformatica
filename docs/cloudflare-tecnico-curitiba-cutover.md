@@ -95,53 +95,80 @@ Não remover a conexão atual antes de confirmar o procedimento na interface.
 Modelo A permanece no código como caminho `explicit`, bloqueado pelo
 placeholder `LOVABLE_ORIGIN_NOT_CONFIGURED`; só usar com evidência concreta.
 
-## 6. Worker — bundle e manifesto (Fase 7)
+## 6. Worker — bundle e manifesto (Rodada 2A.3.1, Fase 6)
 
-`npm run cf:edge:bundle` (gate novo, limite = plano):
+`npx wrangler deploy --dry-run` executado de verdade (wrangler 4.119.0):
 
-- manifesto embutido: **1032 rotas exatas, 35 aliases, 700 assets**;
-- bundle bruto ≈ **102 KiB**; comprimido estimado ≈ **29 KiB**;
+```
+Total Upload: 99.27 KiB / gzip: 24.63 KiB
+env.ORIGIN_MODE ("dns") · env.LOVABLE_ORIGIN ("LOVABLE_ORIGIN_NOT_CONFIGURED")
+--dry-run: exiting now.
+```
+
+- 0 erros, 0 warnings, 1 módulo de entrada (`cloudflare/worker.js`) + manifesto
+  e `404.html` embutidos; manifesto: **1032 rotas exatas, 35 aliases, 700 assets**;
 - limite com margem (Workers Free, 80 % de 3 MiB) = 2457 KiB → **APTO**;
-- `npx wrangler deploy --dry-run` não executa neste ambiente (wrangler não
-  instalado / sem rede npm). Repetir o dry-run real em CI antes do deploy;
-  o gate cai automaticamente para estimativa local quando o wrangler falta.
+- zona planejada: `tecnico.curitiba.br` (nenhuma referência a `curitiba.br`);
+- rota planejada: `tecnico.curitiba.br/*`; rota `www` **comentada** (sem decisão ativa);
+- `[build]` removido de `wrangler.toml`: o build do site é gate anterior e o
+  bloco tornava o dry-run dependente do diretório de execução;
+- **nenhuma publicação** — dry-run puro, nenhuma chamada de escrita.
 
-`npm run cf:edge:test` → 12/12. `npm run cf:edge:dry` → APTO (zona correta,
-rota `tecnico.curitiba.br/*` declarada, Worker Route **não publicada**).
+`npm run cf:edge:bundle` agora lê o número real do wrangler (`Total Upload`)
+em vez de estimar. `npm run cf:edge:test` → 12/12. `npm run cf:edge:dry` → APTO.
 
-## 7. Estimativa de uso (Fase 8)
+Modelo de origem confirmado: `ORIGIN_MODE = "dns"` → `fetch(request)`, com
+Host, método, query, cookies, headers e body preservados; sem hostname
+inventado e sem recursão (a Worker Route roda antes da origem). Ordem de
+decisão coberta pelos testes: host permitido → alias 301 → asset válido →
+rota válida (origem) → 404 real.
 
-Com `ORIGIN_MODE = "dns"`, **toda** requisição do hostname proxied passa pelo
-Worker (documento + assets + probes de bots). Medição de navegação real não
-pôde ser executada neste ambiente (Chromium sem bibliotecas de sistema).
+## 7. Gate de navegador (Rodada 2A.3.1, Fase 7) — EXIT CODE 0
 
-Ordem de grandeza a partir do build: ~25–45 requisições por carregamento
-(1 documento, JS/CSS com hash, fontes, imagens). A 300 visitas/dia + bots:
-~15–20 mil req/dia → dentro dos 100 mil/dia do plano Free, mas com margem
-apertada em picos de crawler.
-
-Recomendação preliminar: **WORKERS FREE É SUFICIENTE** para o cutover inicial,
-com monitoramento diário; migrar para Paid se as requisições diárias
-ultrapassarem ~60 mil de forma sustentada. Reconfirmar após a Fase 8 real.
-
-## 8. Gate de navegador (Fase 9)
-
-`npm run test:e2e` continua indisponível: `playwright.config.ts` depende do
-pacote privado `lovable-agent-playwright-config`, que não está em
-`package.json` nem no lockfile (é injetado pelo ambiente Lovable).
-
-Substituto criado, sem dependências novas:
+Ambiente: sandbox do projeto com Chromium de sistema
+(`CUTOVER_CHROMIUM_PATH`), alvo = servidor de paridade `scripts/serve-dist.mjs`
+sobre o `dist/` recém-buildado.
 
 ```
-npm run test:cutover-browser
-CUTOVER_BASE_URL=http://localhost:8080 npm run test:cutover-browser
+CUTOVER_CHROMIUM_PATH=<chromium do sistema> \
+CUTOVER_BASE_URL=http://localhost:4190 npm run test:cutover-browser
 ```
 
-Cobre home, serviços, rota profunda, cidade, FAQ, preços, refresh de deep
-link, assets, CTA de triagem, alias e 404, capturando erros de console e
-falhas de rede. Saídas: `0` apto, `1` falha real, `2` ambiente sem navegador.
-Neste sandbox retorna `2` (Chromium sem `libglib-2.0`); **executar em CI ou
-máquina com as libs antes de qualquer troca de nameservers**.
+| Verificação | Resultado |
+| --- | --- |
+| home / serviços / rota profunda / cidade / bairro / FAQ / preços | 200 com H1 único |
+| refresh de deep link `/servicos/formatacao` | 200 |
+| assets JS/CSS/imagens (MIME e status) | 6 auditados, 0 inválidos |
+| triagem | CTA visível, modal abre, avança 1 passo |
+| erros críticos de console | 0 |
+| falhas de rede de origem própria | 0 |
+| alias `/servicos/formatacao-computador` | 301 de salto único → `/servicos/formatacao` |
+| `/rota-inexistente-cutover-gate` | **404 real** |
+| exit code | **0** |
+
+Ruído de terceiros (GA4, Google Ads, função `aggregate-rating`) é classificado
+como não bloqueante — o gate só falha por recursos do próprio host.
+
+## 8. Plano Workers — Free × Paid (Fase 8, medido)
+
+Requisições **de mesma origem** por visita (as que atravessariam o Worker),
+medidas no gate:
+
+| Página | mesma origem | total (com terceiros) |
+| --- | --- | --- |
+| `/` | 47 | 56 |
+| `/servicos` | 51 | 59 |
+| `/bairros/batel` | 54 | 62 |
+
+Média ≈ **50 req/visita**.
+
+- cenário normal: 300 visitas/dia × 50 = 15 000 + ~5 000 de bots ≈ **20 mil/dia**;
+- cenário de pico (3×, recrawl amplo): ≈ **60 mil/dia**;
+- limite Workers Free: **100 mil/dia** → margem de 40 % mesmo no pico.
+
+Decisão: **WORKERS FREE É ADEQUADO PARA O CUTOVER INICIAL**.
+Condição de upgrade: média diária sustentada acima de 60 mil requisições por
+7 dias, ou latência p95 do Worker acima de 50 ms. Plano não alterado aqui.
 
 ## 9. Token B (Fase 10 — não criado)
 

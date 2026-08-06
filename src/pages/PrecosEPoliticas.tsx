@@ -160,7 +160,42 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
                   </div>
                 ))}
               </div>
+
+              {/* Rodada 3P — CTA de triagem visível já no topo da página. */}
+              <div className="mt-7">
+                <Button asChild size="lg" className="min-h-14">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTAClick("whatsapp", "precos_hero")}
+                    data-cta-location="precos_hero"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" /> Iniciar atendimento no WhatsApp
+                  </a>
+                </Button>
+                <p className="mt-3 text-sm text-white/80">
+                  Diagnóstico a partir de R$ 99,99 • Valor aprovado antes de qualquer serviço
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Rodada 3P — sumário de navegação da página (sem novas URLs). */}
+        <section className="py-8 bg-background">
+          <div className="container mx-auto">
+            <PageTableOfContents
+              className="max-w-4xl mx-auto"
+              items={[
+                { id: "visita-tecnica", label: "Visita técnica e serviços rápidos" },
+                { id: "coleta-e-entrega", label: "Coleta e entrega de equipamentos" },
+                { id: "tabela-de-servicos", label: "Tabela completa de serviços" },
+                { id: "politicas-de-atendimento", label: "Políticas de atendimento" },
+                { id: "pagamento-e-nota-fiscal", label: "Pagamento e nota fiscal" },
+                { id: "termos", label: "Termos e condições" },
+              ]}
+            />
           </div>
         </section>
 
@@ -170,6 +205,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
             <PrecoModalidades className="max-w-4xl mx-auto" />
           </div>
         </section>
+
 
         {/* Link para Como Funciona */}
 

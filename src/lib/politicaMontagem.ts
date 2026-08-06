@@ -77,7 +77,10 @@ export const MONTAGEM_APROVADA = CAPACIDADES_CENTRAIS.every((nome) =>
 export const PECAS_DO_CLIENTE = [
   "Conferimos compatibilidade declarada antes de agendar a montagem, com base nos modelos exatos informados por você.",
   "Peças chegam lacradas ou usadas: registramos o estado no recebimento, incluindo acessórios, parafusos e cabos ausentes.",
+  "Procedência: pedimos a nota ou o comprovante de compra da peça. Sem comprovante, a montagem pode ser feita, mas o componente entra como item sem garantia rastreável e isso fica registrado no atendimento.",
   "Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante — não assumimos a garantia do componente.",
+  "Prazo de troca: quando uma peça sua falha no teste, paramos a montagem e comunicamos o resultado. O equipamento fica aguardando a sua substituição por até 5 dias úteis sem custo de permanência; passado esse prazo, combinamos a devolução do conjunto ou a continuidade do atendimento. O prazo de troca junto ao vendedor é dele e não controlamos esse tempo.",
+
   "Componente usado ou fora de garantia é montado somente com o seu aceite registrado do risco de falha.",
   "Dano prévio identificado (pino torto, conector quebrado, oxidação) é fotografado e comunicado antes de qualquer instalação.",
   "Se uma peça incompatível inviabilizar a montagem, cobramos apenas o que já foi executado e explicamos a troca necessária.",
@@ -98,7 +101,9 @@ export const REGRA_BIOS = [
   "Atualização de firmware não é rotina. Só é feita quando há motivo técnico — como suporte a um processador mais novo — e com a sua autorização registrada.",
   "Interrupção de energia durante a gravação pode inutilizar a placa. Por isso só atualizamos placas com recurso de recuperação do fabricante e usando a versão estável publicada por ele.",
   "Placa sem recurso de recuperação: informamos o risco e, se você não autorizar por escrito, a atualização não é executada.",
+  "Drivers vêm exclusivamente do site oficial do fabricante de cada componente — chipset, vídeo, rede, áudio e armazenamento. Não usamos programas que baixam driver automaticamente nem pacotes de terceiros.",
   "Não realizamos overclock, modificação de BIOS não oficial nem alteração fora do que o fabricante suporta.",
+
 ];
 
 /** Testes efetivamente executados (nada além disso pode ser publicado). */

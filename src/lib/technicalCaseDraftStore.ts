@@ -102,7 +102,7 @@ const PII_RULES: Array<{ kind: string; re: RegExp }> = [
   { kind: "telefone", re: /(?:\+?55\s*)?\(?\d{2}\)?\s*9?\d{4}[-.\s]?\d{4}/g },
   { kind: "e-mail", re: /[\w.+-]+@[\w-]+\.[\w.]{2,}/g },
   { kind: "CPF", re: /\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b/g },
-  { kind: "CNPJ", re: /\b\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}\b/g },
+  { kind: "documento de empresa", re: /\b\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}\b/g },
   { kind: "CEP", re: /\b\d{5}-?\d{3}\b/g },
   { kind: "endereço", re: /\b(rua|avenida|av\.|travessa|alameda|rodovia|apto|apartamento|bloco)\b\s+[\wÀ-ÿ]/gi },
   { kind: "número de série", re: /\b(serial|nº\s*de\s*série|n[ºo]\s*serie|imei|s\/n)\b/gi },

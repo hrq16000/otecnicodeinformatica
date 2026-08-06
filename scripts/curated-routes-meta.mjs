@@ -108,7 +108,9 @@ const BASE_ROUTES = [
         "titulo": "Peças fornecidas pelo cliente: compatibilidade, procedência e troca",
         "paragrafos": [
           "Antes de agendar a montagem conferimos a compatibilidade declarada a partir dos modelos exatos informados por você. No recebimento registramos o estado de cada item, incluindo acessórios, parafusos e cabos ausentes, tanto para peça lacrada quanto para peça usada. Dano prévio identificado, como pino torto, conector quebrado ou oxidação, é fotografado e comunicado antes de qualquer instalação.",
-          "Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante: a garantia do componente não é nossa e o prazo de troca é o do próprio fornecedor, não um prazo criado por nós. Componente usado ou fora de garantia só é montado com o seu aceite registrado do risco de falha. Se uma peça incompatível inviabilizar a montagem, cobramos apenas o que já foi executado e explicamos a troca necessária.",
+          "Procedência conta: pedimos a nota ou o comprovante de compra da peça. Sem comprovante, a montagem pode ser feita, mas o componente entra como item sem garantia rastreável e isso fica registrado no atendimento. Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante: a garantia do componente não é nossa e o prazo de troca é o do próprio fornecedor, não um prazo criado por nós. Componente usado ou fora de garantia só é montado com o seu aceite registrado do risco de falha. Se uma peça incompatível inviabilizar a montagem, cobramos apenas o que já foi executado e explicamos a troca necessária.",
+          "Quando uma peça sua falha no teste, paramos a montagem e comunicamos o resultado. O equipamento fica aguardando a sua substituição por até 5 dias úteis sem custo de permanência; passado esse prazo, combinamos a devolução do conjunto ou a continuidade do atendimento.",
+
           "Peças adquiridas a pedido só são compradas após a sua autorização expressa do item, do valor e do fornecedor. Mão de obra e peça permanecem separadas no registro do atendimento, e a substituição ou devolução segue a regra do fornecedor."
         ]
       },

@@ -37,6 +37,13 @@ export const INTENT_MATRIX = [
   // prevenção (backup) x tentativa após perda (recuperação de dados).
   { path: "/servicos/manutencao-preventiva-empresas", keyword: "manutencao preventiva de computadores para empresas", role: "PJ rotina planejada", notCompeting: ["/servicos/manutencao-de-computador", "/servicos/suporte-tecnico-empresarial", "/empresa-de-ti-curitiba"] },
   { path: "/servicos/backup-para-empresas", keyword: "backup para empresas", role: "PJ prevenção de perda", notCompeting: ["/servicos/recuperacao-de-dados", "/servicos/suporte-tecnico-empresarial", "/empresa-de-ti-curitiba"] },
+  // Onda 3E: modalidade (remoto) x contexto de trabalho (home office) x
+  // organização (empresarial); confiança durante o atendimento (segurança dos
+  // dados) x prevenção (backup) x tentativa após perda (recuperação).
+  { path: "/atendimento-remoto", keyword: "atendimento remoto de informatica", role: "modalidade remota", notCompeting: ["/atendimento-domicilio", "/servicos/suporte-home-office", "/servicos/suporte-tecnico-empresarial"] },
+  { path: "/servicos/suporte-home-office", keyword: "suporte tecnico para home office", role: "contexto de trabalho em casa", notCompeting: ["/atendimento-remoto", "/servicos/suporte-tecnico-empresarial", "/servicos/redes-e-wifi"] },
+  { path: "/seguranca-dos-dados", keyword: "seguranca dos dados na assistencia tecnica", role: "confiança e práticas no atendimento", notCompeting: ["/servicos/backup-para-empresas", "/servicos/recuperacao-de-dados", "/precos-e-politicas"] },
+  { path: "/equipamentos-atendidos", keyword: "equipamentos atendidos assistencia tecnica", role: "hub de equipamentos", notCompeting: ["/servicos/manutencao-de-notebook", "/servicos/manutencao-de-computador"] },
   // Cluster de sintoma (Rodada 3B/3C): intenção informacional de diagnóstico,
   // dominante para a busca por sintoma — nunca para a busca por serviço.
   { path: "/problemas/notebook-nao-liga", keyword: "notebook nao liga", role: "sintoma notebook", notCompeting: ["/servicos/manutencao-de-notebook", "/servicos/formatacao"] },

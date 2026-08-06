@@ -73,6 +73,50 @@ const BASE_ROUTES = [
     "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta."
   },
   {
+    "path": "/servicos/suporte-home-office",
+    "title": "Suporte Técnico para Home Office em Curitiba",
+    "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho."
+  },
+  {
+    "path": "/seguranca-dos-dados",
+    "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
+    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",
+    "faq": [
+      {
+        "pergunta": "O técnico precisa acessar meus arquivos?",
+        "resposta": "Depende do serviço. Backup, formatação e recuperação de dados exigem localizar e manipular pastas de arquivos. Ajuste de rede, instalação de programa ou configuração de impressora normalmente não exigem. O acesso é sempre limitado ao necessário para executar o que foi combinado."
+      },
+      {
+        "pergunta": "Preciso informar minhas senhas?",
+        "resposta": "Apenas a senha do próprio equipamento ou da conta local, quando o serviço não puder ser executado sem ela. Senhas de banco, códigos de autenticação em duas etapas e credenciais sensíveis não devem ser enviados por mensagem nem informados durante o atendimento."
+      },
+      {
+        "pergunta": "Meus arquivos podem ser apagados?",
+        "resposta": "Procedimentos como formatação apagam o conteúdo do disco por definição, e por isso a cópia prévia é feita antes, com a sua autorização. Em discos já com falha, parte do conteúdo pode não ser legível. Nenhuma intervenção é totalmente livre de risco para os dados."
+      },
+      {
+        "pergunta": "É obrigatório fazer backup antes do atendimento?",
+        "resposta": "Não é uma exigência formal, mas é a recomendação técnica. Sempre que possível, mantenha uma cópia atualizada dos arquivos importantes antes de entregar ou liberar o equipamento. A cópia que fazemos durante o serviço depende do estado do armazenamento."
+      },
+      {
+        "pergunta": "Como funciona o acesso remoto?",
+        "resposta": "Com programa de fonte legítima, autorização explícita e você acompanhando a sessão na tela do próprio computador. O acesso é encerrado ao final do atendimento e nenhuma solicitação financeira é feita durante a sessão."
+      },
+      {
+        "pergunta": "Arquivos recuperados ficam armazenados com vocês?",
+        "resposta": "Cópias temporárias criadas durante o serviço existem apenas pelo tempo necessário para a entrega e a conferência do resultado. Depois da validação com você, essas cópias são descartadas, salvo combinação diferente registrada no atendimento."
+      },
+      {
+        "pergunta": "O serviço garante que não haverá perda de dados?",
+        "resposta": "Não. Nenhum serviço técnico honesto pode prometer proteção absoluta ou ausência total de risco. O que garantimos é o cuidado no procedimento, a informação antecipada sobre o risco de cada etapa e a decisão sempre nas suas mãos."
+      },
+      {
+        "pergunta": "Como são tratados dados de empresas?",
+        "resposta": "Com o mesmo princípio de acesso mínimo, acrescido da definição de quem autoriza o quê. Em ambiente corporativo, alterações em contas, políticas e sistemas dependem da autorização de quem responde pela empresa, e não do usuário do equipamento."
+      }
+    ]
+  },
+  {
     "path": "/sobre",
     "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
     "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
@@ -265,13 +309,109 @@ const BASE_ROUTES = [
   },
   {
     "path": "/atendimento-domicilio",
-    "title": "Técnico de Informática em Domicílio em Curitiba | Atendimento",
-    "description": "Atendimento técnico de informática em domicílio em Curitiba para computadores, redes e situações que possam ser avaliadas no local."
+    "title": "Atendimento de Informática em Domicílio em Curitiba",
+    "description": "Atendimento técnico de informática em domicílio em Curitiba: o que resolve no local, o que exige coleta ou bancada, preparação da visita, peças e fatores de valor.",
+    "faq": [
+      {
+        "pergunta": "Quais serviços podem ser feitos no local?",
+        "resposta": "Instalação e configuração de programas, ajustes de rede e Wi-Fi, remoção de vírus, backup, configuração de impressora e a maioria dos problemas de software costumam ser resolvidos na sua casa ou escritório. A confirmação depende da triagem prévia."
+      },
+      {
+        "pergunta": "Quando o equipamento precisa ser coletado?",
+        "resposta": "Casos que exigem bancada — como equipamento que não liga, reparo de placa, troca de tela ou recuperação de dados — normalmente não são resolvidos no local e seguem para coleta e entrega, com diagnóstico em laboratório."
+      },
+      {
+        "pergunta": "O atendimento em domicílio garante a resolução na hora?",
+        "resposta": "Nem sempre. O atendimento no local resolve boa parte dos casos de software, mas alguns problemas só são confirmados durante a avaliação e podem exigir peças, coleta ou tempo adicional."
+      },
+      {
+        "pergunta": "Como funciona a triagem antes da visita?",
+        "resposta": "Antes de agendar, conversamos pelo WhatsApp sobre o sintoma. Enviar informações e fotos do equipamento ajuda a avaliar se o caso é adequado para atendimento no local ou se será melhor por coleta."
+      },
+      {
+        "pergunta": "As peças estão incluídas na visita?",
+        "resposta": "Não automaticamente. A visita cobre a mão de obra e a avaliação; peças e materiais, quando necessários, são informados à parte e só trocados após a sua aprovação."
+      },
+      {
+        "pergunta": "Preciso desmontar ou preparar alguma coisa antes da visita?",
+        "resposta": "Não. Basta deixar o equipamento acessível e ligado à energia, com a senha de acesso à mão. Se o problema for de rede ou Wi-Fi, ter o acesso ao roteador (ou o contato da operadora) agiliza bastante o atendimento no local."
+      },
+      {
+        "pergunta": "Vocês atendem em apartamento, condomínio e escritório?",
+        "resposta": "Sim. Em condomínios e prédios comerciais com controle de acesso, o agendamento é combinado com antecedência para você liberar a entrada na portaria. Informe pelo WhatsApp se houver regra específica do prédio."
+      },
+      {
+        "pergunta": "O que acontece se o problema não for resolvido no local?",
+        "resposta": "A avaliação feita na visita é aproveitada: você recebe o diagnóstico do que foi encontrado e a orientação do próximo passo — coleta para bancada, valor do atendimento de peça ou indicação de substituição quando o reparo não compensa. Nada segue sem a sua aprovação."
+      },
+      {
+        "pergunta": "Qual a área de atendimento?",
+        "resposta": "Atendemos Curitiba e a Região Metropolitana. A localização pode influenciar o agendamento e o deslocamento, combinados antes da visita."
+      },
+      {
+        "pergunta": "É necessário levar o equipamento até vocês?",
+        "resposta": "Na modalidade em domicílio, não: o atendimento acontece no seu endereço. O equipamento só sai do local quando a avaliação indica bancada, e nesse caso a coleta é combinada com você antes."
+      },
+      {
+        "pergunta": "Posso solicitar atendimento para vários computadores?",
+        "resposta": "Sim. Informe na triagem a quantidade de equipamentos e o sintoma de cada um. Isso influencia o tempo previsto da visita e o escopo do atendimento, que é combinado antes do agendamento."
+      },
+      {
+        "pergunta": "É necessário ter alguém no local durante o atendimento?",
+        "resposta": "Sim. É preciso uma pessoa responsável presente para liberar o acesso, autorizar os procedimentos e conferir o resultado ao final. Em empresas, quem autoriza alterações deve estar disponível ao menos por contato."
+      },
+      {
+        "pergunta": "O técnico precisa acessar meus arquivos?",
+        "resposta": "Somente quando o serviço exige, como em backup, migração ou formatação. O acesso é limitado ao necessário e sempre com a sua autorização. As práticas completas estão descritas na página de segurança dos dados."
+      },
+      {
+        "pergunta": "Como funciona o cancelamento da visita?",
+        "resposta": "Avise pelo WhatsApp com a maior antecedência possível para reagendar sem transtorno. Cancelamento após o técnico já estar em deslocamento pode implicar cobrança do deslocamento, conforme as condições publicadas em preços e políticas."
+      },
+      {
+        "pergunta": "O valor pode mudar após a avaliação no local?",
+        "resposta": "O valor da visita e da avaliação é informado antes. Se a avaliação revelar um serviço maior, peça necessária ou necessidade de bancada, o novo escopo é apresentado e só é executado após a sua aprovação."
+      }
+    ]
   },
   {
     "path": "/atendimento-remoto",
-    "title": "Suporte Remoto de Informática | Atendimento em Curitiba",
-    "description": "Suporte remoto para configurações, sistemas, programas, acesso, orientações e problemas de informática que não exigem intervenção física."
+    "title": "Atendimento Remoto de Informática em Curitiba",
+    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",
+    "faq": [
+      {
+        "pergunta": "O que pode ser resolvido remotamente?",
+        "resposta": "Configurações do sistema, erros do Windows, atualizações, drivers, instalação de programas legítimos, e-mail, impressora já conectada, acesso a arquivos e pastas, ajustes de navegador, orientação ao usuário e o diagnóstico inicial de lentidão ligada a software."
+      },
+      {
+        "pergunta": "Meu computador precisa estar funcionando?",
+        "resposta": "Sim. O atendimento remoto depende de o equipamento ligar, o sistema carregar e existir conexão de internet estável. Sem esses três itens não há como estabelecer a sessão, e o caso passa para atendimento presencial ou coleta."
+      },
+      {
+        "pergunta": "O técnico consegue ver meus arquivos?",
+        "resposta": "Durante a sessão, a tela do seu computador fica visível para quem atende, e alguns serviços exigem abrir pastas ou configurações. O acesso é limitado ao necessário para executar o que foi combinado, e você acompanha cada passo."
+      },
+      {
+        "pergunta": "Preciso informar minha senha?",
+        "resposta": "Apenas a senha do próprio computador, quando o serviço não puder ser executado sem ela — e no momento do atendimento. Senhas bancárias, códigos de autenticação em duas etapas e credenciais sensíveis não devem ser enviados por mensagem."
+      },
+      {
+        "pergunta": "O programa de acesso fica instalado depois?",
+        "resposta": "Não precisa ficar. Encerramos o acesso ao final do atendimento e, se você preferir, orientamos a remoção do programa. Não mantemos acesso permanente nem monitoramento contínuo do seu equipamento."
+      },
+      {
+        "pergunta": "Problemas de hardware podem ser resolvidos remotamente?",
+        "resposta": "Não. Equipamento que não liga, tela sem imagem, aquecimento, dano por líquido, bateria, fonte, placa-mãe ou disco fisicamente danificado exigem avaliação presencial ou coleta. O remoto pode, no máximo, ajudar a levantar indícios antes da visita."
+      },
+      {
+        "pergunta": "O atendimento remoto possui garantia?",
+        "resposta": "O serviço executado tem garantia sobre aquilo que foi feito, nas condições descritas na página de preços e políticas. A garantia não cobre novo problema de causa diferente nem alterações feitas depois por outra pessoa."
+      },
+      {
+        "pergunta": "O valor é informado antes do início?",
+        "resposta": "Sim. Depois da triagem, confirmamos se o caso é compatível com acesso remoto e apresentamos o valor do atendimento. A sessão só começa após a sua aprovação."
+      }
+    ]
   },
   {
     "path": "/coleta-e-entrega",
@@ -285,8 +425,34 @@ const BASE_ROUTES = [
   },
   {
     "path": "/equipamentos-atendidos",
-    "title": "Equipamentos Atendidos | Assistência Técnica Curitiba - Computadores, Notebooks, TVs",
-    "description": "Conheça todos os equipamentos que atendemos em Curitiba: computadores, notebooks, Smart TVs, roteadores, servidores e mais. Diagnóstico profissional e reparo com garantia."
+    "title": "Equipamentos Atendidos | Técnico em Curitiba",
+    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",
+    "faq": [
+      {
+        "pergunta": "Vocês atendem qualquer marca de notebook e computador?",
+        "resposta": "Atendemos as marcas de mercado mais comuns em Curitiba, como Dell, Lenovo, HP, Acer, Asus, Samsung, Positivo e máquinas montadas. O que define a viabilidade não é a marca, e sim a disponibilidade de peça e o resultado da avaliação técnica."
+      },
+      {
+        "pergunta": "MacBook está incluído?",
+        "resposta": "Somente mediante avaliação prévia. Parte dos serviços de sistema, arquivos e configuração é possível, mas reparos que dependem de peça específica ou ferramenta proprietária podem ser encaminhados para assistência especializada. Confirme o caso na triagem antes de agendar."
+      },
+      {
+        "pergunta": "Por que televisores e celulares não estão na lista?",
+        "resposta": "Porque este portal trabalha com informática: computadores, notebooks, redes, armazenamento e o posto de trabalho. Listar aparelhos fora dessa capacidade real geraria expectativa que não conseguiríamos cumprir."
+      },
+      {
+        "pergunta": "Como sei qual modalidade de atendimento serve para o meu equipamento?",
+        "resposta": "Depende do sintoma. Problema de sistema, configuração ou programa costuma resolver por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem coleta e bancada."
+      },
+      {
+        "pergunta": "Vocês atendem mais de um equipamento na mesma visita?",
+        "resposta": "Sim. Informe na triagem a quantidade de máquinas e o problema de cada uma, porque isso define o tempo previsto e o escopo do atendimento, combinados antes do agendamento."
+      },
+      {
+        "pergunta": "Equipamento muito antigo ainda vale a pena consertar?",
+        "resposta": "Nem sempre. Quando o custo do reparo se aproxima do valor de um equipamento equivalente, orientamos a substituição. Essa análise faz parte do diagnóstico e está detalhada na página sobre quando não compensa reparar."
+      }
+    ]
   },
   {
     "path": "/problemas/computador-lento",

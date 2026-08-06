@@ -1,0 +1,387 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { AlertTriangle, ArrowRight, CheckCircle2, KeyRound, Lock, MessageCircle, ShieldCheck } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { InterlinkingBlock } from "@/components/InterlinkingBlock";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { Button } from "@/components/ui/button";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
+
+const PATH = "/seguranca-dos-dados";
+const TITLE = "Segurança dos Dados na Assistência Técnica | Curitiba";
+const DESCRIPTION =
+  "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.";
+
+const WA_MESSAGE =
+  "Olá! Vim da página de segurança dos dados e quero tirar uma dúvida antes do atendimento.";
+
+const PRINCIPIOS = [
+  {
+    titulo: "Acesso mínimo necessário",
+    desc: "O técnico acessa apenas o que o serviço exige. Uma formatação precisa localizar as pastas de dados para copiar; um ajuste de rede não precisa abrir documento nenhum. O escopo do acesso segue o escopo do serviço.",
+  },
+  {
+    titulo: "Autorização antes de qualquer intervenção",
+    desc: "Nada é executado sem a sua aprovação: nem formatação, nem exclusão, nem instalação, nem acesso remoto. Quando a etapa envolve risco para os arquivos, esse risco é dito antes, não depois.",
+  },
+  {
+    titulo: "Transparência sobre o risco",
+    desc: "Nenhuma intervenção em equipamento ou armazenamento é totalmente livre de risco para os dados. Discos já em falha podem piorar durante a leitura, e sistemas corrompidos podem impedir a cópia de parte do conteúdo.",
+  },
+  {
+    titulo: "Backup é responsabilidade compartilhada",
+    desc: "Sempre que possível, o cliente deve manter uma cópia atualizada dos arquivos antes do atendimento. Fazemos a cópia prévia quando o armazenamento permite leitura, mas ela não substitui o seu backup próprio.",
+  },
+];
+
+const SENHAS = [
+  "Senhas bancárias, códigos de autenticação e credenciais sensíveis não devem ser enviados por mensagem — nem para nós.",
+  "Quando o serviço exige a senha do próprio computador, ela deve ser informada apenas no momento do atendimento e alterada depois, se você preferir.",
+  "Não solicitamos código recebido por SMS, aplicativo autenticador ou e-mail para liberar qualquer serviço.",
+  "Não pedimos dados de cartão, chave PIX de terceiros ou pagamento durante uma sessão de acesso remoto.",
+  "Equipamento com bloqueio de conta, senha de fabricante ou criptografia sem a chave pode simplesmente não ter caminho técnico legítimo — e nesse caso dizemos isso.",
+];
+
+const REMOTO = [
+  "O acesso remoto só acontece com a sua autorização explícita e enquanto você acompanha a tela.",
+  "O programa de acesso deve vir sempre de fonte legítima, indicada no momento do atendimento.",
+  "A sessão é encerrada ao final do serviço; se o programa não for mais necessário, orientamos a remoção.",
+  "Durante a sessão, arquivos e configurações podem precisar ser abertos para executar o serviço — não afirmamos que nada será visualizado quando o próprio trabalho exige acesso.",
+  "Nenhuma solicitação financeira é feita dentro de uma sessão remota.",
+];
+
+const FAQS = [
+  {
+    question: "O técnico precisa acessar meus arquivos?",
+    answer:
+      "Depende do serviço. Backup, formatação e recuperação de dados exigem localizar e manipular pastas de arquivos. Ajuste de rede, instalação de programa ou configuração de impressora normalmente não exigem. O acesso é sempre limitado ao necessário para executar o que foi combinado.",
+  },
+  {
+    question: "Preciso informar minhas senhas?",
+    answer:
+      "Apenas a senha do próprio equipamento ou da conta local, quando o serviço não puder ser executado sem ela. Senhas de banco, códigos de autenticação em duas etapas e credenciais sensíveis não devem ser enviados por mensagem nem informados durante o atendimento.",
+  },
+  {
+    question: "Meus arquivos podem ser apagados?",
+    answer:
+      "Procedimentos como formatação apagam o conteúdo do disco por definição, e por isso a cópia prévia é feita antes, com a sua autorização. Em discos já com falha, parte do conteúdo pode não ser legível. Nenhuma intervenção é totalmente livre de risco para os dados.",
+  },
+  {
+    question: "É obrigatório fazer backup antes do atendimento?",
+    answer:
+      "Não é uma exigência formal, mas é a recomendação técnica. Sempre que possível, mantenha uma cópia atualizada dos arquivos importantes antes de entregar ou liberar o equipamento. A cópia que fazemos durante o serviço depende do estado do armazenamento.",
+  },
+  {
+    question: "Como funciona o acesso remoto?",
+    answer:
+      "Com programa de fonte legítima, autorização explícita e você acompanhando a sessão na tela do próprio computador. O acesso é encerrado ao final do atendimento e nenhuma solicitação financeira é feita durante a sessão.",
+  },
+  {
+    question: "Arquivos recuperados ficam armazenados com vocês?",
+    answer:
+      "Cópias temporárias criadas durante o serviço existem apenas pelo tempo necessário para a entrega e a conferência do resultado. Depois da validação com você, essas cópias são descartadas, salvo combinação diferente registrada no atendimento.",
+  },
+  {
+    question: "O serviço garante que não haverá perda de dados?",
+    answer:
+      "Não. Nenhum serviço técnico honesto pode prometer proteção absoluta ou ausência total de risco. O que garantimos é o cuidado no procedimento, a informação antecipada sobre o risco de cada etapa e a decisão sempre nas suas mãos.",
+  },
+  {
+    question: "Como são tratados dados de empresas?",
+    answer:
+      "Com o mesmo princípio de acesso mínimo, acrescido da definição de quem autoriza o quê. Em ambiente corporativo, alterações em contas, políticas e sistemas dependem da autorização de quem responde pela empresa, e não do usuário do equipamento.",
+  },
+];
+
+const RELACIONADOS = [
+  { label: "Preços, garantia e políticas", to: "/precos-e-politicas", desc: "Regras comerciais, garantia e responsabilidades formais do atendimento." },
+  { label: "Formatação de computador", to: "/servicos/formatacao", desc: "Como a cópia prévia e a restauração dos arquivos acontecem na prática." },
+  { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados", desc: "Tentativa após a perda: avaliação primeiro, sem resultado assegurado." },
+  { label: "Backup para empresas", to: "/servicos/backup-para-empresas", desc: "Prevenção estruturada: cópia local, cópia externa e restauração testada." },
+  { label: "Atendimento remoto", to: "/atendimento-remoto", desc: "Como a sessão remota começa, é acompanhada e é encerrada." },
+];
+
+const SegurancaDosDados = () => {
+  const waHref = whatsappLink(WA_MESSAGE);
+
+  useEffect(() => {
+    trackPageView(PATH, TITLE);
+  }, []);
+
+  useJsonLdSlot(
+    SCHEMA_SLOTS.webPage,
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${absoluteUrl(PATH)}#webpage`,
+      name: "Segurança dos dados durante a assistência técnica",
+      description: DESCRIPTION,
+      url: absoluteUrl(PATH),
+      inLanguage: "pt-BR",
+      isPartOf: { "@id": `${absoluteUrl("/")}#website` },
+      publisher: { "@id": `${absoluteUrl("/")}#organization` },
+    },
+    SLOT_PRIORITY.page,
+  );
+
+  useJsonLdSlot(
+    SCHEMA_SLOTS.faq,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl(PATH)}#faq`,
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+    SLOT_PRIORITY.page,
+  );
+
+  const cta = (location: string) => () => trackCTAClick("whatsapp", `seguranca-dos-dados-${location}`);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <PageSEO
+        title={TITLE}
+        description={DESCRIPTION}
+        path={PATH}
+        breadcrumbs={[
+          { name: "Início", path: "/" },
+          { name: "Segurança dos dados", path: PATH },
+        ]}
+      />
+      <Header />
+      <Breadcrumbs items={[{ label: "Segurança dos dados" }]} />
+
+      <section className="bg-[hsl(var(--hero-bg))] text-white">
+        <div className="container mx-auto max-w-4xl px-4 py-14">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-accent">
+            Confiança · Curitiba e região
+          </p>
+          <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
+            Segurança dos dados durante a assistência técnica
+          </h1>
+          <p className="mb-6 text-base leading-relaxed opacity-95">
+            Entregar um computador para manutenção significa entregar também o que existe dentro dele: documentos,
+            fotos, contratos, e-mails e acessos. Esta página explica, sem promessa mágica, como tratamos arquivos,
+            senhas e credenciais em cada tipo de serviço, o que depende de autorização sua, o que é feito para reduzir
+            risco e — principalmente — quais são os limites técnicos que ninguém honesto pode ignorar.
+          </p>
+          <Button asChild size="lg" className="min-h-14">
+            <a href={waHref} onClick={cta("hero")} data-cta-location="seguranca_hero">
+              <MessageCircle className="mr-2 h-5 w-5" /> Tirar dúvida antes do atendimento
+            </a>
+          </Button>
+        </div>
+      </section>
+
+      <main className="container mx-auto max-w-4xl px-4 py-12">
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Compromisso de acesso mínimo</h2>
+          <p className="mb-3 text-muted-foreground">
+            O princípio que organiza tudo aqui é simples: o acesso acompanha o serviço, nunca o contrário. Se o
+            atendimento é uma configuração de rede, não há motivo para abrir pastas pessoais. Se o serviço é uma
+            formatação com cópia dos arquivos, a manipulação das pastas de dados é parte inevitável do trabalho — e é
+            explicada antes de começar.
+          </p>
+          <p className="mb-6 text-muted-foreground">
+            Essa distinção importa porque promessas absolutas costumam ser falsas. Dizer que "nenhum arquivo será
+            visualizado" em um serviço que exige localizar e copiar arquivos seria conveniente, mas não seria verdade.
+            Preferimos descrever o que realmente acontece e deixar a decisão com você.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {PRINCIPIOS.map((p) => (
+              <div key={p.titulo} className="rounded-xl border border-border bg-card p-5">
+                <ShieldCheck className="mb-3 h-6 w-6 text-accent" />
+                <h3 className="mb-2 font-semibold text-foreground">{p.titulo}</h3>
+                <p className="text-sm text-muted-foreground">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Autorização: nada acontece por conta própria</h2>
+          <p className="mb-3 text-muted-foreground">
+            Todo atendimento segue a mesma ordem: diagnóstico, explicação do que foi encontrado, valor do serviço e
+            somente então execução. Etapas que alteram o conteúdo do equipamento — formatar, reinstalar sistema, apagar
+            partição, trocar armazenamento, remover programas — dependem da sua autorização registrada na conversa da
+            triagem.
+          </p>
+          <p className="text-muted-foreground">
+            Em equipamentos de empresa, a autorização vem de quem responde pela organização. O usuário da máquina pode
+            solicitar o atendimento, mas alterações em contas, políticas internas e sistemas corporativos exigem o aval
+            de quem administra o ambiente. As condições formais estão descritas em{" "}
+            <Link to="/precos-e-politicas" className="font-semibold text-accent hover:underline">
+              preços e políticas
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Backup antes do atendimento</h2>
+          <p className="mb-3 text-muted-foreground">
+            Sempre que possível, mantenha uma cópia atualizada dos seus arquivos antes de qualquer serviço técnico.
+            Essa recomendação vale mesmo quando a cópia prévia faz parte do procedimento: se o armazenamento já estiver
+            em falha, parte do conteúdo pode não ser legível no momento da cópia, e não há técnica que devolva o que o
+            disco não consegue mais entregar.
+          </p>
+          <p className="mb-3 text-muted-foreground">
+            Uma cópia útil segue três regras práticas: estar fora do computador de origem, ter sido feita recentemente
+            e já ter sido aberta ao menos uma vez para conferir que os arquivos abrem de verdade. Backup que ninguém
+            testou é apenas uma expectativa.
+          </p>
+          <p className="text-muted-foreground">
+            Para empresas, a estruturação dessa rotina é tratada em{" "}
+            <Link to="/servicos/backup-para-empresas" className="font-semibold text-accent hover:underline">
+              backup para empresas
+            </Link>
+            . Quando o arquivo já foi perdido, o caminho é a{" "}
+            <Link to="/servicos/recuperacao-de-dados" className="font-semibold text-accent hover:underline">
+              recuperação de dados
+            </Link>
+            , que é sempre uma tentativa dependente do estado da mídia.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
+            <KeyRound className="h-6 w-6 text-accent" /> Senhas e credenciais
+          </h2>
+          <ul className="space-y-2">
+            {SENHAS.map((s) => (
+              <li key={s} className="flex gap-2 text-muted-foreground">
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
+            <Lock className="h-6 w-6 text-accent" /> Atendimento remoto e privacidade
+          </h2>
+          <ul className="mb-4 space-y-2">
+            {REMOTO.map((s) => (
+              <li key={s} className="flex gap-2 text-muted-foreground">
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/atendimento-remoto"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+          >
+            Ver como funciona o atendimento remoto <ArrowRight className="h-4 w-4" />
+          </Link>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Formatação, recuperação e cópias temporárias</h2>
+          <p className="mb-3 text-muted-foreground">
+            Na{" "}
+            <Link to="/servicos/formatacao" className="font-semibold text-accent hover:underline">
+              formatação
+            </Link>
+            , a sequência é sempre a mesma: localizar os dados, copiar o que for possível, confirmar com você o que foi
+            copiado, reinstalar o sistema e devolver os arquivos. O que estiver fora das pastas indicadas por você pode
+            passar despercebido — por isso a conferência da lista antes de formatar é uma etapa, não uma formalidade.
+          </p>
+          <p className="mb-3 text-muted-foreground">
+            Na recuperação de dados, o material lido é gravado em uma área temporária até a entrega. Essa cópia
+            temporária existe pelo tempo necessário para você conferir o resultado e recebê-la; depois da validação,
+            ela é descartada, salvo combinação diferente registrada no atendimento.
+          </p>
+          <p className="text-muted-foreground">
+            Em equipamentos empresariais, o mesmo cuidado se aplica com um detalhe a mais: a entrega dos arquivos é
+            feita para a pessoa autorizada pela empresa, e não necessariamente para quem usava a máquina.
+          </p>
+        </section>
+
+        <section className="mb-12 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
+          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
+            <AlertTriangle className="h-6 w-6 text-destructive" /> Limites técnicos que precisam ser ditos
+          </h2>
+          <ul className="space-y-2 text-muted-foreground">
+            <li>• Nenhuma intervenção em equipamento ou armazenamento é totalmente livre de risco para os dados.</li>
+            <li>• Disco com falha mecânica ou eletrônica pode piorar durante a própria tentativa de leitura.</li>
+            <li>• Conteúdo criptografado sem a chave correta não é acessível por caminho legítimo.</li>
+            <li>• Equipamento bloqueado por conta do fabricante depende do titular da conta, não do técnico.</li>
+            <li>• Não somos empresa de cibersegurança, perícia digital ou auditoria de conformidade.</li>
+            <li>• Não existe garantia contra vazamento, invasão ou perda causada por fatores fora do atendimento.</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Responsabilidade compartilhada</h2>
+          <p className="mb-3 text-muted-foreground">
+            Do lado do técnico: acessar apenas o necessário, explicar o risco antes da etapa, executar somente o que foi
+            autorizado, não solicitar credenciais sensíveis e descartar cópias temporárias após a entrega.
+          </p>
+          <p className="text-muted-foreground">
+            Do lado do cliente: manter backup próprio sempre que possível, indicar corretamente onde estão os arquivos
+            importantes, informar se há conteúdo sensível no equipamento, não enviar senhas bancárias ou códigos por
+            mensagem e conferir o resultado antes de encerrar o atendimento.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes sobre segurança dos dados</h2>
+          <div className="space-y-4">
+            {FAQS.map((f) => (
+              <div key={f.question} className="rounded-xl border border-border bg-card p-5">
+                <h3 className="mb-2 font-semibold text-foreground">{f.question}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Políticas e serviços relacionados</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {RELACIONADOS.map((r) => (
+              <Link
+                key={r.to}
+                to={r.to}
+                className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent"
+              >
+                <span className="mb-1 flex items-center gap-1.5 font-semibold text-foreground">
+                  {r.label} <ArrowRight className="h-4 w-4 text-accent" />
+                </span>
+                <span className="text-sm text-muted-foreground">{r.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-xl bg-secondary p-6 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-foreground">Ficou com alguma dúvida antes de entregar o equipamento?</h2>
+          <p className="mx-auto mb-5 max-w-2xl text-muted-foreground">
+            Descreva o caso pela triagem no WhatsApp. Explicamos o que o serviço exige em termos de acesso, o que
+            precisa de autorização e o que você pode preparar antes do atendimento.
+          </p>
+          <Button asChild size="lg" className="min-h-14">
+            <a href={waHref} onClick={cta("final")} data-cta-location="seguranca_final">
+              <MessageCircle className="mr-2 h-5 w-5" /> Falar com o técnico
+            </a>
+          </Button>
+        </section>
+      </main>
+
+      <InterlinkingBlock />
+      <Footer />
+    </div>
+  );
+};
+
+export default SegurancaDosDados;

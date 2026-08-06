@@ -1130,6 +1130,111 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     dateModified: "2026-08-06",
   },
+
+  // 11 ────────────────────────────────────────────────────────
+  "suporte-home-office": {
+    path: "suporte-home-office",
+    trackingKey: "suporte-home-office",
+    metaTitle: "Suporte Técnico para Home Office em Curitiba",
+    metaDescription:
+      "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho.",
+    serviceName: "Suporte Técnico para Home Office",
+    serviceDescription:
+      "Suporte técnico para profissionais em home office em Curitiba e região: equipamento, conexão, reuniões, e-mail, arquivos e organização do posto de trabalho, com atendimento remoto ou no local.",
+    eyebrow: "Home office em Curitiba",
+    h1: "Suporte técnico para home office em Curitiba",
+    h1Accent: "para quem depende do computador para trabalhar",
+    intro:
+      "Quando o trabalho acontece em casa, uma falha de computador, de internet ou de microfone deixa de ser um incômodo e vira hora parada. Este serviço é para o profissional que precisa da máquina, da conexão, das ferramentas de reunião e dos arquivos funcionando todos os dias. Avaliamos o posto de trabalho inteiro — equipamento, rede, periféricos e rotina de arquivos — e resolvemos o que for possível remotamente, indo até o endereço quando o caso exige avaliação física. O que depende de sistema, política ou credencial da sua empresa é sempre tratado com a autorização de quem responde por ele.",
+    whatsappMessage: "Olá! Trabalho em home office e preciso de suporte técnico no meu computador.",
+    incluso: [
+      { title: "Avaliação do posto de trabalho", desc: "Computador, conexão, periféricos e rotina de arquivos analisados em conjunto, não isoladamente." },
+      { title: "Desempenho do equipamento", desc: "Investigação de lentidão, travamento e aquecimento no uso real do seu dia de trabalho." },
+      { title: "Internet e Wi-Fi", desc: "Verificação de sinal, posicionamento do roteador, interferência e alternativa por cabo quando faz sentido." },
+      { title: "Reuniões online", desc: "Câmera, microfone, saída de áudio e permissões ajustados nas ferramentas que você já utiliza." },
+      { title: "E-mail e arquivos", desc: "Configuração de contas, organização de pastas e acesso aos documentos de trabalho." },
+      { title: "Impressora já compatível", desc: "Reinstalação e ajuste de impressora que já funciona no seu ambiente doméstico." },
+      { title: "Monitor e periféricos", desc: "Segundo monitor, teclado, mouse, headset e dock configurados para a sua rotina." },
+      { title: "Orientação de continuidade", desc: "O que fazer quando algo falha no meio do expediente e como reduzir o tempo parado." },
+    ],
+    sinais: [
+      "Computador lento justamente nas horas de maior trabalho",
+      "Notebook aquecendo e perdendo desempenho durante reuniões longas",
+      "Wi-Fi que oscila e derruba chamadas de vídeo",
+      "Câmera ou microfone que não são reconhecidos pela ferramenta de reunião",
+      "E-mail que parou de sincronizar depois de uma atualização",
+      "Arquivos de trabalho espalhados sem cópia nenhuma",
+      "Computador novo que precisa ser preparado para começar a trabalhar",
+      "Posto de trabalho improvisado, com cabos, monitor e periféricos mal resolvidos",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Modalidade do atendimento", desc: "Casos compatíveis com acesso remoto costumam ser mais rápidos que a visita ao endereço." },
+      { title: "Quantidade de itens", desc: "Um ajuste pontual é diferente de preparar computador, rede, periféricos e arquivos." },
+      { title: "Estado do equipamento", desc: "Máquina antiga, disco mecânico ou sistema corrompido exigem etapas adicionais." },
+      { title: "Rede do imóvel", desc: "Cobertura difícil, paredes e distância do roteador podem exigir avaliação no local." },
+      { title: "Dependência de terceiros", desc: "Quando o caso depende do provedor ou do setor de TI da empresa, o prazo deixa de ser só nosso." },
+      { title: "Deslocamento", desc: "Atendimento presencial considera a localização em Curitiba e região metropolitana." },
+    ],
+    atendimento: {
+      residencial:
+        "Profissionais autônomos e empregados em regime remoto: avaliação do computador, da conexão e das ferramentas de trabalho no próprio endereço ou por acesso remoto autorizado.",
+      empresarial:
+        "Empresas que precisam apoiar colaboradores em casa: atendemos o usuário e o equipamento, sempre dentro do que a empresa autoriza. Estrutura, servidores e política de TI seguem no suporte técnico empresarial.",
+    },
+    faqs: [
+      { question: "Vocês atendem profissionais em home office?", answer: "Sim. É exatamente o foco desta página: quem trabalha de casa e depende do computador, da internet e das ferramentas de reunião para produzir. Atendemos tanto autônomos quanto colaboradores de empresas, respeitando as regras do equipamento corporativo." },
+      { question: "O atendimento pode ser remoto?", answer: "Pode, sempre que o computador liga, o sistema carrega e existe conexão estável. Configuração, e-mail, programas, ajustes de reunião e orientação são resolvidos por acesso remoto autorizado. Falha física, equipamento que não liga ou rede indisponível exigem avaliação presencial." },
+      { question: "É possível melhorar o Wi-Fi de casa?", answer: "Em muitos casos sim, com reposicionamento do roteador, mudança de canal, atualização de firmware, uso de cabo no posto de trabalho ou inclusão de um ponto adicional de cobertura. O que não conseguimos alterar é o link contratado com o seu provedor." },
+      { question: "Vocês configuram câmera e microfone para reuniões?", answer: "Sim. Ajustamos dispositivo de entrada e saída, permissões do sistema, drivers e as configurações dentro das ferramentas de reunião que você já usa. Se o problema for o próprio hardware, indicamos isso na avaliação." },
+      { question: "É possível configurar a VPN da minha empresa?", answer: "Somente com a documentação e a autorização da empresa responsável. Seguimos a instrução fornecida pelo setor de TI; não alteramos política corporativa, não recriamos credencial e não contornamos controle de acesso." },
+      { question: "O técnico pode alterar o computador corporativo?", answer: "Apenas dentro do que a empresa proprietária autorizar. Máquinas corporativas costumam ter controle, perfis e restrições próprias. Sem autorização, limitamos o atendimento ao que não interfere nessas regras e orientamos o caminho correto." },
+      { question: "Backup está incluído no atendimento?", answer: "A cópia dos seus arquivos é avaliada caso a caso e informada antes da execução. Orientação sobre onde guardar e como manter uma cópia faz parte do atendimento; estruturar rotina completa de backup é escopo próprio, tratado na página de backup." },
+      { question: "Como funciona a disponibilidade de agenda?", answer: "Os horários variam conforme a agenda e a modalidade escolhida. Não prometemos disponibilidade imediata: descreva o caso pela triagem no WhatsApp para conferirmos os horários realmente livres e combinarmos o atendimento." },
+    ],
+    relacionados: [
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+      { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
+      { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    blocoLocal: [
+      {
+        titulo: "A dependência tecnológica de quem trabalha em casa",
+        paragrafos: [
+          "No escritório, quando algo para, quase sempre existe outra máquina, outro cabo e alguém do suporte no andar de baixo. Em casa, o profissional é ao mesmo tempo usuário e responsável pela infraestrutura: o computador é dele, a internet é dele e a solução precisa aparecer no meio do expediente. É por isso que tratamos home office como um contexto próprio, e não apenas como mais um atendimento residencial.",
+          "A conta é direta. Uma manhã sem conexão estável derruba reuniões, atrasa entregas e, em muitos casos, custa mais do que o próprio atendimento técnico. O objetivo aqui não é deixar o equipamento bonito: é reduzir a chance de parada e encurtar o tempo de retorno quando alguma coisa falha.",
+          "Por isso avaliamos o posto de trabalho como um conjunto. Computador, roteador, cabeamento, periféricos de áudio e vídeo, contas de e-mail e local dos arquivos formam uma cadeia — e o elo mais fraco é quem define a experiência do seu dia.",
+        ],
+      },
+      {
+        titulo: "Os problemas mais comuns e o que cada um costuma indicar",
+        paragrafos: [
+          "Lentidão que aparece justamente com vários programas abertos costuma apontar para memória insuficiente ou disco mecânico ainda como sistema. Notebook que esquenta e perde desempenho no meio da reunião aponta para ventilação obstruída e pasta térmica ressecada. Cada sintoma pede uma investigação diferente, e nenhuma delas se resolve com palpite ao telefone.",
+          "Wi-Fi instável é o campeão de reclamação no home office e raramente tem uma causa única: distância do roteador, parede de concreto, canal congestionado no prédio, firmware antigo ou simplesmente um aparelho antigo demais para a quantidade de dispositivos conectados. Quando o posto de trabalho permite, o cabo continua sendo a solução mais confiável para chamadas de vídeo.",
+          "Câmera e microfone que somem em reuniões geralmente envolvem permissões do sistema, dispositivo de entrada errado selecionado ou driver desatualizado. E-mail que parou de sincronizar costuma ser conta reconfigurada, senha alterada ou verificação em duas etapas ativada sem o ajuste correspondente no aplicativo.",
+          "Já os arquivos merecem atenção separada. É muito comum encontrar anos de trabalho salvos apenas na pasta de documentos de um único notebook, sem nenhuma cópia. Nesse cenário, qualquer falha de disco deixa de ser problema técnico e vira prejuízo direto.",
+        ],
+      },
+      {
+        titulo: "Limites do atendimento em home office",
+        paragrafos: [
+          "Existe uma fronteira clara que respeitamos: o que pertence à sua empresa é decidido pela sua empresa. Não alteramos política corporativa, não removemos controle de acesso, não desbloqueamos credencial, não configuramos VPN sem documentação do setor responsável e não instalamos software proprietário sem licença ou acesso legítimo.",
+          "Também não prometemos recuperação imediata da produtividade nem acesso a sistemas empresariais dos quais não somos responsáveis. Quando a causa está no provedor de internet, na plataforma da empresa ou em uma conta administrada por terceiros, o nosso papel é diagnosticar, documentar e orientar o caminho — não improvisar uma solução que crie risco maior.",
+          "Quando o problema envolve estrutura da organização, servidores, rede corporativa ou vários colaboradores ao mesmo tempo, o caminho correto é o suporte técnico empresarial. Home office trata do posto de trabalho individual; a página empresarial trata da estrutura que sustenta a operação inteira.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
+      { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+    ],
+    dateModified: "2026-08-06",
+  },
 };
 
 /** Ordem canônica exibida no hub /servicos. */
@@ -1144,4 +1249,5 @@ export const SERVICOS_CORE_ORDER = [
   "suporte-tecnico-empresarial",
   "manutencao-preventiva-empresas",
   "backup-para-empresas",
+  "suporte-home-office",
 ] as const;

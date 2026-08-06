@@ -387,6 +387,11 @@ const AdminReviews = () => {
                       </div>
                       {r.verified ? <Badge variant="default">Verificada</Badge> : <Badge variant="secondary">Pendente</Badge>}
                       {r.published ? <Badge variant="outline">Publicada</Badge> : <Badge variant="destructive">Oculta</Badge>}
+                      {r.source === "site" && (
+                        r.authorized_publication
+                          ? <Badge variant="outline">Autorizada pelo cliente</Badge>
+                          : <Badge variant="destructive">Sem autorização</Badge>
+                      )}
                     </div>
                     {r.comment && <p className="text-sm text-muted-foreground mb-2">"{r.comment}"</p>}
                     <div className="text-xs text-muted-foreground flex gap-3 flex-wrap">
@@ -395,11 +400,16 @@ const AdminReviews = () => {
                       {r.service_slug && <span>🔧 {r.service_slug}</span>}
                       {r.review_date && <span>📅 {new Date(r.review_date).toLocaleDateString("pt-BR")}</span>}
                       {r.source && <span>· {r.source}</span>}
+                      {r.origin_protocol && <span>· OS {r.origin_protocol}</span>}
                     </div>
                   </div>
                   <div className="flex gap-2 md:flex-col md:w-40">
                     {!r.verified && (
-                      <Button size="sm" onClick={() => approve(r)} className="flex-1"><Check className="w-4 h-4 mr-1" />Aprovar</Button>
+                      <>
+                        <Button size="sm" onClick={() => approve(r)} className="flex-1"><Check className="w-4 h-4 mr-1" />Aprovar</Button>
+                        <Button size="sm" variant="secondary" onClick={() => reject(r)} className="flex-1">Rejeitar</Button>
+                      </>
+
                     )}
                     <Button size="sm" variant="outline" onClick={() => togglePublished(r)} className="flex-1">
                       {r.published ? <><EyeOff className="w-4 h-4 mr-1" />Ocultar</> : <><Eye className="w-4 h-4 mr-1" />Publicar</>}

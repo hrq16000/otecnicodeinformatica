@@ -52,7 +52,7 @@ export interface OsEtapa {
 export const OS_ETAPAS: OsEtapa[] = [
   {
     titulo: "1. Abertura e triagem",
-    prazo: "Mesmo dia útil",
+    prazo: "Em até 1 dia útil",
     descricao:
       "Conferência dos dados informados, entendimento do uso pretendido e alinhamento da modalidade (bancada ou no local).",
   },

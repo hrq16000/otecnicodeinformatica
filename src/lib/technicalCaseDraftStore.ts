@@ -462,6 +462,7 @@ export interface ChecklistItem {
 export function buildChecklist(c: DraftCase): ChecklistItem[] {
   const pii = scanPii(c);
   const photoErrs = c.evidence.photos.flatMap(validatePhotoMetadata);
+  const evidenceIssues = auditEvidenceSet(c.evidence.photos);
   const item = (id: string, label: string, done: boolean, hint?: string): ChecklistItem => ({
     id,
     label,

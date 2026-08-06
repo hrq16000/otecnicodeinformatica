@@ -943,6 +943,7 @@ const App = () => (
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
+            <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />
 
             {/* Admin */}
             <Route path="/admin" element={<Navigate to="/admin/funnel" replace />} />

@@ -129,7 +129,7 @@ function isSiteUrl(u) {
   }
 }
 
-function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditorial = false) {
+function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditorial = false, isEditorialHub = false) {
   // @context (quando presente) deve ser https://schema.org.
   if ("@context" in entity) {
     const ctx = entity["@context"];
@@ -223,6 +223,7 @@ async function main() {
     const editorialSlug = posixFile.match(/\/blog\/([^/]+)\/index\.html$/)?.[1] ?? null;
     const isApprovedEditorial =
       isEditorial && editorialSlug != null && APPROVED_EDITORIAL_SLUGS.has(editorialSlug);
+    const isEditorialHub = /\/blog\/index\.html$/.test(posixFile);
 
     nodes.forEach((node, i) => {
       blockCount++;
@@ -239,7 +240,7 @@ async function main() {
         return;
       }
       for (const entity of topLevelEntities(parsed)) {
-        validateEntity(entity, file, i, isEditorial, isApprovedEditorial);
+        validateEntity(entity, file, i, isEditorial, isApprovedEditorial, isEditorialHub);
       }
     });
   }

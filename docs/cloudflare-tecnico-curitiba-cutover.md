@@ -308,8 +308,11 @@ adequado), DNS reinventariado sem divergência entre resolvedores.
 
 ## 13. Limitações conhecidas desta rodada
 
-- Zona Cloudflare **não criada**: exige acesso manual ao painel.
+- Zona Cloudflare **não comprovada**: exige acesso manual ao painel (Account ID,
+  Zone ID e nameservers atribuídos continuam ausentes).
 - CNAME de origem do Lovable **não obtido**: exige acesso manual ao painel.
-- `wrangler deploy --dry-run` real não executável neste ambiente.
-- Navegação real (Fase 8) e gate de navegador não executáveis neste sandbox.
-- MX/`mail` continuam apontando para o IP web — corrigir **antes** do proxy.
+- Situação de e-mail **inconclusiva**: MX aponta para o IP web; confirmar com o
+  provedor antes de copiar qualquer registro de e-mail para a zona Pending.
+- Gate de navegador e wrangler dry-run: **executados com sucesso** nesta rodada
+  (exit 0 / 24,63 KiB gzip); repetir em CI imediatamente antes do cutover.
+

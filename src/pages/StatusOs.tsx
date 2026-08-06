@@ -33,6 +33,7 @@ import { buildOnsiteReviewUrl } from "@/lib/reviewRequest";
 import { readUtms } from "@/lib/utmCapture";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { trackCTAClick } from "@/lib/analytics";
+import { ConsultaOsPorCelular } from "@/components/os/ConsultaOsPorCelular";
 
 const PATH = "/status-da-ordem-de-servico";
 const BASE_URL = "https://tecnico.curitiba.br";
@@ -191,6 +192,10 @@ const StatusOs = () => {
             registro salvo neste dispositivo, a linha do tempo com data e hora e as etapas previstas. A confirmação da
             etapa atual é sempre feita pelo técnico no atendimento.
           </p>
+
+          <div className="mt-6">
+            <ConsultaOsPorCelular />
+          </div>
 
           <div className="mt-6 rounded-xl border border-border bg-card p-5">
             <Label htmlFor="os-numero">Número da ordem de serviço</Label>

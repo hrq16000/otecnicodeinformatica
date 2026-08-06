@@ -197,6 +197,84 @@ export type Database = {
         }
         Relationships: []
       }
+      ordens_servico: {
+        Row: {
+          cliente_nome: string | null
+          created_at: string
+          equipamento: string | null
+          etapas: Json
+          fotos: Json
+          id: string
+          marca_modelo: string | null
+          modalidade: string | null
+          observacoes_publicas: string | null
+          previsao_conclusao: string | null
+          protocolo: string
+          sintomas: string | null
+          status: string
+          telefone: string
+          updated_at: string
+        }
+        Insert: {
+          cliente_nome?: string | null
+          created_at?: string
+          equipamento?: string | null
+          etapas?: Json
+          fotos?: Json
+          id?: string
+          marca_modelo?: string | null
+          modalidade?: string | null
+          observacoes_publicas?: string | null
+          previsao_conclusao?: string | null
+          protocolo: string
+          sintomas?: string | null
+          status?: string
+          telefone: string
+          updated_at?: string
+        }
+        Update: {
+          cliente_nome?: string | null
+          created_at?: string
+          equipamento?: string | null
+          etapas?: Json
+          fotos?: Json
+          id?: string
+          marca_modelo?: string | null
+          modalidade?: string | null
+          observacoes_publicas?: string | null
+          previsao_conclusao?: string | null
+          protocolo?: string
+          sintomas?: string | null
+          status?: string
+          telefone?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      os_lookup_attempts: {
+        Row: {
+          created_at: string
+          found: boolean
+          id: string
+          ip_hash: string
+          telefone_hash: string
+        }
+        Insert: {
+          created_at?: string
+          found?: boolean
+          id?: string
+          ip_hash: string
+          telefone_hash: string
+        }
+        Update: {
+          created_at?: string
+          found?: boolean
+          id?: string
+          ip_hash?: string
+          telefone_hash?: string
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           author_name: string

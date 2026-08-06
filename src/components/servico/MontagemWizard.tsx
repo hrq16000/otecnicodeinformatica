@@ -217,6 +217,32 @@ export const MontagemWizard = () => {
                   placeholder="Placa-mãe, processador, memória, fonte, gabinete, SSD..."
                 />
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="wz-identificacao">Identificação das peças (opcional)</Label>
+                <Textarea
+                  id="wz-identificacao"
+                  maxLength={400}
+                  rows={2}
+                  value={identificacao}
+                  onChange={(e) => setIdentificacao(e.target.value)}
+                  placeholder="Número de série, nota fiscal, se está lacrada, se é usada..."
+                />
+                <p className="text-xs text-muted-foreground">
+                  Quanto mais identificada a peça, menos retrabalho na conferência.
+                </p>
+              </div>
+              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-muted/20 p-4 text-sm">
+                <Checkbox
+                  checked={enviaFotos}
+                  onCheckedChange={(v) => setEnviaFotos(v === true)}
+                  aria-label="Vou enviar fotos das peças"
+                />
+                <span className="text-muted-foreground">
+                  Vou enviar <strong className="text-foreground">fotos das peças</strong> no atendimento (placa-mãe,
+                  fonte, memória e etiquetas). As imagens são enviadas direto na conversa — o site não armazena
+                  arquivos.
+                </span>
+              </label>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="wz-cidade">Cidade e bairro</Label>

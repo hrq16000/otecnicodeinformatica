@@ -9,7 +9,7 @@ const ETAPAS = [
   {
     icon: ClipboardCheck,
     titulo: "1. Triagem e verificação de compatibilidade",
-    prazo: "Mesmo dia útil, após o contato",
+    prazo: "Logo após o contato, em horário útil",
     texto:
       "Você descreve a configuração pretendida, o uso e quais peças já possui. Conferimos compatibilidade de soquete, chipset, memória, alimentação da fonte e espaço interno do gabinete. Quando alguma combinação não fecha, apontamos o conflito antes de qualquer compra ou deslocamento.",
   },

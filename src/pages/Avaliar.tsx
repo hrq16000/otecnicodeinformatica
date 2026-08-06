@@ -104,6 +104,7 @@ const Avaliar = () => {
       });
       return;
     }
+    markSubmitted(protocolo);
     trackReviewSubmit({ rating, authorized: autoriza, servico, bairro });
     setEnviado(true);
   };

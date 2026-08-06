@@ -475,6 +475,7 @@ const AdminReviews = () => {
                         const url = kind === "t24" ? t24WaLink(r.client_phone!, ctx) : t72WaLink(r.client_phone!, ctx);
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
+                      const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
                       const waParams = {
                         clientName: r.author_name,
                         protocolo: r.origin_protocol ?? undefined,

@@ -230,9 +230,20 @@ export function injectRootBody(html, body) {
   const marker = `<div id="root">`;
   const start = html.indexOf(marker);
   if (start === -1) return html;
-  const scriptAt = html.indexOf(`<script type="module"`, start);
-  if (scriptAt === -1) return html;
-  const closeAt = html.lastIndexOf("</div>", scriptAt);
+  // Varredura balanceada de <div>…</div> para achar o fechamento do #root.
+  let depth = 1;
+  let i = start + marker.length;
+  const re = /<div\b|<\/div>/gi;
+  re.lastIndex = i;
+  let m;
+  let closeAt = -1;
+  while ((m = re.exec(html))) {
+    depth += m[0].toLowerCase() === "</div>" ? -1 : 1;
+    if (depth === 0) {
+      closeAt = m.index;
+      break;
+    }
+  }
   if (closeAt === -1) return html;
   const before = html.slice(0, start + marker.length);
   const after = html.slice(closeAt);

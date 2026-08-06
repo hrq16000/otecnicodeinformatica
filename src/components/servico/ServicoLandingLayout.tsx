@@ -14,6 +14,10 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { EditorialCallout } from "@/components/servico/EditorialCallout";
 import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
 import type { ServicoCaixa } from "@/lib/servicoVisual3q";
+import {
+  EMPRESARIAL_SERVICO_HERO,
+  EMPRESARIAL_CONTEXTO_CARDS,
+} from "@/lib/visualEmpresarial3s";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -76,6 +80,7 @@ const CTA_BASE =
 
 export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => {
   const waHref = whatsappLink(data.whatsappMessage);
+  const isEmpresarial = data.variante === "empresarial";
 
   useEffect(() => {
     trackPageView(`/servicos/${data.path}`, data.serviceName);
@@ -411,7 +416,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-heading font-bold">
-            Vamos resolver isso hoje?
+            {isEmpresarial ? "Quer organizar o suporte da sua empresa?" : "Vamos resolver isso hoje?"}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-white/80">
             Fale direto com o técnico pelo WhatsApp. Diagnóstico honesto e valor aprovado antes de
@@ -425,7 +430,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             data-cta-location={`${data.trackingKey}_final`}
             className={`${CTA_BASE} mt-7`}
           >
-            Iniciar atendimento no WhatsApp
+            {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
           </a>
         </div>
       </section>

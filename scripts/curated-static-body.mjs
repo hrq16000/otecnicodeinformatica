@@ -251,6 +251,18 @@ export function staticBodyFor(route) {
         : `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`,
     )
     .join(" ");
+  const faqHtml = route.faq?.length
+    ? `<h2 style="font-size:1.1rem;margin:24px 0 8px">Perguntas frequentes</h2>` +
+      route.faq
+        .map(
+          (f) =>
+            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta)}</p>`,
+        )
+        .join("")
+    : "";
+  const subHtml = route.subtitulo
+    ? `<p style="margin:0 0 16px;font-size:.98rem;opacity:.92">${esc(route.subtitulo)}</p>`
+    : "";
   const linksHtml = links
     .map((p) => `<li><a href="${p}" style="color:#7fd4ec">${esc(labelFor(p))}</a></li>`)
     .join("");
@@ -261,7 +273,9 @@ export function staticBodyFor(route) {
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.9;margin:16px 0">${crumbHtml}</nav>
           <h1 style="font-size:1.6rem;line-height:1.25;margin:8px 0 12px">${esc(h1)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
+          ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
+          ${faqHtml}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Identificação e responsabilidade técnica</h2>

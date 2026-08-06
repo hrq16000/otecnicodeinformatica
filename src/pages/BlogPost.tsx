@@ -254,8 +254,8 @@ const BlogPost = () => {
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="900" />
+        <meta property="og:image:width" content={editorialCover ? "1200" : "1600"} />
+        <meta property="og:image:height" content={editorialCover ? "630" : "900"} />
         <meta property="og:image:alt" content={post.title} />
         {approved && (
           <>

@@ -922,6 +922,15 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
       {
+        titulo: "Sistemas, acessos e contas de terceiros: até onde vai a nossa responsabilidade",
+        paragrafos: [
+          "Boa parte dos chamados empresariais esbarra em algo que não é do computador: o sistema de gestão hospedado pelo fornecedor, o e-mail contratado de outra empresa, o certificado digital emitido por uma autoridade certificadora, o portal do banco, a plataforma fiscal, o armazenamento em nuvem da equipe. Esses ambientes têm dono, contrato e suporte próprios — e é importante deixar claro onde a nossa atuação começa e onde ela termina.",
+          "O que fazemos: instalar e configurar o cliente ou o acesso na estação, corrigir sessão que não abre, ajustar navegador e certificados locais, resolver impressão a partir do sistema, tratar permissão do Windows, conectividade e conflito com programas instalados, e orientar o usuário sobre o uso correto. Quando o acesso exige credencial, ela é fornecida por quem tem poder para autorizar, usada apenas durante o atendimento e não fica guardada conosco. Recomendamos a troca da senha após qualquer acesso pontual.",
+          "O que não fazemos: administrar contas de terceiros como se fôssemos o responsável delas, responder pelo funcionamento interno da plataforma, garantir disponibilidade de serviço que não é nosso, abrir chamado em nome da empresa sem autorização expressa ou assumir a gestão de licenças, renovações e faturas do fornecedor. Também não emitimos, renovamos nem validamos certificado digital — a emissão pertence à autoridade certificadora; nós tratamos apenas a instalação e o reconhecimento do dispositivo na máquina.",
+          "Quando o diagnóstico aponta que a falha está fora do computador, entregamos essa constatação por escrito, com o que foi verificado e descartado, para que a empresa acione o fornecedor com informação técnica em mãos. Isso costuma encurtar o atendimento do outro lado e evita que o chamado fique circulando entre partes sem responsável definido.",
+        ],
+      },
+      {
         titulo: "O que este suporte cobre e o que pertence a outra página",
         paragrafos: [
           "Esta página trata da execução do suporte: computadores, usuários, sistemas operacionais, programas compatíveis, periféricos, acessos, impressão, incidentes do dia a dia e manutenção corretiva das estações da equipe.",
@@ -930,6 +939,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
     ],
+
     linksLocais: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },

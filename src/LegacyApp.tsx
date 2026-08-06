@@ -532,6 +532,9 @@ const App = () => (
             <Route path="/equipamentos-atendidos" element={<EquipamentosAtendidos />} />
             <Route path="/seguranca-dos-dados" element={<SegurancaDosDados />} />
             <Route path="/politica-de-pecas-do-cliente" element={<PoliticaPecasCliente />} />
+            <Route path="/avaliar" element={<Avaliar />} />
+            <Route path="/excluir-meus-dados" element={<ExcluirMeusDados />} />
+
             <Route path="/problemas-reais-e-casos" element={<ProblemasReaisCasos />} />
             <Route path="/coleta-e-entrega" element={<ColetaEntrega />} />
             <Route path="/coleta-formulario" element={<ColetaFormulario />} />

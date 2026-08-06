@@ -1,5 +1,6 @@
 import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout";
 import { VISUAL_3S_SERVICO_SLUGS } from "@/lib/visualEmpresarial3s";
+import { visual3T } from "@/lib/visualEmpresarial3t";
 import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
 import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
@@ -98,8 +99,21 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     ? ({ variante: "empresarial" } as const)
     : {};
 
+  // Rodada 3T — propagação do padrão empresarial com hero e contexto próprios
+  // por página (preventiva, backup e redes/Wi-Fi). Só apresentação.
+  const cfg3t = visual3T(slug as string);
+  const variante3t = cfg3t
+    ? ({
+        variante: "empresarial",
+        heroEmpresarial: cfg3t.hero,
+        contextoEmpresarial: cfg3t.contexto,
+      } as const)
+    : {};
+
   return (
-    <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, ...visual3r, ...variante3s, extra }} />
+    <ServicoLandingLayout
+      data={{ ...data, ...piloto, ...visual3q, ...visual3r, ...variante3s, ...variante3t, extra }}
+    />
   );
 };
 

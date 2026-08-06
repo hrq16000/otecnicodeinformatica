@@ -559,6 +559,48 @@ const VISUAL_3S_STATIC = {
   },
 };
 
+/**
+ * RODADA 3T — contexto empresarial estático das páginas propagadas.
+ * Espelha os cartões de src/lib/visualEmpresarial3t.ts (paridade HTML × React).
+ */
+const VISUAL_3T_STATIC = {
+  "/servicos/manutencao-preventiva-empresas": [
+    ["contexto-empresarial", "Contexto do atendimento empresarial", [
+      "O que a rotina cobre: revisão periódica de estações, limpeza interna, checagem de armazenamento, atualizações e verificação das rotinas de backup já existentes.",
+      "Como o escopo é fechado: levantamos os equipamentos em uso e definimos com a empresa o que entra na rotina e com que periodicidade. Nada é executado sem aprovação.",
+      "O que fica fora: preventiva não substitui reparo de falha em curso nem manutenção de sistemas de terceiros (ERP, contábil, e-mail corporativo), que seguem com o fornecedor.",
+    ]],
+  ],
+  "/servicos/backup-para-empresas": [
+    ["contexto-empresarial", "Contexto do atendimento empresarial", [
+      "O que entra no escopo: mapeamento do que precisa ser copiado, definição de destino das cópias, agendamento das rotinas e teste de restauração dos arquivos combinados.",
+      "Acessos e credenciais: trabalhamos com o acesso mínimo necessário, autorizado por quem responde pela empresa. Credenciais permanecem sob controle do cliente.",
+      "Limites de sistemas de terceiros: backup interno de plataformas mantidas por fornecedores (ERP, CRM, e-mail em nuvem) depende do recurso do próprio fornecedor. Registramos por escrito o que não é possível copiar.",
+    ]],
+  ],
+  "/servicos/redes-e-wifi": [
+    ["contexto-empresarial", "Contexto do atendimento empresarial", [
+      "O que avaliamos: cobertura do sinal por ambiente, posicionamento dos equipamentos, cabeamento existente, interferência e comportamento da rede em horário de maior uso.",
+      "Onde termina o nosso escopo: cuidamos da rede interna — roteadores, pontos de acesso, cabeamento e dispositivos conectados. O link contratado e o equipamento do provedor seguem com a operadora.",
+      "Como a solução é definida: primeiro medimos, depois propomos. Troca de equipamento ou novo cabeamento só entra no escopo depois que a causa é identificada e o valor é aprovado.",
+    ]],
+  ],
+};
+
+function visual3tHtml(path) {
+  const secoes = VISUAL_3T_STATIC[path];
+  if (!secoes) return "";
+  return secoes
+    .map(
+      ([id, titulo, itens]) =>
+        `<h2 id="${id}" style="font-size:1.1rem;margin:24px 0 8px">${esc(titulo)}</h2>` +
+        `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem;opacity:.94">` +
+        itens.map((i) => `<li>${esc(i)}</li>`).join("") +
+        `</ul>`,
+    )
+    .join("");
+}
+
 function visual3sHtml(path) {
   const v = VISUAL_3S_STATIC[path];
   if (!v) return "";
@@ -641,6 +683,7 @@ export function staticBodyFor(route) {
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
           ${visual3qHtml(route.path)}
           ${visual3sHtml(route.path)}
+          ${visual3tHtml(route.path)}
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}

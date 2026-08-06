@@ -17,6 +17,7 @@ import type { ServicoCaixa } from "@/lib/servicoVisual3q";
 import {
   EMPRESARIAL_SERVICO_HERO,
   EMPRESARIAL_CONTEXTO_CARDS,
+  type EmpresarialHeroCopy,
 } from "@/lib/visualEmpresarial3s";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -72,6 +73,10 @@ export interface ServicoLandingData {
   linksLocais?: { label: string; to: string }[];
   /** Rodada 3S — variante visual da página (padrão: residencial) */
   variante?: "residencial" | "empresarial";
+  /** Rodada 3T — hero empresarial próprio da página (default: copy 3S) */
+  heroEmpresarial?: EmpresarialHeroCopy;
+  /** Rodada 3T — cartões de contexto B2B próprios da página (default: 3S) */
+  contextoEmpresarial?: { titulo: string; texto: string }[];
 }
 
 
@@ -81,6 +86,8 @@ const CTA_BASE =
 export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => {
   const waHref = whatsappLink(data.whatsappMessage);
   const isEmpresarial = data.variante === "empresarial";
+  const heroB2B = data.heroEmpresarial ?? EMPRESARIAL_SERVICO_HERO;
+  const contextoB2B = data.contextoEmpresarial ?? EMPRESARIAL_CONTEXTO_CARDS;
 
   useEffect(() => {
     trackPageView(`/servicos/${data.path}`, data.serviceName);
@@ -147,7 +154,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-              {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.contexto : data.eyebrow}
+              {isEmpresarial ? heroB2B.contexto : data.eyebrow}
             </span>
             <h1 className={`mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl ${isEmpresarial ? "md:text-[2.6rem]" : "md:text-5xl"}`}>
               {data.h1}
@@ -169,21 +176,21 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
                 data-cta-location={`${data.trackingKey}_hero`}
                 className={CTA_BASE}
               >
-                {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
+                {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento no WhatsApp"}
               </a>
               {isEmpresarial && (
                 <Link
-                  to={EMPRESARIAL_SERVICO_HERO.ctaSecundario.to}
+                  to={heroB2B.ctaSecundario.to}
                   data-cta-secundario="empresarial"
                   className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
                 >
-                  {EMPRESARIAL_SERVICO_HERO.ctaSecundario.label}
+                  {heroB2B.ctaSecundario.label}
                 </Link>
               )}
             </div>
             <p className="mt-5 text-sm text-white/70">
               {isEmpresarial
-                ? EMPRESARIAL_SERVICO_HERO.condicoes
+                ? heroB2B.condicoes
                 : `Curitiba e região • A partir de ${siteConfig.minPriceLabel}${
                     data.precoNota ? ` (${data.precoNota})` : ""
                   } • Diagnóstico honesto, sem promessa falsa`}
@@ -196,7 +203,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       {isEmpresarial && (
         <section className="border-b border-border bg-secondary py-8" aria-label="Contexto do atendimento empresarial">
           <div className="container mx-auto grid gap-4 px-4 md:grid-cols-3">
-            {EMPRESARIAL_CONTEXTO_CARDS.map((card) => (
+            {contextoB2B.map((card) => (
               <div key={card.titulo} className="rounded-xl border border-border bg-card p-5">
                 <h2 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
                   {card.titulo}
@@ -430,7 +437,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             data-cta-location={`${data.trackingKey}_final`}
             className={`${CTA_BASE} mt-7`}
           >
-            {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
+            {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento no WhatsApp"}
           </a>
         </div>
       </section>

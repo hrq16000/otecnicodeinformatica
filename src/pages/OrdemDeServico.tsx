@@ -314,7 +314,7 @@ const OrdemDeServico = () => {
               Gerar ordem de serviço
             </Button>
             <Button onClick={enviar} disabled={!pronta} data-cta-location="ordem-de-servico">
-              Solicitar atendimento
+              Enviar esta ordem no WhatsApp
             </Button>
             {numero ? (
               <>

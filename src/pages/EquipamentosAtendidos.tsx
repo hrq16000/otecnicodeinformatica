@@ -118,7 +118,7 @@ const EquipamentosAtendidos = () => {
               </p>
               <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("hero")}>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" /> Solicitar Atendimento
+                  <MessageCircle className="h-5 w-5" /> Falar sobre o meu equipamento
                 </a>
               </Button>
             </div>
@@ -180,7 +180,7 @@ const EquipamentosAtendidos = () => {
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Entenda Antes de Solicitar Atendimento
+                Entenda Antes de Chamar o Técnico
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[

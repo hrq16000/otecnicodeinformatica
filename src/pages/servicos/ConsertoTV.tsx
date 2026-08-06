@@ -116,7 +116,7 @@ const ConsertoTV = () => {
 
             <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar atendimento via WhatsApp
+              Falar com o técnico de TV
             </Button>
           </div>
         </div>
@@ -273,7 +273,7 @@ const ConsertoTV = () => {
           </p>
           <Button size="lg" variant="whatsapp" onClick={handleWhatsAppClick}>
             <MessageCircle className="mr-2 h-5 w-5" />
-            Solicitar atendimento pelo WhatsApp
+            Agendar a coleta da TV
           </Button>
         </div>
       </section>

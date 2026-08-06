@@ -115,7 +115,7 @@ const Marcas = () => {
 
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <Button className="gap-2 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white rounded-full px-8 py-6 text-base shadow-lg cta-pulse">
-                    <MessageCircle className="h-5 w-5" /> Solicitar Atendimento
+                    <MessageCircle className="h-5 w-5" /> Falar sobre a minha marca
                   </Button>
                 </a>
               </div>

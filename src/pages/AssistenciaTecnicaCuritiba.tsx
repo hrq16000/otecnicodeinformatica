@@ -412,7 +412,7 @@ export default function AssistenciaTecnicaCuritiba() {
                 <Button asChild variant="heroWhatsapp" size="lg" className="atc-pulse" onClick={onWa("hero")}>
                   <a href={waUrl} target="_blank" rel="noopener noreferrer" data-wa-medium="hero">
                     <MessageCircle className="h-5 w-5" />
-                    Solicitar atendimento no WhatsApp
+                    Chamar o técnico em Curitiba
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white">

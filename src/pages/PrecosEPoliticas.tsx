@@ -597,7 +597,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
                   onClick={() => trackCTAClick("whatsapp", "precos-termos-final")}
                 >
                   <MessageCircle className="h-5 w-5" />
-                  Solicitar atendimento via WhatsApp
+                  Escolher a modalidade no WhatsApp
                 </a>
               </Button>
               <p className="text-primary-foreground/60 text-sm mt-4">

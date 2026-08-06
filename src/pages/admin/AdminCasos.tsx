@@ -105,6 +105,9 @@ export default function AdminCasos() {
   const [busy, setBusy] = useState(false);
   const [urlInput, setUrlInput] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const [query, setQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<"todos" | TechnicalCaseStatus>("todos");
+  const [categoryFilter, setCategoryFilter] = useState<"todas" | TechnicalCaseCategory>("todas");
 
   useEffect(() => {
     document.title = "Casos técnicos (interno) — Admin";
@@ -116,6 +119,20 @@ export default function AdminCasos() {
   const active = useMemo(() => drafts.find((d) => d.id === activeId) ?? null, [drafts, activeId]);
   const gate = useMemo(() => (active ? evaluateDraft(active) : null), [active]);
   const checklist = useMemo(() => (active ? buildChecklist(active) : []), [active]);
+  const requirements = useMemo(() => (active ? buildRequirements(active) : []), [active]);
+  const score = useMemo(() => (active ? scoreCase(active) : null), [active]);
+
+  const visibleDrafts = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return drafts.filter((d) => {
+      if (statusFilter !== "todos" && d.status !== statusFilter) return false;
+      if (categoryFilter !== "todas" && d.equipment.category !== categoryFilter) return false;
+      if (!q) return true;
+      return [d.id, d.title, d.serviceSlug, d.equipment.category, d.evidence.workOrderReference ?? ""]
+        .join(" ").toLowerCase().includes(q);
+    });
+  }, [drafts, query, statusFilter, categoryFilter]);
+
 
   const save = (next: DraftCase) => {
     setDrafts(upsertDraft(next));

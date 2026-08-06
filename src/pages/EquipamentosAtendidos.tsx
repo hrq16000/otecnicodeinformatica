@@ -63,7 +63,7 @@ const equipamentos = [
       "Erros de driver de vídeo e travamento de tela",
       "Necessidade de upgrade de memória, SSD ou armazenamento adicional",
     ],
-    servico: { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
+    servico: { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
     modalidade: "Diagnóstico térmico e de estabilidade costuma exigir bancada e testes sob carga.",
     limite: "Não fazemos overclock extremo nem assumimos responsabilidade por configuração fora de especificação do fabricante.",
   },

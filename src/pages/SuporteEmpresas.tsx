@@ -70,7 +70,7 @@ const SuporteEmpresas = () => {
         "Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com escopo combinado, nota fiscal de serviço e pagamento faturado. Manutenção de computadores corporativos."
       );
     }
-    trackPageView("/suporte-empresas", "Suporte Empresas");
+    trackPageView("/servicos/suporte-tecnico-empresarial", "Suporte Empresas");
 
     // Schemas Service para sinais Premium PJ
     import("@/lib/schemaValidation").then(({ validateAndInjectSchema }) => {
@@ -85,13 +85,13 @@ const SuporteEmpresas = () => {
         validateAndInjectSchema(s.id, {
           "@context": "https://schema.org",
           "@type": "Service",
-          "@id": `https://tecnico.curitiba.br/suporte-empresas#${s.id}`,
+          "@id": `https://tecnico.curitiba.br/servicos/suporte-tecnico-empresarial#${s.id}`,
           name: s.name,
           description: s.desc,
           serviceType: s.name,
           areaServed: { "@type": "City", name: "Curitiba" },
           provider: baseProvider,
-          url: "https://tecnico.curitiba.br/suporte-empresas",
+          url: "https://tecnico.curitiba.br/servicos/suporte-tecnico-empresarial",
         });
       });
     });
@@ -106,7 +106,7 @@ const SuporteEmpresas = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com escopo combinado, nota fiscal de serviço e pagamento faturado. Manutenção de computadores corporativos." path="/suporte-empresas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Suporte Empresas", path: "/suporte-empresas" }]} />
+      <PageSEO noindex title="Suporte Técnico para Empresas em Curitiba | TI Corporativo | Técnico Curitiba" description="Suporte técnico empresarial em Curitiba. TI para pequenas e médias empresas com escopo combinado, nota fiscal de serviço e pagamento faturado. Manutenção de computadores corporativos." path="/servicos/suporte-tecnico-empresarial" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Serviços", path: "/servicos" }, { name: "Suporte Empresas", path: "/servicos/suporte-tecnico-empresarial" }]} />
       <JsonLdSchema />
       <Header />
       <main>

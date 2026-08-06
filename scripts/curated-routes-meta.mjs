@@ -65,7 +65,25 @@ const BASE_ROUTES = [
   {
     "path": "/sobre",
     "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
-    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
+    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
+    "blocos": [
+      {
+        "titulo": "Por que diagnosticamos antes de falar em peça",
+        "paragrafos": [
+          "A maior parte do prejuízo em assistência técnica não vem do conserto caro: vem do conserto errado. Formatar uma máquina cujo gargalo era o disco mecânico, trocar memória quando o problema era temperatura, comprar fonte nova quando o defeito estava no botão. Em todos esses casos o cliente paga, a melhora é curta e o sintoma volta. Por isso a nossa ordem é fixa: entender, confirmar, informar e só então executar.",
+          "O diagnóstico segue eliminação por etapas. Primeiro confirmamos se há energia chegando, depois se o equipamento inicializa, em seguida se há imagem e se o sistema carrega. Cada etapa descartada reduz hipóteses e evita a troca de componente por suposição. Quando o comportamento é intermitente, testamos sob uso real em vez de confiar apenas em um teste rápido de bancada.",
+          "Também tratamos sintoma e serviço como coisas diferentes. Quem chega dizendo que o computador está lento ou que o notebook não liga está descrevendo um efeito, não uma causa. Traduzir esse efeito em causa provável é justamente o trabalho técnico — e é o que separa uma indicação honesta de uma venda de peça."
+        ]
+      },
+      {
+        "titulo": "Experiência acumulada e limites do escopo",
+        "paragrafos": [
+          "A atuação em informática vem desde 1998, período em que o equipamento do dia a dia deixou de ser o desktop de escritório e passou a incluir notebooks finos, armazenamento em estado sólido, redes domésticas com vários dispositivos e home office. Essa continuidade importa por um motivo prático: boa parte do diagnóstico rápido vem de já ter visto o mesmo padrão de falha antes, em modelos e gerações diferentes.",
+          "O escopo é deliberadamente estreito. Trabalhamos com computadores, notebooks, sistema, armazenamento, memória, segurança, redes e suporte a pequenas estruturas empresariais — e não com áreas fora dessa competência. Quando o caso exige laboratório especializado, como falha mecânica interna de disco, dizemos isso em vez de improvisar. Recusar um serviço fora do nosso alcance é parte de fazer bem o que está dentro dele.",
+          "Atendemos Curitiba e municípios da região metropolitana. Não mantemos loja anunciada em cada bairro nem equipe fixa em outras cidades: o atendimento acontece por visita técnica combinada ou por coleta e entrega, com as condições, valores de partida e prazos publicados na página de preços e políticas."
+        ]
+      }
+    ]
   },
   {
     "path": "/como-funciona",

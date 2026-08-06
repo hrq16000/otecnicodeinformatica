@@ -1,0 +1,67 @@
+name: weekly-gates
+
+# Reexecução semanal dos gates críticos das páginas liberadas
+# (manifesto/sitemap, canonical, HTML estático, JSON-LD, CTAs e interlinking).
+# Qualquer URL aprovada que saia do padrão fail-closed quebra o job.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # toda segunda, 06:00 UTC (03:00 America/Sao_Paulo)
+  workflow_dispatch:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+
+      # ── Fonte da verdade: manifesto × sitemap × rotas
+      - name: Sitemap source gate (manifesto × XML)
+        run: npm run check:sitemap-source
+      - name: Internal links gate (strict, sem alias/redirect)
+        run: npm run check:internal-links:strict
+      - name: Hierarquia local (bairros/cidades)
+        run: npm run check:local-hierarchy
+      - name: Canibalização (P0)
+        run: npm run check:cannibalization
+
+      # ── Governança editorial fail-closed
+      - name: Governança editorial
+        run: npm run check:editorial-governance
+      - name: Cluster editorial e interlinking artigo ⇄ pilar
+        run: npm run check:editorial-cluster
+      - name: Inventário editorial
+        run: npm run report:editorial
+
+      # ── CTAs e copy
+      - name: CTA funnel gate
+        run: npm run check:cta-funnel
+      - name: Copy proibida e claims de confiança
+        run: npm run check:copy
+      - name: NAP / WhatsApp oficial
+        run: npm run check:nap
+
+      # ── HTML estático + JSON-LD do build publicado
+      - name: Build
+        run: npm run build
+      - name: JSON-LD validation
+        run: npm run validate:jsonld
+      - name: JSON-LD das páginas P0
+        run: npm run check:jsonld-p0
+      - name: Rich results (LocalBusiness/Service/FAQPage)
+        run: npm run check:rich-results:strict
+      - name: Interlinking local (mãe ⇄ bairros/cidades)
+        run: npm run check:local-interlinking
+
+      - name: Alerta de regressão
+        if: failure()
+        run: echo "::error::Gate semanal falhou — uma ou mais URLs aprovadas saíram do padrão fail-closed."

@@ -14,8 +14,20 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
+import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
 
 const CANONICAL_BASE = "https://tecnico.curitiba.br";
+
+/** Categoria de template a partir do slug de serviço (sem inventar dados). */
+function categoriaFromServico(slug: string): TemplateCategory {
+  if (slug.includes("redes") || slug.includes("wifi")) return "rede";
+  if (slug.includes("empresa")) return "empresa";
+  if (slug.includes("backup") || slug.includes("dados")) return "dados";
+  if (slug.includes("celular")) return "celular";
+  if (slug.includes("tv")) return "tv";
+  return "pc";
+}
+
 
 export interface ServicoBairroData {
   metaTitle: string;
@@ -52,6 +64,22 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
   }, [path, data.servico, data.bairro]);
 
   /**
+   * Prévia da mensagem enviada ao WhatsApp: já contextualizada com serviço,
+   * bairro, cidade, modalidade e resumo do atendimento. Exibida na página
+   * antes do envio e usada como preset do funil obrigatório V5.
+   */
+  const waPreview = buildCategoryMessage(
+    {
+      cat: categoriaFromServico(data.servicoSlug),
+      sym: data.servico,
+      cidade: data.cidade,
+      bairro: data.bairro,
+      servico: data.servicoSlug,
+    },
+    `Modalidade: atendimento local no ${data.bairro}. Resumo: ${data.subtitulo}`,
+  );
+
+  /**
    * CTA WhatsApp → passa pelo funil obrigatório V5. Analytics resiliente:
    * trackWaClick faz fallback para "unknown" quando modalidade/problema
    * ainda não foram capturados na sessão.
@@ -62,16 +90,15 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       servico: data.servicoSlug,
       bairro: data.bairroSlug,
       cidade: data.cidadeSlug || "curitiba",
+      utm_medium: "cta",
     });
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {
-        detail: {
-          location,
-          preset: { equipamento: null, sintoma: null },
-        },
+        detail: { location, message: waPreview },
       }),
     );
   };
+
 
   // Preço numérico normalizado (aceita "R$ 99,99" ou "R$ 299,99")
   const priceNumeric = data.precoBase.replace(/[^\d,]/g, "").replace(",", ".");
@@ -201,6 +228,18 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                 Agendar no {data.bairro}
               </Button>
             </div>
+
+            {/* Prévia da mensagem que será enviada (transparência + contexto) */}
+            <div
+              className="mt-6 max-w-2xl mx-auto text-left bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4"
+              data-testid="wa-message-preview"
+            >
+              <p className="text-white/70 text-xs uppercase tracking-wide mb-2">
+                Prévia da mensagem no WhatsApp
+              </p>
+              <p className="text-white/90 text-sm whitespace-pre-line">{waPreview}</p>
+            </div>
+
           </div>
         </div>
       </section>

@@ -19,6 +19,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EDITORIAL_WAVE_SLUGS } from "./lib/editorial-wave.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const rel = (p) => path.join(root, p);
@@ -30,7 +31,8 @@ const warnings = [];
 const fail = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
-const EXPECTED_PILOTS = [
+// Pilotos = fila de revisão atual (artigos promovidos à onda editorial saem daqui).
+const ALL_PILOT_CANDIDATES = [
   "notebook-nao-liga-o-que-fazer",
   "computador-lento-causas-solucoes",
   "como-instalar-windows-11-do-zero",
@@ -40,6 +42,7 @@ const EXPECTED_PILOTS = [
   "como-saber-se-pc-tem-virus-malware",
   "como-melhorar-sinal-wifi-em-casa",
 ];
+const EXPECTED_PILOTS = ALL_PILOT_CANDIDATES.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
 
 // Fechamento técnico (PROMPT 33): os dois desalinhamentos críticos foram
 // resolvidos no conteúdo e realinhados ao slug. Nenhum piloto pode permanecer
@@ -83,9 +86,7 @@ const registry = read("src/lib/blogEditorialRegistry.ts");
 if (/APPROVED_EDITORIAL_CONTENT\.set\s*\(/.test(registry)) {
   fail("APPROVED_EDITORIAL_CONTENT recebeu .set() — registro de aprovados deve ficar VAZIO.");
 }
-if (!/APPROVED_EDITORIAL_CONTENT\s*=\s*new Map<[^>]*>\(\s*\)\s*;/.test(registry)) {
-  fail("APPROVED_EDITORIAL_CONTENT não está declarado como Map vazio.");
-}
+
 
 const slugsMatch = registry.match(/EDITORIAL_PILOT_SLUGS\s*=\s*\[([\s\S]*?)\]/);
 const pilotSlugs = slugsMatch

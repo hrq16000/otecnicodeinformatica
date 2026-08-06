@@ -180,4 +180,11 @@ const BASE_ROUTES = [
 // (H1 e FAQ reais), garantindo paridade entre HTML estático e hidratação.
 const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path)).filter(Boolean);
 
-export const CURATED_ROUTES = [...BASE_ROUTES, ...SERVICO_BAIRRO_ROUTES];
+// P0 comerciais: anexa a FAQ real já exibida na página (sem inventar conteúdo),
+// para que FAQPage estático e conteúdo visível fiquem em paridade.
+const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
+  const faq = priorityFaq(r.path);
+  return faq ? { ...r, faq } : r;
+});
+
+export const CURATED_ROUTES = [...BASE_ROUTES_WITH_FAQ, ...SERVICO_BAIRRO_ROUTES];

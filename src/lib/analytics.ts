@@ -1,4 +1,4 @@
-import { GA4_EVENTS, normalizeTrackingLabel } from '@/lib/trackingTaxonomy';
+import { GA4_EVENTS, normalizeTrackingLabel, routeTypeFromPath } from '@/lib/trackingTaxonomy';
 
 // Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
 

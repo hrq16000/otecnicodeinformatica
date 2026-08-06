@@ -52,6 +52,22 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
   }, [path, data.servico, data.bairro]);
 
   /**
+   * Prévia da mensagem enviada ao WhatsApp: já contextualizada com serviço,
+   * bairro, cidade, modalidade e resumo do atendimento. Exibida na página
+   * antes do envio e usada como preset do funil obrigatório V5.
+   */
+  const waPreview = buildCategoryMessage(
+    {
+      cat: categoriaFromServico(data.servicoSlug),
+      sym: data.servico,
+      cidade: data.cidade,
+      bairro: data.bairro,
+      servico: data.servicoSlug,
+    },
+    `Modalidade: atendimento local no ${data.bairro}. Resumo: ${data.subtitulo}`,
+  );
+
+  /**
    * CTA WhatsApp → passa pelo funil obrigatório V5. Analytics resiliente:
    * trackWaClick faz fallback para "unknown" quando modalidade/problema
    * ainda não foram capturados na sessão.
@@ -62,16 +78,15 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
       servico: data.servicoSlug,
       bairro: data.bairroSlug,
       cidade: data.cidadeSlug || "curitiba",
+      utm_medium: "cta",
     });
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {
-        detail: {
-          location,
-          preset: { equipamento: null, sintoma: null },
-        },
+        detail: { location, message: waPreview },
       }),
     );
   };
+
 
   // Preço numérico normalizado (aceita "R$ 99,99" ou "R$ 299,99")
   const priceNumeric = data.precoBase.replace(/[^\d,]/g, "").replace(",", ".");

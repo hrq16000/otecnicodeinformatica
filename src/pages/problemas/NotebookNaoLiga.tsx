@@ -206,6 +206,14 @@ const NotebookNaoLiga = () => {
         />
 
         <section id="energia-vs-imagem" className="mb-12 scroll-mt-24">
+          <p className="tldr mb-6 text-muted-foreground" data-speakable>
+            Um notebook que não dá sinal de energia, que acende a luz e fica com a tela apagada ou que liga e desliga
+            em seguida costuma assustar — principalmente quando há trabalho ou estudo dentro dele. Esta página explica
+            os sinais que ajudam a separar os cenários, as causas que podem estar envolvidas, o que dá para verificar
+            por fora com segurança, o que não deve ser tentado e como funciona a avaliação técnica antes de qualquer
+            valor. Nenhum diagnóstico é feito à distância: a solução depende da causa confirmada em bancada ou no
+            atendimento.
+          </p>
           <h2 className="mb-4 text-2xl font-bold text-foreground">
             "Não liga" e "liga sem imagem" são problemas diferentes
           </h2>

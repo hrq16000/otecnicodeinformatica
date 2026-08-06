@@ -30,11 +30,27 @@ const ITENS = [
   },
 ];
 
-export const TrustStrip = ({ className = "" }: { className?: string }) => (
-  <section aria-label="Compromissos do atendimento" className={`bg-secondary py-8 ${className}`}>
+/**
+ * Rodada 3Q — variante "compact": exibe no máximo três fatos, para uso
+ * nas páginas comerciais de serviço sem competir com o H1 nem empurrar
+ * o CTA para fora da primeira dobra.
+ */
+export const TrustStrip = ({
+  className = "",
+  variant = "full",
+}: {
+  className?: string;
+  variant?: "full" | "compact";
+}) => (
+  <section
+    aria-label="Compromissos do atendimento"
+    className={`bg-secondary ${variant === "compact" ? "py-6" : "py-8"} ${className}`}
+  >
     <div className="container mx-auto px-4">
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {ITENS.map((item) => (
+      <ul
+        className={`grid gap-4 sm:grid-cols-2 ${variant === "compact" ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}
+      >
+        {(variant === "compact" ? ITENS.slice(0, 3) : ITENS).map((item) => (
           <li
             key={item.titulo}
             className="flex gap-3 rounded-xl border border-border bg-background p-4"

@@ -259,6 +259,50 @@ export const TermosConteudo = ({ withJsonLd = true, className = "" }: Props) => 
       </div>
     </section>
 
+    <section className="mb-12" aria-labelledby="eletronicos-valor-termos">
+      <h2 id="eletronicos-valor-termos" className="text-2xl font-bold mb-6 text-foreground">
+        Eletrônicos, placas, componentes e equipamentos de som: valor declarado, sinistro e depreciação
+      </h2>
+      <div className="space-y-4 text-muted-foreground">
+        <p>
+          Equipamentos de informática, placas eletrônicas, fontes, periféricos e aparelhos de som têm
+          desvalorização rápida e comportamento diferente de outros bens. Por isso, o valor que você atribui ao
+          equipamento (valor declarado) serve como referência de cuidado no manuseio e na logística — não como
+          preço de reposição por novo, nem como promessa de indenização.
+        </p>
+        <p>
+          Ao declarar um valor para o seu equipamento, você reconhece e concorda que, em caso de eventual
+          sinistro, dano, perda ou venda do aparelho no estado em que se encontra, o valor apurado por avaliação
+          técnica, por terceiro ou por seguradora pode ser inferior a um terço (1/3) do valor declarado. A
+          avaliação considera idade do equipamento, geração da plataforma, estado das placas e conectores,
+          histórico de intervenções, ausência de nota fiscal e disponibilidade de peças no mercado.
+        </p>
+        <p>
+          Placas e componentes eletrônicos abertos anteriormente, com reparo prévio, oxidação, trilhas
+          danificadas, sinais de líquido ou solda de terceiros são recebidos apenas com aceite expresso do risco:
+          um componente nessas condições pode falhar durante o teste ou o reparo sem que exista nexo com o
+          serviço executado. O mesmo vale para aparelhos de som e placas de áudio, que atendemos na parte
+          eletrônica e de conectividade — não fazemos reparo mecânico de estrutura, caixa acústica ou peças de
+          desgaste.
+        </p>
+        <p>
+          Equipamento entregue em regime de sucata, doação ou aproveitamento de peças não gera direito a
+          devolução de componentes retirados após o aceite registrado. As regras de peças fornecidas por você,
+          procedência, integridade no recebimento e prazo de troca estão detalhadas na{" "}
+          <Link to="/politica-de-pecas-do-cliente" className="underline hover:text-foreground">
+            política de peças do cliente
+          </Link>{" "}
+          e os valores por modalidade em{" "}
+          <Link to="/precos-e-politicas" className="underline hover:text-foreground">preços e políticas</Link>.
+        </p>
+        <p>
+          Nenhum serviço substitui apólice de seguro. Não somos seguradora e não realizamos laudo pericial para
+          fins de indenização; o que emitimos é o registro técnico do atendimento, com o que foi verificado,
+          executado e substituído.
+        </p>
+      </div>
+    </section>
+
 
     <section className="mb-12" aria-labelledby="faq-termos">
       <h2 id="faq-termos" className="text-2xl font-bold mb-6 text-foreground">

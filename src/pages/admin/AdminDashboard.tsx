@@ -215,7 +215,7 @@ const AdminDashboard = () => {
   const maxDay = Math.max(1, ...byDay.map(d => d.wa + d.call));
 
   const exportCsv = () => {
-    const cols = ["created_at", "event_type", "servico", "bairro", "cidade", "cta_location", "modalidade", "equipamento", "problema", "path"];
+    const cols = ["created_at", "event_type", "route_type", "servico", "bairro", "cidade", "cta_location", "modalidade", "equipamento", "problema", "path", "utm_source", "utm_medium", "utm_campaign"];
     const csv = [
       cols.join(","),
       ...rows.map(r => cols.map(c => `"${String((r as any)[c] ?? "").replace(/"/g, '""')}"`).join(",")),

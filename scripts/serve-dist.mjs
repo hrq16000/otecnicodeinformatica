@@ -54,7 +54,13 @@ export async function createServer({ distDir = DIST } = {}) {
       res.end(req.method === "HEAD" ? undefined : body);
     };
 
-    // 1. Arquivo real (assets, sitemaps, robots, páginas pré-renderizadas).
+    // 1. Aliases da matriz têm precedência sobre arquivos (equivalente ao `301!`).
+    const alias = resolvePath(manifest, pathname);
+    if (alias.kind === "redirect") {
+      return send(301, "", "text/html; charset=utf-8", { Location: alias.location + (url.search || "") });
+    }
+
+    // 2. Arquivo real (assets, sitemaps, robots, páginas pré-renderizadas).
     const candidates = [path.join(distDir, pathname), path.join(distDir, pathname, "index.html")];
     for (const candidate of candidates) {
       if (!candidate.startsWith(distDir)) break;
@@ -65,12 +71,8 @@ export async function createServer({ distDir = DIST } = {}) {
     // Caminho com extensão que não existe: nunca cai no SPA.
     if (path.extname(pathname)) return send(404, html404);
 
-    // 2/3/4. Manifesto decide.
-    const resolved = resolvePath(manifest, pathname);
-    if (resolved.kind === "redirect") {
-      const target = resolved.location + (url.search || "");
-      return send(301, "", "text/html; charset=utf-8", { Location: target });
-    }
+    // 3/4. Manifesto decide.
+    const resolved = alias;
     if (resolved.kind === "spa") {
       const shell = await readIfFile(path.join(distDir, "index.html"));
       return send(200, shell || html404);

@@ -118,6 +118,17 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
 
   const isPrivate = (p) => PRIVATE_PREFIXES.some((pre) => p === pre || p.startsWith(`${pre}/`));
 
+  const exactList = [...validExact].sort();
+  const patternList = validPatterns.sort();
+  // Um padrão dinâmico só aceita valores conhecidos quando existe ao menos uma
+  // instância pré-renderizada (ex.: /blog/:slug). Sem cobertura estática, o
+  // padrão permanece "aberto" para não regredir rotas legítimas do SPA.
+  const patternInfo = patternList.map((pattern) => {
+    const re = pathToRegex(pattern);
+    const known = exactList.filter((p) => re.test(p));
+    return { pattern, closed: known.length > 0, knownCount: known.length };
+  });
+
   return {
     generatedAt: new Date().toISOString(),
     source: "scripts/lib/route-manifest.mjs (derivado — não editar à mão)",
@@ -129,8 +140,9 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
       curated: CURATED_PATHS.length,
       private: [...validExact].filter(isPrivate).length,
     },
-    validExact: [...validExact].sort(),
-    validPatterns: validPatterns.sort(),
+    validExact: exactList,
+    validPatterns: patternList,
+    patternInfo,
     redirects,
     privatePrefixes: PRIVATE_PREFIXES,
     assetPrefixes: ASSET_PREFIXES,
@@ -144,7 +156,11 @@ export function resolvePath(manifest, pathname) {
   const redirect = manifest.redirects.find((r) => r.from === clean);
   if (redirect) return { kind: "redirect", status: 301, location: redirect.to };
   if (manifest.validExact.includes(clean)) return { kind: "spa", status: 200 };
-  const patterns = manifest.validPatterns.map(pathToRegex);
-  if (patterns.some((re) => re.test(clean))) return { kind: "spa", status: 200 };
+  // Padrões fechados já foram cobertos por validExact; só padrões abertos
+  // (sem nenhuma instância pré-renderizada) liberam 200 genérico.
+  const open = (manifest.patternInfo || manifest.validPatterns.map((pattern) => ({ pattern, closed: false })))
+    .filter((p) => !p.closed)
+    .map((p) => pathToRegex(p.pattern));
+  if (open.some((re) => re.test(clean))) return { kind: "spa", status: 200 };
   return { kind: "notfound", status: 404 };
 }

@@ -113,16 +113,13 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
 //   approvedAt: AUSENTE
 //   reviewedAt: AUSENTE (não houve revisão material concluída)
 // ─────────────────────────────────────────────────────────────
+// Fila-piloto: artigos ainda em revisão (noindex, fora do sitemap).
+// Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
 export const EDITORIAL_PILOT_SLUGS = [
-  "notebook-nao-liga-o-que-fazer",
-  "computador-lento-causas-solucoes",
   "como-instalar-windows-11-do-zero",
-  "quando-trocar-hd-por-ssd",
   "notebook-superaquecendo-o-que-fazer",
-  "backup-como-proteger-seus-arquivos",
-  "como-saber-se-pc-tem-virus-malware",
-  "como-melhorar-sinal-wifi-em-casa",
 ] as const;
+
 
 export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(
   EDITORIAL_PILOT_SLUGS.map((slug) => [

@@ -397,7 +397,56 @@ const ComputadorLento = () => {
           </ul>
         </section>
 
+        <section className="mb-12 rounded-xl border border-accent/30 bg-accent/5 p-6">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
+            Critérios objetivos antes de você decidir
+          </h2>
+          <p className="mb-5 text-muted-foreground">
+            Nada aqui depende de opinião: são as regras de atendimento que valem para qualquer caso de lentidão, do
+            primeiro contato até a entrega. Elas estão publicadas na íntegra em{" "}
+            <Link to="/precos-e-politicas" className="font-medium text-accent hover:underline">
+              preços e políticas de atendimento
+            </Link>
+            .
+          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg border border-border bg-card p-5">
+              <h3 className="mb-2 font-semibold text-foreground">Processo em etapas</h3>
+              <p className="text-sm text-muted-foreground">
+                Triagem pelo WhatsApp, avaliação técnica com medição de disco, memória e temperatura, apresentação da
+                causa provável e do serviço necessário e execução só depois da sua autorização expressa. Nenhuma peça é
+                trocada e nenhum sistema é reinstalado sem esse aceite.
+              </p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-5">
+              <h3 className="mb-2 font-semibold text-foreground">Tempo estimado</h3>
+              <p className="text-sm text-muted-foreground">
+                Casos de software e limpeza costumam ser resolvidos no mesmo atendimento. Troca de SSD ou memória
+                depende da disponibilidade da peça compatível. Casos com suspeita de falha física exigem bancada e
+                prazo informado antes de começar — se o prazo mudar, você é avisado.
+              </p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-5">
+              <h3 className="mb-2 font-semibold text-foreground">Garantia declarada</h3>
+              <p className="text-sm text-muted-foreground">
+                90 dias de garantia sobre a mão de obra do serviço executado, no mesmo defeito tratado. Peças e
+                componentes seguem a garantia do fornecedor ou fabricante, com a nota entregue junto ao equipamento.
+              </p>
+            </div>
+          </div>
+          <p className="mt-5 text-sm text-muted-foreground">
+            O que não prometemos: prazo fechado antes de ver o equipamento, valor definido por telefone e garantia de
+            recuperação de arquivos em disco com falha física. Quando algo está fora do que conseguimos assegurar,
+            dizemos antes — o mesmo critério de{" "}
+            <Link to="/quando-nao-compensa" className="font-medium text-accent hover:underline">
+              quando reparar deixa de compensar
+            </Link>
+            .
+          </p>
+        </section>
+
         <section className="mb-12">
+
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>
           <div className="space-y-5">
             {FAQS.map((f) => (

@@ -187,8 +187,8 @@ function injectMeta(html, meta) {
     `<meta property="og:description" content="${htmlEscape(meta.description)}">`,
     meta.ogImage ? `<meta property="og:image" content="${meta.ogImage}?v=${OG_VERSION}">` : "",
     meta.ogImage ? `<meta property="og:image:secure_url" content="${meta.ogImage}?v=${OG_VERSION}">` : "",
-    `<meta property="og:image:width" content="1280">`,
-    `<meta property="og:image:height" content="672">`,
+    `<meta property="og:image:width" content="${meta.ogImageWidth ?? 1280}">`,
+    `<meta property="og:image:height" content="${meta.ogImageHeight ?? 672}">`,
     `<meta property="og:image:type" content="image/jpeg">`,
   ].filter(Boolean).join("\n    ");
   const tw = [

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackReviewLinkOpen, trackReviewSubmit } from "@/lib/funnelAnalytics";
+import { checkAntiSpam, markSubmitted, alreadySubmitted } from "@/lib/reviewAntiSpam";
+
 
 const MIN_COMMENT = 10;
 

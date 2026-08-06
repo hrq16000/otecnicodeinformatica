@@ -88,7 +88,14 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     ? { resumo: empresarial.resumo, toc: empresarial.toc, confianca: true }
     : {};
 
-  return <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, ...visual3r, extra }} />;
+  // Rodada 3S — variante visual empresarial (escopo fechado, só apresentação).
+  const variante3s = VISUAL_3S_SERVICO_SLUGS.includes(slug as never)
+    ? ({ variante: "empresarial" } as const)
+    : {};
+
+  return (
+    <ServicoLandingLayout data={{ ...data, ...piloto, ...visual3q, ...visual3r, ...variante3s, extra }} />
+  );
 };
 
 

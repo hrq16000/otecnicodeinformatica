@@ -17,9 +17,46 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
+import { GarantiaNotaFiscalPagamento } from "@/components/comercial/GarantiaNotaFiscalPagamento";
+import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
+
+const FAQS = [
+  {
+    question: "Como começa o atendimento e em quanto tempo tenho retorno?",
+    answer:
+      "O atendimento começa por uma triagem no WhatsApp: você descreve o equipamento e o sintoma e recebe a orientação do próximo passo, que pode ser acesso remoto, visita ou coleta. O retorno depende da disponibilidade de agenda do dia, e informamos a janela real em vez de prometer prazo fixo.",
+  },
+  {
+    question: "Vocês informam o valor antes de executar o serviço?",
+    answer:
+      "Sim. Nenhum serviço é executado sem aprovação: o escopo e o valor são apresentados antes da execução. Peças e componentes são cobrados à parte da mão de obra e também dependem da sua autorização expressa.",
+  },
+  {
+    question: "Qual serviço escolher se eu não sei qual é o problema?",
+    answer:
+      "Não precisa saber. Descreva o sintoma na triagem e nós indicamos o caminho. Se preferir ler antes, as páginas de sintoma explicam os cenários mais comuns de notebook que não liga e de computador lento.",
+  },
+  {
+    question: "O serviço pode ser feito remotamente ou precisa ser presencial?",
+    answer:
+      "Depende da causa. Problemas de sistema, configuração, lentidão por software e suporte a home office costumam ser resolvidos por acesso remoto. Falhas de hardware, tela, energia e reparo de placa exigem atendimento presencial ou coleta para bancada.",
+  },
+  {
+    question: "Atendem empresas e não apenas usuários domésticos?",
+    answer:
+      "Sim. Além dos serviços para uso doméstico, atendemos empresas com suporte técnico, manutenção preventiva, redes e Wi-Fi corporativo e rotinas de backup, de forma pontual ou recorrente.",
+  },
+  {
+    question: "Existe garantia do serviço executado?",
+    answer:
+      "Sim. A mão de obra do serviço executado tem 90 dias de garantia no mesmo defeito tratado, e peças seguem a garantia do fornecedor ou fabricante. Nota fiscal de serviço é emitida mediante solicitação.",
+  },
+];
+
 
 const CTA_BASE =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
@@ -46,6 +83,23 @@ const Servicos = () => {
 
   const waHref = whatsappLink("Olá! Gostaria de saber mais sobre os serviços.");
   const handleCta = () => trackCTAClick("whatsapp", "servicos-hub");
+
+  useJsonLdSlot(
+    SCHEMA_SLOTS.faq,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl("/servicos")}#faq`,
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+    SLOT_PRIORITY.page,
+  );
+
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,10 +134,8 @@ const Servicos = () => {
         />
         <div className="container relative z-10 mx-auto py-14 md:py-20">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--accent))]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-              Serviços em Curitiba
-            </span>
+            <ExperienciaBadge tone="hero" suffix="Serviços em Curitiba" />
+
             <h1 className="mt-5 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl">
               Serviços de informática em Curitiba
             </h1>
@@ -202,6 +254,85 @@ const Servicos = () => {
           </div>
         </div>
       </section>
+
+      {/* Cluster interno: empresas e remoto */}
+      <section className="py-14 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+              Atendimento para empresas e suporte remoto
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              Se a demanda é de uma empresa ou pode ser resolvida sem deslocamento, comece por estas páginas —
+              elas explicam escopo, limites e como a triagem funciona em cada caso.
+            </p>
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <Link
+                to="/empresa-de-ti-curitiba"
+                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-[hsl(var(--accent))]"
+              >
+                <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-[hsl(var(--accent))]">
+                  Empresa de TI em Curitiba
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Suporte técnico empresarial, manutenção preventiva, redes e backup — pontual ou recorrente.
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--accent))]">
+                  Ver atendimento PJ <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+              <Link
+                to="/atendimento-remoto"
+                className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-[hsl(var(--accent))]"
+              >
+                <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-[hsl(var(--accent))]">
+                  Suporte técnico remoto
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  O que dá para resolver por acesso remoto, o que exige presença e como a sessão é conduzida.
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[hsl(var(--accent))]">
+                  Ver atendimento remoto <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <GarantiaNotaFiscalPagamento />
+
+      {/* FAQ */}
+      <section className="py-14 md:py-16 bg-background" id="perguntas-frequentes">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+              Perguntas frequentes sobre os serviços
+            </h2>
+            <div className="mt-8 space-y-6">
+              {FAQS.map((f) => (
+                <div key={f.question} className="rounded-xl border border-border bg-card p-6">
+                  <h3 className="font-heading text-lg font-bold text-foreground">{f.question}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Mais dúvidas em{" "}
+              <Link to="/faq" className="font-semibold text-[hsl(var(--accent))] hover:underline">
+                dúvidas frequentes
+              </Link>{" "}
+              e em{" "}
+              <Link to="/precos-e-politicas" className="font-semibold text-[hsl(var(--accent))] hover:underline">
+                preços e políticas
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* CTA final */}
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white">

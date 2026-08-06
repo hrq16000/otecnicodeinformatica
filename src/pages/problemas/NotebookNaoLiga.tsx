@@ -349,13 +349,28 @@ const NotebookNaoLiga = () => {
             Esta página trata especificamente do sintoma. Escopo de manutenção, componentes avaliados, modalidades de
             atendimento e garantia por tipo de serviço estão reunidos na página de serviço.
           </p>
-          <Link
-            to="/servicos/manutencao-de-notebook"
-            className="inline-flex items-center gap-2 font-semibold text-accent hover:underline"
-          >
-            Manutenção de notebook em Curitiba <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-6">
+            <Link
+              to="/servicos/manutencao-de-notebook"
+              className="inline-flex items-center gap-2 font-semibold text-accent hover:underline"
+            >
+              Manutenção de notebook em Curitiba <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/problemas/computador-lento"
+              className="inline-flex items-center gap-2 font-semibold text-accent hover:underline"
+            >
+              Se ele liga mas está lento, veja computador lento <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/servicos/recuperacao-de-dados"
+              className="inline-flex items-center gap-2 font-semibold text-accent hover:underline"
+            >
+              Precisa dos arquivos antes do reparo? Recuperação de dados <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </section>
+
 
         <section className="mb-12">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>

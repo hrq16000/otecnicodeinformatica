@@ -113,7 +113,7 @@ const Depoimentos = () => {
     };
   }, [filtradas]);
 
-  useJsonLdSlot(SCHEMA_SLOTS.page, schema, SLOT_PRIORITY.page);
+  useJsonLdSlot(SCHEMA_SLOTS.itemListServices, schema, SLOT_PRIORITY.page);
 
   const abrirWhatsApp = () => {
     trackCTAClick("whatsapp", "depoimentos");

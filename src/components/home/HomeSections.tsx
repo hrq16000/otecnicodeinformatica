@@ -29,14 +29,14 @@ const pains = [
 ];
 
 const services = [
-  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao", href: "/servicos/formatacao" },
-  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook", href: "/servicos/manutencao-de-notebook" },
-  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc", href: "/servicos/manutencao-de-computador" },
-  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade", href: "/servicos/upgrade-ssd-ram" },
-  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus", href: "/servicos/remocao-de-virus" },
-  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup", href: "/servicos/recuperacao-de-dados" },
-  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes", href: "/servicos/redes-e-wifi" },
-  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa", href: "/servicos/suporte-tecnico-empresarial" },
+  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao", cta: "Como funciona a formatação →", href: "/servicos/formatacao" },
+  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook", cta: "Detalhes do reparo de notebook →", href: "/servicos/manutencao-de-notebook" },
+  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc", cta: "O que inclui a manutenção de PC →", href: "/servicos/manutencao-de-computador" },
+  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade", cta: "Ganhos reais do upgrade →", href: "/servicos/upgrade-ssd-ram" },
+  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus", cta: "Etapas da limpeza do sistema →", href: "/servicos/remocao-de-virus" },
+  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup", cta: "Como avaliamos a recuperação →", href: "/servicos/recuperacao-de-dados" },
+  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes", cta: "Como melhoramos o sinal →", href: "/servicos/redes-e-wifi" },
+  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa", cta: "Escopo do suporte para empresas →", href: "/servicos/suporte-tecnico-empresarial" },
 ];
 
 
@@ -195,7 +195,7 @@ export const HomeSections = () => {
                   data-cta-location={s.loc}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-accent hover:underline"
                 >
-                  Ver conteúdo completo do serviço →
+                  {s.cta}
                 </a>
               </div>
             ))}
@@ -387,7 +387,7 @@ export const HomeSections = () => {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor para meu equipamento.">
-                solicitar atendimento
+                Iniciar triagem do meu equipamento
               </FunnelButton>
               <a
                 href="/precos-e-politicas"

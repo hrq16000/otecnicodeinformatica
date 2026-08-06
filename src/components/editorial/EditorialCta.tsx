@@ -29,7 +29,7 @@ export function EditorialCta({
 
   const rotulo =
     branch === "pj"
-      ? "Solicitar atendimento para empresa"
+      ? "Falar com o suporte de TI para empresas"
       : variante === "orientacao"
       ? "Pedir orientação para o meu equipamento"
       : variante === "modalidade"

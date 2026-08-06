@@ -69,7 +69,18 @@ const Avaliar = () => {
       });
       return;
     }
+    const verdict = checkAntiSpam({ honeypot, openedAt, protocolo });
+    if (!verdict.ok) {
+      if (verdict.reason === "duplicate") setDuplicado(true);
+      toast({
+        title: "Envio não concluído",
+        description: verdict.message,
+        variant: "destructive",
+      });
+      return;
+    }
     setEnviando(true);
+
     const { error } = await supabase.from("reviews").insert({
       author_name: nome.trim().slice(0, 80),
       rating,

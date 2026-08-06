@@ -476,6 +476,111 @@ function visual3qHtml(path) {
   );
 }
 
+
+/**
+ * RODADA 3S — blocos empresariais servidos já no HTML inicial das duas
+ * páginas do escopo (hub e serviço), em paridade com o React: sumário,
+ * pilares/indicadores, contextos, avulso × recorrente, fluxo e limites.
+ */
+const VISUAL_3S_STATIC = {
+  "/empresa-de-ti-curitiba": {
+    toc: [
+      ["pilares", "Pilares do atendimento empresarial"],
+      ["escopo", "O que abrange a solução de TI"],
+      ["contextos", "Contextos atendidos"],
+      ["mapa-servicos", "Mapa dos serviços empresariais"],
+      ["cobertura", "Bairros e cidades atendidas"],
+      ["faq", "Perguntas frequentes"],
+    ],
+    secoes: [
+      ["pilares", "Pilares do atendimento empresarial", [
+        "Computadores e usuários — lentidão, falhas, configurações e suporte ao usuário.",
+        "Redes e conectividade — Wi-Fi, cabeamento, impressoras em rede e compartilhamento.",
+        "Prevenção e continuidade — manutenção preventiva, backup e organização do ambiente.",
+        "Atendimento remoto e presencial — modalidade definida na triagem, conforme a demanda.",
+      ]],
+      ["contextos", "Contextos atendidos", [
+        "Escritórios com prazos e arquivos sensíveis.",
+        "Recepções e postos de atendimento.",
+        "Operações com períodos de maior demanda.",
+        "Profissionais que usam arquivos e programas exigentes.",
+        "Avaliamos o contexto operacional, não uma especialização setorial.",
+      ]],
+      ["registrar", "O que registrar antes de pedir suporte", [
+        "Equipamento, usuário afetado e horário do início do problema.",
+        "Mensagem de erro, programa envolvido e alteração recente.",
+        "Impacto na operação e quantas pessoas estão paradas.",
+        "Se existe backup recente e quem autoriza alterações.",
+        "Senhas e códigos de autenticação não devem ser enviados por mensagem.",
+      ]],
+      ["mapa-servicos", "Mapa dos serviços empresariais", [
+        "Suporte técnico empresarial, manutenção preventiva e backup para empresas.",
+        "Redes e Wi-Fi, atendimento remoto, montagem de workstation e segurança dos dados.",
+      ]],
+    ],
+  },
+  "/servicos/suporte-tecnico-empresarial": {
+    toc: [
+      ["incluso", "O que está incluso"],
+      ["fluxo-empresarial", "Como corre um chamado"],
+      ["impacto", "Impacto e prioridade"],
+      ["como-funciona", "Como funciona o atendimento"],
+      ["fatores-valor", "O que influencia o valor"],
+      ["faq", "Perguntas frequentes"],
+    ],
+    secoes: [
+      ["escopo-empresarial", "Escopo do suporte empresarial", [
+        "Computadores e usuários.",
+        "Remoto e presencial.",
+        "Avulso ou recorrente.",
+        "Escopo autorizado antes da execução.",
+      ]],
+      ["fluxo-empresarial", "Como corre um chamado empresarial", [
+        "Solicitação, triagem e levantamento do impacto e dos equipamentos afetados.",
+        "Definição da modalidade, diagnóstico e autorização do escopo e do valor.",
+        "Execução, registro do que foi feito e orientação sobre o próximo passo.",
+        "As etapas não acontecem necessariamente em uma única visita.",
+      ]],
+      ["modalidades", "Atendimento avulso ou recorrente", [
+        "Avulso: demanda pontual, escopo por chamado, prioridade conforme agenda.",
+        "Recorrente: necessidades frequentes, levantamento inicial, histórico e preventiva no escopo.",
+        "O atendimento recorrente não significa suporte ilimitado: frequência, prioridade, modalidades e responsabilidades precisam ser definidas no escopo contratado.",
+      ]],
+      ["impacto", "Impacto e prioridade", [
+        "Descreva se o problema afeta um usuário, vários usuários, a rede, a impressão ou o acesso a sistema externo.",
+        "O impacto informado ajuda na triagem, mas prazo e prioridade dependem de disponibilidade, escopo e eventual contratação específica.",
+      ]],
+      ["terceiros", "Limites e sistemas de terceiros", [
+        "Podemos verificar: computador, rede, acesso local, configuração, mensagem de erro e permissões disponíveis.",
+        "Pode depender do fornecedor: erro interno do sistema, licença, servidor externo, conta, autenticação e integração.",
+        "Não realizamos sem autorização: alteração de política, redefinição de credencial ou acesso administrativo indevido.",
+      ]],
+    ],
+  },
+};
+
+function visual3sHtml(path) {
+  const v = VISUAL_3S_STATIC[path];
+  if (!v) return "";
+  const toc = v.toc
+    .map(([id, label]) => `<li><a href="#${id}" style="color:#7fd4ec">${esc(label)}</a></li>`)
+    .join("");
+  const secoes = v.secoes
+    .map(
+      ([id, titulo, itens]) =>
+        `<h2 id="${id}" style="font-size:1.1rem;margin:24px 0 8px">${esc(titulo)}</h2>` +
+        `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem;opacity:.94">` +
+        itens.map((i) => `<li>${esc(i)}</li>`).join("") +
+        `</ul>`,
+    )
+    .join("");
+  return (
+    `<p style="margin:18px 0 6px"><strong>Nesta página</strong></p>` +
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">${toc}</ul>` +
+    secoes
+  );
+}
+
 /** HTML estático (dentro do <noscript> do #root) específico da rota. */
 export function staticBodyFor(route) {
   const h1 = h1For(route);
@@ -535,6 +640,7 @@ export function staticBodyFor(route) {
           ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
           ${visual3qHtml(route.path)}
+          ${visual3sHtml(route.path)}
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}

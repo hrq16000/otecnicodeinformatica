@@ -108,7 +108,14 @@
     "serve:dist": "node scripts/serve-dist.mjs",
     "check:jsonld-parity": "node scripts/check-jsonld-content-parity.mjs dist",
     "notify:seo-alerts": "node scripts/notify-seo-alerts.mjs",
-    "cf:edge:deploy": "npx wrangler deploy --config cloudflare/wrangler.toml"
+    "cf:edge:deploy": "npx wrangler deploy --config cloudflare/wrangler.toml",
+    "cf:edge:dry": "node scripts/cf-edge-dry.mjs",
+    "cf:edge:test": "node --test scripts/lib/edge-router.test.mjs",
+    "migration:cf:bulk:dry": "node scripts/publish-cloudflare-bulk-redirects.mjs --dry-run",
+    "migration:cf:bulk:test": "node --test scripts/lib/bulk-redirects.test.mjs",
+    "migration:cf:bulk:verify": "node scripts/publish-cloudflare-bulk-redirects.mjs --verify",
+    "migration:cf:bulk:publish": "node scripts/publish-cloudflare-bulk-redirects.mjs",
+    "migration:cf:bulk:rollback": "node scripts/publish-cloudflare-bulk-redirects.mjs --rollback"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

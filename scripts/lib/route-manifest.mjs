@@ -172,6 +172,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
       prerendered: prerendered.length,
       dynamicSlugs: dynamicSlugs.length,
       curated: CURATED_PATHS.length,
+      assetFiles: assetFiles.length,
       private: [...validExact].filter(isPrivate).length,
     },
     validExact: exactList,

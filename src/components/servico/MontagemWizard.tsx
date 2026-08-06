@@ -62,6 +62,13 @@ export const MontagemWizard = () => {
 
   const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
 
+  const janela = useMemo(() => {
+    const dia = diaPreferido
+      ? new Date(`${diaPreferido}T12:00:00`).toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" })
+      : "";
+    return [dia, periodo].filter(Boolean).join(" · ");
+  }, [diaPreferido, periodo]);
+
   const mensagem = useMemo(() => {
     return [
       "Olá! Quero montar/configurar um computador.",
@@ -74,12 +81,13 @@ export const MontagemWizard = () => {
       enviaFotos ? "• Vou enviar fotos das peças aqui pelo atendimento." : "",
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
+      janela ? `• Janela preferida: ${janela}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
       lgpd ? "• Autorizo o uso dos dados e arquivos enviados apenas para este atendimento (LGPD)." : "",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo, lgpd]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, janela, protocolo, lgpd]);
 
   // Campos obrigatórios pendentes no passo atual — usados para o destaque pulsante.
   const pendentes: string[] =

@@ -253,6 +253,28 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
+        {/* Alerta de risco vem antes das orientações gerais (regra do cluster de sintomas). */}
+        <section
+          id="nao-insistir"
+          role="alert"
+          className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6"
+        >
+          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
+            <AlertTriangle className="h-6 w-6 text-destructive" aria-hidden="true" /> Quando não insistir em ligar
+          </h2>
+          <p className="mb-4 text-muted-foreground">
+            Quando há líquido, cheiro incomum, aquecimento extremo, estalos ou bateria deformada, insistir em ligar
+            pode ampliar o dano. Desconecte a energia quando for seguro e solicite avaliação.
+          </p>
+          <ul className="space-y-2">
+            {NAO_INSISTIR.map((n) => (
+              <li key={n} className="text-muted-foreground">
+                • {n}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section id="testes" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Testes externos que você pode fazer com segurança</h2>
           <p className="mb-4 text-muted-foreground">

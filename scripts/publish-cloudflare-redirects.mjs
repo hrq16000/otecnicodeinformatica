@@ -1,3 +1,13 @@
+// [DEPRECATED — RODADA 2A.2] Publicador antigo (ruleset dinâmico de zona).
+// Bloqueado: 612 redirects não cabem em http_request_dynamic_redirect.
+// Use `npm run migration:cf:bulk:dry` / `migration:cf:bulk:publish`.
+// Código histórico preservado abaixo, mas inalcançável.
+console.error(
+  "BLOQUEADO: publicação bloqueada: 612 redirects devem usar Bulk Redirects " +
+    "(npm run migration:cf:bulk:dry). Este publicador está deprecated.",
+);
+process.exit(1);
+
 // RODADA 4B.2 — Publicador dos redirects no Cloudflare (ruleset dinâmico).
 // Aplica o ruleset gerado por scripts/export-redirects.mjs na zona do domínio
 // antigo, sempre com backup do ruleset anterior (rollback) e exigindo a frase

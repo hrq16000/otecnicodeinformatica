@@ -98,6 +98,29 @@ export function pathToRegex(routePath) {
 }
 
 /**
+ * Lista os arquivos estáticos realmente emitidos pelo build (exceto HTML de
+ * rota). É a única fonte de verdade de assets para o Worker: qualquer caminho
+ * com extensão fora desta lista vira 404 real.
+ */
+export async function readAssetFiles(distDir) {
+  const out = [];
+  async function walk(dir, prefix) {
+    let entries;
+    try {
+      entries = await fs.readdir(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      if (e.isDirectory()) await walk(path.join(dir, e.name), `${prefix}/${e.name}`);
+      else if (e.name !== "index.html") out.push(`${prefix}/${e.name}`);
+    }
+  }
+  await walk(distDir, "");
+  return out.sort();
+}
+
+/**
  * Constrói o manifesto consolidado.
  * @param {{root?: string, distDir?: string}} opts
  */
@@ -105,6 +128,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
   const routerPaths = await readRouterPaths(root);
   const redirects = await readRedirectMatrix(root);
   const prerendered = await readPrerenderedPaths(distDir);
+  const assetFiles = await readAssetFiles(distDir);
   // Slugs dinâmicos não pré-renderizados, extraídos das fontes reais de dados
   // (scripts/dump-dynamic-slugs.ts). Fecham /marcas/:slug, /problemas/:slug e
   // /procedimentos/:slug contra soft-404.
@@ -148,6 +172,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
       prerendered: prerendered.length,
       dynamicSlugs: dynamicSlugs.length,
       curated: CURATED_PATHS.length,
+      assetFiles: assetFiles.length,
       private: [...validExact].filter(isPrivate).length,
     },
     validExact: exactList,
@@ -156,6 +181,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
     redirects,
     privatePrefixes: PRIVATE_PREFIXES,
     assetPrefixes: ASSET_PREFIXES,
+    assetFiles,
     curated: [...CURATED_PATHS].sort(),
   };
 }

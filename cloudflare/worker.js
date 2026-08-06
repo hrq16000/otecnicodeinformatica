@@ -1,71 +1,63 @@
 /**
- * EDGE DE ROTEAMENTO — tecnico.curitiba.br
+ * WORKER DE BORDA — tecnico-curitiba-route-guard
  *
- * Corrige o fallback SPA da hospedagem: quando a origem devolve o index.html
- * para uma URL inexistente, o worker responde 404 REAL com dist/404.html.
- * Também aplica os aliases 301 do manifesto antes de chegar à origem.
+ * Zona: tecnico.curitiba.br (subzona própria). Não publica enquanto a origem
+ * for o placeholder LOVABLE_ORIGIN_NOT_CONFIGURED.
  *
- * Contrato (dist/route-manifest.json, importado em build time pelo wrangler):
- *   validExact      lista de rotas 200
- *   validPatterns   regex (string) de rotas dinâmicas válidas
- *   redirects       { from → to } com 301
- *   assetPrefixes   prefixos servidos diretamente (nunca 404 sintético)
+ * Responsabilidades (ordem em scripts/lib/edge-router.mjs):
+ *   1. host permitido        → demais hosts recusados
+ *   2. alias conhecido       → 301 de salto único, query preservada
+ *   3. asset emitido no build→ passa; asset inexistente → 404 (nunca HTML da home)
+ *   4. rota válida           → proxy para a origem Lovable (método/headers/body)
+ *   5. rota inexistente      → 404 real no edge, sem consultar a origem
  */
 import manifest from "../dist/route-manifest.json";
+import notFoundHtml from "../dist/404.html";
+import { compileManifest, decide, assertManifestSane, ORIGIN_PLACEHOLDER } from "../scripts/lib/edge-router.mjs";
 
-const exact = new Set(manifest.validExact ?? []);
-const patterns = (manifest.validPatterns ?? []).map((p) => new RegExp(p));
-const redirects = new Map(
-  Array.isArray(manifest.redirects)
-    ? manifest.redirects.map((r) => [r.from ?? r[0], r.to ?? r[1]])
-    : Object.entries(manifest.redirects ?? {}),
-);
-const assetPrefixes = manifest.assetPrefixes ?? ["/assets/", "/images/"];
+const compiled = compileManifest(manifest);
+const manifestProblems = assertManifestSane(compiled);
 
-const stripSlash = (p) => (p.length > 1 && p.endsWith("/") ? p.slice(0, -1) : p);
+const NOT_FOUND_HEADERS = {
+  "content-type": "text/html; charset=UTF-8",
+  "cache-control": "no-store",
+  "x-robots-tag": "noindex, nofollow",
+};
 
-function isValid(pathname) {
-  const p = stripSlash(pathname);
-  if (exact.has(p) || exact.has(`${p}/`) || p === "") return true;
-  return patterns.some((re) => re.test(p));
+function notFound(method) {
+  const body = method === "HEAD" ? null : notFoundHtml;
+  return new Response(body, { status: 404, headers: NOT_FOUND_HEADERS });
 }
 
-const isAsset = (p) => assetPrefixes.some((prefix) => p.startsWith(prefix)) || /\.[a-z0-9]{2,5}$/i.test(p);
-
 export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const pathname = stripSlash(url.pathname);
-
-    // 1. Aliases conhecidos → 301 preservando query string.
-    const target = redirects.get(pathname) ?? redirects.get(`${pathname}/`);
-    if (target) {
-      const to = new URL(target, url.origin);
-      to.search = url.search;
-      return Response.redirect(to.toString(), 301);
+  async fetch(request, env) {
+    if (manifestProblems.length) {
+      // Fail-safe: manifesto implausível não pode transformar o site em 404.
+      return new Response("edge desabilitado: manifesto inválido", { status: 503 });
     }
+    const origin = env?.LOVABLE_ORIGIN ?? ORIGIN_PLACEHOLDER;
+    const url = new URL(request.url);
+    const d = decide({ host: url.hostname, method: request.method, pathname: url.pathname, search: url.search }, compiled);
 
-    const response = await fetch(request);
-
-    // 2. Assets e respostas não-HTML seguem intactos.
-    if (isAsset(pathname)) return response;
-    const contentType = response.headers.get("content-type") ?? "";
-    if (!contentType.includes("text/html")) return response;
-
-    // 3. Rota desconhecida servida como 200 pela origem → 404 real.
-    if (response.status === 200 && !isValid(pathname)) {
-      const notFound = await fetch(new URL("/404.html", url.origin).toString());
-      const body = notFound.ok ? await notFound.text() : "<h1>Página não encontrada</h1>";
-      return new Response(body, {
-        status: 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store",
-          "x-robots-tag": "noindex, nofollow",
-        },
+    if (d.action === "reject") return new Response("host não atendido", { status: 421 });
+    if (d.action === "redirect") {
+      const location = new URL(d.location, url.origin).toString();
+      return new Response(null, {
+        status: 301,
+        headers: { location, "cache-control": "public, max-age=86400" },
       });
     }
+    if (d.action === "notfound") return notFound(request.method);
 
-    return response;
+    if (origin === ORIGIN_PLACEHOLDER) {
+      return new Response("origem não configurada", { status: 503 });
+    }
+
+    // Proxy transparente para a origem: preserva método, query, headers, cookies e body.
+    const target = new URL(url.pathname + url.search, `https://${origin}`);
+    const proxied = new Request(target.toString(), request);
+    proxied.headers.set("host", origin);
+    proxied.headers.set("x-forwarded-host", url.hostname);
+    return fetch(proxied);
   },
 };

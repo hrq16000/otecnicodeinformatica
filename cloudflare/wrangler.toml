@@ -1,26 +1,34 @@
-name = "tecnico-curitiba-edge"
+# tecnico-curitiba-route-guard — Worker de borda (NÃO PUBLICAR AINDA)
+#
+# Pré-requisitos antes de qualquer `wrangler deploy`:
+#   1. `tecnico.curitiba.br` adicionado MANUALMENTE como zona na Cloudflare
+#      (curitiba.br é domínio de registro e não pode ser zona do projeto).
+#   2. Origem real do Lovable configurada em LOVABLE_ORIGIN (CNAME fornecido
+#      ao ativar o modo avançado de proxy). Enquanto o valor for
+#      LOVABLE_ORIGIN_NOT_CONFIGURED o worker recusa servir a origem.
+#   3. Token B (Workers Scripts: Edit + Workers Routes: Edit + Zone: Read),
+#      distinto do Token A usado nos Bulk Redirects.
+#
+# Pré-voo somente leitura:
+#   npm run cf:edge:dry
+#   npm run check:cf-zone -- --enforce
+
+name = "tecnico-curitiba-route-guard"
 main = "worker.js"
 compatibility_date = "2026-01-01"
 
-# PRÉ-REQUISITO: `tecnico.curitiba.br` precisa estar em uma zona Cloudflare da
-# SUA conta. Como `curitiba.br` é um domínio de registro e não pode ser
-# adicionado como zona, use uma **zona de subdomínio** (Cloudflare > Add site >
-# `tecnico.curitiba.br`) e delegue os NS no painel do registro. Só então o
-# tráfego passa pelo edge e o worker consegue devolver 404 real.
-#
-# Antes de qualquer deploy rode o pré-voo (somente leitura):
-#   npm run check:cf-zone -- --enforce
-#   npx wrangler deploy --config cloudflare/wrangler.toml
-# Requer CLOUDFLARE_API_TOKEN (Workers Scripts: Edit + Workers Routes: Edit +
-# Zone: Read) e CLOUDFLARE_ACCOUNT_ID.
+[vars]
+# Placeholder bloqueante — substituir pelo CNAME real do Lovable no cutover.
+LOVABLE_ORIGIN = "LOVABLE_ORIGIN_NOT_CONFIGURED"
+
 [[routes]]
 pattern = "tecnico.curitiba.br/*"
 zone_name = "tecnico.curitiba.br"
 
-[[routes]]
-pattern = "www.tecnico.curitiba.br/*"
-zone_name = "tecnico.curitiba.br"
-
+# Habilitar somente quando o hostname www estiver realmente em uso.
+# [[routes]]
+# pattern = "www.tecnico.curitiba.br/*"
+# zone_name = "tecnico.curitiba.br"
 
 [build]
 command = "npm run build"

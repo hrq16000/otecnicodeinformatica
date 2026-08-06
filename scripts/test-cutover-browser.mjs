@@ -59,8 +59,10 @@ page.on("requestfailed", (r) => networkErrors.push(`${r.url().slice(0, 160)} :: 
 
 
 async function visit(path) {
+  currentPage = path;
+  requestsByPage.set(path, 0);
   const res = await page.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded", timeout: 45000 });
-  await page.waitForTimeout(1200);
+  await page.waitForTimeout(1500);
   return res;
 }
 
@@ -69,7 +71,7 @@ for (const p of PAGES) {
   const status = res?.status() ?? 0;
   const h1 = await page.locator("h1").first().innerText().catch(() => "");
   const ok = status === p.expect && h1.trim().length > 0;
-  results.push(`${ok ? "OK  " : "FALHA"} ${p.name.padEnd(14)} ${status} h1="${h1.slice(0, 60)}"`);
+  results.push(`${ok ? "OK  " : "FALHA"} ${p.name.padEnd(14)} ${status} h1="${h1.slice(0, 60)}" req=${requestsByPage.get(p.path)}`);
   if (!ok) fail.push(`${p.path}: status ${status}, h1 "${h1.slice(0, 60)}"`);
 }
 
@@ -78,25 +80,77 @@ const refresh = await visit("/servicos/formatacao");
 results.push(`${refresh?.status() === 200 ? "OK  " : "FALHA"} refresh        ${refresh?.status()}`);
 if (refresh?.status() !== 200) fail.push("refresh de rota profunda não retornou 200");
 
-// Triagem / funil WhatsApp presente e clicável
+// Assets críticos: JS, CSS e imagens carregados com MIME correto
 await visit("/");
-const cta = page.locator('a[href*="wa.me"], button:has-text("WhatsApp"), button:has-text("Agendar")').first();
+const assetAudit = await page.evaluate(async () => {
+  const urls = [
+    ...[...document.querySelectorAll("script[src]")].map((s) => s.src),
+    ...[...document.querySelectorAll('link[rel="stylesheet"]')].map((l) => l.href),
+    ...[...document.querySelectorAll("img[src]")].map((i) => i.src).slice(0, 3),
+  ].filter((u) => u.startsWith(location.origin));
+  const out = [];
+  for (const u of urls.slice(0, 12)) {
+    try {
+      const r = await fetch(u, { method: "GET" });
+      out.push({ u, status: r.status, type: r.headers.get("content-type") ?? "" });
+    } catch (e) {
+      out.push({ u, status: 0, type: String(e) });
+    }
+  }
+  return out;
+});
+const badAssets = assetAudit.filter(
+  (a) => a.status !== 200 || (/\.(js|css)(\?|$)/.test(a.u) && /text\/html/.test(a.type)),
+);
+results.push(`${badAssets.length === 0 ? "OK  " : "FALHA"} assets         auditados=${assetAudit.length} inválidos=${badAssets.length}`);
+for (const b of badAssets) fail.push(`asset inválido: ${b.u} (${b.status} ${b.type})`);
+
+// Triagem: CTA visível, modal abre e avança pelo menos um passo
+const cta = page.locator('button:has-text("Agendar"), button:has-text("WhatsApp"), a[href*="wa.me"]').first();
 const ctaOk = await cta.isVisible().catch(() => false);
-results.push(`${ctaOk ? "OK  " : "FALHA"} triagem/CTA    visível=${ctaOk}`);
+let triageOpened = false;
+let triageAdvanced = false;
+if (ctaOk) {
+  await cta.click({ timeout: 10000 }).catch(() => {});
+  await page.waitForTimeout(900);
+  triageOpened = await page.locator('[role="dialog"]').first().isVisible().catch(() => false);
+  if (triageOpened) {
+    const step = page.locator('[role="dialog"] button:visible').nth(1);
+    await step.click({ timeout: 5000 }).catch(() => {});
+    await page.waitForTimeout(700);
+    triageAdvanced = await page.locator('[role="dialog"]').first().isVisible().catch(() => false);
+  }
+}
+results.push(`${ctaOk && triageOpened ? "OK  " : "FALHA"} triagem        cta=${ctaOk} modal=${triageOpened} avanço=${triageAdvanced}`);
 if (!ctaOk) fail.push("nenhum CTA de triagem/WhatsApp visível na home");
+if (ctaOk && !triageOpened) fail.push("CTA de triagem não abriu o modal");
 
-// Assets: nenhum 404 em recursos da home
-const assetErrors = networkErrors.length;
-results.push(`${assetErrors === 0 ? "OK  " : "AVISO"} assets         falhas de rede=${assetErrors}`);
+// Falhas de rede acumuladas
+const netFail = networkErrors.length;
+results.push(`${netFail === 0 ? "OK  " : "FALHA"} rede           falhas=${netFail}`);
+if (netFail > 0) fail.push(`${netFail} falha(s) de rede durante a navegação`);
 
-// Alias → deve resolver (301 no edge após cutover; 200 hoje via SPA)
+// Erros críticos de console
+if (consoleErrors.length) fail.push(`${consoleErrors.length} erro(s) críticos de console`);
+results.push(`${consoleErrors.length === 0 ? "OK  " : "FALHA"} console        erros=${consoleErrors.length}`);
+
+// Alias → 301 de salto único contra o servidor de paridade / Worker
 const aliasRes = await visit(ALIAS);
-results.push(`INFO alias          ${ALIAS} → ${aliasRes?.status()} · url final ${page.url()}`);
+const aliasChain = aliasRes?.request().redirectedFrom() ? "com redirect" : "sem redirect";
+results.push(`INFO alias          ${ALIAS} → ${aliasRes?.status()} (${aliasChain}) · url final ${page.url()}`);
 
 // 404 real
 const nf = await visit(NOT_FOUND);
 const nfStatus = nf?.status();
-results.push(`${nfStatus === 404 ? "OK  " : "AVISO"} 404            ${NOT_FOUND} → ${nfStatus} (404 real só após Worker Route)`);
+const expect404 = /localhost|127\.0\.0\.1/.test(BASE); // paridade local já entrega 404 real
+results.push(`${nfStatus === 404 ? "OK  " : expect404 ? "FALHA" : "AVISO"} 404            ${NOT_FOUND} → ${nfStatus}`);
+if (expect404 && nfStatus !== 404) fail.push("servidor de paridade não retornou 404 real");
+
+// Média de requisições por página (insumo para o dimensionamento do Worker)
+const counts = [...requestsByPage.values()].filter((n) => n > 0);
+const avg = counts.length ? (counts.reduce((a, b) => a + b, 0) / counts.length).toFixed(1) : "0";
+results.push(`INFO requisições    média por página=${avg} (máx=${Math.max(0, ...counts)})`);
+
 
 await browser.close();
 

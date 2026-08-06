@@ -15,6 +15,7 @@ const SOURCES = {
   "/empresa-de-ti-curitiba": "src/pages/EmpresaDeTiCuritiba.tsx",
   "/faq": "src/pages/FAQ.tsx",
   "/problemas/notebook-nao-liga": "src/pages/problemas/NotebookNaoLiga.tsx",
+  "/problemas/computador-lento": "src/pages/problemas/ComputadorLento.tsx",
 };
 
 const PAIR =

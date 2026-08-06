@@ -93,6 +93,7 @@ export const SERVICO_BAIRRO = [
  */
 export const PROBLEMAS = [
   { path: "/problemas/notebook-nao-liga", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/computador-lento", changefreq: "monthly", priority: "0.6" },
 ];
 
 /**

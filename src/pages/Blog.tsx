@@ -50,9 +50,33 @@ const Blog = () => {
   // Fail-closed: hub permanece noindex enquanto não houver massa editorial aprovada.
   const noindex = approvedSlugs.length < MIN_APPROVED_TO_INDEX;
 
+  // Títulos/resumos reais dos artigos, carregados sob demanda (chunk pesado).
+  const [summaries, setSummaries] = useState<
+    Record<string, { title: string; excerpt: string }>
+  >({});
+
   useEffect(() => {
     trackPageView("/blog", "Blog - Hub editorial");
   }, []);
+
+  useEffect(() => {
+    if (!hasApproved) return;
+    let active = true;
+    import("@/data/blogPostsContent").then((mod) => {
+      if (!active) return;
+      const next: Record<string, { title: string; excerpt: string }> = {};
+      for (const slug of approvedSlugs) {
+        const post = mod.getBlogPost?.(slug);
+        if (post) next[slug] = { title: post.title, excerpt: post.excerpt };
+      }
+      setSummaries(next);
+    });
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasApproved]);
+
 
   return (
     <div className="min-h-screen bg-background">

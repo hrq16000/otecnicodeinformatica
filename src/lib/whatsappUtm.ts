@@ -7,7 +7,35 @@ import {
   campaignFromPath,
   normalizeTrackingLabel,
   normalizeUtmMedium,
+  routeTypeFromPath,
 } from '@/lib/trackingTaxonomy';
+import { geoSuggestion } from '@/lib/geoContext';
+import {
+  MODALIDADES,
+  REGRA_CANCELAMENTO,
+  TERMOS_URL,
+} from '@/lib/precosConfig';
+import { siteConfig } from '@/lib/siteConfig';
+
+// Bloco comercial padrão anexado a toda mensagem de WhatsApp: modalidade,
+// valor, condições e local (quando detectado). Fonte única: precosConfig.
+const CONDICOES_MARK = 'Modalidades e valores:';
+
+function buildCondicoesBlock(): string {
+  const linhas = MODALIDADES.map((m) => `• ${m.titulo}: ${m.valorLabel} (${m.unidade})`);
+  const local = geoSuggestion();
+  return [
+    CONDICOES_MARK,
+    ...linhas,
+    'Peças, componentes e licenças não inclusos.',
+    `Cancelamento: ${REGRA_CANCELAMENTO}`,
+    `Condições completas: ${siteConfig.baseUrl}${TERMOS_URL}`,
+    local ? `Local: ${local}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
 
 const WA_HOSTS = ["wa.me", "api.whatsapp.com"];
 

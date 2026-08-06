@@ -1,10 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Smartphone, Loader2, AlertTriangle, MessageCircle, RefreshCw, Clock } from "lucide-react";
+import {
+  Smartphone,
+  Loader2,
+  AlertTriangle,
+  MessageCircle,
+  RefreshCw,
+  Clock,
+  ShieldCheck,
+  FileDown,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "@/hooks/use-toast";
 import { track, trackWaClick } from "@/lib/funnelAnalytics";
+import { baixarPdfOs } from "@/lib/osPdf";
 import { whatsappLink } from "@/lib/siteConfig";
 
 export interface OsEtapaRemota {

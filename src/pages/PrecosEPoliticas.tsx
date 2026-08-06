@@ -13,6 +13,8 @@ import { PrecosServiceSchema } from "@/components/PrecosServiceSchema";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+
 import { PAGAMENTO, NOTA_FISCAL } from "@/lib/politicaComercial";
 
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -160,7 +162,42 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
                   </div>
                 ))}
               </div>
+
+              {/* Rodada 3P — CTA de triagem visível já no topo da página. */}
+              <div className="mt-7">
+                <Button asChild size="lg" className="min-h-14">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackCTAClick("whatsapp", "precos_hero")}
+                    data-cta-location="precos_hero"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" /> Iniciar atendimento no WhatsApp
+                  </a>
+                </Button>
+                <p className="mt-3 text-sm text-white/80">
+                  Diagnóstico a partir de R$ 99,99 • Valor aprovado antes de qualquer serviço
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Rodada 3P — sumário de navegação da página (sem novas URLs). */}
+        <section className="py-8 bg-background">
+          <div className="container mx-auto">
+            <PageTableOfContents
+              className="max-w-4xl mx-auto"
+              items={[
+                { id: "visita-tecnica", label: "Visita técnica e serviços rápidos" },
+                { id: "coleta-e-entrega", label: "Coleta e entrega de equipamentos" },
+                { id: "tabela-de-servicos", label: "Tabela completa de serviços" },
+                { id: "politicas-de-atendimento", label: "Políticas de atendimento" },
+                { id: "pagamento-e-nota-fiscal", label: "Pagamento e nota fiscal" },
+                { id: "termos", label: "Termos e condições" },
+              ]}
+            />
           </div>
         </section>
 
@@ -170,6 +207,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
             <PrecoModalidades className="max-w-4xl mx-auto" />
           </div>
         </section>
+
 
         {/* Link para Como Funciona */}
 
@@ -187,7 +225,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* VISITA TÉCNICA — Serviços Rápidos */}
-        <section className="py-8 md:py-10 bg-background relative overflow-hidden">
+        <section id="visita-tecnica" className="scroll-mt-24 py-8 md:py-10 bg-background relative overflow-hidden">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -245,7 +283,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* EXCEÇÃO — Coleta e Entrega */}
-        <section className="py-8 md:py-10 bg-background">
+        <section id="coleta-e-entrega" className="scroll-mt-24 py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -330,7 +368,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* Tabela Completa de Serviços */}
-        <section className="py-8 md:py-10 bg-background">
+        <section id="tabela-de-servicos" className="scroll-mt-24 py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
@@ -384,7 +422,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
         </section>
 
         {/* Políticas */}
-        <section className="py-8 md:py-10 bg-secondary relative overflow-hidden">
+        <section id="politicas-de-atendimento" className="scroll-mt-24 py-8 md:py-10 bg-secondary relative overflow-hidden">
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">

@@ -9,6 +9,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -45,6 +46,10 @@ export interface ServicoLandingData {
   precoNota?: string;
   /** Bloco extra opcional renderizado antes da FAQ */
   extra?: ReactNode;
+  /** Rodada 3P (piloto visual) — resumo objetivo exibido logo abaixo do hero */
+  resumo?: { label: string; value: string }[];
+  /** Rodada 3P (piloto visual) — sumário "Nesta página" */
+  toc?: { id: string; label: string }[];
   /** Conteúdo local aprofundado (H2 + parágrafos) para reforço de SEO local */
   blocoLocal?: { titulo: string; paragrafos: string[] }[];
   /** Links internos contextuais para bairros/cidades e problemas próximos */
@@ -134,8 +139,34 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         </div>
       </section>
 
+      {/* Rodada 3P — piloto visual: resumo objetivo + sumário da página. */}
+      {(data.resumo?.length || data.toc?.length) && (
+        <section className="border-b border-border bg-secondary py-8">
+          <div className="container mx-auto grid gap-5 px-4 lg:grid-cols-2">
+            {data.resumo && data.resumo.length > 0 && (
+              <div className="rounded-xl border border-border bg-card p-5">
+                <p className="mb-3 text-sm font-bold uppercase tracking-wide text-muted-foreground">
+                  Resumo do serviço
+                </p>
+                <dl className="grid gap-3 sm:grid-cols-2">
+                  {data.resumo.map((item) => (
+                    <div key={item.label}>
+                      <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        {item.label}
+                      </dt>
+                      <dd className="text-sm font-medium text-foreground">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+            {data.toc && data.toc.length > 0 && <PageTableOfContents items={data.toc} />}
+          </div>
+        </section>
+      )}
+
       {/* O que está incluso */}
-      <section className="py-14 md:py-16 bg-background">
+      <section id="incluso" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             O que está incluso
@@ -158,7 +189,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       </section>
 
       {/* Sinais de que você precisa do serviço */}
-      <section className="py-14 md:py-16 bg-secondary">
+      <section id="quando-chamar" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Quando faz sentido chamar o técnico
@@ -178,7 +209,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       </section>
 
       {/* Como funciona */}
-      <section className="py-14 md:py-16 bg-background">
+      <section id="como-funciona" className="scroll-mt-24 py-14 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Como funciona
@@ -199,7 +230,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
       {/* O que pode influenciar o valor */}
       {data.fatoresValor && data.fatoresValor.length > 0 && (
-        <section className="py-14 md:py-16 bg-secondary">
+        <section id="fatores-valor" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
               O que pode influenciar o valor
@@ -272,7 +303,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
 
       {/* FAQ */}
-      <section className="py-14 md:py-16 bg-secondary">
+      <section id="faq" className="scroll-mt-24 py-14 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
             Perguntas frequentes

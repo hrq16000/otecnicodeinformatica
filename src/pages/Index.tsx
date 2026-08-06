@@ -3,6 +3,8 @@ import { upsertCanonical } from "@/lib/canonicalUrl";
 import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroPremium } from "@/components/home/HeroPremium";
+import { TrustStrip } from "@/components/TrustStrip";
+
 import { LazyOnVisible } from "@/components/LazyOnVisible";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -41,6 +43,8 @@ const Index = () => {
       <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       <main>
         <HeroPremium />
+        <TrustStrip />
+
 
         <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">
           <Suspense fallback={<SectionFallback height="900px" />}>

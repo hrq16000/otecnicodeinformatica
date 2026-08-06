@@ -6,6 +6,8 @@ import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
+import { siteConfig } from "@/lib/siteConfig";
+
 
 /**
  * Página de serviço essencial (data-driven). Recebe o slug canônico e
@@ -40,7 +42,29 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       </>
     ) : undefined;
 
-  return <ServicoLandingLayout data={{ ...data, extra }} />;
+  // Rodada 3P — piloto visual de serviço (apenas manutenção de notebook).
+  // Não propagar para os demais slugs nesta rodada.
+  const piloto =
+    slug === "manutencao-de-notebook"
+      ? {
+          resumo: [
+            { label: "Atendimento", value: "Domicílio, coleta e entrega ou remoto" },
+            { label: "Região", value: "Curitiba e Região Metropolitana" },
+            { label: "Diagnóstico", value: `A partir de ${siteConfig.minPriceLabel}` },
+            { label: "Aprovação", value: "Valor informado antes de qualquer reparo" },
+          ],
+          toc: [
+            { id: "incluso", label: "O que está incluso" },
+            { id: "quando-chamar", label: "Quando chamar o técnico" },
+            { id: "como-funciona", label: "Como funciona o atendimento" },
+            { id: "fatores-valor", label: "O que influencia o valor" },
+            { id: "faq", label: "Perguntas frequentes" },
+          ],
+        }
+      : {};
+
+  return <ServicoLandingLayout data={{ ...data, ...piloto, extra }} />;
 };
+
 
 export default ServicoCore;

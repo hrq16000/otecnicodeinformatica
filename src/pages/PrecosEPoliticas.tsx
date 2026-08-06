@@ -12,6 +12,8 @@ import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { PrecosServiceSchema } from "@/components/PrecosServiceSchema";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { TermosConteudo } from "@/components/TermosConteudo";
+import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
+import { PAGAMENTO, NOTA_FISCAL } from "@/lib/politicaComercial";
 
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { 

@@ -31,6 +31,11 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Quando vale trocar o HD por SSD",
       hint: "Critérios técnicos para decidir entre manter o disco atual ou migrar para SSD.",
     },
+    {
+      slug: "como-escolher-uma-workstation",
+      label: "Como escolher uma workstation profissional",
+      hint: "Quando dimensionar uma máquina nova em vez de melhorar a atual.",
+    },
   ],
   "/servicos/remocao-de-virus": [
     {

@@ -29,7 +29,7 @@ const NOT_FOUND = "/rota-inexistente-cutover-gate";
 const results = [];
 const fail = [];
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: process.env.CUTOVER_CHANNEL ?? "chromium" });
 const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await context.newPage();
 

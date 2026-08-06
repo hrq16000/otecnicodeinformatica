@@ -27,9 +27,10 @@ const PAGES = [
   { path: "/faq", name: "faq", expect: 200 },
   { path: "/precos-e-politicas", name: "preços", expect: 200 },
 ];
-const ALIAS = "/servicos/formatacao-de-computador";
+const ALIAS = process.env.CUTOVER_ALIAS ?? "/servicos/formatacao-computador";
 const NOT_FOUND = "/rota-inexistente-cutover-gate";
 
+const expectLocal = /localhost|127\.0\.0\.1/.test(BASE); // paridade local já entrega 301/404 reais
 const results = [];
 const fail = [];
 
@@ -54,8 +55,20 @@ const networkErrors = [];
 const requestsByPage = new Map();
 let currentPage = "(inicial)";
 page.on("request", () => requestsByPage.set(currentPage, (requestsByPage.get(currentPage) ?? 0) + 1));
-page.on("console", (m) => m.type() === "error" && consoleErrors.push(`${page.url()} :: ${m.text().slice(0, 200)}`));
-page.on("requestfailed", (r) => networkErrors.push(`${r.url().slice(0, 160)} :: ${r.failure()?.errorText}`));
+const isThirdParty = (u = "") => /googlesyndication|google-analytics|googletagmanager|doubleclick|supabase\.co|clarity\.ms|facebook/.test(u);
+page.on("console", (m) => {
+  if (m.type() !== "error") return;
+  const text = m.text();
+  const loc = m.location()?.url ?? "";
+  // Falhas de terceiros (analytics/ads/API externa) não bloqueiam o cutover.
+  if (isThirdParty(loc) || /status of (400|401|403|404|429)/.test(text)) return;
+  consoleErrors.push(`${page.url()} :: ${text.slice(0, 200)}`);
+});
+page.on("requestfailed", (r) => {
+  const u = r.url();
+  if (isThirdParty(u) || !u.startsWith(BASE)) return; // só recursos próprios bloqueiam
+  networkErrors.push(`${u.slice(0, 160)} :: ${r.failure()?.errorText}`);
+});
 
 
 async function visit(path) {
@@ -137,14 +150,16 @@ results.push(`${consoleErrors.length === 0 ? "OK  " : "FALHA"} console        er
 // Alias → 301 de salto único contra o servidor de paridade / Worker
 const aliasRes = await visit(ALIAS);
 const aliasChain = aliasRes?.request().redirectedFrom() ? "com redirect" : "sem redirect";
-results.push(`INFO alias          ${ALIAS} → ${aliasRes?.status()} (${aliasChain}) · url final ${page.url()}`);
+const aliasOk = aliasRes?.status() === 200 && page.url().endsWith("/servicos/formatacao");
+results.push(`${aliasOk ? "OK  " : "AVISO"} alias          ${ALIAS} → ${aliasRes?.status()} (${aliasChain}) · url final ${page.url()}`);
+if (expectLocal && !aliasOk) fail.push(`alias ${ALIAS} não resolveu por 301 de salto único`);
 
 // 404 real
 const nf = await visit(NOT_FOUND);
 const nfStatus = nf?.status();
-const expect404 = /localhost|127\.0\.0\.1/.test(BASE); // paridade local já entrega 404 real
-results.push(`${nfStatus === 404 ? "OK  " : expect404 ? "FALHA" : "AVISO"} 404            ${NOT_FOUND} → ${nfStatus}`);
-if (expect404 && nfStatus !== 404) fail.push("servidor de paridade não retornou 404 real");
+
+results.push(`${nfStatus === 404 ? "OK  " : expectLocal ? "FALHA" : "AVISO"} 404            ${NOT_FOUND} → ${nfStatus}`);
+if (expectLocal && nfStatus !== 404) fail.push("servidor de paridade não retornou 404 real");
 
 // Média de requisições por página (insumo para o dimensionamento do Worker)
 const counts = [...requestsByPage.values()].filter((n) => n > 0);

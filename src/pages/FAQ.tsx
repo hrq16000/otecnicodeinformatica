@@ -174,7 +174,18 @@ const FAQ = () => {
                   <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 reveal-text">
                     {category.category}
                   </h2>
-                  <Accordion type="single" collapsible className="space-y-3">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="space-y-3"
+                    onValueChange={(value) => {
+                      if (!value) return;
+                      const qIdx = Number(value.split("-")[1]);
+                      const q = category.questions[qIdx];
+                      if (q) trackFaqToggle(q.question, "open", `faq_${category.category}`, qIdx);
+                    }}
+                  >
+
                     {category.questions.map((item, qIndex) => (
                       <AccordionItem
                         key={qIndex}

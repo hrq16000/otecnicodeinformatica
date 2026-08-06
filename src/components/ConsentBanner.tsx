@@ -34,33 +34,35 @@ export const ConsentBanner = () => {
   if (!open) return null;
 
   return (
+    // Rodada 3P — banner compacto ancorado à esquerda: não cobre o CTA
+    // principal nem o botão flutuante de WhatsApp (canto inferior direito).
     <div
       role="dialog"
       aria-label="Aviso de privacidade e cookies"
       style={{
         position: "fixed",
         zIndex: 9999,
-        left: "50%",
-        bottom: "16px",
-        transform: "translateX(-50%)",
-        width: "min(640px, calc(100vw - 24px))",
+        left: "12px",
+        right: "auto",
+        bottom: "calc(12px + env(safe-area-inset-bottom, 0px))",
+        width: "min(360px, calc(100vw - 96px))",
         background: "rgba(15,23,42,0.96)",
         color: "#fff",
-        borderRadius: "14px",
-        padding: "14px 16px",
-        boxShadow: "0 18px 38px rgba(0,0,0,.35)",
+        borderRadius: "12px",
+        padding: "12px 14px",
+        boxShadow: "0 14px 30px rgba(0,0,0,.35)",
         border: "1px solid rgba(255,255,255,.12)",
         backdropFilter: "blur(10px)",
         fontFamily: "Inter, system-ui, sans-serif",
-        fontSize: "14px",
-        lineHeight: 1.45,
+        fontSize: "13px",
+        lineHeight: 1.4,
       }}
     >
       <p style={{ margin: 0, marginBottom: 10 }}>
-        Usamos cookies para medir audiência e melhorar sua experiência. Você pode aceitar ou recusar.
-        Veja nossos <a href="/termos-e-condicoes" style={{ color: "#fdba74", textDecoration: "underline" }}>Termos</a>.
+        Usamos cookies para medir audiência.{" "}
+        <a href="/termos-e-condicoes" style={{ color: "#fdba74", textDecoration: "underline" }}>Saiba mais</a>.
       </p>
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         <button
           type="button"
           onClick={() => decide(false)}

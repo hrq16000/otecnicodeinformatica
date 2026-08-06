@@ -18,7 +18,7 @@ export const ChecklistPdfCard = ({ checklist }: { checklist: DiagnosticoChecklis
   const handleDownload = async () => {
     setBusy(true);
     try {
-      trackCTAClick("download", `checklist-pdf-${checklist.slug}`);
+      trackCTAClick("chatbot", `checklist-pdf-${checklist.slug}`);
       await downloadChecklistPdf(checklist);
       toast({
         title: "Checklist gerado",

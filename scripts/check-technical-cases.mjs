@@ -17,7 +17,7 @@
  * Uso: node scripts/check-technical-cases.mjs
  */
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
-import { join, extname } from "node:path";
+import { join, extname, sep } from "node:path";
 
 const ROOT = process.cwd();
 const LIB = join(ROOT, "src/lib/technicalCases.ts");

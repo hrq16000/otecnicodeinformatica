@@ -147,7 +147,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
                 </div>
                 <div className="min-w-0">
                   <p className="font-semibold text-foreground group-hover:text-accent transition-colors">{s}</p>
-                  <p className="text-xs text-muted-foreground">solicitar atendimento →</p>
+                  <p className="text-xs text-muted-foreground">ver detalhes e agendar →</p>
                 </div>
               </a>
             ))}
@@ -286,7 +286,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
         <PageHero
           title={`${category.emoji} ${category.titlePrefix} em Curitiba e RMC`}
           subtitle={`Cobertura completa para ${category.nome.toLowerCase()}: coleta e entrega em toda a Região Metropolitana, diagnóstico incluso e garantia escrita.`}
-          ctaText="solicitar atendimento no WhatsApp"
+          ctaText="Iniciar triagem no WhatsApp"
         />
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-2">

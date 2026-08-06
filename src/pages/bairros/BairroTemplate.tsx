@@ -302,7 +302,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                         <Button variant="whatsapp" className="w-full hover:scale-[1.02] transition-transform" asChild onClick={handleWhatsAppClick}>
                           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                             <MessageCircle className="h-5 w-5" />
-                            Solicitar atendimento
+                            Agendar atendimento no bairro
                           </a>
                         </Button>
                       </div>

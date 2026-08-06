@@ -140,7 +140,7 @@ export const CitiesSection = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:text-accent hover:gap-2.5 transition-all duration-200 underline-grow"
                 >
-                  Solicitar atendimento em {city.name}
+                  Falar com técnico em {city.name}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               )}

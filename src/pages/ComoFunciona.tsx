@@ -773,15 +773,15 @@ const regioes = [
 ];
 
 const servicos = [
-  { icon: Monitor, title: "Formatação de Computador", desc: "Windows + drivers + programas essenciais", link: "/servicos/formatacao-computador" },
-  { icon: ShieldCheck, title: "Remoção de Vírus", desc: "Limpeza completa de malwares e proteção", link: "/servicos/remocao-virus" },
-  { icon: HardDrive, title: "Upgrade SSD e Memória", desc: "Deixe seu computador até 10x mais rápido", link: "/servicos/upgrade-ssd-memoria" },
-  { icon: Wrench, title: "Conserto de PC e Notebook", desc: "Reparo de hardware e software", link: "/servicos/conserto-pc-notebook" },
-  { icon: Wifi, title: "Redes e Wi-Fi", desc: "Instalação e configuração de redes", link: "/servicos/redes-wifi" },
-  { icon: Database, title: "Backup e Recuperação", desc: "Proteção e recuperação de dados", link: "/servicos/backup-recuperacao" },
+  { icon: Monitor, title: "Formatação de Computador", desc: "Windows + drivers + programas essenciais", link: "/servicos/formatacao" },
+  { icon: ShieldCheck, title: "Remoção de Vírus", desc: "Limpeza completa de malwares e proteção", link: "/servicos/remocao-de-virus" },
+  { icon: HardDrive, title: "Upgrade SSD e Memória", desc: "Deixe seu computador até 10x mais rápido", link: "/servicos/upgrade-ssd-ram" },
+  { icon: Wrench, title: "Conserto de PC e Notebook", desc: "Reparo de hardware e software", link: "/servicos/manutencao-de-computador" },
+  { icon: Wifi, title: "Redes e Wi-Fi", desc: "Instalação e configuração de redes", link: "/servicos/redes-e-wifi" },
+  { icon: Database, title: "Backup e Recuperação", desc: "Proteção e recuperação de dados", link: "/servicos/recuperacao-de-dados" },
   { icon: Headphones, title: "Suporte Remoto", desc: "Atendimento online sem visita técnica", link: "/atendimento-remoto" },
   { icon: Zap, title: "Montagem de PC", desc: "PCs personalizados para trabalho ou jogos", link: "/servicos/montagem-pc" },
-  { icon: Users, title: "Suporte para Empresas", desc: "Planos de TI para sua empresa", link: "/suporte-empresas" },
+  { icon: Users, title: "Suporte para Empresas", desc: "Planos de TI para sua empresa", link: "/servicos/suporte-tecnico-empresarial" },
 ];
 
 const confiancaItems = [

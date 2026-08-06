@@ -11,10 +11,10 @@ interface SearchItem {
 
 const searchData: SearchItem[] = [
   // Serviços
-  { title: "Formatação de Computador", path: "/servicos/formatacao-computador", category: "servico", keywords: ["formatar", "windows", "reinstalar", "lento", "formatação"] },
-  { title: "Remoção de Vírus", path: "/servicos/remocao-virus", category: "servico", keywords: ["virus", "malware", "trojan", "infectado", "lento", "popup"] },
-  { title: "Upgrade SSD e Memória RAM", path: "/servicos/upgrade-ssd-memoria", category: "servico", keywords: ["ssd", "ram", "memória", "lento", "upgrade", "hd"] },
-  { title: "Conserto de PC e Notebook", path: "/servicos/conserto-pc-notebook", category: "servico", keywords: ["conserto", "notebook", "pc", "desktop", "não liga", "quebrado"] },
+  { title: "Formatação de Computador", path: "/servicos/formatacao", category: "servico", keywords: ["formatar", "windows", "reinstalar", "lento", "formatação"] },
+  { title: "Remoção de Vírus", path: "/servicos/remocao-de-virus", category: "servico", keywords: ["virus", "malware", "trojan", "infectado", "lento", "popup"] },
+  { title: "Upgrade SSD e Memória RAM", path: "/servicos/upgrade-ssd-ram", category: "servico", keywords: ["ssd", "ram", "memória", "lento", "upgrade", "hd"] },
+  { title: "Conserto de PC e Notebook", path: "/servicos/manutencao-de-computador", category: "servico", keywords: ["conserto", "notebook", "pc", "desktop", "não liga", "quebrado"] },
   { title: "Computador Lento", path: "/servicos/computador-lento", category: "servico", keywords: ["lento", "travando", "demora", "devagar"] },
   { title: "Computador Não Liga", path: "/servicos/computador-nao-liga", category: "servico", keywords: ["não liga", "desligado", "morto", "tela preta"] },
   { title: "Conserto de TV", path: "/servicos/conserto-tv", category: "servico", keywords: ["tv", "televisão", "tela", "lcd", "led", "smart tv", "não liga"] },
@@ -22,8 +22,8 @@ const searchData: SearchItem[] = [
   { title: "Manutenção de TV", path: "/servicos/manutencao-tv", category: "servico", keywords: ["tv", "manutenção", "televisão"] },
   { title: "Conserto de Placa", path: "/servicos/conserto-placa", category: "servico", keywords: ["placa", "mãe", "placa-mãe", "componente"] },
   { title: "Montagem de PC", path: "/servicos/montagem-pc", category: "servico", keywords: ["montar", "montagem", "pc gamer", "desktop", "personalizado"] },
-  { title: "Redes e Wi-Fi", path: "/servicos/redes-wifi", category: "servico", keywords: ["wifi", "wi-fi", "rede", "internet", "roteador", "cabo", "sem sinal"] },
-  { title: "Backup e Recuperação de Dados", path: "/servicos/backup-recuperacao", category: "servico", keywords: ["backup", "dados", "recuperar", "arquivo", "perdido", "hd"] },
+  { title: "Redes e Wi-Fi", path: "/servicos/redes-e-wifi", category: "servico", keywords: ["wifi", "wi-fi", "rede", "internet", "roteador", "cabo", "sem sinal"] },
+  { title: "Backup e Recuperação de Dados", path: "/servicos/recuperacao-de-dados", category: "servico", keywords: ["backup", "dados", "recuperar", "arquivo", "perdido", "hd"] },
   { title: "CFTV / Câmeras de Segurança", path: "/cftv", category: "servico", keywords: ["câmera", "cftv", "segurança", "vigilância", "monitoramento"] },
 
   // Cidades
@@ -154,7 +154,7 @@ const searchData: SearchItem[] = [
   { title: "Atendimento a Domicílio", path: "/atendimento-domicilio", category: "pagina", keywords: ["domicílio", "casa", "residência", "visita"] },
   { title: "Coleta e Entrega", path: "/coleta-e-entrega", category: "pagina", keywords: ["coleta", "entrega", "buscar", "levar"] },
   { title: "Atendimento Remoto", path: "/atendimento-remoto", category: "pagina", keywords: ["remoto", "online", "distância", "teamviewer"] },
-  { title: "Suporte para Empresas", path: "/suporte-empresas", category: "pagina", keywords: ["empresa", "corporativo", "contrato", "mensal"] },
+  { title: "Suporte para Empresas", path: "/servicos/suporte-tecnico-empresarial", category: "pagina", keywords: ["empresa", "corporativo", "contrato", "mensal"] },
   { title: "Blog", path: "/blog", category: "pagina", keywords: ["blog", "artigo", "dicas", "tutorial"] },
   { title: "FAQ – Perguntas Frequentes", path: "/faq", category: "pagina", keywords: ["faq", "pergunta", "dúvida", "ajuda"] },
   { title: "Sobre Nós", path: "/sobre", category: "pagina", keywords: ["sobre", "quem somos", "história"] },

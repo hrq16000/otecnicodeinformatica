@@ -11,16 +11,16 @@ interface ServiceLink {
 }
 
 const allServices: ServiceLink[] = [
-  { title: "Formatação de Computador", url: "/servicos/formatacao-computador", icon: Monitor, location: "Centro de Curitiba" },
-  { title: "Conserto de Notebook", url: "/servicos/conserto-pc-notebook", icon: Wrench, location: "Batel" },
-  { title: "Remoção de Vírus", url: "/servicos/remocao-virus", icon: Shield, location: "Água Verde" },
-  { title: "Upgrade SSD e Memória", url: "/servicos/upgrade-ssd-memoria", icon: HardDrive, location: "São José dos Pinhais" },
-  { title: "Configuração de Redes", url: "/servicos/redes-wifi", icon: Wifi, location: "CIC" },
-  { title: "Suporte para Empresas", url: "/suporte-empresas", icon: Server, location: "Santa Felicidade" },
+  { title: "Formatação de Computador", url: "/servicos/formatacao", icon: Monitor, location: "Centro de Curitiba" },
+  { title: "Conserto de Notebook", url: "/servicos/manutencao-de-computador", icon: Wrench, location: "Batel" },
+  { title: "Remoção de Vírus", url: "/servicos/remocao-de-virus", icon: Shield, location: "Água Verde" },
+  { title: "Upgrade SSD e Memória", url: "/servicos/upgrade-ssd-ram", icon: HardDrive, location: "São José dos Pinhais" },
+  { title: "Configuração de Redes", url: "/servicos/redes-e-wifi", icon: Wifi, location: "CIC" },
+  { title: "Suporte para Empresas", url: "/servicos/suporte-tecnico-empresarial", icon: Server, location: "Santa Felicidade" },
   { title: "Montagem de PC", url: "/servicos/montagem-pc", icon: Cpu, location: "Portão" },
   { title: "Conserto de TV", url: "/servicos/conserto-tv", icon: Tv, location: "Pinhais" },
   { title: "Conserto de Celular", url: "/servicos/conserto-celular", icon: Smartphone, location: "Araucária" },
-  { title: "Backup e Recuperação", url: "/servicos/backup-recuperacao", icon: Database, location: "Campo Largo" },
+  { title: "Backup e Recuperação", url: "/servicos/recuperacao-de-dados", icon: Database, location: "Campo Largo" },
   { title: "Computador Lento", url: "/servicos/computador-lento", icon: Zap, location: "Colombo" },
   { title: "Computador Não Liga", url: "/servicos/computador-nao-liga", icon: Monitor, location: "Xaxim" },
 ];

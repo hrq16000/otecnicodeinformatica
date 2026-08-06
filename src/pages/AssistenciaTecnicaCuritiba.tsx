@@ -37,9 +37,9 @@ const onWa = (location: string) => () => trackCTAClick("whatsapp", `atc_${locati
 
 const internalLinks = [
   { to: "/servicos", label: "Todos os Serviços" },
-  { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+  { to: "/servicos/manutencao-de-computador", label: "Conserto de PC e Notebook" },
   { to: "/servicos/conserto-placa", label: "Conserto de Placa-mãe" },
-  { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+  { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD e Memória" },
   { to: "/servicos/conserto-celular", label: "Conserto de Celular" },
   { to: "/servicos/conserto-tv", label: "Conserto de TV" },
   { to: "/tecnico-informatica-curitiba", label: "Técnico de Informática Curitiba" },

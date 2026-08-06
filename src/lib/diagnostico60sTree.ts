@@ -67,7 +67,7 @@ export const EQUIPMENTS: Equipment[] = [
                 waMessage: wa(
                   "meu notebook não liga e nenhum LED acende — diagnóstico aponta fonte ou placa-mãe.",
                 ),
-                relatedHref: "/servicos/conserto-pc-notebook",
+                relatedHref: "/servicos/manutencao-de-computador",
                 relatedLabel: "Conserto de notebook em Curitiba",
               },
               {
@@ -79,7 +79,7 @@ export const EQUIPMENTS: Equipment[] = [
                 waMessage: wa(
                   "meu notebook liga (LED acende) mas a tela continua preta — pode ser RAM, vídeo ou BIOS.",
                 ),
-                relatedHref: "/servicos/conserto-pc-notebook",
+                relatedHref: "/servicos/manutencao-de-computador",
                 relatedLabel: "Conserto de notebook em Curitiba",
               },
             ],
@@ -101,7 +101,7 @@ export const EQUIPMENTS: Equipment[] = [
                 waMessage: wa(
                   "meu notebook está muito lento e nunca foi formatado — quero agendar atendimento de SSD + RAM + formatação.",
                 ),
-                relatedHref: "/servicos/upgrade-ssd-memoria",
+                relatedHref: "/servicos/upgrade-ssd-ram",
                 relatedLabel: "Upgrade SSD + RAM em Curitiba",
               },
               {
@@ -113,7 +113,7 @@ export const EQUIPMENTS: Equipment[] = [
                 waMessage: wa(
                   "meu notebook ficou lento de repente — suspeito de vírus ou HD com problema.",
                 ),
-                relatedHref: "/servicos/remocao-virus",
+                relatedHref: "/servicos/remocao-de-virus",
                 relatedLabel: "Remoção de vírus em Curitiba",
               },
             ],
@@ -128,7 +128,7 @@ export const EQUIPMENTS: Equipment[] = [
           waMessage: wa(
             "meu PC dá tela azul e reinicia sozinho — quero diagnóstico de RAM, temperatura e drivers.",
           ),
-          relatedHref: "/servicos/conserto-pc-notebook",
+          relatedHref: "/servicos/manutencao-de-computador",
           relatedLabel: "Conserto de PC/notebook",
         },
         {
@@ -140,7 +140,7 @@ export const EQUIPMENTS: Equipment[] = [
           waMessage: wa(
             "meu notebook esquenta muito e faz barulho — quero limpeza interna e troca de pasta térmica.",
           ),
-          relatedHref: "/servicos/conserto-pc-notebook",
+          relatedHref: "/servicos/manutencao-de-computador",
           relatedLabel: "Limpeza interna em Curitiba",
         },
         {
@@ -152,7 +152,7 @@ export const EQUIPMENTS: Equipment[] = [
           waMessage: wa(
             "meu notebook está sem internet/Wi-Fi — preciso de diagnóstico de rede.",
           ),
-          relatedHref: "/servicos/redes-wifi",
+          relatedHref: "/servicos/redes-e-wifi",
           relatedLabel: "Redes e Wi-Fi em Curitiba",
         },
       ],
@@ -316,7 +316,7 @@ export const EQUIPMENTS: Equipment[] = [
           advice:
             "Teste cabeado direto no modem. Se cabo é estável, é o Wi-Fi do roteador (troca ou mesh).",
           waMessage: wa("minha internet cai toda hora — quero diagnóstico de rede."),
-          relatedHref: "/servicos/redes-wifi",
+          relatedHref: "/servicos/redes-e-wifi",
           relatedLabel: "Redes e Wi-Fi",
         },
         {
@@ -326,7 +326,7 @@ export const EQUIPMENTS: Equipment[] = [
           advice:
             "Sistema mesh (2–3 pontos) resolve casas/comércios médios. Faço projeto + instalação em Curitiba.",
           waMessage: wa("meu Wi-Fi não pega em alguns cômodos — quero agendar atendimento de mesh."),
-          relatedHref: "/servicos/redes-wifi",
+          relatedHref: "/servicos/redes-e-wifi",
           relatedLabel: "Instalação de mesh em Curitiba",
         },
       ],

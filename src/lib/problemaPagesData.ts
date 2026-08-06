@@ -107,7 +107,7 @@ Existe um valor mínimo pré-aprovado: se o reparo estiver dentro desse limite, 
       ...RELATED_BASE,
       { label: "Computador Liga e Desliga", to: "/problemas/computador-liga-e-desliga-curitiba" },
       { label: "Computador Sem Vídeo", to: "/problemas/computador-sem-video-curitiba" },
-      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto PC/Notebook", to: "/servicos/manutencao-de-computador" },
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
       { label: "Quando Não Compensa", to: "/quando-nao-compensa" },
@@ -187,7 +187,7 @@ Para superaquecimento: limpeza profunda + troca de pasta térmica. Para fonte: s
       ...RELATED_BASE,
       { label: "PC Superaquecendo", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" },
-      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto PC/Notebook", to: "/servicos/manutencao-de-computador" },
     ],
     conteudoExtra: `### Por Que o Computador Desliga Sozinho?
 
@@ -253,9 +253,9 @@ Sempre apresentamos as opções e deixamos o cliente decidir. Não forçamos upg
     whatsappMessage: "Olá! Meu computador está muito lento. Podem me ajudar com diagnóstico?",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" },
-      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Remoção de Vírus", to: "/servicos/remocao-de-virus" },
+      { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" },
     ],
     conteudoExtra: `### A Solução Mais Eficiente: SSD
@@ -319,8 +319,8 @@ Nesta página, explicamos os tipos de travamento, suas causas reais e quando é 
     relatedPages: [
       ...RELATED_BASE,
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
-      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
-      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Remoção de Vírus", to: "/servicos/remocao-de-virus" },
     ],
     conteudoExtra: `### Travamento vs Lentidão
 
@@ -590,7 +590,7 @@ Nesta página, explicamos os tipos de barulho, o que cada um significa e quando 
       ...RELATED_BASE,
       { label: "Superaquecendo", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "HD Não Reconhece", to: "/problemas/pc-nao-reconhece-hd-curitiba" },
-      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "Backup e Recuperação", to: "/servicos/recuperacao-de-dados" },
     ],
     conteudoExtra: `### URGENTE: Se o HD Está Clicando
 
@@ -635,8 +635,8 @@ As causas vão desde cabo SATA solto (2 minutos para resolver) até falha eletr�
     whatsappMessage: "Olá! Meu computador não reconhece o HD/SSD. Podem me ajudar?",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
-      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Backup e Recuperação", to: "/servicos/recuperacao-de-dados" },
+      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" },
       { label: "Barulho Estranho", to: "/problemas/pc-com-barulho-estranho-curitiba" },
     ],
     conteudoExtra: `### Seus Dados Podem Estar Salvos
@@ -692,7 +692,7 @@ Atendemos notebooks de todas as marcas (Dell, Lenovo, HP, Acer, Asus, Samsung, A
       ...RELATED_BASE,
       { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" },
       { label: "Notebook Sem Imagem", to: "/problemas/notebook-sem-imagem-curitiba" },
-      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto PC/Notebook", to: "/servicos/manutencao-de-computador" },
       { label: "Reparo Placa Notebook", to: "/problemas/reparo-placa-mae-notebook-curitiba" },
       { label: "Reballing BGA", to: "/procedimentos/reballing-bga-curitiba" },
     ],
@@ -744,8 +744,8 @@ Mas nem sempre é só o disco. Pouca RAM, superaquecimento, malware e até bater
     whatsappMessage: "Olá! Meu notebook está muito lento. Podem me ajudar com upgrade?",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Notebook Esquentando", to: "/problemas/notebook-esquentando-curitiba" },
     ],
     conteudoExtra: `### Investimento vs Resultado
@@ -909,7 +909,7 @@ Conecte o notebook a uma TV ou monitor via HDMI. Se a imagem aparecer, o problem
     quandoCompensa: "Compensa quando o notebook tem menos de 5 anos e funciona bem tirando a tela. O custo da troca é muito menor que um notebook novo.",
     quandoNaoCompensa: "Telas OLED ou touch de modelos premium podem custar quase tanto quanto um notebook novo. Nesses casos, avaliamos juntos.",
     whatsappMessage: "Olá! A tela do meu notebook quebrou. Podem me ajudar com troca?",
-    relatedPages: [...RELATED_BASE, { label: "Notebook Sem Imagem", to: "/problemas/notebook-sem-imagem-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }],
+    relatedPages: [...RELATED_BASE, { label: "Notebook Sem Imagem", to: "/problemas/notebook-sem-imagem-curitiba" }, { label: "Conserto Notebook", to: "/servicos/manutencao-de-computador" }],
     conteudoExtra: `### Qual o Modelo da Minha Tela?
 
 Para valor preciso, precisamos do modelo exato do notebook (geralmente na etiqueta na parte inferior) ou o part number da tela (etiqueta atrás do painel). Com essa informação, conseguimos verificar disponibilidade e preço rapidamente.`,
@@ -984,7 +984,7 @@ Para valor preciso, precisamos do modelo exato do notebook (geralmente na etique
     quandoCompensa: "Troca de teclado quase sempre compensa — peça relativamente barata.",
     quandoNaoCompensa: "Quando há dano extenso por líquido na placa-mãe e o notebook é antigo.",
     whatsappMessage: "Olá! O teclado do meu notebook não funciona. Podem me ajudar?",
-    relatedPages: [...RELATED_BASE, { label: "Notebook com Líquido", to: "/problemas/notebook-com-agua-ou-liquido-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }],
+    relatedPages: [...RELATED_BASE, { label: "Notebook com Líquido", to: "/problemas/notebook-com-agua-ou-liquido-curitiba" }, { label: "Conserto Notebook", to: "/servicos/manutencao-de-computador" }],
     conteudoExtra: `### Dica Rápida: Teclado Externo
 
 Enquanto espera o reparo, você pode usar um teclado USB externo no notebook. Funciona normalmente e permite continuar trabalhando.`,
@@ -1069,7 +1069,7 @@ Antes de entrar em pânico, saiba que na maioria dos casos o problema é revers�
     quandoCompensa: "Quase sempre — o notebook geralmente não está danificado, apenas com peça errada.",
     quandoNaoCompensa: "Se houve curto e dano à placa-mãe durante o upgrade amador.",
     whatsappMessage: "Olá! Fiz um upgrade e agora meu notebook não liga. Podem me ajudar?",
-    relatedPages: [...RELATED_BASE, { label: "Erros de Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }],
+    relatedPages: [...RELATED_BASE, { label: "Erros de Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }],
     conteudoExtra: `### Antes de Fazer Upgrade: Checklist
 
 1. Verifique a compatibilidade EXATA (modelo, geração, interface)
@@ -1237,7 +1237,7 @@ TVs LED modernas usam tiras de LEDs para iluminar o painel LCD. Quando esses LED
   },
 
   // ===== ERROS / CASOS (26-30) =====
-  { slug: "erro-ao-instalar-memoria-ram", title: "Erro ao Instalar Memória RAM | Guia Técnico", metaDescription: "Erro ao instalar RAM? Computador não liga após trocar memória? Veja causas e soluções. Diagnóstico profissional em Curitiba.", h1: "Erro ao Instalar Memória RAM — O Que Fazer?", categoria: "Erros e Casos Reais", intro: `Instalou memória RAM nova e o computador não liga, emite bips ou fica com tela preta? RAM incompatível, mal encaixada ou frequência diferente são as causas mais comuns. Cada placa-mãe aceita tipos específicos de memória (DDR3, DDR4, DDR5) com frequências específicas. Instalar o módulo errado pode resultar em tela preta, instabilidade ou até dano ao slot.`, sintomas: [{ titulo: "Computador não liga após instalar RAM", desc: "RAM incompatível ou mal encaixada.", gravidade: "Simples" }, { titulo: "Bips ao ligar", desc: "Sequência de bips indica problema de memória.", gravidade: "Simples" }, { titulo: "Instabilidade e travamentos", desc: "RAM funcionou mas é incompatível em frequência ou timings.", gravidade: "Simples a médio" }], causas: [{ titulo: "RAM de geração errada", desc: "DDR4 em slot DDR3 ou vice-versa. Não são compatíveis.", tipo: "erro-humano" }, { titulo: "Frequência incompatível", desc: "RAM com frequência diferente da suportada pela placa.", tipo: "erro-humano" }, { titulo: "Módulo mal encaixado", desc: "Trava não clicou completamente.", tipo: "erro-humano" }, { titulo: "Slot com defeito", desc: "Slot danificado durante a instalação.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reencaixe correto ou troca por módulo compatível.", tempo: "30 min", custo: "R$ 99,99" }, { nivel: "Médio", desc: "Diagnóstico de compatibilidade + compra do módulo correto.", tempo: "1h", custo: "R$ 100 a R$ 200 + peça" }, { nivel: "Complexo", desc: "Slot danificado — reparo de placa-mãe.", tempo: "3 a 7 dias", custo: "R$ 200 a R$ 500" }], riscos: ["Favaliar o valor módulo pode danificar o slot permanentemente", "RAM incompatível pode causar instabilidade em dados"], diagnostico: `Verificação de compatibilidade, teste de módulos, inspeção de slots. Custo: R$ 90.`, solucao: `Identificar módulo compatível, instalar corretamente, testar estabilidade.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Se o slot foi danificado fisicamente em placa antiga.", whatsappMessage: "Olá! Instalei memória RAM e meu computador não funciona. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }], conteudoExtra: `### Como Evitar Erros de RAM
+  { slug: "erro-ao-instalar-memoria-ram", title: "Erro ao Instalar Memória RAM | Guia Técnico", metaDescription: "Erro ao instalar RAM? Computador não liga após trocar memória? Veja causas e soluções. Diagnóstico profissional em Curitiba.", h1: "Erro ao Instalar Memória RAM — O Que Fazer?", categoria: "Erros e Casos Reais", intro: `Instalou memória RAM nova e o computador não liga, emite bips ou fica com tela preta? RAM incompatível, mal encaixada ou frequência diferente são as causas mais comuns. Cada placa-mãe aceita tipos específicos de memória (DDR3, DDR4, DDR5) com frequências específicas. Instalar o módulo errado pode resultar em tela preta, instabilidade ou até dano ao slot.`, sintomas: [{ titulo: "Computador não liga após instalar RAM", desc: "RAM incompatível ou mal encaixada.", gravidade: "Simples" }, { titulo: "Bips ao ligar", desc: "Sequência de bips indica problema de memória.", gravidade: "Simples" }, { titulo: "Instabilidade e travamentos", desc: "RAM funcionou mas é incompatível em frequência ou timings.", gravidade: "Simples a médio" }], causas: [{ titulo: "RAM de geração errada", desc: "DDR4 em slot DDR3 ou vice-versa. Não são compatíveis.", tipo: "erro-humano" }, { titulo: "Frequência incompatível", desc: "RAM com frequência diferente da suportada pela placa.", tipo: "erro-humano" }, { titulo: "Módulo mal encaixado", desc: "Trava não clicou completamente.", tipo: "erro-humano" }, { titulo: "Slot com defeito", desc: "Slot danificado durante a instalação.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reencaixe correto ou troca por módulo compatível.", tempo: "30 min", custo: "R$ 99,99" }, { nivel: "Médio", desc: "Diagnóstico de compatibilidade + compra do módulo correto.", tempo: "1h", custo: "R$ 100 a R$ 200 + peça" }, { nivel: "Complexo", desc: "Slot danificado — reparo de placa-mãe.", tempo: "3 a 7 dias", custo: "R$ 200 a R$ 500" }], riscos: ["Favaliar o valor módulo pode danificar o slot permanentemente", "RAM incompatível pode causar instabilidade em dados"], diagnostico: `Verificação de compatibilidade, teste de módulos, inspeção de slots. Custo: R$ 90.`, solucao: `Identificar módulo compatível, instalar corretamente, testar estabilidade.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Se o slot foi danificado fisicamente em placa antiga.", whatsappMessage: "Olá! Instalei memória RAM e meu computador não funciona. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }], conteudoExtra: `### Como Evitar Erros de RAM
 
 1. Verifique o manual da placa-mãe para saber DDR e frequência suportados
 2. Use sites como Crucial.com para verificar compatibilidade
@@ -1281,7 +1281,7 @@ Recebemos semanalmente casos de upgrade de RAM mal executado na região de Curit
 
 Se você está em dúvida sobre qual RAM comprar para seu computador em Curitiba, entre em contato antes de comprar. Uma consultoria rápida pode evitar uma compra errada e um reparo desnecessário.` },
 
-  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | Técnico Curitiba", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)
+  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | Técnico Curitiba", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)
 
 | Upgrade | Erro Comum | Como Evitar |
 |---|---|---|
@@ -1458,7 +1458,7 @@ Em Curitiba e região metropolitana, os fatores ambientais que mais contribuem p
 4. **Animais domésticos** — pelos de gato e cachorro acumulam dentro de gabinetes e podem reter umidade.` },
 
   // ===== SOFTWARE / SISTEMA (31-35) =====
-  { slug: "windows-lento-curitiba", title: "Windows Lento em Curitiba | Otimização e Diagnóstico", metaDescription: "Windows lento? Otimização profissional, limpeza e diagnóstico em Curitiba. Resolva sem formatar.", h1: "Windows Lento em Curitiba — Otimização Profissional", categoria: "Software / Sistema", intro: `Windows lento pode ser causado por acúmulo de programas, malware, drivers desatualizados, registro corrompido ou simplesmente hardware insuficiente. Antes de formatar, vale investir em diagnóstico para entender se o problema é software (otimização resolve) ou hardware (upgrade necessário). A formatação é solução válida, mas nem sempre necessária.`, sintomas: [{ titulo: "Boot demorado", desc: "Windows leva minutos para iniciar. Muitos programas na inicialização.", gravidade: "Simples" }, { titulo: "Programas lentos", desc: "Tudo abre devagar. RAM lotada ou disco em 100%.", gravidade: "Simples a médio" }, { titulo: "Windows Update trava", desc: "Atualizações ficam em loop ou travam a máquina.", gravidade: "Simples" }], causas: [{ titulo: "Programas desnecessários na inicialização", desc: "Dezenas de programas abrem junto com o Windows.", tipo: "software" }, { titulo: "Malware oculto", desc: "Vírus ou mineradores consumindo recursos.", tipo: "software" }, { titulo: "Registro corrompido", desc: "Anos de instalações acumulam lixo no registro.", tipo: "software" }, { titulo: "HD mecânico", desc: "O gargalo pode ser hardware, não software.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização, limpeza de inicialização, remoção de bloatware.", tempo: "1h", custo: "R$ 100 a R$ 150" }, { nivel: "Médio", desc: "Formatação limpa + instalação de drivers.", tempo: "2h a 4h", custo: "R$ 150 a R$ 250" }, { nivel: "Complexo", desc: "Diagnóstico de hardware + upgrade.", tempo: "2h a 1 dia", custo: "R$ 250 a R$ 600+" }], riscos: ["CCleaner e similares podem causar mais problemas", "Formatar sem backup perde dados"], diagnostico: `Análise de performance, verificação de malware, teste de disco e RAM. Custo: R$ 90.`, solucao: `Otimização quando possível, formatação quando necessário, upgrade quando o hardware é o gargalo.`, quandoCompensa: "Otimização sempre compensa tentar antes de formatar.", quandoNaoCompensa: "Quando o hardware é muito antigo — otimizar software não compensa o gargalo.", whatsappMessage: "Olá! Meu Windows está muito lento. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Otimização vs Formatação
+  { slug: "windows-lento-curitiba", title: "Windows Lento em Curitiba | Otimização e Diagnóstico", metaDescription: "Windows lento? Otimização profissional, limpeza e diagnóstico em Curitiba. Resolva sem formatar.", h1: "Windows Lento em Curitiba — Otimização Profissional", categoria: "Software / Sistema", intro: `Windows lento pode ser causado por acúmulo de programas, malware, drivers desatualizados, registro corrompido ou simplesmente hardware insuficiente. Antes de formatar, vale investir em diagnóstico para entender se o problema é software (otimização resolve) ou hardware (upgrade necessário). A formatação é solução válida, mas nem sempre necessária.`, sintomas: [{ titulo: "Boot demorado", desc: "Windows leva minutos para iniciar. Muitos programas na inicialização.", gravidade: "Simples" }, { titulo: "Programas lentos", desc: "Tudo abre devagar. RAM lotada ou disco em 100%.", gravidade: "Simples a médio" }, { titulo: "Windows Update trava", desc: "Atualizações ficam em loop ou travam a máquina.", gravidade: "Simples" }], causas: [{ titulo: "Programas desnecessários na inicialização", desc: "Dezenas de programas abrem junto com o Windows.", tipo: "software" }, { titulo: "Malware oculto", desc: "Vírus ou mineradores consumindo recursos.", tipo: "software" }, { titulo: "Registro corrompido", desc: "Anos de instalações acumulam lixo no registro.", tipo: "software" }, { titulo: "HD mecânico", desc: "O gargalo pode ser hardware, não software.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização, limpeza de inicialização, remoção de bloatware.", tempo: "1h", custo: "R$ 100 a R$ 150" }, { nivel: "Médio", desc: "Formatação limpa + instalação de drivers.", tempo: "2h a 4h", custo: "R$ 150 a R$ 250" }, { nivel: "Complexo", desc: "Diagnóstico de hardware + upgrade.", tempo: "2h a 1 dia", custo: "R$ 250 a R$ 600+" }], riscos: ["CCleaner e similares podem causar mais problemas", "Formatar sem backup perde dados"], diagnostico: `Análise de performance, verificação de malware, teste de disco e RAM. Custo: R$ 90.`, solucao: `Otimização quando possível, formatação quando necessário, upgrade quando o hardware é o gargalo.`, quandoCompensa: "Otimização sempre compensa tentar antes de formatar.", quandoNaoCompensa: "Quando o hardware é muito antigo — otimizar software não compensa o gargalo.", whatsappMessage: "Olá! Meu Windows está muito lento. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Formatação", to: "/servicos/formatacao" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Otimização vs Formatação
 
 | Aspecto | Otimização | Formatação |
 |---|---|---|
@@ -1510,7 +1510,7 @@ Quando fazemos otimização em Curitiba, seguimos um protocolo completo:
 9. ✅ Teste de velocidade do disco (benchmarks)
 10. ✅ Recomendação: otimizar, formatar ou fazer upgrade` },
 
-  { slug: "computador-com-virus-curitiba", title: "Computador com Vírus em Curitiba | Remoção", metaDescription: "Computador com vírus? Remoção profissional em Curitiba. Malware, ransomware, adware. Atendimento no mesmo dia.", h1: "Computador com Vírus em Curitiba — Remoção Profissional", categoria: "Software / Sistema", intro: `Vírus, malware, ransomware, adware — cada tipo de ameaça requer uma abordagem diferente. "Passar o antivírus" nem sempre resolve. Ameaças modernas se escondem em processos do sistema, registro e áreas protegidas do disco. A remoção profissional garante eliminação completa sem perda de dados.`, sintomas: [{ titulo: "Pop-ups e propagandas excessivas", desc: "Adware instalado. Programas indesejados abrem sozinhos.", gravidade: "Simples" }, { titulo: "Computador extremamente lento", desc: "Minerador de criptomoedas usando CPU/GPU em segundo plano.", gravidade: "Simples a médio" }, { titulo: "Arquivos criptografados (ransomware)", desc: "Arquivos renomeados com extensão estranha. Pedido de resgate.", gravidade: "Complexo" }, { titulo: "Programas abrindo sozinhos", desc: "Malware executando em segundo plano.", gravidade: "Simples a médio" }], causas: [{ titulo: "Download de programas de fontes não confiáveis", desc: "Cracks, programas piratas e sites duvidosos.", tipo: "erro-humano" }, { titulo: "E-mail com anexo malicioso", desc: "Phishing com arquivo infectado.", tipo: "erro-humano" }, { titulo: "Navegação em sites comprometidos", desc: "Drive-by download — infecção automática.", tipo: "software" }, { titulo: "Pen drive infectado", desc: "Autorun de dispositivos USB.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Remoção de adware e programas indesejados.", tempo: "1h a 2h", custo: "R$ 100 a R$ 180" }, { nivel: "Médio", desc: "Remoção de malware profundo + limpeza completa.", tempo: "2h a 4h", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Ransomware ou rootkit — pode exigir formatação.", tempo: "4h a 1 dia", custo: "R$ 250 a R$ 500" }], riscos: ["Antivírus gratuito nem sempre detecta ameaças avançadas", "Tentar remover manualmente pode apagar arquivos do sistema", "Ransomware: pagar resgate não garante recuperação"], diagnostico: `Análise com ferramentas profissionais (não só antivírus), scan de registro, processos e serviços. Custo: R$ 90.`, solucao: `Remoção completa com ferramentas profissionais + proteção + orientação de prevenção.`, quandoCompensa: "Quase sempre — remoção é mais rápida e barata que formatação na maioria dos casos.", quandoNaoCompensa: "Ransomware com criptografia forte onde os dados não são recuperáveis — formatação é a saída.", whatsappMessage: "Olá! Meu computador está com vírus. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Remoção de Vírus", to: "/servicos/remocao-virus" }, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }], conteudoExtra: `### Prevenção é Melhor que Remediação
+  { slug: "computador-com-virus-curitiba", title: "Computador com Vírus em Curitiba | Remoção", metaDescription: "Computador com vírus? Remoção profissional em Curitiba. Malware, ransomware, adware. Atendimento no mesmo dia.", h1: "Computador com Vírus em Curitiba — Remoção Profissional", categoria: "Software / Sistema", intro: `Vírus, malware, ransomware, adware — cada tipo de ameaça requer uma abordagem diferente. "Passar o antivírus" nem sempre resolve. Ameaças modernas se escondem em processos do sistema, registro e áreas protegidas do disco. A remoção profissional garante eliminação completa sem perda de dados.`, sintomas: [{ titulo: "Pop-ups e propagandas excessivas", desc: "Adware instalado. Programas indesejados abrem sozinhos.", gravidade: "Simples" }, { titulo: "Computador extremamente lento", desc: "Minerador de criptomoedas usando CPU/GPU em segundo plano.", gravidade: "Simples a médio" }, { titulo: "Arquivos criptografados (ransomware)", desc: "Arquivos renomeados com extensão estranha. Pedido de resgate.", gravidade: "Complexo" }, { titulo: "Programas abrindo sozinhos", desc: "Malware executando em segundo plano.", gravidade: "Simples a médio" }], causas: [{ titulo: "Download de programas de fontes não confiáveis", desc: "Cracks, programas piratas e sites duvidosos.", tipo: "erro-humano" }, { titulo: "E-mail com anexo malicioso", desc: "Phishing com arquivo infectado.", tipo: "erro-humano" }, { titulo: "Navegação em sites comprometidos", desc: "Drive-by download — infecção automática.", tipo: "software" }, { titulo: "Pen drive infectado", desc: "Autorun de dispositivos USB.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Remoção de adware e programas indesejados.", tempo: "1h a 2h", custo: "R$ 100 a R$ 180" }, { nivel: "Médio", desc: "Remoção de malware profundo + limpeza completa.", tempo: "2h a 4h", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Ransomware ou rootkit — pode exigir formatação.", tempo: "4h a 1 dia", custo: "R$ 250 a R$ 500" }], riscos: ["Antivírus gratuito nem sempre detecta ameaças avançadas", "Tentar remover manualmente pode apagar arquivos do sistema", "Ransomware: pagar resgate não garante recuperação"], diagnostico: `Análise com ferramentas profissionais (não só antivírus), scan de registro, processos e serviços. Custo: R$ 90.`, solucao: `Remoção completa com ferramentas profissionais + proteção + orientação de prevenção.`, quandoCompensa: "Quase sempre — remoção é mais rápida e barata que formatação na maioria dos casos.", quandoNaoCompensa: "Ransomware com criptografia forte onde os dados não são recuperáveis — formatação é a saída.", whatsappMessage: "Olá! Meu computador está com vírus. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Remoção de Vírus", to: "/servicos/remocao-de-virus" }, { label: "Formatação", to: "/servicos/formatacao" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }], conteudoExtra: `### Prevenção é Melhor que Remediação
 
 1. Nunca baixe programas de sites desconhecidos
 2. Não abra anexos de e-mails suspeitos
@@ -1562,7 +1562,7 @@ Em Curitiba, atendemos casos de ransomware mensalmente — tanto em residências
 | Backup em nuvem | R$ 10-30/mês | Ransomware: perda total |
 | Proteção de e-mail | R$ 0 (educação) | Phishing: roubo bancário |` },
 
-  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. Técnico em Curitiba.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 99,99 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao-computador" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Erro Após Formatação", to: "/problemas/erro-apos-formatacao" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?
+  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. Técnico em Curitiba.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 99,99 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Erro Após Formatação", to: "/problemas/erro-apos-formatacao" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?
 
 | Problema | Formatar Resolve? |
 |---|---|
@@ -1616,7 +1616,7 @@ O diagnóstico custa R$ 99,99 e identifica se o problema é software (formataç�
 
 No segundo cenário, economiza R$ 110 E resolve mais rápido.` },
 
-  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | Técnico Curitiba", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Por Que Isso Acontece?
+  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | Técnico Curitiba", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Por Que Isso Acontece?
 
 Formatação é como repintar uma casa com problemas estruturais — fica bonita por fora mas os problemas continuam. O diagnóstico antes de formatar evita esse desperdício.
 
@@ -1658,7 +1658,7 @@ Se o disco fica em 100% de uso constantemente mesmo após formatação limpa, o 
 
 Se sua formatação foi feita por alguém sem experiência técnica, pode ser que o problema seja a própria formatação, não o hardware.` },
 
-  { slug: "pc-com-programas-pesados", title: "PC com Programas Pesados em Curitiba | Otimização", metaDescription: "PC não roda programas pesados? AutoCAD, Photoshop, jogos? Diagnóstico e upgrade em Curitiba.", h1: "PC com Programas Pesados em Curitiba — Otimização e Upgrade", categoria: "Software / Sistema", intro: `Programas como AutoCAD, Photoshop, Premiere, jogos modernos e softwares de engenharia exigem hardware específico. Se seu computador trava, fica lento ou não abre esses programas, o diagnóstico identifica qual componente é o gargalo e qual upgrade resolve.`, sintomas: [{ titulo: "Programa trava ao abrir", desc: "RAM ou GPU insuficiente para o software.", gravidade: "Simples" }, { titulo: "Lentidão extrema ao usar", desc: "Processador ou disco não acompanha.", gravidade: "Simples a médio" }, { titulo: "Renderização muito lenta", desc: "CPU/GPU insuficiente para processamento pesado.", gravidade: "Simples" }], causas: [{ titulo: "RAM insuficiente", desc: "Programas pesados exigem 16-32GB. Muitos PCs têm 4-8GB.", tipo: "hardware" }, { titulo: "GPU insuficiente", desc: "Jogos e 3D exigem GPU dedicada. Integrada não dá conta.", tipo: "hardware" }, { titulo: "Disco lento (HD)", desc: "Programas grandes precisam de SSD para carregar rápido.", tipo: "hardware" }, { titulo: "Processador antigo", desc: "Processadores de 5+ anos podem não acompanhar software moderno.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Upgrade de RAM + SSD resolve a maioria.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Médio", desc: "Upgrade de RAM + SSD + GPU.", tempo: "4h a 1 dia", custo: "R$ 600 a R$ 1500" }, { nivel: "Complexo", desc: "Montagem de PC otimizada para a carga de trabalho.", tempo: "Sob consulta", custo: "Sob consulta" }], riscos: ["Comprar peça errada por não saber qual é o gargalo", "Upgrade parcial pode não resolver se o gargalo é outro componente"], diagnostico: `Análise de requisitos do software vs hardware atual, identificação do gargalo, recomendação de upgrade. Custo: R$ 99,99 (incorporado ao serviço).`, solucao: `Upgrade direcionado ao gargalo identificado. Sem desperdício.`, quandoCompensa: "Quando o upgrade resolve o gargalo e o hardware base ainda é bom.", quandoNaoCompensa: "Quando o hardware todo é defasado e o upgrade seria quase uma montagem nova.", whatsappMessage: "Olá! Meu PC não roda programas pesados. Podem me ajudar com upgrade?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Montagem PC", to: "/servicos/montagem-pc" }, { label: "Computador Travando", to: "/problemas/computador-travando-curitiba" }, { label: "Vale Consertar?", to: "/problemas/vale-a-pena-consertar-computador" }], conteudoExtra: `### Requisitos Mínimos Recomendados
+  { slug: "pc-com-programas-pesados", title: "PC com Programas Pesados em Curitiba | Otimização", metaDescription: "PC não roda programas pesados? AutoCAD, Photoshop, jogos? Diagnóstico e upgrade em Curitiba.", h1: "PC com Programas Pesados em Curitiba — Otimização e Upgrade", categoria: "Software / Sistema", intro: `Programas como AutoCAD, Photoshop, Premiere, jogos modernos e softwares de engenharia exigem hardware específico. Se seu computador trava, fica lento ou não abre esses programas, o diagnóstico identifica qual componente é o gargalo e qual upgrade resolve.`, sintomas: [{ titulo: "Programa trava ao abrir", desc: "RAM ou GPU insuficiente para o software.", gravidade: "Simples" }, { titulo: "Lentidão extrema ao usar", desc: "Processador ou disco não acompanha.", gravidade: "Simples a médio" }, { titulo: "Renderização muito lenta", desc: "CPU/GPU insuficiente para processamento pesado.", gravidade: "Simples" }], causas: [{ titulo: "RAM insuficiente", desc: "Programas pesados exigem 16-32GB. Muitos PCs têm 4-8GB.", tipo: "hardware" }, { titulo: "GPU insuficiente", desc: "Jogos e 3D exigem GPU dedicada. Integrada não dá conta.", tipo: "hardware" }, { titulo: "Disco lento (HD)", desc: "Programas grandes precisam de SSD para carregar rápido.", tipo: "hardware" }, { titulo: "Processador antigo", desc: "Processadores de 5+ anos podem não acompanhar software moderno.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Upgrade de RAM + SSD resolve a maioria.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Médio", desc: "Upgrade de RAM + SSD + GPU.", tempo: "4h a 1 dia", custo: "R$ 600 a R$ 1500" }, { nivel: "Complexo", desc: "Montagem de PC otimizada para a carga de trabalho.", tempo: "Sob consulta", custo: "Sob consulta" }], riscos: ["Comprar peça errada por não saber qual é o gargalo", "Upgrade parcial pode não resolver se o gargalo é outro componente"], diagnostico: `Análise de requisitos do software vs hardware atual, identificação do gargalo, recomendação de upgrade. Custo: R$ 99,99 (incorporado ao serviço).`, solucao: `Upgrade direcionado ao gargalo identificado. Sem desperdício.`, quandoCompensa: "Quando o upgrade resolve o gargalo e o hardware base ainda é bom.", quandoNaoCompensa: "Quando o hardware todo é defasado e o upgrade seria quase uma montagem nova.", whatsappMessage: "Olá! Meu PC não roda programas pesados. Podem me ajudar com upgrade?", relatedPages: [...RELATED_BASE, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" }, { label: "Montagem PC", to: "/servicos/montagem-pc" }, { label: "Computador Travando", to: "/problemas/computador-travando-curitiba" }, { label: "Vale Consertar?", to: "/problemas/vale-a-pena-consertar-computador" }], conteudoExtra: `### Requisitos Mínimos Recomendados
 
 | Software | RAM Mínima | GPU | SSD |
 |---|---|---|---|
@@ -1701,7 +1701,7 @@ Antes de comprar qualquer peça, é ESSENCIAL identificar qual componente está 
 Na maioria dos casos em Curitiba, o upgrade gradual é a melhor opção: SSD + RAM resolve 80% dos problemas de performance por uma fração do custo de um PC novo.` },
 
   // ===== DECISÃO DO CLIENTE (36-40) =====
-  { slug: "vale-a-pena-consertar-computador", title: "Vale a Pena Consertar o Computador? | Guia", metaDescription: "Vale a pena consertar ou comprar novo? Guia completo para decidir. Diagnóstico profissional em Curitiba.", h1: "Vale a Pena Consertar o Computador? — Guia de Decisão", categoria: "Decisão do Cliente", intro: `Essa é a dúvida mais comum que recebemos. A resposta honesta é: depende. Depende do problema, da idade do equipamento, do custo do reparo e das necessidades do usuário. Nesta página, apresentamos um framework de decisão transparente para ajudar você a tomar a melhor escolha — sem pressão de venda.`, sintomas: [{ titulo: "Regra dos 40%", desc: "Se o reparo custa mais de 40% do valor de um equivalente novo, geralmente não compensa.", gravidade: "N/A" }, { titulo: "Idade do equipamento", desc: "Computadores com mais de 7-8 anos tendem a ter múltiplos problemas em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Problema único e identificável", desc: "Um componente com defeito em equipamento novo — compensa reparar.", tipo: "hardware" }, { titulo: "Múltiplos problemas", desc: "Vários componentes falhando — sinal de desgaste generalizado.", tipo: "desgaste" }, { titulo: "Defasagem tecnológica", desc: "Hardware não suporta software atual — upgrade pode não resolver.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema único com custo baixo → CONSERTAR", tempo: "Variável", custo: "Até 30% do valor de novo" }, { nivel: "Médio", desc: "Problema identificável mas custo moderado → AVALIAR", tempo: "Variável", custo: "30-50% do valor de novo" }, { nivel: "Complexo", desc: "Múltiplos problemas ou custo alto → CONSIDERAR NOVO", tempo: "Variável", custo: "Acima de 50% do valor de novo" }], riscos: ["Reparar sem diagnóstico pode acabar custando mais que novo", "Comprar novo sem avaliar pode ser desperdício quando reparo é simples"], diagnostico: `Diagnóstico profissional + laudo com opções claras: reparar (custo X), upgrade (custo Y) ou trocar. Custo: R$ 90.`, solucao: `Transparência total. Apresentamos as opções com custos e você decide.`, quandoCompensa: "Equipamento com menos de 5-6 anos, problema único, custo do reparo até 40% do novo.", quandoNaoCompensa: "Equipamento com 7+ anos, múltiplos problemas, reparo custando mais de 50% do novo.", whatsappMessage: "Olá! Quero saber se compensa consertar meu computador. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }, { label: "Custo Reparo vs Novo", to: "/problemas/custo-reparo-vs-novo" }, { label: "Quando Trocar", to: "/problemas/quando-trocar-computador" }, { label: "Vale Consertar Notebook?", to: "/problemas/vale-a-pena-consertar-notebook" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Checklist de Decisão
+  { slug: "vale-a-pena-consertar-computador", title: "Vale a Pena Consertar o Computador? | Guia", metaDescription: "Vale a pena consertar ou comprar novo? Guia completo para decidir. Diagnóstico profissional em Curitiba.", h1: "Vale a Pena Consertar o Computador? — Guia de Decisão", categoria: "Decisão do Cliente", intro: `Essa é a dúvida mais comum que recebemos. A resposta honesta é: depende. Depende do problema, da idade do equipamento, do custo do reparo e das necessidades do usuário. Nesta página, apresentamos um framework de decisão transparente para ajudar você a tomar a melhor escolha — sem pressão de venda.`, sintomas: [{ titulo: "Regra dos 40%", desc: "Se o reparo custa mais de 40% do valor de um equivalente novo, geralmente não compensa.", gravidade: "N/A" }, { titulo: "Idade do equipamento", desc: "Computadores com mais de 7-8 anos tendem a ter múltiplos problemas em sequência.", gravidade: "N/A" }], causas: [{ titulo: "Problema único e identificável", desc: "Um componente com defeito em equipamento novo — compensa reparar.", tipo: "hardware" }, { titulo: "Múltiplos problemas", desc: "Vários componentes falhando — sinal de desgaste generalizado.", tipo: "desgaste" }, { titulo: "Defasagem tecnológica", desc: "Hardware não suporta software atual — upgrade pode não resolver.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema único com custo baixo → CONSERTAR", tempo: "Variável", custo: "Até 30% do valor de novo" }, { nivel: "Médio", desc: "Problema identificável mas custo moderado → AVALIAR", tempo: "Variável", custo: "30-50% do valor de novo" }, { nivel: "Complexo", desc: "Múltiplos problemas ou custo alto → CONSIDERAR NOVO", tempo: "Variável", custo: "Acima de 50% do valor de novo" }], riscos: ["Reparar sem diagnóstico pode acabar custando mais que novo", "Comprar novo sem avaliar pode ser desperdício quando reparo é simples"], diagnostico: `Diagnóstico profissional + laudo com opções claras: reparar (custo X), upgrade (custo Y) ou trocar. Custo: R$ 90.`, solucao: `Transparência total. Apresentamos as opções com custos e você decide.`, quandoCompensa: "Equipamento com menos de 5-6 anos, problema único, custo do reparo até 40% do novo.", quandoNaoCompensa: "Equipamento com 7+ anos, múltiplos problemas, reparo custando mais de 50% do novo.", whatsappMessage: "Olá! Quero saber se compensa consertar meu computador. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Quando Não Compensa", to: "/quando-nao-compensa" }, { label: "Custo Reparo vs Novo", to: "/problemas/custo-reparo-vs-novo" }, { label: "Quando Trocar", to: "/problemas/quando-trocar-computador" }, { label: "Vale Consertar Notebook?", to: "/problemas/vale-a-pena-consertar-notebook" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Checklist de Decisão
 
 ✅ Compensa consertar se:
 - Equipamento tem menos de 5 anos
@@ -1753,7 +1753,7 @@ Muitos clientes têm apego ao equipamento (fotos, configurações, anos de uso).
 - **Programas**: podem ser reinstalados
 - **O que NÃO pode ser transferido**: nada — tudo é migrável` },
 
-  { slug: "vale-a-pena-consertar-notebook", title: "Vale a Pena Consertar o Notebook? | Guia", metaDescription: "Vale a pena consertar o notebook ou comprar novo? Guia de decisão com dados reais. Curitiba.", h1: "Vale a Pena Consertar o Notebook? — Guia Completo", categoria: "Decisão do Cliente", intro: `Notebooks são mais caros de reparar que desktops (componentes integrados, peças específicas). Mas isso não significa que sempre é melhor comprar novo. O diagnóstico profissional identifica o problema e o custo real do reparo para você poder decidir com informação — não com medo.`, sintomas: [{ titulo: "Problema simples em notebook bom", desc: "Troca de tela, teclado, SSD → quase sempre compensa.", gravidade: "Simples" }, { titulo: "Placa-mãe em notebook caro", desc: "Reparo pode valer se o notebook é recente e de valor.", gravidade: "Médio" }, { titulo: "Múltiplos defeitos em notebook antigo", desc: "Geralmente não compensa.", gravidade: "Complexo" }], causas: [{ titulo: "Peças específicas por modelo", desc: "Telas, teclados e baterias são específicos — preço varia muito.", tipo: "hardware" }, { titulo: "Reparo de placa-mãe", desc: "Mais complexo que desktop por componentes soldados.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Troca de SSD, RAM, teclado, bateria → COMPENSA", tempo: "1 a 3 dias", custo: "R$ 150 a R$ 500" }, { nivel: "Médio", desc: "Troca de tela ou reparo de jack → AVALIAR", tempo: "3 a 7 dias", custo: "R$ 300 a R$ 800" }, { nivel: "Complexo", desc: "Reparo de placa-mãe → DEPENDE DO VALOR DO NOTEBOOK", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 1200" }], riscos: ["Comprar notebook novo barato pode ser pior que reparar o atual"], diagnostico: `Diagnóstico completo com laudo detalhado e opções. Custo: R$ 90.`, solucao: `Transparência: laudo com custo de reparo vs custo de equivalente novo.`, quandoCompensa: "Notebook de menos de 4 anos, com problema específico e custo de reparo razoável.", quandoNaoCompensa: "Notebook de baixo valor (< R$ 2000 novo) com placa-mãe defeituosa.", whatsappMessage: "Olá! Quero saber se compensa consertar meu notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/problemas/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/problemas/quando-trocar-computador" }, { label: "Notebook Não Liga", to: "/problemas/notebook-nao-liga-curitiba" }, { label: "Notebook com Líquido", to: "/problemas/notebook-com-agua-ou-liquido-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }], conteudoExtra: `### Tabela de Decisão para Notebooks
+  { slug: "vale-a-pena-consertar-notebook", title: "Vale a Pena Consertar o Notebook? | Guia", metaDescription: "Vale a pena consertar o notebook ou comprar novo? Guia de decisão com dados reais. Curitiba.", h1: "Vale a Pena Consertar o Notebook? — Guia Completo", categoria: "Decisão do Cliente", intro: `Notebooks são mais caros de reparar que desktops (componentes integrados, peças específicas). Mas isso não significa que sempre é melhor comprar novo. O diagnóstico profissional identifica o problema e o custo real do reparo para você poder decidir com informação — não com medo.`, sintomas: [{ titulo: "Problema simples em notebook bom", desc: "Troca de tela, teclado, SSD → quase sempre compensa.", gravidade: "Simples" }, { titulo: "Placa-mãe em notebook caro", desc: "Reparo pode valer se o notebook é recente e de valor.", gravidade: "Médio" }, { titulo: "Múltiplos defeitos em notebook antigo", desc: "Geralmente não compensa.", gravidade: "Complexo" }], causas: [{ titulo: "Peças específicas por modelo", desc: "Telas, teclados e baterias são específicos — preço varia muito.", tipo: "hardware" }, { titulo: "Reparo de placa-mãe", desc: "Mais complexo que desktop por componentes soldados.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Troca de SSD, RAM, teclado, bateria → COMPENSA", tempo: "1 a 3 dias", custo: "R$ 150 a R$ 500" }, { nivel: "Médio", desc: "Troca de tela ou reparo de jack → AVALIAR", tempo: "3 a 7 dias", custo: "R$ 300 a R$ 800" }, { nivel: "Complexo", desc: "Reparo de placa-mãe → DEPENDE DO VALOR DO NOTEBOOK", tempo: "5 a 15 dias", custo: "R$ 400 a R$ 1200" }], riscos: ["Comprar notebook novo barato pode ser pior que reparar o atual"], diagnostico: `Diagnóstico completo com laudo detalhado e opções. Custo: R$ 90.`, solucao: `Transparência: laudo com custo de reparo vs custo de equivalente novo.`, quandoCompensa: "Notebook de menos de 4 anos, com problema específico e custo de reparo razoável.", quandoNaoCompensa: "Notebook de baixo valor (< R$ 2000 novo) com placa-mãe defeituosa.", whatsappMessage: "Olá! Quero saber se compensa consertar meu notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/problemas/vale-a-pena-consertar-computador" }, { label: "Quando Trocar", to: "/problemas/quando-trocar-computador" }, { label: "Notebook Não Liga", to: "/problemas/notebook-nao-liga-curitiba" }, { label: "Notebook com Líquido", to: "/problemas/notebook-com-agua-ou-liquido-curitiba" }, { label: "Conserto Notebook", to: "/servicos/manutencao-de-computador" }], conteudoExtra: `### Tabela de Decisão para Notebooks
 
 | Valor do Notebook Novo | Custo Máximo de Reparo Recomendado |
 |---|---|
@@ -1795,7 +1795,7 @@ Notebooks baratos geralmente têm:
 
 Seu notebook atual com um SSD novo e uma limpeza térmica pode ser superior a um notebook novo de R$ 2.000.` },
 
-  { slug: "quando-trocar-computador", title: "Quando Trocar o Computador? | Guia Técnico", metaDescription: "Quando vale trocar o computador por um novo? Guia técnico honesto. Diagnóstico em Curitiba.", h1: "Quando Trocar o Computador? — Guia Técnico Honesto", categoria: "Decisão do Cliente", intro: `Trocar nem sempre é a resposta. Mas às vezes é a decisão mais racional. Nesta página, explicamos os sinais claros de que chegou a hora de trocar, e quando ainda vale investir em reparo ou upgrade.`, sintomas: [{ titulo: "Sinais de que é hora de trocar", desc: "Múltiplos defeitos, lentidão irrecuperável, incompatibilidade com software atual.", gravidade: "N/A" }, { titulo: "Sinais de que NÃO precisa trocar", desc: "Problema único, upgrade resolve, equipamento atende necessidades.", gravidade: "N/A" }], causas: [{ titulo: "Obsolescência real", desc: "Processador não suporta Windows 11, DDR3 não suporta mais RAM, etc.", tipo: "hardware" }, { titulo: "Obsolescência percebida", desc: "Computador parece velho mas um SSD + RAM resolve.", tipo: "software" }], cenarios: [{ nivel: "Simples", desc: "Upgrade resolve → NÃO precisa trocar", tempo: "N/A", custo: "R$ 300 a R$ 600 de upgrade" }, { nivel: "Médio", desc: "Avaliar: upgrade parcial + uso por mais 2-3 anos", tempo: "N/A", custo: "Variável" }, { nivel: "Complexo", desc: "Hardware defasado + múltiplos problemas → TROCAR", tempo: "N/A", custo: "Investir em novo" }], riscos: ["Trocar prematuramente desperdiça dinheiro", "Não trocar quando deveria desperdiça tempo e produtividade"], diagnostico: `Avaliação completa: vale upgrade ou trocar? Custo: R$ 99,99 (investimento que pode economizar centenas).`, solucao: `Recomendação honesta baseada em dados técnicos, não em venda.`, quandoCompensa: "Trocar quando o custo total de reparos + upgrades ultrapassa 60% de um novo que atende melhor.", quandoNaoCompensa: "Quando um upgrade de R$ 300-500 resolve o problema e estende a vida útil em 3-4 anos.", whatsappMessage: "Olá! Quero saber se devo trocar meu computador ou reparar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/problemas/vale-a-pena-consertar-computador" }, { label: "Custo Reparo vs Novo", to: "/problemas/custo-reparo-vs-novo" }, { label: "Quando Não Compensa", to: "/problemas/quando-nao-compensa-reparo" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }], conteudoExtra: `### Os 5 Sinais de Que Chegou a Hora
+  { slug: "quando-trocar-computador", title: "Quando Trocar o Computador? | Guia Técnico", metaDescription: "Quando vale trocar o computador por um novo? Guia técnico honesto. Diagnóstico em Curitiba.", h1: "Quando Trocar o Computador? — Guia Técnico Honesto", categoria: "Decisão do Cliente", intro: `Trocar nem sempre é a resposta. Mas às vezes é a decisão mais racional. Nesta página, explicamos os sinais claros de que chegou a hora de trocar, e quando ainda vale investir em reparo ou upgrade.`, sintomas: [{ titulo: "Sinais de que é hora de trocar", desc: "Múltiplos defeitos, lentidão irrecuperável, incompatibilidade com software atual.", gravidade: "N/A" }, { titulo: "Sinais de que NÃO precisa trocar", desc: "Problema único, upgrade resolve, equipamento atende necessidades.", gravidade: "N/A" }], causas: [{ titulo: "Obsolescência real", desc: "Processador não suporta Windows 11, DDR3 não suporta mais RAM, etc.", tipo: "hardware" }, { titulo: "Obsolescência percebida", desc: "Computador parece velho mas um SSD + RAM resolve.", tipo: "software" }], cenarios: [{ nivel: "Simples", desc: "Upgrade resolve → NÃO precisa trocar", tempo: "N/A", custo: "R$ 300 a R$ 600 de upgrade" }, { nivel: "Médio", desc: "Avaliar: upgrade parcial + uso por mais 2-3 anos", tempo: "N/A", custo: "Variável" }, { nivel: "Complexo", desc: "Hardware defasado + múltiplos problemas → TROCAR", tempo: "N/A", custo: "Investir em novo" }], riscos: ["Trocar prematuramente desperdiça dinheiro", "Não trocar quando deveria desperdiça tempo e produtividade"], diagnostico: `Avaliação completa: vale upgrade ou trocar? Custo: R$ 99,99 (investimento que pode economizar centenas).`, solucao: `Recomendação honesta baseada em dados técnicos, não em venda.`, quandoCompensa: "Trocar quando o custo total de reparos + upgrades ultrapassa 60% de um novo que atende melhor.", quandoNaoCompensa: "Quando um upgrade de R$ 300-500 resolve o problema e estende a vida útil em 3-4 anos.", whatsappMessage: "Olá! Quero saber se devo trocar meu computador ou reparar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Vale Consertar PC?", to: "/problemas/vale-a-pena-consertar-computador" }, { label: "Custo Reparo vs Novo", to: "/problemas/custo-reparo-vs-novo" }, { label: "Quando Não Compensa", to: "/problemas/quando-nao-compensa-reparo" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Os 5 Sinais de Que Chegou a Hora
 
 1. Processador anterior a 2015 (não suporta software atual)
 2. Máximo de RAM suportada é 4GB
@@ -2004,7 +2004,7 @@ Em Curitiba e região metropolitana, nosso técnico pode ir até você no mesmo 
 4. **"Formatar vai resolver"** → perde dados e o problema persiste
 5. **Comprar fonte sem testar a atual** → fonte não era o problema` },
 
-  { slug: "o-que-fazer-notebook-lento", title: "O Que Fazer Com Notebook Lento? | Guia Prático", metaDescription: "Notebook lento? Guia prático com verificações e soluções. Quando otimizar, quando fazer upgrade, quando trocar.", h1: "O Que Fazer Com Notebook Lento? — Guia Prático", categoria: "Buscas Educativas", intro: `Notebook lento atrapalha trabalho, estudo e lazer. Mas antes de sair comprando um novo, existem coisas que você pode verificar e ações simples que podem melhorar a performance. Este guia explica o que fazer, desde verificações básicas até quando é hora de buscar upgrade profissional.`, sintomas: [{ titulo: "Coisas que você pode fazer", desc: "Fechar programas, limpar inicialização, verificar disco.", gravidade: "Simples" }], causas: [{ titulo: "Software (você pode resolver)", desc: "Programas desnecessários, navegador pesado, cache cheio.", tipo: "software" }, { titulo: "Hardware (precisa de técnico)", desc: "HD antigo, pouca RAM, superaquecimento.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização de software pelo próprio usuário.", tempo: "30 min", custo: "R$ 0" }, { nivel: "Médio", desc: "Upgrade profissional (SSD + RAM).", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + upgrade + limpeza interna.", tempo: "1 dia", custo: "R$ 400 a R$ 800" }], riscos: ["Programas de 'otimização' podem piorar", "Upgrade errado desperdiça dinheiro"], diagnostico: `Se as dicas básicas não resolveram, diagnóstico identifica o gargalo. Custo: R$ 90.`, solucao: `Guia de autoajuda + opções de upgrade profissional.`, quandoCompensa: "Upgrade compensa na maioria dos notebooks com menos de 6 anos.", quandoNaoCompensa: "Notebooks muito antigos onde o gargalo é o processador.", whatsappMessage: "Olá! Meu notebook está lento e já tentei otimizar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }], conteudoExtra: `### Dicas Rápidas (Faça Você Mesmo)
+  { slug: "o-que-fazer-notebook-lento", title: "O Que Fazer Com Notebook Lento? | Guia Prático", metaDescription: "Notebook lento? Guia prático com verificações e soluções. Quando otimizar, quando fazer upgrade, quando trocar.", h1: "O Que Fazer Com Notebook Lento? — Guia Prático", categoria: "Buscas Educativas", intro: `Notebook lento atrapalha trabalho, estudo e lazer. Mas antes de sair comprando um novo, existem coisas que você pode verificar e ações simples que podem melhorar a performance. Este guia explica o que fazer, desde verificações básicas até quando é hora de buscar upgrade profissional.`, sintomas: [{ titulo: "Coisas que você pode fazer", desc: "Fechar programas, limpar inicialização, verificar disco.", gravidade: "Simples" }], causas: [{ titulo: "Software (você pode resolver)", desc: "Programas desnecessários, navegador pesado, cache cheio.", tipo: "software" }, { titulo: "Hardware (precisa de técnico)", desc: "HD antigo, pouca RAM, superaquecimento.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Otimização de software pelo próprio usuário.", tempo: "30 min", custo: "R$ 0" }, { nivel: "Médio", desc: "Upgrade profissional (SSD + RAM).", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Diagnóstico + upgrade + limpeza interna.", tempo: "1 dia", custo: "R$ 400 a R$ 800" }], riscos: ["Programas de 'otimização' podem piorar", "Upgrade errado desperdiça dinheiro"], diagnostico: `Se as dicas básicas não resolveram, diagnóstico identifica o gargalo. Custo: R$ 90.`, solucao: `Guia de autoajuda + opções de upgrade profissional.`, quandoCompensa: "Upgrade compensa na maioria dos notebooks com menos de 6 anos.", quandoNaoCompensa: "Notebooks muito antigos onde o gargalo é o processador.", whatsappMessage: "Olá! Meu notebook está lento e já tentei otimizar. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }], conteudoExtra: `### Dicas Rápidas (Faça Você Mesmo)
 
 1. Ctrl+Shift+Esc → Inicializar → Desative programas desnecessários
 2. Desinstale programas que não usa
@@ -2098,7 +2098,7 @@ O clima e as condições locais influenciam na incidência de curtos:
 | Limpeza preventiva anual | R$ 120-200 | Poeira + pasta térmica |
 | Desumidificador (ambientes úmidos) | R$ 200-600 | Umidade |` },
 
-  { slug: "erros-comuns-em-upgrade", title: "Erros Comuns em Upgrade de PC | Evite Problemas", metaDescription: "Os erros mais comuns ao fazer upgrade de PC. Evite problemas com RAM, SSD, GPU. Guia técnico.", h1: "Erros Comuns em Upgrade de PC — Evite Problemas", categoria: "Buscas Educativas", intro: `Upgrades são a forma mais inteligente de melhorar o computador. Mas erros na escolha das peças ou na instalação podem transformar uma melhoria em um problema. Neste guia, listamos os erros mais comuns que vemos em Curitiba e como evitá-los.`, sintomas: [{ titulo: "Computador não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }], causas: [{ titulo: "Comprar peça errada", desc: "RAM DDR4 para placa DDR3, SSD NVMe para slot SATA.", tipo: "erro-humano" }, { titulo: "Não verificar compatibilidade", desc: "Processador incompatível com placa-mãe, fonte insuficiente para GPU.", tipo: "erro-humano" }, { titulo: "Instalação sem cuidado", desc: "Favaliar o valor peças, não usar antiestática, conectar cabos errados.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Troca por peça compatível resolve.", tempo: "1h", custo: "R$ 99,99 + diferença de peça" }, { nivel: "Médio", desc: "Peça incompatível causou dano leve.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Dano a componentes durante instalação.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Cada erro pode ser mais caro que contratar um técnico desde o início"], diagnostico: `Avaliação do upgrade realizado + correção. Custo: R$ 90.`, solucao: `Identificação do erro + correção + orientação.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Quando causou dano físico irreversível.", whatsappMessage: "Olá! Fiz um upgrade e deu problema. Podem me ajudar a corrigir?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-memoria" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }, { label: "Riscos de Consertar Sozinho", to: "/problemas/riscos-de-tentar-consertar" }], conteudoExtra: `### Top 5 Erros de Upgrade
+  { slug: "erros-comuns-em-upgrade", title: "Erros Comuns em Upgrade de PC | Evite Problemas", metaDescription: "Os erros mais comuns ao fazer upgrade de PC. Evite problemas com RAM, SSD, GPU. Guia técnico.", h1: "Erros Comuns em Upgrade de PC — Evite Problemas", categoria: "Buscas Educativas", intro: `Upgrades são a forma mais inteligente de melhorar o computador. Mas erros na escolha das peças ou na instalação podem transformar uma melhoria em um problema. Neste guia, listamos os erros mais comuns que vemos em Curitiba e como evitá-los.`, sintomas: [{ titulo: "Computador não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }], causas: [{ titulo: "Comprar peça errada", desc: "RAM DDR4 para placa DDR3, SSD NVMe para slot SATA.", tipo: "erro-humano" }, { titulo: "Não verificar compatibilidade", desc: "Processador incompatível com placa-mãe, fonte insuficiente para GPU.", tipo: "erro-humano" }, { titulo: "Instalação sem cuidado", desc: "Favaliar o valor peças, não usar antiestática, conectar cabos errados.", tipo: "erro-humano" }], cenarios: [{ nivel: "Simples", desc: "Troca por peça compatível resolve.", tempo: "1h", custo: "R$ 99,99 + diferença de peça" }, { nivel: "Médio", desc: "Peça incompatível causou dano leve.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Dano a componentes durante instalação.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Cada erro pode ser mais caro que contratar um técnico desde o início"], diagnostico: `Avaliação do upgrade realizado + correção. Custo: R$ 90.`, solucao: `Identificação do erro + correção + orientação.`, quandoCompensa: "Quase sempre — o erro geralmente é reversível.", quandoNaoCompensa: "Quando causou dano físico irreversível.", whatsappMessage: "Olá! Fiz um upgrade e deu problema. Podem me ajudar a corrigir?", relatedPages: [...RELATED_BASE, { label: "Upgrade Deu Problema", to: "/problemas/upgrade-deu-problema" }, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Upgrade SSD/Memória", to: "/servicos/upgrade-ssd-ram" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }, { label: "Riscos de Consertar Sozinho", to: "/problemas/riscos-de-tentar-consertar" }], conteudoExtra: `### Top 5 Erros de Upgrade
 
 1. **RAM errada** — DDR4 em placa DDR3 (não encaixa mas tentam favaliar o valor)
 2. **SSD errado** — NVMe em slot M.2 SATA (parece igual mas não é)
@@ -2271,7 +2271,7 @@ O agendamento normal tem os mesmos horários, mas sem prioridade na fila. Para u
 
   { slug: "tecnico-informatica-emergencia-curitiba", title: "Técnico Informática Emergência Curitiba | 24h", metaDescription: "Técnico de informática para emergência em Curitiba. Atendimento prioritário, computador, notebook, rede. WhatsApp.", h1: "Técnico de Informática para Emergência em Curitiba", categoria: "Local + Intenção", intro: `Emergências técnicas podem acontecer a qualquer momento: servidor da empresa caiu, computador do caixa parou, notebook com apresentação importante travou. Para esses casos, oferecemos atendimento de emergência com prioridade máxima na agenda.
 
-Importante: nosso atendimento é presencial com deslocamento. O tempo de chegada depende da localização e horário, mas priorizamos emergências na fila de atendimento.`, sintomas: [{ titulo: "Equipamento crítico parou", desc: "Servidores, caixas, equipamentos de produção.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer falha técnica crítica", desc: "Hardware, software, rede, energia.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido no local.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Reparo no local + configuração.", tempo: "2h a 4h", custo: "R$ 250 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico + bancada prioritária.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Tempo parado = perda de receita"], diagnostico: `Diagnóstico prioritário. Custo: R$ 90.`, solucao: `Resolução mais rápida possível com foco em retorno à operação.`, quandoCompensa: "Para empresas e profissionais que dependem do equipamento.", quandoNaoCompensa: "Para problemas não críticos que podem esperar agendamento normal.", whatsappMessage: "EMERGÊNCIA! Equipamento crítico parou. Podem atender hoje?", relatedPages: [...RELATED_BASE, { label: "Suporte Empresas", to: "/suporte-empresas" }, { label: "Atendimento Urgente", to: "/problemas/assistencia-tecnica-urgente-curitiba" }, { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" }, { label: "Conserto Domicílio", to: "/problemas/conserto-computador-domicilio-curitiba" }], conteudoExtra: `### Para Empresas
+Importante: nosso atendimento é presencial com deslocamento. O tempo de chegada depende da localização e horário, mas priorizamos emergências na fila de atendimento.`, sintomas: [{ titulo: "Equipamento crítico parou", desc: "Servidores, caixas, equipamentos de produção.", gravidade: "Urgente" }], causas: [{ titulo: "Qualquer falha técnica crítica", desc: "Hardware, software, rede, energia.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Problema resolvido no local.", tempo: "1h a 2h", custo: "R$ 150 a R$ 300" }, { nivel: "Médio", desc: "Reparo no local + configuração.", tempo: "2h a 4h", custo: "R$ 250 a R$ 500" }, { nivel: "Complexo", desc: "Diagnóstico + bancada prioritária.", tempo: "1 a 3 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Tempo parado = perda de receita"], diagnostico: `Diagnóstico prioritário. Custo: R$ 90.`, solucao: `Resolução mais rápida possível com foco em retorno à operação.`, quandoCompensa: "Para empresas e profissionais que dependem do equipamento.", quandoNaoCompensa: "Para problemas não críticos que podem esperar agendamento normal.", whatsappMessage: "EMERGÊNCIA! Equipamento crítico parou. Podem atender hoje?", relatedPages: [...RELATED_BASE, { label: "Suporte Empresas", to: "/servicos/suporte-tecnico-empresarial" }, { label: "Atendimento Urgente", to: "/problemas/assistencia-tecnica-urgente-curitiba" }, { label: "Redes Wi-Fi", to: "/servicos/redes-e-wifi" }, { label: "Conserto Domicílio", to: "/problemas/conserto-computador-domicilio-curitiba" }], conteudoExtra: `### Para Empresas
 
 Oferecemos contratos de suporte contínuo para empresas que não podem parar. Manutenção preventiva + atendimento prioritário quando necessário.
 
@@ -2370,7 +2370,7 @@ Seu equipamento não sai do seu controle. Você acompanha o diagnóstico e o rep
 
   { slug: "manutencao-notebook-curitiba-rapido", title: "Manutenção de Notebook Rápida em Curitiba", metaDescription: "Manutenção de notebook rápida em Curitiba. Limpeza, upgrade SSD, troca de tela, formatação. Atendimento no mesmo dia.", h1: "Manutenção de Notebook Rápida em Curitiba", categoria: "Local + Intenção", intro: `Precisa de manutenção rápida no notebook? Limpeza interna, troca de pasta térmica, upgrade de SSD/RAM, formatação, troca de tela — fazemos a maioria dos serviços de manutenção com rapidez e qualidade em Curitiba.
 
-Nosso diferencial é a transparência: você sabe exatamente o que vai ser feito, quanto custa e quanto tempo leva. Sem surpresas, sem venda de serviço desnecessário.`, sintomas: [{ titulo: "Notebook precisando de manutenção", desc: "Lento, esquentando, bateria fraca, tela quebrada.", gravidade: "Variável" }], causas: [{ titulo: "Manutenção preventiva", desc: "Limpeza + pasta térmica a cada 12-18 meses prolonga a vida útil.", tipo: "desgaste" }, { titulo: "Manutenção corretiva", desc: "Reparo de problema específico identificado.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, pasta térmica, otimização de software.", tempo: "1h a 2h", custo: "R$ 120 a R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD + RAM + formatação.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Troca de tela, reparo de jack, placa-mãe.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Adiar manutenção preventiva leva a reparos mais caros"], diagnostico: `Diagnóstico rápido para definir o que precisa ser feito. Custo: R$ 99,99 (incorporado se aprovar serviço).`, solucao: `Manutenção focada e rápida com peças de qualidade.`, quandoCompensa: "Sempre — manutenção preventiva é o melhor investimento.", quandoNaoCompensa: "Quando o notebook é tão antigo que a manutenção é paliativa.", whatsappMessage: "Olá! Preciso de manutenção rápida no notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" }, { label: "Notebook Esquentando", to: "/problemas/notebook-esquentando-curitiba" }, { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" }, { label: "Vale Consertar Notebook?", to: "/problemas/vale-a-pena-consertar-notebook" }], conteudoExtra: `### Tabela de Tempos Médios
+Nosso diferencial é a transparência: você sabe exatamente o que vai ser feito, quanto custa e quanto tempo leva. Sem surpresas, sem venda de serviço desnecessário.`, sintomas: [{ titulo: "Notebook precisando de manutenção", desc: "Lento, esquentando, bateria fraca, tela quebrada.", gravidade: "Variável" }], causas: [{ titulo: "Manutenção preventiva", desc: "Limpeza + pasta térmica a cada 12-18 meses prolonga a vida útil.", tipo: "desgaste" }, { titulo: "Manutenção corretiva", desc: "Reparo de problema específico identificado.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Limpeza, pasta térmica, otimização de software.", tempo: "1h a 2h", custo: "R$ 120 a R$ 250" }, { nivel: "Médio", desc: "Upgrade SSD + RAM + formatação.", tempo: "2h a 4h", custo: "R$ 300 a R$ 600" }, { nivel: "Complexo", desc: "Troca de tela, reparo de jack, placa-mãe.", tempo: "2 a 7 dias", custo: "R$ 300 a R$ 800+" }], riscos: ["Adiar manutenção preventiva leva a reparos mais caros"], diagnostico: `Diagnóstico rápido para definir o que precisa ser feito. Custo: R$ 99,99 (incorporado se aprovar serviço).`, solucao: `Manutenção focada e rápida com peças de qualidade.`, quandoCompensa: "Sempre — manutenção preventiva é o melhor investimento.", quandoNaoCompensa: "Quando o notebook é tão antigo que a manutenção é paliativa.", whatsappMessage: "Olá! Preciso de manutenção rápida no notebook. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" }, { label: "Notebook Esquentando", to: "/problemas/notebook-esquentando-curitiba" }, { label: "Conserto Notebook", to: "/servicos/manutencao-de-computador" }, { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" }, { label: "Vale Consertar Notebook?", to: "/problemas/vale-a-pena-consertar-notebook" }], conteudoExtra: `### Tabela de Tempos Médios
 
 | Serviço | Tempo Médio |
 |---|---|
@@ -2536,7 +2536,7 @@ A: Fazemos a coleta do equipamento e devolvemos pronto. Sem custo adicional de t
     relatedPages: [
       ...RELATED_BASE,
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
-      { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Redes Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Atendimento Domicílio", to: "/atendimento-domicilio" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
     ],
@@ -2689,10 +2689,10 @@ Diagnosticamos problemas de monitor/vídeo em toda Curitiba e região metropolit
     whatsappMessage: "Olá! Minha internet está muito lenta. Preciso de diagnóstico de rede.",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Computador com Vírus", to: "/problemas/computador-com-virus-curitiba" },
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
-      { label: "Suporte Empresas", to: "/suporte-empresas" },
+      { label: "Suporte Empresas", to: "/servicos/suporte-tecnico-empresarial" },
     ],
     conteudoExtra: `## Guia: Internet Lenta em Curitiba
 
@@ -2822,7 +2822,7 @@ Resolvemos no mesmo dia em toda Curitiba e região. Maioria dos casos em menos d
     relatedPages: [
       ...RELATED_BASE,
       { label: "PC Não Reconhece HD", to: "/problemas/pc-nao-reconhece-hd-curitiba" },
-      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "Backup e Recuperação", to: "/servicos/recuperacao-de-dados" },
       { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" },
     ],
     conteudoExtra: `## Guia: HD Externo em Curitiba
@@ -2969,7 +2969,7 @@ Diagnosticamos telas azuis em toda Curitiba e região metropolitana. Análise de
     relatedPages: [
       ...RELATED_BASE,
       { label: "Internet Lenta", to: "/problemas/internet-lenta-curitiba" },
-      { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Redes Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Notebook Lento", to: "/problemas/notebook-lento-curitiba" },
       { label: "Notebook Não Liga", to: "/problemas/notebook-nao-liga-curitiba" },
     ],
@@ -3040,7 +3040,7 @@ Resolvemos problemas de Wi-Fi em notebooks de todas as marcas. Atendimento a dom
       ...RELATED_BASE,
       { label: "PC Superaquecendo", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "GPU Desgastada", to: "/problemas/gpu-desgastada" },
-      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Upgrade SSD/RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Montagem de PC", to: "/servicos/montagem-pc" },
     ],
     conteudoExtra: `## Guia: PC Gamer Travando em Curitiba
@@ -3245,7 +3245,7 @@ Antes de formatar e perder tudo, consulte um técnico. Em muitos casos, consegui
     relatedPages: [
       ...RELATED_BASE,
       { label: "HD Externo Não Reconhece", to: "/problemas/hd-externo-nao-reconhece-curitiba" },
-      { label: "Backup e Recuperação", to: "/servicos/backup-recuperacao" },
+      { label: "Backup e Recuperação", to: "/servicos/recuperacao-de-dados" },
     ],
     conteudoExtra: `## Guia Completo: Pen Drive Não Reconhece em Curitiba
 
@@ -3316,7 +3316,7 @@ Em Curitiba, atendemos no mesmo dia problemas de áudio em desktops, notebooks, 
     relatedPages: [
       ...RELATED_BASE,
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Formatação", to: "/servicos/formatacao" },
     ],
     conteudoExtra: `## Guia: Resolver Problemas de Som no Computador
 
@@ -3454,7 +3454,7 @@ Em Curitiba, realizamos instalações profissionais do Windows 10 e 11 com drive
     whatsappMessage: "Olá! Estou com erro ao tentar instalar o Windows no meu computador. Preciso de ajuda profissional.",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Formatação de Computador", to: "/servicos/formatacao-computador" },
+      { label: "Formatação de Computador", to: "/servicos/formatacao" },
       { label: "Tela Azul Windows", to: "/problemas/tela-azul-windows-curitiba" },
     ],
     conteudoExtra: `## Guia: Instalação do Windows em Curitiba
@@ -3526,8 +3526,8 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/pc-trava-ao-jogar-curitiba", label: "PC Trava ao Jogar" },
       { to: "/problemas/computador-com-som-estranho-curitiba", label: "Som Estranho no PC" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD" },
       { to: "/como-funciona", label: "Como Funciona" }
     ]
   },
@@ -3576,9 +3576,9 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
     relatedPages: [
       { to: "/cftv", label: "CFTV e Câmeras" },
       { to: "/cftv/curitiba", label: "CFTV Curitiba" },
-      { to: "/servicos/redes-wifi", label: "Redes e WiFi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e WiFi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
-      { to: "/suporte-empresas", label: "Suporte Empresas" },
+      { to: "/servicos/suporte-tecnico-empresarial", label: "Suporte Empresas" },
       { to: "/como-funciona", label: "Como Funciona" }
     ]
   },
@@ -3627,7 +3627,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
     relatedPages: [
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto PC/Notebook" },
       { to: "/servicos/montagem-pc", label: "Montagem de PC" },
       { to: "/problemas/computador-com-som-estranho-curitiba", label: "Som Estranho no PC" },
       { to: "/como-funciona", label: "Como Funciona" }
@@ -3679,7 +3679,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/servicos/conserto-placa", label: "Conserto de Placa" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto PC/Notebook" },
       { to: "/servicos/montagem-pc", label: "Montagem de PC" },
       { to: "/como-funciona", label: "Como Funciona" }
     ]
@@ -3734,7 +3734,7 @@ Em Curitiba, fazemos diagnóstico preciso para identificar exatamente o que est�
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -3790,7 +3790,7 @@ Em Curitiba, nosso diagnóstico identifica a causa exata da tela preta — e só
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto PC/Notebook" },
       { to: "/servicos/conserto-placa", label: "Conserto de Placa" },
       { to: "/como-funciona", label: "Como Funciona" }
     ],
@@ -3844,9 +3844,9 @@ Em Curitiba, fazemos uma limpeza profissional completa e, quando necessário, mi
     whatsappMessage: "Olá! Meu computador está com disco cheio e muito lento. Podem me ajudar?",
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD" },
+      { to: "/servicos/formatacao", label: "Formatação" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -3903,7 +3903,7 @@ O pior erro que você pode cometer é desligar o computador à força durante um
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -3958,7 +3958,7 @@ O importante é não continuar usando com a tela quebrada: além do desconforto 
     relatedPages: [
       { to: "/problemas/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/problemas/vale-a-pena-consertar-notebook", label: "Vale Consertar Notebook?" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
@@ -4016,7 +4016,7 @@ O mais perigoso é ignorar: se a causa for superaquecimento, cada reinicializaç
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto PC/Notebook" },
       { to: "/como-funciona", label: "Como Funciona" }
     ],
     conteudoExtra: `## Como Descobrir Por Que Seu PC Está Reiniciando\n\n### Passo 1: Desativar Reinicialização Automática\n\nO Windows esconde a tela azul (BSOD) reiniciando rápido demais. Para ver o erro:\n\n1. Clique direito em "Este Computador" → Propriedades\n2. Configurações avançadas do sistema\n3. Inicialização e Recuperação → Configurações\n4. Desmarque "Reiniciar automaticamente"\n5. Na próxima falha, a tela azul ficará visível\n\n### Passo 2: Verificar Temperatura\n\nBaixe o HWMonitor (gratuito) e observe:\n- **CPU abaixo de 80°C sob carga** = Normal\n- **CPU entre 80-95°C** = Precisa de limpeza\n- **CPU acima de 95°C** = Desligamento térmico iminente\n\n### Tabela de Diagnóstico Rápido\n\n| Quando Reinicia | Causa Mais Provável | Solução |\n|---|---|---|\n| Durante jogos/renderização | Superaquecimento ou fonte | Limpeza ou troca de fonte |\n| Aleatoriamente | RAM ou capacitores | Teste de RAM / inspeção placa |\n| Ao conectar USB | Curto na porta USB | Teste e reparo de porta |\n| Sempre no mesmo horário | Windows Update | Ajustar configurações |\n| Logo após ligar (1-5 min) | Superaquecimento grave | Limpeza urgente |\n| Só quando chove | Rede elétrica instável | Usar nobreak |\n\n### A Importância do Nobreak\n\nSe seu PC reinicia durante quedas de energia (mesmo micro-quedas de 0.5 segundo), um nobreak é essencial:\n\n- **Básico (600 VA)**: R$ 300-500 — protege contra micro-quedas\n- **Intermediário (1200 VA)**: R$ 500-800 — mantém PC ligado por 15-30 min\n- **Gamer (1500+ VA)**: R$ 800-1.500 — para PCs com placa de vídeo potente`
@@ -4070,8 +4070,8 @@ Em Curitiba, tratamos HD barulhento como emergência: diagnóstico prioritário 
     relatedPages: [
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4125,9 +4125,9 @@ O segredo é não ficar tentando imprimir repetidamente — isso só gasta tinta
     quandoNaoCompensa: "Impressoras jato de tinta baratas (R$ 300-500) com cabeça de impressão integrada queimada. O custo da cabeça nova se aproxima do valor da impressora.",
     whatsappMessage: "Olá! Minha impressora não está imprimindo. Podem fazer um diagnóstico?",
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/suporte-empresas", label: "Suporte para Empresas" },
+      { to: "/servicos/suporte-tecnico-empresarial", label: "Suporte para Empresas" },
       { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
       { to: "/como-funciona", label: "Como Funciona" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
@@ -4185,7 +4185,7 @@ Antes de entrar em pânico, verifique o básico: o cabo está bem conectado? O m
       { to: "/problemas/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto PC/Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4240,7 +4240,7 @@ Em Curitiba, fazemos diagnóstico para identificar a causa exata — e só entã
     relatedPages: [
       { to: "/problemas/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
       { to: "/problemas/notebook-nao-carrega-curitiba", label: "Notebook Não Carrega" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
@@ -4294,7 +4294,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     quandoNaoCompensa: "Quando o notebook é tão antigo que só suporta Wi-Fi 802.11n e o adaptador USB 5GHz custa mais que um notebook usado.",
     whatsappMessage: "Olá! Meu computador não está conectando no Wi-Fi. Podem me ajudar?",
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/internet-lenta-curitiba", label: "Internet Lenta" },
       { to: "/atendimento-domicilio", label: "Atendimento em Domicílio" },
@@ -4349,7 +4349,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4401,7 +4401,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/pc-com-tela-preta-curitiba", label: "PC com Tela Preta" },
       { to: "/problemas/placa-mae-com-defeito-curitiba", label: "Placa-Mãe com Defeito" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC/Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4455,7 +4455,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
       { to: "/servicos/montagem-pc", label: "Montagem de PC" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD/Memória" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
     conteudoExtra: `## PC Gamer Travando: Guia Completo de Solução\n\n### Temperaturas Máximas Aceitáveis em Jogos\n\n| Componente | Aceitável | Preocupante | Crítico |\n|---|---|---|---|\n| CPU Intel | < 85°C | 85-95°C | > 95°C |\n| CPU AMD | < 85°C | 85-90°C | > 90°C |\n| GPU NVIDIA | < 83°C | 83-90°C | > 90°C |\n| GPU AMD | < 90°C | 90-100°C | > 100°C |\n\n### Fonte: Quanto de Potência Você Precisa?\n\n| Setup | Potência Mínima | Recomendada |\n|---|---|---|\n| GT 1030 / RX 550 | 300W | 400W |\n| GTX 1660 / RX 5600 | 450W | 550W |\n| RTX 3060 / RX 6700 | 550W | 650W |\n| RTX 4070 / RX 7800 | 650W | 750W |\n| RTX 4080/4090 | 750W | 850-1000W |\n\n### Checklist Rápido de Diagnóstico\n\n1. ✅ Temperatura da GPU durante o jogo (MSI Afterburner)\n2. ✅ Uso de RAM durante o jogo (Gerenciador de Tarefas)\n3. ✅ Driver de vídeo atualizado (GeForce Experience / AMD Software)\n4. ✅ Windows atualizado\n5. ✅ Plano de energia em "Alto Desempenho"\n6. ✅ Jogo instalado no SSD (não no HD)\n7. ✅ Overlays desativados (teste sem Discord/GeForce overlay)`
@@ -4504,7 +4504,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     quandoNaoCompensa: "Quando os dados podem ser baixados novamente (jogos, programas, músicas compradas) ou quando o custo de recuperação excede o valor comercial dos dados.",
     whatsappMessage: "Olá! Perdi dados importantes e preciso de recuperação. Podem me ajudar urgentemente?",
     relatedPages: [
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/problemas/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
       { to: "/problemas/pc-com-virus-ransomware-curitiba", label: "Vírus e Ransomware" },
@@ -4557,7 +4557,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
     relatedPages: [
       { to: "/problemas/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
       { to: "/problemas/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4609,7 +4609,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/som-nao-funciona-curitiba", label: "Som Não Funciona" },
       { to: "/problemas/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4715,7 +4715,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/pc-reiniciando-sozinho-curitiba", label: "PC Reiniciando Sozinho" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD/Memória" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4767,7 +4767,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
       { to: "/problemas/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4820,7 +4820,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4873,7 +4873,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Disco Cheio" },
       { to: "/problemas/backup-perdido-curitiba", label: "Backup Perdido" },
       { to: "/problemas/hd-fazendo-barulho-curitiba", label: "HD Fazendo Barulho" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -4978,7 +4978,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/notebook-nao-conecta-bluetooth-curitiba", label: "Bluetooth Não Conecta" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -5030,7 +5030,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
       { to: "/problemas/monitor-sem-sinal-curitiba", label: "Monitor Sem Sinal" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
-      { to: "/servicos/redes-wifi", label: "Redes e Infraestrutura" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Infraestrutura" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -5083,7 +5083,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
       { to: "/problemas/windows-travando-na-atualizacao-curitiba", label: "Windows Travando na Atualização" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/como-funciona", label: "Como Funciona" },
       { to: "/precos-e-politicas", label: "Preços e Políticas" }
     ],
@@ -5215,9 +5215,9 @@ O relatório mostra a capacidade original vs. atual e o número de ciclos.`,
     relatedPages: [
       { to: "/problemas/pc-desligando-sozinho-curitiba", label: "PC Desligando Sozinho" },
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/problemas/computador-com-cheiro-de-queimado-curitiba", label: "Cheiro de Queimado" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD e Memória" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
   },
@@ -5296,10 +5296,10 @@ Utilizamos ferramentas especializadas como AdwCleaner, Malwarebytes, HitmanPro e
 - Não insira senhas ou dados bancários até o computador ser limpo
 - Procure assistência técnica profissional para remoção completa`,
     relatedPages: [
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/remocao-virus", label: "Serviço Remoção de Vírus" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/remocao-de-virus", label: "Serviço Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
@@ -5480,9 +5480,9 @@ Sempre use "Remover hardware com segurança" antes de desconectar pendrives e HD
     relatedPages: [
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC/Notebook" },
       { to: "/problemas/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
-      { to: "/servicos/redes-wifi", label: "Redes e Conectividade" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Conectividade" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" }
     ]
   },
@@ -5560,7 +5560,7 @@ Enquanto aguarda o reparo, um teclado USB externo funciona perfeitamente com qua
     whatsappMessage: "Olá! O teclado do meu notebook parou de funcionar. Podem me ajudar?",
     relatedPages: [
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/problemas/notebook-com-tela-quebrada-curitiba", label: "Tela Quebrada" },
       { to: "/problemas/notebook-touchpad-nao-funciona-curitiba", label: "Touchpad Não Funciona" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
@@ -5640,7 +5640,7 @@ Para quem não quer esperar o reparo, uma placa de som USB externa (adaptador US
     whatsappMessage: "Olá! Meu computador está sem áudio/som. Podem me ajudar?",
     relatedPages: [
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC/Notebook" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
@@ -5733,9 +5733,9 @@ Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gar
     whatsappMessage: "Olá! Meu computador está com disco em 100% e muito lento. Podem me ajudar?",
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD/Memória" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD/Memória" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -5824,7 +5824,7 @@ Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gar
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/computador-desligando-apos-segundos-curitiba", label: "Desligando Após Segundos" },
       { to: "/problemas/memoria-ram-com-defeito-curitiba", label: "RAM com Defeito" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC/Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC/Notebook" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -5912,9 +5912,9 @@ netsh int ip reset
 - Configurar DNS público resolve muitos problemas de "conectado sem internet"`,
     whatsappMessage: "Olá! Meu computador não está conectando na internet. Podem me ajudar?",
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
@@ -6002,8 +6002,8 @@ O Registro do Windows é como o "cérebro" do sistema operacional. Ele armazena:
     relatedPages: [
       { to: "/problemas/windows-travando-na-atualizacao-curitiba", label: "Windows Travando" },
       { to: "/problemas/erro-atualizacao-windows-11-curitiba", label: "Erro Windows 11" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -6091,7 +6091,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/notebook-bateria-nao-carrega-curitiba", label: "Bateria Não Carrega" },
       { to: "/problemas/notebook-esquentando-desligando-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -6182,10 +6182,10 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu computador foi infectado com ransomware e meus arquivos estão criptografados. URGENTE!",
     relatedPages: [
       { to: "/problemas/pc-com-pop-ups-e-propagandas-curitiba", label: "PC com Pop-ups" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/problemas/backup-perdido-curitiba", label: "Backup Perdido" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -6232,7 +6232,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/notebook-com-tela-piscando-curitiba", label: "Tela Piscando" },
       { to: "/problemas/pc-sem-imagem-curitiba", label: "PC Sem Imagem" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -6280,7 +6280,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "PC Não Liga" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
     ]
   },
 
@@ -6326,7 +6326,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/erro-0x0000007b-curitiba", label: "Erro 0x0000007B" },
       { to: "/problemas/pc-nao-entra-modo-seguro-curitiba", label: "PC Não Entra no Modo Seguro" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
     ]
   },
 
@@ -6372,7 +6372,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/pc-nao-conecta-internet-curitiba", label: "PC Sem Internet" },
       { to: "/problemas/notebook-nao-conecta-bluetooth-curitiba", label: "Sem Bluetooth" },
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/diagnostico-tecnico", label: "Diagnóstico Técnico" },
     ]
   },
@@ -6420,7 +6420,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Verificações Rápidas Antes de Chamar um Técnico\n\n1. **Verifique a tampa de privacidade**: Muitos notebooks têm um slider físico sobre a câmera\n2. **Configurações de Privacidade**: Configurações → Privacidade e Segurança → Câmera → ative "Acesso à câmera"\n3. **Gerenciador de Dispositivos**: Clique com botão direito no menu Iniciar → procure "Câmeras" ou "Dispositivos de imagem"\n4. **Teste em outro app**: Se não funciona no Teams, teste no aplicativo Câmera do Windows\n5. **Reinicie o notebook**: Um simples reinício pode resolver conflitos temporários\n\n## Webcam USB como Solução Temporária\n\nPara reuniões urgentes, uma webcam USB pode ser conectada imediatamente. Modelos Full HD com microfone integrado custam a partir de R$ 80 e oferecem qualidade superior à maioria das webcams integradas.`,
     relatedPages: [
       { label: "Notebook Não Liga", to: "/problemas/notebook-nao-liga-curitiba" },
-      { label: "Conserto de Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto de Notebook", to: "/servicos/manutencao-de-computador" },
       { label: "Tela Preta", to: "/problemas/notebook-tela-preta-curitiba" },
       { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" },
     ]
@@ -6471,7 +6471,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { label: "Erro 0xc000021a", to: "/problemas/erro-0xc000021a-curitiba" },
       { label: "Tela Azul (BSOD)", to: "/problemas/tela-azul-windows-curitiba" },
       { label: "PC Não Liga", to: "/problemas/computador-nao-liga-curitiba" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Formatação", to: "/servicos/formatacao" },
     ]
   },
 
@@ -6521,7 +6521,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { label: "PC Lento", to: "/problemas/computador-lento-curitiba" },
       { label: "Tela Azul (BSOD)", to: "/problemas/tela-azul-windows-curitiba" },
       { label: "Superaquecimento", to: "/problemas/pc-superaquecendo-curitiba" },
-      { label: "Conserto de PC", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto de PC", to: "/servicos/manutencao-de-computador" },
     ]
   },
 
@@ -6572,7 +6572,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { label: "Superaquecimento", to: "/problemas/pc-superaquecendo-curitiba" },
       { label: "PC Lento", to: "/problemas/computador-lento-curitiba" },
       { label: "HD com Barulho", to: "/problemas/hd-fazendo-barulho-curitiba" },
-      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-memoria" },
+      { label: "Upgrade SSD", to: "/servicos/upgrade-ssd-ram" },
     ]
   },
   // ---------- pc-reiniciando-sozinho-curitiba ----------
@@ -6672,8 +6672,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/notebook-sem-webcam-curitiba", label: "Notebook Sem Webcam" },
       { to: "/problemas/notebook-lento-curitiba", label: "Notebook Lento" },
       { to: "/problemas/notebook-nao-liga-curitiba", label: "Notebook Não Liga" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -6724,8 +6724,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/erro-0xc00000e-curitiba", label: "Erro 0xc00000e" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul Windows" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -6982,8 +6982,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/computador-sem-wifi-curitiba", label: "PC Sem Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/formatacao", label: "Formatação" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
@@ -7031,10 +7031,10 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Cuidados Preventivos com o Teclado do Notebook\n\n### Proteção contra líquidos\nUse uma película protetora de silicone sobre o teclado. Evite consumir bebidas próximo ao notebook. Em caso de derramamento, desligue imediatamente, vire o notebook de cabeça para baixo e procure assistência técnica.\n\n### Limpeza periódica\nUse ar comprimido a cada 2-3 meses para remover detritos sob as teclas. Nunca use aspirador de pó diretamente sobre o teclado, pois pode gerar eletricidade estática.\n\n### Teclado externo para uso prolongado\nPara quem digita muitas horas por dia, usar um teclado externo preserva o teclado interno e oferece melhor ergonomia.\n\n## Modelos Mais Comuns com Problema de Teclado em Curitiba\n\n- **Dell Inspiron 15 série 3000/5000** — flat cable com histórico de mau contato\n- **Lenovo IdeaPad 3/5** — teclas com mecanismo frágil\n- **Acer Aspire 5** — sensibilidade a líquidos por design do chassi\n- **Samsung Book** — desgaste prematuro das membranas`,
     whatsappMessage: "Olá! O teclado do meu notebook não está funcionando. Preciso de diagnóstico e reparo em Curitiba.",
     relatedPages: [
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7083,9 +7083,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
       { to: "/problemas/erro-0x80004005-curitiba", label: "Erro 0x80004005" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7132,9 +7132,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu PC/notebook não está enviando som pelo HDMI para a TV. Preciso de ajuda em Curitiba.",
     relatedPages: [
       { to: "/problemas/notebook-sem-audio-curitiba", label: "Notebook Sem Áudio" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7186,7 +7186,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
       { to: "/problemas/pc-travando-em-jogos-curitiba", label: "PC Travando em Jogos" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7235,7 +7235,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/notebook-esquentando-muito-curitiba", label: "Notebook Esquentando" },
       { to: "/problemas/notebook-teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
@@ -7286,8 +7286,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/erro-0x80070005-curitiba", label: "Erro 0x80070005" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7336,7 +7336,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7384,11 +7384,11 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## Guia: Como Melhorar seu Wi-Fi Antes de Chamar um Técnico\n\n### 1. Reinicie o roteador corretamente\nDesligue da tomada, aguarde 30 segundos e religue. Isso limpa a memória e pode resolver problemas temporários.\n\n### 2. Verifique a posição do roteador\n- Coloque em local central e elevado (não no chão)\n- Longe de paredes grossas, espelhos e aquários\n- Afastado de micro-ondas e telefones sem fio\n\n### 3. Use a banda 5GHz quando possível\nA banda 5GHz é mais rápida e menos congestionada, ideal para dispositivos próximos ao roteador. A banda 2.4GHz tem maior alcance mas é mais lenta e sujeita a interferência.\n\n## Wi-Fi 5 vs Wi-Fi 6: Vale a Troca?\n\n| Recurso | Wi-Fi 5 (AC) | Wi-Fi 6 (AX) |\n|---------|-------------|-------------|\n| Velocidade máxima | 3.5 Gbps | 9.6 Gbps |\n| Dispositivos simultâneos | Bom | Excelente (OFDMA) |\n| Alcance | Bom | Melhor (BSS Coloring) |\n| Consumo de bateria | Normal | Otimizado (TWT) |\n| Preço médio | R$200-400 | R$400-800 |\n\nSe você tem mais de 10 dispositivos conectados ou plano acima de 300 Mbps, o Wi-Fi 6 faz diferença significativa.`,
     whatsappMessage: "Olá! Meu Wi-Fi está caindo toda hora. Preciso de diagnóstico e solução em Curitiba.",
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/impressora-nao-imprime-curitiba", label: "Impressora Não Imprime" },
       { to: "/atendimento-domicilio", label: "Atendimento a Domicílio" },
-      { to: "/suporte-empresas", label: "Suporte para Empresas" },
+      { to: "/servicos/suporte-tecnico-empresarial", label: "Suporte para Empresas" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7439,7 +7439,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/problemas/monitor-piscando-curitiba", label: "Monitor Piscando" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7489,7 +7489,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0x800f081f-curitiba", label: "Erro 0x800f081f" },
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7539,7 +7539,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
       { to: "/problemas/pc-sem-som-hdmi-curitiba", label: "PC Sem Som HDMI" },
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7589,8 +7589,8 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     whatsappMessage: "Olá! Meu HD externo não está sendo reconhecido pelo computador. Tenho dados importantes nele. Preciso de diagnóstico urgente.",
     relatedPages: [
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -7640,7 +7640,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/problemas/wifi-caindo-curitiba", label: "Wi-Fi Caindo" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
     ]
@@ -7739,7 +7739,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
       { to: "/problemas/erro-0x80240034-curitiba", label: "Erro 0x80240034" },
       { to: "/problemas/erro-0xc000021a-curitiba", label: "Erro 0xc000021a" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul BSOD" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7933,9 +7933,9 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     conteudoExtra: `## SSD SATA vs NVMe — Cuidados na Instalação\n\nSSDs M.2 existem em dois tipos: SATA e NVMe. Eles usam o mesmo conector físico mas são eletricamente diferentes. Verifique a compatibilidade do slot antes de comprar.\n\n## Vida Útil do SSD\n\nSSDs modernos duram 5-10 anos em uso normal. Use CrystalDiskInfo para monitorar a saúde. Quando atingir 80%+ de desgaste, faça backup e planeje a substituição.`,
     relatedPages: [
       { to: "/problemas/hd-externo-nao-reconhece-curitiba", label: "HD Externo Não Reconhece" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD e Memória" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
   },
@@ -7983,7 +7983,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
     relatedPages: [
       { to: "/problemas/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
       { to: "/problemas/notebook-tela-preta-curitiba", label: "Notebook Tela Preta" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/problemas/pc-nao-reconhece-usb-curitiba", label: "PC Não Reconhece USB" },
       { to: "/servicos", label: "Todos os Serviços" }
     ]
@@ -8040,7 +8040,7 @@ A instalação inclui teste de todas as tensões sob carga real do sistema, orga
       ...RELATED_BASE,
       { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" },
       { label: "PC Reiniciando Sozinho", to: "/problemas/pc-reiniciando-sozinho-curitiba" },
-      { label: "Conserto PC/Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto PC/Notebook", to: "/servicos/manutencao-de-computador" },
     ],
     conteudoExtra: `### Como Escolher a Fonte Certa
 
@@ -8109,7 +8109,7 @@ Em casos de hardware, reparamos ou substituímos o componente problemático. Em 
       ...RELATED_BASE,
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
       { label: "PC Reiniciando Sozinho", to: "/problemas/pc-reiniciando-sozinho-curitiba" },
-      { label: "Formatação", to: "/servicos/formatacao-computador" },
+      { label: "Formatação", to: "/servicos/formatacao" },
     ],
     conteudoExtra: `### O Que Fazer Quando o PC Não Desliga
 
@@ -8177,7 +8177,7 @@ Também fazemos backup dos dados antes de qualquer formatação e verificamos in
     whatsappMessage: "Olá! Estou com erro ao instalar o Windows. Podem me ajudar?",
     relatedPages: [
       ...RELATED_BASE,
-      { label: "Formatação de Computador", to: "/servicos/formatacao-computador" },
+      { label: "Formatação de Computador", to: "/servicos/formatacao" },
       { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" },
       { label: "SSD Não Reconhece", to: "/problemas/ssd-nao-reconhece-curitiba" },
     ],
@@ -8247,7 +8247,7 @@ Para problemas de hardware: reconectamos o flat cable, substituímos cabos danif
     relatedPages: [
       ...RELATED_BASE,
       { label: "Teclado Não Funciona", to: "/problemas/notebook-teclado-nao-funciona-curitiba" },
-      { label: "Conserto de Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto de Notebook", to: "/servicos/manutencao-de-computador" },
       { label: "Notebook Desliga Sozinho", to: "/problemas/notebook-desliga-sozinho-curitiba" },
     ],
     conteudoExtra: `### Atalhos de Touchpad por Fabricante
@@ -8309,7 +8309,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/notebook-desliga-sozinho-curitiba", label: "Notebook Desliga Sozinho" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/problemas/fonte-queimada-curitiba", label: "Fonte Queimada" },
     ],
   },
@@ -8406,7 +8406,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/servicos/computador-lento", label: "Computador Lento" },
       { to: "/problemas/tela-azul-windows-curitiba", label: "Tela Azul (BSOD)" },
-      { to: "/servicos/formatacao-computador", label: "Formatação de Computador" },
+      { to: "/servicos/formatacao", label: "Formatação de Computador" },
       { to: "/problemas/erro-0x80070057-curitiba", label: "Erro 0x80070057" },
     ],
   },
@@ -8452,7 +8452,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Categorias de Cabo de Rede\n\n| Categoria | Velocidade | Frequência | Uso Recomendado |\n|---|---|---|---|\n| Cat5 | 100Mbps | 100MHz | Obsoleto |\n| Cat5e | 1Gbps | 100MHz | Residencial |\n| Cat6 | 1Gbps (10Gbps até 55m) | 250MHz | Residencial/Comercial |\n| Cat6a | 10Gbps | 500MHz | Comercial/Data Center |\n\n## Padrão de Crimpagem\n\nO padrão mais utilizado no Brasil é o **T568B**:\n1. Branco-Laranja\n2. Laranja\n3. Branco-Verde\n4. Azul\n5. Branco-Azul\n6. Verde\n7. Branco-Marrom\n8. Marrom`,
     whatsappMessage: "Olá! Estou com problema no cabo de rede / internet cabeada. Gostaria de agendar um diagnóstico.",
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes Wi-Fi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes Wi-Fi" },
       { to: "/servicos/computador-lento", label: "Computador Lento" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver Windows" },
       { to: "/servicos", label: "Todos os Serviços" },
@@ -8501,8 +8501,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## Como Identificar o Tipo de Barulho do HD\n\nCada tipo de som indica uma falha diferente:\n\n- **Clique repetitivo (click of death):** Cabeça de leitura falhando — falha mais grave\n- **Zumbido alto:** Motor spindle com rolamentos gastos\n- **Chiado ou raspagem:** Cabeça tocando os pratos — dano físico ativo\n- **Bipe eletrônico:** Motor travado, não consegue girar os pratos\n\n## SSD vs HD: Por Que Migrar\n\nApós uma falha de HD, recomendamos sempre a migração para SSD:\n\n- **Zero partes móveis:** Elimina risco de falha mecânica\n- **5x a 10x mais rápido:** Boot do Windows em 15 segundos\n- **Resistente a impactos:** Ideal para notebooks\n- **Silencioso:** Operação completamente sem ruído\n- **Menor consumo:** Aumenta autonomia da bateria em notebooks`,
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
@@ -8553,7 +8553,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/pc-travando-jogos-curitiba", label: "PC Travando em Jogos" },
       { to: "/problemas/notebook-desligando-sozinho-curitiba", label: "Notebook Desligando" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8601,9 +8601,9 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     conteudoExtra: `## O Que Consome Mais Espaço no Windows\n\n| Item | Espaço Típico |\n|------|---------------|\n| Windows + Atualizações | 30-60GB |\n| Pasta WinSxS | 5-20GB |\n| Cache de navegadores | 2-10GB |\n| Arquivos temporários | 1-5GB |\n| Pontos de restauração | 5-15GB |\n| Lixeira | 1-10GB |\n\n## Quanto de Espaço Livre Manter\n\n- **Mínimo absoluto:** 10% do disco\n- **Recomendado:** 15-20% livre\n- **Ideal para SSD:** 20-25% livre (preserva performance e vida útil)`,
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/upgrade-ssd-memoria", label: "Upgrade SSD e Memória" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
-      { to: "/servicos/backup-recuperacao", label: "Backup e Recuperação" },
+      { to: "/servicos/upgrade-ssd-ram", label: "Upgrade SSD e Memória" },
+      { to: "/servicos/formatacao", label: "Formatação" },
+      { to: "/servicos/recuperacao-de-dados", label: "Backup e Recuperação" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8650,7 +8650,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     whatsappMessage: "Olá! Meu computador não está conectando no WiFi. Preciso de diagnóstico para identificar se é problema de hardware ou configuração. Podem me ajudar?",
     conteudoExtra: `## Checklist Rápido Antes de Chamar o Técnico\n\n1. Verifique se o WiFi funciona em outros dispositivos (celular, tablet)\n2. Reinicie o roteador (desligue 30 segundos e religue)\n3. Verifique se o modo avião não está ativado\n4. Tente esquecer a rede WiFi e reconectar com a senha\n5. Verifique se há tecla de atalho para WiFi no notebook (Fn+F2, Fn+F5)\n\n## WiFi 5 vs WiFi 6: Vale o Upgrade?\n\n| Característica | WiFi 5 (ac) | WiFi 6 (ax) |\n|---------------|-------------|-------------|\n| Velocidade máxima | 866 Mbps | 2.4 Gbps |\n| Latência | Normal | Até 75% menor |\n| Múltiplos dispositivos | Limitado | Excelente (OFDMA) |\n| Alcance | Bom | Superior |\n| Preço adaptador | R$30-80 | R$60-150 |`,
     relatedPages: [
-      { to: "/servicos/redes-wifi", label: "Redes WiFi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes WiFi" },
       { to: "/problemas/cabo-rede-nao-funciona-curitiba", label: "Cabo de Rede" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
@@ -8701,7 +8701,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
-      { to: "/servicos/redes-wifi", label: "Redes WiFi" },
+      { to: "/servicos/redes-e-wifi", label: "Redes WiFi" },
       { to: "/problemas/cabo-rede-nao-funciona-curitiba", label: "Cabo de Rede" },
       { to: "/servicos", label: "Todos os Serviços" },
       { label: "Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" }, { label: "Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" }, { label: "Erro USB/WiFi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" }, { label: "Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
@@ -8753,7 +8753,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/notebook-touchpad-nao-funciona-curitiba", label: "Touchpad Não Funciona" },
-      { to: "/servicos/conserto-notebook-curitiba", label: "Conserto de Notebook" },
+      { to: "/servicos/manutencao-de-notebook", label: "Conserto de Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8802,8 +8802,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/erro-driver-windows-curitiba", label: "Erro de Driver" },
       { to: "/problemas/computador-lento-curitiba", label: "Computador Lento" },
-      { to: "/servicos/remocao-virus", label: "Remoção de Vírus" },
-      { to: "/servicos/formatacao-computador", label: "Formatação" },
+      { to: "/servicos/remocao-de-virus", label: "Remoção de Vírus" },
+      { to: "/servicos/formatacao", label: "Formatação" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8902,7 +8902,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/teclado-nao-funciona-curitiba", label: "Teclado Não Funciona" },
       { to: "/problemas/pc-nao-conecta-wifi-curitiba", label: "PC Não Conecta Wi-Fi" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC e Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -8952,7 +8952,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/erro-registro-windows-curitiba", label: "Erro no Registro do Windows" },
       { to: "/problemas/erro-disco-cheio-curitiba", label: "Erro de Disco Cheio" },
       { to: "/servicos/computador-lento", label: "Computador Lento" },
-      { to: "/servicos/formatacao-computador", label: "Formatação de Computador" },
+      { to: "/servicos/formatacao", label: "Formatação de Computador" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -9001,7 +9001,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { to: "/problemas/notebook-tela-escura-curitiba", label: "Notebook com Tela Escura" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC e Notebook" },
       { to: "/servicos/manutencao-tv", label: "Manutenção de TV" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
@@ -9052,7 +9052,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { to: "/problemas/monitor-piscando-curitiba", label: "Monitor Piscando" },
       { to: "/problemas/notebook-superaquecendo-curitiba", label: "Notebook Superaquecendo" },
       { to: "/problemas/computador-nao-liga-curitiba", label: "Computador Não Liga" },
-      { to: "/servicos/conserto-pc-notebook", label: "Conserto de PC e Notebook" },
+      { to: "/servicos/manutencao-de-computador", label: "Conserto de PC e Notebook" },
       { to: "/servicos", label: "Todos os Serviços" },
     ],
   },
@@ -9229,7 +9229,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       ...RELATED_BASE,
       { label: "Conserto de Celular", to: "/servicos/conserto-celular" },
-      { label: "Remoção de Vírus", to: "/servicos/remocao-virus" },
+      { label: "Remoção de Vírus", to: "/servicos/remocao-de-virus" },
       { label: "Celular Lento", to: "/problemas/celular-lento-curitiba" },
     ],
   },
@@ -9758,7 +9758,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     quandoNaoCompensa: "Módulo soldado em TV barata.",
     whatsappMessage: "Olá! Minha Smart TV não conecta no Wi-Fi. Podem ajudar?",
     conteudoExtra: `## Antes de Trazer\n\n1. Teste Wi-Fi com outro dispositivo no mesmo local\n2. Reinicie o roteador\n3. Tente cabo ethernet\n4. Verifique se a TV é 2.4 GHz only`,
-    relatedPages: [...RELATED_BASE, { label: "Conserto de TV", to: "/servicos/conserto-tv" }, { label: "Smart TV Lenta", to: "/problemas/smart-tv-lenta-curitiba" }, { label: "Redes Wi-Fi", to: "/servicos/redes-wifi" }],
+    relatedPages: [...RELATED_BASE, { label: "Conserto de TV", to: "/servicos/conserto-tv" }, { label: "Smart TV Lenta", to: "/problemas/smart-tv-lenta-curitiba" }, { label: "Redes Wi-Fi", to: "/servicos/redes-e-wifi" }],
   },
   {
     slug: "tv-sem-som-curitiba",
@@ -10487,7 +10487,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
     relatedPages: [
       { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
       { label: "Notebook Não Liga", to: "/problemas/notebook-nao-liga-curitiba" },
-      { label: "Conserto Notebook", to: "/servicos/conserto-pc-notebook" },
+      { label: "Conserto Notebook", to: "/servicos/manutencao-de-computador" },
       { label: "Reparo Placa TV", to: "/problemas/reparo-placa-principal-tv-curitiba" },
       { label: "Reparo Placa Celular", to: "/problemas/reparo-placa-mae-celular-curitiba" },
       { label: "Diagnóstico Técnico", to: "/diagnostico-tecnico" }
@@ -10968,7 +10968,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Impressora Erro USB/Wi-Fi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" },
       { label: "Impressora Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" },
       { label: "Impressora Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" }
     ],
   },
   {
@@ -11014,7 +11014,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Impressora Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" },
       { label: "Impressora Erro USB/Wi-Fi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" },
       { label: "Impressora Cartucho Não Reconhece", to: "/problemas/impressora-cartucho-nao-reconhece-curitiba" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" }
     ],
   },
   {
@@ -11061,7 +11061,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Impressora Não Imprime", to: "/problemas/impressora-nao-imprime-curitiba" },
       { label: "Impressora Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" },
       { label: "Impressora Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "PC Não Conecta Wi-Fi", to: "/problemas/pc-nao-conecta-wifi-curitiba" }
     ],
   },
@@ -11108,7 +11108,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
       { label: "Impressora Papel Preso", to: "/problemas/impressora-papel-preso-curitiba" },
       { label: "Impressora Tinta Não Sai", to: "/problemas/impressora-tinta-nao-sai-curitiba" },
       { label: "Impressora Erro USB/Wi-Fi", to: "/problemas/impressora-erro-conexao-usb-wifi-curitiba" },
-      { label: "Redes e Wi-Fi", to: "/servicos/redes-wifi" }
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" }
     ],
   },
 ];

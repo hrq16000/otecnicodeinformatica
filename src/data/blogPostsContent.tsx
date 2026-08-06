@@ -2499,7 +2499,7 @@ docker run -d --name db --network minha-rede postgres
 
         <p><strong>Leia também:</strong></p>
         <ul>
-          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Upgrade de SSD e Memória RAM</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Upgrade de SSD e Memória RAM</Link></li>
           <li><Link to="/quando-nao-compensa" className="text-accent">Quando não compensa reparar</Link></li>
         </ul>
       </>
@@ -3426,7 +3426,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li><Link to="/blog/como-limpar-notebook-por-dentro" className="text-accent">Como limpar o notebook por dentro</Link></li>
           <li><Link to="/blog/notebook-superaquecendo-o-que-fazer" className="text-accent">Notebook superaquecendo: o que fazer?</Link></li>
-          <li><Link to="/servicos/conserto-pc-notebook" className="text-accent">Conserto de PC e Notebook</Link></li>
+          <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Conserto de PC e Notebook</Link></li>
         </ul>
       </>
     ),
@@ -3510,7 +3510,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
           <li><Link to="/blog/como-instalar-segundo-ssd-notebook" className="text-accent">Como instalar segundo SSD no notebook</Link></li>
-          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
         </ul>
       </>
     ),
@@ -3747,7 +3747,7 @@ docker run -d --name db --network minha-rede postgres
         <p><strong>Leia também:</strong></p>
         <ul>
           <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Backup: como proteger seus arquivos</Link></li>
-          <li><Link to="/servicos/backup-recuperacao" className="text-accent">Serviço de Backup e Recuperação</Link></li>
+          <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Serviço de Backup e Recuperação</Link></li>
         </ul>
       </>
     ),
@@ -3836,8 +3836,8 @@ docker run -d --name db --network minha-rede postgres
         <p><strong>Leia também:</strong></p>
         <ul>
           <li><Link to="/blog/wifi-lento-como-melhorar" className="text-accent">Wi-Fi lento: como melhorar o sinal</Link></li>
-          <li><Link to="/servicos/redes-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
-          <li><Link to="/suporte-empresas" className="text-accent">Suporte técnico para empresas</Link></li>
+          <li><Link to="/servicos/redes-e-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
+          <li><Link to="/servicos/suporte-tecnico-empresarial" className="text-accent">Suporte técnico para empresas</Link></li>
         </ul>
       </>
     ),
@@ -4008,7 +4008,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li><Link to="/blog/como-clonar-hd-para-ssd" className="text-accent">Como clonar HD para SSD</Link></li>
           <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
-          <li><Link to="/servicos/upgrade-ssd-memoria" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
+          <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Serviço de Upgrade SSD e Memória</Link></li>
         </ul>
       </>
     ),
@@ -4105,7 +4105,7 @@ docker run -d --name db --network minha-rede postgres
         <p><strong>Leia também:</strong></p>
         <ul>
           <li><Link to="/blog/como-configurar-rede-wifi-empresarial" className="text-accent">Como configurar rede Wi-Fi empresarial</Link></li>
-          <li><Link to="/servicos/redes-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
+          <li><Link to="/servicos/redes-e-wifi" className="text-accent">Serviço de Redes Wi-Fi</Link></li>
         </ul>
       </>
     ),
@@ -4451,7 +4451,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li><Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent">Backup: como proteger seus arquivos</Link></li>
           <li><Link to="/blog/backup-nuvem-empresas-qual-escolher" className="text-accent">Backup na nuvem para empresas</Link></li>
-          <li><Link to="/servicos/backup-recuperacao" className="text-accent">Serviço de Backup e Recuperação</Link></li>
+          <li><Link to="/servicos/recuperacao-de-dados" className="text-accent">Serviço de Backup e Recuperação</Link></li>
         </ul>
       </>
     ),

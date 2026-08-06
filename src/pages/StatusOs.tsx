@@ -192,6 +192,10 @@ const StatusOs = () => {
             etapa atual é sempre feita pelo técnico no atendimento.
           </p>
 
+          <div className="mt-6">
+            <ConsultaOsPorCelular />
+          </div>
+
           <div className="mt-6 rounded-xl border border-border bg-card p-5">
             <Label htmlFor="os-numero">Número da ordem de serviço</Label>
             <div className="mt-2 flex flex-col gap-3 sm:flex-row">

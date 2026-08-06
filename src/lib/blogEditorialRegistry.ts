@@ -67,14 +67,19 @@ export const EDITORIAL_PUBLISHER = {
 // ─────────────────────────────────────────────────────────────
 const FIRST_WAVE_APPROVED_AT = "2026-08-06";
 
+// Rodada 3F — liberação controlada: os dois guias que disputavam a mesma
+// intenção das novas páginas de sintoma (/problemas/notebook-nao-liga e
+// /problemas/computador-lento) voltaram para revisão (noindex, follow) e
+// o guia de superaquecimento entrou no lugar, apoiando manutenção de
+// notebook. Limite da onda: 6 artigos.
 const FIRST_WAVE_SLUGS = [
-  "notebook-nao-liga-o-que-fazer",
-  "computador-lento-causas-solucoes",
   "quando-trocar-hd-por-ssd",
   "como-saber-se-pc-tem-virus-malware",
   "backup-como-proteger-seus-arquivos",
   "como-melhorar-sinal-wifi-em-casa",
+  "notebook-superaquecendo-o-que-fazer",
 ] as const;
+
 
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
   FIRST_WAVE_SLUGS.map((slug) => [
@@ -117,7 +122,10 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
 // Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
 export const EDITORIAL_PILOT_SLUGS = [
   "como-instalar-windows-11-do-zero",
-  "notebook-superaquecendo-o-que-fazer",
+  // Rodada 3F: despromovidos por sobreposição de intenção com as páginas
+  // de sintoma /problemas/notebook-nao-liga e /problemas/computador-lento.
+  "notebook-nao-liga-o-que-fazer",
+  "computador-lento-causas-solucoes",
 ] as const;
 
 

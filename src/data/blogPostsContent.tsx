@@ -2451,61 +2451,76 @@ docker run -d --name db --network minha-rede postgres
     category: "Manutenção",
     content: (
       <>
-        <p className="lead">Todo computador esquenta — o problema é quando o calor vira desempenho ruim, desligamentos ou risco. Saber diferenciar aquecimento normal de comportamento anormal ajuda a agir na hora certa e a evitar dano aos componentes.</p>
+        <p className="lead">Todo computador esquenta — o problema é quando o calor deixa de ser normal e vira queda de desempenho, desligamento repentino ou risco para os componentes. Este guia ajuda a separar aquecimento esperado de superaquecimento real, mostra o que dá para observar em casa com segurança e indica o momento em que insistir no uso sai mais caro do que parar.</p>
 
-        <h2>Aquecimento normal x anormal</h2>
-        <p>Sob tarefas pesadas, é esperado que a ventoinha acelere e a temperatura suba. Vale ligar o alerta quando aparece:</p>
+        <h2>Resposta curta</h2>
+        <p>Aquecimento com ventoinha acelerada durante tarefas pesadas é esperado. Preocupe-se quando o calor aparece em tarefas leves, quando o desempenho cai poucos minutos depois de ligar, quando o equipamento desliga sozinho ou quando surge cheiro, ruído estranho, bateria deformada ou calor que impede o toque. Nesses casos, o caminho é parar o uso e pedir avaliação — não é ajuste de configuração.</p>
+
+        <h2>Como o calor é dissipado (e onde o processo falha)</h2>
+        <p>O calor gerado pelo processador e pela placa de vídeo passa por uma interface térmica, segue por tubos de cobre até um radiador e é expulso pela ventoinha através das grades de saída. Basta um elo dessa cadeia perder eficiência para a temperatura subir: interface ressecada transfere pior, radiador entupido por poeira e fiapos reduz o fluxo, ventoinha com rolamento gasto gira menos do que deveria e grade obstruída faz o ar quente circular dentro do gabinete.</p>
+        <p>Quando o sensor interno detecta temperatura alta demais, o próprio sistema reduz a frequência de trabalho para se proteger. É por isso que muita gente descreve o sintoma como “ficou lento”, sem associar ao calor: a máquina não travou, ela se limitou. Se a temperatura continua subindo, o desligamento abrupto é o último recurso de proteção.</p>
+
+        <h2>Aquecimento normal x superaquecimento</h2>
         <ul>
-          <li>Desligamento repentino durante o uso (o sistema se protege do calor).</li>
-          <li>Queda de desempenho depois de alguns minutos ligado.</li>
-          <li>Base do notebook muito quente mesmo em tarefas leves.</li>
-          <li>Ventoinha sempre no máximo ou, ao contrário, sem nenhum ruído.</li>
+          <li>Normal: ventoinha acelera em jogos, edição de vídeo, renderização, videochamada longa ou atualização do sistema, e volta ao ritmo comum depois.</li>
+          <li>Normal: base morna no notebook, com o ar saindo quente pela lateral ou pelo fundo.</li>
+          <li>Anormal: queda de desempenho depois de alguns minutos ligado, mesmo com poucos programas abertos.</li>
+          <li>Anormal: desligamento repentino durante o uso, sem tela de erro.</li>
+          <li>Anormal: base muito quente em tarefas leves, como navegar ou digitar.</li>
+          <li>Anormal: ventoinha sempre no máximo — ou silêncio total, quando antes havia ruído.</li>
+          <li>Anormal: travamento de imagem, artefatos na tela ou reinício em ciclos.</li>
         </ul>
 
-        <h2>Causas comuns</h2>
+        <h2>Causas mais comuns no dia a dia</h2>
+        <p>Poeira acumulada no radiador é a campeã, principalmente em casas com animais, obra por perto ou uso do notebook direto no chão. Depois vem o bloqueio de fluxo: usar o equipamento sobre cama, sofá, almofada ou colo fecha justamente as entradas de ar do fundo. Interface térmica ressecada aparece em máquinas com anos de uso — não existe um intervalo universal para a troca, ela depende do modelo, do ambiente e da carga.</p>
+        <p>Há ainda causas de software: um processo travado consumindo processador o tempo todo, atualização rodando em segundo plano, extensão de navegador problemática ou infecção ativa mantendo o equipamento em carga máxima sem que você perceba. Nesses casos o calor é consequência, e limpar o hardware resolve pouco enquanto a origem continuar rodando.</p>
+        <p>Ambiente também pesa: verão curitibano, cômodo abafado, móvel fechado sem circulação ou luz do sol batendo direto no equipamento elevam a temperatura de partida e reduzem a margem de trabalho.</p>
+
+        <h2>O que você pode verificar com segurança</h2>
         <ul>
-          <li>Poeira acumulada nas saídas de ar e no cooler.</li>
-          <li>Fluxo de ar bloqueado — usar o notebook sobre cama, sofá ou almofada.</li>
-          <li>Pasta térmica ressecada (a periodicidade varia conforme o equipamento e o uso).</li>
-          <li>Carga de processamento alta por muito tempo.</li>
-          <li>Ambiente muito quente ou abafado.</li>
+          <li>Use o equipamento sobre superfície dura e plana, com as saídas de ar livres.</li>
+          <li>Um suporte que eleve a traseira do notebook melhora a entrada de ar.</li>
+          <li>Observe as grades: se estiverem visivelmente cobertas de poeira, é sinal de manutenção pendente.</li>
+          <li>Repare quando o calor aparece — em tarefas pesadas ou já no uso comum — e anote o comportamento.</li>
+          <li>Feche programas pesados que ficaram abertos e verifique se algum processo mantém o uso alto sem motivo.</li>
+          <li>Registre mensagens de erro e o horário dos desligamentos; isso encurta o diagnóstico depois.</li>
         </ul>
 
-        <h2>O que você pode fazer com segurança</h2>
-        <ul>
-          <li>Use o equipamento sobre superfície dura e plana, que não bloqueie as saídas de ar.</li>
-          <li>Um suporte que eleve o notebook melhora a circulação.</li>
-          <li>Mantenha as grades de ventilação livres de poeira e obstáculos.</li>
-          <li>Evite luz solar direta e ambientes muito abafados.</li>
-          <li>Feche programas pesados que ficam rodando sem necessidade.</li>
-        </ul>
-        <p>A limpeza interna e a troca de pasta térmica exigem abrir o equipamento e devem ser feitas por quem tem prática, para não danificar peças.</p>
+        <h2>O que não fazer</h2>
+        <p>Não abra o equipamento ligado ou conectado à tomada. Não use secador, ar comprimido em jato forte direto na ventoinha travada, gelo, freezer ou qualquer fonte de calor ou frio externa. Não fure, dobre nem pressione bateria estufada. Não retire a proteção térmica de fábrica achando que “vai ventilar melhor” e não deixe o equipamento rodando em carga máxima esperando que o problema se resolva sozinho.</p>
+        <p>Limpeza interna e troca de interface térmica exigem desmontagem, torque correto e recolocação de conectores frágeis. Feito sem prática, o conserto vira dano — flat de tela partido, parafuso perdido e trilha rompida são acidentes comuns nesse tipo de tentativa.</p>
 
         <div className="bg-destructive/10 rounded-xl p-6 my-8 border border-destructive/20">
           <h3 className="text-destructive font-bold mb-2">Desligue imediatamente se notar</h3>
           <ul className="text-muted-foreground mb-0">
             <li>Cheiro de queimado, fumaça ou estalos.</li>
-            <li>Bateria estufada ou deformada.</li>
+            <li>Bateria estufada, deformada ou empurrando o teclado / a base.</li>
             <li>Aquecimento extremo que impede o toque.</li>
           </ul>
-          <p className="text-muted-foreground mt-3 mb-0">Nesses casos: não fure nem pressione a bateria, não use secador ou calor externo e não abra o equipamento energizado. Desconecte da tomada e procure um técnico.</p>
+          <p className="text-muted-foreground mt-3 mb-0">Nesses casos: desconecte da tomada, não tente resfriar por fora e não abra o equipamento. Procure avaliação técnica antes de voltar a usar.</p>
         </div>
 
+        <h2>Limites deste guia</h2>
+        <p>Não existe temperatura única de risco válida para todos os modelos, e leitura de sensor isolada não fecha diagnóstico: dois equipamentos com o mesmo número na tela podem ter estados internos completamente diferentes. Só a avaliação presencial mostra o estado do radiador, da ventoinha e da interface térmica, e só ela indica se o problema é térmico, de alimentação ou de placa. Este conteúdo orienta a observação — ele não substitui o diagnóstico do equipamento.</p>
+
         <h2>Quando procurar atendimento técnico</h2>
-        <p>Se o cuidado com ventilação não resolveu, ou se há desligamentos por calor, provavelmente é hora de limpeza interna e avaliação térmica. Ignorar o superaquecimento por muito tempo pode comprometer componentes e sair mais caro.</p>
+        <p>Se o cuidado com ventilação e o encerramento de programas pesados não mudaram nada, se há desligamento por calor ou se a queda de desempenho já atrapalha o trabalho, é hora de avaliação. Adiar costuma sair mais caro: calor constante castiga bateria, armazenamento e solda, e transforma uma limpeza simples em troca de peça. Se o equipamento guarda arquivos sem cópia, mantenha o backup em dia antes de qualquer intervenção.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Equipamento esquentando demais?</h3>
-          <p className="text-muted-foreground mb-3">Avaliamos ventilação, temperatura e o estado interno antes de recomendar qualquer serviço.</p>
+          <p className="text-muted-foreground mb-3">Avaliamos ventilação, comportamento térmico e estado interno antes de recomendar qualquer serviço.</p>
           <ul className="mb-0">
-            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook</Link></li>
-            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador</Link></li>
-            <li><Link to="/diagnostico-tecnico" className="text-accent">Como funciona o diagnóstico técnico</Link></li>
+            <li><Link to="/servicos/manutencao-de-notebook" className="text-accent">Manutenção de notebook: limpeza interna e avaliação térmica</Link></li>
+            <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador de mesa</Link></li>
+            <li><Link to="/problemas/computador-lento" className="text-accent">Quando a lentidão vem do calor: investigar o sintoma</Link></li>
+            <li><Link to="/atendimento-domicilio" className="text-accent">Atendimento técnico no endereço</Link></li>
+            <li><Link to="/como-funciona" className="text-accent">Como funciona o atendimento, do diagnóstico à entrega</Link></li>
           </ul>
         </div>
       </>
     ),
   },
+
   "wifi-lento-como-melhorar": {
     title: "Wi-Fi Lento em Casa? Veja Como Melhorar o Sinal",
     excerpt: "Dicas práticas para melhorar a cobertura e velocidade da sua internet sem fio. Do posicionamento do roteador às configurações ideais.",

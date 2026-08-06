@@ -17,24 +17,6 @@
 
 export const EDITORIAL_WAVE = [
   {
-    slug: "notebook-nao-liga-o-que-fazer",
-    approvedAt: "2026-08-06",
-    pilar: "/servicos/manutencao-de-notebook",
-    pilarLabel: "Manutenção de notebook em Curitiba",
-    apoio: "/diagnostico-tecnico",
-    apoioLabel: "Como funciona o diagnóstico técnico",
-    cover: "/blog/notebook-nao-liga-o-que-fazer.jpg",
-  },
-  {
-    slug: "computador-lento-causas-solucoes",
-    approvedAt: "2026-08-06",
-    pilar: "/servicos/manutencao-de-computador",
-    pilarLabel: "Manutenção de computador em Curitiba",
-    apoio: "/servicos/upgrade-ssd-ram",
-    apoioLabel: "Upgrade de SSD e memória",
-    cover: "/blog/computador-lento-causas-solucoes.jpg",
-  },
-  {
     slug: "quando-trocar-hd-por-ssd",
     approvedAt: "2026-08-06",
     pilar: "/servicos/upgrade-ssd-ram",
@@ -69,6 +51,15 @@ export const EDITORIAL_WAVE = [
     apoio: "/atendimento-domicilio",
     apoioLabel: "Atendimento técnico no endereço",
     cover: "/blog/como-melhorar-sinal-wifi-em-casa.jpg",
+  },
+  {
+    slug: "notebook-superaquecendo-o-que-fazer",
+    approvedAt: "2026-08-06",
+    pilar: "/servicos/manutencao-de-notebook",
+    pilarLabel: "Manutenção de notebook em Curitiba",
+    apoio: "/atendimento-domicilio",
+    apoioLabel: "Atendimento técnico no endereço",
+    cover: "/blog/notebook-superaquecendo-o-que-fazer.jpg",
   },
 ];
 

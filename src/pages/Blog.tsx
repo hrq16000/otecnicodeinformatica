@@ -66,8 +66,9 @@ const Blog = () => {
       if (!active) return;
       const next: Record<string, { title: string; excerpt: string }> = {};
       for (const slug of approvedSlugs) {
-        const post = mod.getBlogPost?.(slug);
+        const post = mod.blogPostsContentBase[slug];
         if (post) next[slug] = { title: post.title, excerpt: post.excerpt };
+
       }
       setSummaries(next);
     });

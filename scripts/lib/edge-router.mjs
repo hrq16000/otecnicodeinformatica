@@ -17,6 +17,37 @@ export const ORIGIN_PLACEHOLDER = "LOVABLE_ORIGIN_NOT_CONFIGURED";
 
 export const ALLOWED_HOSTS = ["tecnico.curitiba.br", "www.tecnico.curitiba.br"];
 
+/** Endpoint de saúde do edge — público, sem segredos. */
+export const HEALTH_PATH = "/__edge/health";
+
+/**
+ * Payload do health-check: estado do manifesto, versão do build e contagens.
+ * Não expõe tokens, IDs de zona, origem configurada nem variáveis de ambiente.
+ */
+export function healthPayload(compiled, manifest, problems = []) {
+  return {
+    service: "tecnico-curitiba-route-guard",
+    status: problems.length ? "degraded" : "ok",
+    build: {
+      generatedAt: manifest?.generatedAt ?? null,
+      source: manifest?.source ?? null,
+    },
+    manifest: {
+      ok: problems.length === 0,
+      problems,
+      minimums: MANIFEST_MINIMUMS,
+    },
+    counts: {
+      validExact: compiled.counts.validExact,
+      openPatterns: compiled.openPatterns.length,
+      redirects: compiled.counts.redirects,
+      assetFiles: compiled.counts.assetFiles,
+    },
+    checkedAt: new Date().toISOString(),
+  };
+}
+
+
 /** Quantidades mínimas esperadas — fail-safe B10. */
 export const MANIFEST_MINIMUMS = {
   validExact: 200,

@@ -14,7 +14,7 @@ const COLUNAS = [
   {
     icon: ShieldCheck,
     titulo: "Garantia",
-    itens: [GARANTIA.servicoLabel, GARANTIA.pecasLabel, GARANTIA.exclusoesLabel],
+    itens: [GARANTIA.servicoLabel, GARANTIA.pecasLabel, GARANTIA.registroLabel],
   },
   {
     icon: FileText,

@@ -234,8 +234,10 @@ export const MontagemWizard = () => {
 
           {step === 1 && (
             <>
-              <div className="space-y-2">
-                <span className="text-sm font-medium">Quem fornece as peças?</span>
+              <div className={`space-y-2 p-1${alerta("origem")}`}>
+                <span className="text-sm font-medium">
+                  Quem fornece as peças? <span className="text-destructive">*</span>
+                </span>
                 <div className="grid gap-2 sm:grid-cols-3">
                   {ORIGEM_PECAS.map((o) => (
                     <button
@@ -243,7 +245,7 @@ export const MontagemWizard = () => {
                       type="button"
                       onClick={() => setOrigem(o.id)}
                       aria-pressed={origem === o.id}
-                      className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
+                      className={`min-h-11 rounded-lg border px-3 py-2 text-left text-sm transition ${
                         origem === o.id ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
                       }`}
                     >
@@ -251,6 +253,9 @@ export const MontagemWizard = () => {
                     </button>
                   ))}
                 </div>
+                {invalido("origem") && (
+                  <p className="text-xs font-medium text-destructive">Escolha quem fornece as peças.</p>
+                )}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="wz-pecas">Peças que você já tem (opcional)</Label>

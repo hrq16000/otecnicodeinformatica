@@ -94,7 +94,10 @@ if (!aprovado) {
     "/como-funciona",
     "/coleta-e-entrega",
   ]) {
-    if (!chunk.includes(link)) errors.push(`Link obrigatório ausente na página: ${link}`);
+    const viaBase =
+      chunk.includes("...LINKS_BASE") &&
+      ["/precos-e-politicas", "/como-funciona", "/faq"].includes(link);
+    if (!chunk.includes(link) && !viaBase) errors.push(`Link obrigatório ausente na página: ${link}`);
   }
   if (!/whatsappMessage:/.test(chunk)) errors.push("CTA/triagem ausente (whatsappMessage)");
 

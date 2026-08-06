@@ -1547,3 +1547,18 @@ body[data-triage-open="1"] .wa-pulse {
   pointer-events: none !important;
   visibility: hidden !important;
 }
+
+/* ── Wizard/formulários: destaque pulsante para campos obrigatórios não preenchidos ── */
+@keyframes fieldAlertPulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--destructive) / 0.55); }
+  50% { box-shadow: 0 0 0 6px hsl(var(--destructive) / 0); }
+}
+.field-alert {
+  border-color: hsl(var(--destructive)) !important;
+  border-radius: 0.5rem;
+  animation: fieldAlertPulse 1.4s ease-in-out infinite;
+  scroll-margin-top: 6rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .field-alert { animation: none; box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.35); }
+}

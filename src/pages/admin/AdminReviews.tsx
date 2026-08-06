@@ -90,6 +90,12 @@ const AdminReviews = () => {
   const [bairroFilter, setBairroFilter] = useState("all");
   const [servicoFilter, setServicoFilter] = useState("all");
   const [search, setSearch] = useState("");
+  // Prazo configurável (horas) para sugerir o reenvio do link de avaliação.
+  const [reminderHours, setReminderHours] = useState(() => {
+    const saved = Number(localStorage.getItem("review_reminder_hours"));
+    return Number.isFinite(saved) && saved > 0 ? saved : 48;
+  });
+  const REMINDER_HOURS = reminderHours;
   const [form, setForm] = useState<Partial<Review>>(emptyForm);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);

@@ -51,6 +51,8 @@ export const MontagemWizard = () => {
   const [enviaFotos, setEnviaFotos] = useState(false);
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
+  const [periodo, setPeriodo] = useState("");
+  const [diaPreferido, setDiaPreferido] = useState("");
   const [aceite, setAceite] = useState(false);
   const [lgpd, setLgpd] = useState(false);
   const [gerando, setGerando] = useState(false);

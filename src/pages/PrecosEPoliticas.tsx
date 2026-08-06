@@ -576,6 +576,77 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
             </div>
           </div>
         </section>
+
+        {/* Pagamento e nota fiscal */}
+        <section id="pagamento-e-nota-fiscal" className="py-8 md:py-12 bg-secondary scroll-mt-24">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+                Pagamento e nota fiscal
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Quando o valor é cobrado, o que entra na conta e como funciona a emissão do documento fiscal. Regras válidas para atendimento remoto, em domicílio e para coleta e entrega.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-background rounded-xl p-6 border border-border/60">
+                  <div className="flex items-center gap-2 mb-4">
+                    <CreditCard className="h-5 w-5 text-accent" />
+                    <h3 className="font-bold text-foreground">Como funciona o pagamento</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {[
+                      PAGAMENTO.momentoLabel,
+                      PAGAMENTO.aprovacaoLabel,
+                      PAGAMENTO.formasLabel,
+                      PAGAMENTO.pecasLabel,
+                      PAGAMENTO.desistenciaLabel,
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 flex items-start gap-2 text-sm text-muted-foreground border-t border-border/60 pt-4">
+                    <Shield className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                    <span>{PAGAMENTO.seguraLabel}</span>
+                  </p>
+                </div>
+
+                <div className="bg-background rounded-xl p-6 border border-border/60">
+                  <div className="flex items-center gap-2 mb-4">
+                    <FileText className="h-5 w-5 text-accent" />
+                    <h3 className="font-bold text-foreground">Nota fiscal do atendimento</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {[
+                      NOTA_FISCAL.servicoLabel,
+                      NOTA_FISCAL.pecaLabel,
+                      NOTA_FISCAL.ressalvaLabel,
+                    ].map((t, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-sm text-muted-foreground border-t border-border/60 pt-4">
+                    Precisa de nota fiscal em nome da empresa? Informe os dados do tomador ainda na triagem, antes da conclusão do serviço — assim o documento sai correto de primeira.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-4 text-sm">
+                    <Link to="/como-funciona" className="text-accent font-semibold hover:underline">
+                      Ver o passo a passo do atendimento →
+                    </Link>
+                    <Link to="/coleta-e-entrega" className="text-accent font-semibold hover:underline">
+                      Regras de coleta e entrega →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Termos, condições e FAQ — conteúdo fundido (fonte única) */}
         <section id="termos" className="py-10 md:py-14 bg-background scroll-mt-24">
           <TermosConteudo />

@@ -33,7 +33,6 @@ import { buildOnsiteReviewUrl } from "@/lib/reviewRequest";
 import { readUtms } from "@/lib/utmCapture";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { trackCTAClick } from "@/lib/analytics";
-import { siteConfig } from "@/lib/siteConfig";
 
 const PATH = "/status-da-ordem-de-servico";
 const BASE_URL = "https://tecnico.curitiba.br";
@@ -413,7 +412,7 @@ const StatusOs = () => {
               Preços e políticas
             </Link>
             <Link to="/como-avaliar" className="font-medium text-[hsl(var(--accent))] underline">
-              Como avaliar o atendimento em {siteConfig.city ?? "Curitiba"}
+              Como avaliar o atendimento
             </Link>
           </div>
         </div>

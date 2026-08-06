@@ -130,7 +130,8 @@ export function addOsEvento(protocolo: string, evento: Omit<OsEvento, "em"> & { 
   try {
     const map = readEventosMap();
     const atual = map[alvo] ?? [];
-    map[alvo] = [...atual, { tipo: "etapa", ...evento, em: evento.em ?? Date.now() }].slice(-MAX_EVENTOS);
+    const novo: OsEvento = { tipo: "etapa", ...evento, em: evento.em ?? Date.now() };
+    map[alvo] = [...atual, novo].slice(-MAX_EVENTOS);
     window.localStorage.setItem(EVENTOS_KEY, JSON.stringify(map));
   } catch {
     /* storage indisponível — segue sem linha do tempo local */

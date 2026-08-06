@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       click_events: {
         Row: {
+          attribution_channel: string | null
           bairro: string | null
           cidade: string | null
           created_at: string
@@ -35,6 +36,7 @@ export type Database = {
           utm_source: string | null
         }
         Insert: {
+          attribution_channel?: string | null
           bairro?: string | null
           cidade?: string | null
           created_at?: string
@@ -54,6 +56,7 @@ export type Database = {
           utm_source?: string | null
         }
         Update: {
+          attribution_channel?: string | null
           bairro?: string | null
           cidade?: string | null
           created_at?: string

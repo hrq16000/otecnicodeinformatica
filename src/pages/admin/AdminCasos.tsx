@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Check, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import { Check, ClipboardCopy, Download, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
 import {
   TECHNICAL_CASE_CATEGORIES,
   type TechnicalCaseCategory,
@@ -33,10 +33,19 @@ import {
   type DraftCase,
 } from "@/lib/technicalCaseDraftStore";
 import {
+  buildAuditPackage,
+  buildRequirements,
+  CASE_FORM_TEMPLATE,
+  MIN_REVIEWED_PHOTOS,
+  reviewedPhotoCount,
+  scoreCase,
+} from "@/lib/technicalCaseAudit";
+import {
   TechnicalCaseSummary,
   TechnicalCaseEvidence,
   TechnicalCaseProcess,
 } from "@/components/casos/TechnicalCaseBlocks";
+
 
 const PHOTO_KINDS: TechnicalCasePhotoKind[] = [
   "equipamento-recebido",
@@ -96,6 +105,9 @@ export default function AdminCasos() {
   const [busy, setBusy] = useState(false);
   const [urlInput, setUrlInput] = useState("");
   const [showPreview, setShowPreview] = useState(false);
+  const [query, setQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<"todos" | TechnicalCaseStatus>("todos");
+  const [categoryFilter, setCategoryFilter] = useState<"todas" | TechnicalCaseCategory>("todas");
 
   useEffect(() => {
     document.title = "Casos técnicos (interno) — Admin";
@@ -107,6 +119,20 @@ export default function AdminCasos() {
   const active = useMemo(() => drafts.find((d) => d.id === activeId) ?? null, [drafts, activeId]);
   const gate = useMemo(() => (active ? evaluateDraft(active) : null), [active]);
   const checklist = useMemo(() => (active ? buildChecklist(active) : []), [active]);
+  const requirements = useMemo(() => (active ? buildRequirements(active) : []), [active]);
+  const score = useMemo(() => (active ? scoreCase(active) : null), [active]);
+
+  const visibleDrafts = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return drafts.filter((d) => {
+      if (statusFilter !== "todos" && d.status !== statusFilter) return false;
+      if (categoryFilter !== "todas" && d.equipment.category !== categoryFilter) return false;
+      if (!q) return true;
+      return [d.id, d.title, d.serviceSlug, d.equipment.category, d.evidence.workOrderReference ?? ""]
+        .join(" ").toLowerCase().includes(q);
+    });
+  }, [drafts, query, statusFilter, categoryFilter]);
+
 
   const save = (next: DraftCase) => {
     setDrafts(upsertDraft(next));
@@ -132,6 +158,29 @@ export default function AdminCasos() {
     save(d);
     setShowPreview(false);
   };
+
+  const copyTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(CASE_FORM_TEMPLATE);
+      toast({ title: "Modelo copiado", description: "Cole no bloco de notas e preencha em campo." });
+    } catch {
+      toast({ title: "Não foi possível copiar", description: "Selecione e copie manualmente.", variant: "destructive" });
+    }
+  };
+
+  const downloadAudit = () => {
+    const md = buildAuditPackage(drafts);
+    const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `auditoria-casos-${new Date().toISOString().slice(0, 10)}.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast({ title: "Pacote de auditoria gerado", description: "Somente leitura — nada foi publicado." });
+  };
+
+
 
   const handleFile = async (file: File) => {
     if (!active) return;
@@ -222,32 +271,65 @@ export default function AdminCasos() {
               nenhum dado de cliente deve ser digitado.
             </p>
           </div>
-          <Button onClick={create}>
-            <Plus className="mr-2 h-4 w-4" /> Novo caso
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={() => void copyTemplate()}>
+              <ClipboardCopy className="mr-2 h-4 w-4" /> Modelo do formulário
+            </Button>
+            <Button variant="outline" disabled={drafts.length === 0} onClick={downloadAudit}>
+              <Download className="mr-2 h-4 w-4" /> Pacote de auditoria
+            </Button>
+            <Button onClick={create}>
+              <Plus className="mr-2 h-4 w-4" /> Novo caso
+            </Button>
+          </div>
         </header>
 
         <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
-          <aside className="space-y-2">
-            {drafts.length === 0 && (
-              <p className="text-sm text-muted-foreground">Nenhum rascunho ainda.</p>
+          <aside className="space-y-3">
+            <Input value={query} placeholder="Buscar por título, ID, OS ou serviço"
+              onChange={(e) => setQuery(e.target.value)} />
+            <Select value={statusFilter} onValueChange={(v) => setStatusFilter(v as typeof statusFilter)}>
+              <SelectTrigger><SelectValue placeholder="Status" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="todos">Todos os status</SelectItem>
+                {STATUS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <Select value={categoryFilter} onValueChange={(v) => setCategoryFilter(v as typeof categoryFilter)}>
+              <SelectTrigger><SelectValue placeholder="Serviço" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="todas">Todos os serviços</SelectItem>
+                {TECHNICAL_CASE_CATEGORIES.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground">
+              {visibleDrafts.length} de {drafts.length} caso(s) · meta da coleta: 3
+            </p>
+
+            {visibleDrafts.length === 0 && (
+              <p className="text-sm text-muted-foreground">Nenhum caso corresponde ao filtro.</p>
             )}
-            {drafts.map((d) => (
-              <button
-                key={d.id}
-                onClick={() => { setActiveId(d.id); setShowPreview(false); }}
-                className={`w-full rounded-xl border p-3 text-left text-sm transition ${
-                  d.id === activeId ? "border-accent bg-accent/5" : "border-border hover:bg-muted/50"
-                }`}
-              >
-                <span className="block font-medium text-foreground">{d.title || "(sem título)"}</span>
-                <span className="mt-1 flex items-center gap-2">
-                  <Badge className={statusTone[d.status]}>{d.status}</Badge>
-                  <span className="text-xs text-muted-foreground">{d.equipment.category}</span>
-                </span>
-              </button>
-            ))}
+            {visibleDrafts.map((d) => {
+              const s = scoreCase(d);
+              return (
+                <button
+                  key={d.id}
+                  onClick={() => { setActiveId(d.id); setShowPreview(false); }}
+                  className={`w-full rounded-xl border p-3 text-left text-sm transition ${
+                    d.id === activeId ? "border-accent bg-accent/5" : "border-border hover:bg-muted/50"
+                  }`}
+                >
+                  <span className="block font-medium text-foreground">{d.title || "(sem título)"}</span>
+                  <span className="mt-1 flex flex-wrap items-center gap-2">
+                    <Badge className={statusTone[d.status]}>{d.status}</Badge>
+                    <span className="text-xs text-muted-foreground">{d.equipment.category}</span>
+                    <span className="text-xs text-muted-foreground">{s.total}/14</span>
+                  </span>
+                </button>
+              );
+            })}
           </aside>
+
 
           {!active ? (
             <Card className="p-6 text-sm text-muted-foreground">
@@ -506,6 +588,70 @@ export default function AdminCasos() {
                   </Button>
                 </div>
               </Card>
+
+              {/* Auditoria visual por caso */}
+              <Card className="space-y-4 p-5">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h2 className="font-heading text-lg font-bold text-foreground">
+                    5.1 Auditoria editorial do caso
+                  </h2>
+                  {score && (
+                    <Badge className={score.total >= 11
+                      ? "bg-emerald-500/15 text-emerald-600"
+                      : score.total >= 8 ? "bg-amber-500/15 text-amber-600" : "bg-muted text-muted-foreground"}>
+                      {score.total}/14 · {score.recommendation}
+                    </Badge>
+                  )}
+                </div>
+
+                <p className="text-sm text-muted-foreground">
+                  Fotos revisadas: {reviewedPhotoCount(active)}/{MIN_REVIEWED_PHOTOS} exigidas
+                  (foto do atendimento, com alt, legenda, EXIF e tela conferidos).
+                </p>
+
+                <div className="grid gap-3 md:grid-cols-2">
+                  {["Diagnóstico", "Resultado", "Limitações", "Evidências", "Privacidade", "Revisão"].map((group) => {
+                    const items = requirements.filter((r) => r.group === group);
+                    if (items.length === 0) return null;
+                    const okCount = items.filter((i) => i.done).length;
+                    return (
+                      <div key={group} className="rounded-xl border border-border p-3">
+                        <p className="mb-2 text-sm font-semibold text-foreground">
+                          {group} <span className="text-xs font-normal text-muted-foreground">{okCount}/{items.length}</span>
+                        </p>
+                        <ul className="space-y-1.5 text-sm">
+                          {items.map((i) => (
+                            <li key={i.id} className="flex items-start gap-2">
+                              {i.done
+                                ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                                : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
+                              <span className={i.done ? "text-muted-foreground" : "text-foreground"}>
+                                {i.label}
+                                {!i.done && i.missing
+                                  ? <span className="block text-xs text-red-500">Falta: {i.missing}</span>
+                                  : null}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {score && (
+                  <div className="rounded-xl border border-border p-3">
+                    <p className="mb-2 text-sm font-semibold text-foreground">Pontuação editorial</p>
+                    <ul className="grid gap-1 text-sm text-muted-foreground md:grid-cols-2">
+                      {score.criteria.map((c) => (
+                        <li key={c.label}>{c.label}: <strong className="text-foreground">{c.score}</strong> — {c.note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </Card>
+
+
 
               {/* Rascunho de revisão interna */}
               <Card className="space-y-4 p-5">

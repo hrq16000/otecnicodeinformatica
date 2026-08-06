@@ -29,6 +29,7 @@ export const REDIRECT_MATRIX: RedirectRule[] = [
   { from: "/servicos/conserto-pc-notebook", to: "/servicos/manutencao-de-computador", motivo: "variacao-slug" },
   { from: "/servicos/conserto-notebook-curitiba", to: "/servicos/manutencao-de-notebook", motivo: "variacao-slug" },
   { from: "/servicos/redes-wifi", to: "/servicos/redes-e-wifi", motivo: "variacao-slug" },
+  { from: "/tecnico-informatica-sao-jose-dos-pinhais", to: "/tecnico-informatica-sao-jose-pinhais", motivo: "variacao-slug" },
   { from: "/servicos/backup-recuperacao", to: "/servicos/recuperacao-de-dados", motivo: "variacao-slug" },
 
   // ── URLs comerciais antigas (raiz) ──────────────────────────

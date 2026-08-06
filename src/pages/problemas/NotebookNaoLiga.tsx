@@ -263,7 +263,7 @@ const NotebookNaoLiga = () => {
         </div>
 
 
-        <section className="mb-12 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
+        <section id="nao-insistir" className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <AlertTriangle className="h-6 w-6 text-destructive" /> Situações em que não se deve insistir
           </h2>

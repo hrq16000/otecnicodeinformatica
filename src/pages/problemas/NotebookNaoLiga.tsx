@@ -190,8 +190,9 @@ const NotebookNaoLiga = () => {
             { id: "energia-vs-imagem", label: "Não liga x liga sem imagem" },
             { id: "sinais", label: "Sinais observáveis" },
             { id: "causas", label: "Causas possíveis" },
-            { id: "testes", label: "Testes seguros por fora" },
-            { id: "nao-insistir", label: "Quando não insistir" },
+            { id: "nao-insistir", label: "Quando não insistir em ligar" },
+            { id: "testes", label: "Verificações externas seguras" },
+            { id: "arquivos", label: "Risco para os dados" },
             { id: "diagnostico", label: "Como funciona o diagnóstico" },
             { id: "faq", label: "Perguntas frequentes" },
           ]}

@@ -126,6 +126,10 @@ const Servicos = () => {
             Procurando pelo sintoma?{" "}
             <Link to="/problemas/notebook-nao-liga" className="font-medium text-[hsl(var(--accent))] hover:underline">
               Notebook não liga: sinais, causas possíveis e diagnóstico
+            </Link>{" "}
+            ou{" "}
+            <Link to="/problemas/computador-lento" className="font-medium text-[hsl(var(--accent))] hover:underline">
+              Computador lento: causas e o que realmente resolve
             </Link>
             .
           </p>

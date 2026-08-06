@@ -143,7 +143,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           }}
           aria-hidden="true"
         />
-        <div className="container relative z-10 mx-auto py-8 sm:py-12 md:py-20">
+        <div className={`container relative z-10 mx-auto py-8 sm:py-12 ${isEmpresarial ? "md:py-12" : "md:py-20"}`}>
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />

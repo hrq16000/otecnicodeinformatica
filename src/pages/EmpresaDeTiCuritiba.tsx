@@ -21,6 +21,7 @@ import {
 
 import { ContextosEmpresariaisSection, RegistrarAntesSection } from "@/components/empresa/ContextosEmpresariaisSection";
 import { siteConfig } from "@/lib/siteConfig";
+import { EMPRESARIAL_HUB_HERO, EMPRESARIAL_CONTEXTO_CARDS } from "@/lib/visualEmpresarial3s";
 import { NOTA_FISCAL } from "@/lib/politicaComercial";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -244,7 +245,7 @@ const EmpresaDeTiCuritiba = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-accent/20 text-accent px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-3 md:mb-6">
                 <Building2 className="h-4 w-4" />
-                <span className="font-medium text-xs md:text-sm">Soluções de TI para empresas • Curitiba e região</span>
+                <span className="font-medium text-xs md:text-sm">{EMPRESARIAL_HUB_HERO.contexto}</span>
               </div>
               <h1 className="text-[1.6rem] leading-tight sm:text-4xl md:text-5xl font-heading font-bold text-white mb-3 md:mb-4">
                 Soluções de TI para empresas em Curitiba
@@ -254,7 +255,7 @@ const EmpresaDeTiCuritiba = () => {
                 ambiente, computadores, redes, manutenção preventiva e a organização do
                 suporte técnico — com orientação clara antes de qualquer investimento.
               </p>
-              <div className="flex justify-center">
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button
                   variant="heroWhatsapp"
                   size="lg"
@@ -264,16 +265,36 @@ const EmpresaDeTiCuritiba = () => {
                 >
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5" />
-                    Conversar sobre a estrutura de TI
+                    {EMPRESARIAL_HUB_HERO.ctaPrimario}
                   </a>
                 </Button>
+                <Link
+                  to={EMPRESARIAL_HUB_HERO.ctaSecundario.to}
+                  data-cta-secundario="empresarial"
+                  className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:border-accent hover:text-accent"
+                >
+                  {EMPRESARIAL_HUB_HERO.ctaSecundario.label}
+                </Link>
               </div>
+              <p className="mt-5 text-sm text-white/70">{EMPRESARIAL_HUB_HERO.condicoes}</p>
             </div>
           </div>
         </section>
 
         {/* ═══ Prova rápida (abaixo do hero) ═══ */}
         <EmpresaTrustBar />
+
+        {/* Rodada 3S — contexto B2B (decisão, escopo e limites) logo abaixo do hero */}
+        <section className="border-b border-border bg-secondary py-8" aria-label="Contexto do atendimento empresarial">
+          <div className="container mx-auto grid gap-4 px-4 md:grid-cols-3">
+            {EMPRESARIAL_CONTEXTO_CARDS.map((card) => (
+              <div key={card.titulo} className="rounded-xl border border-border bg-card p-5">
+                <h2 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">{card.titulo}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{card.texto}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* ═══ Sumário navegável (apresentação — não cria URLs nem schema) ═══ */}
         <section className="bg-background pt-8">

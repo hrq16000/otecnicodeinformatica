@@ -17,6 +17,8 @@
     "test:e2e": "playwright test",
     "test:smoke": "playwright test e2e/smoke-buttons.spec.ts",
     "validate:jsonld": "node scripts/validate-jsonld-static.mjs",
+    "check:rich-results": "node scripts/check-rich-results.mjs dist",
+    "check:rich-results:strict": "node scripts/check-rich-results.mjs dist --strict",
     "validate:jsonld:runtime": "node scripts/validate-jsonld.mjs",
     "test:validate-jsonld": "node scripts/validate-jsonld-static.test.mjs",
     "lh:desktop": "lhci autorun --config=lighthouserc.json",

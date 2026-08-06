@@ -14,7 +14,9 @@ export const GA4_EVENTS = {
   adsConversion: "conversion",
   funnelOpen: "funnel_open",
   funnelSubmit: "funnel_submit",
+  faqToggle: "faq_toggle",
 } as const;
+
 
 /** utm_source padrão quando o visitante não veio de campanha externa. */
 export const DEFAULT_UTM_SOURCE = "site";

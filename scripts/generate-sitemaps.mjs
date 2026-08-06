@@ -59,6 +59,22 @@ const BAIRROS = [
   "/bairros/portao",
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.65" }));
 
+// Landings serviço × bairro-âncora (geradas por src/lib/servicoBairroFactory.ts).
+// Mantidas em sincronia com GENERATED_INDEXABLE_PATHS.
+const SERVICO_BAIRRO = [
+  "/servicos/formatacao-computador/cic",
+  "/servicos/formatacao-computador/batel",
+  "/servicos/formatacao-computador/agua-verde",
+  "/servicos/remocao-virus/cic",
+  "/servicos/remocao-virus/agua-verde",
+  "/servicos/conserto-pc-notebook/centro",
+  "/servicos/conserto-pc-notebook/agua-verde",
+  "/servicos/upgrade-ssd-memoria/cic",
+  "/servicos/upgrade-ssd-memoria/centro",
+  "/servicos/upgrade-ssd-memoria/agua-verde",
+  "/servicos/upgrade-ssd-memoria/portao",
+].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
+
 // Hubs de SEO temáticos (empresa de TI, etc.).
 const HUBS = [
   "/empresa-de-ti-curitiba",
@@ -79,7 +95,7 @@ const EMPTY_URLSET = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="htt
 // Sub-sitemaps ativos.
 const active = [
   ["sitemap-main.xml", [...MAIN, ...HUBS]],
-  ["sitemap-servicos.xml", SERVICOS],
+  ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
   ["sitemap-regioes.xml", REGIOES],
   ["sitemap-bairros.xml", BAIRROS],
 ];

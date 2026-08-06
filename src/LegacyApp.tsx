@@ -411,7 +411,7 @@ const RedesWifiReboucas = lazy(() => import("./pages/servico-bairro/RedesWifiReb
 const ManutencaoTvReboucas = lazy(() => import("./pages/servico-bairro/ManutencaoTvReboucas"));
 
 // Dynamic service+city page
-const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoCidadePage"));
+const ServicoCidadePage = lazy(() => import("./pages/servico-bairro/ServicoBairroGerado"));
 
 // Dynamic problem/intent pages (50 páginas de intenção de busca)
 const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
@@ -902,7 +902,7 @@ const App = () => (
             <Route path="/servicos/upgrade-ssd-memoria/pinhais" element={<UpgradeSsdPinhais />} />
             <Route path="/servicos/redes-wifi/pinhais" element={<RedesWifiPinhais />} />
             
-            {/* Dynamic service+city route (catches all new combinations) */}
+            {/* Dynamic service+bairro/city route (bairro-âncora gera landing local dedicada) */}
             <Route path="/servicos/:servico/:cidade" element={<ServicoCidadePage />} />
             
             {/* Procedimentos Técnicos em Placa */}

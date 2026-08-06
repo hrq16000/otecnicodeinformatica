@@ -121,7 +121,7 @@ const FAQS = [
   {
     question: "É seguro continuar usando o computador enquanto está lento?",
     answer:
-      "Se a lentidão é estável e não há ruídos, erros de leitura nem travamentos progressivos, o uso normal costuma ser possível. Quando existem esses sinais ou arquivos importantes ainda sem cópia, insistir no uso aumenta o risco de perda de dados — nesse cenário o recomendado é fazer backup enquanto o sistema ainda abre e procurar avaliação, se necessário com apoio de{\" \"}recuperação de dados.",
+      "Se a lentidão é estável e não há ruídos, erros de leitura nem travamentos progressivos, o uso normal costuma ser possível. Quando existem esses sinais ou arquivos importantes ainda sem cópia, insistir no uso aumenta o risco de perda de dados — nesse cenário o recomendado é fazer backup enquanto o sistema ainda abre e procurar avaliação, se necessário com apoio de recuperação de dados.",
   },
 
   {

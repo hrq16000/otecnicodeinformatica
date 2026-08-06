@@ -1,1 +1,1 @@
-This folder contains the built output assets for the worker "tecnico-curitiba-route-guard" generated at 2026-08-06T06:49:36.342Z.
+This folder contains the built output assets for the worker "tecnico-curitiba-route-guard" generated at 2026-08-06T08:04:22.657Z.

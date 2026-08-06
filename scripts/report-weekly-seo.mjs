@@ -223,6 +223,19 @@ const md = [
       ].join("\n")
     : `Credenciais do backend ausentes no job — use o painel /admin/dashboard para as conversões.`,
   ``,
+  `## Conversões por origem (UTM)`,
+  ``,
+  campaigns && campaigns.length
+    ? [
+        `| Origem | Mídia | Campanha | WhatsApp | Ligar | Total |`,
+        `| --- | --- | --- | --- | --- | --- |`,
+        ...campaigns.map(
+          (r) => `| ${r.source} | ${r.medium} | ${r.campaign} | ${r.wa} | ${r.call} | ${r.wa + r.call} |`,
+        ),
+      ].join("\n")
+    : `Sem eventos com UTM nesta janela (ou credenciais do backend ausentes no job).`,
+  ``,
+
   `> Ausência de dados no Search Console não prova ausência de indexação: consultas de baixo volume podem não ser reportadas.`,
   ``,
   `Base: ${BASE_URL}`,

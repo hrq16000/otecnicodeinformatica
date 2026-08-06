@@ -3,6 +3,7 @@ import { Pause, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { HERO_SLIDES, shuffleSlides } from "./heroSlides";
 import { HeroTrustBanner } from "@/components/HeroTrustBanner";
+import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 
 const WA_HERO = whatsappLink(
   "Olá! Preciso de um técnico em Curitiba. Pode me ajudar com meu equipamento?",

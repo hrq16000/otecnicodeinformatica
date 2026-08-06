@@ -161,8 +161,12 @@ function checkCurated(distDir: string) {
     }
 
 
-    const noscript = html.match(/<noscript>\s*<div style="min-height:100vh([\s\S]*?)<\/noscript>/i)?.[1] ?? "";
-    const internal = [...noscript.matchAll(/href=["'](\/[^"'#]*)["']/g)].map((m) => m[1]).filter((h) => h !== "/logo.webp");
+    // Corpo estático real dentro do #root (promovido do antigo <noscript>).
+    const staticShell =
+      html.match(/<div data-static-shell="1">([\s\S]*?)<\/div>\s*<\/div>/i)?.[1] ??
+      html.match(/<noscript>\s*<div style="min-height:100vh([\s\S]*?)<\/noscript>/i)?.[1] ??
+      "";
+    const internal = [...staticShell.matchAll(/href=["'](\/[^"'#]*)["']/g)].map((m) => m[1]).filter((h) => h !== "/logo.webp");
     if (new Set(internal).size < 3) fail(route.path, `links internos contextuais insuficientes (${new Set(internal).size})`);
 
     if (/\b1999\b/.test(html)) fail(route.path, "ano institucional 1999 presente no build final");

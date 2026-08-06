@@ -38,6 +38,25 @@ const INVALID_URLS = [
   "/admin-falso",
   "/index.php",
   "/.env",
+  // Variações de slug dinâmico (marcas, problemas, procedimentos, bairros).
+  "/marcas/dell-inexistente",
+  "/problemas/tela-azul-inexistente-xyz",
+  "/procedimentos/reballing-inexistente-xyz",
+  "/servicos/formatacao/centro-inexistente-xyz",
+  "/bairros/centro-xyz",
+  "/tecnico-informatica-curitiba-xyz",
+  "/blog/categoria/inexistente",
+  "/blog/2026/01/post",
+];
+
+/** Combinações de query string aplicadas às checagens 200/404. */
+const QUERY_COMBOS = [
+  "?utm_source=google&utm_medium=cpc&utm_campaign=curitiba",
+  "?page=2&sort=asc",
+  "?gclid=abc123",
+  "?fbclid=xyz&utm_source=facebook",
+  "?q=t%C3%A9cnico%20curitiba",
+  "?",
 ];
 
 const failures = [];
@@ -130,6 +149,14 @@ async function main() {
     (aliasUtm.location || "").includes("utm_source=teste"),
     "[utm] alias deve preservar a query string de campanha",
   );
+
+  // Teste 5b — Combinações de query string em rota válida e inválida.
+  for (const qs of QUERY_COMBOS) {
+    const ok = await get(base, `/servicos${qs}`);
+    assert(ok.status === 200, `[qs] /servicos${qs} → ${ok.status} (esperado 200)`);
+    const bad = await get(base, `/rota-inexistente-001${qs}`);
+    assert(bad.status === 404, `[qs] /rota-inexistente-001${qs} → ${bad.status} (esperado 404)`);
+  }
 
   // Teste 6 — Assets.
   for (const asset of ["/robots.txt", "/sitemap-index.xml", "/logo.webp", "/manifest.json"]) {

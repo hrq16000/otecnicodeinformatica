@@ -9,6 +9,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { buildRouteManifest } from "./lib/route-manifest.mjs";
+import { injectRootBody } from "./prerender-cities.mjs";
 
 const DIST = path.resolve(process.argv[2] || "dist");
 
@@ -17,7 +18,6 @@ const DESC_404 =
   "A página que você tentou acessar não existe ou foi movida. Veja os serviços disponíveis ou volte para a página inicial.";
 
 const BODY_404 = `
-      <noscript>
         <div style="min-height:100vh;background:linear-gradient(155deg,hsl(205,58%,15%) 0%,hsl(200,45%,22%) 100%);color:#fff;padding:32px 20px;font-family:Arial,sans-serif;max-width:720px;margin:0 auto">
           <img src="/logo.webp" alt="Técnico em Curitiba" width="240" height="78" style="max-width:60vw;height:auto" />
           <h1 style="font-size:1.6rem;line-height:1.25;margin:20px 0 12px">Página não encontrada</h1>
@@ -26,8 +26,7 @@ const BODY_404 = `
             <li><a href="/" style="color:#7fd4ec">Página inicial</a></li>
             <li><a href="/servicos" style="color:#7fd4ec">Serviços disponíveis</a></li>
           </ul>
-        </div>
-      </noscript>`;
+        </div>`;
 
 /** Remove canonical, hreflang, JSON-LD e metadados comerciais herdados da home. */
 function build404Html(baseHtml) {
@@ -55,8 +54,9 @@ function build404Html(baseHtml) {
     /<\/head>/i,
     `    <meta name="robots" content="noindex, nofollow">\n  </head>`,
   );
-  // Corpo estático: sem oferta, preço, CTA de WhatsApp ou schema da home.
-  html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, BODY_404.trim());
+  // Corpo estático real dentro do #root (sem depender de JavaScript):
+  // sem oferta, preço, CTA de WhatsApp ou schema da home.
+  html = injectRootBody(html, BODY_404.trim());
   return html;
 }
 

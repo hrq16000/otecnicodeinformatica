@@ -84,6 +84,7 @@ check(/"@type": "FAQPage"/.test(hub) && /"@type": "Service"/.test(hub), "hub: JS
 // 8. Blocos exclusivos do padrão empresarial (hub × serviço distintos)
 const hubBlocos = read("src/components/empresa/HubEmpresarialBlocos.tsx");
 const servicoBlocos = read("src/components/servico/SuporteEmpresarialBlocos.tsx");
+const semComentarios = (t) => t.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 const modalidades = read("src/components/servico/SuporteModalidadesSection.tsx");
 
 check(hub.includes("PilaresOperacionaisSection") && hub.includes("MapaServicosEmpresariaisSection"), "hub: pilares operacionais e mapa de serviços aplicados");
@@ -96,7 +97,7 @@ check(!/TI para (advogad|clínic|contad|arquitet)/i.test(hubBlocos), "hub: conte
 check(core.includes("SuporteEmpresarialBlocos"), "serviço: indicadores, fluxo e impacto aplicados");
 check(/id="escopo-empresarial"/.test(servicoBlocos) && /id="fluxo-empresarial"/.test(servicoBlocos) && /id="impacto"/.test(servicoBlocos), "serviço: âncoras de escopo, fluxo e impacto");
 check(/prazo e prioridade dependem de/i.test(servicoBlocos), "serviço: aviso de que prazo e prioridade não são automáticos");
-check(!/(sla|24 ?horas|tempo de resposta|chamados ilimitados)/i.test(servicoBlocos), "serviço: sem SLA, cobertura 24h ou chamados ilimitados");
+check(!/(sla|24 ?horas|tempo de resposta|chamados ilimitados)/i.test(semComentarios(servicoBlocos)), "serviço: sem SLA, cobertura 24h ou chamados ilimitados");
 check(!/R\$/.test(servicoBlocos) && !/R\$/.test(hubBlocos), "blocos 3S sem preço novo");
 check(/avulso/i.test(modalidades) && /recorrente/i.test(modalidades) && /não trabalhamos com suporte ilimitado/i.test(modalidades), "serviço: comparação avulso × recorrente sem promessa de ilimitado");
 

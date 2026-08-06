@@ -810,6 +810,8 @@ const App = () => (
             <Route path="/servicos/recuperacao-de-dados" element={<ServicoCore slug="recuperacao-de-dados" />} />
             <Route path="/servicos/redes-e-wifi" element={<ServicoCore slug="redes-e-wifi" />} />
             <Route path="/servicos/suporte-tecnico-empresarial" element={<ServicoCore slug="suporte-tecnico-empresarial" />} />
+            <Route path="/servicos/manutencao-preventiva-empresas" element={<ServicoCore slug="manutencao-preventiva-empresas" />} />
+            <Route path="/servicos/backup-para-empresas" element={<ServicoCore slug="backup-para-empresas" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
 

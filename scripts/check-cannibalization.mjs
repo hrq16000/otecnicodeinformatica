@@ -32,7 +32,11 @@ export const INTENT_MATRIX = [
   { path: "/servicos/formatacao", keyword: "formatacao de computador", role: "serviço formatação", notCompeting: ["/servicos/remocao-de-virus"] },
   { path: "/servicos/upgrade-ssd-ram", keyword: "instalacao de ssd e upgrade de memoria", role: "serviço upgrade", notCompeting: ["/servicos/manutencao-de-computador"] },
   { path: "/empresa-de-ti-curitiba", keyword: "empresa de ti em curitiba", role: "PJ institucional", notCompeting: ["/servicos/suporte-tecnico-empresarial"] },
-  { path: "/servicos/suporte-tecnico-empresarial", keyword: "suporte tecnico empresarial", role: "PJ execução", notCompeting: ["/empresa-de-ti-curitiba"] },
+  { path: "/servicos/suporte-tecnico-empresarial", keyword: "suporte tecnico empresarial", role: "PJ execução", notCompeting: ["/empresa-de-ti-curitiba", "/servicos/manutencao-preventiva-empresas", "/servicos/backup-para-empresas"] },
+  // Onda 3D: rotina planejada (preventiva) x reparo (manutenção de computador);
+  // prevenção (backup) x tentativa após perda (recuperação de dados).
+  { path: "/servicos/manutencao-preventiva-empresas", keyword: "manutencao preventiva de computadores para empresas", role: "PJ rotina planejada", notCompeting: ["/servicos/manutencao-de-computador", "/servicos/suporte-tecnico-empresarial", "/empresa-de-ti-curitiba"] },
+  { path: "/servicos/backup-para-empresas", keyword: "backup para empresas", role: "PJ prevenção de perda", notCompeting: ["/servicos/recuperacao-de-dados", "/servicos/suporte-tecnico-empresarial", "/empresa-de-ti-curitiba"] },
   // Cluster de sintoma (Rodada 3B/3C): intenção informacional de diagnóstico,
   // dominante para a busca por sintoma — nunca para a busca por serviço.
   { path: "/problemas/notebook-nao-liga", keyword: "notebook nao liga", role: "sintoma notebook", notCompeting: ["/servicos/manutencao-de-notebook", "/servicos/formatacao"] },

@@ -385,6 +385,24 @@ export async function getBlogPosts(rootDir = ".") {
 // Corpo estático (dentro do <noscript> do #root) de um artigo aprovado.
 // Todo o texto vem do próprio artigo: H1 = título real, lead = primeiro
 // parágrafo real, sumário = H2 reais. Nada é inventado aqui.
+// Mapa slug -> título dos artigos aprovados (preenchido antes da escrita).
+const APPROVED_TITLES = new Map();
+
+// Cross-links entre artigos aprovados: só aponta para páginas indexáveis
+// e canônicas (nunca para artigos noindex).
+function outrosGuiasAprovados(slug) {
+  const itens = [...APPROVED_TITLES.entries()]
+    .filter(([s]) => s !== slug)
+    .slice(0, 3)
+    .map(
+      ([s, t]) =>
+        `<li style="margin:4px 0"><a href="/blog/${s}" style="color:#7fd4ec">${htmlEscape(t)}</a></li>`,
+    )
+    .join("");
+  if (!itens) return "";
+  return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Outros guias técnicos</h2><ul style="margin:0 0 8px;padding-left:20px">${itens}</ul>`;
+}
+
 function editorialStaticBody(post, wave) {
   const url = `${SITE}/blog/${post.slug}`;
   const waText = encodeURIComponent(
@@ -409,8 +427,9 @@ function editorialStaticBody(post, wave) {
             <li style="margin:4px 0"><a href="${wave.pilar}" style="color:#7fd4ec">${htmlEscape(wave.pilarLabel)}</a></li>
             <li style="margin:4px 0"><a href="${wave.apoio}" style="color:#7fd4ec">${htmlEscape(wave.apoioLabel)}</a></li>
             <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Todos os serviços de informática</a></li>
-            <li style="margin:4px 0"><a href="/blog" style="color:#7fd4ec">Outros guias técnicos</a></li>
+            <li style="margin:4px 0"><a href="/blog" style="color:#7fd4ec">Central de guias técnicos</a></li>
           </ul>
+          ${outrosGuiasAprovados(post.slug)}
           <p style="margin:12px 0 0"><a href="/contato?assunto=${waText}" data-cta-location="editorial_static" style="color:#7fd4ec;font-weight:600">Falar sobre o meu caso (triagem antes do WhatsApp)</a></p>
           <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Publicado por Técnico em Curitiba · <a href="${url}" style="color:#7fd4ec">${htmlEscape(url)}</a></p>
         </div>`;
@@ -697,6 +716,10 @@ export async function prerenderCities(distDir) {
     written++;
   }
 
+  APPROVED_TITLES.clear();
+  for (const post of blogPosts) {
+    if (isWaveApproved(post.slug)) APPROVED_TITLES.set(post.slug, post.title);
+  }
   for (const post of blogPosts) {
     await writeBlogPostPage(distDir, baseHtml, post);
     written++;

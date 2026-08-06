@@ -558,6 +558,71 @@ const ComoFunciona = () => {
           </div>
         </section>
 
+        {/* ===== BACKUP E RECUPERAÇÃO DE DADOS ===== */}
+        <section id="backup" className="py-8 md:py-10 bg-secondary">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+                Backup e Recuperação de Dados no Atendimento
+              </h2>
+              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Antes de formatar, trocar disco ou intervir em um equipamento com falha, a primeira pergunta é sempre a
+                mesma: existe algo dentro dele que você não pode perder? O tratamento dos seus arquivos segue etapas,
+                prazos e limites declarados — sem promessa que não possa ser cumprida.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-4 mb-8">
+                {[
+                  { icon: Database, title: "1. Levantamento do que importa", desc: "Na triagem identificamos o que precisa ser preservado: documentos, fotos, pastas de trabalho, e-mails locais e configurações. Isso define se o serviço pode ser executado direto ou se a cópia vem antes de qualquer intervenção." },
+                  { icon: HardDrive, title: "2. Cópia de segurança antes de intervir", desc: "Quando o disco ainda responde, a cópia é feita para mídia externa antes de formatar, migrar para SSD ou remover infecção. Serviços que apagam dados só começam depois que essa cópia é conferida com você." },
+                  { icon: ShieldCheck, title: "3. Devolução e descarte controlado", desc: "Os arquivos são devolvidos no equipamento ou na mídia combinada. Cópias temporárias usadas no processo são apagadas na entrega, salvo pedido expresso de retenção por prazo definido." },
+                ].map((s, i) => (
+                  <div key={i} className="bg-background rounded-xl p-5">
+                    <s.icon className="h-6 w-6 text-accent mb-3" />
+                    <h3 className="font-bold text-foreground mb-1 text-sm">{s.title}</h3>
+                    <p className="text-xs text-muted-foreground">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-accent" /> Prazos de referência
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Cópia de arquivos pessoais em disco saudável: normalmente no mesmo atendimento, variando com o volume de dados e a velocidade da mídia de destino.</li>
+                    <li>• Backup antes de formatação ou migração para SSD: executado dentro do próprio serviço, antes de qualquer escrita no disco original.</li>
+                    <li>• Disco com setores defeituosos ou leitura instável: exige bancada e leitura em ritmo reduzido; o prazo é informado depois da avaliação inicial, e atualizado se o quadro mudar.</li>
+                    <li>• Falha física severa (ruído mecânico, disco não reconhecido): avaliação primeiro, sem prazo prometido antes de saber se há leitura possível.</li>
+                  </ul>
+                </div>
+                <div className="bg-background rounded-xl p-6 border border-border">
+                  <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                    <AlertTriangle className="h-5 w-5 text-destructive" /> Limites seguros e o que não prometemos
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li>• Não existe garantia de recuperação integral em disco com falha física ou em arquivos sobrescritos: o resultado depende do estado da mídia.</li>
+                    <li>• Dados criptografados por ransomware não são "desbloqueados": o trabalho se limita a preservar o que estiver íntegro e reconstruir o ambiente.</li>
+                    <li>• Continuar usando o equipamento depois da perda reduz as chances de recuperação — desligar cedo é a atitude que mais ajuda.</li>
+                    <li>• Não acessamos conteúdo além do necessário para executar o serviço, e não retemos cópias sem combinação prévia.</li>
+                    <li>• Backup feito no atendimento é ponto de partida, não rotina: para proteção contínua, a recomendação é manter uma cópia externa e uma em nuvem.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-center text-sm text-muted-foreground">
+                Casos de perda já ocorrida seguem por{" "}
+                <Link to="/servicos/recuperacao-de-dados" className="text-accent hover:underline font-medium">recuperação de dados</Link>
+                {" "}· rotina de proteção em{" "}
+                <Link to="/blog/backup-como-proteger-seus-arquivos" className="text-accent hover:underline font-medium">como proteger seus arquivos</Link>
+                {" "}· condições em{" "}
+                <Link to="/precos-e-politicas" className="text-accent hover:underline font-medium">preços e políticas</Link>.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ===== QUANDO COMPENSA REPARAR ===== */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
@@ -823,6 +888,10 @@ const confiancaItems = [
 ];
 
 const faqItems = [
+  { question: "Meus arquivos são copiados antes de formatar?", answer: "Sim, sempre que o disco ainda permite leitura. A cópia de segurança é feita para mídia externa e conferida com você antes de qualquer serviço que apague dados, como formatação, reinstalação ou migração para SSD." },
+  { question: "Quanto tempo leva um backup durante o atendimento?", answer: "Em disco saudável, normalmente no mesmo atendimento, variando com o volume de dados e a velocidade da mídia de destino. Discos com setores defeituosos exigem leitura em ritmo reduzido em bancada, com prazo informado depois da avaliação inicial." },
+  { question: "Existe garantia de recuperar todos os arquivos?", answer: "Não. Em disco com falha física, arquivos sobrescritos ou dados criptografados por ransomware não há garantia de recuperação integral: o resultado depende do estado da mídia. Explicamos o cenário real antes de iniciar, sem prometer o que não pode ser assegurado." },
+  { question: "Vocês guardam cópias dos meus dados depois do serviço?", answer: "Não. Cópias temporárias usadas no processo são apagadas na entrega, salvo pedido expresso seu de retenção por prazo definido. O acesso ao conteúdo se limita ao necessário para executar o serviço contratado." },
   { question: "Quanto custa a visita técnica?", answer: "Quando há visita ou diagnóstico presencial aplicável, a mão de obra começa a partir de R$ 99,99. O valor final depende da avaliação do problema e do tempo necessário. Consulte os detalhes em /precos-e-politicas." },
   { question: "O valor pode mudar depois da avaliação?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
   { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },

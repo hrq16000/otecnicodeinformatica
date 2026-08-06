@@ -16,6 +16,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getBlogPosts } from "./prerender-cities.mjs";
+import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/editorial-wave.mjs";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
@@ -43,9 +44,6 @@ async function checkRegistry() {
   const src = await read(p);
   if (!/APPROVED_EDITORIAL_CONTENT\s*=\s*new Map/.test(src))
     fail("registro: APPROVED_EDITORIAL_CONTENT deve ser um Map tipado");
-  // Nenhuma inserção de aprovação nesta fase.
-  if (/APPROVED_EDITORIAL_CONTENT\.set\(/.test(src))
-    fail("registro: nenhum artigo pode ser cadastrado como aprovado nesta fase (.set encontrado)");
   // Padrão fail-closed: default draft.
   if (!/\?\?\s*"draft"/.test(src))
     fail('registro: getEditorialStatus deve retornar "draft" por padrão (fail-closed)');
@@ -61,7 +59,18 @@ async function checkRegistry() {
   // Rejeita data futura.
   if (!/>\s*Date\.now\(\)/.test(src))
     fail("registro: aprovação deve rejeitar data de aprovação no futuro");
-  note("registro editorial: presente, tipado e vazio (fail-closed)");
+
+  // Paridade runtime × build: o registro só pode aprovar slugs da onda.
+  const waveBlock = src.match(/FIRST_WAVE_SLUGS\s*=\s*\[([\s\S]*?)\]/);
+  const registered = waveBlock
+    ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1])
+    : [];
+  const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
+  const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));
+  if (extra.length) fail(`registro: slugs aprovados fora da onda editorial: ${extra.join(", ")}`);
+  if (missing.length) fail(`registro: slugs da onda ausentes no registro: ${missing.join(", ")}`);
+  note(`registro editorial: fail-closed + ${registered.length} aprovados em paridade com a onda`);
+
 }
 
 // ── 2. Runtime BlogPost ────────────────────────────────────
@@ -97,8 +106,11 @@ async function checkBlogHubRuntime() {
     fail("Blog hub: não usa getApprovedSlugs para a listagem");
   if (!/noindex/.test(src))
     fail("Blog hub: deve permanecer noindex sem artigos aprovados");
-  if (/programmaticPostsMeta|problemaSummaries|blogPostsContentBase/.test(src))
-    fail("Blog hub: não pode listar posts programáticos/problemas/artigos não aprovados");
+  if (/programmaticPostsMeta|problemaSummaries/.test(src))
+    fail("Blog hub: não pode listar posts programáticos/problemas");
+  if (/blogPostsContentBase/.test(src) && !/approvedSlugs/.test(src))
+    fail("Blog hub: conteúdo só pode ser lido para slugs aprovados");
+
   if (!/Política editorial/.test(src))
     fail("Blog hub: seção de Política editorial ausente");
   note("Blog hub: lista apenas aprovados + política editorial visível");
@@ -108,17 +120,28 @@ async function checkBlogHubRuntime() {
 async function checkStaticHtml(posts) {
   if (!(await exists(DIST))) { fail("dist/ ausente — rode o build antes do gate"); return; }
 
-  // Hub /blog
+  // Hub /blog — indexável apenas com massa editorial aprovada (>= 3).
+  const hubShouldIndex = EDITORIAL_WAVE_SLUGS.length >= 3;
   const hubPath = path.join(DIST, "blog", "index.html");
   if (!(await exists(hubPath))) {
     fail("HTML do hub /blog ausente (dist/blog/index.html)");
   } else {
     const h = await read(hubPath);
     const robots = h.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
-    if (!robots || !/noindex/.test(robots[1])) fail("/blog: hub deve ser noindex no HTML inicial");
+    if (!robots) fail("/blog: meta robots ausente");
+    else if (hubShouldIndex && /noindex/.test(robots[1]))
+      fail("/blog: hub deve ser indexável com artigos aprovados na onda");
+    else if (!hubShouldIndex && !/noindex/.test(robots[1]))
+      fail("/blog: hub deve ser noindex sem massa editorial aprovada");
     if (count(h, /rel=["']canonical["']/gi) !== 1) fail("/blog: deve ter exatamente 1 canonical");
     if (!h.includes(`href="${SITE}/blog"`)) fail("/blog: canonical deve ser self (/blog)");
+    if (hubShouldIndex) {
+      for (const slug of EDITORIAL_WAVE_SLUGS) {
+        if (!h.includes(`/blog/${slug}`)) fail(`/blog: hub estático não linka /blog/${slug}`);
+      }
+    }
   }
+
 
   let checked = 0;
   for (const post of posts) {
@@ -127,10 +150,29 @@ async function checkStaticHtml(posts) {
     const h = await read(fp);
     const url = `${SITE}/blog/${post.slug}`;
 
-    // robots — exatamente 1, noindex,follow
+    const approved = isWaveApproved(post.slug);
+
+    // robots — exatamente 1; noindex,follow fora da onda, index,follow na onda
     const robotsAll = h.match(/<meta\s+name=["']robots["'][^>]*>/gi) || [];
     if (robotsAll.length !== 1) fail(`/blog/${post.slug}: esperado exatamente 1 meta robots (achou ${robotsAll.length})`);
-    else if (!/noindex,\s*follow/i.test(robotsAll[0])) fail(`/blog/${post.slug}: robots deve ser noindex, follow`);
+    else if (approved) {
+      if (/noindex/i.test(robotsAll[0])) fail(`/blog/${post.slug}: artigo da onda deve ser index, follow`);
+    } else if (!/noindex,\s*follow/i.test(robotsAll[0])) {
+      fail(`/blog/${post.slug}: robots deve ser noindex, follow`);
+    }
+
+    if (approved) {
+      // Conteúdo estático próprio + rich results do artigo.
+      if (!/"@type":\s*\[\s*"BlogPosting"/.test(h)) fail(`/blog/${post.slug}: BlogPosting ausente no HTML estático`);
+      if (!/"@type":\s*"BreadcrumbList"/.test(h)) fail(`/blog/${post.slug}: BreadcrumbList ausente`);
+      if (count(h, /<h1[\s>]/gi) !== 1) fail(`/blog/${post.slug}: HTML estático deve ter exatamente 1 <h1>`);
+      const wave = EDITORIAL_WAVE.find((a) => a.slug === post.slug);
+      if (!h.includes(`content="${SITE}${wave.cover}`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
+      if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
+      if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
+      if (!/wa\.me\/5541997086380/.test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
+    }
+
 
     // canonical — exatamente 1, self
     const canonAll = h.match(/<link\s+rel=["']canonical["'][^>]*>/gi) || [];
@@ -160,20 +202,27 @@ async function checkStaticHtml(posts) {
 
     checked++;
   }
-  note(`HTML inicial: ${checked}/${posts.length} artigos verificados (noindex,follow + canonical self)`);
+  note(`HTML inicial: ${checked}/${posts.length} artigos verificados (${EDITORIAL_WAVE_SLUGS.length} indexáveis da onda)`);
 }
 
 // ── 5. Sitemaps ────────────────────────────────────────────
 async function checkSitemaps() {
   const pub = path.join(ROOT, "public");
   const files = (await fs.readdir(pub)).filter((f) => /^sitemap.*\.xml$/.test(f));
+  const allowedBlog = new Set([
+    `${SITE}/blog`,
+    ...EDITORIAL_WAVE_SLUGS.map((s) => `${SITE}/blog/${s}`),
+  ]);
   for (const f of files) {
     const src = await read(path.join(pub, f));
-    if (/\/blog\//.test(src) || /<loc>[^<]*\/blog<\/loc>/.test(src))
-      fail(`sitemap ${f}: contém referência a /blog`);
+    for (const m of src.matchAll(/<loc>([^<]*\/blog[^<]*)<\/loc>/g)) {
+      if (!allowedBlog.has(m[1]))
+        fail(`sitemap ${f}: URL de blog fora da onda editorial (${m[1]})`);
+    }
     if (/\/problemas?\//.test(src)) fail(`sitemap ${f}: contém páginas de problemas`);
     if (/\/marcas?\//.test(src)) fail(`sitemap ${f}: contém páginas de marcas`);
   }
+
   // Expectativa derivada do manifesto curado — nunca de um número fixo.
   const { ACTIVE_SITEMAPS, CURATED_PATHS } = await import("./lib/curated-urls.mjs");
   let total = 0;

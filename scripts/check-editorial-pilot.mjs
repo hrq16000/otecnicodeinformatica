@@ -3,7 +3,7 @@
 // GATE DOS OITO CONTEÚDOS-PILOTO (Onda editorial — PROMPT 31)
 //
 // Verificações OBJETIVAS. Nenhuma avaliação semântica subjetiva.
-// Garante que os oito pilotos existem, foram reescritos, seguem
+// Garante que os pilotos em revisão existem, foram reescritos, seguem
 // fail-closed (noindex, fora do sitemap, sem aprovação, sem autor
 // pessoal, sem schema de publicação) e apontam apenas para rotas
 // curadas.
@@ -14,6 +14,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EDITORIAL_WAVE_SLUGS } from "./lib/editorial-wave.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const rel = (p) => path.join(root, p);
@@ -60,11 +61,10 @@ const CURATED_SERVICE_ROUTES = new Set([
 const registry = read("src/lib/blogEditorialRegistry.ts");
 
 // APPROVED vazio (sem .set e declaração sem argumentos).
+// Aprovações só podem existir via onda editorial declarada (paridade validada
+// em check:editorial-governance). Mutação em runtime continua proibida.
 if (/APPROVED_EDITORIAL_CONTENT\.set\s*\(/.test(registry)) {
-  fail("APPROVED_EDITORIAL_CONTENT recebeu .set() — o registro de aprovados deve permanecer VAZIO.");
-}
-if (!/APPROVED_EDITORIAL_CONTENT\s*=\s*new Map<[^>]*>\(\s*\)\s*;/.test(registry)) {
-  fail("APPROVED_EDITORIAL_CONTENT não está declarado como Map vazio.");
+  fail("APPROVED_EDITORIAL_CONTENT recebeu .set() — aprovação só via lista declarativa.");
 }
 
 // Slugs do piloto.
@@ -74,8 +74,13 @@ const pilotSlugs = slugsMatch
   ? [...slugsMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1])
   : [];
 
-if (pilotSlugs.length !== 8) {
-  fail(`Esperado exatamente 8 slugs-piloto, encontrados ${pilotSlugs.length}.`);
+// Um slug promovido à onda editorial sai da fila-piloto (não pode estar nos dois).
+const overlap = pilotSlugs.filter((s) => EDITORIAL_WAVE_SLUGS.includes(s));
+if (overlap.length) {
+  fail(`Slugs simultaneamente piloto e aprovados na onda: ${overlap.join(", ")}.`);
+}
+if (!pilotSlugs.length) {
+  fail("Nenhum slug-piloto declarado — a fila de revisão não pode ficar vazia.");
 }
 if (new Set(pilotSlugs).size !== pilotSlugs.length) {
   fail("Há slugs-piloto duplicados em EDITORIAL_PILOT_SLUGS.");
@@ -282,4 +287,4 @@ if (errors.length) {
   errors.forEach((e) => console.error(`  ✗ ${e}`));
   process.exit(1);
 }
-console.log("\n✅ Gate dos oito pilotos aprovado.");
+console.log("\n✅ Gate da fila-piloto editorial aprovado.");

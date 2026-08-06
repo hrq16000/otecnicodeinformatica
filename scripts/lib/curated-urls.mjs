@@ -12,6 +12,8 @@
  * canônica (não alias, não redirect) e aprovada pela hierarquia local.
  */
 
+import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
+
 export const BASE_URL = "https://tecnico.curitiba.br";
 
 export const MAIN = [
@@ -85,16 +87,33 @@ export const SERVICO_BAIRRO = [
   "/servicos/upgrade-ssd-memoria/portao",
 ].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
 
+/**
+ * Onda editorial indexável (Rodada 4H). O hub /blog só é declarado aqui
+ * porque passou a listar artigos aprovados de verdade. Cada artigo vem de
+ * `scripts/lib/editorial-wave.mjs` — espelho de APPROVED_EDITORIAL_CONTENT.
+ */
+export const EDITORIAL = [
+  { path: "/blog", changefreq: "weekly", priority: "0.6" },
+  ...EDITORIAL_WAVE_SLUGS.map((slug) => ({
+    path: `/blog/${slug}`,
+    changefreq: "monthly",
+    priority: "0.55",
+  })),
+];
+
+
 /** Sub-sitemaps ativos, na ordem em que aparecem no índice. */
 export const ACTIVE_SITEMAPS = [
   ["sitemap-main.xml", [...MAIN, ...HUBS]],
   ["sitemap-servicos.xml", [...SERVICOS, ...SERVICO_BAIRRO]],
   ["sitemap-regioes.xml", REGIOES],
   ["sitemap-bairros.xml", BAIRROS],
+  ["sitemap-editorial.xml", EDITORIAL],
 ];
 
 /** Sub-sitemaps herdados, mantidos vazios de propósito. */
 export const EMPTY_SITEMAPS = ["sitemap-marcas.xml", "sitemap-problemas.xml", "sitemap-news.xml"];
+
 
 /** Conjunto plano de todas as URLs indexáveis declaradas. */
 export const CURATED_PATHS = ACTIVE_SITEMAPS.flatMap(([, entries]) => entries.map((e) => e.path));

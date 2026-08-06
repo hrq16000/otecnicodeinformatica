@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -8,6 +8,8 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { trackPageView } from "@/lib/analytics";
 import { getApprovedSlugs } from "@/lib/blogEditorialRegistry";
+import { getEditorialCover } from "@/lib/blogEditorialCovers";
+
 import {
   BookOpen, ShieldCheck, FileSearch, Wrench, MessageCircle,
   ArrowRight, CheckCircle2, Clock,
@@ -48,9 +50,34 @@ const Blog = () => {
   // Fail-closed: hub permanece noindex enquanto não houver massa editorial aprovada.
   const noindex = approvedSlugs.length < MIN_APPROVED_TO_INDEX;
 
+  // Títulos/resumos reais dos artigos, carregados sob demanda (chunk pesado).
+  const [summaries, setSummaries] = useState<
+    Record<string, { title: string; excerpt: string }>
+  >({});
+
   useEffect(() => {
     trackPageView("/blog", "Blog - Hub editorial");
   }, []);
+
+  useEffect(() => {
+    if (!hasApproved) return;
+    let active = true;
+    import("@/data/blogPostsContent").then((mod) => {
+      if (!active) return;
+      const next: Record<string, { title: string; excerpt: string }> = {};
+      for (const slug of approvedSlugs) {
+        const post = mod.blogPostsContentBase[slug];
+        if (post) next[slug] = { title: post.title, excerpt: post.excerpt };
+
+      }
+      setSummaries(next);
+    });
+    return () => {
+      active = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasApproved]);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -144,20 +171,45 @@ const Blog = () => {
                     Guias publicados
                   </h2>
                   <ul className="grid sm:grid-cols-2 gap-4">
-                    {approvedSlugs.map((slug) => (
-                      <li key={slug}>
-                        <Link
-                          to={`/blog/${slug}`}
-                          className="block rounded-xl border border-border bg-card p-5 hover:border-accent/40 transition-colors"
-                        >
-                          <span className="text-foreground font-semibold">{slug}</span>
-                        </Link>
-                      </li>
-                    ))}
+                    {approvedSlugs.map((slug) => {
+                      const meta = summaries[slug];
+                      const cover = getEditorialCover(slug);
+                      return (
+                        <li key={slug}>
+                          <Link
+                            to={`/blog/${slug}`}
+                            className="block h-full rounded-xl border border-border bg-card overflow-hidden hover:border-accent/40 transition-colors"
+                          >
+                            {cover && (
+                              <img
+                                src={cover.src}
+                                alt={cover.alt}
+                                width={1200}
+                                height={630}
+                                loading="lazy"
+                                decoding="async"
+                                className="w-full h-40 object-cover"
+                              />
+                            )}
+                            <span className="block p-5">
+                              <span className="block text-foreground font-semibold">
+                                {meta?.title ?? slug}
+                              </span>
+                              {meta?.excerpt && (
+                                <span className="block text-sm text-muted-foreground mt-2 leading-relaxed">
+                                  {meta.excerpt}
+                                </span>
+                              )}
+                            </span>
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </AnimatedSection>
             )}
+
           </div>
         </section>
 

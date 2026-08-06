@@ -1521,6 +1521,21 @@ docker run -d --name db --network minha-rede postgres
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se as verificações seguras não resolveram, ou se há sinais de falha física, um diagnóstico presencial identifica a causa real antes de qualquer troca de peça ou formatação. Assim você evita pagar por uma solução que não ataca o problema certo.</p>
 
+        <h2>Limpeza, upgrade ou formatação: o que cada caminho resolve</h2>
+        <p>Os três caminhos costumam ser tratados como sinônimos, mas atacam problemas diferentes. A limpeza (física e de software) devolve estabilidade quando o computador acumulou poeira, pasta térmica ressecada ou dezenas de programas iniciando junto com o sistema. O upgrade muda o teto de desempenho: só faz sentido quando o gargalo real é disco mecânico ou memória insuficiente para o uso atual. A formatação zera o sistema e é útil quando há corrupção de arquivos do Windows ou resíduos de infecção — e inútil quando o problema é hardware.</p>
+        <p>Na prática, a ordem importa. Trocar o disco de uma máquina que superaquece só transfere a frustração: o computador continuará reduzindo desempenho para se proteger do calor. Do mesmo modo, formatar um notebook com HD com setores defeituosos costuma resultar em uma instalação lenta desde o primeiro dia. Por isso o diagnóstico vem antes: ele diz qual dos três caminhos muda o resultado percebido no dia a dia.</p>
+        <ul>
+          <li><strong>Ficou lento de forma gradual, ao longo de meses:</strong> normalmente software acumulado, disco cheio ou disco mecânico no limite.</li>
+          <li><strong>Piorou de repente:</strong> investigar atualização recente, infecção, falha de disco ou superaquecimento.</li>
+          <li><strong>Lento só em tarefas específicas:</strong> pode ser falta de memória para aquele uso, não lentidão geral.</li>
+          <li><strong>Trava com barulho ou desliga sozinho:</strong> parar de insistir e priorizar avaliação técnica antes de perder dados.</li>
+        </ul>
+
+        <h2>Lentidão em máquinas de trabalho e home office</h2>
+        <p>Em computadores usados para trabalho, o custo da lentidão raramente está no equipamento: está nas horas paradas. Quem trabalha com planilhas grandes, videochamadas simultâneas, sistemas de gestão no navegador e vários aplicativos abertos ao mesmo tempo sente primeiro a falta de memória — o sistema passa a usar o disco como memória auxiliar e tudo fica arrastado, mesmo com processador razoável.</p>
+        <p>Um segundo padrão comum em home office é o acúmulo de agentes em segundo plano: antivírus duplicados, clientes de sincronização de nuvem, atualizadores de fabricantes e aplicativos de reunião que iniciam junto com o sistema. Cada um consome pouco; somados, competem por disco e memória exatamente nos primeiros minutos do expediente, quando você mais precisa da máquina pronta. Documentar o que está ativo antes de mexer evita desligar algo essencial para o trabalho.</p>
+        <p>Se o computador é a ferramenta principal de renda, vale tratar a lentidão como manutenção preventiva e não como emergência: uma avaliação com o equipamento ainda funcionando permite planejar troca de disco, ampliação de memória ou reinstalação em um horário que não interrompa entregas.</p>
+
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Quer descobrir a causa real da lentidão?</h3>
           <p className="text-muted-foreground mb-3">Um diagnóstico técnico mostra se o caso pede limpeza, upgrade, formatação ou reparo — sem chute.</p>
@@ -1579,6 +1594,21 @@ docker run -d --name db --network minha-rede postgres
 
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se há sinais de ransomware, invasão de contas ou infecção que volta sempre, a remoção profissional avalia o tipo de ameaça e prioriza preservar seus dados. Em muitos casos dá para orientar por <Link to="/atendimento-remoto" className="text-accent">atendimento remoto</Link>, e o <Link to="/diagnostico-tecnico" className="text-accent">diagnóstico</Link> define o caminho mais seguro.</p>
+
+        <h2>Como reduzir o risco de reinfecção</h2>
+        <p>Remover a ameaça é metade do trabalho: se o caminho de entrada continuar aberto, o problema volta. Na maioria dos casos domésticos o vetor é previsível — instalador baixado de site de terceiros, extensão de navegador instalada sem atenção, arquivo recebido por mensagem ou reaproveitamento da mesma senha em vários serviços. Corrigir o hábito vale mais do que trocar de antivírus.</p>
+        <ul>
+          <li>Baixe programas apenas do site oficial do fabricante ou da loja do próprio sistema.</li>
+          <li>Revise as extensões do navegador e remova o que você não reconhece ou não usa há meses.</li>
+          <li>Mantenha o sistema e o navegador atualizados: boa parte das infecções explora falhas já corrigidas.</li>
+          <li>Troque as senhas dos serviços críticos depois da limpeza, preferencialmente de outro dispositivo confiável.</li>
+          <li>Ative a verificação em duas etapas em e-mail e banco — é a barreira que impede o dano maior.</li>
+        </ul>
+        <p>Depois de uma limpeza, observe o comportamento por alguns dias: reaparecimento de páginas iniciais alteradas, novos ícones ou consumo de rede sem motivo indica que algo persistiu ou que o mesmo caminho foi usado de novo.</p>
+
+        <h2>Quando a suspeita envolve uma rede com vários computadores</h2>
+        <p>Em escritórios e pequenas empresas, tratar apenas a máquina que apresentou sintoma costuma ser insuficiente. Compartilhamentos de arquivos, pendrives que circulam entre estações e credenciais reutilizadas fazem com que uma infecção se espalhe silenciosamente. O sinal de alerta mais comum é a repetição: dois ou três computadores apresentando o mesmo comportamento estranho na mesma semana.</p>
+        <p>Nesses casos, a prioridade muda de ordem. Antes de limpar, é importante isolar a estação suspeita da rede, verificar se há backup íntegro e recente e confirmar quem tem acesso administrativo. Arquivos que ficaram inacessíveis ou renomeados exigem cuidado redobrado: continuar usando o equipamento pode reduzir as chances de recuperação. Se o ambiente tem servidor, sistema de gestão ou dados de clientes, a avaliação deve considerar a rede inteira, e não apenas o computador que reclamou primeiro.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Suspeita de vírus no computador?</h3>
@@ -1648,6 +1678,28 @@ docker run -d --name db --network minha-rede postgres
 
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se as verificações básicas não resolveram, o próximo passo é um diagnóstico: ele identifica onde está o problema antes de qualquer troca. Tentar abrir o notebook sem conhecimento pode transformar um problema simples em um prejuízo maior.</p>
+
+        <h2>Erros comuns que pioram o quadro</h2>
+        <p>Boa parte dos danos que chegam à bancada não vem do defeito original, e sim da tentativa de resolvê-lo às pressas. Um notebook que não liga geralmente tolera espera; o que ele não tolera é improviso elétrico e abertura sem ferramenta adequada.</p>
+        <ul>
+          <li><strong>Usar carregador de outro aparelho</strong> com conector parecido, mas tensão ou amperagem diferentes.</li>
+          <li><strong>Insistir no botão de energia dezenas de vezes</strong> quando já há sinal de curto ou cheiro de queimado.</li>
+          <li><strong>Abrir a base com chave de fenda comum</strong>, danificando presilhas e o cabo flexível do teclado ou do touchpad.</li>
+          <li><strong>Ligar depois de contato com líquido</strong> — energizar uma placa molhada costuma transformar um caso recuperável em perda de placa.</li>
+          <li><strong>Aplicar produto de limpeza</strong> ou secador quente diretamente nos componentes internos.</li>
+        </ul>
+        <p>Se em algum momento aparecer cheiro forte, estalo, aquecimento anormal no carregador ou o aparelho tiver sofrido queda, o passo mais seguro é desconectar da tomada, remover a bateria quando ela for removível e parar os testes ali.</p>
+
+        <h2>O que informar ao acionar o técnico</h2>
+        <p>Um relato preciso encurta o diagnóstico e reduz a chance de troca desnecessária de peças. Antes do atendimento, reúna as informações que só você tem: elas descrevem o histórico que nenhum teste de bancada reconstrói sozinho.</p>
+        <ul>
+          <li>Marca, modelo e, se souber, o ano aproximado do equipamento.</li>
+          <li>O que aconteceu imediatamente antes da falha: queda, oscilação de energia, atualização, líquido, calor excessivo.</li>
+          <li>O comportamento exato hoje: LED aceso ou apagado, ventoinha girando, bipes, tela preta com luz de fundo.</li>
+          <li>Se já houve reparo anterior, e o que foi trocado.</li>
+          <li>Se existem dados importantes sem backup — isso muda a ordem das etapas do serviço.</li>
+        </ul>
+        <p>Vale também combinar antes como o equipamento será transportado. Levar o carregador original junto é essencial: sem ele, parte dos testes de energia fica inconclusiva e o diagnóstico pode precisar de uma segunda etapa.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Notebook que não liga?</h3>
@@ -2288,6 +2340,27 @@ docker run -d --name db --network minha-rede postgres
         <h2>Antes de decidir</h2>
         <p>Se o HD atual apresenta ruídos, cliques ou erros de leitura, trate isso como sinal de alerta e priorize o backup dos dados. Avaliar o estado do disco atual e o restante do hardware ajuda a decidir se o SSD sozinho resolve ou se faz mais sentido dentro de uma manutenção completa.</p>
 
+        <h2>SATA, M.2 e NVMe: o que muda na prática</h2>
+        <p>Nem todo SSD se conecta da mesma forma, e essa diferença define tanto a compatibilidade quanto o ganho percebido. O SSD SATA de 2,5" usa o mesmo cabo e o mesmo encaixe de um HD de notebook, o que o torna a troca mais direta em máquinas antigas. O formato M.2 dispensa cabos e é parafusado direto na placa — mas exige que a placa tenha o slot correspondente. Dentro do M.2 ainda existem dois padrões distintos de comunicação: SATA e NVMe.</p>
+        <p>Para uso doméstico e de escritório, a diferença mais sentida é a primeira: sair de HD mecânico para qualquer SSD. A troca de um SSD SATA por um NVMe entrega números melhores em transferências grandes, mas o ganho é discreto em tarefas cotidianas como abrir o sistema, o navegador e um editor de textos. Vale conferir antes:</p>
+        <ul>
+          <li>Se a placa possui slot M.2 e qual padrão ele aceita (SATA, NVMe ou ambos).</li>
+          <li>Se há espaço físico e suporte para manter o disco antigo como armazenamento secundário.</li>
+          <li>Se a máquina tem limitações de firmware que impedem inicializar por NVMe.</li>
+          <li>Se o objetivo é desempenho ou apenas mais espaço — as duas metas pedem escolhas diferentes.</li>
+        </ul>
+
+        <h2>Sinais de que o disco atual já está falhando</h2>
+        <p>Existe uma diferença importante entre "quero mais desempenho" e "meu disco está morrendo". No segundo caso, o upgrade deixa de ser opcional e vira urgência de preservação de dados, porque a janela para copiar arquivos com segurança pode ser curta.</p>
+        <ul>
+          <li>Ruídos repetitivos de clique ou zumbido vindos do disco mecânico.</li>
+          <li>Travamentos longos com o cursor parado ao abrir pastas específicas.</li>
+          <li>Arquivos que somem, abrem corrompidos ou não copiam até o fim.</li>
+          <li>Reinicializações inesperadas e mensagens do sistema sobre erro de disco.</li>
+          <li>Verificações de integridade que ficam cada vez mais frequentes ao ligar o computador.</li>
+        </ul>
+        <p>Diante desses sinais, o passo mais seguro é reduzir o uso do equipamento e priorizar a cópia dos dados antes de qualquer clonagem. Clonar um disco já com setores defeituosos pode transportar o problema para o SSD novo — ou interromper a cópia no meio, deixando o sistema inutilizável. Em casos assim, instalar o sistema do zero no SSD e recuperar os arquivos em separado costuma ser mais previsível.</p>
+
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Quer avaliar se o upgrade compensa?</h3>
           <p className="text-muted-foreground mb-3">Verificamos a compatibilidade, o estado do disco atual e o restante do hardware antes de qualquer troca.</p>
@@ -2339,6 +2412,21 @@ docker run -d --name db --network minha-rede postgres
 
         <h2>Backup preventivo x recuperação de dados</h2>
         <p>São coisas diferentes. Backup é o que você faz <strong>antes</strong> de qualquer problema. Recuperação é tentar resgatar dados <strong>depois</strong> de uma falha — um processo mais incerto, que nem sempre traz tudo de volta. Por isso o backup preventivo é sempre o caminho mais seguro.</p>
+
+        <h2>A regra 3-2-1 aplicada à rotina de casa</h2>
+        <p>A referência mais usada em proteção de dados resume três exigências simples: manter três cópias do que importa, em dois tipos diferentes de mídia, com uma delas fora do local onde está o computador. Em casa, isso não exige estrutura corporativa. Uma configuração comum é o arquivo original no computador, uma cópia em disco externo guardado em outro cômodo e uma terceira em nuvem confiável.</p>
+        <p>O ponto que costuma falhar é o "fora do local". Um disco externo permanentemente conectado ao mesmo computador está exposto aos mesmos riscos do original: sobretensão elétrica, furto, incêndio e criptografia por ransomware. Desconectar o disco após a cópia é uma medida barata e eficaz.</p>
+        <ul>
+          <li>Defina o que é insubstituível: documentos, fotos, trabalhos, arquivos de projetos.</li>
+          <li>Separe o que pode ser rebaixado a "recuperável": instaladores, filmes, arquivos temporários.</li>
+          <li>Registre onde cada cópia está — um backup que ninguém encontra não é backup.</li>
+          <li>Verifique o espaço livre antes de cada rodada para não gerar cópias incompletas.</li>
+        </ul>
+
+        <h2>Backup em pequenos negócios: onde a rotina costuma quebrar</h2>
+        <p>Em escritórios pequenos, o backup normalmente existe no papel e falha em três pontos previsíveis: depende de uma pessoa lembrar, cobre só uma máquina e nunca foi testado. Quando o sistema de gestão, as notas fiscais e a base de clientes estão em um único computador, a interrupção deixa de ser inconveniente e passa a impedir o faturamento.</p>
+        <p>Uma rotina mínima e realista costuma incluir cópia automática diária dos dados do sistema de gestão, cópia semanal completa em mídia que fica desconectada e um responsável nomeado por conferir o resultado. Também é importante considerar quem tem acesso: credenciais compartilhadas entre toda a equipe tornam impossível saber o que foi alterado ou apagado, e ampliam o estrago de uma infecção.</p>
+        <p>Se o negócio depende de dados que não podem ser reconstruídos manualmente, o teste de restauração deveria acontecer em intervalo definido — restaurar um arquivo aleatório e confirmar que ele abre é o que transforma uma pasta de cópias em um plano de continuidade.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Precisa organizar um backup confiável?</h3>
@@ -10124,6 +10212,20 @@ crontab -e
 
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se as verificações não resolveram, ou se a casa é grande e tem pontos cegos, uma análise no local identifica onde o sinal se perde e o que realmente faz diferença — do posicionamento a um sistema mesh bem dimensionado. Casos mais simples podem até ser orientados remotamente.</p>
+
+        <h2>Alvenaria, lajes e apartamentos: por que o sinal cai de um cômodo para o outro</h2>
+        <p>O alcance divulgado por fabricantes considera ambientes abertos. Em residências e apartamentos brasileiros, a realidade é outra: paredes de alvenaria com estrutura metálica, lajes de concreto, caixas d'água, espelhos grandes e armários embutidos absorvem ou refletem o sinal. Um roteador instalado no fundo da casa, dentro de um armário do rack de TV, perde parte relevante da cobertura antes mesmo de chegar ao segundo cômodo.</p>
+        <p>Em prédios, soma-se um segundo fator: a quantidade de redes vizinhas competindo pelos mesmos canais. Nesse cenário, a banda de 5 GHz costuma entregar conexão mais estável perto do roteador, enquanto a de 2,4 GHz atravessa melhor as paredes, porém com mais interferência. Distribuir dispositivos entre as duas faixas costuma render mais estabilidade do que trocar o equipamento.</p>
+        <ul>
+          <li>Posicione o roteador em local alto, central e ventilado, longe de metal e de aparelhos que geram interferência.</li>
+          <li>Evite instalar dentro de racks fechados, atrás da TV ou no chão.</li>
+          <li>Mantenha antenas na vertical em ambientes de um pavimento; em sobrados, incline uma delas.</li>
+          <li>Anote em quais cômodos a queda acontece — o mapa do problema orienta a solução.</li>
+        </ul>
+
+        <h2>Repetidor, mesh ou cabo: como escolher sem gastar à toa</h2>
+        <p>Cada solução resolve um tipo diferente de problema, e é comum comprar a errada. O repetidor amplia a área de cobertura reaproveitando o sinal existente — só ajuda se estiver em um ponto onde o sinal ainda chega bem, e normalmente reduz a velocidade disponível. O sistema mesh usa vários pontos que se comunicam entre si e mantêm o mesmo nome de rede, o que evita a troca manual entre redes ao andar pela casa. Já o cabo de rede continua sendo a opção mais estável para computador fixo, videogame, TV e escritório em cômodo distante.</p>
+        <p>Uma combinação frequente e eficiente é levar cabo até o cômodo problemático e colocar ali o segundo ponto de acesso: o sinal chega íntegro e a cobertura nasce forte no destino, em vez de ser reciclada pela metade. Antes de comprar qualquer equipamento, vale confirmar se a velocidade contratada chega ao roteador por cabo — se o problema estiver na entrada ou no equipamento da operadora, nenhum repetidor resolve.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Wi-Fi caindo ou com pontos cegos?</h3>

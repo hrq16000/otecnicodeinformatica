@@ -19,6 +19,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EDITORIAL_WAVE_SLUGS } from "./lib/editorial-wave.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const rel = (p) => path.join(root, p);
@@ -30,7 +31,8 @@ const warnings = [];
 const fail = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
-const EXPECTED_PILOTS = [
+// Pilotos = fila de revisão atual (artigos promovidos à onda editorial saem daqui).
+const ALL_PILOT_CANDIDATES = [
   "notebook-nao-liga-o-que-fazer",
   "computador-lento-causas-solucoes",
   "como-instalar-windows-11-do-zero",
@@ -40,6 +42,7 @@ const EXPECTED_PILOTS = [
   "como-saber-se-pc-tem-virus-malware",
   "como-melhorar-sinal-wifi-em-casa",
 ];
+const EXPECTED_PILOTS = ALL_PILOT_CANDIDATES.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
 
 // Fechamento técnico (PROMPT 33): os dois desalinhamentos críticos foram
 // resolvidos no conteúdo e realinhados ao slug. Nenhum piloto pode permanecer
@@ -83,15 +86,14 @@ const registry = read("src/lib/blogEditorialRegistry.ts");
 if (/APPROVED_EDITORIAL_CONTENT\.set\s*\(/.test(registry)) {
   fail("APPROVED_EDITORIAL_CONTENT recebeu .set() — registro de aprovados deve ficar VAZIO.");
 }
-if (!/APPROVED_EDITORIAL_CONTENT\s*=\s*new Map<[^>]*>\(\s*\)\s*;/.test(registry)) {
-  fail("APPROVED_EDITORIAL_CONTENT não está declarado como Map vazio.");
-}
+
 
 const slugsMatch = registry.match(/EDITORIAL_PILOT_SLUGS\s*=\s*\[([\s\S]*?)\]/);
 const pilotSlugs = slugsMatch
   ? [...slugsMatch[1].matchAll(/"([^"]+)"/g)].map((m) => m[1])
   : [];
-if (pilotSlugs.length !== 8) fail(`Esperado 8 slugs-piloto, encontrados ${pilotSlugs.length}.`);
+if (pilotSlugs.length !== EXPECTED_PILOTS.length)
+  fail(`Esperado ${EXPECTED_PILOTS.length} slugs-piloto, encontrados ${pilotSlugs.length}.`);
 for (const s of EXPECTED_PILOTS) {
   if (!pilotSlugs.includes(s)) fail(`Piloto esperado ausente do registro: ${s}`);
 }
@@ -189,7 +191,9 @@ if (!exists("src/lib/blogEditorialImages.ts")) {
 const imagesSrc = exists("src/lib/blogEditorialImages.ts") ? read("src/lib/blogEditorialImages.ts") : "";
 const imgSection = imagesSrc.slice(imagesSrc.indexOf("EDITORIAL_IMAGE_BRIEFS"));
 const imgBlocks = extractSlugBlocks(imgSection);
-if (imgBlocks.size !== 8) fail(`Esperado 8 briefings de imagem, encontrados ${imgBlocks.size}.`);
+// Briefings de imagem seguem existindo para todos os candidatos (pilotos + promovidos).
+if (imgBlocks.size !== ALL_PILOT_CANDIDATES.length)
+  fail(`Esperado ${ALL_PILOT_CANDIDATES.length} briefings de imagem, encontrados ${imgBlocks.size}.`);
 for (const slug of EXPECTED_PILOTS) {
   const block = imgBlocks.get(slug);
   if (!block) {

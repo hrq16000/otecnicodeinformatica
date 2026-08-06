@@ -7,6 +7,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { staticBodyFor, jsonLdScriptsFor } from "./curated-static-body.mjs";
+import { getWaveArticle, isWaveApproved } from "./lib/editorial-wave.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
@@ -269,6 +270,33 @@ function extractField(block, name) {
   return m ? m[1].replace(/\\"/g, '"').replace(/\\\\/g, "\\") : undefined;
 }
 
+// Texto puro de um trecho JSX (sem tags, sem expressões).
+function plainText(jsx) {
+  return jsx
+    .replace(/\{[^{}]*\}/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Primeiro parágrafo (lead) real do artigo — nunca texto inventado. */
+function extractLead(block) {
+  const m = block.match(/<p className="lead">([\s\S]*?)<\/p>/) || block.match(/<p>([\s\S]*?)<\/p>/);
+  return m ? plainText(m[1]) : "";
+}
+
+/** H2 reais do artigo, na ordem em que aparecem. */
+function extractHeadings(block) {
+  return [...block.matchAll(/<h2>([\s\S]*?)<\/h2>/g)].map((m) => plainText(m[1])).filter(Boolean);
+}
+
+function countWords(block) {
+  const idx = block.indexOf("content:");
+  const body = idx >= 0 ? block.slice(idx) : block;
+  return plainText(body).split(" ").filter(Boolean).length;
+}
+
+
 export async function getBlogPosts(rootDir = ".") {
   const posts = [];
   const seen = new Set();
@@ -288,11 +316,20 @@ export async function getBlogPosts(rootDir = ".") {
     const excerpt = extractField(block, "excerpt");
     const date = extractField(block, "date");
     const category = extractField(block, "category");
+    const readTime = extractField(block, "readTime");
     if (!title) continue;
     if (seen.has(slug)) { duplicates.push(slug); continue; }
     seen.add(slug);
-    posts.push({ slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE, category: category ?? "", origin: "manual" });
+    posts.push({
+      slug, title, excerpt: excerpt ?? "", date: date ?? HOWTO_DEFAULT_DATE,
+      category: category ?? "", origin: "manual",
+      readTime: readTime ?? "10 min",
+      lead: extractLead(block),
+      headings: extractHeadings(block),
+      wordCount: countWords(block),
+    });
   }
+
 
   // --- Programáticos (defs em blogProgrammaticPosts.tsx) ---
   const progPath = path.join(rootDir, "src/data/blogProgrammaticPosts.tsx");
@@ -319,28 +356,122 @@ export async function getBlogPosts(rootDir = ".") {
   return { posts, duplicates };
 }
 
-// Gera o HTML estático de um artigo não aprovado (noindex,follow, self-canonical).
+// Corpo estático (dentro do <noscript> do #root) de um artigo aprovado.
+// Todo o texto vem do próprio artigo: H1 = título real, lead = primeiro
+// parágrafo real, sumário = H2 reais. Nada é inventado aqui.
+function editorialStaticBody(post, wave) {
+  const url = `${SITE}/blog/${post.slug}`;
+  const waText = encodeURIComponent(
+    `Olá! Vim pelo guia "${post.title}" no site e quero falar sobre o meu equipamento.`,
+  );
+  const sumario = post.headings.length
+    ? `<h2 style="font-size:1.1rem;margin:24px 0 8px">O que este guia cobre</h2><ul style="margin:0 0 8px;padding-left:20px">${post.headings
+        .map((h) => `<li style="margin:4px 0">${htmlEscape(h)}</li>`)
+        .join("")}</ul>`
+    : "";
+  return `
+        <div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e8eef2;background:#0f171c">
+          <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.85;margin-bottom:12px">
+            <a href="/" style="color:#7fd4ec">Início</a> › <a href="/blog" style="color:#7fd4ec">Guias</a> › <span aria-current="page">${htmlEscape(post.title)}</span>
+          </nav>
+          <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">${htmlEscape(post.title)}</h1>
+          <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(post.lead || post.excerpt)}</p>
+          ${sumario}
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Precisa de atendimento técnico em Curitiba?</h2>
+          <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Atendemos Curitiba e Região Metropolitana com diagnóstico antes de qualquer reparo. O contato é feito pelo WhatsApp.</p>
+          <ul style="margin:0 0 8px;padding-left:20px">
+            <li style="margin:4px 0"><a href="${wave.pilar}" style="color:#7fd4ec">${htmlEscape(wave.pilarLabel)}</a></li>
+            <li style="margin:4px 0"><a href="${wave.apoio}" style="color:#7fd4ec">${htmlEscape(wave.apoioLabel)}</a></li>
+            <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Todos os serviços de informática</a></li>
+            <li style="margin:4px 0"><a href="/blog" style="color:#7fd4ec">Outros guias técnicos</a></li>
+          </ul>
+          <p style="margin:12px 0 0"><a href="https://wa.me/5541997086380?text=${waText}" rel="noopener" style="color:#7fd4ec;font-weight:600">Falar no WhatsApp sobre o meu caso</a></p>
+          <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Publicado por Técnico em Curitiba · <a href="${url}" style="color:#7fd4ec">${htmlEscape(url)}</a></p>
+        </div>`;
+}
+
+// Gera o HTML estático de um artigo do blog.
+//  • aprovado (onda editorial): index,follow + BlogPosting + BreadcrumbList
+//    + corpo estático próprio;
+//  • demais: noindex,follow + WebPage mínimo (fail-closed).
 async function writeBlogPostPage(distDir, baseHtml, post) {
   const routePath = `/blog/${post.slug}`;
   const url = `${SITE}${routePath}`;
   const title = `${post.title} | Blog | Técnico em Curitiba`;
   const description = post.excerpt || post.title;
-  const jsonLd = {
+  const wave = getWaveArticle(post.slug);
+
+  const breadcrumb = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Guias", item: `${SITE}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
+    ],
+  };
+
+  if (!wave) {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: post.title,
+      description,
+      url,
+      inLanguage: "pt-BR",
+      isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
+      publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+    };
+    const html = injectMeta(baseHtml, {
+      path: routePath, url, title, description,
+      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+    });
+    await writePage(distDir, routePath, html);
+    return;
+  }
+
+  const cover = `${SITE}${wave.cover}`;
+  const article = {
+    "@context": "https://schema.org",
+    "@type": ["BlogPosting", "Article", "TechArticle"],
+    headline: post.title.length > 110 ? `${post.title.slice(0, 107)}...` : post.title,
     name: post.title,
     description,
     url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "pt-BR",
-    isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
-    publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+    isAccessibleForFree: true,
+    datePublished: `${post.date}T08:00:00-03:00`,
+    dateModified: `${wave.approvedAt}T08:00:00-03:00`,
+    image: [{ "@type": "ImageObject", url: cover, width: 1200, height: 630 }],
+    thumbnailUrl: cover,
+    author: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+    publisher: {
+      "@type": "Organization",
+      name: "Técnico em Curitiba",
+      url: SITE,
+      logo: { "@type": "ImageObject", url: `${SITE}/logo.png`, width: 600, height: 60 },
+    },
+    isPartOf: { "@type": "Blog", name: "Blog Técnico em Curitiba", url: `${SITE}/blog` },
+    about: { "@type": "Thing", name: post.category },
+    articleSection: post.category,
+    wordCount: post.wordCount,
+    timeRequired: `PT${parseInt(post.readTime, 10) || 10}M`,
   };
-  const html = injectMeta(baseHtml, {
+
+  let html = injectMeta(baseHtml, {
     path: routePath, url, title, description,
-    ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+    ogImage: cover, jsonLd: [article, breadcrumb], robots: ROBOTS_INDEX,
   });
+  html = html
+    .replace(/<meta property="og:type" content="website">/i, `<meta property="og:type" content="article">`)
+    .replace(
+      /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
+      `<noscript>${editorialStaticBody(post, wave)}\n      </noscript>`,
+    );
   await writePage(distDir, routePath, html);
 }
+
 
 export async function prerenderCities(distDir) {
   const indexPath = path.join(distDir, "index.html");
@@ -491,11 +622,12 @@ export async function prerenderCities(distDir) {
     console.warn(`[prerender-cities] blog: ${blogDuplicates.length} slug(s) duplicado(s) ignorado(s): ${blogDuplicates.join(", ")}`);
   }
 
-  // Hub /blog — noindex enquanto não houver artigos aprovados.
+  // Hub /blog — indexável somente quando há artigos aprovados na onda.
   {
     const url = `${SITE}/blog`;
     const title = "Guias de Informática | Técnico em Curitiba";
     const description = "Guias sobre manutenção, segurança, computadores, notebooks, redes e cuidados com dados, publicados após revisão editorial.";
+    const approvedPosts = blogPosts.filter((p) => isWaveApproved(p.slug));
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -505,11 +637,43 @@ export async function prerenderCities(distDir) {
       inLanguage: "pt-BR",
       isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
       publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+      hasPart: approvedPosts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        url: `${SITE}/blog/${p.slug}`,
+      })),
     };
-    const html = injectMeta(baseHtml, {
+    let html = injectMeta(baseHtml, {
       path: "/blog", url, title, description,
-      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+      ogImage: DEFAULT_OG, jsonLd,
+      robots: approvedPosts.length >= 3 ? ROBOTS_INDEX : ROBOTS_NOINDEX,
     });
+    if (approvedPosts.length) {
+      const list = approvedPosts
+        .map(
+          (p) =>
+            `<li style="margin:10px 0"><a href="/blog/${p.slug}" style="color:#7fd4ec;font-weight:600">${htmlEscape(p.title)}</a><br><span style="font-size:.9rem;opacity:.9">${htmlEscape(p.excerpt)}</span></li>`,
+        )
+        .join("");
+      const body = `
+        <div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e8eef2;background:#0f171c">
+          <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.85;margin-bottom:12px"><a href="/" style="color:#7fd4ec">Início</a> › <span aria-current="page">Guias</span></nav>
+          <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">Guias de Informática</h1>
+          <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(description)}</p>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Guias publicados</h2>
+          <ul style="margin:0;padding-left:20px">${list}</ul>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Serviços relacionados</h2>
+          <ul style="margin:0;padding-left:20px">
+            <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Serviços de informática em Curitiba</a></li>
+            <li style="margin:4px 0"><a href="/diagnostico-tecnico" style="color:#7fd4ec">Como funciona o diagnóstico técnico</a></li>
+            <li style="margin:4px 0"><a href="/atendimento-domicilio" style="color:#7fd4ec">Atendimento técnico no endereço</a></li>
+          </ul>
+        </div>`;
+      html = html.replace(
+        /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
+        `<noscript>${body}\n      </noscript>`,
+      );
+    }
     await writePage(distDir, "/blog", html);
     written++;
   }
@@ -518,7 +682,11 @@ export async function prerenderCities(distDir) {
     await writeBlogPostPage(distDir, baseHtml, post);
     written++;
   }
-  console.log(`[prerender-cities] wrote /blog hub + ${blogPosts.length} blog article HTML files (noindex,follow)`);
+  const approvedCount = blogPosts.filter((p) => isWaveApproved(p.slug)).length;
+  console.log(
+    `[prerender-cities] wrote /blog hub + ${blogPosts.length} blog article HTML files (${approvedCount} indexáveis, ${blogPosts.length - approvedCount} noindex,follow)`,
+  );
+
 
   // eslint-disable-next-line no-console
   console.log(`[prerender-cities] wrote ${written} per-route index.html files`);

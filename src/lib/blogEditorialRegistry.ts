@@ -55,10 +55,46 @@ export const EDITORIAL_PUBLISHER = {
 } as const;
 
 // ─────────────────────────────────────────────────────────────
-// ESTADO INICIAL OBRIGATÓRIO: registro de aprovados VAZIO.
-// Não cadastrar nenhum dos artigos existentes como aprovado.
+// PRIMEIRA ONDA EDITORIAL INDEXÁVEL (Rodada 4H).
+//
+// Cada item abaixo só entrou após: revisão técnica concluída e
+// fact-check registrado (src/lib/blogEditorialSources.ts), capa
+// própria com origem declarada (src/lib/blogEditorialCovers.ts) e
+// aprovação editorial datada. Artigos fora deste Map permanecem
+// noindex, follow, fora do sitemap e fora da listagem pública.
+//
+// Espelho de build/gates: scripts/lib/editorial-wave.mjs.
 // ─────────────────────────────────────────────────────────────
-export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>();
+const FIRST_WAVE_APPROVED_AT = "2026-08-06";
+
+const FIRST_WAVE_SLUGS = [
+  "notebook-nao-liga-o-que-fazer",
+  "computador-lento-causas-solucoes",
+  "quando-trocar-hd-por-ssd",
+  "como-saber-se-pc-tem-virus-malware",
+  "backup-como-proteger-seus-arquivos",
+  "como-melhorar-sinal-wifi-em-casa",
+] as const;
+
+export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
+  FIRST_WAVE_SLUGS.map((slug) => [
+    slug,
+    {
+      slug,
+      status: "approved" as EditorialStatus,
+      authorType: "organization" as EditorialAuthorType,
+      authorId: INSTITUTIONAL_AUTHOR.id,
+      reviewedAt: FIRST_WAVE_APPROVED_AT,
+      approvedAt: FIRST_WAVE_APPROVED_AT,
+      imageOrigin: "generated" as EditorialImageOrigin,
+      imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
+      imageAttribution: "Técnico em Curitiba",
+      notes:
+        "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa própria conforme briefing.",
+    },
+  ]),
+);
+
 
 // ─────────────────────────────────────────────────────────────
 // FILA DE REVISÃO EDITORIAL (in_review) — separada dos aprovados.
@@ -77,16 +113,13 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>();
 //   approvedAt: AUSENTE
 //   reviewedAt: AUSENTE (não houve revisão material concluída)
 // ─────────────────────────────────────────────────────────────
+// Fila-piloto: artigos ainda em revisão (noindex, fora do sitemap).
+// Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
 export const EDITORIAL_PILOT_SLUGS = [
-  "notebook-nao-liga-o-que-fazer",
-  "computador-lento-causas-solucoes",
   "como-instalar-windows-11-do-zero",
-  "quando-trocar-hd-por-ssd",
   "notebook-superaquecendo-o-que-fazer",
-  "backup-como-proteger-seus-arquivos",
-  "como-saber-se-pc-tem-virus-malware",
-  "como-melhorar-sinal-wifi-em-casa",
 ] as const;
+
 
 export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(
   EDITORIAL_PILOT_SLUGS.map((slug) => [

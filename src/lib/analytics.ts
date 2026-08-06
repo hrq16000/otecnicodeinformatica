@@ -102,6 +102,8 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLoca
       cta_location: location,
       click_location: location,
       page_path: window.location.pathname,
+      // Segmenta conversão real por tipo de rota (home/pf/pj/servico/local).
+      route_type: routeTypeFromPath(window.location.pathname),
       value: 1,
       lead_id: leadId,
       app_version: appVersion,

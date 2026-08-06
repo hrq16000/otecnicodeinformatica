@@ -17,6 +17,7 @@ import {
 } from "@/components/empresa/EmpresaConversao";
 
 import { siteConfig } from "@/lib/siteConfig";
+import { NOTA_FISCAL } from "@/lib/politicaComercial";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import {
@@ -93,8 +94,12 @@ const cidades = [
 
 const relacionados = [
   { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
-  { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+  { label: "Redes e Wi-Fi para empresas", to: "/servicos/redes-e-wifi" },
+  { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
+  { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
   { label: "Suporte remoto", to: "/atendimento-remoto" },
+  { label: "Preços e políticas", to: "/precos-e-politicas" },
+  { label: "Como funciona", to: "/como-funciona" },
   { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
   { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
 ];
@@ -125,6 +130,30 @@ const faqs = [
     question: "Vocês atendem no local da empresa?",
     answer:
       "Sim, atendemos presencialmente em Curitiba e região, e também remotamente para ajustes que não exigem visita. Reparos de bancada podem usar coleta e entrega.",
+  },
+  {
+    question: "O suporte pode ser avulso?",
+    answer:
+      "Pode. Muitas empresas começam com um chamado único — uma máquina parada, um usuário sem acesso, a impressora fora da rede — e só depois avaliam um acompanhamento recorrente. Não exigimos vínculo para atender.",
+  },
+  {
+    question: "Vocês atendem computadores de funcionários?",
+    answer:
+      "Sim, desde que sejam os equipamentos usados no trabalho e que a empresa autorize o atendimento. Organizamos por lote e prioridade para que a operação não pare inteira durante o serviço.",
+  },
+  {
+    question: "Redes e Wi-Fi fazem parte do atendimento?",
+    answer:
+      "Fazem. Instabilidade, cobertura irregular, compartilhamento e impressoras em rede são tratados na página de redes e Wi-Fi, que detalha o levantamento do ambiente e os limites do que conseguimos executar.",
+  },
+  {
+    question: "Como funciona o diagnóstico?",
+    answer:
+      "Começa pela triagem, com a descrição do que está acontecendo, quais máquinas e desde quando. Em seguida avaliamos o ambiente ou o equipamento, explicamos o que foi encontrado e apresentamos o valor. Nada é executado sem a sua autorização.",
+  },
+  {
+    question: "Há emissão de nota fiscal?",
+    answer: NOTA_FISCAL.servicoLabel,
   },
 ];
 

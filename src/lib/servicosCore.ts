@@ -746,12 +746,22 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     faqs: [
       { question: "Meu Wi-Fi não pega em todos os cômodos, o que fazer?", answer: "Avaliamos o ambiente e indicamos posicionamento do roteador, repetidores ou sistema mesh para ampliar a cobertura de forma estável." },
       { question: "Repetidor ou mesh, qual é melhor?", answer: "Depende do ambiente. O mesh costuma oferecer transição mais suave; o repetidor pode resolver casos pontuais. Indicamos o adequado após avaliar." },
-      { question: "Vocês configuram a rede da minha empresa?", answer: "Sim. Trabalhamos estabilidade, segurança e organização de redes empresariais, com atendimento pontual ou recorrente sob consulta." },
+      { question: "Vocês configuram a rede da minha empresa?", answer: "Sim. Trabalhamos estabilidade, segurança e organização de redes empresariais, com atendimento pontual ou recorrente conforme o escopo definido após a avaliação." },
+      { question: "Por que o Wi-Fi cai em alguns ambientes do escritório?", answer: "Normalmente por distância, parede de concreto, divisórias metálicas, excesso de redes vizinhas na faixa de 2,4 GHz ou por um único roteador tentando cobrir toda a área. A medição no local mostra onde o sinal deixa de ser utilizável." },
+      { question: "Um roteador mais potente resolve?", answer: "Nem sempre. Potência não vence obstrução física nem congestionamento de canal. Em escritórios, dois pontos bem posicionados costumam entregar mais estabilidade do que um equipamento isolado mais caro." },
+      { question: "É necessário instalar cabeamento?", answer: "Depende do layout e do uso. Quando existe passagem viável, levar cabo até o ponto distante é a solução mais estável para setores fixos. Onde não há infraestrutura, avaliamos alternativas sem prometer obra civil." },
+      { question: "É possível separar redes de funcionários e visitantes?", answer: "Sim, quando o equipamento suporta rede de visitantes ou segmentação básica. É uma separação de uso, não uma solução completa de segurança corporativa." },
+      { question: "Vocês configuram impressoras de rede?", answer: "Sim, dentro do escopo de conectividade: endereço fixo, compartilhamento e reconhecimento pelas estações compatíveis. Falhas mecânicas e suprimentos ficam fora do serviço." },
       { question: "Passam cabo de rede?", answer: "Quando faz sentido para estabilidade, avaliamos e realizamos o cabeamento e a organização dos pontos." },
+      { question: "O valor pode ser definido sem avaliar o local?", answer: "Não para ambientes empresariais. Cobertura, número de pontos e infraestrutura existente só ficam claros com levantamento no local ou com informações detalhadas da planta e do uso." },
+      { question: "Equipamentos estão incluídos?", answer: "Roteadores, access points, switches e cabos são tratados como material à parte. Informamos o que é necessário antes da execução e você decide se fornece ou se compramos conforme autorização." },
       { question: "A internet continua lenta, é problema de Wi-Fi?", answer: "Pode ser Wi-Fi, roteador, quantidade de dispositivos ou o próprio plano. O diagnóstico separa o que é rede local do que é o provedor — falhas da operadora fogem ao nosso reparo." },
     ],
     relacionados: [
       { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
+      { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
       { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       ...LINKS_BASE,
@@ -774,6 +784,15 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         ],
       },
       {
+        titulo: "Rede de escritório: cobertura, compartilhamento e continuidade do trabalho",
+        paragrafos: [
+          "Em empresa o sintoma muda de figura. Não é uma videochamada travando: é o sistema de gestão perdendo conexão no meio do lançamento, a impressora sumindo da lista de dispositivos, o arquivo compartilhado abrindo lento e cinco pessoas paradas ao mesmo tempo. Por isso o levantamento em escritório começa pelo mapa de uso — quantos usuários, onde ficam, quais aplicações dependem da rede e quais setores não podem parar.",
+          "Divisórias metálicas, forro técnico, salas de reunião fechadas e vizinhança densa de redes fazem o ponto único de Wi-Fi entregar bem apenas no raio próximo. A saída realista costuma ser distribuir cobertura em dois ou três pontos, cabear os setores fixos e reservar o Wi-Fi para notebooks e celulares, mantendo caixa, servidor local e impressora principal em conexão cabeada.",
+          "Também tratamos a parte esquecida: rede de visitantes separada da rede de trabalho, senha de administração dos equipamentos alterada, firmware atualizado, endereços fixos para impressoras e um registro simples do que existe — modelo dos equipamentos, onde está cada ponto e como a rede foi configurada. Sem essa documentação básica, todo atendimento futuro recomeça do zero.",
+          "O limite fica explícito antes de começar: não prometemos cobertura perfeita em toda a área, disponibilidade ininterrupta, certificação de cabeamento que não executamos nem administração de equipamentos corporativos fora do que conseguimos suportar. Projetos de maior porte só são discutidos após vistoria no local.",
+        ],
+      },
+      {
         titulo: "O que fica configurado e o que não está incluído",
         paragrafos: [
           "Entregamos senha forte com WPA2/WPA3, nome de rede padronizado, bandas organizadas, canal escolhido por medição, rede de visitantes separada dos dispositivos da casa, firmware atualizado e senha de administração do roteador alterada — este último ponto é o mais esquecido e o mais explorado por invasores.",
@@ -787,7 +806,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Suporte para empresas", to: "/empresa-de-ti-curitiba" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-06",
   },
 
   // 8 ─────────────────────────────────────────────────────────
@@ -838,20 +857,278 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         "Suporte a micro e pequenas empresas: estações, rede, impressoras, backups e manutenção preventiva, com atendimento pontual ou recorrente sob consulta.",
     },
     faqs: [
-      { question: "Vocês atendem empresas de qual porte?", answer: "Atendemos principalmente autônomos, escritórios e micro e pequenas empresas em Curitiba e região, de forma pontual ou recorrente." },
-      { question: "Como funciona o atendimento recorrente?", answer: "Definimos um escopo conforme a sua necessidade (estações, rede, backups, preventiva) e um formato de acompanhamento. Os valores são sob consulta." },
-      { question: "Fazem atendimento de emergência?", answer: "Sim, avaliamos emergências com empresa parada e priorizamos o restabelecimento conforme a disponibilidade." },
-      { question: "Cuidam de backup e segurança?", answer: "Ajudamos a estruturar rotinas de backup e boas práticas de segurança para reduzir o risco de perda de dados e paradas." },
-      { question: "Resolvem problemas de rede e impressão?", answer: "Sim. Rede instável e problemas de impressão compartilhada estão entre os atendimentos mais comuns em empresas." },
+      { question: "O suporte pode ser contratado uma única vez?", answer: "Sim. O atendimento avulso resolve uma demanda específica — máquina parada, usuário sem acesso, impressora fora do ar — sem exigir qualquer vínculo recorrente." },
+      { question: "Vocês atendem remotamente?", answer: "Sim, para o que não depende de intervenção física: sistema, configuração, acessos, programas, impressão e boa parte dos incidentes de usuário. Falhas de hardware, rede e infraestrutura exigem visita." },
+      { question: "O atendimento inclui programas?", answer: "Inclui instalação, configuração e correção de programas compatíveis, desde que a empresa forneça instalador e licença. Não damos suporte ao funcionamento interno de sistemas de terceiros que possuem fabricante próprio." },
+      { question: "Peças estão incluídas?", answer: "Não. Componentes e materiais são tratados à parte, informados antes e substituídos apenas mediante a sua autorização." },
+      { question: "Existe prazo garantido?", answer: "Não trabalhamos com prazo de resposta garantido nem plantão. O atendimento é agendado conforme a disponibilidade, e prioridades e prazos, quando aplicáveis, são definidos na contratação do atendimento recorrente." },
+      { question: "É possível atender vários computadores?", answer: "Sim. Atendimentos com várias estações são organizados por lote e por prioridade, para que a operação não pare inteira durante o serviço." },
+      { question: "Como funciona o faturamento?", answer: "O escopo é definido após o diagnóstico e o valor é apresentado e aprovado antes da execução. As formas de pagamento e as condições aplicáveis estão descritas na página de preços e políticas." },
+      { question: "Há garantia?", answer: "Sim, conforme o serviço executado e as condições publicadas em preços e políticas. A garantia cobre o serviço realizado, não novas falhas de causa diferente nem alterações feitas depois da entrega." },
+      { question: "Vocês atendem empresas de qual porte?", answer: "Atendemos principalmente autônomos, escritórios, comércios e micro e pequenas empresas em Curitiba e região, de forma avulsa ou recorrente, dentro da nossa capacidade operacional." },
+      { question: "Como funciona o atendimento recorrente?", answer: "Definimos escopo, itens acompanhados e periodicidade conforme a necessidade da empresa. Não é suporte ilimitado: o que está incluído e o que é cobrado à parte fica registrado antes de começar." },
+      { question: "Fazem atendimento de emergência?", answer: "Avaliamos situações com operação parada e priorizamos o restabelecimento conforme a disponibilidade da agenda. Não mantemos plantão em regime ininterrupto." },
+      { question: "Resolvem problemas de rede e impressão?", answer: "Sim, esses estão entre os chamados mais comuns. Casos que envolvem cobertura, cabeamento ou reestruturação da conectividade são conduzidos pela página de redes e Wi-Fi." },
     ],
     relacionados: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
+      { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Suporte remoto", to: "/atendimento-remoto" },
-      { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },
-      { label: "Diagnóstico técnico", to: "/diagnostico-tecnico" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+      { label: "Como funciona", to: "/como-funciona" },
     ],
-    dateModified: "2026-07-11",
+    blocoLocal: [
+      {
+        titulo: "Avulso, recorrente, remoto e presencial: qual formato resolve o seu caso",
+        paragrafos: [
+          "O chamado avulso existe para o incidente isolado: uma estação que não inicia, um usuário sem acesso à pasta compartilhada, a impressora que sumiu da rede, o sistema de gestão que parou de abrir em uma máquina. Você descreve o caso na triagem, avaliamos, informamos o valor e executamos após a sua aprovação — sem vínculo posterior.",
+          "O atendimento recorrente faz sentido quando a empresa já percebeu que o mesmo tipo de chamado se repete todo mês e que a parada custa mais que a manutenção. Nesse formato combinamos escopo, itens acompanhados, periodicidade e prioridades na contratação. É um acordo delimitado, não suporte ilimitado.",
+          "O atendimento remoto resolve o que é software, configuração, acesso e usuário, e costuma ser o caminho mais rápido para desbloquear alguém no meio do expediente. O presencial entra quando a causa é física ou está na infraestrutura: hardware, rede, cabeamento, periférico ou equipamento que sequer inicia.",
+          "Na prática as empresas alternam entre os quatro. O que evitamos é vender formato: depois do diagnóstico dizemos qual modalidade resolve a sua demanda, mesmo quando a resposta é a mais barata.",
+        ],
+      },
+      {
+        titulo: "Do chamado à entrega: autorização, registro e prioridade",
+        paragrafos: [
+          "Todo atendimento empresarial começa por uma descrição objetiva do incidente: qual máquina, qual usuário, o que mudou, desde quando e o que já foi tentado. Essa triagem reduz tempo perdido e evita deslocamento que não resolve nada.",
+          "Nenhum serviço é executado sem autorização. Apresentamos o que foi encontrado, o que precisa ser feito, o que fica fora do escopo e o valor correspondente. Só depois da sua aprovação a execução começa, e o que foi feito é registrado para consulta futura.",
+          "Quando existem vários chamados ao mesmo tempo, a prioridade segue o impacto na operação: máquina que trava o faturamento vem antes de ajuste de conforto. Em atendimento recorrente, essa ordem de prioridade é acordada previamente, para não depender de improviso no dia da urgência.",
+          "Sobre dados: durante o suporte trabalhamos com o mínimo de acesso necessário, orientamos sobre cópias antes de intervenções de risco e não movimentamos arquivos da empresa sem alinhamento. Não assumimos responsabilidade sobre dados que já estavam sem cópia antes do atendimento, e o tratamento de informações segue o combinado com a empresa.",
+        ],
+      },
+      {
+        titulo: "O que este suporte cobre e o que pertence a outra página",
+        paragrafos: [
+          "Esta página trata da execução do suporte: computadores, usuários, sistemas operacionais, programas compatíveis, periféricos, acessos, impressão, incidentes do dia a dia e manutenção corretiva das estações da equipe.",
+          "Reestruturar cobertura de Wi-Fi, cabeamento e segmentação é escopo de redes e Wi-Fi. Organizar rotina de inspeção, inventário e relatório de riscos é escopo de manutenção preventiva para empresas. Estruturar cópias, retenção e teste de restauração é escopo de backup para empresas. E o panorama institucional da nossa atuação com empresas fica no hub Empresa de TI em Curitiba.",
+          "Fora da nossa capacidade operacional ficam: administração de infraestrutura corporativa de grande porte, monitoramento contínuo sem contratação específica, atendimento em regime ininterrupto e suporte a plataformas que não conseguimos sustentar com qualidade. Quando a demanda passa desse limite, dizemos na avaliação.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-06",
+  },
+
+  // 9 ─────────────────────────────────────────────────────────
+  "manutencao-preventiva-empresas": {
+    path: "manutencao-preventiva-empresas",
+    trackingKey: "manutencao-preventiva-empresas",
+    metaTitle: "Manutenção Preventiva de Computadores em Curitiba | Empresas",
+    metaDescription:
+      "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado, sem promessa de zero falhas.",
+    serviceName: "Manutenção Preventiva de Computadores para Empresas",
+    serviceDescription:
+      "Rotina planejada de inspeção, limpeza quando indicada, verificação de armazenamento, memória, atualizações e riscos das estações de trabalho de empresas em Curitiba e região.",
+    eyebrow: "Empresas em Curitiba",
+    h1: "Manutenção preventiva de computadores para empresas",
+    h1Accent: "menos paradas, decisões planejadas",
+    intro:
+      "Máquina que trava no meio do expediente raramente falha do nada: quase sempre houve disco no limite, memória insuficiente, temperatura alta ou atualização pendente por meses. A manutenção preventiva empresarial organiza essa rotina — inventário das estações, inspeção, verificação de armazenamento e refrigeração, atualizações e um relatório com prioridades. Ela reduz riscos previsíveis, mas não elimina falhas inesperadas nem substitui backup, segurança e renovação de equipamentos. Descreva o ambiente pela triagem para avaliarmos o escopo.",
+    whatsappMessage: "Olá! Quero avaliar manutenção preventiva dos computadores da minha empresa em Curitiba.",
+    incluso: [
+      { title: "Inventário básico", desc: "Registro das estações: modelo, configuração, idade estimada e uso principal de cada máquina." },
+      { title: "Inspeção do equipamento", desc: "Verificação física e funcional: ruídos, ventilação, conectores, fonte, cabos e sinais de desgaste." },
+      { title: "Armazenamento e espaço livre", desc: "Leitura da saúde de HD e SSD dentro das ferramentas disponíveis e checagem do espaço disponível." },
+      { title: "Memória e desempenho", desc: "Avaliação do consumo real de memória e do que trava a rotina do usuário durante o expediente." },
+      { title: "Limpeza quando indicada", desc: "Limpeza interna e reaplicação de pasta térmica apenas nos equipamentos em que a inspeção justificar." },
+      { title: "Sistema e atualizações", desc: "Estado do Windows, atualizações pendentes, inicialização e programas desnecessários acumulados." },
+      { title: "Conferência do backup existente", desc: "Verificação de qual cópia existe hoje, onde está e se alguém já testou uma restauração." },
+      { title: "Relatório com prioridades", desc: "Lista de riscos encontrados, ordenada por urgência, com recomendação clara para cada item." },
+    ],
+    sinais: [
+      "Estações travando ou reiniciando durante o expediente",
+      "Computadores com disco quase cheio e sistema lento",
+      "Equipamentos esquentando, com ventoinha barulhenta ou desligando sozinhos",
+      "Windows sem atualização há muitos meses",
+      "Máquinas com HD mecânico antigo em uso diário",
+      "Ninguém sabe quantos computadores existem nem qual a configuração de cada um",
+      "Backup que ninguém conferiu ou restaurou desde que foi criado",
+      "Falhas que sempre voltam no mesmo equipamento",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Quantidade de estações", desc: "Número de computadores inspecionados e usuários envolvidos no atendimento." },
+      { title: "Condição atual dos equipamentos", desc: "Máquinas sem manutenção há anos exigem mais tempo do que um parque já organizado." },
+      { title: "Escopo escolhido", desc: "Somente inspeção e relatório, ou inspeção com limpeza, ajustes e correções aplicadas." },
+      { title: "Janela de atendimento", desc: "Realizar em horário de menor movimento pode exigir agendamento específico, conforme disponibilidade." },
+      { title: "Deslocamento", desc: "Atendimento presencial considera a localização em Curitiba e região metropolitana." },
+      { title: "Recorrência", desc: "Rotina periódica combinada altera o planejamento em relação a um atendimento avulso." },
+    ],
+    atendimento: {
+      residencial:
+        "Profissionais liberais e home office que dependem de um único computador também usam a rotina preventiva, em escala menor: inspeção, armazenamento, temperatura e conferência do backup.",
+      empresarial:
+        "Escritórios, comércios e pequenas empresas de Curitiba e região: inventário das estações, inspeção, ajustes e relatório de riscos, em atendimento avulso ou recorrente conforme o escopo definido.",
+    },
+    faqs: [
+      { question: "Com que frequência a manutenção deve ser feita?", answer: "Depende do ambiente. Escritório limpo e com máquinas novas costuma trabalhar bem com revisões semestrais; ambiente com poeira, uso pesado ou equipamentos antigos pede intervalos mais curtos. A frequência é definida após a primeira inspeção, não por regra fixa." },
+      { question: "A manutenção preventiva evita todos os defeitos?", answer: "Não. Ela reduz riscos previsíveis — disco no limite, superaquecimento, atualização pendente, desgaste visível — mas não elimina falhas inesperadas nem substitui backup, segurança e renovação de equipamentos. Componente eletrônico pode falhar sem aviso." },
+      { question: "O serviço pode ser feito fora do horário comercial?", answer: "Pode ser agendado fora do horário de maior movimento conforme a disponibilidade da agenda. Não mantemos plantão nem equipe em turno noturno, então esse formato é combinado caso a caso antes da execução." },
+      { question: "É necessário parar todos os computadores?", answer: "Não. Trabalhamos por lotes, começando pelas máquinas menos críticas, para que a operação continue. Cada equipamento fica indisponível apenas durante a própria inspeção." },
+      { question: "Limpeza está sempre incluída?", answer: "Não. A limpeza interna é executada quando a inspeção indica necessidade — poeira acumulada, temperatura alta, ventoinha ruidosa. Abrir equipamento sem motivo não melhora nada e ainda gera risco desnecessário." },
+      { question: "Peças estão incluídas?", answer: "Não. Memória, SSD, fonte, ventoinha e demais componentes são tratados à parte. Quando a inspeção indica troca, informamos o motivo e o custo antes, e nada é substituído sem a sua autorização." },
+      { question: "É fornecido relatório?", answer: "Sim. Entregamos a lista dos equipamentos inspecionados com os riscos encontrados e as recomendações em ordem de prioridade, para que a empresa decida o que fazer agora e o que pode esperar." },
+      { question: "Pode ser feita em atendimento recorrente?", answer: "Sim. O acompanhamento periódico é definido na contratação, com escopo e intervalo combinados. Não trabalhamos com contrato de suporte ilimitado nem com prazos de resposta garantidos fora do que foi acordado." },
+      { question: "A manutenção preventiva melhora o desempenho?", answer: "Melhora quando o problema é software acumulado, disco cheio ou superaquecimento. Quando a limitação é hardware — HD mecânico, memória insuficiente, processador antigo — o ganho real vem de upgrade, e explicamos isso no relatório em vez de prometer resultado." },
+      { question: "Vocês cuidam do backup durante a preventiva?", answer: "Conferimos o que existe hoje e apontamos as falhas do processo. Estruturar cópias, definir retenção e testar restauração é escopo da página de backup para empresas, contratado à parte." },
+    ],
+    relacionados: [
+      { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
+      { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    blocoLocal: [
+      {
+        titulo: "Por que preventiva empresarial não é a mesma coisa que consertar quando quebra",
+        paragrafos: [
+          "Reparo é reativo: alguém abre chamado porque a máquina parou, o técnico diagnostica e resolve aquele equipamento. Preventiva é planejada: olhamos o conjunto antes de qualquer falha, procurando os sinais que antecedem parada — disco chegando ao limite, temperatura fora do normal, atualização travada, memória insuficiente para o que o usuário realmente executa.",
+          "A diferença aparece no custo da interrupção. Um HD que falha no meio do fechamento do mês para o setor inteiro e ainda coloca arquivos em risco. O mesmo disco, identificado com antecedência pela leitura de saúde, vira uma troca agendada em horário combinado, com dados migrados sem correria.",
+          "Por isso a preventiva não substitui a manutenção corretiva de um equipamento específico, e a página de manutenção de computador continua sendo o caminho quando a máquina já apresenta defeito. Uma organiza a rotina; a outra resolve o problema que já existe.",
+        ],
+      },
+      {
+        titulo: "O que o inventário e o relatório entregam na prática",
+        paragrafos: [
+          "O inventário é o começo de tudo e costuma ser o que a empresa mais sente falta: quantas máquinas existem, qual a configuração de cada uma, quem usa, há quanto tempo estão em serviço e quais ainda rodam HD mecânico. Sem esse mapa, toda decisão de investimento vira palpite e toda compra de emergência sai mais cara.",
+          "Com o inventário em mãos, a inspeção ganha objetivo. Verificamos espaço livre e saúde do armazenamento dentro do que as ferramentas disponíveis conseguem ler, consumo de memória no uso real, temperatura e ventilação, estado da inicialização, programas acumulados que ninguém usa mais e atualizações pendentes do sistema.",
+          "O resultado vira um relatório curto e priorizado: o que representa risco imediato de parada ou de perda de arquivo, o que deve ser resolvido nos próximos meses e o que apenas merece acompanhamento. Nada de lista genérica — cada item cita o equipamento e o motivo técnico.",
+          "Esse documento é também a base da conversa sobre renovação. Quando o custo de manter uma máquina antiga se aproxima do valor de substituí-la, dizemos com clareza, incluindo o cenário de migração dos dados e dos programas de trabalho.",
+        ],
+      },
+      {
+        titulo: "Limites honestos da manutenção preventiva",
+        paragrafos: [
+          "Manutenção preventiva reduz riscos, mas não elimina falhas inesperadas nem substitui backup, segurança e renovação de equipamentos. Fonte, placa, memória e disco podem falhar sem qualquer sinal anterior, e nenhuma inspeção prevê queda de energia, dano por líquido ou erro de usuário.",
+          "Também não prometemos ganho garantido de desempenho, vida útil específica para nenhum componente nem prevenção de todos os incidentes. O que entregamos é redução de causa previsível e informação suficiente para a empresa decidir com antecedência.",
+          "Ficam fora do escopo: administração de servidores e ambientes que não conseguimos suportar, licenciamento de softwares corporativos, monitoramento contínuo sem contratação específica e atendimento em regime ininterrupto. Quando a demanda passa da nossa capacidade operacional, dizemos isso na avaliação em vez de aceitar o serviço.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Como funciona o atendimento", to: "/como-funciona" },
+    ],
+    dateModified: "2026-08-06",
+  },
+
+  // 10 ────────────────────────────────────────────────────────
+  "backup-para-empresas": {
+    path: "backup-para-empresas",
+    trackingKey: "backup-empresarial",
+    metaTitle: "Backup para Empresas em Curitiba | Proteção de Arquivos",
+    metaDescription:
+      "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta.",
+    serviceName: "Backup para Empresas",
+    serviceDescription:
+      "Avaliação, configuração e orientação de rotinas de backup para empresas de Curitiba e região: cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração.",
+    eyebrow: "Empresas em Curitiba",
+    h1: "Backup para empresas em Curitiba",
+    h1Accent: "cópia separada e restauração testada",
+    intro:
+      "Perder o arquivo de contabilidade, a base do sistema de gestão ou anos de documentos é o tipo de acidente que fecha a semana de uma empresa. Avaliamos o que já existe, apontamos as falhas do processo atual e ajudamos a estruturar cópias em camadas — local, externa e em nuvem — com frequência, retenção e teste de restauração. A regra que orienta todo o serviço é simples: um backup só pode ser considerado confiável quando existe cópia separada e o processo de restauração é testado. Descreva o cenário pela triagem para avaliarmos.",
+    whatsappMessage: "Olá! Quero avaliar o backup dos arquivos da minha empresa em Curitiba.",
+    incluso: [
+      { title: "Diagnóstico do que existe", desc: "Levantamento de onde os arquivos críticos estão hoje e que cópia realmente existe." },
+      { title: "Mapa dos dados críticos", desc: "Identificação do que a empresa não pode perder: sistema de gestão, fiscal, contratos e projetos." },
+      { title: "Cópia local", desc: "Configuração de rotina em disco ou dispositivo separado da máquina de origem." },
+      { title: "Cópia externa", desc: "Orientação para manter uma cópia fora do mesmo ambiente físico da empresa." },
+      { title: "Backup em nuvem", desc: "Configuração de rotina em serviço de nuvem compatível, com escopo e responsáveis definidos." },
+      { title: "Frequência e retenção", desc: "Definição de quantas vezes copiar e por quanto tempo manter versões anteriores." },
+      { title: "Teste de restauração", desc: "Restauração de amostra para confirmar que os arquivos voltam íntegros e utilizáveis." },
+      { title: "Registro do processo", desc: "Documento simples com o que é copiado, para onde, com que frequência e quem é o responsável." },
+    ],
+    sinais: [
+      "Arquivos importantes salvos apenas no computador de um usuário",
+      "Backup que ninguém restaurou desde que foi criado",
+      "Cópia gravada no mesmo disco ou no mesmo computador dos arquivos originais",
+      "HD externo que fica permanentemente conectado à mesma máquina",
+      "Uso de sincronização em nuvem como se fosse backup",
+      "Ninguém sabe dizer quem é o responsável pela rotina de cópia",
+      "Empresa já perdeu arquivo por exclusão acidental, falha de disco ou infecção",
+      "Base do sistema de gestão sem cópia fora do servidor local",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Volume de dados", desc: "Quantidade de arquivos e o tamanho total a copiar influenciam tempo e estrutura." },
+      { title: "Número de origens", desc: "Estações, servidor local e pastas compartilhadas envolvidas na rotina." },
+      { title: "Camadas escolhidas", desc: "Somente cópia local, local mais externa ou combinação com nuvem." },
+      { title: "Frequência e retenção", desc: "Cópias diárias com histórico longo exigem mais espaço e mais planejamento." },
+      { title: "Recursos já existentes", desc: "Aproveitar dispositivos e contas que a empresa já possui reduz o escopo do serviço." },
+      { title: "Teste e acompanhamento", desc: "Verificação periódica da rotina é definida na contratação, conforme o escopo acordado." },
+    ],
+    atendimento: {
+      residencial:
+        "Profissionais autônomos que guardam trabalho no próprio notebook seguem a mesma lógica em escala menor: uma cópia local, uma cópia fora do equipamento e uma restauração de teste.",
+      empresarial:
+        "Escritórios, comércios e pequenas empresas de Curitiba e região: avaliação do processo atual, estruturação das cópias em camadas, definição de responsáveis e teste de restauração.",
+    },
+    faqs: [
+      { question: "Google Drive ou OneDrive já são backup?", answer: "Não por si só. Esses serviços são de sincronização: se um arquivo é apagado, corrompido ou criptografado por um vírus na máquina, a alteração se propaga para a nuvem. Eles ajudam quando o versionamento e a lixeira estão configurados e conhecidos, mas continuam sendo uma camada, não o backup completo." },
+      { question: "Quantas cópias a empresa deve ter?", answer: "A prática mais aceita é manter pelo menos duas cópias além do original, em mídias ou serviços diferentes, e uma delas fora do ambiente físico da empresa. Adaptamos essa regra ao volume, aa verba disponível para infraestrutura e à criticidade dos arquivos." },
+      { question: "O backup precisa ficar fora da empresa?", answer: "Uma das cópias sim. Incêndio, furto, dano elétrico e infecção que se espalha pela rede atingem tudo que está no mesmo local e conectado. A cópia externa é justamente o que sobra quando o pior acontece no endereço." },
+      { question: "Como saber se a restauração funciona?", answer: "Testando. Selecionamos uma amostra representativa, restauramos em local separado e conferimos se os arquivos abrem íntegros. Backup nunca testado é apenas uma suposição, e é assim que a maioria das empresas descobre o problema no pior momento." },
+      { question: "Backup protege contra ransomware?", answer: "Ajuda, e é a defesa mais efetiva na prática, desde que exista cópia desconectada ou com versionamento que o ataque não consiga alterar. Cópia permanentemente conectada à mesma rede pode ser criptografada junto. Não prometemos proteção absoluta contra ataque." },
+      { question: "Quem deve ter acesso?", answer: "O menor número possível de pessoas, com responsável nomeado e substituto definido. Acesso amplo à rotina de cópia aumenta o risco de exclusão acidental e de exposição de dados sensíveis." },
+      { question: "O serviço inclui armazenamento?", answer: "Não. Discos, dispositivos e planos de nuvem são contratados pela empresa. Indicamos o que é compatível com o volume e o uso, e configuramos a rotina sobre o recurso escolhido, sem oferecer armazenamento ilimitado." },
+      { question: "Vocês garantem que os arquivos sempre voltam?", answer: "Não. Backup reduz o risco de perda, mas nenhuma rotina elimina totalmente a possibilidade de falha. Quando o arquivo já foi perdido e não existe cópia, o caminho é a avaliação de recuperação de dados, que também não tem resultado assegurado." },
+      { question: "Backup atende às exigências da LGPD?", answer: "Backup é uma das medidas técnicas que apoiam a proteção de dados, mas conformidade não é automática: depende de políticas internas, base legal, controle de acesso e tratamento adequado dos dados pessoais pela própria empresa. Não emitimos declaração de conformidade." },
+      { question: "Com que frequência a cópia deve ser feita?", answer: "Pela pergunta inversa: quanto trabalho a empresa aceita refazer. Se refazer um dia inteiro é inviável, a rotina precisa ser diária ou mais frequente. Definimos frequência e retenção junto com você, em vez de aplicar um padrão único." },
+    ],
+    relacionados: [
+      { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+      { label: "Como funciona", to: "/como-funciona" },
+    ],
+    blocoLocal: [
+      {
+        titulo: "Sincronizar não é copiar: a confusão que mais causa perda de arquivo",
+        paragrafos: [
+          "A empresa instala uma pasta sincronizada, vê o ícone verde e considera o assunto resolvido. O problema é que sincronização replica o estado atual: se alguém apaga a pasta de contratos, a exclusão sobe para a nuvem em segundos. Se um ransomware criptografa os arquivos da estação, a versão criptografada substitui a boa no serviço.",
+          "Backup verdadeiro guarda cópias em pontos diferentes no tempo, em local separado, com histórico que permite voltar ao dia anterior à falha. Versionamento é o que transforma uma pasta em nuvem em algo próximo de backup — e, mesmo assim, precisa estar ativado, com prazo de retenção conhecido e alguém sabendo como recuperar.",
+          "A régua que usamos é objetiva: um backup só pode ser considerado confiável quando existe cópia separada e o processo de restauração é testado. Enquanto essas duas condições não estiverem atendidas, a empresa tem sensação de segurança, não segurança.",
+        ],
+      },
+      {
+        titulo: "Camadas de cópia, frequência e retenção no cenário de uma pequena empresa",
+        paragrafos: [
+          "A cópia local é a mais rápida para restaurar e resolve os incidentes mais comuns: exclusão acidental, arquivo corrompido, falha de uma estação. Ela precisa ficar em disco ou dispositivo diferente do que guarda os originais — cópia na mesma máquina desaparece junto com ela.",
+          "A cópia externa é a que sobrevive ao incidente do endereço: furto, incêndio, dano elétrico, infecção que se espalha pela rede. Pode ser um disco que sai da empresa em rodízio ou um serviço em nuvem contratado, desde que a rotina seja verificada e não dependa de alguém lembrar de executar manualmente.",
+          "Frequência e retenção saem de duas perguntas: quanto trabalho a empresa aceita refazer se perder o dia, e por quanto tempo pode precisar de uma versão antiga. Fiscal e contábil normalmente exigem histórico longo; arquivos operacionais do dia a dia costumam pedir alta frequência com retenção mais curta.",
+          "Fecha o desenho a definição de responsáveis: quem executa, quem confere, quem é avisado se a rotina falhar e quem tem acesso aos dados sensíveis. Rotina sem dono é rotina que para sem ninguém perceber, e só aparece no dia da emergência.",
+        ],
+      },
+      {
+        titulo: "Backup previne, recuperação de dados é a tentativa depois da perda",
+        paragrafos: [
+          "São serviços diferentes e é importante não confundir. Backup atua antes: organiza cópias para que a perda tenha um custo pequeno e previsível. Recuperação de dados atua depois, quando o disco falhou, o arquivo sumiu ou o sistema não inicia, e o resultado nunca é garantido — depende do estado físico e lógico da mídia.",
+          "Toda empresa que passa por uma recuperação bem-sucedida faz a mesma pergunta ao final: como evitar isso de novo. A resposta é sempre a rotina de cópia. Toda empresa que passa por uma recuperação sem sucesso descobre o custo real de não ter tido essa rotina.",
+          "Também deixamos claro o que não fazemos: não prometemos proteção absoluta, resultado assegurado na recuperação de arquivos, conformidade automática com a LGPD, armazenamento ilimitado nem monitoramento contínuo da rotina sem contratação específica. O escopo é definido após o diagnóstico e executado mediante a sua autorização.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+      { label: "Atendimento remoto", to: "/atendimento-remoto" },
+      { label: "Como funciona o atendimento", to: "/como-funciona" },
+    ],
+    dateModified: "2026-08-06",
   },
 };
 
@@ -865,4 +1142,6 @@ export const SERVICOS_CORE_ORDER = [
   "recuperacao-de-dados",
   "redes-e-wifi",
   "suporte-tecnico-empresarial",
+  "manutencao-preventiva-empresas",
+  "backup-para-empresas",
 ] as const;

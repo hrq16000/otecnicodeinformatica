@@ -63,6 +63,16 @@ const BASE_ROUTES = [
     "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva."
   },
   {
+    "path": "/servicos/manutencao-preventiva-empresas",
+    "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
+    "description": "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado, sem promessa de zero falhas."
+  },
+  {
+    "path": "/servicos/backup-para-empresas",
+    "title": "Backup para Empresas em Curitiba | Proteção de Arquivos",
+    "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta."
+  },
+  {
     "path": "/sobre",
     "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
     "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",

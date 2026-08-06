@@ -191,6 +191,42 @@ const PROBLEMA_LINKS = {
   ],
 };
 
+/** Saídas obrigatórias do cluster empresarial (contrato editorial da onda 3D). */
+const SERVICO_LINKS = {
+  "/servicos/suporte-tecnico-empresarial": [
+    "/empresa-de-ti-curitiba",
+    "/servicos/manutencao-preventiva-empresas",
+    "/servicos/backup-para-empresas",
+    "/servicos/redes-e-wifi",
+    "/atendimento-remoto",
+    "/precos-e-politicas",
+  ],
+  "/servicos/manutencao-preventiva-empresas": [
+    "/servicos/suporte-tecnico-empresarial",
+    "/servicos/backup-para-empresas",
+    "/servicos/manutencao-de-computador",
+    "/empresa-de-ti-curitiba",
+    "/como-funciona",
+    "/precos-e-politicas",
+  ],
+  "/servicos/backup-para-empresas": [
+    "/servicos/recuperacao-de-dados",
+    "/servicos/suporte-tecnico-empresarial",
+    "/servicos/manutencao-preventiva-empresas",
+    "/empresa-de-ti-curitiba",
+    "/como-funciona",
+    "/precos-e-politicas",
+  ],
+  "/servicos/redes-e-wifi": [
+    "/servicos/suporte-tecnico-empresarial",
+    "/empresa-de-ti-curitiba",
+    "/servicos/manutencao-preventiva-empresas",
+    "/atendimento-domicilio",
+    "/precos-e-politicas",
+    "/servicos",
+  ],
+};
+
 export function linksFor(path) {
   const fam = familyOf(path);
   let out = [];
@@ -223,7 +259,7 @@ export function linksFor(path) {
       ];
       break;
     case "servico":
-      out = ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
+      out = SERVICO_LINKS[path] ?? ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
       break;
     case "bairro":
       out = ["/tecnico-informatica-curitiba", ...siblings(BAIRROS, path, 2), "/servicos", "/atendimento-domicilio"];
@@ -242,7 +278,14 @@ export function linksFor(path) {
       ];
       break;
     case "empresa":
-      out = ["/servicos/suporte-tecnico-empresarial", "/servicos/redes-e-wifi", "/atendimento-remoto", "/contato"];
+      out = [
+        "/servicos/suporte-tecnico-empresarial",
+        "/servicos/manutencao-preventiva-empresas",
+        "/servicos/backup-para-empresas",
+        "/servicos/redes-e-wifi",
+        "/atendimento-remoto",
+        "/precos-e-politicas",
+      ];
       break;
     case "sobre":
       out = ["/como-funciona", "/precos-e-politicas", "/servicos", "/contato"];
@@ -256,7 +299,7 @@ export function linksFor(path) {
     default:
       out = ["/servicos", "/como-funciona", "/faq", "/contato"];
   }
-  return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, PROBLEMA_LINKS[path]?.length ?? 6);
+  return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, PROBLEMA_LINKS[path]?.length ?? SERVICO_LINKS[path]?.length ?? 6);
 }
 
 const WA_BASE = `https://wa.me/${SITE_CONFIG.whatsappNumber}`;

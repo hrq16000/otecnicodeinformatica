@@ -68,6 +68,23 @@ const BASE_ROUTES = [
     "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
     "blocos": [
       {
+        "titulo": "Quem somos e o que atendemos",
+        "paragrafos": [
+          "O Técnico em Curitiba é um serviço de assistência técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e região metropolitana. A proposta é simples: você fala direto com quem entende do problema, entende o que está acontecendo com o equipamento e decide com clareza.",
+          "O trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, valor do atendimento e execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio; reparos que exigem bancada seguem para a oficina com o seu acompanhamento.",
+          "O foco é informática: notebooks, computadores de mesa, formatação e sistema, upgrade de SSD e memória, remoção de vírus, recuperação de dados, redes e Wi-Fi e suporte empresarial. Nada de dispersar em áreas fora dessa competência."
+        ]
+      },
+      {
+        "titulo": "Como trabalhamos e o que não prometemos",
+        "paragrafos": [
+          "Triagem por WhatsApp, diagnóstico primeiro, valor aprovado por você e garantia sobre o serviço executado: essa é a sequência de qualquer atendimento. Nada é executado sem a sua aprovação, e as condições de garantia são explicadas caso a caso.",
+          "Transparência também é dizer o que não fazemos. Não prometemos preço fechado universal por telefone, porque o valor depende da avaliação real. Não garantimos recuperação de dados: é sempre uma tentativa que depende do estado da mídia. Não garantimos tempo fixo de chegada, já que horário e logística são combinados conforme a agenda.",
+          "Também não usamos avaliações falsas, número de estrelas inventado nem depoimentos fictícios, e não mantemos equipe fixa ou endereço comercial anunciado em cada cidade. Preferimos ser honestos a criar expectativa falsa."
+        ]
+      },
+
+      {
         "titulo": "Por que diagnosticamos antes de falar em peça",
         "paragrafos": [
           "A maior parte do prejuízo em assistência técnica não vem do conserto caro: vem do conserto errado. Formatar uma máquina cujo gargalo era o disco mecânico, trocar memória quando o problema era temperatura, comprar fonte nova quando o defeito estava no botão. Em todos esses casos o cliente paga, a melhora é curta e o sintoma volta. Por isso a nossa ordem é fixa: entender, confirmar, informar e só então executar.",

@@ -41,6 +41,8 @@ const Index = () => {
       <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       <main>
         <HeroPremium />
+        <TrustStrip />
+
 
         <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">
           <Suspense fallback={<SectionFallback height="900px" />}>

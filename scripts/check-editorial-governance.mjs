@@ -16,6 +16,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { getBlogPosts } from "./prerender-cities.mjs";
+import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/editorial-wave.mjs";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
@@ -43,9 +44,6 @@ async function checkRegistry() {
   const src = await read(p);
   if (!/APPROVED_EDITORIAL_CONTENT\s*=\s*new Map/.test(src))
     fail("registro: APPROVED_EDITORIAL_CONTENT deve ser um Map tipado");
-  // Nenhuma inserção de aprovação nesta fase.
-  if (/APPROVED_EDITORIAL_CONTENT\.set\(/.test(src))
-    fail("registro: nenhum artigo pode ser cadastrado como aprovado nesta fase (.set encontrado)");
   // Padrão fail-closed: default draft.
   if (!/\?\?\s*"draft"/.test(src))
     fail('registro: getEditorialStatus deve retornar "draft" por padrão (fail-closed)');
@@ -61,7 +59,15 @@ async function checkRegistry() {
   // Rejeita data futura.
   if (!/>\s*Date\.now\(\)/.test(src))
     fail("registro: aprovação deve rejeitar data de aprovação no futuro");
-  note("registro editorial: presente, tipado e vazio (fail-closed)");
+
+  // Paridade runtime × build: o registro só pode aprovar slugs da onda.
+  const registered = [...src.matchAll(/^\s*\[\s*"([a-z0-9-]+)"\s*,/gm)].map((m) => m[1]);
+  const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
+  const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));
+  if (extra.length) fail(`registro: slugs aprovados fora da onda editorial: ${extra.join(", ")}`);
+  if (missing.length) fail(`registro: slugs da onda ausentes no registro: ${missing.join(", ")}`);
+  note(`registro editorial: fail-closed + ${registered.length} aprovados em paridade com a onda`);
+
 }
 
 // ── 2. Runtime BlogPost ────────────────────────────────────

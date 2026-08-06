@@ -372,7 +372,7 @@ const NotebookNaoLiga = () => {
         </section>
 
 
-        <section className="mb-12">
+        <section id="faq" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>
           <div className="space-y-5">
             {FAQS.map((f) => (

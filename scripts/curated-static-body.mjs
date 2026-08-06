@@ -260,6 +260,17 @@ export function staticBodyFor(route) {
         )
         .join("")
     : "";
+  const offersHtml = route.offers?.length
+    ? `<h2 style="font-size:1.1rem;margin:24px 0 8px">Valores de referência</h2>` +
+      `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">` +
+      route.offers
+        .map(
+          (o) =>
+            `<li><strong>${esc(o.nome)}</strong> — ${esc(o.valor)}${o.obs ? ` <span style="opacity:.85">(${esc(o.obs)})</span>` : ""}</li>`,
+        )
+        .join("") +
+      `</ul>`
+    : "";
   const subHtml = route.subtitulo
     ? `<p style="margin:0 0 16px;font-size:.98rem;opacity:.92">${esc(route.subtitulo)}</p>`
     : "";
@@ -275,6 +286,7 @@ export function staticBodyFor(route) {
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
           ${subHtml}
           <p style="margin:0 0 20px"><a href="${waLink(route)}" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;display:inline-block">Falar no WhatsApp</a></p>
+          ${offersHtml}
           ${faqHtml}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Páginas relacionadas</h2>
           <ul style="line-height:1.9;padding-left:20px">${linksHtml}</ul>
@@ -380,6 +392,18 @@ function serviceNode(route, { name } = {}) {
     url,
     areaServed: SITE_CONFIG.serviceArea.map((n) => ({ "@type": "City", name: n })),
     provider: { "@id": `${SITE}/#organization` },
+    ...(route.offers?.length
+      ? {
+          offers: route.offers.map((o) => ({
+            "@type": "Offer",
+            name: o.nome,
+            price: o.price,
+            priceCurrency: o.priceCurrency,
+            availability: "https://schema.org/InStock",
+            url,
+          })),
+        }
+      : {}),
   };
 }
 

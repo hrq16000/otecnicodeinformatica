@@ -164,10 +164,60 @@ export const ConsultaOsPorCelular = () => {
         </div>
       </div>
 
+      {/* Transparência LGPD — obrigatória antes de qualquer consulta. */}
+      <div className="mt-4 rounded-xl border border-border bg-muted/40 p-4">
+        <p className="flex items-start gap-2 text-sm font-semibold text-foreground">
+          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+          Privacidade antes de exibir os dados
+        </p>
+        <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+          <li>
+            O celular informado é usado apenas para localizar as ordens vinculadas e para o registro
+            de segurança da consulta (data/hora e tentativa), nunca para envio de publicidade.
+          </li>
+          <li>
+            Ao continuar, são exibidos dados do atendimento: sintomas descritos, etapas com data/hora
+            e fotos enviadas no portal, por meio de links temporários que expiram sozinhos.
+          </li>
+          <li>
+            Você pode pedir a exclusão dos seus dados a qualquer momento em{" "}
+            <Link to="/excluir-meus-dados" className="underline underline-offset-2">
+              excluir meus dados
+            </Link>{" "}
+            e conferir a{" "}
+            <Link to="/politica-de-privacidade" className="underline underline-offset-2">
+              política de privacidade
+            </Link>
+            .
+          </li>
+        </ul>
+        <div className="mt-3 flex items-start gap-2">
+          <Checkbox
+            id="os-consentimento"
+            checked={consentimento}
+            onCheckedChange={(v) => {
+              const ok = v === true;
+              setConsentimento(ok);
+              if (ok) track("os_lookup_consent", { origem: "status_os" });
+              if (!ok) setOrdens(null);
+            }}
+            className="mt-0.5"
+          />
+          <Label htmlFor="os-consentimento" className="text-xs font-normal leading-relaxed text-foreground">
+            Li e concordo em exibir nesta tela os dados da minha ordem de serviço, incluindo sintomas
+            e fotos enviadas.
+          </Label>
+        </div>
+      </div>
+
       <form
         className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end"
         onSubmit={(e) => {
           e.preventDefault();
+          if (!consentimento) {
+            setErro("Marque o consentimento de privacidade para consultar a sua ordem de serviço.");
+            return;
+          }
           consultar(telefone);
         }}
       >
@@ -183,7 +233,7 @@ export const ConsultaOsPorCelular = () => {
             className="mt-1"
           />
         </div>
-        <Button type="submit" disabled={carregando} className="sm:w-auto">
+        <Button type="submit" disabled={carregando || !consentimento} className="sm:w-auto">
           {carregando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
           {carregando ? "Consultando..." : "Consultar minhas OS"}
         </Button>
@@ -192,6 +242,7 @@ export const ConsultaOsPorCelular = () => {
       <p className="mt-2 text-xs text-muted-foreground">
         Consulta limitada por segurança: poucas tentativas por minuto e sem exibição de dados completos.
       </p>
+
 
       {erro ? (
         <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/5 p-4">

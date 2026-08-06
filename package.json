@@ -117,7 +117,13 @@
     "migration:cf:bulk:publish": "node scripts/publish-cloudflare-bulk-redirects.mjs",
     "migration:cf:bulk:rollback": "node scripts/publish-cloudflare-bulk-redirects.mjs --rollback",
     "cf:edge:bundle": "node scripts/check-worker-bundle.mjs",
-    "test:cutover-browser": "node scripts/test-cutover-browser.mjs"
+    "test:cutover-browser": "node scripts/test-cutover-browser.mjs",
+    "smoke:edge": "node scripts/smoke-edge-routes.mjs",
+    "smoke:edge:prod": "node scripts/smoke-edge-routes.mjs --base=https://tecnico.curitiba.br",
+    "report:redirect-coverage": "node scripts/report-redirect-coverage.mjs",
+    "report:redirect-coverage:strict": "node scripts/report-redirect-coverage.mjs --strict",
+    "alert:edge": "node scripts/alert-edge-errors.mjs",
+    "alert:edge:dry": "node scripts/alert-edge-errors.mjs --dry-run"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

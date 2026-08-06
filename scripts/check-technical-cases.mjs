@@ -17,7 +17,7 @@
  * Uso: node scripts/check-technical-cases.mjs
  */
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
-import { join, extname } from "node:path";
+import { join, extname, sep } from "node:path";
 
 const ROOT = process.cwd();
 const LIB = join(ROOT, "src/lib/technicalCases.ts");
@@ -136,7 +136,15 @@ const walk = (dir) => {
     if (![".ts", ".tsx"].includes(extname(entry))) continue;
     if (full === COMPONENTS) continue;
     const src = readFileSync(full, "utf8");
-    if (/TechnicalCase(Summary|Evidence|Process)/.test(src)) usados.push(full);
+    if (!/TechnicalCase(Summary|Evidence|Process)/.test(src)) continue;
+    // Exceção: estação interna do admin — rota /admin/*, noindex e protegida por role.
+    const internoAdmin =
+      full.includes(`${sep}src${sep}pages${sep}admin${sep}`) &&
+      /noindex/.test(src) &&
+      /useAdminAuth/.test(src);
+    if (internoAdmin) continue;
+    usados.push(full);
+
   }
 };
 walk(join(ROOT, "src"));

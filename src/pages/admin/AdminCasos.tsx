@@ -1,0 +1,542 @@
+import { useEffect, useMemo, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+} from "@/components/ui/select";
+import { toast } from "@/hooks/use-toast";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
+import { Check, Loader2, Plus, ShieldCheck, Trash2, Upload, X } from "lucide-react";
+import {
+  TECHNICAL_CASE_CATEGORIES,
+  type TechnicalCaseCategory,
+  type TechnicalCasePhotoKind,
+  type TechnicalCaseStatus,
+} from "@/lib/technicalCases";
+import {
+  anonymizeDraft,
+  buildChecklist,
+  canTransition,
+  checkEvidenceUrl,
+  evaluateDraft,
+  newDraft,
+  processEvidenceFile,
+  readDrafts,
+  removeDraft,
+  upsertDraft,
+  validatePhotoMetadata,
+  type DraftCase,
+} from "@/lib/technicalCaseDraftStore";
+import {
+  TechnicalCaseSummary,
+  TechnicalCaseEvidence,
+  TechnicalCaseProcess,
+} from "@/components/casos/TechnicalCaseBlocks";
+
+const PHOTO_KINDS: TechnicalCasePhotoKind[] = [
+  "equipamento-recebido",
+  "detalhe-externo-do-defeito",
+  "componente-danificado",
+  "poeira-e-refrigeracao",
+  "armazenamento-substituido",
+  "bancada",
+  "teste-tecnico",
+  "organizacao-interna",
+  "resultado-fisico",
+];
+
+const STATUS: TechnicalCaseStatus[] = ["draft", "review", "approved", "rejected"];
+
+const statusTone: Record<TechnicalCaseStatus, string> = {
+  draft: "bg-muted text-muted-foreground",
+  review: "bg-amber-500/15 text-amber-600",
+  approved: "bg-emerald-500/15 text-emerald-600",
+  rejected: "bg-red-500/15 text-red-600",
+};
+
+const toList = (v: string) => v.split("\n").map((s) => s.trim()).filter(Boolean);
+const fromList = (a: string[]) => a.join("\n");
+
+function ListField({
+  label, value, onChange, placeholder,
+}: { label: string; value: string[]; onChange: (v: string[]) => void; placeholder?: string }) {
+  return (
+    <label className="block space-y-1.5">
+      <span className="text-sm font-medium text-foreground">{label}</span>
+      <Textarea
+        rows={3}
+        value={fromList(value)}
+        placeholder={placeholder ?? "Um item por linha"}
+        onChange={(e) => onChange(toList(e.target.value))}
+      />
+    </label>
+  );
+}
+
+function CheckField({
+  label, checked, onChange,
+}: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <label className="flex items-start gap-2 text-sm text-foreground">
+      <input type="checkbox" className="mt-1" checked={checked} onChange={(e) => onChange(e.target.checked)} />
+      <span>{label}</span>
+    </label>
+  );
+}
+
+export default function AdminCasos() {
+  const { loading, session, isAdmin } = useAdminAuth();
+  const [drafts, setDrafts] = useState<DraftCase[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [urlInput, setUrlInput] = useState("");
+  const [showPreview, setShowPreview] = useState(false);
+
+  useEffect(() => {
+    document.title = "Casos técnicos (interno) — Admin";
+    const list = readDrafts();
+    setDrafts(list);
+    setActiveId(list[0]?.id ?? null);
+  }, []);
+
+  const active = useMemo(() => drafts.find((d) => d.id === activeId) ?? null, [drafts, activeId]);
+  const gate = useMemo(() => (active ? evaluateDraft(active) : null), [active]);
+  const checklist = useMemo(() => (active ? buildChecklist(active) : []), [active]);
+
+  const save = (next: DraftCase) => {
+    setDrafts(upsertDraft(next));
+    setActiveId(next.id);
+  };
+
+  const patch = (p: Partial<DraftCase>) => {
+    if (!active) return;
+    save({ ...active, ...p });
+  };
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+  if (!session || !isAdmin) return <Navigate to="/admin/login" replace />;
+
+  const create = () => {
+    const d = newDraft("manutencao-de-notebook");
+    save(d);
+    setShowPreview(false);
+  };
+
+  const handleFile = async (file: File) => {
+    if (!active) return;
+    setBusy(true);
+    const res = await processEvidenceFile(file);
+    setBusy(false);
+    if (!res.ok || !res.dataUrl) {
+      toast({ title: "Evidência recusada", description: res.errors.join(" "), variant: "destructive" });
+      return;
+    }
+    patch({
+      evidence: {
+        ...active.evidence,
+        photos: [
+          ...active.evidence.photos,
+          {
+            src: res.dataUrl,
+            alt: "",
+            caption: "",
+            kind: "equipamento-recebido",
+            fromService: true,
+            exifStripped: true,
+            screenReviewed: false,
+          },
+        ],
+      },
+    });
+    toast({ title: "Evidência processada", description: `EXIF removido · ${res.width}×${res.height}px.` });
+  };
+
+  const handleUrl = async () => {
+    if (!active || !urlInput.trim()) return;
+    setBusy(true);
+    const res = await checkEvidenceUrl(urlInput.trim());
+    setBusy(false);
+    if (!res.ok) {
+      toast({ title: "URL recusada", description: res.errors.join(" "), variant: "destructive" });
+      return;
+    }
+    patch({
+      evidence: {
+        ...active.evidence,
+        photos: [
+          ...active.evidence.photos,
+          {
+            src: urlInput.trim(),
+            alt: "",
+            caption: "",
+            kind: "equipamento-recebido",
+            fromService: true,
+            exifStripped: false,
+            screenReviewed: false,
+          },
+        ],
+      },
+    });
+    setUrlInput("");
+    toast({ title: "URL validada", description: `HTTP 200 · ${res.width}×${res.height}px.` });
+  };
+
+  const setStatus = (next: TechnicalCaseStatus) => {
+    if (!active) return;
+    const check = canTransition(active, next);
+    if (!check.ok) {
+      toast({ title: `Transição para "${next}" bloqueada`, description: check.reason, variant: "destructive" });
+      return;
+    }
+    patch({
+      status: next,
+      reviewedAt: next === "approved" ? active.reviewedAt || new Date().toISOString().slice(0, 10) : active.reviewedAt,
+    });
+    toast({ title: `Status: ${next}` });
+  };
+
+  return (
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Casos técnicos (interno) — Admin</title>
+      </Helmet>
+
+      <main className="mx-auto max-w-6xl px-4 py-10">
+        <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 className="font-heading text-2xl font-bold text-foreground">Casos técnicos — estação interna</h1>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Registro local no seu navegador. Nenhum caso é publicado, nenhuma rota pública é criada e
+              nenhum dado de cliente deve ser digitado.
+            </p>
+          </div>
+          <Button onClick={create}>
+            <Plus className="mr-2 h-4 w-4" /> Novo caso
+          </Button>
+        </header>
+
+        <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
+          <aside className="space-y-2">
+            {drafts.length === 0 && (
+              <p className="text-sm text-muted-foreground">Nenhum rascunho ainda.</p>
+            )}
+            {drafts.map((d) => (
+              <button
+                key={d.id}
+                onClick={() => { setActiveId(d.id); setShowPreview(false); }}
+                className={`w-full rounded-xl border p-3 text-left text-sm transition ${
+                  d.id === activeId ? "border-accent bg-accent/5" : "border-border hover:bg-muted/50"
+                }`}
+              >
+                <span className="block font-medium text-foreground">{d.title || "(sem título)"}</span>
+                <span className="mt-1 flex items-center gap-2">
+                  <Badge className={statusTone[d.status]}>{d.status}</Badge>
+                  <span className="text-xs text-muted-foreground">{d.equipment.category}</span>
+                </span>
+              </button>
+            ))}
+          </aside>
+
+          {!active ? (
+            <Card className="p-6 text-sm text-muted-foreground">
+              Crie um caso para começar. O fluxo é: preencher → anonimizar → validar evidências →
+              checklist → rascunho de revisão interna.
+            </Card>
+          ) : (
+            <div className="space-y-6">
+              {/* Identificação */}
+              <Card className="space-y-4 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">1. Identificação</h2>
+                <label className="block space-y-1.5">
+                  <span className="text-sm font-medium">Título factual</span>
+                  <Input value={active.title} onChange={(e) => patch({ title: e.target.value })}
+                    placeholder="Notebook não ligava após queda de energia — falha na fonte" />
+                </label>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Categoria / serviço</span>
+                    <Select
+                      value={active.equipment.category}
+                      onValueChange={(v) =>
+                        patch({
+                          equipment: { ...active.equipment, category: v as TechnicalCaseCategory },
+                          serviceSlug: v as TechnicalCaseCategory,
+                        })
+                      }
+                    >
+                      <SelectTrigger><SelectValue /></SelectTrigger>
+                      <SelectContent>
+                        {TECHNICAL_CASE_CATEGORIES.map((c) => (
+                          <SelectItem key={c} value={c}>{c}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </label>
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Data do atendimento</span>
+                    <Input type="date" value={active.occurredAt.slice(0, 10)}
+                      onChange={(e) => patch({ occurredAt: e.target.value })} />
+                  </label>
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Marca (opcional)</span>
+                    <Input value={active.equipment.brand ?? ""}
+                      onChange={(e) => patch({ equipment: { ...active.equipment, brand: e.target.value } })} />
+                  </label>
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Modelo (opcional, sem série)</span>
+                    <Input value={active.equipment.model ?? ""}
+                      onChange={(e) => patch({ equipment: { ...active.equipment, model: e.target.value } })} />
+                  </label>
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Cidade</span>
+                    <Input value={active.location.city}
+                      onChange={(e) => patch({ location: { ...active.location, city: e.target.value } })} />
+                  </label>
+                  <label className="block space-y-1.5">
+                    <span className="text-sm font-medium">Região ampla (nunca endereço)</span>
+                    <Input value={active.location.neighborhood ?? ""}
+                      onChange={(e) => patch({ location: { ...active.location, neighborhood: e.target.value } })} />
+                  </label>
+                  <label className="block space-y-1.5 md:col-span-2">
+                    <span className="text-sm font-medium">Referência interna do atendimento</span>
+                    <Input value={active.evidence.workOrderReference ?? ""}
+                      placeholder="OS-2026-014 (referência, nunca a ordem integral)"
+                      onChange={(e) => patch({ evidence: { ...active.evidence, workOrderReference: e.target.value } })} />
+                  </label>
+                </div>
+              </Card>
+
+              {/* Conteúdo técnico */}
+              <Card className="space-y-4 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">2. Registro técnico</h2>
+                <ListField label="Sintoma informado" value={active.reportedSymptoms}
+                  onChange={(v) => patch({ reportedSymptoms: v })} />
+                <ListField label="Testes e verificações executados" value={active.checksPerformed}
+                  onChange={(v) => patch({ checksPerformed: v })} />
+                <ListField label="Diagnóstico confirmado" value={active.confirmedDiagnosis}
+                  onChange={(v) => patch({ confirmedDiagnosis: v })} />
+                <ListField label="Intervenção realizada" value={active.proceduresPerformed}
+                  onChange={(v) => patch({ proceduresPerformed: v })} />
+                <ListField label="Peças utilizadas (opcional)" value={active.partsUsed ?? []}
+                  onChange={(v) => patch({ partsUsed: v })} />
+                <ListField label="Resultado observado" value={active.observedResult}
+                  onChange={(v) => patch({ observedResult: v })} />
+                <ListField label="Limitações declaradas" value={active.limitations}
+                  onChange={(v) => patch({ limitations: v })} />
+                <ListField label="Recomendações" value={active.recommendations}
+                  onChange={(v) => patch({ recommendations: v })} />
+              </Card>
+
+              {/* Evidências */}
+              <Card className="space-y-4 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">3. Evidências</h2>
+                <p className="text-sm text-muted-foreground">
+                  JPG, PNG ou WebP até 8 MB, mínimo 640×360. O upload é re-codificado no navegador,
+                  o que descarta EXIF (GPS, aparelho, data). URLs são validadas por HTTP 200 e dimensão.
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border px-3 py-2 text-sm">
+                    <Upload className="h-4 w-4" /> Enviar arquivo
+                    <input type="file" accept="image/jpeg,image/png,image/webp" className="hidden"
+                      onChange={(e) => { const f = e.target.files?.[0]; if (f) void handleFile(f); e.currentTarget.value = ""; }} />
+                  </label>
+                  <div className="flex flex-1 items-center gap-2">
+                    <Input value={urlInput} placeholder="/blog/exemplo.jpg ou https://…"
+                      onChange={(e) => setUrlInput(e.target.value)} />
+                    <Button variant="outline" onClick={() => void handleUrl()} disabled={busy}>
+                      Validar URL
+                    </Button>
+                  </div>
+                  {busy && <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />}
+                </div>
+
+                <div className="space-y-4">
+                  {active.evidence.photos.map((p, i) => {
+                    const errs = validatePhotoMetadata(p);
+                    return (
+                      <div key={i} className="grid gap-3 rounded-xl border border-border p-3 md:grid-cols-[160px_1fr]">
+                        <img src={p.src} alt={p.alt || "evidência sem alt"} className="h-28 w-full rounded-lg object-cover" />
+                        <div className="space-y-2">
+                          <Input value={p.alt} placeholder="Alt descritivo (mín. 15 caracteres)"
+                            onChange={(e) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, alt: e.target.value };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }} />
+                          <Input value={p.caption} placeholder="Legenda factual"
+                            onChange={(e) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, caption: e.target.value };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }} />
+                          <div className="flex flex-wrap items-center gap-3">
+                            <Select value={p.kind} onValueChange={(v) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, kind: v as TechnicalCasePhotoKind };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }}>
+                              <SelectTrigger className="w-64"><SelectValue /></SelectTrigger>
+                              <SelectContent>
+                                {PHOTO_KINDS.map((k) => <SelectItem key={k} value={k}>{k}</SelectItem>)}
+                              </SelectContent>
+                            </Select>
+                            <CheckField label="Do atendimento" checked={p.fromService} onChange={(v) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, fromService: v };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }} />
+                            <CheckField label="EXIF removido" checked={p.exifStripped} onChange={(v) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, exifStripped: v };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }} />
+                            <CheckField label="Tela/etiqueta revisada" checked={p.screenReviewed} onChange={(v) => {
+                              const photos = [...active.evidence.photos];
+                              photos[i] = { ...p, screenReviewed: v };
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }} />
+                            <Button size="sm" variant="ghost" onClick={() => {
+                              const photos = active.evidence.photos.filter((_, j) => j !== i);
+                              patch({ evidence: { ...active.evidence, photos } });
+                            }}>
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </div>
+                          {errs.length > 0 && (
+                            <p className="text-xs text-red-500">Pendências: {errs.join("; ")}</p>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Card>
+
+              {/* Privacidade */}
+              <Card className="space-y-3 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">4. Anonimização</h2>
+                <div className="grid gap-2 md:grid-cols-2">
+                  <CheckField label="Nome do cliente removido" checked={active.privacy.customerNameRemoved}
+                    onChange={(v) => patch({ privacy: { ...active.privacy, customerNameRemoved: v } })} />
+                  <CheckField label="Número de série removido" checked={active.privacy.serialNumberRemoved}
+                    onChange={(v) => patch({ privacy: { ...active.privacy, serialNumberRemoved: v } })} />
+                  <CheckField label="Telefone, e-mail e endereço removidos" checked={active.privacy.personalDataRemoved}
+                    onChange={(v) => patch({ privacy: { ...active.privacy, personalDataRemoved: v } })} />
+                  <CheckField label="Dados em tela revisados" checked={active.privacy.screenDataReviewed}
+                    onChange={(v) => patch({ privacy: { ...active.privacy, screenDataReviewed: v } })} />
+                  <CheckField label="Autorização do cliente registrada" checked={active.evidence.customerAuthorization}
+                    onChange={(v) => patch({ evidence: { ...active.evidence, customerAuthorization: v } })} />
+                  <CheckField label="Revisão técnica concluída" checked={active.evidence.technicalReview}
+                    onChange={(v) => patch({
+                      evidence: { ...active.evidence, technicalReview: v },
+                      reviewedAt: v ? active.reviewedAt || new Date().toISOString().slice(0, 10) : active.reviewedAt,
+                    })} />
+                </div>
+
+                {gate && gate.pii.length > 0 ? (
+                  <div className="rounded-lg border border-red-500/40 bg-red-500/5 p-3 text-sm">
+                    <p className="font-medium text-red-500">Possíveis dados pessoais detectados:</p>
+                    <ul className="mt-1 list-disc pl-5 text-muted-foreground">
+                      {gate.pii.map((h, i) => (
+                        <li key={i}>{h.field} — {h.kind}: <code>{h.sample}</code></li>
+                      ))}
+                    </ul>
+                    <Button className="mt-3" size="sm" variant="outline"
+                      onClick={() => { save(anonymizeDraft(active)); toast({ title: "Anonimização aplicada" }); }}>
+                      <ShieldCheck className="mr-2 h-4 w-4" /> Anonimizar automaticamente
+                    </Button>
+                  </div>
+                ) : (
+                  <p className="text-sm text-emerald-600">Varredura de PII sem ocorrências.</p>
+                )}
+              </Card>
+
+              {/* Checklist + status */}
+              <Card className="space-y-4 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">5. Checklist operacional</h2>
+                <ul className="space-y-1.5 text-sm">
+                  {checklist.map((i) => (
+                    <li key={i.id} className="flex items-start gap-2">
+                      {i.done
+                        ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                        : <X className="mt-0.5 h-4 w-4 shrink-0 text-red-500" />}
+                      <span className={i.done ? "text-muted-foreground" : "text-foreground"}>
+                        {i.label}
+                        {!i.done && i.hint ? <span className="block text-xs text-red-500">{i.hint}</span> : null}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {gate && gate.failClosedReasons.length > 0 && (
+                  <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-3 text-sm">
+                    <p className="font-medium text-amber-600">Gate fail-closed pendente:</p>
+                    <ul className="mt-1 list-disc pl-5 text-muted-foreground">
+                      {gate.failClosedReasons.map((r) => <li key={r}>{r}</li>)}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="flex flex-wrap items-center gap-2">
+                  {STATUS.map((s) => (
+                    <Button key={s} size="sm" variant={active.status === s ? "default" : "outline"}
+                      onClick={() => setStatus(s)}>
+                      {s}
+                    </Button>
+                  ))}
+                  <Button size="sm" variant="ghost" className="ml-auto text-red-500"
+                    onClick={() => {
+                      const rest = removeDraft(active.id);
+                      setDrafts(rest);
+                      setActiveId(rest[0]?.id ?? null);
+                    }}>
+                    <Trash2 className="mr-2 h-4 w-4" /> Excluir rascunho
+                  </Button>
+                </div>
+              </Card>
+
+              {/* Rascunho de revisão interna */}
+              <Card className="space-y-4 p-5">
+                <h2 className="font-heading text-lg font-bold text-foreground">6. Rascunho de revisão interna</h2>
+                <p className="text-sm text-muted-foreground">
+                  A prévia só é liberada quando o checklist e o gate fail-closed passam. Ela existe apenas
+                  aqui dentro — nenhuma rota pública, sitemap ou link é criado.
+                </p>
+                <Button variant="outline" disabled={!gate?.readyForInternalPreview}
+                  onClick={() => setShowPreview((v) => !v)}>
+                  {showPreview ? "Ocultar prévia" : "Gerar prévia interna"}
+                </Button>
+                {showPreview && gate?.readyForInternalPreview && (
+                  <div className="space-y-5 rounded-xl border border-dashed border-border p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      Prévia interna — não publicada
+                    </p>
+                    <TechnicalCaseSummary caso={{ ...active, status: "approved" }} />
+                    <TechnicalCaseProcess caso={{ ...active, status: "approved" }} />
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {active.evidence.photos.map((p, i) => (
+                        <TechnicalCaseEvidence key={i} photo={p} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </Card>
+            </div>
+          )}
+        </div>
+      </main>
+    </>
+  );
+}

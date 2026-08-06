@@ -276,7 +276,7 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
-        <section className="mb-12">
+        <section id="diagnostico" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <Search className="h-6 w-6 text-accent" /> Como funciona o diagnóstico
           </h2>

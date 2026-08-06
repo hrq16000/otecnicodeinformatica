@@ -56,7 +56,7 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/suporte-tecnico-empresarial",
     "title": "Suporte Técnico para Empresas em Curitiba | Informática",
-    "description": "Execução de chamados de TI em Curitiba: computador parado no escritório, usuário sem acesso, impressora de rede, e-mail e limpeza preventiva. Escopo e limites por atendimento."
+    "description": "Suporte técnico de informática para empresas em Curitiba, com atendimento para computadores, usuários, redes, impressoras e manutenção preventiva."
   },
   {
     "path": "/sobre",

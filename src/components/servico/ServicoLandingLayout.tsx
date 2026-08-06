@@ -142,7 +142,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-[hsl(var(--accent))] sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-              {data.eyebrow}
+              {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.contexto : data.eyebrow}
             </span>
             <h1 className="mt-3 font-heading text-[1.7rem] font-bold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl md:text-5xl">
               {data.h1}
@@ -155,7 +155,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             >
               {data.intro}
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">
               <a
                 href={waHref}
                 target="_blank"
@@ -164,16 +164,45 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
                 data-cta-location={`${data.trackingKey}_hero`}
                 className={CTA_BASE}
               >
-                Iniciar atendimento no WhatsApp
+                {isEmpresarial ? EMPRESARIAL_SERVICO_HERO.ctaPrimario : "Iniciar atendimento no WhatsApp"}
               </a>
+              {isEmpresarial && (
+                <Link
+                  to={EMPRESARIAL_SERVICO_HERO.ctaSecundario.to}
+                  data-cta-secundario="empresarial"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
+                >
+                  {EMPRESARIAL_SERVICO_HERO.ctaSecundario.label}
+                </Link>
+              )}
             </div>
             <p className="mt-5 text-sm text-white/70">
-              Curitiba e região • A partir de {siteConfig.minPriceLabel}
-              {data.precoNota ? ` (${data.precoNota})` : ""} • Diagnóstico honesto, sem promessa falsa
+              {isEmpresarial
+                ? EMPRESARIAL_SERVICO_HERO.condicoes
+                : `Curitiba e região • A partir de ${siteConfig.minPriceLabel}${
+                    data.precoNota ? ` (${data.precoNota})` : ""
+                  } • Diagnóstico honesto, sem promessa falsa`}
             </p>
           </div>
         </div>
       </section>
+
+      {/* Rodada 3S — contexto B2B logo abaixo do hero (só variante empresarial) */}
+      {isEmpresarial && (
+        <section className="border-b border-border bg-secondary py-8" aria-label="Contexto do atendimento empresarial">
+          <div className="container mx-auto grid gap-4 px-4 md:grid-cols-3">
+            {EMPRESARIAL_CONTEXTO_CARDS.map((card) => (
+              <div key={card.titulo} className="rounded-xl border border-border bg-card p-5">
+                <h2 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
+                  {card.titulo}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{card.texto}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
 
       {/* Rodada 3P — piloto visual: resumo objetivo + sumário da página. */}
       {(data.resumo?.length || data.toc?.length) && (

@@ -70,15 +70,48 @@ export const MontagemWizard = () => {
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
+      lgpd ? "• Autorizo o uso dos dados e arquivos enviados apenas para este atendimento (LGPD)." : "",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo, lgpd]);
 
-  const canNext = step === 0 ? modelo.trim().length >= 3 && !!uso : step === 1 ? !!origem : aceite;
+  // Campos obrigatórios pendentes no passo atual — usados para o destaque pulsante.
+  const pendentes: string[] =
+    step === 0
+      ? [...(modelo.trim().length < 3 ? ["modelo"] : []), ...(!uso ? ["uso"] : [])]
+      : step === 1
+        ? !origem
+          ? ["origem"]
+          : []
+        : [...(!aceite ? ["aceite"] : []), ...(!lgpd ? ["lgpd"] : [])];
+
+  const invalido = (campo: string) => tentou && pendentes.includes(campo);
+  const alerta = (campo: string) => (invalido(campo) ? " field-alert" : "");
+
+  const focarPendente = () => {
+    setTentou(true);
+    requestAnimationFrame(() => {
+      const el = document.querySelector<HTMLElement>(".field-alert");
+      el?.scrollIntoView({ block: "center", behavior: "smooth" });
+      (el?.querySelector("input,textarea,button") as HTMLElement | null)?.focus?.();
+    });
+  };
+
+  const avancar = () => {
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
+    setTentou(false);
+    setStep((s) => s + 1);
+  };
 
   const enviar = () => {
-    if (!aceite) return;
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
     trackCTAClick("whatsapp", "wizard_montagem");
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {

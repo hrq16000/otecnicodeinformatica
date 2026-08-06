@@ -17,7 +17,15 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
-import { t24WaLink, t72WaLink, reviewWindow, osFollowUpWaLink } from "@/lib/reviewRequest";
+import {
+  t24WaLink,
+  t72WaLink,
+  reviewWindow,
+  osFollowUpWaLink,
+  reviewReminderWaLink,
+  reviewPublishedWaLink,
+  shouldRemind,
+} from "@/lib/reviewRequest";
 import { pingIndexNow } from "@/lib/indexNow";
 
 type Review = {

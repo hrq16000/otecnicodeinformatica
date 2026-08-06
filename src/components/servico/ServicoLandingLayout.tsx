@@ -10,6 +10,10 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { TrustStrip } from "@/components/TrustStrip";
+import { EditorialCallout } from "@/components/servico/EditorialCallout";
+import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
+import type { ServicoCaixa } from "@/lib/servicoVisual3q";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 

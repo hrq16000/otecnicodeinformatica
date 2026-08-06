@@ -9,6 +9,7 @@ import { servicoBairroMeta } from "./lib/servico-bairro-meta.mjs";
 import { priorityFaq } from "./lib/priority-faq.mjs";
 import { priorityOffers } from "./lib/priority-offers.mjs";
 import { servicoBlocos } from "./lib/servico-blocos.mjs";
+import { servicoFaqs } from "./lib/servico-faqs.mjs";
 
 const BASE_ROUTES = [
   {
@@ -284,7 +285,7 @@ const SERVICO_BAIRRO_ROUTES = SERVICO_BAIRRO.map((e) => servicoBairroMeta(e.path
 // P0 comerciais: anexa a FAQ real já exibida na página (sem inventar conteúdo),
 // para que FAQPage estático e conteúdo visível fiquem em paridade.
 const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
-  const faq = priorityFaq(r.path);
+  const faq = r.faq ?? priorityFaq(r.path) ?? servicoFaqs(r.path);
   const offers = priorityOffers(r.path);
   const blocos = r.blocos ?? servicoBlocos(r.path);
   return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}), ...(blocos ? { blocos } : {}) };

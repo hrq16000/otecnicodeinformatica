@@ -120,6 +120,94 @@ export const TermosConteudo = ({ withJsonLd = true, className = "" }: Props) => 
       </div>
     </section>
 
+    <section className="mb-12" aria-labelledby="detalhamento-termos">
+      <h2 id="detalhamento-termos" className="text-2xl font-bold mb-6 text-foreground">
+        Como o valor do atendimento é definido
+      </h2>
+      <div className="space-y-4 text-muted-foreground">
+        <p>
+          Não existe preço fechado por telefone para reparo, e isso não é falta de transparência: é o
+          contrário. O que temos publicado é o ponto de partida de cada modalidade — visita técnica de
+          inspeção a partir de R$ 99,99 por até (ou a cada) 30 minutos, pacote pré-acordado de até 2 horas por
+          R$ 279,99 e diagnóstico com compromisso, coleta e entrega inclusas, com mínimo pré-aprovado de
+          R$ 299,99. O valor final depende do que a avaliação confirmar.
+        </p>
+        <p>
+          Quatro fatores pesam no resultado: a causa real confirmada no diagnóstico, o modelo e o estado do
+          equipamento, a necessidade de bancada e ferramenta específica, e a disponibilidade de peça compatível.
+          Um mesmo sintoma — o computador que não liga, por exemplo — pode terminar em uma verificação simples
+          de alimentação ou em um reparo de placa, e cobrar o mesmo pelos dois seria injusto com quem tem o
+          caso mais leve.
+        </p>
+        <p>
+          Peças, componentes, licenças e materiais são sempre tratados à parte da mão de obra e só são
+          adquiridos após a sua autorização. Nada além do que foi combinado é executado sem aprovação. Se o
+          caminho técnico mudar durante o serviço, você é avisado antes, não depois.
+        </p>
+      </div>
+    </section>
+
+    <section className="mb-12" aria-labelledby="incluso-termos">
+      <h2 id="incluso-termos" className="text-2xl font-bold mb-6 text-foreground">
+        O que está incluído e o que não está
+      </h2>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-border bg-card p-5">
+          <h3 className="font-semibold text-foreground mb-2">Incluído na modalidade contratada</h3>
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
+            <li>• Avaliação técnica do equipamento e identificação da causa provável.</li>
+            <li>• Explicação em linguagem clara do que foi encontrado e das opções.</li>
+            <li>• Execução dos procedimentos autorizados dentro do escopo combinado.</li>
+            <li>• Coleta e entrega, na modalidade de diagnóstico com compromisso.</li>
+            <li>• Garantia de 90 dias sobre a mão de obra do serviço executado.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-border bg-card p-5">
+          <h3 className="font-semibold text-foreground mb-2">Não incluído</h3>
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
+            <li>• Peças, componentes, licenças de software e materiais.</li>
+            <li>• Abertura e reparo de placas na modalidade de visita avulsa.</li>
+            <li>• Garantia de recuperação de dados — é sempre uma tentativa.</li>
+            <li>• Promessa de prazo fixo de chegada ou de conclusão sem avaliação.</li>
+            <li>• Serviços fora do escopo de informática e redes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section className="mb-12" aria-labelledby="prazos-garantia-termos">
+      <h2 id="prazos-garantia-termos" className="text-2xl font-bold mb-6 text-foreground">
+        Prazos, garantia e cuidado com seus dados
+      </h2>
+      <div className="space-y-4 text-muted-foreground">
+        <p>
+          O prazo depende da complexidade e da peça. Serviços de software, como reinstalação de sistema e
+          limpeza, costumam ser mais rápidos do que reparos que dependem de componente específico. Trabalhamos
+          com prazo estimado informado após a avaliação, e avisamos quando ele muda — em vez de prometer
+          antes de olhar o equipamento. O passo a passo completo está em{" "}
+          <Link to="/como-funciona" className="underline hover:text-foreground">como funciona o atendimento</Link>{" "}
+          e a logística em{" "}
+          <Link to="/coleta-e-entrega" className="underline hover:text-foreground">coleta e entrega</Link>.
+        </p>
+        <p>
+          A garantia de 90 dias cobre a mão de obra do serviço que foi executado, no mesmo defeito tratado.
+          Peças e componentes seguem a garantia do fornecedor ou fabricante. Ficam de fora da garantia:
+          falha de causa diferente da tratada, dano por queda, líquido, surto elétrico ou mau uso, intervenção
+          de terceiros após o atendimento, e desgaste natural de bateria e de armazenamento.
+        </p>
+        <p>
+          Sobre dados: recomendamos backup antes de qualquer intervenção que envolva armazenamento, e quando
+          possível fazemos cópia preventiva. O acesso a arquivos se limita ao necessário para o serviço
+          autorizado. Tentativa de recuperação de conteúdo já perdido é outro serviço, descrito em{" "}
+          <Link to="/servicos/recuperacao-de-dados" className="underline hover:text-foreground">recuperação de dados</Link>,
+          e não tem resultado garantido. Quando o reparo deixa de fazer sentido diante do valor do equipamento,
+          dizemos isso — o critério está em{" "}
+          <Link to="/quando-nao-compensa" className="underline hover:text-foreground">quando não compensa reparar</Link>.
+        </p>
+      </div>
+    </section>
+
+
     <section className="mb-12" aria-labelledby="faq-termos">
       <h2 id="faq-termos" className="text-2xl font-bold mb-6 text-foreground">
         Perguntas frequentes sobre termos, valores e prazos

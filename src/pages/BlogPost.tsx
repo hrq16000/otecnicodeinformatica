@@ -12,6 +12,7 @@ import { trackPageView } from "@/lib/analytics";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { getUniqueImage } from "@/lib/blogImages";
+import { getEditorialCover } from "@/lib/blogEditorialCovers";
 import { getCategoryCover } from "@/lib/categoryCovers";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { programmaticPosts } from "@/data/blogProgrammaticPosts";
@@ -96,9 +97,14 @@ const BlogPost = () => {
     };
   }, [post, slug]);
 
+  // Capa exclusiva da onda editorial tem prioridade (mesma imagem do HTML estático).
+  const editorialCover = slug ? getEditorialCover(slug) : null;
   const categoryCover = slug ? getCategoryCover(slug) : null;
-  const heroImage = categoryCover
+  const heroImage = editorialCover
+    ? `https://tecnico.curitiba.br${editorialCover.src}`
+    : categoryCover
     ? `https://tecnico.curitiba.br${categoryCover.src}`
+
     : post?.image
     ? (typeof post.image === 'string' && post.image.startsWith('http')
         ? post.image

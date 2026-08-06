@@ -105,6 +105,7 @@ export async function buildRouteManifest({ root = process.cwd(), distDir = path.
   const routerPaths = await readRouterPaths(root);
   const redirects = await readRedirectMatrix(root);
   const prerendered = await readPrerenderedPaths(distDir);
+  const assetFiles = await readAssetFiles(distDir);
   // Slugs dinâmicos não pré-renderizados, extraídos das fontes reais de dados
   // (scripts/dump-dynamic-slugs.ts). Fecham /marcas/:slug, /problemas/:slug e
   // /procedimentos/:slug contra soft-404.

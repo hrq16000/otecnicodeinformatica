@@ -503,3 +503,53 @@ export const trackFunnelQualification = (params: {
     /* noop */
   }
 };
+
+// ============================================================
+// Ordem de serviço, avaliações e QR codes
+// ============================================================
+
+/** PDF da Ordem de Serviço baixado/aberto pelo cliente. */
+export const trackOsPdfDownload = (params: {
+  protocolo?: string | null;
+  origem?: string;
+  servico?: string | null;
+}) =>
+  track("os_pdf_download", {
+    protocolo: params.protocolo || "unknown",
+    origem: params.origem || "wizard_montagem",
+    servico: params.servico || "montagem-de-pc",
+  });
+
+/** Abertura da página de avaliação (link enviado no WhatsApp). */
+export const trackReviewLinkOpen = (params: {
+  protocolo?: string | null;
+  utmSource?: string | null;
+  servico?: string | null;
+}) =>
+  track("review_link_open", {
+    protocolo: params.protocolo || "unknown",
+    utm_source: params.utmSource || "direct",
+    servico: params.servico || "unknown",
+  });
+
+/** Envio da avaliação com estrelas. */
+export const trackReviewSubmit = (params: {
+  rating: number;
+  authorized: boolean;
+  servico?: string | null;
+  bairro?: string | null;
+}) =>
+  track("review_submit", {
+    rating: params.rating,
+    authorized_publication: params.authorized,
+    servico: params.servico || "unknown",
+    regiao: params.bairro || "unknown",
+  });
+
+/** Exibição/uso de QR code de contato. */
+export const trackQrCode = (action: "open" | "scan_hint", channel: "whatsapp" | "call", location: string) =>
+  track("qr_code_" + action, { channel, cta_location: location });
+
+/** Pedido de exclusão de dados (LGPD). */
+export const trackDataDeletionRequest = (params: { via: string }) =>
+  track("data_deletion_request", { via: params.via });

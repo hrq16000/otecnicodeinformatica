@@ -1,0 +1,1 @@
+DELETE FROM public.reviews WHERE source = 'site' AND author_name IN ('Anderson','Teste') AND published = false AND verified = false;

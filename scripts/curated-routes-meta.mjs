@@ -165,6 +165,15 @@ const BASE_ROUTES = [
         ]
       },
       {
+        "titulo": "Limites técnicos declarados antes de começar",
+        "paragrafos": [
+          "Transparência também é dizer o que o serviço não alcança. Nem todo equipamento tem reparo viável e nem todo sintoma tem solução definitiva na primeira intervenção. Declaramos esses limites antes de iniciar, para que a decisão de seguir seja sua e informada — nunca uma surpresa depois da conta.",
+          "Peça descontinuada ou sem fornecedor confiável: em modelos antigos, a peça compatível pode não existir no mercado ou vir apenas de origem incerta; nesses casos informamos e não aplicamos componente sem procedência. Reparo em nível de placa depende de bancada e do estado da placa — corrosão avançada, trilha rompida em várias camadas ou reparo anterior malfeito pode não ter recuperação estável.",
+          "Dano por líquido e por surto elétrico tem efeito progressivo: mesmo com limpeza bem-sucedida, pode haver falha posterior em outro componente. Recuperação de dados é tentativa técnica, não resultado contratado. Falha intermitente que não se reproduz em teste exige observação por período maior, e informamos o que já foi descartado em vez de trocar peças por tentativa. Nosso escopo é informática, redes e Wi-Fi.",
+          "Quando um desses limites aparece durante a avaliação, você recebe o cenário completo: o que foi confirmado, o que ainda é incerto, o custo de seguir e a alternativa de parar."
+        ]
+      },
+      {
         "titulo": "Prazos, garantia e cuidado com seus dados",
         "paragrafos": [
           "O prazo depende da complexidade e da peça. Serviços de software, como reinstalação de sistema e limpeza, costumam ser mais rápidos do que reparos que dependem de componente específico. Trabalhamos com prazo estimado informado após a avaliação, e avisamos quando ele muda — em vez de prometer antes de olhar o equipamento.",

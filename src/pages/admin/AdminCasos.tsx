@@ -159,6 +159,29 @@ export default function AdminCasos() {
     setShowPreview(false);
   };
 
+  const copyTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(CASE_FORM_TEMPLATE);
+      toast({ title: "Modelo copiado", description: "Cole no bloco de notas e preencha em campo." });
+    } catch {
+      toast({ title: "Não foi possível copiar", description: "Selecione e copie manualmente.", variant: "destructive" });
+    }
+  };
+
+  const downloadAudit = () => {
+    const md = buildAuditPackage(drafts);
+    const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `auditoria-casos-${new Date().toISOString().slice(0, 10)}.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast({ title: "Pacote de auditoria gerado", description: "Somente leitura — nada foi publicado." });
+  };
+
+
+
   const handleFile = async (file: File) => {
     if (!active) return;
     setBusy(true);

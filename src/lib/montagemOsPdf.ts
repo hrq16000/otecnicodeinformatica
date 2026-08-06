@@ -62,7 +62,7 @@ export async function generateMontagemOsPdf(data: MontagemOsData): Promise<Blob>
   if (data.consentimentoLgpd) {
     pdf.heading("Consentimento de dados (LGPD)");
     pdf.paragraph(
-      "O cliente autorizou o uso dos dados desta solicitação e das fotos enviadas no atendimento exclusivamente para triagem, orçamento e execução deste serviço. Os registros ficam no histórico da conversa e nesta ordem de serviço; o site não armazena arquivos. A exclusão pode ser solicitada a qualquer momento pelo próprio atendimento.",
+      "O cliente autorizou o uso dos dados desta solicitação e das fotos enviadas no atendimento exclusivamente para triagem, definição de valor e execução deste serviço. Os registros ficam no histórico da conversa e nesta ordem de serviço; o site não armazena arquivos. A exclusão pode ser solicitada a qualquer momento pelo próprio atendimento.",
       { size: 9 },
     );
   }

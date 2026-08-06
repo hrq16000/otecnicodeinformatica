@@ -18,6 +18,7 @@ import {
 
 } from "@/components/empresa/EmpresaConversao";
 
+import { ContextosEmpresariaisSection, RegistrarAntesSection } from "@/components/empresa/ContextosEmpresariaisSection";
 import { siteConfig } from "@/lib/siteConfig";
 import { NOTA_FISCAL } from "@/lib/politicaComercial";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
@@ -99,6 +100,8 @@ const relacionados = [
   { label: "Redes e Wi-Fi para empresas", to: "/servicos/redes-e-wifi" },
   { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
   { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
+  { label: "Montagem de PC e workstation", to: "/servicos/montagem-de-pc" },
+  { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
   { label: "Suporte remoto", to: "/atendimento-remoto" },
   { label: "Preços e políticas", to: "/precos-e-politicas" },
   { label: "Como funciona", to: "/como-funciona" },
@@ -152,6 +155,21 @@ const faqs = [
     question: "Como funciona o diagnóstico?",
     answer:
       "Começa pela triagem, com a descrição do que está acontecendo, quais máquinas e desde quando. Em seguida avaliamos o ambiente ou o equipamento, explicamos o que foi encontrado e apresentamos o valor. Nada é executado sem a sua autorização.",
+  },
+  {
+    question: "Quais informações devo registrar antes de pedir suporte?",
+    answer:
+      "Equipamento e usuário afetados, horário aproximado do início do problema, mensagem de erro, programa envolvido, alteração recente, impacto na operação, quantas pessoas estão paradas, se o acesso remoto é possível, se existe backup recente, quem autoriza alterações e o contato do fornecedor do sistema quando o problema for dele. Senhas e códigos de autenticação não devem ser enviados por mensagem.",
+  },
+  {
+    question: "Vocês atendem escritórios de diferentes segmentos?",
+    answer:
+      "Sim, atendemos escritórios, recepções, comércios e profissionais autônomos de segmentos variados em Curitiba e região. O que avaliamos é o contexto operacional — quantas estações, quais arquivos não podem parar e quais sistemas externos estão envolvidos —, e não uma especialização setorial. Não prometemos conformidade regulatória nem suporte especializado a plataformas de um setor específico.",
+  },
+  {
+    question: "Vocês prestam suporte a qualquer sistema empresarial?",
+    answer:
+      "Não. Atuamos na camada do computador, da rede e do acesso: instalar, conectar, corrigir sessão, ajustar permissão, impressora ou navegador. O funcionamento interno de sistemas mantidos por terceiros — contábil, judicial, prontuário, ERP, CRM, certificado digital, e-mail corporativo — é responsabilidade do fornecedor da plataforma. Registramos a constatação por escrito para a empresa acionar quem mantém o sistema.",
   },
   {
     question: "Há emissão de nota fiscal?",
@@ -328,6 +346,16 @@ const EmpresaDeTiCuritiba = () => {
         {/* ═══ Segmentos atendidos ═══ */}
         <AnimatedSection>
           <EmpresaSegmentosSection />
+        </AnimatedSection>
+
+        {/* ═══ Rodada 3N — contextos empresariais (sem landing por profissão) ═══ */}
+        <AnimatedSection>
+          <ContextosEmpresariaisSection />
+        </AnimatedSection>
+
+        {/* ═══ Rodada 3N — o que registrar antes de solicitar suporte ═══ */}
+        <AnimatedSection>
+          <RegistrarAntesSection />
         </AnimatedSection>
 
 

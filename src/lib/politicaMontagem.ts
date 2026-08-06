@@ -77,7 +77,10 @@ export const MONTAGEM_APROVADA = CAPACIDADES_CENTRAIS.every((nome) =>
 export const PECAS_DO_CLIENTE = [
   "Conferimos compatibilidade declarada antes de agendar a montagem, com base nos modelos exatos informados por você.",
   "Peças chegam lacradas ou usadas: registramos o estado no recebimento, incluindo acessórios, parafusos e cabos ausentes.",
+  "Procedência: pedimos a nota ou o comprovante de compra da peça. Sem comprovante, a montagem pode ser feita, mas o componente entra como item sem garantia rastreável e isso fica registrado no atendimento.",
   "Peça com defeito de fábrica é acionada por você junto ao vendedor ou fabricante — não assumimos a garantia do componente.",
+  "Prazo de troca: quando uma peça sua falha no teste, paramos a montagem, informamos no mesmo dia útil e o equipamento fica aguardando a sua substituição por até 5 dias úteis sem custo de permanência. Passado esse prazo, combinamos a devolução do conjunto ou a continuidade do atendimento, porque o prazo de troca junto ao vendedor é dele e não controlamos esse tempo.",
+
   "Componente usado ou fora de garantia é montado somente com o seu aceite registrado do risco de falha.",
   "Dano prévio identificado (pino torto, conector quebrado, oxidação) é fotografado e comunicado antes de qualquer instalação.",
   "Se uma peça incompatível inviabilizar a montagem, cobramos apenas o que já foi executado e explicamos a troca necessária.",

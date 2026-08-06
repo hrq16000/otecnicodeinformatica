@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { trackCTAClick } from "@/lib/analytics";
 import { downloadMontagemChecklistPdf } from "@/lib/montagemChecklistPdf";
+import { downloadMontagemOsPdf, gerarProtocoloMontagem } from "@/lib/montagemOsPdf";
 import { TERMOS_URL } from "@/lib/precosConfig";
 
 /**
@@ -43,26 +44,34 @@ export const MontagemWizard = () => {
   const [uso, setUso] = useState("");
   const [origem, setOrigem] = useState("");
   const [pecas, setPecas] = useState("");
+  const [identificacao, setIdentificacao] = useState("");
+  const [enviaFotos, setEnviaFotos] = useState(false);
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
   const [aceite, setAceite] = useState(false);
   const [gerando, setGerando] = useState(false);
+  const [gerandoOs, setGerandoOs] = useState(false);
+  const [protocolo, setProtocolo] = useState<string | null>(null);
+
+  const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
 
   const mensagem = useMemo(() => {
-    const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
     return [
       "Olá! Quero montar/configurar um computador.",
+      protocolo ? `• Ordem de serviço aberta: ${protocolo}` : "",
       modelo ? `• Configuração pretendida: ${modelo}` : "",
       uso ? `• Uso pretendido: ${uso}` : "",
       origemLabel ? `• Peças: ${origemLabel}` : "",
       pecas.trim() ? `• Peças que já tenho: ${pecas.trim()}` : "",
+      identificacao.trim() ? `• Identificação (série/nota): ${identificacao.trim()}` : "",
+      enviaFotos ? "• Vou enviar fotos das peças aqui pelo atendimento." : "",
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origem, pecas, cidade, modalidade]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo]);
 
   const canNext = step === 0 ? modelo.trim().length >= 3 && !!uso : step === 1 ? !!origem : aceite;
 
@@ -85,6 +94,31 @@ export const MontagemWizard = () => {
       toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
     } finally {
       setGerando(false);
+    }
+  };
+
+  const baixarOs = async () => {
+    if (!aceite) return;
+    setGerandoOs(true);
+    const numero = protocolo ?? gerarProtocoloMontagem();
+    if (!protocolo) setProtocolo(numero);
+    try {
+      await downloadMontagemOsPdf({
+        protocolo: numero,
+        modelo,
+        uso,
+        origemPecas: origemLabel,
+        pecas: pecas.trim() || undefined,
+        identificacaoPecas: identificacao.trim() || undefined,
+        enviaFotos,
+        cidade: cidade.trim() || undefined,
+        modalidade: modalidade || undefined,
+      });
+      toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
+    } catch {
+      toast({ title: "Não foi possível gerar o PDF", description: "Tente novamente em instantes.", variant: "destructive" });
+    } finally {
+      setGerandoOs(false);
     }
   };
 
@@ -183,6 +217,32 @@ export const MontagemWizard = () => {
                   placeholder="Placa-mãe, processador, memória, fonte, gabinete, SSD..."
                 />
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="wz-identificacao">Identificação das peças (opcional)</Label>
+                <Textarea
+                  id="wz-identificacao"
+                  maxLength={400}
+                  rows={2}
+                  value={identificacao}
+                  onChange={(e) => setIdentificacao(e.target.value)}
+                  placeholder="Número de série, nota fiscal, se está lacrada, se é usada..."
+                />
+                <p className="text-xs text-muted-foreground">
+                  Quanto mais identificada a peça, menos retrabalho na conferência.
+                </p>
+              </div>
+              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-muted/20 p-4 text-sm">
+                <Checkbox
+                  checked={enviaFotos}
+                  onCheckedChange={(v) => setEnviaFotos(v === true)}
+                  aria-label="Vou enviar fotos das peças"
+                />
+                <span className="text-muted-foreground">
+                  Vou enviar <strong className="text-foreground">fotos das peças</strong> no atendimento (placa-mãe,
+                  fonte, memória e etiquetas). As imagens são enviadas direto na conversa — o site não armazena
+                  arquivos.
+                </span>
+              </label>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="wz-cidade">Cidade e bairro</Label>
@@ -263,11 +323,23 @@ export const MontagemWizard = () => {
                 Continuar <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Button>
             ) : (
-              <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
-                <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={baixarOs} disabled={!aceite || gerandoOs}>
+                  <FileText className="mr-1 h-4 w-4" aria-hidden="true" />
+                  {gerandoOs ? "Gerando OS..." : "Gerar ordem de serviço (PDF)"}
+                </Button>
+                <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
+                  <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
+                </Button>
+              </div>
             )}
           </div>
+          {protocolo && (
+            <p className="pt-1 text-xs text-muted-foreground">
+              Ordem de serviço <strong className="text-foreground">{protocolo}</strong> gerada. O número vai junto na
+              mensagem enviada ao técnico como prova de abertura.
+            </p>
+          )}
         </div>
 
         <div className="mt-6 rounded-xl border border-border bg-muted/20 p-5">

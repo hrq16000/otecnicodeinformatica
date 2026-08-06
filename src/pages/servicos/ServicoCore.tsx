@@ -1,5 +1,6 @@
 import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout";
 import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
+import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { SERVICOS_CORE } from "@/lib/servicosCore";
 import { SERVICOS_LOCAL } from "@/lib/servicosLocal";
@@ -29,6 +30,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     slug === "montagem-de-pc" ? (
       <>
         <MontagemPoliticaBlocos />
+        <MontagemComoFunciona />
         <MontagemWizard />
       </>
     ) : undefined;

@@ -70,7 +70,7 @@ const Avaliar = () => {
       return;
     }
     const verdict = checkAntiSpam({ honeypot, openedAt, protocolo });
-    if (!verdict.ok) {
+    if (verdict.ok === false) {
       if (verdict.reason === "duplicate") setDuplicado(true);
       toast({
         title: "Envio não concluído",

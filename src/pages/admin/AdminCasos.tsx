@@ -125,12 +125,20 @@ export default function AdminCasos() {
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<"todos" | TechnicalCaseStatus>("todos");
   const [categoryFilter, setCategoryFilter] = useState<"todas" | TechnicalCaseCategory>("todas");
+  const [showImport, setShowImport] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importIssues, setImportIssues] = useState<string[]>([]);
+  const [blocks, setBlocks] = useState<ProofBlock[]>([]);
+  const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
 
   useEffect(() => {
     document.title = "Casos técnicos (interno) — Admin";
     const list = readDrafts();
     setDrafts(list);
     setActiveId(list[0]?.id ?? null);
+    const bl = readBlocks();
+    setBlocks(bl);
+    setActiveBlockId(bl[0]?.id ?? null);
   }, []);
 
   const active = useMemo(() => drafts.find((d) => d.id === activeId) ?? null, [drafts, activeId]);
@@ -138,6 +146,13 @@ export default function AdminCasos() {
   const checklist = useMemo(() => (active ? buildChecklist(active) : []), [active]);
   const requirements = useMemo(() => (active ? buildRequirements(active) : []), [active]);
   const score = useMemo(() => (active ? scoreCase(active) : null), [active]);
+  const evidenceIssues = useMemo(() => (active ? auditEvidenceSet(active.evidence.photos) : []), [active]);
+  const activeBlock = useMemo(() => blocks.find((b) => b.id === activeBlockId) ?? null, [blocks, activeBlockId]);
+  const blockEval = useMemo(
+    () => (activeBlock ? evaluateBlock(activeBlock, drafts) : null),
+    [activeBlock, drafts],
+  );
+
 
   const visibleDrafts = useMemo(() => {
     const q = query.trim().toLowerCase();

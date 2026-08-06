@@ -1198,8 +1198,12 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
       { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
+      { label: "Computador lento: causas e correções", to: "/problemas/computador-lento" },
+      { label: "Notebook que não liga: diagnóstico", to: "/problemas/notebook-nao-liga" },
+      { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
     ],
+
     blocoLocal: [
       {
         titulo: "A dependência tecnológica de quem trabalha em casa",
@@ -1226,7 +1230,44 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Quando o problema envolve estrutura da organização, servidores, rede corporativa ou vários colaboradores ao mesmo tempo, o caminho correto é o suporte técnico empresarial. Home office trata do posto de trabalho individual; a página empresarial trata da estrutura que sustenta a operação inteira.",
         ],
       },
+      {
+        titulo: "Suporte remoto imediato: como funciona o fluxo pelo WhatsApp",
+        paragrafos: [
+          "Quando o computador liga, o sistema carrega e existe conexão, boa parte dos problemas de home office pode ser tratada sem visita. O fluxo é sempre o mesmo e começa pelo WhatsApp: você descreve o sintoma, informa o bairro e diz há quanto tempo o problema aparece. Essa triagem inicial serve para separar o que é ajuste de configuração do que exige avaliação física.",
+          "Confirmada a viabilidade remota, combinamos o horário e enviamos o link do programa de acesso. A sessão só abre com a sua autorização explícita, acontece com você acompanhando a tela e é encerrada ao final do atendimento — nada permanece instalado rodando em segundo plano sem que você saiba.",
+          "Durante a sessão explicamos o que está sendo verificado e o que foi alterado. Se, no meio do caminho, ficar claro que a causa é física — disco em falha, memória com defeito, superaquecimento, rede do imóvel — interrompemos o remoto e encaminhamos para visita ou bancada, sem cobrar duas vezes pela mesma triagem.",
+          "O que não fazemos remotamente: instalar peça, avaliar ruído e temperatura de perto, resolver equipamento que não liga e contornar credencial ou política do setor de TI da sua empresa. Nesses casos o caminho correto é o atendimento em domicílio.",
+        ],
+      },
+      {
+        titulo: "Casos técnicos recorrentes em home office: antes e depois",
+        paragrafos: [
+          "Notebook que arrastava com planilha e navegador abertos ao mesmo tempo, disco mecânico ainda como sistema e 4 GB de memória: antes, cada troca de programa parava o trabalho por segundos. Depois da migração para SSD e do reforço de memória, o mesmo equipamento passou a abrir o ambiente de trabalho em poucos segundos. É o cenário mais frequente que encontramos e quase sempre dispensa comprar máquina nova.",
+          "Reunião derrubando a cada vinte minutos com o roteador na sala e o posto de trabalho no quarto dos fundos: antes, o sinal chegava fraco e disputado com dezenas de redes vizinhas. Depois do ajuste de canal, reposicionamento e cabo até a mesa, a chamada de vídeo deixou de cair. Nada disso muda o link contratado com o provedor — muda o que acontece dentro do imóvel.",
+          "Microfone reconhecido pelo sistema mas mudo na ferramenta de reunião: antes, a suspeita era headset com defeito. Depois da verificação de permissão do aplicativo e da seleção do dispositivo de entrada correto, o mesmo headset voltou a funcionar. Trocar equipamento sem diagnóstico é o gasto mais comum e mais evitável do home office.",
+          "Estes são padrões de atendimento, não promessa de resultado: o desfecho de cada caso depende do estado real do equipamento e é apresentado a você depois do diagnóstico, antes de qualquer execução.",
+        ],
+      },
+      {
+        titulo: "Segurança dos dados de quem trabalha em casa: ransomware, backup e recuperação",
+        paragrafos: [
+          "No home office, o mesmo computador guarda contrato, proposta, planilha de cliente e arquivo pessoal — em geral sem nenhuma cópia fora dele. Basta uma falha de disco, um furto ou um arquivo criptografado por ransomware para que anos de trabalho desapareçam de uma vez. É por isso que tratamos cópia de arquivos como parte do atendimento, e não como assunto opcional.",
+          "Pasta sincronizada em nuvem não é backup por si só: se o arquivo é apagado ou criptografado na sua máquina, a alteração sobe para o serviço. Backup de verdade guarda versões em pontos diferentes no tempo, em local separado, e permite voltar ao estado anterior à falha. Quando o versionamento existe no serviço que você já usa, mostramos como ativá-lo e por quanto tempo o histórico é mantido.",
+          "A régua que aplicamos é objetiva e verificável: existe cópia em dispositivo separado do original, existe histórico com data anterior ao incidente e a restauração já foi testada pelo menos uma vez. Enquanto essas três condições não estiverem atendidas, o que existe é sensação de segurança.",
+          "Se a perda já aconteceu, o assunto muda de nome: passa a ser recuperação de dados, feita depois do incidente, com resultado que depende do estado físico e lógico da mídia e sem garantia de sucesso. Não prometemos descriptografar arquivos atingidos por ransomware nem recuperar conteúdo sobrescrito.",
+        ],
+      },
+      {
+        titulo: "Triagem rápida de sintomas: descreva e nós direcionamos",
+        paragrafos: [
+          "Computador lento no expediente: se a lentidão aparece com poucos programas abertos e o disco fica em uso constante, a investigação começa por armazenamento e memória. Esse sintoma tem página própria com as causas e as opções de correção em computador lento.",
+          "Travando ou reiniciando sozinho: quando o travamento vem acompanhado de barulho de ventoinha, calor na base ou tela azul, a suspeita é térmica ou de hardware, e a avaliação precisa ser presencial. Notebook que sequer inicia entra no roteiro de notebook que não liga.",
+          "Vírus, pop-up e navegador sequestrado: anúncios que voltam sozinhos, página inicial trocada e extensões desconhecidas indicam infecção ativa. Nesse caso a prioridade é remover a ameaça e preservar os arquivos antes de qualquer reinstalação — o caminho é a remoção de vírus, e a formatação só entra se a limpeza não sustentar o resultado.",
+          "Em todos os casos o passo inicial é o mesmo: descreva o sintoma pelo WhatsApp, informe o bairro e diga se o equipamento é de uso pessoal ou fornecido pela empresa. Com essas três informações já indicamos se o atendimento pode ser remoto ou se exige visita, antes de você perder tempo esperando.",
+        ],
+      },
     ],
+
     linksLocais: [
       { label: "Atendimento remoto", to: "/atendimento-remoto" },
       { label: "Atendimento em domicílio", to: "/atendimento-domicilio" },

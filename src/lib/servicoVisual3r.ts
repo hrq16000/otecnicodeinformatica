@@ -42,7 +42,14 @@ export const SERVICO_VISUAL_3R: Record<string, ServicoVisual3R> = {
       { label: "Região", value: "Curitiba e Região Metropolitana" },
       { label: "Aprovação", value: "Valor informado antes da execução" },
     ],
-    toc: TOC_PADRAO,
+    toc: [
+      { id: "incluso", label: "O que está incluso" },
+      { id: "fluxo-empresarial", label: "Como corre um chamado" },
+      { id: "impacto", label: "Impacto e prioridade" },
+      { id: "como-funciona", label: "Como funciona o atendimento" },
+      { id: "fatores-valor", label: "O que influencia o valor" },
+      { id: "faq", label: "Perguntas frequentes" },
+    ],
   },
   "manutencao-preventiva-empresas": {
     resumo: [

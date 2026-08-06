@@ -118,7 +118,7 @@ const BASE_ROUTES = [
           "Do lado do técnico: acessar apenas o necessário, explicar o risco antes da etapa, executar somente o que foi autorizado e descartar cópias temporárias após a entrega. Do lado do cliente: manter backup próprio sempre que possível, indicar onde estão os arquivos importantes, informar se há conteúdo sensível, não enviar senhas por mensagem e conferir o resultado antes de encerrar o atendimento."
         ]
       }
-    ]
+    ],
     "faq": [
       {
         "pergunta": "O técnico precisa acessar meus arquivos?",
@@ -454,7 +454,7 @@ const BASE_ROUTES = [
           "Quando o remoto revela causa física, o caso migra para visita ou coleta, com escopo próprio. As condições comerciais vigentes estão publicadas em preços e políticas, e o valor é apresentado antes da sessão começar."
         ]
       }
-    ]
+    ],
     "faq": [
       {
         "pergunta": "O que pode ser resolvido remotamente?",
@@ -540,7 +540,7 @@ const BASE_ROUTES = [
           "Em caso de dúvida, o diagnóstico técnico explica como a causa é confirmada, e a página sobre quando não compensa reparar ajuda na decisão entre consertar e substituir o equipamento."
         ]
       }
-    ]
+    ],
     "faq": [
       {
         "pergunta": "Vocês atendem qualquer marca de notebook e computador?",

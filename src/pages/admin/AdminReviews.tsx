@@ -534,6 +534,34 @@ const AdminReviews = () => {
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />Pós-OS
                           </Button>
+                          <Button
+                            size="sm"
+                            variant={remindDue && !r.comment ? "default" : "outline"}
+                            disabled={!hasPhone}
+                            onClick={sendReminder}
+                            className="flex-1"
+                            title={
+                              (remindDue
+                                ? `Reenviar link de avaliação (passaram ${REMINDER_HOURS}h)`
+                                : `Reenvio sugerido após ${REMINDER_HOURS}h`) + tipPhone
+                            }
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />Reenviar
+                          </Button>
+                          {r.verified && r.published && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              disabled={!hasPhone}
+                              onClick={sendPublished}
+                              className="flex-1"
+                              title={"Avisar o cliente que a avaliação foi publicada" + tipPhone}
+                            >
+                              <MessageCircle className="w-4 h-4 mr-1" />Avisar publicada
+                            </Button>
+                          )}
+
+
 
                           <Button
                             size="sm"

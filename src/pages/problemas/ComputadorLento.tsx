@@ -203,26 +203,21 @@ const ComputadorLento = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO
-        title={TITLE}
-        description={DESCRIPTION}
-        path={PATH}
-        breadcrumbs={[
-          { name: "Início", path: "/" },
-          { name: "Serviços", path: "/servicos" },
-          { name: "Computador lento", path: PATH },
-        ]}
-      />
+      <PageSEO title={TITLE} description={DESCRIPTION} path={PATH} />
       <Header />
-      <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Computador lento" }]} />
+      {/* "Problemas" é nível taxonômico, não rota: fica sem link no visual e sem URL no BreadcrumbList. */}
+      <Breadcrumbs items={[{ label: "Problemas" }, { label: "Computador lento" }]} />
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
-        <div className="container mx-auto max-w-4xl px-4 py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-accent">Sintoma · Curitiba e região</p>
-          <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
+        <div className="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-14">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent sm:mb-3 sm:text-sm">
+            Sintoma · Curitiba e região
+          </p>
+          <h1 className="mb-3 text-[1.7rem] font-bold leading-[1.12] sm:mb-4 sm:text-3xl md:text-4xl">
             Computador lento: sintomas, causas possíveis e o que realmente resolve
           </h1>
-          <p className="mb-6 text-base leading-relaxed opacity-95">
+          {/* Texto integral preservado no HTML; no mobile o recorte visual mantém o CTA acima de 750 px. */}
+          <p className="mb-4 line-clamp-4 text-[0.95rem] leading-relaxed opacity-95 sm:mb-6 sm:line-clamp-none sm:text-base">
             Lentidão quase nunca tem uma causa única. Um equipamento que demora para ligar, trava com poucos programas
             abertos ou piora depois de alguns minutos de uso pode estar limitado pelo armazenamento, pela memória, pela
             temperatura ou pelo próprio sistema. Esta página separa esses cenários, explica o que você pode observar

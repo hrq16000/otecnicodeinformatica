@@ -153,18 +153,10 @@ const NotebookNaoLiga = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO
-        title={TITLE}
-        description={DESCRIPTION}
-        path={PATH}
-        breadcrumbs={[
-          { name: "Início", path: "/" },
-          { name: "Serviços", path: "/servicos" },
-          { name: "Notebook não liga", path: PATH },
-        ]}
-      />
+      <PageSEO title={TITLE} description={DESCRIPTION} path={PATH} />
       <Header />
-      <Breadcrumbs items={[{ label: "Serviços", href: "/servicos" }, { label: "Notebook não liga" }]} />
+      {/* "Problemas" é nível taxonômico, não rota: fica sem link no visual e sem URL no BreadcrumbList. */}
+      <Breadcrumbs items={[{ label: "Problemas" }, { label: "Notebook não liga" }]} />
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
         <div className="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-14">
@@ -198,8 +190,9 @@ const NotebookNaoLiga = () => {
             { id: "energia-vs-imagem", label: "Não liga x liga sem imagem" },
             { id: "sinais", label: "Sinais observáveis" },
             { id: "causas", label: "Causas possíveis" },
-            { id: "testes", label: "Testes seguros por fora" },
-            { id: "nao-insistir", label: "Quando não insistir" },
+            { id: "nao-insistir", label: "Quando não insistir em ligar" },
+            { id: "testes", label: "Verificações externas seguras" },
+            { id: "arquivos", label: "Risco para os dados" },
             { id: "diagnostico", label: "Como funciona o diagnóstico" },
             { id: "faq", label: "Perguntas frequentes" },
           ]}
@@ -261,6 +254,28 @@ const NotebookNaoLiga = () => {
           </ul>
         </section>
 
+        {/* Alerta de risco vem antes das orientações gerais (regra do cluster de sintomas). */}
+        <section
+          id="nao-insistir"
+          role="alert"
+          className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6"
+        >
+          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
+            <AlertTriangle className="h-6 w-6 text-destructive" aria-hidden="true" /> Quando não insistir em ligar
+          </h2>
+          <p className="mb-4 text-muted-foreground">
+            Quando há líquido, cheiro incomum, aquecimento extremo, estalos ou bateria deformada, insistir em ligar
+            pode ampliar o dano. Desconecte a energia quando for seguro e solicite avaliação.
+          </p>
+          <ul className="space-y-2">
+            {NAO_INSISTIR.map((n) => (
+              <li key={n} className="text-muted-foreground">
+                • {n}
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section id="testes" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Testes externos que você pode fazer com segurança</h2>
           <p className="mb-4 text-muted-foreground">
@@ -289,18 +304,8 @@ const NotebookNaoLiga = () => {
         </div>
 
 
-        <section id="nao-insistir" className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
-          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
-            <AlertTriangle className="h-6 w-6 text-destructive" /> Situações em que não se deve insistir
-          </h2>
-          <ul className="space-y-2">
-            {NAO_INSISTIR.map((n) => (
-              <li key={n} className="text-muted-foreground">
-                • {n}
-              </li>
-            ))}
-          </ul>
-        </section>
+
+
 
         <section id="diagnostico" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">

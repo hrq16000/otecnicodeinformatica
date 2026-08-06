@@ -206,6 +206,12 @@ function hash(s) {
   return h;
 }
 
+/** Rótulos curtos de breadcrumb para o cluster de sintomas. */
+const PROBLEMA_CRUMB_LABEL = {
+  "/problemas/computador-lento": "Computador lento",
+  "/problemas/notebook-nao-liga": "Notebook não liga",
+};
+
 export function breadcrumbFor(path) {
   const fam = familyOf(path);
   const crumbs = [{ path: "/", name: "Início" }];
@@ -215,10 +221,11 @@ export function breadcrumbFor(path) {
     const parent = `/servicos/${path.split("/")[2]}`;
     if (BY_PATH.has(parent)) crumbs.push({ path: parent, name: labelFor(parent) });
   }
-  if (fam === "problema") crumbs.push({ path: "/servicos", name: "Serviços" });
+  // "Problemas" é nível taxonômico do cluster de sintomas: não existe rota, então vai sem URL.
+  if (fam === "problema") crumbs.push({ path: null, name: "Problemas" });
   if (fam === "bairro" || fam === "cidade")
     crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
-  crumbs.push({ path, name: labelFor(path) });
+  crumbs.push({ path, name: PROBLEMA_CRUMB_LABEL[path] ?? labelFor(path) });
   return crumbs;
 }
 
@@ -478,7 +485,9 @@ export function staticBodyFor(route) {
     .map((c, i) =>
       i === crumbs.length - 1
         ? `<span aria-current="page">${esc(c.name)}</span>`
-        : `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`,
+        : c.path
+          ? `<a href="${c.path}" style="color:#7fd4ec">${esc(c.name)}</a> ›`
+          : `<span>${esc(c.name)}</span> ›`,
     )
     .join(" ");
   const faqHtml = route.faq?.length
@@ -615,7 +624,7 @@ function breadcrumbList(path) {
       "@type": "ListItem",
       position: i + 1,
       name: c.name,
-      item: `${SITE}${c.path === "/" ? "/" : c.path}`,
+      ...(c.path ? { item: `${SITE}${c.path === "/" ? "/" : c.path}` } : {}),
     })),
   };
 }

@@ -103,8 +103,11 @@ async function checkBlogHubRuntime() {
     fail("Blog hub: não usa getApprovedSlugs para a listagem");
   if (!/noindex/.test(src))
     fail("Blog hub: deve permanecer noindex sem artigos aprovados");
-  if (/programmaticPostsMeta|problemaSummaries|blogPostsContentBase/.test(src))
-    fail("Blog hub: não pode listar posts programáticos/problemas/artigos não aprovados");
+  if (/programmaticPostsMeta|problemaSummaries/.test(src))
+    fail("Blog hub: não pode listar posts programáticos/problemas");
+  if (/blogPostsContentBase/.test(src) && !/approvedSlugs/.test(src))
+    fail("Blog hub: conteúdo só pode ser lido para slugs aprovados");
+
   if (!/Política editorial/.test(src))
     fail("Blog hub: seção de Política editorial ausente");
   note("Blog hub: lista apenas aprovados + política editorial visível");
@@ -114,17 +117,28 @@ async function checkBlogHubRuntime() {
 async function checkStaticHtml(posts) {
   if (!(await exists(DIST))) { fail("dist/ ausente — rode o build antes do gate"); return; }
 
-  // Hub /blog
+  // Hub /blog — indexável apenas com massa editorial aprovada (>= 3).
+  const hubShouldIndex = EDITORIAL_WAVE_SLUGS.length >= 3;
   const hubPath = path.join(DIST, "blog", "index.html");
   if (!(await exists(hubPath))) {
     fail("HTML do hub /blog ausente (dist/blog/index.html)");
   } else {
     const h = await read(hubPath);
     const robots = h.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
-    if (!robots || !/noindex/.test(robots[1])) fail("/blog: hub deve ser noindex no HTML inicial");
+    if (!robots) fail("/blog: meta robots ausente");
+    else if (hubShouldIndex && /noindex/.test(robots[1]))
+      fail("/blog: hub deve ser indexável com artigos aprovados na onda");
+    else if (!hubShouldIndex && !/noindex/.test(robots[1]))
+      fail("/blog: hub deve ser noindex sem massa editorial aprovada");
     if (count(h, /rel=["']canonical["']/gi) !== 1) fail("/blog: deve ter exatamente 1 canonical");
     if (!h.includes(`href="${SITE}/blog"`)) fail("/blog: canonical deve ser self (/blog)");
+    if (hubShouldIndex) {
+      for (const slug of EDITORIAL_WAVE_SLUGS) {
+        if (!h.includes(`/blog/${slug}`)) fail(`/blog: hub estático não linka /blog/${slug}`);
+      }
+    }
   }
+
 
   let checked = 0;
   for (const post of posts) {

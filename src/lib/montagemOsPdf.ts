@@ -15,6 +15,7 @@ export interface MontagemOsData {
   enviaFotos?: boolean;
   cidade?: string;
   modalidade?: string;
+  consentimentoLgpd?: boolean;
 }
 
 export const MONTAGEM_OS_PATH = "/servicos/montagem-de-pc";
@@ -55,6 +56,14 @@ export async function generateMontagemOsPdf(data: MontagemOsData): Promise<Blob>
 
   pdf.heading("Verificações previstas antes da entrega");
   TESTES_MONTAGEM.forEach((t) => pdf.checkbox(t));
+
+  if (data.consentimentoLgpd) {
+    pdf.heading("Consentimento de dados (LGPD)");
+    pdf.paragraph(
+      "O cliente autorizou o uso dos dados desta solicitação e das fotos enviadas no atendimento exclusivamente para triagem, orçamento e execução deste serviço. Os registros ficam no histórico da conversa e nesta ordem de serviço; o site não armazena arquivos. A exclusão pode ser solicitada a qualquer momento pelo próprio atendimento.",
+      { size: 9 },
+    );
+  }
 
   pdf.space(6);
   pdf.rule();

@@ -49,9 +49,11 @@ export const MontagemWizard = () => {
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
   const [aceite, setAceite] = useState(false);
+  const [lgpd, setLgpd] = useState(false);
   const [gerando, setGerando] = useState(false);
   const [gerandoOs, setGerandoOs] = useState(false);
   const [protocolo, setProtocolo] = useState<string | null>(null);
+  const [tentou, setTentou] = useState(false);
 
   const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";
 
@@ -68,15 +70,48 @@ export const MontagemWizard = () => {
       cidade.trim() ? `• Cidade/bairro: ${cidade.trim()}` : "",
       modalidade ? `• Modalidade preferida: ${modalidade}` : "",
       "• Li e aceito as condições, os valores e a política de peças do cliente.",
+      lgpd ? "• Autorizo o uso dos dados e arquivos enviados apenas para este atendimento (LGPD)." : "",
     ]
       .filter(Boolean)
       .join("\n");
-  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo]);
+  }, [modelo, uso, origemLabel, pecas, identificacao, enviaFotos, cidade, modalidade, protocolo, lgpd]);
 
-  const canNext = step === 0 ? modelo.trim().length >= 3 && !!uso : step === 1 ? !!origem : aceite;
+  // Campos obrigatórios pendentes no passo atual — usados para o destaque pulsante.
+  const pendentes: string[] =
+    step === 0
+      ? [...(modelo.trim().length < 3 ? ["modelo"] : []), ...(!uso ? ["uso"] : [])]
+      : step === 1
+        ? !origem
+          ? ["origem"]
+          : []
+        : [...(!aceite ? ["aceite"] : []), ...(!lgpd ? ["lgpd"] : [])];
+
+  const invalido = (campo: string) => tentou && pendentes.includes(campo);
+  const alerta = (campo: string) => (invalido(campo) ? " field-alert" : "");
+
+  const focarPendente = () => {
+    setTentou(true);
+    requestAnimationFrame(() => {
+      const el = document.querySelector<HTMLElement>(".field-alert");
+      el?.scrollIntoView({ block: "center", behavior: "smooth" });
+      (el?.querySelector("input,textarea,button") as HTMLElement | null)?.focus?.();
+    });
+  };
+
+  const avancar = () => {
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
+    setTentou(false);
+    setStep((s) => s + 1);
+  };
 
   const enviar = () => {
-    if (!aceite) return;
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
     trackCTAClick("whatsapp", "wizard_montagem");
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", {
@@ -98,7 +133,10 @@ export const MontagemWizard = () => {
   };
 
   const baixarOs = async () => {
-    if (!aceite) return;
+    if (pendentes.length > 0) {
+      focarPendente();
+      return;
+    }
     setGerandoOs(true);
     const numero = protocolo ?? gerarProtocoloMontagem();
     if (!protocolo) setProtocolo(numero);
@@ -113,6 +151,7 @@ export const MontagemWizard = () => {
         enviaFotos,
         cidade: cidade.trim() || undefined,
         modalidade: modalidade || undefined,
+        consentimentoLgpd: lgpd,
       });
       toast({ title: `Ordem de serviço ${numero}`, description: "PDF baixado — envie junto no atendimento como prova de abertura." });
     } catch {
@@ -152,21 +191,29 @@ export const MontagemWizard = () => {
         <div className="mt-6 rounded-xl border border-border bg-card p-5 space-y-5">
           {step === 0 && (
             <>
-              <div className="space-y-2">
-                <Label htmlFor="wz-modelo">Configuração ou modelo pretendido</Label>
+              <div className={`space-y-2 rounded-lg${alerta("modelo")}`}>
+                <Label htmlFor="wz-modelo">
+                  Configuração ou modelo pretendido <span className="text-destructive">*</span>
+                </Label>
                 <Input
                   id="wz-modelo"
                   maxLength={160}
+                  required
+                  aria-invalid={invalido("modelo")}
                   value={modelo}
                   onChange={(e) => setModelo(e.target.value)}
                   placeholder="Ex.: desktop novo com Ryzen 5, 16 GB e SSD 1 TB"
                 />
-                {modelo.trim().length > 0 && modelo.trim().length < 3 && (
-                  <p className="text-xs text-destructive">Descreva com pelo menos 3 caracteres.</p>
+                {(invalido("modelo") || (modelo.trim().length > 0 && modelo.trim().length < 3)) && (
+                  <p className="text-xs font-medium text-destructive">
+                    Preencha este campo com pelo menos 3 caracteres.
+                  </p>
                 )}
               </div>
-              <div className="space-y-2">
-                <span className="text-sm font-medium">Uso pretendido</span>
+              <div className={`space-y-2 p-1${alerta("uso")}`}>
+                <span className="text-sm font-medium">
+                  Uso pretendido <span className="text-destructive">*</span>
+                </span>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {USOS.map((u) => (
                     <button
@@ -174,7 +221,7 @@ export const MontagemWizard = () => {
                       type="button"
                       onClick={() => setUso(u)}
                       aria-pressed={uso === u}
-                      className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
+                      className={`min-h-11 rounded-lg border px-3 py-2 text-left text-sm transition ${
                         uso === u ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
                       }`}
                     >
@@ -182,14 +229,19 @@ export const MontagemWizard = () => {
                     </button>
                   ))}
                 </div>
+                {invalido("uso") && (
+                  <p className="text-xs font-medium text-destructive">Selecione uma opção de uso.</p>
+                )}
               </div>
             </>
           )}
 
           {step === 1 && (
             <>
-              <div className="space-y-2">
-                <span className="text-sm font-medium">Quem fornece as peças?</span>
+              <div className={`space-y-2 p-1${alerta("origem")}`}>
+                <span className="text-sm font-medium">
+                  Quem fornece as peças? <span className="text-destructive">*</span>
+                </span>
                 <div className="grid gap-2 sm:grid-cols-3">
                   {ORIGEM_PECAS.map((o) => (
                     <button
@@ -197,7 +249,7 @@ export const MontagemWizard = () => {
                       type="button"
                       onClick={() => setOrigem(o.id)}
                       aria-pressed={origem === o.id}
-                      className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
+                      className={`min-h-11 rounded-lg border px-3 py-2 text-left text-sm transition ${
                         origem === o.id ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
                       }`}
                     >
@@ -205,6 +257,9 @@ export const MontagemWizard = () => {
                     </button>
                   ))}
                 </div>
+                {invalido("origem") && (
+                  <p className="text-xs font-medium text-destructive">Escolha quem fornece as peças.</p>
+                )}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="wz-pecas">Peças que você já tem (opcional)</Label>
@@ -286,7 +341,9 @@ export const MontagemWizard = () => {
                 <pre className="mt-2 whitespace-pre-wrap break-words text-sm text-muted-foreground">{mensagem}</pre>
               </div>
 
-              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border p-4 text-sm">
+              <label
+                className={`flex cursor-pointer items-start gap-3 rounded-lg border border-border p-4 text-sm${alerta("aceite")}`}
+              >
                 <Checkbox checked={aceite} onCheckedChange={(v) => setAceite(v === true)} aria-label="Aceite das condições" />
                 <span className="text-muted-foreground">
                   Li e aceito os{" "}
@@ -301,34 +358,66 @@ export const MontagemWizard = () => {
                   <Link to="/politica-de-pecas-do-cliente" className="font-medium text-[hsl(var(--accent))] underline">
                     política de peças do cliente
                   </Link>
-                  , incluindo a regra de valor declarado e depreciação do equipamento.
+                  , incluindo a regra de valor declarado e depreciação do equipamento.{" "}
+                  <span className="text-destructive">*</span>
                 </span>
               </label>
-              {!aceite && <p className="text-xs text-muted-foreground">O aceite é obrigatório para continuar.</p>}
+              {invalido("aceite") && (
+                <p className="text-xs font-medium text-destructive">Marque o aceite das condições para continuar.</p>
+              )}
+
+              <label
+                className={`flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-muted/20 p-4 text-sm${alerta("lgpd")}`}
+              >
+                <Checkbox checked={lgpd} onCheckedChange={(v) => setLgpd(v === true)} aria-label="Consentimento LGPD" />
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">Consentimento (LGPD):</strong> autorizo o uso dos dados desta
+                  solicitação (configuração, peças, cidade/bairro) e das fotos que eu enviar no atendimento{" "}
+                  <strong className="text-foreground">exclusivamente</strong> para triagem, orçamento e execução deste
+                  serviço. Os dados ficam no histórico da conversa de WhatsApp e na ordem de serviço; o site não
+                  armazena arquivos. Posso pedir a exclusão a qualquer momento pelo próprio atendimento.{" "}
+                  <span className="text-destructive">*</span>
+                </span>
+              </label>
+              {invalido("lgpd") && (
+                <p className="text-xs font-medium text-destructive">
+                  É preciso autorizar o uso dos dados para abrir o atendimento.
+                </p>
+              )}
             </>
           )}
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <Button
               type="button"
               variant="ghost"
-              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              className="w-full sm:w-auto"
+              onClick={() => {
+                setTentou(false);
+                setStep((s) => Math.max(0, s - 1));
+              }}
               disabled={step === 0}
             >
               <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" /> Voltar
             </Button>
 
             {step < 2 ? (
-              <Button type="button" onClick={() => setStep((s) => s + 1)} disabled={!canNext}>
+              <Button type="button" className="w-full sm:w-auto" onClick={avancar}>
                 Continuar <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Button>
             ) : (
-              <div className="flex flex-wrap gap-2">
-                <Button type="button" variant="outline" onClick={baixarOs} disabled={!aceite || gerandoOs}>
+              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  onClick={baixarOs}
+                  disabled={pendentes.length > 0 || gerandoOs}
+                >
                   <FileText className="mr-1 h-4 w-4" aria-hidden="true" />
                   {gerandoOs ? "Gerando OS..." : "Gerar ordem de serviço (PDF)"}
                 </Button>
-                <Button type="button" onClick={enviar} disabled={!aceite} data-cta-location="wizard_montagem">
+                <Button type="button" className="w-full sm:w-auto" onClick={enviar} data-cta-location="wizard_montagem">
                   <MessageCircle className="mr-1 h-4 w-4" aria-hidden="true" /> Enviar para o técnico
                 </Button>
               </div>

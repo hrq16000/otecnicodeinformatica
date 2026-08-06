@@ -49,6 +49,8 @@ jobs:
         run: npm run check:visual-wave-3r
       - name: Padrão visual empresarial (3S)
         run: npm run check:visual-wave-3s
+      - name: Propagação do padrão empresarial (3T)
+        run: npm run check:visual-wave-3t
 
       # ── CTAs e copy
       - name: CTA funnel gate

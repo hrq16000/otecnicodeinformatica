@@ -480,10 +480,8 @@ async function writeBlogPostPage(distDir, baseHtml, post) {
   });
   html = html
     .replace(/<meta property="og:type" content="website">/i, `<meta property="og:type" content="article">`)
-    .replace(
-      /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
-      `<noscript>${editorialStaticBody(post, wave)}\n      </noscript>`,
-    );
+    ;
+  html = injectRootBody(html, editorialStaticBody(post, wave));
   await writePage(distDir, routePath, html);
 }
 
@@ -684,10 +682,7 @@ export async function prerenderCities(distDir) {
             <li style="margin:4px 0"><a href="/atendimento-domicilio" style="color:#7fd4ec">Atendimento técnico no endereço</a></li>
           </ul>
         </div>`;
-      html = html.replace(
-        /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
-        `<noscript>${body}\n      </noscript>`,
-      );
+      html = injectRootBody(html, body);
     }
     await writePage(distDir, "/blog", html);
     written++;

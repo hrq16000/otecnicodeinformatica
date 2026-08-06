@@ -327,6 +327,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
+      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },

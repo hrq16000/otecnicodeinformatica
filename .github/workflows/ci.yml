@@ -270,10 +270,12 @@ jobs:
         run: npm i -g @lhci/cli@0.13.x
       - name: Build
         run: npm run build
-      - name: Lighthouse (desktop + mobile, non-blocking)
-        run: |
-          npm run lh:desktop || echo "::warning::lh desktop falhou"
-          npm run lh:mobile || echo "::warning::lh mobile falhou"
+      - name: Lighthouse desktop (bloqueante)
+        run: npm run lh:desktop
+      - name: Lighthouse mobile (bloqueante)
+        run: npm run lh:mobile
+      - name: Budgets de performance (FCP/LCP/CLS/TTFB/A11y)
+        run: node scripts/check-performance-budgets.mjs
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4

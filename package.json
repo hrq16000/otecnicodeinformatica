@@ -132,6 +132,7 @@
     "check:sitemap-status": "node scripts/check-sitemap-status.mjs",
     "alert:sitemap-status": "node scripts/alert-sitemap-status.mjs",
     "check:visual-wave-3q": "node scripts/check-visual-wave-3q.mjs dist",
+    "check:visual-wave-3s": "node scripts/check-visual-wave-3s.mjs",
     "check:visual-wave-3r": "node scripts/check-visual-wave-3r.mjs"
   },
   "dependencies": {

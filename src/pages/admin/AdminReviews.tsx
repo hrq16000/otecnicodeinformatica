@@ -17,7 +17,15 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Loader2, Download, Plus, Check, EyeOff, Eye, Trash2, ShieldCheck, Star, MessageCircle } from "lucide-react";
-import { t24WaLink, t72WaLink, reviewWindow, osFollowUpWaLink } from "@/lib/reviewRequest";
+import {
+  t24WaLink,
+  t72WaLink,
+  reviewWindow,
+  osFollowUpWaLink,
+  reviewReminderWaLink,
+  reviewPublishedWaLink,
+  shouldRemind,
+} from "@/lib/reviewRequest";
 import { pingIndexNow } from "@/lib/indexNow";
 
 type Review = {
@@ -82,6 +90,12 @@ const AdminReviews = () => {
   const [bairroFilter, setBairroFilter] = useState("all");
   const [servicoFilter, setServicoFilter] = useState("all");
   const [search, setSearch] = useState("");
+  // Prazo configurável (horas) para sugerir o reenvio do link de avaliação.
+  const [reminderHours, setReminderHours] = useState(() => {
+    const saved = Number(localStorage.getItem("review_reminder_hours"));
+    return Number.isFinite(saved) && saved > 0 ? saved : 48;
+  });
+  const REMINDER_HOURS = reminderHours;
   const [form, setForm] = useState<Partial<Review>>(emptyForm);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -400,7 +414,25 @@ const AdminReviews = () => {
                 ))}
               </SelectContent>
             </Select>
+            <label className="flex items-center gap-2 text-sm text-muted-foreground">
+              Reenviar após
+              <Input
+                type="number"
+                min={1}
+                max={720}
+                value={reminderHours}
+                onChange={(e) => {
+                  const v = Math.max(1, Math.min(720, Number(e.target.value) || 1));
+                  setReminderHours(v);
+                  localStorage.setItem("review_reminder_hours", String(v));
+                }}
+                className="w-20"
+                aria-label="Prazo em horas para sugerir o reenvio do link de avaliação"
+              />
+              h
+            </label>
           </div>
+
 
 
           {loading ? (
@@ -468,7 +500,31 @@ const AdminReviews = () => {
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
                       const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
+                      const waParams = {
+                        clientName: r.author_name,
+                        protocolo: r.origin_protocol ?? undefined,
+                        servico: r.service_slug ?? undefined,
+                        bairro: r.neighborhood ?? undefined,
+                      };
+                      const openWa = (url: string) =>
+                        window.open(url, "_blank", "noopener,noreferrer");
+                      const sendReminder = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        openWa(reviewReminderWaLink(r.client_phone!, waParams));
+                      };
+                      const sendPublished = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        openWa(reviewPublishedWaLink(r.client_phone!, waParams));
+                      };
+                      const remindDue = shouldRemind(baseDate, REMINDER_HOURS);
                       const sendOsFollowUp = () => {
+
                         if (!hasPhone) {
                           toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
                           return;
@@ -496,6 +552,34 @@ const AdminReviews = () => {
                           >
                             <MessageCircle className="w-4 h-4 mr-1" />Pós-OS
                           </Button>
+                          <Button
+                            size="sm"
+                            variant={remindDue && !r.comment ? "default" : "outline"}
+                            disabled={!hasPhone}
+                            onClick={sendReminder}
+                            className="flex-1"
+                            title={
+                              (remindDue
+                                ? `Reenviar link de avaliação (passaram ${REMINDER_HOURS}h)`
+                                : `Reenvio sugerido após ${REMINDER_HOURS}h`) + tipPhone
+                            }
+                          >
+                            <MessageCircle className="w-4 h-4 mr-1" />Reenviar
+                          </Button>
+                          {r.verified && r.published && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              disabled={!hasPhone}
+                              onClick={sendPublished}
+                              className="flex-1"
+                              title={"Avisar o cliente que a avaliação foi publicada" + tipPhone}
+                            >
+                              <MessageCircle className="w-4 h-4 mr-1" />Avisar publicada
+                            </Button>
+                          )}
+
+
 
                           <Button
                             size="sm"

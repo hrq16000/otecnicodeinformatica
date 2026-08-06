@@ -50,6 +50,14 @@ export interface ServicoLandingData {
   resumo?: { label: string; value: string }[];
   /** Rodada 3P (piloto visual) — sumário "Nesta página" */
   toc?: { id: string; label: string }[];
+  /** Rodada 3Q — faixa compacta de confiança (uma única ocorrência) */
+  confianca?: boolean;
+  /** Rodada 3Q — caixas editoriais contextuais (máximo três) */
+  caixas?: ServicoCaixa[];
+  caixasTitulo?: string;
+  caixasPosicao?: "antes-incluso" | "apos-sinais";
+  /** Rodada 3Q — CTA intermediário (mesmo fluxo de triagem) */
+  ctaIntermediario?: { titulo: string; texto: string; label: string };
   /** Conteúdo local aprofundado (H2 + parágrafos) para reforço de SEO local */
   blocoLocal?: { titulo: string; paragrafos: string[] }[];
   /** Links internos contextuais para bairros/cidades e problemas próximos */

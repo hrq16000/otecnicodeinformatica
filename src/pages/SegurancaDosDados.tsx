@@ -114,7 +114,11 @@ const RELACIONADOS = [
   { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados", desc: "Tentativa após a perda: avaliação primeiro, sem resultado assegurado." },
   { label: "Backup para empresas", to: "/servicos/backup-para-empresas", desc: "Prevenção estruturada: cópia local, cópia externa e restauração testada." },
   { label: "Atendimento remoto", to: "/atendimento-remoto", desc: "Como a sessão remota começa, é acompanhada e é encerrada." },
+  { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial", desc: "Escopo do suporte na empresa e limites de sistemas de terceiros." },
+  { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba", desc: "Diagnóstico do ambiente, contextos atendidos e organização do suporte." },
+  { label: "Montagem de PC e workstation", to: "/servicos/montagem-de-pc", desc: "Dimensionamento de estação profissional e política de peças." },
 ];
+
 
 const SegurancaDosDados = () => {
   const waHref = whatsappLink(WA_MESSAGE);

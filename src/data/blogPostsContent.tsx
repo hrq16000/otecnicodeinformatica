@@ -16,6 +16,138 @@ export type BlogPostContent = {
 
 export const blogPostsContentBase: Record<string, BlogPostContent> = {
 
+  "organizacao-de-ti-para-pequenos-escritorios": {
+    title: "Organização de TI para pequenos escritórios: o guia prático",
+    excerpt: "Como organizar equipamentos, arquivos, acessos e rotina de manutenção em um escritório pequeno, sem contratar estrutura de TI que não cabe no negócio.",
+    date: "2026-08-06",
+    readTime: "10 min",
+    category: "Empresas",
+    content: (
+      <>
+        <p className="lead">Escritório pequeno raramente tem alguém dedicado a TI. Na prática, o computador é problema de quem senta nele — até o dia em que a máquina do fechamento para, o arquivo some ou ninguém sabe a senha do sistema. Organizar TI num escritório de 3 a 20 pessoas não exige contratar departamento: exige inventário, rotina e decisões escritas.</p>
+
+        <h2>Resposta curta</h2>
+        <p>Comece pelo inventário dos equipamentos, defina onde os arquivos de trabalho ficam, estabeleça quem autoriza acessos, crie uma rotina simples de cópia de segurança e registre por escrito quem responde por cada sistema contratado. Esses cinco pontos resolvem a maior parte das paradas evitáveis.</p>
+
+        <h2>1. Inventário: você não protege o que não conhece</h2>
+        <p>Antes de qualquer decisão, liste o que existe. Uma planilha simples basta: identificação da máquina, quem usa, tipo (desktop ou notebook), idade aproximada, tipo de armazenamento, quantidade de memória, sistema operacional, se está na garantia e quais programas críticos rodam nela. Some os periféricos que param a operação quando falham — impressora, leitor, roteador, nobreak.</p>
+        <p>O inventário responde perguntas que costumam travar decisões: qual máquina é a mais antiga, quantas ainda usam disco mecânico, quem depende de um programa específico e qual equipamento não pode ficar fora do ar por um dia inteiro. Sem essa lista, toda compra vira palpite e toda parada vira urgência.</p>
+
+        <h2>2. Onde os arquivos moram</h2>
+        <p>O padrão silencioso da maioria dos escritórios é o pior possível: cada pessoa guarda o que produz na própria área de trabalho. Quando a máquina falha, o trabalho vai junto. Defina um único lugar oficial para arquivos de trabalho — uma pasta sincronizada em nuvem, um armazenamento em rede ou uma combinação dos dois — e trate a área de trabalho como espaço temporário.</p>
+        <p>Combine também nomes de pastas e de arquivos. Padrão de nomenclatura parece burocracia até o dia em que três versões do mesmo documento circulam por e-mail. Ano, cliente ou projeto, tipo de documento e versão resolvem quase tudo.</p>
+
+        <h2>3. Cópia de segurança que alguém realmente confere</h2>
+        <p>Sincronização em nuvem não é cópia de segurança: se um arquivo é apagado ou corrompido, a alteração se propaga. Cópia de segurança é ter uma versão anterior recuperável. A regra prática mais usada é manter três cópias dos dados importantes, em dois tipos de mídia diferentes, com uma delas fora do local de trabalho.</p>
+        <p>Mais importante do que a ferramenta escolhida é o teste. Defina uma data no mês para restaurar um arquivo qualquer e confirmar que a cópia funciona. Cópia nunca testada é suposição. O detalhamento dessa rotina está em <Link to="/servicos/backup-para-empresas" className="text-accent">backup para empresas</Link>.</p>
+
+        <h2>4. Acessos, senhas e quem autoriza o quê</h2>
+        <p>Escritório pequeno costuma operar com uma senha compartilhada por todo mundo. Funciona até alguém sair da equipe. Organize em três camadas: contas individuais para cada pessoa, um gerenciador de senhas para credenciais compartilhadas de sistemas e uma lista de quem pode autorizar alterações, compras e liberações.</p>
+        <p>Registre por escrito qual pessoa é a responsável administrativa de cada sistema contratado, qual e-mail recebe a recuperação de conta e onde ficam guardados os códigos de autenticação em duas etapas. Perder acesso ao e-mail de recuperação costuma custar mais tempo do que qualquer defeito de hardware. As responsabilidades entre empresa, técnico e fornecedor estão detalhadas em <Link to="/seguranca-dos-dados" className="text-accent">segurança dos dados</Link>.</p>
+
+        <h2>5. Rede, energia e o que ninguém olha</h2>
+        <p>Boa parte das reclamações de “internet lenta” em escritório é distribuição interna, não plano contratado: roteador no lugar errado, cabo antigo, equipamento doméstico atendendo vinte dispositivos ou rede sem separação entre uso interno e visitantes. Vale mapear onde estão os pontos de rede, quais máquinas usam cabo e quais dependem de sinal sem fio.</p>
+        <p>Energia é o item mais esquecido. Máquina que guarda arquivos, servidor local, roteador e a estação do fechamento merecem proteção contra queda. Desligamento abrupto durante gravação de arquivo é uma das causas mais comuns de corrupção de dados.</p>
+
+        <h2>6. Rotina de manutenção em vez de urgência</h2>
+        <p>Manutenção só acontece quando entra no calendário. Um ciclo simples funciona bem: verificação mensal de espaço em disco e de atualizações pendentes, revisão trimestral de limpeza física e de temperatura, conferência semestral do estado de armazenamento e da idade das máquinas, e planejamento anual de substituição do que já passou da vida útil confortável.</p>
+        <p>Essa lógica é a mesma da <Link to="/servicos/manutencao-preventiva-empresas" className="text-accent">manutenção preventiva para empresas</Link>: a troca de um armazenamento que dá sinais de falha custa muito menos que a tentativa de recuperar dados depois.</p>
+
+        <h2>7. O que registrar antes de pedir suporte</h2>
+        <p>Chamado bem descrito reduz ida e volta. Antes de acionar suporte, anote qual equipamento e qual pessoa foram afetados, o horário aproximado do início, a mensagem de erro exata, o programa envolvido, qualquer alteração recente, quantas pessoas estão paradas e se o acesso remoto é possível. Nunca envie senhas ou códigos de autenticação por mensagem.</p>
+
+        <h2>8. Onde termina o computador e começa o fornecedor</h2>
+        <p>Sistema contratado — contábil, jurídico, de gestão, e-mail corporativo, certificado digital — é mantido por terceiros. O suporte técnico atua na camada da máquina, da rede e do acesso: instalar, conectar, corrigir sessão, ajustar permissão e periférico. Erro interno do sistema, licença, indisponibilidade do servidor e recuperação de conta são do fornecedor. Deixar isso claro por escrito evita expectativa errada nos dois lados. O escopo completo está em <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent">suporte técnico empresarial</Link>.</p>
+
+        <h2>Checklist de organização</h2>
+        <ul>
+          <li>Inventário atualizado de máquinas, periféricos e programas críticos</li>
+          <li>Local único e conhecido para os arquivos de trabalho</li>
+          <li>Padrão de nomes de pastas e documentos</li>
+          <li>Cópia de segurança com teste de restauração agendado</li>
+          <li>Contas individuais e gerenciador para senhas compartilhadas</li>
+          <li>Lista de quem autoriza acessos, alterações e compras</li>
+          <li>Responsável administrativo definido para cada sistema contratado</li>
+          <li>Proteção de energia nos equipamentos que não podem cair</li>
+          <li>Calendário de manutenção mensal, trimestral e anual</li>
+          <li>Plano de substituição das máquinas mais antigas</li>
+        </ul>
+
+        <h2>Por onde começar se estiver tudo desorganizado</h2>
+        <p>Não tente resolver os dez itens ao mesmo tempo. Faça o inventário na primeira semana, resolva a cópia de segurança na segunda, organize acessos na terceira e coloque a manutenção no calendário na quarta. Em um mês o escritório sai do modo urgência. O diagnóstico do ambiente e o acompanhamento contínuo estão descritos em <Link to="/empresa-de-ti-curitiba" className="text-accent">empresa de TI em Curitiba</Link>.</p>
+      </>
+    ),
+  },
+
+  "como-escolher-uma-workstation": {
+    title: "Como escolher uma workstation: checklist de requisitos e limites",
+    excerpt: "Checklist prático para dimensionar uma estação de trabalho profissional: o que levantar antes de comprar peça, o papel de cada componente e o que nenhuma configuração garante.",
+    date: "2026-08-06",
+    readTime: "11 min",
+    category: "Hardware",
+    content: (
+      <>
+        <p className="lead">Workstation não é “o computador mais caro da loja”. É um conjunto dimensionado para uma carga de trabalho específica, que roda horas seguidas, com arquivos grandes e pouca tolerância a parada. Escolher errado custa dos dois lados: gastar demais em um componente que a aplicação não usa, ou economizar exatamente onde o trabalho trava.</p>
+
+        <h2>Resposta curta</h2>
+        <p>Antes de escolher peça, levante o que roda, o tamanho dos arquivos, quantas aplicações ficam abertas ao mesmo tempo, quantos monitores e em que resolução, quanto tempo a máquina fica sob carga e quanto há disponível para investir. A configuração é consequência desse levantamento — nunca o contrário.</p>
+
+        <h2>Checklist de requisitos</h2>
+        <ul>
+          <li>Programas efetivamente utilizados no dia a dia, com versão</li>
+          <li>Requisitos oficiais publicados pelo fabricante de cada programa</li>
+          <li>Tamanho típico dos arquivos e dos projetos abertos</li>
+          <li>Quantidade de aplicações simultâneas em um dia comum</li>
+          <li>Quantidade de monitores e resolução de cada um</li>
+          <li>Tempo diário sob carga contínua</li>
+          <li>Volume de armazenamento para sistema, projetos e cache</li>
+          <li>Necessidade de expansão nos próximos dois a três anos</li>
+          <li>Vida útil esperada da máquina</li>
+          <li>Compatibilidade com o que já existe no ambiente</li>
+          <li>Rotina de cópia de segurança dos projetos</li>
+          <li>Faixa de investimento disponível</li>
+        </ul>
+
+        <h2>O papel real de cada componente</h2>
+        <h3>Processador</h3>
+        <p>Relaciona-se ao tipo e à duração da carga. Tarefas longas e contínuas — exportação, compilação, processamento em lote — pedem um conjunto diferente de tarefas curtas e intercaladas. Contagem alta de núcleos ajuda quando o programa distribui o trabalho; quando não distribui, o ganho é bem menor do que a diferença de preço sugere.</p>
+        <h3>Memória</h3>
+        <p>Relaciona-se ao volume dos projetos e à quantidade de aplicações abertas ao mesmo tempo. Memória insuficiente é o gargalo mais comum e o mais fácil de identificar: a máquina começa bem e degrada conforme o dia avança. Deixar espaço para expansão futura costuma valer mais do que preencher todos os encaixes na compra inicial.</p>
+        <h3>Placa de vídeo</h3>
+        <p>Só é decisiva quando a aplicação usa aceleração gráfica compatível. Muita carga profissional depende mais de processador, memória e armazenamento do que de uma placa cara. Verifique nos requisitos oficiais do programa se a aceleração existe e qual tipo é suportado antes de investir nesse componente.</p>
+        <h3>Armazenamento</h3>
+        <p>Dimensione três coisas separadas: sistema e programas, projetos ativos e arquivos de cache. Trabalhar direto em unidade quase cheia degrada o desempenho e aumenta o risco. Reserve também espaço para a rotina de cópia — a estação não substitui a cópia de segurança.</p>
+        <h3>Fonte e refrigeração</h3>
+        <p>Devem ser compatíveis com o conjunto e com a carga prevista, não com o pico de um teste rápido. Máquina que trabalha horas seguidas depende de dissipação estável. Fonte subdimensionada é causa frequente de desligamento sob carga e de instabilidade difícil de diagnosticar.</p>
+
+        <h2>Limites operacionais: o que nenhuma montagem garante</h2>
+        <p>Este é o ponto que quase nenhuma loja diz em voz alta: <strong>a montagem correta não garante desempenho específico dentro de um programa</strong>. Desempenho depende da versão do software, do tipo de projeto, dos plugins usados, do formato dos arquivos e das próprias limitações da aplicação. Configuração dimensionada reduz gargalos — não promete número.</p>
+        <p>Por isso, desconfie de promessa de quadros por segundo, de tempo de renderização, de resultado de teste comparativo sem medição na sua própria máquina e de selo de homologação que o fabricante do software não publica. Quando o desempenho é crítico, o caminho honesto é testar com um projeto real antes de padronizar a compra para a equipe.</p>
+
+        <h2>Comprar pronta, montar sob medida ou fazer melhoria</h2>
+        <p>Máquina pronta de fabricante traz garantia unificada e menos decisões, com menos flexibilidade de peça. Montagem sob medida permite dimensionar cada componente para a carga e planejar expansão, exigindo critério na escolha. Melhoria de uma máquina existente costuma ser a melhor relação custo-benefício quando o gargalo é isolado — memória insuficiente ou armazenamento lento — e o restante do conjunto ainda atende.</p>
+        <p>Antes de decidir, vale medir onde o trabalho realmente trava hoje. Trocar tudo por causa de um gargalo pontual é o erro mais caro dessa categoria. Os critérios de peças, garantia e execução estão em <Link to="/servicos/montagem-de-pc" className="text-accent">montagem de PC</Link> e em <Link to="/politica-de-pecas-do-cliente" className="text-accent">política de peças do cliente</Link>.</p>
+
+        <h2>A estação dentro do ambiente da empresa</h2>
+        <p>Estação nova raramente vive isolada: entra numa rede, imprime, guarda arquivos, depende de acesso a sistemas e precisa de rotina de cópia. Planeje a entrada da máquina no ambiente junto com a compra — perfil de usuário, permissões, acesso aos arquivos compartilhados e inclusão na rotina de manutenção. Esse acompanhamento é descrito em <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent">suporte técnico empresarial</Link>.</p>
+
+        <h2>Erros mais comuns na escolha</h2>
+        <ul>
+          <li>Copiar configuração pronta da internet sem checar os requisitos do próprio programa</li>
+          <li>Investir em placa de vídeo cara para aplicação que não usa aceleração</li>
+          <li>Economizar em memória e comprometer todo o conjunto</li>
+          <li>Ignorar o espaço necessário para cache e projetos ativos</li>
+          <li>Escolher fonte pelo preço, sem considerar a carga contínua</li>
+          <li>Não prever expansão e travar a máquina no primeiro upgrade</li>
+          <li>Tratar a estação como cópia de segurança dos projetos</li>
+        </ul>
+
+        <h2>Como conduzir a decisão</h2>
+        <p>Levante os requisitos, confronte com os requisitos oficiais das aplicações, defina a faixa de investimento, dimensione o conjunto a partir do gargalo real e só então escolha as peças. Se o uso for crítico, teste com um projeto verdadeiro antes de repetir a configuração para a equipe inteira. Uma decisão documentada hoje evita a discussão de “por que essa máquina não dá conta” daqui a seis meses.</p>
+      </>
+    ),
+  },
+
   "linux-vs-windows-diferencas-qual-escolher": {
     title: "Linux vs Windows: Diferenças Reais e Qual Escolher em 2026",
     excerpt: "Comparativo técnico completo entre Linux e Windows.",

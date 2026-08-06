@@ -900,6 +900,8 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
       { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
+      { label: "Montagem de PC e workstation", to: "/servicos/montagem-de-pc" },
+      { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
       { label: "Redes e Wi-Fi", to: "/servicos/redes-e-wifi" },
       { label: "Suporte remoto", to: "/atendimento-remoto" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },

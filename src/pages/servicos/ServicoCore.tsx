@@ -23,8 +23,14 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : base;
 
-  // Blocos de política/checklist exigidos pelo gate de montagem (Rodada 3L).
-  const extra = slug === "montagem-de-pc" ? <MontagemPoliticaBlocos /> : undefined;
+  // Blocos de política/checklist + wizard de solicitação (Rodada 3L / wizard).
+  const extra =
+    slug === "montagem-de-pc" ? (
+      <>
+        <MontagemPoliticaBlocos />
+        <MontagemWizard />
+      </>
+    ) : undefined;
 
   return <ServicoLandingLayout data={{ ...data, extra }} />;
 };

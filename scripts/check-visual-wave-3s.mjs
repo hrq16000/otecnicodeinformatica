@@ -24,7 +24,8 @@ const core = read("src/pages/servicos/ServicoCore.tsx");
 const hub = read("src/pages/EmpresaDeTiCuritiba.tsx");
 
 // 1. Escopo fechado
-const escopo = [...lib.matchAll(/"(\/[a-z0-9/-]+)"/g)].map((m) => m[1]);
+const escopoBloco = lib.match(/VISUAL_3S_PATHS = \[([\s\S]*?)\]/)?.[1] ?? "";
+const escopo = [...escopoBloco.matchAll(/"(\/[a-z0-9/-]+)"/g)].map((m) => m[1]);
 check(
   escopo.includes("/empresa-de-ti-curitiba") &&
     escopo.includes("/servicos/suporte-tecnico-empresarial") &&

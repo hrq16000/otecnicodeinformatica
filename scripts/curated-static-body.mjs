@@ -79,6 +79,8 @@ const BY_PATH = new Map(CURATED_ROUTES.map((r) => [r.path, r]));
 
 /** Rótulo curto (H1) derivado do título curado da própria rota. */
 export function h1For(route) {
+  // Rotas com H1 explícito (espelho da fábrica serviço × bairro) mandam.
+  if (route.h1) return route.h1;
   const head = route.title.split("|")[0].trim();
   // Títulos muito curtos ganham o complemento do próprio título curado
   // (evita H1 genérico como "Equipamentos Atendidos").
@@ -117,6 +119,7 @@ export function labelFor(path) {
 /** Família da rota — decide breadcrumb, links e schema. */
 export function familyOf(path) {
   if (path === "/") return "home";
+  if (/^\/servicos\/[^/]+\/[^/]+$/.test(path)) return "servico-bairro";
   if (path.startsWith("/servicos/")) return "servico";
   if (path === "/servicos") return "hub-servicos";
   if (path.startsWith("/bairros/")) return "bairro";
@@ -131,6 +134,9 @@ export function familyOf(path) {
 }
 
 const SERVICOS = CURATED_ROUTES.filter((r) => r.path.startsWith("/servicos/")).map((r) => r.path);
+const SERVICO_BAIRRO_PATHS = CURATED_ROUTES.filter((r) =>
+  /^\/servicos\/[^/]+\/[^/]+$/.test(r.path),
+).map((r) => r.path);
 const BAIRROS = CURATED_ROUTES.filter((r) => r.path.startsWith("/bairros/")).map((r) => r.path);
 const CIDADES = CURATED_ROUTES.filter(
   (r) => r.path.startsWith("/tecnico-informatica-") && r.path !== "/tecnico-informatica-curitiba",
@@ -157,7 +163,11 @@ export function breadcrumbFor(path) {
   const fam = familyOf(path);
   const crumbs = [{ path: "/", name: "Início" }];
   if (fam === "home") return crumbs;
-  if (fam === "servico") crumbs.push({ path: "/servicos", name: "Serviços" });
+  if (fam === "servico" || fam === "servico-bairro") crumbs.push({ path: "/servicos", name: "Serviços" });
+  if (fam === "servico-bairro") {
+    const parent = `/servicos/${path.split("/")[2]}`;
+    if (BY_PATH.has(parent)) crumbs.push({ path: parent, name: labelFor(parent) });
+  }
   if (fam === "bairro" || fam === "cidade")
     crumbs.push({ path: "/tecnico-informatica-curitiba", name: "Técnico de Informática em Curitiba" });
   crumbs.push({ path, name: labelFor(path) });
@@ -174,6 +184,17 @@ export function linksFor(path) {
     case "hub-servicos":
       out = [...siblings(SERVICOS, path, 4), "/precos-e-politicas", "/contato"];
       break;
+    case "servico-bairro": {
+      const parent = `/servicos/${path.split("/")[2]}`;
+      out = [
+        parent,
+        "/tecnico-informatica-curitiba",
+        ...siblings(SERVICO_BAIRRO_PATHS, path, 2),
+        "/atendimento-domicilio",
+        "/precos-e-politicas",
+      ];
+      break;
+    }
     case "servico":
       out = ["/servicos", ...siblings(SERVICOS, path, 3), "/precos-e-politicas", "/contato"];
       break;
@@ -343,7 +364,7 @@ export function jsonLdFor(route) {
     return out;
   }
 
-  if (fam === "servico" || fam === "hub-servicos" || fam === "empresa") {
+  if (fam === "servico" || fam === "servico-bairro" || fam === "hub-servicos" || fam === "empresa") {
     out.push({
       "@context": "https://schema.org",
       "@type": "Service",
@@ -377,6 +398,18 @@ export function jsonLdFor(route) {
   }
 
   const bc = breadcrumbList(path);
+  if (route.faq?.length) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      mainEntity: route.faq.map((f) => ({
+        "@type": "Question",
+        name: f.pergunta,
+        acceptedAnswer: { "@type": "Answer", text: f.resposta },
+      })),
+    });
+  }
   if (bc) out.push(bc);
   return out;
 }

@@ -110,13 +110,6 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       hint: "Critérios de requisitos, componentes e limites antes de montar a estação.",
     },
   ],
-  "/servicos/upgrade-ssd-ram": [
-    {
-      slug: "como-escolher-uma-workstation",
-      label: "Como escolher uma workstation profissional",
-      hint: "Quando dimensionar uma máquina nova em vez de melhorar a atual.",
-    },
-  ],
   "/servicos/manutencao-de-notebook": [
     {
       slug: "notebook-superaquecendo-o-que-fazer",

@@ -1,5 +1,6 @@
 import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout";
 import { VISUAL_3S_SERVICO_SLUGS } from "@/lib/visualEmpresarial3s";
+import { visual3T } from "@/lib/visualEmpresarial3t";
 import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
 import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";

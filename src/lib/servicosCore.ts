@@ -888,7 +888,11 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Como funciona o atendimento recorrente?", answer: "Definimos escopo, itens acompanhados e periodicidade conforme a necessidade da empresa. Não é suporte ilimitado: o que está incluído e o que é cobrado à parte fica registrado antes de começar." },
       { question: "Fazem atendimento de emergência?", answer: "Avaliamos situações com operação parada e priorizamos o restabelecimento conforme a disponibilidade da agenda. Não mantemos plantão em regime ininterrupto." },
       { question: "Resolvem problemas de rede e impressão?", answer: "Sim, esses estão entre os chamados mais comuns. Casos que envolvem cobertura, cabeamento ou reestruturação da conectividade são conduzidos pela página de redes e Wi-Fi." },
+      { question: "Vocês acessam sistemas e contas de terceiros da empresa?", answer: "Somente quando a empresa autoriza, com credenciais fornecidas por quem tem poder para isso e apenas pelo tempo do atendimento. Atuamos na camada de acesso e configuração local: instalar, conectar, corrigir sessão, ajustar navegador, impressora ou permissão do sistema operacional. Não administramos a conta, não respondemos pelo funcionamento interno da plataforma e não substituímos o suporte do fornecedor dela." },
+      { question: "Quem responde quando o problema está no sistema do fornecedor?", answer: "O fornecedor. Nós identificamos e registramos que a falha está fora do computador — servidor do fabricante fora do ar, atualização do sistema, licença vencida, regra de acesso alterada — e entregamos essa constatação por escrito para você acionar quem mantém a plataforma. Não abrimos chamado em nome da empresa sem autorização expressa." },
+      { question: "Vocês guardam senhas da empresa?", answer: "Não mantemos credenciais depois do atendimento. Recomendamos que a empresa troque a senha usada em qualquer acesso pontual e que credenciais administrativas fiquem sob controle de um responsável interno. Trabalhamos com o mínimo de acesso necessário para resolver o chamado." },
     ],
+
     relacionados: [
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
       { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },

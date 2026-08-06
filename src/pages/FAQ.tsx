@@ -10,7 +10,7 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { trackPageView } from "@/lib/analytics";
+import { trackPageView, trackFaqToggle } from "@/lib/analytics";
 import { HelpCircle } from "lucide-react";
 import {
   Accordion,

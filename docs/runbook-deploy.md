@@ -68,3 +68,29 @@ nesta pasta (`docs/rodada-*.md`).
 - Job semanal `SEO weekly monitoring`: indexação, Web Vitals, rank WoW.
 - `scripts/notify-seo-alerts.mjs` envia Slack (`SLACK_WEBHOOK_URL`) e/ou
   e-mail (`ALERT_EMAIL_TO` + `RESEND_API_KEY`) com link para os artefatos.
+
+## Credenciais Cloudflare e canais de alerta
+
+Os segredos vivem **apenas** em GitHub → Settings → Secrets and variables → Actions
+(não são gerenciáveis por aqui e nunca devem ser colados no chat):
+
+| Secret | Uso | Escopo mínimo |
+| --- | --- | --- |
+| `CLOUDFLARE_API_TOKEN` | worker de borda + ruleset de redirects | Account: Workers Scripts Edit · Zone: Workers Routes Edit, Zone Read, Config Rules Edit, Cache Purge |
+| `CLOUDFLARE_ACCOUNT_ID` | `wrangler deploy` | identificador |
+| `CLOUDFLARE_ZONE_ID` | ruleset 301 do domínio antigo | identificador |
+| `SLACK_WEBHOOK_URL` | alertas de SEO/Web Vitals | Incoming Webhook do canal |
+| `ALERT_EMAIL_TO` + `RESEND_API_KEY` | alertas por e-mail | chave Resend com domínio verificado |
+
+Pré-voo obrigatório antes de publicar o worker (somente leitura, roda no CI):
+
+```
+npm run check:cf-zone -- --enforce
+```
+
+Ele falha se `tecnico.curitiba.br`/`www` não estiverem em uma zona Cloudflare
+ativa da nossa conta **e** com o registro proxied. Como `curitiba.br` é domínio
+de registro, a zona correta é a **zona de subdomínio** `tecnico.curitiba.br`
+(Cloudflare → Add site → delegar NS no painel do registro `.br`).
+
+Todo alerta enviado inclui o link dos artefatos do run e o link deste runbook.

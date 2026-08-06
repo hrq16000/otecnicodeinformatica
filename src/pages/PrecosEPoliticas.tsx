@@ -141,6 +141,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15),transparent_60%)] pointer-events-none" />
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
+              <ExperienciaBadge className="mb-4" />
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 reveal-text">
                 Termos, Condições, Valores e Prazos
               </h1>

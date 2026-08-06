@@ -14,8 +14,20 @@ import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
+import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
 
 const CANONICAL_BASE = "https://tecnico.curitiba.br";
+
+/** Categoria de template a partir do slug de serviço (sem inventar dados). */
+function categoriaFromServico(slug: string): TemplateCategory {
+  if (slug.includes("redes") || slug.includes("wifi")) return "rede";
+  if (slug.includes("empresa")) return "empresa";
+  if (slug.includes("backup") || slug.includes("dados")) return "dados";
+  if (slug.includes("celular")) return "celular";
+  if (slug.includes("tv")) return "tv";
+  return "pc";
+}
+
 
 export interface ServicoBairroData {
   metaTitle: string;

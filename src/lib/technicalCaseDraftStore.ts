@@ -480,6 +480,13 @@ export function buildChecklist(c: DraftCase): ChecklistItem[] {
     item("recomendacoes", "Recomendações ao cliente", c.recommendations.length > 0),
     item("os", "Referência interna do atendimento", !!c.evidence.workOrderReference?.trim()),
     item("evidencia", "Evidências válidas (tipo, alt, EXIF, dimensões)", c.evidence.photos.length > 0 && photoErrs.length === 0, photoErrs.join("; ")),
+    item(
+      "evidencia-conjunto",
+      "Conjunto de evidências sem duplicidade ou foto genérica",
+      c.evidence.photos.length > 0 && evidenceIssues.length === 0,
+      evidenceIssues.map((i) => i.message).join(" "),
+    ),
+
     item("autorizacao", "Autorização do cliente registrada", c.evidence.customerAuthorization),
     item("revisao", "Revisão técnica concluída", c.evidence.technicalReview && /^\d{4}-\d{2}-\d{2}/.test(c.reviewedAt || "")),
     item("anonimizacao", "Anonimização confirmada (nome, série, dados, tela)",

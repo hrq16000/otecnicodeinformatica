@@ -7,6 +7,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { staticBodyFor, jsonLdScriptsFor } from "./curated-static-body.mjs";
+import { getWaveArticle, isWaveApproved } from "./lib/editorial-wave.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
@@ -621,11 +622,12 @@ export async function prerenderCities(distDir) {
     console.warn(`[prerender-cities] blog: ${blogDuplicates.length} slug(s) duplicado(s) ignorado(s): ${blogDuplicates.join(", ")}`);
   }
 
-  // Hub /blog — noindex enquanto não houver artigos aprovados.
+  // Hub /blog — indexável somente quando há artigos aprovados na onda.
   {
     const url = `${SITE}/blog`;
     const title = "Guias de Informática | Técnico em Curitiba";
     const description = "Guias sobre manutenção, segurança, computadores, notebooks, redes e cuidados com dados, publicados após revisão editorial.";
+    const approvedPosts = blogPosts.filter((p) => isWaveApproved(p.slug));
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -635,11 +637,43 @@ export async function prerenderCities(distDir) {
       inLanguage: "pt-BR",
       isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
       publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+      hasPart: approvedPosts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        url: `${SITE}/blog/${p.slug}`,
+      })),
     };
-    const html = injectMeta(baseHtml, {
+    let html = injectMeta(baseHtml, {
       path: "/blog", url, title, description,
-      ogImage: DEFAULT_OG, jsonLd, robots: ROBOTS_NOINDEX,
+      ogImage: DEFAULT_OG, jsonLd,
+      robots: approvedPosts.length >= 3 ? ROBOTS_INDEX : ROBOTS_NOINDEX,
     });
+    if (approvedPosts.length) {
+      const list = approvedPosts
+        .map(
+          (p) =>
+            `<li style="margin:10px 0"><a href="/blog/${p.slug}" style="color:#7fd4ec;font-weight:600">${htmlEscape(p.title)}</a><br><span style="font-size:.9rem;opacity:.9">${htmlEscape(p.excerpt)}</span></li>`,
+        )
+        .join("");
+      const body = `
+        <div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e8eef2;background:#0f171c">
+          <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.85;margin-bottom:12px"><a href="/" style="color:#7fd4ec">Início</a> › <span aria-current="page">Guias</span></nav>
+          <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">Guias de Informática</h1>
+          <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(description)}</p>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Guias publicados</h2>
+          <ul style="margin:0;padding-left:20px">${list}</ul>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Serviços relacionados</h2>
+          <ul style="margin:0;padding-left:20px">
+            <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Serviços de informática em Curitiba</a></li>
+            <li style="margin:4px 0"><a href="/diagnostico-tecnico" style="color:#7fd4ec">Como funciona o diagnóstico técnico</a></li>
+            <li style="margin:4px 0"><a href="/atendimento-domicilio" style="color:#7fd4ec">Atendimento técnico no endereço</a></li>
+          </ul>
+        </div>`;
+      html = html.replace(
+        /<noscript>\s*<div style="min-height:100vh[\s\S]*?<\/noscript>/i,
+        `<noscript>${body}\n      </noscript>`,
+      );
+    }
     await writePage(distDir, "/blog", html);
     written++;
   }
@@ -648,7 +682,11 @@ export async function prerenderCities(distDir) {
     await writeBlogPostPage(distDir, baseHtml, post);
     written++;
   }
-  console.log(`[prerender-cities] wrote /blog hub + ${blogPosts.length} blog article HTML files (noindex,follow)`);
+  const approvedCount = blogPosts.filter((p) => isWaveApproved(p.slug)).length;
+  console.log(
+    `[prerender-cities] wrote /blog hub + ${blogPosts.length} blog article HTML files (${approvedCount} indexáveis, ${blogPosts.length - approvedCount} noindex,follow)`,
+  );
+
 
   // eslint-disable-next-line no-console
   console.log(`[prerender-cities] wrote ${written} per-route index.html files`);

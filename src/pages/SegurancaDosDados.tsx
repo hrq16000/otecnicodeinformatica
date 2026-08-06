@@ -8,6 +8,8 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { Button } from "@/components/ui/button";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { TrustStrip } from "@/components/TrustStrip";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -175,20 +177,20 @@ const SegurancaDosDados = () => {
       <Breadcrumbs items={[{ label: "Segurança dos dados" }]} />
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
-        <div className="container mx-auto max-w-4xl px-4 py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-accent">
+        <div className="container mx-auto max-w-4xl px-4 py-8 md:py-14">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent md:mb-3 md:text-sm">
             Confiança · Curitiba e região
           </p>
-          <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
+          <h1 className="mb-3 text-[1.6rem] font-bold leading-tight md:mb-4 md:text-4xl">
             Segurança dos dados durante a assistência técnica
           </h1>
-          <p className="mb-6 text-base leading-relaxed opacity-95">
+          <p className="mb-5 text-sm leading-relaxed opacity-95 md:mb-6 md:text-base">
             Entregar um computador para manutenção significa entregar também o que existe dentro dele: documentos,
             fotos, contratos, e-mails e acessos. Esta página explica, sem promessa mágica, como tratamos arquivos,
             senhas e credenciais em cada tipo de serviço, o que depende de autorização sua, o que é feito para reduzir
             risco e — principalmente — quais são os limites técnicos que ninguém honesto pode ignorar.
           </p>
-          <Button asChild size="lg" className="min-h-14">
+          <Button asChild size="lg" className="min-h-14 w-full sm:w-auto">
             <a href={waHref} onClick={cta("hero")} data-cta-location="seguranca_hero">
               <MessageCircle className="mr-2 h-5 w-5" /> Tirar dúvida antes do atendimento
             </a>
@@ -196,8 +198,20 @@ const SegurancaDosDados = () => {
         </div>
       </section>
 
+      <TrustStrip variant="compact" />
+
       <main className="container mx-auto max-w-4xl px-4 py-12">
-        <section className="mb-12">
+        <PageTableOfContents
+          className="mb-10"
+          items={[
+            { id: "acesso-minimo", label: "Compromisso de acesso mínimo" },
+            { id: "autorizacao", label: "Autorização do cliente" },
+            { id: "backup", label: "Backup antes do atendimento" },
+            { id: "limites", label: "Limites técnicos" },
+            { id: "faq", label: "Perguntas frequentes" },
+          ]}
+        />
+        <section id="acesso-minimo" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Compromisso de acesso mínimo</h2>
           <p className="mb-3 text-muted-foreground">
             O princípio que organiza tudo aqui é simples: o acesso acompanha o serviço, nunca o contrário. Se o
@@ -221,7 +235,7 @@ const SegurancaDosDados = () => {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="autorizacao" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Autorização: nada acontece por conta própria</h2>
           <p className="mb-3 text-muted-foreground">
             Todo atendimento segue a mesma ordem: diagnóstico, explicação do que foi encontrado, valor do serviço e
@@ -240,7 +254,7 @@ const SegurancaDosDados = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="backup" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Backup antes do atendimento</h2>
           <p className="mb-3 text-muted-foreground">
             Sempre que possível, mantenha uma cópia atualizada dos seus arquivos antes de qualquer serviço técnico.
@@ -385,7 +399,7 @@ const SegurancaDosDados = () => {
           </p>
         </section>
 
-        <section className="mb-12 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
+        <section id="limites" className="mb-12 scroll-mt-24 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <AlertTriangle className="h-6 w-6 text-destructive" /> Limites técnicos que precisam ser ditos
           </h2>
@@ -501,7 +515,7 @@ const SegurancaDosDados = () => {
           </p>
         </section>
 
-        <section className="mb-12">
+        <section id="faq" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes sobre segurança dos dados</h2>
           <div className="space-y-4">
             {FAQS.map((f) => (

@@ -221,7 +221,7 @@ const ProcedimentosPlaca = () => {
               <div className="grid sm:grid-cols-3 gap-3">
                 {[
                   { label: "Conserto de Placa", to: "/servicos/conserto-placa" },
-                  { label: "Conserto de PC/Notebook", to: "/servicos/manutencao-de-computador" },
+                  { label: "Manutenção de Computador", to: "/servicos/manutencao-de-computador" },
                   { label: "Manutenção de TV", to: "/servicos/manutencao-tv" },
                   { label: "Reparo Placa Notebook", to: "/problemas/reparo-placa-mae-notebook-curitiba" },
                   { label: "Por Que Conserto de Placa é Caro?", to: "/problemas/por-que-conserto-placa-mae-custa-caro-curitiba" },

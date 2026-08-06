@@ -187,10 +187,10 @@ const ComputadorLento = () => {
             <h2 className="text-xl font-bold text-foreground mb-6 text-center">Serviços Relacionados</h2>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
-                { label: "Upgrade SSD e Memória", to: "/servicos/upgrade-ssd-ram" },
+                { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
                 { label: "Formatação de Computador", to: "/servicos/formatacao" },
                 { label: "Remoção de Vírus", to: "/servicos/remocao-de-virus" },
-                { label: "Conserto de PC/Notebook", to: "/servicos/manutencao-de-computador" },
+                { label: "Manutenção de Computador", to: "/servicos/manutencao-de-computador" },
                 { label: "Como Funciona", to: "/como-funciona" },
                 { label: "Preços e Políticas", to: "/precos-e-politicas" },
               ].map((link) => (

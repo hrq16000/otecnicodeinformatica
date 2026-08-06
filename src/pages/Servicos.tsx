@@ -84,6 +84,23 @@ const Servicos = () => {
   const waHref = whatsappLink("Olá! Gostaria de saber mais sobre os serviços.");
   const handleCta = () => trackCTAClick("whatsapp", "servicos-hub");
 
+  useJsonLdSlot(
+    SCHEMA_SLOTS.faq,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl("/servicos")}#faq`,
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+    SLOT_PRIORITY.page,
+  );
+
+
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO

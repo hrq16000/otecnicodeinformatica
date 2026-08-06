@@ -475,8 +475,31 @@ const AdminReviews = () => {
                         const url = kind === "t24" ? t24WaLink(r.client_phone!, ctx) : t72WaLink(r.client_phone!, ctx);
                         window.open(url, "_blank", "noopener,noreferrer");
                       };
-                      const tipPhone = hasPhone ? "" : " · telefone não cadastrado";
+                      const waParams = {
+                        clientName: r.author_name,
+                        protocolo: r.origin_protocol ?? undefined,
+                        servico: r.service_slug ?? undefined,
+                        bairro: r.neighborhood ?? undefined,
+                      };
+                      const openWa = (url: string) =>
+                        window.open(url, "_blank", "noopener,noreferrer");
+                      const sendReminder = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        openWa(reviewReminderWaLink(r.client_phone!, waParams));
+                      };
+                      const sendPublished = () => {
+                        if (!hasPhone) {
+                          toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
+                          return;
+                        }
+                        openWa(reviewPublishedWaLink(r.client_phone!, waParams));
+                      };
+                      const remindDue = shouldRemind(baseDate, REMINDER_HOURS);
                       const sendOsFollowUp = () => {
+
                         if (!hasPhone) {
                           toast({ title: "Telefone ausente", description: "Edite a review e preencha o WhatsApp do cliente.", variant: "destructive" });
                           return;

@@ -42,7 +42,7 @@ type Review = {
 
 };
 
-type Filter = "all" | "pending" | "published" | "hidden";
+type Filter = "all" | "pending" | "published" | "hidden" | "unauthorized";
 
 const emptyForm: Partial<Review> = {
   author_name: "",

@@ -107,4 +107,9 @@ jobs:
             reports/web-vitals.json
             reports/rank-tracking.md
             reports/rank-tracking.json
+            reports/edge-smoke.json
+            reports/redirect-coverage.json
+            reports/edge-alerts.json
+            docs/relatorio-smoke-edge.md
+            docs/relatorio-cobertura-redirects.md
           if-no-files-found: warn

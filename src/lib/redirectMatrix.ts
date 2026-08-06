@@ -31,6 +31,11 @@ export const REDIRECT_MATRIX: RedirectRule[] = [
   { from: "/servicos/redes-wifi", to: "/servicos/redes-e-wifi", motivo: "variacao-slug" },
   { from: "/tecnico-informatica-sao-jose-dos-pinhais", to: "/tecnico-informatica-sao-jose-pinhais", motivo: "variacao-slug" },
   { from: "/servicos/backup-recuperacao", to: "/servicos/recuperacao-de-dados", motivo: "variacao-slug" },
+  // PC Gamer é intenção de busca da mesma página de montagem — alias, nunca
+  // página duplicada (evita canibalização com /servicos/montagem-de-pc).
+  { from: "/servicos/pc-gamer", to: "/servicos/montagem-de-pc", motivo: "variacao-slug" },
+  { from: "/servicos/montagem-de-pc-gamer", to: "/servicos/montagem-de-pc", motivo: "variacao-slug" },
+  { from: "/pc-gamer-curitiba", to: "/servicos/montagem-de-pc", motivo: "url-antiga" },
 
   // ── URLs comerciais antigas (raiz) ──────────────────────────
   { from: "/formatacao-de-computador-curitiba", to: "/servicos/formatacao", motivo: "url-antiga" },

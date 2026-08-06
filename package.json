@@ -127,7 +127,9 @@
     "report:redirect-coverage:strict": "node scripts/report-redirect-coverage.mjs --strict",
     "alert:edge": "node scripts/alert-edge-errors.mjs",
     "alert:edge:dry": "node scripts/alert-edge-errors.mjs --dry-run",
-    "check:technical-cases": "node scripts/check-technical-cases.mjs"
+    "check:technical-cases": "node scripts/check-technical-cases.mjs",
+    "check:sitemap-status": "node scripts/check-sitemap-status.mjs",
+    "alert:sitemap-status": "node scripts/alert-sitemap-status.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

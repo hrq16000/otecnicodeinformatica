@@ -23,6 +23,10 @@ type ClickEvent = {
   problema: string | null;
   path: string | null;
   session_id: string | null;
+  route_type: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
 };
 
 

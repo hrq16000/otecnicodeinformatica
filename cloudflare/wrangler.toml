@@ -35,9 +35,10 @@ zone_name = "tecnico.curitiba.br"
 # pattern = "www.tecnico.curitiba.br/*"
 # zone_name = "tecnico.curitiba.br"
 
-[build]
-command = "npm run build"
-cwd = ".."
+# Sem [build]: o bundle do site é gerado antes, por `npm run build` na raiz do
+# repositório (gate obrigatório). Deixar o wrangler disparar o build tornava o
+# dry-run dependente do diretório de execução.
+
 
 [observability]
 enabled = true

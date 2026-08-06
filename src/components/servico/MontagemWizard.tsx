@@ -187,21 +187,29 @@ export const MontagemWizard = () => {
         <div className="mt-6 rounded-xl border border-border bg-card p-5 space-y-5">
           {step === 0 && (
             <>
-              <div className="space-y-2">
-                <Label htmlFor="wz-modelo">Configuração ou modelo pretendido</Label>
+              <div className={`space-y-2 rounded-lg${alerta("modelo")}`}>
+                <Label htmlFor="wz-modelo">
+                  Configuração ou modelo pretendido <span className="text-destructive">*</span>
+                </Label>
                 <Input
                   id="wz-modelo"
                   maxLength={160}
+                  required
+                  aria-invalid={invalido("modelo")}
                   value={modelo}
                   onChange={(e) => setModelo(e.target.value)}
                   placeholder="Ex.: desktop novo com Ryzen 5, 16 GB e SSD 1 TB"
                 />
-                {modelo.trim().length > 0 && modelo.trim().length < 3 && (
-                  <p className="text-xs text-destructive">Descreva com pelo menos 3 caracteres.</p>
+                {(invalido("modelo") || (modelo.trim().length > 0 && modelo.trim().length < 3)) && (
+                  <p className="text-xs font-medium text-destructive">
+                    Preencha este campo com pelo menos 3 caracteres.
+                  </p>
                 )}
               </div>
-              <div className="space-y-2">
-                <span className="text-sm font-medium">Uso pretendido</span>
+              <div className={`space-y-2 p-1${alerta("uso")}`}>
+                <span className="text-sm font-medium">
+                  Uso pretendido <span className="text-destructive">*</span>
+                </span>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {USOS.map((u) => (
                     <button
@@ -209,7 +217,7 @@ export const MontagemWizard = () => {
                       type="button"
                       onClick={() => setUso(u)}
                       aria-pressed={uso === u}
-                      className={`rounded-lg border px-3 py-2 text-left text-sm transition ${
+                      className={`min-h-11 rounded-lg border px-3 py-2 text-left text-sm transition ${
                         uso === u ? "border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10" : "border-border hover:bg-muted/50"
                       }`}
                     >
@@ -217,6 +225,9 @@ export const MontagemWizard = () => {
                     </button>
                   ))}
                 </div>
+                {invalido("uso") && (
+                  <p className="text-xs font-medium text-destructive">Selecione uma opção de uso.</p>
+                )}
               </div>
             </>
           )}

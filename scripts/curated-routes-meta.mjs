@@ -112,7 +112,32 @@ const BASE_ROUTES = [
   {
     "path": "/precos-e-politicas",
     "title": "Preços e Políticas | Técnico em Curitiba",
-    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados."
+    "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados.",
+    "blocos": [
+      {
+        "titulo": "Como o valor do atendimento é definido",
+        "paragrafos": [
+          "Não existe preço fechado por telefone para reparo, e isso não é falta de transparência: é o contrário. O que temos publicado é o ponto de partida de cada modalidade — visita técnica de inspeção a partir de R$ 99,99 por até (ou a cada) 30 minutos, pacote pré-acordado de até 2 horas por R$ 279,99 e diagnóstico com compromisso, coleta e entrega inclusas, com mínimo pré-aprovado de R$ 299,99. O valor final depende do que a avaliação confirmar.",
+          "Quatro fatores pesam no resultado: a causa real confirmada no diagnóstico, o modelo e o estado do equipamento, a necessidade de bancada e ferramenta específica, e a disponibilidade de peça compatível. Um mesmo sintoma — o computador que não liga, por exemplo — pode terminar em uma verificação simples de alimentação ou em um reparo de placa, e cobrar o mesmo pelos dois seria injusto com quem tem o caso mais leve.",
+          "Peças, componentes, licenças e materiais são sempre tratados à parte da mão de obra e só são adquiridos após a sua autorização. Nada além do que foi combinado é executado sem aprovação. Se o caminho técnico mudar durante o serviço, você é avisado antes, não depois."
+        ]
+      },
+      {
+        "titulo": "O que está incluído e o que não está",
+        "paragrafos": [
+          "Estão incluídos na modalidade contratada: a avaliação técnica do equipamento e a identificação da causa provável, a explicação em linguagem clara do que foi encontrado, a execução dos procedimentos autorizados dentro do escopo combinado, a coleta e entrega na modalidade de diagnóstico com compromisso e a garantia de 90 dias sobre a mão de obra do serviço executado.",
+          "Não estão incluídos: peças, componentes, licenças de software e materiais; abertura e reparo de placas na modalidade de visita avulsa; garantia de recuperação de dados, que é sempre uma tentativa; promessa de prazo fixo de chegada ou de conclusão sem avaliação; e serviços fora do escopo de informática e redes."
+        ]
+      },
+      {
+        "titulo": "Prazos, garantia e cuidado com seus dados",
+        "paragrafos": [
+          "O prazo depende da complexidade e da peça. Serviços de software, como reinstalação de sistema e limpeza, costumam ser mais rápidos do que reparos que dependem de componente específico. Trabalhamos com prazo estimado informado após a avaliação, e avisamos quando ele muda — em vez de prometer antes de olhar o equipamento.",
+          "A garantia de 90 dias cobre a mão de obra do serviço que foi executado, no mesmo defeito tratado. Peças e componentes seguem a garantia do fornecedor ou fabricante. Ficam de fora da garantia: falha de causa diferente da tratada, dano por queda, líquido, surto elétrico ou mau uso, intervenção de terceiros após o atendimento, e desgaste natural de bateria e de armazenamento.",
+          "Sobre dados: recomendamos backup antes de qualquer intervenção que envolva armazenamento, e quando possível fazemos cópia preventiva. O acesso a arquivos se limita ao necessário para o serviço autorizado. Tentativa de recuperação de conteúdo já perdido é outro serviço e não tem resultado garantido. Quando o reparo deixa de fazer sentido diante do valor do equipamento, dizemos isso abertamente."
+        ]
+      }
+    ]
   },
   {
     "path": "/faq",

@@ -88,6 +88,7 @@
     "check:forbidden-copy": "node scripts/check-forbidden-copy.mjs",
     "check:copy": "npm run check:forbidden-copy && npm run check:trust-claims",
     "report:local-audit": "node scripts/report-local-audit.mjs",
+    "check:editorial-wave-3o": "node scripts/check-editorial-wave-3o.mjs",
     "check:editorial-cluster": "node scripts/check-editorial-cluster.mjs",
     "check:editorial-no-direct-wa": "node scripts/check-editorial-no-direct-wa.mjs",
     "report:editorial": "node scripts/report-editorial-inventory.mjs",

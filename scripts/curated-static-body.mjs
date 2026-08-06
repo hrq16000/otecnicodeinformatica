@@ -449,7 +449,7 @@ export function staticBodyFor(route) {
       route.faq
         .map(
           (f) =>
-            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta)}</p>`,
+            `<h3 style="font-size:1rem;margin:14px 0 4px">${esc(f.pergunta ?? f.question)}</h3><p style="margin:0;font-size:.95rem;opacity:.94">${esc(f.resposta ?? f.answer)}</p>`,
         )
         .join("")
     : "";
@@ -633,8 +633,8 @@ export function jsonLdFor(route) {
         "@id": `${url}#faq`,
         mainEntity: route.faq.map((f) => ({
           "@type": "Question",
-          name: f.pergunta,
-          acceptedAnswer: { "@type": "Answer", text: f.resposta },
+          name: f.pergunta ?? f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.resposta ?? f.answer },
         })),
       });
     }
@@ -681,10 +681,11 @@ export function jsonLdFor(route) {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "@id": `${url}#faq`,
+      // Aceita ambos os formatos de origem (pergunta/resposta e question/answer).
       mainEntity: route.faq.map((f) => ({
         "@type": "Question",
-        name: f.pergunta,
-        acceptedAnswer: { "@type": "Answer", text: f.resposta },
+        name: f.pergunta ?? f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.resposta ?? f.answer },
       })),
     });
   }

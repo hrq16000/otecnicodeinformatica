@@ -31,6 +31,11 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Quando vale trocar o HD por SSD",
       hint: "Critérios técnicos para decidir entre manter o disco atual ou migrar para SSD.",
     },
+    {
+      slug: "como-escolher-uma-workstation",
+      label: "Como escolher uma workstation profissional",
+      hint: "Quando dimensionar uma máquina nova em vez de melhorar a atual.",
+    },
   ],
   "/servicos/remocao-de-virus": [
     {
@@ -52,12 +57,62 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Backup: como proteger seus arquivos",
       hint: "O que preparar antes de entregar o equipamento e como manter cópias próprias.",
     },
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "Acessos, responsáveis e limites de sistemas mantidos por terceiros.",
+    },
   ],
   "/servicos/redes-e-wifi": [
     {
       slug: "como-melhorar-sinal-wifi-em-casa",
       label: "Como melhorar o sinal de Wi-Fi em casa",
       hint: "Ajustes de posicionamento e rede local antes de considerar troca de equipamento.",
+    },
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "Como mapear pontos de rede, energia e equipamentos críticos do escritório.",
+    },
+  ],
+  "/empresa-de-ti-curitiba": [
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "Inventário, arquivos, acessos e rotina de manutenção antes de contratar suporte.",
+    },
+    {
+      slug: "como-escolher-uma-workstation",
+      label: "Como escolher uma workstation profissional",
+      hint: "Levantamento de requisitos antes de definir peças de uma estação de trabalho.",
+    },
+  ],
+  "/servicos/suporte-tecnico-empresarial": [
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "O que registrar e documentar antes de acionar suporte avulso ou recorrente.",
+    },
+  ],
+  "/servicos/manutencao-preventiva-empresas": [
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "Calendário de verificações e prioridades para reduzir improvisos.",
+    },
+  ],
+  "/servicos/backup-para-empresas": [
+    {
+      slug: "organizacao-de-ti-para-pequenos-escritorios",
+      label: "Como organizar a informática de um pequeno escritório",
+      hint: "Onde os arquivos moram, quem responde por eles e como testar a restauração.",
+    },
+  ],
+  "/servicos/montagem-de-pc": [
+    {
+      slug: "como-escolher-uma-workstation",
+      label: "Como escolher uma workstation profissional",
+      hint: "Critérios de requisitos, componentes e limites antes de montar a estação.",
     },
   ],
   "/servicos/manutencao-de-notebook": [

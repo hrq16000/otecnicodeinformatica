@@ -47,6 +47,7 @@ export const blogPostsContentBase: Record<string, BlogPostContent> = {
 
         <h2>5. Rede, energia e o que ninguém olha</h2>
         <p>Boa parte das reclamações de “internet lenta” em escritório é distribuição interna, não plano contratado: roteador no lugar errado, cabo antigo, equipamento doméstico atendendo vinte dispositivos ou rede sem separação entre uso interno e visitantes. Vale mapear onde estão os pontos de rede, quais máquinas usam cabo e quais dependem de sinal sem fio.</p>
+        <p>Se o sinal sem fio não cobre a sala inteira ou a rede cai em horário de pico, a avaliação da estrutura interna está descrita em <Link to="/servicos/redes-e-wifi" className="text-accent">redes e Wi-Fi</Link>.</p>
         <p>Energia é o item mais esquecido. Máquina que guarda arquivos, servidor local, roteador e a estação do fechamento merecem proteção contra queda. Desligamento abrupto durante gravação de arquivo é uma das causas mais comuns de corrupção de dados.</p>
 
         <h2>6. Rotina de manutenção em vez de urgência</h2>
@@ -126,10 +127,11 @@ export const blogPostsContentBase: Record<string, BlogPostContent> = {
 
         <h2>Comprar pronta, montar sob medida ou fazer melhoria</h2>
         <p>Máquina pronta de fabricante traz garantia unificada e menos decisões, com menos flexibilidade de peça. Montagem sob medida permite dimensionar cada componente para a carga e planejar expansão, exigindo critério na escolha. Melhoria de uma máquina existente costuma ser a melhor relação custo-benefício quando o gargalo é isolado — memória insuficiente ou armazenamento lento — e o restante do conjunto ainda atende.</p>
+        <p>Quando o gargalo é isolado, a intervenção pontual está descrita em <Link to="/servicos/upgrade-ssd-ram" className="text-accent">upgrade de SSD e memória</Link>. Os tipos de equipamento avaliados estão em <Link to="/equipamentos-atendidos" className="text-accent">equipamentos atendidos</Link>, e as condições de execução em <Link to="/precos-e-politicas" className="text-accent">preços e políticas</Link>.</p>
         <p>Antes de decidir, vale medir onde o trabalho realmente trava hoje. Trocar tudo por causa de um gargalo pontual é o erro mais caro dessa categoria. Os critérios de peças, garantia e execução estão em <Link to="/servicos/montagem-de-pc" className="text-accent">montagem de PC</Link> e em <Link to="/politica-de-pecas-do-cliente" className="text-accent">política de peças do cliente</Link>.</p>
 
         <h2>A estação dentro do ambiente da empresa</h2>
-        <p>Estação nova raramente vive isolada: entra numa rede, imprime, guarda arquivos, depende de acesso a sistemas e precisa de rotina de cópia. Planeje a entrada da máquina no ambiente junto com a compra — perfil de usuário, permissões, acesso aos arquivos compartilhados e inclusão na rotina de manutenção. Esse acompanhamento é descrito em <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent">suporte técnico empresarial</Link>.</p>
+        <p>Estação nova raramente vive isolada: entra numa rede, imprime, guarda arquivos, depende de acesso a sistemas e precisa de rotina de cópia. Planeje a entrada da máquina no ambiente junto com a compra — perfil de usuário, permissões, acesso aos arquivos compartilhados e inclusão na rotina de manutenção. Esse acompanhamento é descrito em <Link to="/servicos/suporte-tecnico-empresarial" className="text-accent">suporte técnico empresarial</Link>. A rotina de cópia dos projetos da equipe é tratada em <Link to="/servicos/backup-para-empresas" className="text-accent">backup para empresas</Link>.</p>
 
         <h2>Erros mais comuns na escolha</h2>
         <ul>

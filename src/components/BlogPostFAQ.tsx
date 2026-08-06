@@ -205,6 +205,84 @@ const PILOT_FAQ: Record<string, FAQItem[]> = {
       a: "Provavelmente não. Quando o problema é isolado em um dispositivo, a causa costuma estar no próprio aparelho.",
     },
   ],
+
+  // ── Rodada 3O — conteúdos educacionais empresariais.
+  "organizacao-de-ti-para-pequenos-escritorios": [
+    {
+      q: "Uma empresa pequena precisa de inventário de computadores?",
+      a: "Sim. Sem a lista do que existe, cada compra vira palpite e cada parada vira urgência. O inventário mostra a máquina mais antiga, quem depende de qual programa e o que não pode ficar fora do ar.",
+    },
+    {
+      q: "Quais informações devem ser registradas?",
+      a: "Equipamento, categoria, usuário, local interno, configuração relevante, sistema operacional, programas principais, data aproximada de compra, garantia, problema conhecido e importância operacional.",
+    },
+    {
+      q: "Preciso guardar senhas junto com o inventário?",
+      a: "Não. Senhas, códigos de autenticação, dados bancários e dados de clientes não devem ficar no inventário. Credenciais compartilhadas ficam em um gerenciador de senhas com acesso controlado.",
+    },
+    {
+      q: "Backup em nuvem é suficiente?",
+      a: "Depende do que é sincronização e do que é cópia recuperável. Sincronização propaga exclusão e corrupção. O que define a proteção é ter versões anteriores, cópia separada e teste de restauração.",
+    },
+    {
+      q: "Quem deve ser responsável pela informática?",
+      a: "Alguém interno precisa responder pelas decisões — autorizar acessos, acionar fornecedores e acompanhar as rotinas — mesmo quando a execução técnica é externa.",
+    },
+    {
+      q: "Atendimento avulso é suficiente?",
+      a: "Para ambientes pequenos e estáveis, muitas vezes sim. O atendimento avulso resolve o caso pontual, sem acompanhamento contínuo entre os chamados.",
+    },
+    {
+      q: "Quando vale considerar suporte recorrente?",
+      a: "Quando os chamados se repetem, há mais estações do que consegue acompanhar, o histórico se perde entre atendimentos ou a operação depende de rotinas preventivas com data.",
+    },
+    {
+      q: "Como registrar um problema antes de pedir suporte?",
+      a: "Anote equipamento, usuário, horário de início, mensagem de erro exata, programa envolvido, alteração recente, quantas pessoas estão paradas e se o acesso remoto é possível. Nunca envie senhas por mensagem.",
+    },
+  ],
+  "como-escolher-uma-workstation": [
+    {
+      q: "Qual é a diferença entre workstation e PC gamer?",
+      a: "A carga de trabalho. Uma estação profissional costuma rodar horas seguidas, com arquivos grandes e prioridade em estabilidade, memória e armazenamento. O foco de um PC de jogos é outro.",
+    },
+    {
+      q: "Toda workstation precisa de placa de vídeo dedicada?",
+      a: "Não. A placa só é decisiva quando a aplicação usa aceleração gráfica compatível. Consulte os requisitos oficiais do programa antes de investir nesse componente.",
+    },
+    {
+      q: "Quanta memória RAM é necessária?",
+      a: "Não existe número universal. A quantidade depende do tamanho dos projetos, das aplicações abertas ao mesmo tempo e do limite da plataforma escolhida.",
+    },
+    {
+      q: "É melhor usar um ou mais SSDs?",
+      a: "Depende da separação desejada entre sistema, projetos ativos e cache. Unidades separadas ajudam na organização e no espaço livre; uma única unidade bem dimensionada também pode atender.",
+    },
+    {
+      q: "É possível aproveitar componentes antigos?",
+      a: "Em alguns casos sim, quando há compatibilidade de plataforma e o componente não é o gargalo. Isso é avaliado peça a peça, não por regra geral.",
+    },
+    {
+      q: "Como saber se as peças são compatíveis?",
+      a: "Pela verificação de plataforma, encaixe, alimentação, dimensões do gabinete e requisitos de cada componente. A conferência é feita antes da compra, com a lista em mãos.",
+    },
+    {
+      q: "O desempenho em um programa pode ser garantido?",
+      a: "Não. A montagem correta reduz gargalos, mas o resultado depende da versão do software, do tipo de projeto, dos plugins e dos requisitos oficiais da aplicação.",
+    },
+    {
+      q: "É possível fazer upgrade futuramente?",
+      a: "Quando a plataforma e o gabinete preveem expansão, sim. Deixar encaixes livres e espaço físico disponível na escolha inicial é o que mantém essa possibilidade.",
+    },
+    {
+      q: "Os testes estão incluídos?",
+      a: "O escopo de testes é confirmado antes da execução e pode incluir reconhecimento dos componentes, inicialização, memória, armazenamento, temperatura, estabilidade, portas, vídeo e rede.",
+    },
+    {
+      q: "O valor pode ser informado sem conhecer os requisitos?",
+      a: "Não de forma responsável. Sem saber o que roda, o tamanho dos arquivos e o uso diário, qualquer número é chute. O levantamento vem antes.",
+    },
+  ],
 };
 
 export const BlogPostFAQ = ({ category, slug }: { category: string; slug: string }) => {

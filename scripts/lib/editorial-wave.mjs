@@ -61,6 +61,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Atendimento técnico no endereço",
     cover: "/blog/notebook-superaquecendo-o-que-fazer.jpg",
   },
+  // ── Rodada 3O — onda educacional empresarial (2 conteúdos, 0 rotas novas).
+  {
+    slug: "organizacao-de-ti-para-pequenos-escritorios",
+    approvedAt: "2026-08-06",
+    pilar: "/empresa-de-ti-curitiba",
+    pilarLabel: "Empresa de TI em Curitiba",
+    apoio: "/servicos/suporte-tecnico-empresarial",
+    apoioLabel: "Suporte técnico empresarial",
+    cover: "/blog/organizacao-de-ti-para-pequenos-escritorios.jpg",
+  },
+  {
+    slug: "como-escolher-uma-workstation",
+    approvedAt: "2026-08-06",
+    pilar: "/servicos/montagem-de-pc",
+    pilarLabel: "Montagem de PC sob medida",
+    apoio: "/servicos/upgrade-ssd-ram",
+    apoioLabel: "Upgrade de SSD e memória",
+    cover: "/blog/como-escolher-uma-workstation.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

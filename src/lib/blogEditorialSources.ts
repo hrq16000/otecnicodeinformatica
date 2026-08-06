@@ -289,6 +289,25 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Fact-check concluído: diferencia sinal e internet, dispositivo e rede, operadora e Wi-Fi local; sem canal/frequência/potência universais; foco residencial. Cobertura com múltiplos pontos (mesh) sustentada pela Wi-Fi Alliance.",
   },
+  "organizacao-de-ti-para-pequenos-escritorios": {
+    slug: "organizacao-de-ti-para-pequenos-escritorios",
+    sources: ["cisa-backup", "nist-sp-800-34"],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-06",
+    notes:
+      "Revisão concluída (Rodada 3O): conteúdo organizacional, sem consultoria de conformidade, sem SLA, sem promessa de continuidade e sem orientação para armazenar senhas junto ao inventário. Limite entre camada de máquina e sistemas de terceiros explicitado. Estratégia de cópias apresentada como referência, com teste de restauração obrigatório — sustentada por CISA/NIST.",
+  },
+  "como-escolher-uma-workstation": {
+    slug: "como-escolher-uma-workstation",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-06",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Rodada 3O): critérios de levantamento de requisitos, sem configuração universal, sem benchmark, sem promessa de desempenho, sem nome de software no slug/H1/title e sem selo de homologação não publicado pelo fabricante. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

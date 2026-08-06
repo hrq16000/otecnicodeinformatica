@@ -27,7 +27,8 @@ const note = (m) => notes.push(m);
 
 const read = (p) => fs.readFile(path.join(ROOT, p), "utf8");
 
-const LIMITS = { aprofundar: 8, novo: 4, consolidar: 4, noindex: 4 };
+// 8 aprofundamentos da Rodada 4F + 2 conteúdos empresariais da Rodada 3O.
+const LIMITS = { aprofundar: 10, novo: 4, consolidar: 4, noindex: 4 };
 
 const CLAIMS = [
   /diagn[óo]stico\s+gr[áa]tis/i,

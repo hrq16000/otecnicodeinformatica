@@ -22,6 +22,7 @@ export type EditorialClusterId =
   | "atendimento-endereco"
   | "suporte-remoto"
   | "ti-empresas"
+  | "montagem-workstation"
   | "custo-beneficio";
 
 export type EditorialAction =
@@ -125,6 +126,15 @@ export const EDITORIAL_CLUSTERS: Record<EditorialClusterId, EditorialCluster> = 
     ctaBranch: "pj",
     intencaoPilar: "contratar suporte de TI empresarial em Curitiba",
   },
+  "montagem-workstation": {
+    id: "montagem-workstation",
+    nome: "Montagem e dimensionamento de estação de trabalho",
+    pilar: "/servicos/montagem-de-pc",
+    pilarLabel: "Montagem de PC sob medida",
+    pilarApoio: "/servicos/upgrade-ssd-ram",
+    ctaBranch: "pj",
+    intencaoPilar: "contratar montagem de PC/estação de trabalho em Curitiba",
+  },
   "custo-beneficio": {
     id: "custo-beneficio",
     nome: "Decisão de reparo e custo-benefício",
@@ -214,6 +224,22 @@ export const EDITORIAL_FIRST_WAVE: EditorialEntry[] = [
     acao: "aprofundar",
     consulta: "notebook esquentando e desligando",
     relacionados: ["notebook-nao-liga-o-que-fazer", "computador-lento-causas-solucoes"],
+  },
+
+  // ── Rodada 3O — onda educacional empresarial (2 conteúdos, 0 rotas novas)
+  {
+    slug: "organizacao-de-ti-para-pequenos-escritorios",
+    cluster: "ti-empresas",
+    acao: "aprofundar",
+    consulta: "como organizar a informática de um escritório pequeno",
+    relacionados: ["backup-como-proteger-seus-arquivos", "como-escolher-uma-workstation"],
+  },
+  {
+    slug: "como-escolher-uma-workstation",
+    cluster: "montagem-workstation",
+    acao: "aprofundar",
+    consulta: "como escolher uma estação de trabalho profissional",
+    relacionados: ["quando-trocar-hd-por-ssd", "organizacao-de-ti-para-pequenos-escritorios"],
   },
 
   // ── 4 consolidações (mesma intenção duplicada) ─────────────

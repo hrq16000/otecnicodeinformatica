@@ -72,12 +72,17 @@ const FIRST_WAVE_APPROVED_AT = "2026-08-06";
 // /problemas/computador-lento) voltaram para revisão (noindex, follow) e
 // o guia de superaquecimento entrou no lugar, apoiando manutenção de
 // notebook. Limite da onda: 6 artigos.
+// Rodada 3O — onda educacional empresarial: dois conteúdos já existentes no
+// acervo (nenhuma rota nova) promovidos após revisão técnica, capa própria e
+// interlinking de entrada. Limite total de artigos indexáveis: 7.
 const FIRST_WAVE_SLUGS = [
   "quando-trocar-hd-por-ssd",
   "como-saber-se-pc-tem-virus-malware",
   "backup-como-proteger-seus-arquivos",
   "como-melhorar-sinal-wifi-em-casa",
   "notebook-superaquecendo-o-que-fazer",
+  "organizacao-de-ti-para-pequenos-escritorios",
+  "como-escolher-uma-workstation",
 ] as const;
 
 

@@ -133,8 +133,20 @@ const AdminReviews = () => {
     };
   }, [reviews]);
 
+  /** Reviews vindas do site só podem ir ao ar com autorização explícita do cliente. */
+  function canPublish(r: Review) {
+    return r.source !== "site" || r.authorized_publication === true;
+  }
+
   async function togglePublished(r: Review) {
     const next = !r.published;
+    if (next && !canPublish(r)) {
+      return toast({
+        title: "Sem autorização de publicação",
+        description: "O cliente não autorizou publicar este comentário no site.",
+        variant: "destructive",
+      });
+    }
     const { error } = await supabase
       .from("reviews")
       .update({ published: next })
@@ -145,17 +157,38 @@ const AdminReviews = () => {
   }
 
   async function approve(r: Review) {
+    const publicar = canPublish(r);
     const { error } = await supabase
       .from("reviews")
-      .update({ verified: true, published: true })
+      .update({ verified: true, published: publicar })
       .eq("id", r.id);
     if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
     setReviews((prev) =>
-      prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: true } : x)),
+      prev.map((x) => (x.id === r.id ? { ...x, verified: true, published: publicar } : x)),
     );
-    void pingIndexNow(indexNowUrlsForReview(r));
-    toast({ title: "Review aprovada", description: "IndexNow notificado para Bing/Yandex." });
+    if (publicar) void pingIndexNow(indexNowUrlsForReview(r));
+    toast({
+      title: publicar ? "Review aprovada" : "Review verificada (não publicada)",
+      description: publicar
+        ? "IndexNow notificado para Bing/Yandex."
+        : "Cliente não autorizou a publicação — fica apenas como feedback interno.",
+    });
   }
+
+  async function reject(r: Review) {
+    if (!confirm("Rejeitar esta avaliação? Ela fica registrada, mas nunca vai ao ar.")) return;
+    const { error } = await supabase
+      .from("reviews")
+      .update({ verified: false, published: false })
+      .eq("id", r.id);
+    if (error) return toast({ title: "Erro", description: error.message, variant: "destructive" });
+    setReviews((prev) =>
+      prev.map((x) => (x.id === r.id ? { ...x, verified: false, published: false } : x)),
+    );
+    toast({ title: "Avaliação rejeitada", description: "Mantida apenas como registro interno." });
+  }
+
+
 
   async function remove(id: string) {
     if (!confirm("Excluir esta review permanentemente?")) return;

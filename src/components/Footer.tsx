@@ -47,6 +47,8 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
       { label: "Sobre", to: "/sobre" },
       { label: "Contato", to: "/contato" },
       { label: "Status da ordem de serviço", to: "/status-da-ordem-de-servico" },
+      { label: "Depoimentos", to: "/depoimentos" },
+      { label: "Como avaliar", to: "/como-avaliar" },
       { label: "Termos e condições", to: "/termos-e-condicoes" },
       { label: "Política de privacidade", to: "/politica-de-privacidade" },
     ],

@@ -1393,6 +1393,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Coleta e entrega", to: "/coleta-e-entrega" },
       { label: "Suporte para home office", to: "/servicos/suporte-home-office" },
       { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
+      { label: "Suporte técnico empresarial", to: "/servicos/suporte-tecnico-empresarial" },
+      { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
+      { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
       ...LINKS_BASE,
     ],
     blocoLocal: [

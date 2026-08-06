@@ -100,6 +100,8 @@ const relacionados = [
   { label: "Redes e Wi-Fi para empresas", to: "/servicos/redes-e-wifi" },
   { label: "Manutenção preventiva para empresas", to: "/servicos/manutencao-preventiva-empresas" },
   { label: "Backup para empresas", to: "/servicos/backup-para-empresas" },
+  { label: "Montagem de PC e workstation", to: "/servicos/montagem-de-pc" },
+  { label: "Segurança dos dados", to: "/seguranca-dos-dados" },
   { label: "Suporte remoto", to: "/atendimento-remoto" },
   { label: "Preços e políticas", to: "/precos-e-politicas" },
   { label: "Como funciona", to: "/como-funciona" },

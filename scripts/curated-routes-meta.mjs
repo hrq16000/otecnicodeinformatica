@@ -138,6 +138,48 @@ const BASE_ROUTES = [
     "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho."
   },
   {
+    "path": "/politica-de-pecas-do-cliente",
+    "title": "Política de Peças do Cliente | Montagem em Curitiba",
+    "description": "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca, garantia da peça x garantia da mão de obra e valor declarado do equipamento.",
+    "blocos": [
+      {
+        "titulo": "Compatibilidade conferida antes da montagem",
+        "paragrafos": [
+          "A maior parte dos problemas em montagem com peça do cliente não aparece na bancada: aparece na compra. Memória que a placa não suporta, cooler que não cabe no gabinete, fonte com conector diferente do que a placa de vídeo exige. Por isso a conferência acontece antes do agendamento, com base nos modelos exatos informados por você e no que o fabricante publica sobre cada componente.",
+          "Memória depende do suporte da placa e do processador, e o perfil de desempenho só é ativado quando oficialmente suportado. Placa de vídeo e refrigeração dependem das medidas internas reais do gabinete. A fonte é avaliada pelo consumo estimado dos componentes declarados: potência nominal alta não substitui qualidade de fabricação. Processador novo em placa antiga pode exigir atualização de firmware, feita apenas com motivo técnico e autorização registrada."
+        ]
+      },
+      {
+        "titulo": "Procedência: o comprovante é o que garante a sua peça",
+        "paragrafos": [
+          "Procedência conta. Pedimos a nota fiscal ou o comprovante de compra de cada peça porque é ele que permite acionar a garantia do fabricante depois. Sem comprovante a montagem pode ser feita mesmo assim, mas o componente entra como item sem garantia rastreável e isso fica registrado no atendimento.",
+          "Peça usada, recondicionada ou vinda de marketplace é aceita, com registro de estado e o seu aceite do risco de falha. Não avaliamos autenticidade de marca nem emitimos laudo de falsificação: registramos divergências visíveis entre embalagem e componente."
+        ]
+      },
+      {
+        "titulo": "Integridade no recebimento e prazo de troca",
+        "paragrafos": [
+          "Todo componente é conferido no recebimento: lacre, embalagem, acessórios, parafusos e cabos. Dano prévio visível — pino torto no soquete, conector quebrado, oxidação, dissipador solto — é fotografado e comunicado antes de qualquer instalação, e a peça só é instalada com o seu aceite explícito.",
+          "Quando uma peça sua falha nos testes, a montagem para e o resultado é comunicado na hora. O conjunto fica aguardando a sua substituição por até 5 dias úteis sem custo de permanência; passado esse prazo, combinamos a devolução no estado ou a continuidade do atendimento. O prazo de troca junto ao vendedor é dele e não temos controle sobre esse tempo. Se a incompatibilidade inviabilizar a montagem, cobramos apenas o que já foi executado."
+        ]
+      },
+      {
+        "titulo": "Garantia da peça x garantia da mão de obra",
+        "paragrafos": [
+          "São coberturas separadas, com responsáveis diferentes. A garantia da peça é do fabricante ou fornecedor, com prazo e canal definidos por ele e acionada com a nota correspondente. A garantia da mão de obra cobre a instalação, a fixação, as conexões, a organização interna e a configuração de BIOS, sistema e drivers entregues funcionando.",
+          "Ficam fora da cobertura defeito posterior sem relação com a montagem, alteração feita pelo cliente, overclock, uso inadequado, surto elétrico e dano físico. Não realizamos overclock nem modificação de BIOS não oficial, e não prometemos resultado de desempenho em jogos ou aplicativos."
+        ]
+      },
+      {
+        "titulo": "Valor declarado do equipamento",
+        "paragrafos": [
+          "Muita gente precisa informar um valor do equipamento para seguro, transporte, registro interno de empresa ou venda no estado. Esse valor é sempre declarado pelo proprietário. Componentes eletrônicos e de informática — placas, processadores, memórias, armazenamento, fontes, equipamento de som e periféricos — perdem valor de mercado com rapidez, mesmo funcionando perfeitamente.",
+          "Ao declarar um valor, fica registrado o entendimento de que, em caso de sinistro, dano, indenização ou venda no estado, o valor apurado por avaliação técnica, perícia ou seguradora pode ser significativamente inferior ao declarado, inclusive abaixo de um terço dele, porque a apuração considera idade, estado físico, comprovação de origem, existência de garantia ativa e demanda real do modelo. Não emitimos laudo pericial nem avaliação para seguradora: fornecemos o registro descritivo do estado do equipamento no atendimento."
+        ]
+      }
+    ]
+  },
+  {
     "path": "/seguranca-dos-dados",
     "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
     "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",

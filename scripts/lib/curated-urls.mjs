@@ -31,6 +31,7 @@ export const MAIN = [
   { path: "/coleta-e-entrega", changefreq: "monthly", priority: "0.6" },
   { path: "/quando-nao-compensa", changefreq: "monthly", priority: "0.5" },
   { path: "/seguranca-dos-dados", changefreq: "monthly", priority: "0.6" },
+  { path: "/politica-de-pecas-do-cliente", changefreq: "monthly", priority: "0.6" },
 ];
 
 /** Hubs de SEO temáticos (entram no sitemap-main). */

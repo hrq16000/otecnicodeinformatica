@@ -388,6 +388,9 @@ export default function AdminCasos() {
             <Button variant="outline" onClick={() => void copyTemplate()}>
               <ClipboardCopy className="mr-2 h-4 w-4" /> Modelo do formulário
             </Button>
+            <Button variant="outline" onClick={() => setShowImport((v) => !v)}>
+              <FileUp className="mr-2 h-4 w-4" /> Importar JSON/CSV
+            </Button>
             <Button variant="outline" disabled={drafts.length === 0} onClick={downloadAudit}>
               <Download className="mr-2 h-4 w-4" /> Pacote de auditoria
             </Button>
@@ -396,6 +399,44 @@ export default function AdminCasos() {
             </Button>
           </div>
         </header>
+
+        {showImport && (
+          <Card className="mb-6 space-y-3 p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-heading text-lg font-bold text-foreground">Importação preenchível</h2>
+              <div className="flex flex-wrap gap-2">
+                <Button size="sm" variant="ghost" onClick={() => setImportText(IMPORT_JSON_TEMPLATE)}>
+                  Modelo JSON
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => setImportText(IMPORT_CSV_TEMPLATE)}>
+                  Modelo CSV
+                </Button>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Cole um JSON (lista de casos) ou um CSV com cabeçalho. Listas em uma célula são separadas por
+              <code className="mx-1">|</code>. Campos obrigatórios e varredura de dados pessoais rodam antes
+              de gravar: registros com problema são recusados por inteiro.
+            </p>
+            <Textarea rows={10} value={importText} onChange={(e) => setImportText(e.target.value)}
+              placeholder="Cole aqui o JSON ou CSV dos atendimentos" className="font-mono text-xs" />
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={runImport} disabled={!importText.trim()}>
+                <Upload className="mr-2 h-4 w-4" /> Validar e importar
+              </Button>
+              <Button variant="ghost" onClick={() => { setImportText(""); setImportIssues([]); }}>Limpar</Button>
+            </div>
+            {importIssues.length > 0 && (
+              <div className="rounded-lg border border-destructive/40 bg-destructive/5 p-3">
+                <p className="text-sm font-medium text-destructive">Registros recusados</p>
+                <ul className="mt-1 list-disc pl-5 text-xs text-destructive">
+                  {importIssues.map((i) => <li key={i}>{i}</li>)}
+                </ul>
+              </div>
+            )}
+          </Card>
+        )}
+
 
         <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
           <aside className="space-y-3">

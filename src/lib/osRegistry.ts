@@ -83,3 +83,79 @@ export const OS_ETAPAS: OsEtapa[] = [
     descricao: "Entrega com checklist assinado, nota fiscal e prazo de garantia de mão de obra registrado.",
   },
 ];
+
+// ============================================================
+// Linha do tempo local da OS (data/hora de cada etapa registrada)
+// ============================================================
+
+export interface OsEvento {
+  /** Rótulo da etapa ou alteração (ex.: "Abertura e triagem"). */
+  titulo: string;
+  /** Timestamp em ms. */
+  em: number;
+  /** Detalhe opcional (ex.: novo prazo combinado). */
+  detalhe?: string;
+  /** Marca eventos de alteração de prazo. */
+  tipo?: "etapa" | "prazo" | "sistema";
+}
+
+const EVENTOS_KEY = "os_eventos_v1";
+const MAX_EVENTOS = 60;
+
+type EventosMap = Record<string, OsEvento[]>;
+
+function readEventosMap(): EventosMap {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = window.localStorage.getItem(EVENTOS_KEY);
+    const parsed = raw ? (JSON.parse(raw) as EventosMap) : {};
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Eventos registrados neste dispositivo para o protocolo informado. */
+export function listOsEventos(protocolo: string): OsEvento[] {
+  const alvo = protocolo.trim().toUpperCase();
+  const lista = readEventosMap()[alvo] ?? [];
+  return [...lista].sort((a, b) => a.em - b.em);
+}
+
+/** Registra um evento (etapa concluída, alteração de prazo, consulta). */
+export function addOsEvento(protocolo: string, evento: Omit<OsEvento, "em"> & { em?: number }): void {
+  if (typeof window === "undefined") return;
+  const alvo = protocolo.trim().toUpperCase();
+  if (!alvo) return;
+  try {
+    const map = readEventosMap();
+    const atual = map[alvo] ?? [];
+    map[alvo] = [...atual, { tipo: "etapa", ...evento, em: evento.em ?? Date.now() }].slice(-MAX_EVENTOS);
+    window.localStorage.setItem(EVENTOS_KEY, JSON.stringify(map));
+  } catch {
+    /* storage indisponível — segue sem linha do tempo local */
+  }
+}
+
+/** Linha do tempo consolidada: abertura registrada + eventos posteriores. */
+export function osTimeline(record: OsRecord): OsEvento[] {
+  const abertura: OsEvento = {
+    titulo: "Ordem de serviço aberta neste dispositivo",
+    em: record.criadoEm,
+    detalhe: record.servico,
+    tipo: "sistema",
+  };
+  const eventos = listOsEventos(record.protocolo).filter((e) => e.em !== record.criadoEm);
+  return [abertura, ...eventos];
+}
+
+/** Formato oficial do protocolo: OS-MTG-AAAAMMDD-0000. */
+export const OS_PATTERN = /^OS-[A-Z]{2,4}-\d{8}-\d{3,5}$/;
+
+export function normalizeOsNumero(valor: string): string {
+  return valor.trim().toUpperCase().replace(/\s+/g, "");
+}
+
+export function isValidOsNumero(valor: string): boolean {
+  return OS_PATTERN.test(normalizeOsNumero(valor));
+}

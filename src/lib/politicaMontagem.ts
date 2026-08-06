@@ -101,7 +101,9 @@ export const REGRA_BIOS = [
   "Atualização de firmware não é rotina. Só é feita quando há motivo técnico — como suporte a um processador mais novo — e com a sua autorização registrada.",
   "Interrupção de energia durante a gravação pode inutilizar a placa. Por isso só atualizamos placas com recurso de recuperação do fabricante e usando a versão estável publicada por ele.",
   "Placa sem recurso de recuperação: informamos o risco e, se você não autorizar por escrito, a atualização não é executada.",
+  "Drivers vêm exclusivamente do site oficial do fabricante de cada componente — chipset, vídeo, rede, áudio e armazenamento. Não usamos programas que baixam driver automaticamente nem pacotes de terceiros.",
   "Não realizamos overclock, modificação de BIOS não oficial nem alteração fora do que o fabricante suporta.",
+
 ];
 
 /** Testes efetivamente executados (nada além disso pode ser publicado). */

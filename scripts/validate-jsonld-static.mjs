@@ -153,6 +153,8 @@ function validateEntity(entity, file, blockIndex, isEditorial) {
 
     if (isEditorial) {
       for (const t of types) {
+        // Onda aprovada: Article/BlogPosting/TechArticle são esperados.
+        if (isApprovedEditorial && t !== "Person") continue;
         if (EDITORIAL_FORBIDDEN_TYPES.has(t)) {
           push(file, `tipo editorial proibido "${t}" (governança fail-closed)`, blockIndex);
         }

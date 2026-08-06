@@ -223,7 +223,7 @@ const PoliticaPecasCliente = () => {
           </h2>
           <p className="text-muted-foreground">
             Componente eletrônico é sensível a transporte, armazenamento e manuseio. Um soquete com pino torto, um
-            conector de alimentação forçado ou um dissipador solto podem inviabilizar a montagem inteira — e a hora
+            conector de alimentação danificado ou um dissipador solto podem inviabilizar a montagem inteira — e a hora
             de identificar isso é no recebimento, com registro fotográfico, não depois que o sistema não liga.
           </p>
           <Lista itens={INTEGRIDADE} />

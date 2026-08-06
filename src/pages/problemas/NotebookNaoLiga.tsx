@@ -219,7 +219,7 @@ const NotebookNaoLiga = () => {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="causas" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Causas possíveis, sem afirmar diagnóstico</h2>
           <p className="mb-4 text-muted-foreground">
             A lista abaixo reúne as origens mais comuns para esse sintoma. Nenhuma delas pode ser confirmada apenas

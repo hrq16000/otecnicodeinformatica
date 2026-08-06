@@ -210,7 +210,11 @@ async function main() {
     const nodes = [...dom.window.document.querySelectorAll('script[type="application/ld+json"]')];
     if (nodes.length > 0) htmlWithLd++;
 
-    const isEditorial = /(^|\/)blog(\/|$)/.test(file.replace(/\\/g, "/"));
+    const posixFile = file.replace(/\\/g, "/");
+    const isEditorial = /(^|\/)blog(\/|$)/.test(posixFile);
+    const editorialSlug = posixFile.match(/\/blog\/([^/]+)\/index\.html$/)?.[1] ?? null;
+    const isApprovedEditorial =
+      isEditorial && editorialSlug != null && APPROVED_EDITORIAL_SLUGS.has(editorialSlug);
 
     nodes.forEach((node, i) => {
       blockCount++;

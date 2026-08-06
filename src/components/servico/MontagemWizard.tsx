@@ -43,10 +43,14 @@ export const MontagemWizard = () => {
   const [uso, setUso] = useState("");
   const [origem, setOrigem] = useState("");
   const [pecas, setPecas] = useState("");
+  const [identificacao, setIdentificacao] = useState("");
+  const [enviaFotos, setEnviaFotos] = useState(false);
   const [cidade, setCidade] = useState("");
   const [modalidade, setModalidade] = useState("");
   const [aceite, setAceite] = useState(false);
   const [gerando, setGerando] = useState(false);
+  const [gerandoOs, setGerandoOs] = useState(false);
+  const [protocolo, setProtocolo] = useState<string | null>(null);
 
   const mensagem = useMemo(() => {
     const origemLabel = ORIGEM_PECAS.find((o) => o.id === origem)?.label || "";

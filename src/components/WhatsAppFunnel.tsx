@@ -914,7 +914,11 @@ export const WhatsAppFunnel = () => {
                       accepted={criteriosOk}
                       onAcceptChange={setCriteriosOk}
                     />
+                    {rules.route === "coleta" && (
+                      <ColetaGateCard bairro={answers.fields.bairro} value={coleta} onChange={setColeta} />
+                    )}
                     <p className="text-sm font-medium">Registro de ciência e aceite eletrônico</p>
+
                     <div className="space-y-2">
                       {terms.map((t) => {
                         const checked = !!answers.termsAccepted[t.id];

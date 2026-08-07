@@ -28,7 +28,7 @@ export const BLOCOS_3T = {
   "manutencao-preventiva-empresas": {
     tocExtra: [
       { id: "pilares-preventiva", label: "O que a inspeção observa" },
-      { id: "fluxo-preventivo", label: "Como a rotina é conduzida" },
+      { id: "fluxo-preventiva", label: "Como a rotina é conduzida" },
       { id: "prioridades", label: "Riscos e prioridades" },
       { id: "limites-preventiva", label: "O que a preventiva não garante" },
     ],

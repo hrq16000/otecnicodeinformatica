@@ -322,3 +322,52 @@ export function scriptLaudo(c: CategoriaOperacional, achado: string, valor: stri
     `Posso executar? Se preferir não seguir, o diagnóstico é R$ 99,99 e devolvo o aparelho como recebi.`,
   ].join("\n\n");
 }
+
+/** Só as perguntas de triagem, para colar rápido no WhatsApp. */
+export function scriptTriagemPerguntas(c: CategoriaOperacional): string {
+  return [
+    `Para avaliar seu ${c.nome} preciso destas informações:`,
+    c.triagemObrigatoria.map((p, i) => `${i + 1}. ${p}`).join("\n"),
+    `Assim que você responder, digo em seguida se o caso é viável, o prazo e o valor mínimo.`,
+  ].join("\n\n");
+}
+
+/**
+ * Script de ACEITE: confirma que o caso passou na triagem e abre o agendamento
+ * de coleta com faixa logística, pré-requisitos e prazo.
+ */
+export function scriptAceite(
+  c: CategoriaOperacional,
+  ctx: ScriptContexto & { faixa?: string; janelas?: string; taxa?: string; prazoColetaDias?: number } = {},
+): string {
+  const saudacao = ctx.nome ? `${ctx.nome}, ` : "";
+  const logistica = ctx.faixa
+    ? `Sua região entra na ${ctx.faixa}${ctx.janelas ? ` — coleta ${ctx.janelas.toLowerCase()}` : ""}${
+        ctx.taxa ? `, ${ctx.taxa.toLowerCase()}` : ""
+      }${ctx.prazoColetaDias ? `, retirada em até ${ctx.prazoColetaDias} dia(s) útil(eis) após a confirmação` : ""}.`
+    : `Atendemos com coleta e entrega em um raio de até 30 km de Curitiba.`;
+  return [
+    `${saudacao}caso ACEITO para ${c.nome}. ✅`,
+    `${logistica}`,
+    `Antes da coleta, por favor deixe pronto:\n${c.orientacaoInicial.map((o) => `• ${o}`).join("\n")}`,
+    `Prazo do serviço: ${prazoEstimadoLabel(c)}.`,
+    `Condições: diagnóstico R$ 99,99 (abatido no serviço) e reparo mínimo R$ 299,99. Nada é executado sem laudo e sua autorização por escrito.`,
+    `Me confirme o endereço completo e o melhor dia para eu registrar o protocolo da coleta.`,
+  ].join("\n\n");
+}
+
+/** Script de RECUSA com alternativa objetiva (fail-closed na triagem). */
+export function scriptRecusadoComAlternativa(
+  c: CategoriaOperacional,
+  motivo: string,
+  ctx: ScriptContexto = {},
+): string {
+  const saudacao = ctx.nome ? `${ctx.nome}, ` : "";
+  return [
+    `${saudacao}obrigado pelas informações. Caso RECUSADO para ${c.nome}. ❌`,
+    `Motivo: ${motivo}.`,
+    `Prefiro te dizer isso agora do que coletar o aparelho, cobrar diagnóstico e devolver sem solução.`,
+    `Alternativas que posso avaliar com você: aproveitamento de peças boas, orientação de substituição ou indicação do que faz sentido comprar.`,
+    `Se aparecer outro equipamento com defeito, é só me chamar aqui.`,
+  ].join("\n\n");
+}

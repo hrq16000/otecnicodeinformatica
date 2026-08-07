@@ -27,7 +27,9 @@ import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";
 import { CriteriosAceiteCard } from "@/components/funnel/CriteriosAceiteCard";
+import { ColetaGateCard, type ColetaGateState } from "@/components/funnel/ColetaGateCard";
 import { categoriaPorEquipamento } from "@/lib/operacaoCategorias";
+
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,
@@ -163,6 +165,9 @@ export const WhatsAppFunnel = () => {
   const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
   // Ciência dos critérios de aceite/recusa da categoria (Rodada 3X).
   const [criteriosOk, setCriteriosOk] = useState(false);
+  // Gate de coleta e entrega premium: faixa de raio + pré-requisitos + status.
+  const [coleta, setColeta] = useState<ColetaGateState>({ prerequisitos: [], status: "", ok: false });
+
   const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
   const steps = useMemo(() => getSteps(answers), [answers]);
   const totalSteps = steps.length;
@@ -551,7 +556,19 @@ export const WhatsAppFunnel = () => {
         originUrl,
       });
       const base = buildWhatsAppMessage(answers, triageId, originUrl);
-      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${base}` : base;
+      const logistica =
+        rules.route === "coleta" && coleta.faixa
+          ? [
+              "",
+              `*Coleta:* ${coleta.faixa.nome} · ${coleta.faixa.taxaLabel}`,
+              `*Janelas:* ${coleta.faixa.janelas} · retirada em até ${coleta.faixa.prazoColetaDias} dia(s) útil(eis)`,
+              `*Status inicial:* ${coleta.status}`,
+              `*Pré-requisitos confirmados:* ${coleta.prerequisitos.length} itens aceitos na triagem`,
+            ].join("\n")
+          : "";
+      const withLogistica = `${base}${logistica}`;
+      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${withLogistica}` : withLogistica;
+
 
       try {
         await recordSubmission({
@@ -909,7 +926,11 @@ export const WhatsAppFunnel = () => {
                       accepted={criteriosOk}
                       onAcceptChange={setCriteriosOk}
                     />
+                    {rules.route === "coleta" && (
+                      <ColetaGateCard bairro={answers.fields.bairro} value={coleta} onChange={setColeta} />
+                    )}
                     <p className="text-sm font-medium">Registro de ciência e aceite eletrônico</p>
+
                     <div className="space-y-2">
                       {terms.map((t) => {
                         const checked = !!answers.termsAccepted[t.id];
@@ -941,7 +962,12 @@ export const WhatsAppFunnel = () => {
                     <FunnelNav
                       onBack={back}
                       onNext={handleNext}
-                      canNext={canAdvance && (criteriosOk || !categoriaPorEquipamento(answers.equipment))}
+                      canNext={
+                        canAdvance &&
+                        (criteriosOk || !categoriaPorEquipamento(answers.equipment)) &&
+                        (rules.route !== "coleta" || coleta.ok)
+                      }
+
                       nextLabel="Continuar"
                     />
                   </div>

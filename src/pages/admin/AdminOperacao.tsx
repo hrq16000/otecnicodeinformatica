@@ -14,7 +14,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { toast } from "@/hooks/use-toast";
-import { Loader2, RefreshCw, Copy, Truck, Gauge, MessageSquare } from "lucide-react";
+import { Loader2, RefreshCw, Copy, Truck, Gauge, MessageSquare, FileCheck2, ShieldAlert } from "lucide-react";
 import {
   CATEGORIAS_OPERACIONAIS,
   calcularCapacidade,
@@ -22,11 +22,16 @@ import {
   getCategoria,
   limiteSlaDias,
   prazoEstimadoLabel,
+  scriptAceite,
   scriptLaudo,
   scriptPrimeiroContato,
   scriptRecusa,
+  scriptRecusadoComAlternativa,
+  scriptTriagemPerguntas,
   type CategoriaOperacional,
 } from "@/lib/operacaoCategorias";
+import { CONTRATOS_OPERACIONAIS } from "@/lib/contratosOperacionais";
+
 import {
   CHECKLIST_COLETA,
   CHECKLIST_ENTREGA,
@@ -234,7 +239,9 @@ export default function AdminOperacao() {
             <TabsTrigger value="sla"><Gauge className="mr-1.5 h-4 w-4" aria-hidden="true" />Leads e SLA</TabsTrigger>
             <TabsTrigger value="scripts"><MessageSquare className="mr-1.5 h-4 w-4" aria-hidden="true" />Scripts</TabsTrigger>
             <TabsTrigger value="logistica"><Truck className="mr-1.5 h-4 w-4" aria-hidden="true" />Logística</TabsTrigger>
+            <TabsTrigger value="contratos"><FileCheck2 className="mr-1.5 h-4 w-4" aria-hidden="true" />Contratos</TabsTrigger>
           </TabsList>
+
 
           {/* ---------------- LEADS + SLA ---------------- */}
           <TabsContent value="sla" className="mt-4 space-y-4">
@@ -327,9 +334,23 @@ export default function AdminOperacao() {
             </Card>
 
             {[
+              { titulo: "Perguntas de triagem", texto: scriptTriagemPerguntas(categoriaSel) },
               { titulo: "Primeiro contato (triagem + orientação)", texto: scriptPrimeiroContato(categoriaSel) },
               {
-                titulo: "Recusa técnica",
+                titulo: "Caso ACEITO (abre coleta)",
+                texto: scriptAceite(categoriaSel, {
+                  faixa: FAIXAS_LOGISTICAS[0].nome,
+                  janelas: FAIXAS_LOGISTICAS[0].janelas,
+                  taxa: FAIXAS_LOGISTICAS[0].taxaLabel,
+                  prazoColetaDias: FAIXAS_LOGISTICAS[0].prazoColetaDias,
+                }),
+              },
+              {
+                titulo: "Caso RECUSADO (com alternativa)",
+                texto: scriptRecusadoComAlternativa(categoriaSel, categoriaSel.recusa[0].toLowerCase()),
+              },
+              {
+                titulo: "Recusa técnica (curta)",
                 texto: scriptRecusa(categoriaSel, categoriaSel.recusa[0].toLowerCase()),
               },
               {
@@ -337,6 +358,7 @@ export default function AdminOperacao() {
                 texto: scriptLaudo(categoriaSel, "[achado técnico]", "[valor do atendimento]"),
               },
             ].map((s) => (
+
               <Card key={s.titulo} className="p-4">
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-sm font-semibold text-foreground">{s.titulo}</p>
@@ -428,8 +450,90 @@ export default function AdminOperacao() {
               ))}
             </div>
           </TabsContent>
+
+          {/* ---------------- CONTRATOS OPERACIONAIS (fail-closed) ---------------- */}
+          <TabsContent value="contratos" className="mt-4 space-y-4">
+            <Card className="border-amber-500/40 bg-amber-500/5 p-4">
+              <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <ShieldAlert className="h-4 w-4 text-amber-600" aria-hidden="true" />
+                Regra fail-closed
+              </p>
+              <p className="mt-1 text-xs text-foreground/80">
+                Nenhum checkpoint avança com item obrigatório (*) pendente. Na dúvida, o fluxo para: vira recusa ou
+                pedido de informação. Documento interno — não publicar em página indexável.
+              </p>
+            </Card>
+
+            {CONTRATOS_OPERACIONAIS.map((contrato) => (
+              <Card key={contrato.categoria} className="p-4 space-y-4">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <p className="text-base font-semibold text-foreground">
+                      Contrato de triagem e autorização — {contrato.nome}
+                    </p>
+                    <p className="mt-0.5 text-xs text-foreground/70">{contrato.resumo}</p>
+                  </div>
+                  <Badge variant="outline">v{contrato.versao} · {contrato.atualizadoEm}</Badge>
+                </div>
+
+                <div className="rounded-md border border-destructive/40 bg-destructive/5 p-3">
+                  <p className="text-xs font-semibold text-foreground">Paradas imediatas (recusa automática)</p>
+                  <ul className="mt-1 space-y-0.5 text-xs text-foreground/80">
+                    {contrato.paradasImediatas.map((p) => <li key={p}>• {p}</li>)}
+                  </ul>
+                </div>
+
+                <div className="grid gap-3 lg:grid-cols-2">
+                  {contrato.checkpoints.map((cp) => (
+                    <div key={cp.id} className="rounded-md border border-border bg-card/50 p-3">
+                      <p className="text-sm font-semibold text-foreground">{cp.nome}</p>
+                      <p className="mt-0.5 text-xs text-foreground/70">{cp.objetivo}</p>
+                      <ul className="mt-2 space-y-1.5 text-xs">
+                        {cp.itens.map((item) => (
+                          <li key={item.id}>
+                            <span className="text-foreground/85">
+                              • {item.label}
+                              {item.obrigatorio && <span className="ml-1 text-destructive">*</span>}
+                            </span>
+                            <span className="block pl-3 text-[11px] text-muted-foreground">
+                              Se falhar: {item.seFalhar}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-2 rounded border border-emerald-500/30 bg-emerald-500/10 p-2 text-[11px] text-foreground/85">
+                        Libera quando: {cp.liberaQuando}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="grid gap-3 lg:grid-cols-2">
+                  <div className="rounded-md border border-border p-3">
+                    <p className="text-xs font-semibold text-foreground">Limitações de validação</p>
+                    <ul className="mt-1 space-y-1 text-[11px] text-foreground/80">
+                      {contrato.limitacoesValidacao.map((l) => (
+                        <li key={l.titulo}><strong className="text-foreground">{l.titulo}:</strong> {l.descricao}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-md border border-border p-3">
+                    <p className="text-xs font-semibold text-foreground">Garantia por tipo de reparo</p>
+                    <ul className="mt-1 space-y-1 text-[11px] text-foreground/80">
+                      {contrato.garantias.map((g) => (
+                        <li key={g.tipo}>
+                          <strong className="text-foreground">{g.tipo}</strong> — {g.prazo}. Cobre: {g.cobre} Não cobre: {g.naoCobre}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </TabsContent>
         </Tabs>
       </main>
+
       <Footer />
     </div>
   );

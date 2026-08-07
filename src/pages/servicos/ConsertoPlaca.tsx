@@ -12,6 +12,12 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { getCategoria } from "@/lib/operacaoCategorias";
+import { getContrato } from "@/lib/contratosOperacionais";
+
+const categoriaPlaca = getCategoria("placa");
+const contratoPlaca = getContrato("placa");
+
 
 const WHATSAPP_NUMBER = "5541997086380";
 
@@ -161,6 +167,122 @@ const ConsertoPlaca = () => {
           </div>
         </div>
       </section>
+
+      {/* Critérios de aceite e recusa */}
+      <section className="py-12 md:py-16 bg-secondary" id="criterios-de-aceite">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">
+              O Que Aceitamos e o Que Recusamos
+            </h2>
+            <p className="text-sm text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
+              A triagem acontece antes da coleta. Preferimos recusar na primeira mensagem a coletar a placa,
+              cobrar diagnóstico e devolver sem solução.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-accent/30 bg-accent/5 p-5">
+                <h3 className="flex items-center gap-2 font-semibold text-foreground mb-3">
+                  <CheckCircle className="h-4 w-4 text-accent" aria-hidden="true" /> Aceitamos
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {categoriaPlaca?.aceite.map((item) => (
+                    <li key={item} className="flex gap-2"><span aria-hidden="true">•</span><span>{item}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-5">
+                <h3 className="flex items-center gap-2 font-semibold text-foreground mb-3">
+                  <AlertCircle className="h-4 w-4 text-destructive" aria-hidden="true" /> Não aceitamos
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {categoriaPlaca?.recusa.map((item) => (
+                    <li key={item} className="flex gap-2"><span aria-hidden="true">•</span><span>{item}</span></li>
+                  ))}
+                  {contratoPlaca?.paradasImediatas.map((item) => (
+                    <li key={item} className="flex gap-2"><span aria-hidden="true">•</span><span>{item}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            {categoriaPlaca && (
+              <div className="mt-4 rounded-xl border border-border bg-background p-5">
+                <h3 className="font-semibold text-foreground mb-3">O que perguntamos antes de aceitar</h3>
+                <ul className="grid sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                  {categoriaPlaca.triagemObrigatoria.map((p) => (
+                    <li key={p} className="flex gap-2"><span aria-hidden="true">•</span><span>{p}</span></li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Limitações de validação */}
+      <section className="py-12 md:py-16 bg-background" id="limitacoes-de-validacao">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">
+              Limitações Reais de Validação
+            </h2>
+            <p className="text-sm text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
+              Bancada com microscópio, fonte ajustável, osciloscópio e estação de retrabalho resolve muita coisa —
+              mas não resolve tudo. Estes são os limites que informamos antes de você autorizar qualquer serviço.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {contratoPlaca?.limitacoesValidacao.map((l) => (
+                <div key={l.titulo} className="rounded-xl border border-border bg-secondary p-5">
+                  <h3 className="font-semibold text-foreground mb-2">{l.titulo}</h3>
+                  <p className="text-sm text-muted-foreground">{l.descricao}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Garantia por tipo de reparo */}
+      <section className="py-12 md:py-16 bg-secondary" id="garantia-por-tipo-de-reparo">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-center">
+              Garantia por Tipo de Reparo
+            </h2>
+            <p className="text-sm text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
+              A garantia não é genérica: ela muda conforme o procedimento executado. O prazo e o escopo vão por
+              escrito na entrega.
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-border bg-background">
+              <table className="w-full text-sm">
+                <caption className="sr-only">Prazos e escopo de garantia por tipo de reparo de placa</caption>
+                <thead>
+                  <tr className="border-b border-border bg-secondary/60 text-left">
+                    <th scope="col" className="p-3 font-semibold text-foreground">Tipo de reparo</th>
+                    <th scope="col" className="p-3 font-semibold text-foreground">Prazo</th>
+                    <th scope="col" className="p-3 font-semibold text-foreground">Cobre</th>
+                    <th scope="col" className="p-3 font-semibold text-foreground">Não cobre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {contratoPlaca?.garantias.map((g) => (
+                    <tr key={g.tipo} className="border-b border-border last:border-0 align-top">
+                      <th scope="row" className="p-3 text-left font-medium text-foreground">{g.tipo}</th>
+                      <td className="p-3 whitespace-nowrap text-foreground">{g.prazo}</td>
+                      <td className="p-3 text-muted-foreground">{g.cobre}</td>
+                      <td className="p-3 text-muted-foreground">{g.naoCobre}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground text-center">
+              A garantia começa na data de entrega e cobre exclusivamente o serviço executado por nós, descrito na
+              ordem de serviço. Não cobre novo dano físico, contato com líquido posterior ou surto elétrico.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       {/* Links */}
       <section className="py-12 bg-secondary">

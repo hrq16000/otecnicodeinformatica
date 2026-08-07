@@ -6,6 +6,7 @@ import { blocos3U, cta3U } from "@/lib/blocos3u";
 import { Blocos3U } from "@/components/servico/Blocos3U";
 import { blocos4A, cta4A } from "@/lib/blocos4a";
 import { Blocos4A } from "@/components/servico/Blocos4A";
+import { ClarezaVariacao } from "@/components/servico/ClarezaVariacao";
 import { Blocos3T } from "@/components/servico/Blocos3T";
 
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
@@ -151,6 +152,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
         toc: [...cfg4a.tocExtra, { id: "faq", label: "Perguntas frequentes" }],
         confianca: true,
         ctaIntermediario: cta4A(path3u),
+        clarezaHero: <ClarezaVariacao path={path3u} />,
       }
     : {};
 

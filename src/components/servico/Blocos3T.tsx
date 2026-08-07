@@ -220,6 +220,9 @@ const Secao = ({ secao }: { secao: Secao3T }) => {
   }
 };
 
+/** Renderizador de seção reutilizado pela Rodada 3U. */
+export const SecaoBloco = Secao;
+
 export const Blocos3T = ({ slug }: { slug: string }) => {
   const cfg = blocos3T(slug);
   if (!cfg) return null;

@@ -147,7 +147,7 @@ export function categoryLocalMeta(cat, local) {
     : `${base} | Coleta`;
   const description = clamp(
     `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
-      `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+      `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO},00 com ${GARANTIA_DIAS} dias de garantia.`,
     DESC_MAX,
   );
   return { path, url: path, title, description, cityLabel: cityLabel(local), faixa };
@@ -159,7 +159,7 @@ export function categoryHubMeta(cat) {
     title: `${cat.tituloCurto} em Curitiba e Região | Coleta e Bancada`,
     description: clamp(
       `${cat.titlePrefix} para Curitiba e Região Metropolitana: coleta até 30 km, avaliação de ` +
-        `${cat.bancada} em bancada e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+        `${cat.bancada} em bancada e reparo mínimo de R$ ${PRECO_MINIMO_REPARO},00 com ${GARANTIA_DIAS} dias de garantia.`,
       DESC_MAX,
     ),
   };
@@ -184,7 +184,7 @@ export function localizedFaqs(cat, local) {
     },
     {
       q: `Quanto custa o ${cat.titlePrefix.toLowerCase()} em ${label}?`,
-      a: `O reparo mínimo é R$ ${PRECO_MINIMO_REPARO}, já com o diagnóstico incluso. Se você não autorizar o serviço após o laudo, paga apenas R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")} referentes ao diagnóstico. Nenhuma execução acontece sem autorização por escrito.`,
+      a: `O reparo mínimo é R$ ${PRECO_MINIMO_REPARO},00, já com o diagnóstico incluso. Se você não autorizar o serviço após o laudo, paga apenas R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")} referentes ao diagnóstico. Nenhuma execução acontece sem autorização por escrito.`,
     },
     {
       q: `Qual o prazo do serviço para quem é de ${label}?`,
@@ -321,7 +321,7 @@ export function categoryLocalStaticBody(cat, local) {
           <p style="margin:0 0 14px;font-size:1rem;opacity:.95">${esc(meta.description)}</p>
           <h2 style="font-size:1.1rem;margin:20px 0 6px">Coleta e entrega em ${esc(label)}</h2>
           <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">${esc(label)} está na ${esc(faixa.nome)} (${esc(faixa.raio)}), com ${esc(faixa.taxa)}. As janelas são ${esc(faixa.janelas)} e a retirada acontece em até ${faixa.prazoColetaDias} dia(s) útil(eis) após o aceite. Referência de roteiro: ${esc(local.referencia)}.</p>
-          <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com diagnóstico incluso. Sem autorização do serviço, o valor cobrado é apenas o diagnóstico de R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de ${GARANTIA_DIAS} dias sobre o serviço executado.</p>
+          <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Reparo mínimo de R$ ${PRECO_MINIMO_REPARO},00 com diagnóstico incluso. Sem autorização do serviço, o valor cobrado é apenas o diagnóstico de R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de ${GARANTIA_DIAS} dias sobre o serviço executado.</p>
           <p style="margin:0 0 14px"><a href="/contato?origem=${esc(cat.slug)}-${esc(local.slug)}" data-cta-location="${esc(cat.slug)}_${esc(local.slug)}_static" style="color:#7fd4ec;font-weight:600">Agendar coleta em ${esc(label)} (triagem antes do WhatsApp)</a></p>
           <h2 style="font-size:1.1rem;margin:20px 0 6px">Sintomas atendidos</h2>
           <ul style="margin:0 0 8px;padding-left:20px">${sintomas}</ul>

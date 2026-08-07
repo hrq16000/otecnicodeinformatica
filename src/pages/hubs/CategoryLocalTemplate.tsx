@@ -137,7 +137,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
                 aceite. Referência de roteiro: {referenciaDe(local)}.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-3">
-                Reparo mínimo de R$ {PRECO_MINIMO_REPARO} com diagnóstico incluso. Sem autorização do serviço,
+                Reparo mínimo de R$ {PRECO_MINIMO_REPARO},00 com diagnóstico incluso. Sem autorização do serviço,
                 o valor cobrado é apenas o diagnóstico de R${" "}
                 {PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de {GARANTIA_DIAS} dias sobre o
                 serviço executado.

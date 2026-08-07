@@ -112,7 +112,7 @@ export function categoryLocalMeta(cat: CategoryData, local: LocalData) {
     title: titleFor(cat, local),
     description: clamp(
       `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
-        `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+        `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO},00 com ${GARANTIA_DIAS} dias de garantia.`,
     ),
   };
 }
@@ -132,7 +132,7 @@ export function localizedFaqs(cat: CategoryData, local: LocalData) {
     },
     {
       q: `Quanto custa o ${cat.titlePrefix.toLowerCase()} em ${label}?`,
-      a: `O reparo mínimo é R$ ${PRECO_MINIMO_REPARO}, já com o diagnóstico incluso. Se você não autorizar o serviço após o laudo, paga apenas R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")} referentes ao diagnóstico. Nenhuma execução acontece sem autorização por escrito.`,
+      a: `O reparo mínimo é R$ ${PRECO_MINIMO_REPARO},00, já com o diagnóstico incluso. Se você não autorizar o serviço após o laudo, paga apenas R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")} referentes ao diagnóstico. Nenhuma execução acontece sem autorização por escrito.`,
     },
     {
       q: `Qual o prazo do serviço para quem é de ${label}?`,

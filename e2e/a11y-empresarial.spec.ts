@@ -25,7 +25,8 @@ test.describe("Rodada 3U — acessibilidade empresarial", () => {
       test(`${path} @${vp.width}px sem violações critical/serious`, async ({ page }) => {
         await page.setViewportSize(vp);
         await page.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded" });
-        await page.waitForTimeout(600);
+        await page.locator("h1").first().waitFor({ state: "visible", timeout: 20000 });
+        await page.waitForTimeout(400);
 
         const results = await new AxeBuilder({ page })
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
@@ -71,6 +72,7 @@ test.describe("Rodada 3U — acessibilidade empresarial", () => {
 
     test(`${path}: um único h1 e imagens com alt`, async ({ page }) => {
       await page.goto(`${BASE}${path}`, { waitUntil: "domcontentloaded" });
+      await page.locator("h1").first().waitFor({ state: "visible", timeout: 20000 });
       expect(await page.locator("h1").count()).toBe(1);
       const missingAlt = await page.locator("img:not([alt])").count();
       expect(missingAlt).toBe(0);

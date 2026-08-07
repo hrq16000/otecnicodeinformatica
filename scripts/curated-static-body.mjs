@@ -888,6 +888,17 @@ function serviceNode(route, { name } = {}) {
 /** Rotas P0 fora das famílias de serviço que também precisam de Service. */
 const EXTRA_SERVICE_PATHS = new Set(["/", "/precos-e-politicas"]);
 
+/**
+ * Rotas institucionais que representam o negócio local (NAP, área atendida e
+ * horários) e por isso recebem LocalBusiness estático além do nó de página.
+ */
+const EXTRA_LOCAL_BUSINESS_PATHS = new Set([
+  "/contato",
+  "/sobre",
+  "/como-funciona",
+  "/equipamentos-atendidos",
+]);
+
 /** JSON-LD estático da rota — um nó lógico por entidade. */
 export function jsonLdFor(route) {
   const path = route.path;

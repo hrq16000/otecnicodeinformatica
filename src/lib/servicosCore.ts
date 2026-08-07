@@ -1454,6 +1454,242 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
 
     dateModified: "2026-08-06",
   },
+
+  // 13 ─────────────────────────────────────────────────────────
+  "conserto-tv": {
+    path: "conserto-tv",
+    trackingKey: "conserto-tv",
+    metaTitle: "Conserto de TV e Smart TV em Curitiba | Bancada e Coleta",
+    metaDescription:
+      "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega. Critérios de aceite e recusa informados antes.",
+    serviceName: "Conserto de TV e Smart TV",
+    serviceDescription:
+      "Avaliação e reparo de TV LED, LCD e Smart TV em Curitiba e região, com trabalho em bancada, reparo em nível de componente quando viável, critérios claros de aceite e recusa e logística de coleta e entrega.",
+    eyebrow: "TV e Smart TV em Curitiba",
+    h1: "Conserto de TV e Smart TV em Curitiba",
+    h1Accent: "com avaliação em bancada, coleta e entrega",
+    intro:
+      "Televisor que não liga, liga sem imagem, mostra imagem com listras ou manchas, perde o som, reinicia sozinho ou trava na tela da marca. Esses sintomas têm causas diferentes — fonte, placa principal, comando do painel, iluminação interna ou o próprio painel — e só a avaliação em bancada separa o que é reparável do que não compensa. Não fazemos visita para TV: o aparelho é coletado, avaliado com o equipamento aberto e você recebe o resultado por escrito antes de qualquer serviço. Descreva marca, modelo e sintoma pela triagem no WhatsApp.",
+    whatsappMessage: "Olá! Minha TV está com problema. Posso informar marca, modelo e sintoma para avaliação?",
+    incluso: [
+      { title: "Triagem por sintoma", desc: "Perguntas objetivas sobre marca, modelo, tempo de uso, histórico de queda ou raio e o que exatamente acontece ao ligar." },
+      { title: "Coleta e entrega", desc: "Retirada e devolução do aparelho conforme a política publicada de coleta e entrega, sem visita técnica no endereço." },
+      { title: "Avaliação em bancada", desc: "Aparelho aberto e medido: alimentação, saídas da fonte, comando do painel, iluminação interna e placa principal." },
+      { title: "Teste da iluminação interna", desc: "Verificação do conjunto de LEDs e do circuito que os alimenta, causa comum de tela escura com som normal." },
+      { title: "Reparo em nível de componente", desc: "Quando viável, substituição pontual de componentes na placa em vez da troca do módulo inteiro." },
+      { title: "Laudo do que foi encontrado", desc: "Descrição do defeito, da origem provável, do que é reparável e do que está fora de reparo." },
+      { title: "Testes antes da devolução", desc: "Ligação repetida, partida a frio, imagem, som, entradas HDMI e USB e período de funcionamento em bancada." },
+      { title: "Registro do atendimento", desc: "Estado de recebimento, acessórios entregues, serviço executado e componentes substituídos registrados por escrito." },
+    ],
+    sinais: [
+      "TV não liga e nenhuma luz acende no painel frontal",
+      "Aparelho liga, o som funciona, mas a tela permanece escura",
+      "Imagem com listras verticais, faixas horizontais ou manchas fixas",
+      "TV reinicia sozinha ou desliga após alguns minutos ligada",
+      "Smart TV travada na tela da marca sem completar a inicialização",
+      "Entrada HDMI que parou de dar imagem em todas as fontes",
+      "Cheiro de queimado ou estalo após oscilação de energia ou raio",
+      "Som sem imagem, ou imagem sem som, depois de queda de energia",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Origem do defeito", desc: "Fonte, placa principal, comando do painel e iluminação interna envolvem esforços de bancada bem diferentes." },
+      { title: "Nível do reparo", desc: "Substituição pontual de componente na placa é um trabalho; troca de módulo completo é outro." },
+      { title: "Disponibilidade de peça", desc: "Componentes de modelos antigos ou de linha descontinuada podem exigir busca e prazo maior de fornecimento." },
+      { title: "Tamanho e manuseio", desc: "Aparelhos grandes exigem cuidado extra de transporte, apoio e abertura, o que muda a logística." },
+      { title: "Histórico do aparelho", desc: "TV já aberta por terceiros, com emendas ou peças trocadas fora de padrão exige verificação adicional." },
+      { title: "Dano por descarga elétrica", desc: "Raio e surto costumam atingir mais de um estágio, ampliando o escopo da avaliação." },
+      { title: "Logística", desc: "A faixa de distância da coleta e da entrega em Curitiba e região compõe o atendimento." },
+      { title: "Testes solicitados", desc: "Período maior de funcionamento em bancada antes da devolução acrescenta tempo ao serviço." },
+    ],
+    atendimento: {
+      residencial:
+        "TV de sala e de quarto: coleta, avaliação em bancada e devolução testada, com explicação clara de quando o reparo compensa e quando não compensa.",
+      empresarial:
+        "Televisores usados como painel em recepção, sala de reunião e área de espera: mesmo processo de bancada, com registro por equipamento para controle interno da empresa.",
+    },
+    faqs: [
+      { question: "Vocês fazem visita para consertar TV?", answer: "Não. Televisor exige bancada, instrumentos de medição e espaço de apoio para abrir o aparelho com segurança — nada disso é reproduzível na sala do cliente. Por isso o atendimento de TV é sempre por coleta, avaliação em laboratório e entrega. As condições e a taxa mínima estão publicadas na página de coleta e entrega e em preços e políticas." },
+      { question: "Como sei se vale a pena consertar minha TV?", answer: "A resposta honesta só existe depois da avaliação com o aparelho aberto. Defeito de fonte ou de iluminação interna costuma ter reparo viável; painel trincado, com mancha de impacto ou com falha interna de linha normalmente não compensa, porque o painel é a parte mais cara do conjunto. Quando o reparo não compensa, dizemos isso e você decide — não empurramos serviço." },
+      { question: "TV com tela quebrada tem conserto?", answer: "Na prática, não trabalhamos com troca de painel. Painel trincado, com marca de impacto ou com mancha interna é considerado fora de reparo aqui, porque o custo da peça e o risco de manuseio se aproximam ou ultrapassam o valor do aparelho. Você recebe essa informação na triagem, antes da coleta, para não pagar por uma avaliação previsível." },
+      { question: "O que é reparo em nível de componente?", answer: "É trabalhar dentro da placa em vez de trocar a placa inteira. Medimos os estágios do circuito, identificamos o componente que falhou e substituímos apenas ele quando é viável e seguro. Nem todo defeito permite esse caminho: circuitos com componente indisponível, placa com dano extenso por corrosão ou por descarga elétrica, e módulos que só o fabricante fornece já montados seguem outra rota." },
+      { question: "A tela está escura mas o som funciona. O que costuma ser?", answer: "Esse é o sintoma mais associado ao conjunto de iluminação interna ou ao circuito que o alimenta. Também pode envolver o comando do painel. A verificação é feita em bancada, com o aparelho aberto e medição direta — sem abrir, qualquer diagnóstico é chute. Só depois da medição informamos o que foi encontrado e qual o escopo do reparo." },
+      { question: "Vocês consertam Smart TV travada na tela da marca?", answer: "Avaliamos. Travamento na inicialização pode vir de falha de alimentação, de memória interna ou da própria placa principal. O que não fazemos é modificação não oficial de software, instalação de firmware de origem duvidosa nem desbloqueio de recursos do aparelho. Trabalhamos com procedimentos suportados pelo fabricante ou com reparo eletrônico." },
+      { question: "Minha TV tomou raio. Ainda dá para avaliar?", answer: "Dá para avaliar, com a ressalva de que descarga elétrica raramente atinge um ponto só. É comum encontrar fonte, placa principal e entradas comprometidas ao mesmo tempo. Nesses casos a avaliação define o quanto do conjunto foi afetado, e a decisão de seguir ou não depende da relação entre o escopo encontrado e o valor do aparelho." },
+      { question: "Existe garantia no conserto de TV?", answer: "Sim: 90 dias sobre a mão de obra e sobre o reparo executado, contados da entrega. A garantia cobre o defeito tratado e o serviço realizado. Ficam fora dela outros defeitos que apareçam depois em pontos diferentes do aparelho, dano por nova oscilação elétrica, queda, infiltração, tentativa de reparo por terceiros e o painel, que não é peça reparada por nós." },
+      { question: "Vocês trabalham com peças originais?", answer: "Trabalhamos com componentes adequados à especificação do circuito. Em linha de televisores, boa parte dos componentes eletrônicos é de mercado e não tem versão de marca do fabricante do aparelho. Quando o reparo depende de módulo específico, informamos a origem da peça e o valor antes de comprar — nada é adquirido sem a sua autorização." },
+      { question: "Quanto tempo demora?", answer: "Não trabalhamos com promessa de prazo fixo. Depende do defeito encontrado, da necessidade de peça e da disponibilidade do componente no mercado. Depois da avaliação você recebe uma previsão realista para o seu caso específico, e qualquer mudança nessa previsão é comunicada." },
+      { question: "Posso levar a TV até vocês em vez de coletar?", answer: "O fluxo padrão é a coleta, justamente porque o transporte de televisor tem risco: painel é sensível a pressão e a torção, e um aparelho mal apoiado no carro chega com dano novo. Se você preferir outro arranjo, trate isso na triagem pelo WhatsApp antes de mover o aparelho." },
+      { question: "Vocês consertam monitor de computador também?", answer: "Monitor entra como categoria atendida na avaliação de equipamentos, com o mesmo critério de bancada e as mesmas limitações de painel. Não existe página nem processo separado: o encaminhamento é feito pela triagem, junto com as demais categorias de equipamentos atendidos." },
+    ],
+    relacionados: [
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Conserto de placa eletrônica", to: "/servicos/conserto-placa" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+      { label: "Quando não compensa consertar", to: "/quando-nao-compensa" },
+      ...LINKS_BASE,
+    ],
+    blocoLocal: [
+      {
+        titulo: "Sintomas de TV e o que cada um costuma indicar",
+        paragrafos: [
+          "Televisor que não dá nenhum sinal de vida — sem luz de espera, sem estalo, sem reação ao controle nem ao botão físico — aponta para o estágio de alimentação. A fonte de uma TV entrega tensões diferentes para partes diferentes do aparelho, e a falha de um único estágio pode derrubar tudo ou apenas parte do conjunto. É por isso que a medição precisa ser feita com o aparelho aberto e energizado por quem sabe onde encostar a ponta de prova: o interior de uma TV mantém pontos com tensão perigosa mesmo desligada da tomada.",
+          "Tela escura com som normal é outro cenário, e é o mais frequente na bancada. O aparelho processa o sinal, o áudio sai, mas nada aparece. Na maioria das vezes o problema está na iluminação interna do painel ou no circuito que a alimenta. Uma forma caseira de suspeitar disso é iluminar a tela de perto com uma lanterna, em ambiente escuro, e verificar se a imagem aparece fraca ao fundo. Isso é indício, não diagnóstico: a confirmação exige medição.",
+          "Listras verticais, faixas horizontais, manchas escuras que não mudam de lugar e áreas com cor deslocada normalmente têm origem no painel ou na conexão entre o painel e a placa que o comanda. Esse é o grupo de sintomas com maior chance de recusa técnica, porque o painel não é peça que reparamos. Já reinício espontâneo, desligamento após alguns minutos e travamento na tela da marca costumam envolver alimentação instável ou a placa principal, e esses têm chance real de reparo.",
+          "Perda de som com imagem normal, entrada HDMI que parou de funcionar em todas as fontes e falha de rede na Smart TV são sintomas de circuitos específicos da placa principal. Nesses casos vale um teste prévio simples antes de mover o aparelho: trocar o cabo, testar outra entrada, testar outra fonte de vídeo e reiniciar o aparelho pela tomada. Se o comportamento se mantém em todas as combinações, a origem é interna.",
+        ],
+      },
+      {
+        titulo: "Como funciona a avaliação em bancada, passo a passo",
+        paragrafos: [
+          "O atendimento começa pela triagem no WhatsApp, e ela existe para poupar o seu tempo. Perguntamos marca, modelo, tamanho, tempo de uso, o que exatamente acontece ao ligar, se houve queda, raio, oscilação de energia ou infiltração, e se o aparelho já foi aberto por outra pessoa. Com essas respostas conseguimos separar, ainda antes de mover o televisor, os casos com chance real de reparo daqueles que já sabemos que serão recusados — e dizer isso na hora, sem cobrar nada por uma avaliação previsível.",
+          "Aceito o caso, a coleta é agendada conforme a política publicada de coleta e entrega. No recebimento, o aparelho é registrado: estado externo, marcas existentes, acessórios que vieram junto, base ou suporte, cabo de força e controle. Esse registro protege as duas partes, porque evita discussão futura sobre arranhão ou peça que já estava faltando.",
+          "Na bancada, o aparelho é aberto com apoio adequado e passa pela sequência de verificação: entrada de energia, estágios da fonte, tensões de comando, circuito de iluminação do painel, comunicação com a placa principal e resposta do aparelho aos comandos. Quando o defeito é intermitente, o televisor fica ligado sob observação por um período maior, porque falha que só aparece depois de aquecer não é detectável em cinco minutos.",
+          "Concluída a avaliação, você recebe o resultado por escrito: o que foi encontrado, qual a origem provável, o que é reparável, o que está fora de reparo, o escopo proposto e o valor. Nada é executado antes da sua aprovação. Se o caminho for a recusa técnica, explicamos o motivo e devolvemos o aparelho no mesmo estado em que chegou, sem tentativa de convencer você a gastar em um reparo que não se sustenta.",
+        ],
+      },
+      {
+        titulo: "Critérios de aceite e de recusa: o que dizemos antes de coletar",
+        paragrafos: [
+          "Aceitamos para avaliação televisores que não ligam, que ligam sem imagem, que apresentam reinício espontâneo, travamento na inicialização, perda de som, falha de entradas ou comportamento instável após oscilação de energia. Aceitamos também aparelhos com histórico de reparo anterior, desde que você informe isso na triagem — não recusamos por causa do histórico, apenas precisamos saber para dimensionar o trabalho.",
+          "Recusamos, e informamos antes da coleta: painel trincado, com marca de impacto, com mancha interna de pressão ou com falha de linha no próprio painel; aparelhos com dano extenso por água ou por infiltração prolongada; equipamentos com corrosão generalizada nas placas; e casos em que o cliente exige garantia de resultado antes da abertura, o que nenhuma bancada honesta pode oferecer. Também não realizamos modificação de software não oficial nem desbloqueio de recursos do aparelho.",
+          "Existe ainda a categoria da recusa após a avaliação, que é diferente. Alguns defeitos só se revelam com o aparelho aberto: uma placa com dano em vários estágios, um componente que não existe mais no mercado, uma falha que envolve o painel e que não estava aparente. Nesses casos a avaliação já foi feita, o resultado é entregue por escrito e o aparelho é devolvido com a explicação técnica do que impede o reparo.",
+          "Esse critério em duas camadas — recusa na triagem e recusa após avaliação — é a forma de evitar que você pague transporte e avaliação de um aparelho que já sabíamos que não teria solução. Quando não temos certeza, dizemos que não temos certeza. Diagnóstico por descrição de sintoma é sempre uma hipótese, nunca uma conclusão.",
+        ],
+      },
+      {
+        titulo: "Coleta, transporte e devolução em Curitiba e região",
+        paragrafos: [
+          "Televisor é um dos equipamentos mais sensíveis ao transporte, e boa parte dos painéis danificados que chegam aqui quebrou no carro, não em uso. Painel não suporta pressão pontual nem torção: apoiar a tela contra o encosto do banco, deitar o aparelho com peso em cima ou segurá-lo pelas bordas superiores durante uma freada é suficiente para criar uma mancha permanente. Por isso o transporte faz parte do serviço e é feito com o aparelho em pé, apoiado e protegido.",
+          "No agendamento definimos a faixa de distância dentro de Curitiba e região metropolitana, os pré-requisitos de acesso ao local, quem estará presente na retirada e quais acessórios acompanham o aparelho. Base, suporte de parede, controle e cabo de força são registrados individualmente. Suporte de parede fixado deve estar desmontado antes da coleta, porque desmontagem em altura não faz parte do serviço.",
+          "A devolução segue o mesmo cuidado e inclui a validação com você presente: aparelho ligado, imagem verificada, som verificado, entradas testadas e o comportamento que motivou o atendimento reproduzido para conferência. É o momento de confirmar que o defeito relatado não se repete. As condições comerciais da coleta, incluindo a taxa mínima pré-aprovada, estão publicadas nas páginas de coleta e entrega e de preços e políticas — não criamos valor específico por página de serviço.",
+        ],
+      },
+      {
+        titulo: "Garantia, limites e o que não prometemos",
+        paragrafos: [
+          "A garantia é de 90 dias sobre a mão de obra e sobre o reparo executado, contados da entrega. Ela cobre exatamente o defeito tratado. Se o mesmo problema retornar dentro desse período, o aparelho volta para a bancada sem custo de mão de obra. O que não está coberto: defeito novo em outro ponto do televisor, dano por descarga elétrica posterior, queda, infiltração, uso em tensão incorreta, e qualquer intervenção feita por terceiros depois da nossa entrega.",
+          "Também não prometemos o que não podemos sustentar. Não garantimos que todo televisor tem conserto, não damos prazo fixo antes de saber qual peça o caso exige, não afirmamos que o aparelho vai durar mais um número específico de anos e não dizemos que o reparo devolve o televisor ao estado de novo. Equipamento com muitos anos de uso tem desgaste natural em componentes que ainda funcionam, e isso não é reparável de forma preventiva sem trocar tudo — o que não faz sentido econômico.",
+          "Quando o reparo não compensa, a orientação é essa mesma, e ela vem acompanhada do motivo. Aparelho de tela menor com defeito no painel, televisor antigo cuja peça necessária custa mais que um modelo novo equivalente, ou conjunto com dano em várias frentes: nesses casos dizer que não vale a pena é o serviço mais útil que podemos prestar. A página sobre quando não compensa consertar detalha esse raciocínio para todas as categorias que atendemos.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Reparo de placa em nível de componente", to: "/servicos/conserto-placa" },
+      { label: "Como funciona a coleta e a entrega", to: "/coleta-e-entrega" },
+      { label: "Quando não compensa consertar", to: "/quando-nao-compensa" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+    ],
+    dateModified: "2026-08-07",
+  },
+
+  // 14 ─────────────────────────────────────────────────────────
+  "conserto-placa": {
+    path: "conserto-placa",
+    trackingKey: "conserto-placa",
+    metaTitle: "Reparo de Placa Eletrônica em Curitiba | Nível de Componente",
+    metaDescription:
+      "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável, coleta e entrega.",
+    serviceName: "Reparo de placa eletrônica",
+    serviceDescription:
+      "Avaliação e reparo de placas eletrônicas em nível de componente — placa-mãe de notebook, placa de computador e placa de televisor — em Curitiba e região, com bancada equipada, critérios de viabilidade declarados e logística de coleta e entrega.",
+    eyebrow: "Nível de componente em Curitiba",
+    h1: "Reparo de placa eletrônica em Curitiba",
+    h1Accent: "com avaliação em bancada e trabalho em nível de componente",
+    intro:
+      "Placa-mãe de notebook que não liga, placa de computador sem vídeo, placa de televisor com falha de alimentação. Em vez de trocar a placa inteira, avaliamos o circuito, localizamos o estágio que falhou e substituímos o componente quando o reparo é viável e seguro. Nem toda placa tem solução: existe dano que não se recupera e existe componente que não se encontra. Você recebe essa avaliação por escrito, com o que é reparável e o que não é, antes de qualquer serviço. Envie o modelo e o sintoma pela triagem no WhatsApp.",
+    whatsappMessage: "Olá! Preciso de avaliação de reparo de placa. Posso informar o equipamento, o modelo e o sintoma?",
+    incluso: [
+      { title: "Triagem técnica", desc: "Equipamento, modelo da placa, sintoma, histórico de líquido, queda, surto elétrico e reparos anteriores." },
+      { title: "Inspeção visual ampliada", desc: "Verificação de corrosão, trilhas rompidas, componentes danificados, emendas e sinais de reparo anterior." },
+      { title: "Medição por estágio", desc: "Alimentação, sinais de habilitação, referências de tensão e comportamento do circuito ponto a ponto." },
+      { title: "Reparo em nível de componente", desc: "Substituição pontual do componente identificado, quando disponível e tecnicamente viável." },
+      { title: "Retrabalho de encapsulamento BGA", desc: "Reposicionamento ou substituição de circuito integrado quando o caso permite, com declaração do risco envolvido." },
+      { title: "Limpeza técnica de corrosão", desc: "Tratamento de placa atingida por líquido, com a ressalva de que corrosão avançada tem recuperação limitada." },
+      { title: "Teste com carga real", desc: "Placa remontada no equipamento e submetida a ciclos de ligação, aquecimento e uso antes da devolução." },
+      { title: "Laudo de viabilidade", desc: "Descrição do defeito, do que foi reparado, do que não é recuperável e das limitações do resultado." },
+    ],
+    sinais: [
+      "Notebook que não liga e não reage ao botão nem à fonte",
+      "Computador que liga, ventoinha gira, mas não dá vídeo",
+      "Placa que esquenta em um ponto específico logo ao energizar",
+      "Equipamento que ligou depois de contato com líquido e parou dias depois",
+      "Aparelho que desliga sozinho ao entrar em carga",
+      "Placa com marca de queimado, estalo ou cheiro após surto elétrico",
+      "Notebook que só funciona na tomada e não reconhece a bateria",
+      "Placa já aberta por outro técnico e devolvida sem solução",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Complexidade do circuito", desc: "Um estágio de alimentação simples exige menos bancada que um circuito com vários controladores." },
+      { title: "Tipo de intervenção", desc: "Troca de componente discreto, retrabalho de encapsulamento e reconstrução de trilha são esforços distintos." },
+      { title: "Extensão do dano", desc: "Placa com um ponto afetado é diferente de placa com corrosão espalhada por várias regiões." },
+      { title: "Disponibilidade do componente", desc: "Peça de linha comum é imediata; controlador específico pode exigir busca e prazo de fornecimento." },
+      { title: "Reparos anteriores", desc: "Emenda malfeita, cola, excesso de solda e trilha já rompida acrescentam etapas de correção." },
+      { title: "Documentação do circuito", desc: "Placas sem referência técnica disponível exigem mapeamento manual e mais tempo de análise." },
+      { title: "Desmontagem do equipamento", desc: "Retirar e recolocar a placa em alguns modelos envolve desmontagem completa do aparelho." },
+      { title: "Logística", desc: "Coleta e entrega dentro de Curitiba e região compõem o atendimento conforme a política publicada." },
+    ],
+    atendimento: {
+      residencial:
+        "Notebook, computador e televisor de uso pessoal: avaliação da placa antes de decidir entre reparo, troca de peça ou substituição do equipamento.",
+      empresarial:
+        "Equipamentos de trabalho e placas de máquinas fora de linha: avaliação de viabilidade com registro por equipamento, útil quando a substituição do aparelho inteiro não é imediata.",
+    },
+    faqs: [
+      { question: "O que é reparo em nível de componente?", answer: "É atuar dentro da placa em vez de substituí-la. Medimos os estágios do circuito, comparamos o comportamento com o esperado, localizamos o componente que falhou e trocamos apenas ele. Isso permite recuperar equipamentos cuja placa nova é cara, indisponível ou fora de linha. Exige bancada com instrumentos de medição, ferramenta de solda adequada e leitura de circuito — não é o mesmo trabalho de trocar módulo." },
+      { question: "Toda placa tem conserto?", answer: "Não, e essa é a parte que precisa ficar clara antes da avaliação. Placa com corrosão avançada em várias regiões, com trilhas internas rompidas em camadas que não são acessíveis, com dano térmico extenso ou com componente que simplesmente não existe mais no mercado pode não ter caminho de reparo. Nesses casos entregamos o laudo explicando o motivo e devolvemos a placa." },
+      { question: "Vocês fazem retrabalho de BGA e reballing?", answer: "Fazemos quando o caso permite e sempre com o risco declarado por escrito. Retrabalho de encapsulamento envolve aquecimento controlado de uma região da placa, e existe risco real de o procedimento não recuperar o funcionamento ou de a recuperação não se sustentar no tempo. Não tratamos esse procedimento como solução garantida e não o executamos sem o seu aceite expresso das limitações." },
+      { question: "O equipamento caiu líquido. Ainda dá para recuperar?", answer: "Depende do tempo de exposição e de o aparelho ter sido ligado depois. Líquido causa corrosão progressiva: a placa pode funcionar por dias e falhar depois, porque a trilha continua se degradando sob o verniz. Fazemos limpeza técnica e reparo dos pontos atingidos, mas o resultado é limitado pelo dano já consolidado e não conseguimos garantir estabilidade futura em placa que sofreu corrosão." },
+      { question: "Qual é a garantia de um reparo de placa?", answer: "90 dias sobre a mão de obra e sobre o ponto reparado. A cobertura é específica: vale para o defeito tratado e para o componente substituído por nós. Não cobre falha em outro estágio da mesma placa, dano por nova entrada de líquido, novo surto elétrico, queda ou intervenção de terceiros. Em placa com histórico de corrosão, a cobertura é limitada ao ponto reparado, e isso é registrado no laudo." },
+      { question: "Vale mais a pena reparar a placa ou trocar o equipamento?", answer: "É exatamente o que a avaliação responde. Consideramos o valor do reparo, o valor de uma placa nova quando ela existe, o valor de um equipamento equivalente, a idade do aparelho e o estado dos demais componentes. Quando a conta não fecha a favor do reparo, dizemos isso — recuperar uma placa por um valor próximo ao de um equipamento novo raramente é a melhor decisão." },
+      { question: "Vocês reparam placa avulsa, sem o equipamento?", answer: "Recebemos placa avulsa para avaliação, mas com uma limitação importante: sem o equipamento completo não é possível validar o reparo em condição real de uso. Testamos a placa em bancada dentro do que o circuito permite, e o teste final com carga real fica por sua conta ao remontar. Sempre que possível, prefira enviar o equipamento inteiro." },
+      { question: "A placa já foi mexida por outro técnico. Vocês aceitam?", answer: "Aceitamos, desde que você informe isso na triagem. Reparo anterior não é motivo de recusa, mas muda o trabalho: excesso de solda, cola, componente trocado por outro fora de especificação e trilha já emendada precisam ser corrigidos antes de qualquer diagnóstico confiável. Placa muito castigada por intervenções sucessivas pode chegar ao ponto de não ter mais viabilidade." },
+      { question: "Existe risco de a placa piorar durante o reparo?", answer: "Existe, e não escondemos isso. Trabalho em nível de componente envolve aquecimento, remoção de peças e manipulação de trilhas, tudo em uma placa que já está com defeito. Em placas com corrosão, com dano térmico anterior ou com múltiplos reparos prévios, o risco é maior. Avisamos quando identificamos esse cenário e só seguimos com a sua autorização registrada." },
+      { question: "Como funciona o envio da placa ou do equipamento?", answer: "Pela coleta e entrega, nas condições publicadas na página de coleta. O equipamento é registrado no recebimento com estado e acessórios, avaliado em bancada e devolvido após os testes. Não fazemos esse tipo de serviço em visita: reparo de placa depende de bancada, instrumentos e ambiente controlado." },
+    ],
+    relacionados: [
+      { label: "Conserto de TV e Smart TV", to: "/servicos/conserto-tv" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Quando não compensa consertar", to: "/quando-nao-compensa" },
+      ...LINKS_BASE,
+    ],
+    blocoLocal: [
+      {
+        titulo: "O que a bancada faz que a troca de peça não faz",
+        paragrafos: [
+          "A rota mais comum no mercado, diante de uma placa com defeito, é substituir a placa inteira. Isso funciona quando existe placa nova disponível e o valor faz sentido. O problema aparece quando o equipamento saiu de linha, quando a placa custa quase o mesmo que um aparelho novo, ou quando simplesmente não há mais fornecimento. É nesse espaço que o reparo em nível de componente tem valor real: recuperar um circuito específico em vez de descartar o conjunto.",
+          "O método é o mesmo em qualquer placa, mude o equipamento que for. Primeiro a inspeção ampliada, que revela corrosão, trilha rompida, componente estourado, emenda de reparo anterior e marca de aquecimento. Depois a medição por estágio: verificamos se cada linha de alimentação está presente e no valor esperado, se os sinais de habilitação chegam, se algum ponto apresenta consumo anormal. O comportamento do circuito conta a história — consumo excessivo logo ao energizar aponta um caminho, ausência total de reação aponta outro.",
+          "Localizado o estágio, o trabalho vira preciso: remover o componente com aquecimento controlado, verificar a área de solda, instalar o substituto correto e conferir o resultado. Quando o caso envolve encapsulamento do tipo BGA, o procedimento é mais delicado, porque aquece uma região inteira da placa, e por isso ele só é executado com o risco declarado e com autorização registrada.",
+        ],
+      },
+      {
+        titulo: "Placas que atendemos e limites de cada uma",
+        paragrafos: [
+          "Placa-mãe de notebook é o caso mais frequente. Os sintomas típicos são o aparelho que não liga, o que liga e desliga em seguida, o que só funciona na tomada, o que não carrega a bateria e o que não dá vídeo. Boa parte desses defeitos está nos estágios de alimentação, e boa parte tem reparo viável. O limite aparece em placas com corrosão por líquido e em placas com dano no circuito integrado principal, onde a viabilidade cai bastante.",
+          "Placa de computador de mesa aparece com falha de alimentação, ausência de vídeo, memória não reconhecida e portas que pararam de funcionar. Aqui o cálculo econômico pesa mais, porque placa de desktop nova ainda é encontrada com facilidade em várias plataformas — reparar só faz sentido quando a plataforma é específica, quando o conjunto é caro ou quando o modelo não tem substituto disponível.",
+          "Placa de televisor divide espaço com o serviço de conserto de TV e segue o mesmo raciocínio: fonte e placa principal têm reparo viável em muitos casos, o painel não. Quando o equipamento chega inteiro, o trabalho é conduzido pelo atendimento de TV; quando chega a placa avulsa, a avaliação é feita em bancada com a limitação de não haver validação em condição real de uso.",
+          "Existem também os casos que recusamos por princípio: equipamento sob garantia do fabricante, onde qualquer abertura anula a cobertura e o caminho correto é o canal oficial; placas de equipamentos médicos, industriais críticos e automotivos, que exigem homologação que não temos; e pedidos de reparo com garantia de resultado prévia, que nenhuma bancada honesta pode oferecer antes de abrir.",
+        ],
+      },
+      {
+        titulo: "Viabilidade, risco e transparência no laudo",
+        paragrafos: [
+          "Reparo eletrônico trabalha com probabilidade, não com certeza, e um serviço sério precisa dizer isso na frente. Antes de qualquer intervenção você recebe três informações: o que encontramos, o que pretendemos fazer e qual o risco envolvido naquele procedimento específico. Em placas com corrosão, com histórico de reparos sucessivos ou que exigem retrabalho de encapsulamento, o risco de o procedimento não recuperar o funcionamento é declarado explicitamente — e você decide com essa informação na mão.",
+          "O laudo de saída segue a mesma lógica. Ele descreve o defeito identificado, o componente ou estágio tratado, os testes executados, o resultado obtido e as limitações que permanecem. Se a placa foi recuperada mas apresenta uma região com corrosão que pode voltar a se manifestar, isso está escrito. Se o reparo depende de o equipamento não ser submetido ao mesmo tipo de esforço que causou o dano, isso está escrito também. Laudo que só diz consertado não ajuda ninguém a decidir.",
+          "A garantia acompanha essa transparência: 90 dias sobre a mão de obra e sobre o ponto reparado, com a cobertura delimitada ao que foi tratado. Preferimos uma cobertura menor e honesta a uma promessa ampla que não se sustenta na primeira reclamação. Quando o caso não tem viabilidade, não há reparo nem cobrança de serviço não executado — há o laudo explicando o motivo, que muitas vezes é a informação que faltava para você decidir entre insistir no equipamento ou substituí-lo.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Conserto de TV e Smart TV", to: "/servicos/conserto-tv" },
+      { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+    ],
+    dateModified: "2026-08-07",
+  },
 };
 
 /** Ordem canônica exibida no hub /servicos. */

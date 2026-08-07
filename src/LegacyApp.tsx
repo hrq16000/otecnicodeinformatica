@@ -334,7 +334,6 @@ const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
 const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
 const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
 const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
-const ConsertoTV = lazy(() => import("./pages/servicos/ConsertoTV"));
 const ConsertoCelular = lazy(() => import("./pages/servicos/ConsertoCelular"));
 const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
 

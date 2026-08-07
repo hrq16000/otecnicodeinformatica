@@ -48,8 +48,8 @@ function read(): GeoContext | null {
 
 function write(next: GeoContext) {
   const prev = read();
-  // Nunca rebaixa precisão: "precise" prevalece sobre "ip".
-  if (prev?.source === "precise" && next.source === "ip") return;
+  // Nunca rebaixa confiança (ex.: IP não sobrescreve CEP, GPS ou escolha manual).
+  if (prev && CONFIANCA[next.source] < CONFIANCA[prev.source]) return;
   current = next;
   try {
     sessionStorage.setItem(KEY, JSON.stringify(next));
@@ -58,6 +58,31 @@ function write(next: GeoContext) {
   }
   listeners.forEach((fn) => fn(next));
 }
+
+/**
+ * Persiste o local informado pelo próprio visitante (campo do funil ou CEP).
+ * É a origem de maior confiança: o que ele digitou vale mais do que qualquer
+ * inferência automática e passa a alimentar a mensagem do WhatsApp.
+ */
+export function setGeoFromUser(input: {
+  city: string;
+  neighborhood?: string;
+  region?: string;
+  source?: "cep" | "manual";
+}): GeoContext | null {
+  const city = input.city?.trim();
+  if (!city) return null;
+  const next: GeoContext = {
+    city,
+    neighborhood: input.neighborhood?.trim() || undefined,
+    region: input.region?.trim() || undefined,
+    source: input.source ?? "manual",
+    at: Date.now(),
+  };
+  write(next);
+  return next;
+}
+
 
 export function getGeoContext(): GeoContext | null {
   return read();

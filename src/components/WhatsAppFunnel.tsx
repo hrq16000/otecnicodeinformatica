@@ -563,7 +563,7 @@ export const WhatsAppFunnel = () => {
               `*Coleta:* ${coleta.faixa.nome} · ${coleta.faixa.taxaLabel}`,
               `*Janelas:* ${coleta.faixa.janelas} · retirada em até ${coleta.faixa.prazoColetaDias} dia(s) útil(eis)`,
               `*Status inicial:* ${coleta.status}`,
-              `*Pré-requisitos confirmados:* ${coleta.prerequisitos.length} de ${coleta.prerequisitos.length}`,
+              `*Pré-requisitos confirmados:* ${coleta.prerequisitos.length} itens aceitos na triagem`,
             ].join("\n")
           : "";
       const withLogistica = `${base}${logistica}`;

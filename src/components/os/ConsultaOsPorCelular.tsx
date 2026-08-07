@@ -18,7 +18,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { track, trackWaClick } from "@/lib/funnelAnalytics";
 import { baixarPdfOs } from "@/lib/osPdf";
+import { useOsLiveUpdates } from "@/hooks/useOsLiveUpdates";
 import { whatsappLink } from "@/lib/siteConfig";
+
 
 export interface OsEtapaRemota {
   titulo: string;

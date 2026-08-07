@@ -19,6 +19,7 @@
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
 import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
+import { BLOCOS_3U, CTA_3U } from "./lib/blocos-3u.mjs";
 import { SERVICO_VISUAL_3Q } from "./lib/servico-visual-3q.mjs";
 
 // Rodada 3G/A1 — segundo link de entrada dos artigos aprovados, servido
@@ -639,6 +640,41 @@ function blocos3tHtml(path) {
   return toc + secoes + ctaHtml;
 }
 
+/** RODADA 3U — blocos estáticos de atendimento remoto, segurança e montagem. */
+function blocos3uHtml(path) {
+  const cfg = BLOCOS_3U[path];
+  if (!cfg) return "";
+  const ul = (itens) =>
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem;opacity:.94">` +
+    itens.map((i) => `<li>${esc(i)}</li>`).join("") +
+    `</ul>`;
+  const resumo = cfg.resumo?.length
+    ? ul(cfg.resumo.map((r) => `${r.label}: ${r.value}`))
+    : "";
+  const toc =
+    `<p style="margin:18px 0 6px"><strong>Nesta página</strong></p>` +
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">` +
+    cfg.tocExtra.map((t) => `<li><a href="#${t.id}" style="color:#7fd4ec">${esc(t.label)}</a></li>`).join("") +
+    `</ul>`;
+  const secoes = cfg.secoes
+    .map((sec) => {
+      let corpo = `<h2 id="${sec.id}" style="font-size:1.1rem;margin:24px 0 8px">${esc(sec.titulo)}</h2>`;
+      if (sec.intro) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.intro)}</p>`;
+      if (sec.cards) corpo += ul(sec.cards.map((c) => `${c.titulo}: ${c.texto ?? (c.itens || []).join("; ")}`));
+      if (sec.passos) corpo += ul(sec.passos);
+      if (sec.colunas) corpo += sec.colunas.map((c) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(c.titulo)}</h3>` + ul(c.itens)).join("");
+      if (sec.listas) corpo += sec.listas.map((l) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(l.titulo)}</h3>` + ul(l.itens)).join("");
+      if (sec.nota) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.nota)}</p>`;
+      return corpo;
+    })
+    .join("");
+  const cta = CTA_3U[path];
+  const ctaHtml = cta
+    ? `<p style="margin:16px 0"><a href="${waLink({ path })}" data-cta-location="noscript_static_3u" style="color:#7fd4ec"><strong>${esc(cta.label)}</strong></a></p>`
+    : "";
+  return resumo + toc + secoes + ctaHtml;
+}
+
 function visual3sHtml(path) {
   const v = VISUAL_3S_STATIC[path];
   if (!v) return "";
@@ -723,6 +759,7 @@ export function staticBodyFor(route) {
           ${visual3sHtml(route.path)}
           ${visual3tHtml(route.path)}
           ${blocos3tHtml(route.path)}
+          ${blocos3uHtml(route.path)}
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}

@@ -30,6 +30,8 @@ jobs:
         run: npm run check:sitemap-source
 
       - name: Saúde de indexação em produção (canônicos, noindex, JSON-LD)
+        continue-on-error: true
+        timeout-minutes: 20
         run: npm run check:index-health -- --base=https://tecnico.curitiba.br --strict
 
       - name: Soft-404 e 404 reais

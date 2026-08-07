@@ -364,8 +364,81 @@ export const ConsultaOsPorCelular = () => {
         <div className="mt-5 space-y-5">
           <p className="flex items-center gap-2 text-xs text-muted-foreground">
             <RefreshCw className="h-3.5 w-3.5" aria-hidden />
-            Atualização automática ativa · última leitura {fmtDate(atualizadoEm)}
+            {modoAtualizacao === "sse"
+              ? "Atualização em tempo real ativa"
+              : "Atualização automática a cada 45s"}{" "}
+            · última leitura {fmtDate(atualizadoEm)}
           </p>
+
+          {/* Confirmação por código: libera fotos da triagem e sintomas. */}
+          {!verificado ? (
+            <div className="rounded-xl border border-border bg-muted/40 p-4">
+              <p className="flex items-start gap-2 text-sm font-semibold text-foreground">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                Confirme para ver fotos e sintomas
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Por segurança, a descrição dos sintomas e as fotos da triagem só aparecem depois da
+                confirmação de um código de 6 dígitos enviado no WhatsApp do atendimento. O código
+                expira em 10 minutos.
+              </p>
+              {!codigoPedido ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  className="mt-3"
+                  disabled={verificando}
+                  onClick={pedirCodigo}
+                >
+                  {verificando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
+                  Solicitar código no WhatsApp
+                </Button>
+              ) : (
+                <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end">
+                  <div className="flex-1">
+                    <Label htmlFor="os-codigo">Código de 6 dígitos</Label>
+                    <Input
+                      id="os-codigo"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      maxLength={6}
+                      placeholder="000000"
+                      value={codigo}
+                      onChange={(e) => setCodigo(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                      className="mt-1"
+                    />
+                  </div>
+                  <Button type="button" size="sm" disabled={verificando} onClick={confirmarCodigo}>
+                    {verificando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
+                    Confirmar código
+                  </Button>
+                </div>
+              )}
+              {codigoPedido ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="mt-2"
+                  onClick={() => trackWaClick("status_os_pedir_codigo")}
+                >
+                  <a
+                    href={whatsappLink(
+                      "Olá! Consultei minha ordem de serviço no site e preciso do código de confirmação para ver as fotos e os sintomas.",
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden /> Receber o código no WhatsApp
+                  </a>
+                </Button>
+              ) : null}
+              {erroCodigo ? (
+                <p className="mt-2 text-xs font-medium text-destructive">{erroCodigo}</p>
+              ) : null}
+            </div>
+          ) : null}
+
           {ordens.map((os) => {
             const pct = progresso(os.etapas);
             const sla = slaInfo(os.previsao_conclusao);

@@ -85,3 +85,16 @@ export function routeTypeFromPath(pathname: string): RouteType {
     return "institucional";
   return "outro";
 }
+
+/**
+ * Faixa de viewport para segmentar conversão mobile nos relatórios GA4
+ * (360 / 390 / 430 são os alvos de QA das páginas empresariais).
+ */
+export function viewportBucket(w: number): string {
+  if (!w) return "unknown";
+  if (w <= 375) return "360";
+  if (w <= 400) return "390";
+  if (w < 768) return "430";
+  if (w < 1024) return "tablet";
+  return "desktop";
+}

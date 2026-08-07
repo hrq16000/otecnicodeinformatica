@@ -50,6 +50,16 @@ jobs:
         run: npm run check:rich-results:strict
       - name: Paridade JSON-LD × conteúdo visível (FAQPage/Offer/LocalBusiness)
         run: npm run check:jsonld-parity
+      - name: BreadcrumbList serviço × cidade
+        run: npm run check:breadcrumb-schema
+      - name: Markup de preço (Offer/PriceSpecification)
+        run: npm run check:price-schema
+      - name: Paridade 1:1 FAQPage × FAQ visível
+        run: npm run check:faq-parity
+      - name: Unicidade de title/description (serviço × cidade e blog)
+        run: npm run check:meta-uniqueness
+      - name: Image sitemap (geração + integridade)
+        run: npm run sitemap:images && npm run check:image-sitemap
 
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity

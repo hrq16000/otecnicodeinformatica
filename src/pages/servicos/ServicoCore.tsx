@@ -156,24 +156,35 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : {};
 
+  // Rodada 4C — ficha comercial padronizada (mesmos campos obrigatórios em
+  // todas as páginas de serviço). Aditiva: entra depois dos blocos da rodada.
+  const ficha = <FichaComercialServico slug={slug as string} nome={base.serviceName} />;
+
   const extraFinal = cfgBlocos ? (
     <>
       {extra}
       <Blocos3T slug={slug as string} />
+      {ficha}
     </>
   ) : cfg3u ? (
     <>
       <Blocos3U path={path3u} />
       {extra}
+      {ficha}
     </>
   ) : cfg4a ? (
     <>
       <Blocos4A path={path3u} />
       {extra}
+      {ficha}
     </>
   ) : (
-    extra
+    <>
+      {extra}
+      {ficha}
+    </>
   );
+
 
   return (
     <ServicoLandingLayout

@@ -2,12 +2,15 @@
 /**
  * GATE DA RODADA 3Y — expansão premium multieletrônicos.
  *
- * Escopo autorizado: apenas /servicos/conserto-tv e /servicos/conserto-placa.
+ * Escopo autorizado: /servicos/conserto-tv, /servicos/conserto-placa e
+ * /servicos/conserto-monitor (única rota de monitor — sem variação por marca,
+ * sintoma ou "monitor gamer").
  * O gate falha se:
  *   1. uma das duas rotas sair do manifesto curado (deixar de ser indexável);
  *   2. o conteúdo editorial ficar abaixo do mínimo (TV 1200 / Placa 900 palavras);
  *   3. surgir nova arquitetura de hub (/eletronicos/*) ou rota própria para
- *      monitor/áudio/som, que a auditoria manteve fora do escopo;
+ *      áudio/som, ou uma segunda rota de monitor, que a auditoria manteve
+ *      fora do escopo;
  *   4. faltar bloco de aceite/recusa, garantia ou coleta nas duas páginas.
  *
  * Uso: node scripts/check-multielectronics-wave-3y.mjs
@@ -20,6 +23,7 @@ import { servicoFaqs } from "./lib/servico-faqs.mjs";
 const WAVE = [
   { path: "/servicos/conserto-tv", minWords: 1200 },
   { path: "/servicos/conserto-placa", minWords: 900 },
+  { path: "/servicos/conserto-monitor", minWords: 1200 },
 ];
 
 const errors = [];
@@ -57,16 +61,17 @@ for (const { path, minWords } of WAVE) {
 // Arquitetura: nenhum hub /eletronicos e nenhuma rota própria de monitor/áudio.
 const FORBIDDEN_ROUTES = [
   /path="\/eletronicos/,
-  /path="\/servicos\/conserto-monitor/,
   /path="\/servicos\/conserto-audio/,
   /path="\/servicos\/conserto-som/,
+  /path="\/servicos\/conserto-monitor-gamer/,
+  /path="\/servicos\/monitor-/,
   /path="\/servicos\/caixa-de-som/,
 ];
 for (const re of FORBIDDEN_ROUTES) {
   if (re.test(app)) errors.push(`arquitetura fora do escopo 3Y: ${re}`);
 }
 for (const { path } of SERVICOS) {
-  if (/^\/eletronicos|conserto-monitor|conserto-audio|conserto-som/.test(path)) {
+  if (/^\/eletronicos|conserto-audio|conserto-som/.test(path)) {
     errors.push(`rota fora do escopo 3Y no manifesto curado: ${path}`);
   }
 }

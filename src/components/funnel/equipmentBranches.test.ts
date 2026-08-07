@@ -2,9 +2,17 @@ import { describe, it, expect } from "vitest";
 import { EQUIPMENT_BRANCHES, getBranch, getSintoma } from "./equipmentBranches";
 
 describe("equipmentBranches", () => {
-  it("expõe os 6 equipamentos esperados", () => {
+  it("expõe os 7 equipamentos esperados", () => {
     const ids = EQUIPMENT_BRANCHES.map((b) => b.id).sort();
-    expect(ids).toEqual(["celular", "outro", "pc", "som", "tv", "videogame"]);
+    expect(ids).toEqual(["celular", "monitor", "outro", "pc", "som", "tv", "videogame"]);
+  });
+
+  it("monitor: todo sintoma listado exige Coleta e Entrega", () => {
+    const b = getBranch("monitor");
+    expect(b?.sintomas.length).toBeGreaterThan(0);
+    for (const s of b!.sintomas) {
+      expect(s.requiresColeta, `monitor/${s.id} deve exigir coleta`).toBe(true);
+    }
   });
 
   it("'não liga' sempre exige Coleta e Entrega", () => {

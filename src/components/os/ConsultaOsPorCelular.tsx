@@ -88,7 +88,14 @@ export const ConsultaOsPorCelular = () => {
   const [ordens, setOrdens] = useState<OrdemRemota[] | null>(null);
   const [atualizadoEm, setAtualizadoEm] = useState<string | null>(null);
   const [gerandoPdf, setGerandoPdf] = useState<string | null>(null);
+  const [streamToken, setStreamToken] = useState<string | null>(null);
+  const [verificado, setVerificado] = useState(false);
+  const [codigoPedido, setCodigoPedido] = useState(false);
+  const [codigo, setCodigo] = useState("");
+  const [verificando, setVerificando] = useState(false);
+  const [erroCodigo, setErroCodigo] = useState<string | null>(null);
   const ultimoTelefone = useRef<string | null>(null);
+  const sessionToken = useRef<string | null>(null);
 
   const consultar = useCallback(async (valor: string, silencioso = false) => {
     if (!isValidPhone(valor)) {
@@ -101,7 +108,11 @@ export const ConsultaOsPorCelular = () => {
     const timeout = setTimeout(() => setErro("A consulta está demorando mais que o normal."), 8000);
     try {
       const { data, error } = await supabase.functions.invoke("os-consulta", {
-        body: { telefone: valor.replace(/\D/g, "") },
+        body: {
+          telefone: valor.replace(/\D/g, ""),
+          sessionToken: sessionToken.current,
+          path: typeof window !== "undefined" ? window.location.pathname : null,
+        },
       });
       clearTimeout(timeout);
       if (error) {
@@ -117,6 +128,8 @@ export const ConsultaOsPorCelular = () => {
       }
       const lista = (data?.ordens ?? []) as OrdemRemota[];
       setOrdens(lista);
+      setVerificado(Boolean(data?.verificado));
+      setStreamToken((data?.streamToken as string) ?? null);
       setAtualizadoEm(new Date().toISOString());
       ultimoTelefone.current = valor;
       if (!silencioso) {
@@ -131,16 +144,89 @@ export const ConsultaOsPorCelular = () => {
     }
   }, []);
 
-  // Atualização automática enquanto a consulta estiver aberta.
-  useEffect(() => {
-    if (!ordens?.length) return;
-    const id = window.setInterval(() => {
-      if (document.visibilityState === "visible" && ultimoTelefone.current) {
-        consultar(ultimoTelefone.current, true);
+  /** Atualização em tempo quase real (SSE) com fallback automático para polling. */
+  const modoAtualizacao = useOsLiveUpdates({
+    streamToken,
+    ativo: Boolean(ordens?.length),
+    onUpdate: () => {
+      if (ultimoTelefone.current) consultar(ultimoTelefone.current, true);
+    },
+  });
+
+  /** Passo 1 da confirmação: pedir o código enviado pelo WhatsApp do atendimento. */
+  const pedirCodigo = useCallback(async () => {
+    if (!ultimoTelefone.current) return;
+    setErroCodigo(null);
+    setVerificando(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("os-codigo", {
+        body: { action: "request", telefone: ultimoTelefone.current.replace(/\D/g, "") },
+      });
+      if (error) {
+        const detalhe = "context" in error ? await (error as any).context?.text?.() : "";
+        let msg = "Não foi possível gerar o código agora. Peça pelo WhatsApp.";
+        try {
+          const parsed = JSON.parse(detalhe || "{}");
+          if (parsed?.message) msg = parsed.message;
+        } catch { /* mantém mensagem padrão */ }
+        setErroCodigo(msg);
+        return;
       }
-    }, POLL_MS);
-    return () => window.clearInterval(id);
-  }, [ordens, consultar]);
+      if (data?.ok) {
+        setCodigoPedido(true);
+        track("os_codigo_solicitado", { origem: "status_os" });
+      }
+    } catch {
+      setErroCodigo("Serviço indisponível. Solicite o código pelo WhatsApp.");
+    } finally {
+      setVerificando(false);
+    }
+  }, []);
+
+  /** Passo 2: validar o código e liberar fotos e sintomas por 30 minutos. */
+  const confirmarCodigo = useCallback(async () => {
+    if (!ultimoTelefone.current || codigo.replace(/\D/g, "").length !== 6) {
+      setErroCodigo("Digite os 6 dígitos do código recebido.");
+      return;
+    }
+    setErroCodigo(null);
+    setVerificando(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("os-codigo", {
+        body: {
+          action: "verify",
+          telefone: ultimoTelefone.current.replace(/\D/g, ""),
+          codigo: codigo.replace(/\D/g, ""),
+        },
+      });
+      if (error) {
+        const detalhe = "context" in error ? await (error as any).context?.text?.() : "";
+        let msg = "Código inválido ou expirado. Peça um novo.";
+        try {
+          const parsed = JSON.parse(detalhe || "{}");
+          if (parsed?.message) msg = parsed.message;
+        } catch { /* mantém mensagem padrão */ }
+        setErroCodigo(msg);
+        return;
+      }
+      if (data?.sessionToken) {
+        sessionToken.current = data.sessionToken as string;
+        setCodigo("");
+        setCodigoPedido(false);
+        track("os_codigo_confirmado", { origem: "status_os" });
+        await consultar(ultimoTelefone.current, true);
+        toast({
+          title: "Consulta confirmada",
+          description: "Fotos e sintomas liberados por 30 minutos.",
+        });
+      }
+    } catch {
+      setErroCodigo("Não conseguimos validar agora. Tente novamente em instantes.");
+    } finally {
+      setVerificando(false);
+    }
+  }, [codigo, consultar]);
+
 
   const waFallback = whatsappLink(
     "Olá! Tentei consultar minha ordem de serviço pelo site com o meu celular e preciso saber a etapa atual.",

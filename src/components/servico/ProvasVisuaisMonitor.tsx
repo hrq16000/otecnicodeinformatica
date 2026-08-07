@@ -36,7 +36,7 @@ const PROVAS: Prova[] = [
   {
     etapa: "4. Embalagem",
     imageKey: "coletaEntrega",
-    legenda: "Aparelho embalado com proteção reforçada antes da entrega.",
+    legenda: "Aparelho embalado com proteção extra antes da entrega.",
   },
 ];
 

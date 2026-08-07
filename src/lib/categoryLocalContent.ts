@@ -98,7 +98,7 @@ export function sintomasDoLocal(cat: CategoryData, local: LocalData): [string, s
 
 export function categoryLocalMeta(cat: CategoryData, local: LocalData) {
   const faixa = faixaDe(local);
-  const [s1, s2] = sintomasDoLocal(cat, local);
+  const [s1] = sintomasDoLocal(cat, local);
   return {
     path: `/${cat.slug}/${local.slug}`,
     title: `${TITULO_CURTO[cat.id]} em ${shortLabel(local)} | Coleta e Bancada`,

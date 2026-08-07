@@ -139,7 +139,7 @@ export function sintomasDoLocal(cat, local) {
 export function categoryLocalMeta(cat, local) {
   const path = `/${cat.slug}/${local.slug}`;
   const faixa = faixaDe(local);
-  const [s1, s2] = sintomasDoLocal(cat, local);
+  const [s1] = sintomasDoLocal(cat, local);
   const title = `${cat.tituloCurto} em ${shortLabel(local)} | Coleta e Bancada`;
   const description = clamp(
     `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +

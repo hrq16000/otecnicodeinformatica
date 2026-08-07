@@ -44,11 +44,13 @@ export const ProvasVisuaisMonitor = () => (
   <section id="provas-monitor" className="scroll-mt-24 bg-secondary py-14 md:py-16">
     <div className="container mx-auto px-4">
       <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
-        Provas reais do conserto de monitor
+        Como funciona o processo do conserto de monitor
       </h2>
       <p className="mt-3 max-w-3xl text-muted-foreground">
-        Todo monitor passa por quatro registros obrigatórios. Sem essas quatro provas, a ordem de
-        serviço não é encerrada e o aparelho não sai da bancada.
+        Todo monitor passa por quatro registros obrigatórios de bancada. Sem esses quatro
+        registros, a ordem de serviço não é encerrada e o aparelho não sai da bancada. As imagens
+        abaixo são fotografia licenciada ilustrando cada etapa — o registro do seu atendimento é
+        feito no dossiê interno da ordem de serviço.
       </p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

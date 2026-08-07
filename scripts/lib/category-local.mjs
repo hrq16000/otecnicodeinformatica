@@ -1,3 +1,5 @@
+import { clamp, DESC_MAX } from "./seo-meta.mjs";
+
 /**
  * FONTE ÚNICA — conteúdo localizado das páginas serviço × cidade/bairro
  * (/conserto-{tv,som,videogame,celular}/<local>).
@@ -139,10 +141,11 @@ export function categoryLocalMeta(cat, local) {
   const faixa = faixaDe(local);
   const [s1, s2] = sintomasDoLocal(cat, local);
   const title = `${cat.tituloCurto} em ${shortLabel(local)} | Coleta e Bancada`;
-  const description =
-    `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio} (${faixa.janelas}), ` +
-    `avaliação em bancada de ${s1} e ${s2}, reparo mínimo de R$ ${PRECO_MINIMO_REPARO} ` +
-    `com diagnóstico incluso e ${GARANTIA_DIAS} dias de garantia.`;
+  const description = clamp(
+    `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
+      `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+    DESC_MAX,
+  );
   return { path, url: path, title, description, cityLabel: cityLabel(local), faixa };
 }
 
@@ -150,10 +153,11 @@ export function categoryHubMeta(cat) {
   return {
     path: `/${cat.slug}-curitiba`,
     title: `${cat.tituloCurto} em Curitiba e Região | Coleta e Bancada`,
-    description:
-      `${cat.titlePrefix} para Curitiba e Região Metropolitana com coleta programada até 30 km, ` +
-      `avaliação de ${cat.bancada} em bancada, reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com diagnóstico ` +
-      `incluso e ${GARANTIA_DIAS} dias de garantia sobre o serviço executado.`,
+    description: clamp(
+      `${cat.titlePrefix} para Curitiba e Região Metropolitana: coleta até 30 km, avaliação de ` +
+        `${cat.bancada} em bancada e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+      DESC_MAX,
+    ),
   };
 }
 

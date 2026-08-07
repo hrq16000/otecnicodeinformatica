@@ -69,6 +69,15 @@ export const TITULO_CURTO: Record<CategoryId, string> = {
   celular: "Conserto de Celular",
 };
 
+/** Corta em fronteira de palavra (espelha scripts/lib/seo-meta.mjs). */
+export function clamp(text: string, max = 165): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max - 1);
+  const at = cut.lastIndexOf(" ");
+  return `${(at > max * 0.6 ? cut.slice(0, at) : cut).replace(/[\s,;:·|—-]+$/, "")}…`;
+}
+
 export const cityLabel = (l: LocalData) =>
   l.kind === "bairro" ? `${l.nome}, ${l.cidadeMae}` : l.nome;
 
@@ -93,10 +102,10 @@ export function categoryLocalMeta(cat: CategoryData, local: LocalData) {
   return {
     path: `/${cat.slug}/${local.slug}`,
     title: `${TITULO_CURTO[cat.id]} em ${shortLabel(local)} | Coleta e Bancada`,
-    description:
-      `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio} (${faixa.janelas}), ` +
-      `avaliação em bancada de ${s1} e ${s2}, reparo mínimo de R$ ${PRECO_MINIMO_REPARO} ` +
-      `com diagnóstico incluso e ${GARANTIA_DIAS} dias de garantia.`,
+    description: clamp(
+      `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
+        `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,
+    ),
   };
 }
 

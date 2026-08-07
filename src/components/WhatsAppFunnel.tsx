@@ -937,7 +937,12 @@ export const WhatsAppFunnel = () => {
                         Termos e Condições
                       </a>.
                     </p>
-                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} nextLabel="Continuar" />
+                    <FunnelNav
+                      onBack={back}
+                      onNext={handleNext}
+                      canNext={canAdvance && (criteriosOk || !categoriaPorEquipamento(answers.equipment))}
+                      nextLabel="Continuar"
+                    />
                   </div>
                 )}
 

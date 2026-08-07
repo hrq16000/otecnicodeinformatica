@@ -2,9 +2,9 @@ import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout"
 import { VISUAL_3S_SERVICO_SLUGS } from "@/lib/visualEmpresarial3s";
 import { visual3T } from "@/lib/visualEmpresarial3t";
 import { blocos3T, cta3T } from "@/lib/blocos3t";
+import { blocos3U, cta3U } from "@/lib/blocos3u";
+import { Blocos3U } from "@/components/servico/Blocos3U";
 import { Blocos3T } from "@/components/servico/Blocos3T";
-import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
-import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
@@ -46,8 +46,6 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     ) : slug === "montagem-de-pc" ? (
       <>
         <WorkstationSection />
-        <MontagemPoliticaBlocos />
-        <MontagemComoFunciona />
         <MontagemWizard />
       </>
     ) : undefined;
@@ -124,10 +122,28 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : {};
 
+  // Rodada 3U — blocos próprios da montagem de PC (escopo, fluxo, contextos,
+  // compatibilidade, peças do cliente, BIOS, testes e garantias distintas).
+  const path3u = `/servicos/${slug}`;
+  const cfg3u = blocos3U(path3u);
+  const blocos3u = cfg3u
+    ? {
+        resumo: cfg3u.resumo,
+        toc: [...cfg3u.tocExtra, { id: "faq", label: "Perguntas frequentes" }],
+        confianca: true,
+        ctaIntermediario: cta3U(path3u),
+      }
+    : {};
+
   const extraFinal = cfgBlocos ? (
     <>
       {extra}
       <Blocos3T slug={slug as string} />
+    </>
+  ) : cfg3u ? (
+    <>
+      <Blocos3U path={path3u} />
+      {extra}
     </>
   ) : (
     extra
@@ -143,6 +159,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
         ...variante3s,
         ...variante3t,
         ...blocos3t,
+        ...blocos3u,
         extra: extraFinal,
       }}
     />

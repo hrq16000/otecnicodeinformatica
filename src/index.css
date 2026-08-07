@@ -63,6 +63,9 @@
        sobre fundos claros e mantém texto branco legível sobre o acento. */
     --accent: 197 90% 33%;
     --accent-foreground: 0 0% 100%;
+    /* Variante clara do acento para texto pequeno sobre o fundo escuro do hero
+       (hsl(var(--hero-bg))): garante contraste AA (>= 4.5:1). */
+    --accent-on-dark: 197 88% 64%;
 
     /* Escurecido para contraste AA em texto de alerta sobre fundos claros. */
     --destructive: 0 72% 40%;

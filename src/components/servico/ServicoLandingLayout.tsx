@@ -138,6 +138,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
         items={[{ label: "Serviços", href: "/servicos" }, { label: data.serviceName }]}
       />
 
+      <main id="conteudo-principal">
       {/* Hero — identidade "centro técnico local premium", sem partículas/glow */}
       <section className="relative overflow-hidden bg-[hsl(var(--hero-bg))] text-white">
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-bg))] via-[hsl(205_55%_16%)] to-[hsl(var(--hero-bg-end))]" />
@@ -493,6 +494,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
 
 
       <InterlinkingBlock />
+      </main>
       <Footer />
     </div>
   );

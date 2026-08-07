@@ -662,7 +662,9 @@ function blocos3uHtml(path) {
       if (sec.intro) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.intro)}</p>`;
       if (sec.cards) corpo += ul(sec.cards.map((c) => `${c.titulo}: ${c.texto ?? (c.itens || []).join("; ")}`));
       if (sec.passos) corpo += ul(sec.passos);
-      if (sec.colunas) corpo += sec.colunas.map((c) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(c.titulo)}</h3>` + ul(c.itens)).join("");
+      if (sec.colunas && typeof sec.colunas[0] === "object")
+        corpo += sec.colunas.map((c) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(c.titulo)}</h3>` + ul(c.itens)).join("");
+      if (sec.linhas) corpo += ul(sec.linhas.map((l) => l.join(" — ")));
       if (sec.listas) corpo += sec.listas.map((l) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(l.titulo)}</h3>` + ul(l.itens)).join("");
       if (sec.nota) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.nota)}</p>`;
       return corpo;

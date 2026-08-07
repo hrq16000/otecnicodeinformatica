@@ -23,6 +23,9 @@ import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { RealImageSection, type ImageKey } from "@/components/RealImageSection";
 import { imagensParaServico } from "@/lib/servicoImagens";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackWaClick } from "@/lib/funnelAnalytics";
+import { readAttribution } from "@/lib/attribution";
+import { getGeoContext } from "@/lib/geoContext";
 
 export interface ServicoLandingData {
   /** Slug curto usado em tracking e no path (/servicos/<path>) */
@@ -102,7 +105,26 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
     trackPageView(`/servicos/${data.path}`, data.serviceName);
   }, [data.path, data.serviceName]);
 
-  const handleCta = () => trackCTAClick("whatsapp", data.trackingKey);
+  /**
+   * Clique em CTA de WhatsApp da página de serviço. Além do evento genérico
+   * de CTA, registra `wa_click` com a origem completa (posição do CTA,
+   * serviço, cidade detectada e atribuição de campanha) para leitura de
+   * conversão por rota no dashboard.
+   */
+  const handleCtaAt = (position: string) => () => {
+    trackCTAClick("whatsapp", data.trackingKey);
+    const attr = readAttribution();
+    const geo = getGeoContext();
+    trackWaClick(`${data.trackingKey}_${position}`, {
+      servico: data.trackingKey,
+      route: `/servicos/${data.path}`,
+      cta_position: position,
+      cidade: geo?.city ?? null,
+      attribution_channel: attr.channel,
+      utm_source: attr.source,
+      landing_page: attr.landing_page,
+    });
+  };
 
   // Rodada 3Q — caixas editoriais contextuais (no máximo três por página).
   const caixas = (data.caixas ?? []).slice(0, 3);
@@ -182,7 +204,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={handleCta}
+                onClick={handleCtaAt("hero")}
                 data-cta-location={`${data.trackingKey}_hero`}
                 className={CTA_BASE}
               >
@@ -334,7 +356,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           texto={data.ctaIntermediario.texto}
           label={data.ctaIntermediario.label}
           location={`${data.trackingKey}_meio`}
-          onClick={handleCta}
+          onClick={handleCtaAt("meio")}
         />
       )}
 
@@ -457,7 +479,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleCta}
+            onClick={handleCtaAt("final")}
             data-cta-location={`${data.trackingKey}_final`}
             className={`${CTA_BASE} mt-7`}
           >

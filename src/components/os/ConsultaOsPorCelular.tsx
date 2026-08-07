@@ -35,6 +35,8 @@ export interface OrdemRemota {
   marca_modelo?: string | null;
   sintomas?: string | null;
   fotos: string[];
+  fotos_count?: number;
+  tem_sintomas?: boolean;
   modalidade?: string | null;
   status: string;
   etapas: OsEtapaRemota[];
@@ -44,7 +46,6 @@ export interface OrdemRemota {
   updated_at: string;
 }
 
-const POLL_MS = 45_000;
 
 const maskPhone = (raw: string) => {
   const d = raw.replace(/\D/g, "").slice(0, 11);

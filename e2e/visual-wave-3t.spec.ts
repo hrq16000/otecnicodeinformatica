@@ -139,7 +139,8 @@ test.describe("Rodada 3T — propagação empresarial", () => {
       expect(canonical).toContain(page_.path);
     });
   }
-}
+
+
 
   test(`${MISTA}: público misto preservado, sem conversão empresarial`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });

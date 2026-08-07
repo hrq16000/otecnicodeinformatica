@@ -82,6 +82,12 @@ export interface ServicoLandingData {
   heroEmpresarial?: EmpresarialHeroCopy;
   /** Rodada 3T — cartões de contexto B2B próprios da página (default: 3S) */
   contextoEmpresarial?: { titulo: string; texto: string }[];
+  /**
+   * Rodada 4B — linha de clareza do experimento controlado, renderizada
+   * logo abaixo do intro. É ADITIVA: nunca substitui o conteúdo estático,
+   * portanto não quebra a paridade HTML × React nem o escopo do serviço.
+   */
+  clarezaHero?: ReactNode;
   /** Fotos reais (fotografia, nunca imagem gerada) ilustrando a bancada/serviço */
   imagens?: {
     primary: ImageKey;
@@ -199,6 +205,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             >
               {data.intro}
             </p>
+            {data.clarezaHero}
             <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center">
               <a
                 href={waHref}

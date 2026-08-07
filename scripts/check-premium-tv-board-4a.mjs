@@ -134,8 +134,9 @@ for (const path of BLOCOS_4A_PATHS) {
   if (waApp > 4) fail(`${path}: ${waApp} links de WhatsApp (máximo de 3 CTAs + botão flutuante)`);
   if (ctas > 6) fail(`${path}: ${ctas} CTAs instrumentados (acima do previsto)`);
 
-  // triagem correta
-  if (!/vim da página de (conserto de tv|reparo de placa|conserto de placa)/i.test(decodeURIComponent(h.match(/wa\.me\/\d+\?text=([^"]+)/)?.[1] || "")))
+  // triagem correta: a primeira mensagem precisa identificar a página de origem
+  const primeiraMsg = decodeURIComponent(h.match(/wa\.me\/\d+\?text=([^"]+)/)?.[1] || "");
+  if (!primeiraMsg.includes(path))
     fail(`${path}: mensagem de triagem não identifica a origem da página`);
 }
 

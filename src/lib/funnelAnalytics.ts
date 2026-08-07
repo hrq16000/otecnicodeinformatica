@@ -25,12 +25,26 @@ declare global {
   }
 }
 
+/**
+ * Faixa de viewport para segmentar conversão mobile nos relatórios
+ * (360 / 390 / 430 são os alvos de QA das páginas empresariais).
+ */
+export function viewportBucket(w: number): string {
+  if (!w) return "unknown";
+  if (w <= 375) return "360";
+  if (w <= 400) return "390";
+  if (w < 768) return "430";
+  if (w < 1024) return "tablet";
+  return "desktop";
+}
+
 function getDeviceContext() {
-  if (typeof window === "undefined") return { device: "unknown", viewport_width: 0 };
+  if (typeof window === "undefined")
+    return { device: "unknown", viewport_width: 0, viewport_bucket: "unknown" };
   const w = window.innerWidth || document.documentElement.clientWidth || 0;
   const coarse = typeof window.matchMedia === "function" && window.matchMedia("(pointer: coarse)").matches;
   const device = w < 768 || coarse ? "mobile" : w < 1024 ? "tablet" : "desktop";
-  return { device, viewport_width: w };
+  return { device, viewport_width: w, viewport_bucket: viewportBucket(w) };
 }
 
 function gtag(): GtagFn | null {

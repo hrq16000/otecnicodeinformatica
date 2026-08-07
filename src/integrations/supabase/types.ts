@@ -257,6 +257,9 @@ export type Database = {
           found: boolean
           id: string
           ip_hash: string
+          latency_ms: number | null
+          outcome: string | null
+          path: string | null
           telefone_hash: string
         }
         Insert: {
@@ -264,11 +267,50 @@ export type Database = {
           found?: boolean
           id?: string
           ip_hash: string
+          latency_ms?: number | null
+          outcome?: string | null
+          path?: string | null
           telefone_hash: string
         }
         Update: {
           created_at?: string
           found?: boolean
+          id?: string
+          ip_hash?: string
+          latency_ms?: number | null
+          outcome?: string | null
+          path?: string | null
+          telefone_hash?: string
+        }
+        Relationships: []
+      }
+      os_verification_codes: {
+        Row: {
+          attempts: number
+          code_hash: string
+          consumed_at: string | null
+          created_at: string
+          expires_at: string
+          id: string
+          ip_hash: string
+          telefone_hash: string
+        }
+        Insert: {
+          attempts?: number
+          code_hash: string
+          consumed_at?: string | null
+          created_at?: string
+          expires_at: string
+          id?: string
+          ip_hash: string
+          telefone_hash: string
+        }
+        Update: {
+          attempts?: number
+          code_hash?: string
+          consumed_at?: string | null
+          created_at?: string
+          expires_at?: string
           id?: string
           ip_hash?: string
           telefone_hash?: string

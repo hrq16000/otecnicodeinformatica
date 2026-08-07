@@ -38,11 +38,12 @@ let photos = 0;
 for (const file of files.sort()) {
   const route = ("/" + path.relative(DIST, file).replace(/index\.html$/, "").replace(/\\/g, "/")).replace(/\/$/, "") || "/";
   const html = readFileSync(file, "utf8");
-  const lower = html.toLowerCase();
-
-  for (const marker of AI_MARKERS) {
-    if (lower.includes(marker)) errors.push(`${route}: marcador de imagem gerada por IA ("${marker}")`);
-  }
+  // Marcadores de IA são procurados apenas nas tags de imagem (o texto
+  // editorial pode citar essas ferramentas legitimamente).
+  const imgTags = [...html.matchAll(/<img[^>]*>/g)].map((m) => m[0].toLowerCase());
+  for (const tag of imgTags)
+    for (const marker of AI_MARKERS)
+      if (tag.includes(marker)) errors.push(`${route}: imagem gerada por IA ("${marker}")`);
 
   const srcs = [...html.matchAll(/<img[^>]+src="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
   if (!srcs.length) continue;

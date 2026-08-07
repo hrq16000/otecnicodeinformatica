@@ -8,6 +8,15 @@ import path from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { staticBodyFor, jsonLdScriptsFor } from "./curated-static-body.mjs";
 import { getWaveArticle, isWaveApproved } from "./lib/editorial-wave.mjs";
+import {
+  CATEGORIES,
+  LOCAIS,
+  categoryHubMeta,
+  categoryLocalJsonLd,
+  categoryLocalMeta,
+  categoryLocalStaticBody,
+} from "./lib/category-local.mjs";
+import { normalizeTitle, normalizeDescription } from "./lib/seo-meta.mjs";
 
 const SITE = "https://tecnico.curitiba.br";
 const OG_VERSION = "20260615";
@@ -54,35 +63,9 @@ export const CITIES = [
   { slug: "maceio", cidade: "Maceió", estado: "AL", estadoNome: "Alagoas" },
 ];
 
-// === Categorias × Locais (RMC/bairros) — mirrors src/pages/hubs/{categories,locais}.ts ===
-export const CATEGORIES = [
-  { id: "tv", slug: "conserto-tv", nome: "TV", titlePrefix: "Conserto de TV" },
-  { id: "som", slug: "conserto-som", nome: "Som", titlePrefix: "Conserto de Som e Áudio" },
-  { id: "videogame", slug: "conserto-videogame", nome: "Videogame", titlePrefix: "Conserto de Videogame" },
-  { id: "celular", slug: "conserto-celular", nome: "Celular", titlePrefix: "Conserto de Celular" },
-];
-
-export const LOCAIS = [
-  { slug: "curitiba", nome: "Curitiba", kind: "cidade" },
-  { slug: "sao-jose-dos-pinhais", nome: "São José dos Pinhais", kind: "cidade" },
-  { slug: "araucaria", nome: "Araucária", kind: "cidade" },
-  { slug: "pinhais", nome: "Pinhais", kind: "cidade" },
-  { slug: "colombo", nome: "Colombo", kind: "cidade" },
-  { slug: "campo-largo", nome: "Campo Largo", kind: "cidade" },
-  { slug: "almirante-tamandare", nome: "Almirante Tamandaré", kind: "cidade" },
-  { slug: "fazenda-rio-grande", nome: "Fazenda Rio Grande", kind: "cidade" },
-  { slug: "piraquara", nome: "Piraquara", kind: "cidade" },
-  { slug: "quatro-barras", nome: "Quatro Barras", kind: "cidade" },
-  { slug: "campo-magro", nome: "Campo Magro", kind: "cidade" },
-  { slug: "batel", nome: "Batel", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "centro", nome: "Centro", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "cic", nome: "CIC", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "portao", nome: "Portão", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "santa-felicidade", nome: "Santa Felicidade", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "boqueirao", nome: "Boqueirão", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "cajuru", nome: "Cajuru", kind: "bairro", cidadeMae: "Curitiba" },
-  { slug: "agua-verde", nome: "Água Verde", kind: "bairro", cidadeMae: "Curitiba" },
-];
+// === Categorias × Locais (RMC/bairros) ===
+// Fonte única: scripts/lib/category-local.mjs (espelha src/lib/categoryLocalContent.ts).
+export { CATEGORIES, LOCAIS };
 
 // === CFTV (câmeras de segurança) — espelha src/pages/cftv/* ===
 // Hub /cftv + 7 páginas locais = 8 rotas. Todas noindex,follow (fora do sitemap).
@@ -145,23 +128,6 @@ function cityMeta(c) {
   const url = `${SITE}${path}`;
   const title = `Arrumar PC em ${c.cidade} ${c.estado} — Técnico online | Técnico Curitiba`;
   const description = `Técnico de informática online para ${c.cidade}/${c.estado}. Formatação, vírus, lentidão, tela azul e Wi-Fi via WhatsApp + acesso remoto. Orçamento grátis, paga só se resolver.`;
-  return { path, url, title, description };
-}
-
-function categoryLocalMeta(cat, local) {
-  const cityLabel = local.kind === "bairro" ? `${local.nome}, ${local.cidadeMae}` : local.nome;
-  const path = `/${cat.slug}/${local.slug}`;
-  const url = `${SITE}${path}`;
-  const title = `${cat.titlePrefix} em ${cityLabel} | Coleta e Entrega · Técnico Curitiba`;
-  const description = `${cat.titlePrefix} em ${cityLabel}/PR com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e orçamento sem compromisso pelo WhatsApp.`;
-  return { path, url, title, description, cityLabel };
-}
-
-function categoryHubMeta(cat) {
-  const path = `/${cat.slug}-curitiba`;
-  const url = `${SITE}${path}`;
-  const title = `${cat.titlePrefix} em Curitiba e Região Metropolitana | Coleta e Entrega`;
-  const description = `${cat.titlePrefix} para Curitiba, São José dos Pinhais, Araucária, Pinhais, Colombo, Campo Largo e mais. Coleta e entrega, reparo mínimo R$ 300 com diagnóstico incluso.`;
   return { path, url, title, description };
 }
 
@@ -442,8 +408,11 @@ function editorialStaticBody(post, wave) {
 async function writeBlogPostPage(distDir, baseHtml, post) {
   const routePath = `/blog/${post.slug}`;
   const url = `${SITE}${routePath}`;
-  const title = `${post.title} | Blog | Técnico em Curitiba`;
-  const description = post.excerpt || post.title;
+  const title = normalizeTitle(post.title, "Técnico em Curitiba");
+  const description = normalizeDescription(
+    post.excerpt || post.title,
+    "Guia técnico do Técnico em Curitiba, com atendimento em Curitiba e Região Metropolitana.",
+  );
   const wave = getWaveArticle(post.slug);
 
   const breadcrumb = {
@@ -588,7 +557,8 @@ export async function prerenderCities(distDir) {
 
   // --- category hubs (e.g. /conserto-tv-curitiba) ---
   for (const cat of CATEGORIES) {
-    const meta = categoryHubMeta(cat);
+    const meta = { ...categoryHubMeta(cat), url: "" };
+    meta.url = `${SITE}${meta.path}`;
     const absoluteOg = fallbackOg ? `${SITE}${fallbackOg}` : undefined;
     const jsonLd = {
       "@context": "https://schema.org",
@@ -606,23 +576,15 @@ export async function prerenderCities(distDir) {
   }
 
   // --- category × local (e.g. /conserto-tv/curitiba) ---
+  // Grafo completo (Service + Offer/PriceSpecification + BreadcrumbList +
+  // FAQPage localizada) com corpo estático 1:1 — paridade garantida no CI.
   for (const cat of CATEGORIES) {
     for (const local of LOCAIS) {
       const meta = categoryLocalMeta(cat, local);
       const absoluteOg = fallbackOg ? `${SITE}${fallbackOg}` : undefined;
-      const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: `${cat.titlePrefix} em ${meta.cityLabel}`,
-        serviceType: cat.titlePrefix,
-        provider: { "@type": "LocalBusiness", name: "Técnico em Curitiba", url: SITE, telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
-        areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: meta.cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
-        // Sem Offer: estas páginas legadas (noindex) não exibem preço visível —
-        // markup de preço sem conteúdo correspondente quebra a paridade JSON-LD.
-        description: meta.description,
-        url: meta.url,
-      };
-      const html = injectMeta(baseHtml, { ...meta, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
+      const jsonLd = categoryLocalJsonLd(cat, local, SITE);
+      let html = injectMeta(baseHtml, { ...meta, url: `${SITE}${meta.path}`, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
+      html = injectRootBody(html, categoryLocalStaticBody(cat, local));
       await writePage(distDir, meta.path, html);
       written++;
     }

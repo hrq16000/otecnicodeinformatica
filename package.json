@@ -8,7 +8,7 @@
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs",
     "build": "vite build",
-    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/check-soft-404.mjs",
+    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/check-soft-404.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
     "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "check:seo:curated": "bun scripts/check-seo-basics.ts --curated dist",
@@ -138,7 +138,14 @@
     "check:visual-wave-3u": "node scripts/check-visual-wave-3u.mjs",
     "check:consolidation-3w": "node scripts/check-consolidation-3w.mjs",
     "check:multielectronics-3y": "node scripts/check-multielectronics-wave-3y.mjs",
-    "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts"
+    "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts",
+    "check:breadcrumb-schema": "node scripts/check-breadcrumb-schema.mjs dist",
+    "check:price-schema": "node scripts/check-price-schema.mjs dist",
+    "check:faq-parity": "node scripts/check-faq-parity.mjs dist",
+    "check:meta-uniqueness": "node scripts/check-meta-uniqueness.mjs dist",
+    "sitemap:images": "node scripts/generate-image-sitemap.mjs dist",
+    "check:image-sitemap": "node scripts/check-image-sitemap.mjs dist",
+    "check:local-seo": "npm run check:breadcrumb-schema && npm run check:price-schema && npm run check:faq-parity && npm run check:meta-uniqueness && npm run sitemap:images && npm run check:image-sitemap"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

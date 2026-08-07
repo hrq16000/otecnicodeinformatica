@@ -93,5 +93,7 @@ Disallow: /funil-indisponivel
 # Sitemap index curado (fonte única — evita declarar o mesmo conteúdo
 # duas vezes; /sitemap.xml continua servido como alias legado).
 Sitemap: https://tecnico.curitiba.br/sitemap-index.xml
+# Sitemap de imagens (gerado no build a partir dos assets realmente servidos).
+Sitemap: https://tecnico.curitiba.br/sitemap-images.xml
 
 Host: https://tecnico.curitiba.br

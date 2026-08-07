@@ -20,6 +20,8 @@ import {
   type EmpresarialHeroCopy,
 } from "@/lib/visualEmpresarial3s";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { RealImageSection, type ImageKey } from "@/components/RealImageSection";
+import { imagensParaServico } from "@/lib/servicoImagens";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 export interface ServicoLandingData {
@@ -77,6 +79,13 @@ export interface ServicoLandingData {
   heroEmpresarial?: EmpresarialHeroCopy;
   /** Rodada 3T — cartões de contexto B2B próprios da página (default: 3S) */
   contextoEmpresarial?: { titulo: string; texto: string }[];
+  /** Fotos reais (fotografia, nunca imagem gerada) ilustrando a bancada/serviço */
+  imagens?: {
+    primary: ImageKey;
+    secondary?: ImageKey;
+    caption?: string;
+    secondaryCaption?: string;
+  };
 }
 
 
@@ -372,6 +381,20 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
           </div>
         </section>
       )}
+
+      {(() => {
+        const imgs = data.imagens ?? imagensParaServico(data.trackingKey);
+        if (!imgs) return null;
+        return (
+          <RealImageSection
+            imageKey={imgs.primary}
+            secondaryImageKey={imgs.secondary}
+            caption={imgs.caption}
+            secondaryCaption={imgs.secondaryCaption}
+            layout={imgs.secondary ? "duo" : "single"}
+          />
+        );
+      })()}
 
       {data.extra}
 

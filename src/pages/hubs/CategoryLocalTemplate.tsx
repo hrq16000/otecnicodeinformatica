@@ -11,6 +11,16 @@ import { trackPageView } from "@/lib/analytics";
 import { CATEGORIES, type CategoryId, findCategory } from "./categories";
 import { LOCAIS, findLocal, type LocalData } from "./locais";
 import {
+  categoryLocalMeta,
+  localizedFaqs,
+  offerFor,
+  faixaDe,
+  referenciaDe,
+  PRECO_MINIMO_REPARO,
+  PRECO_DIAGNOSTICO,
+  GARANTIA_DIAS,
+} from "@/lib/categoryLocalContent";
+import {
   Package, ShieldCheck, Clock, Wrench, MapPin, MessageCircle,
 } from "lucide-react";
 
@@ -42,10 +52,11 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
   const cityLabel = local
     ? local.kind === "bairro" ? `${local.nome}, ${local.cidadeMae}` : local.nome
     : "";
-  const title = `${category.titlePrefix} em ${cityLabel} | Coleta e Entrega · Técnico Curitiba`;
-  const description = local
-    ? `${category.titlePrefix} em ${cityLabel}/${local.uf} com coleta e entrega. Reparo a partir de R$ 300 com diagnóstico incluso, garantia de 90 dias e atendimento sem compromisso pelo WhatsApp.`
-    : "";
+  const meta = local ? categoryLocalMeta(category, local) : null;
+  const title = meta?.title ?? "";
+  const description = meta?.description ?? "";
+  const faixa = local ? faixaDe(local) : null;
+  const faqs = local ? localizedFaqs(category, local) : [];
   const msg = `Olá! Preciso de ${category.titlePrefix.toLowerCase()} em ${cityLabel}.`;
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
@@ -64,25 +75,13 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br", telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
     areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
     description,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "BRL",
-      price: "300",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "BRL",
-        minPrice: "300",
-        description: "Reparo mínimo com diagnóstico incluso. Coleta e entrega conforme distância.",
-      },
-      availability: "https://schema.org/InStock",
-      url: `https://tecnico.curitiba.br${path}`,
-    },
+    offers: offerFor(category, local, "https://tecnico.curitiba.br"),
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: category.faqs.map((f) => ({
+    mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q.replace(/\?$/, "") + `?`,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -124,6 +123,28 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
           title={`Por que escolher para ${cityLabel}`}
           subtitle="Coleta na porta, bancada com instrumental adequado, garantia escrita."
         />
+
+        {/* Coleta e preço — conteúdo visível espelhado no Offer/PriceSpecification */}
+        {faixa && (
+          <section className="container mx-auto px-4 py-10">
+            <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-card p-6">
+              <h2 className="text-2xl font-bold text-foreground mb-3 flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-accent" /> Coleta e entrega em {cityLabel}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {cityLabel} está na {faixa.nome} ({faixa.raio}), com {faixa.taxa}. As janelas de coleta são{" "}
+                {faixa.janelas} e a retirada acontece em até {faixa.prazoColetaDias} dia(s) útil(eis) após o
+                aceite. Referência de roteiro: {referenciaDe(local)}.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mt-3">
+                Reparo mínimo de R$ {PRECO_MINIMO_REPARO},00 com diagnóstico incluso. Sem autorização do serviço,
+                o valor cobrado é apenas o diagnóstico de R${" "}
+                {PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de {GARANTIA_DIAS} dias sobre o
+                serviço executado.
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* Sintomas */}
         <section className="container mx-auto px-4 py-16">
@@ -199,7 +220,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
               Perguntas frequentes — {cityLabel}
             </h2>
             <div className="space-y-3">
-              {category.faqs.map((f) => (
+              {faqs.map((f) => (
                 <details key={f.q} className="group p-5 rounded-xl border border-border bg-card hover:border-accent/40 transition-colors">
                   <summary className="cursor-pointer font-semibold text-foreground list-none flex justify-between items-center gap-4">
                     {f.q}

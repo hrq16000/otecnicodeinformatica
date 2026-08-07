@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
-import { PageHero } from "@/components/PageHero";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
+import { TrustStrip } from "@/components/TrustStrip";
+import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
+import { Blocos3U } from "@/components/servico/Blocos3U";
+import { blocos3U, cta3U } from "@/lib/blocos3u";
 import { TrustSection } from "@/components/TrustSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -12,8 +16,8 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
-import { absoluteUrl } from "@/lib/siteConfig";
-import { trackPageView } from "@/lib/analytics";
+import { absoluteUrl, whatsappLink } from "@/lib/siteConfig";
+import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { MessageCircle, Zap, Download, MapPinOff, CheckCircle2, Ban, ShieldCheck, ArrowRight, Lock } from "lucide-react";
 
 const PATH = "/atendimento-remoto";
@@ -154,6 +158,17 @@ const benefits = [
 ];
 
 const AtendimentoRemoto = () => {
+  const cfg3u = blocos3U(PATH);
+  const waHref = whatsappLink(WHATSAPP_MESSAGE);
+  const toc = [
+    ...(cfg3u?.tocExtra ?? []),
+    { id: "sistemas-terceiros", label: "Sistemas de terceiros" },
+    { id: "fatores-valor", label: "Valores e autorização" },
+    { id: "faq", label: "Perguntas frequentes" },
+  ];
+  const handleHeroCta = () => trackCTAClick("whatsapp", "atendimento-remoto_hero");
+  const handleMeioCta = () => trackCTAClick("whatsapp", "atendimento-remoto_meio");
+
   useEffect(() => {
     trackPageView(PATH, "Atendimento Remoto");
   }, []);
@@ -199,12 +214,72 @@ const AtendimentoRemoto = () => {
       <JsonLdSchema />
       <Header />
       <main>
-        <PageHero
-          title="Atendimento remoto de informática em Curitiba"
-          subtitle="Resolvemos remotamente o que não exige intervenção física: configurações, sistema, programas, e-mail, impressora já conectada e orientação — com a sua autorização e o seu acompanhamento na tela."
-          ctaText="Pedir suporte remoto"
-          whatsappMessage={WHATSAPP_MESSAGE}
-        />
+        {/* Rodada 3U — hero de modalidade: eyebrow, H1, resumo curto e CTA
+            dentro da primeira dobra em 360, 390 e 430 px. */}
+        <section className="bg-[hsl(var(--hero-bg))] text-white">
+          <div className="container mx-auto max-w-4xl px-4 py-7 md:py-12">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent md:text-sm">
+              {cfg3u?.eyebrow ?? "Modalidade de atendimento"} · Curitiba e região
+            </p>
+            <h1 className="mb-3 text-[1.6rem] font-bold leading-tight md:mb-4 md:text-4xl">
+              Atendimento remoto de informática em Curitiba
+            </h1>
+            <p className="mb-5 text-sm leading-relaxed opacity-95 md:text-base">
+              Modalidade indicada quando o equipamento liga, o sistema carrega e há internet: configurações,
+              sistema, programas, e-mail, impressora já conectada e orientação — com a sua autorização e o seu
+              acompanhamento na tela.
+            </p>
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleHeroCta}
+              data-cta-location="atendimento-remoto_hero"
+              className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground transition-transform hover:scale-[1.02] sm:w-auto"
+            >
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              {cta3U(PATH)?.label ?? "Verificar se o atendimento remoto é adequado"}
+            </a>
+          </div>
+        </section>
+
+        <TrustStrip variant="compact" />
+
+        <section className="bg-background py-8">
+          <div className="container mx-auto max-w-4xl px-4">
+            <div className="grid gap-5 lg:grid-cols-2">
+              <div className="rounded-xl border border-border bg-card p-5">
+                <p className="mb-3 text-sm font-bold uppercase tracking-wide text-muted-foreground">
+                  Resumo da modalidade
+                </p>
+                <dl className="grid gap-3 sm:grid-cols-2">
+                  {(cfg3u?.resumo ?? []).map((item) => (
+                    <div key={item.label}>
+                      <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        {item.label}
+                      </dt>
+                      <dd className="text-sm font-medium text-foreground">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+              <PageTableOfContents items={toc} />
+            </div>
+          </div>
+        </section>
+
+        <Blocos3U path={PATH} />
+
+        {cta3U(PATH) && (
+          <InlineTriageCTA
+            href={waHref}
+            titulo={cta3U(PATH).titulo}
+            texto={cta3U(PATH).texto}
+            label={cta3U(PATH).label}
+            location="atendimento-remoto_meio"
+            onClick={handleMeioCta}
+          />
+        )}
 
         <BenefitsGrid
           benefits={benefits}

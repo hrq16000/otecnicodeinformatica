@@ -263,6 +263,8 @@ export function categoryLocalJsonLd(cat, local, site) {
         },
         offers: offerFor(cat, local, site),
       },
+      localBusinessNode(cat, local, site),
+      coverImageNode(cat, local, site),
       {
         "@type": "BreadcrumbList",
         "@id": `${url}#breadcrumb`,
@@ -319,6 +321,7 @@ export function categoryLocalStaticBody(cat, local) {
           </nav>
           <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 10px">${esc(cat.titlePrefix)} em ${esc(label)}</h1>
           <p style="margin:0 0 14px;font-size:1rem;opacity:.95">${esc(meta.description)}</p>
+          ${coberturaStaticHtml(cat, local)}
           <h2 style="font-size:1.1rem;margin:20px 0 6px">Coleta e entrega em ${esc(label)}</h2>
           <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">${esc(label)} está na ${esc(faixa.nome)} (${esc(faixa.raio)}), com ${esc(faixa.taxa)}. As janelas são ${esc(faixa.janelas)} e a retirada acontece em até ${faixa.prazoColetaDias} dia(s) útil(eis) após o aceite. Referência de roteiro: ${esc(local.referencia)}.</p>
           <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Reparo mínimo de R$ ${PRECO_MINIMO_REPARO},00 com diagnóstico incluso. Sem autorização do serviço, o valor cobrado é apenas o diagnóstico de R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de ${GARANTIA_DIAS} dias sobre o serviço executado.</p>

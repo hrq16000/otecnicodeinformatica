@@ -1,5 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { normalizePhone, sha256, signOsToken, verifyOsToken } from "../_shared/osToken.ts";
 
 /**
  * Consulta pública de Ordens de Serviço pelo celular do cliente.
@@ -8,7 +9,9 @@ import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
  *  - só aceita celular brasileiro válido (11 dígitos, 9 na frente);
  *  - limite de tentativas por IP (12 / 10 min) e por telefone (8 / 10 min);
  *  - resposta genérica quando nada é encontrado (não confirma cadastro);
- *  - fotos só saem como URL assinada de curta duração.
+ *  - sintomas e fotos só saem com sessão confirmada por código (os-codigo);
+ *  - fotos sempre como URL assinada de curta duração;
+ *  - toda consulta é auditada com rota, desfecho e latência.
  */
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -17,22 +20,6 @@ const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const WINDOW_MIN = 10;
 const MAX_PER_IP = 12;
 const MAX_PER_PHONE = 8;
-
-async function sha256(value: string) {
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
-  return Array.from(new Uint8Array(buf))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
-
-function normalizePhone(raw: unknown): string | null {
-  if (typeof raw !== "string") return null;
-  let d = raw.replace(/\D/g, "");
-  if (d.startsWith("55") && d.length > 11) d = d.slice(2);
-  if (d.length !== 11) return null;
-  if (d[2] !== "9") return null;
-  return d;
-}
 
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -44,6 +31,8 @@ function json(body: unknown, status = 200) {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
+
+  const iniciado = Date.now();
 
   let payload: Record<string, unknown>;
   try {
@@ -60,6 +49,12 @@ Deno.serve(async (req) => {
     );
   }
 
+  const path = typeof payload.path === "string" ? payload.path.slice(0, 120) : null;
+
+  // Sessão confirmada por código libera sintomas e fotos.
+  const telVerificado = await verifyOsToken(payload.sessionToken, "session");
+  const verificado = telVerificado === telefone;
+
   const supabase = createClient(SUPABASE_URL, SERVICE_ROLE, { auth: { persistSession: false } });
 
   const ip =
@@ -69,6 +64,16 @@ Deno.serve(async (req) => {
   const ipHash = await sha256(`ip:${ip}`);
   const telHash = await sha256(`tel:${telefone}`);
   const since = new Date(Date.now() - WINDOW_MIN * 60_000).toISOString();
+
+  const auditar = (outcome: string, found: boolean) =>
+    supabase.from("os_lookup_attempts").insert({
+      ip_hash: ipHash,
+      telefone_hash: telHash,
+      found,
+      path,
+      outcome,
+      latency_ms: Date.now() - iniciado,
+    });
 
   const [{ count: ipCount }, { count: telCount }] = await Promise.all([
     supabase
@@ -84,6 +89,7 @@ Deno.serve(async (req) => {
   ]);
 
   if ((ipCount ?? 0) >= MAX_PER_IP || (telCount ?? 0) >= MAX_PER_PHONE) {
+    await auditar("rate_limited", false);
     return json(
       {
         error: "rate_limited",
@@ -102,29 +108,42 @@ Deno.serve(async (req) => {
     .order("created_at", { ascending: false })
     .limit(10);
 
-  await supabase
-    .from("os_lookup_attempts")
-    .insert({ ip_hash: ipHash, telefone_hash: telHash, found: !error && (data?.length ?? 0) > 0 });
-
   if (error) {
     console.error("os-consulta falhou:", error.message);
+    await auditar("lookup_failed", false);
     return json({ error: "lookup_failed", message: "Não foi possível consultar agora." }, 500);
   }
+
+  await auditar(verificado ? "ok_verificado" : "ok_restrito", (data?.length ?? 0) > 0);
 
   const ordens = await Promise.all(
     (data ?? []).map(async (os) => {
       const paths = Array.isArray(os.fotos) ? (os.fotos as unknown[]).filter((p) => typeof p === "string") : [];
       let fotos: string[] = [];
-      if (paths.length) {
+      if (verificado && paths.length) {
         const { data: signed } = await supabase.storage
           .from("os-midias")
           .createSignedUrls(paths as string[], 600);
         fotos = (signed ?? []).map((s) => s.signedUrl).filter(Boolean);
       }
       const primeiroNome = (os.cliente_nome ?? "").trim().split(/\s+/)[0] ?? "";
-      return { ...os, cliente_nome: primeiroNome, fotos };
+      return {
+        ...os,
+        cliente_nome: primeiroNome,
+        // Dados sensíveis da triagem ficam ocultos até a confirmação por código.
+        sintomas: verificado ? os.sintomas : null,
+        fotos,
+        fotos_count: paths.length,
+        tem_sintomas: Boolean((os.sintomas ?? "").trim()),
+      };
     }),
   );
 
-  return json({ ordens, consultadoEm: new Date().toISOString() });
+  return json({
+    ordens,
+    verificado,
+    consultadoEm: new Date().toISOString(),
+    // Token curto só para autenticar o stream SSE (EventSource não envia cabeçalhos).
+    streamToken: await signOsToken(telefone, "stream", 15 * 60),
+  });
 });

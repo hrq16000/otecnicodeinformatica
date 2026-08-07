@@ -332,3 +332,152 @@ export function categoryLocalStaticBody(cat, local) {
           <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Técnico em Curitiba · atendimento em Curitiba e Região Metropolitana.</p>
         </div>`;
 }
+
+/* ==========================================================================
+ * Cobertura geográfica, capa real e créditos (Rodada 4A)
+ * ========================================================================== */
+import { creditFor, imageObjectSchema } from "./image-credits.mjs";
+
+/** Coordenadas aproximadas do centro de cada local atendido. */
+export const GEO = {
+  curitiba: [-25.4284, -49.2733],
+  "sao-jose-dos-pinhais": [-25.5306, -49.2064],
+  araucaria: [-25.5936, -49.4103],
+  pinhais: [-25.4447, -49.1925],
+  colombo: [-25.2917, -49.2242],
+  "campo-largo": [-25.459, -49.5279],
+  "almirante-tamandare": [-25.3195, -49.3039],
+  "fazenda-rio-grande": [-25.6626, -49.3075],
+  piraquara: [-25.4419, -49.0629],
+  "quatro-barras": [-25.3654, -49.0771],
+  "campo-magro": [-25.369, -49.4497],
+  batel: [-25.4406, -49.29],
+  centro: [-25.4297, -49.2719],
+  cic: [-25.493, -49.348],
+  portao: [-25.463, -49.296],
+  "santa-felicidade": [-25.4045, -49.33],
+  boqueirao: [-25.506, -49.24],
+  cajuru: [-25.447, -49.211],
+  "agua-verde": [-25.452, -49.279],
+};
+
+export const geoDe = (local) => GEO[local.slug] ?? GEO.curitiba;
+
+/** Capa fotográfica real (fotografia licenciada, nunca IA) por categoria. */
+export const COVERS = {
+  tv: {
+    url: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1200&q=70",
+    alt: "Smart TV em bancada de assistência técnica",
+  },
+  som: {
+    url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=70",
+    alt: "Amplificador de áudio aberto para reparo de componentes",
+  },
+  videogame: {
+    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70",
+    alt: "Placa eletrônica de console em diagnóstico técnico",
+  },
+  celular: {
+    url: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=70",
+    alt: "Bancada com microscópio para microsoldagem de celular",
+  },
+};
+
+export const coverDe = (cat) => COVERS[cat.id] ?? COVERS.tv;
+
+/** Legenda + crédito visível usados no HTML e no ImageObject. */
+export function coverCaption(cat, local) {
+  return `${cat.titlePrefix} em ${cityLabel(local)} — avaliação de ${cat.bancada} em bancada.`;
+}
+export const coverCredit = (cat) => creditFor(coverDe(cat).url);
+
+/** Lista de cobertura (mapa textual) usada na seção de área atendida. */
+export function coberturaLista() {
+  const cidades = LOCAIS.filter((l) => l.kind === "cidade");
+  const bairros = LOCAIS.filter((l) => l.kind === "bairro");
+  return { cidades, bairros };
+}
+
+/** ServiceArea (GeoShape/GeoCircle) do raio de coleta a partir da base. */
+export function serviceAreaSchema(local) {
+  const [lat, lng] = geoDe(local);
+  const faixa = faixaDe(local);
+  const raioKm = faixa.raio.includes("30") ? 30000 : faixa.raio.includes("15") ? 15000 : 8000;
+  return {
+    "@type": "GeoCircle",
+    name: `Área de coleta — ${faixa.nome} (${faixa.raio})`,
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: String(lat), longitude: String(lng) },
+    geoRadius: String(raioKm),
+  };
+}
+
+/** LocalBusiness completo (NAP + horários + geo + área) para a rota local. */
+export function localBusinessNode(cat, local, site) {
+  const url = `${site}/${cat.slug}/${local.slug}`;
+  const [lat, lng] = geoDe(local);
+  const { cidades, bairros } = coberturaLista();
+  return {
+    "@type": "LocalBusiness",
+    "@id": `${url}#localbusiness`,
+    parentOrganization: { "@id": `${site}/#organization` },
+    name: "Técnico em Curitiba",
+    description: `Assistência técnica com coleta e entrega em ${cityLabel(local)} e Região Metropolitana de Curitiba.`,
+    url,
+    image: coverDe(cat).url,
+    logo: `${site}/logo.png`,
+    telephone: "+5541997086380",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Curitiba",
+      addressRegion: "PR",
+      addressCountry: "BR",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: String(lat), longitude: String(lng) },
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+    areaServed: [
+      ...cidades.map((c) => ({ "@type": "City", name: c.nome })),
+      ...bairros.map((b) => ({ "@type": "Place", name: `${b.nome}, ${b.cidadeMae}` })),
+    ],
+    serviceArea: serviceAreaSchema(local),
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "13:00" },
+    ],
+    priceRange: `R$ ${PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}+`,
+    currenciesAccepted: "BRL",
+    paymentAccepted: "PIX, Cartão de Crédito, Cartão de Débito, Dinheiro, Transferência Bancária",
+  };
+}
+
+/** ImageObject com crédito/licença da capa da rota. */
+export function coverImageNode(cat, local, site) {
+  const url = `${site}/${cat.slug}/${local.slug}`;
+  return imageObjectSchema({
+    url: coverDe(cat).url,
+    caption: coverCaption(cat, local),
+    pageUrl: url,
+  });
+}
+
+/** Bloco HTML estático da capa + mapa de cobertura (paridade com o React). */
+export function coberturaStaticHtml(cat, local) {
+  const cover = coverDe(cat);
+  const credit = coverCredit(cat);
+  const faixa = faixaDe(local);
+  const { cidades, bairros } = coberturaLista();
+  const chip = (l) =>
+    `<li style="margin:3px 0"><a href="/${cat.slug}/${l.slug}" style="color:#7fd4ec">${esc(l.nome)}${l.kind === "bairro" ? ` (${esc(l.cidadeMae)})` : ""}</a></li>`;
+  return `
+          <figure style="margin:0 0 18px">
+            <img src="${esc(cover.url)}" alt="${esc(cover.alt)}" width="1200" height="630" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px" />
+            <figcaption style="font-size:.78rem;opacity:.75;margin-top:6px">${esc(coverCaption(cat, local))} ${esc(credit.creditText)} — <a href="${esc(credit.licenseUrl)}" rel="nofollow noopener" style="color:#7fd4ec">${esc(credit.license)}</a>.</figcaption>
+          </figure>
+          <h2 style="font-size:1.1rem;margin:20px 0 6px">Mapa de cobertura — cidades e bairros atendidos</h2>
+          <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">${esc(cityLabel(local))} está na ${esc(faixa.nome)} (${esc(faixa.raio)}) do nosso raio de coleta, medido a partir da base em Curitiba. Atendemos ${cidades.length} cidades da Região Metropolitana e ${bairros.length} bairros de Curitiba:</p>
+          <ul style="margin:0 0 8px;padding-left:20px">${cidades.map(chip).join("")}${bairros.map(chip).join("")}</ul>`;
+}

@@ -1,6 +1,8 @@
 import { ServicoLandingLayout } from "@/components/servico/ServicoLandingLayout";
 import { VISUAL_3S_SERVICO_SLUGS } from "@/lib/visualEmpresarial3s";
 import { visual3T } from "@/lib/visualEmpresarial3t";
+import { blocos3T, cta3T } from "@/lib/blocos3t";
+import { Blocos3T } from "@/components/servico/Blocos3T";
 import { MontagemPoliticaBlocos } from "@/components/servico/MontagemPoliticaBlocos";
 import { MontagemComoFunciona } from "@/components/servico/MontagemComoFunciona";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
@@ -100,7 +102,7 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
     : {};
 
   // Rodada 3T — propagação do padrão empresarial com hero e contexto próprios
-  // por página (preventiva, backup e redes/Wi-Fi). Só apresentação.
+  // (preventiva e backup). Redes/Wi-Fi permanece de público misto.
   const cfg3t = visual3T(slug as string);
   const variante3t = cfg3t
     ? ({
@@ -110,9 +112,39 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       } as const)
     : {};
 
+  // Rodada 3T — blocos editoriais próprios das três páginas do escopo,
+  // sumário estendido com as âncoras reais e CTA intermediário próprio.
+  const cfgBlocos = blocos3T(slug as string);
+  const baseToc = visual?.toc ?? empresarial?.toc ?? (piloto as { toc?: { id: string; label: string }[] }).toc;
+  const blocos3t = cfgBlocos
+    ? {
+        toc: [...(baseToc ?? []).slice(0, -1), ...cfgBlocos.tocExtra, { id: "faq", label: "Perguntas frequentes" }],
+        confianca: true,
+        ctaIntermediario: cta3T(slug as string),
+      }
+    : {};
+
+  const extraFinal = cfgBlocos ? (
+    <>
+      {extra}
+      <Blocos3T slug={slug as string} />
+    </>
+  ) : (
+    extra
+  );
+
   return (
     <ServicoLandingLayout
-      data={{ ...data, ...piloto, ...visual3q, ...visual3r, ...variante3s, ...variante3t, extra }}
+      data={{
+        ...data,
+        ...piloto,
+        ...visual3q,
+        ...visual3r,
+        ...variante3s,
+        ...variante3t,
+        ...blocos3t,
+        extra: extraFinal,
+      }}
     />
   );
 };

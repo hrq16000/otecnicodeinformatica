@@ -113,7 +113,7 @@ export const FICHAS_COMERCIAIS: Record<string, FichaComercial> = {
     incluso: [
       "Diagnóstico em bancada com registro do que foi verificado.",
       "Coleta e entrega dentro da área atendida.",
-      "Orçamento por escrito antes de qualquer reparo.",
+      "Valor informado por escrito antes de qualquer reparo.",
     ],
     limitacoes: [
       "Equipamento com dano por líquido ou oxidação tem avaliação caso a caso.",
@@ -188,7 +188,7 @@ export const FICHAS_COMERCIAIS: Record<string, FichaComercial> = {
     ],
     limitacoes: [
       "Preventiva reduz risco, mas não elimina falha de hardware.",
-      "Correção de defeito encontrado é orçada separadamente.",
+      "Correção de defeito encontrado tem valor informado separadamente.",
     ],
   }),
   "backup-para-empresas": ficha(VISITA, {
@@ -234,7 +234,7 @@ export const FICHAS_COMERCIAIS: Record<string, FichaComercial> = {
   "conserto-placa": ficha(COLETA, {
     incluso: [
       "Análise da placa em bancada, com medição e registro do que foi encontrado.",
-      "Orçamento por escrito antes de qualquer intervenção.",
+      "Valor informado por escrito antes de qualquer intervenção.",
     ],
     limitacoes: [
       "Placa com dano extenso por oxidação ou reparo anterior mal feito pode ser recusada.",

@@ -91,6 +91,12 @@ const MAPA: Record<string, ServicoImagens> = {
     caption: "Televisor avaliado em bancada, com o aparelho aberto.",
     secondaryCaption: "Estação de solda usada no reparo em nível de componente.",
   },
+  "conserto-monitor": {
+    primary: "bancadaTecnica",
+    secondary: "diagnostico",
+    caption: "Monitor avaliado em bancada, com o aparelho aberto para medição.",
+    secondaryCaption: "Medição das linhas de alimentação antes de qualquer substituição.",
+  },
   "conserto-placa": {
     primary: "microsoldagem",
     secondary: "microscopio",

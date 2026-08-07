@@ -1695,6 +1695,114 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     dateModified: "2026-08-07",
   },
+
+  // 15 ─────────────────────────────────────────────────────────
+  "conserto-monitor": {
+    path: "conserto-monitor",
+    trackingKey: "conserto-monitor",
+    metaTitle: "Conserto de Monitor em Curitiba | Fonte, Backlight e Placa",
+    metaDescription:
+      "Conserto de monitor em Curitiba: monitor que não liga, sem imagem, piscando ou com backlight apagado. Avaliação em bancada, reparo em nível de componente, coleta e entrega.",
+    serviceName: "Conserto de monitor",
+    serviceDescription:
+      "Avaliação e conserto de monitores em Curitiba e região: falhas de alimentação, fonte interna e externa, backlight, placa lógica e entradas de vídeo, com trabalho em bancada, critérios de aceite declarados e logística de coleta e entrega.",
+    eyebrow: "Monitores em Curitiba",
+    h1: "Conserto de monitor em Curitiba",
+    h1Accent: "com avaliação em bancada e reparo em nível de componente",
+    intro:
+      "Monitor que não liga, que acende o LED e não mostra imagem, que fica piscando ou que só aparece quando você aponta uma lanterna para a tela. Boa parte desses casos é falha elétrica — fonte, alimentação ou placa lógica — e tem reparo viável sem trocar o aparelho. O que não tratamos é dano físico ao painel: tela trincada ou com mancha de pressão depende de uma peça que costuma custar mais que um monitor novo, e dizemos isso antes de você gastar com coleta. Envie marca, modelo e o sintoma pela triagem no WhatsApp.",
+    whatsappMessage:
+      "Olá! Vim da página de conserto de monitor. Triagem: (1) marca, modelo e polegadas: (2) sintoma exato (não liga, sem imagem, piscando, escuro): " +
+      "(3) o LED de energia acende: (4) já testou outro cabo e outra fonte de vídeo: (5) a tela tem trinca ou mancha: (6) bairro ou cidade para a coleta:",
+    incluso: [
+      { title: "Triagem antes da coleta", desc: "Marca, modelo, polegadas, sintoma, estado do painel e testes que você já fez em casa." },
+      { title: "Teste de causa externa", desc: "Verificação de cabo, entrada de vídeo e fonte de sinal para não cobrar reparo por problema que está fora do monitor." },
+      { title: "Avaliação da alimentação", desc: "Medição da fonte interna ou do adaptador externo, das linhas de tensão e do consumo ao energizar." },
+      { title: "Diagnóstico de backlight", desc: "Confirmação de imagem presente com iluminação apagada e avaliação do driver e das barras de LED." },
+      { title: "Placa lógica e entradas", desc: "Análise de HDMI, DisplayPort, VGA e USB-C, incluindo conector físico e estágio de entrada." },
+      { title: "Reparo em nível de componente", desc: "Substituição pontual do componente identificado na bancada, quando disponível e tecnicamente viável." },
+      { title: "Teste final documentado", desc: "Monitor remontado, ligado em duas entradas diferentes e mantido em funcionamento contínuo antes da devolução." },
+      { title: "Laudo por escrito", desc: "Descrição do defeito, do que foi reparado, do que não é recuperável e das limitações que permanecem." },
+    ],
+    sinais: [
+      "Monitor que não liga e não acende nenhum LED",
+      "LED de energia aceso, mas a tela permanece preta",
+      "Imagem visível apenas quando você ilumina a tela com uma lanterna",
+      "Tela que pisca, apaga sozinha e volta durante o uso",
+      "Monitor que desliga depois de alguns minutos ligado",
+      "Entrada HDMI ou DisplayPort que parou de reconhecer o cabo",
+      "Fonte externa esquentando demais ou com cheiro de queimado",
+      "Monitor que voltou de outra assistência sem solução",
+    ],
+    processo: PROCESSO_PADRAO,
+    fatoresValor: [
+      { title: "Origem da falha", desc: "Fonte externa, fonte interna, placa lógica e backlight envolvem esforços de bancada bem diferentes." },
+      { title: "Tipo de intervenção", desc: "Troca de componente discreto, reconstrução de trilha e substituição de barra de LED não têm o mesmo tempo de execução." },
+      { title: "Construção do aparelho", desc: "Alguns modelos abrem por encaixe, outros exigem desmontagem completa do conjunto óptico com risco maior de manuseio." },
+      { title: "Disponibilidade de peça", desc: "Componente de linha comum é imediato; placa lógica específica ou barra de LED de modelo antigo pode depender de fornecimento." },
+      { title: "Tamanho e formato", desc: "Monitores ultrawide, curvos e acima de 32 polegadas exigem embalagem e transporte com cuidado adicional." },
+      { title: "Reparos anteriores", desc: "Emenda malfeita, cola e componente fora de especificação precisam ser corrigidos antes de qualquer diagnóstico confiável." },
+      { title: "Logística", desc: "A coleta e a entrega seguem as faixas de distância publicadas na página de coleta." },
+    ],
+    atendimento: {
+      residencial:
+        "Monitor de uso doméstico e de estudo: avaliação da falha elétrica antes de você decidir entre reparar e comprar outro aparelho.",
+      empresarial:
+        "Parque de monitores de escritório: avaliação por equipamento com registro individual, útil quando vários aparelhos do mesmo lote apresentam a mesma falha de fonte.",
+    },
+    faqs: [
+      { question: "Meu monitor não liga. Tem conserto?", answer: "Na maioria das vezes sim, porque a causa costuma ser elétrica. Monitor que não acende nenhum LED normalmente tem problema no adaptador externo, na fonte interna ou no estágio de alimentação da placa. Esses três casos têm reparo viável em bancada e reparo em nível de componente, sem troca do aparelho. O primeiro passo é gratuito e você mesmo pode fazer: teste outra tomada e, se o monitor usa fonte externa, teste outro adaptador compatível. Muita gente descobre assim que o defeito está no carregador, não no monitor." },
+      { question: "A tela está preta mas o LED acende. O que é?", answer: "São dois cenários distintos e a bancada separa um do outro. Se ao apontar uma lanterna bem próxima da tela você consegue enxergar a imagem fraca, a imagem está sendo gerada normalmente e o que falhou foi a iluminação: driver de backlight ou barra de LED. Se não aparece nada nem com a lanterna, a suspeita passa para a placa lógica ou para o estágio de entrada de vídeo. O teste da lanterna é o primeiro que fazemos no recebimento, porque muda todo o caminho do diagnóstico." },
+      { question: "Vocês trocam painel de monitor trincado?", answer: "Não. Essa é uma recusa declarada antes da coleta e ela vale para trinca, mancha de pressão, marca de impacto e infiltração no painel. O motivo é econômico e não técnico: o painel é a peça mais cara do conjunto e, na maior parte dos modelos, custa próximo ou acima do valor de um monitor novo equivalente. Preferimos dizer isso na triagem a coletar o aparelho, cobrar avaliação e devolver com a mesma resposta. Falhas eletrônicas e de alimentação, ao contrário, costumam ter boa viabilidade de reparo." },
+      { question: "Monitor gamer de alta taxa de atualização tem atendimento?", answer: "Sim, para as mesmas falhas de qualquer outro monitor: alimentação, fonte externa, backlight, conector de vídeo e placa. O que não fazemos é prometer validação de desempenho. Não temos bancada dedicada para certificar taxa de atualização máxima, tempo de resposta, faixa de cor ampliada ou sincronização adaptativa, então não anunciamos esses itens como resultado do reparo. Testamos o monitor funcionando em duas entradas de vídeo, de forma estável, e é isso que declaramos no laudo." },
+      { question: "Qual é a garantia do conserto de monitor?", answer: "90 dias sobre a mão de obra e sobre o ponto reparado, contados da entrega. A cobertura é do defeito tratado e do componente que substituímos. Não estão cobertos: defeito novo em outro estágio do aparelho, dano por surto ou oscilação elétrica posterior, queda, infiltração, uso em tensão incorreta, intervenção de terceiros depois da nossa entrega e o painel, que não é peça reparada por nós. Quando o monitor chega com histórico de líquido ou de reparo anterior, a cobertura é registrada de forma ainda mais delimitada no laudo." },
+      { question: "Compensa consertar ou é melhor comprar outro?", answer: "É a pergunta que a avaliação responde, e nem sempre a resposta favorece o reparo. Pesamos o valor do serviço, o valor de um monitor equivalente novo, a idade do aparelho, o tamanho e o estado geral. Em monitores pequenos e antigos, muito fora de garantia, o reparo frequentemente não compensa e dizemos isso. Já em monitores maiores, ultrawide, curvos ou de uso profissional, uma falha de fonte costuma ser bem mais barata de resolver do que substituir o conjunto." },
+      { question: "Como funciona a coleta do monitor?", answer: "Pela logística de coleta e entrega, nas faixas de distância publicadas: até 8 km, de 8 a 15 km e de 15 a 30 km, o que inclui Curitiba e cidades vizinhas como São José dos Pinhais, Pinhais, Colombo, Araucária e Campo Largo. No recebimento registramos marca, modelo, número de série, estado do painel com foto, base ou pedestal, cabo e fonte. Esse registro protege os dois lados em caso de dúvida sobre avaria de transporte, e é por isso que ele é obrigatório." },
+      { question: "Preciso enviar a base e os cabos junto?", answer: "A fonte externa sim, sempre, porque em muitos casos o defeito está nela e não no monitor. A base ou pedestal ajuda no teste final, já que o aparelho precisa ficar em pé e ligado por um período contínuo. O cabo de vídeo é opcional: temos cabos de bancada para o teste, mas se o seu cabo é parte da suspeita, envie junto para que possamos descartá-lo. Monitor ultrawide, curvo ou acima de 32 polegadas exige embalagem reforçada, e orientamos isso na triagem." },
+      { question: "E se o problema não estiver no monitor?", answer: "Acontece com frequência e faz parte do trabalho identificar isso. Cabo com mau contato, entrada de vídeo do computador com defeito, placa de vídeo com falha, adaptador de sinal incompatível e configuração errada de resolução produzem sintomas que parecem defeito de monitor. Quando o aparelho passa nos testes de bancada sem apresentar falha, você recebe o laudo dizendo isso, com o que foi testado, e a orientação de onde procurar a causa real no lado do computador." },
+      { question: "O monitor é só a placa. Vocês recebem placa avulsa?", answer: "Recebemos, mas nesse caso o atendimento correto é o de reparo de placa eletrônica e não este. A diferença é prática: sem o monitor completo não conseguimos validar o resultado em condição real de uso, com o painel ligado e a iluminação funcionando. Testamos a placa dentro do que o circuito permite em bancada e o teste final fica por sua conta na remontagem. Sempre que possível, envie o monitor inteiro — o laudo fica muito mais conclusivo." },
+    ],
+    relacionados: [
+      { label: "Reparo de placa eletrônica", to: "/servicos/conserto-placa" },
+      { label: "Conserto de TV e Smart TV", to: "/servicos/conserto-tv" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Quando não compensa consertar", to: "/quando-nao-compensa" },
+      ...LINKS_BASE,
+    ],
+    blocoLocal: [
+      {
+        titulo: "Os quatro caminhos de falha de um monitor",
+        paragrafos: [
+          "Monitor é um equipamento com poucas partes e uma sequência de falha bastante previsível, o que torna o diagnóstico objetivo quando a bancada segue método. O primeiro caminho é a alimentação externa: o adaptador de fonte, aquele bloco que fica no cabo, é o componente que mais falha em toda a categoria. Ele envelhece, perde capacidade e passa a entregar tensão instável, o que faz o monitor desligar sozinho, piscar ou simplesmente não ligar. É a falha mais barata de resolver e a primeira que verificamos, justamente porque não faz sentido abrir um aparelho antes de descartar o que está fora dele.",
+          "O segundo caminho é a fonte interna, presente nos modelos que ligam direto na tomada. Aqui o padrão são capacitores que perdem característica com o tempo e com o calor, além de estágios de chaveamento que desarmam. O sintoma clássico é o monitor que tenta ligar, dá um sinal de vida e desiste, ou que funciona por alguns minutos e apaga. Esse conjunto de defeitos costuma ter reparo viável em nível de componente, com substituição pontual das peças que saíram de especificação, e é onde o trabalho de bancada mais se paga em relação a comprar outro aparelho.",
+          "O terceiro caminho é a iluminação, o chamado backlight. A imagem continua sendo gerada, mas a tela fica escura porque o driver de iluminação ou as barras de LED pararam. O teste da lanterna resolve essa dúvida em segundos, e o reparo varia bastante: driver com componente queimado tem solução direta, enquanto barra de LED depende de peça compatível e de abrir o conjunto óptico. O quarto caminho é a placa lógica, responsável por interpretar o sinal das entradas HDMI, DisplayPort, VGA e USB-C — inclui desde conector físico solto ou quebrado até estágio de entrada danificado por conexão a quente.",
+        ],
+      },
+      {
+        titulo: "Matriz de aceite e recusa antes de qualquer coleta",
+        paragrafos: [
+          "Aceitamos com boa expectativa de reparo: monitor que não liga, monitor com LED aceso e tela preta, falha de fonte externa e de fonte interna, backlight apagado, imagem intermitente, desligamento espontâneo, conector de vídeo com mau contato ou quebrado, entradas HDMI e DisplayPort sem sinal, e falhas em placa lógica que podem ser tratadas em nível de componente. Também aceitamos monitor que já passou por outra assistência, desde que você informe isso na triagem, porque intervenção anterior muda o trabalho e precisa ser considerada no laudo.",
+          "Recusamos, e a recusa é dita antes da coleta para não gerar custo inútil: painel trincado, com mancha de pressão, com marca de impacto ou com infiltração visível, porque o valor da peça inviabiliza o conserto na quase totalidade dos modelos; monitores pequenos e antigos, em que o custo do serviço se aproxima do valor de um aparelho equivalente novo; e modelos cuja peça necessária não tem fornecimento no mercado nacional. Recusamos também pedidos de validação de desempenho — taxa de atualização máxima, tempo de resposta e sincronização adaptativa — porque não temos bancada instrumentada para certificar esses números e não vendemos o que não conseguimos provar.",
+          "Existe ainda a categoria do caso que aceitamos com ressalva escrita. Monitor com histórico de líquido, com corrosão visível na placa ou com múltiplos reparos anteriores entra na bancada com o risco declarado: o procedimento pode não recuperar o funcionamento, e a recuperação pode não se sustentar no tempo. Nesses cenários o trabalho só começa depois do seu aceite registrado sobre essas limitações, e o mesmo vale para qualquer intervenção que envolva aquecimento de uma região inteira da placa.",
+        ],
+      },
+      {
+        titulo: "Como o monitor é recebido, testado e devolvido",
+        paragrafos: [
+          "O registro de entrada é a etapa que evita quase toda discussão posterior. Anotamos marca, modelo, número de série quando existe etiqueta legível, polegadas, tipo de fonte, presença de base ou pedestal, cabos que vieram junto e, principalmente, o estado do painel documentado em foto no momento da coleta. Monitor viaja mal: painel é frágil, a moldura é fina e um aperto no lugar errado dentro da caixa gera mancha permanente. Por isso o registro fotográfico é obrigatório e por isso monitores ultrawide, curvos e acima de 32 polegadas seguem uma orientação de embalagem específica.",
+          "A avaliação segue a sequência dos quatro caminhos de falha, do mais externo para o mais interno, para não abrir o aparelho antes da hora. Confirmada a causa, você recebe o laudo por escrito com o achado, o que pretendemos fazer, o valor e o prazo estimado. Nada é substituído antes do seu aceite textual — essa é uma regra fixa do contrato operacional e não uma cortesia. Se o caso não tiver viabilidade, não há reparo nem cobrança de serviço não executado: há o laudo explicando o motivo, que costuma ser a informação que faltava para você decidir entre insistir no aparelho ou substituí-lo.",
+          "O teste final tem um roteiro mínimo que não pulamos: monitor remontado, ligado em duas entradas de vídeo diferentes, verificação de uniformidade de brilho e período contínuo de funcionamento para flagrar falha que só aparece com o aquecimento. Só depois disso o aparelho é embalado para a entrega, com o mesmo registro fotográfico da saída. A garantia de 90 dias sobre a mão de obra e sobre o ponto reparado acompanha esse laudo, com os limites descritos nele — cobertura menor e honesta em vez de promessa ampla que não se sustenta na primeira reclamação.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Reparo de placa eletrônica", to: "/servicos/conserto-placa" },
+      { label: "Conserto de TV e Smart TV", to: "/servicos/conserto-tv" },
+      { label: "Coleta e entrega", to: "/coleta-e-entrega" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+    ],
+    dateModified: "2026-08-07",
+  },
 };
 
 /** Ordem canônica exibida no hub /servicos. */
@@ -1713,4 +1821,5 @@ export const SERVICOS_CORE_ORDER = [
   "suporte-home-office",
   "conserto-tv",
   "conserto-placa",
+  "conserto-monitor",
 ] as const;

@@ -7,6 +7,7 @@
 export type Equipment =
   | "pc"
   | "tv"
+  | "monitor"
   | "celular"
   | "som"
   | "videogame"
@@ -64,6 +65,23 @@ export const EQUIPMENT_BRANCHES: EquipmentBranch[] = [
       { id: "sem-som", label: "Sem som (imagem normal)", requiresColeta: true, requiresVideo: true },
       { id: "linhas-manchas", label: "Linhas / manchas na tela", requiresColeta: true, requiresVideo: true },
       { id: "hdmi", label: "Não reconhece HDMI / cabo", requiresColeta: true },
+    ],
+  },
+  {
+    id: "monitor",
+    label: "Monitor",
+    emoji: "🖥️",
+    marcaLabel: "Marca e polegadas",
+    marcaOptions: ["Dell", "LG", "Samsung", "AOC", "Acer", "Asus", "Philips", "Ultrawide / curvo", "Outra"],
+    sintomas: [
+      { id: "nao-liga", label: "Não liga (nenhum LED acende)", requiresColeta: true, requiresVideo: true },
+      { id: "led-sem-imagem", label: "LED acende, mas a tela fica preta", requiresColeta: true, requiresVideo: true },
+      { id: "backlight", label: "Imagem só aparece com lanterna (tela escura)", requiresColeta: true, requiresVideo: true },
+      { id: "piscando", label: "Tela piscando / apaga e volta", requiresColeta: true, requiresVideo: true },
+      { id: "desliga-sozinho", label: "Desliga sozinho depois de alguns minutos", requiresColeta: true, requiresVideo: true },
+      { id: "sem-sinal", label: "Não reconhece HDMI / DisplayPort", requiresColeta: true },
+      { id: "fonte-externa", label: "Suspeita da fonte externa (tijolinho)", requiresColeta: true },
+      { id: "painel-danificado", label: "Tela trincada / mancha de pressão", requiresColeta: true, requiresVideo: true },
     ],
   },
   {

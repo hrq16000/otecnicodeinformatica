@@ -833,6 +833,7 @@ const App = () => (
             {/* Rodada 3Y — expansão premium multieletrônicos (bancada + coleta) */}
             <Route path="/servicos/conserto-tv" element={<ServicoCore slug="conserto-tv" />} />
             <Route path="/servicos/conserto-placa" element={<ServicoCore slug="conserto-placa" />} />
+            <Route path="/servicos/conserto-monitor" element={<ServicoCore slug="conserto-monitor" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
 

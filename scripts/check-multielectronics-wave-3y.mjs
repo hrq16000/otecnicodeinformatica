@@ -38,7 +38,7 @@ for (const { path, minWords } of WAVE) {
   const faqs = servicoFaqs(path) ?? [];
   const texto = [
     ...blocos.flatMap((b) => [b.titulo, ...b.paragrafos]),
-    ...faqs.flatMap((f) => [f.question ?? "", f.answer ?? ""]),
+    ...faqs.flatMap((f) => [f.pergunta ?? f.question ?? "", f.resposta ?? f.answer ?? ""]),
   ].join(" ");
   const words = texto.split(/\s+/).filter(Boolean).length;
   if (words < minWords) errors.push(`${path}: ${words} palavras editoriais (mínimo ${minWords})`);

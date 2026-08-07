@@ -26,6 +26,7 @@ import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";
+import { CriteriosAceiteCard } from "@/components/funnel/CriteriosAceiteCard";
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,

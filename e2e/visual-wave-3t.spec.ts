@@ -7,11 +7,14 @@ import { test, expect } from "@playwright/test";
  */
 const BASE = process.env.E2E_BASE_URL ?? "http://localhost:8080";
 
+// Páginas empresariais puras (variante B2B completa).
 const PAGES = [
   { path: "/servicos/manutencao-preventiva-empresas", cta: /rotina preventiva/i },
   { path: "/servicos/backup-para-empresas", cta: /backup da empresa/i },
-  { path: "/servicos/redes-e-wifi", cta: /rede do local/i },
 ];
+
+// Página de público misto: NÃO recebe a variante empresarial.
+const MISTA = "/servicos/redes-e-wifi";
 
 const VIEWPORTS = [
   { width: 360, height: 740 },
@@ -136,4 +139,46 @@ test.describe("Rodada 3T — propagação empresarial", () => {
       expect(canonical).toContain(page_.path);
     });
   }
+}
+
+  test(`${MISTA}: público misto preservado, sem conversão empresarial`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${BASE}${MISTA}`, { waitUntil: "domcontentloaded" });
+
+    // Sem o bloco exclusivo do template empresarial.
+    await expect(page.locator("[aria-label='Contexto do atendimento empresarial']")).toHaveCount(0);
+    await expect(page.locator("[data-cta-secundario='empresarial']")).toHaveCount(0);
+
+    // CTA do hero preservado e acima da dobra.
+    const cta = page.locator("[data-cta-location$='_hero']").first();
+    await expect(cta).toBeVisible();
+    const box = await cta.boundingBox();
+    expect(box!.y).toBeLessThan(750);
+
+    // Contextos residencial e empresarial coexistem.
+    const contextos = page.locator("#contextos-rede");
+    await expect(contextos).toBeVisible();
+    await expect(contextos).toContainText(/home office/i);
+    await expect(contextos).toContainText(/escrit[óo]rio/i);
+
+    // Limites de operadora e de impressoras preservados.
+    await expect(page.locator("#operadora")).toContainText(/operadora/i);
+    await expect(page.locator("#impressoras-rede")).toContainText(
+      /configura[çc][ãa]o, comunica[çc][ãa]o e compartilhamento em rede/i,
+    );
+    await expect(page.locator("#impressoras-rede")).not.toContainText(/recarga de toner/i);
+  });
+
+  test("preventiva: fluxo e matriz de prioridades; backup: conceitos e responsabilidades", async ({ page }) => {
+    await page.goto(`${BASE}/servicos/manutencao-preventiva-empresas`, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#fluxo-preventiva li")).toHaveCount(8);
+    await expect(page.locator("#prioridades table tbody tr")).toHaveCount(4);
+    await expect(page.locator("#limites-preventiva")).toContainText(/não elimina falhas inesperadas/i);
+
+    await page.goto(`${BASE}/servicos/backup-para-empresas`, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#conceitos-backup")).toContainText(/Sincronização/);
+    await expect(page.locator("#conceitos-backup")).toContainText(/tentativa posterior/i);
+    await expect(page.locator("#teste-restauracao")).toContainText(/restauração é testado/i);
+    await expect(page.locator("#responsabilidades > div > div")).toHaveCount(3);
+  });
 });

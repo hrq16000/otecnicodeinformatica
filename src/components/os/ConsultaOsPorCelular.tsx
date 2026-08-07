@@ -18,7 +18,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 import { track, trackWaClick } from "@/lib/funnelAnalytics";
 import { baixarPdfOs } from "@/lib/osPdf";
+import { useOsLiveUpdates } from "@/hooks/useOsLiveUpdates";
 import { whatsappLink } from "@/lib/siteConfig";
+
 
 export interface OsEtapaRemota {
   titulo: string;
@@ -35,6 +37,8 @@ export interface OrdemRemota {
   marca_modelo?: string | null;
   sintomas?: string | null;
   fotos: string[];
+  fotos_count?: number;
+  tem_sintomas?: boolean;
   modalidade?: string | null;
   status: string;
   etapas: OsEtapaRemota[];
@@ -44,7 +48,6 @@ export interface OrdemRemota {
   updated_at: string;
 }
 
-const POLL_MS = 45_000;
 
 const maskPhone = (raw: string) => {
   const d = raw.replace(/\D/g, "").slice(0, 11);
@@ -87,7 +90,14 @@ export const ConsultaOsPorCelular = () => {
   const [ordens, setOrdens] = useState<OrdemRemota[] | null>(null);
   const [atualizadoEm, setAtualizadoEm] = useState<string | null>(null);
   const [gerandoPdf, setGerandoPdf] = useState<string | null>(null);
+  const [streamToken, setStreamToken] = useState<string | null>(null);
+  const [verificado, setVerificado] = useState(false);
+  const [codigoPedido, setCodigoPedido] = useState(false);
+  const [codigo, setCodigo] = useState("");
+  const [verificando, setVerificando] = useState(false);
+  const [erroCodigo, setErroCodigo] = useState<string | null>(null);
   const ultimoTelefone = useRef<string | null>(null);
+  const sessionToken = useRef<string | null>(null);
 
   const consultar = useCallback(async (valor: string, silencioso = false) => {
     if (!isValidPhone(valor)) {
@@ -100,7 +110,11 @@ export const ConsultaOsPorCelular = () => {
     const timeout = setTimeout(() => setErro("A consulta está demorando mais que o normal."), 8000);
     try {
       const { data, error } = await supabase.functions.invoke("os-consulta", {
-        body: { telefone: valor.replace(/\D/g, "") },
+        body: {
+          telefone: valor.replace(/\D/g, ""),
+          sessionToken: sessionToken.current,
+          path: typeof window !== "undefined" ? window.location.pathname : null,
+        },
       });
       clearTimeout(timeout);
       if (error) {
@@ -116,6 +130,8 @@ export const ConsultaOsPorCelular = () => {
       }
       const lista = (data?.ordens ?? []) as OrdemRemota[];
       setOrdens(lista);
+      setVerificado(Boolean(data?.verificado));
+      setStreamToken((data?.streamToken as string) ?? null);
       setAtualizadoEm(new Date().toISOString());
       ultimoTelefone.current = valor;
       if (!silencioso) {
@@ -130,16 +146,89 @@ export const ConsultaOsPorCelular = () => {
     }
   }, []);
 
-  // Atualização automática enquanto a consulta estiver aberta.
-  useEffect(() => {
-    if (!ordens?.length) return;
-    const id = window.setInterval(() => {
-      if (document.visibilityState === "visible" && ultimoTelefone.current) {
-        consultar(ultimoTelefone.current, true);
+  /** Atualização em tempo quase real (SSE) com fallback automático para polling. */
+  const modoAtualizacao = useOsLiveUpdates({
+    streamToken,
+    ativo: Boolean(ordens?.length),
+    onUpdate: () => {
+      if (ultimoTelefone.current) consultar(ultimoTelefone.current, true);
+    },
+  });
+
+  /** Passo 1 da confirmação: pedir o código enviado pelo WhatsApp do atendimento. */
+  const pedirCodigo = useCallback(async () => {
+    if (!ultimoTelefone.current) return;
+    setErroCodigo(null);
+    setVerificando(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("os-codigo", {
+        body: { action: "request", telefone: ultimoTelefone.current.replace(/\D/g, "") },
+      });
+      if (error) {
+        const detalhe = "context" in error ? await (error as any).context?.text?.() : "";
+        let msg = "Não foi possível gerar o código agora. Peça pelo WhatsApp.";
+        try {
+          const parsed = JSON.parse(detalhe || "{}");
+          if (parsed?.message) msg = parsed.message;
+        } catch { /* mantém mensagem padrão */ }
+        setErroCodigo(msg);
+        return;
       }
-    }, POLL_MS);
-    return () => window.clearInterval(id);
-  }, [ordens, consultar]);
+      if (data?.ok) {
+        setCodigoPedido(true);
+        track("os_codigo_solicitado", { origem: "status_os" });
+      }
+    } catch {
+      setErroCodigo("Serviço indisponível. Solicite o código pelo WhatsApp.");
+    } finally {
+      setVerificando(false);
+    }
+  }, []);
+
+  /** Passo 2: validar o código e liberar fotos e sintomas por 30 minutos. */
+  const confirmarCodigo = useCallback(async () => {
+    if (!ultimoTelefone.current || codigo.replace(/\D/g, "").length !== 6) {
+      setErroCodigo("Digite os 6 dígitos do código recebido.");
+      return;
+    }
+    setErroCodigo(null);
+    setVerificando(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("os-codigo", {
+        body: {
+          action: "verify",
+          telefone: ultimoTelefone.current.replace(/\D/g, ""),
+          codigo: codigo.replace(/\D/g, ""),
+        },
+      });
+      if (error) {
+        const detalhe = "context" in error ? await (error as any).context?.text?.() : "";
+        let msg = "Código inválido ou expirado. Peça um novo.";
+        try {
+          const parsed = JSON.parse(detalhe || "{}");
+          if (parsed?.message) msg = parsed.message;
+        } catch { /* mantém mensagem padrão */ }
+        setErroCodigo(msg);
+        return;
+      }
+      if (data?.sessionToken) {
+        sessionToken.current = data.sessionToken as string;
+        setCodigo("");
+        setCodigoPedido(false);
+        track("os_codigo_confirmado", { origem: "status_os" });
+        await consultar(ultimoTelefone.current, true);
+        toast({
+          title: "Consulta confirmada",
+          description: "Fotos e sintomas liberados por 30 minutos.",
+        });
+      }
+    } catch {
+      setErroCodigo("Não conseguimos validar agora. Tente novamente em instantes.");
+    } finally {
+      setVerificando(false);
+    }
+  }, [codigo, consultar]);
+
 
   const waFallback = whatsappLink(
     "Olá! Tentei consultar minha ordem de serviço pelo site com o meu celular e preciso saber a etapa atual.",
@@ -275,8 +364,81 @@ export const ConsultaOsPorCelular = () => {
         <div className="mt-5 space-y-5">
           <p className="flex items-center gap-2 text-xs text-muted-foreground">
             <RefreshCw className="h-3.5 w-3.5" aria-hidden />
-            Atualização automática ativa · última leitura {fmtDate(atualizadoEm)}
+            {modoAtualizacao === "sse"
+              ? "Atualização em tempo real ativa"
+              : "Atualização automática a cada 45s"}{" "}
+            · última leitura {fmtDate(atualizadoEm)}
           </p>
+
+          {/* Confirmação por código: libera fotos da triagem e sintomas. */}
+          {!verificado ? (
+            <div className="rounded-xl border border-border bg-muted/40 p-4">
+              <p className="flex items-start gap-2 text-sm font-semibold text-foreground">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                Confirme para ver fotos e sintomas
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Por segurança, a descrição dos sintomas e as fotos da triagem só aparecem depois da
+                confirmação de um código de 6 dígitos enviado no WhatsApp do atendimento. O código
+                expira em 10 minutos.
+              </p>
+              {!codigoPedido ? (
+                <Button
+                  type="button"
+                  size="sm"
+                  className="mt-3"
+                  disabled={verificando}
+                  onClick={pedirCodigo}
+                >
+                  {verificando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
+                  Solicitar código no WhatsApp
+                </Button>
+              ) : (
+                <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end">
+                  <div className="flex-1">
+                    <Label htmlFor="os-codigo">Código de 6 dígitos</Label>
+                    <Input
+                      id="os-codigo"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      maxLength={6}
+                      placeholder="000000"
+                      value={codigo}
+                      onChange={(e) => setCodigo(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                      className="mt-1"
+                    />
+                  </div>
+                  <Button type="button" size="sm" disabled={verificando} onClick={confirmarCodigo}>
+                    {verificando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
+                    Confirmar código
+                  </Button>
+                </div>
+              )}
+              {codigoPedido ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="mt-2"
+                  onClick={() => trackWaClick("status_os_pedir_codigo")}
+                >
+                  <a
+                    href={whatsappLink(
+                      "Olá! Consultei minha ordem de serviço no site e preciso do código de confirmação para ver as fotos e os sintomas.",
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden /> Receber o código no WhatsApp
+                  </a>
+                </Button>
+              ) : null}
+              {erroCodigo ? (
+                <p className="mt-2 text-xs font-medium text-destructive">{erroCodigo}</p>
+              ) : null}
+            </div>
+          ) : null}
+
           {ordens.map((os) => {
             const pct = progresso(os.etapas);
             const sla = slaInfo(os.previsao_conclusao);
@@ -333,11 +495,25 @@ export const ConsultaOsPorCelular = () => {
                   </div>
                   <div className="sm:col-span-2">
                     <dt className="text-xs uppercase tracking-wide text-muted-foreground">Sintomas informados</dt>
-                    <dd className="text-foreground whitespace-pre-line">{os.sintomas || "—"}</dd>
+                    <dd className="text-foreground whitespace-pre-line">
+                      {verificado
+                        ? os.sintomas || "—"
+                        : os.tem_sintomas
+                          ? "Protegido — confirme o código para exibir a descrição dos sintomas."
+                          : "—"}
+                    </dd>
                   </div>
                 </dl>
 
-                {os.fotos.length ? (
+                {!verificado && (os.fotos_count ?? 0) > 0 ? (
+                  <p className="mt-4 rounded-lg border border-dashed border-border bg-muted/40 p-3 text-xs text-muted-foreground">
+                    {os.fotos_count} foto(s) da triagem estão protegidas. Confirme o código enviado no
+                    WhatsApp para visualizá-las.
+                  </p>
+                ) : null}
+
+                {verificado && os.fotos.length ? (
+
                   <div className="mt-4">
                     <p className="text-xs uppercase tracking-wide text-muted-foreground">Fotos enviadas no portal</p>
                     <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4">

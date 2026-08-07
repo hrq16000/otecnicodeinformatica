@@ -960,6 +960,11 @@ export function jsonLdFor(route) {
     });
   }
 
+  // Institucionais: NAP/área/horários explícitos para busca local.
+  if (EXTRA_LOCAL_BUSINESS_PATHS.has(path) && !out.some((n) => slotFor(n) === "local-business")) {
+    out.push(localBusiness(path, { description: route.description }));
+  }
+
   const bc = breadcrumbList(path);
   if (route.faq?.length) {
     out.push({

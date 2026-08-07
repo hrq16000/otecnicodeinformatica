@@ -29,6 +29,16 @@ const GATES = [
   { id: "sitemap-source", label: "Manifesto × sitemap", cmd: "npm run check:sitemap-source" },
 ];
 
+/**
+ * Taxonomia de conversão acompanhada no painel /admin/conversao.
+ * Mantida aqui de propósito: o gate `check:analytics-parity` compara esta
+ * lista com o GA4 e com o insert em `click_events`, impedindo que o
+ * relatório semanal deixe de contabilizar um evento ou uma UTM.
+ */
+const EVENTOS_CONVERSAO = ["wa_click", "call_click", "funnel_open"];
+const UTMS_CONVERSAO = ["utm_source", "utm_medium", "utm_campaign"];
+const RECORTES_CONVERSAO = ["path", "cta_position", "viewport_bucket", "funnel_stage", "variant"];
+
 function rodar(gate) {
   const inicio = Date.now();
   try {
@@ -75,6 +85,12 @@ const md = [
   recuperados.length
     ? `## Recuperados\n\n${recuperados.map((r) => `- ${r.label}`).join("\n")}`
     : "",
+  "",
+  "## Taxonomia de conversão monitorada",
+  "",
+  `Eventos: ${EVENTOS_CONVERSAO.map((e) => `\`${e}\``).join(", ")}.`,
+  `UTMs: ${UTMS_CONVERSAO.map((u) => `\`${u}\``).join(", ")}.`,
+  `Recortes: ${RECORTES_CONVERSAO.map((r) => `\`${r}\``).join(", ")}.`,
   "",
   "## Resultado por gate",
   "",

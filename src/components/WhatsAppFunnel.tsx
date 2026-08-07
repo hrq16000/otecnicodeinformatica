@@ -27,7 +27,9 @@ import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";
 import { CriteriosAceiteCard } from "@/components/funnel/CriteriosAceiteCard";
+import { ColetaGateCard, type ColetaGateState } from "@/components/funnel/ColetaGateCard";
 import { categoriaPorEquipamento } from "@/lib/operacaoCategorias";
+
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,

@@ -17,6 +17,8 @@ const SOURCES = {
   "/problemas/notebook-nao-liga": "src/pages/problemas/NotebookNaoLiga.tsx",
   "/problemas/computador-lento": "src/pages/problemas/ComputadorLento.tsx",
   "/precos-e-politicas": "src/components/TermosConteudo.tsx",
+  "/como-funciona": "src/pages/ComoFunciona.tsx",
+  "/equipamentos-atendidos": "src/pages/EquipamentosAtendidos.tsx",
 };
 
 const PAIR =

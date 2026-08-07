@@ -556,7 +556,19 @@ export const WhatsAppFunnel = () => {
         originUrl,
       });
       const base = buildWhatsAppMessage(answers, triageId, originUrl);
-      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${base}` : base;
+      const logistica =
+        rules.route === "coleta" && coleta.faixa
+          ? [
+              "",
+              `*Coleta:* ${coleta.faixa.nome} · ${coleta.faixa.taxaLabel}`,
+              `*Janelas:* ${coleta.faixa.janelas} · retirada em até ${coleta.faixa.prazoColetaDias} dia(s) útil(eis)`,
+              `*Status inicial:* ${coleta.status}`,
+              `*Pré-requisitos confirmados:* ${coleta.prerequisitos.length} de ${coleta.prerequisitos.length}`,
+            ].join("\n")
+          : "";
+      const withLogistica = `${base}${logistica}`;
+      const finalMessage = presetMessage ? `${presetMessage}\n\n---\n${withLogistica}` : withLogistica;
+
 
       try {
         await recordSubmission({

@@ -832,6 +832,9 @@ const App = () => (
             <Route path="/servicos/backup-para-empresas" element={<ServicoCore slug="backup-para-empresas" />} />
             <Route path="/servicos/suporte-home-office" element={<ServicoCore slug="suporte-home-office" />} />
             <Route path="/servicos/montagem-de-pc" element={<ServicoCore slug="montagem-de-pc" />} />
+            {/* Rodada 3Y — expansão premium multieletrônicos (bancada + coleta) */}
+            <Route path="/servicos/conserto-tv" element={<ServicoCore slug="conserto-tv" />} />
+            <Route path="/servicos/conserto-placa" element={<ServicoCore slug="conserto-placa" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
 

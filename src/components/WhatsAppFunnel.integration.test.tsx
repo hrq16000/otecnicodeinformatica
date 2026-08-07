@@ -153,10 +153,10 @@ describe("Triagem V5 — TV não liga → COLETA", () => {
     expect(dialog().textContent).toMatch(/R\$ 299,99/);
     await clickText("Continuar");
 
-    // termos (coleta = 4 checkboxes)
+    // termos (coleta = 4) + ciência dos critérios de aceite da categoria (Rodada 3X)
     await waitFor(() => expect(dialog().textContent).toMatch(/ciência e aceite/i), { timeout: 3000 });
     const boxes = within(dialog()).getAllByRole("checkbox");
-    expect(boxes.length).toBe(4);
+    expect(boxes.length).toBe(5);
 
     // sem aceitar tudo, não abre WhatsApp (Continuar desabilitado)
     await checkAllTerms();

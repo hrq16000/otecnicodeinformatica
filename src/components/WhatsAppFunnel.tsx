@@ -26,6 +26,8 @@ import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
 import { TriageErrorBoundary } from "@/components/funnel/TriageErrorBoundary";
 import { TriageField } from "@/components/funnel/TriageField";
+import { CriteriosAceiteCard } from "@/components/funnel/CriteriosAceiteCard";
+import { categoriaPorEquipamento } from "@/lib/operacaoCategorias";
 import {
   EQUIPMENTS,
   EMPTY_ANSWERS,
@@ -159,6 +161,8 @@ export const WhatsAppFunnel = () => {
   const equipment = getEquipment(answers.equipment);
   const rules = useMemo(() => getPricingRules(answers), [answers]);
   const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
+  // Ciência dos critérios de aceite/recusa da categoria (Rodada 3X).
+  const [criteriosOk, setCriteriosOk] = useState(false);
   const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
   const steps = useMemo(() => getSteps(answers), [answers]);
   const totalSteps = steps.length;
@@ -900,6 +904,11 @@ export const WhatsAppFunnel = () => {
                 {/* ETAPA 4 — ciência e aceite */}
                 {stepName === "terms" && (
                   <div className="space-y-3">
+                    <CriteriosAceiteCard
+                      equipamento={answers.equipment}
+                      accepted={criteriosOk}
+                      onAcceptChange={setCriteriosOk}
+                    />
                     <p className="text-sm font-medium">Registro de ciência e aceite eletrônico</p>
                     <div className="space-y-2">
                       {terms.map((t) => {
@@ -929,7 +938,12 @@ export const WhatsAppFunnel = () => {
                         Termos e Condições
                       </a>.
                     </p>
-                    <FunnelNav onBack={back} onNext={handleNext} canNext={canAdvance} nextLabel="Continuar" />
+                    <FunnelNav
+                      onBack={back}
+                      onNext={handleNext}
+                      canNext={canAdvance && (criteriosOk || !categoriaPorEquipamento(answers.equipment))}
+                      nextLabel="Continuar"
+                    />
                   </div>
                 )}
 

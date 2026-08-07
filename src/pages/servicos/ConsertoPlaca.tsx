@@ -12,6 +12,12 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { getCategoria } from "@/lib/operacaoCategorias";
+import { getContrato } from "@/lib/contratosOperacionais";
+
+const categoriaPlaca = getCategoria("placa");
+const contratoPlaca = getContrato("placa");
+
 
 const WHATSAPP_NUMBER = "5541997086380";
 

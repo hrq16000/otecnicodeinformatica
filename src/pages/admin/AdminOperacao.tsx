@@ -239,7 +239,9 @@ export default function AdminOperacao() {
             <TabsTrigger value="sla"><Gauge className="mr-1.5 h-4 w-4" aria-hidden="true" />Leads e SLA</TabsTrigger>
             <TabsTrigger value="scripts"><MessageSquare className="mr-1.5 h-4 w-4" aria-hidden="true" />Scripts</TabsTrigger>
             <TabsTrigger value="logistica"><Truck className="mr-1.5 h-4 w-4" aria-hidden="true" />Logística</TabsTrigger>
+            <TabsTrigger value="contratos"><FileCheck2 className="mr-1.5 h-4 w-4" aria-hidden="true" />Contratos</TabsTrigger>
           </TabsList>
+
 
           {/* ---------------- LEADS + SLA ---------------- */}
           <TabsContent value="sla" className="mt-4 space-y-4">

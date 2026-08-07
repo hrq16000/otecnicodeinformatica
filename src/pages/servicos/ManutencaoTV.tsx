@@ -96,7 +96,9 @@ const ManutencaoTV = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Manutenção e Conserto de TV em Curitiba | LED, LCD, Smart TV | Técnico Curitiba" description="Conserto de TV LED, LCD e Smart TV em Curitiba. Diagnóstico em bancada, reparo de placa, fonte e backlight. Coleta e entrega. Técnico com experiência." path="/servicos/manutencao-t-v"  breadcrumbs={[
+      {/* Rodada 3X: /servicos/conserto-tv é a URL canônica comercial de TV.
+          Esta rota permanece ativa (nunca removida), mas aponta o canonical para ela. */}
+      <PageSEO noindex title="Manutenção e Conserto de TV em Curitiba | LED, LCD, Smart TV | Técnico Curitiba" description="Conserto de TV LED, LCD e Smart TV em Curitiba. Diagnóstico em bancada, reparo de placa, fonte e backlight. Coleta e entrega. Técnico com experiência." path="/servicos/conserto-tv"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Manutenção de TV", path: "/servicos/manutencao-tv" }

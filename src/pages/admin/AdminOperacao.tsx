@@ -327,9 +327,23 @@ export default function AdminOperacao() {
             </Card>
 
             {[
+              { titulo: "Perguntas de triagem", texto: scriptTriagemPerguntas(categoriaSel) },
               { titulo: "Primeiro contato (triagem + orientação)", texto: scriptPrimeiroContato(categoriaSel) },
               {
-                titulo: "Recusa técnica",
+                titulo: "Caso ACEITO (abre coleta)",
+                texto: scriptAceite(categoriaSel, {
+                  faixa: FAIXAS_LOGISTICAS[0].nome,
+                  janelas: FAIXAS_LOGISTICAS[0].janelas,
+                  taxa: FAIXAS_LOGISTICAS[0].taxaLabel,
+                  prazoColetaDias: FAIXAS_LOGISTICAS[0].prazoColetaDias,
+                }),
+              },
+              {
+                titulo: "Caso RECUSADO (com alternativa)",
+                texto: scriptRecusadoComAlternativa(categoriaSel, categoriaSel.recusa[0].toLowerCase()),
+              },
+              {
+                titulo: "Recusa técnica (curta)",
                 texto: scriptRecusa(categoriaSel, categoriaSel.recusa[0].toLowerCase()),
               },
               {
@@ -337,6 +351,7 @@ export default function AdminOperacao() {
                 texto: scriptLaudo(categoriaSel, "[achado técnico]", "[valor do atendimento]"),
               },
             ].map((s) => (
+
               <Card key={s.titulo} className="p-4">
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-sm font-semibold text-foreground">{s.titulo}</p>

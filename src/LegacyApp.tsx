@@ -335,7 +335,6 @@ const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
 const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
 const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
 const ConsertoCelular = lazy(() => import("./pages/servicos/ConsertoCelular"));
-const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
 
 // Novas cidades
 const TecnicoInformaticaPiraquara = lazy(() => import("./pages/TecnicoInformaticaPiraquara"));

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AlertTriangle, ArrowRight, CheckCircle2, KeyRound, Lock, MessageCircle, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, Lock, MessageCircle, ShieldCheck } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -41,14 +41,6 @@ const PRINCIPIOS = [
     titulo: "Backup é responsabilidade compartilhada",
     desc: "Sempre que possível, o cliente deve manter uma cópia atualizada dos arquivos antes do atendimento. Fazemos a cópia prévia quando o armazenamento permite leitura, mas ela não substitui o seu backup próprio.",
   },
-];
-
-const SENHAS = [
-  "Senhas bancárias, códigos de autenticação e credenciais sensíveis não devem ser enviados por mensagem — nem para nós.",
-  "Quando o serviço exige a senha do próprio computador, ela deve ser informada apenas no momento do atendimento e alterada depois, se você preferir.",
-  "Não solicitamos código recebido por SMS, aplicativo autenticador ou e-mail para liberar qualquer serviço.",
-  "Não pedimos dados de cartão, chave PIX de terceiros ou pagamento durante uma sessão de acesso remoto.",
-  "Equipamento com bloqueio de conta, senha de fabricante ou criptografia sem a chave pode simplesmente não ter caminho técnico legítimo — e nesse caso dizemos isso.",
 ];
 
 const REMOTO = [

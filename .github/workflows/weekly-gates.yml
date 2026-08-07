@@ -93,6 +93,16 @@ jobs:
       - name: Interlinking local (mãe ⇄ bairros/cidades)
         run: npm run check:local-interlinking
 
+      - name: Relatório semanal consolidado (SEO + governança)
+        if: always()
+        run: npm run report:weekly-seo
+      - name: Publicar relatório como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-semanal-seo
+          path: docs/relatorios/semanal-*
+
       - name: Alerta de regressão
         if: failure()
         run: echo "::error::Gate semanal falhou — uma ou mais URLs aprovadas saíram do padrão fail-closed."

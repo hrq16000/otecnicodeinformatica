@@ -9,7 +9,8 @@
  *
  * Uso:
  *  - Painel interno /admin/operacao (aba Contratos)
- *  - Página pública /servicos/conserto-placa (blocos de aceite, limitações e garantia)
+ *  - Páginas públicas /servicos/conserto-placa e /servicos/conserto-monitor
+ *    (blocos de aceite, limitações e garantia)
  *  - Gate de coleta no funil de WhatsApp
  */
 
@@ -47,7 +48,7 @@ export interface LimitacaoValidacao {
 }
 
 export interface ContratoOperacional {
-  categoria: Extract<CategoriaId, "tv" | "placa">;
+  categoria: Extract<CategoriaId, "tv" | "monitor" | "placa">;
   nome: string;
   versao: string;
   atualizadoEm: string;
@@ -143,6 +144,86 @@ export const CONTRATOS_OPERACIONAIS: ContratoOperacional[] = [
       "Painel trincado, com mancha de impacto ou pressão",
       "OLED com burn-in permanente",
       "Aparelho acima de 65 polegadas",
+      "Cliente se recusa a registrar o estado do aparelho por foto",
+    ],
+  },
+  {
+    categoria: "monitor",
+    nome: "Monitor",
+    versao: "1.0",
+    atualizadoEm: "2026-08-07",
+    resumo:
+      "Nenhum monitor é coletado sem foto do painel e sem o teste externo já feito pelo cliente (outro cabo, outra tomada, outra fonte de vídeo). Painel trincado ou com mancha de pressão é recusa automática. Reparo só após laudo e autorização por escrito.",
+    checkpoints: [
+      {
+        id: "triagem-remota",
+        ordem: 1,
+        nome: "Checkpoint 1 — Triagem remota (antes de agendar a coleta)",
+        objetivo: "Eliminar dano de painel e causa externa antes de gastar logística e bancada.",
+        itens: [
+          { id: "modelo", label: "Marca, modelo e polegadas registrados", obrigatorio: true, seFalhar: "Pedir foto da etiqueta traseira. Sem isso, não agenda." },
+          { id: "foto-tela", label: "Foto da tela ligada (com o defeito visível ou apagada)", obrigatorio: true, seFalhar: "Sem foto, não agenda." },
+          { id: "foto-etiqueta", label: "Foto da etiqueta traseira com número de série", obrigatorio: true, seFalhar: "Sem foto, não agenda." },
+          { id: "painel-integro", label: "Confirmado que NÃO há trinca, mancha de pressão ou marca de impacto", obrigatorio: true, seFalhar: "Recusa automática — enviar script de recusa por painel danificado." },
+          { id: "teste-externo", label: "Cliente testou outro cabo, outra tomada e outra fonte de vídeo", obrigatorio: true, seFalhar: "Orientar o teste antes de coletar — causa externa é frequente." },
+          { id: "tipo-fonte", label: "Tipo de alimentação identificado (fonte externa ou tomada direta)", obrigatorio: true, seFalhar: "Pedir foto do cabo/fonte. Fonte externa deve vir junto na coleta." },
+          { id: "viabilidade-economica", label: "Monitor com 22 polegadas ou mais, ou valor de mercado que justifique o reparo", obrigatorio: false, seFalhar: "Informar que o reparo pode não compensar e registrar a ciência do cliente." },
+        ],
+        liberaQuando: "Todos os itens obrigatórios marcados e nenhuma parada imediata acionada.",
+      },
+      {
+        id: "bancada",
+        ordem: 2,
+        nome: "Checkpoint 2 — Recebimento e diagnóstico em bancada",
+        objetivo: "Registrar o estado real do aparelho e isolar o caminho de falha antes de abrir.",
+        itens: [
+          { id: "registro-entrada", label: "Registro de entrada com fotos do painel, moldura, traseira, base e cabos", obrigatorio: true, seFalhar: "Não iniciar o diagnóstico sem o registro fotográfico." },
+          { id: "acessorios", label: "Base/pedestal, fonte e cabos recebidos listados na OS", obrigatorio: true, seFalhar: "Listar como ausente e comunicar o cliente antes de prosseguir." },
+          { id: "teste-fonte", label: "Fonte externa ou interna medida antes de abrir o conjunto óptico", obrigatorio: true, seFalhar: "Refazer a medição. Não abrir o painel por suspeita não confirmada." },
+          { id: "teste-lanterna", label: "Teste de iluminação (lanterna) executado para separar backlight de placa lógica", obrigatorio: true, seFalhar: "Executar antes de qualquer hipótese sobre placa lógica." },
+          { id: "entradas", label: "Entradas de vídeo testadas com cabo e fonte de sinal de bancada", obrigatorio: true, seFalhar: "Testar antes de imputar defeito ao monitor." },
+          { id: "avaria-transporte", label: "Comparação entre o estado na coleta e o estado no recebimento", obrigatorio: true, seFalhar: "Abrir tratativa de avaria de transporte antes de qualquer reparo." },
+        ],
+        liberaQuando: "Caminho de falha identificado (fonte externa, fonte interna, backlight ou placa lógica) e registrado na OS.",
+      },
+      AUTORIZACAO_PADRAO,
+      {
+        id: "entrega",
+        ordem: 4,
+        nome: "Checkpoint 4 — Teste final, prova visual e entrega",
+        objetivo: "Entregar com prova de funcionamento e limites de garantia explícitos.",
+        itens: [
+          { id: "teste-2-entradas", label: "Monitor ligado e testado em duas entradas de vídeo diferentes", obrigatorio: true, seFalhar: "Não entregar. Repetir o teste." },
+          { id: "burn-in", label: "Mínimo de 2 horas ligado após o reparo, para flagrar falha térmica", obrigatorio: true, seFalhar: "Não entregar. Repetir o período contínuo." },
+          { id: "uniformidade", label: "Verificação de uniformidade de brilho registrada", obrigatorio: true, seFalhar: "Registrar a divergência no laudo antes de entregar." },
+          { id: "prova-visual", label: "Fotos de entrada, placa lógica, teste final e embalagem anexadas à OS", obrigatorio: true, seFalhar: "Não encerrar a OS sem o conjunto de provas." },
+          { id: "acessorios-volta", label: "Base, fonte e cabos devolvidos conforme a lista de entrada", obrigatorio: true, seFalhar: "Localizar antes de encerrar." },
+          { id: "garantia-doc", label: "Prazo e limites de garantia entregues por escrito", obrigatorio: true, seFalhar: "Emitir antes de encerrar a OS." },
+        ],
+        liberaQuando: "Cliente confere o funcionamento na entrega e a OS é encerrada com garantia registrada.",
+      },
+    ],
+    limitacoesValidacao: [
+      { titulo: "Painel não é peça reparada por nós", descricao: "Trinca, mancha de pressão, marca de impacto e colunas mortas dependem de substituição de painel, cujo custo se aproxima ou supera o de um monitor equivalente novo. É recusa declarada na triagem." },
+      { titulo: "Desempenho não é certificável nesta bancada", descricao: "Taxa de atualização máxima, tempo de resposta, faixa de cor e sincronização adaptativa não são medidos aqui. O teste final comprova funcionamento estável em duas entradas, e é só isso que o laudo declara." },
+      { titulo: "Falha intermitente exige tempo ligado", descricao: "Defeito que só aparece com o aquecimento exige período contínuo em bancada. O prazo aumenta e o laudo sai depois do teste completo." },
+      { titulo: "Placa avulsa não tem validação real", descricao: "Monitor enviado só como placa é avaliado dentro do que o circuito permite, sem teste com painel montado. Esse caso pertence ao atendimento de reparo de placa eletrônica." },
+    ],
+    garantias: [
+      { tipo: "Troca de fonte externa (adaptador)", prazo: "90 dias", cobre: "A peça fornecida e a validação do funcionamento na entrega.", naoCobre: "Dano por tensão incorreta, surto elétrico posterior ou uso de outro adaptador." },
+      { tipo: "Reparo de fonte interna / troca de capacitores", prazo: "90 dias", cobre: "Os componentes substituídos e o circuito reparado.", naoCobre: "Outras seções da placa e falhas por oscilação da rede elétrica." },
+      { tipo: "Reparo de driver de backlight", prazo: "90 dias", cobre: "O estágio reparado e os componentes trocados.", naoCobre: "Degradação natural das barras de LED e do difusor." },
+      { tipo: "Troca de barra de LED", prazo: "90 dias", cobre: "A peça fornecida e a instalação.", naoCobre: "Variação de brilho entre barras nova e remanescente, quando a substituição é parcial." },
+      { tipo: "Reparo em nível de componente na placa lógica", prazo: "90 dias", cobre: "O componente trocado e o circuito diretamente reparado.", naoCobre: "Outros estágios da mesma placa e dano por conexão a quente." },
+      { tipo: "Troca de conector de vídeo (HDMI / DisplayPort)", prazo: "90 dias", cobre: "O conector substituído e a solda.", naoCobre: "Rompimento novo por tração no cabo ou esforço mecânico." },
+      { tipo: "Monitor com histórico de líquido ou reparo de terceiro", prazo: "30 dias, com ressalva registrada", cobre: "Somente o ponto reparado por nós.", naoCobre: "Corrosão remanescente, intervenção anterior e reincidência em outra região." },
+      { tipo: "Painel (qualquer situação)", prazo: "Sem cobertura", cobre: "Nada — não é peça reparada nem fornecida por nós.", naoCobre: "Trinca, mancha de pressão, impacto, infiltração e colunas mortas." },
+    ],
+    paradasImediatas: [
+      "Painel trincado, com mancha de pressão ou marca de impacto",
+      "Infiltração visível entre o painel e a moldura",
+      "Peça necessária sem fornecimento no mercado nacional",
+      "Cliente exige garantia de desempenho (taxa de atualização, tempo de resposta, sincronização adaptativa)",
       "Cliente se recusa a registrar o estado do aparelho por foto",
     ],
   },

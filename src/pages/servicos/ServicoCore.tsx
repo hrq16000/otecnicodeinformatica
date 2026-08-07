@@ -8,6 +8,7 @@ import { blocos4A, cta4A } from "@/lib/blocos4a";
 import { Blocos4A } from "@/components/servico/Blocos4A";
 import { ClarezaVariacao } from "@/components/servico/ClarezaVariacao";
 import { Blocos3T } from "@/components/servico/Blocos3T";
+import { FichaComercialServico } from "@/components/servico/FichaComercialServico";
 
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { ProvasVisuaisMonitor } from "@/components/servico/ProvasVisuaisMonitor";

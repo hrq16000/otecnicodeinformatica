@@ -578,13 +578,6 @@ const VISUAL_3T_STATIC = {
       "Limites de sistemas de terceiros: backup interno de plataformas mantidas por fornecedores (ERP, CRM, e-mail em nuvem) depende do recurso do próprio fornecedor. Registramos por escrito o que não é possível copiar.",
     ]],
   ],
-  "/servicos/redes-e-wifi": [
-    ["contexto-empresarial", "Contexto do atendimento empresarial", [
-      "O que avaliamos: cobertura do sinal por ambiente, posicionamento dos equipamentos, cabeamento existente, interferência e comportamento da rede em horário de maior uso.",
-      "Onde termina o nosso escopo: cuidamos da rede interna — roteadores, pontos de acesso, cabeamento e dispositivos conectados. O link contratado e o equipamento do provedor seguem com a operadora.",
-      "Como a solução é definida: primeiro medimos, depois propomos. Troca de equipamento ou novo cabeamento só entra no escopo depois que a causa é identificada e o valor é aprovado.",
-    ]],
-  ],
 };
 
 function visual3tHtml(path) {
@@ -599,6 +592,50 @@ function visual3tHtml(path) {
         `</ul>`,
     )
     .join("");
+}
+
+/** RODADA 3T — blocos editoriais estáticos (paridade com React). */
+function blocos3tHtml(path) {
+  const slug = path.replace("/servicos/", "");
+  const cfg = BLOCOS_3T[slug];
+  if (!cfg) return "";
+  const ul = (itens) =>
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem;opacity:.94">` +
+    itens.map((i) => `<li>${esc(i)}</li>`).join("") +
+    `</ul>`;
+  const toc =
+    `<p style="margin:18px 0 6px"><strong>Nesta página</strong></p>` +
+    `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">` +
+    cfg.tocExtra
+      .map(([id, label]) => `<li><a href="#${id}" style="color:#7fd4ec">${esc(label)}</a></li>`)
+      .join("") +
+    `</ul>`;
+  const secoes = cfg.secoes
+    .map((sec) => {
+      const head = `<h2 id="${sec.id}" style="font-size:1.1rem;margin:24px 0 8px">${esc(sec.titulo)}</h2>`;
+      let corpo = "";
+      if (sec.intro) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.intro)}</p>`;
+      if (sec.destaque) corpo += `<p style="margin:0 0 10px;font-size:.95rem"><strong>${esc(sec.destaque)}</strong></p>`;
+      if (sec.cards) corpo += ul(sec.cards.map((c) => `${c.titulo}: ${c.texto ?? (c.itens || []).join("; ")}`));
+      if (sec.passos) corpo += ul(sec.passos);
+      if (sec.linhas) corpo += ul(sec.linhas.map((l) => l.join(" — ")));
+      if (sec.listas) corpo += sec.listas.map((l) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(l.titulo)}</h3>` + ul(l.itens)).join("");
+      if (sec.colunas) corpo += sec.colunas.map((c) => `<h3 style="font-size:1rem;margin:12px 0 4px">${esc(c.titulo)}</h3>` + ul(c.itens)).join("");
+      if (sec.nota) corpo += `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${esc(sec.nota)}</p>`;
+      const links = (sec.cards || []).filter((c) => c.link);
+      if (links.length)
+        corpo +=
+          `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">` +
+          links.map((c) => `<li><a href="${c.link.to}" style="color:#7fd4ec">${esc(c.link.label)}</a></li>`).join("") +
+          `</ul>`;
+      return head + corpo;
+    })
+    .join("");
+  const cta = CTA_3T[slug];
+  const ctaHtml = cta
+    ? `<p style="margin:16px 0"><a href="${waLink({ path })}" data-cta-location="noscript_static_3t" style="color:#7fd4ec"><strong>${esc(cta.label)}</strong></a></p>`
+    : "";
+  return toc + secoes + ctaHtml;
 }
 
 function visual3sHtml(path) {
@@ -684,6 +721,7 @@ export function staticBodyFor(route) {
           ${visual3qHtml(route.path)}
           ${visual3sHtml(route.path)}
           ${visual3tHtml(route.path)}
+          ${blocos3tHtml(route.path)}
           ${blocosHtml}
           ${offersHtml}
           ${faqHtml}

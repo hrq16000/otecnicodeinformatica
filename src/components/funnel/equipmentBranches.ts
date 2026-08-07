@@ -7,6 +7,7 @@
 export type Equipment =
   | "pc"
   | "tv"
+  | "monitor"
   | "celular"
   | "som"
   | "videogame"

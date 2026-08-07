@@ -21,9 +21,11 @@ export type Database = {
           cidade: string | null
           created_at: string
           cta_location: string | null
+          cta_position: string | null
           customer_type: string | null
           equipamento: string | null
           event_type: string
+          funnel_stage: string | null
           id: string
           modalidade: string | null
           path: string | null
@@ -34,6 +36,9 @@ export type Database = {
           utm_campaign: string | null
           utm_medium: string | null
           utm_source: string | null
+          variant: string | null
+          viewport_bucket: string | null
+          viewport_width: number | null
         }
         Insert: {
           attribution_channel?: string | null
@@ -41,9 +46,11 @@ export type Database = {
           cidade?: string | null
           created_at?: string
           cta_location?: string | null
+          cta_position?: string | null
           customer_type?: string | null
           equipamento?: string | null
           event_type: string
+          funnel_stage?: string | null
           id?: string
           modalidade?: string | null
           path?: string | null
@@ -54,6 +61,9 @@ export type Database = {
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          variant?: string | null
+          viewport_bucket?: string | null
+          viewport_width?: number | null
         }
         Update: {
           attribution_channel?: string | null
@@ -61,9 +71,11 @@ export type Database = {
           cidade?: string | null
           created_at?: string
           cta_location?: string | null
+          cta_position?: string | null
           customer_type?: string | null
           equipamento?: string | null
           event_type?: string
+          funnel_stage?: string | null
           id?: string
           modalidade?: string | null
           path?: string | null
@@ -74,6 +86,9 @@ export type Database = {
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
+          variant?: string | null
+          viewport_bucket?: string | null
+          viewport_width?: number | null
         }
         Relationships: []
       }

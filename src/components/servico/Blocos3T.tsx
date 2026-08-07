@@ -193,7 +193,13 @@ const Secao = ({ secao }: { secao: Secao3T }) => {
       return (
         <div className="container mx-auto px-4">
           <H2>{secao.titulo}</H2>
+          {secao.destaque && (
+            <p className="mb-6 max-w-3xl rounded-xl border-l-4 border-[hsl(var(--accent))] border-y border-r border-border bg-card p-5 font-medium text-foreground">
+              {secao.destaque}
+            </p>
+          )}
           <div className="grid gap-5 md:grid-cols-2">
+
             {secao.colunas.map((c) => (
               <div key={c.titulo} className="rounded-xl border border-border bg-card p-5">
                 <h3 className="font-bold text-foreground">{c.titulo}</h3>

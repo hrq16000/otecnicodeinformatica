@@ -50,9 +50,11 @@ export type Secao3T =
       kind: "duas-colunas";
       id: string;
       titulo: string;
+      destaque?: string;
       colunas: { titulo: string; itens: string[] }[];
       nota?: string;
     };
+
 
 export interface Blocos3TConfig {
   tocExtra: { id: string; label: string }[];

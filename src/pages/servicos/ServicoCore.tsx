@@ -4,7 +4,10 @@ import { visual3T } from "@/lib/visualEmpresarial3t";
 import { blocos3T, cta3T } from "@/lib/blocos3t";
 import { blocos3U, cta3U } from "@/lib/blocos3u";
 import { Blocos3U } from "@/components/servico/Blocos3U";
+import { blocos4A, cta4A } from "@/lib/blocos4a";
+import { Blocos4A } from "@/components/servico/Blocos4A";
 import { Blocos3T } from "@/components/servico/Blocos3T";
+
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
 import { ProvasVisuaisMonitor } from "@/components/servico/ProvasVisuaisMonitor";
 import { WorkstationSection } from "@/components/servico/WorkstationSection";
@@ -138,6 +141,19 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
       }
     : {};
 
+  // Rodada 4A — TV/Smart TV e reparo de placas: eyebrow técnico, indicadores
+  // do hero (máximo quatro), sumário próprio e CTA intermediário da vertical.
+  const cfg4a = blocos4A(path3u);
+  const blocos4a = cfg4a
+    ? {
+        eyebrow: cfg4a.eyebrow,
+        resumo: cfg4a.resumo,
+        toc: [...cfg4a.tocExtra, { id: "faq", label: "Perguntas frequentes" }],
+        confianca: true,
+        ctaIntermediario: cta4A(path3u),
+      }
+    : {};
+
   const extraFinal = cfgBlocos ? (
     <>
       {extra}
@@ -146,6 +162,11 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
   ) : cfg3u ? (
     <>
       <Blocos3U path={path3u} />
+      {extra}
+    </>
+  ) : cfg4a ? (
+    <>
+      <Blocos4A path={path3u} />
       {extra}
     </>
   ) : (
@@ -163,10 +184,12 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
         ...variante3t,
         ...blocos3t,
         ...blocos3u,
+        ...blocos4a,
         extra: extraFinal,
       }}
     />
   );
+
 };
 
 

@@ -7,7 +7,10 @@
 //
 //   • /servicos/manutencao-preventiva-empresas  → rotina periódica
 //   • /servicos/backup-para-empresas            → dados e restauração
-//   • /servicos/redes-e-wifi                    → infraestrutura de rede
+//
+// /servicos/redes-e-wifi NÃO entra nesta variante: é uma página de
+// público misto (casa, home office e escritório) e recebe apenas os
+// blocos compatíveis, definidos em scripts/lib/blocos-3t.mjs.
 //
 // Regras herdadas da 3S (auditadas por scripts/check-visual-wave-3t.mjs):
 //   1. Sem template residencial no hero (nada de urgência doméstica).
@@ -25,14 +28,12 @@ import type { EmpresarialHeroCopy } from "./visualEmpresarial3s";
 export const VISUAL_3T_PATHS = [
   "/servicos/manutencao-preventiva-empresas",
   "/servicos/backup-para-empresas",
-  "/servicos/redes-e-wifi",
 ] as const;
 
 /** Slugs que recebem a variante empresarial nesta rodada. */
 export const VISUAL_3T_SERVICO_SLUGS = [
   "manutencao-preventiva-empresas",
   "backup-para-empresas",
-  "redes-e-wifi",
 ] as const;
 
 export interface Visual3TConfig {
@@ -97,35 +98,6 @@ export const VISUAL_3T: Record<string, Visual3TConfig> = {
         titulo: "Limites de sistemas de terceiros",
         texto:
           "Backup interno de plataformas mantidas por fornecedores (ERP, CRM, e-mail em nuvem) depende do recurso que o próprio fornecedor oferece. Registramos por escrito o que não é possível copiar.",
-      },
-    ],
-  },
-  "redes-e-wifi": {
-    hero: {
-      contexto: "Infraestrutura de rede e Wi-Fi • Curitiba e Região Metropolitana",
-      condicoes:
-        "Avaliação do ambiente antes de propor solução • Escopo aprovado por você • Atendimento no local",
-      ctaPrimario: "Falar sobre a rede do local",
-      ctaSecundario: {
-        label: "Ver o suporte técnico empresarial",
-        to: "/servicos/suporte-tecnico-empresarial",
-      },
-    },
-    contexto: [
-      {
-        titulo: "O que avaliamos",
-        texto:
-          "Cobertura do sinal por ambiente, posicionamento dos equipamentos, cabeamento existente, interferência e comportamento da rede em horário de maior uso.",
-      },
-      {
-        titulo: "Onde termina o nosso escopo",
-        texto:
-          "Cuidamos da rede interna: roteadores, pontos de acesso, cabeamento e dispositivos conectados. O link contratado e o equipamento do provedor seguem com a operadora.",
-      },
-      {
-        titulo: "Como a solução é definida",
-        texto:
-          "Primeiro medimos, depois propomos. Troca de equipamento ou novo cabeamento só entra no escopo depois que a causa é identificada e o valor é aprovado.",
       },
     ],
   },

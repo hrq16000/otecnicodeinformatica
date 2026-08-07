@@ -18,6 +18,7 @@
 
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+import { BLOCOS_3T, CTA_3T } from "./lib/blocos-3t.mjs";
 import { SERVICO_VISUAL_3Q } from "./lib/servico-visual-3q.mjs";
 
 // Rodada 3G/A1 — segundo link de entrada dos artigos aprovados, servido
@@ -607,7 +608,7 @@ function blocos3tHtml(path) {
     `<p style="margin:18px 0 6px"><strong>Nesta página</strong></p>` +
     `<ul style="line-height:1.8;padding-left:20px;font-size:.95rem">` +
     cfg.tocExtra
-      .map(([id, label]) => `<li><a href="#${id}" style="color:#7fd4ec">${esc(label)}</a></li>`)
+      .map((t) => `<li><a href="#${t.id}" style="color:#7fd4ec">${esc(t.label)}</a></li>`)
       .join("") +
     `</ul>`;
   const secoes = cfg.secoes

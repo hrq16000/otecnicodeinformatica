@@ -18,7 +18,7 @@ import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { absoluteUrl, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
-import { MessageCircle, Zap, Download, MapPinOff, CheckCircle2, Ban, ShieldCheck, ArrowRight, Lock } from "lucide-react";
+import { MessageCircle, Zap, Download, MapPinOff, ShieldCheck, ArrowRight, Lock } from "lucide-react";
 
 const PATH = "/atendimento-remoto";
 const TITLE = "Atendimento Remoto de Informática em Curitiba";
@@ -315,75 +315,6 @@ const AtendimentoRemoto = () => {
                   </Link>
                   .
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Checklist: remoto ou domicílio */}
-        <section className="py-8 md:py-10 bg-background">
-          <div className="container mx-auto">
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-3 text-center text-2xl md:text-3xl font-bold text-foreground">
-                Checklist: remoto ou atendimento em domicílio?
-              </h2>
-              <p className="mx-auto mb-8 max-w-2xl text-center text-muted-foreground">
-                Responda mentalmente às perguntas abaixo antes de chamar. Se você marcar todos os itens da
-                coluna da esquerda, o atendimento remoto resolve. Um único item da coluna da direita já indica
-                que o caso precisa de presença física.
-              </p>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-xl border-l-4 border-accent bg-secondary p-6">
-                  <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-foreground">
-                    <CheckCircle2 className="h-5 w-5 text-accent" /> Remoto resolve quando
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      "O equipamento liga e o sistema carrega até a área de trabalho",
-                      "Existe internet estável no local, mesmo que lenta",
-                      "O problema é de sistema, programa, e-mail, conta ou configuração",
-                      "Você pode acompanhar a sessão na tela do começo ao fim",
-                      "Não há barulho anormal, cheiro de queimado ou superaquecimento",
-                      "Não é necessário abrir o equipamento nem trocar peça",
-                    ].map((t) => (
-                      <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-xl border-l-4 border-destructive bg-secondary p-6">
-                  <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-foreground">
-                    <Ban className="h-5 w-5 text-destructive" /> Precisa de domicílio ou coleta quando
-                  </h3>
-                  <ul className="space-y-2">
-                    {[
-                      "O equipamento não liga, reinicia sozinho ou desliga em uso",
-                      "A tela não acende, pisca ou apresenta manchas e linhas",
-                      "Há suspeita de peça com defeito: fonte, bateria, disco ou memória",
-                      "O disco não é reconhecido pelo sistema nem pela BIOS",
-                      "O problema é de cabeamento, tomada ou instalação no ambiente",
-                      "Não há internet funcionando no local do equipamento",
-                    ].map((t) => (
-                      <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Ban className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="mt-6 rounded-xl bg-secondary p-5 text-sm text-muted-foreground">
-                <strong className="text-foreground">Na dúvida, não escolha sozinho.</strong> Descreva o sintoma
-                na triagem do WhatsApp: confirmamos a modalidade correta antes de qualquer cobrança e, se o caso
-                exigir presença, seguimos para{" "}
-                <Link to="/atendimento-domicilio" className="font-semibold text-accent hover:underline">
-                  atendimento em domicílio
-                </Link>{" "}
-                ou{" "}
-                <Link to="/coleta-e-entrega" className="font-semibold text-accent hover:underline">
-                  coleta e entrega
-                </Link>
-                .
               </div>
             </div>
           </div>

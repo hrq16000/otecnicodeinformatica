@@ -79,8 +79,8 @@ export const ConsentBanner = () => {
           onClick={() => decide(true)}
           style={{
             minHeight: 44, padding: "0 16px", borderRadius: 10,
-            border: "none", background: "hsl(145,63%,42%)",
-            color: "#fff", fontWeight: 700, cursor: "pointer",
+            border: "none", background: "hsl(145,65%,28%)",
+            color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 14,
           }}
         >
           Aceitar

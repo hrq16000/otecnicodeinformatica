@@ -108,6 +108,10 @@ jobs:
           # Se ausentes, o bloco autenticado é pulado (o bloco anon sempre roda).
           E2E_NONADMIN_EMAIL: ${{ secrets.E2E_NONADMIN_EMAIL }}
           E2E_NONADMIN_PASSWORD: ${{ secrets.E2E_NONADMIN_PASSWORD }}
+      - name: Acessibilidade axe-core (páginas empresariais 3T/3U)
+        run: npx playwright test e2e/a11y-empresarial.spec.ts
+        env:
+          E2E_BASE_URL: http://localhost:8080
 
 
   e2e-full-matrix:

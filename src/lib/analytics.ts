@@ -1,4 +1,5 @@
-import { GA4_EVENTS, normalizeTrackingLabel, routeTypeFromPath } from '@/lib/trackingTaxonomy';
+import { GA4_EVENTS, normalizeTrackingLabel, routeTypeFromPath, viewportBucket } from '@/lib/trackingTaxonomy';
+
 
 // Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
 
@@ -51,11 +52,12 @@ const getUtmContext = () => {
 // Device dimension: habilita relatório "conversões/CTR por dispositivo" no GA4
 // (mobile/tablet/desktop), inferido por largura + ponteiro coarse.
 const getDeviceContext = () => {
-  if (typeof window === 'undefined') return { device: 'unknown' as const, viewport_width: 0 };
+  if (typeof window === 'undefined')
+    return { device: 'unknown' as const, viewport_width: 0, viewport_bucket: 'unknown' };
   const w = window.innerWidth || document.documentElement.clientWidth || 0;
   const coarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches;
   const device = w < 768 || coarse ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
-  return { device, viewport_width: w };
+  return { device, viewport_width: w, viewport_bucket: viewportBucket(w) };
 };
 
 // Lead dedup: gera/persiste um ID por sessão por tipo de CTA para evitar

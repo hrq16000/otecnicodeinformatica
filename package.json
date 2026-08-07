@@ -134,7 +134,8 @@
     "check:visual-wave-3q": "node scripts/check-visual-wave-3q.mjs dist",
     "check:visual-wave-3s": "node scripts/check-visual-wave-3s.mjs",
     "check:visual-wave-3r": "node scripts/check-visual-wave-3r.mjs",
-    "check:visual-wave-3t": "node scripts/check-visual-wave-3t.mjs"
+    "check:visual-wave-3t": "node scripts/check-visual-wave-3t.mjs",
+    "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -198,6 +199,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "^9.32.0",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.9.1",

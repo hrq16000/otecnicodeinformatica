@@ -12,6 +12,7 @@ import {
   campaignFromPath,
   normalizeUtmMedium,
   routeTypeFromPath,
+  viewportBucket,
 } from "./trackingTaxonomy";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -26,11 +27,12 @@ declare global {
 }
 
 function getDeviceContext() {
-  if (typeof window === "undefined") return { device: "unknown", viewport_width: 0 };
+  if (typeof window === "undefined")
+    return { device: "unknown", viewport_width: 0, viewport_bucket: "unknown" };
   const w = window.innerWidth || document.documentElement.clientWidth || 0;
   const coarse = typeof window.matchMedia === "function" && window.matchMedia("(pointer: coarse)").matches;
   const device = w < 768 || coarse ? "mobile" : w < 1024 ? "tablet" : "desktop";
-  return { device, viewport_width: w };
+  return { device, viewport_width: w, viewport_bucket: viewportBucket(w) };
 }
 
 function gtag(): GtagFn | null {

@@ -1,4 +1,5 @@
 import { GA4_EVENTS, normalizeTrackingLabel, routeTypeFromPath } from '@/lib/trackingTaxonomy';
+import { viewportBucket } from '@/lib/funnelAnalytics';
 
 // Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
 

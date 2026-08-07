@@ -153,14 +153,20 @@ describe("Triagem V5 — TV não liga → COLETA", () => {
     expect(dialog().textContent).toMatch(/R\$ 299,99/);
     await clickText("Continuar");
 
-    // termos (coleta = 4) + ciência dos critérios de aceite da categoria (Rodada 3X)
+    // termos (coleta = 4) + ciência dos critérios (3X) + 5 pré-requisitos do gate de coleta
     await waitFor(() => expect(dialog().textContent).toMatch(/ciência e aceite/i), { timeout: 3000 });
     const boxes = within(dialog()).getAllByRole("checkbox");
-    expect(boxes.length).toBe(5);
+    expect(boxes.length).toBe(10);
+    expect(dialog().textContent).toMatch(/pré-requisitos/i);
+
+    // gate fail-closed: faixa logística obrigatória antes de agendar
+    const faixaSelect = within(dialog()).getByLabelText(/Faixa de distância/i) as HTMLSelectElement;
+    fireEvent.change(faixaSelect, { target: { value: "f1" } });
 
     // sem aceitar tudo, não abre WhatsApp (Continuar desabilitado)
     await checkAllTerms();
     await clickText("Continuar");
+
 
     await waitFor(() => expect(dialog().textContent).toMatch(/Triagem completa/i), { timeout: 3000 });
     await clickText("Agendar agora");

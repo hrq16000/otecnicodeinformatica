@@ -557,7 +557,8 @@ export async function prerenderCities(distDir) {
 
   // --- category hubs (e.g. /conserto-tv-curitiba) ---
   for (const cat of CATEGORIES) {
-    const meta = categoryHubMeta(cat);
+    const meta = { ...categoryHubMeta(cat), url: "" };
+    meta.url = `${SITE}${meta.path}`;
     const absoluteOg = fallbackOg ? `${SITE}${fallbackOg}` : undefined;
     const jsonLd = {
       "@context": "https://schema.org",

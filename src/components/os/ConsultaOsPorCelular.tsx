@@ -422,11 +422,25 @@ export const ConsultaOsPorCelular = () => {
                   </div>
                   <div className="sm:col-span-2">
                     <dt className="text-xs uppercase tracking-wide text-muted-foreground">Sintomas informados</dt>
-                    <dd className="text-foreground whitespace-pre-line">{os.sintomas || "—"}</dd>
+                    <dd className="text-foreground whitespace-pre-line">
+                      {verificado
+                        ? os.sintomas || "—"
+                        : os.tem_sintomas
+                          ? "Protegido — confirme o código para exibir a descrição dos sintomas."
+                          : "—"}
+                    </dd>
                   </div>
                 </dl>
 
-                {os.fotos.length ? (
+                {!verificado && (os.fotos_count ?? 0) > 0 ? (
+                  <p className="mt-4 rounded-lg border border-dashed border-border bg-muted/40 p-3 text-xs text-muted-foreground">
+                    {os.fotos_count} foto(s) da triagem estão protegidas. Confirme o código enviado no
+                    WhatsApp para visualizá-las.
+                  </p>
+                ) : null}
+
+                {verificado && os.fotos.length ? (
+
                   <div className="mt-4">
                     <p className="text-xs uppercase tracking-wide text-muted-foreground">Fotos enviadas no portal</p>
                     <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4">

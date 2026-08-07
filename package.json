@@ -32,6 +32,7 @@
     "check:editorial-governance": "node scripts/check-editorial-governance.mjs",
     "check:editorial-pilot": "node scripts/check-editorial-pilot.mjs",
     "check:editorial-technical-review": "node scripts/check-editorial-technical-review.mjs",
+    "check:ficha-comercial": "node scripts/check-ficha-comercial.mjs",
     "check:bairro-copy": "node scripts/validate-bairro-copy.mjs",
     "check:jsonld-refs": "node scripts/check-jsonld-references.mjs",
     "check:sitemap-source": "node scripts/check-sitemap-source.mjs",

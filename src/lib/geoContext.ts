@@ -10,10 +10,21 @@ export interface GeoContext {
   city?: string;
   region?: string;
   neighborhood?: string;
-  /** "ip" = aproximado pela operadora; "precise" = GPS/navegador */
-  source: "ip" | "precise";
+  /**
+   * "ip" = aproximado pela operadora; "cep" = consulta de CEP informado;
+   * "precise" = GPS/navegador; "manual" = escolhido pelo próprio visitante.
+   */
+  source: "ip" | "cep" | "precise" | "manual";
   at: number;
 }
+
+/** Precedência de confiança: nunca rebaixa uma origem mais confiável. */
+const CONFIANCA: Record<GeoContext["source"], number> = {
+  ip: 1,
+  cep: 3,
+  precise: 3,
+  manual: 4,
+};
 
 const KEY = "__geo_ctx__";
 const TTL = 1000 * 60 * 60 * 6; // 6h
@@ -37,8 +48,8 @@ function read(): GeoContext | null {
 
 function write(next: GeoContext) {
   const prev = read();
-  // Nunca rebaixa precisão: "precise" prevalece sobre "ip".
-  if (prev?.source === "precise" && next.source === "ip") return;
+  // Nunca rebaixa confiança (ex.: IP não sobrescreve CEP, GPS ou escolha manual).
+  if (prev && CONFIANCA[next.source] < CONFIANCA[prev.source]) return;
   current = next;
   try {
     sessionStorage.setItem(KEY, JSON.stringify(next));
@@ -47,6 +58,31 @@ function write(next: GeoContext) {
   }
   listeners.forEach((fn) => fn(next));
 }
+
+/**
+ * Persiste o local informado pelo próprio visitante (campo do funil ou CEP).
+ * É a origem de maior confiança: o que ele digitou vale mais do que qualquer
+ * inferência automática e passa a alimentar a mensagem do WhatsApp.
+ */
+export function setGeoFromUser(input: {
+  city: string;
+  neighborhood?: string;
+  region?: string;
+  source?: "cep" | "manual";
+}): GeoContext | null {
+  const city = input.city?.trim();
+  if (!city) return null;
+  const next: GeoContext = {
+    city,
+    neighborhood: input.neighborhood?.trim() || undefined,
+    region: input.region?.trim() || undefined,
+    source: input.source ?? "manual",
+    at: Date.now(),
+  };
+  write(next);
+  return next;
+}
+
 
 export function getGeoContext(): GeoContext | null {
   return read();

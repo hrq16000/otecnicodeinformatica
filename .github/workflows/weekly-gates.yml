@@ -55,6 +55,8 @@ jobs:
         run: npm run check:visual-wave-3u
       - name: Expansão multieletrônicos (3Y)
         run: npm run check:multielectronics-3y
+      - name: Ficha comercial padronizada (4C)
+        run: npm run check:ficha-comercial
 
       # ── CTAs e copy
       - name: CTA funnel gate

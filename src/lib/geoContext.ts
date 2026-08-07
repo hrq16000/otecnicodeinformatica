@@ -10,10 +10,21 @@ export interface GeoContext {
   city?: string;
   region?: string;
   neighborhood?: string;
-  /** "ip" = aproximado pela operadora; "precise" = GPS/navegador */
-  source: "ip" | "precise";
+  /**
+   * "ip" = aproximado pela operadora; "cep" = consulta de CEP informado;
+   * "precise" = GPS/navegador; "manual" = escolhido pelo próprio visitante.
+   */
+  source: "ip" | "cep" | "precise" | "manual";
   at: number;
 }
+
+/** Precedência de confiança: nunca rebaixa uma origem mais confiável. */
+const CONFIANCA: Record<GeoContext["source"], number> = {
+  ip: 1,
+  cep: 3,
+  precise: 3,
+  manual: 4,
+};
 
 const KEY = "__geo_ctx__";
 const TTL = 1000 * 60 * 60 * 6; // 6h

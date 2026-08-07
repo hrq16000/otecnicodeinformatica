@@ -1,245 +1,121 @@
 #!/usr/bin/env node
 /**
- * RELATÓRIO SEMANAL — Search Console (+ conversões do funil, quando disponíveis)
+ * Relatório semanal de SEO e governança (Rodada 4B).
  *
- * Consolida por URL prioritária e por consulta local:
- *   - impressões, cliques, CTR e posição média nos últimos 7 dias
- *   - variação semana a semana (WoW) contra os 7 dias anteriores
- *   - rastreamento de posição das consultas locais de Curitiba
- *   - conversões (cliques em WhatsApp/ligar) por rota, quando as credenciais
- *     do backend estiverem presentes (SUPABASE_URL + SUPABASE_ANON_KEY)
+ * Executa os gates de regressão mais sensíveis — canibalização,
+ * interlinking, JSON-LD e claims de confiança — e consolida o resultado
+ * em `docs/relatorios/semanal-<data>.md` + CSV, destacando o que passou a
+ * falhar em relação ao relatório anterior.
  *
- * Uso: node scripts/report-weekly-seo.mjs
- * Saídas: reports/weekly-seo.json · reports/weekly-seo.md
+ * Uso: npm run report:weekly-seo   (não falha o build por si só;
+ * o job semanal continua quebrando nos gates individuais)
  */
-import { writeFileSync, mkdirSync } from "node:fs";
-import { priorityUrls, BASE_URL, groupOf } from "./lib/priority-urls.mjs";
-import { resolveSite, searchAnalytics, dayOffset } from "./lib/gsc-client.mjs";
+import { execSync } from "node:child_process";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
 
-mkdirSync("reports", { recursive: true });
-const urls = priorityUrls();
-const site = await resolveSite(urls[0].url);
+const OUT_DIR = path.join(process.cwd(), "docs", "relatorios");
 
-// GSC entrega dados com ~2 dias de atraso: janela atual = D-9..D-3.
-const current = { start: dayOffset(-9), end: dayOffset(-3) };
-const previous = { start: dayOffset(-16), end: dayOffset(-10) };
-
-const fetchRows = async (dimension, range) =>
-  searchAnalytics(site, {
-    startDate: range.start,
-    endDate: range.end,
-    dimensions: [dimension],
-    rowLimit: 500,
-  });
-
-const index = (rows) => {
-  const map = new Map();
-  for (const r of rows) map.set(r.keys[0], r);
-  return map;
-};
-
-const [pagesNow, pagesBefore, queriesNow, queriesBefore] = await Promise.all([
-  fetchRows("page", current).then(index),
-  fetchRows("page", previous).then(index),
-  fetchRows("query", current).then(index),
-  fetchRows("query", previous).then(index),
-]);
-
-const delta = (a = 0, b = 0) => Number((a - b).toFixed(2));
-const metrics = (row) => ({
-  clicks: row?.clicks ?? 0,
-  impressions: row?.impressions ?? 0,
-  ctr: Number((((row?.ctr ?? 0) * 100)).toFixed(2)),
-  position: row?.position ? Number(row.position.toFixed(1)) : null,
-});
-
-const pageRows = urls.map(({ path, url, group }) => {
-  const now = metrics(pagesNow.get(url));
-  const before = metrics(pagesBefore.get(url));
-  return {
-    path,
-    group,
-    ...now,
-    clicksWow: delta(now.clicks, before.clicks),
-    impressionsWow: delta(now.impressions, before.impressions),
-    ctrWow: delta(now.ctr, before.ctr),
-    positionWow:
-      now.position && before.position ? Number((before.position - now.position).toFixed(1)) : null,
-  };
-});
-
-// Rastreamento de consultas locais (Curitiba e região metropolitana).
-const LOCAL_HINTS = [
-  "curitiba",
-  "colombo",
-  "pinhais",
-  "araucaria",
-  "araucária",
-  "são josé dos pinhais",
-  "sao jose dos pinhais",
-  "fazenda rio grande",
-  "campo largo",
-  "perto de mim",
+const GATES = [
+  { id: "cannibalization", label: "Canibalização de intenção", cmd: "npm run check:cannibalization" },
+  { id: "internal-links", label: "Links internos (strict)", cmd: "npm run check:internal-links:strict" },
+  { id: "local-interlinking", label: "Interlinking local mãe ⇄ filhas", cmd: "npm run check:local-interlinking" },
+  { id: "editorial-cluster", label: "Interlinking artigo ⇄ pilar", cmd: "npm run check:editorial-cluster" },
+  { id: "jsonld", label: "JSON-LD (validação geral)", cmd: "npm run validate:jsonld" },
+  { id: "jsonld-parity", label: "Paridade JSON-LD × conteúdo visível", cmd: "npm run check:jsonld-parity" },
+  { id: "rich-results", label: "Rich results (strict)", cmd: "npm run check:rich-results:strict" },
+  { id: "trust-claims", label: "Claims de confiança e copy proibida", cmd: "npm run check:copy" },
+  { id: "nap", label: "NAP / WhatsApp oficial", cmd: "npm run check:nap" },
+  { id: "sitemap-source", label: "Manifesto × sitemap", cmd: "npm run check:sitemap-source" },
 ];
-const isLocal = (q) => LOCAL_HINTS.some((h) => q.toLowerCase().includes(h));
 
-const queryRows = [...queriesNow.values()]
-  .filter((r) => isLocal(r.keys[0]))
-  .map((r) => {
-    const now = metrics(r);
-    const before = metrics(queriesBefore.get(r.keys[0]));
-    return {
-      query: r.keys[0],
-      ...now,
-      positionWow:
-        now.position && before.position ? Number((before.position - now.position).toFixed(1)) : null,
-      impressionsWow: delta(now.impressions, before.impressions),
-    };
-  })
-  .sort((a, b) => b.impressions - a.impressions)
-  .slice(0, 40);
+/**
+ * Taxonomia de conversão acompanhada no painel /admin/conversao.
+ * Mantida aqui de propósito: o gate `check:analytics-parity` compara esta
+ * lista com o GA4 e com o insert em `click_events`, impedindo que o
+ * relatório semanal deixe de contabilizar um evento ou uma UTM.
+ */
+const EVENTOS_CONVERSAO = ["wa_click", "call_click", "funnel_open"];
+const UTMS_CONVERSAO = ["utm_source", "utm_medium", "utm_campaign"];
+const RECORTES_CONVERSAO = ["path", "cta_position", "viewport_bucket", "funnel_stage", "variant"];
 
-// Conversões (opcional — só quando o backend estiver acessível pelo job).
-let conversions = null;
-let campaigns = null;
-const sbUrl = process.env.SUPABASE_URL;
-const sbKey = process.env.SUPABASE_ANON_KEY;
-if (sbUrl && sbKey) {
+function rodar(gate) {
+  const inicio = Date.now();
   try {
-    const since = new Date(`${previous.start}T00:00:00Z`).toISOString();
-    const res = await fetch(
-      `${sbUrl.replace(/\/$/, "")}/rest/v1/click_events?select=event_type,path,created_at,utm_source,utm_medium,utm_campaign&created_at=gte.${since}`,
-      { headers: { apikey: sbKey, Authorization: `Bearer ${sbKey}` } },
-    );
-    if (res.ok) {
-      const events = await res.json();
-      const byPath = new Map();
-      const byCampaign = new Map();
-      for (const e of events) {
-        const path = e.path || "/";
-        const cur = byPath.get(path) || { path, group: groupOf(path), wa: 0, call: 0 };
-        if (e.event_type === "wa_click") cur.wa += 1;
-        else if (e.event_type === "call_click") cur.call += 1;
-        byPath.set(path, cur);
-
-        const source = e.utm_source || "(direto/orgânico)";
-        const medium = e.utm_medium || "(none)";
-        const campaign = e.utm_campaign || "(sem campanha)";
-        const key = `${source}|${medium}|${campaign}`;
-        const c = byCampaign.get(key) || { source, medium, campaign, wa: 0, call: 0 };
-        if (e.event_type === "wa_click") c.wa += 1;
-        else if (e.event_type === "call_click") c.call += 1;
-        byCampaign.set(key, c);
-      }
-      conversions = [...byPath.values()]
-        .filter((r) => r.wa + r.call > 0)
-        .sort((a, b) => b.wa + b.call - (a.wa + a.call));
-      campaigns = [...byCampaign.values()]
-        .filter((r) => r.wa + r.call > 0)
-        .sort((a, b) => b.wa + b.call - (a.wa + a.call))
-        .slice(0, 25);
-    }
-  } catch {
-    conversions = null;
-    campaigns = null;
+    execSync(gate.cmd, { stdio: "pipe", encoding: "utf8" });
+    return { ...gate, status: "ok", ms: Date.now() - inicio, detalhe: "" };
+  } catch (err) {
+    const saida = `${err.stdout || ""}${err.stderr || ""}`.trim().split("\n").slice(-6).join(" | ");
+    return { ...gate, status: "falha", ms: Date.now() - inicio, detalhe: saida.slice(0, 500) };
   }
 }
 
-/**
- * Consolidado GSC × conversões: impressões, cliques, CTR e conversões por rota
- * prioritária (mesma taxonomia de eventos usada no GA4 — wa_click/call_click).
- */
-const convByPath = new Map((conversions ?? []).map((c) => [c.path, c]));
-const funnelRows = pageRows.map((r) => {
-  const c = convByPath.get(r.path);
-  const conv = (c?.wa ?? 0) + (c?.call ?? 0);
-  return {
-    ...r,
-    conversions: conv,
-    conversionRate: r.clicks ? Number(((conv / r.clicks) * 100).toFixed(1)) : null,
-  };
-});
-const totals = funnelRows.reduce(
-  (acc, r) => ({
-    clicks: acc.clicks + r.clicks,
-    impressions: acc.impressions + r.impressions,
-    conversions: acc.conversions + r.conversions,
-  }),
-  { clicks: 0, impressions: 0, conversions: 0 },
+function relatorioAnterior() {
+  if (!existsSync(OUT_DIR)) return null;
+  const arquivos = readdirSync(OUT_DIR)
+    .filter((f) => f.startsWith("semanal-") && f.endsWith(".json"))
+    .sort();
+  if (arquivos.length === 0) return null;
+  try {
+    return JSON.parse(readFileSync(path.join(OUT_DIR, arquivos[arquivos.length - 1]), "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+const anterior = relatorioAnterior();
+const resultados = GATES.map(rodar);
+const data = new Date().toISOString().slice(0, 10);
+mkdirSync(OUT_DIR, { recursive: true });
+
+const statusAnterior = new Map((anterior?.resultados ?? []).map((r) => [r.id, r.status]));
+const regressoes = resultados.filter((r) => r.status === "falha" && statusAnterior.get(r.id) === "ok");
+const recuperados = resultados.filter((r) => r.status === "ok" && statusAnterior.get(r.id) === "falha");
+const falhas = resultados.filter((r) => r.status === "falha");
+
+const md = [
+  `# Relatório semanal de SEO e governança — ${data}`,
+  "",
+  `Gates executados: **${resultados.length}** · falhas: **${falhas.length}** · regressões desde o último relatório: **${regressoes.length}**`,
+  "",
+  regressoes.length
+    ? `## Regressões\n\n${regressoes.map((r) => `- **${r.label}** — ${r.detalhe || "ver log do gate"}`).join("\n")}`
+    : "## Regressões\n\nNenhuma regressão nova desde o relatório anterior.",
+  "",
+  recuperados.length
+    ? `## Recuperados\n\n${recuperados.map((r) => `- ${r.label}`).join("\n")}`
+    : "",
+  "",
+  "## Taxonomia de conversão monitorada",
+  "",
+  `Eventos: ${EVENTOS_CONVERSAO.map((e) => `\`${e}\``).join(", ")}.`,
+  `UTMs: ${UTMS_CONVERSAO.map((u) => `\`${u}\``).join(", ")}.`,
+  `Recortes: ${RECORTES_CONVERSAO.map((r) => `\`${r}\``).join(", ")}.`,
+  "",
+  "## Resultado por gate",
+  "",
+  "| Gate | Status | Tempo | Observação |",
+  "| --- | --- | --- | --- |",
+  ...resultados.map(
+    (r) => `| ${r.label} | ${r.status === "ok" ? "OK" : "FALHA"} | ${(r.ms / 1000).toFixed(1)}s | ${r.detalhe ? r.detalhe.replace(/\|/g, "/") : "—"} |`,
+  ),
+  "",
+].filter(Boolean).join("\n");
+
+const csv = [
+  "gate,label,status,duracao_s,observacao",
+  ...resultados.map(
+    (r) => `${r.id},"${r.label}",${r.status},${(r.ms / 1000).toFixed(1)},"${(r.detalhe || "").replace(/"/g, "'")}"`,
+  ),
+].join("\n");
+
+writeFileSync(path.join(OUT_DIR, `semanal-${data}.md`), `${md}\n`);
+writeFileSync(path.join(OUT_DIR, `semanal-${data}.csv`), `${csv}\n`);
+writeFileSync(
+  path.join(OUT_DIR, `semanal-${data}.json`),
+  `${JSON.stringify({ data, resultados }, null, 2)}\n`,
 );
 
-const report = {
-  generatedAt: new Date().toISOString(),
-  site,
-  window: current,
-  comparedTo: previous,
-  pages: pageRows,
-  localQueries: queryRows,
-  conversions,
-  campaigns,
-  funnel: funnelRows,
-  totals,
-};
-writeFileSync("reports/weekly-seo.json", JSON.stringify(report, null, 2));
-
-const sign = (n) => (n === null ? "—" : n > 0 ? `+${n}` : `${n}`);
-const md = [
-  `# Relatório semanal de busca — ${current.start} a ${current.end}`,
-  ``,
-  `Propriedade \`${site}\` · comparação com ${previous.start} a ${previous.end}.`,
-  ``,
-  `**Totais das URLs prioritárias:** ${totals.impressions} impressões · ${totals.clicks} cliques · ${totals.conversions} conversões (WhatsApp + ligar)` +
-    `${totals.clicks ? ` · taxa ${( (totals.conversions / totals.clicks) * 100).toFixed(1)}%` : ""}.`,
-  ``,
-  `## URLs prioritárias (busca × conversão)`,
-  ``,
-  `| Grupo | URL | Cliques (WoW) | Impressões (WoW) | CTR % (WoW) | Posição (ganho) | Conversões | Taxa % |`,
-  `| --- | --- | --- | --- | --- | --- | --- | --- |`,
-  ...funnelRows.map(
-    (r) =>
-      `| ${r.group} | ${r.path} | ${r.clicks} (${sign(r.clicksWow)}) | ${r.impressions} (${sign(r.impressionsWow)}) | ${r.ctr} (${sign(r.ctrWow)}) | ${r.position ?? "—"} (${sign(r.positionWow)}) | ${r.conversions} | ${r.conversionRate ?? "—"} |`,
-  ),
-  ``,
-  `## Consultas locais monitoradas`,
-  ``,
-  queryRows.length
-    ? [
-        `| Consulta | Impressões (WoW) | Cliques | CTR % | Posição (ganho) |`,
-        `| --- | --- | --- | --- | --- |`,
-        ...queryRows.map(
-          (r) =>
-            `| ${r.query} | ${r.impressions} (${sign(r.impressionsWow)}) | ${r.clicks} | ${r.ctr} | ${r.position ?? "—"} (${sign(r.positionWow)}) |`,
-        ),
-      ].join("\n")
-    : `Sem consultas locais com dados reportados nesta janela.`,
-  ``,
-  `## Conversões do funil`,
-  ``,
-  conversions
-    ? [
-        `| Grupo | Rota | WhatsApp | Ligar |`,
-        `| --- | --- | --- | --- |`,
-        ...conversions.map((r) => `| ${r.group} | ${r.path} | ${r.wa} | ${r.call} |`),
-      ].join("\n")
-    : `Credenciais do backend ausentes no job — use o painel /admin/dashboard para as conversões.`,
-  ``,
-  `## Conversões por origem (UTM)`,
-  ``,
-  campaigns && campaigns.length
-    ? [
-        `| Origem | Mídia | Campanha | WhatsApp | Ligar | Total |`,
-        `| --- | --- | --- | --- | --- | --- |`,
-        ...campaigns.map(
-          (r) => `| ${r.source} | ${r.medium} | ${r.campaign} | ${r.wa} | ${r.call} | ${r.wa + r.call} |`,
-        ),
-      ].join("\n")
-    : `Sem eventos com UTM nesta janela (ou credenciais do backend ausentes no job).`,
-  ``,
-
-  `> Ausência de dados no Search Console não prova ausência de indexação: consultas de baixo volume podem não ser reportadas.`,
-  ``,
-  `Base: ${BASE_URL}`,
-].join("\n");
-writeFileSync("reports/weekly-seo.md", md);
-
-console.log(`✔ reports/weekly-seo.md gerado (${pageRows.length} URLs, ${queryRows.length} consultas locais).`);
+console.log(md);
+console.log(`\nArquivos: docs/relatorios/semanal-${data}.{md,csv,json}`);
+if (falhas.length) console.log(`\n${falhas.length} gate(s) com falha — ver detalhes acima.`);

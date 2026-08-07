@@ -1706,4 +1706,6 @@ export const SERVICOS_CORE_ORDER = [
   "manutencao-preventiva-empresas",
   "backup-para-empresas",
   "suporte-home-office",
+  "conserto-tv",
+  "conserto-placa",
 ] as const;

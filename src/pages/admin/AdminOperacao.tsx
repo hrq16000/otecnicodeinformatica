@@ -450,8 +450,90 @@ export default function AdminOperacao() {
               ))}
             </div>
           </TabsContent>
+
+          {/* ---------------- CONTRATOS OPERACIONAIS (fail-closed) ---------------- */}
+          <TabsContent value="contratos" className="mt-4 space-y-4">
+            <Card className="border-amber-500/40 bg-amber-500/5 p-4">
+              <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <ShieldAlert className="h-4 w-4 text-amber-600" aria-hidden="true" />
+                Regra fail-closed
+              </p>
+              <p className="mt-1 text-xs text-foreground/80">
+                Nenhum checkpoint avança com item obrigatório (*) pendente. Na dúvida, o fluxo para: vira recusa ou
+                pedido de informação. Documento interno — não publicar em página indexável.
+              </p>
+            </Card>
+
+            {CONTRATOS_OPERACIONAIS.map((contrato) => (
+              <Card key={contrato.categoria} className="p-4 space-y-4">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <p className="text-base font-semibold text-foreground">
+                      Contrato de triagem e autorização — {contrato.nome}
+                    </p>
+                    <p className="mt-0.5 text-xs text-foreground/70">{contrato.resumo}</p>
+                  </div>
+                  <Badge variant="outline">v{contrato.versao} · {contrato.atualizadoEm}</Badge>
+                </div>
+
+                <div className="rounded-md border border-destructive/40 bg-destructive/5 p-3">
+                  <p className="text-xs font-semibold text-foreground">Paradas imediatas (recusa automática)</p>
+                  <ul className="mt-1 space-y-0.5 text-xs text-foreground/80">
+                    {contrato.paradasImediatas.map((p) => <li key={p}>• {p}</li>)}
+                  </ul>
+                </div>
+
+                <div className="grid gap-3 lg:grid-cols-2">
+                  {contrato.checkpoints.map((cp) => (
+                    <div key={cp.id} className="rounded-md border border-border bg-card/50 p-3">
+                      <p className="text-sm font-semibold text-foreground">{cp.nome}</p>
+                      <p className="mt-0.5 text-xs text-foreground/70">{cp.objetivo}</p>
+                      <ul className="mt-2 space-y-1.5 text-xs">
+                        {cp.itens.map((item) => (
+                          <li key={item.id}>
+                            <span className="text-foreground/85">
+                              • {item.label}
+                              {item.obrigatorio && <span className="ml-1 text-destructive">*</span>}
+                            </span>
+                            <span className="block pl-3 text-[11px] text-muted-foreground">
+                              Se falhar: {item.seFalhar}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-2 rounded border border-emerald-500/30 bg-emerald-500/10 p-2 text-[11px] text-foreground/85">
+                        Libera quando: {cp.liberaQuando}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="grid gap-3 lg:grid-cols-2">
+                  <div className="rounded-md border border-border p-3">
+                    <p className="text-xs font-semibold text-foreground">Limitações de validação</p>
+                    <ul className="mt-1 space-y-1 text-[11px] text-foreground/80">
+                      {contrato.limitacoesValidacao.map((l) => (
+                        <li key={l.titulo}><strong className="text-foreground">{l.titulo}:</strong> {l.descricao}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-md border border-border p-3">
+                    <p className="text-xs font-semibold text-foreground">Garantia por tipo de reparo</p>
+                    <ul className="mt-1 space-y-1 text-[11px] text-foreground/80">
+                      {contrato.garantias.map((g) => (
+                        <li key={g.tipo}>
+                          <strong className="text-foreground">{g.tipo}</strong> — {g.prazo}. Cobre: {g.cobre} Não cobre: {g.naoCobre}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </TabsContent>
         </Tabs>
       </main>
+
       <Footer />
     </div>
   );

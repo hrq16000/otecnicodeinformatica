@@ -1821,4 +1821,5 @@ export const SERVICOS_CORE_ORDER = [
   "suporte-home-office",
   "conserto-tv",
   "conserto-placa",
+  "conserto-monitor",
 ] as const;

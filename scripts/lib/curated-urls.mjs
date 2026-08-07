@@ -53,6 +53,7 @@ export const SERVICOS = [
   "/servicos/montagem-de-pc",
   "/servicos/conserto-tv",
   "/servicos/conserto-placa",
+  "/servicos/conserto-monitor",
 ].map((path) => ({ path, changefreq: "weekly", priority: "0.85" }));
 
 /** Hubs de cidade reais (NÃO 215 bairros). */

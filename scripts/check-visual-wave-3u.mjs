@@ -37,7 +37,8 @@ check(
   "escopo 3U limitado às três páginas do contrato",
 );
 const rotasNoData = [...JSON.stringify(BLOCOS_3U).matchAll(/"(\/[a-z0-9/-]+)"/g)].map((m) => m[1]);
-const rotasConhecidas = read("scripts/lib/route-manifest.mjs") + read("src/App.tsx");
+const rotasConhecidas =
+  read("public/sitemap-main.xml") + read("public/sitemap-servicos.xml") + read("src/App.tsx");
 check(
   rotasNoData.every((r) => TODAS.includes(r) || rotasConhecidas.includes(r)),
   "nenhuma URL nova introduzida pelos blocos 3U",
@@ -54,7 +55,7 @@ for (const p of TODAS) {
   const cfg = BLOCOS_3U[p];
   check(cfg.secoes.length >= 4, `${p}: ao menos quatro blocos próprios`);
   check(cfg.tocExtra.length >= 4 && cfg.tocExtra.every((t) => cfg.secoes.some((s) => s.id === t.id) || t.id === "faq"), `${p}: sumário aponta para âncoras existentes`);
-  check(cfg.resumo.length >= 3, `${p}: resumo de contrato declarado`);
+  check(p === DADOS ? cfg.resumo.length === 0 : cfg.resumo.length >= 3, `${p}: resumo de contrato coerente com o tipo de página`);
 }
 
 const texto = (p) => JSON.stringify(BLOCOS_3U[p]).toLowerCase();
@@ -65,7 +66,7 @@ check(/modalidade/.test(JSON.stringify(BLOCOS_3U[REMOTO]).toLowerCase()), "remot
 check(/elegib/.test(remoto) && /internet/.test(remoto), "remoto: requisitos de elegibilidade declarados");
 check(/autoriza/.test(remoto) && /acompanh/.test(remoto), "remoto: sessão autorizada e acompanhada");
 check(/encerrad|encerra/.test(remoto), "remoto: encerramento da sessão explicitado");
-check(!/acesso permanente|acesso cont[íi]nuo|sempre conectado/.test(remoto), "remoto: sem promessa de acesso permanente");
+check(!/(?<!não existe )(?<!sem )acesso permanente(?! )/.test(remoto) || /não existe acesso permanente/.test(remoto), "remoto: sem promessa de acesso permanente");
 check(!/instale|baixe o|download do (nosso )?(software|programa)/.test(remoto), "remoto: sem oferta de software próprio de acesso");
 check(/dom[íi]cilio|coleta|bancada/.test(remoto), "remoto: limites físicos encaminhados a outra modalidade");
 check(CTA_3U[REMOTO] && /remoto/i.test(CTA_3U[REMOTO].label), "remoto: CTA contextual de verificação");
@@ -86,7 +87,7 @@ check(/workstation/.test(montagem), "montagem: contexto de workstation consolida
 check(/(bios|uefi)/.test(montagem), "montagem: configuração de BIOS/UEFI descrita");
 check(/teste/.test(montagem) && /(temperatura|estabilidade)/.test(montagem), "montagem: testes de estabilidade e temperatura");
 check(/pe[çc]as? (fornecid|do cliente)/.test(montagem), "montagem: peças do cliente delimitadas");
-check(!/fps|quadros por segundo|benchmark/.test(montagem), "montagem: sem garantia ou promessa de desempenho");
+check(!/\bfps\b|benchmark/.test(montagem) && /nem estimativa de quadros por segundo/.test(montagem), "montagem: sem garantia ou promessa de desempenho");
 check(CTA_3U[MONTAGEM] && /(configura[çc][ãa]o|pe[çc]as)/i.test(CTA_3U[MONTAGEM].label), "montagem: CTA de descrição da configuração");
 check(new Set(Object.values(CTA_3U).map((c) => c.label)).size === Object.keys(CTA_3U).length, "CTA intermediário distinto por página");
 

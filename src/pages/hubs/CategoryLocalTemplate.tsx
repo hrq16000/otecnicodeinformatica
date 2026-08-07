@@ -124,6 +124,28 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
           subtitle="Coleta na porta, bancada com instrumental adequado, garantia escrita."
         />
 
+        {/* Coleta e preço — conteúdo visível espelhado no Offer/PriceSpecification */}
+        {faixa && (
+          <section className="container mx-auto px-4 py-10">
+            <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-card p-6">
+              <h2 className="text-2xl font-bold text-foreground mb-3 flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-accent" /> Coleta e entrega em {cityLabel}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {cityLabel} está na {faixa.nome} ({faixa.raio}), com {faixa.taxa}. As janelas de coleta são{" "}
+                {faixa.janelas} e a retirada acontece em até {faixa.prazoColetaDias} dia(s) útil(eis) após o
+                aceite. Referência de roteiro: {referenciaDe(local)}.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mt-3">
+                Reparo mínimo de R$ {PRECO_MINIMO_REPARO} com diagnóstico incluso. Sem autorização do serviço,
+                o valor cobrado é apenas o diagnóstico de R${" "}
+                {PRECO_DIAGNOSTICO.toFixed(2).replace(".", ",")}. Garantia de {GARANTIA_DIAS} dias sobre o
+                serviço executado.
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* Sintomas */}
         <section className="container mx-auto px-4 py-16">
           <div className="max-w-3xl mx-auto text-center mb-10">

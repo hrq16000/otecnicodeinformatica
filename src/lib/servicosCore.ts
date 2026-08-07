@@ -1601,7 +1601,9 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     h1Accent: "com avaliação em bancada e trabalho em nível de componente",
     intro:
       "Placa-mãe de notebook que não liga, placa de computador sem vídeo, placa de televisor com falha de alimentação. Em vez de trocar a placa inteira, avaliamos o circuito, localizamos o estágio que falhou e substituímos o componente quando o reparo é viável e seguro. Nem toda placa tem solução: existe dano que não se recupera e existe componente que não se encontra. Você recebe essa avaliação por escrito, com o que é reparável e o que não é, antes de qualquer serviço. Envie o modelo e o sintoma pela triagem no WhatsApp.",
-    whatsappMessage: "Olá! Preciso de avaliação de reparo de placa. Posso informar o equipamento, o modelo e o sintoma?",
+    whatsappMessage:
+      "Olá! Vim da página de reparo de placas eletrônicas. Triagem: (1) equipamento e modelo: (2) placa envolvida (fonte, principal, notebook, TV): " +
+      "(3) sintoma exato: (4) houve líquido, queda, curto ou reparo anterior: (5) bairro ou cidade para a coleta:",
     incluso: [
       { title: "Triagem técnica", desc: "Equipamento, modelo da placa, sintoma, histórico de líquido, queda, surto elétrico e reparos anteriores." },
       { title: "Inspeção visual ampliada", desc: "Verificação de corrosão, trilhas rompidas, componentes danificados, emendas e sinais de reparo anterior." },

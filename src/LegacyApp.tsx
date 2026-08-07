@@ -847,9 +847,7 @@ const App = () => (
             <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
             <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
             <Route path="/servicos/manutencao-tv" element={<ManutencaoTV />} />
-            <Route path="/servicos/conserto-tv" element={<ConsertoTV />} />
             <Route path="/servicos/conserto-celular" element={<ConsertoCelular />} />
-            <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
             
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}

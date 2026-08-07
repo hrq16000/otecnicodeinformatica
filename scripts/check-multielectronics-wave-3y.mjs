@@ -43,6 +43,9 @@ const metaPaths = new Set(curatedMeta.map((m) => m.path));
 
 for (const { path, minWords } of WAVE) {
   if (!curated.has(path)) errors.push(`${path}: fora do manifesto curado (não indexável)`);
+  if (!metaPaths.has(path)) {
+    errors.push(`${path}: sem meta estática em curated-routes-meta.mjs (rota no sitemap sem prerender)`);
+  }
 
   const slug = path.split("/").pop();
   if (!app.includes(`<ServicoCore slug="${slug}" />`)) {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AlertTriangle, ArrowRight, CheckCircle2, KeyRound, Lock, MessageCircle, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, Lock, MessageCircle, ShieldCheck } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -9,6 +9,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { Button } from "@/components/ui/button";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { Blocos3U } from "@/components/servico/Blocos3U";
+import { blocos3U } from "@/lib/blocos3u";
 import { TrustStrip } from "@/components/TrustStrip";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
@@ -39,14 +41,6 @@ const PRINCIPIOS = [
     titulo: "Backup é responsabilidade compartilhada",
     desc: "Sempre que possível, o cliente deve manter uma cópia atualizada dos arquivos antes do atendimento. Fazemos a cópia prévia quando o armazenamento permite leitura, mas ela não substitui o seu backup próprio.",
   },
-];
-
-const SENHAS = [
-  "Senhas bancárias, códigos de autenticação e credenciais sensíveis não devem ser enviados por mensagem — nem para nós.",
-  "Quando o serviço exige a senha do próprio computador, ela deve ser informada apenas no momento do atendimento e alterada depois, se você preferir.",
-  "Não solicitamos código recebido por SMS, aplicativo autenticador ou e-mail para liberar qualquer serviço.",
-  "Não pedimos dados de cartão, chave PIX de terceiros ou pagamento durante uma sessão de acesso remoto.",
-  "Equipamento com bloqueio de conta, senha de fabricante ou criptografia sem a chave pode simplesmente não ter caminho técnico legítimo — e nesse caso dizemos isso.",
 ];
 
 const REMOTO = [
@@ -204,13 +198,19 @@ const SegurancaDosDados = () => {
         <PageTableOfContents
           className="mb-10"
           items={[
+            ...(blocos3U(PATH)?.tocExtra ?? []),
             { id: "acesso-minimo", label: "Compromisso de acesso mínimo" },
             { id: "autorizacao", label: "Autorização do cliente" },
-            { id: "backup", label: "Backup antes do atendimento" },
-            { id: "limites", label: "Limites técnicos" },
+            { id: "acesso-remoto", label: "Acesso remoto" },
+            { id: "limites", label: "Risco de perda e limites técnicos" },
+            { id: "terceiros", label: "Sistemas de terceiros" },
             { id: "faq", label: "Perguntas frequentes" },
           ]}
         />
+
+        {/* Rodada 3U — pilares, matriz de responsabilidades, credenciais e
+            diferenciação entre backup, sincronização, nuvem e recuperação. */}
+        <Blocos3U path={PATH} />
         <section id="acesso-minimo" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Compromisso de acesso mínimo</h2>
           <p className="mb-3 text-muted-foreground">
@@ -343,21 +343,7 @@ const SegurancaDosDados = () => {
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
-            <KeyRound className="h-6 w-6 text-accent" /> Senhas e credenciais
-          </h2>
-          <ul className="space-y-2">
-            {SENHAS.map((s) => (
-              <li key={s} className="flex gap-2 text-muted-foreground">
-                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                <span>{s}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mb-12">
+        <section id="acesso-remoto" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 flex items-center gap-2 text-2xl font-bold text-foreground">
             <Lock className="h-6 w-6 text-accent" /> Atendimento remoto e privacidade
           </h2>
@@ -413,20 +399,7 @@ const SegurancaDosDados = () => {
           </ul>
         </section>
 
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-foreground">Responsabilidade compartilhada</h2>
-          <p className="mb-3 text-muted-foreground">
-            Do lado do técnico: acessar apenas o necessário, explicar o risco antes da etapa, executar somente o que foi
-            autorizado, não solicitar credenciais sensíveis e descartar cópias temporárias após a entrega.
-          </p>
-          <p className="text-muted-foreground">
-            Do lado do cliente: manter backup próprio sempre que possível, indicar corretamente onde estão os arquivos
-            importantes, informar se há conteúdo sensível no equipamento, não enviar senhas bancárias ou códigos por
-            mensagem e conferir o resultado antes de encerrar o atendimento.
-          </p>
-        </section>
-
-        <section className="mb-12">
+        <section id="terceiros" className="mb-12 scroll-mt-24">
           <h2 className="mb-4 text-2xl font-bold text-foreground">Sistemas, credenciais e acessos de terceiros</h2>
           <p className="mb-3 text-muted-foreground">
             Boa parte dos incidentes de empresa envolve algo que não está dentro do computador:
@@ -434,75 +407,15 @@ const SegurancaDosDados = () => {
             fornecedor de software. Nesses casos, a responsabilidade se divide em três — e a
             divisão precisa estar clara antes do atendimento começar.
           </p>
-          <p className="mb-6 text-muted-foreground">
+          <p className="mb-3 text-muted-foreground">
             <strong className="text-foreground">
               O acesso ao computador não garante acesso ou correção de sistemas mantidos por
               terceiros.
             </strong>{" "}
-            <strong className="text-foreground">
-              Senhas, códigos de autenticação e credenciais bancárias não devem ser enviados por
-              mensagem.
-            </strong>{" "}
             Quando o problema pertence ao sistema externo, pode ser necessário acionar o fornecedor
             responsável.
           </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                titulo: "Responsabilidade do cliente",
-                itens: [
-                  "Possuir licença legítima do sistema utilizado",
-                  "Indicar quem autoriza alterações e acessos",
-                  "Manter acesso ao e-mail de recuperação",
-                  "Preservar os códigos de autenticação",
-                  "Saber quem é o fornecedor do sistema",
-                  "Manter contratos e cadastros em dia",
-                  "Informar restrições internas de acesso",
-                  "Manter backup próprio dos arquivos",
-                  "Não compartilhar senha sem necessidade",
-                ],
-              },
-              {
-                titulo: "Responsabilidade do técnico",
-                itens: [
-                  "Solicitar apenas o acesso necessário ao serviço",
-                  "Explicar o procedimento antes de executar",
-                  "Evitar armazenar credenciais após o atendimento",
-                  "Encerrar as sessões abertas ao final",
-                  "Não alterar configuração além do autorizado",
-                  "Registrar por escrito as limitações encontradas",
-                  "Orientar o contato com o fornecedor quando for o caso",
-                  "Não burlar proteção, bloqueio ou restrição",
-                ],
-              },
-              {
-                titulo: "Responsabilidade do fornecedor",
-                itens: [
-                  "Licença e condições de uso do sistema",
-                  "Disponibilidade da plataforma e do servidor",
-                  "Correção de erro interno do próprio sistema",
-                  "Atualizações e compatibilidade das versões",
-                  "Recuperação de conta e de acesso",
-                  "Suporte ao funcionamento do sistema",
-                  "Regras de autenticação e permissões",
-                  "Integrações e documentação técnica",
-                ],
-              },
-            ].map((col) => (
-              <div key={col.titulo} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="mb-3 font-semibold text-foreground">{col.titulo}</h3>
-                <ul className="space-y-2">
-                  {col.itens.map((item) => (
-                    <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             O que o suporte pode executar dentro do ambiente da empresa — e o que depende do
             fornecedor — está descrito em{" "}
             <Link

@@ -135,6 +135,7 @@
     "check:visual-wave-3s": "node scripts/check-visual-wave-3s.mjs",
     "check:visual-wave-3r": "node scripts/check-visual-wave-3r.mjs",
     "check:visual-wave-3t": "node scripts/check-visual-wave-3t.mjs",
+    "check:visual-wave-3u": "node scripts/check-visual-wave-3u.mjs",
     "test:a11y": "playwright test e2e/a11y-empresarial.spec.ts"
   },
   "dependencies": {

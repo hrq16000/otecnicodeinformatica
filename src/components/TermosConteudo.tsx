@@ -72,16 +72,26 @@ const TermosFaqJsonLd = () => {
 interface Props {
   /** Renderiza também o JSON-LD de FAQPage (default: true). */
   withJsonLd?: boolean;
+  /**
+   * Renderiza o bloco de modalidades (default: true).
+   * Em /precos-e-politicas a página já renderiza `PrecoModalidades` acima;
+   * repetir aqui duplicaria o id `modalidades-atendimento`.
+   */
+  withModalidades?: boolean;
   className?: string;
 }
 
-export const TermosConteudo = ({ withJsonLd = true, className = "" }: Props) => (
+export const TermosConteudo = ({
+  withJsonLd = true,
+  withModalidades = true,
+  className = "",
+}: Props) => (
   <div className={`container mx-auto px-4 max-w-4xl ${className}`}>
     {withJsonLd && (
       <TermosFaqJsonLd />
     )}
 
-    <PrecoModalidades className="mb-12" />
+    {withModalidades && <PrecoModalidades className="mb-12" />}
 
     <section className="mb-12" aria-labelledby="como-funciona-termos">
       <h2 id="como-funciona-termos" className="text-2xl font-bold mb-6 text-foreground">

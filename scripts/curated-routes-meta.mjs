@@ -100,6 +100,16 @@ const BASE_ROUTES = [
     "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta."
   },
   {
+    "path": "/servicos/conserto-tv",
+    "title": "Conserto de TV e Smart TV em Curitiba | Bancada e Coleta",
+    "description": "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega. Critérios de aceite e recusa informados antes."
+  },
+  {
+    "path": "/servicos/conserto-placa",
+    "title": "Reparo de Placa Eletrônica em Curitiba | Nível de Componente",
+    "description": "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável, coleta e entrega."
+  },
+  {
     "path": "/servicos/montagem-de-pc",
     "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
     "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",

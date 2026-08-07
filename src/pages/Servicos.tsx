@@ -10,6 +10,8 @@ import {
   Wifi,
   Wrench,
   Building2,
+  Tv,
+  CircuitBoard,
   ArrowRight,
 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
@@ -72,6 +74,8 @@ const CARDS = [
   { slug: "recuperacao-de-dados", icon: Database, blurb: "HD, SSD e pendrive: avaliação primeiro. Recuperação não é garantida." },
   { slug: "redes-e-wifi", icon: Wifi, blurb: "Wi-Fi caindo ou sinal fraco em casa e na empresa? Cobertura e estabilidade." },
   { slug: "suporte-tecnico-empresarial", icon: Building2, blurb: "Estações, rede, impressoras e backups, pontual ou recorrente sob consulta." },
+  { slug: "conserto-tv", icon: Tv, blurb: "TV LED, LCD e Smart TV: avaliação em bancada com coleta e entrega, sem visita." },
+  { slug: "conserto-placa", icon: CircuitBoard, blurb: "Placa de notebook, PC e TV reparada em nível de componente quando é viável." },
 ] as const;
 
 const TITLE = "Serviços de Informática em Curitiba | PC e Notebook";

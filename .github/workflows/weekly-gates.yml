@@ -53,6 +53,8 @@ jobs:
         run: npm run check:visual-wave-3t
       - name: Propagação visual contextual (3U)
         run: npm run check:visual-wave-3u
+      - name: Expansão multieletrônicos (3Y)
+        run: npm run check:multielectronics-3y
 
       # ── CTAs e copy
       - name: CTA funnel gate

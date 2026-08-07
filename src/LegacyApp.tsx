@@ -334,9 +334,7 @@ const MontagemPc = lazy(() => import("./pages/servicos/MontagemPc"));
 const ComputadorLento = lazy(() => import("./pages/servicos/ComputadorLento"));
 const ComputadorNaoLiga = lazy(() => import("./pages/servicos/ComputadorNaoLiga"));
 const ManutencaoTV = lazy(() => import("./pages/servicos/ManutencaoTV"));
-const ConsertoTV = lazy(() => import("./pages/servicos/ConsertoTV"));
 const ConsertoCelular = lazy(() => import("./pages/servicos/ConsertoCelular"));
-const ConsertoPlaca = lazy(() => import("./pages/servicos/ConsertoPlaca"));
 
 // Novas cidades
 const TecnicoInformaticaPiraquara = lazy(() => import("./pages/TecnicoInformaticaPiraquara"));
@@ -832,6 +830,9 @@ const App = () => (
             <Route path="/servicos/backup-para-empresas" element={<ServicoCore slug="backup-para-empresas" />} />
             <Route path="/servicos/suporte-home-office" element={<ServicoCore slug="suporte-home-office" />} />
             <Route path="/servicos/montagem-de-pc" element={<ServicoCore slug="montagem-de-pc" />} />
+            {/* Rodada 3Y — expansão premium multieletrônicos (bancada + coleta) */}
+            <Route path="/servicos/conserto-tv" element={<ServicoCore slug="conserto-tv" />} />
+            <Route path="/servicos/conserto-placa" element={<ServicoCore slug="conserto-placa" />} />
 
             {/* Redirects de slugs herdados para os canônicos */}
 
@@ -844,9 +845,7 @@ const App = () => (
             <Route path="/servicos/computador-lento" element={<ComputadorLento />} />
             <Route path="/servicos/computador-nao-liga" element={<ComputadorNaoLiga />} />
             <Route path="/servicos/manutencao-tv" element={<ManutencaoTV />} />
-            <Route path="/servicos/conserto-tv" element={<ConsertoTV />} />
             <Route path="/servicos/conserto-celular" element={<ConsertoCelular />} />
-            <Route path="/servicos/conserto-placa" element={<ConsertoPlaca />} />
             
             
             {/* Páginas combinadas Serviço + Bairro (SEO local) */}

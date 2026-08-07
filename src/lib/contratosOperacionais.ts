@@ -68,7 +68,7 @@ const AUTORIZACAO_PADRAO: ContratoCheckpoint = {
   itens: [
     { id: "laudo-enviado", label: "Laudo com achado técnico enviado por escrito no WhatsApp", obrigatorio: true, seFalhar: "Não executar. Concluir o laudo antes." },
     { id: "valor-fechado", label: "Valor total e prazo de execução informados antes da autorização", obrigatorio: true, seFalhar: "Não executar. Recalcular e reenviar." },
-    { id: "aceite-registrado", label: "Aceite do cliente registrado em texto (print salvo na OS)", obrigatorio: true, seFalhar: "Aparelho fica em aguardando-aprovação; SLA pausado." },
+    { id: "aceite-registrado", label: "Aceite do cliente registrado em texto (print salvo na OS)", obrigatorio: true, seFalhar: "Aparelho fica em aguardando-aprovação; contagem de prazo interna pausada." },
     { id: "riscos-cientes", label: "Riscos e limitações do reparo comunicados e confirmados", obrigatorio: true, seFalhar: "Reenviar as limitações e aguardar confirmação." },
     { id: "prazo-peca", label: "Prazo de peça sob encomenda confirmado com o fornecedor", obrigatorio: false, seFalhar: "Informar prazo aberto e revisar semanalmente." },
   ],

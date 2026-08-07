@@ -8,6 +8,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { CTASection } from "@/components/CTASection";
 import { trackPageView } from "@/lib/analytics";
+import { trackWaClick } from "@/lib/funnelAnalytics";
 import { CATEGORIES, type CategoryId, findCategory } from "./categories";
 import { LOCAIS, findLocal, type LocalData } from "./locais";
 import {
@@ -20,6 +21,14 @@ import {
   PRECO_DIAGNOSTICO,
   GARANTIA_DIAS,
 } from "@/lib/categoryLocalContent";
+import {
+  coverDe,
+  coverCaption,
+  coverCredit,
+  coberturaLista,
+  localBusinessNode,
+  coverImageNode,
+} from "@/lib/categoryLocalGeo";
 import {
   Package, ShieldCheck, Clock, Wrench, MapPin, MessageCircle,
 } from "lucide-react";
@@ -78,6 +87,12 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     offers: offerFor(category, local, "https://tecnico.curitiba.br"),
   };
 
+  const localBusinessSchema = { "@context": "https://schema.org", ...localBusinessNode(category, local) };
+  const imageSchema = { "@context": "https://schema.org", ...coverImageNode(category, local) };
+  const cover = coverDe(category);
+  const credit = coverCredit(category);
+  const { cidades, bairros } = coberturaLista();
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -97,6 +112,7 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
         title={title}
         description={description}
         path={path}
+        ogImage={cover.url}
         noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
@@ -106,6 +122,8 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(imageSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
@@ -123,6 +141,51 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
           title={`Por que escolher para ${cityLabel}`}
           subtitle="Coleta na porta, bancada com instrumental adequado, garantia escrita."
         />
+
+        {/* Capa fotográfica real (licenciada) + mapa de cobertura */}
+        <section className="container mx-auto px-4 pt-10">
+          <figure className="max-w-3xl mx-auto">
+            <img
+              src={cover.url}
+              alt={cover.alt}
+              width={1200}
+              height={630}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto rounded-2xl border border-border"
+            />
+            <figcaption className="text-xs text-muted-foreground mt-2">
+              {coverCaption(category, local)} {credit.creditText} —{" "}
+              <a href={credit.licenseUrl} rel="nofollow noopener" target="_blank" className="underline">
+                {credit.license}
+              </a>
+              .
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="container mx-auto px-4 py-10">
+          <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-3 flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-accent" /> Mapa de cobertura — cidades e bairros atendidos
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              {cityLabel} está na {faixa?.nome} ({faixa?.raio}) do nosso raio de coleta, medido a partir da base em
+              Curitiba. Atendemos {cidades.length} cidades da Região Metropolitana e {bairros.length} bairros de
+              Curitiba:
+            </p>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-sm">
+              {[...cidades, ...bairros].map((l) => (
+                <li key={l.slug}>
+                  <Link to={`/${category.slug}/${l.slug}`} className="text-accent hover:underline">
+                    {l.nome}
+                    {l.kind === "bairro" ? ` (${l.cidadeMae})` : ""}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         {/* Coleta e preço — conteúdo visível espelhado no Offer/PriceSpecification */}
         {faixa && (
@@ -161,6 +224,8 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
               <a
                 key={s}
                 href={whatsappUrl}
+                data-cta-location="category_local_sintoma"
+                onClick={() => trackWaClick("category_local_sintoma", { bairro: local.slug, servico: category.id, sintoma: s })}
                 className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:border-accent hover:shadow-md transition-all"
               >
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
@@ -340,6 +405,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Quero valor do atendimento de ${category.titlePrefix}.`)}`}
               data-cta-location="category_local_how_it_works"
+              onClick={() => trackWaClick("category_local_how_it_works", { servico: category.id })}
               className="inline-flex items-center gap-2 mt-5 bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-white px-5 py-3 rounded-lg font-semibold"
             >
               <MessageCircle className="h-4 w-4" />

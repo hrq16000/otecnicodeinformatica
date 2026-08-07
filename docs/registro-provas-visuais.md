@@ -21,15 +21,32 @@ fotografia real licenciada, com crédito visível (gate `check:image-credits`), 
 são apresentadas como **ilustração de contexto**, nunca como registro de
 atendimento.
 
-## Situação das duas verticais da Rodada 4A
+## Situação das verticais publicadas (revisado na Rodada 4C)
 
 ```text
-/servicos/conserto-tv     → PROVA VISUAL AINDA INCOMPLETA
-/servicos/conserto-placa  → PROVA VISUAL AINDA INCOMPLETA
+/servicos/conserto-tv       → PROVA VISUAL AINDA INCOMPLETA
+/servicos/conserto-placa    → PROVA VISUAL AINDA INCOMPLETA
+/servicos/conserto-monitor  → PROVA VISUAL AINDA INCOMPLETA (ilustração rotulada)
 ```
 
 Nenhuma galeria de "provas de bancada" foi publicada nestas páginas. Não há
 placeholder promocional. O restante da rodada seguiu normalmente.
+
+### Fila de captura (ordem de prioridade por vertical)
+
+| Vertical | 1ª prioridade | 2ª prioridade | 3ª prioridade | Secundárias |
+| --- | --- | --- | --- | --- |
+| TV | TV real registrada na entrada | Placa em bancada | Teste final ligado | Embalagem/coleta, instrumentação, backlight |
+| Placas | Placa real identificada | Microscópio/instrumentação | Validação/teste | ESD, retrabalho, embalagem |
+| Monitor | Monitor real em bancada | Placa/fonte do monitor | Teste final em duas entradas | Embalagem |
+
+Padrão obrigatório de captura: sem dados pessoais, sem OS com nome/endereço,
+serial oculto quando necessário, sem tela de cliente/WhatsApp, fundo limpo,
+bancada organizada, boa luz e equipamento como foco. Cenário montado é proibido.
+
+Legenda: factual e curta ("Diagnóstico de placa principal em bancada").
+Proibida qualquer legenda superlativa ou comparativa.
+
 
 ## O que libera a publicação de provas reais (máximo 3 por página)
 

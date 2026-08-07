@@ -950,7 +950,12 @@ export const WhatsAppFunnel = () => {
                     <FunnelNav
                       onBack={back}
                       onNext={handleNext}
-                      canNext={canAdvance && (criteriosOk || !categoriaPorEquipamento(answers.equipment))}
+                      canNext={
+                        canAdvance &&
+                        (criteriosOk || !categoriaPorEquipamento(answers.equipment)) &&
+                        (rules.route !== "coleta" || coleta.ok)
+                      }
+
                       nextLabel="Continuar"
                     />
                   </div>

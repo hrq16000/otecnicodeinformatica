@@ -15,6 +15,7 @@ import {
   categoryLocalJsonLd,
   categoryLocalMeta,
   categoryLocalStaticBody,
+  coverDe,
 } from "./lib/category-local.mjs";
 import { normalizeTitle, normalizeDescription } from "./lib/seo-meta.mjs";
 
@@ -140,6 +141,9 @@ async function findHashedAsset(distDir, baseName) {
   return match ? `/assets/${match}` : undefined;
 }
 
+const ogWithVersion = (u) =>
+  `${u}${u.includes("?") ? "&" : "?"}v=${OG_VERSION}`.replace(/&(?!amp;)/g, "&amp;");
+
 function injectMeta(html, meta) {
   const titleTag = `<title>${htmlEscape(meta.title)}</title>`;
   const descTag = `<meta name="description" content="${htmlEscape(meta.description)}">`;
@@ -151,8 +155,8 @@ function injectMeta(html, meta) {
     `<meta property="og:locale" content="pt_BR">`,
     `<meta property="og:title" content="${htmlEscape(meta.title)}">`,
     `<meta property="og:description" content="${htmlEscape(meta.description)}">`,
-    meta.ogImage ? `<meta property="og:image" content="${meta.ogImage}?v=${OG_VERSION}">` : "",
-    meta.ogImage ? `<meta property="og:image:secure_url" content="${meta.ogImage}?v=${OG_VERSION}">` : "",
+    meta.ogImage ? `<meta property="og:image" content="${ogWithVersion(meta.ogImage)}">` : "",
+    meta.ogImage ? `<meta property="og:image:secure_url" content="${ogWithVersion(meta.ogImage)}">` : "",
     `<meta property="og:image:width" content="${meta.ogImageWidth ?? 1280}">`,
     `<meta property="og:image:height" content="${meta.ogImageHeight ?? 672}">`,
     `<meta property="og:image:type" content="image/jpeg">`,
@@ -581,7 +585,8 @@ export async function prerenderCities(distDir) {
   for (const cat of CATEGORIES) {
     for (const local of LOCAIS) {
       const meta = categoryLocalMeta(cat, local);
-      const absoluteOg = fallbackOg ? `${SITE}${fallbackOg}` : undefined;
+      // og:image por página = a mesma foto real exibida no card principal.
+      const absoluteOg = coverDe(cat).url;
       const jsonLd = categoryLocalJsonLd(cat, local, SITE);
       let html = injectMeta(baseHtml, { ...meta, url: `${SITE}${meta.path}`, ogImage: absoluteOg, jsonLd, robots: ROBOTS_NOINDEX });
       html = injectRootBody(html, categoryLocalStaticBody(cat, local));

@@ -6,7 +6,10 @@
         "http://localhost:4173/termos-e-condicoes",
         "http://localhost:4173/servicos/manutencao-preventiva-empresas",
         "http://localhost:4173/servicos/backup-para-empresas",
-        "http://localhost:4173/servicos/redes-e-wifi"
+        "http://localhost:4173/servicos/redes-e-wifi",
+        "http://localhost:4173/conserto-tv/curitiba",
+        "http://localhost:4173/conserto-tv/batel",
+        "http://localhost:4173/conserto-celular/sao-jose-dos-pinhais"
       ],
       "startServerCommand": "bun run preview -- --port 4173",
       "startServerReadyPattern": "Local:",

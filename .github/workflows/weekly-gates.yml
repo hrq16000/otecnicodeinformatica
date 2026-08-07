@@ -85,6 +85,8 @@ jobs:
         run: npm run check:meta-uniqueness
       - name: Image sitemap (geração + integridade)
         run: npm run sitemap:images && npm run check:image-sitemap
+      - name: Licenças e créditos de imagem
+        run: npm run check:image-credits
 
       - name: Paridade de analytics (GA4 x click_events x relatorio)
         run: npm run check:analytics-parity

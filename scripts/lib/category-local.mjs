@@ -1,4 +1,4 @@
-import { clamp, DESC_MAX } from "./seo-meta.mjs";
+import { clamp, DESC_MAX, TITLE_MAX } from "./seo-meta.mjs";
 
 /**
  * FONTE ÚNICA — conteúdo localizado das páginas serviço × cidade/bairro
@@ -140,7 +140,11 @@ export function categoryLocalMeta(cat, local) {
   const path = `/${cat.slug}/${local.slug}`;
   const faixa = faixaDe(local);
   const [s1] = sintomasDoLocal(cat, local);
-  const title = `${cat.tituloCurto} em ${shortLabel(local)} | Coleta e Bancada`;
+  // Sufixo longo só quando cabe no limite de 70 chars do gate de meta.
+  const base = `${cat.tituloCurto} em ${shortLabel(local)}`;
+  const title = `${base} | Coleta e Bancada`.length <= TITLE_MAX
+    ? `${base} | Coleta e Bancada`
+    : `${base} | Coleta`;
   const description = clamp(
     `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
       `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,

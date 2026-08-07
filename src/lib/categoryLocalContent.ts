@@ -96,12 +96,20 @@ export function sintomasDoLocal(cat: CategoryData, local: LocalData): [string, s
   return [lista[i % lista.length], lista[(i + 2) % lista.length]];
 }
 
+export const TITLE_MAX = 70;
+
+function titleFor(cat: CategoryData, local: LocalData) {
+  const base = `${TITULO_CURTO[cat.id]} em ${shortLabel(local)}`;
+  const long = `${base} | Coleta e Bancada`;
+  return long.length <= TITLE_MAX ? long : `${base} | Coleta`;
+}
+
 export function categoryLocalMeta(cat: CategoryData, local: LocalData) {
   const faixa = faixaDe(local);
   const [s1] = sintomasDoLocal(cat, local);
   return {
     path: `/${cat.slug}/${local.slug}`,
-    title: `${TITULO_CURTO[cat.id]} em ${shortLabel(local)} | Coleta e Bancada`,
+    title: titleFor(cat, local),
     description: clamp(
       `${cat.titlePrefix} em ${cityLabel(local)}/PR: coleta ${faixa.raio}, diagnóstico em bancada de ` +
         `${s1} e reparo mínimo de R$ ${PRECO_MINIMO_REPARO} com ${GARANTIA_DIAS} dias de garantia.`,

@@ -19,6 +19,7 @@ import { readFileSync } from "node:fs";
 import { SERVICOS } from "./lib/curated-urls.mjs";
 import { servicoBlocos } from "./lib/servico-blocos.mjs";
 import { servicoFaqs } from "./lib/servico-faqs.mjs";
+import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
 const WAVE = [
   { path: "/servicos/conserto-tv", minWords: 1200 },
@@ -30,8 +31,19 @@ const errors = [];
 const curated = new Set(SERVICOS.map((s) => s.path));
 const app = readFileSync("src/LegacyApp.tsx", "utf8");
 
+/**
+ * Rodada 4B (P0): rota curada no sitemap sem entrada em curated-routes-meta
+ * não é prerenderizada — o Google recebe só o shell da SPA.
+ * Toda rota desta onda precisa de title/description estáticos.
+ */
+const metaPaths = new Set(CURATED_ROUTES.map((m) => m.path));
+
+
 for (const { path, minWords } of WAVE) {
   if (!curated.has(path)) errors.push(`${path}: fora do manifesto curado (não indexável)`);
+  if (!metaPaths.has(path)) {
+    errors.push(`${path}: sem meta estática em curated-routes-meta.mjs (rota no sitemap sem prerender)`);
+  }
 
   const slug = path.split("/").pop();
   if (!app.includes(`<ServicoCore slug="${slug}" />`)) {

@@ -110,6 +110,11 @@ const BASE_ROUTES = [
     "description": "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável, coleta e entrega."
   },
   {
+    "path": "/servicos/conserto-monitor",
+    "title": "Conserto de Monitor em Curitiba | Bancada, Coleta e Entrega",
+    "description": "Conserto de monitor em Curitiba: avaliação em bancada, reparo de fonte, placa e backlight quando viável, coleta e entrega. Não fazemos troca de painel — critério informado antes."
+  },
+  {
     "path": "/servicos/montagem-de-pc",
     "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
     "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",

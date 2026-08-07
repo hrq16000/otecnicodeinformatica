@@ -6,6 +6,7 @@ import { blocos3U, cta3U } from "@/lib/blocos3u";
 import { Blocos3U } from "@/components/servico/Blocos3U";
 import { Blocos3T } from "@/components/servico/Blocos3T";
 import { MontagemWizard } from "@/components/servico/MontagemWizard";
+import { ProvasVisuaisMonitor } from "@/components/servico/ProvasVisuaisMonitor";
 import { WorkstationSection } from "@/components/servico/WorkstationSection";
 import { SuporteModalidadesSection } from "@/components/servico/SuporteModalidadesSection";
 import { SuporteEmpresarialBlocos } from "@/components/servico/SuporteEmpresarialBlocos";
@@ -48,6 +49,8 @@ const ServicoCore = ({ slug }: { slug: keyof typeof SERVICOS_CORE }) => {
         <WorkstationSection />
         <MontagemWizard />
       </>
+    ) : slug === "conserto-monitor" ? (
+      <ProvasVisuaisMonitor />
     ) : undefined;
 
   // Rodada 3P — piloto visual de serviço (manutenção de notebook).

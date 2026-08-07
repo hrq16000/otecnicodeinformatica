@@ -74,7 +74,11 @@ if (!servicoCore.includes("FichaComercialServico")) {
   errors.push("ServicoCore não renderiza a ficha comercial");
 }
 
-// 4 — nenhuma promessa
+// 4 — nenhuma promessa (comentários do arquivo não contam)
+const fichaCode = ficha
+  .split("\n")
+  .filter((l) => !/^\s*(\*|\/\/|\/\*)/.test(l))
+  .join("\n");
 const PROIBIDO = [
   /entrega (?:em|no mesmo) dia/i,
   /prazo garantido/i,
@@ -83,11 +87,11 @@ const PROIBIDO = [
   /pe[çc]a inclusa/i,
 ];
 for (const re of PROIBIDO) {
-  if (re.test(ficha)) errors.push(`Promessa proibida na ficha: ${re}`);
+  if (re.test(fichaCode)) errors.push(`Promessa proibida na ficha: ${re}`);
 }
 
 // 5 — garantia sempre escopada
-for (const linha of ficha.split("\n")) {
+for (const linha of fichaCode.split("\n")) {
   if (/90 dias/.test(linha) && !/(mão de obra|ponto reparado)/i.test(linha)) {
     errors.push(`Garantia de 90 dias sem escopo: ${linha.trim()}`);
   }

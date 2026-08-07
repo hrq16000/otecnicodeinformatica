@@ -163,6 +163,9 @@ export const WhatsAppFunnel = () => {
   const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
   // Ciência dos critérios de aceite/recusa da categoria (Rodada 3X).
   const [criteriosOk, setCriteriosOk] = useState(false);
+  // Gate de coleta e entrega premium: faixa de raio + pré-requisitos + status.
+  const [coleta, setColeta] = useState<ColetaGateState>({ prerequisitos: [], status: "", ok: false });
+
   const canAdvance = useMemo(() => validateStep(step, answers).ok, [step, answers]);
   const steps = useMemo(() => getSteps(answers), [answers]);
   const totalSteps = steps.length;

@@ -141,7 +141,8 @@ async function findHashedAsset(distDir, baseName) {
   return match ? `/assets/${match}` : undefined;
 }
 
-const ogWithVersion = (u) => `${u}${u.includes("?") ? "&" : "?"}v=${OG_VERSION}`;
+const ogWithVersion = (u) =>
+  `${u}${u.includes("?") ? "&" : "?"}v=${OG_VERSION}`.replace(/&(?!amp;)/g, "&amp;");
 
 function injectMeta(html, meta) {
   const titleTag = `<title>${htmlEscape(meta.title)}</title>`;

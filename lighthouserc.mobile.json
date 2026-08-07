@@ -3,7 +3,10 @@
     "collect": {
       "url": [
         "http://localhost:4173/assistencia-tecnica-curitiba",
-        "http://localhost:4173/termos-e-condicoes"
+        "http://localhost:4173/termos-e-condicoes",
+        "http://localhost:4173/servicos/manutencao-preventiva-empresas",
+        "http://localhost:4173/servicos/backup-para-empresas",
+        "http://localhost:4173/servicos/redes-e-wifi"
       ],
       "startServerCommand": "bun run preview -- --port 4173",
       "startServerReadyPattern": "Local:",

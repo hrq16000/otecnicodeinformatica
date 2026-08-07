@@ -1,6 +1,8 @@
 import { forwardRef, useId, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { LOCALIDADE_GRUPOS, LOCALIDADES } from "@/lib/bairrosSelect";
+import { cepToLocalidade, formatCep, isValidCep, lookupCep } from "@/lib/cepLookup";
+import { setGeoFromUser } from "@/lib/geoContext";
 
 interface Props {
   id: string;

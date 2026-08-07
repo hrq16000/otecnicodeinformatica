@@ -181,6 +181,22 @@ export function track(name: string, params: Record<string, unknown> = {}) {
   g?.("event", name, payload);
 }
 
+/**
+ * Dedupe de persistência: garante 1 registro por (sessão × chave lógica),
+ * neutralizando React Strict Mode, listener duplicado e double click.
+ */
+function onceInSession(key: string): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const k = `funnel_once_v1:${key}`;
+    if (sessionStorage.getItem(k)) return false;
+    sessionStorage.setItem(k, "1");
+    return true;
+  } catch {
+    return true;
+  }
+}
+
 export const trackFunnelOpen = (location: string, hasPreset = false) => {
   track("wa_funnel_open", { cta_location: location, has_preset: hasPreset });
   // Persistido para permitir medir abertura → conversão (wa_click) no painel.
@@ -220,7 +236,7 @@ export const trackFunnelStep = (
   sintoma?: string | null,
   ctaLocation = "unknown",
   stepName?: string,
-) =>
+) => {
   track("wa_funnel_step", {
     step,
     step_name: stepName || "unknown",
@@ -228,6 +244,15 @@ export const trackFunnelStep = (
     sintoma: sintoma || "none",
     ctaLocation,
   });
+  // Rodada 4D: a etapa de triagem também é persistida em `click_events`,
+  // com dedupe por (sessão + etapa) para não contar re-render/Strict Mode.
+  if (onceInSession(`step:${step}:${stepName || "unknown"}`)) {
+    persistClickEvent("funnel_stage", ctaLocation, readTriageFallback(), {
+      funnel_stage: "triagem",
+      equipamento: equipamento || undefined,
+    });
+  }
+};
 
 
 export const trackFunnelSubmit = (params: {
@@ -237,7 +262,15 @@ export const trackFunnelSubmit = (params: {
   mediaCount?: number;
   ctaLocation?: string;
   minimumAccepted?: boolean;
-}) => track("wa_funnel_submit", params);
+}) => {
+  track("wa_funnel_submit", params);
+  if (onceInSession(`submit:${params.ctaLocation || "unknown"}:${params.equipamento || "none"}`)) {
+    persistClickEvent("funnel_stage", params.ctaLocation || "wa_funnel", readTriageFallback(), {
+      funnel_stage: "submit",
+      equipamento: params.equipamento || undefined,
+    });
+  }
+};
 
 export const trackFunnelBlocked = (reason: string, equipamento?: string | null) =>
   track("wa_funnel_blocked", { reason, equipamento: equipamento || "none" });
@@ -343,7 +376,7 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
  * `triagem` são emitidas pelo site; `autorizacao` e `execucao` são
  * registradas pelo operador no painel, fechando o percurso do lead.
  */
-export type FunnelStage = "cta_click" | "triagem" | "autorizacao" | "execucao";
+export type FunnelStage = "cta_click" | "triagem" | "submit" | "autorizacao" | "execucao";
 
 /** Etapa implícita de cada tipo de evento persistido. */
 const STAGE_BY_EVENT: Record<string, FunnelStage> = {

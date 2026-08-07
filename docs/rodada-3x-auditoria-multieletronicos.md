@@ -122,11 +122,18 @@ Gates que devem passar antes de qualquer indexação: `check:cannibalization`, `
 
 ---
 
-## 8. Pendências que dependem do operador
+## 8. Parâmetros confirmados pelo operador (07/08/2026)
 
-1. Horas úteis de bancada por semana e WIP atual por categoria.
-2. Fornecedores/prazo de peça para TV (backlight, T-CON) e áudio.
-3. Confirmação de que monitores e áudio serão realmente aceitos (hoje não há rota nem promessa pública).
-4. Raio máximo de coleta e custo por faixa.
+- **Capacidade:** mais de 40h úteis de bancada por semana → comporta as 4 categorias em paralelo, respeitando o `WIP_max` da seção 4.
+- **Categorias aceitas:** TV/Smart TV, monitores, áudio/som e reparo de placa (todas).
+- **Raio de coleta:** até 30 km — inclui São José dos Pinhais, Pinhais, Colombo, Araucária e Campo Largo. Manter as 3 faixas de taxa (≤8 / 8–15 / 15–30 km).
+- **Canonical de TV:** `/servicos/conserto-tv` é a URL canônica comercial. `/servicos/manutencao-tv` permanece ativa e passa a declarar canonical para `conserto-tv` (aplicado nesta rodada; corrigiu também um canonical quebrado `/servicos/manutencao-t-v`).
 
-Sem (1) e (2), os SLAs da seção 3 permanecem **propostos**, não publicáveis.
+### Pendências remanescentes (bloqueiam publicação)
+1. Prazo real de fornecedor de peça para TV (backlight, T-CON) e áudio.
+2. 20 OS medidas por categoria para converter os SLAs propostos em números publicáveis (P80).
+
+Enquanto (1) e (2) não existirem, os SLAs da seção 3 permanecem **internos** — nenhuma promessa nova de prazo vai ao ar.
+
+### Única alteração de código desta rodada
+`src/pages/servicos/ManutencaoTV.tsx` — canonical corrigido/apontado para `/servicos/conserto-tv`. Nenhuma rota criada, nenhuma URL removida, nenhum `noindex` liberado.

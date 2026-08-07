@@ -30,6 +30,17 @@ const errors = [];
 const curated = new Set(SERVICOS.map((s) => s.path));
 const app = readFileSync("src/LegacyApp.tsx", "utf8");
 
+/**
+ * Rodada 4B (P0): rota curada no sitemap sem entrada em curated-routes-meta
+ * não é prerenderizada — o Google recebe só o shell da SPA.
+ * Toda rota desta onda precisa de title/description estáticos.
+ */
+const curatedMeta = JSON.parse(
+  readFileSync("scripts/curated-routes-meta.mjs", "utf8").match(/\[[\s\S]*\]/)?.[0] ?? "[]",
+);
+const metaPaths = new Set(curatedMeta.map((m) => m.path));
+
+
 for (const { path, minWords } of WAVE) {
   if (!curated.has(path)) errors.push(`${path}: fora do manifesto curado (não indexável)`);
 

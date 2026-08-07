@@ -101,10 +101,6 @@ jobs:
         run: npx playwright test e2e/whatsapp-funnel.spec.ts e2e/termos-e-condicoes.spec.ts e2e/seo-sitemap-robots.spec.ts e2e/como-funciona-mobile.spec.ts e2e/security-data-exposure.spec.ts
         env:
           E2E_BASE_URL: http://localhost:8080
-      - name: Acessibilidade axe-core (páginas empresariais 3T/3U)
-        run: npx playwright test e2e/a11y-empresarial.spec.ts
-        env:
-          E2E_BASE_URL: http://localhost:8080
           # Chaves públicas (anon) — o teste também tem fallback embutido.
           E2E_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           E2E_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
@@ -112,6 +108,10 @@ jobs:
           # Se ausentes, o bloco autenticado é pulado (o bloco anon sempre roda).
           E2E_NONADMIN_EMAIL: ${{ secrets.E2E_NONADMIN_EMAIL }}
           E2E_NONADMIN_PASSWORD: ${{ secrets.E2E_NONADMIN_PASSWORD }}
+      - name: Acessibilidade axe-core (páginas empresariais 3T/3U)
+        run: npx playwright test e2e/a11y-empresarial.spec.ts
+        env:
+          E2E_BASE_URL: http://localhost:8080
 
 
   e2e-full-matrix:

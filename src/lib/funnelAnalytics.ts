@@ -338,13 +338,36 @@ export function readTriageFallback(): { modalidade: string; problema: string; eq
   }
 }
 
-function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open", location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
+/**
+ * Etapas do funil medidas ponta a ponta (Rodada 4B). `cta_click` e
+ * `triagem` são emitidas pelo site; `autorizacao` e `execucao` são
+ * registradas pelo operador no painel, fechando o percurso do lead.
+ */
+export type FunnelStage = "cta_click" | "triagem" | "autorizacao" | "execucao";
+
+/** Etapa implícita de cada tipo de evento persistido. */
+const STAGE_BY_EVENT: Record<string, FunnelStage> = {
+  funnel_open: "cta_click",
+  wa_click: "triagem",
+  call_click: "triagem",
+  funnel_stage: "triagem",
+};
+
+function persistClickEvent(eventType: string, location: string, ctx: { modalidade: string; problema: string; equipamento: string }, extra: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   const path = window.location.pathname;
   const utms = readUtms();
   const payload = {
     event_type: eventType,
     cta_location: location,
+    // Recortes da Rodada 4B: viewport, posição do CTA, etapa e variação.
+    ...getDeviceContext(),
+    funnel_stage:
+      (typeof extra.funnel_stage === "string" ? (extra.funnel_stage as FunnelStage) : undefined) ||
+      STAGE_BY_EVENT[eventType] ||
+      "cta_click",
+    cta_position: typeof extra.cta_position === "string" ? extra.cta_position : null,
+    variant: typeof extra.variant === "string" ? extra.variant : activeVariant(),
     modalidade: ctx.modalidade,
     equipamento: ctx.equipamento,
     problema: ctx.problema,
@@ -364,8 +387,10 @@ function persistClickEvent(eventType: "wa_click" | "call_click" | "funnel_open",
     utm_campaign: utms.utm_campaign || campaignFromPath(path),
     attribution_channel: readAttribution().channel,
   };
+  // `device` é derivável de viewport_bucket e não existe como coluna.
+  const { device: _device, ...row } = payload as Record<string, unknown> & { device?: string };
   // Fire-and-forget; nunca bloqueia o clique.
-  void supabase.from("click_events").insert(payload).then(({ error }) => {
+  void supabase.from("click_events").insert(row as never).then(({ error }) => {
     if (error && (window as unknown as { __funnelDebug?: boolean }).__funnelDebug) {
       // eslint-disable-next-line no-console
       console.debug("[click_events] insert failed", error.message);
@@ -555,3 +580,34 @@ export const trackQrCode = (action: "open" | "scan_hint", channel: "whatsapp" | 
 /** Pedido de exclusão de dados (LGPD). */
 export const trackDataDeletionRequest = (params: { via: string }) =>
   track("data_deletion_request", { via: params.via });
+
+
+/**
+ * Variação de copy ativa na página (experimento controlado da Rodada 4B).
+ * Definida por `setActiveVariant` no carregamento da página; nunca altera
+ * escopo de serviço, apenas o texto acima da dobra.
+ */
+let currentVariant: string | null = null;
+
+export const setActiveVariant = (variant: string | null) => {
+  currentVariant = variant;
+};
+
+export const activeVariant = () => currentVariant;
+
+/**
+ * Registra uma etapa do funil (clique no CTA → triagem → autorização →
+ * execução) no GA4 e em `click_events`, permitindo medir onde o lead para.
+ * As duas últimas etapas são lançadas pelo operador no painel.
+ */
+export const trackFunnelStageEvent = (
+  stage: FunnelStage,
+  extra: Record<string, unknown> = {},
+) => {
+  const ctx = readTriageFallback();
+  track("funnel_stage", { funnel_stage: stage, ...ctx, ...extra });
+  persistClickEvent("funnel_stage", (extra.cta_location as string) || stage, ctx, {
+    ...extra,
+    funnel_stage: stage,
+  });
+};

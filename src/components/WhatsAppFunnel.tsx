@@ -903,6 +903,11 @@ export const WhatsAppFunnel = () => {
                 {/* ETAPA 4 — ciência e aceite */}
                 {stepName === "terms" && (
                   <div className="space-y-3">
+                    <CriteriosAceiteCard
+                      equipamento={answers.equipment}
+                      accepted={criteriosOk}
+                      onAcceptChange={setCriteriosOk}
+                    />
                     <p className="text-sm font-medium">Registro de ciência e aceite eletrônico</p>
                     <div className="space-y-2">
                       {terms.map((t) => {

@@ -14,7 +14,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { toast } from "@/hooks/use-toast";
-import { Loader2, RefreshCw, Copy, Truck, Gauge, MessageSquare } from "lucide-react";
+import { Loader2, RefreshCw, Copy, Truck, Gauge, MessageSquare, FileCheck2, ShieldAlert } from "lucide-react";
 import {
   CATEGORIAS_OPERACIONAIS,
   calcularCapacidade,
@@ -22,11 +22,16 @@ import {
   getCategoria,
   limiteSlaDias,
   prazoEstimadoLabel,
+  scriptAceite,
   scriptLaudo,
   scriptPrimeiroContato,
   scriptRecusa,
+  scriptRecusadoComAlternativa,
+  scriptTriagemPerguntas,
   type CategoriaOperacional,
 } from "@/lib/operacaoCategorias";
+import { CONTRATOS_OPERACIONAIS } from "@/lib/contratosOperacionais";
+
 import {
   CHECKLIST_COLETA,
   CHECKLIST_ENTREGA,

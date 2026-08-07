@@ -25,7 +25,9 @@ export const WhatsAppFloat = () => {
       data-testid="whatsapp-float"
       aria-label="Falar com técnico pelo WhatsApp"
       className={cn(
-        "fixed bottom-24 right-4 z-[95] flex min-h-12 items-center gap-2 sm:bottom-6 sm:right-6",
+        // Rodada 3W — enquanto o banner de cookies está visível o botão sobe
+        // (offset dinâmico via --consent-banner-h), respeitando a safe area.
+        "wa-float-offset fixed right-4 z-[95] flex min-h-12 items-center gap-2 sm:right-6",
         "bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp-hover))] text-primary-foreground",
         "pl-4 pr-5 py-3 rounded-full",
         "shadow-[0_4px_20px_hsl(var(--whatsapp)/0.35)] hover:shadow-[0_8px_30px_hsl(var(--whatsapp)/0.5)]",

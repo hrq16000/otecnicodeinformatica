@@ -687,7 +687,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
 
         {/* Termos, condições e FAQ — conteúdo fundido (fonte única) */}
         <section id="termos" className="py-10 md:py-14 bg-background scroll-mt-24">
-          <TermosConteudo />
+          <TermosConteudo withModalidades={false} />
         </section>
 
         {/* CTA Final */}

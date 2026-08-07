@@ -162,7 +162,7 @@ const AtendimentoRemoto = () => {
             dentro da primeira dobra em 360, 390 e 430 px. */}
         <section className="bg-[hsl(var(--hero-bg))] text-white">
           <div className="container mx-auto max-w-4xl px-4 py-7 md:py-12">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent md:text-sm">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent-on-dark md:text-sm">
               {cfg3u?.eyebrow ?? "Modalidade de atendimento"} · Curitiba e região
             </p>
             <h1 className="mb-3 text-[1.6rem] font-bold leading-tight md:mb-4 md:text-4xl">

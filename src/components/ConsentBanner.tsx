@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const KEY = "lgpd_consent_v1";
 
@@ -31,12 +31,40 @@ export const ConsentBanner = () => {
     setOpen(false);
   };
 
+  // Rodada 3W — publica a altura ocupada pelo banner para que o botão
+  // flutuante de WhatsApp suba enquanto ele estiver visível (sem colisão).
+  const ref = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    if (!open) {
+      root.style.removeProperty("--consent-banner-h");
+      root.removeAttribute("data-consent-banner");
+      return;
+    }
+    root.setAttribute("data-consent-banner", "open");
+    const apply = () => {
+      const h = ref.current?.getBoundingClientRect().height ?? 0;
+      root.style.setProperty("--consent-banner-h", `${Math.round(h)}px`);
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    if (ref.current) ro.observe(ref.current);
+    window.addEventListener("resize", apply);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", apply);
+      root.style.removeProperty("--consent-banner-h");
+      root.removeAttribute("data-consent-banner");
+    };
+  }, [open]);
+
   if (!open) return null;
 
   return (
     // Rodada 3P — banner compacto ancorado à esquerda: não cobre o CTA
     // principal nem o botão flutuante de WhatsApp (canto inferior direito).
     <div
+      ref={ref}
       role="dialog"
       aria-label="Aviso de privacidade e cookies"
       style={{

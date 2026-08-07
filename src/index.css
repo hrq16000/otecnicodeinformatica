@@ -63,6 +63,9 @@
        sobre fundos claros e mantém texto branco legível sobre o acento. */
     --accent: 197 90% 33%;
     --accent-foreground: 0 0% 100%;
+    /* Variante clara do acento para texto pequeno sobre o fundo escuro do hero
+       (hsl(var(--hero-bg))): garante contraste AA (>= 4.5:1). */
+    --accent-on-dark: 197 88% 64%;
 
     /* Escurecido para contraste AA em texto de alerta sobre fundos claros. */
     --destructive: 0 72% 40%;
@@ -1561,4 +1564,19 @@ body[data-triage-open="1"] .wa-pulse {
 }
 @media (prefers-reduced-motion: reduce) {
   .field-alert { animation: none; box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.35); }
+}
+
+/* Rodada 3W — offset do botão flutuante de WhatsApp.
+   Sem banner de cookies mantém a posição habitual; com o banner aberto sobe
+   o suficiente para não colidir com ele em nenhum viewport. */
+.wa-float-offset {
+  bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 640px) {
+  .wa-float-offset {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+:root[data-consent-banner="open"] .wa-float-offset {
+  bottom: calc(var(--consent-banner-h, 132px) + 24px + env(safe-area-inset-bottom, 0px));
 }

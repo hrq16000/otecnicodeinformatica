@@ -172,7 +172,7 @@ const SegurancaDosDados = () => {
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
         <div className="container mx-auto max-w-4xl px-4 py-8 md:py-14">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent md:mb-3 md:text-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent-on-dark md:mb-3 md:text-sm">
             Confiança · Curitiba e região
           </p>
           <h1 className="mb-3 text-[1.6rem] font-bold leading-tight md:mb-4 md:text-4xl">

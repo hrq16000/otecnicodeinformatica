@@ -210,7 +210,7 @@ const ComputadorLento = () => {
 
       <section className="bg-[hsl(var(--hero-bg))] text-white">
         <div className="container mx-auto max-w-4xl px-4 py-8 sm:py-12 md:py-14">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent sm:mb-3 sm:text-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-accent-on-dark sm:mb-3 sm:text-sm">
             Sintoma · Curitiba e região
           </p>
           <h1 className="mb-3 text-[1.7rem] font-bold leading-[1.12] sm:mb-4 sm:text-3xl md:text-4xl">

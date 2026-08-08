@@ -24,7 +24,7 @@ export const siteConfig = {
 
   // SEO base (marca institucional — usado como fallback/schema em outras páginas)
   defaultTitle:
-    "Técnico em Curitiba | Informática, Notebook, PC e Suporte Empresarial",
+    "Técnico em Curitiba | Notebook, PC e Suporte de TI",
   defaultDescription:
     "Técnico em Curitiba para notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto via WhatsApp.",
   // SEO da home (marca + conversão + roteamento — não disputa a intenção da landing local)

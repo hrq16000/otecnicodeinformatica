@@ -213,6 +213,10 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         <li>Conversas de WhatsApp e fotos: até 12 meses após o último contato.</li>
         <li>Dados fiscais (NF): pelo prazo legal (mínimo 5 anos).</li>
         <li>Dados de navegação anonimizados (GA4): conforme política do Google, padrão 14 meses.</li>
+        <li>
+          Telemetria técnica do funil (seção 5.2): prazo em definição pela governança interna —
+          nenhum período foi fixado até esta atualização.
+        </li>
       </ul>
     ),
   },

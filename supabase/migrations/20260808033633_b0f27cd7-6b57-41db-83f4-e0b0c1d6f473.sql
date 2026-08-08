@@ -1,0 +1,12 @@
+REVOKE ALL ON FUNCTION public.consolidate_click_events(date) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.purge_click_events_raw(boolean) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.purge_click_events_aggregates(boolean) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.telemetry_guard_selftest() FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.is_qa_click_event(timestamptz, text, text, text, text) FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.telemetry_baseline_comercial() FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.consolidate_click_events(date) TO service_role;
+GRANT EXECUTE ON FUNCTION public.purge_click_events_raw(boolean) TO service_role;
+GRANT EXECUTE ON FUNCTION public.purge_click_events_aggregates(boolean) TO service_role;
+GRANT EXECUTE ON FUNCTION public.telemetry_guard_selftest() TO service_role;
+GRANT EXECUTE ON FUNCTION public.is_qa_click_event(timestamptz, text, text, text, text) TO service_role;
+GRANT EXECUTE ON FUNCTION public.telemetry_baseline_comercial() TO service_role;

@@ -280,10 +280,18 @@ Nenhum arquivo de aplicação foi tocado.
 
 ```text
 rg -n "conserto-tv|conserto-placa|conserto-monitor" src   → inalterado (sem diff)
+git status --short / git diff --stat em src/              → vazio
 npm run check:trust-claims          → PASS
-npm run check:copy                  → PASS
+npm run check:copy                  → FAIL PRÉ-EXISTENTE (1 achado, ver abaixo)
 npm run check:telemetry-governance  → PASS
 ```
+
+Achado pré-existente do `check:copy`, **não causado por esta rodada** (nenhum arquivo de `src/`
+foi tocado): `src/pages/AssistenciaTecnicaCuritiba.tsx:335` usa a palavra "orçamento" na meta
+description, contra o vocabulário oficial (agendar · solicitar atendimento · valor). Correção
+exige alterar copy comercial de página de serviço — vedado pela Regra Zero desta rodada.
+Fica registrado como pendência para uma rodada de copy autorizada.
+
 
 Confirmação da Parte 29:
 

@@ -12,7 +12,7 @@ export interface LocalidadeGrupo {
 }
 
 /** Bairros de Curitiba com maior volume de atendimento. */
-const CURITIBA_BAIRROS = [
+export const CURITIBA_BAIRROS_NOMES = [
   "Abranches",
   "Água Verde",
   "Ahú",
@@ -76,7 +76,7 @@ const CURITIBA_BAIRROS = [
 ];
 
 /** Cidades da Região Metropolitana atendidas. */
-const CIDADES_RMC = [
+export const CIDADES_RMC_NOMES = [
   "Almirante Tamandaré",
   "Araucária",
   "Campina Grande do Sul",
@@ -91,8 +91,8 @@ const CIDADES_RMC = [
 ];
 
 export const LOCALIDADE_GRUPOS: LocalidadeGrupo[] = [
-  { grupo: "Curitiba — bairros", opcoes: CURITIBA_BAIRROS.map((b) => `${b}, Curitiba`) },
-  { grupo: "Região Metropolitana", opcoes: CIDADES_RMC.map((c) => `${c}, PR`) },
+  { grupo: "Curitiba — bairros", opcoes: CURITIBA_BAIRROS_NOMES.map((b) => `${b}, Curitiba`) },
+  { grupo: "Região Metropolitana", opcoes: CIDADES_RMC_NOMES.map((c) => `${c}, PR`) },
 ];
 
 /** Lista plana usada em datalist/autocomplete. */

@@ -17,6 +17,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick, trackFileDownload } from "@/lib/analytics";
+import { PropostaMidiaForm } from "@/components/anuncie/PropostaMidiaForm";
+
 
 
 const CTA_CLASS =
@@ -357,6 +359,23 @@ const Anuncie = () => {
             </ul>
           </div>
         </section>
+
+        <section id="proposta" className="border-t border-border/60 py-12 md:py-16">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Peça sua proposta em um minuto
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Informe segmento, cidade/bairro, formato e período. Confirmamos a disponibilidade real da posição
+              no período pedido — a reserva passa a valer quando estiver registrada por escrito.
+            </p>
+            <div className="mt-8">
+              <PropostaMidiaForm />
+            </div>
+          </div>
+        </section>
+
+
 
         <section className="border-t border-border/60 bg-secondary/40 py-12 md:py-16">
           <div className="container mx-auto max-w-3xl text-center">

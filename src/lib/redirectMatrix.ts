@@ -60,6 +60,9 @@ export const REDIRECT_MATRIX: RedirectRule[] = [
   { from: "/valores", to: "/precos-e-politicas", motivo: "alias-institucional" },
   { from: "/precos", to: "/precos-e-politicas", motivo: "alias-institucional" },
   { from: "/termos-condicoes-valores", to: "/precos-e-politicas", motivo: "alias-institucional" },
+  // Intenção comercial de mídia: uma única página canônica (/anuncie).
+  { from: "/publicidade", to: "/anuncie", motivo: "alias-institucional" },
+
 
   // ── Aliases de intenção PF (pessoa física / residencial) ────
   { from: "/pessoa-fisica", to: "/atendimento-domicilio", motivo: "alias-pf" },

@@ -267,3 +267,90 @@ Diff das verticais congeladas: TV = 0 · Placas = 0 · Monitor = 0 · triagem = 
 ## 34. Próximo passo
 
 Corrigir exclusivamente identidade/NAP antes de ampliar exposição externa: (1) responder se a operação recebe clientes no endereço, (2) definir se endereço/CEP/CNPJ podem ser públicos, (3) comprovar ou retirar "desde 1998". Só depois configurar GBP, capturar fotos reais e iniciar citations. Não modificar TV, placas ou monitor até o gatilho da 4F.
+
+---
+
+# ANEXO 4G-G — Respostas de governança (desbloqueio)
+
+**Data:** 2026-08-08 · **Fonte:** decisão expressa do responsável pelo projeto. Este anexo **substitui** as pendências de §5, §6 e §21 e prevalece sobre elas.
+
+## G1. Modelo operacional — DECIDIDO
+
+```
+MODELO GBP: SERVICE AREA BUSINESS
+STORE FRONT: NÃO AUTORIZADO (sem evidência de atendimento público em endereço)
+```
+
+Apresentação permitida (já comprovada): atendimento em Curitiba e região · coleta/entrega quando aplicável · atendimento no endereço do cliente · atendimento remoto quando aplicável · bancada técnica.
+Proibido: apresentar endereço como loja/escritório aberto ao público.
+
+## G2. Dados canônicos — AUTORIZAÇÃO NEGADA NESTE GATE
+
+```
+ENDEREÇO = NÃO PUBLICAR
+CEP      = NÃO PUBLICAR
+CNPJ     = NÃO PUBLICAR ATÉ VALIDAÇÃO DA ENTIDADE
+```
+
+Isso não implica que os dados sejam incorretos — apenas que não há autorização/evidência para expô-los como dados canônicos da marca. Efeito prático:
+- `PostalAddress` permanece com `addressLocality` / `addressRegion` / `addressCountry` apenas. **Não** adicionar `streetAddress` nem `postalCode`.
+- Nenhum campo de CNPJ/`taxID` deve ser introduzido em `siteConfig` ou em schema.
+- Citations só podem ser criadas em fontes que **não** exijam endereço público — nunca preencher endereço aproximado, de terceiros ou "de fachada".
+
+## G3. Claim "desde 1998" — CLASSIFICAÇÃO OFICIAL
+
+```
+CLAIM:      "Atuação em informática desde 1998"
+FONTE:      declaração do responsável
+DOCUMENTO:  não apresentado
+STATUS:     DECLARAÇÃO DO RESPONSÁVEL ≠ PROVA DOCUMENTAL INDEPENDENTE
+```
+
+Regras decorrentes:
+- O claim **permanece publicado** no site como está (passou pelos gates internos de trust/copy). Nenhuma remoção nesta rodada.
+- **Proibido elevar** o claim: não usar como prova documental, não usar em GBP, citations, mídia kit ou pitch de autoridade externa como fato comprovado.
+- Nunca afirmar que existe documentação histórica enquanto ela não for fornecida e registrada.
+- Reclassificação para "comprovado" exige documento entregue e registrado neste anexo.
+
+## G4. Efeito nas saídas da 4G
+
+| Saída | Status anterior | Status após governança |
+| --- | --- | --- |
+| A — GBP | BLOQUEADO POR DADOS OPERACIONAIS | **GBP PRONTO PARA PREPARAÇÃO COMO SERVICE AREA BUSINESS** — configuração final ainda sujeita à validação exigida pelo próprio perfil (verificação Google) |
+| B — Provas reais | AINDA PRECISAM SER CAPTURADAS | inalterado: **PROVAS REAIS AINDA PRECISAM SER CAPTURADAS** |
+| C — NAP | EXIGE CORREÇÃO | **NAP PARCIAL AUTORIZADO** — nome, URL, telefone/WhatsApp e área de atendimento podem ser trabalhados; endereço/CEP/CNPJ ficam fora do NAP público por decisão, não por erro |
+| D — Autoridade local | BLOQUEADA | **AUTORIDADE LOCAL PODE COMEÇAR** — limitada a citations sem endereço público, perfis oficiais, provas reais e parcerias |
+
+## G5. Pacote GBP revisado (SAB)
+
+- Tipo de perfil: **área de atendimento**, endereço **oculto** no perfil.
+- Áreas: Curitiba, São José dos Pinhais, Pinhais, Colombo, Araucária, Campo Largo, RMC.
+- Categorias e serviços: conforme §7 e §8 (inalterados).
+- Descrição: usar a de §9, **sem** "desde 1998" e sem qualquer menção a unidade física aberta ao público.
+- Fotos: publicar apenas Grupos B (bancada), C/D/E (equipamentos) e F (processo). **Não** publicar Grupo A (fachada/entrada) — incompatível com SAB e não autorizado.
+
+## G6. Citations — filtro adicional
+
+Reclassificar como **DESCARTAR nesta fase** qualquer fonte que exija endereço completo público. Mantêm-se prioridade A somente as que aceitam área de atendimento sem endereço visível: Google Business Profile (SAB), Bing Places (SAB), Apple Business Connect, Facebook, Instagram.
+
+## G7. Score de prova — sem alteração
+
+O desbloqueio é de governança, não de prova. **SCORE ATUAL permanece 6/50.** Nenhum ponto é atribuído por decisão administrativa.
+
+## G8. Decisão final revisada
+
+```
+ENTIDADE LOCAL PRONTA PARA FORTALECIMENTO EXTERNO
+```
+
+Escopo do "pronta": preparação de GBP como Service Area Business, captura de provas reais, perfis oficiais e citations sem endereço público. **Fora do escopo:** endereço, CEP, CNPJ e elevação do claim de 1998.
+
+## G9. Próximo passo
+
+1. Preparar GBP como Service Area Business (endereço oculto, áreas declaradas) — ação externa.
+2. Capturar Grupos B e F da shot list; registrar no manifesto (§13) antes de qualquer publicação.
+3. Abrir perfis oficiais e só então atualizar `sameAs` (substituindo a URL de busca do Maps).
+4. Citations prioridade A revisada (G6), nenhuma que exija endereço.
+5. Solicitar reviews apenas após atendimentos reais concluídos, com texto neutro (§14).
+
+**Congelamento mantido:** TV, Placas e Monitor permanecem intocados até o gatilho da 4F. Nenhuma alteração de código nesta rodada.

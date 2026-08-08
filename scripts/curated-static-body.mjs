@@ -334,6 +334,15 @@ const PAGE_LINKS = {
     "/coleta-e-entrega",
     "/atendimento-remoto",
   ],
+  "/guia-tecnico-informatica": [
+    "/servicos/manutencao-de-computador",
+    "/servicos/manutencao-de-notebook",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/formatacao",
+    "/problemas/computador-lento",
+    "/problemas/notebook-nao-liga",
+    "/precos-e-politicas",
+  ],
   "/areas-atendidas": [
     "/tecnico-informatica-curitiba",
     "/atendimento-domicilio",

@@ -42,17 +42,18 @@ Deno.serve(async (req) => {
   if (!token) return json({ error: "não autenticado" }, 401);
 
   const admin = createClient(url, serviceKey);
-  // Credencial de máquina: qualquer chave de serviço válida do projeto — ela
-  // consegue ler telemetry_retention_runs, que é negada para anon/authenticated
-  // comum por RLS. Chave publicável ou visitante anônimo falham nesta sonda.
+  // Credencial de máquina: chave de serviço do projeto (o formato do segredo
+  // varia entre ambientes). A sonda lê click_events, que exige contornar RLS:
+  // a chave publicável recebe erro de permissão e um usuário comum recebe
+  // zero linhas. Qualquer resultado ambíguo mantém a chamada bloqueada.
   let machineCall = token === serviceKey;
   if (!machineCall) {
     const probe = createClient(url, token);
-    const { error: probeErr } = await probe
-      .from("telemetry_retention_runs")
+    const { data: probeRows, error: probeErr } = await probe
+      .from("click_events")
       .select("id")
       .limit(1);
-    machineCall = !probeErr;
+    machineCall = !probeErr && (probeRows?.length ?? 0) > 0;
   }
 
   if (!machineCall) {

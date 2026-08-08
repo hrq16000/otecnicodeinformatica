@@ -197,7 +197,64 @@ const Anuncie = () => {
           </div>
         </section>
 
+        <section className="border-t border-border/60 py-12 md:py-16">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Disponibilidade por cidade e bairro
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Só comercializamos destaque local em localidades que já possuem página publicada no portal.
+              O quadro abaixo mostra a situação por região — a confirmação de datas e posições é sempre feita
+              caso a caso, porque cada posição é exclusiva por período.
+            </p>
+            <div className="mt-8 overflow-x-auto rounded-xl border border-border">
+              <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+                <caption className="sr-only">
+                  Disponibilidade de formatos publicitários por região atendida
+                </caption>
+                <thead className="bg-secondary/60 text-foreground">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-semibold">Região</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Formatos liberados</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Situação</th>
+                  </tr>
+                </thead>
+                <tbody className="text-muted-foreground">
+                  {disponibilidade.map((linha) => (
+                    <tr key={linha.regiao} className="border-t border-border/60">
+                      <th scope="row" className="px-4 py-3 font-semibold text-foreground">
+                        {linha.regiao}
+                      </th>
+                      <td className="px-4 py-3">{linha.formatos}</td>
+                      <td className="px-4 py-3">{linha.situacao}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6 rounded-xl border border-border bg-secondary/30 p-5">
+              <h3 className="text-base font-heading font-bold text-foreground">
+                Como confirmar datas e posicionamentos
+              </h3>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
+                <li>Envie segmento, região desejada, formato e o período pretendido.</li>
+                <li>Verificamos se a posição está livre no período e devolvemos a disponibilidade real.</li>
+                <li>
+                  Aprovada a peça (arquivo, link de destino e identificação de publicidade), a inserção entra
+                  na próxima publicação do portal.
+                </li>
+                <li>
+                  A reserva só é considerada confirmada por escrito, com período, formato e região definidos.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <LocalFAQSection title="Perguntas frequentes sobre anunciar no portal" faqs={faqPublicidade} />
+
         <section className="py-12 md:py-16">
+
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
               Transparência, cookies e privacidade

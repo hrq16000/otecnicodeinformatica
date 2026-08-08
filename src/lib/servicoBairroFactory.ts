@@ -301,7 +301,10 @@ export function buildServicoBairroData(
     .join("\n\n");
 
   return {
-    metaTitle: `${servico.nome} no ${bairro.nome} — Curitiba | Técnico em Curitiba`,
+    // Título curto (< 60 caracteres) para não truncar na SERP: o nome da marca
+    // já aparece no domínio e no og:site_name, e "Curitiba" só é acrescentado
+    // quando o nome do bairro ainda não o contém.
+    metaTitle: `${servico.nome} — ${bairro.nome}${bairro.nome.includes("Curitiba") ? "" : ", Curitiba"}`,
     metaDescription: `${servico.nome} no ${bairro.nome}, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.`,
     servico: servico.nome,
     servicoSlug: servico.slug,

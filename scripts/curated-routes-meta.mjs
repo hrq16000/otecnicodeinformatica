@@ -14,7 +14,7 @@ import { servicoFaqs } from "./lib/servico-faqs.mjs";
 const BASE_ROUTES = [
   {
     "path": "/",
-    "title": "Técnico em Curitiba | PC, Notebook, Wi-Fi e Suporte Empresarial",
+    "title": "Técnico em Curitiba | PC, Notebook, Wi-Fi e Empresas",
     "description": "Diagnóstico, manutenção e suporte para computadores, notebooks, redes e empresas em Curitiba. Escolha o serviço e continue pelo WhatsApp."
   },
   {
@@ -116,7 +116,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/servicos/montagem-de-pc",
-    "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
+    "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
     "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
     "blocos": [
       {
@@ -273,7 +273,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/sobre",
-    "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
+    "title": "Sobre o Técnico em Curitiba | PC, Notebook e Redes",
     "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
     "blocos": [
       {
@@ -313,7 +313,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/como-funciona",
-    "title": "Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo",
+    "title": "Como Funciona o Atendimento Técnico em Curitiba",
     "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
     "blocos": [
       {
@@ -419,27 +419,27 @@ const BASE_ROUTES = [
   },
   {
     "path": "/tecnico-informatica-sao-jose-pinhais",
-    "title": "Técnico em São José dos Pinhais para Notebook e PC | Técnico em Curitiba",
+    "title": "Técnico em São José dos Pinhais para Notebook e PC",
     "description": "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-pinhais",
-    "title": "Técnico em Pinhais para Notebook, PC e Redes | Técnico em Curitiba",
+    "title": "Técnico em Pinhais para Notebook, PC e Redes",
     "description": "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-colombo",
-    "title": "Técnico em Colombo para Notebook, PC e Informática | Técnico em Curitiba",
+    "title": "Técnico em Colombo para Notebook, PC e Informática",
     "description": "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-araucaria",
-    "title": "Técnico em Araucária para Notebook, PC e Empresas | Técnico em Curitiba",
+    "title": "Técnico em Araucária para Notebook, PC e Empresas",
     "description": "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-campo-largo",
-    "title": "Técnico em Campo Largo para Notebook, PC e Redes | Técnico em Curitiba",
+    "title": "Técnico em Campo Largo para Notebook, PC e Redes",
     "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
@@ -459,7 +459,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/bairros/agua-verde",
-    "title": "Técnico de Informática no Água Verde (Curitiba) | Notebook e PC",
+    "title": "Técnico de Informática no Água Verde | Notebook e PC",
     "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
   },
   {

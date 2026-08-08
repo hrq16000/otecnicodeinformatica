@@ -63,7 +63,8 @@ export function servicoBairroMeta(path) {
   if (!servico || !bairro) return null;
   return {
     path,
-    title: `${servico.nome} no ${bairro.nome} — Curitiba | Técnico em Curitiba`,
+    // Espelha src/lib/servicoBairroFactory.ts: título curto para não truncar na SERP.
+    title: `${servico.nome} — ${bairro.nome}${bairro.nome.includes("Curitiba") ? "" : ", Curitiba"}`,
     description: `${servico.nome} no ${bairro.nome}, em Curitiba. Triagem por WhatsApp, atendimento agendado e condições por escrito. Visita de inspeção a partir de R$ 99,99.`,
     h1: servico.h1Tpl.replace("${b}", bairro.nome),
     subtitulo: servico.subtitulo,

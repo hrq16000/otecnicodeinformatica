@@ -158,7 +158,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     nomeLocativo: "no Água Verde",
     cidade: "Curitiba",
     areaName: "Água Verde, Curitiba",
-    metaTitle: "Técnico de Informática no Água Verde (Curitiba) | Notebook e PC",
+    metaTitle: "Técnico de Informática no Água Verde | Notebook e PC",
     metaDescription:
       "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
     h1: "Técnico de Informática no Água Verde – Curitiba",

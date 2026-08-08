@@ -108,6 +108,40 @@ const StatusAnuncios = () => {
             )}
           </section>
 
+          {build && (
+            <section className="mb-10 rounded-2xl border border-border bg-muted/30 p-5">
+              <h2 className="text-lg font-heading font-bold text-foreground mb-3">
+                Validações executadas no último build
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                {build.passed}/{build.total} gates aprovados · {build.failed} falha(s) ·{" "}
+                {build.skipped} pulado(s) · concluído em{" "}
+                {new Date(build.finishedAt).toLocaleString("pt-BR")}
+              </p>
+              <ul className="space-y-2">
+                {build.gates.map((g) => (
+                  <li key={g.id} className="flex items-start gap-2 text-[15px]">
+                    {g.status === "ok" ? (
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
+                    ) : (
+                      <XCircle
+                        className={`mt-0.5 h-5 w-5 shrink-0 ${g.status === "fail" ? "text-destructive" : "text-muted-foreground"}`}
+                      />
+                    )}
+                    <span className="text-foreground/85">
+                      <strong className="text-foreground">{g.label}</strong> — {g.detail}{" "}
+                      <span className="text-muted-foreground">
+                        ({g.durationMs}ms · {new Date(g.checkedAt).toLocaleTimeString("pt-BR")})
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+
+
           <section className="mb-10">
             <h2 className="text-lg font-heading font-bold text-foreground mb-3">Documentos e arquivos</h2>
             <ul className="space-y-2 text-[15px]">

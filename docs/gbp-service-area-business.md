@@ -27,7 +27,7 @@ Não usar: "melhor", "nº 1", "mais avaliada", "todas as marcas", "todos os equi
 ## 2. Descrição (750 caracteres — copiar e colar)
 
 ```
-Assistência técnica em informática e eletrônica em Curitiba e Região Metropolitana, com atuação em informática desde 1998. Atendimento por agendamento: no endereço do cliente, remoto ou com coleta e entrega para reparo em bancada.
+Assistência técnica em informática e eletrônica em Curitiba e Região Metropolitana. Atendimento por agendamento: no endereço do cliente, remoto ou com coleta e entrega para reparo em bancada.
 
 Serviços: manutenção de computadores e notebooks, formatação e instalação de sistema, remoção de vírus, upgrade de SSD e memória, backup e recuperação de dados, redes e Wi-Fi, montagem de PC, suporte técnico para empresas, além de reparo de TVs, monitores e placas eletrônicas em nível de componente.
 
@@ -114,6 +114,6 @@ Resposta a review negativo: agradecer → identificar a OS internamente → resp
 
 ## 8. Limites de governança
 
-- "Atuação em informática desde 1998" é **declaração do responsável**, autorizada para uso comercial/GBP. Não apresentar como certificação, credenciamento ou documento auditado.
+- "Atuação em informática desde 1998" é **declaração do responsável** e está **bloqueada para uso externo** (Rodada 4H, Parte 25): não usar em GBP, citations, vídeo, mídia kit, release, parceiros ou schema externo. Permanece apenas no site, como já está.
 - Não publicar endereço, CEP ou CNPJ.
 - Não usar autorização de fabricante, número de clientes, nota média ou prêmio que não existam.

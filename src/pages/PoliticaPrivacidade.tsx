@@ -9,7 +9,7 @@ import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lu
 const CANONICAL = "https://tecnico.curitiba.br/politica-de-privacidade";
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
 const WHATSAPP = "5541997086380";
-const UPDATED = "24/06/2026";
+const UPDATED = "08/08/2026";
 
 const sections: { id: string; title: string; icon: typeof ShieldCheck; body: React.ReactNode }[] = [
   {
@@ -136,7 +136,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     body: (
       <ul className="list-disc pl-5 space-y-1.5">
         <li><strong>WhatsApp/Meta</strong> — para a conversa de atendimento.</li>
-        <li><strong>Google (Analytics e Ads)</strong> — métricas e otimização de anúncios.</li>
+        <li><strong>Google (Analytics, Ads e AdSense)</strong> — métricas, otimização e exibição de anúncios.</li>
         <li><strong>Provedor de hospedagem</strong> — armazenamento técnico do site.</li>
         <li>Não vendemos seus dados a terceiros.</li>
       </ul>
@@ -168,8 +168,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
           <li>Informações sobre compartilhamento.</li>
         </ul>
         <p className="mt-2">
-          Para exercer, envie o pedido pelo e-mail{" "}
-          o WhatsApp oficial, pelo botão de atendimento deste site.
+          Para exercer, envie o pedido pelo WhatsApp oficial, no botão de atendimento deste site.
           Respondemos em até 15 dias.
         </p>
       </>
@@ -183,7 +182,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
       <p>
         Aplicamos medidas técnicas e administrativas razoáveis para proteger seus dados
         (HTTPS, controle de acesso, backups). Nenhum sistema é 100% imune; comunique imediatamente
-        qualquer suspeita pelo nosso e-mail.
+        qualquer suspeita pelo WhatsApp oficial.
       </p>
     ),
   },

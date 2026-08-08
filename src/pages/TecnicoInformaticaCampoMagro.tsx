@@ -45,7 +45,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Campo Magro a domicílio?", answer: "Sim. Atendemos Campo Magro com visita agendada. O deslocamento pela PR-090 leva de 35 a 55 minutos." },
-  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local com valor transparente." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 99,99. Diagnóstico no local com valor transparente." },
   { question: "Atendem na zona rural?", answer: "Sim, desde que haja acesso por via pavimentada. Consulte pelo WhatsApp para confirmar cobertura no seu endereço." },
 ];
 

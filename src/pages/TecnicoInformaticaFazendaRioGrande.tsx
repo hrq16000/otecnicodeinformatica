@@ -75,7 +75,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Fazenda Rio Grande?",
-    answer: "A visita técnica começa em R$ 69,99. O diagnóstico é feito no local e apresentamos o valor antes de qualquer serviço.",
+    answer: "A visita técnica começa em R$ 99,99. O diagnóstico é feito no local e apresentamos o valor antes de qualquer serviço.",
   },
   {
     question: "Fazem coleta e entrega em Fazenda Rio Grande?",

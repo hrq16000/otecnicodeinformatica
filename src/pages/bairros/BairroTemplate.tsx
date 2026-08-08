@@ -203,7 +203,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3 reveal-text" data-reveal-delay="300">
                 <Zap className="h-5 w-5 text-accent" />
                 <p className="text-white/90 text-sm">
-                  Serviços a partir de <strong className="text-accent">R$ 69,99</strong> • Atendimento hoje mesmo
+                  Serviços a partir de <strong className="text-accent">R$ 99,99</strong> • Atendimento hoje mesmo
                 </p>
               </div>
             </div>
@@ -499,7 +499,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
                 { question: `Vocês atendem a domicílio no ${data.nome}?`, answer: `Sim. Fazemos atendimento a domicílio no ${data.nome} (${data.cidade}) com horário agendado. Levamos ferramentas e fazemos diagnóstico no local sempre que possível.` },
                 { question: `Quanto tempo demora para o técnico chegar no ${data.nome}?`, answer: `Em geral, ${data.tempoDeslocamento.toLowerCase()}. O tempo pode variar conforme trânsito e disponibilidade do dia.` },
                 { question: `Quais serviços vocês fazem no ${data.nome}?`, answer: `Os mais comuns são ${data.servicosDestaque.slice(0, 4).join(", ")}. Também realizamos diagnóstico e manutenção preventiva.` },
-                { question: `Qual o valor da visita técnica no ${data.nome}?`, answer: "A visita técnica começa em R$ 69,99. Após o diagnóstico, informamos o valor informado antes de executar qualquer serviço adicional." },
+                { question: `Qual o valor da visita técnica no ${data.nome}?`, answer: "A visita técnica começa em R$ 99,99. Após o diagnóstico, informamos o valor informado antes de executar qualquer serviço adicional." },
               ]}
             />
           )}

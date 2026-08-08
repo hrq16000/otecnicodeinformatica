@@ -15,7 +15,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "Quanto custa o serviço de técnico de informática em Curitiba?",
-    answer: "O valor da visita técnica começa em R$ 69,99. O valor do atendimento é feito no local e você só paga se aprovar o serviço. Aceitamos PIX, cartão de crédito, débito e dinheiro. Não cobramos taxa de deslocamento dentro de Curitiba e região metropolitana."
+    answer: "O valor da visita técnica começa em R$ 99,99. O valor do atendimento é feito no local e você só paga se aprovar o serviço. Aceitamos PIX, cartão de crédito, débito e dinheiro. Não cobramos taxa de deslocamento dentro de Curitiba e região metropolitana."
   },
   {
     question: "O técnico vai até minha casa ou empresa?",

@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Remoção de Vírus em São José dos Pinhais",
   subtitulo: "Seu computador lento ou com comportamento estranho? Removemos vírus, malware e spyware com técnico local em SJP.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Inclui diagnóstico, remoção completa, instalação de antivírus e atendimento a domicílio.",
   
   descricaoLonga: `Computadores infectados por vírus são um problema cada vez mais comum em São José dos Pinhais, 

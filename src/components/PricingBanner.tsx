@@ -5,7 +5,7 @@ export const PricingBanner = () => {
         <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">i</span>
         <div>
           <p className="text-foreground font-semibold mb-1">
-            Visita técnica a partir de <span className="text-accent">R$ 69,99</span>
+            Visita técnica a partir de <span className="text-accent">R$ 99,99</span>
           </p>
           <p className="text-muted-foreground text-sm">
             Valor estimado grátis pelo WhatsApp — rápido e sem compromisso.

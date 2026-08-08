@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Configuração de Redes Wi-Fi no CIC",
   subtitulo: "Internet sem travamentos em todo o ambiente. Configuração profissional de roteadores, mesh e cabeamento estruturado no CIC.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Configuração e otimização da rede. Equipamentos com valores à parte.",
   
   descricaoLonga: `Problemas com Wi-Fi no CIC? Sinal fraco, quedas constantes ou velocidade abaixo do contratado? 

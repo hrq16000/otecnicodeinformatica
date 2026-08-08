@@ -75,7 +75,7 @@ const localFaqs = [
   },
   {
     question: "Qual o valor da visita técnica em Almirante Tamandaré?",
-    answer: "A visita técnica começa em R$ 69,99. Fazemos diagnóstico no local e apresentamos o valor antes de qualquer execução.",
+    answer: "A visita técnica começa em R$ 99,99. Fazemos diagnóstico no local e apresentamos o valor antes de qualquer execução.",
   },
   {
     question: "Em quanto tempo conseguem atender?",

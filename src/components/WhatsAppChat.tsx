@@ -8,7 +8,7 @@ const WHATSAPP_NUMBER = "5541997086380";
 const presetMessages = [
   {
     label: "Visita técnica presencial",
-    message: "Olá, sou [NOME]. Preciso de atendimento técnico em [ENDEREÇO/BAIRRO]. Serviço: [SERVIÇO]. Preferência de data/hora: [DIA/HH]. Li e concordo com a política de preços (A partir de R$ 69,99)."
+    message: "Olá, sou [NOME]. Preciso de atendimento técnico em [ENDEREÇO/BAIRRO]. Serviço: [SERVIÇO]. Preferência de data/hora: [DIA/HH]. Li e concordo com a política de preços (A partir de R$ 99,99)."
   },
   {
     label: "Diagnóstico com coleta",

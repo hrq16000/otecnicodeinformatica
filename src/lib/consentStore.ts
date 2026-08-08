@@ -71,12 +71,42 @@ export function loadAdsScript() {
   document.head.appendChild(s);
 }
 
-export function saveConsent(choice: Pick<ConsentRecord, "analytics" | "ads">): ConsentRecord {
+/**
+ * Registra a decisão de consentimento no backend para auditoria (LGPD).
+ * Não envia dados pessoais: apenas o id temporário de sessão, as escolhas,
+ * a versão da política e a página de origem.
+ */
+async function recordConsent(record: ConsentRecord, source: string) {
+  if (typeof window === "undefined") return;
+  try {
+    let sessionId: string | null = null;
+    try {
+      sessionId = sessionStorage.getItem("funnel_session_id");
+    } catch {}
+    const { supabase } = await import("@/integrations/supabase/client");
+    await supabase.from("consent_events").insert({
+      session_id: sessionId,
+      analytics: record.analytics,
+      ads: record.ads,
+      policy_version: record.version,
+      path: window.location.pathname,
+      source,
+    });
+  } catch {
+    /* auditoria é best-effort: nunca bloqueia a navegação */
+  }
+}
+
+export function saveConsent(
+  choice: Pick<ConsentRecord, "analytics" | "ads">,
+  source = "banner",
+): ConsentRecord {
   const record: ConsentRecord = {
     ...choice,
     ts: new Date().toISOString(),
     version: CONSENT_VERSION,
   };
+  void recordConsent(record, source);
   try {
     localStorage.setItem(CONSENT_KEY_V2, JSON.stringify(record));
     // Mantém compatibilidade com o bootstrap inline do index.html.

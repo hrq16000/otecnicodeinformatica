@@ -43,6 +43,7 @@ const ArrumarPCServicoCidade = lazy(() => import("./pages/arrumar-pc/ArrumarPCSe
 const TermosCondicoes = lazy(() => import("./pages/TermosCondicoes"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const PoliticaCookiesAnuncios = lazy(() => import("./pages/PoliticaCookiesAnuncios"));
+const StatusAnuncios = lazy(() => import("./pages/StatusAnuncios"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
 const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
 const StatusOs = lazy(() => import("./pages/StatusOs"));
@@ -951,6 +952,7 @@ const App = () => (
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/politica-de-cookies-e-anuncios" element={<PoliticaCookiesAnuncios />} />
+            <Route path="/status-de-anuncios" element={<StatusAnuncios />} />
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
             <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />

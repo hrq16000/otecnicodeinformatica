@@ -8,7 +8,7 @@
  *   node scripts/check-ads-txt.mjs                # local (arquivos do repo)
  *   node scripts/check-ads-txt.mjs --url=https://tecnico.curitiba.br
  */
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, writeFileSync } from "node:fs";
 
 const PUBLISHER = process.env.ADSENSE_PUBLISHER_ID || "pub-3762170279587706";
 const EXPECTED_LINE = `google.com, ${PUBLISHER}, DIRECT, f08c47fec0942fa0`;
@@ -53,4 +53,24 @@ const failed = results.filter((r) => !r.ok);
 console.log(`\nRelatório AdSense — origem: ${base ?? "repositório local"}`);
 for (const r of results) console.log(` ${r.ok ? "✅" : "❌"} ${r.check} — ${r.detail}`);
 console.log(`\n${results.length - failed.length}/${results.length} verificações OK\n`);
+
+// Publica o relatório para a página pública de status.
+try {
+  writeFileSync(
+    "public/ads-status.json",
+    JSON.stringify(
+      {
+        checkedAt: new Date().toISOString(),
+        origin: base ?? "build",
+        publisherId: PUBLISHER,
+        ok: failed.length === 0,
+        results,
+      },
+      null,
+      2,
+    ),
+  );
+} catch {}
+
 if (failed.length) process.exit(1);
+

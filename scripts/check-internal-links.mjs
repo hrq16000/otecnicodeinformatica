@@ -16,7 +16,7 @@
  * Uso:  node scripts/check-internal-links.mjs [--strict]
  *       --strict → órfãs também derrubam o build.
  */
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
 
 const ROOT = process.cwd();
@@ -138,9 +138,18 @@ for (const { file, url } of sitemapUrls) {
 }
 
 const IGNORED_PREFIXES = ["/admin", "/api", "/assets", "/#"];
+// Arquivos estáticos servidos de public/ não são rotas do app.
+const STATIC_FILES = new Set(["/ads.txt", "/robots.txt", "/llms.txt", "/llms-full.txt"]);
+const isStaticAsset = (p) => STATIC_FILES.has(p) || /\.(xml|txt|json|pdf|webmanifest)$/i.test(p);
 for (const [path, sources] of internalLinks) {
   if (path.endsWith("/*")) continue;
   if (IGNORED_PREFIXES.some((p) => path.startsWith(p))) continue;
+  if (isStaticAsset(path)) {
+    if (!existsSync(`public${path}`)) {
+      errors.push(`arquivo estático ausente em public${path} (em ${[...sources].slice(0, 3).join(", ")})`);
+    }
+    continue;
+  }
   if (!isKnownRoute(path)) {
     errors.push(
       `link interno quebrado → ${path} (em ${[...sources].slice(0, 3).join(", ")})`,

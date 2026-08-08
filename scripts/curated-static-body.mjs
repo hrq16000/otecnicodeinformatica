@@ -393,6 +393,7 @@ export function linksFor(path) {
     case "hub-servicos":
       out = [
         ...siblings(SERVICOS, path, 3),
+        "/guia-tecnico-informatica",
         "/problemas/notebook-nao-liga",
         "/problemas/computador-lento",
         "/precos-e-politicas",

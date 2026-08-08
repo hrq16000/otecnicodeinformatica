@@ -787,7 +787,7 @@ const resumoItems = [
   { icon: MessageCircle, title: "Solicitação Rápida", text: "Chame via WhatsApp e explique seu problema em poucos minutos" },
   { icon: Search, title: "Diagnóstico Técnico", text: "Avaliação profissional no local ou remotamente" },
   { icon: Eye, title: "Execução Transparente", text: "Serviço realizado com sua aprovação e acompanhamento" },
-  { icon: Shield, title: "Garantia do Serviço", text: "Todo serviço inclui garantia por escrito de 30 a 90 dias" },
+  { icon: Shield, title: "Garantia do Serviço", text: "Todo serviço inclui garantia por escrito de 90 dias em mão de obra sobre o ponto reparado" },
 ];
 
 const etapas = [
@@ -847,7 +847,7 @@ const etapas = [
     items: [
       "Testes completos para garantir que tudo funciona perfeitamente",
       "Orientações de uso e prevenção para o futuro",
-      "Garantia por escrito de 30 a 90 dias conforme o serviço",
+      "Garantia por escrito de 90 dias em mão de obra sobre o serviço executado",
     ],
     detail: "Antes de finalizar, fazemos uma bateria de testes para validar o serviço. Você recebe orientações para manter o computador saudável e um termo de garantia. Se algo der errado dentro do prazo, voltamos sem custo adicional.",
   },
@@ -893,7 +893,7 @@ const confiancaItems = [
   { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
   { icon: Clock, title: "Atendimento Rápido — Conforme agenda", desc: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
   { icon: Eye, title: "Transparência Total nos Valores", desc: "Valor informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
-  { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 30 a 90 dias. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },
+  { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 90 dias em mão de obra sobre o ponto reparado. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },
 ];
 
 const faqItems = [
@@ -905,7 +905,7 @@ const faqItems = [
   { question: "O valor pode mudar depois da avaliação?", answer: "Sim, mas somente com sua aprovação prévia. Se durante o atendimento identificarmos algo que altere o escopo ou o valor, consultamos você antes de prosseguir. Nosso compromisso é transparência total — nenhum serviço adicional é executado sem sua autorização." },
   { question: "Precisa pagar antes do atendimento?", answer: "Não. O pagamento é feito após a conclusão do serviço. Aceitamos PIX (preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato, oferecemos pagamento faturado." },
   { question: "Em quanto tempo conseguem atender?", answer: "Na maioria dos casos, sim. Nosso objetivo é atender conforme a disponibilidade da agenda, dependendo da disponibilidade de agenda e da sua localização. Entre em contato via WhatsApp para verificar a disponibilidade." },
-  { question: "O serviço tem garantia?", answer: "Sim. Todos os serviços possuem garantia por escrito de 30 a 90 dias, dependendo do tipo de serviço. Peças possuem garantia do fabricante. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional." },
+  { question: "O serviço tem garantia?", answer: "Sim. Todos os serviços possuem garantia por escrito de 90 dias em mão de obra sobre o ponto reparado ou o serviço executado. Peças possuem garantia do fabricante. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional." },
   { question: "Faz atendimento remoto?", answer: "Sim. Para problemas de software, configurações e muitos outros casos, realizamos atendimento remoto seguro. O técnico acessa seu computador de forma controlada e resolve o problema enquanto você acompanha em tempo real. É rápido, prático e mais econômico." },
   { question: "Atende empresas?", answer: "Sim. Temos planos específicos para empresas de todos os portes. Oferecemos suporte contínuo, manutenção preventiva, gestão de TI e atendimento prioritário. Emitimos nota fiscal de serviço e de produto." },
   { question: "Quais formas de pagamento são aceitas?", answer: "Aceitamos PIX (forma preferencial), dinheiro, cartão de crédito e débito. Para empresas com contrato mensal, oferecemos pagamento faturado com boleto ou transferência." },

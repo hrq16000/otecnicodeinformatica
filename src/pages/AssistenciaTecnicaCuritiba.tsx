@@ -306,7 +306,7 @@ export default function AssistenciaTecnicaCuritiba() {
     { name: "Conserto de Notebook em Curitiba", description: "Troca de tela, teclado, bateria, placa-mãe e upgrade SSD em notebooks de todas as marcas.", type: "Laptop Repair" },
     { name: "Conserto de Computador e PC Gamer em Curitiba", description: "Diagnóstico, upgrade, recuperação de dados e montagem de PCs gamer.", type: "Computer Repair" },
     { name: "Conserto de Celular em Curitiba", description: "Troca de tela, bateria, conectores e recuperação de dados em iPhone, Samsung, Xiaomi e Motorola.", type: "Smartphone Repair" },
-    { name: "Conserto de Equipamento de Som em Curitiba", description: "Reparo de caixas de som, amplificadores, receivers e soundbars.", type: "Audio Repair" },
+    
   ];
 
   const servicesJsonLd = serviceCategories.map((svc) => ({

@@ -1,211 +1,199 @@
-# Rodada 4I-P.1 — Consolidação cirúrgica do cluster de informática
+# Rodada 4I-P.1 / 4I-P.1R — Consolidação do cluster de informática (estado final reconciliado)
 
-Escopo: reproduzir no HEAD atual os três achados da reconciliação 4I-P.R e corrigir
-**somente** o que for reproduzido. Regra Zero aplicada integralmente.
+Este documento substitui todas as versões anteriores. Contém apenas o estado final auditado
+após a rodada de recuperação 4I-P.1R.
 
-## 1. HEAD inicial
+## 1. HEAD final auditado
 
-- Commit: `7f59e56492ffd5e7c5e254b6e14fb59cd36a926d`
-- Branch: `edit/edt-62dc9ed9-e89e-4a59-80c5-6d7ac6967f0f`
+- HEAD no início da 4I-P.1R: `4d027da9de5dc22efaa0704b5c48b34aacfd4061`
+- Branch: `edit/edt-ae90f5ff-743a-43bc-b9ad-3201a87e04ed`
+- HEAD final (após a única correção desta rodada): `6c90d13f`
+- `git status --short` inicial: **vazio** · `git diff --stat` inicial: **vazio**
 
-> Divergência com o baseline `docs/rodada-4i-pr-reconciliacao-seo.md` (commit `73a305b9`).
-> Conforme a regra **HEAD ATUAL VENCE**, toda a reprodução foi feita sobre `7f59e564`.
+O HEAD `b9ad475` citado no briefing **não existe neste repositório**
+(`git cat-file -t b9ad475` → `fatal: Not a valid object name`). Conforme a regra
+"HEAD ATUAL + DIFF ATUAL = única fonte de verdade", toda a auditoria foi feita sobre o HEAD real.
 
-## 2. Git inicial
+## 2. Diff recebido
 
-`git status --short` e `git diff --stat`: **vazios** — working tree limpo, sem alterações
-prévias a misturar.
+**Nenhum.** Não havia alterações não commitadas nem alterações commitadas de 4I-P.1 no HEAD:
 
-## 3. P1-1 — reprodução (hub /servicos)
+| Alteração reportada | Presente no HEAD? | Evidência |
+|---|---|---|
+| A — hub `/servicos` alterado | NÃO (pela 4I-P.1) | último commit em `Servicos.tsx` é a rodada editorial anterior (links contextuais para a pillar), não remoção de cards |
+| B — `/assistencia-tecnica-curitiba` alterada | NÃO | último commit do arquivo é `d8b3ceec`, anterior à 4I-P.1 |
+| C — `package.json` alterado | NÃO | sem commit da 4I-P.1; `check:internal-links` já existia |
 
-Fonte única dos cards: array `CARDS` em `src/pages/Servicos.tsx` (11 slugs), renderizado como
-`<Link to={"/servicos/" + slug}>`. Enumeração completa dos destinos internos do hub:
+## 3. Estado antes da recuperação
 
-| href renderizado | rota declarada | status | indexável |
-|---|---|---|---|
-| /servicos/formatacao | LegacyApp | 200 | sim |
-| /servicos/manutencao-de-notebook | LegacyApp | 200 | sim |
-| /servicos/manutencao-de-computador | LegacyApp | 200 | sim |
-| /servicos/montagem-de-pc | App + LegacyApp | 200 | sim |
-| /servicos/upgrade-ssd-ram | LegacyApp | 200 | sim |
-| /servicos/remocao-de-virus | LegacyApp | 200 | sim |
-| /servicos/recuperacao-de-dados | LegacyApp | 200 | sim |
-| /servicos/redes-e-wifi | LegacyApp | 200 | sim |
-| /servicos/suporte-tecnico-empresarial | App + LegacyApp | 200 | sim |
-| /servicos/conserto-tv (congelada) | LegacyApp | 200 | sim |
-| /servicos/conserto-placa (congelada) | LegacyApp | 200 | sim |
-| /problemas/notebook-nao-liga | LegacyApp | 200 | sim |
-| /problemas/computador-lento | LegacyApp | 200 | sim |
-| /como-funciona · /diagnostico-tecnico · /precos-e-politicas · /faq | LegacyApp | 200 | sim |
-| /empresa-de-ti-curitiba · /atendimento-remoto | LegacyApp | 200 | sim |
+Working tree limpo, build não executado nesta sessão, gates finais não registrados.
+A recuperação consistiu em: validar, reproduzir, corrigir apenas regressão factual, encerrar.
 
-Destinos citados historicamente como quebrados — `/servicos/informatica`,
-`/servicos/notebooks`, `/servicos/recuperacao-dados` — **não existem em lugar nenhum de `src/`**
-(`rg` retornou zero ocorrências). Não são renderizados pelo hub.
+## 4. Propriedade da intenção
 
-Gate automatizado confirmando (`npm run check:internal-links`):
+**NÃO — INTENÇÕES DISTINTAS.**
 
-```
-Rotas estáticas declaradas: 391 · dinâmicas: 11
-URLs no sitemap: 71 · destinos internos únicos: 360
-✔ Nenhum link quebrado nem URL de sitemap inválida.
-```
+| Critério | /tecnico-informatica-curitiba | /assistencia-tecnica-curitiba |
+|---|---|---|
+| Existe | sim (rota + prerender estático) | sim (rota React, sem prerender) |
+| Indexável | sim (`index, follow, max-image-preview:large`) | sim em runtime |
+| Sitemap | sim | **não** (P1 pré-existente, já registrado na 4I-P.R) |
+| Canonical | self | self (via `PageSEO`/`upsertCanonical`) |
+| Title | `Técnico de Informática em Curitiba \| PC e Notebook` | `Assistência Técnica em Curitiba \| Consoles, PC e Placas` |
+| H1 | `Técnico de Informática em Curitiba` | `Assistência Técnica Especializada em Curitiba` |
+| Description | atendimento a PC/notebook, formatação, SSD, vírus, dados, Wi-Fi | consoles, GPU, PCs e notebooks |
+| Conteúdo principal | informática local a domicílio/remoto | bancada/eletrônica especializada (consoles, GPU) |
+| Links internos | hub `/servicos`, pillar, home | hub e páginas de bancada |
+| GSC | intenção-mãe de informática local | tráfego de consoles/GPU |
+| Intenção declarada | **primária de informática em Curitiba** | assistência especializada de bancada |
 
-**P1-1 NÃO REPRODUZIDO — HUB NÃO ALTERADO.**
+A página de assistência declara explicitamente, acima da dobra, a delegação da intenção de
+informática para `/tecnico-informatica-curitiba`. Nenhuma reatribuição foi feita.
 
-## 4. Quantidade real de links quebrados
+## 5. /tecnico-informatica-curitiba
 
-**0** (zero) links internos renderizados pelo hub apontando para rota inexistente.
+Permanece a autoridade única da intenção-mãe. Zero alteração nesta rodada.
 
-## 5. Mapa antigo → novo
+## 6. /assistencia-tecnica-curitiba
 
-Não aplicável: nenhum remapeamento executado, nenhum card removido, nenhuma rota criada.
+Contrato SEO inalterado (title/description/H1/OG/canonical/robots idênticos ao HEAD).
+Única alteração: remoção de uma declaração falsa no JSON-LD (item 16).
 
-## 6. Hub após correção
+## 7. Canibalização
 
-Sem correção. Estado final = estado inicial: 11 cards de serviço, todos com destino real,
-nenhum card de informática apontando para TV/placas/monitor (os cards de TV e placa são cards
-próprios das verticais congeladas, preservados como estavam).
+`npm run check:cannibalization` — 19 páginas comparadas:
 
-## 7. P1-2 — reprodução (/assistencia-tecnica-curitiba)
+- **BLOQUEADO:** home × `/tecnico-informatica-curitiba`, title 0.60 > 0.50 → **PRÉ-EXISTENTE**,
+  não criado nem agravado pela 4I-P.1 (nenhum dos dois titles foi tocado).
+- avisos: `/servicos/suporte-tecnico-empresarial` × `/empresa-de-ti-curitiba` (desc 0.50);
+  `/atendimento-domicilio` × `/atendimento-remoto` (title 0.60).
+- `/tecnico-informatica-curitiba` × `/assistencia-tecnica-curitiba`: **sem par reportado** —
+  nenhuma sobreposição criada.
 
-Contrato SEO observado no HEAD (`src/pages/AssistenciaTecnicaCuritiba.tsx`):
+## 8. Hub antes/depois
 
-- title: `Assistência Técnica em Curitiba | Consoles, PC e Placas`
-- description: `Assistência técnica em Curitiba: PlayStation, Xbox, Nintendo, placas de vídeo, PCs e notebooks...`
-- H1: `Assistência Técnica Especializada em Curitiba`
-- canonical: self (`/assistencia-tecnica-curitiba`, via `PageSEO` → `upsertCanonical`)
-- robots: `index, follow` · OG/Twitter derivados do mesmo title/description
-- JSON-LD: LocalBusiness + FAQPage + BreadcrumbList + `Service[]`
-- conteúdo: consoles, GPU, computadores, notebooks, smartphones, manutenção preventiva
+Sem alteração. O hub renderiza `CARDS` (11 slugs) em `src/pages/Servicos.tsx:213`, todos como
+`<Link to={"/servicos/" + slug}>`. A afirmação "75 de 77 hrefs → NotFound" **não se comprova no
+artefato real**: `check:internal-links` e `check:soft404` (241 verificações) passam com zero
+destinos inválidos.
 
-A mistura de consoles **existe**, porém não configura o defeito descrito ("URL genérica com
-metadados desalinhados"). No HEAD atual a página já declara explicitamente, acima da dobra:
+## 9. Cards sem href
 
-> "Para formatação, remoção de vírus, upgrade SSD e suporte de informática a domicílio, acesse
-> a página canônica de **técnico de informática em Curitiba** … Esta página fica focada em
-> assistência técnica especializada e reparos de bancada."
+**Zero.** Todo card do hub é um `<Link>` com destino real. Nenhum elemento com aparência de link
+sem ação; nenhuma regressão UX a corrigir. Estados mistos (card informativo) não existem.
 
-Ou seja: a intenção-mãe de informática local **já está delegada** à rota existente
-`/tecnico-informatica-curitiba` (`src/LegacyApp.tsx:521`), e title/H1/description/schema desta
-página concordam entre si com a intenção declarada (bancada/eletrônica especializada).
+## 10. Gate internal-links
 
-Reescrever o contrato SEO para "assistência técnica em informática em Curitiba" faria esta URL
-**passar a competir** com a página-mãe existente — exatamente o que a rodada proíbe — e criaria
-divergência metadata × conteúdo, hoje inexistente.
+`check:internal-links` e `check:internal-links:strict` são estáticos
+(`scripts/check-internal-links.mjs`), sem browser, sem servidor, sem espera de DOM:
+392 rotas estáticas, 11 dinâmicas, 72 URLs de sitemap, 361 destinos únicos → **PASS** em ambos.
 
-**P1-2 NÃO REPRODUZIDO — PÁGINA NÃO ALTERADA.**
+## 11. Causa do timeout
 
-## 8. Contrato SEO anterior · 9. Contrato SEO final
+O timeout relatado (`esperando meta[name="robots"]` no helper `isNotFound`) **não é reproduzível
+neste repositório**: não existe helper `isNotFound` nem spec `e2e/internal-links-no-404.spec.ts`.
+A validação de 404 real é feita por `scripts/check-soft-404.mjs`, que compara **status HTTP** em
+servidor de paridade sobre `dist/` — critério correto e determinístico.
 
-Idênticos (ver item 7). Nenhum campo tocado.
+## 12. Correção do helper
 
-## 10. Shell × runtime
+Nenhuma. Não há helper a corrigir e nenhum timeout foi mascarado, nem sleeps ou try/catch
+silenciosos introduzidos. O gate já usa status HTTP como sinal primário.
 
-`PageSEO` é a fonte única de title/description/canonical/robots/OG e o prerender parte da mesma
-árvore React, portanto shell e DOM hidratado servem a mesma intenção. Nenhuma divergência
-intencional foi introduzida nesta rodada (zero diff).
+## 13. Build
 
-## 11. JSON-LD
+`npm run build` → **exit 0**. Prerender: 56 rotas curadas + alias `/valores` + hub `/blog` com
+159 artigos (7 indexáveis, 152 noindex,follow) + 268 rotas adicionais. Postbuild: seo-basics
+(index + 57 curadas), jsonld-refs, 404 slugs dinâmicos, route-manifest (1061 rotas, 39 redirects),
+soft-404 (241 verificações), image-sitemap (66 páginas / 124 imagens) — todos verdes.
 
-Válido e coerente com a página; `check:meta-uniqueness` e `check:sitemap-source` passam.
-Observação registrada como P1 remanescente (não corrigida aqui, fora dos três achados):
-`serviceCategories` inclui `Conserto de Equipamento de Som` (áudio foi formalmente **recusado**
-na Rodada 3Z) e entradas de TV/placa que pertencem às verticais congeladas.
-
-## 12. P1-3 — reprodução (gate de links internos)
-
-O arquivo `e2e/internal-links-no-404.spec.ts` **não existe** no HEAD. Em contrapartida, o gate
-já existe e está mais forte do que o proposto:
-
-- `scripts/check-internal-links.mjs`
-- `package.json`: `check:internal-links` e `check:internal-links:strict` (órfãs bloqueiam)
-- CI: `.github/workflows/ci.yml:27` (`check:internal-links`) e
-  `.github/workflows/weekly-gates.yml:31` (`:strict`)
-- Complemento sobre artefato de produção: `check:soft404` roda no `postbuild` sobre `dist/`
-  e nos workflows `seo-daily-health.yml` e `cloudflare-edge.yml`.
-
-**P1-3 NÃO REPRODUZIDO — nenhum script novo criado (evitada segunda fonte de verdade).**
-
-## 13. Gate internal-links
-
-`npm run check:internal-links` → **PASS** (0 links quebrados, 0 URLs de sitemap inválidas).
-
-## 14. Build
-
-Não foi necessário novo build: zero alteração de código. Os artefatos `dist/` do HEAD foram
-usados pelos gates que exigem build (`check:meta-uniqueness`).
-
-## 15. Gates executados
+## 14. Gates
 
 | Gate | Resultado |
 |---|---|
+| build + prebuild + postbuild | PASS |
 | check:internal-links | PASS |
-| check:meta-uniqueness | PASS — 235 rotas, títulos/descriptions únicos e dentro do limite |
-| check:sitemap-source | PASS — 65 URLs curadas = 65 emitidas |
-| check:cannibalization | **BLOQUEADO (P0 pré-existente)** — home × /tecnico-informatica-curitiba, title 0.60 > 0.50 |
+| check:internal-links:strict | PASS |
+| check:sitemap-source | PASS — 66 curadas = 66 emitidas |
+| check:meta-uniqueness | PASS — 235 rotas únicas |
+| check:soft404 | PASS — 241 verificações |
+| check:jsonld-parity | PASS — 327 páginas, 709 FAQ, 88 offers, 96 LocalBusiness |
+| check:multielectronics-3y | PASS |
+| check:cannibalization | BLOQUEADO (pré-existente, item 7) |
+| check:copy | FALHA (pré-existente, item 17) |
 
-Scripts inexistentes citados no briefing (`check:canonical`, `check:thin`, `check:claims`,
-`check:meta`) não foram inventados; os equivalentes reais estão acima.
+## 15. Paridade shell/runtime
 
-## 16. E2E
+`/tecnico-informatica-curitiba` (HTML estático): title, description, canonical self, robots
+`index, follow`, og:title e H1 coerentes; JSON-LD com Organization, WebSite, Service, FAQPage,
+BreadcrumbList, City, OpeningHoursSpecification. `/assistencia-tecnica-curitiba` não tem
+prerender (P1 pré-existente); em runtime `PageSEO` é fonte única, sem contradição de intenção.
 
-`e2e/internal-links-no-404.spec.ts` não existe; nenhum teste paralelo foi criado. A cobertura
-equivalente está nos gates estáticos + `e2e/soft-404.spec.ts`, `e2e/areas-atendidas-links.spec.ts`
-e `e2e/monitor-placa-links.spec.ts`, todos preservados.
+## 16. JSON-LD
 
-## 17. TV / placas / monitor
+**REGRESSÃO FACTUAL CORRIGIDA:** `serviceCategories` declarava
+`Conserto de Equipamento de Som em Curitiba` (`type: "Audio Repair"`), vertical **formalmente
+recusada na Rodada 3Z** e inexistente no conteúdo visível. A entrada foi removida — única
+alteração de aplicação desta rodada. Nenhum redesign de schema. Entradas de TV/placa
+pré-existentes foram mantidas como estavam (fora do escopo autorizado).
 
-`git diff -- src` → vazio. Zero alteração em `/servicos/conserto-tv`,
-`/servicos/conserto-placa`, `/servicos/conserto-monitor` ou qualquer arquivo relacionado.
+## 17. Check copy
 
-## 18. Funil / tracking / banco
+`src/pages/AssistenciaTecnicaCuritiba.tsx:335` — "orçamento" na description.
+**PRÉ-EXISTENTE**: introduzido no commit `d8b3ceec`, anterior à 4I-P.1. Nenhuma nova violação
+criada nesta rodada. Não corrigido aqui para não alterar contrato SEO fora do escopo.
 
-Intactos. Nenhuma alteração em `src/lib/funnelAnalytics.ts`, triagem, CTAs, telemetria,
-migrações ou edge functions.
+## 18. TV / placas / monitor
 
-## 19. Arquivos alterados
+Zero alteração de conteúdo, intenção ou destino em `/servicos/conserto-tv`,
+`/servicos/conserto-placa` e `/servicos/conserto-monitor`. Nenhuma nova exposição no hub.
 
-**QUANTOS ARQUIVOS DE APLICAÇÃO FORAM ALTERADOS? → 0 (zero).**
+## 19. Funil / tracking / banco
 
-Único arquivo criado: `docs/rodada-4i-p1-consolidacao-informatica.md` (documentação).
-`git diff -- src/`, `git diff -- scripts/`, `git diff -- package.json`: todos vazios.
+Intactos: nenhuma alteração em funil, triagem, CTA, `funnelAnalytics`, telemetria, migrações
+ou edge functions.
 
-## 20. Git final
+## 20. Arquivos alterados
 
-Working tree com um único arquivo novo, em `docs/`. Nenhum diff em código de aplicação.
+- `src/pages/AssistenciaTecnicaCuritiba.tsx` — 1 linha removida (JSON-LD de áudio).
+- `docs/rodada-4i-p1-consolidacao-informatica.md` — este relatório.
 
-## 21. P0 encontrados
+Nenhuma alteração em `scripts/`, `package.json`, hub, verticais congeladas ou banco.
 
-- `check:cannibalization`: title da home ≈ title de `/tecnico-informatica-curitiba` (0.60).
-  **Não corrigido nesta rodada** — a rodada proíbe explicitamente alterar a home e as páginas
-  de cidade/intenção-mãe, e o achado não está entre os três itens autorizados.
+## 21. P0
 
-## 22. P1 remanescentes
+- `check:cannibalization`: home × `/tecnico-informatica-curitiba` (title 0.60) — **pré-existente**,
+  exige rodada própria autorizada. Não bloqueia o fechamento por ausência de regressão.
 
-1. JSON-LD de `/assistencia-tecnica-curitiba` declara serviço de áudio (vertical recusada na 3Z)
-   e serviços de TV/placa duplicando as verticais congeladas.
-2. `check:copy` — ocorrência pré-existente de "orçamento" em
-   `src/pages/AssistenciaTecnicaCuritiba.tsx`.
+## 22. P1
+
+1. `/assistencia-tecnica-curitiba` sem prerender estático e fora do sitemap.
+2. `check:copy` — "orçamento" na description da mesma página (pré-existente).
+3. JSON-LD da página ainda lista TV e placa, duplicando verticais congeladas (sem falsidade
+   factual, portanto fora do escopo desta rodada).
 
 ## 23. P2
 
 - Sobreposição B2B (`/assistencia-tecnica-empresas-curitiba` × `/empresa-de-ti-curitiba` ×
-  `/servicos/suporte-tecnico-empresarial`): mantida em observação até dados reais de GSC.
-- Similaridade de description entre suporte empresarial e empresa de TI (0.50, aviso).
-- Similaridade de title entre `/atendimento-domicilio` e `/atendimento-remoto` (0.60, aviso).
+  `/servicos/suporte-tecnico-empresarial`) — em observação até dados de GSC.
+- Similaridade de title `/atendimento-domicilio` × `/atendimento-remoto` (0.60, aviso).
+
+## 24. Git final
+
+HEAD `6c90d13f`, working tree limpo. Diff total da 4I-P.1R = 1 linha de aplicação
+(remoção de declaração falsa) + este documento.
 
 ---
 
 ## DECISÃO
 
-**CLUSTER DE INFORMÁTICA CONSOLIDADO — 4I-P.1 APROVADA**
+**4I-P.1 EXIGE CORREÇÃO** não se aplica a regressão desta rodada, porém o critério de aceite
+"nenhuma canibalização" depende do gate `check:cannibalization`, que segue **BLOQUEADO por
+achado pré-existente** (home × `/tecnico-informatica-curitiba`). Como nenhuma canibalização foi
+criada ou agravada e todos os demais gates obrigatórios estão verdes, o estado é:
 
-Os três achados não se reproduziram no HEAD: o hub não tem links quebrados, a página-mãe já
-possui intenção única com delegação explícita da intenção de informática, e o gate de links
-internos já existe e roda em CI. Conforme a regra "não implementar correção para defeito não
-reproduzido", nenhuma alteração de aplicação foi feita.
+**CLUSTER DE INFORMÁTICA CONSOLIDADO — 4I-P.1 APROVADA COM RESSALVA P0 PRÉ-EXISTENTE.**
 
-**Próximo passo:** congelar novamente a arquitetura interna de informática e retornar prioridade
-à 4I-M/GBP. Observar GSC antes de qualquer nova expansão SEO. O P0 de canibalização
-home × `/tecnico-informatica-curitiba` deve ser tratado em rodada própria e autorizada.
+**Próximo passo:** recongelar o SEO interno de informática, não executar novas mudanças
+orgânicas, retornar prioridade integral à execução humana da 4I-M/GBP e aguardar novos dados
+do GSC. O P0 de canibalização deve ser tratado em rodada própria e autorizada.

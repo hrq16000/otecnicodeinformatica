@@ -1,0 +1,75 @@
+{
+  "startedAt": "2026-08-08T01:44:58.335Z",
+  "finishedAt": "2026-08-08T01:44:59.636Z",
+  "ok": true,
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "gates": [
+    {
+      "id": "ads-txt",
+      "label": "ads.txt e metatag AdSense",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 70,
+      "checkedAt": "2026-08-08T01:44:58.406Z"
+    },
+    {
+      "id": "policy-jsonld",
+      "label": "JSON-LD das políticas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 68,
+      "checkedAt": "2026-08-08T01:44:58.474Z"
+    },
+    {
+      "id": "telemetry",
+      "label": "Transparência da telemetria",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 77,
+      "checkedAt": "2026-08-08T01:44:58.551Z"
+    },
+    {
+      "id": "missing-exports",
+      "label": "Exports ausentes nas rotas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 540,
+      "checkedAt": "2026-08-08T01:44:59.091Z"
+    },
+    {
+      "id": "internal-links",
+      "label": "Links internos sem 404",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 199,
+      "checkedAt": "2026-08-08T01:44:59.290Z"
+    },
+    {
+      "id": "sitemap-source",
+      "label": "Sitemap x fonte curada",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 109,
+      "checkedAt": "2026-08-08T01:44:59.399Z"
+    },
+    {
+      "id": "aggregate-rating",
+      "label": "Ausência de aggregateRating fabricado",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 127,
+      "checkedAt": "2026-08-08T01:44:59.526Z"
+    },
+    {
+      "id": "orphan-pages",
+      "label": "Páginas órfãs",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 110,
+      "checkedAt": "2026-08-08T01:44:59.636Z"
+    }
+  ]
+}

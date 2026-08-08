@@ -152,7 +152,7 @@ const ArrumarPC = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Arrumar PC online — Técnico de informática para todo Brasil | Técnico Curitiba"
+        title="Arrumar PC online | Técnico de informática no Brasil"
         description="Arrume seu PC ou notebook de qualquer lugar do Brasil via WhatsApp + acesso remoto. Formatação, vírus, lentidão, tela azul, Wi-Fi. atendimento sem compromisso, paga só se resolver."
         path="/arrumar-pc"
         breadcrumbs={[

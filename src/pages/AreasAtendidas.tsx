@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Building2, Home, Truck, MonitorSmartphone, MessageCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -128,6 +129,19 @@ const AreasAtendidas = () => {
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Áreas atendidas", path: PATH },
+        ]}
+      />
+      <LocalBusinessJsonLd
+        path={PATH}
+        description={DESCRIPTION}
+        services={[
+          { name: "Manutenção de notebook", url: "/servicos/manutencao-de-notebook" },
+          { name: "Manutenção de computador", url: "/servicos/manutencao-de-computador" },
+          { name: "Formatação e remoção de vírus", url: "/servicos/formatacao" },
+          { name: "Redes e Wi-Fi", url: "/servicos/redes-e-wifi" },
+          { name: "Conserto de monitor", url: "/servicos/conserto-monitor" },
+          { name: "Conserto de placa", url: "/servicos/conserto-placa" },
+          { name: "Suporte de TI para empresas", url: "/empresa-de-ti-curitiba" },
         ]}
       />
 

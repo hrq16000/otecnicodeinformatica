@@ -81,7 +81,7 @@ export const blogPostsContentBase: Record<string, BlogPostContent> = {
   },
 
   "como-escolher-uma-workstation": {
-    title: "Como escolher uma workstation: checklist de requisitos e limites",
+    title: "Como escolher uma workstation: checklist de requisitos",
     excerpt: "Checklist prático para dimensionar uma estação de trabalho profissional: o que levantar antes de comprar peça, o papel de cada componente e o que nenhuma configuração garante.",
     date: "2026-08-06",
     readTime: "11 min",
@@ -2509,7 +2509,7 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "backup-como-proteger-seus-arquivos": {
-    title: "Como evitar perder arquivos importantes: guia de backup preventivo",
+    title: "Como evitar perder arquivos: guia de backup preventivo",
     excerpt: "Backup não é copiar arquivos para outra pasta do mesmo disco. Entenda cópias local, externa e em nuvem, o teste de restauração e a diferença entre backup e recuperação.",
     date: "2024-01-02",
     readTime: "9 min",
@@ -2578,7 +2578,7 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "notebook-superaquecendo-o-que-fazer": {
-    title: "Computador ou notebook superaquecendo: sinais, prevenção e quando parar de usar",
+    title: "Notebook superaquecendo: sinais, prevenção e o que fazer",
     excerpt: "Aquecimento normal ou comportamento de risco? Veja o que observar no superaquecimento, o que fazer com segurança e os sinais que pedem desligar o equipamento na hora.",
     date: "2023-12-28",
     readTime: "9 min",
@@ -10317,7 +10317,7 @@ crontab -e
     ),
   },
   "como-melhorar-sinal-wifi-em-casa": {
-    title: "Wi-Fi caindo ou com sinal fraco: como diagnosticar antes de trocar tudo",
+    title: "Wi-Fi caindo ou com sinal fraco: como diagnosticar",
     excerpt: "Wi-Fi que cai, fica lento ou não chega em alguns cômodos? Veja como separar problema da rede local e falha da operadora, com verificações seguras antes de comprar equipamento.",
     date: "2026-04-29",
     readTime: "9 min",

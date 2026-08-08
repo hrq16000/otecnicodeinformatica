@@ -58,7 +58,7 @@ const Sobre = () => {
 
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte"
+        title="Sobre o Técnico em Curitiba | PC, Notebook e Redes"
         description="Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
         path="/sobre"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}

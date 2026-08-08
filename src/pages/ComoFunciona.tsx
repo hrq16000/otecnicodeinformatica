@@ -49,7 +49,7 @@ const WHATSAPP_NUMBER = "5541997086380";
 
 const ComoFunciona = () => {
   useEffect(() => {
-    document.title = "Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo";
+    document.title = "Como Funciona o Atendimento Técnico em Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -68,7 +68,7 @@ const ComoFunciona = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
+      <PageSEO title="Como Funciona o Atendimento Técnico em Curitiba" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
       {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"

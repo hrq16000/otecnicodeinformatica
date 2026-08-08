@@ -1321,7 +1321,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
   "montagem-de-pc": {
     path: "montagem-de-pc",
     trackingKey: "montagem-de-pc",
-    metaTitle: "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
+    metaTitle: "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
     metaDescription:
       "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
     serviceName: "Montagem de PC e PC Gamer",

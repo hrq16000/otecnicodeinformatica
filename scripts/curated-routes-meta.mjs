@@ -116,7 +116,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/servicos/montagem-de-pc",
-    "title": "Montagem de PC e PC Gamer em Curitiba | Compatibilidade e Testes",
+    "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
     "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
     "blocos": [
       {
@@ -273,7 +273,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/sobre",
-    "title": "Sobre o Técnico em Curitiba | Informática, PC, Notebook e Suporte",
+    "title": "Sobre o Técnico em Curitiba | PC, Notebook e Redes",
     "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
     "blocos": [
       {
@@ -313,7 +313,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/como-funciona",
-    "title": "Como Funciona o Atendimento Técnico em Curitiba | Passo a Passo Completo",
+    "title": "Como Funciona o Atendimento Técnico em Curitiba",
     "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
     "blocos": [
       {
@@ -459,7 +459,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/bairros/agua-verde",
-    "title": "Técnico de Informática no Água Verde (Curitiba) | Notebook e PC",
+    "title": "Técnico de Informática no Água Verde | Notebook e PC",
     "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
   },
   {

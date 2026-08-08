@@ -37,7 +37,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
   "batel": [
     {
       question: "Quanto custa formatação de notebook no Batel?",
-      answer: "A formatação de notebook no Batel parte de R$ 69,99. O valor final depende da complexidade: backup de dados, instalação de programas específicos, etc. atendimento sem compromisso."
+      answer: "A formatação de notebook no Batel parte de R$ 99,99. O valor final depende da complexidade: backup de dados, instalação de programas específicos, etc. atendimento sem compromisso."
     },
     {
       question: "Atendem residências e apartamentos no Batel?",
@@ -81,7 +81,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
     },
     {
       question: "Qual o valor do deslocamento até a CIC?",
-      answer: "O deslocamento já está incluso no valor da visita técnica (a partir de R$ 69,99). Não cobramos taxa extra para atendimento na CIC."
+      answer: "O deslocamento já está incluso no valor da visita técnica (a partir de R$ 99,99). Não cobramos taxa extra para atendimento na CIC."
     }
   ],
 
@@ -125,7 +125,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
     },
     {
       question: "Qual o valor do atendimento em Araucária?",
-      answer: "O valor é o mesmo: R$ 69,99. Não cobramos taxa extra de deslocamento para Araucária."
+      answer: "O valor é o mesmo: R$ 99,99. Não cobramos taxa extra de deslocamento para Araucária."
     },
     {
       question: "Atendem indústrias em Araucária?",
@@ -161,7 +161,7 @@ export const bairroFAQs: Record<string, GeoFAQ[]> = {
     },
     {
       question: "Fazem formatação em Pinhais?",
-      answer: "Claro! Formatação de computadores e notebooks é um dos serviços mais realizados em Pinhais. Valor a partir de R$ 69,99 com Windows, drivers e programas."
+      answer: "Claro! Formatação de computadores e notebooks é um dos serviços mais realizados em Pinhais. Valor a partir de R$ 99,99 com Windows, drivers e programas."
     }
   ]
 };

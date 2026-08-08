@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Configuração de Redes Wi-Fi em Santa Felicidade",
   subtitulo: "Wi-Fi rápido e estável para residências e restaurantes. Configuração profissional com cobertura total em Santa Felicidade.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Configuração e otimização de rede. Equipamentos à parte.",
   
   descricaoLonga: `Internet instável em Santa Felicidade? Região de casas grandes, restaurantes e comércios que 

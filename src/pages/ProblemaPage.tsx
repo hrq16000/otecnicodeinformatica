@@ -130,7 +130,7 @@ const ProblemaPage = () => {
     },
     {
       question: "O diagnóstico é gratuito?",
-      answer: "O diagnóstico profissional tem custo a partir de R$ 69,99, que é abatido do serviço caso aprovado. Isso garante uma análise precisa e evita reparos desnecessários.",
+      answer: "O diagnóstico profissional tem custo a partir de R$ 99,99, que é abatido do serviço caso aprovado. Isso garante uma análise precisa e evita reparos desnecessários.",
     },
     {
       question: "Vocês atendem em Curitiba e região metropolitana?",
@@ -399,7 +399,7 @@ const ProblemaPage = () => {
                 </figure>
                 <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 text-center">
                   <p className="text-sm text-muted-foreground mb-1">Diagnóstico profissional</p>
-                  <p className="text-2xl font-bold text-accent">a partir de R$ 69,99</p>
+                  <p className="text-2xl font-bold text-accent">a partir de R$ 99,99</p>
                   <p className="text-xs text-muted-foreground mt-1">Valor abatido do serviço caso aprovado</p>
                 </div>
               </div>

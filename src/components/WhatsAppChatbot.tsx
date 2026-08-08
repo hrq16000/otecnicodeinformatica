@@ -82,7 +82,7 @@ const chatFlow = {
 
   // ===== CLASSIFICAÇÃO POR COMPLEXIDADE =====
   triagem_lentidao: {
-    mensagem: "**Computador lento** — vamos classificar a complexidade:\n\n📋 **Perguntas rápidas:**\n• Há quanto tempo o equipamento está assim?\n• Qual a idade do equipamento?\n• Já tentou alguma solução?\n\n🟢 **Classificação provável: SIMPLES**\nGeralmente resolvido com limpeza de sistema, upgrade SSD ou otimização.\n\n**💰 Valores:**\n• Visita técnica: A partir de R$ 69,99\n• Upgrade SSD (mão de obra): a partir de R$ 80\n\nComo prefere ser atendido?",
+    mensagem: "**Computador lento** — vamos classificar a complexidade:\n\n📋 **Perguntas rápidas:**\n• Há quanto tempo o equipamento está assim?\n• Qual a idade do equipamento?\n• Já tentou alguma solução?\n\n🟢 **Classificação provável: SIMPLES**\nGeralmente resolvido com limpeza de sistema, upgrade SSD ou otimização.\n\n**💰 Valores:**\n• Visita técnica: A partir de R$ 99,99\n• Upgrade SSD (mão de obra): a partir de R$ 80\n\nComo prefere ser atendido?",
     opcoes: [
       { label: "Agendar visita presencial", proximo: "perguntas_obrigatorias" },
       { label: "Tentar suporte remoto", proximo: "suporte_remoto" },
@@ -90,7 +90,7 @@ const chatFlow = {
   },
 
   triagem_virus: {
-    mensagem: "**Vírus / Malware** — classificação:\n\n🟢 **Simples:** Pop-ups, lentidão, programas indesejados\n🟡 **Médio:** Ransomware, redirecionamento, dados bloqueados\n🔴 **Complexo:** Sistema comprometido, dados criptografados\n\n**💰 Valores:**\n• Remoção simples: a partir de R$ 69,99\n• Remoção complexa + proteção: a partir de R$ 180\n\n⚠️ **NUNCA pague resgate de ransomware.** Traga para diagnóstico.\n\nComo prefere ser atendido?",
+    mensagem: "**Vírus / Malware** — classificação:\n\n🟢 **Simples:** Pop-ups, lentidão, programas indesejados\n🟡 **Médio:** Ransomware, redirecionamento, dados bloqueados\n🔴 **Complexo:** Sistema comprometido, dados criptografados\n\n**💰 Valores:**\n• Remoção simples: a partir de R$ 99,99\n• Remoção complexa + proteção: a partir de R$ 180\n\n⚠️ **NUNCA pague resgate de ransomware.** Traga para diagnóstico.\n\nComo prefere ser atendido?",
     opcoes: [
       { label: "Agendar visita técnica", proximo: "perguntas_obrigatorias" },
       { label: "Tentar suporte remoto", proximo: "suporte_remoto" },
@@ -189,7 +189,7 @@ const chatFlow = {
 
   // ===== REDE/WIFI =====
   triagem_wifi: {
-    mensagem: "**Wi-Fi lento ou caindo:**\n\n🟢 **Na maioria das vezes é SIMPLES:**\nRoteador mal configurado, posição inadequada ou interferência.\n\n**💰 Configuração profissional:** a partir de R$ 69,99\n\nUma configuração profissional pode **dobrar a velocidade percebida** sem trocar o plano.",
+    mensagem: "**Wi-Fi lento ou caindo:**\n\n🟢 **Na maioria das vezes é SIMPLES:**\nRoteador mal configurado, posição inadequada ou interferência.\n\n**💰 Configuração profissional:** a partir de R$ 99,99\n\nUma configuração profissional pode **dobrar a velocidade percebida** sem trocar o plano.",
     opcoes: [
       { label: "Agendar configuração", proximo: "perguntas_obrigatorias" },
       { label: "Consultar pelo WhatsApp", proximo: "whatsapp_geral" },
@@ -212,7 +212,7 @@ const chatFlow = {
 
   // ===== PERGUNTAS OBRIGATÓRIAS =====
   perguntas_obrigatorias: {
-    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: A partir de R$ 69,99\n• Diagnóstico é pago e abatido do reparo\n• Não existe atendimento sem compromisso presencial",
+    mensagem: "Para agendar, precisamos de algumas informações:\n\n📋 **Dados obrigatórios:**\n• Seu nome completo\n• Endereço com bairro e cidade\n• Marca e modelo do equipamento\n• Idade do equipamento (novo/usado)\n• Descrição detalhada do problema\n• Preferência de data/horário\n\n📸 **Se possível, envie também:**\n• Fotos ou vídeo do problema\n• Histórico de reparos anteriores\n\n**💰 Política:**\n• Visita técnica: A partir de R$ 99,99\n• Diagnóstico é pago e abatido do reparo\n• Não existe atendimento sem compromisso presencial",
     opcoes: [
       { label: "Enviar dados pelo WhatsApp", proximo: "whatsapp_visita" },
     ]
@@ -241,7 +241,7 @@ const chatFlow = {
   },
 
   precos: {
-    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 69,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 99,99 a R$ 100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe atendimento sem compromisso presencial.** Estimativas via WhatsApp são aproximadas.",
+    mensagem: "**Tabela de Preços Resumida**\n\n💻 **Visita Técnica por Tempo:**\n• 15 min: R$ 69 | 30 min: R$ 99\n• 1h: R$ 169 | 2h: R$ 199 | 3h: R$ 369\n\n🔧 **Formatação:** a partir de R$ 150\n🛡️ **Remoção de Vírus:** a partir de R$ 99,99\n💾 **Upgrade SSD:** a partir de R$ 80 (mão de obra)\n📦 **Diagnóstico com Coleta:** R$ 99,99 a R$ 100 (abatido do reparo)\n🖥️ **Suporte Remoto:** a partir de R$ 79,99\n\n⚠️ **NÃO existe atendimento sem compromisso presencial.** Estimativas via WhatsApp são aproximadas.",
     opcoes: [
       { label: "Ver tabela completa no site", proximo: "link_precos" },
       { label: "Quero agendar um serviço", proximo: "tipo_equipamento" },
@@ -331,7 +331,7 @@ const chatFlow = {
   },
 
   // ===== ESTADOS FINAIS (REDIRECT WHATSAPP) =====
-  whatsapp_visita: { redirect: true, mensagem: "Olá! Gostaria de agendar uma visita técnica.\n\nNome: [NOME]\nEndereço: [ENDEREÇO/BAIRRO]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\nPreferência: [DATA/HORÁRIO]\n\nEstou ciente da política de preços (A partir de R$ 69,99)." },
+  whatsapp_visita: { redirect: true, mensagem: "Olá! Gostaria de agendar uma visita técnica.\n\nNome: [NOME]\nEndereço: [ENDEREÇO/BAIRRO]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nProblema: [DESCREVA]\nPreferência: [DATA/HORÁRIO]\n\nEstou ciente da política de preços (A partir de R$ 99,99)." },
   whatsapp_coleta: { redirect: true, mensagem: "Olá! Gostaria de agendar diagnóstico com coleta.\n\nNome: [NOME]\nEndereço: [ENDEREÇO COMPLETO + CEP]\nEquipamento: [MARCA/MODELO]\nIdade: [TEMPO DE USO]\nOrigem: [NOVO/USADO]\nProblema: [DESCREVA]\nHistórico: [REPAROS ANTERIORES?]\n\nEstou ciente da taxa de R$ 99,99 a R$ 100 (desistência) e pré-aprovado até R$300-400." },
   whatsapp_remoto: { redirect: true, mensagem: "Olá! Preciso de suporte remoto.\n\nNome: [NOME]\nEquipamento: [MARCA/MODELO]\nProblema: [DESCREVA]\n\nEstou disponível agora." },
   whatsapp_geral: { redirect: true, mensagem: "Olá! Vim pelo site e gostaria de mais informações sobre os serviços de informática." },

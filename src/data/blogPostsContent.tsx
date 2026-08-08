@@ -2775,7 +2775,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Dúvida Se Vale Reparar?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz o diagnóstico e dá a opinião honesta: se não compensa, a gente avisa. Diagnóstico a partir de R$ 69,99.</p>
+          <p className="text-muted-foreground mb-0">Nosso técnico faz o diagnóstico e dá a opinião honesta: se não compensa, a gente avisa. Diagnóstico a partir de R$ 99,99.</p>
         </div>
       </>
     ),
@@ -2845,7 +2845,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Diagnóstico Profissional</h3>
-          <p className="text-muted-foreground mb-0">A partir de R$ 69,99. Atendimento a domicílio em Curitiba e região metropolitana. Valor abatido em caso de aprovação do serviço.</p>
+          <p className="text-muted-foreground mb-0">A partir de R$ 99,99. Atendimento a domicílio em Curitiba e região metropolitana. Valor abatido em caso de aprovação do serviço.</p>
         </div>
       </>
     ),
@@ -3656,7 +3656,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Notebook Superaquecendo em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Fazemos a troca de pasta térmica com pasta premium no local. Diagnóstico + limpeza completa a partir de R$ 69,99. Atendimento em domicílio.</p>
+          <p className="text-muted-foreground mb-0">Fazemos a troca de pasta térmica com pasta premium no local. Diagnóstico + limpeza completa a partir de R$ 99,99. Atendimento em domicílio.</p>
         </div>
 
         <p><strong>Leia também:</strong></p>
@@ -3901,7 +3901,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Limpeza Profissional de Notebook em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Abrimos, limpamos e trocamos a pasta térmica do seu notebook no local. Sem necessidade de deixar o equipamento. A partir de R$ 69,99.</p>
+          <p className="text-muted-foreground mb-0">Abrimos, limpamos e trocamos a pasta térmica do seu notebook no local. Sem necessidade de deixar o equipamento. A partir de R$ 99,99.</p>
         </div>
       </>
     ),

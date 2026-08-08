@@ -97,7 +97,7 @@ const allServices: Service[] = [
     solution: "Técnico vai até você em Curitiba e região, com diagnóstico no local.",
     benefit: "Preço fechado antes de começar — você acompanha cada etapa.",
     link: "/atendimento-domicilio",
-    preco: "A partir de R$ 69,99",
+    preco: "A partir de R$ 99,99",
     tempo: "Hoje",
     waMessage: "Olá! Quero atendimento técnico a domicílio em Curitiba. Qual a disponibilidade hoje?",
     details: { what: "Diagnóstico no local e preço aprovado antes do serviço.", bring: "Bairro, ponto de referência e melhor horário." },

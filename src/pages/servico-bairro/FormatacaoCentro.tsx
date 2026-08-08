@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Formatação de Computador no Centro de Curitiba",
   subtitulo: "Reinstalação completa do Windows com backup de dados. Técnico especializado no Centro com Atendimento conforme a agenda.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio ou no local.",
   
   descricaoLonga: `Precisa formatar seu computador ou notebook no Centro de Curitiba? Nossa equipe técnica 

@@ -11,12 +11,12 @@ const TecnicoInformaticaCuritibaAds = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
   useEffect(() => {
-    document.title = "Técnico de Informática em Curitiba | Atendimento Hoje | R$ 69,99";
+    document.title = "Técnico de Informática em Curitiba | Atendimento Hoje | R$ 99,99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Técnico de informática em Curitiba com atendimento hoje. Serviços a partir de R$ 69,99. Formatação, remoção de vírus, conserto. Chame no WhatsApp!"
+        "Técnico de informática em Curitiba com atendimento hoje. Serviços a partir de R$ 99,99. Formatação, remoção de vírus, conserto. Chame no WhatsApp!"
       );
     }
     trackPageView("/ads/tecnico-informatica-curitiba", "Landing Ads Curitiba");
@@ -28,7 +28,7 @@ const TecnicoInformaticaCuritibaAds = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Técnico de Informática em Curitiba | Atendimento Hoje | R$ 69,99" description="Técnico de informática em Curitiba com atendimento hoje. Serviços a partir de R$ 69,99. Formatação, remoção de vírus, conserto. Chame no WhatsApp!" path="/tecnico-informatica-curitiba-ads" />
+      <PageSEO title="Técnico de Informática em Curitiba | Atendimento Hoje | R$ 99,99" description="Técnico de informática em Curitiba com atendimento hoje. Serviços a partir de R$ 99,99. Formatação, remoção de vírus, conserto. Chame no WhatsApp!" path="/tecnico-informatica-curitiba-ads" />
       {/* Minimal Header - No Navigation */}
       <header className="bg-primary py-4">
         <div className="container mx-auto text-center">
@@ -56,7 +56,7 @@ const TecnicoInformaticaCuritibaAds = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-white/90 mb-8">
-                Atendimento <strong>Hoje Mesmo</strong> • A Partir de <strong className="text-accent">R$ 69,99</strong>
+                Atendimento <strong>Hoje Mesmo</strong> • A Partir de <strong className="text-accent">R$ 99,99</strong>
               </p>
 
               <Button
@@ -165,7 +165,7 @@ const TecnicoInformaticaCuritibaAds = () => {
           <div className="container mx-auto">
             <div className="max-w-2xl mx-auto text-center">
               <p className="text-lg text-foreground">
-                💰 <strong>Serviços a partir de R$ 69,99</strong> (30 min de visita técnica)
+                💰 <strong>Serviços a partir de R$ 99,99</strong> (30 min de visita técnica)
               </p>
               <p className="text-sm text-muted-foreground mt-2">
                 Pagamento após o serviço • Aceitamos PIX, cartão e dinheiro

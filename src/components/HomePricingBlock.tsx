@@ -3,11 +3,11 @@ import { DollarSign, Check, ArrowRight, Sparkles, MapPin, Clock } from "lucide-r
 import { Button } from "@/components/ui/button";
 
 const precos = [
-  { servico: "Atendimento Flash (15min)", valor: "A partir de R$ 69,99" },
+  { servico: "Atendimento Flash (15min)", valor: "A partir de R$ 99,99" },
   { servico: "Visita Técnica (30min)", valor: "A partir de R$ 99,99" },
   { servico: "Formatação Completa (1h)", valor: "A partir de R$ 168,99" },
-  { servico: "Remoção de Vírus", valor: "A partir de R$ 69,99" },
-  { servico: "Suporte Remoto", valor: "A partir de R$ 69,99" },
+  { servico: "Remoção de Vírus", valor: "A partir de R$ 99,99" },
+  { servico: "Suporte Remoto", valor: "A partir de R$ 99,99" },
   { servico: "Hora Técnica Remota", valor: "A partir de R$ 79/hora" },
 ];
 
@@ -81,7 +81,7 @@ export const HomePricingBlock = () => {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {[
-                { regiao: "São José dos Pinhais", min: "R$ 69,99" },
+                { regiao: "São José dos Pinhais", min: "R$ 99,99" },
                 { regiao: "Curitiba Centro", min: "R$ 99,99" },
                 { regiao: "Pinhais / Colombo", min: "R$ 99,99" },
                 { regiao: "Araucária", min: "R$ 99,99" },

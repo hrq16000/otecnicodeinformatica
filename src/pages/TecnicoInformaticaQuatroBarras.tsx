@@ -45,7 +45,7 @@ const servicos = [
 
 const localFaqs = [
   { question: "Vocês atendem Quatro Barras a domicílio?", answer: "Sim. Atendemos Quatro Barras com visita agendada. Deslocamento de 40 a 55 minutos pela BR-116." },
-  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 69,99. Diagnóstico no local e valor antes de qualquer execução." },
+  { question: "Qual o valor da visita?", answer: "A visita técnica começa em R$ 99,99. Diagnóstico no local e valor antes de qualquer execução." },
   { question: "Fazem coleta e entrega?", answer: "Sim. Para serviços que exigem bancada, coletamos e devolvemos no seu endereço." },
 ];
 

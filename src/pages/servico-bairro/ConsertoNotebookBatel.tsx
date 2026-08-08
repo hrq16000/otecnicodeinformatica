@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Conserto de Notebook no Batel – Curitiba",
   subtitulo: "Reparo profissional para notebooks de todas as marcas. Atendimento premium no Batel com atendimento sem compromisso.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Visita técnica + diagnóstico. atendimento sem compromisso para moradores do Batel.",
   
   descricaoLonga: `O Batel é um dos bairros mais sofisticados de Curitiba, e nosso serviço de conserto 

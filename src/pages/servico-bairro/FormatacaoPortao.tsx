@@ -13,7 +13,7 @@ const data: ServicoBairroData = {
   h1: "Formatação de Computador no Portão",
   subtitulo: "Reinstalação completa do Windows com backup seguro. Técnico no Portão com atendimento rápido a domicílio.",
   
-  precoBase: "R$ 69,99",
+  precoBase: "R$ 99,99",
   precoDescricao: "Inclui Windows, drivers e programas essenciais. Atendimento a domicílio.",
   
   descricaoLonga: `Precisa formatar seu computador no Portão? Nossa equipe atende toda a região com rapidez e 

@@ -327,9 +327,9 @@ const AreasAtendidas = () => {
               <ul className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2">
                 {[
                   { to: "/servicos", label: "Todos os serviços" },
-                  { to: "/servicos/manutencao-notebook", label: "Manutenção de notebook" },
-                  { to: "/servicos/formatacao-computador", label: "Formatação de computador" },
-                  { to: "/servicos/redes-wifi", label: "Redes e Wi-Fi" },
+                  { to: "/servicos/manutencao-de-notebook", label: "Manutenção de notebook" },
+                  { to: "/servicos/formatacao", label: "Formatação de computador" },
+                  { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
                   { to: "/servicos/conserto-monitor", label: "Conserto de monitor" },
                   { to: "/servicos/conserto-placa", label: "Conserto de placa" },
                   { to: "/empresa-de-ti-curitiba", label: "Suporte de TI para empresas" },

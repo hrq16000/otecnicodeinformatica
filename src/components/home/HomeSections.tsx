@@ -44,13 +44,6 @@ const services = [
 ];
 
 
-const steps = [
-  "Você inicia o atendimento pelo WhatsApp.",
-  "A triagem entende o problema do equipamento.",
-  "O técnico avalia o melhor caminho para o reparo.",
-  "Você recebe orientação, prazo e condições.",
-  "O serviço é executado com transparência.",
-];
 
 const faqs = [
   { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O valor do atendimento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },

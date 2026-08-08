@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
       global: { headers: { Authorization: `Bearer ${token}` } },
     });
     const { data: userData, error: userErr } = await asUser.auth.getUser();
-    if (userErr || !userData?.user) return json({ error: "não autenticado" }, 401);
+    if (userErr || !userData?.user) return json({ error: "não autenticado", debug: { t: token.slice(0,3), tl: token.length, e: serviceKey.slice(0,3), el: serviceKey.length } }, 401);
 
     const { data: isAdmin, error: roleErr } = await admin.rpc("has_role", {
       _user_id: userData.user.id,

@@ -1,33 +1,33 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-
-const KEY = "lgpd_consent_v1";
-
-const updateConsent = (granted: boolean) => {
-  if (typeof window === "undefined" || !window.gtag) return;
-  const v = granted ? "granted" : "denied";
-  window.gtag("consent", "update", {
-    ad_storage: v,
-    ad_user_data: v,
-    ad_personalization: v,
-    analytics_storage: v,
-  });
-};
+import {
+  CONSENT_EVENT,
+  loadAdsScript,
+  readConsent,
+  applyConsent,
+  saveConsent,
+} from "@/lib/consentStore";
 
 export const ConsentBanner = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(KEY);
-      if (!saved) setOpen(true);
-    } catch {
+    const saved = readConsent();
+    if (!saved) {
       setOpen(true);
+    } else {
+      applyConsent(saved);
+      if (saved.ads) loadAdsScript();
     }
+    const onChange = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail === null) setOpen(true);
+    };
+    window.addEventListener(CONSENT_EVENT, onChange);
+    return () => window.removeEventListener(CONSENT_EVENT, onChange);
   }, []);
 
-  const decide = (granted: boolean) => {
-    try { localStorage.setItem(KEY, granted ? "granted" : "denied"); } catch {}
-    updateConsent(granted);
+  const decide = (analytics: boolean, ads: boolean) => {
+    saveConsent({ analytics, ads });
     setOpen(false);
   };
 
@@ -60,6 +60,18 @@ export const ConsentBanner = () => {
 
   if (!open) return null;
 
+  const secondaryBtn: React.CSSProperties = {
+    minHeight: 40,
+    padding: "0 12px",
+    borderRadius: 10,
+    border: "1px solid rgba(255,255,255,.25)",
+    background: "transparent",
+    color: "#fff",
+    fontWeight: 600,
+    cursor: "pointer",
+    fontSize: 13,
+  };
+
   return (
     // Rodada 3P — banner compacto ancorado à esquerda: não cobre o CTA
     // principal nem o botão flutuante de WhatsApp (canto inferior direito).
@@ -73,7 +85,7 @@ export const ConsentBanner = () => {
         left: "12px",
         right: "auto",
         bottom: "calc(12px + env(safe-area-inset-bottom, 0px))",
-        width: "min(320px, calc(100vw - 108px))",
+        width: "min(340px, calc(100vw - 108px))",
         background: "rgba(15,23,42,0.96)",
         color: "#fff",
         borderRadius: "12px",
@@ -87,31 +99,36 @@ export const ConsentBanner = () => {
       }}
     >
       <p style={{ margin: 0, marginBottom: 8 }}>
-        Usamos cookies para medir audiência.{" "}
-        <a href="/termos-e-condicoes" style={{ color: "#fdba74", textDecoration: "underline" }}>Saiba mais</a>.
+        Usamos cookies de análise e de anúncios. Registros técnicos próprios (sem cookies e sem
+        dados pessoais) continuam ativos para o funcionamento do site.{" "}
+        <a href="/politica-de-cookies-e-anuncios" style={{ color: "#7dd3fc", textDecoration: "underline" }}>
+          Política de Cookies e Anúncios
+        </a>
+        .
       </p>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-        <button
-          type="button"
-          onClick={() => decide(false)}
-          style={{
-            minHeight: 44, padding: "0 14px", borderRadius: 10,
-            border: "1px solid rgba(255,255,255,.25)", background: "transparent",
-            color: "#fff", fontWeight: 600, cursor: "pointer",
-          }}
-        >
+        <button type="button" onClick={() => decide(false, false)} style={secondaryBtn}>
           Recusar
+        </button>
+        <button type="button" onClick={() => decide(true, false)} style={secondaryBtn}>
+          Só análise
         </button>
         <button
           type="button"
-          onClick={() => decide(true)}
+          onClick={() => decide(true, true)}
           style={{
-            minHeight: 44, padding: "0 16px", borderRadius: 10,
-            border: "none", background: "hsl(145,65%,28%)",
-            color: "#fff", fontWeight: 700, cursor: "pointer", fontSize: 14,
+            minHeight: 44,
+            padding: "0 16px",
+            borderRadius: 10,
+            border: "none",
+            background: "hsl(145,65%,28%)",
+            color: "#fff",
+            fontWeight: 700,
+            cursor: "pointer",
+            fontSize: 14,
           }}
         >
-          Aceitar
+          Aceitar tudo
         </button>
       </div>
     </div>

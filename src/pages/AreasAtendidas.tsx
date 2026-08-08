@@ -7,16 +7,13 @@ import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { CIDADE_LIST, CURITIBA_BAIRROS, MODALIDADES_ATENDIMENTO } from "@/lib/cidadesData";
-import { CURITIBA_BAIRROS_NOMES, CIDADES_RMC_NOMES } from "@/lib/bairrosSelect";
+import { CIDADES_RMC_NOMES } from "@/lib/bairrosSelect";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const PATH = "/areas-atendidas";
 const TITLE = "Áreas Atendidas em Curitiba e Região | Bairros e Cidades";
 const DESCRIPTION =
   "Bairros de Curitiba e cidades da região metropolitana atendidas pelo Técnico em Curitiba, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.";
-
-/** Bairros com página local publicada — os demais são atendidos, mas sem página própria. */
-const BAIRROS_COM_PAGINA = new Set(CURITIBA_BAIRROS.map((b) => b.label));
 
 const REGIONAIS = [
   {
@@ -334,4 +331,3 @@ const AreasAtendidas = () => {
 };
 
 export default AreasAtendidas;
-export { BAIRROS_COM_PAGINA, CURITIBA_BAIRROS_NOMES };

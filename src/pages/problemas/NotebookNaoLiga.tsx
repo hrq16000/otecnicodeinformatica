@@ -183,6 +183,14 @@ const NotebookNaoLiga = () => {
       {/* Padrão visual de sintoma (piloto /problemas/computador-lento): confiança + sumário. */}
       <TrustStrip />
 
+      <RealImageSection
+        imageKey="notebookReparo"
+        secondaryImageKey="diagnostico"
+        layout="duo"
+        caption="Notebook aberto em bancada para verificação de energia"
+        secondaryCaption="Medição em placa para separar falha de energia de falha de imagem"
+      />
+
       <main className="container mx-auto max-w-4xl px-4 py-12">
         <PageTableOfContents
           className="mb-12"

@@ -1,6 +1,10 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
+import { AtendimentoFluxoSection } from "@/components/home/AtendimentoFluxoSection";
+import { BancadaRealSection } from "@/components/home/BancadaRealSection";
+import { RegioesCuritibaSection } from "@/components/home/RegioesCuritibaSection";
+
 import {
   VALOR_VISITA_LABEL,
   VALOR_PACOTE_2H_LABEL,

@@ -156,7 +156,8 @@
     "check:local-perf": "node scripts/check-local-perf.mjs",
     "check:local-seo": "npm run check:breadcrumb-schema && npm run check:price-schema && npm run check:faq-parity && npm run check:meta-uniqueness && npm run sitemap:images && npm run check:image-sitemap && npm run check:image-credits && npm run report:faq-parity",
     "report:build-gates": "node scripts/report-build-gates.mjs",
-    "check:media-assets": "node scripts/check-media-assets.mjs"
+    "check:media-assets": "node scripts/check-media-assets.mjs",
+    "check:telemetry-governance": "node scripts/check-telemetry-governance.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

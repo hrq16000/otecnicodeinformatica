@@ -20,6 +20,7 @@ import {
   trackFunnelBranch,
   trackFunnelBusinessProfile,
   setFunnelBranchContext,
+  trackWaClick,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { geoSuggestion } from "@/lib/geoContext";

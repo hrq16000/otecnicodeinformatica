@@ -17,6 +17,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick, trackFileDownload } from "@/lib/analytics";
+import { PropostaMidiaForm } from "@/components/anuncie/PropostaMidiaForm";
+
 
 
 const CTA_CLASS =

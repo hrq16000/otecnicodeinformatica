@@ -114,6 +114,14 @@ Deno.serve(async (req) => {
       return json({ action, dry_run: dryRun, result: data });
     }
 
+    if (action === "selftest") {
+      // Autoteste fail-closed: roda em transação descartável no banco
+      // (rollback interno garantido) — nenhum dado real é removido.
+      const { data, error } = await admin.rpc("telemetry_guard_selftest");
+      if (error) throw error;
+      return json({ action, result: data });
+    }
+
     return json({ error: `ação desconhecida: ${String(action)}` }, 400);
   } catch (e) {
     const message = (e as Error)?.message ?? String(e);

@@ -68,6 +68,73 @@ const naoOferecemos = [
   "Não fazemos permuta por links pagos sem marcação adequada.",
 ];
 
+const disponibilidade = [
+  {
+    regiao: "Curitiba — bairros com página publicada",
+    formatos: "Banner de topo, bloco no meio do conteúdo e destaque local",
+    situacao: "Aberto para reserva, uma marca por posição e por período",
+  },
+  {
+    regiao: "Curitiba — demais bairros",
+    formatos: "Banner de topo e bloco no meio do conteúdo (páginas gerais)",
+    situacao: "Sem destaque local dedicado enquanto a página não for publicada",
+  },
+  {
+    regiao: "Região metropolitana com página de cidade",
+    formatos: "Banner de topo, bloco no meio do conteúdo e destaque local",
+    situacao: "Aberto para reserva, sujeito a confirmação do período",
+  },
+  {
+    regiao: "Verticais técnicas (TV, placas, monitor, redes)",
+    formatos: "Patrocínio de seção e bloco no meio do conteúdo",
+    situacao: "Exclusividade por vertical durante o período contratado",
+  },
+  {
+    regiao: "Fora da área atendida pelo portal",
+    formatos: "Nenhum",
+    situacao: "Não comercializamos espaço em região que não atendemos",
+  },
+];
+
+const faqPublicidade = [
+  {
+    question: "Quais formatos de anúncio existem no portal?",
+    answer:
+      "Banner de topo antes da primeira rolagem, bloco entre seções do conteúdo, patrocínio de uma vertical técnica inteira e destaque local nas páginas de cidade ou bairro já publicadas. Não usamos pop-up, interstitial nem formato que bloqueie a leitura.",
+  },
+  {
+    question: "Qual é o prazo entre a aprovação e a peça no ar?",
+    answer:
+      "Depois que a peça, o link de destino e o período estiverem aprovados por escrito, a inserção entra na publicação seguinte do portal. Alterações de arte durante a campanha seguem o mesmo fluxo de aprovação.",
+  },
+  {
+    question: "Em quais territórios posso anunciar?",
+    answer:
+      "Em Curitiba e nas cidades da região metropolitana que já têm página publicada no portal. Não vendemos destaque local para regiões que o portal não atende nem para páginas que ainda não existem.",
+  },
+  {
+    question: "Como funciona a aprovação do anúncio?",
+    answer:
+      "Analisamos a peça antes da publicação: ela precisa ser identificável como publicidade, ter link de destino próprio e respeitar as políticas de publicidade dos parceiros de mídia. Campanhas incompatíveis com o público do portal podem ser recusadas.",
+  },
+  {
+    question: "Vocês vendem review, nota ou recomendação técnica?",
+    answer:
+      "Não. O conteúdo editorial e as recomendações técnicas não estão à venda em nenhum formato, e não publicamos avaliação ou depoimento que não seja real.",
+  },
+  {
+    question: "Vocês garantem número de cliques ou de leads?",
+    answer:
+      "Não. Entregamos espaço, período e posição contratados. As métricas de audiência são enviadas sob consulta, direto dos painéis oficiais, sem projeção inventada de resultado.",
+  },
+  {
+    question: "Como confirmo a data e a posição da minha campanha?",
+    answer:
+      "Envie segmento, região, formato e período pelo WhatsApp comercial ou pela página de contato. Confirmamos a disponibilidade real da posição no período e a reserva passa a valer quando estiver registrada por escrito.",
+  },
+];
+
+
 const Anuncie = () => {
   useEffect(() => {
     trackPageView("/anuncie", "Anuncie e patrocine");

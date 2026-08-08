@@ -115,10 +115,17 @@ const AreasAtendidas = () => {
     trackPageView(PATH, "Áreas atendidas");
   }, []);
 
-  const abrirFunil = (location: string) => {
+  const abrirFunil = (location: string, message?: string) => {
     trackCTAClick("whatsapp", location);
-    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location } }));
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location, message } }));
   };
+
+  const abrirFunilLocal = (escopo: "bairro" | "cidade", nome: string) =>
+    abrirFunil(
+      `areas_${escopo}_${nome.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`,
+      `Olá! Preciso de atendimento técnico em ${nome} (${escopo === "bairro" ? "Curitiba" : "região metropolitana de Curitiba"}). Pode confirmar agenda e a modalidade indicada para o meu caso?`,
+    );
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -223,7 +230,18 @@ const AreasAtendidas = () => {
                       );
                     })}
                   </ul>
+                  <button
+                    type="button"
+                    onClick={() => abrirFunilLocal("bairro", r.nome)}
+                    data-cta-location={`areas_regiao_${r.nome}`}
+                    data-wa-funnel="required"
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Falar sobre atendimento nesta região
+                  </button>
                 </article>
+
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
@@ -254,7 +272,18 @@ const AreasAtendidas = () => {
                   >
                     Ver atendimento em {c.cidade}
                   </Link>
+                  <button
+                    type="button"
+                    onClick={() => abrirFunilLocal("cidade", c.cidade)}
+                    data-cta-location={`areas_cidade_${c.slug}`}
+                    data-wa-funnel="required"
+                    className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Confirmar agenda em {c.cidade}
+                  </button>
                 </article>
+
               ))}
             </div>
             {cidadesSemPagina.length > 0 && (

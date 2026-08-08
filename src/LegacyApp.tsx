@@ -955,6 +955,8 @@ const App = () => (
             <Route path="/politica-de-cookies-e-anuncios" element={<PoliticaCookiesAnuncios />} />
             <Route path="/status-de-anuncios" element={<StatusAnuncios />} />
             <Route path="/anuncie" element={<Anuncie />} />
+            <Route path="/patrocinadores" element={<Navigate to="/anuncie" replace />} />
+
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
             <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />

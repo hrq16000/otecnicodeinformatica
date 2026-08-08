@@ -23,7 +23,7 @@ const json = (body: unknown, status = 200) =>
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
 
-type Action = "consolidate" | "purge_raw" | "purge_aggregates" | "status";
+type Action = "consolidate" | "purge_raw" | "purge_aggregates" | "status" | "selftest";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });

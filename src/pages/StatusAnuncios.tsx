@@ -17,9 +17,28 @@ type AdsStatus = {
   results: Array<{ check: string; ok: boolean; detail: string }>;
 };
 
+type BuildStatus = {
+  startedAt: string;
+  finishedAt: string;
+  ok: boolean;
+  total: number;
+  passed: number;
+  failed: number;
+  skipped: number;
+  gates: Array<{
+    id: string;
+    label: string;
+    status: "ok" | "fail" | "skipped";
+    detail: string;
+    durationMs: number;
+    checkedAt: string;
+  }>;
+};
+
 const StatusAnuncios = () => {
   useCanonical(CANONICAL);
   const [status, setStatus] = useState<AdsStatus | null>(null);
+  const [build, setBuild] = useState<BuildStatus | null>(null);
   const [erro, setErro] = useState(false);
 
   useEffect(() => {
@@ -27,7 +46,12 @@ const StatusAnuncios = () => {
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(setStatus)
       .catch(() => setErro(true));
+    fetch("/build-status.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then(setBuild)
+      .catch(() => setBuild(null));
   }, []);
+
 
   return (
     <>

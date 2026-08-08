@@ -435,6 +435,9 @@ const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 const NotebookNaoLiga = lazy(() => import("./pages/problemas/NotebookNaoLiga"));
 const ProblemaComputadorLento = lazy(() => import("./pages/problemas/ComputadorLento"));
 
+// Pillar do cluster de informática
+const GuiaTecnicoInformatica = lazy(() => import("./pages/GuiaTecnicoInformatica"));
+
 // Procedimentos Técnicos hub
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 

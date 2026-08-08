@@ -12,6 +12,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { RealImageSection } from "@/components/RealImageSection";
 import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
+import { ProximosPassos } from "@/components/informatica/ProximosPassos";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -462,6 +463,8 @@ const NotebookNaoLiga = () => {
             ))}
           </div>
         </section>
+
+        <ProximosPassos waHref={waHref} onCta={cta("proximos-passos")} ctaLocation="problema_proximos_passos" />
 
         <section className="rounded-xl bg-[hsl(var(--hero-bg))] p-8 text-center text-white">
           <h2 className="mb-3 text-2xl font-bold">Descreva o comportamento do seu notebook</h2>

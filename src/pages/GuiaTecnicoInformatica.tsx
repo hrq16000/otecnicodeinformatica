@@ -9,6 +9,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { RealImageSection } from "@/components/RealImageSection";
 import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
+import { ProximosPassos } from "@/components/informatica/ProximosPassos";
 import { Button } from "@/components/ui/button";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink } from "@/lib/siteConfig";
@@ -105,7 +106,28 @@ const FAQS = [
     answer:
       "Boa parte dos casos de sistema, configuração e programa é resolvida por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem bancada, com coleta e entrega quando necessário.",
   },
+  {
+    question: "Quanto tempo demora uma manutenção de computador ou notebook?",
+    answer:
+      "Depende da família da falha. Serviços de sistema, configuração e remoção de programas indesejados costumam ser resolvidos no mesmo atendimento. Reparo com troca de peça depende da disponibilidade do componente. Avaliação de disco com falha é o caso mais longo, porque a leitura é feita em etapas para não agravar o problema. O prazo estimado é informado na aprovação, antes da execução.",
+  },
+  {
+    question: "Trocar HD por SSD faz diferença em um computador antigo?",
+    answer:
+      "Na maior parte dos casos de lentidão em máquina com disco mecânico, é a intervenção de maior impacto percebido: o tempo de inicialização e a abertura de programas caem de forma evidente. O SSD não resolve travamento por superaquecimento nem falta de memória, então a avaliação verifica o conjunto antes de recomendar apenas a troca.",
+  },
+  {
+    question: "Notebook desligando sozinho é sempre superaquecimento?",
+    answer:
+      "Não. Desligamento repentino aparece em aquecimento, mas também em fonte ou carregador inadequado, bateria degradada, falha de alimentação da placa e até em erro de sistema. O que separa os cenários é o momento em que ocorre: sob esforço, logo ao ligar ou em qualquer situação. Essa informação é pedida já na triagem.",
+  },
+  {
+    question: "Preciso levar o equipamento ou o atendimento pode ser em casa?",
+    answer:
+      "Sistema, configuração e programas normalmente são resolvidos por atendimento remoto. Rede, impressora e verificação inicial funcionam bem em domicílio. Falha física, troca de peça, microssoldagem e recuperação de dados exigem bancada, com coleta e entrega quando necessário. A modalidade é definida na triagem, não depois.",
+  },
 ];
+
 
 const CORRELATOS = [
   {
@@ -468,6 +490,19 @@ const GuiaTecnicoInformatica = () => {
             ))}
           </div>
         </section>
+
+        <ProximosPassos
+          waHref={waHref}
+          onCta={cta("proximos-passos")}
+          ctaLocation="guia_proximos_passos"
+          atalhos={[
+            { to: "/problemas/notebook-nao-liga", label: "Notebook não liga" },
+            { to: "/problemas/computador-lento", label: "Computador lento" },
+            { to: "/precos-e-politicas", label: "Preços e políticas" },
+          ]}
+        />
+
+
 
         <section className="rounded-xl bg-[hsl(var(--hero-bg))] p-8 text-center text-white">
           <h2 className="mb-3 text-2xl font-bold">Descreva o seu caso para a triagem</h2>

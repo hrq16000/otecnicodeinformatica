@@ -9,6 +9,10 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Pillar do cluster de informática (Rodada 4I-P.2)
+  "/guia-tecnico-informatica": "2026-08-09",
+  "/problemas/notebook-nao-liga": "2026-08-09",
+  "/problemas/computador-lento": "2026-08-09",
   // Frente de monetização — página comercial de patrocínio
   "/anuncie": "2026-08-08",
   // Rodada 3L — montagem de PC e periféricos em rede

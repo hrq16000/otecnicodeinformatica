@@ -26,7 +26,7 @@ Regra do pacote: **campo sem fonte comprovada não é preenchido**. Onde falta d
 | Categorias secundárias | Ver Parte 5 | Catálogo GBP | Sim |
 | Serviços | Ver Parte 6 | Rotas publicadas no site | Sim |
 | Descrição | Ver Parte 7 | Redigida nesta rodada | Sim |
-| Horário de funcionamento | PENDENTE DE CONFIRMAÇÃO OPERACIONAL | — | Não |
+| Horário de funcionamento | Seg–Sex 08:30–18:00 · Sáb 09:00–13:00 · Dom fechado | Confirmação do responsável (Rodada 4I) | Sim |
 | Ano de início ("desde 1998") | Bloqueado para uso externo | Governança 4G / Parte 25 | Não |
 | Logo / capa | Existe logo da marca | Repositório | Sim |
 | Fotos da operação | Inexistentes até a captura | `src/lib/provasBancada.ts` (manifesto vazio) | Não |
@@ -201,17 +201,24 @@ número de clientes, prazo fixo sem lastro.
 ## PARTE 8 — Horários
 
 ```text
-HORÁRIO GBP = PENDENTE DE CONFIRMAÇÃO OPERACIONAL
+HORÁRIO GBP = APROVADO
 ```
 
-Nenhum horário oficial está registrado como fato no repositório. Não presumir 24h, não presumir
-comercial. Enquanto pendente, há duas condutas aceitáveis no perfil:
+Origem: confirmação escrita do responsável na Rodada 4I (2026-08-08).
 
-1. Deixar o campo em branco (o GBP permite perfil sem horário declarado); ou
-2. Preencher somente após o responsável confirmar por escrito faixa por dia.
+| Dia | Horário |
+| --- | --- |
+| Segunda-feira | 08:30–18:00 |
+| Terça-feira | 08:30–18:00 |
+| Quarta-feira | 08:30–18:00 |
+| Quinta-feira | 08:30–18:00 |
+| Sexta-feira | 08:30–18:00 |
+| Sábado | 09:00–13:00 |
+| Domingo | Fechado |
 
-Dado factual necessário para desbloquear: faixa de atendimento por dia da semana e política de
-sábado/feriado. Ao receber, registrar aqui com data e origem da confirmação.
+Proibido publicar no perfil: "24 horas", "atendimento imediato", "plantão", "sempre disponível".
+Feriado sem confirmação: não declarar horário especial. Alteração de faixa só com nova
+confirmação escrita registrada aqui, com data.
 
 ---
 

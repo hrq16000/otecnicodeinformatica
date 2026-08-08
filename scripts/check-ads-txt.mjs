@@ -53,4 +53,24 @@ const failed = results.filter((r) => !r.ok);
 console.log(`\nRelatório AdSense — origem: ${base ?? "repositório local"}`);
 for (const r of results) console.log(` ${r.ok ? "✅" : "❌"} ${r.check} — ${r.detail}`);
 console.log(`\n${results.length - failed.length}/${results.length} verificações OK\n`);
+
+// Publica o relatório para a página pública de status.
+try {
+  writeFileSync(
+    "public/ads-status.json",
+    JSON.stringify(
+      {
+        checkedAt: new Date().toISOString(),
+        origin: base ?? "build",
+        publisherId: PUBLISHER,
+        ok: failed.length === 0,
+        results,
+      },
+      null,
+      2,
+    ),
+  );
+} catch {}
+
 if (failed.length) process.exit(1);
+

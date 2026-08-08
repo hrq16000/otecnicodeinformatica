@@ -237,6 +237,14 @@ const ComputadorLento = () => {
       {/* Rodada 3P — piloto visual de sintoma: confiança + sumário da página. */}
       <TrustStrip />
 
+      <RealImageSection
+        imageKey="componentesSsd"
+        secondaryImageKey="bancadaTecnica"
+        layout="duo"
+        caption="SSD e memória: peças avaliadas quando a lentidão é de hardware"
+        secondaryCaption="Bancada usada para testes de disco, memória e temperatura"
+      />
+
       <main className="container mx-auto max-w-4xl px-4 py-12">
         <PageTableOfContents
           className="mb-12"

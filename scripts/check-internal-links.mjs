@@ -16,7 +16,7 @@
  * Uso:  node scripts/check-internal-links.mjs [--strict]
  *       --strict → órfãs também derrubam o build.
  */
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
 
 const ROOT = process.cwd();

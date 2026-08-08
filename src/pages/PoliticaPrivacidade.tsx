@@ -275,6 +275,10 @@ const faqs = [
     a: "Não. Recusar cookies de análise e anúncios não impede o atendimento nem o uso do site.",
   },
   {
+    q: "Se eu recusar os cookies opcionais, o site deixa de registrar qualquer coisa?",
+    a: "Não. As ferramentas externas (Google Analytics e Google Ads) ficam sem autorização para armazenamento não essencial, mas o site continua registrando dados técnicos mínimos das etapas do funil de atendimento — sem IP, nome, telefone ou texto livre. Veja a seção 5.2 desta política.",
+  },
+  {
     q: "Como solicito exclusão dos meus dados?",
     a: "Envie o pedido pelo WhatsApp oficial do site. Respondemos em até 15 dias, conforme a LGPD.",
   },

@@ -199,6 +199,40 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
   },
 ];
 
+const faqs = [
+  {
+    q: "Quais dados pessoais o site coleta?",
+    a: "Nome, telefone/WhatsApp, bairro e a descrição do problema — sempre informados por você ao solicitar atendimento. Dados de navegação são tratados conforme a Política de Cookies e Anúncios.",
+  },
+  {
+    q: "Preciso aceitar cookies para ser atendido?",
+    a: "Não. Recusar cookies de análise e anúncios não impede o atendimento nem o uso do site.",
+  },
+  {
+    q: "Como solicito exclusão dos meus dados?",
+    a: "Envie o pedido pelo WhatsApp oficial do site. Respondemos em até 15 dias, conforme a LGPD.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+    { "@type": "ListItem", position: 2, name: "Política de Privacidade", item: CANONICAL },
+  ],
+};
+
 const PoliticaPrivacidade = () => {
   useCanonical(CANONICAL);
 
@@ -214,6 +248,8 @@ const PoliticaPrivacidade = () => {
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="article" />
         <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <Header />
@@ -246,6 +282,27 @@ const PoliticaPrivacidade = () => {
               <div className="text-foreground/85 leading-relaxed text-[15px]">{body}</div>
             </section>
           ))}
+
+          <section id="faq" className="mb-10 scroll-mt-24">
+            <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3">
+              11. Perguntas frequentes
+            </h2>
+            <div className="space-y-4 text-foreground/85 leading-relaxed text-[15px]">
+              {faqs.map((f) => (
+                <div key={f.q}>
+                  <h3 className="font-bold text-foreground">{f.q}</h3>
+                  <p>{f.a}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-foreground/85 text-[15px]">
+              Detalhes sobre cookies, Consent Mode e anúncios estão na{" "}
+              <Link to="/politica-de-cookies-e-anuncios" className="text-accent underline">
+                Política de Cookies e Anúncios
+              </Link>
+              .
+            </p>
+          </section>
 
           <div className="mt-12 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
             <p className="text-foreground font-semibold mb-3">

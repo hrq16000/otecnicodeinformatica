@@ -51,6 +51,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
       { label: "Como avaliar", to: "/como-avaliar" },
       { label: "Termos e condições", to: "/termos-e-condicoes" },
       { label: "Política de privacidade", to: "/politica-de-privacidade" },
+      { label: "Política de cookies e anúncios", to: "/politica-de-cookies-e-anuncios" },
     ],
   },
 ];

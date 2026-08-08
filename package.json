@@ -6,7 +6,9 @@
   "scripts": {
     "predev": "node scripts/generate-sitemaps.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs",
+    "prebuild": "node scripts/generate-sitemaps.mjs && bun scripts/check-seo-basics.ts index.html && node scripts/check-security-findings-baseline.mjs && node scripts/check-ads-txt.mjs && node scripts/check-policy-jsonld.mjs",
+    "check:ads-txt": "node scripts/check-ads-txt.mjs",
+    "check:policy-jsonld": "node scripts/check-policy-jsonld.mjs",
     "build": "vite build",
     "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/check-soft-404.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",

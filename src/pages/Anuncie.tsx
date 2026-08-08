@@ -253,12 +253,25 @@ const Anuncie = () => {
                 <MessageCircle className="h-5 w-5" />
                 Solicitar mídia kit
               </a>
+              <a
+                href="/midia-kit-tecnico-curitiba.pdf"
+                target="_blank"
+                rel="noopener"
+                download
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border border-border px-6 text-base font-semibold text-foreground transition-colors hover:bg-secondary/60"
+                data-cta-location="anuncie_midia_kit_pdf"
+                onClick={() => trackCTAClick("download", "anuncie_midia_kit_pdf")}
+              >
+                <FileText className="h-5 w-5" />
+                Baixar mídia kit em PDF
+              </a>
               <Link
                 to="/servicos"
                 className="inline-flex min-h-14 items-center justify-center rounded-lg border border-border px-6 text-base font-semibold text-foreground transition-colors hover:bg-secondary/60"
               >
                 Ver páginas de serviço do portal
               </Link>
+
             </div>
           </div>
         </section>

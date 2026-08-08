@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Building2, Home, Truck, MonitorSmartphone, MessageCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";

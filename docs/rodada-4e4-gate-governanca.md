@@ -1,71 +1,66 @@
 # Rodada 4E.4 — Gate de entrada da governança de telemetria
 
-Status: **IMPLEMENTAÇÃO BLOQUEADA POR GATE DE GOVERNANÇA**
-Data: 2026-08-08 (UTC)
+Status: **GATE LIBERADO — GOVERNANÇA APROVADA PARA IMPLEMENTAÇÃO**
+Data da decisão: 07/08/2026 — Curitiba/PR (referência UTC 08/08/2026)
+Aprovado por: Henrique Rodrigues — responsável pelo projeto e pela decisão interna de governança
 
-> Formulário de decisão para desbloqueio: [`docs/rodada-4e4-gov-pacote-decisao.md`](./rodada-4e4-gov-pacote-decisao.md) (Rodada 4E.4-GOV).
-
+> Decisão interna de governança do projeto. Não constitui parecer jurídico profissional externo.
+> Formulário original de decisão: [`docs/rodada-4e4-gov-pacote-decisao.md`](./rodada-4e4-gov-pacote-decisao.md).
 
 ## 1. Verificação do gate de entrada
 
-| Item obrigatório | Evidência documental exigida | Situação |
+| Item obrigatório | Evidência documental | Situação |
 |---|---|---|
-| Hipótese legal aprovada pelo responsável/jurídico | decisão assinada/registrada | **AUSENTE** |
-| Prazo de retenção raw aprovado (`RAW_RETENTION_DAYS`) | decisão registrada | **AUSENTE** |
-| Teste de balanceamento aprovado (se legítimo interesse) | documento interno aprovado | **AUSENTE** |
-| Política de agregados aprovada (dimensões, supressão) | decisão registrada | **AUSENTE** |
+| Hipótese legal aprovada | legítimo interesse (art. 7º, IX) — [teste de balanceamento](./rodada-4e4-teste-balanceamento.md) | **APROVADO** |
+| Prazo de retenção raw (`RAW_RETENTION_DAYS`) | 90 dias — decisão 2 | **APROVADO** |
+| Teste de balanceamento | [`docs/rodada-4e4-teste-balanceamento.md`](./rodada-4e4-teste-balanceamento.md) | **APROVADO COM CONDIÇÕES** |
+| Política de agregados | dimensões fechadas, k = 5, guarda de 24 meses | **APROVADA** |
 
-Nenhum dos quatro itens existe no repositório. A Rodada 4E.3 foi executada em
-modo somente leitura e encerrou com o status "governança pronta para decisão
-humana/jurídica" — recomendação técnica, não aprovação.
+Parâmetros fechados da implementação:
 
-Parâmetros apenas **propostos** (não aprovados):
-- `RAW_RETENTION_DAYS = 90`
-- `LEGAL_BASIS_CANDIDATE = legítimo interesse — art. 7º, IX`
+```text
+LEGAL_BASIS = LEGITIMATE_INTEREST
+RAW_RETENTION_DAYS = 90
+AGGREGATE_RETENTION_MONTHS = 24
+LOW_COUNT_THRESHOLD = 5
+PERSIST_VIEWPORT_WIDTH = false
+GOVERNANCE_REVIEW_MONTHS = 12
+```
 
-## 2. Estado do repositório
+## 2. O que foi implementado nesta reabertura
 
-- `git status --short`: limpo (nenhuma alteração).
-- `git diff --stat`: vazio.
-- Nenhum arquivo de produto, banco, tracking, painel ou política pública foi
-  modificado nesta rodada.
+| Fase | Entrega | Situação |
+|---|---|---|
+| 2 — Minimização | `viewport_width` deixou de ser persistido em `click_events` (`src/lib/funnelAnalytics.ts`); `viewport_bucket` mantido; `bairro`/`cidade` mantidos para reavaliação | Concluída |
+| 3 — Agregados | Tabela `click_events_daily` com as dimensões aprovadas, sem `session_id`, sem `viewport_width` e sem timestamp fino | Concluída |
+| 4 — Consolidação | `consolidate_click_events(p_until)` com generalização progressiva e supressão de células com menos de 5 ocorrências | Concluída |
+| 5 — Expurgo | `purge_click_events_raw(p_dry_run)` fail-closed: bloqueia dias não consolidados e exige dry-run prévio; `purge_click_events_aggregates()` aplica os 24 meses | Concluída |
+| 8 — Auditoria | `telemetry_retention_runs` registra modo, período, quantidades e resultado de cada execução | Concluída |
+| 9 — ROPA | [`docs/ropa-telemetria-click-events.md`](./ropa-telemetria-click-events.md) | Concluída |
+| 10 — Balanceamento | [`docs/rodada-4e4-teste-balanceamento.md`](./rodada-4e4-teste-balanceamento.md) | Concluída |
+| 12 — Gate | `npm run check:telemetry-governance` | Concluída |
 
-## 3. Consequências (regra do gate)
+Pendências deliberadas (fora do escopo autorizado desta reabertura):
 
-Não executados, por decisão do próprio gate:
-- Fase 2 (minimização de `viewport_width`, `bairro`/`cidade`)
-- Fase 3 (tabela de agregados)
-- Fase 4 (consolidação)
-- Fase 5 (expurgo) e Fase 6 (agendamento)
-- Fase 7 (fronteira raw/agregado nos painéis)
-- Fase 9 (ROPA) e Fase 10 (teste de balanceamento)
-- Fase 11 (atualização da política pública)
-- Fase 12 (gate `check:telemetry-retention-governance`)
-- Dry-run e testes de retenção
+- Fase 6 — agendamento automático do ciclo (só após o primeiro dry-run avaliado).
+- Fase 7 — fronteira raw/agregado nos painéis (depende de agregado com volume útil).
+- Fase 11 — atualização do prazo na política pública (executar junto do primeiro
+  ciclo real de expurgo, para o texto público refletir prática já vigente).
+- Condição 7 do balanceamento — revisão após o primeiro baseline útil.
 
-Preservados sem alteração: funil, CTAs, SEO, páginas comerciais, T1
-(2026-08-08T00:05:45Z), exclusão de QA, Consent Mode, eventos existentes, RLS e
-grants públicos. A política pública mantém retenção "em definição pela
-governança interna" — factualmente correta enquanto não houver decisão.
+## 3. Invariantes preservados
 
-## 4. Itens faltantes para desbloquear
+Zero alteração no funil comercial, CTAs, preços, garantia, SEO, interlinking,
+páginas e rotas. Zero nova finalidade. Zero ampliação de grants públicos:
+`anon` segue apenas inserindo eventos, leitura dos agregados é restrita a
+administradores via RLS e as rotinas de retenção só executam pelo backend.
+Marco T1 (2026-08-08T00:05:45Z) inalterado; exclusão de tráfego QA e
+Consent Mode v2 inalterados.
 
-1. Decisão registrada da hipótese legal aplicável ao tratamento de
-   `click_events` (legítimo interesse ou outra), com responsável e data.
-2. Prazo de retenção raw aprovado em dias (valor único, para uso no código e na
-   política pública).
-3. Se legítimo interesse: teste de balanceamento aprovado (finalidade,
-   necessidade, expectativa do titular, impacto, salvaguardas, revisão).
-4. Política de agregados aprovada: dimensões permitidas, regra de supressão ou
-   generalização de baixa frequência e prazo de guarda dos agregados.
+## 4. Decisão
 
-Ao receber os quatro itens, a Rodada 4E.4 pode ser reaberta e executada
-integralmente, com o prazo do código igual ao prazo aprovado.
+**GOVERNANÇA APROVADA — IMPLEMENTAÇÃO EXECUTADA CONFORME OS PARÂMETROS FECHADOS**
 
-## 5. Decisão
-
-**IMPLEMENTAÇÃO BLOQUEADA POR GATE DE GOVERNANÇA**
-
-Próximo passo: não executar expurgo nem alterar política pública. Resolver
-exclusivamente os itens de governança faltantes acima e permanecer no regime de
-observação comercial pós-4D.1.
+Próximo passo: executar o dry-run de expurgo (`purge_click_events_raw(true)`)
+quando existirem eventos com mais de 90 dias, avaliar o resultado registrado em
+`telemetry_retention_runs` e só então autorizar o primeiro expurgo real.

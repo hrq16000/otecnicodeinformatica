@@ -92,6 +92,57 @@ export type Database = {
         }
         Relationships: []
       }
+      click_events_daily: {
+        Row: {
+          attribution_channel: string | null
+          consolidated_at: string
+          cta_location: string | null
+          customer_type: string | null
+          event_count: number
+          event_date: string
+          event_type: string
+          funnel_stage: string | null
+          generalized: boolean
+          id: string
+          path: string | null
+          route_type: string | null
+          servico: string | null
+          viewport_bucket: string | null
+        }
+        Insert: {
+          attribution_channel?: string | null
+          consolidated_at?: string
+          cta_location?: string | null
+          customer_type?: string | null
+          event_count: number
+          event_date: string
+          event_type: string
+          funnel_stage?: string | null
+          generalized?: boolean
+          id?: string
+          path?: string | null
+          route_type?: string | null
+          servico?: string | null
+          viewport_bucket?: string | null
+        }
+        Update: {
+          attribution_channel?: string | null
+          consolidated_at?: string
+          cta_location?: string | null
+          customer_type?: string | null
+          event_count?: number
+          event_date?: string
+          event_type?: string
+          funnel_stage?: string | null
+          generalized?: boolean
+          id?: string
+          path?: string | null
+          route_type?: string | null
+          servico?: string | null
+          viewport_bucket?: string | null
+        }
+        Relationships: []
+      }
       consent_events: {
         Row: {
           ads: boolean
@@ -440,6 +491,51 @@ export type Database = {
         }
         Relationships: []
       }
+      telemetry_retention_runs: {
+        Row: {
+          created_at: string
+          details: Json
+          dry_run: boolean
+          id: string
+          outcome: string
+          period_end: string | null
+          period_start: string | null
+          rows_deleted: number
+          rows_scanned: number
+          rows_suppressed: number
+          rows_written: number
+          run_type: string
+        }
+        Insert: {
+          created_at?: string
+          details?: Json
+          dry_run?: boolean
+          id?: string
+          outcome: string
+          period_end?: string | null
+          period_start?: string | null
+          rows_deleted?: number
+          rows_scanned?: number
+          rows_suppressed?: number
+          rows_written?: number
+          run_type: string
+        }
+        Update: {
+          created_at?: string
+          details?: Json
+          dry_run?: boolean
+          id?: string
+          outcome?: string
+          period_end?: string | null
+          period_start?: string | null
+          rows_deleted?: number
+          rows_scanned?: number
+          rows_suppressed?: number
+          rows_written?: number
+          run_type?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -466,12 +562,35 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      consolidate_click_events: {
+        Args: { p_until?: string }
+        Returns: {
+          rows_scanned: number
+          rows_suppressed: number
+          rows_written: number
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      purge_click_events_aggregates: {
+        Args: { p_dry_run?: boolean }
+        Returns: {
+          candidate_rows: number
+          deleted_rows: number
+        }[]
+      }
+      purge_click_events_raw: {
+        Args: { p_dry_run?: boolean }
+        Returns: {
+          blocked_days: number
+          candidate_rows: number
+          deleted_rows: number
+        }[]
       }
     }
     Enums: {

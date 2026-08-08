@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { RealImageSection } from "@/components/RealImageSection";
+import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 
 import { Button } from "@/components/ui/button";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";

@@ -146,13 +146,29 @@ export const Footer = () => {
             <nav key={col.title} aria-label={col.title}>
               <h3 className="mb-3 text-sm font-bold text-white">{col.title}</h3>
               <ul className="space-y-2">
-                {col.links.map((l) => (
-                  <li key={l.to}>
-                    <a href={l.to} className={linkClass}>
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const isPdf = l.to.endsWith(".pdf");
+                  return (
+                    <li key={l.to}>
+                      <a
+                        href={l.to}
+                        className={linkClass}
+                        {...(isPdf
+                          ? {
+                              target: "_blank",
+                              rel: "noopener",
+                              "data-cta-location": "footer_midia_kit_pdf",
+                              onClick: () =>
+                                trackFileDownload(l.to.replace(/^\//, ""), "footer_midia_kit_pdf"),
+                            }
+                          : {})}
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  );
+                })}
+
               </ul>
             </nav>
           ))}

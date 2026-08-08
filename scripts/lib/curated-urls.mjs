@@ -37,7 +37,11 @@ export const MAIN = [
 ];
 
 /** Hubs de SEO temáticos (entram no sitemap-main). */
-export const HUBS = [{ path: "/empresa-de-ti-curitiba", changefreq: "weekly", priority: "0.8" }];
+export const HUBS = [
+  { path: "/empresa-de-ti-curitiba", changefreq: "weekly", priority: "0.8" },
+  // Pillar informacional do cluster de informática (apoio das páginas comerciais).
+  { path: "/guia-tecnico-informatica", changefreq: "monthly", priority: "0.7" },
+];
 
 /** Serviços essenciais — slugs canônicos (nunca variações com redirect). */
 export const SERVICOS = [

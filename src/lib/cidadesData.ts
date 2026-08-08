@@ -123,7 +123,7 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "sao-jose-pinhais",
     cidade: "São José dos Pinhais",
     areaName: "São José dos Pinhais",
-    metaTitle: "Técnico em São José dos Pinhais para Notebook e PC | Técnico em Curitiba",
+    metaTitle: "Técnico em São José dos Pinhais para Notebook e PC",
     metaDescription:
       "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em São José dos Pinhais",
@@ -165,7 +165,7 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "pinhais",
     cidade: "Pinhais",
     areaName: "Pinhais",
-    metaTitle: "Técnico em Pinhais para Notebook, PC e Redes | Técnico em Curitiba",
+    metaTitle: "Técnico em Pinhais para Notebook, PC e Redes",
     metaDescription:
       "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em Pinhais",
@@ -207,7 +207,7 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "colombo",
     cidade: "Colombo",
     areaName: "Colombo",
-    metaTitle: "Técnico em Colombo para Notebook, PC e Informática | Técnico em Curitiba",
+    metaTitle: "Técnico em Colombo para Notebook, PC e Informática",
     metaDescription:
       "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em Colombo",
@@ -249,7 +249,7 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "araucaria",
     cidade: "Araucária",
     areaName: "Araucária",
-    metaTitle: "Técnico em Araucária para Notebook, PC e Empresas | Técnico em Curitiba",
+    metaTitle: "Técnico em Araucária para Notebook, PC e Empresas",
     metaDescription:
       "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em Araucária",
@@ -291,7 +291,7 @@ export const CIDADES: Record<string, CidadeData> = {
     slug: "campo-largo",
     cidade: "Campo Largo",
     areaName: "Campo Largo",
-    metaTitle: "Técnico em Campo Largo para Notebook, PC e Redes | Técnico em Curitiba",
+    metaTitle: "Técnico em Campo Largo para Notebook, PC e Redes",
     metaDescription:
       "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
     eyebrow: "Atendimento em Campo Largo",

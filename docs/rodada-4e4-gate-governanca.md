@@ -3,6 +3,9 @@
 Status: **IMPLEMENTAÇÃO BLOQUEADA POR GATE DE GOVERNANÇA**
 Data: 2026-08-08 (UTC)
 
+> Formulário de decisão para desbloqueio: [`docs/rodada-4e4-gov-pacote-decisao.md`](./rodada-4e4-gov-pacote-decisao.md) (Rodada 4E.4-GOV).
+
+
 ## 1. Verificação do gate de entrada
 
 | Item obrigatório | Evidência documental exigida | Situação |

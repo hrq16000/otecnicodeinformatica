@@ -177,10 +177,10 @@ Eletrônica: conserto de TV e Smart TV, conserto de monitor e reparo de placas e
 O processo é sempre o mesmo: triagem, diagnóstico, escopo, prazo e valor informados antes da execução. Nada é executado sem autorização do cliente. Quando o reparo não compensa ou não é viável, isso é dito de forma clara. Atendimento residencial e empresarial.
 ```
 
-Contagem: 936 caracteres (limite do GBP: 750 caracteres).
+Contagem: 877 caracteres (limite do GBP: 750 caracteres).
 **Ação manual:** usar a versão reduzida abaixo no campo do perfil e manter a completa para site/mídia.
 
-Versão para o campo do GBP (735 caracteres):
+Versão para o campo do GBP (701 caracteres):
 
 ```
 Assistência técnica em informática e eletrônica em Curitiba e São José dos Pinhais. Atendimento por agendamento: no endereço do cliente, remoto ou com coleta e entrega para reparo em bancada.
@@ -235,7 +235,7 @@ schema externo. Permanece no site exatamente como já está — sem alteração 
 - [ ] Categoria principal: confirmar o nome real no catálogo e selecionar
 - [ ] Categorias secundárias: no máximo as 3 da Parte 5
 - [ ] Telefone: +55 41 99708-6380 · Site: https://tecnico.curitiba.br
-- [ ] Descrição: colar a versão de 735 caracteres
+- [ ] Descrição: colar a versão de 701 caracteres
 - [ ] Serviços: cadastrar os 12 itens com escopo explícito onde indicado
 - [ ] Horário: deixar em branco até a confirmação operacional
 - [ ] Ativar mensagens e definir resposta inicial

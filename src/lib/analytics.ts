@@ -178,7 +178,32 @@ export const trackFaqToggle = (
   window.gtag('event', GA4_EVENTS.faqToggle, payload);
 };
 
+/**
+ * Download de arquivo (ex.: mídia kit em PDF).
+ * Não é lead nem conversão do Ads — é engajamento comercial, medido por
+ * `cta_location` para comparar CTA principal x rodapé.
+ * Respeita o Consent Mode v2: só chega ao GA4 quando `window.gtag` existe e
+ * o consentimento de analytics foi concedido (gtag ignora eventos negados).
+ */
+export const trackFileDownload = (fileName: string, rawLocation: string) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  const location = normalizeTrackingLabel(rawLocation);
+  window.gtag('event', GA4_EVENTS.fileDownload, {
+    event_category: 'engagement',
+    event_label: `${normalizeTrackingLabel(fileName)}_${location}`,
+    file_name: fileName,
+    file_extension: fileName.split('.').pop() || '',
+    cta_location: location,
+    click_location: location,
+    page_path: window.location.pathname,
+    route_type: routeTypeFromPath(window.location.pathname),
+    ...getDeviceContext(),
+    ...getUtmContext(),
+  });
+};
+
 // Track page views
+
 export const trackPageView = (pagePath: string, pageTitle: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('config', GA4_ID, {

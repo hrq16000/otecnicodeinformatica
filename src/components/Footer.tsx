@@ -4,6 +4,11 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 const trackFooterWhatsApp = (location: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
 
+// Download do mídia kit medido separadamente do CTA principal da /anuncie.
+const trackFileDownload = (fileName: string, location: string) =>
+  import("@/lib/analytics").then((m) => m.trackFileDownload(fileName, location));
+
+
 const linkClass = "text-sm text-white/75 transition-colors hover:text-white";
 
 const columns: Array<{ title: string; links: Array<{ label: string; to: string }> }> = [

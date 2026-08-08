@@ -1,6 +1,10 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
+import { AtendimentoFluxoSection } from "@/components/home/AtendimentoFluxoSection";
+import { BancadaRealSection } from "@/components/home/BancadaRealSection";
+import { RegioesCuritibaSection } from "@/components/home/RegioesCuritibaSection";
+
 import {
   VALOR_VISITA_LABEL,
   VALOR_PACOTE_2H_LABEL,
@@ -40,13 +44,6 @@ const services = [
 ];
 
 
-const steps = [
-  "Você inicia o atendimento pelo WhatsApp.",
-  "A triagem entende o problema do equipamento.",
-  "O técnico avalia o melhor caminho para o reparo.",
-  "Você recebe orientação, prazo e condições.",
-  "O serviço é executado com transparência.",
-];
 
 const faqs = [
   { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O valor do atendimento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },
@@ -59,7 +56,7 @@ const faqs = [
   { q: "Em quanto tempo conseguem atender?", a: "Sempre que houver disponibilidade na agenda, buscamos atender conforme a disponibilidade da agenda. A confirmação vem na triagem." },
 ];
 
-const areas = siteConfig.serviceArea.filter((a) => a !== "Região Metropolitana de Curitiba");
+
 
 /** Hubs de distribuição de autoridade: cada bloco cobre uma intenção distinta. */
 const authorityHubs: { t: string; d: string; links: { href: string; label: string }[] }[] = [
@@ -324,22 +321,12 @@ export const HomeSections = () => {
       </section>
 
 
-      {/* 5. COMO FUNCIONA */}
-      <section className="py-14 md:py-18">
-        <div className="container mx-auto">
-          <SectionTitle eyebrow="Passo a passo" title="Como funciona o atendimento" />
-          <ol className="mx-auto grid max-w-3xl gap-3">
-            {steps.map((s, i) => (
-              <li key={s} className="flex items-start gap-4 rounded-xl border border-border bg-card p-4">
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                  {i + 1}
-                </span>
-                <span className="pt-1 text-sm font-medium text-foreground">{s}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* 5. COMO FUNCIONA — fluxo de conversão WhatsApp → triagem → diagnóstico → remoto/local/bancada */}
+      <AtendimentoFluxoSection />
+
+      {/* 5B. PROVA REAL — bancada, técnico identificado e atendimento (fail-closed) */}
+      <BancadaRealSection />
+
 
       {/* 6. PREÇOS E POLÍTICAS */}
       <section className="border-y border-border bg-secondary py-14 md:py-18">
@@ -411,31 +398,9 @@ export const HomeSections = () => {
         </div>
       </section>
 
-      {/* 8. ÁREAS ATENDIDAS */}
-      <section className="border-y border-border bg-secondary py-14 md:py-18">
-        <div className="container mx-auto text-center">
-          <SectionTitle
-            eyebrow="Cobertura"
-            title="Áreas atendidas"
-            sub="Curitiba e principais cidades da Região Metropolitana."
-          />
-          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-2">
-            {areas.map((a) => (
-              <span key={a} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
-                {a}
-              </span>
-            ))}
-          </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            <a
-              href="/areas-atendidas"
-              className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-accent"
-            >
-              Ver todos os bairros e cidades atendidas
-            </a>
-          </p>
-        </div>
-      </section>
+      {/* 8. ÁREAS ATENDIDAS — regiões e bairros de Curitiba + RMC (sem endereço/CEP) */}
+      <RegioesCuritibaSection />
+
 
       {/* 8B. DISTRIBUIDORA DE AUTORIDADE — hub de links internos por intenção */}
       <section className="py-14 md:py-18">

@@ -23,7 +23,7 @@ else info.push(`og:image padrão OK: ${defaultOg}`);
 
 // 2) og:image do index.html (fallback para crawlers sem JS)
 const html = readFileSync("index.html", "utf8");
-for (const m of html.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)[^>]*content=["']([^"']+)["']/gi)) {
+for (const m of html.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:secure_url|twitter:image)["'][^>]*content=["']([^"']+)["']/gi)) {
   const url = m[1];
   if (/^https?:\/\//.test(url) && !url.includes("tecnico.curitiba.br")) continue; // externo
   if (!existsSync(publicPath(url))) errors.push(`index.html referencia imagem inexistente: ${url}`);
@@ -61,6 +61,7 @@ for (const file of files) {
     const url = m[1];
     if (!EXT.has(extname(url))) continue;
     if (url.startsWith("/src/") || url.startsWith("/assets/")) continue; // bundler
+    if (url.startsWith("/casos/")) continue; // exemplos de importação de provas (upload manual)
     if (!existsSync(join("public", url))) missing.add(`${url} (referenciado em ${file})`);
   }
 }

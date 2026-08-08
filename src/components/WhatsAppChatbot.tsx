@@ -285,7 +285,7 @@ const chatFlow = {
   },
 
   garantia: {
-    mensagem: "**Sim, todos os serviços têm garantia!** ✅\n\n• Garantia por escrito: 30 a 90 dias\n• Peças: garantia do fabricante\n• Nota fiscal emitida\n\nSe tiver qualquer problema no período de garantia, voltamos sem custo adicional.",
+    mensagem: "**Sim, todos os serviços têm garantia!** ✅\n\n• Garantia por escrito: 90 dias em mão de obra sobre o ponto reparado\n• Peças: garantia do fabricante\n• Nota fiscal emitida\n\nSe tiver qualquer problema no período de garantia, voltamos sem custo adicional.",
     opcoes: [
       { label: "Quero agendar um serviço", proximo: "tipo_equipamento" },
       { label: "Falar com técnico", proximo: "whatsapp_geral" },

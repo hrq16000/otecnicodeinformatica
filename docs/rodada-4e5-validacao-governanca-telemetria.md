@@ -146,6 +146,6 @@ As rotinas passaram a ser operáveis por uma função de manutenção protegida
 
 ## 9. Estado final
 
-- Baseline T0 preservado; nenhum evento de produção foi apagado ou alterado.
-- Primeiro agregado diário oficial: 2026-08-07 (3 células, 19 eventos).
+- Marcos preservados: T1 = 2026-08-08T00:05:45Z (mensuração confiável) e BASELINE_COMERCIAL_ISO = 2026-08-08T00:10:00Z (dados elegíveis a taxas comerciais). Nenhum evento de produção foi apagado ou alterado.
+- Primeiro agregado diário (2026-08-07, 3 células) era 100% pré-baseline/QA e foi removido na Rodada 4E.5.1 — ver docs/rodada-4e51-microgate-telemetria.md.
 - Governança operante de ponta a ponta, exceto o caminho fail-closed do §6.

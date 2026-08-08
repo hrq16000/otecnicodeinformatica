@@ -76,10 +76,42 @@ if (existsSync(migrations)) {
   }
 }
 
+// 5) Rodada 4E.5.1 — o agregado comercial exclui QA/pré-baseline ANTES do k=5.
+const { readdirSync: _rd } = await import("node:fs");
+const migFiles = existsSync(migrations) ? _rd(migrations).sort() : [];
+const consolidateDefs = migFiles.filter((f) =>
+  /CREATE OR REPLACE FUNCTION public\.consolidate_click_events/i.test(read(`${migrations}/${f}`) || ""),
+);
+const lastConsolidate = consolidateDefs[consolidateDefs.length - 1];
+if (!lastConsolidate) {
+  errors.push("nenhuma migration define consolidate_click_events.");
+} else {
+  const sql = read(`${migrations}/${lastConsolidate}`) || "";
+  const body = sql.slice(sql.search(/CREATE OR REPLACE FUNCTION public\.consolidate_click_events/i));
+  if (!/is_qa_click_event/.test(body)) {
+    errors.push(
+      `${lastConsolidate}: consolidate_click_events deve excluir QA/pré-baseline via is_qa_click_event antes de agrupar.`,
+    );
+  }
+  const wherePos = body.search(/NOT public\.is_qa_click_event/i);
+  const groupPos = body.search(/GROUP BY 1,2,3/);
+  if (wherePos < 0 || groupPos < 0 || wherePos > groupPos) {
+    errors.push("a exclusão de QA precisa ocorrer no filtro raw, antes do agrupamento/generalização/k=5.");
+  }
+}
+const relatorio451 = read("docs/rodada-4e51-microgate-telemetria.md");
+if (!relatorio451) {
+  errors.push("docs/rodada-4e51-microgate-telemetria.md ausente — exigido pelo microgate 4E.5.1.");
+} else {
+  for (const t of ["BASELINE_COMERCIAL_ISO = 2026-08-08T00:10:00Z", "T1 = 2026-08-08T00:05:45Z", "ZERO DELETE REAL"]) {
+    if (!relatorio451.includes(t)) errors.push(`docs/rodada-4e51-microgate-telemetria.md não declara "${t}".`);
+  }
+}
+
 if (errors.length) {
   console.error("BLOQUEADO — governança de telemetria (4E.4):");
   for (const e of errors) console.error(`  • ${e}`);
   process.exit(1);
 }
 
-console.log("OK — governança de telemetria 4E.4 íntegra (minimização, ROPA, balanceamento, grants).");
+console.log("OK — governança de telemetria 4E.4/4E.5.1 íntegra (minimização, ROPA, balanceamento, grants, exclusão QA antes do k=5).");

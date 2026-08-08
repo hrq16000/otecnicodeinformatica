@@ -53,6 +53,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
       { label: "Política de privacidade", to: "/politica-de-privacidade" },
       { label: "Política de cookies e anúncios", to: "/politica-de-cookies-e-anuncios" },
       { label: "Status de anúncios", to: "/status-de-anuncios" },
+      { label: "Anuncie / patrocine", to: "/anuncie" },
     ],
   },
 ];

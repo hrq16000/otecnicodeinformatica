@@ -199,6 +199,40 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
   },
 ];
 
+const faqs = [
+  {
+    q: "Quais dados pessoais o site coleta?",
+    a: "Nome, telefone/WhatsApp, bairro e a descrição do problema — sempre informados por você ao solicitar atendimento. Dados de navegação são tratados conforme a Política de Cookies e Anúncios.",
+  },
+  {
+    q: "Preciso aceitar cookies para ser atendido?",
+    a: "Não. Recusar cookies de análise e anúncios não impede o atendimento nem o uso do site.",
+  },
+  {
+    q: "Como solicito exclusão dos meus dados?",
+    a: "Envie o pedido pelo WhatsApp oficial do site. Respondemos em até 15 dias, conforme a LGPD.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+    { "@type": "ListItem", position: 2, name: "Política de Privacidade", item: CANONICAL },
+  ],
+};
+
 const PoliticaPrivacidade = () => {
   useCanonical(CANONICAL);
 
@@ -214,6 +248,8 @@ const PoliticaPrivacidade = () => {
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="article" />
         <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <Header />

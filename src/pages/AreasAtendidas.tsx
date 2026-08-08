@@ -322,6 +322,26 @@ const AreasAtendidas = () => {
                 Ver preços e políticas
               </Link>
             </div>
+            <nav aria-label="Serviços atendidos na região" className="mt-10 text-sm">
+              <h3 className="font-heading text-base font-bold text-foreground">Serviços atendidos nessas áreas</h3>
+              <ul className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2">
+                {[
+                  { to: "/servicos", label: "Todos os serviços" },
+                  { to: "/servicos/manutencao-de-notebook", label: "Manutenção de notebook" },
+                  { to: "/servicos/formatacao", label: "Formatação de computador" },
+                  { to: "/servicos/redes-e-wifi", label: "Redes e Wi-Fi" },
+                  { to: "/servicos/conserto-monitor", label: "Conserto de monitor" },
+                  { to: "/servicos/conserto-placa", label: "Conserto de placa" },
+                  { to: "/empresa-de-ti-curitiba", label: "Suporte de TI para empresas" },
+                ].map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="font-medium text-foreground underline underline-offset-4 hover:text-accent">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </section>
       </main>

@@ -426,6 +426,14 @@ export const HomeSections = () => {
               </span>
             ))}
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            <a
+              href="/areas-atendidas"
+              className="font-semibold text-foreground underline underline-offset-4 transition-colors hover:text-accent"
+            >
+              Ver todos os bairros e cidades atendidas
+            </a>
+          </p>
         </div>
       </section>
 

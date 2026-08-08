@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
+import { filtrarComerciais } from "@/lib/qaExclusion";
 import { Loader2, RefreshCw, Download, LogOut } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
@@ -66,7 +67,8 @@ const AdminDashboard = () => {
       toast({ title: "Erro ao carregar", description: error.message, variant: "destructive" });
       return;
     }
-    setAllRows((data || []) as ClickEvent[]);
+    // Regime pós-4D.1: exclui sessões de QA/cutover das análises comerciais.
+    setAllRows(filtrarComerciais((data || []) as ClickEvent[]));
   };
 
   useEffect(() => {

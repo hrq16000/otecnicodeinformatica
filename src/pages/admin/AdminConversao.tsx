@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
+import { filtrarComerciais } from "@/lib/qaExclusion";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).
@@ -85,7 +86,8 @@ const AdminConversao = () => {
     if (viewport !== "all") q = q.eq("viewport_bucket", viewport);
     if (origem !== "all") q = q.eq("attribution_channel", origem);
     const { data } = await q;
-    setRows((data as Evento[]) ?? []);
+    // Regime pós-4D.1: sessões de QA/cutover ficam fora das taxas comerciais.
+    setRows(filtrarComerciais((data as Evento[]) ?? []));
     setLoading(false);
   }, [isAdmin, inicio, fim, rota, viewport, origem]);
 

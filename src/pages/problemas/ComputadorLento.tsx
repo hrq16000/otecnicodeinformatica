@@ -466,6 +466,31 @@ const ComputadorLento = () => {
           </p>
         </section>
 
+        <ServicosCorrelatos
+          itens={[
+            {
+              to: "/servicos/upgrade-ssd-ram",
+              titulo: "Upgrade de SSD e memória",
+              desc: "A intervenção de maior impacto quando o sistema ainda roda em HD mecânico ou falta memória.",
+            },
+            {
+              to: "/servicos/manutencao-de-computador",
+              titulo: "Manutenção de computador",
+              desc: "Limpeza interna, pasta térmica e correção da lentidão causada por aquecimento.",
+            },
+            {
+              to: "/servicos/formatacao",
+              titulo: "Formatação com backup",
+              desc: "Indicada quando a causa é software: sistema corrompido ou acúmulo de instalações.",
+            },
+            {
+              to: "/guia-tecnico-informatica",
+              titulo: "Guia técnico de informática",
+              desc: "Como separar as famílias de falha, o checklist prévio e o que muda o desempenho de verdade.",
+            },
+          ]}
+        />
+
         <section id="faq" className="scroll-mt-24 mb-12">
 
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>

@@ -104,6 +104,7 @@ const FAQS = [
     question: "O atendimento pode ser feito sem sair de casa?",
     answer:
       "Boa parte dos casos de sistema, configuração e programa é resolvida por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem bancada, com coleta e entrega quando necessário.",
+  },
   {
     question: "Quanto tempo demora uma manutenção de computador ou notebook?",
     answer:

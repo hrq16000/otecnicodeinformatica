@@ -135,13 +135,13 @@ const AreasAtendidas = () => {
         path={PATH}
         description={DESCRIPTION}
         services={[
-          "Manutenção de notebook",
-          "Manutenção de computador",
-          "Formatação e remoção de vírus",
-          "Redes e Wi-Fi",
-          "Conserto de monitor",
-          "Conserto de placa",
-          "Suporte de TI para empresas",
+          { name: "Manutenção de notebook", url: "/servicos/manutencao-de-notebook" },
+          { name: "Manutenção de computador", url: "/servicos/manutencao-de-computador" },
+          { name: "Formatação e remoção de vírus", url: "/servicos/formatacao" },
+          { name: "Redes e Wi-Fi", url: "/servicos/redes-e-wifi" },
+          { name: "Conserto de monitor", url: "/servicos/conserto-monitor" },
+          { name: "Conserto de placa", url: "/servicos/conserto-placa" },
+          { name: "Suporte de TI para empresas", url: "/empresa-de-ti-curitiba" },
         ]}
       />
 

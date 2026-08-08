@@ -1,5 +1,11 @@
 # Google Business Profile — Service Area Business (pacote pronto)
 
+> **SUBSTITUÍDO pela Rodada 4H.** Para execução externa, use
+> `docs/gbp-pacote-canonico.md`, que é o pacote canônico (áreas conservadoras,
+> categorias validadas, descrição dentro do limite e claim "desde 1998" bloqueado
+> para uso externo). Este arquivo permanece como referência histórica.
+
+
 Fonte: decisão de governança da Rodada 4G. Modelo aprovado: **SERVICE AREA BUSINESS**
 (área de atendimento, **endereço oculto**). Proibido apresentar unidade física aberta ao público.
 Endereço, CEP e CNPJ **não** entram em nenhum campo público.

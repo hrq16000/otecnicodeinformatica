@@ -186,14 +186,26 @@
           } catch (e) {}
           var bar = document.createElement('div');
           bar.setAttribute('role', 'alert');
-          bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b2733;color:#fff;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Montserrat,sans-serif;border-top:1px solid rgba(255,255,255,.18)';
+          bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b2733;color:#fff;padding:14px 44px 14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Montserrat,sans-serif;border-top:1px solid rgba(255,255,255,.18);transition:opacity .3s ease';
           bar.innerHTML = '<span>Conexão lenta? Fale agora mesmo:</span>' +
             '<a href="https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." data-cta-location="hydration_timeout_bar" style="background:hsl(145,63%,42%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">WhatsApp Agora</a>' +
             '<a href="/diagnostico-60s" style="background:hsl(24,92%,52%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">Diagnóstico 60s</a>' +
-            '<button type="button" id="__hydra_reload" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);padding:10px 14px;border-radius:10px;cursor:pointer">Recarregar</button>';
+            '<button type="button" id="__hydra_reload" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);padding:10px 14px;border-radius:10px;cursor:pointer">Recarregar</button>' +
+            '<button type="button" id="__hydra_close" aria-label="Fechar aviso" style="position:absolute;top:6px;right:10px;background:transparent;color:#fff;border:0;font:700 20px/1 Arial,sans-serif;padding:4px 8px;cursor:pointer;opacity:.8">&times;</button>';
           document.body.appendChild(bar);
+          var hideTimer = null;
+          var removeBar = function () {
+            if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+            bar.style.opacity = '0';
+            setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 300);
+          };
           var btn = document.getElementById('__hydra_reload');
           if (btn) btn.addEventListener('click', function () { location.reload(); });
+          var closeBtn = document.getElementById('__hydra_close');
+          if (closeBtn) closeBtn.addEventListener('click', removeBar);
+          /* Some automaticamente após 15s. */
+          hideTimer = setTimeout(removeBar, 15000);
+
         }, DELAY);
       })();
     </script>

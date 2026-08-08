@@ -56,7 +56,7 @@ const faqs = [
   { q: "Em quanto tempo conseguem atender?", a: "Sempre que houver disponibilidade na agenda, buscamos atender conforme a disponibilidade da agenda. A confirmação vem na triagem." },
 ];
 
-const areas = siteConfig.serviceArea.filter((a) => a !== "Região Metropolitana de Curitiba");
+
 
 /** Hubs de distribuição de autoridade: cada bloco cobre uma intenção distinta. */
 const authorityHubs: { t: string; d: string; links: { href: string; label: string }[] }[] = [

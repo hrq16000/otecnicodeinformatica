@@ -848,6 +848,22 @@ const BASE_ROUTES = [
       {
         "pergunta": "O atendimento pode ser feito sem sair de casa?",
         "resposta": "Boa parte dos casos de sistema, configuração e programa é resolvida por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem bancada, com coleta e entrega quando necessário."
+      },
+      {
+        "pergunta": "Quanto tempo demora uma manutenção de computador ou notebook?",
+        "resposta": "Depende da família da falha. Serviços de sistema, configuração e remoção de programas indesejados costumam ser resolvidos no mesmo atendimento. Reparo com troca de peça depende da disponibilidade do componente. Avaliação de disco com falha é o caso mais longo, porque a leitura é feita em etapas para não agravar o problema. O prazo estimado é informado na aprovação, antes da execução."
+      },
+      {
+        "pergunta": "Trocar HD por SSD faz diferença em um computador antigo?",
+        "resposta": "Na maior parte dos casos de lentidão em máquina com disco mecânico, é a intervenção de maior impacto percebido: o tempo de inicialização e a abertura de programas caem de forma evidente. O SSD não resolve travamento por superaquecimento nem falta de memória, então a avaliação verifica o conjunto antes de recomendar apenas a troca."
+      },
+      {
+        "pergunta": "Notebook desligando sozinho é sempre superaquecimento?",
+        "resposta": "Não. Desligamento repentino aparece em aquecimento, mas também em fonte ou carregador inadequado, bateria degradada, falha de alimentação da placa e até em erro de sistema. O que separa os cenários é o momento em que ocorre: sob esforço, logo ao ligar ou em qualquer situação. Essa informação é pedida já na triagem."
+      },
+      {
+        "pergunta": "Preciso levar o equipamento ou o atendimento pode ser em casa?",
+        "resposta": "Sistema, configuração e programas normalmente são resolvidos por atendimento remoto. Rede, impressora e verificação inicial funcionam bem em domicílio. Falha física, troca de peça, microssoldagem e recuperação de dados exigem bancada, com coleta e entrega quando necessário. A modalidade é definida na triagem, não depois."
       }
     ]
   },

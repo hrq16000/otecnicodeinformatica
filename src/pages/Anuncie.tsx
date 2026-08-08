@@ -14,8 +14,10 @@ import { PageSEO } from "@/components/PageSEO";
 import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { LocalFAQSection } from "@/components/LocalFAQSection";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView, trackCTAClick, trackFileDownload } from "@/lib/analytics";
+
 
 const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
@@ -67,6 +69,73 @@ const naoOferecemos = [
   "Não garantimos volume de cliques, leads ou posição em buscadores.",
   "Não fazemos permuta por links pagos sem marcação adequada.",
 ];
+
+const disponibilidade = [
+  {
+    regiao: "Curitiba — bairros com página publicada",
+    formatos: "Banner de topo, bloco no meio do conteúdo e destaque local",
+    situacao: "Aberto para reserva, uma marca por posição e por período",
+  },
+  {
+    regiao: "Curitiba — demais bairros",
+    formatos: "Banner de topo e bloco no meio do conteúdo (páginas gerais)",
+    situacao: "Sem destaque local dedicado enquanto a página não for publicada",
+  },
+  {
+    regiao: "Região metropolitana com página de cidade",
+    formatos: "Banner de topo, bloco no meio do conteúdo e destaque local",
+    situacao: "Aberto para reserva, sujeito a confirmação do período",
+  },
+  {
+    regiao: "Verticais técnicas (TV, placas, monitor, redes)",
+    formatos: "Patrocínio de seção e bloco no meio do conteúdo",
+    situacao: "Exclusividade por vertical durante o período contratado",
+  },
+  {
+    regiao: "Fora da área atendida pelo portal",
+    formatos: "Nenhum",
+    situacao: "Não comercializamos espaço em região que não atendemos",
+  },
+];
+
+const faqPublicidade = [
+  {
+    question: "Quais formatos de anúncio existem no portal?",
+    answer:
+      "Banner de topo antes da primeira rolagem, bloco entre seções do conteúdo, patrocínio de uma vertical técnica inteira e destaque local nas páginas de cidade ou bairro já publicadas. Não usamos pop-up, interstitial nem formato que bloqueie a leitura.",
+  },
+  {
+    question: "Qual é o prazo entre a aprovação e a peça no ar?",
+    answer:
+      "Depois que a peça, o link de destino e o período estiverem aprovados por escrito, a inserção entra na publicação seguinte do portal. Alterações de arte durante a campanha seguem o mesmo fluxo de aprovação.",
+  },
+  {
+    question: "Em quais territórios posso anunciar?",
+    answer:
+      "Em Curitiba e nas cidades da região metropolitana que já têm página publicada no portal. Não vendemos destaque local para regiões que o portal não atende nem para páginas que ainda não existem.",
+  },
+  {
+    question: "Como funciona a aprovação do anúncio?",
+    answer:
+      "Analisamos a peça antes da publicação: ela precisa ser identificável como publicidade, ter link de destino próprio e respeitar as políticas de publicidade dos parceiros de mídia. Campanhas incompatíveis com o público do portal podem ser recusadas.",
+  },
+  {
+    question: "Vocês vendem review, nota ou recomendação técnica?",
+    answer:
+      "Não. O conteúdo editorial e as recomendações técnicas não estão à venda em nenhum formato, e não publicamos avaliação ou depoimento que não seja real.",
+  },
+  {
+    question: "Vocês garantem número de cliques ou de leads?",
+    answer:
+      "Não. Entregamos espaço, período e posição contratados. As métricas de audiência são enviadas sob consulta, direto dos painéis oficiais, sem projeção inventada de resultado.",
+  },
+  {
+    question: "Como confirmo a data e a posição da minha campanha?",
+    answer:
+      "Envie segmento, região, formato e período pelo WhatsApp comercial ou pela página de contato. Confirmamos a disponibilidade real da posição no período e a reserva passa a valer quando estiver registrada por escrito.",
+  },
+];
+
 
 const Anuncie = () => {
   useEffect(() => {
@@ -197,7 +266,64 @@ const Anuncie = () => {
           </div>
         </section>
 
+        <section className="border-t border-border/60 py-12 md:py-16">
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Disponibilidade por cidade e bairro
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Só comercializamos destaque local em localidades que já possuem página publicada no portal.
+              O quadro abaixo mostra a situação por região — a confirmação de datas e posições é sempre feita
+              caso a caso, porque cada posição é exclusiva por período.
+            </p>
+            <div className="mt-8 overflow-x-auto rounded-xl border border-border">
+              <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+                <caption className="sr-only">
+                  Disponibilidade de formatos publicitários por região atendida
+                </caption>
+                <thead className="bg-secondary/60 text-foreground">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-semibold">Região</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Formatos liberados</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Situação</th>
+                  </tr>
+                </thead>
+                <tbody className="text-muted-foreground">
+                  {disponibilidade.map((linha) => (
+                    <tr key={linha.regiao} className="border-t border-border/60">
+                      <th scope="row" className="px-4 py-3 font-semibold text-foreground">
+                        {linha.regiao}
+                      </th>
+                      <td className="px-4 py-3">{linha.formatos}</td>
+                      <td className="px-4 py-3">{linha.situacao}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6 rounded-xl border border-border bg-secondary/30 p-5">
+              <h3 className="text-base font-heading font-bold text-foreground">
+                Como confirmar datas e posicionamentos
+              </h3>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
+                <li>Envie segmento, região desejada, formato e o período pretendido.</li>
+                <li>Verificamos se a posição está livre no período e devolvemos a disponibilidade real.</li>
+                <li>
+                  Aprovada a peça (arquivo, link de destino e identificação de publicidade), a inserção entra
+                  na próxima publicação do portal.
+                </li>
+                <li>
+                  A reserva só é considerada confirmada por escrito, com período, formato e região definidos.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <LocalFAQSection title="Perguntas frequentes sobre anunciar no portal" faqs={faqPublicidade} />
+
         <section className="py-12 md:py-16">
+
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
               Transparência, cookies e privacidade
@@ -260,6 +386,8 @@ const Anuncie = () => {
                 download
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border border-border px-6 text-base font-semibold text-foreground transition-colors hover:bg-secondary/60"
                 data-cta-location="anuncie_midia_kit_pdf"
+                onClick={() => trackFileDownload("midia-kit-tecnico-curitiba.pdf", "anuncie_midia_kit_pdf")}
+
               >
                 <FileText className="h-5 w-5" />
                 Baixar mídia kit em PDF

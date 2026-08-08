@@ -4,6 +4,11 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 const trackFooterWhatsApp = (location: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", location));
 
+// Download do mídia kit medido separadamente do CTA principal da /anuncie.
+const trackFileDownload = (fileName: string, location: string) =>
+  import("@/lib/analytics").then((m) => m.trackFileDownload(fileName, location));
+
+
 const linkClass = "text-sm text-white/75 transition-colors hover:text-white";
 
 const columns: Array<{ title: string; links: Array<{ label: string; to: string }> }> = [
@@ -146,13 +151,29 @@ export const Footer = () => {
             <nav key={col.title} aria-label={col.title}>
               <h3 className="mb-3 text-sm font-bold text-white">{col.title}</h3>
               <ul className="space-y-2">
-                {col.links.map((l) => (
-                  <li key={l.to}>
-                    <a href={l.to} className={linkClass}>
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const isPdf = l.to.endsWith(".pdf");
+                  return (
+                    <li key={l.to}>
+                      <a
+                        href={l.to}
+                        className={linkClass}
+                        {...(isPdf
+                          ? {
+                              target: "_blank",
+                              rel: "noopener",
+                              "data-cta-location": "footer_midia_kit_pdf",
+                              onClick: () =>
+                                trackFileDownload(l.to.replace(/^\//, ""), "footer_midia_kit_pdf"),
+                            }
+                          : {})}
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  );
+                })}
+
               </ul>
             </nav>
           ))}

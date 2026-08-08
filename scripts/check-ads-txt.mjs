@@ -8,7 +8,7 @@
  *   node scripts/check-ads-txt.mjs                # local (arquivos do repo)
  *   node scripts/check-ads-txt.mjs --url=https://tecnico.curitiba.br
  */
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, writeFileSync } from "node:fs";
 
 const PUBLISHER = process.env.ADSENSE_PUBLISHER_ID || "pub-3762170279587706";
 const EXPECTED_LINE = `google.com, ${PUBLISHER}, DIRECT, f08c47fec0942fa0`;

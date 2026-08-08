@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-08-08T00:56:06.442Z",
+  "origin": "https://tecnico.curitiba.br",
+  "publisherId": "pub-3762170279587706",
+  "ok": true,
+  "results": [
+    {
+      "check": "ads.txt acessível",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "ads.txt contém a linha do publisher",
+      "ok": true,
+      "detail": "google.com, pub-3762170279587706, DIRECT, f08c47fec0942fa0"
+    },
+    {
+      "check": "metatag google-adsense-account",
+      "ok": true,
+      "detail": "ca-pub-3762170279587706"
+    }
+  ]
+}

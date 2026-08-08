@@ -42,14 +42,25 @@ Deno.serve(async (req) => {
   if (!token) return json({ error: "não autenticado" }, 401);
 
   const admin = createClient(url, serviceKey);
-  const machineCall = token === serviceKey;
+  // Credencial de máquina: qualquer chave de serviço válida do projeto — ela
+  // consegue ler telemetry_retention_runs, que é negada para anon/authenticated
+  // comum por RLS. Chave publicável ou visitante anônimo falham nesta sonda.
+  let machineCall = token === serviceKey;
+  if (!machineCall) {
+    const probe = createClient(url, token);
+    const { error: probeErr } = await probe
+      .from("telemetry_retention_runs")
+      .select("id")
+      .limit(1);
+    machineCall = !probeErr;
+  }
 
   if (!machineCall) {
     const asUser = createClient(url, anonKey, {
       global: { headers: { Authorization: `Bearer ${token}` } },
     });
     const { data: userData, error: userErr } = await asUser.auth.getUser();
-    if (userErr || !userData?.user) return json({ error: "não autenticado", debug: { t: token.slice(0,3), tl: token.length, e: serviceKey.slice(0,3), el: serviceKey.length } }, 401);
+    if (userErr || !userData?.user) return json({ error: "não autenticado" }, 401);
 
     const { data: isAdmin, error: roleErr } = await admin.rpc("has_role", {
       _user_id: userData.user.id,

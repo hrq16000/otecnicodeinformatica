@@ -421,7 +421,15 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
     attribution_channel: readAttribution().channel,
   };
   // `device` é derivável de viewport_bucket e não existe como coluna.
-  const { device: _device, ...row } = payload as Record<string, unknown> & { device?: string };
+  // `viewport_width` deixou de ser persistido pela decisão de governança 4E.4
+  // (PERSIST_VIEWPORT_WIDTH = false): viewport_bucket atende à análise responsiva
+  // com menos granularidade. A coluna física segue no schema só para migração segura.
+  const {
+    device: _device,
+    viewport_width: _viewportWidth,
+    ...row
+  } = payload as Record<string, unknown> & { device?: string; viewport_width?: number };
+
   // Fire-and-forget; nunca bloqueia o clique.
   void supabase.from("click_events").insert(row as never).then(({ error }) => {
     if (error && (window as unknown as { __funnelDebug?: boolean }).__funnelDebug) {

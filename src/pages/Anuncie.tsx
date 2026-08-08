@@ -115,7 +115,7 @@ const Anuncie = () => {
                   rel="noopener noreferrer"
                   className={CTA_CLASS}
                   data-cta-location="anuncie_hero"
-                  onClick={() => trackCTAClick("anuncie_hero", "whatsapp")}
+                  onClick={() => trackCTAClick("whatsapp", "anuncie_hero")}
                 >
                   <MessageCircle className="h-5 w-5" />
                   Falar com o comercial
@@ -248,7 +248,7 @@ const Anuncie = () => {
                 rel="noopener noreferrer"
                 className={CTA_CLASS}
                 data-cta-location="anuncie_final"
-                onClick={() => trackCTAClick("anuncie_final", "whatsapp")}
+                onClick={() => trackCTAClick("whatsapp", "anuncie_final")}
               >
                 <MessageCircle className="h-5 w-5" />
                 Solicitar mídia kit

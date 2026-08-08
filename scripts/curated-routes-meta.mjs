@@ -419,27 +419,27 @@ const BASE_ROUTES = [
   },
   {
     "path": "/tecnico-informatica-sao-jose-pinhais",
-    "title": "Técnico em São José dos Pinhais para Notebook e PC | Técnico em Curitiba",
+    "title": "Técnico em São José dos Pinhais para Notebook e PC",
     "description": "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-pinhais",
-    "title": "Técnico em Pinhais para Notebook, PC e Redes | Técnico em Curitiba",
+    "title": "Técnico em Pinhais para Notebook, PC e Redes",
     "description": "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-colombo",
-    "title": "Técnico em Colombo para Notebook, PC e Informática | Técnico em Curitiba",
+    "title": "Técnico em Colombo para Notebook, PC e Informática",
     "description": "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-araucaria",
-    "title": "Técnico em Araucária para Notebook, PC e Empresas | Técnico em Curitiba",
+    "title": "Técnico em Araucária para Notebook, PC e Empresas",
     "description": "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {
     "path": "/tecnico-informatica-campo-largo",
-    "title": "Técnico em Campo Largo para Notebook, PC e Redes | Técnico em Curitiba",
+    "title": "Técnico em Campo Largo para Notebook, PC e Redes",
     "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
   },
   {

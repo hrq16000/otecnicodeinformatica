@@ -18,6 +18,7 @@ const GATES = [
   { id: "internal-links", label: "Links internos sem 404", cmd: ["node", "scripts/check-internal-links.mjs"] },
   { id: "sitemap-source", label: "Sitemap x fonte curada", cmd: ["node", "scripts/check-sitemap-source.mjs"] },
   { id: "aggregate-rating", label: "Ausência de aggregateRating fabricado", cmd: ["node", "scripts/check-aggregate-rating.mjs"] },
+  { id: "media-assets", label: "og:image, mídia kit e assets públicos", cmd: ["node", "scripts/check-media-assets.mjs"] },
   { id: "orphan-pages", label: "Páginas órfãs", cmd: ["node", "scripts/check-orphan-pages.mjs"] },
 ];
 

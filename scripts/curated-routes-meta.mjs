@@ -688,6 +688,42 @@ const BASE_ROUTES = [
     "description": "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor."
   },
   {
+    "path": "/areas-atendidas",
+    "title": "Áreas Atendidas em Curitiba e Região | Bairros e Cidades",
+    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas pelo Técnico em Curitiba, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
+    "blocos": [
+      {
+        "titulo": "O que esta página resolve",
+        "paragrafos": [
+          "Antes de agendar, a dúvida mais comum é simples: o atendimento chega até o meu endereço? Esta página responde isso de forma direta, listando os bairros de Curitiba com maior volume de chamados e as cidades da região metropolitana cobertas, sem promessa de tempo de chegada e sem endereço de loja que não existe.",
+          "A cobertura é organizada por região porque é assim que a agenda funciona na prática. Cada região tem um perfil de chamado dominante, e esse perfil ajuda a definir a modalidade correta antes mesmo do primeiro contato: atendimento no endereço, suporte remoto ou coleta do equipamento para bancada."
+        ]
+      },
+      {
+        "titulo": "Curitiba: bairros e regiões",
+        "paragrafos": [
+          "A região central concentra escritórios, consultórios e comércio, onde o atendimento é agendado para não interromper o expediente. A zona sul reúne o maior volume residencial e de home office, com pedidos de formatação, troca por SSD, limpeza interna e Wi-Fi instável. Oeste e CIC misturam indústria, comércio e condomínios, o que puxa manutenção de parque de máquinas e rede.",
+          "Norte e leste concentram residências, estudantes e profissionais liberais, com urgência maior em recuperar arquivos e voltar a produzir no mesmo dia. Santa Felicidade e o entorno têm deslocamento mais longo, então a agenda considera a rota do dia e casos de bancada saem por coleta.",
+          "Bairros com página local própria trazem detalhes específicos de operação. Os bairros sem página dedicada são atendidos normalmente — a ausência de página não significa ausência de atendimento."
+        ]
+      },
+      {
+        "titulo": "Região metropolitana",
+        "paragrafos": [
+          "Fora de Curitiba, o atendimento segue exatamente a mesma regra: triagem primeiro, modalidade definida pelo sintoma, valor aprovado antes da execução e garantia de 90 dias na mão de obra do serviço realizado. O suporte remoto é imediato em qualquer cidade da lista; o presencial depende de confirmação de agenda e deslocamento.",
+          "Para empresas da região metropolitana, a combinação mais eficiente costuma ser suporte remoto no dia a dia com visitas programadas apenas para o que exige presença física, evitando deslocamento desnecessário e parada de operação."
+        ]
+      },
+      {
+        "titulo": "Como a modalidade é definida",
+        "paragrafos": [
+          "Problemas de sistema, configuração, lentidão por software, e-mail e acesso a programas costumam ser resolvidos remotamente, sem deslocamento. Rede, Wi-Fi, cabeamento e vários equipamentos no mesmo local pedem atendimento presencial. Reparo de placa, tela, conector de energia, TV e monitor exige bancada, e nesse caso o equipamento é coletado, avaliado e devolvido.",
+          "O diagnóstico técnico parte de R$ 99,99 em toda a área atendida. Deslocamentos mais longos na região metropolitana podem alterar a janela de agenda e, em alguns casos, o valor do atendimento presencial — sempre informado e aprovado antes, nunca depois do serviço."
+        ]
+      }
+    ]
+  },
+  {
     "path": "/equipamentos-atendidos",
     "title": "Equipamentos Atendidos | Técnico em Curitiba",
     "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",

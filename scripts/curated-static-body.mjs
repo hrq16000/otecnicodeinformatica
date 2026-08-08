@@ -150,6 +150,7 @@ const SHORT_LABEL = {
   "/coleta-e-entrega": "Coleta e entrega",
   "/diagnostico-tecnico": "Diagnóstico técnico",
   "/equipamentos-atendidos": "Equipamentos atendidos",
+  "/areas-atendidas": "Áreas atendidas",
   "/quando-nao-compensa": "Quando não compensa reparar",
   "/problemas/notebook-nao-liga": "Notebook não liga",
   "/seguranca-dos-dados": "Segurança dos dados",
@@ -332,6 +333,14 @@ const PAGE_LINKS = {
     "/precos-e-politicas",
     "/coleta-e-entrega",
     "/atendimento-remoto",
+  ],
+  "/areas-atendidas": [
+    "/tecnico-informatica-curitiba",
+    "/atendimento-domicilio",
+    "/atendimento-remoto",
+    "/coleta-e-entrega",
+    "/como-funciona",
+    "/precos-e-politicas",
   ],
   "/equipamentos-atendidos": [
     "/servicos/montagem-de-pc",

@@ -130,6 +130,19 @@ const AreasAtendidas = () => {
           { name: "Áreas atendidas", path: PATH },
         ]}
       />
+      <LocalBusinessJsonLd
+        path={PATH}
+        description={DESCRIPTION}
+        services={[
+          "Manutenção de notebook",
+          "Manutenção de computador",
+          "Formatação e remoção de vírus",
+          "Redes e Wi-Fi",
+          "Conserto de monitor",
+          "Conserto de placa",
+          "Suporte de TI para empresas",
+        ]}
+      />
 
       <FastHeader />
       <main className="pt-[var(--site-header-height)]">

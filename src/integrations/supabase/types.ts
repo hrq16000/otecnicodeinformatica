@@ -92,6 +92,39 @@ export type Database = {
         }
         Relationships: []
       }
+      consent_events: {
+        Row: {
+          ads: boolean
+          analytics: boolean
+          created_at: string
+          id: string
+          path: string | null
+          policy_version: string | null
+          session_id: string | null
+          source: string | null
+        }
+        Insert: {
+          ads: boolean
+          analytics: boolean
+          created_at?: string
+          id?: string
+          path?: string | null
+          policy_version?: string | null
+          session_id?: string | null
+          source?: string | null
+        }
+        Update: {
+          ads?: boolean
+          analytics?: boolean
+          created_at?: string
+          id?: string
+          path?: string | null
+          policy_version?: string | null
+          session_id?: string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
       funnel_submissions: {
         Row: {
           atendido_em: string | null

@@ -577,6 +577,16 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_qa_click_event: {
+        Args: {
+          _created_at: string
+          _session_id: string
+          _utm_campaign: string
+          _utm_medium: string
+          _utm_source: string
+        }
+        Returns: boolean
+      }
       purge_click_events_aggregates: {
         Args: { p_dry_run?: boolean }
         Returns: {
@@ -592,6 +602,8 @@ export type Database = {
           deleted_rows: number
         }[]
       }
+      telemetry_baseline_comercial: { Args: never; Returns: string }
+      telemetry_guard_selftest: { Args: never; Returns: Json }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"

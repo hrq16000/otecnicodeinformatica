@@ -137,6 +137,7 @@ export function h1For(route) {
 
 const SHORT_LABEL = {
   "/": "Início",
+  "/guia-tecnico-informatica": "Guia técnico de informática",
   "/servicos": "Serviços",
   "/sobre": "Sobre",
   "/faq": "Dúvidas frequentes",
@@ -241,6 +242,15 @@ const PROBLEMA_LINKS = {
     "/servicos/upgrade-ssd-ram",
     "/servicos/remocao-de-virus",
     "/servicos/recuperacao-de-dados",
+    "/guia-tecnico-informatica",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/problemas/notebook-nao-liga": [
+    "/servicos/manutencao-de-notebook",
+    "/servicos/recuperacao-de-dados",
+    "/servicos/upgrade-ssd-ram",
+    "/guia-tecnico-informatica",
     "/precos-e-politicas",
     "/como-funciona",
   ],
@@ -334,6 +344,15 @@ const PAGE_LINKS = {
     "/coleta-e-entrega",
     "/atendimento-remoto",
   ],
+  "/guia-tecnico-informatica": [
+    "/servicos/manutencao-de-computador",
+    "/servicos/manutencao-de-notebook",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/formatacao",
+    "/problemas/computador-lento",
+    "/problemas/notebook-nao-liga",
+    "/precos-e-politicas",
+  ],
   "/areas-atendidas": [
     "/tecnico-informatica-curitiba",
     "/atendimento-domicilio",
@@ -374,6 +393,7 @@ export function linksFor(path) {
     case "hub-servicos":
       out = [
         ...siblings(SERVICOS, path, 3),
+        "/guia-tecnico-informatica",
         "/problemas/notebook-nao-liga",
         "/problemas/computador-lento",
         "/precos-e-politicas",

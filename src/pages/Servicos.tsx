@@ -191,6 +191,24 @@ const Servicos = () => {
             </Link>
             .
           </p>
+          <p className="mb-8 max-w-2xl text-muted-foreground">
+            Quer entender o problema antes de escolher o serviço? O{" "}
+            <Link
+              to="/guia-tecnico-informatica"
+              className="font-medium text-[hsl(var(--accent))] hover:underline"
+            >
+              guia técnico de manutenção de PC e notebook
+            </Link>{" "}
+            reúne as famílias de falha, o checklist prévio e o que realmente melhora o desempenho.
+            Para atendimento local, veja{" "}
+            <Link
+              to="/tecnico-informatica-curitiba"
+              className="font-medium text-[hsl(var(--accent))] hover:underline"
+            >
+              técnico de informática em Curitiba
+            </Link>
+            .
+          </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CARDS.map(({ slug, icon: Icon, blurb }) => {
               const data = SERVICOS_CORE[slug];

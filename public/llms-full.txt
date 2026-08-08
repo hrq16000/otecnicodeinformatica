@@ -112,6 +112,7 @@ Demais municípios da Região Metropolitana são avaliados sob consulta pelo Wha
 - [Diagnóstico Técnico de Computador e Notebook em Curitiba](https://tecnico.curitiba.br/diagnostico-tecnico)
 - [Áreas Atendidas em Curitiba e Região | Bairros e Cidades](https://tecnico.curitiba.br/areas-atendidas)
 - [Equipamentos Atendidos | Técnico em Curitiba](https://tecnico.curitiba.br/equipamentos-atendidos)
+- [Guia Técnico: Manutenção de PC e Notebook Passo a Passo](https://tecnico.curitiba.br/guia-tecnico-informatica)
 - [Quando NÃO Compensa Reparar | Guia Técnico - Curitiba](https://tecnico.curitiba.br/quando-nao-compensa)
 
 ## Marcas atendidas

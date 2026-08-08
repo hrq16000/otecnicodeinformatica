@@ -435,6 +435,9 @@ const ProblemaPage = lazy(() => import("./pages/ProblemaPage"));
 const NotebookNaoLiga = lazy(() => import("./pages/problemas/NotebookNaoLiga"));
 const ProblemaComputadorLento = lazy(() => import("./pages/problemas/ComputadorLento"));
 
+// Pillar do cluster de informática
+const GuiaTecnicoInformatica = lazy(() => import("./pages/GuiaTecnicoInformatica"));
+
 // Procedimentos Técnicos hub
 const ProcedimentosPlaca = lazy(() => import("./pages/ProcedimentosPlaca"));
 
@@ -950,6 +953,7 @@ const App = () => (
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
             <Route path="/problemas/notebook-nao-liga" element={<NotebookNaoLiga />} />
             <Route path="/problemas/computador-lento" element={<ProblemaComputadorLento />} />
+            <Route path="/guia-tecnico-informatica" element={<GuiaTecnicoInformatica />} />
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />
             <Route path="/termos-e-condicoes" element={<TermosCondicoes />} />

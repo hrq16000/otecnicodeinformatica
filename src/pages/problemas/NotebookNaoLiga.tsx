@@ -10,6 +10,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { RealImageSection } from "@/components/RealImageSection";
+import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
@@ -182,6 +184,14 @@ const NotebookNaoLiga = () => {
 
       {/* Padrão visual de sintoma (piloto /problemas/computador-lento): confiança + sumário. */}
       <TrustStrip />
+
+      <RealImageSection
+        imageKey="notebookReparo"
+        secondaryImageKey="diagnostico"
+        layout="duo"
+        caption="Notebook aberto em bancada para verificação de energia"
+        secondaryCaption="Medição em placa para separar falha de energia de falha de imagem"
+      />
 
       <main className="container mx-auto max-w-4xl px-4 py-12">
         <PageTableOfContents
@@ -415,6 +425,31 @@ const NotebookNaoLiga = () => {
           </div>
         </section>
 
+
+        <ServicosCorrelatos
+          itens={[
+            {
+              to: "/servicos/manutencao-de-notebook",
+              titulo: "Manutenção de notebook",
+              desc: "Diagnóstico de energia, imagem, aquecimento e substituição de componentes com aprovação prévia.",
+            },
+            {
+              to: "/servicos/recuperacao-de-dados",
+              titulo: "Recuperação de dados",
+              desc: "Quando o equipamento não liga e os arquivos são a prioridade, o disco é avaliado primeiro.",
+            },
+            {
+              to: "/servicos/upgrade-ssd-ram",
+              titulo: "Upgrade de SSD e memória",
+              desc: "Após o reparo, avaliação do que ainda faz sentido melhorar no equipamento.",
+            },
+            {
+              to: "/guia-tecnico-informatica",
+              titulo: "Guia técnico de informática",
+              desc: "As famílias de falha, o checklist prévio e como funciona o diagnóstico do começo ao fim.",
+            },
+          ]}
+        />
 
         <section id="faq" className="mb-12 scroll-mt-24">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Perguntas frequentes</h2>

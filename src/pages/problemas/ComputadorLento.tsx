@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
+import { RealImageSection } from "@/components/RealImageSection";
+import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 
 import { Button } from "@/components/ui/button";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
@@ -234,6 +236,14 @@ const ComputadorLento = () => {
 
       {/* Rodada 3P — piloto visual de sintoma: confiança + sumário da página. */}
       <TrustStrip />
+
+      <RealImageSection
+        imageKey="componentesSsd"
+        secondaryImageKey="bancadaTecnica"
+        layout="duo"
+        caption="SSD e memória: peças avaliadas quando a lentidão é de hardware"
+        secondaryCaption="Bancada usada para testes de disco, memória e temperatura"
+      />
 
       <main className="container mx-auto max-w-4xl px-4 py-12">
         <PageTableOfContents
@@ -463,6 +473,31 @@ const ComputadorLento = () => {
             .
           </p>
         </section>
+
+        <ServicosCorrelatos
+          itens={[
+            {
+              to: "/servicos/upgrade-ssd-ram",
+              titulo: "Upgrade de SSD e memória",
+              desc: "A intervenção de maior impacto quando o sistema ainda roda em HD mecânico ou falta memória.",
+            },
+            {
+              to: "/servicos/manutencao-de-computador",
+              titulo: "Manutenção de computador",
+              desc: "Limpeza interna, pasta térmica e correção da lentidão causada por aquecimento.",
+            },
+            {
+              to: "/servicos/formatacao",
+              titulo: "Formatação com backup",
+              desc: "Indicada quando a causa é software: sistema corrompido ou acúmulo de instalações.",
+            },
+            {
+              to: "/guia-tecnico-informatica",
+              titulo: "Guia técnico de informática",
+              desc: "Como separar as famílias de falha, o checklist prévio e o que muda o desempenho de verdade.",
+            },
+          ]}
+        />
 
         <section id="faq" className="scroll-mt-24 mb-12">
 

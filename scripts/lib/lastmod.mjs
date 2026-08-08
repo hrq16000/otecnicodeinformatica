@@ -9,6 +9,10 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Pillar do cluster de informática (Rodada 4I-P.2)
+  "/guia-tecnico-informatica": "2026-08-09",
+  "/problemas/notebook-nao-liga": "2026-08-09",
+  "/problemas/computador-lento": "2026-08-09",
   // Frente de monetização — página comercial de patrocínio
   "/anuncie": "2026-08-08",
   // Rodada 3L — montagem de PC e periféricos em rede
@@ -26,12 +30,10 @@ export const LASTMOD = {
   "/servicos/recuperacao-de-dados": "2026-08-06",
   "/precos-e-politicas": "2026-08-06",
   "/sobre": "2026-08-06",
-  "/problemas/computador-lento": "2026-08-06",
   // Primeira onda editorial (Rodada 3B)
   "/servicos/manutencao-de-notebook": "2026-08-04",
   "/servicos/manutencao-de-computador": "2026-08-04",
   "/servicos/formatacao": "2026-08-04",
-  "/problemas/notebook-nao-liga": "2026-08-04",
   "/como-funciona": "2026-08-06",
 };
 

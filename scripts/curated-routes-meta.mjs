@@ -792,6 +792,66 @@ const BASE_ROUTES = [
     ]
   },
   {
+    "path": "/guia-tecnico-informatica",
+    "title": "Guia Técnico: Manutenção de PC e Notebook Passo a Passo",
+    "description": "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico, quando o upgrade compensa e como é feito o diagnóstico.",
+    "h1": "Guia técnico de informática: manutenção de PC e notebook",
+    "subtitulo": "Como separar as famílias de falha de um computador ou notebook, o que verificar antes do atendimento, quando o upgrade muda o desempenho e quando o reparo deixa de compensar.",
+    "blocos": [
+      {
+        "titulo": "As seis famílias de falha",
+        "paragrafos": [
+          "Quase todo problema de informática cabe em seis famílias: energia, imagem, desempenho, sistema e software, armazenamento e dados, rede e conectividade. Classificar corretamente evita trocar peça por tentativa ou formatar por padrão.",
+          "A triagem no WhatsApp começa por aqui: você descreve o comportamento, a família provável é identificada e só então a modalidade de atendimento é indicada — remoto, em domicílio ou com coleta para bancada."
+        ]
+      },
+      {
+        "titulo": "Checklist antes de chamar o técnico",
+        "paragrafos": [
+          "Nenhum item exige abrir o equipamento: anotar quando o problema começou e o que mudou antes, testar outra tomada aterrada, desconectar periféricos, observar LEDs e ruídos, conferir o espaço livre do disco e notar se a lentidão aparece logo ou depois de alguns minutos.",
+          "O que evitar: abrir fonte, insistir em ligar equipamento que teve contato com líquido, forçar conectores, instalar otimizadores baixados por anúncio e reinstalar o sistema com suspeita de disco falhando."
+        ]
+      },
+      {
+        "titulo": "O que realmente melhora o desempenho",
+        "paragrafos": [
+          "SSD no lugar do HD mecânico é a intervenção de maior impacto perceptível. Ampliação de memória é indicada quando a máquina trava com muitos programas abertos, respeitando o limite suportado pela placa.",
+          "Limpeza interna com troca de pasta térmica resolve a lentidão ligada ao aquecimento. Formatação resolve o que é software e não corrige disco lento nem falta de memória.",
+          "A compatibilidade é conferida antes da compra de qualquer peça e o valor é aprovado por você antes da execução."
+        ]
+      },
+      {
+        "titulo": "Dados, backup e diagnóstico",
+        "paragrafos": [
+          "Em qualquer atendimento, os dados valem mais que o equipamento. Com ruído metálico, travamentos de leitura ou partição não reconhecida, a orientação é parar de usar o equipamento para não sobrescrever o que ainda pode ser lido.",
+          "O diagnóstico segue cinco etapas: triagem no WhatsApp, definição da modalidade, avaliação técnica por eliminação, aprovação do que será feito e do valor, execução e entrega com registro do serviço."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "pergunta": "Como sei se o problema é de hardware ou de software?",
+        "resposta": "O padrão do sintoma ajuda. Falha que aparece antes do sistema carregar — sem imagem, bipes, desligamento imediato, não ligar — aponta para hardware. Problema que só ocorre depois da área de trabalho carregar, com erros, lentidão ou programas indesejados, aponta para software. A confirmação só vem com o equipamento avaliado."
+      },
+      {
+        "pergunta": "Vale a pena consertar um computador antigo?",
+        "resposta": "Depende da relação entre o custo do reparo e o valor de um equipamento equivalente. Quando a soma de peças se aproxima desse valor, ou quando a placa não suporta mais memória e o processador limita o uso pretendido, explicamos o cenário e a alternativa, incluindo a migração dos seus dados."
+      },
+      {
+        "pergunta": "Formatar resolve lentidão?",
+        "resposta": "Resolve quando a causa é software. Se o gargalo é HD mecânico, memória insuficiente ou aquecimento, a máquina volta a ficar lenta pouco tempo depois da formatação. Por isso a lentidão é investigada por família de causa antes de definir o procedimento."
+      },
+      {
+        "pergunta": "Meus arquivos correm risco durante a manutenção?",
+        "resposta": "O procedimento é sempre combinado antes. Quando há suspeita de falha de disco, a prioridade é preservar os dados antes de qualquer tentativa de reparo. Em formatação, o backup é tratado como etapa obrigatória do serviço, e não como opcional."
+      },
+      {
+        "pergunta": "O atendimento pode ser feito sem sair de casa?",
+        "resposta": "Boa parte dos casos de sistema, configuração e programa é resolvida por atendimento remoto. Rede, instalação e verificação inicial funcionam bem em domicílio. Falha física, troca de peça e recuperação de dados pedem bancada, com coleta e entrega quando necessário."
+      }
+    ]
+  },
+  {
     "path": "/problemas/computador-lento",
     "title": "Computador Lento? Diagnóstico Técnico em Curitiba",
     "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.",

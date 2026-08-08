@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { filtrarComerciais, QA_LABEL } from "@/lib/qaExclusion";
+import { filtrarComerciais } from "@/lib/qaExclusion";
 
 /**
  * Painel de conversão por CTA (Rodada 4B).

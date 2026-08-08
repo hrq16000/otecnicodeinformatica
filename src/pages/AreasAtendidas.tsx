@@ -230,7 +230,18 @@ const AreasAtendidas = () => {
                       );
                     })}
                   </ul>
+                  <button
+                    type="button"
+                    onClick={() => abrirFunilLocal("bairro", r.nome)}
+                    data-cta-location={`areas_regiao_${r.nome}`}
+                    data-wa-funnel="required"
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Falar sobre atendimento nesta região
+                  </button>
                 </article>
+
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">

@@ -76,14 +76,76 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     body: (
       <>
         <p>
-          Usamos cookies essenciais (funcionamento do site), de análise (Google Analytics 4) e de
-          marketing (Google Ads), sempre respeitando seu consentimento via banner LGPD. Por padrão,
-          cookies de análise e publicidade ficam <strong>negados</strong> até você aceitar
-          (Google Consent Mode v2).
+          Usamos cookies essenciais (funcionamento do site) e <strong>cookies opcionais</strong> de
+          análise (Google Analytics 4) e de marketing (Google Ads), sempre respeitando sua escolha
+          no banner. Por padrão, análise e publicidade ficam <strong>negadas</strong> até você
+          aceitar (Google Consent Mode v2).
+        </p>
+        <p className="mt-2">
+          Recusar os cookies opcionais mantém essas ferramentas externas sem autorização para
+          armazenamento não essencial. Isso <strong>não</strong> significa ausência absoluta de
+          qualquer registro técnico: o registro próprio descrito na seção 5.2 funciona de forma
+          separada dos cookies opcionais.
         </p>
         <p className="mt-2">
           Você pode revogar o consentimento a qualquer momento limpando os cookies do site no seu
           navegador.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "telemetria-funil",
+    title: "5.2. Telemetria técnica do funil de atendimento",
+    icon: Database,
+    body: (
+      <>
+        <p>
+          Além das ferramentas externas, o próprio site pode registrar informações técnicas
+          associadas às suas interações com o funil de atendimento (abrir o formulário, avançar
+          etapas, clicar no botão de WhatsApp).
+        </p>
+        <p className="mt-2 font-semibold text-foreground">O que pode ser registrado</p>
+        <ul className="list-disc pl-5 space-y-1.5 mt-1">
+          <li>tipo de evento e etapa do atendimento;</li>
+          <li>página em que a interação aconteceu e posição do botão;</li>
+          <li>categoria de serviço ou equipamento;</li>
+          <li>faixa de tamanho de tela (viewport);</li>
+          <li>parâmetros de campanha e origem da visita;</li>
+          <li>identificador técnico da sessão.</li>
+        </ul>
+        <p className="mt-3 font-semibold text-foreground">Identificador de sessão</p>
+        <p className="mt-1">
+          Para relacionar as etapas de uma mesma visita, usamos um identificador técnico aleatório
+          armazenado no <strong>sessionStorage</strong> do navegador. Ele é limitado à sessão/aba,
+          é pseudônimo e não foi projetado para identificar diretamente uma pessoa entre visitas.
+        </p>
+        <p className="mt-3 font-semibold text-foreground">O que essa telemetria não registra</p>
+        <p className="mt-1">
+          A telemetria descrita nesta seção não registra endereço IP, nome, telefone, e-mail,
+          endereço, CEP, coordenadas de GPS, fotos, texto livre digitado por você, user-agent nem
+          técnicas de fingerprinting. Outros fluxos do site (por exemplo, o que você envia
+          voluntariamente no WhatsApp) seguem as demais seções desta política.
+        </p>
+        <p className="mt-3 font-semibold text-foreground">Para que serve</p>
+        <ul className="list-disc pl-5 space-y-1.5 mt-1">
+          <li>medir a abertura do funil de atendimento;</li>
+          <li>analisar avanço e abandono por etapa;</li>
+          <li>medir conversões nos canais de atendimento;</li>
+          <li>identificar a origem da visita ou campanha;</li>
+          <li>avaliar diferenças de experiência por contexto técnico (ex.: tamanho de tela).</li>
+        </ul>
+        <p className="mt-3 font-semibold text-foreground">Acesso e compartilhamento</p>
+        <p className="mt-1">
+          Esses registros ficam armazenados na infraestrutura utilizada pelo site e a leitura é
+          restrita a usuários administrativos autorizados. Eles <strong>não</strong> são enviados
+          automaticamente ao Google Analytics ou ao Google Ads — essas ferramentas têm fluxo
+          próprio e seguem o mecanismo de consentimento aplicável.
+        </p>
+        <p className="mt-3">
+          O prazo de retenção desses registros técnicos ainda está em definição pela governança
+          interna e será publicado nesta política quando definido. Até lá, aplicamos o princípio da
+          minimização descrito acima (sem IP e sem dados pessoais nesse fluxo).
         </p>
       </>
     ),

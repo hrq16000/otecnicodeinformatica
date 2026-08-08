@@ -20,6 +20,7 @@ import {
   trackFunnelBranch,
   trackFunnelBusinessProfile,
   setFunnelBranchContext,
+  trackWaClick,
 } from "@/lib/funnelAnalytics";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { geoSuggestion } from "@/lib/geoContext";
@@ -599,6 +600,13 @@ export const WhatsAppFunnel = () => {
         minimumAccepted: true,
       });
       trackCTAClick("whatsapp", `funnel_${originLocation}`);
+      // Rodada 4D.1 — ponta final da mensuração: a abertura efetiva do canal
+      // WhatsApp após a triagem passa a persistir `wa_click` em click_events,
+      // permitindo calcular submit → WhatsApp. Sem alteração de UI/copy.
+      trackWaClick(`funnel_${originLocation}`, {
+        equipamento: answers.equipment || undefined,
+        modalidade: rules.route,
+      });
 
       // Contexto reduzido pós-triagem, lido pela página /obrigado.
       // Sem PII: apenas modalidade, rótulo do equipamento, triageId e origem.

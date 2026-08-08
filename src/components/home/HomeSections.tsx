@@ -324,22 +324,12 @@ export const HomeSections = () => {
       </section>
 
 
-      {/* 5. COMO FUNCIONA */}
-      <section className="py-14 md:py-18">
-        <div className="container mx-auto">
-          <SectionTitle eyebrow="Passo a passo" title="Como funciona o atendimento" />
-          <ol className="mx-auto grid max-w-3xl gap-3">
-            {steps.map((s, i) => (
-              <li key={s} className="flex items-start gap-4 rounded-xl border border-border bg-card p-4">
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                  {i + 1}
-                </span>
-                <span className="pt-1 text-sm font-medium text-foreground">{s}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* 5. COMO FUNCIONA — fluxo de conversão WhatsApp → triagem → diagnóstico → remoto/local/bancada */}
+      <AtendimentoFluxoSection />
+
+      {/* 5B. PROVA REAL — bancada, técnico identificado e atendimento (fail-closed) */}
+      <BancadaRealSection />
+
 
       {/* 6. PREÇOS E POLÍTICAS */}
       <section className="border-y border-border bg-secondary py-14 md:py-18">

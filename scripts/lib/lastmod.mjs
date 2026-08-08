@@ -9,6 +9,8 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Frente de monetização — página comercial de patrocínio
+  "/anuncie": "2026-08-08",
   // Rodada 3L — montagem de PC e periféricos em rede
   "/servicos/montagem-de-pc": "2026-08-06",
   "/servicos/redes-e-wifi": "2026-08-06",

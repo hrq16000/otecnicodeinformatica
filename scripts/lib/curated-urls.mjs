@@ -24,6 +24,7 @@ export const MAIN = [
   { path: "/sobre", changefreq: "monthly", priority: "0.6" },
   { path: "/contato", changefreq: "monthly", priority: "0.7" },
   { path: "/faq", changefreq: "monthly", priority: "0.7" },
+  { path: "/anuncie", changefreq: "monthly", priority: "0.5" },
   { path: "/atendimento-domicilio", changefreq: "monthly", priority: "0.7" },
   { path: "/atendimento-remoto", changefreq: "monthly", priority: "0.7" },
   { path: "/equipamentos-atendidos", changefreq: "monthly", priority: "0.6" },

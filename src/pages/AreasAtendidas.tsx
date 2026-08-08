@@ -272,7 +272,18 @@ const AreasAtendidas = () => {
                   >
                     Ver atendimento em {c.cidade}
                   </Link>
+                  <button
+                    type="button"
+                    onClick={() => abrirFunilLocal("cidade", c.cidade)}
+                    data-cta-location={`areas_cidade_${c.slug}`}
+                    data-wa-funnel="required"
+                    className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Confirmar agenda em {c.cidade}
+                  </button>
                 </article>
+
               ))}
             </div>
             {cidadesSemPagina.length > 0 && (

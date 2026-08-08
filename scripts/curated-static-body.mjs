@@ -137,6 +137,7 @@ export function h1For(route) {
 
 const SHORT_LABEL = {
   "/": "Início",
+  "/guia-tecnico-informatica": "Guia técnico de informática",
   "/servicos": "Serviços",
   "/sobre": "Sobre",
   "/faq": "Dúvidas frequentes",

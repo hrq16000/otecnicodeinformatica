@@ -99,10 +99,21 @@ export const ConsentBanner = () => {
       }}
     >
       <p style={{ margin: 0, marginBottom: 8 }}>
-        Usamos cookies de análise e de anúncios. Registros técnicos próprios (sem cookies e sem
-        dados pessoais) continuam ativos para o funcionamento do site.{" "}
-        <a href="/politica-de-cookies-e-anuncios" style={{ color: "#7dd3fc", textDecoration: "underline" }}>
-          Política de Cookies e Anúncios
+        Usamos <strong>cookies opcionais</strong> de análise e anúncios. Mesmo sem aceitá-los, o
+        site registra diretamente dados técnicos mínimos das interações no funil de atendimento
+        para medir etapas e conversões, sem armazenar IP, nome, telefone ou texto livre.{" "}
+        <a
+          href="/politica-de-privacidade#telemetria-funil"
+          style={{ color: "#7dd3fc", textDecoration: "underline" }}
+        >
+          Saiba mais
+        </a>{" "}
+        ·{" "}
+        <a
+          href="/politica-de-cookies-e-anuncios"
+          style={{ color: "#7dd3fc", textDecoration: "underline" }}
+        >
+          Cookies e anúncios
         </a>
         .
       </p>

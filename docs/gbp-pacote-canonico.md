@@ -244,7 +244,7 @@ schema externo. Permanece no site exatamente como já está — sem alteração 
 - [ ] Telefone: +55 41 99708-6380 · Site: https://tecnico.curitiba.br
 - [ ] Descrição: colar a versão de 701 caracteres
 - [ ] Serviços: cadastrar os 12 itens com escopo explícito onde indicado
-- [ ] Horário: deixar em branco até a confirmação operacional
+- [ ] Horário: Seg–Sex 08:30–18:00 · Sáb 09:00–13:00 · Dom fechado (aprovado na 4I)
 - [ ] Ativar mensagens e definir resposta inicial
 - [ ] Concluir a verificação (vídeo/cartão) — endereço visível só para o Google
 - [ ] Logo e capa

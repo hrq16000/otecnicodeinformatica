@@ -54,6 +54,8 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
       { label: "Política de cookies e anúncios", to: "/politica-de-cookies-e-anuncios" },
       { label: "Status de anúncios", to: "/status-de-anuncios" },
       { label: "Anuncie / patrocine", to: "/anuncie" },
+      { label: "Mídia kit (PDF)", href: "/midia-kit-tecnico-curitiba.pdf" },
+
     ],
   },
 ];

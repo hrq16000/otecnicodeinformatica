@@ -89,6 +89,47 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
     ),
   },
   {
+    id: "publicidade",
+    title: "5.1. Publicidade de terceiros (Google AdSense)",
+    icon: Cookie,
+    body: (
+      <>
+        <p>
+          Este site pode exibir anúncios fornecidos por terceiros. O <strong>Google</strong>, como
+          fornecedor terceirizado, utiliza cookies para exibir anúncios neste site. O uso do cookie
+          DART pelo Google permite veicular anúncios com base em visitas anteriores a este e a
+          outros sites da internet.
+        </p>
+        <p className="mt-2">
+          Você pode desativar a publicidade personalizada nas{" "}
+          <a
+            className="text-accent underline"
+            href="https://www.google.com/settings/ads"
+            rel="noopener nofollow"
+            target="_blank"
+          >
+            Configurações de anúncios do Google
+          </a>{" "}
+          ou optar por sair do uso de cookies de fornecedores terceirizados em{" "}
+          <a
+            className="text-accent underline"
+            href="https://www.aboutads.info/choices/"
+            rel="noopener nofollow"
+            target="_blank"
+          >
+            aboutads.info/choices
+          </a>
+          . Fornecedores terceirizados e redes de anúncios que veiculam anúncios neste site também
+          podem usar cookies próprios, sobre os quais não temos controle direto.
+        </p>
+        <p className="mt-2">
+          O arquivo <strong>ads.txt</strong> deste domínio declara os vendedores autorizados a
+          comercializar o inventário publicitário de tecnico.curitiba.br.
+        </p>
+      </>
+    ),
+  },
+  {
     id: "compartilhamento",
     title: "6. Com quem compartilhamos",
     icon: Database,

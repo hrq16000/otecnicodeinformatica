@@ -115,10 +115,17 @@ const AreasAtendidas = () => {
     trackPageView(PATH, "Áreas atendidas");
   }, []);
 
-  const abrirFunil = (location: string) => {
+  const abrirFunil = (location: string, message?: string) => {
     trackCTAClick("whatsapp", location);
-    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location } }));
+    window.dispatchEvent(new CustomEvent("wa-funnel:open", { detail: { location, message } }));
   };
+
+  const abrirFunilLocal = (escopo: "bairro" | "cidade", nome: string) =>
+    abrirFunil(
+      `areas_${escopo}_${nome.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`,
+      `Olá! Preciso de atendimento técnico em ${nome} (${escopo === "bairro" ? "Curitiba" : "região metropolitana de Curitiba"}). Pode confirmar agenda e a modalidade indicada para o meu caso?`,
+    );
+
 
   return (
     <div className="min-h-screen bg-background">

@@ -8,6 +8,8 @@
  *   visível no DOM.
  */
 
+import { WHATSAPP_CONFIGURED, CONTACT_FALLBACK_URL } from "@/lib/siteConfig";
+
 const PHONE_RE = /\(?\b(?:41|11|21)\)?\s*9?\s*\d{4}\s*-?\s*\d{4}\b/;
 const WA_NUMBER_RE = /55\s*41\s*9{0,1}\s*7\s*\d{3}\s*-?\s*\d{4}/;
 
@@ -63,7 +65,31 @@ function installNumberLeakWatcher() {
   window.addEventListener("popstate", () => setTimeout(scan, 500));
 }
 
+/**
+ * RODADA 1 — FAIL-CLOSED DE CONTATO (roda também em produção).
+ * Enquanto o WhatsApp da nova operação não estiver configurado, nenhum clique
+ * pode abrir wa.me: o lead iria para a operação de origem. Todo CTA cai na
+ * rota de indisponibilidade.
+ */
+function installContactFailClosed() {
+  if (typeof document === "undefined" || WHATSAPP_CONFIGURED) return;
+  document.addEventListener(
+    "click",
+    (e) => {
+      const el = (e.target as HTMLElement | null)?.closest<HTMLAnchorElement>("a[href]");
+      if (!el) return;
+      const href = el.getAttribute("href") || "";
+      if (!/wa\.me|api\.whatsapp\.com|web\.whatsapp\.com/i.test(href)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign(CONTACT_FALLBACK_URL);
+    },
+    true,
+  );
+}
+
 export function installCtaRuntimeGuard() {
+  installContactFailClosed();
   if (import.meta.env.PROD) return;
   installClickGuard();
   installNumberLeakWatcher();

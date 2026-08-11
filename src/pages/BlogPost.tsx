@@ -20,12 +20,12 @@ import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
 import { EditorialCta, EditorialRelatedLinks } from "@/components/editorial/EditorialCta";
 import {
-import { SITE_BASE_URL } from "@/lib/siteConfig";
   isEditorialApproved,
   getEditorialApproval,
   INSTITUTIONAL_AUTHOR,
   EDITORIAL_PUBLISHER,
 } from "@/lib/blogEditorialRegistry";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)
@@ -251,7 +251,7 @@ const BlogPost = () => {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`${SITE_BASE_URL}/blog/${slug}`} />
-        <meta property="og:site_name" content="Técnico em Curitiba" />
+        <meta property="og:site_name" content={BRAND_NAME} />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
@@ -263,8 +263,8 @@ const BlogPost = () => {
             <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
             <meta property="article:section" content={post.category} />
             <meta property="article:tag" content={post.category} />
-            <meta property="article:author" content="Técnico em Curitiba" />
-            <meta property="article:publisher" content=SITE_BASE_URL />
+            <meta property="article:author" content={BRAND_NAME} />
+            <meta property="article:publisher" content={SITE_BASE_URL} />
           </>
         )}
         <meta name="twitter:card" content="summary_large_image" />

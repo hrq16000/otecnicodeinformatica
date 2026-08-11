@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { REGRA_CANCELAMENTO } from "@/lib/precosConfig";
 import {
-import { SITE_BASE_URL } from "@/lib/siteConfig";
   MessageCircle,
   Home,
   Wrench,
@@ -11,6 +10,7 @@ import { SITE_BASE_URL } from "@/lib/siteConfig";
   CheckCircle2,
   Clock,
 } from "lucide-react";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 /**
  * Conteúdo canônico de TERMOS, CONDIÇÕES, VALORES E PRAZOS.

@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Cpu, Flame, RefreshCw, Smartphone, Zap, Wrench, MessageCircle } from "lucide-react";
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const PROCEDIMENTOS = [
   {

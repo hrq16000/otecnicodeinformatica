@@ -13,8 +13,9 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const tvGalleryImages = [
   {

@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
 import { ArrowLeft, MessageCircle, CalendarCheck, CheckCircle2 } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   EQUIPMENTS,
   type DiagnosticBranch,
@@ -11,7 +12,7 @@ import {
   isLeaf,
 } from "@/lib/diagnostico60sTree";
 
-const WA_NUMBER = "5541997086380";
+const WA_NUMBER = WA_NUMBER;
 
 function waLink(message: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;

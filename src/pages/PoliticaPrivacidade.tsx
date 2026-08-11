@@ -5,10 +5,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 const CANONICAL = "https://tecnico.curitiba.br/politica-de-privacidade";
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
-const WHATSAPP = "5541997086380";
+const WHATSAPP = WA_NUMBER;
 const UPDATED = "08/08/2026";
 
 const sections: { id: string; title: string; icon: typeof ShieldCheck; body: React.ReactNode }[] = [

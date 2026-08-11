@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { CalendarIcon, Clock, MapPin, Wrench, User, Phone, MessageSquare, CheckCircle2, ArrowRight, Send } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   trackFunnelAgendarClick,
   trackFunnelAgendarSubmit,
@@ -20,7 +21,7 @@ import {
 } from "@/lib/funnelAnalytics";
 
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 interface SchedulingModalProps {
   isOpen: boolean;

@@ -14,8 +14,9 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { SERVICOS, CIDADES, getServico, getCidade, getFaqPorServico } from "@/lib/servicoCidadeData";
 import { ServiceCityLinks } from "@/components/ServiceCityLinks";
 import NotFound from "@/pages/NotFound";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const ServicoCidadePage = () => {
   const { servico: servicoSlug, cidade: cidadeSlug } = useParams<{ servico: string; cidade: string }>();

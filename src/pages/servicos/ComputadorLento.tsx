@@ -10,8 +10,9 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const causas = [
   { titulo: "HD antigo ou sem SSD", desc: "Uma das causas mais comuns de lentidão. HDs mecânicos são até 10x mais lentos que SSDs. A troca resolve em 90% dos casos.", solucao: "Upgrade para SSD" },

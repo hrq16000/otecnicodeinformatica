@@ -22,6 +22,7 @@ import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
 import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 const BAIRROS_ATENDIDOS = [
   { to: "/bairros/batel", label: "Batel" },
@@ -31,7 +32,7 @@ const BAIRROS_ATENDIDOS = [
   { to: "/bairros/portao", label: "Portão" },
 ];
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const tipoIcon = (tipo: string) => {
   switch (tipo) {

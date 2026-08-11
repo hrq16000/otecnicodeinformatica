@@ -12,8 +12,9 @@ import {
   Shield, Wrench, MessageCircle, ChevronRight, Building2, Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP = "5541997086380";
+const WHATSAPP = WA_NUMBER;
 
 const categorias = [
   {

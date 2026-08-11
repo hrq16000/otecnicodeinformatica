@@ -19,8 +19,9 @@ import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, MapPin, Clock, Shield, Home, User, Briefcase, CheckCircle, Truck, AlertTriangle, ArrowRight, Camera } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MESSAGE = "Preciso verificar a possibilidade de atendimento técnico em domicílio.";
 
 const benefits = [

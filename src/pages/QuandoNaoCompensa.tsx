@@ -9,13 +9,14 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle, ArrowRight, AlertTriangle, CheckCircle2,
   DollarSign, Clock, Ban, TrendingDown, Monitor, Laptop,
   Tv, HardDrive, Calculator, ShieldCheck,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const cenarios = [
   {

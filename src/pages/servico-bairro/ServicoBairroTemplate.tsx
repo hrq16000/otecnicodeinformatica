@@ -15,6 +15,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
+import { WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
 
 const CANONICAL_BASE = "https://tecnico.curitiba.br";
 
@@ -110,7 +111,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     "@id": `${CANONICAL_BASE}/#localbusiness`,
     name: "Técnico em Curitiba",
     url: CANONICAL_BASE,
-    telephone: "+5541997086380",
+    telephone: WA_PHONE_E164,
     areaServed: [
       { "@type": "Place", name: `${data.bairro}, ${data.cidade}` },
       { "@type": "City", name: data.cidade },

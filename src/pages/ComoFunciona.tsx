@@ -10,6 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Phone,
@@ -45,7 +46,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const ComoFunciona = () => {
   useEffect(() => {

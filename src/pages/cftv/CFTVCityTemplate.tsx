@@ -8,12 +8,13 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
 import { trackPageView } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle, Shield, Camera, Smartphone, Moon, HardDrive,
   CheckCircle2, Star, MapPin, Award, ArrowRight,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 interface CFTVCityPageProps {
   city: string;

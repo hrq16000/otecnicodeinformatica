@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   Select,
   SelectContent,
@@ -21,7 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const WHATSAPP = "5541997086380";
+const WHATSAPP = WA_NUMBER;
 
 const beneficios = [
   { icon: TrendingUp, title: "Demanda constante", desc: "Receba chamados técnicos de clientes qualificados na sua região, sem precisar investir em marketing." },

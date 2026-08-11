@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   Select,
   SelectContent,
@@ -27,7 +28,7 @@ import {
   PRAZOS,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 type EquipmentType = "tv" | "celular" | "notebook" | "pc" | "monitor" | "radio" | "som" | "outro";
 

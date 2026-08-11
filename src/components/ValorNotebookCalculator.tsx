@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MessageCircle, Calculator } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 /**
  * Calculadora de valor — Conserto de Notebook em Curitiba.
@@ -17,7 +18,7 @@ import { trackCTAClick } from "@/lib/analytics";
  * - Faixa é estimativa, sempre fechada após diagnóstico real.
  */
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 type Problema = {
   id: string;

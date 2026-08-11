@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { MessageCircle, CheckCircle, Zap, Shield, Clock, ThumbsUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const benefits = [
   { icon: Clock, text: "Mais de 20 anos de experiência", description: "Profissional experiente no mercado" },

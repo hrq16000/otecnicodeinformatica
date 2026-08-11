@@ -11,6 +11,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle, ArrowRight, Truck, Shield, Clock, CheckCircle2,
   MapPin, Package, AlertTriangle, Phone, ClipboardList,
@@ -26,7 +27,7 @@ import {
   REGRA_ESTIMATIVA_GRATIS,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MESSAGE = "Preciso avaliar coleta e entrega para um computador ou notebook.";
 
 const faqItems = [

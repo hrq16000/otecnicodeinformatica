@@ -9,6 +9,7 @@ import { BenefitsGrid } from "@/components/BenefitsGrid";
 import { CTASection } from "@/components/CTASection";
 import { trackPageView } from "@/lib/analytics";
 import { getCityOgImage, getCityHeroImage } from "./cityImages";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   ShieldCheck,
   Wifi,
@@ -18,7 +19,7 @@ import {
   CreditCard,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 export type CityData = {
   slug: string; // e.g. "sao-paulo"

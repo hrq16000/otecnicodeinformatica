@@ -1,3 +1,4 @@
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 /**
  * Pipeline WhatsApp T+24h / T+72h — custo zero (wa.me manual via admin).
  *
@@ -11,7 +12,7 @@
  * Sem Twilio/GatewayAPI = sem custo recorrente e sem opt-in regulatório.
  */
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 /**
  * Link mágico do Google que abre direto a tela "Escrever avaliação".

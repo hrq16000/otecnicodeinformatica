@@ -13,8 +13,9 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
 
 const Contato = () => {

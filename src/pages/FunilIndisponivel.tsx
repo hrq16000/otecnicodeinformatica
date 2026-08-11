@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, AlertTriangle } from "lucide-react";
 import { appendUtmsToUrl } from "@/lib/utmCapture";
 import { withVideoWarning } from "@/lib/funnelWarning";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const FALLBACK_TEXT = withVideoWarning(
   "Olá! Tive um problema técnico no formulário do site e gostaria de falar com um atendente.",

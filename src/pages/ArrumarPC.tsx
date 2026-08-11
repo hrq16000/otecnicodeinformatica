@@ -19,8 +19,9 @@ import {
   CreditCard,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MSG =
   "Olá! Quero arrumar meu PC. Pode me ajudar via atendimento remoto?";
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(

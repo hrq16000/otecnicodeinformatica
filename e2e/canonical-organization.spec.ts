@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { SITE_URL } from "./site-env";
 
 /**
  * Rodada 3.1 / 3.2 — canonical único e identidade Organization determinística.
@@ -26,7 +27,7 @@ const ROUTES = [
   "/diagnostico-60s",
 ];
 
-const SITE = "https://tecnico.curitiba.br";
+const SITE = SITE_URL;
 const REF_KEYS = new Set([
   "publisher",
   "provider",

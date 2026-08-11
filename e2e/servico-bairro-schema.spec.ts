@@ -1,11 +1,12 @@
 import { test, expect } from "@playwright/test";
+import { SITE_URL } from "./site-env";
 
 // ─────────────────────────────────────────────────────────────
 // VALIDAÇÃO DE SCHEMA POR ROTA /servicos/{servico}/{bairro}
 //
 // Para cada bairro indexável (Wi-Fi e Manutenção de TV Smart) confere que
 // a página renderiza:
-//   1. <link rel="canonical"> apontando para https://tecnico.curitiba.br
+//   1. <link rel="canonical"> apontando para o domínio canônico configurado
 //      no path esperado (sem trailing slash).
 //   2. Um bloco JSON-LD @graph contendo obrigatoriamente:
 //      - LocalBusiness (com @id "…/#localbusiness")
@@ -18,7 +19,7 @@ import { test, expect } from "@playwright/test";
 // ─────────────────────────────────────────────────────────────
 
 const BASE = process.env.E2E_BASE_URL ?? "http://localhost:4173";
-const SITE = "https://tecnico.curitiba.br";
+const SITE = SITE_URL;
 
 const BAIRROS = [
   "batel", "centro", "agua-verde", "cic", "portao", "bigorrilho",

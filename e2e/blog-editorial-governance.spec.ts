@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { resolve } from "path";
+import { SITE_URL } from "./site-env";
 
 // ─────────────────────────────────────────────────────────────
 // GOVERNANÇA EDITORIAL FAIL-CLOSED (substitui blog-sitemap-new-urls.spec.ts)
@@ -16,7 +17,7 @@ import { resolve } from "path";
 // O teste FALHA se a política voltar a ser fail-open.
 // ─────────────────────────────────────────────────────────────
 
-const SITE = "https://tecnico.curitiba.br";
+const SITE = SITE_URL;
 const BASE = process.env.E2E_BASE_URL ?? "http://localhost:4173";
 const DIST = (p: string) => resolve("dist", p);
 

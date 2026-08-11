@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { SITE_URL } from "./site-env";
 
 const BASE = process.env.E2E_BASE_URL ?? "http://localhost:8080";
 
@@ -15,9 +16,9 @@ test.describe("SEO — sitemap & robots", () => {
     const res = await request.get(`${BASE}/sitemap-main.xml`);
     expect(res.ok()).toBeTruthy();
     const body = await res.text();
-    expect(body).toContain("https://tecnico.curitiba.br/assistencia-tecnica-curitiba");
-    expect(body).toContain("https://tecnico.curitiba.br/termos-e-condicoes");
-    expect(body).toContain("https://tecnico.curitiba.br/");
+    expect(body).toContain(`${SITE_URL}/assistencia-tecnica-curitiba`);
+    expect(body).toContain(`${SITE_URL}/termos-e-condicoes`);
+    expect(body).toContain(`${SITE_URL}/`);
   });
 
   test("/assistencia-tecnica-curitiba canonical self-references", async ({ page }) => {

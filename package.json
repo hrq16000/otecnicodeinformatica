@@ -91,6 +91,7 @@
     "check:eeat": "node scripts/check-eeat-coverage.mjs",
     "check:trust-claims": "node scripts/check-trust-claims.mjs",
     "check:forbidden-copy": "node scripts/check-forbidden-copy.mjs",
+    "check:wa-number-dom": "node scripts/check-wa-number-dom.mjs dist",
     "check:copy": "npm run check:forbidden-copy && npm run check:trust-claims",
     "report:local-audit": "node scripts/report-local-audit.mjs",
     "check:editorial-wave-3o": "node scripts/check-editorial-wave-3o.mjs",

@@ -45,6 +45,7 @@ const ALLOW = [
   { file: "src/lib/funnelAnalytics.ts", id: "razao-social" },
   { file: "src/lib/siteConfig.ts", id: "cnpj-palavra" },
   { file: "src/lib/siteConfig.ts", id: "razao-social" },
+  { file: "src/lib/config/brand.ts", id: "razao-social" },
   // rotas legadas/canônicas que não podem ser removidas (SEO evolutivo)
 ];
 

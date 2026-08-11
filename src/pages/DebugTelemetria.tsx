@@ -7,6 +7,7 @@ import {
   trackCTAClick,
 } from "@/lib/analytics";
 import { GA4_EVENTS } from "@/lib/trackingTaxonomy";
+import { applyConsent, readConsent, resetConsent } from "@/lib/consentStore";
 import { Button } from "@/components/ui/button";
 
 /**

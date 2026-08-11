@@ -89,7 +89,10 @@ const localBusinessSchema = {
     addressRegion: siteConfig.region,
     addressCountry: siteConfig.country,
   },
-  geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng },
+  // Coordenadas só entram no schema quando forem da operação real (env).
+  ...(siteConfig.geo
+    ? { geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng } }
+    : {}),
   areaServed: siteConfig.serviceArea
     .filter((c) => c !== "Região Metropolitana de Curitiba")
     .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),

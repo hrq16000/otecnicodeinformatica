@@ -2,6 +2,7 @@
 # Indexação liberada (VITE_SITE_DOMAIN + VITE_SITE_INDEXING_ENABLED=true).
 
 User-agent: *
+Disallow: /debug/
 Allow: /
 Disallow: /admin
 Disallow: /admin/

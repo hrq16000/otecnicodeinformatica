@@ -47,6 +47,7 @@ const PoliticaCookiesAnuncios = lazy(() => import("./pages/PoliticaCookiesAnunci
 const StatusAnuncios = lazy(() => import("./pages/StatusAnuncios"));
 const Anuncie = lazy(() => import("./pages/Anuncie"));
 const FunilIndisponivel = lazy(() => import("./pages/FunilIndisponivel"));
+const DebugTelemetria = lazy(() => import("./pages/DebugTelemetria"));
 const OrdemDeServico = lazy(() => import("./pages/OrdemDeServico"));
 const StatusOs = lazy(() => import("./pages/StatusOs"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
@@ -964,6 +965,8 @@ const App = () => (
             <Route path="/patrocinadores" element={<Navigate to="/anuncie" replace />} />
 
             <Route path="/funil-indisponivel" element={<FunilIndisponivel />} />
+            {/* Painel de verificação de GA4/Ads — noindex, fora do sitemap. */}
+            <Route path="/debug/telemetria" element={<DebugTelemetria />} />
             <Route path="/ordem-de-servico" element={<OrdemDeServico />} />
             <Route path="/status-da-ordem-de-servico" element={<StatusOs />} />
             <Route path="/status-os" element={<StatusOs />} />

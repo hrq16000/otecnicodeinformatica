@@ -11,11 +11,12 @@
  * Uso: node scripts/check-breadcrumb-schema.mjs [dist]
  */
 import { existsSync, readFileSync } from "node:fs";
+import { BASE_URL } from "./lib/site-env.mjs";
 import path from "node:path";
 import { CATEGORIES, LOCAIS, cityLabel } from "./lib/category-local.mjs";
 
 const DIST = path.resolve(process.argv[2] || "dist");
-const SITE = "https://tecnico.curitiba.br";
+const SITE = BASE_URL;
 
 if (!existsSync(DIST)) {
   console.error(`BLOQUEADO: ${DIST} não existe — rode "npm run build" antes.`);

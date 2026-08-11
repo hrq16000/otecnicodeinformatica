@@ -12,9 +12,34 @@ declare global {
   }
 }
 
-const GA4_ID = 'G-B9VPHCZC10';
-const ADS_ID = 'AW-17892118207';
-const ADS_CONVERSION_LABEL = 'AW-17892118207/i5jSCMqi1JYcEL-d0NNC';
+// RODADA 1 — ISOLAMENTO: IDs vêm SOMENTE de env. Sem `|| "id-antigo"`.
+// Ausente = integração não inicializa (nenhum evento sai do remix).
+const envCfg = import.meta.env as unknown as Record<string, string | undefined>;
+const clean = (v?: string) => (typeof v === 'string' && v.trim() ? v.trim() : undefined);
+
+const GA4_ID = clean(envCfg.VITE_GA4_ID);
+const ADS_ID = clean(envCfg.VITE_GOOGLE_ADS_ID);
+const ADS_CONVERSION_LABEL = clean(envCfg.VITE_GOOGLE_ADS_CONVERSION_LABEL);
+
+export const ANALYTICS_ENABLED = Boolean(GA4_ID);
+export const ADS_ENABLED = Boolean(ADS_ID);
+
+/**
+ * Carrega o gtag.js apenas quando há propriedade própria configurada.
+ * Enquanto não houver, o site roda sem GA4/Ads — jamais na propriedade herdada.
+ */
+export const initGoogleTags = () => {
+  if (typeof window === 'undefined' || !GA4_ID) return;
+  if ((window as unknown as { __gtagLoaded?: boolean }).__gtagLoaded) return;
+  (window as unknown as { __gtagLoaded?: boolean }).__gtagLoaded = true;
+  window.gtag?.('config', GA4_ID, { anonymize_ip: true });
+  if (ADS_ID) window.gtag?.('config', ADS_ID);
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+  document.head.appendChild(s);
+};
+
 
 // Google Ads conversion with callback (mirrors gtag_report_conversion snippet)
 export const gtagReportConversion = (url?: string) => {

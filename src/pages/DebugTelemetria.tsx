@@ -7,6 +7,7 @@ import {
   trackCTAClick,
 } from "@/lib/analytics";
 import { GA4_EVENTS } from "@/lib/trackingTaxonomy";
+import { applyConsent, readConsent, resetConsent } from "@/lib/consentStore";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -85,13 +86,43 @@ export default function DebugTelemetria() {
     return Boolean(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
   }, [tick]);
 
-  const consent = useMemo(() => {
-    if (typeof window === "undefined") return "—";
+  // Estado efetivo do Consent Mode: default do bootstrap + todos os updates,
+  // na ordem em que o gtag os aplicaria.
+  const consentState = useMemo(() => {
     void tick;
-    const dl = ((window as unknown as { dataLayer?: unknown[] }).dataLayer || []) as unknown[][];
-    const last = [...dl].reverse().find((a) => Array.isArray(a) && a[0] === "consent");
-    return last ? JSON.stringify(last[2] ?? last[1]) : "não definido";
+    if (typeof window === "undefined") return {} as Record<string, string>;
+    const dl = ((window as unknown as { dataLayer?: unknown[] }).dataLayer || []) as unknown[];
+    const merged: Record<string, string> = {};
+    for (const raw of dl) {
+      // O gtag empurra objetos `arguments` (array-like), não arrays reais.
+      const entry = (raw && typeof raw === "object" ? Array.from(raw as ArrayLike<unknown>) : []) as unknown[];
+      if (entry[0] !== "consent") continue;
+      const payload = (entry[2] ?? entry[1]) as Record<string, string> | undefined;
+      if (payload && typeof payload === "object") Object.assign(merged, payload);
+    }
+    return merged;
   }, [tick]);
+
+  const consent = Object.keys(consentState).length
+    ? JSON.stringify(consentState)
+    : "não definido";
+
+  const savedConsent = useMemo(() => {
+    void tick;
+    const rec = readConsent();
+    return rec ? `analytics=${rec.analytics} · ads=${rec.ads} (v${rec.version || "?"})` : "sem decisão salva";
+  }, [tick]);
+
+  // Simulação: aplica o Consent Mode sem gravar decisão nem auditar no backend.
+  const simulate = useCallback((analytics: boolean, ads: boolean) => {
+    applyConsent({ analytics, ads });
+    setTick((n) => n + 1);
+  }, []);
+
+  const clearConsent = useCallback(() => {
+    resetConsent();
+    setTick((n) => n + 1);
+  }, []);
 
   const leadState = useMemo(() => {
     void tick;
@@ -159,8 +190,84 @@ export default function DebugTelemetria() {
           <Row label="Ads ativo" value={String(ADS_ENABLED)} ok={ADS_ENABLED} />
           <Row label="send_to da conversão" value={ADS_SEND_TO || "(sem rótulo)"} ok={Boolean(ADS_SEND_TO)} />
           <Row label="gtag.js carregado" value={String(scriptLoaded)} ok={scriptLoaded} />
-          <Row label="Consent Mode" value={consent} />
+          <Row
+            label="Consent Mode (efetivo)"
+            value={consent}
+            ok={consentState.analytics_storage === "granted"}
+          />
+          <Row label="ad_storage" value={consentState.ad_storage || "—"} ok={consentState.ad_storage === "granted"} />
+          <Row
+            label="analytics_storage"
+            value={consentState.analytics_storage || "—"}
+            ok={consentState.analytics_storage === "granted"}
+          />
+          <Row label="Decisão salva (LGPD)" value={savedConsent} />
           <Row label="Lead da sessão" value={leadState} />
+        </section>
+
+        <section className="rounded-xl border border-border p-4" data-testid="debug-consent">
+          <h2 className="mb-1 font-semibold">Simulador de Consent Mode</h2>
+          <p className="mb-3 text-xs text-muted-foreground">
+            Aplica <code>consent update</code> no gtag sem gravar a decisão do visitante nem
+            registrar auditoria. Use junto do disparo de teste abaixo para conferir o
+            comportamento dos eventos de lead em cada cenário.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              data-testid="debug-consent-denied"
+              onClick={() => simulate(false, false)}
+            >
+              Tudo negado
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              data-testid="debug-consent-analytics"
+              onClick={() => simulate(true, false)}
+            >
+              Só analytics
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              data-testid="debug-consent-ads"
+              onClick={() => simulate(false, true)}
+            >
+              Só anúncios
+            </Button>
+            <Button
+              type="button"
+              data-testid="debug-consent-granted"
+              onClick={() => simulate(true, true)}
+            >
+              Tudo concedido
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              data-testid="debug-consent-clear"
+              onClick={clearConsent}
+            >
+              Limpar decisão salva
+            </Button>
+          </div>
+          <ul className="mt-3 space-y-1 text-xs text-muted-foreground">
+            <li>
+              <strong>analytics_storage: denied</strong> — o site continua chamando{" "}
+              <code>gtag('event', ...)</code>, mas o GA4 não grava cookie nem atribui a sessão.
+            </li>
+            <li>
+              <strong>ad_storage: denied</strong> — a <code>conversion</code> do Google Ads sai sem
+              cookies de anúncio (modeladas), e o AdSense não é carregado.
+            </li>
+            <li>
+              A deduplicação de lead é da sessão (<code>sessionStorage</code>) e independe do
+              consentimento: mudar o cenário não libera um novo <code>generate_lead</code> — use
+              &quot;Reiniciar sessão de lead&quot;.
+            </li>
+          </ul>
         </section>
 
         <section className="rounded-xl border border-border p-4">

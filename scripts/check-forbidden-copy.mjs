@@ -7,8 +7,8 @@
  *   2. e-mail de contato publicado (mailto: / contato@dominio);
  *   3. o número de WhatsApp como texto visível (só é permitido em wa.me,
  *      no campo `telephone` do JSON-LD e nas constantes de configuração);
- *   4. a palavra "orçamento" / "orçar" / "orçado" — o vocabulário oficial é
- *      "agendar", "solicitar atendimento" e "valor".
+ *   4. rótulos de CTA fora das famílias oficiais definidas em
+ *      src/lib/ctaLabels.ts (FASE 18 da Rodada 3).
  *
  * Uso: node scripts/check-forbidden-copy.mjs
  */
@@ -26,8 +26,16 @@ const RULES = [
   { id: "entidade", re: /Ping\s+Solu[çc][õo]es/i, msg: "razão social exposta" },
   { id: "email", re: /mailto:|contato@[a-z0-9.-]+/i, msg: "e-mail de contato exposto" },
   { id: "whatsapp-visivel", re: /\(?41\)?[\s.-]?9{1,2}\s?9?7\d{3}[-\s.]?\d{4}/, msg: "número de WhatsApp visível" },
-  { id: "orcamento", re: /or[çc]ament|or[çc]ad[oa]s?\b|\bor[çc]ar\b/i, msg: 'palavra proibida: usar "agendar"/"solicitar atendimento"/"valor"' },
+  // RODADA 3 — FASE 18: rótulos de CTA fora das famílias oficiais.
+  // A palavra "orçamento" segue permitida no texto editorial; o que é
+  // bloqueado é usá-la (ou variações soltas) como rótulo de botão.
+  {
+    id: "cta-familia",
+    re: /^\s*(Solicitar|Quero|Pedir|Fazer|Peça)\s+(um\s+)?or[çc]amento\s*$|^\s*(Fale conosco|Chamar no zap|Clique aqui)\s*$/i,
+    msg: 'rótulo de CTA fora da família oficial (src/lib/ctaLabels.ts): "Solicitar diagnóstico" · "Iniciar atendimento" · "Continuar no WhatsApp"',
+  },
 ];
+
 
 /** Exceções conscientes (código, não copy visível). */
 const ALLOW = [
@@ -37,9 +45,8 @@ const ALLOW = [
   { file: "src/lib/funnelAnalytics.ts", id: "razao-social" },
   { file: "src/lib/siteConfig.ts", id: "cnpj-palavra" },
   { file: "src/lib/siteConfig.ts", id: "razao-social" },
+  { file: "src/lib/config/brand.ts", id: "razao-social" },
   // rotas legadas/canônicas que não podem ser removidas (SEO evolutivo)
-  { file: "src/App.tsx", id: "orcamento" },
-  { file: "src/LegacyApp.tsx", id: "orcamento" },
 ];
 
 const files = [];
@@ -67,7 +74,7 @@ for (const file of files) {
 if (findings.length) {
   console.error(`\n❌ Copy proibido: ${findings.length} ocorrência(s)\n`);
   for (const f of findings) console.error(`  ${f.file}:${f.line}  [${f.rule}] ${f.msg}\n      ${f.text}`);
-  console.error("\nVocabulário oficial: agendar · solicitar atendimento · valor. Sem CNPJ, razão social, e-mail ou telefone visível.");
+  console.error("\nCTAs oficiais: Solicitar diagnóstico · Iniciar atendimento · Continuar no WhatsApp. Sem CNPJ, razão social, e-mail ou telefone visível.");
   process.exit(1);
 }
-console.log("✅ Copy proibido: nenhuma ocorrência (CNPJ, razão social, e-mail, telefone visível, orçamento).");
+console.log("✅ Copy proibido: nenhuma ocorrência (CNPJ, razão social, e-mail, telefone visível, rótulo de CTA).");

@@ -215,7 +215,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
                 data-cta-location={`${data.trackingKey}_hero`}
                 className={CTA_BASE}
               >
-                {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento no WhatsApp"}
+                {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento"}
               </a>
               {isEmpresarial && (
                 <Link
@@ -490,7 +490,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
             data-cta-location={`${data.trackingKey}_final`}
             className={`${CTA_BASE} mt-7`}
           >
-            {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento no WhatsApp"}
+            {isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento"}
           </a>
         </div>
       </section>

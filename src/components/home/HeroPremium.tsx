@@ -84,7 +84,7 @@ export const HeroPremium = () => (
             data-wa-source="whatsapp_cta"
             className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--hero-bg))]"
           >
-            Solicitar orçamento
+            Solicitar diagnóstico
             <ArrowRight className="h-5 w-5" aria-hidden="true" />
           </a>
           <a

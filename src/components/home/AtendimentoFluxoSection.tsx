@@ -71,7 +71,7 @@ export const AtendimentoFluxoSection = () => (
             data-cta-location="fluxo_atendimento_cta"
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
           >
-            Solicitar orçamento
+            Solicitar diagnóstico
           </a>
           <a
             href="/como-funciona"

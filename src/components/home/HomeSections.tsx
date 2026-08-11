@@ -394,7 +394,7 @@ export const HomeSections = () => {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor para meu equipamento.">
-                Quero um orçamento
+                Iniciar atendimento
               </FunnelButton>
               <a
                 href="/precos-e-politicas"
@@ -496,7 +496,7 @@ export const HomeSections = () => {
               data-cta-location="cta_final"
               className="inline-flex min-h-14 items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
             >
-              Solicitar orçamento
+              Iniciar atendimento
             </a>
           </div>
           <p className="mt-4 text-xs text-white/70">

@@ -42,8 +42,19 @@ export const initGoogleTags = () => {
 
 
 // Google Ads conversion with callback (mirrors gtag_report_conversion snippet)
+/**
+ * `send_to` do Google Ads. Aceita o rótulo completo (`AW-123/AbC-D_efG`) ou
+ * apenas o sufixo (`AbC-D_efG`), que é combinado com VITE_GOOGLE_ADS_ID.
+ */
+export const ADS_SEND_TO =
+  ADS_CONVERSION_LABEL && ADS_ID
+    ? ADS_CONVERSION_LABEL.includes('/')
+      ? ADS_CONVERSION_LABEL
+      : `${ADS_ID}/${ADS_CONVERSION_LABEL}`
+    : undefined;
+
 export const gtagReportConversion = (url?: string) => {
-  if (typeof window !== 'undefined' && window.gtag && ADS_CONVERSION_LABEL) {
+  if (typeof window !== 'undefined' && window.gtag && ADS_SEND_TO) {
     const callback = () => {
       if (url) {
         window.location.href = url;
@@ -51,7 +62,7 @@ export const gtagReportConversion = (url?: string) => {
     };
     window.gtag('event', 'conversion', {
 
-      send_to: ADS_CONVERSION_LABEL,
+      send_to: ADS_SEND_TO,
       value: 1.0,
       currency: 'BRL',
       event_callback: callback,
@@ -79,11 +90,13 @@ const getUtmContext = () => {
 // (mobile/tablet/desktop), inferido por largura + ponteiro coarse.
 const getDeviceContext = () => {
   if (typeof window === 'undefined')
-    return { device: 'unknown' as const, viewport_width: 0, viewport_bucket: 'unknown' };
+    return { device: 'unknown' as const, viewport_bucket: 'unknown' };
   const w = window.innerWidth || document.documentElement.clientWidth || 0;
   const coarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches;
   const device = w < 768 || coarse ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
-  return { device, viewport_width: w, viewport_bucket: viewportBucket(w) };
+  // viewport_width bruto é proibido pela governança de telemetria (4E.4):
+  // só o bucket sai do navegador.
+  return { device, viewport_bucket: viewportBucket(w) };
 };
 
 // Lead dedup: gera/persiste um ID por sessão por tipo de CTA para evitar

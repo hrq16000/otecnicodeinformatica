@@ -5,6 +5,9 @@ import { installCtaRuntimeGuard } from "./lib/ctaRuntimeGuard";
 
 initErrorReporter();
 installCtaRuntimeGuard();
+// RODADA 1 — trava de indexação + analytics só da propriedade própria.
+import("./lib/indexingPolicy").then(({ applyIndexingPolicy }) => applyIndexingPolicy());
+import("./lib/analytics").then(({ initGoogleTags }) => initGoogleTags());
 // Tema único (claro): remove qualquer `dark` herdado, força color-scheme light
 // e zera flags antigas no localStorage para ignorar preferências do usuário.
 try {

@@ -301,7 +301,7 @@ const Sobre = () => {
               Responsabilidade técnica
             </h2>
             <p className="mt-3 text-muted-foreground">
-              {experienciaLabel}. Os atendimentos são executados sob a supervisão do{" "}
+              {experienciaLabel ? `${experienciaLabel}. ` : ""}Os atendimentos são executados sob a supervisão do{" "}
               <strong className="text-foreground">
                 {GESTOR.nome.trim() ? `${GESTOR.nome} — ${GESTOR.cargo}` : GESTOR.cargo.toLowerCase()}
               </strong>{" "}

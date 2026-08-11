@@ -16,7 +16,7 @@ interface ExperienciaBadgeProps {
  * Texto sempre derivado de politicaComercial/siteConfig (nunca hardcoded).
  */
 export const ExperienciaBadge = ({ tone = "hero", className, suffix }: ExperienciaBadgeProps) => (
-  <p
+  !experienciaLabel ? null : <p
     className={cn(
       "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold",
       tone === "hero"

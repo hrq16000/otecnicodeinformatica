@@ -156,6 +156,8 @@ const ArrumarPC = () => {
         title="Arrumar PC online | Técnico de informática no Brasil"
         description="Arrume seu PC ou notebook de qualquer lugar do Brasil via WhatsApp + acesso remoto. Formatação, vírus, lentidão, tela azul, Wi-Fi. atendimento sem compromisso, paga só se resolver."
         path="/arrumar-pc"
+        // Cluster nacional (L6): fora da estratégia local Curitiba/RMC desta rodada.
+        noindex
         breadcrumbs={[
           { name: "Início", path: "/" },
           { name: "Arrumar PC", path: "/arrumar-pc" },

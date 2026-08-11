@@ -18,9 +18,10 @@
  */
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
+import { BASE_URL as SITE_BASE_URL } from "./lib/site-env.mjs";
 
 const ROOT = process.cwd();
-const CANONICAL = "https://tecnico.curitiba.br";
+const CANONICAL = SITE_BASE_URL;
 const STRICT = process.argv.includes("--strict");
 
 // ── 1. Rotas declaradas ──────────────────────────────────────────────────────

@@ -148,7 +148,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "manutencao-notebook",
     metaTitle: "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
     metaDescription:
-      "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes de informar o valor via WhatsApp.",
+      "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas.",
     serviceName: "Manutenção de Notebook",
     serviceDescription:
       "Diagnóstico e manutenção de notebooks: limpeza interna, troca de pasta térmica, tela, teclado, bateria e desempenho, com atendimento em Curitiba e região.",
@@ -271,7 +271,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "manutencao-computador",
     metaTitle: "Assistência Técnica de Computador em Curitiba | PC",
     metaDescription:
-      "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes de informar o valor via WhatsApp.",
+      "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa.",
     serviceName: "Manutenção de Computador (Desktop)",
     serviceDescription:
       "Diagnóstico e manutenção de PCs desktop: fonte, memória, armazenamento, placa-mãe, travamentos e limpeza, com atendimento em Curitiba e região.",
@@ -393,7 +393,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "upgrade-ssd-ram",
     metaTitle: "Instalação de SSD e Upgrade de Memória em Curitiba",
     metaDescription:
-      "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Via WhatsApp.",
+      "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre.",
     serviceName: "Upgrade de SSD e Memória RAM",
     serviceDescription:
       "Instalação de SSD e ampliação de RAM com avaliação de compatibilidade, clonagem do sistema e backup, para ganho real de desempenho em Curitiba e região.",
@@ -604,7 +604,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "recuperacao-dados",
     metaTitle: "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
     metaDescription:
-      "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas. Avaliação primeiro — recuperação não é garantida.",
+      "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas.",
     serviceName: "Recuperação de Dados",
     serviceDescription:
       "Tentativa de recuperação de dados em HD, SSD, pendrive e cartão de memória, com avaliação inicial e transparência sobre as chances, em Curitiba e região.",
@@ -704,7 +704,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "redes-wifi",
     metaTitle: "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
     metaDescription:
-      "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp.",
+      "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho.",
     serviceName: "Redes e Wi-Fi",
     serviceDescription:
       "Instalação e configuração de redes e Wi-Fi residenciais e empresariais: roteador, repetidor, cabeamento e estabilidade, em Curitiba e região.",
@@ -960,7 +960,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "manutencao-preventiva-empresas",
     metaTitle: "Manutenção Preventiva de Computadores em Curitiba | Empresas",
     metaDescription:
-      "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado, sem promessa de zero falhas.",
+      "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado.",
     serviceName: "Manutenção Preventiva de Computadores para Empresas",
     serviceDescription:
       "Rotina planejada de inspeção, limpeza quando indicada, verificação de armazenamento, memória, atualizações e riscos das estações de trabalho de empresas em Curitiba e região.",
@@ -1068,7 +1068,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "backup-empresarial",
     metaTitle: "Backup para Empresas em Curitiba | Proteção de Arquivos",
     metaDescription:
-      "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta.",
+      "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração.",
     serviceName: "Backup para Empresas",
     serviceDescription:
       "Avaliação, configuração e orientação de rotinas de backup para empresas de Curitiba e região: cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração.",
@@ -1175,7 +1175,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "suporte-home-office",
     metaTitle: "Suporte Técnico para Home Office em Curitiba",
     metaDescription:
-      "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho.",
+      "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail.",
     serviceName: "Suporte Técnico para Home Office",
     serviceDescription:
       "Suporte técnico para profissionais em home office em Curitiba e região: equipamento, conexão, reuniões, e-mail, arquivos e organização do posto de trabalho, com atendimento remoto ou no local.",
@@ -1323,7 +1323,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "montagem-de-pc",
     metaTitle: "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
     metaDescription:
-      "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
+      "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema.",
     serviceName: "Montagem de PC e PC Gamer",
     serviceDescription:
       "Montagem, configuração e avaliação técnica de computadores desktop, PC Gamer e estações de trabalho em Curitiba e região, com verificação de compatibilidade, organização dos componentes e testes antes da entrega.",
@@ -1461,7 +1461,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "conserto-tv",
     metaTitle: "Conserto de TV e Smart TV em Curitiba | Bancada e Coleta",
     metaDescription:
-      "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega. Critérios de aceite e recusa informados antes.",
+      "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega.",
     serviceName: "Conserto de TV e Smart TV",
     serviceDescription:
       "Avaliação e reparo de TV LED, LCD e Smart TV em Curitiba e região, com trabalho em bancada, reparo em nível de componente quando viável, critérios claros de aceite e recusa e logística de coleta e entrega.",
@@ -1592,7 +1592,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "conserto-placa",
     metaTitle: "Reparo de Placa Eletrônica em Curitiba | Nível de Componente",
     metaDescription:
-      "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável, coleta e entrega.",
+      "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável.",
     serviceName: "Reparo de placa eletrônica",
     serviceDescription:
       "Avaliação e reparo de placas eletrônicas em nível de componente — placa-mãe de notebook, placa de computador e placa de televisor — em Curitiba e região, com bancada equipada, critérios de viabilidade declarados e logística de coleta e entrega.",
@@ -1702,7 +1702,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     trackingKey: "conserto-monitor",
     metaTitle: "Conserto de Monitor em Curitiba | Fonte, Backlight e Placa",
     metaDescription:
-      "Conserto de monitor em Curitiba: monitor que não liga, sem imagem, piscando ou com backlight apagado. Avaliação em bancada, reparo em nível de componente, coleta e entrega.",
+      "Conserto de monitor em Curitiba: monitor que não liga, sem imagem, piscando ou com backlight apagado.",
     serviceName: "Conserto de monitor",
     serviceDescription:
       "Avaliação e conserto de monitores em Curitiba e região: falhas de alimentação, fonte interna e externa, backlight, placa lógica e entradas de vídeo, com trabalho em bancada, critérios de aceite declarados e logística de coleta e entrega.",

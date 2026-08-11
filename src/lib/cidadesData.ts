@@ -125,7 +125,7 @@ export const CIDADES: Record<string, CidadeData> = {
     areaName: "São José dos Pinhais",
     metaTitle: "Técnico em São José dos Pinhais para Notebook e PC",
     metaDescription:
-      "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas. Atendimento a domicílio ou coleta via WhatsApp.",
+      "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas.",
     eyebrow: "Atendimento em São José dos Pinhais",
     h1: "Técnico em São José dos Pinhais para notebook, PC e informática",
     h1Accent: "para casa e empresa",
@@ -167,7 +167,7 @@ export const CIDADES: Record<string, CidadeData> = {
     areaName: "Pinhais",
     metaTitle: "Técnico em Pinhais para Notebook, PC e Redes",
     metaDescription:
-      "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
+      "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
     eyebrow: "Atendimento em Pinhais",
     h1: "Técnico em Pinhais para notebook, PC e informática",
     h1Accent: "rápido e transparente",
@@ -209,7 +209,7 @@ export const CIDADES: Record<string, CidadeData> = {
     areaName: "Colombo",
     metaTitle: "Técnico em Colombo para Notebook, PC e Informática",
     metaDescription:
-      "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
+      "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
     eyebrow: "Atendimento em Colombo",
     h1: "Técnico em Colombo para notebook, PC e informática",
     h1Accent: "sem enrolação",
@@ -251,7 +251,7 @@ export const CIDADES: Record<string, CidadeData> = {
     areaName: "Araucária",
     metaTitle: "Técnico em Araucária para Notebook, PC e Empresas",
     metaDescription:
-      "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
+      "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial.",
     eyebrow: "Atendimento em Araucária",
     h1: "Técnico em Araucária para notebook, PC e informática",
     h1Accent: "para residências e empresas",
@@ -293,7 +293,7 @@ export const CIDADES: Record<string, CidadeData> = {
     areaName: "Campo Largo",
     metaTitle: "Técnico em Campo Largo para Notebook, PC e Redes",
     metaDescription:
-      "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp.",
+      "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial.",
     eyebrow: "Atendimento em Campo Largo",
     h1: "Técnico em Campo Largo para notebook, PC e informática",
     h1Accent: "com valor do atendimento claro",

@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { siteConfig, whatsappLink } from "@/lib/siteConfig";
 import { EeatProofsSection } from "@/components/EeatProofsSection";
+import { ProvasDeConfiancaSection } from "@/components/home/ProvasDeConfiancaSection";
 import { AtendimentoFluxoSection } from "@/components/home/AtendimentoFluxoSection";
 import { BancadaRealSection } from "@/components/home/BancadaRealSection";
 import { RegioesCuritibaSection } from "@/components/home/RegioesCuritibaSection";
@@ -334,6 +335,9 @@ export const HomeSections = () => {
 
       {/* 5. COMO FUNCIONA — fluxo de conversão WhatsApp → triagem → diagnóstico → remoto/local/bancada */}
       <AtendimentoFluxoSection />
+
+      {/* 5A. PROVAS DE CONFIANÇA VERIFICÁVEIS (garantia, NF, atendimento local) */}
+      <ProvasDeConfiancaSection />
 
       {/* 5B. PROVA REAL — bancada, técnico identificado e atendimento (fail-closed) */}
       <BancadaRealSection />

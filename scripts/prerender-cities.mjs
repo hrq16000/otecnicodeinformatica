@@ -244,17 +244,28 @@ function upsertHeadTag(html, pattern, tag) {
   return html.replace(/<\/head>/i, `    ${tag}\n  </head>`);
 }
 
+/** og:image precisa ser URL absoluta para os crawlers sociais. */
+function absolutizeOgImage(html) {
+  return html.replace(
+    /(<meta\s+(?:property|name)=["'](?:og:image|og:image:secure_url|twitter:image)["']\s+content=["'])\/(?!\/)/gi,
+    `$1${SITE}/`,
+  );
+}
+
 function injectCuratedMeta(html, url, title, description) {
   const t = htmlEscape(title);
   const d = htmlEscape(description);
   let out = html
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${t}</title>`)
-    .replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${d}">`)
-    .replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${url}" />`)
-    .replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${t}">`)
-    .replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`)
-    .replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`)
-    .replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
+    .replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${d}">`);
+  // O index.html base não traz og:url/og:title/og:description/twitter:* — usar
+  // replace puro viraria no-op e a rota sairia sem og self-referente.
+  out = upsertHeadTag(out, /<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${url}" />`);
+  out = upsertHeadTag(out, /<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${t}">`);
+  out = upsertHeadTag(out, /<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`);
+  out = upsertHeadTag(out, /<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`);
+  out = upsertHeadTag(out, /<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
+  out = absolutizeOgImage(out);
   out = upsertHeadTag(out, /<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${url}" />`);
   out = upsertHeadTag(out, /<link\s+rel=["']alternate["']\s+hreflang=["']pt-BR["'][^>]*>/i, `<link rel="alternate" hreflang="pt-BR" href="${url}" />`);
   out = upsertHeadTag(out, /<link\s+rel=["']alternate["']\s+hreflang=["']x-default["'][^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${url}" />`);
@@ -523,6 +534,24 @@ export async function prerenderCities(distDir) {
       /<link\s+rel=["']canonical["'][^>]*>/i,
       `<link rel="canonical" href="${SITE}/" />`,
     );
+    homeHtml = upsertHeadTag(
+      homeHtml,
+      /<meta\s+property=["']og:url["'][^>]*>/i,
+      `<meta property="og:url" content="${SITE}/" />`,
+    );
+    homeHtml = absolutizeOgImage(homeHtml);
+    // A home também precisa do title/description curados no HTML estático
+    // (o index.html base carrega apenas o nome da marca).
+    if (homeRoute.title && homeRoute.description) {
+      homeHtml = homeHtml
+        .replace(/<title>[\s\S]*?<\/title>/i, `<title>${htmlEscape(homeRoute.title)}</title>`)
+        .replace(
+          /<meta\s+name=["']description["'][^>]*>/i,
+          `<meta name="description" content="${htmlEscape(homeRoute.description)}">`,
+        );
+      homeHtml = upsertHeadTag(homeHtml, /<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${htmlEscape(homeRoute.title)}">`);
+      homeHtml = upsertHeadTag(homeHtml, /<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${htmlEscape(homeRoute.description)}">`);
+    }
     await fs.writeFile(indexPath, homeHtml, "utf8");
   }
 
@@ -623,7 +652,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: `Instalação de Câmeras de Segurança em ${r.city}`,
       serviceType: "Instalação de CFTV e câmeras de segurança",
-      provider: { "@type": "Organization", name: "Mileuma Soluções / Mestre dos Serviços" },
+      provider: { "@type": "Organization", name: "O Técnico de Informática" },
       areaServed: r.hub
         ? { "@type": "AdministrativeArea", name: "Curitiba e Região Metropolitana" }
         : { "@type": "City", name: r.city },

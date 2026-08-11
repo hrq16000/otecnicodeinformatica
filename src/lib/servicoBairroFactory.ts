@@ -263,7 +263,30 @@ export const ROTAS_ESTATICAS_EXISTENTES = new Set<string>([
   "upgrade-ssd-memoria/batel",
 ]);
 
+/**
+ * RODADA 2A — quarentena editorial.
+ * Auditoria de herança (scripts/inventory-inherited-pages.mjs) mediu 81%–83%
+ * de sobreposição de conteúdo entre estas combinações serviço × bairro. Até
+ * que cada uma receba texto próprio (sintomas, referências e casos do bairro),
+ * elas ficam FORA do sitemap e renderizam `noindex, follow` — a URL continua
+ * existindo e acessível, apenas não disputa indexação duplicada.
+ */
+export const QUARENTENA_DUPLICADAS = new Set<string>([
+  "formatacao-computador/cic",
+  "formatacao-computador/batel",
+  "formatacao-computador/agua-verde",
+  "remocao-virus/cic",
+  "remocao-virus/agua-verde",
+  "conserto-pc-notebook/centro",
+  "conserto-pc-notebook/agua-verde",
+  "upgrade-ssd-memoria/cic",
+  "upgrade-ssd-memoria/centro",
+  "upgrade-ssd-memoria/agua-verde",
+  "upgrade-ssd-memoria/portao",
+]);
+
 export function isIndexavel(servicoSlug: string, bairroSlug: string): boolean {
+  if (QUARENTENA_DUPLICADAS.has(`${servicoSlug}/${bairroSlug}`)) return false;
   const bairro = BAIRROS_INDEXAVEIS[bairroSlug];
   if (!bairro) return false;
   if (!(BAIRROS_ANCORA as readonly string[]).includes(bairroSlug)) return false;

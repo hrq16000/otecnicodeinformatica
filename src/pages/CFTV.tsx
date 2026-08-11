@@ -65,7 +65,7 @@ const CFTVPage = () => {
           "price": "1350.00",
           "priceCurrency": "BRL",
           "availability": "https://schema.org/InStock",
-          "seller": { "@type": "Organization", "name": "Mileuma Soluções / Mestre dos Serviços" }
+          "seller": { "@type": "Organization", "name": "O Técnico de Informática" }
         }
         // aggregateRating removido: sem reviews reais verificadas para este produto.
       })}} />
@@ -477,7 +477,7 @@ const ArticleSection = () => (
 
           <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-6">
             <p className="text-foreground font-semibold text-sm">
-              💡 A Mileuma Soluções / Mestre dos Serviços realiza instalação profissional de kits Intelbras em 
+              💡 A O Técnico de Informática realiza instalação profissional de kits Intelbras em 
               Curitiba, São José dos Pinhais e Região Metropolitana. Kit completo a partir de R$ 1.350 
               com garantia de 1 ano.
             </p>

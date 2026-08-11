@@ -106,7 +106,7 @@ export const HeroPremium = () => (
               <li key={s.to} className={i >= 4 ? "hidden sm:block" : undefined}>
                 <a
                   href={s.to}
-                  className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-[13px] font-medium text-white/90 transition-colors hover:border-[hsl(var(--accent))] hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-2 text-[13px] font-medium text-white/90 transition-colors hover:border-[hsl(var(--accent))] hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   {s.label}
                 </a>
@@ -114,8 +114,16 @@ export const HeroPremium = () => (
             ))}
             <li>
               <a
+                href="/tecnico-informatica-curitiba"
+                className="inline-flex min-h-11 items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-2 text-[13px] font-medium text-white/90 transition-colors hover:border-[hsl(var(--accent))] hover:bg-white/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                Técnico em Curitiba
+              </a>
+            </li>
+            <li>
+              <a
                 href="/servicos"
-                className="inline-flex items-center rounded-full border border-[hsl(var(--accent))]/50 bg-[hsl(var(--accent))]/15 px-3.5 py-1.5 text-[13px] font-semibold text-white transition-colors hover:bg-[hsl(var(--accent))]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex min-h-11 items-center rounded-full border border-[hsl(var(--accent))]/50 bg-[hsl(var(--accent))]/15 px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[hsl(var(--accent))]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Ver todos os serviços →
               </a>

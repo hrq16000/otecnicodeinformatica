@@ -195,7 +195,7 @@ export const HeroTrustBanner = ({ city }: HeroTrustBannerProps) => {
         </div>
 
         {slides.length > 1 && (
-          <div className="mt-3 flex gap-1.5" role="tablist" aria-label="Provas de confiança">
+          <div className="mt-1 flex" role="tablist" aria-label="Provas de confiança">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -204,10 +204,15 @@ export const HeroTrustBanner = ({ city }: HeroTrustBannerProps) => {
                 aria-selected={i === index}
                 aria-label={`Prova ${i + 1}`}
                 onClick={() => setIndex(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-6 bg-accent" : "w-1.5 bg-white/25 hover:bg-white/40"
-                }`}
-              />
+                className="flex h-11 w-11 items-center justify-center"
+              >
+                <span
+                  aria-hidden="true"
+                  className={`block h-1.5 rounded-full transition-all ${
+                    i === index ? "w-6 bg-accent" : "w-1.5 bg-white/25 hover:bg-white/40"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}

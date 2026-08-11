@@ -69,6 +69,16 @@ export default function DebugTelemetria() {
     };
   }, [allowed]);
 
+  // Remove o robots "index, follow" herdado do shell estático: esta rota nunca
+  // pode ser indexável, e duas metas robots conflitantes confundem crawlers.
+  useEffect(() => {
+    document
+      .querySelectorAll('meta[name="robots"]')
+      .forEach((el) => {
+        if (!/noindex/.test(el.getAttribute("content") || "")) el.remove();
+      });
+  });
+
   const scriptLoaded = useMemo(() => {
     if (typeof document === "undefined") return false;
     void tick;

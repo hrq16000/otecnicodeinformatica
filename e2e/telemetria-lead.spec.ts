@@ -155,6 +155,10 @@ test.describe("Telemetria de lead — GA4 + Google Ads", () => {
 
   test("painel de debug não é indexável", async ({ page }) => {
     await page.goto(DEBUG);
+    await expect(page.getByTestId("debug-config")).toBeVisible();
+    await expect
+      .poll(async () => page.$$eval('meta[name="robots"]', (els) => els.length))
+      .toBeGreaterThan(0);
     const robots = await page.locator('meta[name="robots"]').allTextContents().then(() => page.$$eval('meta[name="robots"]', (els) => els.map((e) => e.getAttribute("content") || "")));
     expect(robots.some((c) => /noindex/.test(c))).toBe(true);
   });

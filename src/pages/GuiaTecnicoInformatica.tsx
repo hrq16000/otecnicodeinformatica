@@ -19,7 +19,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 const PATH = "/guia-tecnico-informatica";
 const TITLE = "Guia Técnico: Manutenção de PC e Notebook Passo a Passo";
 const DESCRIPTION =
-  "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico, quando o upgrade compensa e como é feito o diagnóstico.";
+  "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico.";
 
 const WA_MESSAGE =
   "Olá! Vim do guia técnico de informática. Quero descrever meu problema para a triagem.";

@@ -82,7 +82,7 @@ export const blogPostsContentBase: Record<string, BlogPostContent> = {
 
   "como-escolher-uma-workstation": {
     title: "Como escolher uma workstation: checklist de requisitos",
-    excerpt: "Checklist prático para dimensionar uma estação de trabalho profissional: o que levantar antes de comprar peça, o papel de cada componente e o que nenhuma configuração garante.",
+    excerpt: "Checklist prático para dimensionar uma estação de trabalho profissional: o que levantar antes de comprar peça.",
     date: "2026-08-06",
     readTime: "11 min",
     category: "Hardware",
@@ -1684,7 +1684,7 @@ docker run -d --name db --network minha-rede postgres
   },
   "como-saber-se-pc-tem-virus-malware": {
     title: "Como saber se o computador está com vírus ou malware",
-    excerpt: "Pop-ups, navegador alterado, lentidão repentina ou arquivos bloqueados? Veja os sinais de infecção, o que fazer com segurança e o que evitar para não piorar a situação.",
+    excerpt: "Pop-ups, navegador alterado, lentidão repentina ou arquivos bloqueados? Veja os sinais de infecção.",
     date: "2026-04-05",
     readTime: "10 min",
     category: "Segurança",
@@ -2434,7 +2434,7 @@ docker run -d --name db --network minha-rede postgres
   },
   "quando-trocar-hd-por-ssd": {
     title: "Vale a pena trocar o HD por SSD? Como avaliar o upgrade",
-    excerpt: "O SSD acelera a inicialização e a abertura de programas, mas não resolve tudo. Veja o que muda, o que continua igual e como avaliar se o upgrade compensa no seu caso.",
+    excerpt: "O SSD acelera a inicialização e a abertura de programas, mas não resolve tudo. Veja o que muda.",
     date: "2024-01-05",
     readTime: "9 min",
     category: "Hardware",
@@ -2510,7 +2510,7 @@ docker run -d --name db --network minha-rede postgres
   },
   "backup-como-proteger-seus-arquivos": {
     title: "Como evitar perder arquivos: guia de backup preventivo",
-    excerpt: "Backup não é copiar arquivos para outra pasta do mesmo disco. Entenda cópias local, externa e em nuvem, o teste de restauração e a diferença entre backup e recuperação.",
+    excerpt: "Backup não é copiar arquivos para outra pasta do mesmo disco. Entenda cópias local, externa e em nuvem.",
     date: "2024-01-02",
     readTime: "9 min",
     category: "Segurança",
@@ -2579,7 +2579,7 @@ docker run -d --name db --network minha-rede postgres
   },
   "notebook-superaquecendo-o-que-fazer": {
     title: "Notebook superaquecendo: sinais, prevenção e o que fazer",
-    excerpt: "Aquecimento normal ou comportamento de risco? Veja o que observar no superaquecimento, o que fazer com segurança e os sinais que pedem desligar o equipamento na hora.",
+    excerpt: "Aquecimento normal ou comportamento de risco? Veja o que observar no superaquecimento, o que fazer com segurança e os sinais que pedem desligar o equipamento.",
     date: "2023-12-28",
     readTime: "9 min",
     category: "Manutenção",
@@ -10318,7 +10318,7 @@ crontab -e
   },
   "como-melhorar-sinal-wifi-em-casa": {
     title: "Wi-Fi caindo ou com sinal fraco: como diagnosticar",
-    excerpt: "Wi-Fi que cai, fica lento ou não chega em alguns cômodos? Veja como separar problema da rede local e falha da operadora, com verificações seguras antes de comprar equipamento.",
+    excerpt: "Wi-Fi que cai, fica lento ou não chega em alguns cômodos? Veja como separar problema da rede local e falha da operadora.",
     date: "2026-04-29",
     readTime: "9 min",
     category: "Tutoriais Domésticos",

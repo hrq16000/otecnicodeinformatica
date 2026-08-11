@@ -57,17 +57,17 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/manutencao-de-notebook",
     "title": "Assistência Técnica de Notebook em Curitiba | Diagnóstico",
-    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas. Diagnóstico antes de informar o valor via WhatsApp."
+    "description": "Assistência técnica de notebook em Curitiba: lentidão, aquecimento, tela, teclado, bateria e limpeza interna. Todas as marcas."
   },
   {
     "path": "/servicos/manutencao-de-computador",
     "title": "Assistência Técnica de Computador em Curitiba | PC",
-    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa. Diagnóstico honesto antes de informar o valor via WhatsApp."
+    "description": "Assistência técnica de computador em Curitiba: travamentos, fonte, memória, HD/SSD e placa-mãe. Casa e empresa."
   },
   {
     "path": "/servicos/upgrade-ssd-ram",
     "title": "Instalação de SSD e Upgrade de Memória em Curitiba",
-    "description": "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre. Via WhatsApp."
+    "description": "Instalação de SSD e upgrade de memória RAM em Curitiba com avaliação de compatibilidade, clonagem e backup. Ganho real de desempenho, sem promessa de milagre."
   },
   {
     "path": "/servicos/remocao-de-virus",
@@ -77,12 +77,12 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/recuperacao-de-dados",
     "title": "Recuperação de Dados em Curitiba | HD, SSD e Pendrive",
-    "description": "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas. Avaliação primeiro — recuperação não é garantida."
+    "description": "Recuperação de dados em Curitiba de HD, SSD, pendrive e cartão. Exclusão acidental, sistema que não inicia e falhas."
   },
   {
     "path": "/servicos/redes-e-wifi",
     "title": "Configuração de Redes e Wi-Fi em Curitiba | Roteadores",
-    "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho. Via WhatsApp."
+    "description": "Configuração de redes e Wi-Fi em Curitiba: internet instável, roteador, repetidor, cabeamento e rede empresarial. Cobertura melhor em casa e no trabalho."
   },
   {
     "path": "/servicos/suporte-tecnico-empresarial",
@@ -92,22 +92,22 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/manutencao-preventiva-empresas",
     "title": "Manutenção Preventiva de Computadores em Curitiba | Empresas",
-    "description": "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado, sem promessa de zero falhas."
+    "description": "Manutenção preventiva de computadores para empresas em Curitiba: inventário, inspeção, armazenamento, atualizações e relatório de riscos priorizado."
   },
   {
     "path": "/servicos/backup-para-empresas",
     "title": "Backup para Empresas em Curitiba | Proteção de Arquivos",
-    "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração. Sem promessa de proteção absoluta."
+    "description": "Backup para empresas em Curitiba: avaliação do que existe hoje, cópia local, cópia externa, nuvem, retenção, versionamento e teste de restauração."
   },
   {
     "path": "/servicos/conserto-tv",
     "title": "Conserto de TV e Smart TV em Curitiba | Bancada e Coleta",
-    "description": "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega. Critérios de aceite e recusa informados antes."
+    "description": "Conserto de TV LED, LCD e Smart TV em Curitiba: avaliação em bancada, reparo em nível de componente quando viável, coleta e entrega."
   },
   {
     "path": "/servicos/conserto-placa",
     "title": "Reparo de Placa Eletrônica em Curitiba | Nível de Componente",
-    "description": "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável, coleta e entrega."
+    "description": "Reparo de placa-mãe de notebook, placa de PC e placa de TV em Curitiba: avaliação em bancada, reparo em nível de componente, retrabalho de BGA quando viável."
   },
   {
     "path": "/servicos/conserto-monitor",
@@ -117,7 +117,7 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/montagem-de-pc",
     "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
-    "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema, drivers e testes antes da entrega. Peças do cliente aceitas.",
+    "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema.",
     "blocos": [
       {
         "titulo": "Peças fornecidas pelo cliente: compatibilidade, procedência e troca",
@@ -150,12 +150,12 @@ const BASE_ROUTES = [
   {
     "path": "/servicos/suporte-home-office",
     "title": "Suporte Técnico para Home Office em Curitiba",
-    "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail, arquivos e preparação do posto de trabalho."
+    "description": "Suporte técnico para quem trabalha em casa em Curitiba: computador lento, Wi-Fi instável, câmera e microfone em reuniões, e-mail."
   },
   {
     "path": "/politica-de-pecas-do-cliente",
     "title": "Política de Peças do Cliente | Montagem em Curitiba",
-    "description": "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca, garantia da peça x garantia da mão de obra e valor declarado do equipamento.",
+    "description": "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca.",
     "blocos": [
       {
         "titulo": "Compatibilidade conferida antes da montagem",
@@ -197,7 +197,7 @@ const BASE_ROUTES = [
   {
     "path": "/seguranca-dos-dados",
     "title": "Segurança dos Dados na Assistência Técnica | Curitiba",
-    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias, limites e responsabilidades.",
+    "description": "Como arquivos, senhas e acessos são tratados durante a assistência técnica em Curitiba: autorização, acesso mínimo, backup prévio, cópias temporárias.",
     "blocos": [
       {
         "titulo": "Compromisso de acesso mínimo",
@@ -420,27 +420,27 @@ const BASE_ROUTES = [
   {
     "path": "/tecnico-informatica-sao-jose-pinhais",
     "title": "Técnico em São José dos Pinhais para Notebook e PC",
-    "description": "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas. Atendimento a domicílio ou coleta via WhatsApp."
+    "description": "Técnico de informática em São José dos Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte a empresas."
   },
   {
     "path": "/tecnico-informatica-pinhais",
     "title": "Técnico em Pinhais para Notebook, PC e Redes",
-    "description": "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
+    "description": "Técnico de informática em Pinhais: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial."
   },
   {
     "path": "/tecnico-informatica-colombo",
     "title": "Técnico em Colombo para Notebook, PC e Informática",
-    "description": "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
+    "description": "Técnico de informática em Colombo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial."
   },
   {
     "path": "/tecnico-informatica-araucaria",
     "title": "Técnico em Araucária para Notebook, PC e Empresas",
-    "description": "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
+    "description": "Técnico de informática em Araucária: formatação, conserto de notebook e PC, upgrade de SSD, redes e suporte empresarial."
   },
   {
     "path": "/tecnico-informatica-campo-largo",
     "title": "Técnico em Campo Largo para Notebook, PC e Redes",
-    "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial. Atendimento a domicílio ou coleta via WhatsApp."
+    "description": "Técnico de informática em Campo Largo: formatação, conserto de notebook e PC, upgrade de SSD, remoção de vírus, redes e suporte empresarial."
   },
   {
     "path": "/empresa-de-ti-curitiba",
@@ -450,7 +450,7 @@ const BASE_ROUTES = [
   {
     "path": "/bairros/cic",
     "title": "Técnico de Informática no CIC (Curitiba) | Notebook e PC",
-    "description": "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+    "description": "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99."
   },
   {
     "path": "/bairros/batel",
@@ -460,17 +460,17 @@ const BASE_ROUTES = [
   {
     "path": "/bairros/agua-verde",
     "title": "Técnico de Informática no Água Verde | Notebook e PC",
-    "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+    "description": "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99."
   },
   {
     "path": "/bairros/centro",
     "title": "Técnico de Informática no Centro de Curitiba | Notebook e PC",
-    "description": "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios. Diagnóstico a partir de R$ 99,99. Via WhatsApp."
+    "description": "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios."
   },
   {
     "path": "/bairros/portao",
     "title": "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
-    "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Atendimento a domicílio a partir de R$ 99,99. Via WhatsApp."
+    "description": "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD."
   },
   {
     "path": "/atendimento-domicilio",
@@ -542,7 +542,7 @@ const BASE_ROUTES = [
   {
     "path": "/atendimento-remoto",
     "title": "Atendimento Remoto de Informática em Curitiba",
-    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.",
+    "description": "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office.",
     "blocos": [
       {
         "titulo": "O que é atendimento remoto",
@@ -690,7 +690,7 @@ const BASE_ROUTES = [
   {
     "path": "/areas-atendidas",
     "title": "Áreas Atendidas em Curitiba e Região | Bairros e Cidades",
-    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
+    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local.",
     "blocos": [
       {
         "titulo": "O que esta página resolve",
@@ -726,7 +726,7 @@ const BASE_ROUTES = [
   {
     "path": "/equipamentos-atendidos",
     "title": "Equipamentos Atendidos | O Técnico de Informática",
-    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",
+    "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba.",
     "blocos": [
       {
         "titulo": "Como usar esta página",
@@ -794,7 +794,7 @@ const BASE_ROUTES = [
   {
     "path": "/guia-tecnico-informatica",
     "title": "Guia Técnico: Manutenção de PC e Notebook Passo a Passo",
-    "description": "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico, quando o upgrade compensa e como é feito o diagnóstico.",
+    "description": "Guia completo de manutenção de computador e notebook: como identificar a família da falha, o que verificar antes de chamar o técnico.",
     "h1": "Guia técnico de informática: manutenção de PC e notebook",
     "subtitulo": "Como separar as famílias de falha de um computador ou notebook, o que verificar antes do atendimento, quando o upgrade muda o desempenho e quando o reparo deixa de compensar.",
     "blocos": [
@@ -870,7 +870,7 @@ const BASE_ROUTES = [
   {
     "path": "/problemas/computador-lento",
     "title": "Computador Lento? Diagnóstico | O Técnico de Informática",
-    "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.",
+    "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem.",
     "h1": "Computador lento: sintomas, causas possíveis e o que realmente resolve",
     "subtitulo": "Lentidão quase nunca tem uma causa única: armazenamento, memória, temperatura e software se manifestam de formas diferentes e exigem soluções diferentes.",
     "blocos": [

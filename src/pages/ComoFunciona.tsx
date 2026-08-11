@@ -55,7 +55,7 @@ const ComoFunciona = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto, quando é visita e quando vai para bancada."
+        "Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto."
       );
     }
     trackPageView("/como-funciona", "Como Funciona");
@@ -69,7 +69,7 @@ const ComoFunciona = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Como Funciona o Atendimento Técnico | Passo a Passo" description="Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto, quando é visita e quando vai para bancada." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
+      <PageSEO title="Como Funciona o Atendimento Técnico | Passo a Passo" description="Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
       {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"

@@ -23,7 +23,7 @@ import { MessageCircle, Zap, Download, MapPinOff, ShieldCheck, ArrowRight, Lock 
 const PATH = "/atendimento-remoto";
 const TITLE = "Atendimento Remoto de Informática em Curitiba";
 const DESCRIPTION =
-  "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office — com autorização e acompanhamento.";
+  "Suporte remoto de informática em Curitiba para configurações, sistema, programas, e-mail, impressora já conectada, orientação e home office.";
 
 const WHATSAPP_MESSAGE = "Preciso de suporte remoto de informática.";
 

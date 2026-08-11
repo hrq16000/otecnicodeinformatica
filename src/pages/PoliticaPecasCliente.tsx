@@ -19,7 +19,7 @@ import {
 const PATH = "/politica-de-pecas-do-cliente";
 const TITLE = "Política de Peças do Cliente | Montagem em Curitiba";
 const DESCRIPTION =
-  "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca, garantia da peça x garantia da mão de obra e valor declarado do equipamento.";
+  "Regras claras para peças fornecidas pelo cliente em Curitiba: compatibilidade, procedência, integridade no recebimento, prazo de troca.";
 
 const WA_MESSAGE =
   "Olá! Li a política de peças do cliente e quero confirmar se as peças que tenho são compatíveis.";

@@ -57,7 +57,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     areaName: "Cidade Industrial de Curitiba (CIC)",
     metaTitle: "Técnico de Informática no CIC (Curitiba) | Notebook e PC",
     metaDescription:
-      "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
+      "Técnico de informática no CIC, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para empresas. Diagnóstico a partir de R$ 99,99.",
     h1: "Técnico de Informática no CIC – Curitiba",
     subtitulo:
       "Atendimento para residências e empresas no maior bairro de Curitiba, começando por triagem no WhatsApp e diagnóstico antes de informar o valor.",
@@ -109,7 +109,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     areaName: "Batel, Curitiba",
     metaTitle: "Técnico de Informática no Batel (Curitiba) | Notebook e PC",
     metaDescription:
-      "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para home office. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
+      "Técnico de informática no Batel, Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para home office.",
     h1: "Técnico de Informática no Batel – Curitiba",
     subtitulo:
       "Suporte para residências, home office e pequenos escritórios no Batel, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
@@ -160,7 +160,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     areaName: "Água Verde, Curitiba",
     metaTitle: "Técnico de Informática no Água Verde | Notebook e PC",
     metaDescription:
-      "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
+      "Técnico de informática no Água Verde, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Diagnóstico a partir de R$ 99,99.",
     h1: "Técnico de Informática no Água Verde – Curitiba",
     subtitulo:
       "Manutenção de notebook e PC para quem trabalha e estuda em casa no Água Verde, com triagem por WhatsApp e valor transparente.",
@@ -211,7 +211,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     areaName: "Centro de Curitiba",
     metaTitle: "Técnico de Informática no Centro de Curitiba | Notebook e PC",
     metaDescription:
-      "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios. Diagnóstico a partir de R$ 99,99. Via WhatsApp.",
+      "Técnico de informática no Centro de Curitiba: conserto de notebook, manutenção de computador, formatação e suporte para escritórios.",
     h1: "Técnico de Informática no Centro de Curitiba",
     subtitulo:
       "Atendimento ágil para lojas, consultórios e escritórios do Centro de Curitiba, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
@@ -262,7 +262,7 @@ export const BAIRROS: Record<string, BairroLocalData> = {
     areaName: "Portão, Curitiba",
     metaTitle: "Técnico de Informática no Portão (Curitiba) | Notebook e PC",
     metaDescription:
-      "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD. Atendimento a domicílio a partir de R$ 99,99. Via WhatsApp.",
+      "Técnico de informática no Portão, Curitiba: conserto de notebook, manutenção de computador, formatação e upgrade de SSD.",
     h1: "Técnico de Informática no Portão – Curitiba",
     subtitulo:
       "Conserto de notebook, PC e redes para casas e comércios do Portão, com triagem por WhatsApp e valor aprovado por você.",

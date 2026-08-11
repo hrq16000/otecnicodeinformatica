@@ -62,7 +62,10 @@ function editorialInboundHtml(path) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
 }
 
-export const SITE = "https://tecnico.curitiba.br";
+import { BASE_URL } from "./lib/site-env.mjs";
+
+// Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
+export const SITE = BASE_URL;
 
 // Espelho mínimo de src/lib/siteConfig.ts / src/lib/localBusinessJsonLd.ts.
 // Mantém NAP, área atendida e horários idênticos ao runtime.

@@ -22,9 +22,11 @@ if (!existsSync(DIR)) {
   process.exit(1);
 }
 
-const sitemap = existsSync(join(DIST, "sitemap.xml"))
-  ? readFileSync(join(DIST, "sitemap.xml"), "utf8")
-  : "";
+// O sitemap raiz é um índice: concatena todos os sitemap*.xml do build.
+const sitemap = readdirSync(DIST)
+  .filter((f) => /^sitemap.*\.xml$/.test(f))
+  .map((f) => readFileSync(join(DIST, f), "utf8"))
+  .join("\n");
 
 /** Intenção por família de slug (declarada, não inferida por IA). */
 const INTENCAO = [

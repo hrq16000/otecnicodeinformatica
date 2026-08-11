@@ -222,7 +222,7 @@ export default function AssistenciaTecnicaCuritiba() {
           const payload = (args[2] || {}) as Record<string, unknown>;
           const hasUtm =
             "utm_source" in payload || "utm_medium" in payload || "utm_campaign" in payload || "gclid" in payload;
-          // eslint-disable-next-line no-console
+           
           console.info("[ATC tracking ✓]", args[1], { hasUtmContext: hasUtm, payload });
         }
       } catch {
@@ -240,7 +240,7 @@ export default function AssistenciaTecnicaCuritiba() {
       firedSinceClick = false;
       window.setTimeout(() => {
         if (!firedSinceClick && Date.now() - lastClickAt >= 550) {
-          // eslint-disable-next-line no-console
+           
           console.error(
             `[ATC tracking ✗] WhatsApp CTA "${lastLocation}" não disparou cta_click no GA4. Verifique gtag/consent.`
           );

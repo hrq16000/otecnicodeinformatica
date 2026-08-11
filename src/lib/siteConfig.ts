@@ -29,9 +29,9 @@ export const siteConfig = {
     "Técnico em Curitiba para notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto via WhatsApp.",
   // SEO da home (marca + conversão + roteamento — não disputa a intenção da landing local)
   homeTitle:
-    "Técnico em Curitiba | PC, Notebook, Wi-Fi e Empresas",
+    "Técnico em Curitiba | Assistência Técnica e Suporte Local",
   homeDescription:
-    "Diagnóstico, manutenção e suporte para computadores, notebooks, redes e empresas em Curitiba. Escolha o serviço e continue pelo WhatsApp.",
+    "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp.",
   defaultOgImage: "https://tecnico.curitiba.br/og-image.png",
 
   // Contato — número NUNCA exibido como texto; só em wa.me / JSON-LD.

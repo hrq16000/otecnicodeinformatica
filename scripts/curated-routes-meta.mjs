@@ -14,8 +14,8 @@ import { servicoFaqs } from "./lib/servico-faqs.mjs";
 const BASE_ROUTES = [
   {
     "path": "/",
-    "title": "Técnico em Curitiba | PC, Notebook, Wi-Fi e Empresas",
-    "description": "Diagnóstico, manutenção e suporte para computadores, notebooks, redes e empresas em Curitiba. Escolha o serviço e continue pelo WhatsApp."
+    "title": "Técnico em Curitiba | Assistência Técnica e Suporte Local",
+    "description": "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp."
   },
   {
     "path": "/servicos",

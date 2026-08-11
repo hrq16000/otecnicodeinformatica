@@ -969,6 +969,17 @@ const EXTRA_LOCAL_BUSINESS_PATHS = new Set([
   "/sobre",
   "/como-funciona",
   "/equipamentos-atendidos",
+  // Cluster de informática — NAP, areaServed e horários idênticos ao rodapé.
+  "/servicos",
+  "/tecnico-informatica-curitiba",
+  "/assistencia-tecnica-curitiba",
+  "/empresa-de-ti-curitiba",
+  "/guia-tecnico-informatica",
+  "/atendimento-domicilio",
+  "/atendimento-remoto",
+  "/coleta-e-entrega",
+  "/areas-atendidas",
+  "/precos-e-politicas",
 ]);
 
 /** JSON-LD estático da rota — um nó lógico por entidade. */

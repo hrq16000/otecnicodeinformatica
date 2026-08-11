@@ -49,6 +49,8 @@ jobs:
         run: npm run check:wa-number-dom
       - name: Gate de alt text das imagens (sem alt genérico/placeholder)
         run: npm run check:image-alt
+      - name: Gate de LocalBusiness unificado no cluster de informática
+        run: npm run check:localbusiness-cluster
       - name: JSON-LD validation
         run: npm run validate:jsonld
       - name: JSON-LD gate das 4 páginas P0

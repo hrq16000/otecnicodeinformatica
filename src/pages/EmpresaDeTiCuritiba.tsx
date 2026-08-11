@@ -7,6 +7,7 @@ import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks"
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
@@ -231,6 +232,7 @@ const EmpresaDeTiCuritiba = () => {
           { name: "Empresa de TI em Curitiba", path: PATH },
         ]}
       />
+      <LocalBusinessJsonLd path={PATH} description={DESCRIPTION} />
       <JsonLdSchema />
       <Header />
       <Breadcrumbs items={[{ label: "Empresa de TI em Curitiba" }]} />

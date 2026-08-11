@@ -164,7 +164,10 @@
     "check:service-offerings": "node scripts/check-service-offerings.mjs",
     "test:hub-ux": "playwright test e2e/hub-servicos-ux.spec.ts",
     "check:photo-privacy": "node scripts/check-photo-privacy.mjs",
-    "photos:strip-exif": "node scripts/strip-photo-exif.mjs"
+    "photos:strip-exif": "node scripts/strip-photo-exif.mjs",
+    "photos:optimize": "node scripts/optimize-photos.mjs",
+    "check:localbusiness-cluster": "node scripts/check-localbusiness-cluster.mjs dist",
+    "test:wa-prefill": "playwright test e2e/whatsapp-prefill.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

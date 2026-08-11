@@ -26,6 +26,9 @@ import { imagensParaServico } from "@/lib/servicoImagens";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { readAttribution } from "@/lib/attribution";
+import { getSessionId } from "@/lib/funnelSubmission";
+import { copyCtaMobile } from "@/lib/experimentosCtaMobile";
+import { whatsappLinkComContexto } from "@/lib/waContextLink";
 import { getGeoContext } from "@/lib/geoContext";
 
 export interface ServicoLandingData {
@@ -104,6 +107,16 @@ const CTA_BASE =
 
 export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => {
   const waHref = whatsappLink(data.whatsappMessage);
+  // Rodada 4L — variação de copy do CTA mobile (determinística por sessão).
+  const sessionId = typeof window !== "undefined" ? getSessionId() : "";
+  const ctaMobile = copyCtaMobile(`/servicos/${data.path}`, sessionId, data.serviceName);
+  const waHrefMobile = whatsappLinkComContexto(data.whatsappMessage, {
+    medium: "cta_mobile",
+    servico: data.trackingKey,
+    posicao: "mobile_sticky",
+    variante: ctaMobile.id,
+    etapa: "triagem",
+  });
   const isEmpresarial = data.variante === "empresarial";
   const heroB2B = data.heroEmpresarial ?? EMPRESARIAL_SERVICO_HERO;
   const contextoB2B = data.contextoEmpresarial ?? EMPRESARIAL_CONTEXTO_CARDS;
@@ -126,6 +139,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       servico: data.trackingKey,
       route: `/servicos/${data.path}`,
       cta_position: position,
+      variant: position === "mobile_sticky" ? ctaMobile.id : undefined,
       cidade: geo?.city ?? null,
       attribution_channel: attr.channel,
       utm_source: attr.source,
@@ -563,10 +577,12 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       <Footer />
       {/* Conversão mobile: CTA fixo com a mensagem de funil do próprio serviço */}
       <MobileServicoFunnelBar
-        href={waHref}
+        href={waHrefMobile}
         servicoLabel={data.serviceName}
         etapas={etapasFunil}
-        ctaLabel={isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento"}
+        apoio={ctaMobile.apoio}
+        variante={ctaMobile.id}
+        ctaLabel={isEmpresarial ? heroB2B.ctaPrimario : ctaMobile.ctaLabel}
         location={`${data.trackingKey}_mobile_sticky`}
         onClick={handleCtaAt("mobile_sticky")}
       />

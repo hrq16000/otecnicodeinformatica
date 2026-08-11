@@ -125,7 +125,7 @@ test.describe("Triagem V5 — funil ramificado por equipamento", () => {
   test("rota de fallback /funil-indisponivel carrega e mostra CTA WhatsApp", async ({ page }) => {
     await page.goto("/funil-indisponivel");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-    const wa = page.locator('a[href*="wa.me/5541997086380"][data-funnel-skip="1"]');
+    const wa = page.locator('a[href*="wa.me/5541997452053"][data-funnel-skip="1"]');
     await expect(wa).toBeVisible();
   });
 });

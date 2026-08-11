@@ -12,7 +12,7 @@ const ATENDIMENTO_PATHS = [
   "/coleta-e-entrega",
 ];
 
-const EXPECTED_PHONE = "+5541997086380";
+const EXPECTED_PHONE = "+5541997452053";
 const EXPECTED_CITY = "Curitiba";
 const EXPECTED_REGION = "PR";
 

@@ -152,7 +152,7 @@ test.describe("/assistencia-tecnica-curitiba — SEO, schema, meta, CTA tracking
     // Prevent navigation to wa.me so the test stays on the page.
     await page.route("https://wa.me/**", (route) => route.fulfill({ status: 204, body: "" }));
 
-    const ctas = page.locator('a[href*="wa.me/5541997086380"]');
+    const ctas = page.locator('a[href*="wa.me/5541997452053"]');
     const count = await ctas.count();
     expect(count, "Page should expose at least one WhatsApp CTA").toBeGreaterThan(0);
 

@@ -43,13 +43,14 @@ export const initGoogleTags = () => {
 
 // Google Ads conversion with callback (mirrors gtag_report_conversion snippet)
 export const gtagReportConversion = (url?: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && ADS_CONVERSION_LABEL) {
     const callback = () => {
       if (url) {
         window.location.href = url;
       }
     };
     window.gtag('event', 'conversion', {
+
       send_to: ADS_CONVERSION_LABEL,
       value: 1.0,
       currency: 'BRL',
@@ -230,11 +231,12 @@ export const trackFileDownload = (fileName: string, rawLocation: string) => {
 // Track page views
 
 export const trackPageView = (pagePath: string, pageTitle: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && GA4_ID) {
     window.gtag('config', GA4_ID, {
       page_path: pagePath,
       page_title: pageTitle
     });
   }
+
 };
 

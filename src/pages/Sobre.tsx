@@ -191,9 +191,8 @@ const Sobre = () => {
               Experiência acumulada e limites do escopo
             </h2>
             <p>
-              A atuação em informática vem desde 1998, período em que o equipamento do dia a dia deixou de ser o
-              desktop de escritório e passou a incluir notebooks finos, armazenamento em estado sólido, redes
-              domésticas com vários dispositivos e home office. Essa continuidade importa por um motivo prático:
+              O escopo do dia a dia cobre notebooks finos, desktops, armazenamento em estado sólido, redes
+              domésticas com vários dispositivos e ambientes de home office. Isso importa por um motivo prático:
               boa parte do diagnóstico rápido vem de já ter visto o mesmo padrão de falha antes, em modelos e
               gerações diferentes.
             </p>

@@ -38,6 +38,37 @@ const wa = clean(env.VITE_WHATSAPP_NUMBER);
 export const WHATSAPP_NUMBER = /^\d{12,15}$/.test(wa) ? wa : "";
 export const WHATSAPP_CONFIGURED = Boolean(WHATSAPP_NUMBER);
 
+/** Horários de atendimento (mesmo formato de src/lib/config/contact.ts). */
+const DAY_NAMES = { Mo: "Monday", Tu: "Tuesday", We: "Wednesday", Th: "Thursday", Fr: "Friday", Sa: "Saturday", Su: "Sunday" };
+const DAY_ORDER = Object.keys(DAY_NAMES);
+export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 08:00-18:00; Sa 09:00-13:00";
+export const BUSINESS_HOURS_SPEC = clean(env.VITE_BUSINESS_HOURS) || DEFAULT_BUSINESS_HOURS;
+export function parseBusinessHours(spec) {
+  const out = [];
+  for (const part of String(spec).split(";")) {
+    const m = part.trim().match(/^([A-Za-z,\-]+)\s+(\d{2}:\d{2})-(\d{2}:\d{2})$/);
+    if (!m) continue;
+    const days = [];
+    for (const token of m[1].split(",")) {
+      const range = token.split("-");
+      if (range.length === 2) {
+        const from = DAY_ORDER.indexOf(range[0]);
+        const to = DAY_ORDER.indexOf(range[1]);
+        if (from < 0 || to < 0 || to < from) continue;
+        for (let i = from; i <= to; i += 1) days.push(DAY_NAMES[DAY_ORDER[i]]);
+      } else if (DAY_NAMES[token]) days.push(DAY_NAMES[token]);
+    }
+    if (days.length) out.push({ "@type": "OpeningHoursSpecification", dayOfWeek: days, opens: m[2], closes: m[3] });
+  }
+  return out;
+}
+export const OPENING_HOURS = parseBusinessHours(BUSINESS_HOURS_SPEC);
+
+/** GA4 / Google Ads da nova operação (vazio = telemetria externa desligada). */
+export const GA4_ID = clean(env.VITE_GA4_ID);
+export const GOOGLE_ADS_ID = clean(env.VITE_GOOGLE_ADS_ID);
+export const GOOGLE_ADS_CONVERSION_LABEL = clean(env.VITE_GOOGLE_ADS_CONVERSION_LABEL);
+
 /** Publisher AdSense da operação atual (vazio = anúncios desligados). */
 export const ADSENSE_PUBLISHER_ID = clean(env.ADSENSE_PUBLISHER_ID);
 

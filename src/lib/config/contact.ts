@@ -25,14 +25,56 @@ export const DEFAULT_WHATSAPP_MESSAGE =
   "Olá! Vim pelo site e preciso de atendimento técnico em informática.";
 
 /**
- * Horários de atendimento. NÃO herdados: só entram nos schemas quando
- * a nova operação confirmar. Vazio = campo omitido (sem inventar).
+ * Horários de atendimento publicados nos schemas (Organization/LocalBusiness).
+ * Formato do env `VITE_BUSINESS_HOURS` (padrão schema.org, abreviações EN):
+ *   "Mo-Fr 08:00-18:00; Sa 09:00-13:00"
+ * String vazia = campo simplesmente omitido dos schemas (sem inventar).
  */
-export const BUSINESS_HOURS: Array<{
+export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 08:00-18:00; Sa 09:00-13:00";
+
+const DAY_NAMES: Record<string, string> = {
+  Mo: "Monday",
+  Tu: "Tuesday",
+  We: "Wednesday",
+  Th: "Thursday",
+  Fr: "Friday",
+  Sa: "Saturday",
+  Su: "Sunday",
+};
+const DAY_ORDER = Object.keys(DAY_NAMES);
+
+export interface BusinessHourSpec {
   days: string[];
   opens: string;
   closes: string;
-}> = [];
+}
+
+/** Converte "Mo-Fr 08:00-18:00; Sa 09:00-13:00" em specs de schema.org. */
+export function parseBusinessHours(spec: string): BusinessHourSpec[] {
+  const out: BusinessHourSpec[] = [];
+  for (const part of spec.split(";")) {
+    const m = part.trim().match(/^([A-Za-z,\-]+)\s+(\d{2}:\d{2})-(\d{2}:\d{2})$/);
+    if (!m) continue;
+    const days: string[] = [];
+    for (const token of m[1].split(",")) {
+      const range = token.split("-");
+      if (range.length === 2) {
+        const from = DAY_ORDER.indexOf(range[0]);
+        const to = DAY_ORDER.indexOf(range[1]);
+        if (from < 0 || to < 0 || to < from) continue;
+        for (let i = from; i <= to; i += 1) days.push(DAY_NAMES[DAY_ORDER[i]]);
+      } else if (DAY_NAMES[token]) {
+        days.push(DAY_NAMES[token]);
+      }
+    }
+    if (days.length) out.push({ days, opens: m[2], closes: m[3] });
+  }
+  return out;
+}
+
+export const BUSINESS_HOURS_SPEC = envStr("VITE_BUSINESS_HOURS") ?? DEFAULT_BUSINESS_HOURS;
+export const BUSINESS_HOURS: BusinessHourSpec[] = parseBusinessHours(BUSINESS_HOURS_SPEC);
+
 
 export const contactConfig = {
   whatsappNumber: WHATSAPP_NUMBER,

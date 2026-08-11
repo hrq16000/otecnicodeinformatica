@@ -19,7 +19,7 @@ const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
 
 const Contato = () => {
   useEffect(() => {
-    document.title = "Contato Técnico Curitiba | WhatsApp e Orçamento";
+    document.title = "Contato Técnico Curitiba | Atendimento a partir de R$ 99,99";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -38,7 +38,7 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Contato Técnico Curitiba | WhatsApp e Orçamento" description="Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
+      <PageSEO title="Contato Técnico Curitiba | Atendimento a partir de R$ 99,99" description="Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
       <JsonLdSchema />
       <Header />
       <main>

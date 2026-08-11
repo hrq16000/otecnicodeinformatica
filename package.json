@@ -163,9 +163,11 @@
     "generate:llms": "node scripts/generate-llms.mjs",
     "check:service-offerings": "node scripts/check-service-offerings.mjs",
     "test:hub-ux": "playwright test e2e/hub-servicos-ux.spec.ts",
-    "check:photo-privacy": "node scripts/check-photo-privacy.mjs",
+    "check:photo-privacy": "node scripts/check-photo-privacy.mjs src/assets",
+    "check:photos": "npm run check:photo-privacy && node scripts/optimize-photos.mjs src/assets --dry-run",
     "photos:strip-exif": "node scripts/strip-photo-exif.mjs",
     "photos:optimize": "node scripts/optimize-photos.mjs",
+
     "check:localbusiness-cluster": "node scripts/check-localbusiness-cluster.mjs dist",
     "test:wa-prefill": "playwright test e2e/whatsapp-prefill.spec.ts"
   },

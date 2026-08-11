@@ -62,7 +62,7 @@ function editorialInboundHtml(path) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
 }
 
-import { BASE_URL, WHATSAPP_NUMBER } from "./lib/site-env.mjs";
+import { BASE_URL, WHATSAPP_NUMBER, OPENING_HOURS } from "./lib/site-env.mjs";
 
 // Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
 export const SITE = BASE_URL;
@@ -895,11 +895,13 @@ function organization() {
     ...(SITE_CONFIG.phoneE164 ? { telephone: SITE_CONFIG.phoneE164 } : {}),
     ...(SITE_CONFIG.foundedYear ? { foundingDate: SITE_CONFIG.foundedYear } : {}),
     areaServed: SITE_CONFIG.serviceArea.map((name) => ({ "@type": "City", name })),
+    ...(OPENING_HOURS.length ? { openingHoursSpecification: OPENING_HOURS } : {}),
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
       availableLanguage: "Portuguese",
-      areaServed: "BR-PR",
+      areaServed: SITE_CONFIG.serviceArea.map((name) => ({ "@type": "City", name })),
+      ...(OPENING_HOURS.length ? { hoursAvailable: OPENING_HOURS } : {}),
     },
     ...(SITE_CONFIG.whatsappNumber ? { sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`] } : {}),
   };

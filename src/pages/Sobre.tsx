@@ -28,9 +28,9 @@ const CTA_CLASS =
   "inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]";
 
 const comoTrabalhamos = [
-  { title: "Triagem por WhatsApp", desc: "Você descreve o problema e recebe as primeiras orientações antes de qualquer deslocamento." },
-  { title: "Diagnóstico primeiro", desc: "Avaliamos o equipamento para entender a causa real, sem chutes e sem empurrar peça." },
-  { title: "Valor aprovado por você", desc: "Nada é executado sem sua aprovação. Você sabe o que será feito e quanto custa." },
+  { title: "Triagem antes do deslocamento", desc: "Você descreve o sintoma e recebe orientação antes de qualquer visita — muita coisa se resolve ou se descarta aqui." },
+  { title: "Diagnóstico antes do reparo", desc: "Procuramos a causa real, não o sintoma mais visível. Sem troca de peça por tentativa e erro." },
+  { title: "Aprovação antes da execução", desc: "Escopo, prazo, valor e o que fica de fora — peças e licenças à parte. Você aprova, então começamos." },
   { title: "Garantia sobre o serviço", desc: "O serviço realizado tem garantia. Explicamos as condições em cada caso." },
 ];
 
@@ -58,8 +58,8 @@ const Sobre = () => {
 
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Sobre O Técnico de Informática | PC, Notebook e Redes"
-        description="Conheça O Técnico de Informática: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
+        title="Sobre | Como trabalha O Técnico de Informática"
+        description="Um jeito de trabalhar: triagem antes do deslocamento, diagnóstico antes do reparo e aprovação antes da execução. Informática para casa e empresa em Curitiba."
         path="/sobre"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}
       />
@@ -77,11 +77,12 @@ const Sobre = () => {
                 Diagnóstico honesto, valor transparente
               </span>
               <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
-                Sobre o <span className="text-accent">O Técnico de Informática</span>
+                Um jeito de trabalhar, <span className="text-accent">não um catálogo de serviços</span>
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-                Assistência técnica em informática com foco em resolver o problema do cliente, sem termos
-                confusos e sem cobrança surpresa.
+                O Técnico de Informática existe para tirar a parte técnica do seu colo. Você descreve
+                o que está acontecendo; nós assumimos diagnóstico, decisão técnica e execução — nessa
+                ordem, e sempre com a sua aprovação no meio do caminho.
               </p>
             </div>
           </div>
@@ -91,25 +92,27 @@ const Sobre = () => {
         <section className="py-12 md:py-16">
           <div className="container mx-auto grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">Quem somos</h2>
+              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">O que nos define</h2>
               <div className="mt-4 space-y-4 text-muted-foreground">
                 <p>
                   O <strong className="text-foreground">O Técnico de Informática</strong> é um serviço de assistência
-                  técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e
-                  região metropolitana. A proposta é simples: você fala direto com quem entende do problema,
-                  entende o que está acontecendo com o equipamento e decide com clareza.
+                  técnica em informática para residências, home offices e empresas de Curitiba e região.
+                  A diferença não está na lista de serviços — está no método: ninguém abre equipamento
+                  sem antes entender o sintoma, e ninguém cobra por algo que você não aprovou.
                 </p>
                 <p>
-                  Nosso trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, valor do atendimento e
-                  execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio;
-                  reparos que exigem bancada seguem para a oficina com o seu acompanhamento.
+                  O trabalho começa pela triagem no WhatsApp e segue por diagnóstico, escopo, valor e
+                  execução — nessa ordem. Problema de software costuma terminar no atendimento remoto;
+                  rede e instalação pedem visita; reparo físico segue para bancada, com coleta e entrega
+                  quando a modalidade prevê. Se o conserto não compensar, dizemos isso antes de você gastar.
                 </p>
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">O que atendemos</h2>
+              <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">Onde temos competência</h2>
               <p className="mt-4 text-muted-foreground">
-                Nosso foco é informática — nada de dispersar em áreas fora da nossa competência:
+                Informática, com profundidade. Preferimos recusar o que está fora do nosso domínio a
+                improvisar em cima do seu equipamento:
               </p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {[

@@ -164,7 +164,7 @@
     "check:service-offerings": "node scripts/check-service-offerings.mjs",
     "test:hub-ux": "playwright test e2e/hub-servicos-ux.spec.ts",
     "check:photo-privacy": "node scripts/check-photo-privacy.mjs src/assets",
-    "check:photos": "npm run check:photo-privacy && node scripts/optimize-photos.mjs src/assets --dry-run",
+    "check:photos": "npm run check:photo-privacy",
     "photos:strip-exif": "node scripts/strip-photo-exif.mjs",
     "photos:optimize": "node scripts/optimize-photos.mjs",
 

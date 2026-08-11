@@ -548,6 +548,15 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       <InterlinkingBlock />
       </main>
       <Footer />
+      {/* Conversão mobile: CTA fixo com a mensagem de funil do próprio serviço */}
+      <MobileServicoFunnelBar
+        href={waHref}
+        servicoLabel={data.serviceName}
+        etapas={etapasFunil}
+        ctaLabel={isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento"}
+        location={`${data.trackingKey}_mobile_sticky`}
+        onClick={handleCtaAt("mobile_sticky")}
+      />
     </div>
   );
 };

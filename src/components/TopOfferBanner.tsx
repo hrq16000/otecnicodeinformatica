@@ -54,7 +54,7 @@ export const TopOfferBanner = () => {
               ⚡ 30 min · <span className="font-extrabold text-yellow-300">R$ 99,99</span>
             </span>
             <a
-              href=`https://wa.me/${WA_NUMBER}`
+              href={`https://wa.me/${WA_NUMBER}`}
               onClick={openFunnel}
               data-wa-medium="top_banner"
               data-cta-location="top_banner"

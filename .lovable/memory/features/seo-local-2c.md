@@ -25,10 +25,16 @@ L1 principal · L2 complementar · L3 potencial · L4 redundante · L5 doorway �
   ≥0,80 falha o build; ≥0,70 avisa. Allowlist documentada no inventário.
 - `npm run report:local-inventory` — tabela Rota/Tipo/Indexável/Sitemap/Conteúdo/Classe.
 
+## Paridade estática (fechamento 2C)
+`scripts/lib/bairro-static.mjs` e `scripts/lib/cidade-static.mjs` leem `src/lib/bairrosData.ts`
+e `src/lib/cidadesData.ts` e injetam os mesmos blocos e FAQ locais no HTML pré-renderizado,
+via `scripts/curated-routes-meta.mjs`. Sem texto novo: é espelho do que o React já mostra.
+Efeito no shell: cidades 554–721 palavras, bairros 559–595; similaridade estática caiu de
+0,716 para 0,182 e todas as 11 rotas locais indexáveis passaram a "conteúdo próprio".
+
 ## Notas de medição
-O HTML estático é um shell pré-renderizado; o corpo editorial é hidratado no cliente.
-Por isso o piso de palavras do gate (100) vale para o shell. Medição renderizada em 06/2026:
-Curitiba 1578 palavras, cidades 671–741, bairros 538–586; similaridade renderizada máxima 0,351.
+Medição renderizada em 06/2026: Curitiba 1578 palavras, cidades 671–741, bairros 538–586;
+similaridade renderizada máxima 0,351. O gate estático usa piso de 100 palavras no shell.
 
 ## Regras invioláveis
 - Nunca declarar endereço de rua, unidade ou filial por bairro/cidade.

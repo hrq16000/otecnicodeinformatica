@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { Loader2, RefreshCw } from "lucide-react";
+import { Download, Loader2, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -36,6 +36,8 @@ type Evento = {
   utm_campaign: string | null;
   attribution_channel: string | null;
   session_id: string | null;
+  servico: string | null;
+  utm_medium: string | null;
 };
 
 const ROTAS_FOCO = [
@@ -76,7 +78,7 @@ const AdminConversao = () => {
     let q = supabase
       .from("click_events")
       .select(
-        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_campaign,attribution_channel,session_id",
+        "created_at,event_type,path,cta_location,cta_position,viewport_bucket,funnel_stage,variant,utm_source,utm_medium,utm_campaign,attribution_channel,session_id,servico",
       )
       .gte("created_at", `${inicio}T00:00:00Z`)
       .lte("created_at", `${fim}T23:59:59Z`)
@@ -102,6 +104,17 @@ const AdminConversao = () => {
     const porVariante = new Map<string, { view: number; wa: number }>();
     const etapaSessions = new Map<string, Set<string>>();
     // Rodada 4L — conversão por página/serviço com taxa por sessão móvel.
+    /**
+     * Rodada 4M — A/B por sessão (não por evento). Taxa = sessões da variação
+     * que clicaram ÷ sessões expostas àquela variação. Contar por evento
+     * favoreceria quem clica várias vezes.
+     */
+    const ab = new Map<
+      string,
+      { sessoes: Set<string>; wa: Set<string>; call: Set<string> }
+    >();
+    const abEtapa = new Map<string, Map<string, { sessoes: Set<string>; conv: Set<string> }>>();
+
     const porPagina = new Map<
       string,
       { wa: number; call: number; sessoesMobile: Set<string>; waMobile: Set<string> }
@@ -148,7 +161,21 @@ const AdminConversao = () => {
       }
       porPagina.set(rota, pg);
 
-      const etapa = r.funnel_stage || "cta_click";
+      const linhaAb = ab.get(variante) ?? { sessoes: new Set(), wa: new Set(), call: new Set() };
+      linhaAb.sessoes.add(sid);
+      if (r.event_type === "wa_click") linhaAb.wa.add(sid);
+      if (r.event_type === "call_click") linhaAb.call.add(sid);
+      ab.set(variante, linhaAb);
+
+      const etapaId = r.funnel_stage || "cta_click";
+      if (!abEtapa.has(etapaId)) abEtapa.set(etapaId, new Map());
+      const mapaEtapa = abEtapa.get(etapaId)!;
+      const celula = mapaEtapa.get(variante) ?? { sessoes: new Set(), conv: new Set() };
+      celula.sessoes.add(sid);
+      if (r.event_type === "wa_click" || r.event_type === "call_click") celula.conv.add(sid);
+      mapaEtapa.set(variante, celula);
+
+      const etapa = etapaId;
       if (!etapaSessions.has(etapa)) etapaSessions.set(etapa, new Set());
       etapaSessions.get(etapa)!.add(sid);
     }
@@ -160,6 +187,41 @@ const AdminConversao = () => {
       porCta: [...porCta.entries()].sort((a, b) => b[1].wa + b[1].call - (a[1].wa + a[1].call)),
       porViewport: [...porViewport.entries()].sort((a, b) => b[1].total - a[1].total),
       porOrigem: [...porOrigem.entries()].sort((a, b) => b[1].total - a[1].total).slice(0, 10),
+      ab: [...ab.entries()]
+        .map(([variante, v]) => ({
+          variante,
+          sessoes: v.sessoes.size,
+          wa: v.wa.size,
+          call: v.call.size,
+          taxaWa: pct(v.wa.size, v.sessoes.size),
+          taxaCall: pct(v.call.size, v.sessoes.size),
+        }))
+        .sort((a, b) => b.taxaWa - a.taxaWa),
+      abEtapa: ETAPAS.map((e) => {
+        const linhas = [...(abEtapa.get(e.id)?.entries() ?? [])]
+          .map(([variante, c]) => ({
+            variante,
+            sessoes: c.sessoes.size,
+            conv: c.conv.size,
+            taxa: pct(c.conv.size, c.sessoes.size),
+          }))
+          .sort((a, b) => b.taxa - a.taxa);
+        const lider = linhas[0];
+        const vice = linhas[1];
+        // Amostra mínima antes de recomendar: 30 sessões na líder e
+        // diferença de pelo menos 3 pontos percentuais sobre a segunda.
+        const conclusivo =
+          !!lider && lider.sessoes >= 30 && (!vice || lider.taxa - vice.taxa >= 3);
+        return {
+          etapa: e.label,
+          linhas,
+          recomendacao: !lider
+            ? "Sem dados no período."
+            : conclusivo
+              ? `Manter "${lider.variante}" (${lider.taxa}% em ${lider.sessoes} sessões).`
+              : `Inconclusivo — seguir coletando (líder "${lider.variante}", ${lider.sessoes} sessões).`,
+        };
+      }),
       porPagina: [...porPagina.entries()]
         .map(([rota, v]) => ({
           rota,
@@ -177,6 +239,64 @@ const AdminConversao = () => {
       totalEventos: rows.length,
     };
   }, [rows]);
+
+  /**
+   * Exportação CSV por página e serviço, com UTMs, etapa do funil e taxa por
+   * sessão móvel — o mesmo recorte exibido na tela, sem dado pessoal.
+   */
+  const exportarCsv = useCallback(() => {
+    const porChave = new Map<
+      string,
+      {
+        path: string; servico: string; utm_source: string; utm_medium: string;
+        utm_campaign: string; etapa: string; variante: string;
+        wa: number; call: number; sessoesMobile: Set<string>; waMobile: Set<string>;
+      }
+    >();
+    for (const r of rows) {
+      const chave = [r.path, r.servico, r.utm_source, r.utm_medium, r.utm_campaign, r.funnel_stage, r.variant].join("|");
+      const linha = porChave.get(chave) ?? {
+        path: r.path || "sem-rota",
+        servico: r.servico || "nao-informado",
+        utm_source: r.utm_source || "",
+        utm_medium: r.utm_medium || "",
+        utm_campaign: r.utm_campaign || "",
+        etapa: r.funnel_stage || "cta_click",
+        variante: r.variant || "controle",
+        wa: 0, call: 0, sessoesMobile: new Set<string>(), waMobile: new Set<string>(),
+      };
+      if (r.event_type === "wa_click") linha.wa += 1;
+      if (r.event_type === "call_click") linha.call += 1;
+      const vp = r.viewport_bucket || "desconhecido";
+      if (vp !== "desktop" && vp !== "desconhecido") {
+        const sid = r.session_id || r.created_at;
+        linha.sessoesMobile.add(sid);
+        if (r.event_type === "wa_click") linha.waMobile.add(sid);
+      }
+      porChave.set(chave, linha);
+    }
+
+    const cabecalho = [
+      "path", "servico", "utm_source", "utm_medium", "utm_campaign",
+      "funnel_stage", "variante", "wa_clicks", "call_clicks",
+      "sessoes_mobile", "taxa_wa_sessao_mobile_pct",
+    ];
+    const escapar = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
+    const linhas = [...porChave.values()].map((l) =>
+      [
+        l.path, l.servico, l.utm_source, l.utm_medium, l.utm_campaign, l.etapa, l.variante,
+        l.wa, l.call, l.sessoesMobile.size, pct(l.waMobile.size, l.sessoesMobile.size),
+      ].map(escapar).join(","),
+    );
+    const csv = [cabecalho.join(","), ...linhas].join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `conversao_${inicio}_a_${fim}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [rows, inicio, fim]);
 
   if (authLoading) {
     return (
@@ -244,6 +364,10 @@ const AdminConversao = () => {
         <Button onClick={() => void carregar()} disabled={loading} className="gap-2">
           {loading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : <RefreshCw className="h-4 w-4" aria-hidden />}
           Atualizar
+        </Button>
+        <Button variant="outline" onClick={exportarCsv} disabled={rows.length === 0} className="gap-2">
+          <Download className="h-4 w-4" aria-hidden />
+          Exportar CSV
         </Button>
       </Card>
 
@@ -370,6 +494,54 @@ const AdminConversao = () => {
           </table>
           <p className="mt-3 text-xs text-muted-foreground">
             Taxa mobile = sessões móveis com clique em WhatsApp ÷ sessões móveis com evento na rota.
+          </p>
+        </Card>
+
+        <Card className="p-4 lg:col-span-2">
+          <h2 className="mb-1 font-heading text-lg font-bold text-foreground">
+            A/B do CTA — comparação e recomendação
+          </h2>
+          <p className="mb-3 text-xs text-muted-foreground">
+            Taxas calculadas por sessão exposta (não por evento) e já livres de cliques duplicados.
+          </p>
+          <table className="w-full text-sm">
+            <thead className="text-left text-xs text-muted-foreground">
+              <tr>
+                <th className="py-1">Variação</th><th>Sessões</th><th>WhatsApp</th>
+                <th>Taxa WhatsApp</th><th>Ligações</th><th>Taxa ligações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {agregados.ab.map((v) => (
+                <tr key={v.variante} className="border-t border-border">
+                  <td className="py-1.5 pr-2"><Badge variant="secondary">{v.variante}</Badge></td>
+                  <td>{v.sessoes}</td>
+                  <td>{v.wa}</td>
+                  <td className="font-semibold">{v.taxaWa}%</td>
+                  <td>{v.call}</td>
+                  <td>{v.taxaCall}%</td>
+                </tr>
+              ))}
+              {agregados.ab.length === 0 && (
+                <tr><td colSpan={6} className="py-3 text-muted-foreground">Sem eventos no período.</td></tr>
+              )}
+            </tbody>
+          </table>
+
+          <h3 className="mb-2 mt-5 font-heading text-sm font-bold text-foreground">
+            Recomendação por etapa do funil
+          </h3>
+          <ul className="space-y-2 text-sm">
+            {agregados.abEtapa.map((e) => (
+              <li key={e.etapa} className="border-t border-border pt-2">
+                <p className="font-semibold text-foreground">{e.etapa}</p>
+                <p className="text-muted-foreground">{e.recomendacao}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Critério de decisão: mínimo de 30 sessões na variação líder e vantagem de 3 pontos
+            percentuais sobre a segunda. Abaixo disso o resultado é tratado como inconclusivo.
           </p>
         </Card>
 

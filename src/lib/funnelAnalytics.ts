@@ -15,6 +15,8 @@ import {
   viewportBucket,
 } from "./trackingTaxonomy";
 import { supabase } from "@/integrations/supabase/client";
+import { avaliarClique } from "./clickDedup";
+import { gtagReportConversion, ADS_SEND_TO } from "./analytics";
 
 
 type GtagFn = (...args: unknown[]) => void;
@@ -439,16 +441,41 @@ function persistClickEvent(eventType: string, location: string, ctx: { modalidad
   });
 }
 
+/**
+ * Rodada 4M — conversão de clique (WhatsApp/ligação).
+ *
+ * O evento GA4 continua saindo em todo clique (mede engajamento). O que passa
+ * pela deduplicação é a MEDIÇÃO de conversão: persistência em `click_events`
+ * e a conversão do Google Ads. Assim duplo toque, retentativa e rajada não
+ * inflam a taxa por sessão nem o A/B, e o Ads não recebe conversão repetida.
+ */
+function registrarConversaoClique(
+  eventType: "wa_click" | "call_click",
+  location: string,
+  ctx: { modalidade: string; problema: string; equipamento: string },
+  extra: Record<string, unknown>,
+) {
+  const posicao = typeof extra.cta_position === "string" ? extra.cta_position : location;
+  const { aceito, motivo } = avaliarClique(eventType, posicao);
+  if (!aceito) {
+    // Rastreável no GA4 como engajamento descartado, nunca como conversão.
+    track(`${eventType}_descartado`, { cta_location: location, motivo_descarte: motivo });
+    return;
+  }
+  persistClickEvent(eventType, location, ctx, extra);
+  if (ADS_SEND_TO) gtagReportConversion();
+}
+
 export const trackWaClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
   track("wa_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
-  persistClickEvent("wa_click", location, ctx, extra);
+  registrarConversaoClique("wa_click", location, ctx, extra);
 };
 
 export const trackCallClick = (location: string, extra: Record<string, unknown> = {}) => {
   const ctx = readTriageFallback();
   track("call_click", { cta_location: location, customer_type: resolveCustomerType(), ...ctx, ...extra });
-  persistClickEvent("call_click", location, ctx, extra);
+  registrarConversaoClique("call_click", location, ctx, extra);
 };
 
 /**

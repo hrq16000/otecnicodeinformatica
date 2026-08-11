@@ -63,8 +63,10 @@ if (GA4_ID) {
   // 4 — fail-closed
   const stray = blob.match(/\bG-[A-Z0-9]{8,12}\b/) || blob.match(/\bAW-\d{9,12}\b/);
   if (stray) errors.push(`sem GA4/Ads configurado, mas o build contém a tag "${stray[0]}".`);
-  if (blob.includes("googletagmanager.com/gtag/js")) {
-    errors.push("sem GA4 configurado, mas o loader do gtag.js foi para o build.");
+  // O loader existe no bundle como código morto (guardado por GA4_ID em runtime);
+  // o que não pode existir é um ID concreto na URL.
+  if (/googletagmanager\.com\/gtag\/js\?id=(G-|AW-)/.test(blob)) {
+    errors.push("sem GA4 configurado, mas o loader do gtag.js já vem com um ID concreto.");
   }
   notes.push("GA4/Ads desligados (sem IDs em env) — nenhuma tag externa no build.");
 }

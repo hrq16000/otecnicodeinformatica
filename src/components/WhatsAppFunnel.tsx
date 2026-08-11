@@ -759,6 +759,7 @@ export const WhatsAppFunnel = () => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
+        data-triage="1"
         className="z-[120] w-[calc(100vw-1.5rem)] max-w-[600px] max-h-[92dvh] gap-0 overflow-hidden p-0 sm:w-full"
       >
         {/* Cabeçalho fixo compacto */}

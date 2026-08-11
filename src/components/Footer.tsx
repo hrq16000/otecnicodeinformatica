@@ -1,4 +1,5 @@
-import { siteConfig, whatsappLink } from "@/lib/siteConfig";
+import { siteConfig, whatsappLink, BRAND_LOGO_PATH } from "@/lib/siteConfig";
+import { brandConfig } from "@/lib/config";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 
 const trackFooterWhatsApp = (location: string) =>
@@ -60,8 +61,6 @@ const columns: Array<{ title: string; links: Array<{ label: string; to: string }
       { label: "Política de cookies e anúncios", to: "/politica-de-cookies-e-anuncios" },
       { label: "Status de anúncios", to: "/status-de-anuncios" },
       { label: "Anuncie / patrocine", to: "/anuncie" },
-      { label: "Mídia kit (PDF)", to: "/midia-kit-tecnico-curitiba.pdf" },
-
     ],
   },
 ];
@@ -72,12 +71,12 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
   "@id": `${siteConfig.baseUrl}/#localbusiness`,
-  name: siteConfig.legalName,
-  alternateName: siteConfig.brandName,
+  name: siteConfig.brandName,
+  ...(siteConfig.legalName ? { legalName: siteConfig.legalName } : {}),
   foundingDate: siteConfig.foundedYear,
   description: siteConfig.defaultDescription,
-  image: `${siteConfig.baseUrl}/logo.webp`,
-  logo: `${siteConfig.baseUrl}/logo.webp`,
+  image: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
+  logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
   url: siteConfig.baseUrl,
   telephone: siteConfig.phoneE164,
   priceRange: "$$",
@@ -96,14 +95,6 @@ const localBusinessSchema = {
   areaServed: siteConfig.serviceArea
     .filter((c) => c !== "Região Metropolitana de Curitiba")
     .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "08:00",
-      closes: "20:00",
-    },
-  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -111,10 +102,10 @@ const localBusinessSchema = {
       contactType: "customer support",
       areaServed: "BR",
       availableLanguage: ["Portuguese", "pt-BR"],
-      url: whatsappLink(),
+      ...(siteConfig.whatsappConfigured ? { url: whatsappLink() } : {}),
     },
   ],
-  sameAs: siteConfig.sameAs,
+  ...(siteConfig.sameAs.length ? { sameAs: siteConfig.sameAs } : {}),
 };
 
 export const Footer = () => {
@@ -133,11 +124,12 @@ export const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div className="space-y-4">
             <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1">
-              <img alt="Técnico em Curitiba" className="h-10 w-auto" src="/logo.webp" width="200" height="47" />
+              <img alt={brandConfig.logoAlt} className="h-10 w-auto" src={brandConfig.logo} width="200" height="47" />
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-white/70">
-              Assistência técnica em informática em {siteConfig.primaryCity} e Região Metropolitana:
-              notebook, PC, formatação, redes e suporte empresarial. Diagnóstico honesto.
+              {brandConfig.brandName} — assistência técnica em informática para notebooks,
+              computadores, redes e suporte empresarial em {siteConfig.primaryCity},
+              São José dos Pinhais e Região Metropolitana.
             </p>
             <a
               href={whatsappLink("Olá! Encontrei vocês no site e gostaria de saber mais sobre os serviços.")}
@@ -185,7 +177,6 @@ export const Footer = () => {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteConfig.brandName} — {siteConfig.primaryCity}, {siteConfig.region}. Todos os direitos reservados.</p>
-          {siteConfig.foundedYear ? <p>Atuação em informática desde {siteConfig.foundedYear}</p> : null}
           {siteConfig.serviceArea.length ? (
             <p>{siteConfig.serviceArea.filter((c) => c !== "Região Metropolitana de Curitiba").join(" · ")}</p>
           ) : null}

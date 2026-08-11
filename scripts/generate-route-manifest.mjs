@@ -19,7 +19,7 @@ const DESC_404 =
 
 const BODY_404 = `
         <div style="min-height:100vh;background:linear-gradient(155deg,hsl(205,58%,15%) 0%,hsl(200,45%,22%) 100%);color:#fff;padding:32px 20px;font-family:Arial,sans-serif;max-width:720px;margin:0 auto">
-          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="78" style="max-width:60vw;height:auto" />
+          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="54" style="max-width:60vw;height:auto" />
           <h1 style="font-size:1.6rem;line-height:1.25;margin:20px 0 12px">Página não encontrada</h1>
           <p style="margin:0 0 20px;font-size:1rem;opacity:.94">O endereço acessado não existe ou foi movido. Use os links abaixo para continuar.</p>
           <ul style="line-height:2;padding-left:20px">

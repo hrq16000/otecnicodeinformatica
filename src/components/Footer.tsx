@@ -124,7 +124,7 @@ export const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div className="space-y-4">
             <div className="inline-flex w-fit rounded-md bg-white/95 px-2 py-1">
-              <img alt={brandConfig.logoAlt} className="h-10 w-auto" src={brandConfig.logo} width="200" height="47" />
+              <img alt={brandConfig.logoAlt} className="h-10 w-auto" src={brandConfig.logo} width="200" height="45" />
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-white/70">
               {brandConfig.brandName} — assistência técnica em informática para notebooks,

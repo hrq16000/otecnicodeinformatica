@@ -23,7 +23,7 @@ export const RouteLoader = () => (
       src="/logo.webp"
       alt="O Técnico de Informática"
       width={304}
-      height={98}
+      height={68}
       decoding="sync"
       style={{
         width: "clamp(13rem, 58vw, 22rem)",

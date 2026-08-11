@@ -143,7 +143,7 @@ export const FastHeader = () => {
             alt={brandConfig.logoAlt}
             src={brandConfig.logo}
             width="304"
-            height="71"
+            height="68"
             decoding="sync"
             // @ts-ignore - fetchpriority is a valid HTML attribute
             fetchpriority="high"

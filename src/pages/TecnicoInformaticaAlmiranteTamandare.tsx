@@ -33,7 +33,7 @@ const benefits = [
   {
     icon: Shield,
     title: "Técnico Experiente",
-    description: "Atuação em informática desde 1998. Profissional identificado, com registro do atendimento por escrito.",
+    description: "Profissional identificado, com registro do atendimento por escrito.",
   },
   {
     icon: Wrench,

@@ -891,7 +891,7 @@ const servicos = [
 ];
 
 const confiancaItems = [
-  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
+  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Escopo e valor registrados por escrito antes da execução. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
   { icon: Clock, title: "Atendimento Rápido — Conforme agenda", desc: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
   { icon: Eye, title: "Transparência Total nos Valores", desc: "Valor informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
   { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 90 dias em mão de obra sobre o ponto reparado. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },

@@ -44,7 +44,7 @@ type Estado = "idle" | "vazio" | "invalido" | "nao-encontrado" | "encontrado";
 const FAQS: { q: string; a: string }[] = [
   {
     q: "Onde encontro o número da minha ordem de serviço?",
-    a: "O número aparece no PDF da ordem de serviço enviado no atendimento e na confirmação do wizard. O formato é OS-MTG-AAAAMMDD-0000, onde AAAAMMDD é a data de abertura.",
+    a: "O número aparece no PDF da ordem de serviço enviado no atendimento e na confirmação do wizard. O formato é OS-OTI-AAAAMMDD-0000, onde AAAAMMDD é a data de abertura.",
   },
   {
     q: "Por que a consulta não encontra a minha OS?",
@@ -189,7 +189,7 @@ const StatusOs = () => {
             Status da ordem de serviço
           </h1>
           <p className="mt-4 text-muted-foreground">
-            Informe o número da OS gerada no atendimento (formato <strong>OS-MTG-AAAAMMDD-0000</strong>) para ver o
+            Informe o número da OS gerada no atendimento (formato <strong>OS-OTI-AAAAMMDD-0000</strong>) para ver o
             registro salvo neste dispositivo, a linha do tempo com data e hora e as etapas previstas. A confirmação da
             etapa atual é sempre feita pelo técnico no atendimento.
           </p>
@@ -211,7 +211,7 @@ const StatusOs = () => {
                 aria-describedby="os-ajuda"
                 onChange={(e) => setNumero(e.target.value.toUpperCase())}
                 onKeyDown={(e) => e.key === "Enter" && consultar(numero)}
-                placeholder="OS-MTG-20260806-1234"
+                placeholder="OS-OTI-20260806-1234"
                 className="flex-1"
               />
               <Button type="button" onClick={() => consultar(numero)} className="w-full sm:w-auto">
@@ -220,7 +220,7 @@ const StatusOs = () => {
             </div>
             <p id="os-ajuda" className="mt-2 text-xs text-muted-foreground">
               Formato aceito: <strong>OS</strong> + sigla do serviço + data (AAAAMMDD) + sequência. Exemplo:
-              OS-MTG-20260806-1234.
+              OS-OTI-20260806-1234.
             </p>
 
             {estado === "vazio" && (
@@ -237,7 +237,7 @@ const StatusOs = () => {
                   Número em formato inválido
                 </p>
                 <p className="mt-2 text-muted-foreground">
-                  Confira se digitou no formato <strong>OS-MTG-AAAAMMDD-0000</strong> (com os traços). Se o número que
+                  Confira se digitou no formato <strong>OS-OTI-AAAAMMDD-0000</strong> (com os traços). Se o número que
                   você tem for diferente, é só enviar como está no atendimento que localizamos para você.
                 </p>
               </div>

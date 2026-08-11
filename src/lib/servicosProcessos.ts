@@ -126,4 +126,13 @@ export const PROCESSOS: Record<string, ProcessoEtapa[]> = {
     { step: "5", title: "Execução do serviço", desc: "Reparo feito em bancada com peças adequadas ao modelo." },
     { step: "6", title: "Teste de tela", desc: "Verificação de brilho, uniformidade e estabilidade antes da entrega." },
   ],
+  "pc-gamer": [
+    { step: "1", title: "Cenário do problema", desc: "Qual jogo, em qual resolução, o que acontece: queda de quadros, travamento, desligamento ou ruído." },
+    { step: "2", title: "Leitura de temperatura e carga", desc: "Medimos processador, placa de vídeo e armazenamento em carga real, não em teste sintético isolado." },
+    { step: "3", title: "Identificação do gargalo", desc: "Separamos limite de hardware, refrigeração saturada, fonte no limite e sistema comprometido." },
+    { step: "4", title: "Plano com prioridade", desc: "Dizemos o que resolve primeiro e o que pode esperar, com o valor aprovado antes da execução." },
+    { step: "5", title: "Execução em bancada", desc: "Limpeza, troca de pasta e almofadas térmicas, revisão de fluxo de ar e instalação das peças aprovadas." },
+    { step: "6", title: "Teste de estabilidade", desc: "Carga prolongada com acompanhamento de temperatura e estabilidade antes da devolução." },
+  ],
 };
+

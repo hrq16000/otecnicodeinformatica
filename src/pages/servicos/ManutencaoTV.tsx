@@ -39,7 +39,7 @@ const tvGalleryImages = [
     caption: "Troca de painel LCD com bancada climatizada e ferramental de precisão",
   },
   {
-    src: "https://images.unsplash.com/photo-1571415060716-baff5f717068?auto=format&fit=crop&w=600&q=70",
+    src: "https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=600&q=70",
     alt: "Técnico realizando reflow em placa de Smart TV com estação de ar quente",
     caption: "Reflow controlado em placa principal com estação SMD",
   },

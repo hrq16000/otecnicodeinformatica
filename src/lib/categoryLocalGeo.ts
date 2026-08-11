@@ -41,7 +41,7 @@ export const COVERS: Record<string, { url: string; alt: string }> = {
     alt: "Smart TV em bancada de assistência técnica",
   },
   som: {
-    url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=70",
+    url: "https://images.unsplash.com/photo-1601944177325-f8867652837f?auto=format&fit=crop&w=1200&q=70",
     alt: "Amplificador de áudio aberto para reparo de componentes",
   },
   videogame: {

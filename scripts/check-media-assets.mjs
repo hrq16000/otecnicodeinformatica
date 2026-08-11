@@ -20,7 +20,7 @@ let defaultOg = seo.match(/DEFAULT_OG_IMAGE\s*=\s*"([^"]+)"/)?.[1];
 // PageSEO monta o og:image a partir de BRAND_OG_PATH (config centralizada).
 if (!defaultOg && /DEFAULT_OG_IMAGE\s*=\s*`\$\{SITE_BASE_URL\}\$\{BRAND_OG_PATH\}`/.test(seo)) {
   const brand = readFileSync("src/lib/config/brand.ts", "utf8");
-  defaultOg = brand.match(/ogImage:[^"]*"([^"]+)"/)?.[1];
+  defaultOg = brand.match(/ogImage:[^\n]*\?\?\s*"([^"]+)"/)?.[1];
 }
 if (!defaultOg) errors.push("DEFAULT_OG_IMAGE não encontrado em src/components/PageSEO.tsx");
 else if (!existsSync(publicPath(defaultOg))) errors.push(`og:image padrão ausente em public/: ${defaultOg}`);

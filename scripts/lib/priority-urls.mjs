@@ -12,7 +12,8 @@
  */
 import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
 
-export { BASE_URL } from "./site-env.mjs";
+import { BASE_URL } from "./site-env.mjs";
+export { BASE_URL };
 
 /** Páginas comerciais P0 (dinheiro). */
 export const P0_PATHS = [

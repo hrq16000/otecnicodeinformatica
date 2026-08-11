@@ -20,7 +20,10 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 
-const SITE = "https://tecnico.curitiba.br";
+import { BASE_URL } from "./lib/site-env.mjs";
+
+// Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
+const SITE = BASE_URL;
 const ORG_ID = `${SITE}/#organization`;
 const BRAND_NAMES = new Set([
   "O Técnico de Informática",

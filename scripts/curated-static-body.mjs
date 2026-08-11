@@ -62,16 +62,20 @@ function editorialInboundHtml(path) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
 }
 
-export const SITE = "https://tecnico.curitiba.br";
+import { BASE_URL, WHATSAPP_NUMBER } from "./lib/site-env.mjs";
+
+// Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
+export const SITE = BASE_URL;
 
 // Espelho mínimo de src/lib/siteConfig.ts / src/lib/localBusinessJsonLd.ts.
 // Mantém NAP, área atendida e horários idênticos ao runtime.
 export const SITE_CONFIG = {
   brandName: "O Técnico de Informática",
   legalName: "O Técnico de Informática — Assistência Técnica em Informática",
-  foundedYear: "1998",
-  phoneE164: "+5541997086380",
-  whatsappNumber: "5541997086380",
+  // Fail-closed: sem VITE_BRAND_FOUNDED_YEAR/VITE_WHATSAPP_NUMBER nada é emitido.
+  foundedYear: (process.env.VITE_BRAND_FOUNDED_YEAR || "").trim(),
+  phoneE164: WHATSAPP_NUMBER ? `+${WHATSAPP_NUMBER}` : "",
+  whatsappNumber: WHATSAPP_NUMBER,
   primaryCity: "Curitiba",
   region: "PR",
   country: "BR",
@@ -465,7 +469,8 @@ export function linksFor(path) {
   return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, PROBLEMA_LINKS[path]?.length ?? SERVICO_LINKS[path]?.length ?? 6);
 }
 
-const WA_BASE = `https://wa.me/${SITE_CONFIG.whatsappNumber}`;
+// Sem número configurado o CTA estático aponta para a rota de indisponibilidade.
+const WA_BASE = SITE_CONFIG.whatsappNumber ? `https://wa.me/${SITE_CONFIG.whatsappNumber}` : "/funil-indisponivel";
 
 function waLink(route) {
   const msg = `Olá! Vim da página ${route.path} do site O Técnico de Informática e preciso de atendimento.`;
@@ -860,10 +865,10 @@ function localBusiness(path, { name, description, areaServed } = {}) {
     parentOrganization: { "@id": `${SITE}/#organization` },
     name: name ?? NAP.name,
     legalName: NAP.legalName,
-    foundingDate: SITE_CONFIG.foundedYear,
+    ...(SITE_CONFIG.foundedYear ? { foundingDate: SITE_CONFIG.foundedYear } : {}),
     url,
     address: NAP.address,
-    telephone: NAP.telephone,
+    ...(NAP.telephone ? { telephone: NAP.telephone } : {}),
     email: NAP.email,
     areaServed: (areaServed ?? SITE_CONFIG.serviceArea).map((n) => ({ "@type": "City", name: n })),
     openingHoursSpecification: OPENING_HOURS,
@@ -882,13 +887,13 @@ function organization() {
     "@type": "Organization",
     "@id": `${SITE}/#organization`,
     name: SITE_CONFIG.brandName,
-    alternateName: ["O Técnico de Informática", "Técnico de Informática Curitiba"],
+
     legalName: SITE_CONFIG.legalName,
     url: `${SITE}/`,
     logo: `${SITE}/logo.png`,
     email: SITE_CONFIG.email,
-    telephone: SITE_CONFIG.phoneE164,
-    foundingDate: SITE_CONFIG.foundedYear,
+    ...(SITE_CONFIG.phoneE164 ? { telephone: SITE_CONFIG.phoneE164 } : {}),
+    ...(SITE_CONFIG.foundedYear ? { foundingDate: SITE_CONFIG.foundedYear } : {}),
     areaServed: SITE_CONFIG.serviceArea.map((name) => ({ "@type": "City", name })),
     contactPoint: {
       "@type": "ContactPoint",
@@ -896,7 +901,7 @@ function organization() {
       availableLanguage: "Portuguese",
       areaServed: "BR-PR",
     },
-    sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`],
+    ...(SITE_CONFIG.whatsappNumber ? { sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`] } : {}),
   };
 }
 

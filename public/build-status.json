@@ -1,10 +1,10 @@
 {
-  "startedAt": "2026-08-11T05:28:24.795Z",
-  "finishedAt": "2026-08-11T05:28:26.251Z",
-  "ok": true,
+  "startedAt": "2026-08-11T13:13:56.828Z",
+  "finishedAt": "2026-08-11T13:13:58.378Z",
+  "ok": false,
   "total": 9,
-  "passed": 9,
-  "failed": 0,
+  "passed": 8,
+  "failed": 1,
   "skipped": 0,
   "gates": [
     {
@@ -12,72 +12,72 @@
       "label": "ads.txt e metatag AdSense",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 99,
-      "checkedAt": "2026-08-11T05:28:24.894Z"
+      "durationMs": 86,
+      "checkedAt": "2026-08-11T13:13:56.914Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 87,
-      "checkedAt": "2026-08-11T05:28:24.981Z"
+      "durationMs": 81,
+      "checkedAt": "2026-08-11T13:13:56.995Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 71,
-      "checkedAt": "2026-08-11T05:28:25.052Z"
+      "durationMs": 86,
+      "checkedAt": "2026-08-11T13:13:57.081Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 571,
-      "checkedAt": "2026-08-11T05:28:25.623Z"
+      "durationMs": 640,
+      "checkedAt": "2026-08-11T13:13:57.721Z"
     },
     {
       "id": "internal-links",
       "label": "Links internos sem 404",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 169,
-      "checkedAt": "2026-08-11T05:28:25.792Z"
+      "durationMs": 192,
+      "checkedAt": "2026-08-11T13:13:57.913Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
-      "status": "ok",
-      "detail": "sem pendências",
-      "durationMs": 104,
-      "checkedAt": "2026-08-11T05:28:25.896Z"
+      "status": "fail",
+      "detail": "  ✗ URL curada ausente do sitemap: /blog/como-escolher-uma-workstation (rode npm run sitemap)",
+      "durationMs": 106,
+      "checkedAt": "2026-08-11T13:13:58.019Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 111,
-      "checkedAt": "2026-08-11T05:28:26.007Z"
+      "durationMs": 115,
+      "checkedAt": "2026-08-11T13:13:58.134Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 139,
-      "checkedAt": "2026-08-11T05:28:26.146Z"
+      "durationMs": 135,
+      "checkedAt": "2026-08-11T13:13:58.269Z"
     },
     {
       "id": "orphan-pages",
       "label": "Páginas órfãs",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 105,
-      "checkedAt": "2026-08-11T05:28:26.251Z"
+      "durationMs": 109,
+      "checkedAt": "2026-08-11T13:13:58.378Z"
     }
   ]
 }

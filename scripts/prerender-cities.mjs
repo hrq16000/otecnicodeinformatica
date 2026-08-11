@@ -19,7 +19,10 @@ import {
 } from "./lib/category-local.mjs";
 import { normalizeTitle, normalizeDescription } from "./lib/seo-meta.mjs";
 
-const SITE = "https://tecnico.curitiba.br";
+import { BASE_URL } from "./lib/site-env.mjs";
+
+// Fail-closed: sem domínio configurado, os artefatos usam URLs relativas.
+const SITE = BASE_URL;
 const OG_VERSION = "20260615";
 const DEFAULT_OG = `${SITE}/og-image.png`;
 
@@ -233,20 +236,28 @@ function applyStaticShell(html, route) {
 // Injeção cirúrgica para rotas CURADAS: preserva og:image e demais tags do
 // index.html base, apenas reescrevendo title/description/canonical/og:url e
 // os alternates hreflang para a URL da rota (self-referente).
+// Substitui a tag se existir; caso contrário, injeta antes de </head>.
+// O index.html do remix não traz canonical/hreflang estáticos, então o replace
+// puro viraria no-op e a rota sairia sem canonical.
+function upsertHeadTag(html, pattern, tag) {
+  if (pattern.test(html)) return html.replace(pattern, tag);
+  return html.replace(/<\/head>/i, `    ${tag}\n  </head>`);
+}
+
 function injectCuratedMeta(html, url, title, description) {
   const t = htmlEscape(title);
   const d = htmlEscape(description);
   let out = html
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${t}</title>`)
     .replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${d}">`)
-    .replace(/<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${url}" />`)
-    .replace(/<link\s+rel=["']alternate["']\s+hreflang=["']pt-BR["'][^>]*>/i, `<link rel="alternate" hreflang="pt-BR" href="${url}" />`)
-    .replace(/<link\s+rel=["']alternate["']\s+hreflang=["']x-default["'][^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${url}" />`)
     .replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${url}" />`)
     .replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${t}">`)
     .replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${d}">`)
     .replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${t}">`)
     .replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${d}">`);
+  out = upsertHeadTag(out, /<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${url}" />`);
+  out = upsertHeadTag(out, /<link\s+rel=["']alternate["']\s+hreflang=["']pt-BR["'][^>]*>/i, `<link rel="alternate" hreflang="pt-BR" href="${url}" />`);
+  out = upsertHeadTag(out, /<link\s+rel=["']alternate["']\s+hreflang=["']x-default["'][^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${url}" />`);
   // Rotas curadas recebem robots explícito index,follow (não herdado silenciosamente).
   return setRobots(out, ROBOTS_INDEX);
 }
@@ -506,6 +517,12 @@ export async function prerenderCities(distDir) {
       "",
     );
     homeHtml = applyStaticShell(homeHtml, homeRoute);
+    // A home também precisa de canonical self-referente no HTML estático.
+    homeHtml = upsertHeadTag(
+      homeHtml,
+      /<link\s+rel=["']canonical["'][^>]*>/i,
+      `<link rel="canonical" href="${SITE}/" />`,
+    );
     await fs.writeFile(indexPath, homeHtml, "utf8");
   }
 
@@ -569,7 +586,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: cat.titlePrefix,
       serviceType: cat.titlePrefix,
-      provider: { "@type": "LocalBusiness", name: "O Técnico de Informática", url: SITE, telephone: "+5541997086380" },
+      provider: { "@type": "LocalBusiness", name: "O Técnico de Informática", url: SITE },
       areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
       description: meta.description,
       url: meta.url,

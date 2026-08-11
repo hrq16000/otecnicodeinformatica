@@ -23,8 +23,11 @@ import { readFileSync, existsSync } from "node:fs";
 import { resolve, join } from "node:path";
 // @ts-expect-error - módulo .mjs sem tipos (fonte curada compartilhada com o prerender)
 import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
+// @ts-expect-error - módulo .mjs sem tipos (fonte única de domínio do remix)
+import { BASE_URL } from "./lib/site-env.mjs";
 
-const SITE = "https://tecnico.curitiba.br";
+// Sem VITE_SITE_DOMAIN o remix é fail-closed: URLs relativas, nunca domínio herdado.
+const SITE: string = BASE_URL;
 const LEGACY_FALLBACK_INTRO = "Conserto de PC e notebook, formatação, remoção de vírus e SSD";
 
 interface CuratedRoute { path: string; title: string; description: string }

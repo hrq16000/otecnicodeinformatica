@@ -23,6 +23,9 @@ const wa = clean(env.VITE_WHATSAPP_NUMBER);
 export const WHATSAPP_NUMBER = /^\d{12,15}$/.test(wa) ? wa : "";
 export const WHATSAPP_CONFIGURED = Boolean(WHATSAPP_NUMBER);
 
+/** Publisher AdSense da operação atual (vazio = anúncios desligados). */
+export const ADSENSE_PUBLISHER_ID = clean(env.ADSENSE_PUBLISHER_ID);
+
 /** Identificadores herdados que NUNCA podem reaparecer em artefato publicado. */
 export const LEGACY_TOKENS = [
   "tecnico.curitiba.br",
@@ -30,7 +33,6 @@ export const LEGACY_TOKENS = [
   "5541997086380",
   "G-B9VPHCZC10",
   "AW-17892118207",
-  "ca-pub-3762170279587706",
   "hisepaayuwxjrnumbqeq",
 ];
 

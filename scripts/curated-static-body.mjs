@@ -256,6 +256,15 @@ const PROBLEMA_LINKS = {
 
 /** Saídas obrigatórias do cluster empresarial (contrato editorial da onda 3D). */
 const SERVICO_LINKS = {
+  // Rodada 4K — malha semântica da vertical de alto desempenho.
+  "/servicos/pc-gamer": [
+    "/servicos/montagem-de-pc",
+    "/servicos/manutencao-de-computador",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/conserto-placa",
+    "/problemas/computador-lento",
+    "/precos-e-politicas",
+  ],
   // Saídas para o cluster de sintoma: sem esses links o HTML servido deixava
   // /problemas/* órfão (só existiam no bundle React).
   "/servicos/manutencao-de-notebook": [

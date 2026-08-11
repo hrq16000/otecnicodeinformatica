@@ -18,6 +18,7 @@ const searchData: SearchItem[] = [
   { title: "Computador Lento", path: "/servicos/computador-lento", category: "servico", keywords: ["lento", "travando", "demora", "devagar"] },
   { title: "Computador Não Liga", path: "/servicos/computador-nao-liga", category: "servico", keywords: ["não liga", "desligado", "morto", "tela preta"] },
   { title: "Conserto de TV", path: "/servicos/conserto-tv", category: "servico", keywords: ["tv", "televisão", "tela", "lcd", "led", "smart tv", "não liga"] },
+  { title: "Manutenção de PC Gamer", path: "/servicos/pc-gamer", category: "servico", keywords: ["gamer", "fps", "placa de vídeo", "superaquecimento", "upgrade", "jogo"] },
   { title: "Conserto de Celular", path: "/servicos/conserto-celular", category: "servico", keywords: ["celular", "smartphone", "iphone", "samsung", "tela quebrada", "bateria"] },
   { title: "Conserto de TV e Smart TV", path: "/servicos/conserto-tv", category: "servico", keywords: ["tv", "manutenção", "televisão"] },
   { title: "Conserto de Placa", path: "/servicos/conserto-placa", category: "servico", keywords: ["placa", "mãe", "placa-mãe", "componente"] },

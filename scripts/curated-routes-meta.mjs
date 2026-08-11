@@ -117,6 +117,37 @@ const BASE_ROUTES = [
     "description": "Conserto de monitor em Curitiba: avaliação em bancada, reparo de fonte, placa e backlight quando viável, coleta e entrega. Não fazemos troca de painel — critério informado antes."
   },
   {
+    "path": "/servicos/pc-gamer",
+    "title": "Manutenção de PC Gamer em Curitiba | Desempenho e Upgrade",
+    "description": "Manutenção de PC gamer em Curitiba: queda de FPS, travamento, superaquecimento e desligamento em jogo. Medição de temperatura, revisão de fonte e upgrade avaliado antes.",
+    "blocos": [
+      {
+        "titulo": "Queda de desempenho quase nunca começa na placa de vídeo",
+        "paragrafos": [
+          "A sequência que mais aparece na bancada é sempre a mesma: a máquina rodava bem, passou a engasgar, e a primeira ideia é trocar a placa de vídeo. Quando medimos, o gargalo costuma estar em outro lugar — temperatura em carga que obriga o hardware a reduzir a própria frequência, fonte que não sustenta o pico de consumo, armazenamento no fim da vida ou sistema disputado por processos em segundo plano.",
+          "Reduzir a frequência para se proteger do calor é comportamento normal de projeto, não defeito. O problema é o motivo: dissipador saturado de poeira, pasta térmica ressecada, almofadas térmicas endurecidas na placa de vídeo, ventoinha travada ou fluxo de ar do gabinete empurrando ar quente de volta para dentro. Nesses casos, revisão térmica devolve desempenho sem trocar nenhuma peça cara.",
+          "Só depois de eliminar temperatura, energia e software é que a conversa sobre peça nova faz sentido. Com a medição na mesa, a decisão deixa de ser palpite: você vê o que está limitando a máquina e escolhe onde colocar o dinheiro."
+        ]
+      },
+      {
+        "titulo": "Fonte, energia e desligamento no meio da partida",
+        "paragrafos": [
+          "Desligar do nada em jogo pesado, e não em uso comum, é assinatura de limite de energia. Conjunto atualizado ao longo do tempo — placa de vídeo mais forte, mais ventoinhas, mais armazenamento — sobre uma fonte dimensionada para a máquina antiga é o cenário típico. A máquina liga, trabalha bem em tarefas leves e cai exatamente quando o consumo sobe.",
+          "Avaliamos a fonte pelo conjunto real instalado, pelos conectores exigidos pela placa de vídeo e pelo comportamento sob carga. Também conferimos a rede elétrica do local: régua sobrecarregada, extensão inadequada e oscilação da instalação produzem exatamente o mesmo sintoma e não se resolvem trocando componente.",
+          "Quando a troca de fonte é indicada, ela vem com a justificativa do porquê, o modelo compatível e o valor aprovado antes da execução. Fonte não é item para economizar: é a peça que sustenta todas as outras."
+        ]
+      },
+      {
+        "titulo": "Manutenção de PC gamer não é a mesma coisa que montagem",
+        "paragrafos": [
+          "Esta página trata de máquina que já existe e perdeu desempenho, esquenta, trava ou desliga. O trabalho é de diagnóstico: medir, isolar a causa e priorizar o que resolve primeiro.",
+          "Montar um computador do zero é outro serviço, com etapas próprias de compatibilidade, compra de peças, montagem, configuração de BIOS/UEFI e testes de entrega. Se o seu caso é escolher e montar uma máquina nova, a página de montagem de PC cobre esse fluxo por inteiro.",
+          "Os dois caminhos podem se encontrar: uma avaliação que conclui que a plataforma chegou ao limite vira uma conversa de montagem, com aproveitamento do que ainda serve — gabinete, armazenamento, fonte adequada e periféricos. O que não fazemos é empurrar máquina nova antes de medir."
+        ]
+      }
+    ]
+  },
+  {
     "path": "/servicos/montagem-de-pc",
     "title": "Montagem de PC e PC Gamer em Curitiba | Testes Inclusos",
     "description": "Montagem e configuração de computadores em Curitiba: verificação de compatibilidade, instalação dos componentes, BIOS, sistema.",

@@ -91,10 +91,12 @@ export default function DebugTelemetria() {
   const consentState = useMemo(() => {
     void tick;
     if (typeof window === "undefined") return {} as Record<string, string>;
-    const dl = ((window as unknown as { dataLayer?: unknown[] }).dataLayer || []) as unknown[][];
+    const dl = ((window as unknown as { dataLayer?: unknown[] }).dataLayer || []) as unknown[];
     const merged: Record<string, string> = {};
-    for (const entry of dl) {
-      if (!Array.isArray(entry) || entry[0] !== "consent") continue;
+    for (const raw of dl) {
+      // O gtag empurra objetos `arguments` (array-like), não arrays reais.
+      const entry = (raw && typeof raw === "object" ? Array.from(raw as ArrayLike<unknown>) : []) as unknown[];
+      if (entry[0] !== "consent") continue;
       const payload = (entry[2] ?? entry[1]) as Record<string, string> | undefined;
       if (payload && typeof payload === "object") Object.assign(merged, payload);
     }

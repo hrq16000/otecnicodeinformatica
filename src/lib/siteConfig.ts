@@ -65,10 +65,11 @@ export const siteConfig = {
   },
 
   // SEO base institucional (copy comercial vive nas próprias páginas)
-  defaultTitle: `Assistência Técnica em Informática em ${geographyConfig.primaryCity} | ${brandConfig.brandName}`,
+  defaultTitle: `${brandConfig.brandName} | Assistência Técnica e Suporte Local`,
   defaultDescription:
     "Assistência técnica em informática para notebooks, computadores, redes e suporte empresarial em Curitiba, São José dos Pinhais e Região Metropolitana.",
-  homeTitle: `Assistência Técnica em Informática em ${geographyConfig.primaryCity} | ${brandConfig.brandName}`,
+  // Paridade com o HTML estático curado (scripts/curated-routes-meta.mjs) e ≤ 62 caracteres.
+  homeTitle: `${brandConfig.brandName} | Assistência Técnica e Suporte Local`,
   homeDescription:
     "Notebook, computador ou rede com problema? Assistência técnica em informática para casa e empresa em Curitiba e São José dos Pinhais.",
   defaultOgImage: `${BASE_URL}${brandConfig.ogImage}`,

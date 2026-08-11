@@ -31,15 +31,19 @@ export function buildWebSiteSchema() {
 }
 
 export function buildOrganizationSchema() {
+  const sameAs = [
+    ...siteConfig.sameAs,
+    ...(siteConfig.whatsappConfigured ? [`https://wa.me/${siteConfig.whatsappNumber}`] : []),
+  ];
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": ORGANIZATION_ID,
     name: siteConfig.brandName,
-    alternateName: ["Técnico Curitiba", "Técnico de Informática Curitiba"],
+    alternateName: siteConfig.alternateNames,
     legalName: siteConfig.legalName,
     url: `${siteConfig.baseUrl}/`,
-    logo: `${siteConfig.baseUrl}/logo.png`,
+    logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
     telephone: siteConfig.phoneE164,
     foundingDate: siteConfig.foundedYear,
     areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
@@ -49,6 +53,6 @@ export function buildOrganizationSchema() {
       availableLanguage: "Portuguese",
       areaServed: "BR-PR",
     },
-    sameAs: [...siteConfig.sameAs, `https://wa.me/${siteConfig.whatsappNumber}`],
+    ...(sameAs.length ? { sameAs } : {}),
   };
 }

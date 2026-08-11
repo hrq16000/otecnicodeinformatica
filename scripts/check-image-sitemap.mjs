@@ -16,7 +16,10 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 const DIST = path.resolve(process.argv[2] || "dist");
-const SITE = "https://tecnico.curitiba.br";
+import { BASE_URL } from "./lib/site-env.mjs";
+
+// Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
+const SITE = BASE_URL;
 const FILE = path.join(DIST, "sitemap-images.xml");
 
 if (!existsSync(FILE)) {

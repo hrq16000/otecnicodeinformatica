@@ -17,14 +17,24 @@
  */
 import { siteConfig } from "@/lib/siteConfig";
 
-/** Anos de atuação calculados — nunca gravar número fixo em componente. */
-export function anosDeAtuacao(referencia: Date = new Date()): number {
+/**
+ * Anos de atuação calculados — nunca gravar número fixo em componente.
+ * RODADA 1: sem ano de fundação da NOVA marca configurado, retorna null.
+ * O histórico da empresa de origem não é transferível.
+ */
+export function anosDeAtuacao(referencia: Date = new Date()): number | null {
+  if (!siteConfig.foundedYear) return null;
   return referencia.getFullYear() - Number(siteConfig.foundedYear);
 }
 
-/** Rótulo seguro de experiência ("atuação desde 1998"). */
-export const experienciaLabel = `Atuação em informática desde ${siteConfig.foundedYear}`;
-export const experienciaLabelCurto = `Desde ${siteConfig.foundedYear}`;
+/** Rótulo de experiência. `null` quando não há dado verdadeiro → não renderizar. */
+export const experienciaLabel: string | null = siteConfig.foundedYear
+  ? `Atuação em informática desde ${siteConfig.foundedYear}`
+  : null;
+export const experienciaLabelCurto: string | null = siteConfig.foundedYear
+  ? `Desde ${siteConfig.foundedYear}`
+  : null;
+
 
 // ─────────────────────────────────────────────────────────────
 // GARANTIA (Etapa 6)

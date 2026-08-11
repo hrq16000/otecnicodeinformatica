@@ -14,7 +14,7 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 const PATH = "/areas-atendidas";
 const TITLE = "Áreas Atendidas em Curitiba e Região | Bairros e Cidades";
 const DESCRIPTION =
-  "Bairros de Curitiba e cidades da região metropolitana atendidas pelo O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.";
+  "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.";
 
 const REGIONAIS = [
   {

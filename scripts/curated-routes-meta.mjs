@@ -313,7 +313,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/como-funciona",
-    "title": "Como Funciona o Atendimento O Técnico de Informática",
+    "title": "Como Funciona o Atendimento | O Técnico de Informática",
     "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
     "blocos": [
       {
@@ -409,7 +409,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/contato",
-    "title": "Contato O Técnico de Informática | Atendimento a partir de R$ 99,99",
+    "title": "Contato | O Técnico de Informática | Atendimento a partir de R$ 99,99",
     "description": "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99."
   },
   {
@@ -690,7 +690,7 @@ const BASE_ROUTES = [
   {
     "path": "/areas-atendidas",
     "title": "Áreas Atendidas em Curitiba e Região | Bairros e Cidades",
-    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas pelo O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
+    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
     "blocos": [
       {
         "titulo": "O que esta página resolve",
@@ -869,7 +869,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/problemas/computador-lento",
-    "title": "Computador Lento? Diagnóstico O Técnico de Informática",
+    "title": "Computador Lento? Diagnóstico | O Técnico de Informática",
     "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.",
     "h1": "Computador lento: sintomas, causas possíveis e o que realmente resolve",
     "subtitulo": "Lentidão quase nunca tem uma causa única: armazenamento, memória, temperatura e software se manifestam de formas diferentes e exigem soluções diferentes.",

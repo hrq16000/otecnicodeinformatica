@@ -21,7 +21,19 @@ import {
   trackFunnelBusinessProfile,
   setFunnelBranchContext,
   trackWaClick,
+  trackAgendamentoDeepLinkClick,
+  trackTriagePreset,
+  trackTriageFieldFill,
+  trackTriageRestore,
+  trackTriagePreview,
+  trackTriageFallbackTab,
 } from "@/lib/funnelAnalytics";
+import {
+  resolveTriagePreset,
+  saveDeepLinkContext,
+  readDeepLinkContext,
+  clearDeepLinkContext,
+} from "@/lib/triagePreset";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";

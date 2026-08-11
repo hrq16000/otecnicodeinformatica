@@ -1,7 +1,7 @@
 # Relatório SEO por página — rotas curadas
 
 Gerado automaticamente por `scripts/report-seo-por-pagina.mjs` a partir do HTML servido em `dist/`.
-Base: https://otecnicodeinformatica.com.br — 55 rotas curadas.
+Base: https://otecnicodeinformatica.com.br — 56 rotas curadas.
 
 ## Checklist de gates
 
@@ -29,6 +29,7 @@ Base: https://otecnicodeinformatica.com.br — 55 rotas curadas.
 | `/sobre` | Sobre O Técnico de Informática \| PC, Notebook e Redes (53) | Sobre O Técnico de Informática | 164 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 5 | sim |
 | `/contato` | Contato \| O Técnico de Informática \| Atendimento a partir de R$ 99,99 (69) | Contato — O Técnico de Informática \| Atendimento a partir de R$ 99,99 | 140 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 5 | sim |
 | `/faq` | FAQ O Técnico de Informática \| Preço, Prazo e Garantia (54) | FAQ O Técnico de Informática | 134 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 5 | sim |
+| `/anuncie` | Anuncie e Patrocine \| Mídia Kit do Técnico de Informática (57) | Anuncie e Patrocine — Mídia Kit do Técnico de Informática | 156 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 6 | sim |
 | `/atendimento-domicilio` | Atendimento de Informática em Domicílio em Curitiba (51) | Atendimento de Informática em Domicílio em Curitiba | 163 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 8 | sim |
 | `/atendimento-remoto` | Atendimento Remoto de Informática em Curitiba (45) | Atendimento Remoto de Informática em Curitiba | 140 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 8 | sim |
 | `/equipamentos-atendidos` | Equipamentos Atendidos \| O Técnico de Informática (49) | Equipamentos Atendidos — O Técnico de Informática | 145 | index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1 | — | 10 | sim |
@@ -80,4 +81,4 @@ Base: https://otecnicodeinformatica.com.br — 55 rotas curadas.
 
 ## Alertas
 
-- HTML ausente: /anuncie
+- Nenhum alerta: todas as rotas curadas passaram nas verificações do relatório.

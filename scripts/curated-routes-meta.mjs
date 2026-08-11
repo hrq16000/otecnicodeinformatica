@@ -20,6 +20,11 @@ const BASE_ROUTES = [
     "description": "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp."
   },
   {
+    "path": "/anuncie",
+    "title": "Anuncie e Patrocine | M\u00eddia Kit do T\u00e9cnico de Inform\u00e1tica",
+    "description": "Formatos de an\u00fancio, posi\u00e7\u00f5es recomendadas e regras de publicidade do portal O T\u00e9cnico de Inform\u00e1tica. Fale com o comercial e receba o m\u00eddia kit atualizado."
+  },
+  {
     "path": "/servicos",
     "title": "Serviços de Informática em Curitiba | PC e Notebook",
     "description": "Conheça os serviços de formatação, manutenção de computadores e notebooks, SSD, vírus, recuperação de dados, Wi-Fi e suporte empresarial.",

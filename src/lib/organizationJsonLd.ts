@@ -11,6 +11,7 @@
  * (scripts/curated-static-body.mjs) para manter prerender e client idênticos.
  */
 import { siteConfig, SITE_BASE_URL, BRAND_LOGO_PATH } from "@/lib/siteConfig";
+import { BUSINESS_HOURS } from "@/lib/config/contact";
 
 export const ORGANIZATION_ID = `${siteConfig.baseUrl}/#organization`;
 export const WEBSITE_ID = `${siteConfig.baseUrl}/#website`;
@@ -30,6 +31,14 @@ export function buildWebSiteSchema() {
   };
 }
 
+/** Horários de atendimento em formato schema.org (vazio = campo omitido). */
+export const OPENING_HOURS = BUSINESS_HOURS.map((h) => ({
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: h.days,
+  opens: h.opens,
+  closes: h.closes,
+}));
+
 export function buildOrganizationSchema() {
   const sameAs = [
     ...siteConfig.sameAs,
@@ -47,11 +56,14 @@ export function buildOrganizationSchema() {
     telephone: siteConfig.phoneE164,
     foundingDate: siteConfig.foundedYear,
     areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
+    // Horários só aparecem quando configurados (VITE_BUSINESS_HOURS).
+    ...(OPENING_HOURS.length ? { openingHoursSpecification: OPENING_HOURS } : {}),
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
       availableLanguage: "Portuguese",
-      areaServed: "BR-PR",
+      areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
+      ...(OPENING_HOURS.length ? { hoursAvailable: OPENING_HOURS } : {}),
     },
     ...(sameAs.length ? { sameAs } : {}),
   };

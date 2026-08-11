@@ -517,6 +517,12 @@ export async function prerenderCities(distDir) {
       "",
     );
     homeHtml = applyStaticShell(homeHtml, homeRoute);
+    // A home também precisa de canonical self-referente no HTML estático.
+    homeHtml = upsertHeadTag(
+      homeHtml,
+      /<link\s+rel=["']canonical["'][^>]*>/i,
+      `<link rel="canonical" href="${SITE}/" />`,
+    );
     await fs.writeFile(indexPath, homeHtml, "utf8");
   }
 

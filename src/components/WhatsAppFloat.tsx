@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import { toast } from "sonner";
 import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -11,10 +12,13 @@ import { cn } from "@/lib/utils";
 export const WhatsAppFloat = () => {
   const handleClick = () => {
     trackCTAClick("whatsapp", "float");
+    // Confirmação imediata do toque (mobile): o usuário sabe que o clique funcionou.
+    toast.success("Abrindo a triagem rápida do WhatsApp…", { duration: 2000 });
     window.dispatchEvent(
       new CustomEvent("wa-funnel:open", { detail: { location: "float" } }),
     );
   };
+
 
   return (
     <button

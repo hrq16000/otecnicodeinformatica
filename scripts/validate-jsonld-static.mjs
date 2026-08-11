@@ -33,12 +33,13 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { JSDOM } from "jsdom";
 import { EDITORIAL_WAVE } from "./lib/editorial-wave.mjs";
+import { SITE_DOMAIN, BRAND_NAME } from "./lib/site-env.mjs";
 
 // Slugs aprovados na onda editorial: podem declarar BlogPosting/Article.
 const APPROVED_EDITORIAL_SLUGS = new Set(EDITORIAL_WAVE.map((e) => e.slug));
 
 const ROOT = process.argv[2] ?? "dist";
-const OFFICIAL_HOST = "tecnico.curitiba.br";
+const OFFICIAL_HOST = SITE_DOMAIN;
 
 // Tokens de string literalmente proibidos em qualquer valor JSON-LD.
 const FORBIDDEN_STRINGS = [
@@ -47,7 +48,10 @@ const FORBIDDEN_STRINGS = [
 ];
 
 // Valor de nome/marca divergente proibido (publisher/author/name === isto).
-const FORBIDDEN_BRAND_EXACT = "O Técnico de Informática"; // oficial é "O Técnico de Informática"
+// Marcas herdadas do remix. A marca oficial vem de VITE_BRAND_NAME.
+const FORBIDDEN_BRANDS = ["Técnico Curitiba", "Mileuma Soluções", "Mileuma"].filter(
+  (b) => b !== BRAND_NAME,
+);
 
 // @type proibidos em conteúdo editorial não aprovado (path /blog/).
 const EDITORIAL_FORBIDDEN_TYPES = new Set([
@@ -175,11 +179,9 @@ function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditori
     // Marca divergente em campos de nome.
     for (const key of ["name", "publisher", "author"]) {
       const v = node[key];
-      if (v === FORBIDDEN_BRAND_EXACT) {
-        push(file, `${key} usa marca divergente "${FORBIDDEN_BRAND_EXACT}" (oficial: "O Técnico de Informática")`, blockIndex);
-      }
-      if (v && typeof v === "object" && v.name === FORBIDDEN_BRAND_EXACT) {
-        push(file, `${key}.name usa marca divergente "${FORBIDDEN_BRAND_EXACT}"`, blockIndex);
+      const named = typeof v === "string" ? v : v && typeof v === "object" ? v.name : null;
+      if (typeof named === "string" && FORBIDDEN_BRANDS.includes(named.trim())) {
+        push(file, `${key} usa marca herdada "${named}" (oficial: "${BRAND_NAME}")`, blockIndex);
       }
     }
   });

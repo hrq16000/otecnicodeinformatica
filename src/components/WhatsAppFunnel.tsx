@@ -21,7 +21,19 @@ import {
   trackFunnelBusinessProfile,
   setFunnelBranchContext,
   trackWaClick,
+  trackAgendamentoDeepLinkClick,
+  trackTriagePreset,
+  trackTriageFieldFill,
+  trackTriageRestore,
+  trackTriagePreview,
+  trackTriageFallbackTab,
 } from "@/lib/funnelAnalytics";
+import {
+  resolveTriagePreset,
+  saveDeepLinkContext,
+  readDeepLinkContext,
+  clearDeepLinkContext,
+} from "@/lib/triagePreset";
 import { appendUtmsToUrl, captureUtmsFromUrl } from "@/lib/utmCapture";
 import { geoSuggestion } from "@/lib/geoContext";
 import { getSessionId, recordSubmission } from "@/lib/funnelSubmission";
@@ -130,6 +142,7 @@ export const WhatsAppFunnel = () => {
   const [pulse, setPulse] = useState(false);
   const [fallback, setFallback] = useState<{ message: string; url: string } | null>(null);
   const [copied, setCopied] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const submittingRef = useRef(false);
   const isTransitioning = useRef(false);
@@ -164,6 +177,16 @@ export const WhatsAppFunnel = () => {
   const equipment = getEquipment(answers.equipment);
   const rules = useMemo(() => getPricingRules(answers), [answers]);
   const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
+  // Prévia da mensagem (mesmo builder do envio; id definitivo é gerado no submit).
+  const previewMessage = useMemo(
+    () =>
+      buildWhatsAppMessage(
+        answers,
+        "—",
+        typeof window !== "undefined" ? `${window.location.origin}${window.location.pathname}` : undefined,
+      ),
+    [answers],
+  );
   // Ciência dos critérios de aceite/recusa da categoria (Rodada 3X).
   const [criteriosOk, setCriteriosOk] = useState(false);
   // Gate de coleta e entrega premium: faixa de raio + pré-requisitos + status.
@@ -271,6 +294,7 @@ export const WhatsAppFunnel = () => {
   const setField = useCallback(
     (id: string, value: string) => {
       setInvalidField(null);
+      if (value) trackTriageFieldFill(id);
       setAnswers((prev) => {
         const next = applyField(prev, id, value);
         persist(STORAGE_KEY, next);
@@ -342,6 +366,7 @@ export const WhatsAppFunnel = () => {
     isTransitioning.current = false;
     commit(EMPTY_ANSWERS);
     clearPersisted(STORAGE_KEY);
+    clearDeepLinkContext();
     setFallback(null);
     setStep(0);
     setInvalidField(null);
@@ -445,15 +470,71 @@ export const WhatsAppFunnel = () => {
   // qualquer URL do site com #agendamento (ou #agendar / #triagem) abre a
   // triagem direto, como popup, mesmo vindo de fora. Também funciona ao
   // clicar em âncoras internas com esse hash, sem recarregar a página.
+  //
+  // Rodada 4J: além de abrir, a triagem já vem pré-selecionada conforme a
+  // rota (equipamento/sintoma validados na config — nunca cidade/bairro),
+  // o contexto sobrevive a um reload e há fallback em nova aba se o popup
+  // não montar (bloqueio de navegador/extension).
+  const openScheduling = useCallback(
+    (loc: string, opts: { href?: string; restore?: boolean } = {}) => {
+      const path = window.location.pathname;
+      const preset = resolveTriagePreset(path);
+      if (opts.restore) trackTriageRestore({ presetSource: preset?.source, origem: loc });
+      else trackAgendamentoDeepLinkClick({ href: opts.href, origem: loc, preset: preset?.source });
+
+      openFunnel(loc);
+
+      if (preset?.equipment) {
+        setAnswers((prev) => {
+          // Nunca sobrescreve resposta já dada pelo usuário.
+          if (prev.equipment) return prev;
+          let next = resetForEquipment(prev, preset.equipment!);
+          if (preset.symptom) next = resetForSymptom(next, preset.symptom);
+          persist(STORAGE_KEY, next);
+          return next;
+        });
+        trackTriagePreset({
+          equipamento: preset.equipment,
+          sintoma: preset.symptom,
+          presetSource: preset.source,
+        });
+      }
+
+      saveDeepLinkContext({ path, location: loc, preset });
+
+      // Fallback: se o diálogo não montar (popup bloqueado por extensão,
+      // erro de render), abre a triagem em nova aba mantendo o contexto.
+      window.setTimeout(() => {
+        if (document.querySelector('[role="dialog"][data-triage="1"]')) return;
+        const url = new URL(window.location.href);
+        url.hash = "agendamento";
+        const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
+        trackTriageFallbackTab({ motivo: win ? "dialog_nao_montou" : "nova_aba_bloqueada", url: url.toString() });
+      }, 1200);
+    },
+    [openFunnel],
+  );
+
   useEffect(() => {
     const HASHES = new Set(["#agendamento", "#agendar", "#triagem"]);
     const openFromHash = () => {
       if (!HASHES.has(window.location.hash.toLowerCase())) return;
-      openFunnel("deep_link_agendamento");
+      openScheduling("deep_link_agendamento", { href: window.location.hash });
       // Limpa o hash para não reabrir ao voltar/atualizar.
       window.history.replaceState(null, "", window.location.pathname + window.location.search);
     };
+    const openedFromHash = HASHES.has(window.location.hash.toLowerCase());
     openFromHash();
+
+    // Restauração após reload: mesmo contexto (rota + preset), sem inventar
+    // cidade/bairro e sem reabrir em rota diferente da original.
+    if (!openedFromHash) {
+      const ctx = readDeepLinkContext();
+      if (ctx && ctx.path === window.location.pathname) {
+        openScheduling(ctx.location || "deep_link_agendamento", { restore: true });
+      }
+    }
+
     const anchorHandler = (e: MouseEvent) => {
       const a = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
       const href = a?.getAttribute("href");
@@ -461,7 +542,7 @@ export const WhatsAppFunnel = () => {
       const hash = href.startsWith("#") ? href.toLowerCase() : "";
       if (!HASHES.has(hash)) return;
       e.preventDefault();
-      openFunnel("deep_link_agendamento");
+      openScheduling("deep_link_agendamento", { href });
     };
     window.addEventListener("hashchange", openFromHash);
     document.addEventListener("click", anchorHandler, true);
@@ -469,7 +550,8 @@ export const WhatsAppFunnel = () => {
       window.removeEventListener("hashchange", openFromHash);
       document.removeEventListener("click", anchorHandler, true);
     };
-  }, [openFunnel]);
+  }, [openScheduling]);
+
 
   const stepName = getStepName(step, answers);
 
@@ -659,6 +741,8 @@ export const WhatsAppFunnel = () => {
         setFallback({ message: finalMessage, url: url.toString() });
       } else {
         clearPersisted(STORAGE_KEY);
+        clearDeepLinkContext();
+        trackTriagePreview("confirm", { equipamento: answers.equipment || undefined });
         setOpen(false);
         // Navega para /obrigado usando o mesmo mecanismo do InstantNavigation.
         try {
@@ -691,6 +775,7 @@ export const WhatsAppFunnel = () => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
+        data-triage="1"
         className="z-[120] w-[calc(100vw-1.5rem)] max-w-[600px] max-h-[92dvh] gap-0 overflow-hidden p-0 sm:w-full"
       >
         {/* Cabeçalho fixo compacto */}
@@ -1042,6 +1127,29 @@ export const WhatsAppFunnel = () => {
                       aria-label="Observação adicional"
                       onChange={(e) => commit({ ...answers, finalNotes: e.target.value })}
                     />
+
+                    {/* Prévia da mensagem: o usuário confere exatamente o que
+                        será enviado ao WhatsApp antes de confirmar. */}
+                    <div className="rounded-lg border border-border bg-muted/40 p-3">
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between gap-2 text-xs font-semibold text-foreground"
+                        aria-expanded={showPreview}
+                        onClick={() => {
+                          const next = !showPreview;
+                          setShowPreview(next);
+                          if (next) trackTriagePreview("open", { equipamento: answers.equipment || undefined });
+                        }}
+                      >
+                        <span>Prévia da mensagem do WhatsApp</span>
+                        <span className="text-muted-foreground">{showPreview ? "ocultar" : "ver"}</span>
+                      </button>
+                      {showPreview && (
+                        <pre className="mt-2 max-h-52 overflow-auto whitespace-pre-wrap break-words rounded-md bg-background/70 p-2 text-[11px] leading-snug text-foreground/85">
+                          {previewMessage}
+                        </pre>
+                      )}
+                    </div>
 
                     <div className="flex flex-wrap items-center gap-2">
                       <Button variant="outline" size="sm" onClick={back} className="gap-1">

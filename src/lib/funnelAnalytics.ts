@@ -652,3 +652,53 @@ export const trackFunnelStageEvent = (
     funnel_stage: stage,
   });
 };
+
+/* ------------------------------------------------------------------ */
+/* Rodada 4J — deep link de agendamento, preenchimento e restauração   */
+/* Todos os eventos herdam path/UTM/campanha via baseParams().         */
+/* ------------------------------------------------------------------ */
+
+/** Clique em link/âncora que abre a triagem (#agendamento, #triagem). */
+export const trackAgendamentoDeepLinkClick = (params: {
+  href?: string;
+  origem?: string;
+  preset?: string | null;
+}) =>
+  track("agendamento_deeplink_click", {
+    href: params.href?.slice(0, 120),
+    cta_location: params.origem || "deep_link_agendamento",
+    preset_source: params.preset || "none",
+  });
+
+/** Pré-seleção aplicada a partir da rota (equipamento/sintoma). */
+export const trackTriagePreset = (params: {
+  equipamento?: string | null;
+  sintoma?: string | null;
+  presetSource: string;
+}) =>
+  track("wa_funnel_preset", {
+    equipamento: params.equipamento || undefined,
+    sintoma: params.sintoma || undefined,
+    preset_source: params.presetSource,
+  });
+
+/** Primeiro preenchimento de cada campo da triagem (1x por campo/sessão). */
+export const trackTriageFieldFill = (fieldId: string, extra: Record<string, unknown> = {}) => {
+  if (!onceInSession(`field_fill:${fieldId}`)) return;
+  track("wa_funnel_field_fill", { field_id: fieldId.slice(0, 40), ...extra });
+};
+
+/** Triagem restaurada após reload mantendo o mesmo contexto do deep link. */
+export const trackTriageRestore = (params: { presetSource?: string | null; origem?: string }) =>
+  track("wa_funnel_restore", {
+    preset_source: params.presetSource || "none",
+    cta_location: params.origem || "deep_link_agendamento",
+  });
+
+/** Prévia da mensagem exibida/confirmada antes do envio ao WhatsApp. */
+export const trackTriagePreview = (action: "open" | "confirm", extra: Record<string, unknown> = {}) =>
+  track("wa_funnel_preview", { action, ...extra });
+
+/** Fallback: triagem aberta em nova aba porque o popup falhou/foi bloqueado. */
+export const trackTriageFallbackTab = (params: { motivo: string; url: string }) =>
+  track("wa_funnel_fallback_tab", { motivo: params.motivo, url: params.url.slice(0, 160) });

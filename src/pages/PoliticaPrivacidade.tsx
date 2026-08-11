@@ -313,7 +313,7 @@ const PoliticaPrivacidade = () => {
         <title>Política de Privacidade | O Técnico de Informática</title>
         <meta
           name="description"
-          content="Política de Privacidade e LGPD do O Técnico de Informática: como coletamos, usamos e protegemos seus dados, cookies, GA4, Google Ads e seus direitos."
+          content="Política de Privacidade e LGPD d'O Técnico de Informática: como coletamos, usamos e protegemos seus dados, cookies, GA4, Google Ads e seus direitos."
         />
         <meta property="og:title" content="Política de Privacidade | O Técnico de Informática" />
         <meta property="og:url" content={CANONICAL} />

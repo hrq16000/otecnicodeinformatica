@@ -318,7 +318,7 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
         <AnimatedSection>
           <BenefitsGrid
             benefits={benefits}
-            title={`Por Que Escolher o O Técnico de Informática em ${data.nome}?`}
+            title={`Por Que Escolher O Técnico de Informática em ${data.nome}?`}
             subtitle="Atendimento profissional com foco em qualidade e agilidade"
           />
         </AnimatedSection>

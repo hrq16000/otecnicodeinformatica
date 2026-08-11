@@ -41,7 +41,7 @@ export const WHATSAPP_CONFIGURED = Boolean(WHATSAPP_NUMBER);
 /** Horários de atendimento (mesmo formato de src/lib/config/contact.ts). */
 const DAY_NAMES = { Mo: "Monday", Tu: "Tuesday", We: "Wednesday", Th: "Thursday", Fr: "Friday", Sa: "Saturday", Su: "Sunday" };
 const DAY_ORDER = Object.keys(DAY_NAMES);
-export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 09:00-18:00; Sa 09:00-13:00";
+export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 08:00-18:00; Sa 09:00-13:00";
 export const BUSINESS_HOURS_SPEC = clean(env.VITE_BUSINESS_HOURS) || DEFAULT_BUSINESS_HOURS;
 export function parseBusinessHours(spec) {
   const out = [];

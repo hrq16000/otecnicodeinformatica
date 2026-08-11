@@ -27,10 +27,10 @@ export const DEFAULT_WHATSAPP_MESSAGE =
 /**
  * Horários de atendimento publicados nos schemas (Organization/LocalBusiness).
  * Formato do env `VITE_BUSINESS_HOURS` (padrão schema.org, abreviações EN):
- *   "Mo-Fr 09:00-18:00; Sa 09:00-13:00"
+ *   "Mo-Fr 08:00-18:00; Sa 09:00-13:00"
  * String vazia = campo simplesmente omitido dos schemas (sem inventar).
  */
-export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 09:00-18:00; Sa 09:00-13:00";
+export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 08:00-18:00; Sa 09:00-13:00";
 
 const DAY_NAMES: Record<string, string> = {
   Mo: "Monday",
@@ -49,7 +49,7 @@ export interface BusinessHourSpec {
   closes: string;
 }
 
-/** Converte "Mo-Fr 09:00-18:00; Sa 09:00-13:00" em specs de schema.org. */
+/** Converte "Mo-Fr 08:00-18:00; Sa 09:00-13:00" em specs de schema.org. */
 export function parseBusinessHours(spec: string): BusinessHourSpec[] {
   const out: BusinessHourSpec[] = [];
   for (const part of spec.split(";")) {

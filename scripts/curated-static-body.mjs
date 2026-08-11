@@ -313,14 +313,6 @@ const SERVICO_LINKS = {
     "/precos-e-politicas",
     "/como-funciona",
   ],
-  "/servicos/montagem-de-pc": [
-    "/servicos/pc-gamer",
-    "/servicos/upgrade-ssd-ram",
-    "/servicos/manutencao-de-computador",
-    "/politica-de-pecas-do-cliente",
-    "/precos-e-politicas",
-    "/como-funciona",
-  ],
   // Rodada 4K — malha semântica da vertical de alto desempenho.
   "/servicos/pc-gamer": [
     "/servicos/montagem-de-pc",
@@ -381,12 +373,12 @@ const SERVICO_LINKS = {
     "/precos-e-politicas",
   ],
   "/servicos/montagem-de-pc": [
+    "/servicos/pc-gamer",
     "/servicos/manutencao-de-computador",
     "/servicos/upgrade-ssd-ram",
     "/equipamentos-atendidos",
     "/precos-e-politicas",
     "/como-funciona",
-    "/coleta-e-entrega",
   ],
   "/servicos/redes-e-wifi": [
     "/servicos/suporte-tecnico-empresarial",

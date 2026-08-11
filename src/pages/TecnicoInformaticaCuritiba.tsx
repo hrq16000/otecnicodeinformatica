@@ -677,7 +677,7 @@ const TecnicoInformaticaCuritiba = () => {
                   desc: "Triagem de imagem, energia e placa do monitor, com recusa declarada de troca de painel.",
                 },
                 {
-                  to: "/servicos/formatacao-de-computador",
+                  to: "/servicos/formatacao",
                   titulo: "Formatação com backup",
                   desc: "Reinstalação do sistema com preservação de dados verificada antes da formatação.",
                 },

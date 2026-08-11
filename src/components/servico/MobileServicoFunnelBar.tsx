@@ -16,6 +16,8 @@ export const MobileServicoFunnelBar = ({
   servicoLabel,
   etapas,
   ctaLabel = "Iniciar atendimento",
+  apoio,
+  variante,
   location,
   onClick,
 }: {
@@ -24,10 +26,15 @@ export const MobileServicoFunnelBar = ({
   /** Rótulos curtos das 4 etapas (triagem → diagnóstico → aprovação → execução). */
   etapas: string[];
   ctaLabel?: string;
+  /** Linha de apoio do experimento de copy (variação por sessão). */
+  apoio?: string;
+  /** Identificador da variação ativa — apenas para leitura no painel. */
+  variante?: string;
   location: string;
   onClick?: () => void;
 }) => {
   const passos = etapas.slice(0, 4);
+
 
   return (
     <div
@@ -45,18 +52,23 @@ export const MobileServicoFunnelBar = ({
           </li>
         ))}
       </ol>
+      {apoio && (
+        <p className="mb-1.5 line-clamp-2 text-[0.72rem] leading-snug text-muted-foreground">{apoio}</p>
+      )}
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         onClick={onClick}
         data-cta-location={location}
-        aria-label={`Iniciar atendimento de ${servicoLabel} pelo WhatsApp`}
-        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] text-base font-bold text-accent-foreground"
+        data-cta-variant={variante}
+        aria-label={`${ctaLabel} de ${servicoLabel} pelo WhatsApp`}
+        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] text-base font-bold text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         {ctaLabel}
       </a>
+
     </div>
   );
 };

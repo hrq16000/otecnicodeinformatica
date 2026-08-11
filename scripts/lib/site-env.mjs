@@ -3,7 +3,22 @@
 // Nada aqui pode ter fallback para o domínio da marca de origem: sem env
 // configurada, o remix fica "fail-closed" (sem domínio, sem indexação).
 
-const env = process.env;
+import { readFileSync, existsSync } from "node:fs";
+
+// Fonte única: process.env + .env do projeto (node não carrega .env sozinho,
+// diferente do bun/vite — sem isso os gates e o prerender divergiam).
+const fileEnv = {};
+for (const f of [".env.local", ".env"]) {
+  if (!existsSync(f)) continue;
+  for (const line of readFileSync(f, "utf8").split("\n")) {
+    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/i);
+    if (!m) continue;
+    const key = m[1];
+    if (key in fileEnv) continue;
+    fileEnv[key] = m[2].trim().replace(/^["']|["']$/g, "");
+  }
+}
+const env = { ...fileEnv, ...process.env };
 
 const clean = (v) => (typeof v === "string" && v.trim() ? v.trim() : "");
 

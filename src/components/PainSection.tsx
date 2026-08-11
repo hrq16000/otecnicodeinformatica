@@ -21,7 +21,7 @@ const headlines: { text: string; path: string }[] = [
   { text: "Vírus no computador? Pop-ups? Dados em risco?", path: "/servicos/remocao-de-virus" },
   { text: "Computador não liga? Fazendo barulho? Lento demais?", path: "/servicos/computador-nao-liga" },
   { text: "Notebook caiu? Teclado parou? Bateria viciada?", path: "/servicos/manutencao-de-computador" },
-  { text: "Smart TV sem sinal? Celular travando? Monitor apagou?", path: "/servicos/manutencao-tv" },
+  { text: "Smart TV sem sinal? Celular travando? Monitor apagou?", path: "/servicos/conserto-tv" },
   { text: "Tela quebrada? Placa queimou? HD com defeito?", path: "/servicos/conserto-placa" },
   { text: "Computador reiniciando sozinho? Desligando do nada?", path: "/problemas/computador-reiniciando-sozinho-curitiba" },
   { text: "Wi-Fi caindo toda hora? Internet lenta demais?", path: "/servicos/redes-e-wifi" },

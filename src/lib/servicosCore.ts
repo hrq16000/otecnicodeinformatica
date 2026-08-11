@@ -1955,6 +1955,7 @@ export const SERVICOS_CORE_ORDER = [
   "manutencao-de-notebook",
   "manutencao-de-computador",
   "montagem-de-pc",
+  "pc-gamer",
   "upgrade-ssd-ram",
   "remocao-de-virus",
   "recuperacao-de-dados",

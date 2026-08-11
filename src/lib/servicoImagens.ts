@@ -85,6 +85,12 @@ const MAPA: Record<string, ServicoImagens> = {
     caption: "Máquina montada e testada antes da entrega.",
     secondaryCaption: "Ferramental usado na montagem e no cable management.",
   },
+  "pc-gamer": {
+    primary: "desktopMontado",
+    secondary: "diagnostico",
+    caption: "PC gamer avaliado em bancada, com medição de temperatura em carga real.",
+    secondaryCaption: "Medição de tensões e leitura dos sensores antes de indicar qualquer peça.",
+  },
   "conserto-tv": {
     primary: "smartTv",
     secondary: "estacaoSolda",

@@ -25,8 +25,11 @@ jobs:
         run: npm run check:cta-funnel
       - name: Internal links + sitemap gate
         run: npm run check:internal-links
+      - name: JSON-LD sem verticais recusadas (Service[])
+        run: npm run check:service-offerings
       - name: Orphan page components gate
         run: npm run check:orphan-pages
+
       - name: Cannibalization gate (P0)
         run: npm run check:cannibalization
       - name: Local hierarchy gate (bairros/cidades)

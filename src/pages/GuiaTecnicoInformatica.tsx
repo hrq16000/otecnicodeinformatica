@@ -12,6 +12,7 @@ import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos"
 import { ProximosPassos } from "@/components/informatica/ProximosPassos";
 import { Button } from "@/components/ui/button";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { whatsappLink } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -188,6 +189,7 @@ const GuiaTecnicoInformatica = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO title={TITLE} description={DESCRIPTION} path={PATH} />
+      <LocalBusinessJsonLd path={PATH} description={DESCRIPTION} />
       <Header />
       <Breadcrumbs items={[{ label: "Guia técnico de informática" }]} />
 

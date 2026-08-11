@@ -21,6 +21,7 @@ import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos"
 
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
@@ -268,6 +269,7 @@ const TecnicoInformaticaCuritiba = () => {
           { name: "Técnico de Informática em Curitiba", path: PATH },
         ]}
       />
+      <LocalBusinessJsonLd path={PATH} description={DESCRIPTION} />
 
       <FastHeader />
       <main className="pt-[var(--site-header-height)]">

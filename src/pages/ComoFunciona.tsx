@@ -50,18 +50,18 @@ const WHATSAPP_NUMBER = WA_NUMBER;
 
 const ComoFunciona = () => {
   useEffect(() => {
-    document.title = "Como Funciona o Atendimento | O Técnico de Informática";
+    document.title = "Como Funciona o Atendimento Técnico | Passo a Passo";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda."
+        "Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto, quando é visita e quando vai para bancada."
       );
     }
     trackPageView("/como-funciona", "Como Funciona");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Gostaria de entender como funciona o atendimento técnico.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Quero iniciar a triagem. Vou descrever o equipamento e o problema.")}`;
 
   const handleCTA = (label: string) => {
     trackCTAClick("whatsapp", `como-funciona-${label}`);
@@ -69,7 +69,7 @@ const ComoFunciona = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Como Funciona o Atendimento | O Técnico de Informática" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
+      <PageSEO title="Como Funciona o Atendimento Técnico | Passo a Passo" description="Triagem, diagnóstico, aprovação e execução: veja como funciona o atendimento técnico de informática em Curitiba, quando é remoto, quando é visita e quando vai para bancada." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
       {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"
@@ -114,10 +114,10 @@ const ComoFunciona = () => {
             <div className="max-w-3xl mx-auto text-center">
               <ExperienciaBadge className="mb-4" />
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Como Funciona o Atendimento | O Técnico de Informática e Região
+                Da sua mensagem à entrega do equipamento
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Entenda passo a passo como solicitar, quanto custa para começar e como garantimos um atendimento rápido, seguro e profissional.
+                Um processo previsível em quatro etapas: você descreve o problema, fazemos a triagem, apresentamos diagnóstico e valor, e só então executamos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="heroWhatsapp" size="lg" className="text-base md:text-lg px-8" asChild onClick={() => handleCTA("hero")}>

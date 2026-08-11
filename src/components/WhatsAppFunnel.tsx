@@ -366,6 +366,7 @@ export const WhatsAppFunnel = () => {
     isTransitioning.current = false;
     commit(EMPTY_ANSWERS);
     clearPersisted(STORAGE_KEY);
+    clearDeepLinkContext();
     setFallback(null);
     setStep(0);
     setInvalidField(null);
@@ -739,6 +740,8 @@ export const WhatsAppFunnel = () => {
         setFallback({ message: finalMessage, url: url.toString() });
       } else {
         clearPersisted(STORAGE_KEY);
+        clearDeepLinkContext();
+        trackTriagePreview("confirm", { equipamento: answers.equipment || undefined });
         setOpen(false);
         // Navega para /obrigado usando o mesmo mecanismo do InstantNavigation.
         try {

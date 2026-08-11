@@ -17,6 +17,8 @@ import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
+
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";
@@ -657,7 +659,40 @@ const TecnicoInformaticaCuritiba = () => {
           </div>
         </section>
 
+        {/* 14b. Serviços correlatos do cluster de informática */}
+        <section className="border-t border-border/60 py-12 md:py-16">
+          <div className="container mx-auto max-w-4xl px-4">
+            <ServicosCorrelatos
+              titulo="Serviços prioritários para computador e notebook"
+              intro="Cada frente abaixo detalha escopo, processo e o que influencia o valor antes de qualquer agendamento."
+              itens={[
+                {
+                  to: "/servicos/manutencao-de-computador",
+                  titulo: "Manutenção de computador",
+                  desc: "Limpeza, pasta térmica, revisão de disco e memória e correção de lentidão em PC e notebook.",
+                },
+                {
+                  to: "/servicos/conserto-monitor",
+                  titulo: "Conserto de monitor",
+                  desc: "Triagem de imagem, energia e placa do monitor, com recusa declarada de troca de painel.",
+                },
+                {
+                  to: "/servicos/formatacao",
+                  titulo: "Formatação com backup",
+                  desc: "Reinstalação do sistema com preservação de dados verificada antes da formatação.",
+                },
+                {
+                  to: "/servicos/recuperacao-de-dados",
+                  titulo: "Recuperação de dados",
+                  desc: "Prioridade em preservar arquivos antes de qualquer tentativa de conserto do disco.",
+                },
+              ]}
+            />
+          </div>
+        </section>
+
         {/* 15 + 16. Relacionados e CTA final */}
+
         <section className="border-t border-border/60 bg-secondary/30 py-12 md:py-16">
           <div className="container mx-auto max-w-3xl text-center">
             <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">

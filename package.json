@@ -158,7 +158,9 @@
     "report:build-gates": "node scripts/report-build-gates.mjs",
     "check:media-assets": "node scripts/check-media-assets.mjs",
     "check:telemetry-governance": "node scripts/check-telemetry-governance.mjs",
-    "generate:llms": "node scripts/generate-llms.mjs"
+    "generate:llms": "node scripts/generate-llms.mjs",
+    "check:service-offerings": "node scripts/check-service-offerings.mjs",
+    "test:hub-ux": "playwright test e2e/hub-servicos-ux.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

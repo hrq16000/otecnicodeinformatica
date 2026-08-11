@@ -13,6 +13,7 @@
  *   node scripts/report-local-audit.mjs --snapshot # grava o snapshot atual como "antes"
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -92,7 +93,7 @@ const pages = audited.map((path) => {
     inSitemap,
     toMother: path === MOTHER ? true : links.has(MOTHER),
     servicos: [...links].filter((l) => l === "/servicos" || l.startsWith("/servicos/")).length,
-    eeat: /41\.723\.708\/0001-58/.test(html) && html.includes("wa.me/5541997086380"),
+    eeat: /41\.723\.708\/0001-58/.test(html) && html.includes(`wa.me/${WHATSAPP_NUMBER}`),
   };
 });
 

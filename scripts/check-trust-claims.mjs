@@ -13,13 +13,14 @@
  * Uso: node scripts/check-trust-claims.mjs [--json]
  */
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, "src");
 const ALLOWLIST_PATH = join(ROOT, "scripts", "trust-claims-allowlist.json");
 
-const OFFICIAL_WHATSAPP = "5541997086380";
+const OFFICIAL_WHATSAPP = WHATSAPP_NUMBER;
 const OFFICIAL_YEAR = "1998";
 const WARRANTY_DAYS = "90";
 

@@ -19,12 +19,13 @@
  * Uso: node scripts/check-eeat-coverage.mjs [dist]
  */
 import { readFileSync, existsSync } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import { join } from "node:path";
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
 const BASE = "https://tecnico.curitiba.br";
 const ORG_ID = `${BASE}/#organization`;
-const WA = "wa.me/5541997086380";
+const WA = `wa.me/${WHATSAPP_NUMBER}`;
 const SITEMAPS = ["public/sitemap-bairros.xml", "public/sitemap-regioes.xml"];
 
 const P0 = ["/", "/tecnico-informatica-curitiba", "/atendimento-domicilio", "/empresa-de-ti-curitiba"];

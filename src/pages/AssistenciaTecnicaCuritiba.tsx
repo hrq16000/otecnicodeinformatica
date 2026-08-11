@@ -332,7 +332,7 @@ export default function AssistenciaTecnicaCuritiba() {
     <div className="min-h-screen bg-background">
       <PageSEO
         title="Assistência Técnica em Curitiba | Consoles, PC e Placas"
-        description="Assistência técnica em Curitiba: PlayStation, Xbox, Nintendo, placas de vídeo, PCs e notebooks. Diagnóstico honesto e orçamento pelo WhatsApp."
+        description="Assistência técnica em Curitiba: PlayStation, Xbox, Nintendo, placas de vídeo, PCs e notebooks. Diagnóstico honesto e valor combinado antes do reparo."
         path="/assistencia-tecnica-curitiba"
         breadcrumbs={[
           { name: "Início", path: "/" },

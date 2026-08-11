@@ -164,7 +164,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
     ) : null;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-24 md:pb-0">
       <PageSEO
         title={data.metaTitle}
         description={data.metaDescription}

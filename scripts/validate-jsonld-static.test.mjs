@@ -15,6 +15,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const VALIDATOR = fileURLToPath(new URL("./validate-jsonld-static.mjs", import.meta.url));
 
@@ -30,8 +31,8 @@ const VALID_WEBPAGE = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Página válida",
-  url: "https://tecnico.curitiba.br/exemplo",
-  publisher: { "@type": "Organization", name: "O Técnico de Informática", url: "https://tecnico.curitiba.br" },
+  url: `${BASE_URL}/exemplo`,
+  publisher: { "@type": "Organization", name: "O Técnico de Informática", url: BASE_URL },
 });
 
 const CASES = [

@@ -4,15 +4,16 @@
  * Lê todas as URLs dos sitemaps em public/ e dispara um POST batch para
  * os principais search engines que suportam IndexNow (Bing/Yandex/Seznam).
  *
- * Uso: node scripts/indexnow-ping.mjs [--key <KEY>] [--host tecnico.curitiba.br]
+ * Uso: node scripts/indexnow-ping.mjs [--key <KEY>] [--host o domínio configurado]
  *
  * O key file precisa estar disponível em https://<host>/<KEY>.txt contendo só a KEY.
  * Definimos KEY default em INDEXNOW_KEY env var. Se ausente, gera um aviso e sai 0.
  */
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
-const HOST = process.env.INDEXNOW_HOST || "tecnico.curitiba.br";
+const HOST = process.env.INDEXNOW_HOST || SITE_DOMAIN;
 const KEY = process.env.INDEXNOW_KEY;
 const ENDPOINT = "https://api.indexnow.org/IndexNow";
 

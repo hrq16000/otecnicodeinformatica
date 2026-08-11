@@ -16,11 +16,12 @@
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
 const ROUTER = "src/LegacyApp.tsx";
 const MOTHER = "/tecnico-informatica-curitiba";
-const BASE = "https://tecnico.curitiba.br";
+const BASE = BASE_URL;
 const SITEMAPS = ["public/sitemap-bairros.xml", "public/sitemap-regioes.xml"];
 
 const errors = [];

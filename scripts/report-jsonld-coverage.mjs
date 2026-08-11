@@ -10,10 +10,11 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { JSDOM } from "jsdom";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const ROOT = process.argv[2]?.startsWith("--") ? "dist" : (process.argv[2] ?? "dist");
 const STRICT = process.argv.includes("--strict");
-const OFFICIAL = "https://tecnico.curitiba.br";
+const OFFICIAL = BASE_URL;
 
 // Rotas obrigatórias: home, atendimento e as 7 rotas de keyword.
 const REQUIRED_LOCALBUSINESS = ["/", "/atendimento-remoto", "/atendimento-domicilio"];

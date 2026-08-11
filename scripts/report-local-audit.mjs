@@ -18,7 +18,7 @@ import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 
 const DIST = "dist";
-const BASE = "https://tecnico.curitiba.br";
+const BASE = BASE_URL;
 const OUT_DIR = "reports";
 const OUT = join(OUT_DIR, "local-audit.html");
 const SNAPSHOT = join(OUT_DIR, "sitemap-snapshot.json");

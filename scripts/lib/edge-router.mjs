@@ -13,9 +13,10 @@
 //   5. Qualquer outra coisa → 404 real no edge
 // ─────────────────────────────────────────────────────────────
 
+import { BASE_URL, SITE_DOMAIN } from "./site-env.mjs";
 export const ORIGIN_PLACEHOLDER = "LOVABLE_ORIGIN_NOT_CONFIGURED";
 
-export const ALLOWED_HOSTS = ["tecnico.curitiba.br", "www.tecnico.curitiba.br"];
+export const ALLOWED_HOSTS = [SITE_DOMAIN, `www.${SITE_DOMAIN}`];
 
 /** Endpoint de saúde do edge — público, sem segredos. */
 export const HEALTH_PATH = "/__edge/health";

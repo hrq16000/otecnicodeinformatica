@@ -13,12 +13,13 @@
  *   SLACK_WEBHOOK_URL      opcional — canal de alerta
  *   ALERT_EMAIL_TO         opcional — destinatário do alerta por e-mail
  *   RESEND_API_KEY         obrigatório junto com ALERT_EMAIL_TO
- *   ALERT_EMAIL_FROM       remetente verificado (padrão: alertas@tecnico.curitiba.br)
+ *   ALERT_EMAIL_FROM       remetente verificado (padrão: alertas@o domínio configurado)
  *
  * Nunca falha o build: o bloqueio é responsabilidade dos gates.
  * Uso: node scripts/notify-seo-alerts.mjs [--always] [--rank-drop=3]
  */
 import { readFileSync, existsSync } from "node:fs";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const args = process.argv.slice(2);
 const ALWAYS = args.includes("--always");
@@ -59,7 +60,7 @@ for (const u of indexing?.urls ?? []) {
   }
 }
 
-const repo = process.env.GITHUB_REPOSITORY ?? "tecnico.curitiba.br";
+const repo = process.env.GITHUB_REPOSITORY ?? SITE_DOMAIN;
 const runUrl =
   process.env.GITHUB_SERVER_URL && process.env.GITHUB_RUN_ID
     ? `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
@@ -121,7 +122,7 @@ if (to && resendKey) {
       method: "POST",
       headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.ALERT_EMAIL_FROM ?? "alertas@tecnico.curitiba.br",
+        from: process.env.ALERT_EMAIL_FROM ?? `alertas@${SITE_DOMAIN}`,
         to: to.split(",").map((s) => s.trim()),
         subject: title,
         text: `${body}\n\n${artifactsLine}`,

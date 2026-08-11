@@ -4,10 +4,11 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { compileManifest, decide, normalizePath, assertManifestSane } from "./edge-router.mjs";
+import { BASE_URL, SITE_DOMAIN } from "./site-env.mjs";
 
 const manifest = JSON.parse(readFileSync("dist/route-manifest.json", "utf8"));
 const m = compileManifest(manifest);
-const req = (pathname, extra = {}) => ({ host: "tecnico.curitiba.br", method: "GET", pathname, search: "", ...extra });
+const req = (pathname, extra = {}) => ({ host: SITE_DOMAIN, method: "GET", pathname, search: "", ...extra });
 
 test("manifesto passa no fail-safe de quantidades mínimas", () => {
   assert.deepEqual(assertManifestSane(m), []);
@@ -15,7 +16,7 @@ test("manifesto passa no fail-safe de quantidades mínimas", () => {
 
 test("host inesperado é recusado", () => {
   assert.equal(decide(req("/", { host: "exemplo.com" }), m).action, "reject");
-  assert.equal(decide(req("/", { host: "www.tecnico.curitiba.br" }), m).action, "proxy");
+  assert.equal(decide(req("/", { host: `www.${SITE_DOMAIN}` }), m).action, "proxy");
 });
 
 test("rotas válidas vão para a origem", () => {
@@ -38,7 +39,7 @@ test("aliases retornam 301 de salto único", () => {
     assert.equal(d.status, 301, r.from);
     assert.equal(d.location, r.to);
     // Destino não pode ser, por sua vez, outro alias (salto único).
-    assert.equal(decide(req(new URL(r.to, "https://tecnico.curitiba.br").pathname), m).action !== "redirect", true, r.to);
+    assert.equal(decide(req(new URL(r.to, BASE_URL).pathname), m).action !== "redirect", true, r.to);
     checados += 1;
   }
   assert.ok(checados > 0);

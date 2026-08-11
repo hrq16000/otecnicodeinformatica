@@ -8,6 +8,7 @@
  */
 import { readFileSync, existsSync, statSync, readdirSync } from "node:fs";
 import { join, extname } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const errors = [];
 const info = [];
@@ -30,7 +31,7 @@ else info.push(`og:image padrão OK: ${defaultOg}`);
 const html = readFileSync("index.html", "utf8");
 for (const m of html.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:secure_url|twitter:image)["'][^>]*content=["']([^"']+)["']/gi)) {
   const url = m[1];
-  if (/^https?:\/\//.test(url) && !url.includes("tecnico.curitiba.br")) continue; // externo
+  if (/^https?:\/\//.test(url) && !url.includes(SITE_DOMAIN)) continue; // externo
   if (!existsSync(publicPath(url))) errors.push(`index.html referencia imagem inexistente: ${url}`);
   else info.push(`index.html og/twitter image OK: ${url}`);
 }

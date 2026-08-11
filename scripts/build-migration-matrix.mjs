@@ -1,13 +1,14 @@
-// RODADA 4B — Gera a matriz de migração tecnicocuritiba.com.br → tecnico.curitiba.br
+// RODADA 4B — Gera a matriz de migração tecnicocuritiba.com.br → o domínio configurado
 // SOMENTE LEITURA sobre o app: lê rotas de src/App.tsx + src/LegacyApp.tsx e o
 // inventário de URLs antigas (arquivo texto, um path por linha).
 // Saídas: docs/migracao/matriz-redirects.csv e redirects/tecnicocuritiba.map.json
 // Não publica nada. Não altera hospedagem.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const OLD = "https://tecnicocuritiba.com.br";
-const NEW = "https://tecnico.curitiba.br";
+const NEW = BASE_URL;
 
 const INVENTORY = process.env.OLD_URLS ?? "docs/migracao/old-paths.txt";
 

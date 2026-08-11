@@ -4,6 +4,7 @@
 // apto: zona errada, manifesto implausível ou origem placeholder.
 import { readFileSync, existsSync } from "node:fs";
 import { compileManifest, assertManifestSane, ORIGIN_PLACEHOLDER, ALLOWED_HOSTS } from "./lib/edge-router.mjs";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const problems = [];
 const info = [];
@@ -18,7 +19,7 @@ info.push(`worker: ${name}`);
 
 const zones = [...toml.matchAll(/zone_name\s*=\s*"([^"]+)"/g)].map((m) => m[1]);
 if (!zones.length) problems.push("nenhuma zone_name declarada");
-for (const z of zones) if (z !== "tecnico.curitiba.br") problems.push(`zona inválida: ${z}`);
+for (const z of zones) if (z !== SITE_DOMAIN) problems.push(`zona inválida: ${z}`);
 if (/custom_domain\s*=\s*true/.test(toml)) problems.push("custom_domain = true não é permitido");
 info.push(`zonas: ${[...new Set(zones)].join(", ")}`);
 

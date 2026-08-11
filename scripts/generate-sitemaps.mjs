@@ -1,4 +1,4 @@
-// Gera o sitemap CURADO para tecnico.curitiba.br a partir do manifesto único
+// Gera o sitemap CURADO para o domínio configurado a partir do manifesto único
 // `scripts/lib/curated-urls.mjs` (fonte da verdade das URLs indexáveis).
 // Este arquivo NÃO declara URLs: apenas serializa o manifesto em XML.
 // Runs via predev/prebuild; outputs to public/.

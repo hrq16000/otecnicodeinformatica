@@ -4,6 +4,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
+import { BASE_URL, SITE_DOMAIN } from "./site-env.mjs";
   buildItems,
   buildPlan,
   validateMatrix,
@@ -76,10 +77,10 @@ test("hash é determinístico e o plano expõe recursos determinísticos", () =>
 test("matriz inválida é reprovada", () => {
   const ruim = {
     source_domain: "https://tecnicocuritiba.com.br",
-    target_domain: "https://tecnico.curitiba.br",
+    target_domain: BASE_URL,
     rules: [
-      { from: "/a", to: "http://tecnico.curitiba.br/a", status: 301 },
-      { from: "/a", to: "https://tecnico.curitiba.br/b", status: 302 },
+      { from: "/a", to: "http://o domínio configurado/a", status: 301 },
+      { from: "/a", to: `${BASE_URL}/b`, status: 302 },
     ],
   };
   const v = validateMatrix(ruim);

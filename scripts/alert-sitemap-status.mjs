@@ -13,6 +13,7 @@
  * Nunca falha o build, salvo com --strict.
  */
 import { readFileSync, existsSync } from "node:fs";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry-run");
@@ -88,7 +89,7 @@ if (process.env.ALERT_EMAIL_TO && process.env.RESEND_API_KEY) {
     "email",
     "https://api.resend.com/emails",
     {
-      from: process.env.ALERT_EMAIL_FROM || "alertas@tecnico.curitiba.br",
+      from: process.env.ALERT_EMAIL_FROM || `alertas@${SITE_DOMAIN}`,
       to: process.env.ALERT_EMAIL_TO.split(",").map((s) => s.trim()),
       subject: titulo,
       text: corpo,

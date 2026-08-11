@@ -1,3 +1,4 @@
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 #!/usr/bin/env node
 /**
  * Runtime security-headers gate (Prompt 12).
@@ -9,7 +10,7 @@
  *
  * Usage:
  *   node scripts/check-security-headers.mjs [url]
- *   SECURITY_HEADERS_URL=https://tecnico.curitiba.br node scripts/check-security-headers.mjs
+ *   SECURITY_HEADERS_URL=https://o domínio configurado node scripts/check-security-headers.mjs
  *
  * Exit codes:
  *   0  = platform baseline present; no dangerous CSP condition detected.
@@ -23,7 +24,7 @@
  */
 
 const DEFAULT_URL =
-  process.env.SECURITY_HEADERS_URL || process.argv[2] || "https://tecnico.curitiba.br/";
+  process.env.SECURITY_HEADERS_URL || process.argv[2] || `${BASE_URL}/`;
 
 const GREEN = "\x1b[32m";
 const RED = "\x1b[31m";

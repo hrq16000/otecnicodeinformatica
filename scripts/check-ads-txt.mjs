@@ -6,11 +6,21 @@
  *  - Verifica a metatag google-adsense-account no index.html.
  * Uso:
  *   node scripts/check-ads-txt.mjs                # local (arquivos do repo)
- *   node scripts/check-ads-txt.mjs --url=https://tecnico.curitiba.br
+ *   node scripts/check-ads-txt.mjs --url=https://exemplo.com.br
+ * Fail-closed: sem ADSENSE_PUBLISHER_ID configurado, o gate é ignorado
+ * (a nova operação ainda não tem inventário publicitário próprio).
  */
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
 
-const PUBLISHER = process.env.ADSENSE_PUBLISHER_ID || "pub-3762170279587706";
+const PUBLISHER = (process.env.ADSENSE_PUBLISHER_ID || "").trim();
+
+if (!PUBLISHER) {
+  console.log(
+    "\nGate AdSense ignorado — ADSENSE_PUBLISHER_ID não configurado para esta operação.\n",
+  );
+  process.exit(0);
+}
+
 const EXPECTED_LINE = `google.com, ${PUBLISHER}, DIRECT, f08c47fec0942fa0`;
 const urlArg = process.argv.find((a) => a.startsWith("--url="));
 const base = urlArg ? urlArg.slice("--url=".length).replace(/\/$/, "") : null;

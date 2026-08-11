@@ -12,7 +12,7 @@ import {
   isLeaf,
 } from "@/lib/diagnostico60sTree";
 
-const WA_NUMBER = WA_NUMBER;
+
 
 function waLink(message: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;

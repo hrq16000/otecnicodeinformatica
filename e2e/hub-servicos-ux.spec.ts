@@ -21,9 +21,10 @@ for (const vp of viewports) {
 
     const main = page.locator("main");
     await expect(main).toBeVisible();
+    await page.waitForLoadState("networkidle");
 
     // 1) Todo link visível precisa de href utilizável.
-    const hrefs = await main.locator("a:visible").evaluateAll((els) =>
+    const hrefs = await page.locator("a[href]:visible, a:not([href]):visible").evaluateAll((els) =>
       els.map((el) => ({
         href: el.getAttribute("href"),
         text: (el.textContent || "").trim().slice(0, 60),
@@ -39,7 +40,7 @@ for (const vp of viewports) {
     ).toHaveLength(0);
 
     // 2) Cards com aparência clicável precisam conter um link ou ser button.
-    const cardsFalsos = await main
+    const cardsFalsos = await page
       .locator("[class*='cursor-pointer']:visible")
       .evaluateAll((els) =>
         els

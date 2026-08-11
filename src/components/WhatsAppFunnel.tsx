@@ -445,15 +445,70 @@ export const WhatsAppFunnel = () => {
   // qualquer URL do site com #agendamento (ou #agendar / #triagem) abre a
   // triagem direto, como popup, mesmo vindo de fora. Também funciona ao
   // clicar em âncoras internas com esse hash, sem recarregar a página.
+  //
+  // Rodada 4J: além de abrir, a triagem já vem pré-selecionada conforme a
+  // rota (equipamento/sintoma validados na config — nunca cidade/bairro),
+  // o contexto sobrevive a um reload e há fallback em nova aba se o popup
+  // não montar (bloqueio de navegador/extension).
+  const openScheduling = useCallback(
+    (loc: string, opts: { href?: string; restore?: boolean } = {}) => {
+      const path = window.location.pathname;
+      const preset = resolveTriagePreset(path);
+      if (opts.restore) trackTriageRestore({ presetSource: preset?.source, origem: loc });
+      else trackAgendamentoDeepLinkClick({ href: opts.href, origem: loc, preset: preset?.source });
+
+      openFunnel(loc);
+
+      if (preset?.equipment) {
+        setAnswers((prev) => {
+          // Nunca sobrescreve resposta já dada pelo usuário.
+          if (prev.equipment) return prev;
+          let next = resetForEquipment(prev, preset.equipment!);
+          if (preset.symptom) next = resetForSymptom(next, preset.symptom);
+          persist(STORAGE_KEY, next);
+          return next;
+        });
+        trackTriagePreset({
+          equipamento: preset.equipment,
+          sintoma: preset.symptom,
+          presetSource: preset.source,
+        });
+      }
+
+      saveDeepLinkContext({ path, location: loc, preset });
+
+      // Fallback: se o diálogo não montar (popup bloqueado por extensão,
+      // erro de render), abre a triagem em nova aba mantendo o contexto.
+      window.setTimeout(() => {
+        if (document.querySelector('[role="dialog"][data-triage="1"]')) return;
+        const url = new URL(window.location.href);
+        url.hash = "agendamento";
+        const win = window.open(url.toString(), "_blank", "noopener,noreferrer");
+        trackTriageFallbackTab({ motivo: win ? "dialog_nao_montou" : "nova_aba_bloqueada", url: url.toString() });
+      }, 1200);
+    },
+    [openFunnel],
+  );
+
   useEffect(() => {
     const HASHES = new Set(["#agendamento", "#agendar", "#triagem"]);
     const openFromHash = () => {
       if (!HASHES.has(window.location.hash.toLowerCase())) return;
-      openFunnel("deep_link_agendamento");
+      openScheduling("deep_link_agendamento", { href: window.location.hash });
       // Limpa o hash para não reabrir ao voltar/atualizar.
       window.history.replaceState(null, "", window.location.pathname + window.location.search);
     };
     openFromHash();
+
+    // Restauração após reload: mesmo contexto (rota + preset), sem inventar
+    // cidade/bairro e sem reabrir em rota diferente da original.
+    if (!HASHES.has(window.location.hash.toLowerCase())) {
+      const ctx = readDeepLinkContext();
+      if (ctx && ctx.path === window.location.pathname) {
+        openScheduling(ctx.location || "deep_link_agendamento", { restore: true });
+      }
+    }
+
     const anchorHandler = (e: MouseEvent) => {
       const a = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
       const href = a?.getAttribute("href");
@@ -461,7 +516,7 @@ export const WhatsAppFunnel = () => {
       const hash = href.startsWith("#") ? href.toLowerCase() : "";
       if (!HASHES.has(hash)) return;
       e.preventDefault();
-      openFunnel("deep_link_agendamento");
+      openScheduling("deep_link_agendamento", { href });
     };
     window.addEventListener("hashchange", openFromHash);
     document.addEventListener("click", anchorHandler, true);
@@ -469,7 +524,8 @@ export const WhatsAppFunnel = () => {
       window.removeEventListener("hashchange", openFromHash);
       document.removeEventListener("click", anchorHandler, true);
     };
-  }, [openFunnel]);
+  }, [openScheduling]);
+
 
   const stepName = getStepName(step, answers);
 

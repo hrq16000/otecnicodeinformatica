@@ -18,6 +18,8 @@ export const brandConfig = {
 
   // Assets — paths configuráveis; os arquivos oficiais entram no go-live.
   logo: envStr("VITE_BRAND_LOGO") ?? "/logo.webp",
+  /** Variante para superfícies claras (header) — wordmark azul. */
+  logoOnLight: envStr("VITE_BRAND_LOGO_LIGHT") ?? "/logo-dark.webp",
   logoAlt: "O Técnico de Informática — assistência técnica em informática",
   favicon: envStr("VITE_BRAND_FAVICON") ?? "/favicon.png",
   appleTouchIcon: envStr("VITE_BRAND_APPLE_ICON") ?? "/apple-touch-icon.png",

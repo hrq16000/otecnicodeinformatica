@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-main.xml</loc></sitemap>
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-servicos.xml</loc></sitemap>
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-regioes.xml</loc></sitemap>
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-bairros.xml</loc></sitemap>
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-problemas.xml</loc></sitemap>
+  <sitemap><loc>https://otecnicodeinformatica.com.br/sitemap-editorial.xml</loc></sitemap>
 </sitemapindex>

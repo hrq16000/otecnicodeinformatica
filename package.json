@@ -176,7 +176,8 @@
     "test:wa-prefill": "playwright test e2e/whatsapp-prefill.spec.ts",
     "test:telemetria": "playwright test e2e/telemetria-lead.spec.ts",
     "check:analytics-tags": "node scripts/check-analytics-tags.mjs dist",
-    "check:brand-isolation": "node scripts/check-brand-isolation.mjs"
+    "check:brand-isolation": "node scripts/check-brand-isolation.mjs",
+    "inventory:servicos": "node scripts/inventory-servicos.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

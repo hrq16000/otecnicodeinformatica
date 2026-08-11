@@ -10,10 +10,11 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
+import { commercialConfig } from "@/lib/config/commercial";
+import { VALOR_COLETA_MINIMO_LABEL } from "@/lib/precosConfig";
 import {
-  Search, AlertTriangle, ShieldCheck, CheckCircle2, ArrowRight,
-  MessageCircle, DollarSign, Clock, Eye, Wrench, Monitor,
-  HardDrive, Zap, Ban, CircleDollarSign,
+  Search, AlertTriangle, CheckCircle2, ArrowRight,
+  MessageCircle, DollarSign, Wrench, CircleDollarSign, ClipboardList,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -21,28 +22,116 @@ import {
 
 const WHATSAPP_NUMBER = WA_NUMBER;
 
+const TITLE = "Diagnóstico técnico de computador e notebook em Curitiba";
+const DESCRIPTION =
+  "Diagnóstico técnico para descobrir a causa real da falha antes de trocar peça: o que é testado, o que o laudo entrega, limites e como o valor é definido.";
+
+/** O que é testado, organizado por sintoma relatado — não por catálogo de serviço. */
+const ROTEIRO_POR_SINTOMA = [
+  {
+    sintoma: "Não liga ou não dá vídeo",
+    testes: [
+      "Fonte, carregador e circuito de alimentação",
+      "Sinal de energia na placa e resposta ao acionamento",
+      "Memória e vídeo isolados, um componente por vez",
+      "Tela, cabo e conector quando há som mas não há imagem",
+    ],
+  },
+  {
+    sintoma: "Lentidão e travamento",
+    testes: [
+      "Saúde do armazenamento e taxa real de leitura",
+      "Consumo de memória em uso normal e multitarefa",
+      "Processos de inicialização, serviços e extensões",
+      "Temperatura sob carga para descartar redução de desempenho por calor",
+    ],
+  },
+  {
+    sintoma: "Desliga, reinicia ou dá tela azul",
+    testes: [
+      "Registro de erros e códigos de parada do sistema",
+      "Teste de memória e de integridade do disco",
+      "Estabilidade da fonte e comportamento sob carga",
+      "Temperatura de processador e placa de vídeo em uso contínuo",
+    ],
+  },
+  {
+    sintoma: "Esquenta, faz ruído ou perde desempenho",
+    testes: [
+      "Fluxo de ar, obstrução do dissipador e estado do cooler",
+      "Condição da interface térmica e da montagem do conjunto",
+      "Curva de temperatura antes e depois da limpeza",
+      "Leitura dos sensores para descartar falha de medição",
+    ],
+  },
+  {
+    sintoma: "Não reconhece o disco ou perdeu arquivos",
+    testes: [
+      "Reconhecimento da mídia sem gravar nada por cima",
+      "Leitura dos indicadores de saúde e de setores com falha",
+      "Estrutura de partição e integridade do sistema de arquivos",
+      "Viabilidade de cópia antes de qualquer tentativa de reparo",
+    ],
+  },
+  {
+    sintoma: "Rede, internet ou periféricos falhando",
+    testes: [
+      "Cobertura de sinal, canal e interferência no ambiente",
+      "Cabo, porta, adaptador e driver do equipamento",
+      "Comportamento da falha em outro ponto e em outro aparelho",
+      "Configuração de rede, compartilhamento e impressora quando aplicável",
+    ],
+  },
+];
+
+const ENTREGAS = [
+  { title: "Causa provável identificada", desc: "Qual componente ou camada está gerando o sintoma, e com qual grau de certeza." },
+  { title: "O que foi testado", desc: "A lista dos testes realizados e o resultado de cada um — sem 'achismo' registrado como conclusão." },
+  { title: "Viabilidade do reparo", desc: "Se o serviço compensa frente ao valor do equipamento, e quando a resposta honesta é não reparar." },
+  { title: "Caminhos possíveis", desc: "As alternativas disponíveis, com o que cada uma preserva, custa e resolve." },
+  { title: "Valor para aprovação", desc: "O valor do serviço apresentado antes da execução, para você decidir sem pressa." },
+  { title: "Riscos declarados", desc: "O que pode aparecer durante a execução e o que não é possível garantir de antemão." },
+];
+
+const NAO_E = [
+  "Não é reparo: o diagnóstico identifica a causa, a execução vem depois e só com a sua aprovação.",
+  "Não é garantia de conserto: existem falhas sem reparo viável, e dizemos isso em vez de tentar às cegas.",
+  "Não é orçamento por telefone: uma estimativa dada pela descrição do sintoma não substitui o teste no equipamento.",
+  "Não é troca por tentativa: nenhuma peça é substituída para 'ver se resolve' às suas custas.",
+  "Não é perícia forense nem laudo judicial: esse escopo exige profissional habilitado para essa finalidade.",
+];
+
+const FAQ_ITEMS = [
+  { q: "O diagnóstico é cobrado?", a: `Sim. O diagnóstico é o trabalho técnico de descobrir a causa e parte de ${commercialConfig.diagnosticoLabel}. Quando o serviço é aprovado, esse valor é abatido do total. Se você preferir não seguir, paga somente o diagnóstico e recebe a explicação do que foi encontrado.` },
+  { q: "Consigo um valor sem enviar o equipamento?", a: "Conseguimos indicar faixas e cenários prováveis pela descrição do sintoma, e isso já ajuda a decidir se vale seguir. O valor firme, porém, só sai depois dos testes: o mesmo sintoma pode ter causas de custos bem diferentes." },
+  { q: "Quanto tempo leva?", a: "Depende do sintoma. Falhas que se reproduzem na hora são identificadas na própria avaliação; falhas intermitentes exigem tempo de observação em uso, porque um equipamento que só falha depois de uma hora ligado precisa ficar uma hora ligado. O prazo estimado é informado assim que o caso é aberto." },
+  { q: "Dá para diagnosticar remotamente?", a: "Quando a máquina liga e conecta, boa parte da investigação de software pode ser feita por acesso remoto. Sintomas de energia, temperatura, tela, conector e ruído precisam do equipamento em mãos, porque dependem de medição física." },
+  { q: "O equipamento pode piorar durante a avaliação?", a: "O objetivo do diagnóstico é justamente evitar isso, e por isso trabalhamos do teste menos invasivo para o mais invasivo. Em mídias com suspeita de falha física, avaliamos sem gravar nada por cima. Ainda assim, equipamentos já danificados podem apresentar agravamento no momento em que são ligados — quando esse risco existe, avisamos antes." },
+  { q: "E se o diagnóstico apontar que não compensa consertar?", a: "Você recebe os números e a explicação do porquê. Preferimos perder um reparo do que entregar um serviço caro em um equipamento que voltaria com problema. Nesses casos orientamos sobre aproveitamento de peças, migração de dados e substituição do aparelho." },
+  { q: "Já sei qual é o defeito. Preciso mesmo do diagnóstico?", a: "Se o componente já está identificado e o serviço é direto, seguimos para a execução com o valor aprovado. A avaliação existe para quando o sintoma admite mais de uma causa — que é a maioria dos casos de lentidão, desligamento e falha de inicialização." },
+  { q: "O diagnóstico serve para decidir entre consertar e trocar?", a: "Sim, e essa é uma das razões mais úteis para fazê-lo. Com a causa na mesa dá para comparar o custo do reparo, a vida útil restante do equipamento e o valor de um aparelho equivalente." },
+  { q: "Vocês avaliam equipamento que já passou por outro técnico?", a: "Avaliamos, e isso é comum. Informe o que já foi feito e quais peças foram trocadas: esse histórico encurta a investigação e evita repetir o mesmo teste." },
+  { q: "Como funciona quando o equipamento precisa ser coletado?", a: `Na modalidade com coleta e entrega existe um valor mínimo pré-aprovado de ${VALOR_COLETA_MINIMO_LABEL}, que cobre retirada, transporte e a avaliação. As condições completas estão na página de preços e políticas.` },
+];
+
 const DiagnosticoTecnico = () => {
   useEffect(() => {
-    document.title = "Diagnóstico Técnico de Computador e Notebook em Curitiba";
+    document.title = TITLE;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content",
-        "Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor do atendimento."
-      );
-    }
+    if (meta) meta.setAttribute("content", DESCRIPTION);
     trackPageView("/diagnostico-tecnico", "Diagnóstico Técnico");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Preciso solicitar um diagnóstico técnico para meu equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Quero um diagnóstico técnico. Vou descrever o que está acontecendo com o equipamento.")}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `diagnostico-${label}`);
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Diagnóstico Técnico de Computador e Notebook em Curitiba" description="Diagnóstico técnico para identificar falhas em computadores e notebooks, avaliar a viabilidade do serviço e orientar o valor do atendimento." path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
+      <PageSEO title={TITLE} description={DESCRIPTION} path="/diagnostico-tecnico" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Diagnóstico Técnico", path: "/diagnostico-tecnico" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: faqItems.map(f => ({
+        mainEntity: FAQ_ITEMS.map(f => ({
           "@type": "Question", name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
@@ -60,25 +149,31 @@ const DiagnosticoTecnico = () => {
       <Breadcrumbs items={[{ label: "Diagnóstico Técnico" }]} />
 
       <main>
-        {/* HERO */}
+        {/* HERO — problema primeiro */}
         <section className="relative hero-gradient pt-10 pb-10 md:pt-12 md:pb-12">
           <div className="container mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-white/80">
+                Avaliação técnica em Curitiba
+              </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
                 Diagnóstico técnico antes do reparo
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Antes de qualquer solução, é preciso entender o problema com precisão. Descubra por que o diagnóstico profissional é pago, como ele funciona e como evita prejuízos maiores.
+                O equipamento trava, desliga sozinho, ficou lento ou simplesmente não liga — e ninguém
+                consegue dizer o motivo. O diagnóstico existe para responder isso com teste, não com
+                palpite: qual componente está falhando, se o reparo compensa e quanto custa antes de
+                você aprovar qualquer coisa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("hero")}>
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" /> Solicitar Diagnóstico
+                    <MessageCircle className="h-5 w-5" /> Descrever meu problema
                   </a>
                 </Button>
                 <Button variant="heroCta" size="lg" asChild>
-                  <Link to="/valores">
-                    <DollarSign className="h-5 w-5" /> Ver Valores
+                  <Link to="/precos-e-politicas">
+                    <DollarSign className="h-5 w-5" /> Preços e políticas
                   </Link>
                 </Button>
               </div>
@@ -86,7 +181,6 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
-        {/* Imagem diagnóstico real */}
         <section className="py-0 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto -mt-8 relative z-20">
@@ -97,169 +191,138 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
-        {/* O QUE É DIAGNÓSTICO */}
+        {/* POR QUE O MESMO SINTOMA TEM VÁRIAS CAUSAS */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">
-                O Que É o Diagnóstico Técnico?
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Por que o mesmo sintoma tem várias causas possíveis
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
-                  O diagnóstico técnico é o processo de <strong className="text-foreground">identificação precisa da causa de um problema</strong> em um equipamento eletrônico. Não se trata de um "chute" ou de tentar coisas aleatórias — é uma investigação metódica que envolve testes com equipamentos profissionais, análise de componentes e experiência técnica acumulada.
+                  Um computador que reinicia sozinho pode estar com fonte instável, memória com
+                  defeito, superaquecimento, driver conflitante ou disco no fim da vida. São cinco
+                  origens diferentes, com cinco custos diferentes, produzindo exatamente o mesmo
+                  sintoma na sua mesa. É por isso que trocar peça pela descrição do problema costuma
+                  sair mais caro: quando a primeira tentativa não resolve, a segunda também é paga.
                 </p>
                 <p>
-                  Muitos clientes confundem diagnóstico com valor do atendimento. <strong className="text-foreground">São coisas diferentes.</strong> Um valor do atendimento é uma estimativa de valor. O diagnóstico é o trabalho técnico real de descobrir o que está errado. Sem diagnóstico correto, qualquer reparo é um tiro no escuro.
+                  O diagnóstico inverte essa lógica. Em vez de partir da peça, parte do sintoma e
+                  elimina hipóteses por teste — isolando componente por componente até sobrar a causa
+                  que se sustenta. Só então a conversa passa a ser sobre serviço, peça e valor.
                 </p>
                 <p>
-                  Em Curitiba e região metropolitana, nosso diagnóstico técnico pode ser realizado no local (visita a domicílio), remotamente (para problemas de software) ou em laboratório (para casos que exigem bancada e equipamentos específicos).
+                  Ele também tem uma função menos óbvia e igualmente importante: dizer quando
+                  <strong className="text-foreground"> não</strong> vale consertar. Equipamento antigo com
+                  falha em componente caro é uma conta que raramente fecha, e você merece saber disso
+                  antes de investir, não depois.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* POR QUE É PAGO */}
+        {/* O QUE É TESTADO POR SINTOMA */}
         <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-                Por Que o Diagnóstico Tem Custo?
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                O que é testado, conforme o sintoma relatado
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Diagnóstico profissional envolve tempo, conhecimento técnico, ferramentas especializadas e responsabilidade. Veja o que está por trás desse investimento:
+              <p className="text-muted-foreground mb-8 max-w-3xl">
+                Não existe uma bateria única aplicada a todo equipamento. O roteiro muda conforme o
+                que você descreve na triagem — e é isso que evita cobrar tempo por teste que não tem
+                relação com o seu caso.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { icon: Clock, title: "Tempo Técnico Dedicado", desc: "Cada diagnóstico exige de 30 minutos a várias horas de análise. O técnico dedica atenção exclusiva ao seu equipamento." },
-                  { icon: Wrench, title: "Ferramentas Profissionais", desc: "Multímetros, fontes de teste, software especializado, estação de solda — equipamentos que custam milhares de reais." },
-                  { icon: Eye, title: "Conhecimento Especializado", desc: "Anos de experiência permitem identificar padrões de falha que técnicos amadores não reconhecem. Isso evita trocas desnecessárias." },
-                  { icon: ShieldCheck, title: "Responsabilidade Técnica", desc: "Um diagnóstico correto orienta o cliente sobre a melhor decisão: reparar, trocar peça ou adquirir equipamento novo." },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="bg-background rounded-xl p-5 flex gap-4">
-                      <div className="bg-primary rounded-lg p-2 h-fit flex-shrink-0">
-                        <Icon className="h-5 w-5 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                {ROTEIRO_POR_SINTOMA.map((bloco) => (
+                  <div key={bloco.sintoma} className="rounded-xl bg-background p-5">
+                    <div className="mb-3 flex items-center gap-2">
+                      <Search className="h-5 w-5 flex-shrink-0 text-accent" />
+                      <h3 className="font-bold text-foreground">{bloco.sintoma}</h3>
                     </div>
-                  );
-                })}
+                    <ul className="space-y-2">
+                      {bloco.testes.map((t) => (
+                        <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" /> {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* DIFERENÇA DIAGNÓSTICO vs EXECUÇÃO */}
+        {/* O QUE VOCÊ RECEBE */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Diagnóstico ≠ Execução do Reparo
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                O que você recebe no fim da avaliação
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-secondary rounded-xl p-6 border-l-4 border-accent">
-                  <Search className="h-8 w-8 text-accent mb-3" />
-                  <h3 className="text-xl font-bold text-foreground mb-3">Diagnóstico</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Identifica a causa do problema",
-                      "Testa componentes individualmente",
-                      "Avalia riscos e viabilidade",
-                      "Informa ao cliente a situação real",
-                      "Gera valor do atendimento fundamentado",
-                    ].map((t, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-secondary rounded-xl p-6 border-l-4 border-primary">
-                  <Wrench className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="text-xl font-bold text-foreground mb-3">Execução do Reparo</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Somente após diagnóstico aprovado",
-                      "Troca de peças ou componentes",
-                      "Instalação e configuração",
-                      "Testes pós-reparo",
-                      "Garantia do serviço realizado",
-                    ].map((t, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <p className="text-center text-sm text-muted-foreground mt-6">
-                <strong>Importante:</strong> O reparo só é executado com aprovação do cliente. Se o diagnóstico indicar que não compensa reparar, você paga apenas o diagnóstico.
+              <p className="text-muted-foreground mb-8 max-w-3xl">
+                O diagnóstico só cumpre a função quando vira informação que você consegue usar para
+                decidir — inclusive para decidir não fazer o serviço conosco.
               </p>
+              <div className="grid gap-4 md:grid-cols-3">
+                {ENTREGAS.map((item) => (
+                  <div key={item.title} className="rounded-xl bg-secondary p-5">
+                    <ClipboardList className="mb-2 h-5 w-5 text-accent" />
+                    <h3 className="mb-1 font-bold text-foreground">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* RISCOS DE NÃO DIAGNOSTICAR */}
+        {/* O QUE O DIAGNÓSTICO NÃO É */}
         <section className="py-8 md:py-10 bg-accent/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-                Riscos de Não Fazer um Diagnóstico Profissional
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                O que o diagnóstico não é
               </h2>
-              <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Muitos clientes tentam economizar pulando o diagnóstico. Veja o que pode acontecer:
-              </p>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {[
-                  { title: "Troca desnecessária de peças", desc: "Sem saber a causa real, técnicos amadores trocam peças que estão funcionando — e o problema continua." },
-                  { title: "Dano maior ao equipamento", desc: "Tentar reparar sem diagnóstico pode causar curto-circuito, queima de componentes ou perda total." },
-                  { title: "Perda de dados permanente", desc: "Um HD com setores defeituosos precisa de tratamento especial. Mexer sem diagnóstico pode tornar dados irrecuperáveis." },
-                  { title: "Gasto duplo ou triplo", desc: "O cliente paga um reparo errado, depois outro, e acaba gastando muito mais do que o diagnóstico custaria." },
-                  { title: "Equipamento condenado", desc: "Um simples problema de capacitor vira uma placa toda queimada quando alguém tenta resolver sem preparo." },
-                  { title: "Tempo perdido", desc: "Semanas tentando soluções caseiras que não funcionam, enquanto um diagnóstico resolve em minutos." },
-                ].map((item, i) => (
-                  <div key={i} className="bg-background rounded-xl p-5 border border-destructive/20">
-                    <AlertTriangle className="h-5 w-5 text-destructive mb-2" />
-                    <h3 className="font-bold text-primary text-sm mb-1">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground">{item.desc}</p>
-                  </div>
+              <ul className="space-y-3">
+                {NAO_E.map((t) => (
+                  <li key={t} className="flex items-start gap-3 rounded-xl border border-border bg-background p-4 text-sm text-muted-foreground">
+                    <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+                    <span>{t}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* EXEMPLOS REAIS */}
+        {/* MODALIDADES */}
         <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Exemplos Reais: Quando o Diagnóstico Salvou o Equipamento
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                Onde a avaliação acontece
               </h2>
-              <div className="space-y-4">
+              <p className="text-muted-foreground mb-8 max-w-3xl">
+                A modalidade é escolhida pelo tipo de sintoma, não pela conveniência de agenda. Um
+                problema de configuração não exige tirar o equipamento da sua mesa; uma falha de
+                energia exige medição, e medição precisa do aparelho em mãos.
+              </p>
+              <div className="grid gap-4 md:grid-cols-3">
                 {[
-                  { caso: "Notebook não liga", aparente: "Placa mãe queimada", real: "Capacitor de alimentação com defeito — R$ 120 no reparo, economia de R$ 2.500 em placa nova." },
-                  { caso: "PC reiniciando sozinho", aparente: "Vírus ou sistema corrompido", real: "Fonte de alimentação instável — troca da fonte por R$ 180 resolveu, sem necessidade de formatação." },
-                  { caso: "TV com tela escura", aparente: "Painel LCD queimado", real: "LEDs de retroiluminação defeituosos — reparo por R$ 250 ao invés de trocar TV de R$ 3.000." },
-                  { caso: "Computador lento", aparente: "Precisa trocar tudo", real: "HD com setores defeituosos — upgrade para SSD por R$ 200 deixou o PC como novo." },
-                ].map((ex, i) => (
-                  <div key={i} className="bg-background rounded-xl p-5">
-                    <h3 className="font-bold text-foreground mb-2">{ex.caso}</h3>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div className="bg-destructive/5 rounded-lg p-3">
-                        <span className="text-xs font-semibold text-destructive">❌ Aparência:</span>
-                        <p className="text-sm text-muted-foreground">{ex.aparente}</p>
-                      </div>
-                      <div className="bg-accent/10 rounded-lg p-3">
-                        <span className="text-xs font-semibold text-accent">✅ Diagnóstico real:</span>
-                        <p className="text-sm text-muted-foreground">{ex.real}</p>
-                      </div>
-                    </div>
+                  { title: "Remoto", desc: "Sistema, lentidão, configuração, rede lógica e acessos. Você acompanha a sessão do começo ao fim.", to: "/atendimento-remoto", label: "Como funciona o remoto" },
+                  { title: "No seu endereço", desc: "Quando o equipamento não pode sair do lugar ou o problema envolve o ambiente: rede, cabeamento, energia, periféricos.", to: "/atendimento-domicilio", label: "Atendimento em domicílio" },
+                  { title: "Com coleta e entrega", desc: "Sintomas que exigem tempo de bancada e observação em uso contínuo, com transporte agendado.", to: "/coleta-e-entrega", label: "Coleta e entrega" },
+                ].map((m) => (
+                  <div key={m.title} className="flex flex-col rounded-xl bg-background p-5">
+                    <Wrench className="mb-2 h-5 w-5 text-accent" />
+                    <h3 className="mb-1 font-bold text-foreground">{m.title}</h3>
+                    <p className="mb-4 flex-1 text-sm text-muted-foreground">{m.desc}</p>
+                    <Link to={m.to} className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">
+                      {m.label} <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -267,35 +330,33 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
-        {/* VALORES */}
+        {/* VALOR */}
         <section className="py-8 md:py-10 bg-background">
           <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="bg-secondary rounded-2xl p-8 border-2 border-accent/20">
-                <CircleDollarSign className="h-10 w-10 text-accent mx-auto mb-4" />
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Quanto Custa o Diagnóstico?
+            <div className="max-w-3xl mx-auto">
+              <div className="rounded-2xl border-2 border-accent/20 bg-secondary p-8">
+                <CircleDollarSign className="mb-4 h-10 w-10 text-accent" />
+                <h2 className="mb-4 text-2xl md:text-3xl font-bold text-foreground">
+                  Como o valor é definido
                 </h2>
-                <div className="space-y-3 mb-6 text-left max-w-md mx-auto">
-                  <div className="flex justify-between items-center bg-background rounded-lg p-3">
-                    <span className="text-sm font-medium">Diagnóstico Presencial</span>
-                    <span className="font-bold text-accent">R$ 99,99</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-background rounded-lg p-3">
-                    <span className="text-sm font-medium">Diagnóstico com Coleta</span>
-                    <span className="font-bold text-accent">R$ 99,99 - R$ 100</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-background rounded-lg p-3">
-                    <span className="text-sm font-medium">Diagnóstico Remoto</span>
-                    <span className="font-bold text-accent">A partir de R$ 79,99</span>
-                  </div>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Atendimentos a partir de <strong className="text-foreground">{commercialConfig.minPriceLabel}</strong>,
+                    e o diagnóstico parte de <strong className="text-foreground">{commercialConfig.diagnosticoLabel}</strong>.
+                    Aprovando o serviço, o valor do diagnóstico é abatido do total.
+                  </p>
+                  <p>
+                    Na modalidade com coleta e entrega existe um valor mínimo pré-aprovado de{" "}
+                    <strong className="text-foreground">{VALOR_COLETA_MINIMO_LABEL}</strong>, que cobre
+                    retirada, transporte e avaliação. Se você desistir depois do resultado, o
+                    combinado da modalidade é o que vale — sempre informado antes da coleta.
+                  </p>
+                  <p className="text-sm">{commercialConfig.pricingDisclaimer}</p>
+                  <p className="text-sm">{commercialConfig.policies.preAprovacao}</p>
                 </div>
-                <p className="text-sm text-muted-foreground mb-6">
-                  O valor do diagnóstico é <strong>abatido do reparo</strong> quando aprovado. Se não aprovar, paga apenas o diagnóstico.
-                </p>
-                <Button variant="cta" size="lg" asChild>
-                  <Link to="/valores">
-                    Ver Tabela Completa <ArrowRight className="h-4 w-4 ml-1" />
+                <Button variant="cta" size="lg" asChild className="mt-6">
+                  <Link to="/precos-e-politicas">
+                    Ver preços e políticas <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -303,69 +364,20 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
-        {/* TÉCNICO AMADOR vs PROFISSIONAL */}
+        {/* FAQ */}
         <section className="py-8 md:py-10 bg-secondary">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Técnico Amador vs Técnico Profissional
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-background rounded-xl p-6 border-2 border-destructive/20">
-                  <Ban className="h-8 w-8 text-destructive mb-3" />
-                  <h3 className="text-lg font-bold text-foreground mb-3">Técnico Amador</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Tenta adivinhar o problema",
-                      "Troca peças por tentativa e erro",
-                      "Usa ferramentas improvisadas",
-                      "Não oferece garantia real",
-                      "Pode causar mais danos",
-                      "Cobra barato mas resolve pouco",
-                    ].map((t, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <AlertTriangle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-background rounded-xl p-6 border-2 border-accent/20">
-                  <ShieldCheck className="h-8 w-8 text-accent mb-3" />
-                  <h3 className="text-lg font-bold text-foreground mb-3">Técnico Profissional</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Diagnostica com método e precisão",
-                      "Troca apenas o necessário",
-                      "Usa equipamentos profissionais",
-                      "Oferece garantia por escrito",
-                      "Preserva o equipamento",
-                      "Custo real é menor no longo prazo",
-                    ].map((t, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-8 md:py-10 bg-background">
-          <div className="container mx-auto">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                Perguntas Frequentes Sobre Diagnóstico Técnico
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+                Dúvidas sobre o diagnóstico
               </h2>
               <Accordion type="single" collapsible className="space-y-3">
-                {faqItems.map((item, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`} className="bg-secondary rounded-xl border-none px-5">
+                {FAQ_ITEMS.map((item, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="rounded-xl border-none bg-background px-5">
                     <AccordionTrigger className="text-left font-semibold text-primary hover:no-underline">
                       {item.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                    <AccordionContent className="leading-relaxed text-muted-foreground">
                       {item.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -381,24 +393,23 @@ const DiagnosticoTecnico = () => {
             <h2 className="mb-5 text-center text-xl md:text-2xl font-bold text-foreground">
               Depois do diagnóstico
             </h2>
-            <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">
-              O diagnóstico avalia a causa provável, a condição e a viabilidade. A execução só
-              acontece após a sua aprovação — e algumas falhas podem ser intermitentes, com
-              recuperação e reparo não garantidos.
+            <p className="mx-auto mb-6 max-w-2xl text-center text-sm text-muted-foreground">
+              A execução só acontece após a sua aprovação. Falhas intermitentes podem exigir mais de
+              uma etapa de observação, e nem todo reparo é viável — quando não for, dizemos.
             </p>
-            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3">
               {[
-                { label: "Como funciona", to: "/como-funciona" },
-                { label: "Preços e políticas", to: "/precos-e-politicas" },
-                { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
-                { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
                 { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
                 { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
+                { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
+                { label: "Upgrade de SSD e memória", to: "/servicos/upgrade-ssd-ram" },
+                { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
+                { label: "Como funciona o atendimento", to: "/como-funciona" },
               ].map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+                  className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-border bg-secondary px-4 py-2 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
                 >
                   {l.label}
                   <ArrowRight className="h-4 w-4" />
@@ -408,25 +419,25 @@ const DiagnosticoTecnico = () => {
           </div>
         </section>
 
-
         {/* CTA FINAL */}
-        <section className="py-10 md:py-20 bg-primary">
+        <section className="bg-primary py-10 md:py-20">
           <div className="container mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Precisa de um Diagnóstico Profissional?
+            <h2 className="mb-4 text-2xl md:text-3xl font-bold text-white">
+              Descreva o sintoma e nós indicamos o próximo passo
             </h2>
-            <p className="text-white/90 mb-8 max-w-xl mx-auto">
-              Não arrisque seu equipamento com soluções improvisadas. Solicite um diagnóstico técnico profissional agora.
+            <p className="mx-auto mb-8 max-w-xl text-white/90">
+              Quanto mais detalhe você der — quando começou, o que muda o comportamento, o que já foi
+              tentado —, mais curta fica a investigação.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button variant="heroWhatsapp" size="lg" asChild onClick={() => handleCTA("cta-final")}>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5" /> Chamar no WhatsApp
+                  <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
                 </a>
               </Button>
               <Button variant="heroCta" size="lg" asChild>
                 <Link to="/como-funciona">
-                  Como Funciona <ArrowRight className="h-4 w-4 ml-1" />
+                  Como funciona <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -439,18 +450,5 @@ const DiagnosticoTecnico = () => {
     </div>
   );
 };
-
-const faqItems = [
-  { q: "O diagnóstico é pago mesmo?", a: "Sim. O diagnóstico envolve tempo técnico, ferramentas e conhecimento profissional. O valor é abatido do reparo quando aprovado." },
-  { q: "Posso ter um valor sem diagnóstico?", a: "Estimativas podem ser feitas via WhatsApp com base na descrição do problema. Porém, o valor final depende do diagnóstico presencial." },
-  { q: "E se eu não aprovar o reparo?", a: "Você paga apenas o valor do diagnóstico. Não há obrigação de realizar o reparo." },
-  { q: "Quanto tempo demora o diagnóstico?", a: "Diagnóstico presencial: 30 a 60 minutos. Em laboratório: 1 a 5 dias úteis dependendo da complexidade." },
-  { q: "O diagnóstico pode ser feito remotamente?", a: "Sim, para problemas de software, lentidão e configurações. Para problemas de hardware, é necessário diagnóstico presencial." },
-  { q: "O valor do diagnóstico é abatido do reparo?", a: "Sim! Se o reparo for aprovado, o valor pago pelo diagnóstico é descontado do total do serviço." },
-  { q: "Por que não oferecem diagnóstico grátis?", a: "Diagnóstico profissional exige tempo, ferramentas e experiência. Oferecer gratuitamente desvaloriza o trabalho e geralmente resulta em diagnósticos superficiais e incorretos." },
-  { q: "Meu equipamento pode piorar durante o diagnóstico?", a: "Não. O diagnóstico é feito com cuidado e equipamentos adequados. O objetivo é identificar, não intervir." },
-  { q: "O que acontece se o equipamento não tiver conserto?", a: "O técnico informa a situação real e orienta sobre as melhores opções: compra de peça, troca do equipamento ou aproveitamento de partes." },
-  { q: "Vocês dão nota fiscal?", a: "Sim, emitimos nota fiscal para todos os serviços, inclusive diagnóstico." },
-];
 
 export default DiagnosticoTecnico;

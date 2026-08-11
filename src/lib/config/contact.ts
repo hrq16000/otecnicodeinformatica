@@ -28,9 +28,13 @@ export const DEFAULT_WHATSAPP_MESSAGE =
  * Horários de atendimento publicados nos schemas (Organization/LocalBusiness).
  * Formato do env `VITE_BUSINESS_HOURS` (padrão schema.org, abreviações EN):
  *   "Mo-Fr 08:00-18:00; Sa 09:00-13:00"
- * String vazia = campo simplesmente omitido dos schemas (sem inventar).
+ *
+ * FAIL-CLOSED COMERCIAL (Rodada 2A, item 25): NÃO existe horário padrão. O
+ * horário da marca de origem nunca serve de fallback. Sem env confirmada,
+ * nada é renderizado e nenhum openingHoursSpecification/hoursAvailable é
+ * emitido.
  */
-export const DEFAULT_BUSINESS_HOURS = "Mo-Fr 08:00-18:00; Sa 09:00-13:00";
+export const DEFAULT_BUSINESS_HOURS = "";
 
 const DAY_NAMES: Record<string, string> = {
   Mo: "Monday",
@@ -72,7 +76,9 @@ export function parseBusinessHours(spec: string): BusinessHourSpec[] {
   return out;
 }
 
-export const BUSINESS_HOURS_SPEC = envStr("VITE_BUSINESS_HOURS") ?? DEFAULT_BUSINESS_HOURS;
+export const BUSINESS_HOURS_SPEC = envStr("VITE_BUSINESS_HOURS") || DEFAULT_BUSINESS_HOURS;
+/** true só quando existe horário confirmado por env. */
+export const BUSINESS_HOURS_CONFIGURED = BUSINESS_HOURS_SPEC.trim().length > 0;
 export const BUSINESS_HOURS: BusinessHourSpec[] = parseBusinessHours(BUSINESS_HOURS_SPEC);
 
 

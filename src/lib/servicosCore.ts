@@ -587,11 +587,6 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
           "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
         ],
       },
-    ],
-    linksLocais: [
-          "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
-        ],
-      },
       {
         titulo: "Os sinais que aparecem antes do problema ficar grave",
         paragrafos: [

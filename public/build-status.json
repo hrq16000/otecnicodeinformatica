@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-08-11T13:19:52.475Z",
-  "finishedAt": "2026-08-11T13:19:53.920Z",
+  "startedAt": "2026-08-11T13:25:53.088Z",
+  "finishedAt": "2026-08-11T13:25:54.641Z",
   "ok": false,
   "total": 9,
   "passed": 8,
@@ -12,64 +12,64 @@
       "label": "ads.txt e metatag AdSense",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 72,
-      "checkedAt": "2026-08-11T13:19:52.547Z"
+      "durationMs": 86,
+      "checkedAt": "2026-08-11T13:25:53.174Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 75,
-      "checkedAt": "2026-08-11T13:19:52.622Z"
+      "durationMs": 80,
+      "checkedAt": "2026-08-11T13:25:53.254Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 88,
-      "checkedAt": "2026-08-11T13:19:52.710Z"
+      "durationMs": 87,
+      "checkedAt": "2026-08-11T13:25:53.341Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 551,
-      "checkedAt": "2026-08-11T13:19:53.261Z"
+      "durationMs": 602,
+      "checkedAt": "2026-08-11T13:25:53.943Z"
     },
     {
       "id": "internal-links",
       "label": "Links internos sem 404",
       "status": "fail",
       "detail": "  - [sitemap-servicos.xml] domínio não canônico: https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/portao",
-      "durationMs": 181,
-      "checkedAt": "2026-08-11T13:19:53.442Z"
+      "durationMs": 200,
+      "checkedAt": "2026-08-11T13:25:54.143Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 113,
-      "checkedAt": "2026-08-11T13:19:53.555Z"
+      "durationMs": 116,
+      "checkedAt": "2026-08-11T13:25:54.259Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 119,
-      "checkedAt": "2026-08-11T13:19:53.674Z"
+      "durationMs": 133,
+      "checkedAt": "2026-08-11T13:25:54.392Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 142,
-      "checkedAt": "2026-08-11T13:19:53.816Z"
+      "durationMs": 145,
+      "checkedAt": "2026-08-11T13:25:54.537Z"
     },
     {
       "id": "orphan-pages",
@@ -77,7 +77,7 @@
       "status": "ok",
       "detail": "sem pendências",
       "durationMs": 104,
-      "checkedAt": "2026-08-11T13:19:53.920Z"
+      "checkedAt": "2026-08-11T13:25:54.641Z"
     }
   ]
 }

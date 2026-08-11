@@ -1113,6 +1113,29 @@ export const WhatsAppFunnel = () => {
                       onChange={(e) => commit({ ...answers, finalNotes: e.target.value })}
                     />
 
+                    {/* Prévia da mensagem: o usuário confere exatamente o que
+                        será enviado ao WhatsApp antes de confirmar. */}
+                    <div className="rounded-lg border border-border bg-muted/40 p-3">
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between gap-2 text-xs font-semibold text-foreground"
+                        aria-expanded={showPreview}
+                        onClick={() => {
+                          const next = !showPreview;
+                          setShowPreview(next);
+                          if (next) trackTriagePreview("open", { equipamento: answers.equipment || undefined });
+                        }}
+                      >
+                        <span>Prévia da mensagem do WhatsApp</span>
+                        <span className="text-muted-foreground">{showPreview ? "ocultar" : "ver"}</span>
+                      </button>
+                      {showPreview && (
+                        <pre className="mt-2 max-h-52 overflow-auto whitespace-pre-wrap break-words rounded-md bg-background/70 p-2 text-[11px] leading-snug text-foreground/85">
+                          {previewMessage}
+                        </pre>
+                      )}
+                    </div>
+
                     <div className="flex flex-wrap items-center gap-2">
                       <Button variant="outline" size="sm" onClick={back} className="gap-1">
                         <ArrowLeft className="h-4 w-4" /> Voltar

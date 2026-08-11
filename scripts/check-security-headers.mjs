@@ -1,5 +1,5 @@
-import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 #!/usr/bin/env node
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 /**
  * Runtime security-headers gate (Prompt 12).
  *

@@ -3,8 +3,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import {
 import { BASE_URL, SITE_DOMAIN } from "./site-env.mjs";
+import {
   buildItems,
   buildPlan,
   validateMatrix,

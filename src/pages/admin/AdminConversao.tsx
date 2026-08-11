@@ -101,6 +101,11 @@ const AdminConversao = () => {
     const porOrigem = new Map<string, { wa: number; call: number; total: number }>();
     const porVariante = new Map<string, { view: number; wa: number }>();
     const etapaSessions = new Map<string, Set<string>>();
+    // Rodada 4L — conversão por página/serviço com taxa por sessão móvel.
+    const porPagina = new Map<
+      string,
+      { wa: number; call: number; sessoesMobile: Set<string>; waMobile: Set<string> }
+    >();
 
     for (const r of rows) {
       const cta = r.cta_position || r.cta_location || "sem-posicao";
@@ -132,6 +137,17 @@ const AdminConversao = () => {
       if (r.event_type === "wa_click") x.wa += 1;
       porVariante.set(variante, x);
 
+      const rota = r.path || "sem-rota";
+      const pg = porPagina.get(rota) ?? { wa: 0, call: 0, sessoesMobile: new Set(), waMobile: new Set() };
+      if (r.event_type === "wa_click") pg.wa += 1;
+      if (r.event_type === "call_click") pg.call += 1;
+      const isMobile = vp !== "desktop" && vp !== "desconhecido";
+      if (isMobile) {
+        pg.sessoesMobile.add(sid);
+        if (r.event_type === "wa_click") pg.waMobile.add(sid);
+      }
+      porPagina.set(rota, pg);
+
       const etapa = r.funnel_stage || "cta_click";
       if (!etapaSessions.has(etapa)) etapaSessions.set(etapa, new Set());
       etapaSessions.get(etapa)!.add(sid);
@@ -144,6 +160,16 @@ const AdminConversao = () => {
       porCta: [...porCta.entries()].sort((a, b) => b[1].wa + b[1].call - (a[1].wa + a[1].call)),
       porViewport: [...porViewport.entries()].sort((a, b) => b[1].total - a[1].total),
       porOrigem: [...porOrigem.entries()].sort((a, b) => b[1].total - a[1].total).slice(0, 10),
+      porPagina: [...porPagina.entries()]
+        .map(([rota, v]) => ({
+          rota,
+          wa: v.wa,
+          call: v.call,
+          sessoesMobile: v.sessoesMobile.size,
+          taxaMobile: pct(v.waMobile.size, v.sessoesMobile.size),
+        }))
+        .sort((a, b) => b.wa - a.wa)
+        .slice(0, 25),
       porVariante: [...porVariante.entries()].sort((a, b) => a[0].localeCompare(b[0])),
       funil: funil.map((f) => ({ ...f, taxa: pct(f.sessoes, base) })),
       totalWa: rows.filter((r) => r.event_type === "wa_click").length,
@@ -314,6 +340,37 @@ const AdminConversao = () => {
               ))}
             </tbody>
           </table>
+        </Card>
+
+        <Card className="p-4 lg:col-span-2">
+          <h2 className="mb-3 font-heading text-lg font-bold text-foreground">
+            Conversão por página / serviço
+          </h2>
+          <table className="w-full text-sm">
+            <thead className="text-left text-xs text-muted-foreground">
+              <tr>
+                <th className="py-1">Rota</th><th>WhatsApp</th><th>Ligação</th>
+                <th>Sessões mobile</th><th>Taxa mobile</th>
+              </tr>
+            </thead>
+            <tbody>
+              {agregados.porPagina.map((p) => (
+                <tr key={p.rota} className="border-t border-border">
+                  <td className="py-1.5 pr-2 text-foreground">{p.rota}</td>
+                  <td>{p.wa}</td>
+                  <td>{p.call}</td>
+                  <td>{p.sessoesMobile}</td>
+                  <td className="font-semibold">{p.taxaMobile}%</td>
+                </tr>
+              ))}
+              {agregados.porPagina.length === 0 && (
+                <tr><td colSpan={5} className="py-3 text-muted-foreground">Sem eventos no período.</td></tr>
+              )}
+            </tbody>
+          </table>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Taxa mobile = sessões móveis com clique em WhatsApp ÷ sessões móveis com evento na rota.
+          </p>
         </Card>
 
         <Card className="p-4">

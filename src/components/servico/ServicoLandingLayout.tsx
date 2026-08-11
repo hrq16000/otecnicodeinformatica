@@ -133,6 +133,18 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
     });
   };
 
+  /**
+   * Etapas exibidas na barra mobile: usa o processo real do serviço
+   * (títulos curtos) e cai no padrão de 4 etapas do portal quando a
+   * página declara menos de quatro passos.
+   */
+  const etapasFunil = (() => {
+    const doServico = data.processo.map((p) => p.title.split(" ").slice(0, 2).join(" "));
+    return doServico.length >= 4
+      ? doServico.slice(0, 4)
+      : ["Triagem", "Diagnóstico", "Aprovação", "Execução"];
+  })();
+
   // Rodada 3Q — caixas editoriais contextuais (no máximo três por página).
   const caixas = (data.caixas ?? []).slice(0, 3);
   const caixasBlock =

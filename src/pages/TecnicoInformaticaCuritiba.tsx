@@ -17,6 +17,8 @@ import { FastHeader } from "@/components/FastHeader";
 import { Footer } from "@/components/Footer";
 import { PilarEditorialLinks } from "@/components/editorial/PilarEditorialLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
+
 import { EeatProofsSection } from "@/components/EeatProofsSection";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { siteConfig, whatsappLink, absoluteUrl } from "@/lib/siteConfig";

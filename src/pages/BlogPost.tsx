@@ -25,7 +25,7 @@ import {
   INSTITUTIONAL_AUTHOR,
   EDITORIAL_PUBLISHER,
 } from "@/lib/blogEditorialRegistry";
-import { SITE_BASE_URL } from "@/lib/siteConfig";
+import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)

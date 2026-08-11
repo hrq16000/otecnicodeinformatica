@@ -629,7 +629,6 @@ export function buildTriageSummary(a: TriageAnswers): SummaryRow[] {
 }
 
 import { URGENCY_OPTIONS } from "./triageConfig";
-import { BRAND_NAME } from "@/lib/siteConfig";
 function URGENCY_LABEL(v: string): string {
   return URGENCY_OPTIONS.find((o) => o.value === v)?.label ?? v;
 }

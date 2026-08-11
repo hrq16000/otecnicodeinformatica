@@ -13,6 +13,7 @@ import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { TrustStrip } from "@/components/TrustStrip";
 import { EditorialCallout } from "@/components/servico/EditorialCallout";
 import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
+import { MobileServicoFunnelBar } from "@/components/servico/MobileServicoFunnelBar";
 import type { ServicoCaixa } from "@/lib/servicoVisual3q";
 import {
   EMPRESARIAL_SERVICO_HERO,

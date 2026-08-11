@@ -149,7 +149,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
                 Termos, Condições, Valores e Prazos
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-6 reveal-text" data-reveal-delay="100">
-                Ponto único de consulta: modalidades, valores, condições, prazos e regras de cancelamento
+                Não vendemos preço fechado por serviço porque o mesmo sintoma pode ter causas de custo muito diferente. Aqui está a regra: modalidades, valores de partida, prazos e cancelamento
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {[

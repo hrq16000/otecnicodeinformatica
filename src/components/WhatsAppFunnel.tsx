@@ -177,6 +177,16 @@ export const WhatsAppFunnel = () => {
   const equipment = getEquipment(answers.equipment);
   const rules = useMemo(() => getPricingRules(answers), [answers]);
   const terms = useMemo(() => getTermsForAnswers(answers), [answers]);
+  // Prévia da mensagem (mesmo builder do envio; id definitivo é gerado no submit).
+  const previewMessage = useMemo(
+    () =>
+      buildWhatsAppMessage(
+        answers,
+        "—",
+        typeof window !== "undefined" ? `${window.location.origin}${window.location.pathname}` : undefined,
+      ),
+    [answers],
+  );
   // Ciência dos critérios de aceite/recusa da categoria (Rodada 3X).
   const [criteriosOk, setCriteriosOk] = useState(false);
   // Gate de coleta e entrega premium: faixa de raio + pré-requisitos + status.

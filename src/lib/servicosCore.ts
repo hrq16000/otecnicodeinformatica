@@ -1,4 +1,5 @@
 import type { ServicoLandingData } from "@/components/servico/ServicoLandingLayout";
+import { PROCESSOS } from "@/lib/servicosProcessos";
 
 // ─────────────────────────────────────────────────────────────
 // SERVIÇOS ESSENCIAIS — conteúdo próprio, local e profundo.
@@ -11,15 +12,6 @@ const LINKS_BASE = [
   { label: "Preços e políticas", to: "/precos-e-politicas" },
   { label: "Como funciona", to: "/como-funciona" },
   { label: "Dúvidas frequentes", to: "/faq" },
-];
-
-const PROCESSO_PADRAO = [
-  { step: "1", title: "Triagem", desc: "Você descreve o problema pelo WhatsApp e enviamos as primeiras orientações." },
-  { step: "2", title: "Avaliação", desc: "Diagnóstico técnico do equipamento para entender a real causa." },
-  { step: "3", title: "Orientação", desc: "Explicamos o que foi encontrado, em linguagem clara, sem empurrar peça." },
-  { step: "4", title: "Valor do atendimento", desc: "Valor apresentado e aprovado por você antes de qualquer serviço." },
-  { step: "5", title: "Execução", desc: "Realizamos o serviço com peças e procedimentos adequados." },
-  { step: "6", title: "Entrega e validação", desc: "Testamos junto com você e entregamos funcionando." },
 ];
 
 export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
@@ -56,7 +48,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Preparar a máquina para venda, repasse ou novo usuário",
       "Troca de HD por SSD com reinstalação ou clonagem do sistema",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["formatacao"],
     fatoresValor: [
       { title: "Tipo de equipamento", desc: "Notebook, desktop, all-in-one e configurações antigas exigem etapas diferentes." },
       { title: "Volume de backup", desc: "Quanto mais dados a copiar e restaurar, maior o tempo envolvido." },
@@ -176,7 +168,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Teclado ou touchpad falhando",
       "Dobradiça solta ou carcaça danificada",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["manutencao-de-notebook"],
     fatoresValor: [
       { title: "Modelo do notebook", desc: "Peças e desmontagem variam bastante entre fabricantes e linhas." },
       { title: "Peça necessária", desc: "Tela, bateria, teclado ou dobradiça influenciam o valor final." },
@@ -297,7 +289,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Superaquecimento e desligamentos por proteção",
       "Lentidão e baixo desempenho no dia a dia",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["manutencao-de-computador"],
     fatoresValor: [
       { title: "Componente afetado", desc: "Fonte, memória, armazenamento ou placa-mãe têm custos diferentes." },
       { title: "Necessidade de peça", desc: "Reposição de peça influencia o valor e o prazo do serviço." },
@@ -419,7 +411,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Ainda usa HD mecânico (não SSD)",
       "Pouca memória RAM para o uso atual",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["upgrade-ssd-ram"],
     fatoresValor: [
       { title: "Capacidade das peças", desc: "Tamanho do SSD e quantidade de RAM impactam diretamente no valor." },
       { title: "Tipo de SSD", desc: "SATA e NVMe têm preços e compatibilidades diferentes." },
@@ -536,7 +528,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Avisos falsos pedindo pagamento ou ligação",
       "Arquivos bloqueados e acessos suspeitos às contas",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["remocao-de-virus"],
     fatoresValor: [
       { title: "Gravidade da infecção", desc: "Casos simples e sistemas comprometidos exigem esforços diferentes." },
       { title: "Risco aos dados", desc: "Quando há risco de perda, o cuidado extra com backup soma tempo." },
@@ -557,7 +549,14 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Meu navegador foi 'sequestrado', dá para resolver?", answer: "Sim. Removemos extensões e redirecionamentos maliciosos e reconfiguramos o navegador com segurança." },
       { question: "Como evitar pegar vírus de novo?", answer: "Orientamos sobre antivírus, atualizações, downloads seguros e cuidado com anexos e links. A prevenção faz parte do atendimento." },
       { question: "Recebi um aviso pedindo pagamento, é golpe?", answer: "Avisos que pedem pagamento ou ligação urgente costumam ser golpe. Não pague nem ligue: avaliamos o equipamento e orientamos com segurança." },
+      { question: "Meus arquivos ficaram com extensão estranha e não abrem. É vírus?", answer: "Esse é o sinal clássico de ransomware, que criptografa os arquivos. Não renomeie nem tente abrir com outro programa: isso pode danificar o que ainda seria recuperável. Desligue o equipamento da rede e encaminhe para avaliação — verificamos a família da infecção e se existe ferramenta legítima de decriptação. Quando não existe, dizemos isso claramente." },
+      { question: "Antivírus pago resolve sozinho?", answer: "Ajuda, mas não substitui diagnóstico. Boa parte das infecções que atendemos chegou por instalação autorizada pelo próprio usuário — programa pirata, instalador baixado de anúncio ou extensão de navegador. Nesses casos o antivírus é ignorado porque a permissão foi dada." },
+      { question: "Dá para remover vírus por atendimento remoto?", answer: "Em muitos casos sim, quando a máquina liga, conecta e ainda permite instalar as ferramentas de análise. Quando o sistema não inicia, bloqueia a rede ou exibe tela de bloqueio, o atendimento precisa ser em bancada." },
+      { question: "Preciso trocar minhas senhas depois da limpeza?", answer: "Sim, e por outro aparelho enquanto a máquina ainda estiver infectada. Comece pelo e-mail principal, que é a chave de recuperação de todas as outras contas, e depois banco, redes sociais e serviços de trabalho. Ativar verificação em duas etapas fecha a maior parte das brechas." },
+      { question: "Vocês removem vírus de celular?", answer: "Nosso escopo é computador, notebook e equipamentos de informática. Em celulares orientamos os primeiros passos, mas não executamos o serviço." },
+      { question: "Quanto tempo leva a remoção?", answer: "Depende do tipo de infecção e do volume de dados a preservar. Casos de adware e sequestro de navegador costumam ser rápidos; sistemas comprometidos que exigem backup e reinstalação levam mais tempo. O prazo é informado junto com o valor, antes da execução." },
     ],
+
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
@@ -586,6 +585,22 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
         paragrafos: [
           "Entregamos com antivírus nativo ativo e configurado, extensões revisadas, inicialização enxuta, contas de administrador separadas do uso diário quando faz sentido e atualizações pendentes aplicadas. A maior parte das reinfecções acontece por software pirata, instalador baixado de link patrocinado e anexo de e-mail — orientamos caso a caso com exemplos do que a pessoa realmente usa.",
           "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
+        ],
+      },
+      {
+        titulo: "Os sinais que aparecem antes do problema ficar grave",
+        paragrafos: [
+          "Máquina que liga bem e fica lenta minutos depois, ventoinha acelerada com o computador parado, consumo de rede alto sem ninguém usando: são sintomas de processo malicioso rodando em segundo plano, muitas vezes minerando ou enviando dados. Diferente do adware, ele não quer ser visto — e por isso costuma ser descoberto tarde.",
+          "Outro sinal frequente é a página inicial e o buscador do navegador voltarem sozinhos depois de corrigidos. Isso indica que a origem não está na configuração, e sim em uma extensão, uma tarefa agendada ou um atalho modificado que refaz a alteração a cada inicialização.",
+          "Também vale desconfiar de contatos recebendo mensagens que você não enviou, de programas que você não instalou aparecendo na lista e de avisos de login em outro dispositivo. Nesse ponto o problema já saiu da máquina e virou risco de conta — a limpeza técnica precisa vir acompanhada de troca de senhas.",
+        ],
+      },
+      {
+        titulo: "Golpes que chegam antes do vírus",
+        paragrafos: [
+          "Boa parte dos atendimentos começa não com um arquivo infectado, mas com um golpe de suporte falso: uma tela em tela cheia dizendo que o computador está infectado e exibindo um telefone para ligar. Quem liga é orientado a instalar um programa de acesso remoto e entrega a máquina a um desconhecido. Se isso aconteceu, o equipamento precisa ser tratado como comprometido, com senhas trocadas por outro aparelho.",
+          "Também é comum o falso boleto e o falso técnico de banco pedindo instalação de módulo de segurança. Nenhum banco pede instalação por telefone nem solicita acesso remoto. Diante de qualquer pedido assim, desligue a chamada e verifique pelo canal oficial.",
+          "Nesses casos, o serviço não termina na limpeza: revisamos programas de acesso remoto instalados, sessões ativas, regras de encaminhamento de e-mail criadas pelo invasor e permissões concedidas a aplicativos. É o passo que mais gente esquece — e o que costuma explicar a reincidência semanas depois.",
         ],
       },
     ],
@@ -630,7 +645,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Ruídos anormais vindos do HD (possível falha física)",
       "Perda de fotos, documentos ou trabalhos importantes",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["recuperacao-de-dados"],
     fatoresValor: [
       { title: "Tipo de falha", desc: "Falha lógica e falha física exigem procedimentos muito diferentes." },
       { title: "Dispositivo", desc: "HD, SSD, pendrive e cartão têm complexidades distintas." },
@@ -731,7 +746,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Muitos dispositivos e a rede não aguenta",
       "Rede da empresa instável, insegura ou desorganizada",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["redes-e-wifi"],
     fatoresValor: [
       { title: "Tamanho do ambiente", desc: "Área a cobrir e número de cômodos ou setores." },
       { title: "Equipamentos necessários", desc: "Roteador, repetidores, mesh ou switches conforme o caso." },
@@ -860,7 +875,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Computadores sem manutenção preventiva",
       "Necessidade de suporte remoto ou presencial recorrente",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["suporte-tecnico-empresarial"],
     fatoresValor: [
       { title: "Quantidade de estações", desc: "Número de computadores e usuários atendidos." },
       { title: "Complexidade da rede", desc: "Infraestrutura, servidores locais e segmentação." },
@@ -990,7 +1005,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Backup que ninguém conferiu ou restaurou desde que foi criado",
       "Falhas que sempre voltam no mesmo equipamento",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["manutencao-preventiva-empresas"],
     fatoresValor: [
       { title: "Quantidade de estações", desc: "Número de computadores inspecionados e usuários envolvidos no atendimento." },
       { title: "Condição atual dos equipamentos", desc: "Máquinas sem manutenção há anos exigem mais tempo do que um parque já organizado." },
@@ -1098,7 +1113,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Empresa já perdeu arquivo por exclusão acidental, falha de disco ou infecção",
       "Base do sistema de gestão sem cópia fora do servidor local",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["backup-para-empresas"],
     fatoresValor: [
       { title: "Volume de dados", desc: "Quantidade de arquivos e o tamanho total a copiar influenciam tempo e estrutura." },
       { title: "Número de origens", desc: "Estações, servidor local e pastas compartilhadas envolvidas na rotina." },
@@ -1205,7 +1220,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Computador novo que precisa ser preparado para começar a trabalhar",
       "Posto de trabalho improvisado, com cabos, monitor e periféricos mal resolvidos",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["suporte-home-office"],
     fatoresValor: [
       { title: "Modalidade do atendimento", desc: "Casos compatíveis com acesso remoto costumam ser mais rápidos que a visita ao endereço." },
       { title: "Quantidade de itens", desc: "Um ajuste pontual é diferente de preparar computador, rede, periféricos e arquivos." },
@@ -1353,7 +1368,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Peças aproveitadas de outro computador sem saber o que ainda serve",
       "Estação de trabalho que precisa de levantamento de requisitos antes da compra",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["montagem-de-pc"],
     fatoresValor: [
       { title: "Quantidade de componentes", desc: "Uma montagem simples é diferente de um conjunto com várias unidades de armazenamento, ventoinhas e periféricos." },
       { title: "Estado das peças", desc: "Componentes usados, sem acessórios ou com dano prévio exigem verificação adicional antes da instalação." },
@@ -1494,7 +1509,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Cheiro de queimado ou estalo após oscilação de energia ou raio",
       "Som sem imagem, ou imagem sem som, depois de queda de energia",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["conserto-tv"],
     fatoresValor: [
       { title: "Origem do defeito", desc: "Fonte, placa principal, comando do painel e iluminação interna envolvem esforços de bancada bem diferentes." },
       { title: "Nível do reparo", desc: "Substituição pontual de componente na placa é um trabalho; troca de módulo completo é outro." },
@@ -1624,7 +1639,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Notebook que só funciona na tomada e não reconhece a bateria",
       "Placa já aberta por outro técnico e devolvida sem solução",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["conserto-placa"],
     fatoresValor: [
       { title: "Complexidade do circuito", desc: "Um estágio de alimentação simples exige menos bancada que um circuito com vários controladores." },
       { title: "Tipo de intervenção", desc: "Troca de componente discreto, retrabalho de encapsulamento e reconstrução de trilha são esforços distintos." },
@@ -1738,7 +1753,7 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       "Fonte externa esquentando demais ou com cheiro de queimado",
       "Monitor que voltou de outra assistência sem solução",
     ],
-    processo: PROCESSO_PADRAO,
+    processo: PROCESSOS["conserto-monitor"],
     fatoresValor: [
       { title: "Origem da falha", desc: "Fonte externa, fonte interna, placa lógica e backlight envolvem esforços de bancada bem diferentes." },
       { title: "Tipo de intervenção", desc: "Troca de componente discreto, reconstrução de trilha e substituição de barra de LED não têm o mesmo tempo de execução." },

@@ -10,6 +10,7 @@ import { geoSuggestion, subscribeGeo } from "@/lib/geoContext";
 import { trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES, REGRA_CANCELAMENTO, NOTA_VISITA_AVULSA } from "@/lib/precosConfig";
 import { toast } from "sonner";
+import { SITE_DOMAIN, BRAND_NAME } from "@/lib/siteConfig";
 
 interface OsForm {
   nome: string;
@@ -134,7 +135,7 @@ const OrdemDeServico = () => {
     doc.text("Ordem de serviço", M, 42);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text("Técnico em Curitiba · tecnico.curitiba.br", M, 62);
+    doc.text(SITE_DOMAIN ? `${BRAND_NAME} · ${SITE_DOMAIN}` : BRAND_NAME, M, 62);
     doc.setFontSize(11);
     doc.text(n, W - M, 42, { align: "right" });
     y = 116;
@@ -195,7 +196,7 @@ const OrdemDeServico = () => {
     doc.setFontSize(9);
     doc.setTextColor(110, 118, 128);
     const rodape = doc.splitTextToSize(
-      "Documento de registro do atendimento. Peças, componentes e licenças não estão inclusos. Condições completas em tecnico.curitiba.br/precos-e-politicas.",
+      "Documento de registro do atendimento. Peças, componentes e licenças não estão inclusos. Condições completas na página de preços e políticas do site.",
       W - M * 2,
     );
     doc.text(rodape, M, y);

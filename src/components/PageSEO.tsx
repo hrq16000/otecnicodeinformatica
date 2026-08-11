@@ -2,10 +2,14 @@ import { useEffect, useMemo } from "react";
 import { withOgVersion } from "@/lib/ogCacheBust";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { upsertCanonical } from "@/lib/canonicalUrl";
+import { BRAND_NAME, BRAND_OG_PATH, SITE_BASE_URL } from "@/lib/siteConfig";
+import { INDEXING_ENABLED, robotsContent } from "@/lib/indexingPolicy";
 
-const SITE_NAME = "Técnico em Curitiba";
-const BASE_URL = "https://tecnico.curitiba.br";
-const DEFAULT_OG_IMAGE = "https://tecnico.curitiba.br/og-image.png";
+const SITE_NAME = BRAND_NAME;
+// Vazio quando não há domínio configurado → URLs relativas, nunca o domínio herdado.
+const BASE_URL = SITE_BASE_URL;
+const DEFAULT_OG_IMAGE = `${SITE_BASE_URL}${BRAND_OG_PATH}`;
+
 
 interface BreadcrumbItem {
   name: string;
@@ -61,11 +65,13 @@ export const PageSEO = ({
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: title });
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description", content: description });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: versionedOg });
-    upsertCanonical(url);
+    // Canonical só é emitido quando existe domínio próprio publicável.
+    if (INDEXING_ENABLED) upsertCanonical(url);
     upsertMeta('meta[name="robots"]', {
       name: "robots",
-      content: noindex ? "noindex, follow" : "index, follow",
+      content: robotsContent(noindex),
     });
+
   }, [description, noindex, ogType, title, url, versionedOg]);
 
   // BreadcrumbList: slot único e determinístico (chave estável `breadcrumb`).

@@ -5,6 +5,7 @@
  */
 import { CATEGORIES, type CategoryData, type CategoryId } from "@/pages/hubs/categories";
 import { LOCAIS, type LocalData } from "@/pages/hubs/locais";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const PRECO_MINIMO_REPARO = 300;
 export const PRECO_DIAGNOSTICO = 99.99;
@@ -145,7 +146,7 @@ export function localizedFaqs(cat: CategoryData, local: LocalData) {
   ];
 }
 
-export function offerFor(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function offerFor(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   const url = `${site}/${cat.slug}/${local.slug}`;
   return {
     "@type": "Offer",

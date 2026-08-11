@@ -19,7 +19,7 @@ import { test, expect, type APIRequestContext } from "@playwright/test";
 const SUPABASE_URL =
   process.env.E2E_SUPABASE_URL ||
   process.env.VITE_SUPABASE_URL ||
-  "https://hisepaayuwxjrnumbqeq.supabase.co";
+  "https://bwyskhzxvgyvyzshxkbf.supabase.co";
 const ANON_KEY =
   process.env.E2E_SUPABASE_ANON_KEY ||
   process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||

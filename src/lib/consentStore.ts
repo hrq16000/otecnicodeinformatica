@@ -19,7 +19,11 @@ export type ConsentRecord = {
   version: string;
 };
 
-const ADSENSE_CLIENT = "ca-pub-3762170279587706";
+// RODADA 1 — ISOLAMENTO: publisher do AdSense vem de env. Sem env, não carrega.
+const ADSENSE_CLIENT = ((import.meta.env as unknown as Record<string, string | undefined>)
+  .VITE_ADSENSE_CLIENT ?? "").trim();
+export const ADSENSE_CONFIGURED = /^ca-pub-\d+$/.test(ADSENSE_CLIENT);
+
 
 export function readConsent(): ConsentRecord | null {
   if (typeof window === "undefined") return null;
@@ -62,6 +66,7 @@ export function applyConsent(record: Pick<ConsentRecord, "analytics" | "ads">) {
 /** Injeta o adsbygoogle apenas após aceite de anúncios (uma única vez). */
 export function loadAdsScript() {
   if (typeof document === "undefined") return;
+  if (!ADSENSE_CONFIGURED) return;
   if (document.querySelector('script[data-adsense="1"]')) return;
   const s = document.createElement("script");
   s.async = true;

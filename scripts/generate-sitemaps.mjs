@@ -6,6 +6,24 @@ import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { ACTIVE_SITEMAPS, BASE_URL, EMPTY_SITEMAPS } from "./lib/curated-urls.mjs";
 import { lastmodFor } from "./lib/lastmod.mjs";
+import { INDEXING_ENABLED, SITE_CONFIGURED } from "./lib/site-env.mjs";
+
+const EMPTY_URLSET_XML = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n`;
+
+// RODADA 1 — FAIL-CLOSED: sem domínio próprio ou com a indexação travada,
+// nenhum sitemap com URL é publicado (evita expor o remix ao Google e evita
+// qualquer chance de anunciar o domínio da marca de origem).
+if (!SITE_CONFIGURED || !INDEXING_ENABLED) {
+  const names = [...ACTIVE_SITEMAPS.map(([n]) => n), ...EMPTY_SITEMAPS];
+  for (const name of names) writeFileSync(resolve("public", name), EMPTY_URLSET_XML);
+  const emptyIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</sitemapindex>\n`;
+  writeFileSync(resolve("public/sitemap-index.xml"), emptyIndex);
+  writeFileSync(resolve("public/sitemap.xml"), emptyIndex);
+  console.log(
+    "sitemap: TRAVADO (VITE_SITE_DOMAIN/VITE_SITE_INDEXING_ENABLED ausentes) — 0 urls publicadas",
+  );
+  process.exit(0);
+}
 
 function buildUrlset(entries) {
   const urls = entries

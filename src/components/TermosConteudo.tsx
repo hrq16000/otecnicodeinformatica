@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Clock,
 } from "lucide-react";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 /**
  * Conteúdo canônico de TERMOS, CONDIÇÕES, VALORES E PRAZOS.
@@ -55,7 +56,7 @@ export const TERMOS_FAQ = [
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://tecnico.curitiba.br/precos-e-politicas#faq",
+  "@id": `${SITE_BASE_URL}/precos-e-politicas#faq`,
   mainEntity: TERMOS_FAQ.map((f) => ({
     "@type": "Question",
     name: f.q,

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 const STORAGE_KEY = "top_offer_banner_dismissed_v1";
 
@@ -53,7 +54,7 @@ export const TopOfferBanner = () => {
               ⚡ 30 min · <span className="font-extrabold text-yellow-300">R$ 99,99</span>
             </span>
             <a
-              href="https://wa.me/5541997086380"
+              href={`https://wa.me/${WA_NUMBER}`}
               onClick={openFunnel}
               data-wa-medium="top_banner"
               data-cta-location="top_banner"

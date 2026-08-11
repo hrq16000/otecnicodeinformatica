@@ -14,7 +14,10 @@
 
 import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
 
-export const BASE_URL = "https://tecnico.curitiba.br";
+// RODADA 1: domínio vem de env (scripts/lib/site-env.mjs). Sem env = vazio,
+// e o gerador de sitemap se recusa a publicar URLs.
+import { BASE_URL } from "./site-env.mjs";
+export { BASE_URL };
 
 export const MAIN = [
   { path: "/", changefreq: "weekly", priority: "1.0" },

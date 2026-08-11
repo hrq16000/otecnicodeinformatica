@@ -83,11 +83,15 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     logo: `${siteConfig.baseUrl}/logo.png`,
     telephone: NAP.telephone,
     address: NAP.address,
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: String(siteConfig.geo.lat),
-      longitude: String(siteConfig.geo.lng),
-    },
+    ...(siteConfig.geo
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: String(siteConfig.geo.lat),
+            longitude: String(siteConfig.geo.lng),
+          },
+        }
+      : {}),
     areaServed: opts.areaServed ?? AREA_SERVED,
     openingHoursSpecification: OPENING_HOURS,
     priceRange: `${siteConfig.minPriceLabel}+`,

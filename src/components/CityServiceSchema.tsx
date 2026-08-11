@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 /**
  * JSON-LD por página de cidade: emite um Service específico vinculado ao
@@ -6,7 +7,7 @@ import { useEffect } from "react";
  * O LocalBusiness completo já é injetado pelo <JsonLdSchema /> da home/header,
  * aqui apenas reforçamos a relação Cidade ↔ Serviço para rich results locais.
  */
-const BASE_URL = "https://tecnico.curitiba.br";
+const BASE_URL = SITE_BASE_URL;
 
 interface CityServiceSchemaProps {
   /** Nome da cidade — ex.: "Curitiba", "São José dos Pinhais" */

@@ -9,6 +9,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   Search, AlertTriangle, ShieldCheck, CheckCircle2, ArrowRight,
   MessageCircle, DollarSign, Clock, Eye, Wrench, Monitor,
@@ -18,7 +19,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const DiagnosticoTecnico = () => {
   useEffect(() => {
@@ -50,8 +51,8 @@ const DiagnosticoTecnico = () => {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-          { "@type": "ListItem", position: 2, name: "Diagnóstico Técnico", item: "https://tecnico.curitiba.br/diagnostico-tecnico" },
+          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Diagnóstico Técnico", item: `${SITE_BASE_URL}/diagnostico-tecnico` },
         ],
       })}} />
       <JsonLdSchema />

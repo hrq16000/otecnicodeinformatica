@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSocialProofSettings } from "@/hooks/useSocialProofSettings";
 import { useGeolocation } from "@/hooks/useGeolocation";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MESSAGE = "Olá! Vi a oferta especial e gostaria de garantir meu atendimento técnico com desconto.";
 
 export const ExitIntentPopup = () => {

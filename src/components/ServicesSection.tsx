@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   Monitor, ShieldCheck, Wrench, HardDrive, Wifi, Database,
   Building2, Headphones, MapPin, ArrowRight, Camera, Clock, MessageCircle,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 type Service = {
   icon: typeof Monitor;

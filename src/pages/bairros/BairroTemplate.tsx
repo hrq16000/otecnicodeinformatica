@@ -19,6 +19,7 @@ import { ServiceLocalLinks } from "@/components/ServiceLocalLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import { 
   MessageCircle, 
   MapPin, 
@@ -33,7 +34,7 @@ import {
   Zap
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 interface BairroData {
   nome: string;

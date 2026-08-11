@@ -21,7 +21,8 @@ import type { ProblemaPageData } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
-import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+import { siteConfig, absoluteUrl, SITE_BASE_URL } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 const BAIRROS_ATENDIDOS = [
   { to: "/bairros/batel", label: "Batel" },
@@ -31,7 +32,7 @@ const BAIRROS_ATENDIDOS = [
   { to: "/bairros/portao", label: "Portão" },
 ];
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const tipoIcon = (tipo: string) => {
   switch (tipo) {
@@ -65,7 +66,7 @@ const ProblemaPage = () => {
   const [data, setData] = useState<ProblemaPageData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
-  useCanonical(`https://tecnico.curitiba.br/problemas/${data?.slug ?? slug ?? ""}`);
+  useCanonical(`${SITE_BASE_URL}/problemas/${data?.slug ?? slug ?? ""}`);
 
   useEffect(() => {
     if (!slug) { setLoading(false); return; }
@@ -175,9 +176,9 @@ const ProblemaPage = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-      { "@type": "ListItem", position: 2, name: data.categoria, item: "https://tecnico.curitiba.br/servicos" },
-      { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `https://tecnico.curitiba.br/problemas/${data.slug}` },
+      { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: data.categoria, item: `${SITE_BASE_URL}/servicos` },
+      { "@type": "ListItem", position: 3, name: data.h1.split("—")[0].trim(), item: `${SITE_BASE_URL}/problemas/${data.slug}` },
     ],
   } : null;
 

@@ -1,3 +1,4 @@
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 /**
  * Pipeline WhatsApp T+24h / T+72h — custo zero (wa.me manual via admin).
  *
@@ -11,7 +12,7 @@
  * Sem Twilio/GatewayAPI = sem custo recorrente e sem opt-in regulatório.
  */
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 /**
  * Link mágico do Google que abre direto a tela "Escrever avaliação".
@@ -92,7 +93,7 @@ export const reviewWindow = (
 // Avaliação no próprio site (link rastreável pós-Ordem de Serviço)
 // ============================================================
 
-const SITE_ORIGIN = "https://tecnico.curitiba.br";
+const SITE_ORIGIN = SITE_BASE_URL;
 
 /** URL da página de avaliação com UTM + protocolo da OS. */
 export const buildOnsiteReviewUrl = (params: {

@@ -3,8 +3,9 @@ import { PageSEO } from "@/components/PageSEO";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle, Shield, Clock, MapPin, ShieldCheck } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MESSAGE = "Olá! Vi o anúncio e preciso de um técnico de informática em Curitiba. Serviço: [DESCREVA O PROBLEMA]";
 
 const TecnicoInformaticaCuritibaAds = () => {

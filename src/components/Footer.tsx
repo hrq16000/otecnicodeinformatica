@@ -89,7 +89,10 @@ const localBusinessSchema = {
     addressRegion: siteConfig.region,
     addressCountry: siteConfig.country,
   },
-  geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng },
+  // Coordenadas só entram no schema quando forem da operação real (env).
+  ...(siteConfig.geo
+    ? { geo: { "@type": "GeoCoordinates", latitude: siteConfig.geo.lat, longitude: siteConfig.geo.lng } }
+    : {}),
   areaServed: siteConfig.serviceArea
     .filter((c) => c !== "Região Metropolitana de Curitiba")
     .map((c) => ({ "@type": "City", name: c, containedInPlace: { "@type": "State", name: "Paraná" } })),
@@ -182,8 +185,10 @@ export const Footer = () => {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteConfig.brandName} — {siteConfig.primaryCity}, {siteConfig.region}. Todos os direitos reservados.</p>
-          <p>Atuação em informática desde {siteConfig.foundedYear}</p>
-          <p>{siteConfig.serviceArea.filter((c) => c !== "Região Metropolitana de Curitiba").join(" · ")}</p>
+          {siteConfig.foundedYear ? <p>Atuação em informática desde {siteConfig.foundedYear}</p> : null}
+          {siteConfig.serviceArea.length ? (
+            <p>{siteConfig.serviceArea.filter((c) => c !== "Região Metropolitana de Curitiba").join(" · ")}</p>
+          ) : null}
         </div>
       </div>
 

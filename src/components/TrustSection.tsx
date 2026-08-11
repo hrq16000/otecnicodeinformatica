@@ -19,7 +19,10 @@ const trustItems = [
  * Proibido publicar nº de clientes, % de satisfação ou nota inventada.
  */
 const dadosVerificaveis = [
-  { valor: experienciaLabelCurto, label: "Atuação em informática" },
+  // Só exibe experiência quando houver ano de fundação verdadeiro configurado.
+  ...(experienciaLabelCurto
+    ? [{ valor: experienciaLabelCurto, label: "Atuação em informática" }]
+    : []),
   { valor: "Curitiba", label: "Base de atendimento" },
   { valor: "PF e PJ", label: "Residencial e empresarial" },
 ];

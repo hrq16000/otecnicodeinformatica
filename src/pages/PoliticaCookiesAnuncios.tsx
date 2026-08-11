@@ -6,8 +6,9 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Cookie, BarChart3, Megaphone, ShieldCheck, SlidersHorizontal } from "lucide-react";
 import { resetConsent } from "@/lib/consentStore";
+import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 
-const CANONICAL = "https://tecnico.curitiba.br/politica-de-cookies-e-anuncios";
+const CANONICAL = `${SITE_BASE_URL}/politica-de-cookies-e-anuncios`;
 const UPDATED = "08/08/2026";
 
 const faqs: Array<{ q: string; a: string }> = [
@@ -51,7 +52,7 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+    { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
     { "@type": "ListItem", position: 2, name: "Política de Cookies e Anúncios", item: CANONICAL },
   ],
 };
@@ -65,7 +66,7 @@ const PoliticaCookiesAnuncios = () => {
         <title>Política de Cookies e Anúncios | Técnico em Curitiba</title>
         <meta
           name="description"
-          content="Como o tecnico.curitiba.br usa cookies de análise e anúncios (Google Analytics, Ads e AdSense), como recusar, como gerenciar preferências e o que é registrado sem cookies."
+          content={`Como o ${BRAND_NAME} usa cookies de análise e anúncios, como recusar, como gerenciar preferências e o que é registrado sem cookies.`}
         />
         <meta property="og:title" content="Política de Cookies e Anúncios | Técnico em Curitiba" />
         <meta property="og:url" content={CANONICAL} />
@@ -176,7 +177,7 @@ const PoliticaCookiesAnuncios = () => {
                 /ads.txt
               </a>{" "}
               deste domínio declara os vendedores autorizados a comercializar o inventário
-              publicitário de tecnico.curitiba.br.
+              publicitário do {BRAND_NAME}.
             </p>
           </section>
 

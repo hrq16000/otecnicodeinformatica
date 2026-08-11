@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
 import { ArrowLeft, MessageCircle, CalendarCheck, CheckCircle2 } from "lucide-react";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   EQUIPMENTS,
   type DiagnosticBranch,
@@ -11,7 +12,7 @@ import {
   isLeaf,
 } from "@/lib/diagnostico60sTree";
 
-const WA_NUMBER = "5541997086380";
+
 
 function waLink(message: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -50,7 +51,7 @@ export default function Diagnostico60s() {
     return { kind: "node", node: r.node, equipmentSlug: equipment.slug, path: r.path };
   }, [eq, pathParam]);
 
-  useCanonical("https://tecnico.curitiba.br/diagnostico-60s");
+  useCanonical(`${SITE_BASE_URL}/diagnostico-60s`);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -115,7 +116,7 @@ export default function Diagnostico60s() {
           content="Descubra em 60 segundos o que está acontecendo com seu notebook, TV, celular, impressora ou Wi-Fi. Diagnóstico guiado + WhatsApp direto com técnico em Curitiba."
         />
         <meta property="og:title" content="Diagnóstico em 60s — Técnico em Curitiba" />
-        <meta property="og:url" content="https://tecnico.curitiba.br/diagnostico-60s" />
+        <meta property="og:url" content={`${SITE_BASE_URL}/diagnostico-60s`} />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>

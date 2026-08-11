@@ -3,14 +3,14 @@
  * ORGANIZATION — ENTIDADE INSTITUCIONAL ÚNICA (@id canônico)
  * ─────────────────────────────────────────────────────────────
  * Existe exatamente UM nó Organization por documento, com `@id`
- * `https://tecnico.curitiba.br/#organization`. Todos os demais schemas
+ * `${SITE_BASE_URL}/#organization`. Todos os demais schemas
  * (publisher, provider, seller, parentOrganization, about, worksFor)
  * referenciam esse `@id` — nunca repetem o objeto completo.
  *
  * O mesmo objeto é espelhado no prerender estático
  * (scripts/curated-static-body.mjs) para manter prerender e client idênticos.
  */
-import { siteConfig } from "@/lib/siteConfig";
+import { siteConfig, SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const ORGANIZATION_ID = `${siteConfig.baseUrl}/#organization`;
 export const WEBSITE_ID = `${siteConfig.baseUrl}/#website`;

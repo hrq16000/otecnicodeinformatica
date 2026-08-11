@@ -9,8 +9,9 @@ import { trackPageView } from "@/lib/analytics";
 import { ShieldCheck, Zap, MapPin, MessageCircle, CheckCircle2, Wrench } from "lucide-react";
 import type { CityData } from "./ArrumarPCCityTemplate";
 import type { ServicoData } from "./services";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 interface Props {
   servico: ServicoData;
@@ -36,7 +37,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnico.curitiba.br",
+      url: SITE_BASE_URL,
     },
     areaServed: {
       "@type": "City",
@@ -48,7 +49,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: `https://tecnico.curitiba.br${path}`,
+      url: `${SITE_BASE_URL}${path}`,
     },
   };
 

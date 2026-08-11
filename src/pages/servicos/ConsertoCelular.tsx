@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Link } from "react-router-dom";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle, Smartphone, Shield, Clock, CheckCircle,
   AlertTriangle, Wrench, Users, Truck
@@ -20,7 +21,7 @@ import {
   MSG_COLETA_RESUMO,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const marcasAtendidas = [
   "Apple (iPhone)", "Samsung", "Motorola", "Xiaomi", "LG",

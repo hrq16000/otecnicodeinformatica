@@ -52,12 +52,18 @@ export interface CasoReal {
  * fonte única de verdade preenchida com dados reais fornecidos pelo cliente.
  */
 export const dadosVerificaveis: ProvaVerificavel[] = [
-  { label: "Atuação desde", value: siteConfig.foundedYear, fonte: "Histórico da operação" },
-  { label: "Área de atendimento", value: siteConfig.serviceArea.join(" · "), fonte: "Operação declarada" },
+  // "Atuação desde" só entra quando houver ano verdadeiro da nova marca.
+  ...(siteConfig.foundedYear
+    ? [{ label: "Atuação desde", value: siteConfig.foundedYear, fonte: "Histórico da operação" }]
+    : []),
+  ...(siteConfig.serviceArea.length
+    ? [{ label: "Área de atendimento", value: siteConfig.serviceArea.join(" · "), fonte: "Operação declarada" }]
+    : []),
   { label: "Modalidades", value: "A domicílio · coleta e entrega · remoto", fonte: "Operação declarada" },
   { label: "Diagnóstico a partir de", value: siteConfig.minPriceLabel, fonte: "Política de preços publicada" },
   { label: "Garantia do serviço", value: "90 dias sobre a mão de obra", fonte: "Política publicada" },
 ];
+
 
 /** Compromissos operacionais — só entram itens que a operação cumpre sempre. */
 export const compromissosOperacionais: string[] = [

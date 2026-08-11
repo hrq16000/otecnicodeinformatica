@@ -8,6 +8,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
 import { trackPageView, trackCTAClick, trackFaqToggle } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Shield,
@@ -28,7 +29,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_CFTV_MESSAGE = "Olá! Tenho interesse no Kit 4 Câmeras Intelbras com instalação. Gostaria de mais informações.";
 
 const CFTVPage = () => {

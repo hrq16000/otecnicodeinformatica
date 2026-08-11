@@ -168,7 +168,7 @@ export function getSchemaReport(): SchemaReportEntry[] {
  * lugar nenhum do site — vive apenas dentro do JSON-LD, onde é obrigatório
  * para LocalBusiness (Google/Bing). Fonte única de verdade.
  */
-const SCHEMA_TELEPHONE = "+5541997086380";
+const SCHEMA_TELEPHONE = WA_PHONE_E164;
 
 /**
  * Remove os scripts JSON-LD estáticos (prerender) cujo @type coincide com o
@@ -220,6 +220,7 @@ export function validateAndInjectSchema(
 
 /** Hook React: injeta + remove na desmontagem, com validação. */
 import { useEffect } from "react";
+import { WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
 export function useValidatedJsonLd(scriptId: string, schema: JsonLd | null) {
   useEffect(() => {
     if (!schema) return;

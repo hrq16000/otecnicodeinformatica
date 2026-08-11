@@ -40,6 +40,7 @@ import {
   Zap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import {
   COLETA_TAXA_MINIMA_LABEL,
   DIAGNOSTICO_VALOR_LABEL,
@@ -48,7 +49,7 @@ import {
   REGRA_ESTIMATIVA_GRATIS,
 } from "@/lib/coletaConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const servicosPrecos = [
   {

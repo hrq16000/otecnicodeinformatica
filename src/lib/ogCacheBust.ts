@@ -1,3 +1,4 @@
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 // Versioning for og:image URLs. Bump OG_VERSION whenever any social cover
 // is replaced so Facebook/X/LinkedIn refetch a fresh preview.
 // Files with content hashes in their filename invalidate automatically;
@@ -9,7 +10,7 @@ export function withOgVersion(url: string | undefined | null): string {
   // If filename already contains a hash (8+ hex/alnum before extension), skip.
   if (/\.[a-f0-9]{6,}-?\d*\.(webp|jpg|jpeg|png)(\?|$)/i.test(url)) return url;
   try {
-    const u = new URL(url, "https://tecnico.curitiba.br");
+    const u = new URL(url, SITE_BASE_URL);
     if (!u.searchParams.has("v")) u.searchParams.set("v", OG_VERSION);
     return u.toString();
   } catch {

@@ -25,6 +25,7 @@ import {
   INSTITUTIONAL_AUTHOR,
   EDITORIAL_PUBLISHER,
 } from "@/lib/blogEditorialRegistry";
+import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)
@@ -54,7 +55,7 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [posts, setPosts] = useState<PostsMap | null>(cachedPosts);
 
-  useCanonical(`https://tecnico.curitiba.br/blog/${slug}`);
+  useCanonical(`${SITE_BASE_URL}/blog/${slug}`);
 
   useEffect(() => {
     let cancelled = false;
@@ -101,14 +102,14 @@ const BlogPost = () => {
   const editorialCover = slug ? getEditorialCover(slug) : null;
   const categoryCover = slug ? getCategoryCover(slug) : null;
   const heroImage = editorialCover
-    ? `https://tecnico.curitiba.br${editorialCover.src}`
+    ? `${SITE_BASE_URL}${editorialCover.src}`
     : categoryCover
-    ? `https://tecnico.curitiba.br${categoryCover.src}`
+    ? `${SITE_BASE_URL}${categoryCover.src}`
 
     : post?.image
     ? (typeof post.image === 'string' && post.image.startsWith('http')
         ? post.image
-        : `https://tecnico.curitiba.br${post.image}`)
+        : `${SITE_BASE_URL}${post.image}`)
     : (slug ? getUniqueImage(slug).replace(/w=\d+/, 'w=1600').replace(/q=\d+/, 'q=80') + '&w=1600&h=900' : '');
   const heroImageOg = withOgVersion(heroImage);
 
@@ -126,7 +127,7 @@ const BlogPost = () => {
     const existingSchemas = document.querySelectorAll('script[data-blog-schema="true"]');
     existingSchemas.forEach(s => s.remove());
 
-    const canonicalUrl = `https://tecnico.curitiba.br/blog/${slug}`;
+    const canonicalUrl = `${SITE_BASE_URL}/blog/${slug}`;
     const approval = getEditorialApproval(slug);
     const approved = isEditorialApproved(slug);
 
@@ -134,8 +135,8 @@ const BlogPost = () => {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tecnico.curitiba.br/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tecnico.curitiba.br/blog" },
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": `${SITE_BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_BASE_URL}/blog` },
         { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
       ]
     };
@@ -183,7 +184,7 @@ const BlogPost = () => {
         "isPartOf": {
           "@type": "Blog",
           "name": "Blog Técnico em Curitiba",
-          "url": "https://tecnico.curitiba.br/blog"
+          "url": `${SITE_BASE_URL}/blog`
         },
         "about": { "@type": "Thing", "name": post.category },
         "wordCount": wordCount,
@@ -249,8 +250,8 @@ const BlogPost = () => {
         <meta property="og:type" content={approved ? "article" : "website"} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://tecnico.curitiba.br/blog/${slug}`} />
-        <meta property="og:site_name" content="Técnico em Curitiba" />
+        <meta property="og:url" content={`${SITE_BASE_URL}/blog/${slug}`} />
+        <meta property="og:site_name" content={BRAND_NAME} />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:image" content={heroImageOg} />
         <meta property="og:image:secure_url" content={heroImageOg} />
@@ -262,8 +263,8 @@ const BlogPost = () => {
             <meta property="article:published_time" content={`${post.date}T08:00:00-03:00`} />
             <meta property="article:section" content={post.category} />
             <meta property="article:tag" content={post.category} />
-            <meta property="article:author" content="Técnico em Curitiba" />
-            <meta property="article:publisher" content="https://tecnico.curitiba.br" />
+            <meta property="article:author" content={BRAND_NAME} />
+            <meta property="article:publisher" content={SITE_BASE_URL} />
           </>
         )}
         <meta name="twitter:card" content="summary_large_image" />

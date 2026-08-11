@@ -1,8 +1,9 @@
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from '@/lib/jsonLdSlots';
 import { buildLocalBusinessSchema } from '@/lib/localBusinessJsonLd';
 import { buildOrganizationSchema } from '@/lib/organizationJsonLd';
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
-const SITE = "https://tecnico.curitiba.br";
+const SITE = SITE_BASE_URL;
 const BUILD_DATE = new Date().toISOString();
 
 // NAP, área atendida e horários vêm da fonte única (localBusinessJsonLd.ts)

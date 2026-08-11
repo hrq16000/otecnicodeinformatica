@@ -4,6 +4,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MouseGlow } from "@/components/MouseGlow";
 import { supabase } from "@/integrations/supabase/client";
 import { useGeolocation } from "@/hooks/useGeolocation";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 interface RegionData {
   name: string;
@@ -349,7 +350,7 @@ export const CoverageMapSection = () => {
               <p className="text-sm text-center text-foreground">
                 <span className="font-semibold">Não encontrou sua região?</span>{" "}
                 <a
-                  href="https://wa.me/5541997086380?text=Olá! Gostaria de saber se vocês atendem na minha região."
+                  href={`https://wa.me/${WA_NUMBER}?text=Olá! Gostaria de saber se vocês atendem na minha região.`}
                   data-cta-location="coverage_region_check"
                   target="_blank"
                   rel="noopener noreferrer"

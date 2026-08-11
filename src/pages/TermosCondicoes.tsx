@@ -6,9 +6,10 @@
  */
 import { useCanonical } from "@/lib/canonicalUrl";
 import PrecosEPoliticas from "./PrecosEPoliticas";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 const TermosCondicoes = () => {
-  useCanonical("https://tecnico.curitiba.br/precos-e-politicas");
+  useCanonical(`${SITE_BASE_URL}/precos-e-politicas`);
   return <PrecosEPoliticas path="/termos-e-condicoes" />;
 };
 

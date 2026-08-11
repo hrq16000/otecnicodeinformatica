@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick, trackPageView } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Gamepad2,
@@ -29,7 +30,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const WA = "5541997086380";
+const WA = WA_NUMBER;
 const WA_TEXT = "Olá! Preciso de um valor de assistência técnica em Curitiba.";
 const waUrl = `https://wa.me/${WA}?text=${encodeURIComponent(WA_TEXT)}`;
 
@@ -289,12 +290,12 @@ export default function AssistenciaTecnicaCuritiba() {
       { "@type": "City", name: "Curitiba" },
       { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
     ],
-    provider: { "@id": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba#localbusiness" },
-    url: "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
+    provider: { "@id": `${SITE_BASE_URL}/assistencia-tecnica-curitiba#localbusiness` },
+    url: `${SITE_BASE_URL}/assistencia-tecnica-curitiba`,
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: "https://wa.me/5541997086380",
-      servicePhone: "+5541997086380",
+      serviceUrl: `https://wa.me/${WA_NUMBER}`,
+      servicePhone: WA_PHONE_E164,
     },
   }));
 

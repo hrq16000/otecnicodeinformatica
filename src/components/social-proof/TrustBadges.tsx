@@ -10,12 +10,14 @@ interface TrustBadgeProps {
 
 export const TrustBadges = ({ variant = "card", className }: TrustBadgeProps) => {
   const badges = [
-    {
-      icon: Award,
-      title: experienciaLabel,
-      description: `${siteConfig.brandName} — Curitiba e região metropolitana`,
-      highlight: true,
-    },
+    ...(experienciaLabel
+      ? [{
+          icon: Award,
+          title: experienciaLabel,
+          description: `${siteConfig.brandName} — Curitiba e região metropolitana`,
+          highlight: true,
+        }]
+      : []),
     {
       icon: Shield,
       title: "Técnico identificado",

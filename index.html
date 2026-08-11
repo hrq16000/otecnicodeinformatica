@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Técnico em Curitiba | Assistência Técnica e Suporte Local</title>
-    <meta name="description" content="Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp.">
+    <title>O Técnico de Informática</title>
+    <meta name="description" content="Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.">
 
 
     <meta http-equiv="x-dns-prefetch-control" content="on" />
@@ -16,19 +16,17 @@
       name="keywords"
       content="técnico de informática curitiba, assistência técnica informática curitiba, conserto de computador curitiba, formatação curitiba, remover vírus curitiba, suporte técnico curitiba, técnico notebook curitiba, manutenção de computador curitiba, técnico de informática são josé dos pinhais, assistência técnica são josé dos pinhais, técnico de informática araucária, técnico de informática campo largo, técnico de informática pinhais, atendimento a domicílio informática, conserto pc domicílio curitiba"
     />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="author" content="Técnico em Curitiba — Suporte em Informática" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- TRAVA DE INDEXACAO (RODADA 1): liberar via VITE_SITE_INDEXING_ENABLED=true -->
+    <meta name="author" content="O Técnico de Informática" />
     <meta name="geo.region" content="BR-PR" />
     <meta name="geo.placename" content="Curitiba" />
     <meta name="geo.position" content="-25.4284;-49.2733" />
     <meta name="ICBM" content="-25.4284, -49.2733" />
-    <link rel="canonical" href="https://tecnico.curitiba.br/" />
     <meta name="app-version" content="bootstrap" />
-    <link rel="alternate" hreflang="pt-BR" href="https://tecnico.curitiba.br/" />
-    <link rel="alternate" hreflang="x-default" href="https://tecnico.curitiba.br/" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-TileColor" content="#0b2733" />
-    <meta name="application-name" content="Técnico em Curitiba" />
+    <meta name="application-name" content="O Técnico de Informática" />
     <meta name="msvalidate.01" content="" />
     <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp" type="image/webp" fetchpriority="high" imagesrcset="/lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-240.webp 240w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-360.webp 360w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-480.webp 480w, /lovable-uploads/77ec0b6a-9ce8-4e20-b893-7eff7ec03859-800.webp 800w" imagesizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 448px" />
@@ -41,24 +39,23 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tecnico.curitiba.br/" />
-    <meta property="og:site_name" content="Técnico em Curitiba" />
+    <meta property="og:site_name" content="O Técnico de Informática" />
     <meta property="og:locale" content="pt_BR" />
     
     
-    <meta property="og:image" content="https://tecnico.curitiba.br/og-image.png?v=20260709-1">
-    <meta property="og:image:secure_url" content="https://tecnico.curitiba.br/og-image.png?v=20260709-1" />
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:secure_url" content="/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Técnico de Informática em Curitiba - Atendimento no mesmo dia" />
+    <meta property="og:image:alt" content="O Técnico de Informática" />
     <meta property="og:image:type" content="image/png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     
     
-    <meta name="twitter:image" content="https://tecnico.curitiba.br/og-image.png?v=20260709-1">
-    <meta name="twitter:image:alt" content="Técnico de Informática em Curitiba" />
+    <meta name="twitter:image" content="/og-image.png">
+    <meta name="twitter:image:alt" content="O Técnico de Informática" />
 
 
     <!-- Tipografia auto-hospedada: preload das fontes críticas (corpo + H1) para reduzir CLS/LCP. -->
@@ -94,8 +91,6 @@
 
     </style>
 
-    <meta name="google-adsense-account" content="ca-pub-3762170279587706">
-
     <!-- Google Consent Mode v2: tudo "denied" por padrão (LGPD).
          O banner de consentimento chama gtag('consent','update', {...}) ao aceitar. -->
     <script>
@@ -124,14 +119,10 @@
         }
       } catch(e){}
       gtag('js', new Date());
-      gtag('config', 'G-B9VPHCZC10', { anonymize_ip: true });
-      gtag('config', 'AW-17892118207');
-      (window.requestIdleCallback || function(cb){ return setTimeout(cb, 1800); })(function(){
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B9VPHCZC10';
-        document.head.appendChild(s);
-      });
+
+      /* RODADA 1 — ISOLAMENTO: GA4/Ads da marca de origem removidos.
+         A inicialização passou a ser feita em src/lib/analytics.ts, somente
+         quando VITE_GA4_ID / VITE_GOOGLE_ADS_ID estiverem configurados. */
     </script>
   
   
@@ -141,10 +132,10 @@
   
   
   
-  <meta property="og:title" content="Técnico em Curitiba | Assistência Técnica e Suporte Local">
-  <meta name="twitter:title" content="Técnico em Curitiba | Assistência Técnica e Suporte Local">
-  <meta property="og:description" content="Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp.">
-  <meta name="twitter:description" content="Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp.">
+  <meta property="og:title" content="O Técnico de Informática">
+  <meta name="twitter:title" content="O Técnico de Informática">
+  <meta property="og:description" content="Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.">
+  <meta name="twitter:description" content="Assistência técnica em informática com diagnóstico honesto. Atendimento a domicílio, remoto ou com coleta.">
 
 </head>
   <body>
@@ -153,20 +144,20 @@
         <img
           class="app-shell-logo"
           src="/logo.webp"
-          alt="Técnico Curitiba"
+          alt="O Técnico de Informática"
           width="304"
           height="71"
           decoding="sync"
           fetchpriority="high"
         />
-        <span class="app-shell-srlabel">Carregando Técnico Curitiba…</span>
+        <span class="app-shell-srlabel">Carregando…</span>
       </div>
       <noscript>
         <div style="min-height:100vh;background:linear-gradient(155deg,hsl(205,58%,15%) 0%,hsl(200,45%,22%) 100%);color:#fff;padding:32px 20px;font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px">
-          <img src="/logo.webp" alt="Técnico Curitiba" width="240" height="78" style="max-width:60vw;height:auto" />
-          <h1 style="font-size:1.5rem;margin:8px 0 4px;line-height:1.25">Técnico de Informática em Curitiba</h1>
-          <p style="margin:0 0 12px;max-width:520px;font-size:1rem;opacity:.92">Conserto de PC e notebook, formatação, remoção de vírus e SSD a partir de <strong>R$ 99,99</strong>. Atendimento hoje pelo WhatsApp.</p>
-          <a href="https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico%20em%20Curitiba." data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;font-size:1.05rem">WhatsApp Agora</a>
+          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="78" style="max-width:60vw;height:auto" />
+          <h1 style="font-size:1.5rem;margin:8px 0 4px;line-height:1.25">O Técnico de Informática</h1>
+          <p style="margin:0 0 12px;max-width:520px;font-size:1rem;opacity:.92">Conserto de PC e notebook, formatação, remoção de vírus e upgrade de SSD.</p>
+          <a href="/contato" data-cta-location="noscript_static" style="background:#16a34a;color:#fff;font-weight:bold;padding:14px 26px;border-radius:12px;text-decoration:none;font-size:1.05rem">Falar com o técnico</a>
           <p style="margin-top:18px;font-size:.85rem;opacity:.85">Para uma experiência completa, ative o JavaScript no seu navegador.</p>
         </div>
       </noscript>
@@ -187,8 +178,8 @@
           var bar = document.createElement('div');
           bar.setAttribute('role', 'alert');
           bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0b2733;color:#fff;padding:14px 44px 14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;font:600 14px Montserrat,sans-serif;border-top:1px solid rgba(255,255,255,.18);transition:opacity .3s ease';
-          bar.innerHTML = '<span>Conexão lenta? Fale agora mesmo:</span>' +
-            '<a href="https://wa.me/5541997086380?text=Ol%C3%A1!%20Preciso%20de%20suporte%20t%C3%A9cnico." data-cta-location="hydration_timeout_bar" style="background:hsl(145,63%,42%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">WhatsApp Agora</a>' +
+          bar.innerHTML = '<span>Conexão lenta? Fale com a gente:</span>' +
+            '<a href="/contato" data-cta-location="hydration_timeout_bar" style="background:hsl(145,63%,42%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">Falar com o técnico</a>' +
             '<a href="/diagnostico-60s" style="background:hsl(24,92%,52%);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none">Diagnóstico 60s</a>' +
             '<button type="button" id="__hydra_reload" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);padding:10px 14px;border-radius:10px;cursor:pointer">Recarregar</button>' +
             '<button type="button" id="__hydra_close" aria-label="Fechar aviso" style="position:absolute;top:6px;right:10px;background:transparent;color:#fff;border:0;font:700 20px/1 Arial,sans-serif;padding:4px 8px;cursor:pointer;opacity:.8">&times;</button>';

@@ -9,6 +9,7 @@ import { LOCAIS } from "@/pages/hubs/locais";
 import { cityLabel, faixaDe, PRECO_DIAGNOSTICO } from "@/lib/categoryLocalContent";
 import { creditFor, imageObjectSchema } from "@/lib/imageCredits";
 import { BANCADA } from "@/lib/categoryLocalContent";
+import { WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const GEO: Record<string, [number, number]> = {
   curitiba: [-25.4284, -49.2733],
@@ -78,7 +79,7 @@ export function serviceAreaSchema(local: LocalData) {
   };
 }
 
-export function localBusinessNode(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function localBusinessNode(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   const url = `${site}/${cat.slug}/${local.slug}`;
   const [lat, lng] = geoDe(local);
   const { cidades, bairros } = coberturaLista();
@@ -91,7 +92,7 @@ export function localBusinessNode(cat: CategoryData, local: LocalData, site = "h
     url,
     image: coverDe(cat).url,
     logo: `${site}/logo.png`,
-    telephone: "+5541997086380",
+    telephone: WA_PHONE_E164,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Curitiba",
@@ -120,7 +121,7 @@ export function localBusinessNode(cat: CategoryData, local: LocalData, site = "h
   };
 }
 
-export function coverImageNode(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function coverImageNode(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   return imageObjectSchema({
     url: coverDe(cat).url,
     caption: coverCaption(cat, local),

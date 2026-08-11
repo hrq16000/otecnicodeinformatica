@@ -10,6 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Phone,
@@ -45,7 +46,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const ComoFunciona = () => {
   useEffect(() => {
@@ -95,8 +96,8 @@ const ComoFunciona = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-              { "@type": "ListItem", position: 2, name: "Como Funciona", item: "https://tecnico.curitiba.br/como-funciona" },
+              { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+              { "@type": "ListItem", position: 2, name: "Como Funciona", item: `${SITE_BASE_URL}/como-funciona` },
             ],
           }),
         }}

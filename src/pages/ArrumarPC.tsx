@@ -19,8 +19,9 @@ import {
   CreditCard,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MSG =
   "Olá! Quero arrumar meu PC. Pode me ajudar via atendimento remoto?";
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -126,7 +127,7 @@ const ArrumarPC = () => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnico.curitiba.br",
+      url: SITE_BASE_URL,
     },
     areaServed: { "@type": "Country", name: "Brasil" },
     description:
@@ -135,7 +136,7 @@ const ArrumarPC = () => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: "https://tecnico.curitiba.br/arrumar-pc",
+      url: `${SITE_BASE_URL}/arrumar-pc`,
     },
   };
 

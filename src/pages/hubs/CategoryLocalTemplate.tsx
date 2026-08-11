@@ -11,6 +11,7 @@ import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { CATEGORIES, type CategoryId, findCategory } from "./categories";
 import { LOCAIS, findLocal, type LocalData } from "./locais";
+import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   categoryLocalMeta,
   localizedFaqs,
@@ -33,7 +34,7 @@ import {
   Package, ShieldCheck, Clock, Wrench, MapPin, MessageCircle,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5541997086380";
+const WHATSAPP_NUMBER = WA_NUMBER;
 
 const beneficios = [
   { icon: Package, title: "Coleta e Entrega", description: "Buscamos seu equipamento em casa e devolvemos consertado. Sem precisar deslocar até a loja." },
@@ -81,10 +82,10 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     "@type": "Service",
     name: `${category.titlePrefix} em ${cityLabel}`,
     serviceType: category.titlePrefix,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br", telephone: "+5541997086380", address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE_BASE_URL, telephone: WA_PHONE_E164, address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
     areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
     description,
-    offers: offerFor(category, local, "https://tecnico.curitiba.br"),
+    offers: offerFor(category, local, SITE_BASE_URL),
   };
 
   const localBusinessSchema = { "@context": "https://schema.org", ...localBusinessNode(category, local) };
@@ -348,7 +349,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
     "@type": "Service",
     name: category.titlePrefix,
     description,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br" },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE_BASE_URL },
     areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
   };
 

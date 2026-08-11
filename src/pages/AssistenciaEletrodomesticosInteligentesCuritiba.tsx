@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Refrigerator, MessageCircle, CalendarCheck, CheckCircle, Wifi, Shield, ArrowRight } from "lucide-react";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const WHATSAPP = "5541997086380";
+const WHATSAPP = WA_NUMBER;
 const PATH = "/assistencia-eletrodomesticos-inteligentes-curitiba";
 
 const TITLE = "Assistência Eletrodomésticos Inteligentes em Curitiba | Smart Home";

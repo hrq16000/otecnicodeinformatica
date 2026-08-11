@@ -16,6 +16,8 @@ export const MobileServicoFunnelBar = ({
   servicoLabel,
   etapas,
   ctaLabel = "Iniciar atendimento",
+  apoio,
+  variante,
   location,
   onClick,
 }: {
@@ -24,10 +26,15 @@ export const MobileServicoFunnelBar = ({
   /** Rótulos curtos das 4 etapas (triagem → diagnóstico → aprovação → execução). */
   etapas: string[];
   ctaLabel?: string;
+  /** Linha de apoio do experimento de copy (variação por sessão). */
+  apoio?: string;
+  /** Identificador da variação ativa — apenas para leitura no painel. */
+  variante?: string;
   location: string;
   onClick?: () => void;
 }) => {
   const passos = etapas.slice(0, 4);
+
 
   return (
     <div

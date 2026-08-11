@@ -45,7 +45,7 @@ export const LICENSE_SOURCES = {
     host: "",
     provider: "Técnico em Curitiba",
     license: "Acervo próprio — uso autorizado",
-    licenseUrl: "https://tecnico.curitiba.br/termos-e-condicoes",
+    licenseUrl: `${SITE_BASE_URL}/termos-e-condicoes`,
   },
 } as const;
 
@@ -83,7 +83,7 @@ export function creditFor(src: string | undefined | null): ImageCredit {
     creditText: "Foto: acervo Técnico em Curitiba",
     license: s.license,
     licenseUrl: s.licenseUrl,
-    sourceUrl: "https://tecnico.curitiba.br/sobre",
+    sourceUrl: `${SITE_BASE_URL}/sobre`,
     provider: s.provider,
   };
 }

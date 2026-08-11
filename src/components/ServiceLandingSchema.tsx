@@ -5,7 +5,7 @@ import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
  * JSON-LD por landing de serviço: Service + Offer + FAQPage + WebPage + Speakable.
  * Usa validateAndInjectSchema (bloqueia AggregateRating com <5 reviews e injeta dateModified).
  */
-const BASE_URL = "https://tecnico.curitiba.br";
+const BASE_URL = SITE_BASE_URL;
 
 export interface ServiceFaq {
   question: string;

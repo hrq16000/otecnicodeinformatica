@@ -290,8 +290,8 @@ export default function AssistenciaTecnicaCuritiba() {
       { "@type": "City", name: "Curitiba" },
       { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
     ],
-    provider: { "@id": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba#localbusiness" },
-    url: "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
+    provider: { "@id": `${SITE_BASE_URL}/assistencia-tecnica-curitiba#localbusiness` },
+    url: `${SITE_BASE_URL}/assistencia-tecnica-curitiba`,
     availableChannel: {
       "@type": "ServiceChannel",
       serviceUrl: `https://wa.me/${WA_NUMBER}`,

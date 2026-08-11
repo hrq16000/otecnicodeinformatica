@@ -96,8 +96,8 @@ const ComoFunciona = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-              { "@type": "ListItem", position: 2, name: "Como Funciona", item: "https://tecnico.curitiba.br/como-funciona" },
+              { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+              { "@type": "ListItem", position: 2, name: "Como Funciona", item: `${SITE_BASE_URL}/como-funciona` },
             ],
           }),
         }}

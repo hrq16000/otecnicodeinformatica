@@ -7,7 +7,7 @@ import { PageHero } from "@/components/PageHero";
 import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lucide-react";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
-const CANONICAL = "https://tecnico.curitiba.br/politica-de-privacidade";
+const CANONICAL = `${SITE_BASE_URL}/politica-de-privacidade`;
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
 const WHATSAPP = WA_NUMBER;
 const UPDATED = "08/08/2026";
@@ -21,7 +21,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
       <>
         <p>
           Esta Política de Privacidade aplica-se ao site{" "}
-          <strong>tecnico.curitiba.br</strong>, operado por <strong>{COMPANY}</strong>,
+          <strong>SITE_DOMAIN_PLACEHOLDER</strong>, operado por <strong>{COMPANY}</strong>,
           com atendimento em Curitiba e Região Metropolitana – PR.
         </p>
         <p className="mt-2">
@@ -187,7 +187,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         </p>
         <p className="mt-2">
           O arquivo <strong>ads.txt</strong> deste domínio declara os vendedores autorizados a
-          comercializar o inventário publicitário de tecnico.curitiba.br.
+          comercializar o inventário publicitário de SITE_DOMAIN_PLACEHOLDER.
         </p>
       </>
     ),
@@ -299,7 +299,7 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
+    { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
     { "@type": "ListItem", position: 2, name: "Política de Privacidade", item: CANONICAL },
   ],
 };

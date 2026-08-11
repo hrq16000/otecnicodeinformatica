@@ -234,7 +234,7 @@ const ColetaFormulario = () => {
       `✅ *TERMOS ACEITOS:* Todos os ${TERMS.length} termos foram lidos e aceitos.`,
       ``,
       `---`,
-      `Formulário enviado pelo site tecnico.curitiba.br`,
+      `Formulário enviado pelo site SITE_DOMAIN_PLACEHOLDER`,
     ];
     return lines.filter((l) => l !== "").join("\n");
   };

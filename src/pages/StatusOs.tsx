@@ -36,7 +36,7 @@ import { trackCTAClick } from "@/lib/analytics";
 import { ConsultaOsPorCelular } from "@/components/os/ConsultaOsPorCelular";
 
 const PATH = "/status-da-ordem-de-servico";
-const BASE_URL = "https://tecnico.curitiba.br";
+const BASE_URL = SITE_BASE_URL;
 
 type Estado = "idle" | "vazio" | "invalido" | "nao-encontrado" | "encontrado";
 

@@ -127,7 +127,7 @@ const ArrumarPC = () => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnico.curitiba.br",
+      url: SITE_BASE_URL,
     },
     areaServed: { "@type": "Country", name: "Brasil" },
     description:
@@ -136,7 +136,7 @@ const ArrumarPC = () => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: "https://tecnico.curitiba.br/arrumar-pc",
+      url: `${SITE_BASE_URL}/arrumar-pc`,
     },
   };
 

@@ -95,8 +95,8 @@ const ProblemasReaisCasos = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-          { "@type": "ListItem", position: 2, name: "Problemas Reais e Casos", item: "https://tecnico.curitiba.br/problemas-reais-e-casos" },
+          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Problemas Reais e Casos", item: `${SITE_BASE_URL}/problemas-reais-e-casos` },
         ],
       })}} />
       <JsonLdSchema />

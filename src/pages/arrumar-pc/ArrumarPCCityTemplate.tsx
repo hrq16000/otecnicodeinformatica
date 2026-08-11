@@ -88,7 +88,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnico.curitiba.br",
+      url: SITE_BASE_URL,
     },
     areaServed: {
       "@type": "City",
@@ -100,7 +100,7 @@ export const ArrumarPCCityTemplate = ({ data }: { data: CityData }) => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: `https://tecnico.curitiba.br${path}`,
+      url: `${SITE_BASE_URL}${path}`,
     },
   };
 

@@ -17,7 +17,7 @@ import { trackWaClick } from "@/lib/funnelAnalytics";
 import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
 import { WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
 
-const CANONICAL_BASE = "https://tecnico.curitiba.br";
+const CANONICAL_BASE = SITE_BASE_URL;
 
 /** Categoria de template a partir do slug de serviço (sem inventar dados). */
 function categoriaFromServico(slug: string): TemplateCategory {

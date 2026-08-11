@@ -93,7 +93,7 @@ export const reviewWindow = (
 // Avaliação no próprio site (link rastreável pós-Ordem de Serviço)
 // ============================================================
 
-const SITE_ORIGIN = "https://tecnico.curitiba.br";
+const SITE_ORIGIN = SITE_BASE_URL;
 
 /** URL da página de avaliação com UTM + protocolo da OS. */
 export const buildOnsiteReviewUrl = (params: {

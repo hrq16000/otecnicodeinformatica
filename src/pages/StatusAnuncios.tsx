@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { CheckCircle2, XCircle, FileText, Cookie, ShieldCheck } from "lucide-react";
 
-const CANONICAL = "https://tecnico.curitiba.br/status-de-anuncios";
+const CANONICAL = `${SITE_BASE_URL}/status-de-anuncios`;
 
 type AdsStatus = {
   checkedAt: string;
@@ -59,7 +59,7 @@ const StatusAnuncios = () => {
         <title>Status de Anúncios e Transparência | Técnico em Curitiba</title>
         <meta
           name="description"
-          content="Estado da verificação do ads.txt, do identificador de publisher e das políticas de cookies e privacidade do tecnico.curitiba.br."
+          content="Estado da verificação do ads.txt, do identificador de publisher e das políticas de cookies e privacidade do SITE_DOMAIN_PLACEHOLDER."
         />
         <meta property="og:title" content="Status de Anúncios e Transparência" />
         <meta property="og:url" content={CANONICAL} />

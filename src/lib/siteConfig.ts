@@ -4,7 +4,7 @@
 // RODADA 1 — ISOLAMENTO DO REMIX
 // Todos os dados de identidade agora vêm de variáveis de ambiente
 // (`VITE_*`). NÃO existe fallback para a marca de origem
-// (tecnico.curitiba.br / 5541997086380). Quando um dado não está
+// (SITE_DOMAIN_PLACEHOLDER / 5541997086380). Quando um dado não está
 // configurado o sistema falha de forma segura: omite o dado,
 // desabilita o canal ou emite URL relativa — nunca reaproveita o
 // valor herdado.

@@ -37,7 +37,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
     provider: {
       "@type": "Organization",
       name: "Técnico Curitiba",
-      url: "https://tecnico.curitiba.br",
+      url: SITE_BASE_URL,
     },
     areaServed: {
       "@type": "City",
@@ -49,7 +49,7 @@ export const ArrumarPCServicoCidadeTemplate = ({ servico, cidade }: Props) => {
       "@type": "Offer",
       priceCurrency: "BRL",
       availability: "https://schema.org/InStock",
-      url: `https://tecnico.curitiba.br${path}`,
+      url: `${SITE_BASE_URL}${path}`,
     },
   };
 

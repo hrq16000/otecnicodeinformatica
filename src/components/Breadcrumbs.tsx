@@ -23,7 +23,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
         "@type": "ListItem",
         position: index + 1,
         name: item.label,
-        item: item.href ? `https://tecnico.curitiba.br${item.href}` : undefined,
+        item: item.href ? `${SITE_BASE_URL}${item.href}` : undefined,
       })),
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps

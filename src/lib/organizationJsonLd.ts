@@ -3,7 +3,7 @@
  * ORGANIZATION — ENTIDADE INSTITUCIONAL ÚNICA (@id canônico)
  * ─────────────────────────────────────────────────────────────
  * Existe exatamente UM nó Organization por documento, com `@id`
- * `https://tecnico.curitiba.br/#organization`. Todos os demais schemas
+ * `${SITE_BASE_URL}/#organization`. Todos os demais schemas
  * (publisher, provider, seller, parentOrganization, about, worksFor)
  * referenciam esse `@id` — nunca repetem o objeto completo.
  *

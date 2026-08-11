@@ -33,7 +33,7 @@ const ServicoCidadePage = () => {
         `Técnico de informática em ${cidade.nome}. ${servico.nome} com atendimento a domicílio conforme a disponibilidade da agenda. Sem sair de casa. WhatsApp.`
       );
     }
-    upsertCanonical(`https://tecnico.curitiba.br/servicos/${servicoSlug}/${cidadeSlug}`);
+    upsertCanonical(`${SITE_BASE_URL}/servicos/${servicoSlug}/${cidadeSlug}`);
     // Página herdada serviço×cidade (thin) — não deve competir com os serviços canônicos.
     let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
     if (!robots) {
@@ -63,7 +63,7 @@ const ServicoCidadePage = () => {
       {
         "@type": "LocalBusiness",
         "name": `Técnico de Informática em ${cidade.nome}`,
-        "url": "https://tecnico.curitiba.br",
+        "url": SITE_BASE_URL,
         "areaServed": cidade.nome,
         "priceRange": "$$",
         "address": { "@type": "PostalAddress", addressLocality: cidade.nome, addressRegion: "PR", addressCountry: "BR" }

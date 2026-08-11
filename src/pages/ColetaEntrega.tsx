@@ -71,15 +71,15 @@ const ColetaEntrega = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: "https://tecnico.curitiba.br/" },
-          { "@type": "ListItem", position: 2, name: "Serviços", item: "https://tecnico.curitiba.br/servicos" },
-          { "@type": "ListItem", position: 3, name: "Coleta e Entrega", item: "https://tecnico.curitiba.br/coleta-e-entrega" },
+          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_BASE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_BASE_URL}/servicos` },
+          { "@type": "ListItem", position: 3, name: "Coleta e Entrega", item: `${SITE_BASE_URL}/coleta-e-entrega` },
         ],
       })}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",
-        "@id": "https://tecnico.curitiba.br/coleta-e-entrega#service",
+        "@id": `${SITE_BASE_URL}/coleta-e-entrega#service`,
         name: "Coleta e Entrega de Equipamentos para Reparo",
         serviceType: "Logística reversa de equipamentos eletrônicos para conserto em bancada",
         description: "Coleta no endereço do cliente, reparo em laboratório com diagnóstico completo e devolução do equipamento funcionando. Cobre Curitiba e região metropolitana.",
@@ -87,12 +87,12 @@ const ColetaEntrega = () => {
           { "@type": "City", name: "Curitiba" },
           { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
         ],
-        provider: { "@id": "https://tecnico.curitiba.br/#localbusiness" },
+        provider: { "@id": `${SITE_BASE_URL}/#localbusiness` },
         offers: {
           "@type": "Offer",
           priceCurrency: "BRL",
           price: "300.00",
-          url: "https://tecnico.curitiba.br/coleta-e-entrega",
+          url: `${SITE_BASE_URL}/coleta-e-entrega`,
           availability: "https://schema.org/InStock",
           priceSpecification: [
             { "@type": "PriceSpecification", name: "Reparo mínimo com coleta", price: "300.00", priceCurrency: "BRL", description: "Faixa pré-aprovada R$ 300–R$ 500. Acima disso, autorização do cliente." },

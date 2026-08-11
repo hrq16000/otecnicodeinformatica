@@ -82,10 +82,10 @@ export const CategoryLocalTemplate = ({ categoryId, localSlug }: Props) => {
     "@type": "Service",
     name: `${category.titlePrefix} em ${cityLabel}`,
     serviceType: category.titlePrefix,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br", telephone: WA_PHONE_E164, address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE_BASE_URL, telephone: WA_PHONE_E164, address: { "@type": "PostalAddress", addressLocality: "Curitiba", addressRegion: "PR", addressCountry: "BR" } },
     areaServed: { "@type": local.kind === "bairro" ? "Place" : "City", name: cityLabel, containedInPlace: { "@type": "State", name: "Paraná" } },
     description,
-    offers: offerFor(category, local, "https://tecnico.curitiba.br"),
+    offers: offerFor(category, local, SITE_BASE_URL),
   };
 
   const localBusinessSchema = { "@context": "https://schema.org", ...localBusinessNode(category, local) };
@@ -349,7 +349,7 @@ export const CategoryHub = ({ categoryId }: { categoryId: CategoryId }) => {
     "@type": "Service",
     name: category.titlePrefix,
     description,
-    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: "https://tecnico.curitiba.br" },
+    provider: { "@type": "LocalBusiness", name: "Técnico Curitiba", url: SITE_BASE_URL },
     areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
   };
 

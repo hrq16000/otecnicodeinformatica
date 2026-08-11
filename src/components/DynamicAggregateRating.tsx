@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAggregateRating } from "@/hooks/useAggregateRating";
 
 interface Props {
-  itemId: string; // ex: "https://tecnico.curitiba.br/#organization"
+  itemId: string; // ex: `${SITE_BASE_URL}/#organization`
   itemType?: string; // ex: "LocalBusiness" | "Service"
   itemName?: string;
   service?: string;

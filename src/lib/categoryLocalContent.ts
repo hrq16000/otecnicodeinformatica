@@ -145,7 +145,7 @@ export function localizedFaqs(cat: CategoryData, local: LocalData) {
   ];
 }
 
-export function offerFor(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function offerFor(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   const url = `${site}/${cat.slug}/${local.slug}`;
   return {
     "@type": "Offer",

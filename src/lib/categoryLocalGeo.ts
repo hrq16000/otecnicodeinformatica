@@ -79,7 +79,7 @@ export function serviceAreaSchema(local: LocalData) {
   };
 }
 
-export function localBusinessNode(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function localBusinessNode(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   const url = `${site}/${cat.slug}/${local.slug}`;
   const [lat, lng] = geoDe(local);
   const { cidades, bairros } = coberturaLista();
@@ -121,7 +121,7 @@ export function localBusinessNode(cat: CategoryData, local: LocalData, site = "h
   };
 }
 
-export function coverImageNode(cat: CategoryData, local: LocalData, site = "https://tecnico.curitiba.br") {
+export function coverImageNode(cat: CategoryData, local: LocalData, site = SITE_BASE_URL) {
   return imageObjectSchema({
     url: coverDe(cat).url,
     caption: coverCaption(cat, local),

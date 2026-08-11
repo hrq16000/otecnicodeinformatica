@@ -168,10 +168,10 @@ const FAQ = () => {
                   <span>Tire suas dúvidas</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  FAQ O Técnico de Informática: <span className="gradient-text-animated">preço, prazo e garantia</span>
+                  Perguntas frequentes: <span className="gradient-text-animated">o que perguntam antes de chamar</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  Tire suas dúvidas sobre nossos serviços de informática
+                  Triagem, modalidades, valores, garantias e limites técnicos — sem rodeio
                 </p>
                 <div className="glow-separator max-w-[200px] mx-auto mt-6" />
               </div>

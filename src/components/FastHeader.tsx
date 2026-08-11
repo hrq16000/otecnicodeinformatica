@@ -141,9 +141,9 @@ export const FastHeader = () => {
         <a href="/" aria-label={`${brandConfig.brandName} — início`} className="min-w-0 flex-shrink-0">
           <img
             alt={brandConfig.logoAlt}
-            src={brandConfig.logo}
+            src={brandConfig.logoOnLight}
             width="304"
-            height="71"
+            height="68"
             decoding="sync"
             // @ts-ignore - fetchpriority is a valid HTML attribute
             fetchpriority="high"

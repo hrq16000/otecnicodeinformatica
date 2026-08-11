@@ -827,7 +827,7 @@ export function staticBodyFor(route) {
 
   return `
         <div style="min-height:100vh;background:linear-gradient(155deg,hsl(205,58%,15%) 0%,hsl(200,45%,22%) 100%);color:#fff;padding:32px 20px;font-family:Arial,sans-serif;max-width:820px;margin:0 auto">
-          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="78" style="max-width:60vw;height:auto" />
+          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="54" style="max-width:60vw;height:auto" />
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.9;margin:16px 0">${crumbHtml}</nav>
           <h1 style="font-size:1.6rem;line-height:1.25;margin:8px 0 12px">${esc(h1)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>

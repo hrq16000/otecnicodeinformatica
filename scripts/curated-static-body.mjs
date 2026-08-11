@@ -91,15 +91,9 @@ export const SITE_CONFIG = {
   ],
 };
 
-const OPENING_HOURS = [
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "08:00",
-    closes: "18:00",
-  },
-  { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "13:00" },
-];
+// Horários vêm de site-env.mjs (VITE_BUSINESS_HOURS) — fonte única
+// compartilhada com src/lib/config/contact.ts.
+
 
 const NAP = {
   name: SITE_CONFIG.brandName,

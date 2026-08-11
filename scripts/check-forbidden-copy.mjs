@@ -7,8 +7,8 @@
  *   2. e-mail de contato publicado (mailto: / contato@dominio);
  *   3. o número de WhatsApp como texto visível (só é permitido em wa.me,
  *      no campo `telephone` do JSON-LD e nas constantes de configuração);
- *   4. a palavra "orçamento" / "orçar" / "orçado" — o vocabulário oficial é
- *      "agendar", "solicitar atendimento" e "valor".
+ *   4. rótulos de CTA fora das famílias oficiais definidas em
+ *      src/lib/ctaLabels.ts (FASE 18 da Rodada 3).
  *
  * Uso: node scripts/check-forbidden-copy.mjs
  */
@@ -46,8 +46,6 @@ const ALLOW = [
   { file: "src/lib/siteConfig.ts", id: "cnpj-palavra" },
   { file: "src/lib/siteConfig.ts", id: "razao-social" },
   // rotas legadas/canônicas que não podem ser removidas (SEO evolutivo)
-  { file: "src/App.tsx", id: "orcamento" },
-  { file: "src/LegacyApp.tsx", id: "orcamento" },
 ];
 
 const files = [];
@@ -75,7 +73,7 @@ for (const file of files) {
 if (findings.length) {
   console.error(`\n❌ Copy proibido: ${findings.length} ocorrência(s)\n`);
   for (const f of findings) console.error(`  ${f.file}:${f.line}  [${f.rule}] ${f.msg}\n      ${f.text}`);
-  console.error("\nVocabulário oficial: agendar · solicitar atendimento · valor. Sem CNPJ, razão social, e-mail ou telefone visível.");
+  console.error("\nCTAs oficiais: Solicitar diagnóstico · Iniciar atendimento · Continuar no WhatsApp. Sem CNPJ, razão social, e-mail ou telefone visível.");
   process.exit(1);
 }
-console.log("✅ Copy proibido: nenhuma ocorrência (CNPJ, razão social, e-mail, telefone visível, orçamento).");
+console.log("✅ Copy proibido: nenhuma ocorrência (CNPJ, razão social, e-mail, telefone visível, rótulo de CTA).");

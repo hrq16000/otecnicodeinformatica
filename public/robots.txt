@@ -1,16 +1,24 @@
-# RODADA 1 — TRAVA DE INDEXAÇÃO DO REMIX
-# Este projeto é um remix em transformação para uma marca nova.
-# Enquanto a identidade, o conteúdo e o domínio próprios não estiverem
-# concluídos, NENHUM buscador deve rastrear ou indexar qualquer rota:
-# indexar agora significaria publicar conteúdo duplicado da marca de origem.
-#
-# Para liberar (somente após a rodada de conteúdo próprio e domínio ativo):
-#  1. definir VITE_SITE_DOMAIN e VITE_SITE_INDEXING_ENABLED=true
-#  2. substituir o bloco abaixo pelas regras Allow por user-agent
-#  3. reativar as diretivas Sitemap: e Host: com o domínio novo
+# O Técnico de Informática — otecnicodeinformatica.com.br
+# Indexação liberada (VITE_SITE_DOMAIN + VITE_SITE_INDEXING_ENABLED=true).
 
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /status-os
+Disallow: /funil-indisponivel
 
-# Sem diretiva Sitemap: enquanto a trava estiver ativa — os sitemaps são
-# gerados vazios por scripts/generate-sitemaps.mjs (fail-closed).
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://otecnicodeinformatica.com.br/sitemap-index.xml
+Sitemap: https://otecnicodeinformatica.com.br/sitemap.xml

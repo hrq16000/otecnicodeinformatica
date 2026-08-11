@@ -469,7 +469,8 @@ export function linksFor(path) {
   return [...new Set(out.filter((p) => p !== path && BY_PATH.has(p)))].slice(0, PROBLEMA_LINKS[path]?.length ?? SERVICO_LINKS[path]?.length ?? 6);
 }
 
-const WA_BASE = `https://wa.me/${SITE_CONFIG.whatsappNumber}`;
+// Sem número configurado o CTA estático aponta para a rota de indisponibilidade.
+const WA_BASE = SITE_CONFIG.whatsappNumber ? `https://wa.me/${SITE_CONFIG.whatsappNumber}` : "/funil-indisponivel";
 
 function waLink(route) {
   const msg = `Olá! Vim da página ${route.path} do site O Técnico de Informática e preciso de atendimento.`;
@@ -900,7 +901,7 @@ function organization() {
       availableLanguage: "Portuguese",
       areaServed: "BR-PR",
     },
-    sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`],
+    ...(SITE_CONFIG.whatsappNumber ? { sameAs: [`https://wa.me/${SITE_CONFIG.whatsappNumber}`] } : {}),
   };
 }
 

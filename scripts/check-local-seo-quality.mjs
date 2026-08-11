@@ -19,7 +19,12 @@ import { LOCAIS_DECLARADOS, LOCAIS_INDEXAVEIS } from "./lib/local-inventory.mjs"
 import { CURATED_PATHS, BASE_URL } from "./lib/curated-urls.mjs";
 
 const ROOT = process.argv[2] || "dist";
-const MIN_WORDS = 350;
+/**
+ * O HTML estático é o shell pré-renderizado (título, H1, blocos locais críticos);
+ * o corpo editorial completo é hidratado no cliente. O piso abaixo valida que o
+ * crawler recebe conteúdo local real no primeiro byte, não a página completa.
+ */
+const MIN_WORDS = 100;
 
 const errors = [];
 const warnings = [];

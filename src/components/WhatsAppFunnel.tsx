@@ -523,11 +523,12 @@ export const WhatsAppFunnel = () => {
       // Limpa o hash para não reabrir ao voltar/atualizar.
       window.history.replaceState(null, "", window.location.pathname + window.location.search);
     };
+    const openedFromHash = HASHES.has(window.location.hash.toLowerCase());
     openFromHash();
 
     // Restauração após reload: mesmo contexto (rota + preset), sem inventar
     // cidade/bairro e sem reabrir em rota diferente da original.
-    if (!HASHES.has(window.location.hash.toLowerCase())) {
+    if (!openedFromHash) {
       const ctx = readDeepLinkContext();
       if (ctx && ctx.path === window.location.pathname) {
         openScheduling(ctx.location || "deep_link_agendamento", { restore: true });

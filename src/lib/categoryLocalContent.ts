@@ -5,6 +5,7 @@
  */
 import { CATEGORIES, type CategoryData, type CategoryId } from "@/pages/hubs/categories";
 import { LOCAIS, type LocalData } from "@/pages/hubs/locais";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const PRECO_MINIMO_REPARO = 300;
 export const PRECO_DIAGNOSTICO = 99.99;

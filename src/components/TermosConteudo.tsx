@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PrecoModalidades } from "@/components/PrecoModalidades";
 import { REGRA_CANCELAMENTO } from "@/lib/precosConfig";
 import {
+import { SITE_BASE_URL } from "@/lib/siteConfig";
   MessageCircle,
   Home,
   Wrench,

@@ -10,6 +10,7 @@ import { geoSuggestion, subscribeGeo } from "@/lib/geoContext";
 import { trackCTAClick } from "@/lib/analytics";
 import { MODALIDADES, REGRA_CANCELAMENTO, NOTA_VISITA_AVULSA } from "@/lib/precosConfig";
 import { toast } from "sonner";
+import { SITE_DOMAIN, BRAND_NAME } from "@/lib/siteConfig";
 
 interface OsForm {
   nome: string;

@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_DOMAIN, BRAND_NAME } from "@/lib/siteConfig";
 import {
   Select,
   SelectContent,

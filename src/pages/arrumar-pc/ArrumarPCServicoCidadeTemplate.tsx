@@ -9,7 +9,7 @@ import { trackPageView } from "@/lib/analytics";
 import { ShieldCheck, Zap, MapPin, MessageCircle, CheckCircle2, Wrench } from "lucide-react";
 import type { CityData } from "./ArrumarPCCityTemplate";
 import type { ServicoData } from "./services";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 
 const WHATSAPP_NUMBER = WA_NUMBER;
 

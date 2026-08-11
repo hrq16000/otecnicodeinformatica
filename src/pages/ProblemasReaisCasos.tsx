@@ -9,7 +9,7 @@ import { JsonLdSchema } from "@/components/JsonLdSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   MessageCircle, ArrowRight, AlertTriangle, CheckCircle2,
   Zap, HardDrive, Cpu, Wrench, Monitor, ShieldCheck,

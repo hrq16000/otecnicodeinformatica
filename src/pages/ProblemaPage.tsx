@@ -21,7 +21,7 @@ import type { ProblemaPageData } from "@/lib/problemaPagesData";
 import ReactMarkdown from "react-markdown";
 import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
-import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+import { siteConfig, absoluteUrl, SITE_BASE_URL } from "@/lib/siteConfig";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 
 const BAIRROS_ATENDIDOS = [

@@ -34,6 +34,7 @@ import { readUtms } from "@/lib/utmCapture";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { trackCTAClick } from "@/lib/analytics";
 import { ConsultaOsPorCelular } from "@/components/os/ConsultaOsPorCelular";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 const PATH = "/status-da-ordem-de-servico";
 const BASE_URL = SITE_BASE_URL;

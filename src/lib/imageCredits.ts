@@ -1,3 +1,4 @@
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 /**
  * ============================================================================
  * CRÉDITOS E LICENÇAS DE IMAGEM — FONTE ÚNICA

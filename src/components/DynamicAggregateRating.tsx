@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAggregateRating } from "@/hooks/useAggregateRating";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 interface Props {
   itemId: string; // ex: `${SITE_BASE_URL}/#organization`

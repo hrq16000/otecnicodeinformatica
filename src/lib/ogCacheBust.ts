@@ -1,3 +1,4 @@
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 // Versioning for og:image URLs. Bump OG_VERSION whenever any social cover
 // is replaced so Facebook/X/LinkedIn refetch a fresh preview.
 // Files with content hashes in their filename invalidate automatically;

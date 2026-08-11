@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { CheckCircle2, XCircle, FileText, Cookie, ShieldCheck } from "lucide-react";
+import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 
 const CANONICAL = `${SITE_BASE_URL}/status-de-anuncios`;
 

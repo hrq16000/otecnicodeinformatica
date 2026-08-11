@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Cookie, BarChart3, Megaphone, ShieldCheck, SlidersHorizontal } from "lucide-react";
 import { resetConsent } from "@/lib/consentStore";
+import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
 
 const CANONICAL = `${SITE_BASE_URL}/politica-de-cookies-e-anuncios`;
 const UPDATED = "08/08/2026";

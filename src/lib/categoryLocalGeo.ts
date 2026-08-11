@@ -9,7 +9,7 @@ import { LOCAIS } from "@/pages/hubs/locais";
 import { cityLabel, faixaDe, PRECO_DIAGNOSTICO } from "@/lib/categoryLocalContent";
 import { creditFor, imageObjectSchema } from "@/lib/imageCredits";
 import { BANCADA } from "@/lib/categoryLocalContent";
-import { WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
+import { WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const GEO: Record<string, [number, number]> = {
   curitiba: [-25.4284, -49.2733],

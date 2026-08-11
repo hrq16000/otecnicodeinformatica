@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Home } from "lucide-react";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 interface BreadcrumbItem {
   label: string;

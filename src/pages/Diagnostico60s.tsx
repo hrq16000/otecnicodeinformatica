@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useCanonical } from "@/lib/canonicalUrl";
 import { ArrowLeft, MessageCircle, CalendarCheck, CheckCircle2 } from "lucide-react";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   EQUIPMENTS,
   type DiagnosticBranch,

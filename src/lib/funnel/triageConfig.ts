@@ -15,7 +15,7 @@
  *  - URGENCY_OPTIONS ....... opções de urgência
  * ============================================================================
  */
-import { siteConfig } from "@/lib/siteConfig";
+import { siteConfig, BRAND_NAME } from "@/lib/siteConfig";
 
 // ⚙️ CONFIGURÁVEL — número por projeto (aqui vem do siteConfig do portal).
 export const WHATSAPP_NUMBER = siteConfig.whatsappNumber;

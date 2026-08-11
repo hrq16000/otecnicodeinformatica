@@ -6,6 +6,7 @@
  */
 import { useCanonical } from "@/lib/canonicalUrl";
 import PrecosEPoliticas from "./PrecosEPoliticas";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 const TermosCondicoes = () => {
   useCanonical(`${SITE_BASE_URL}/precos-e-politicas`);

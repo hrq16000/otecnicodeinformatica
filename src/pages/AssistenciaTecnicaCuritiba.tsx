@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick, trackPageView } from "@/lib/analytics";
-import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Gamepad2,

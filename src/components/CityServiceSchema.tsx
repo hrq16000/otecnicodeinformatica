@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 /**
  * JSON-LD por página de cidade: emite um Service específico vinculado ao

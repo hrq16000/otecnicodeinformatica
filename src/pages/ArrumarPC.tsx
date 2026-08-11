@@ -19,7 +19,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 
 const WHATSAPP_NUMBER = WA_NUMBER;
 const WHATSAPP_MSG =

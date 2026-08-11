@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lucide-react";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL, SITE_DOMAIN, BRAND_NAME } from "@/lib/siteConfig";
 
 const CANONICAL = `${SITE_BASE_URL}/politica-de-privacidade`;
 const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";

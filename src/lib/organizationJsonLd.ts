@@ -10,7 +10,7 @@
  * O mesmo objeto é espelhado no prerender estático
  * (scripts/curated-static-body.mjs) para manter prerender e client idênticos.
  */
-import { siteConfig } from "@/lib/siteConfig";
+import { siteConfig, SITE_BASE_URL } from "@/lib/siteConfig";
 
 export const ORGANIZATION_ID = `${siteConfig.baseUrl}/#organization`;
 export const WEBSITE_ID = `${siteConfig.baseUrl}/#website`;

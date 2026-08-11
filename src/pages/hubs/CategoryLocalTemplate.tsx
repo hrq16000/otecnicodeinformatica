@@ -11,7 +11,7 @@ import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { CATEGORIES, type CategoryId, findCategory } from "./categories";
 import { LOCAIS, findLocal, type LocalData } from "./locais";
-import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164 } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   categoryLocalMeta,
   localizedFaqs,

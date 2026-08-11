@@ -20,6 +20,7 @@ import type { BlogPostContent } from "@/data/blogPostsContent";
 import { BlogPostFAQ } from "@/components/BlogPostFAQ";
 import { EditorialCta, EditorialRelatedLinks } from "@/components/editorial/EditorialCta";
 import {
+import { SITE_BASE_URL } from "@/lib/siteConfig";
   isEditorialApproved,
   getEditorialApproval,
   INSTITUTIONAL_AUTHOR,

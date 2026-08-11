@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
   MessageCircle,
   Phone,

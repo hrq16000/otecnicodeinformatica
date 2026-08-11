@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
+import { SITE_BASE_URL } from "@/lib/siteConfig";
 
 /**
  * JSON-LD por landing de serviço: Service + Offer + FAQPage + WebPage + Speakable.

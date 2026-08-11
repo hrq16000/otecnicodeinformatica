@@ -97,8 +97,8 @@ for (const entry of LOCAIS_DECLARADOS) {
   }
   const lbCount = (ld.match(/"@type"\s*:\s*"LocalBusiness"/g) || []).length;
   if (lbCount > 1) errors.push(`${entry.path}: ${lbCount} nós LocalBusiness (rede fictícia de filiais)`);
-  if (indexavel && words >= MIN_WORDS && words < 550) {
-    warnings.push(`${entry.path}: conteúdo curto (${words} palavras) — reforçar contexto local`);
+  if (indexavel && words >= MIN_WORDS && words < 150) {
+    warnings.push(`${entry.path}: conteúdo curto (${words} palavras) — reforçar bloco local estático`);
   }
 }
 

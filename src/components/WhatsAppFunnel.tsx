@@ -441,7 +441,38 @@ export const WhatsAppFunnel = () => {
     };
   }, [openFunnel]);
 
+  // Deep link de agendamento (booking link do Google Business Profile):
+  // qualquer URL do site com #agendamento (ou #agendar / #triagem) abre a
+  // triagem direto, como popup, mesmo vindo de fora. Também funciona ao
+  // clicar em âncoras internas com esse hash, sem recarregar a página.
+  useEffect(() => {
+    const HASHES = new Set(["#agendamento", "#agendar", "#triagem"]);
+    const openFromHash = () => {
+      if (!HASHES.has(window.location.hash.toLowerCase())) return;
+      openFunnel("deep_link_agendamento");
+      // Limpa o hash para não reabrir ao voltar/atualizar.
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    };
+    openFromHash();
+    const anchorHandler = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
+      const href = a?.getAttribute("href");
+      if (!href) return;
+      const hash = href.startsWith("#") ? href.toLowerCase() : "";
+      if (!HASHES.has(hash)) return;
+      e.preventDefault();
+      openFunnel("deep_link_agendamento");
+    };
+    window.addEventListener("hashchange", openFromHash);
+    document.addEventListener("click", anchorHandler, true);
+    return () => {
+      window.removeEventListener("hashchange", openFromHash);
+      document.removeEventListener("click", anchorHandler, true);
+    };
+  }, [openFunnel]);
+
   const stepName = getStepName(step, answers);
+
 
   useEffect(() => {
     if (!open) return;

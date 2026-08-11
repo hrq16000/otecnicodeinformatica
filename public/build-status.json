@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-08-11T13:13:56.828Z",
-  "finishedAt": "2026-08-11T13:13:58.378Z",
+  "startedAt": "2026-08-11T13:18:09.715Z",
+  "finishedAt": "2026-08-11T13:18:11.289Z",
   "ok": false,
   "total": 9,
   "passed": 8,
@@ -12,72 +12,72 @@
       "label": "ads.txt e metatag AdSense",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 86,
-      "checkedAt": "2026-08-11T13:13:56.914Z"
+      "durationMs": 79,
+      "checkedAt": "2026-08-11T13:18:09.795Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 81,
-      "checkedAt": "2026-08-11T13:13:56.995Z"
+      "durationMs": 72,
+      "checkedAt": "2026-08-11T13:18:09.867Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 86,
-      "checkedAt": "2026-08-11T13:13:57.081Z"
+      "durationMs": 79,
+      "checkedAt": "2026-08-11T13:18:09.946Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 640,
-      "checkedAt": "2026-08-11T13:13:57.721Z"
+      "durationMs": 618,
+      "checkedAt": "2026-08-11T13:18:10.564Z"
     },
     {
       "id": "internal-links",
       "label": "Links internos sem 404",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 192,
-      "checkedAt": "2026-08-11T13:13:57.913Z"
+      "durationMs": 223,
+      "checkedAt": "2026-08-11T13:18:10.787Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
       "status": "fail",
       "detail": "  ✗ URL curada ausente do sitemap: /blog/como-escolher-uma-workstation (rode npm run sitemap)",
-      "durationMs": 106,
-      "checkedAt": "2026-08-11T13:13:58.019Z"
+      "durationMs": 115,
+      "checkedAt": "2026-08-11T13:18:10.902Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 115,
-      "checkedAt": "2026-08-11T13:13:58.134Z"
+      "durationMs": 125,
+      "checkedAt": "2026-08-11T13:18:11.027Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 135,
-      "checkedAt": "2026-08-11T13:13:58.269Z"
+      "durationMs": 148,
+      "checkedAt": "2026-08-11T13:18:11.175Z"
     },
     {
       "id": "orphan-pages",
       "label": "Páginas órfãs",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 109,
-      "checkedAt": "2026-08-11T13:13:58.378Z"
+      "durationMs": 114,
+      "checkedAt": "2026-08-11T13:18:11.289Z"
     }
   ]
 }

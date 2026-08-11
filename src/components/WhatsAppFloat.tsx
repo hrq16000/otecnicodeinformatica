@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import { toast } from "sonner";
 import { trackCTAClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 

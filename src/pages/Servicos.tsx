@@ -125,6 +125,7 @@ const Servicos = () => {
       />
       <Header />
       <Breadcrumbs items={[{ label: "Serviços" }]} />
+      <main id="conteudo">
 
       {/* Hero — identidade "centro técnico local premium" */}
       <section className="relative overflow-hidden bg-[hsl(var(--hero-bg))] text-white">
@@ -380,6 +381,7 @@ const Servicos = () => {
       </section>
 
       <InterlinkingBlock />
+      </main>
       <Footer />
     </div>
   );

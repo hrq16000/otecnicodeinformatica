@@ -23,40 +23,50 @@ const track = (loc: string) =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", loc));
 
 // ── Dados ────────────────────────────────────────────────────────
+/**
+ * RODADA 2A — a Home começa pelo sintoma, não pelo catálogo. O visitante
+ * quase nunca sabe nomear o serviço; ele sabe descrever o que está vendo.
+ */
 const pains = [
-  { t: "Notebook travando", d: "Lentidão, superaquecimento ou desligando sozinho." },
-  { t: "PC lento", d: "Demora para ligar, abrir programas e navegar." },
-  { t: "Empresa parada", d: "Estações, rede ou sistema fora do ar travam a operação." },
-  { t: "Arquivos em risco", d: "HD com falha, exclusão acidental ou disco não reconhecido." },
-  { t: "Internet instável", d: "Wi-Fi caindo, sinal fraco ou rede mal configurada." },
-  { t: "Sistema corrompido", d: "Erros de boot, tela azul, vírus ou Windows danificado." },
+  { t: "Está lento demais", d: "Demora para ligar, trava ao abrir programas e engasga com várias abas." },
+  { t: "Não liga", d: "Sem reação, sem luz ou liga e desliga em seguida." },
+  { t: "Esquenta e desliga sozinho", d: "Ventoinha acelerada, base quente e desligamento no meio do uso." },
+  { t: "Tela azul e erros do Windows", d: "Reinícios inesperados, falha de inicialização e mensagens de erro recorrentes." },
+  { t: "Tela sem imagem", d: "O equipamento parece ligar, mas a tela fica preta, piscando ou com manchas." },
+  { t: "Ficou sem espaço", d: "Disco cheio, atualização travada e avisos de armazenamento insuficiente." },
+  { t: "Bateria ou teclado com defeito", d: "Não segura carga, só funciona na tomada, teclas falhando ou travadas." },
+  { t: "Precisa de mais desempenho", d: "SSD, memória ou troca de peça para o equipamento acompanhar o uso atual." },
+  { t: "Perdi arquivos", d: "Exclusão acidental, disco não reconhecido ou pasta que sumiu depois de uma falha." },
+  { t: "Internet e rede instáveis", d: "Wi-Fi caindo, sinal fraco em parte do imóvel ou cabeamento improvisado." },
+  { t: "Computador da empresa fora de operação", d: "Estação parada, sistema inacessível ou impressora e rede travando o time." },
+  { t: "Quero montar ou atualizar um PC", d: "Configuração nova, troca de plataforma ou upgrade planejado por etapas." },
 ];
 
 const services = [
-  { t: "Formatação e instalação de sistema", d: "Windows limpo, drivers e programas essenciais.", loc: "svc_formatacao", cta: "Como funciona a formatação →", href: "/servicos/formatacao" },
-  { t: "Manutenção de notebook", d: "Limpeza, troca de pasta térmica, teclado e reparos.", loc: "svc_notebook", cta: "Detalhes do reparo de notebook →", href: "/servicos/manutencao-de-notebook" },
-  { t: "Manutenção de computador", d: "Diagnóstico completo de PC e correção de falhas.", loc: "svc_pc", cta: "O que inclui a manutenção de PC →", href: "/servicos/manutencao-de-computador" },
-  { t: "Upgrade SSD/RAM", d: "Mais velocidade com SSD e ampliação de memória.", loc: "svc_upgrade", cta: "Ganhos reais do upgrade →", href: "/servicos/upgrade-ssd-ram" },
-  { t: "Remoção de vírus", d: "Limpeza de malware, adware e otimização segura.", loc: "svc_virus", cta: "Etapas da limpeza do sistema →", href: "/servicos/remocao-de-virus" },
-  { t: "Backup e recuperação de dados", d: "Recuperação e cópia segura dos seus arquivos.", loc: "svc_backup", cta: "Como avaliamos a recuperação →", href: "/servicos/recuperacao-de-dados" },
-  { t: "Redes e Wi-Fi", d: "Configuração, cabeamento e melhoria de sinal.", loc: "svc_redes", cta: "Como melhoramos o sinal →", href: "/servicos/redes-e-wifi" },
-  { t: "Suporte técnico empresarial", d: "Manutenção preventiva e suporte para empresas.", loc: "svc_empresa", cta: "Escopo do suporte para empresas →", href: "/servicos/suporte-tecnico-empresarial" },
+  { t: "Manutenção de notebooks", d: "Limpeza interna, pasta térmica, teclado, dobradiça, carga e falhas de placa.", loc: "svc_notebook", cta: "Ver manutenção de notebook →", href: "/servicos/manutencao-de-notebook" },
+  { t: "Manutenção de computadores", d: "Desktop e All in One: diagnóstico de hardware, energia, armazenamento e temperatura.", loc: "svc_pc", cta: "Ver manutenção de PC →", href: "/servicos/manutencao-de-computador" },
+  { t: "Formatação e sistemas", d: "Reinstalação do Windows, drivers, contas, licenças e programas de trabalho.", loc: "svc_formatacao", cta: "Ver formatação e sistema →", href: "/servicos/formatacao" },
+  { t: "Upgrade de SSD e memória", d: "Troca por SSD, ampliação de RAM e migração do sistema sem começar do zero.", loc: "svc_upgrade", cta: "Ver upgrade de SSD e RAM →", href: "/servicos/upgrade-ssd-ram" },
+  { t: "Limpeza e manutenção preventiva", d: "Rotina para evitar superaquecimento, ruído e desligamento em uso pesado.", loc: "svc_preventiva", cta: "Ver manutenção preventiva →", href: "/servicos/manutencao-preventiva-empresas" },
+  { t: "Recuperação de dados", d: "Tentativa de leitura e cópia de arquivos conforme o estado real da mídia.", loc: "svc_dados", cta: "Ver recuperação de dados →", href: "/servicos/recuperacao-de-dados" },
+  { t: "Montagem e upgrade de PCs", d: "Configuração definida pelo uso — trabalho, estudo, edição ou jogos.", loc: "svc_montagem", cta: "Ver montagem de PC →", href: "/servicos/montagem-de-pc" },
+  { t: "Redes e suporte para empresas", d: "Estações, Wi-Fi, cabeamento e suporte técnico para a operação não parar.", loc: "svc_empresa", cta: "Ver suporte empresarial →", href: "/servicos/suporte-tecnico-empresarial" },
 ];
-
-
 
 const faqs = [
-  { q: "Quanto custa chamar um técnico em Curitiba?", a: "O diagnóstico começa a partir de R$ 99,99 quando aplicável. O valor do atendimento do reparo depende do equipamento e do problema, e é apresentado antes da execução." },
-  { q: "Vocês atendem notebook e computador?", a: "Sim. Atendemos notebook, PC e periféricos, com foco em informática." },
-  { q: "Fazem atendimento empresarial?", a: "Sim. Prestamos suporte técnico para empresas: estações, rede e manutenção preventiva." },
-  { q: "Tem recuperação de dados?", a: "Sim, avaliamos cada caso. A recuperação depende da condição real do disco e é informada após diagnóstico." },
-  { q: "O valor do atendimento é fechado antes do serviço?", a: "Sim. Você aprova o valor antes de qualquer reparo. Nada é executado sem sua confirmação." },
-  { q: "O atendimento é pelo WhatsApp?", a: "Sim, o contato e a triagem acontecem pelo WhatsApp para agilizar o diagnóstico." },
-  { q: "O número fica visível no site?", a: "O contato é feito diretamente pelo botão de atendimento, que abre a triagem por WhatsApp." },
-  { q: "Em quanto tempo conseguem atender?", a: "Sempre que houver disponibilidade na agenda, buscamos atender conforme a disponibilidade da agenda. A confirmação vem na triagem." },
+  { q: "Quanto custa o atendimento?", a: "Os atendimentos começam a partir de R$ 99,99. Esse é um valor inicial, não um preço fechado: a modalidade (remoto, visita ou coleta), o equipamento e o problema mudam o total. Peças, componentes e licenças nunca estão inclusas." },
+  { q: "Preciso saber qual é o defeito antes de chamar?", a: "Não. Descrever o sintoma já basta: o que aparece na tela, quando começou, se cai energia, se faz barulho. Identificar a causa é parte do nosso trabalho, não do seu." },
+  { q: "Vocês atendem em casa?", a: "Sim, quando a visita é compatível com o caso. Ela funciona bem quando a máquina liga e a necessidade é configuração, sistema ou instalação de peça. Falha de hardware costuma exigir bancada, e aí o caminho é a coleta." },
+  { q: "Atendem empresas?", a: "Sim. Estações de trabalho, rede, impressoras, incidentes que param o time e manutenção programada. A triagem empresarial prioriza o que impede as pessoas de trabalhar." },
+  { q: "Fazem atendimento remoto?", a: "Em parte dos casos de software — sistema, configuração, e-mail, programas — o acesso remoto resolve sem deslocamento. Problema físico não se resolve remotamente, e dizemos isso na triagem." },
+  { q: "Trabalham com notebook?", a: "Sim, é a maior parte da demanda: lentidão, superaquecimento, não liga, tela, teclado, bateria, carga e upgrades." },
+  { q: "Fazem upgrade para SSD?", a: "Sim, com checagem de compatibilidade antes. Quando possível, o sistema é migrado para o SSD para você não perder programas e configurações. O SSD é peça e é cobrado à parte." },
+  { q: "Trabalham com computador gamer?", a: "Sim. Montagem, troca de plataforma, refrigeração, fonte e diagnóstico de instabilidade sob carga entram no mesmo escopo técnico." },
+  { q: "Recuperam arquivos?", a: "Fazemos a tentativa e explicamos o cenário real antes. Recuperação de dados não é garantida: depende do estado da mídia, e disco com falha mecânica interna exige laboratório especializado." },
+  { q: "O diagnóstico tem custo?", a: "Sim, o diagnóstico é trabalho técnico e está dentro do valor da modalidade escolhida. O que não acontece é execução de serviço sem você aprovar antes." },
+  { q: "Peças estão incluídas?", a: "Não. Peças, componentes, licenças e materiais são orçados separadamente e só são comprados depois da sua aprovação." },
+  { q: "Como funciona a coleta?", a: "Na modalidade de diagnóstico com compromisso, a coleta e a entrega estão inclusas no valor mínimo pré-aprovado de R$ 299,99. O cancelamento vale até 24 horas corridas após a coleta." },
 ];
-
-
 
 /** Hubs de distribuição de autoridade: cada bloco cobre uma intenção distinta. */
 const authorityHubs: { t: string; d: string; links: { href: string; label: string }[] }[] = [

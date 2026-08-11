@@ -66,6 +66,7 @@ export function applyConsent(record: Pick<ConsentRecord, "analytics" | "ads">) {
 /** Injeta o adsbygoogle apenas após aceite de anúncios (uma única vez). */
 export function loadAdsScript() {
   if (typeof document === "undefined") return;
+  if (!ADSENSE_CONFIGURED) return;
   if (document.querySelector('script[data-adsense="1"]')) return;
   const s = document.createElement("script");
   s.async = true;

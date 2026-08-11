@@ -104,7 +104,7 @@ const Contato = () => {
                       onClick={handleWhatsAppClick}
                     >
                       <MessageCircle className="h-5 w-5" />
-                      Solicitar orçamento
+                      Iniciar atendimento
                     </a>
                   </Button>
                 </div>

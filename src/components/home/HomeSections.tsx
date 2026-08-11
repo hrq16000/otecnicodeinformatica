@@ -166,8 +166,9 @@ export const HomeSections = () => {
       <section className="border-b border-border bg-secondary py-14 md:py-18">
         <div className="container mx-auto">
           <SectionTitle
-            eyebrow="Sinais de que algo está errado"
-            title="Quando o computador para, o prejuízo começa."
+            eyebrow="Comece pelo sintoma"
+            title="Problemas que resolvemos todo dia"
+            sub="Você não precisa saber o nome do defeito. Reconheça o sintoma abaixo e descreva com suas palavras — o diagnóstico é nosso trabalho."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pains.map((p) => (
@@ -184,9 +185,9 @@ export const HomeSections = () => {
       <section id="servicos" className="py-14 md:py-18">
         <div className="container mx-auto">
           <SectionTitle
-            eyebrow="O que resolvemos"
-            title="Serviços de informática em Curitiba"
-            sub="Foco em notebook, PC e suporte empresarial. Valor definido após avaliação, sem número inventado."
+            eyebrow="Serviços"
+            title="O que fazemos, em ordem do que mais chega aqui"
+            sub="Notebook e computador em primeiro lugar, depois sistema, upgrade, dados e ambiente empresarial. Cada página explica escopo, limites e o que não está incluso."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
@@ -222,9 +223,9 @@ export const HomeSections = () => {
       <section className="border-y border-border bg-secondary py-14 md:py-18">
         <div className="container mx-auto">
           <SectionTitle
-            eyebrow="Escolha o caminho certo"
-            title="Você é pessoa física ou empresa?"
-            sub="A triagem muda conforme o perfil: em casa o foco é o equipamento; na empresa, a operação que não pode parar."
+            eyebrow="Dois contextos diferentes"
+            title="Uso pessoal ou operação de empresa?"
+            sub="Em casa, o objetivo é devolver o equipamento funcionando. Na empresa, o objetivo é a equipe voltar a trabalhar — e isso muda prioridade, prazo e forma de atendimento."
           />
           <div className="grid gap-5 md:grid-cols-2">
             <div className="flex flex-col rounded-2xl border border-border bg-card p-6">
@@ -343,8 +344,13 @@ export const HomeSections = () => {
         <div className="container mx-auto">
           <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-6 md:p-8">
             <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground">
-              Preços e políticas
+              Como funciona o valor
             </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Não publicamos preço fechado por serviço porque o mesmo sintoma pode ter causas de
+              custo muito diferente. O que publicamos é o ponto de partida e a regra: você aprova
+              antes de qualquer execução.
+            </p>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <span className="text-accent" aria-hidden="true">▸</span>
@@ -384,7 +390,7 @@ export const HomeSections = () => {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <FunnelButton loc="pricing_cta" msg="Olá! Quero um valor para meu equipamento.">
-                Iniciar triagem do meu equipamento
+                Quero um orçamento
               </FunnelButton>
               <a
                 href="/precos-e-politicas"
@@ -445,7 +451,11 @@ export const HomeSections = () => {
       {/* 9. FAQ */}
       <section className="py-14 md:py-18">
         <div className="container mx-auto">
-          <SectionTitle eyebrow="Dúvidas frequentes" title="Perguntas e respostas" />
+          <SectionTitle
+            eyebrow="Dúvidas frequentes"
+            title="O que as pessoas perguntam antes de chamar"
+            sub="Respostas diretas sobre valor, modalidade, peças e limites técnicos."
+          />
           <div className="mx-auto max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card">
             {faqs.map((f) => (
               <details key={f.q} className="group px-5 py-4">
@@ -467,10 +477,11 @@ export const HomeSections = () => {
       <section className="bg-[hsl(var(--hero-bg))] py-16 text-white md:py-20">
         <div className="container mx-auto text-center">
           <h2 className="mx-auto max-w-2xl font-heading text-2xl font-bold tracking-tight md:text-3xl">
-            Precisa resolver um problema técnico hoje?
+            Descreva o problema. A parte técnica é com a gente.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-white/80">
-            Inicie a triagem por WhatsApp e receba orientação, prazo e condições antes de qualquer reparo.
+            Conte o que está acontecendo com o equipamento pelo WhatsApp e receba a modalidade
+            indicada, o prazo estimado e as condições antes de qualquer execução.
           </p>
           <div className="mt-7 flex justify-center">
             <a
@@ -481,7 +492,7 @@ export const HomeSections = () => {
               data-cta-location="cta_final"
               className="inline-flex min-h-14 items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02]"
             >
-              Começar triagem agora
+              Solicitar orçamento
             </a>
           </div>
           <p className="mt-4 text-xs text-white/70">

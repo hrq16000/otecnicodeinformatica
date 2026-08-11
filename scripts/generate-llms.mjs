@@ -16,6 +16,14 @@ import { BASE_URL as SITE, BRAND_NAME, SITE_CONFIGURED, INDEXING_ENABLED } from 
 
 // RODADA 1 — FAIL-CLOSED: sem domínio próprio/indexação liberada, o arquivo
 // para LLMs não é publicado com conteúdo (evita atribuir a marca de origem).
+if (!SITE_CONFIGURED || !INDEXING_ENABLED) {
+  const locked = `# ${BRAND_NAME}\n\n> Site em construção. Conteúdo ainda não publicado para indexação ou uso por LLMs.\n`;
+  writeFileSync(resolve("public/llms.txt"), locked, "utf8");
+  writeFileSync(resolve("public/llms-full.txt"), locked, "utf8");
+  console.log("llms.txt: TRAVADO (remix sem domínio/indexação liberada)");
+  process.exit(0);
+}
+
 const abs = (p) => `${SITE}${p === "/" ? "" : p}`;
 
 const routes = CURATED_ROUTES.filter((r) => r.path !== "/");

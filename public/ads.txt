@@ -1,1 +1,2 @@
-google.com, pub-3762170279587706, DIRECT, f08c47fec0942fa0
+# RODADA 1 — sem inventário publicitário próprio configurado.
+# Preencher com a linha do publisher da NOVA operação antes de ativar anúncios.

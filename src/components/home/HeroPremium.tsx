@@ -4,16 +4,16 @@ import { brandConfig } from "@/lib/config";
 import { HeroTrustBanner } from "@/components/HeroTrustBanner";
 
 const WA_HERO = whatsappLink(
-  "Olá! Preciso de um diagnóstico técnico. Pode me ajudar com meu equipamento?",
+  "Olá! Quero um orçamento. Vou descrever o equipamento e o que está acontecendo com ele.",
 );
 
 const trackHero = () =>
   import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("whatsapp", "hero_primary"));
 
 const trustChips = [
-  "Diagnóstico antes do reparo",
-  "Valor aprovado por você",
-  "Atendimento residencial e empresarial",
+  "Você descreve o sintoma, não o serviço",
+  "Nada é executado sem orçamento aprovado",
+  "Casa, home office e empresa",
 ];
 
 // Links diretos para os serviços núcleo — distribui a navegação a partir da home.
@@ -60,17 +60,18 @@ export const HeroPremium = () => (
       <div className="max-w-3xl">
         <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur">
           <ShieldCheck className="h-4 w-4 text-[hsl(var(--accent))]" aria-hidden="true" />
-          {brandConfig.brandName}
+          Assistência técnica em informática
         </p>
 
         <h1 className="mt-4 font-heading text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-          Assistência técnica em informática em {siteConfig.primaryCity}
-          <span className="text-[hsl(var(--accent))]"> e região</span>
+          Seu computador precisa funcionar.
+          <span className="text-[hsl(var(--accent))]"> Nós cuidamos da parte técnica.</span>
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-          Atendimento para notebooks, computadores, redes e suporte empresarial. Diagnóstico
-          técnico primeiro, valor aprovado antes do reparo.
+          Notebook, PC, All in One, upgrade de peça, sistema travado ou rede instável — em casa,
+          no home office ou na empresa. Você conta o que está acontecendo; a parte de descobrir a
+          causa é nossa.
         </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -83,7 +84,7 @@ export const HeroPremium = () => (
             data-wa-source="whatsapp_cta"
             className="inline-flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-7 text-base font-bold text-accent-foreground shadow-[0_14px_34px_-10px_hsl(var(--accent)/0.6)] transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--hero-bg))]"
           >
-            Solicitar diagnóstico
+            Solicitar orçamento
             <ArrowRight className="h-5 w-5" aria-hidden="true" />
           </a>
           <a
@@ -95,8 +96,8 @@ export const HeroPremium = () => (
         </div>
 
         <p className="mt-4 text-sm text-white/80">
-          Atendimento residencial e empresarial • {siteConfig.serviceArea.join(" · ")} • Diagnóstico
-          a partir de {siteConfig.minPriceLabel}
+          {siteConfig.primaryCity} e São José dos Pinhais • demais municípios da Região
+          Metropolitana conforme a modalidade • atendimentos a partir de {siteConfig.minPriceLabel}
         </p>
 
         <nav className="mt-6" aria-label="Serviços de informática">

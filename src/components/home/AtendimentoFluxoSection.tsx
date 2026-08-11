@@ -6,23 +6,23 @@ const track = (loc: string) =>
 const etapas = [
   {
     n: "1",
-    t: "Você chama no WhatsApp",
-    d: "Sem formulário longo e sem espera em fila. Você descreve o problema em uma mensagem.",
+    t: "Você descreve o problema",
+    d: "Uma mensagem no WhatsApp com o equipamento e o que está acontecendo. Sem formulário longo e sem cadastro.",
   },
   {
     n: "2",
-    t: "Triagem do problema",
-    d: "Perguntas objetivas sobre equipamento, sintoma e urgência para separar o que é simples do que exige bancada.",
+    t: "Triagem técnica",
+    d: "Perguntas objetivas para separar o que se resolve remoto, o que pede visita e o que exige bancada. Aqui já dizemos o que não é viável.",
   },
   {
     n: "3",
-    t: "Diagnóstico e valor antes de executar",
-    d: "Você recebe a causa provável, o escopo, o prazo e o valor mínimo aplicável. Nada é executado sem sua aprovação.",
+    t: "Diagnóstico, escopo e valor",
+    d: "Você recebe a causa provável, o que será feito, o prazo estimado e o valor aplicável — incluindo o que fica de fora, como peças e licenças.",
   },
   {
     n: "4",
-    t: "Atendimento remoto, no local ou em bancada",
-    d: "Problema de software costuma resolver remoto. Rede, instalação e checagem física vão até você. Reparo eletrônico segue para bancada, com coleta e entrega quando aplicável.",
+    t: "Execução após sua aprovação",
+    d: "Remoto para software, visita para rede e instalação, bancada para reparo físico — com coleta e entrega quando a modalidade prevê. Nada acontece antes do seu sim.",
   },
 ];
 
@@ -36,10 +36,10 @@ export const AtendimentoFluxoSection = () => (
       <div className="mx-auto mb-10 max-w-2xl text-center">
         <span className="text-xs font-bold uppercase tracking-wider text-accent">Passo a passo</span>
         <h2 id="fluxo-atendimento-title" className="mt-2 font-heading text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-          Como funciona o atendimento
+          Como funciona, do primeiro contato à entrega
         </h2>
         <p className="mt-3 text-base text-muted-foreground">
-          Quatro etapas, sem enrolação: você fala, a gente entende, você aprova, o serviço acontece.
+          Quatro etapas previsíveis. Você sabe o que acontece em cada uma e decide antes da execução.
         </p>
       </div>
 
@@ -59,8 +59,8 @@ export const AtendimentoFluxoSection = () => (
 
       <div className="mx-auto mt-8 max-w-4xl rounded-xl border border-border bg-secondary p-5 text-center">
         <p className="text-sm text-muted-foreground">
-          Não sabe qual formato serve para o seu caso? A triagem decide junto com você — e você só aprova depois de
-          saber o valor.
+          Não sabe qual modalidade serve para o seu caso? A triagem define isso com você — e o valor
+          aparece antes da aprovação, nunca depois.
         </p>
         <div className="mt-4 flex flex-wrap justify-center gap-3">
           <a
@@ -71,7 +71,7 @@ export const AtendimentoFluxoSection = () => (
             data-cta-location="fluxo_atendimento_cta"
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.02]"
           >
-            Iniciar triagem no WhatsApp
+            Solicitar orçamento
           </a>
           <a
             href="/como-funciona"

@@ -14,18 +14,20 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Clock, MapPin, Mail, CheckCircle } from "lucide-react";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import { BUSINESS_HOURS, BUSINESS_HOURS_CONFIGURED } from "@/lib/config/contact";
 
 const WHATSAPP_NUMBER = WA_NUMBER;
-const WHATSAPP_MESSAGE = "Olá! Gostaria de solicitar um atendimento.";
+const WHATSAPP_MESSAGE =
+  "Olá! Quero um orçamento. Vou descrever o equipamento e o que está acontecendo com ele.";
 
 const Contato = () => {
   useEffect(() => {
-    document.title = "Contato | O Técnico de Informática | Atendimento a partir de R$ 99,99";
+    document.title = "Contato | Fale com o Técnico de Informática em Curitiba";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99."
+        "Descreva o problema do seu notebook, computador ou rede pelo WhatsApp e receba a modalidade indicada, o prazo e o valor antes da execução."
       );
     }
     trackPageView("/contato", "Contato");
@@ -39,7 +41,7 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Contato | O Técnico de Informática | Atendimento a partir de R$ 99,99" description="Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
+      <PageSEO title="Contato | Fale com o Técnico de Informática em Curitiba" description="Descreva o problema do seu notebook, computador ou rede pelo WhatsApp e receba a modalidade indicada, o prazo e o valor antes da execução." path="/contato" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Contato", path: "/contato" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -57,14 +59,16 @@ const Contato = () => {
               <div className="max-w-3xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full text-sm font-medium text-white/90 mb-6 border border-white/15 shimmer">
                   <MessageCircle className="h-4 w-4 text-accent" />
-                  <span>Resposta rápida via WhatsApp</span>
+                  <span>Atendimento por WhatsApp</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  <span className="block">Contato | O Técnico de Informática</span>
-                  <span className="block gradient-text-animated">WhatsApp hoje · a partir de R$ 99,99</span>
+                  <span className="block">Fale com o técnico</span>
+                  <span className="block gradient-text-animated">e descreva o problema</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  Precisa de suporte técnico? Entre em contato agora mesmo e resolva seu problema rapidamente.
+                  O contato é o começo da triagem, não um formulário perdido. Conte o equipamento e
+                  o sintoma; a partir daí definimos a modalidade, o prazo e o valor — sempre antes
+                  de executar qualquer coisa.
                 </p>
                 <div className="glow-separator max-w-[200px] mx-auto mt-6" />
               </div>
@@ -89,7 +93,8 @@ const Contato = () => {
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">WhatsApp</h2>
                   <p className="text-muted-foreground mb-4">
-                    Resposta rápida e atendimento imediato
+                    Canal único de atendimento. Descreva o equipamento, o sintoma e desde quando
+                    acontece — isso adianta a triagem.
                   </p>
                   <Button variant="whatsapp" size="lg" className="w-full" asChild>
                     <a
@@ -99,7 +104,7 @@ const Contato = () => {
                       onClick={handleWhatsAppClick}
                     >
                       <MessageCircle className="h-5 w-5" />
-                      Chamar no WhatsApp
+                      Solicitar orçamento
                     </a>
                   </Button>
                 </div>
@@ -113,25 +118,56 @@ const Contato = () => {
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center reveal-text">
-                Informações de Atendimento
+                Antes de mandar a mensagem
               </h2>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  {
-                    icon: Clock,
-                    title: "Horário",
-                    content: <>Segunda a Sexta: 8h às 18h<br />Sábado: 8h às 12h<br /><span className="text-accent font-medium">Urgências via WhatsApp</span></>,
-                  },
+                  ...(BUSINESS_HOURS_CONFIGURED
+                    ? [
+                        {
+                          icon: Clock,
+                          title: "Horário de atendimento",
+                          content: (
+                            <>
+                              {BUSINESS_HOURS.map((h) => (
+                                <span key={`${h.days.join()}-${h.opens}`} className="block">
+                                  {h.days.join(", ")}: {h.opens} às {h.closes}
+                                </span>
+                              ))}
+                            </>
+                          ),
+                        },
+                      ]
+                    : []),
                   {
                     icon: MapPin,
-                    title: "Área de Atendimento",
-                    content: <>Curitiba e toda região metropolitana<br />São José dos Pinhais<br /><span className="text-accent font-medium">Atendimento remoto para todo Brasil</span></>,
+                    title: "Onde atendemos",
+                    content: (
+                      <>
+                        Curitiba e São José dos Pinhais.
+                        <br />
+                        Demais municípios da Região Metropolitana conforme a modalidade.
+                        <br />
+                        <span className="text-accent font-medium">
+                          Casos de software podem ser resolvidos remotamente.
+                        </span>
+                      </>
+                    ),
                   },
                   {
                     icon: Mail,
-                    title: "Resposta Rápida",
-                    content: <>Respondemos em até 30 minutos durante o horário comercial.<br /><span className="text-accent font-medium">WhatsApp é o canal mais rápido</span></>,
+                    title: "O que enviar na primeira mensagem",
+                    content: (
+                      <>
+                        Equipamento e marca, o que acontece, desde quando e se houve queda,
+                        líquido ou atualização recente.
+                        <br />
+                        <span className="text-accent font-medium">
+                          Quanto mais claro o sintoma, mais rápida a triagem.
+                        </span>
+                      </>
+                    ),
                   },
                 ].map((item, i) => {
                   const IconComp = item.icon;

@@ -21,74 +21,94 @@ import {
 
 const faqCategories = [
   {
-    category: "Preços e valor do atendimento",
+    category: "Antes de chamar",
     questions: [
       {
-        question: "Quanto custa chamar um técnico em Curitiba?",
-        answer: "Quando há visita ou diagnóstico presencial aplicável, o atendimento começa a partir de R$ 99,99. O valor final depende da avaliação do problema, do tempo necessário e de eventuais peças, licenças ou materiais. Passamos a estimativa antes de iniciar."
+        question: "Preciso saber qual é o defeito antes de entrar em contato?",
+        answer: "Não. Basta descrever o sintoma: o que aparece na tela, quando começou, se houve queda, líquido, queda de energia ou atualização recente. Identificar a causa é trabalho técnico, e é a nossa parte."
       },
       {
-        question: "O valor do atendimento é passado antes do serviço?",
-        answer: "Sim. Você recebe orientação, prazo estimado e condições antes de qualquer execução. O serviço só avança após o seu alinhamento. Estimativas iniciais são feitas pelo WhatsApp; casos que exigem análise podem precisar de diagnóstico presencial ou em laboratório."
+        question: "O que devo enviar na primeira mensagem?",
+        answer: "Tipo de equipamento e marca, o que está acontecendo, desde quando e se algo mudou antes do problema aparecer. Com isso a triagem já consegue indicar a modalidade adequada."
       },
-    ]
-  },
-  {
-    category: "Serviços de Informática",
-    questions: [
-      {
-        question: "Vocês atendem notebook e computador?",
-        answer: "Sim. Trabalhamos com notebooks e computadores (PC), incluindo manutenção, formatação, limpeza, otimização e diagnóstico de problemas de hardware e software."
-      },
-      {
-        question: "Fazem formatação com backup?",
-        answer: "Sim. Fazemos formatação e reinstalação do sistema e podemos realizar backup dos seus dados antes do processo, quando solicitado. O backup pode influenciar o prazo e o valor do atendimento."
-      },
-      {
-        question: "Fazem upgrade para SSD e memória RAM?",
-        answer: "Sim. Verificamos a compatibilidade do seu equipamento e fazemos upgrade de SSD e de memória RAM. As peças não estão incluídas na mão de obra e podem ser cobradas à parte."
-      },
-      {
-        question: "Removem vírus?",
-        answer: "Sim. Fazemos varredura, remoção de ameaças e configuração de proteção adequada. Em casos complexos, pode ser necessário mais tempo de análise, o que é informado antes."
-      },
-      {
-        question: "Recuperação de dados é garantida?",
-        answer: "Não. A recuperação de dados depende do tipo e da gravidade do dano no equipamento, por isso não é possível garantir sucesso. Fazemos a análise e explicamos as possibilidades e condições antes de prosseguir."
-      },
-      {
-        question: "Atendem Wi-Fi e redes?",
-        answer: "Sim. Configuramos roteadores, redes Wi-Fi, melhoria de sinal e organização de rede para residências e empresas."
-      },
-    ]
-  },
-  {
-    category: "Empresas e Regiões",
-    questions: [
-      {
-        question: "Atendem empresas?",
-        answer: "Sim. Oferecemos suporte técnico empresarial, com atendimento pontual ou escopo recorrente sob consulta, conforme a estrutura e as necessidades da empresa."
-      },
-      {
-        question: "Quais regiões são atendidas?",
-        answer: "Atendemos Curitiba e a região metropolitana, incluindo São José dos Pinhais, Pinhais, Colombo, Araucária e Campo Largo. Parte dos atendimentos também pode ser feita de forma remota."
-      },
-    ]
-  },
-  {
-    category: "Atendimento e Contato",
-    questions: [
       {
         question: "O atendimento começa pelo WhatsApp?",
-        answer: "Sim. O atendimento é iniciado pelo funil no WhatsApp. Uma triagem entende o seu problema e organiza o pedido antes de dar sequência ao diagnóstico e à execução."
+        answer: "Sim. Todo atendimento começa por uma triagem no WhatsApp, que organiza o caso antes do diagnóstico e da execução. Não há formulário longo nem cadastro."
       },
       {
         question: "O número de WhatsApp fica visível no site?",
-        answer: "Não. Para organizar melhor os atendimentos, o número não fica exposto no site. O contato é feito pelos botões de atendimento, que abrem a conversa diretamente."
+        answer: "Não. O contato acontece pelos botões de atendimento, que abrem a conversa diretamente e já identificam de qual página você veio."
+      },
+    ]
+  },
+  {
+    category: "Modalidades de atendimento",
+    questions: [
+      {
+        question: "Quando o atendimento é remoto?",
+        answer: "Quando o problema é de software: sistema, configuração, programas, e-mail, lentidão por configuração indevida. Problema físico não se resolve remotamente, e dizemos isso na triagem em vez de tentar."
       },
       {
-        question: "Vocês atendem TV, celular ou eletrônicos?",
-        answer: "Este site é focado em informática: notebook, computador/PC, formatação, upgrade de SSD/RAM, remoção de vírus, backup, recuperação de dados, redes/Wi-Fi e suporte técnico empresarial. Para outros tipos de equipamento, consulte pelo WhatsApp a disponibilidade."
+        question: "Quando vale a visita técnica?",
+        answer: "Quando a máquina liga e a necessidade é configuração, instalação de peça, rede, Wi-Fi ou checagem física no local. A visita é uma inspeção técnica, não uma promessa de conserto imediato."
+      },
+      {
+        question: "Quando o equipamento vai para bancada?",
+        answer: "Quando o reparo exige ferramenta, teste ou tempo que não cabem em uma visita — falha de placa, energia, tela, dobradiça ou diagnóstico mais profundo. Nesse caso existe a modalidade com coleta e entrega inclusas."
+      },
+      {
+        question: "Quais regiões são atendidas?",
+        answer: "Curitiba e São José dos Pinhais como área principal, e os demais municípios da Região Metropolitana conforme a modalidade e a agenda. Casos de software podem ser atendidos remotamente."
+      },
+    ]
+  },
+  {
+    category: "Equipamentos e limites técnicos",
+    questions: [
+      {
+        question: "Vocês atendem notebook e computador?",
+        answer: "Sim, é o foco principal: notebooks, desktops e All in One, incluindo manutenção, limpeza interna, formatação, upgrade e diagnóstico de hardware e software."
+      },
+      {
+        question: "Fazem upgrade para SSD e memória?",
+        answer: "Sim, com checagem de compatibilidade antes. Quando possível, o sistema é migrado para o SSD para você não perder programas e configurações. As peças são cobradas à parte."
+      },
+      {
+        question: "Recuperação de dados é garantida?",
+        answer: "Não. Recuperação de dados é sempre uma tentativa e depende do estado real da mídia. Disco com falha mecânica interna exige laboratório especializado, e explicamos o cenário antes de qualquer cobrança de execução."
+      },
+      {
+        question: "Removem vírus e resolvem lentidão?",
+        answer: "Sim. Varredura, remoção de ameaças, limpeza de inicialização e configuração de proteção. Quando a lentidão é de hardware, e não de software, apontamos isso em vez de vender uma limpeza inútil."
+      },
+      {
+        question: "Vocês atendem TV, celular ou outros eletrônicos?",
+        answer: "O foco deste site é informática. Existem páginas específicas para TV, monitor e reparo de placa; para outros equipamentos, consulte pela triagem — se não for do nosso escopo, dizemos com clareza."
+      },
+    ]
+  },
+  {
+    category: "Valores, prazos e condições",
+    questions: [
+      {
+        question: "Quanto custa o atendimento?",
+        answer: "A partir de R$ 99,99. Esse é um ponto de partida, não um preço fechado: modalidade, equipamento e complexidade mudam o total. Peças, componentes e licenças nunca estão inclusas."
+      },
+      {
+        question: "O valor é informado antes da execução?",
+        answer: "Sempre. Você recebe escopo, prazo estimado, valor aplicável e o que fica de fora antes de qualquer serviço ser executado. Nada avança sem a sua aprovação."
+      },
+      {
+        question: "Por que não há tabela de preço fechada por serviço?",
+        answer: "Porque o mesmo sintoma pode ter causas de custo muito diferente. Publicar um preço único obrigaria a inflar o valor de casos simples ou a cobrar surpresa em casos complexos — preferimos publicar a regra."
+      },
+      {
+        question: "Como funciona o cancelamento?",
+        answer: "Na modalidade de diagnóstico com coleta, o cancelamento pode ser feito em até 24 horas corridas após a coleta, conforme as condições publicadas na página de termos, condições, valores e prazos."
+      },
+      {
+        question: "Há garantia sobre o serviço?",
+        answer: "Sim, sobre o serviço executado, no escopo do que foi feito. A garantia é delimitada ao reparo realizado e não cobre falhas novas, alheias ao escopo ou causadas por uso posterior."
       },
     ]
   },
@@ -96,12 +116,12 @@ const faqCategories = [
 
 const FAQ = () => {
   useEffect(() => {
-    document.title = "FAQ O Técnico de Informática | Preço, Prazo e Garantia";
+    document.title = "Perguntas Frequentes | Atendimento, Valores e Limites Técnicos";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp."
+        "Respostas diretas sobre como funciona a triagem, quando o atendimento é remoto, visita ou bancada, valores a partir de R$ 99,99, garantias e limites técnicos."
       );
     }
     trackPageView("/faq", "FAQ");
@@ -127,7 +147,7 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="FAQ O Técnico de Informática | Preço, Prazo e Garantia" description="Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
+      <PageSEO title="Perguntas Frequentes | Atendimento, Valores e Limites Técnicos" description="Respostas diretas sobre como funciona a triagem, quando o atendimento é remoto, visita ou bancada, valores a partir de R$ 99,99, garantias e limites técnicos." path="/faq" breadcrumbs={[{ name: "Início", path: "/" }, { name: "FAQ", path: "/faq" }]} />
       <JsonLdSchema />
       <Header />
       <main>
@@ -148,10 +168,10 @@ const FAQ = () => {
                   <span>Tire suas dúvidas</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-                  FAQ O Técnico de Informática: <span className="gradient-text-animated">preço, prazo e garantia</span>
+                  Perguntas frequentes: <span className="gradient-text-animated">o que perguntam antes de chamar</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  Tire suas dúvidas sobre nossos serviços de informática
+                  Triagem, modalidades, valores, garantias e limites técnicos — sem rodeio
                 </p>
                 <div className="glow-separator max-w-[200px] mx-auto mt-6" />
               </div>

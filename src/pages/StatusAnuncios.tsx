@@ -59,7 +59,7 @@ const StatusAnuncios = () => {
         <title>Status de Anúncios e Transparência | Técnico em Curitiba</title>
         <meta
           name="description"
-          content="Estado da verificação do ads.txt, do identificador de publisher e das políticas de cookies e privacidade do SITE_DOMAIN_PLACEHOLDER."
+          content={`Estado da verificação do ads.txt, do identificador de publisher e das políticas de cookies e privacidade do ${BRAND_NAME}.`}
         />
         <meta property="og:title" content="Status de Anúncios e Transparência" />
         <meta property="og:url" content={CANONICAL} />

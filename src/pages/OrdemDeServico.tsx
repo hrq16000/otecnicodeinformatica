@@ -134,7 +134,7 @@ const OrdemDeServico = () => {
     doc.text("Ordem de serviço", M, 42);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text("Técnico em Curitiba · SITE_DOMAIN_PLACEHOLDER", M, 62);
+    doc.text(SITE_DOMAIN ? `${BRAND_NAME} · ${SITE_DOMAIN}` : BRAND_NAME, M, 62);
     doc.setFontSize(11);
     doc.text(n, W - M, 42, { align: "right" });
     y = 116;
@@ -195,7 +195,7 @@ const OrdemDeServico = () => {
     doc.setFontSize(9);
     doc.setTextColor(110, 118, 128);
     const rodape = doc.splitTextToSize(
-      "Documento de registro do atendimento. Peças, componentes e licenças não estão inclusos. Condições completas em SITE_DOMAIN_PLACEHOLDER/precos-e-politicas.",
+      "Documento de registro do atendimento. Peças, componentes e licenças não estão inclusos. Condições completas na página de preços e políticas do site.",
       W - M * 2,
     );
     doc.text(rodape, M, y);

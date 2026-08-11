@@ -65,7 +65,7 @@ const PoliticaCookiesAnuncios = () => {
         <title>Política de Cookies e Anúncios | Técnico em Curitiba</title>
         <meta
           name="description"
-          content="Como o SITE_DOMAIN_PLACEHOLDER usa cookies de análise e anúncios (Google Analytics, Ads e AdSense), como recusar, como gerenciar preferências e o que é registrado sem cookies."
+          content={`Como o ${BRAND_NAME} usa cookies de análise e anúncios, como recusar, como gerenciar preferências e o que é registrado sem cookies.`}
         />
         <meta property="og:title" content="Política de Cookies e Anúncios | Técnico em Curitiba" />
         <meta property="og:url" content={CANONICAL} />
@@ -176,7 +176,7 @@ const PoliticaCookiesAnuncios = () => {
                 /ads.txt
               </a>{" "}
               deste domínio declara os vendedores autorizados a comercializar o inventário
-              publicitário de SITE_DOMAIN_PLACEHOLDER.
+              publicitário do {BRAND_NAME}.
             </p>
           </section>
 

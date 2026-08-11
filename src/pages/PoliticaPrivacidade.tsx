@@ -21,7 +21,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
       <>
         <p>
           Esta Política de Privacidade aplica-se ao site{" "}
-          <strong>SITE_DOMAIN_PLACEHOLDER</strong>, operado por <strong>{COMPANY}</strong>,
+          <strong>{SITE_DOMAIN || BRAND_NAME}</strong>, operado por <strong>{COMPANY}</strong>,
           com atendimento em Curitiba e Região Metropolitana – PR.
         </p>
         <p className="mt-2">
@@ -187,7 +187,7 @@ const sections: { id: string; title: string; icon: typeof ShieldCheck; body: Rea
         </p>
         <p className="mt-2">
           O arquivo <strong>ads.txt</strong> deste domínio declara os vendedores autorizados a
-          comercializar o inventário publicitário de SITE_DOMAIN_PLACEHOLDER.
+          comercializar o inventário publicitário do {BRAND_NAME}.
         </p>
       </>
     ),

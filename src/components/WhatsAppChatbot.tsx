@@ -310,7 +310,7 @@ const chatFlow = {
   },
 
   link_precos: {
-    mensagem: "Veja a tabela completa em:\n🔗 **SITE_DOMAIN_PLACEHOLDER/precos-e-politicas**\n\nOu converse sobre valores específicos para seu caso:",
+    mensagem: `Veja a tabela completa em:\n🔗 **${SITE_DOMAIN || ""}/precos-e-politicas**\n\nOu converse sobre valores específicos para seu caso:`,
     opcoes: [
       { label: "Falar sobre meu caso", proximo: "whatsapp_geral" },
       { label: "Agendar serviço", proximo: "tipo_equipamento" },
@@ -318,14 +318,14 @@ const chatFlow = {
   },
 
   link_diagnostico: {
-    mensagem: "Leia o guia completo em:\n🔗 **SITE_DOMAIN_PLACEHOLDER/diagnostico-tecnico**\n\nOu agende diretamente:",
+    mensagem: `Leia o guia completo em:\n🔗 **${SITE_DOMAIN || ""}/diagnostico-tecnico**\n\nOu agende diretamente:`,
     opcoes: [
       { label: "Agendar diagnóstico", proximo: "tipo_equipamento" },
     ]
   },
 
   link_quando_nao_compensa: {
-    mensagem: "Veja o guia completo em:\n🔗 **SITE_DOMAIN_PLACEHOLDER/quando-nao-compensa**\n\nSe quiser uma avaliação personalizada:",
+    mensagem: `Veja o guia completo em:\n🔗 **${SITE_DOMAIN || ""}/quando-nao-compensa**\n\nSe quiser uma avaliação personalizada:`,
     opcoes: [
       { label: "Consultar viabilidade", proximo: "whatsapp_geral" },
     ]

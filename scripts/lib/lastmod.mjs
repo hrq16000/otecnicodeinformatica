@@ -9,6 +9,8 @@
  *  - formato ISO (YYYY-MM-DD).
  */
 export const LASTMOD = {
+  // Rodada 4K — nova página comercial de PC gamer (manutenção/upgrade)
+  "/servicos/pc-gamer": "2026-08-11",
   // Pillar do cluster de informática (Rodada 4I-P.2)
   "/guia-tecnico-informatica": "2026-08-09",
   "/problemas/notebook-nao-liga": "2026-08-09",

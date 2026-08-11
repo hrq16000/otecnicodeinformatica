@@ -60,6 +60,7 @@ export const SERVICOS = [
   "/servicos/backup-para-empresas",
   "/servicos/suporte-home-office",
   "/servicos/montagem-de-pc",
+  "/servicos/pc-gamer",
   "/servicos/conserto-tv",
   "/servicos/conserto-placa",
   "/servicos/conserto-monitor",

@@ -69,6 +69,7 @@ const CARDS = [
   { slug: "manutencao-de-notebook", icon: Laptop, blurb: "Aquecimento, tela, teclado, bateria e lentidão — com diagnóstico antes de informar o valor." },
   { slug: "manutencao-de-computador", icon: Cpu, blurb: "Desktop travando ou sem vídeo? Fonte, memória, armazenamento e placa-mãe avaliados." },
   { slug: "montagem-de-pc", icon: Wrench, blurb: "Peças novas ou já compradas: compatibilidade verificada, montagem e testes antes da entrega." },
+  { slug: "pc-gamer", icon: Cpu, blurb: "Queda de FPS, superaquecimento ou desligamento em jogo: medimos antes de indicar peça." },
   { slug: "upgrade-ssd-ram", icon: HardDrive, blurb: "Ganho real de desempenho com SSD e memória, respeitando a compatibilidade." },
   { slug: "remocao-de-virus", icon: ShieldCheck, blurb: "Pop-ups, lentidão e navegador sequestrado, com atenção aos seus dados." },
   { slug: "recuperacao-de-dados", icon: Database, blurb: "HD, SSD e pendrive: avaliação primeiro. Recuperação não é garantida." },

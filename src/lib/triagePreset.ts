@@ -22,6 +22,7 @@ const RULES: Rule[] = [
   { test: /^\/servicos\/conserto-tv/, equipment: "tv", source: "servico_tv" },
   { test: /^\/servicos\/conserto-monitor/, equipment: "pc", symptom: "tela-teclado-bateria", source: "servico_monitor" },
   { test: /^\/servicos\/conserto-placa/, equipment: "pc", symptom: "nao-liga-placa", source: "servico_placa" },
+  { test: /^\/servicos\/pc-gamer/, equipment: "pc", symptom: "trocar-componente", source: "servico_pc_gamer" },
   { test: /^\/servicos\/montagem-de-pc/, equipment: "pc", symptom: "trocar-componente", source: "servico_montagem" },
   { test: /^\/servicos\/(suporte-tecnico-empresarial|manutencao-preventiva-empresas|backup-para-empresas|suporte-home-office)/, equipment: "pc", source: "servico_pj" },
   { test: /^\/problemas\/notebook-nao-liga/, equipment: "pc", symptom: "nao-liga-placa", source: "problema_nao_liga" },

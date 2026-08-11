@@ -231,6 +231,18 @@ export const FICHAS_COMERCIAIS: Record<string, FichaComercial> = {
       "Garantia de 90 dias cobre a mão de obra do ponto reparado, não o aparelho inteiro.",
     ],
   }),
+  "pc-gamer": ficha(COLETA, {
+    incluso: [
+      "Diagnóstico em bancada com medição de temperatura e carga real.",
+      "Coleta e entrega dentro da área atendida.",
+      "Plano de prioridade do que resolve primeiro, informado por escrito.",
+    ],
+    limitacoes: [
+      "Não realizamos overclock nem modificação não oficial de firmware.",
+      "Não prometemos número de quadros por segundo nem percentual de ganho de desempenho.",
+      "Garantia de 90 dias cobre a mão de obra do serviço executado, não o conjunto inteiro.",
+    ],
+  }),
   "conserto-placa": ficha(COLETA, {
     incluso: [
       "Análise da placa em bancada, com medição e registro do que foi encontrado.",

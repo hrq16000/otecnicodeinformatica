@@ -319,7 +319,8 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
-      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
+      { label: "Montagem de PC", to: "/servicos/montagem-de-pc" },
+      { label: "Manutenção de PC gamer", to: "/servicos/pc-gamer" },
       { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
       { label: "Remoção de vírus", to: "/servicos/remocao-de-virus" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
@@ -441,7 +442,8 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Manutenção de notebook", to: "/servicos/manutencao-de-notebook" },
       { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
       { label: "Formatação", to: "/servicos/formatacao" },
-      { label: "Montagem de PC e PC Gamer", to: "/servicos/montagem-de-pc" },
+      { label: "Montagem de PC", to: "/servicos/montagem-de-pc" },
+      { label: "Manutenção de PC gamer", to: "/servicos/pc-gamer" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },
       { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
       ...LINKS_BASE,
@@ -1829,7 +1831,125 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
     ],
     dateModified: "2026-08-07",
   },
+
+  // 16 ────────────────────────────────────────────────────────
+  // PC GAMER — manutenção, upgrade e desempenho de máquina JÁ EXISTENTE.
+  // Não canibaliza /servicos/montagem-de-pc (montar máquina nova): aqui a
+  // intenção é "meu PC gamer caiu de desempenho / esquenta / trava".
+  "pc-gamer": {
+    path: "pc-gamer",
+    trackingKey: "pc-gamer",
+    metaTitle: "Manutenção de PC Gamer em Curitiba | Desempenho e Upgrade",
+    metaDescription:
+      "Manutenção de PC gamer em Curitiba: queda de FPS, travamento, superaquecimento e desligamento em jogo. Medição de temperatura, revisão de fonte e upgrade avaliado antes.",
+    serviceName: "Manutenção e Upgrade de PC Gamer",
+    serviceDescription:
+      "Diagnóstico de desempenho, temperatura e estabilidade em computadores gamer, com limpeza, revisão térmica, avaliação de fonte e upgrade de componentes em Curitiba e região.",
+    eyebrow: "PC Gamer em Curitiba",
+    h1: "Manutenção de PC gamer em Curitiba",
+    h1Accent: "quando o desempenho caiu e ninguém sabe o motivo",
+    intro:
+      "O jogo que rodava liso começou a engasgar, a placa de vídeo esquenta, o PC desliga no meio da partida ou o cooler vira turbina. Antes de comprar peça, medimos o que está acontecendo em carga real: temperatura de processador e placa de vídeo, comportamento da fonte, saúde do armazenamento e o que o sistema está consumindo por trás. Só depois dizemos se o caso é limpeza e revisão térmica, ajuste de configuração, troca de fonte ou upgrade — e quanto cada caminho custa. Se você ainda vai montar a máquina, o serviço é outro: montagem de PC.",
+    whatsappMessage: "Olá! Meu PC gamer está com queda de desempenho/esquentando. Pode avaliar?",
+    incluso: [
+      { title: "Medição em carga real", desc: "Temperatura e uso de processador, placa de vídeo e memória com o jogo rodando, não só em teste sintético." },
+      { title: "Revisão térmica completa", desc: "Limpeza interna, troca de pasta térmica e conferência das almofadas térmicas quando o modelo permite." },
+      { title: "Avaliação da fonte", desc: "Verificamos se a fonte suporta o conjunto atual — desligamento em jogo costuma nascer aí." },
+      { title: "Fluxo de ar do gabinete", desc: "Sentido das ventoinhas, filtros e obstruções revisados, porque refrigeração é projeto, não quantidade de cooler." },
+      { title: "Saúde do armazenamento", desc: "Leitura do estado do SSD/HD, que explica travamento com carregamento longo e engasgo em mundo aberto." },
+      { title: "Plano de upgrade priorizado", desc: "O que troca primeiro, o que pode esperar e o que não vale a pena trocar na sua plataforma." },
+    ],
+    sinais: [
+      "Queda de quadros por segundo em jogos que antes rodavam bem",
+      "PC desligando ou reiniciando sozinho durante a partida",
+      "Placa de vídeo ou processador chegando a temperaturas altas em carga",
+      "Ventoinhas em rotação máxima e ruído constante",
+      "Travamento com tela congelada, artefatos ou perda de vídeo",
+      "Carregamento demorado e engasgo em jogos de mundo aberto",
+      "Máquina montada há anos, sem limpeza ou revisão térmica",
+      "Dúvida sobre qual peça trocar primeiro sem desperdiçar dinheiro",
+    ],
+    processo: PROCESSOS["pc-gamer"],
+    fatoresValor: [
+      { title: "Complexidade da desmontagem", desc: "Gabinete compacto, refrigeração líquida e cable management fechado exigem mais tempo." },
+      { title: "Tipo de revisão térmica", desc: "Troca de pasta simples é diferente de revisão completa de almofadas térmicas da placa de vídeo." },
+      { title: "Peças envolvidas", desc: "Fonte, ventoinhas, armazenamento ou memória entram como item à parte, sempre aprovado antes." },
+      { title: "Profundidade do diagnóstico", desc: "Instabilidade intermitente exige teste prolongado, com acompanhamento em ciclos." },
+      { title: "Estado do equipamento", desc: "Poeira acumulada por anos, oxidação ou reparo anterior mal feito somam etapas." },
+      { title: "Rota de atendimento", desc: "Coleta e entrega ou avaliação no endereço mudam a logística do serviço." },
+    ],
+    atendimento: {
+      residencial:
+        "Avaliação do PC gamer com coleta e entrega em Curitiba e região, com medição de temperatura, revisão térmica e plano de upgrade explicado em linguagem direta.",
+      empresarial:
+        "Máquinas de alto desempenho usadas em edição, renderização, CAD e streaming recebem o mesmo protocolo de medição, com foco em estabilidade e continuidade de trabalho.",
+    },
+    faqs: [
+      { question: "Trocar a placa de vídeo resolve a queda de FPS?", answer: "Nem sempre. Queda de desempenho em máquina que já rodava bem costuma vir de temperatura alta, fonte no limite ou armazenamento saturado. Medimos antes: comprar placa nova para um gargalo que não é a placa é o desperdício mais comum nesse tipo de atendimento." },
+      { question: "Meu PC desliga sozinho quando o jogo pesa. O que é?", answer: "O padrão clássico é fonte que não sustenta o pico de consumo, mas superaquecimento e proteção térmica também desligam a máquina. Verificamos consumo, temperatura e comportamento em carga antes de indicar troca de qualquer peça." },
+      { question: "Vale a pena fazer upgrade ou é melhor montar outro PC?", answer: "Depende da plataforma. Placa-mãe e processador ainda atuais costumam render bem com fonte adequada, mais memória e SSD. Plataforma obsoleta transforma o upgrade em gasto encadeado, e nesse caso dizemos com clareza que montar outra máquina rende mais." },
+      { question: "Qual temperatura é considerada alta em jogo?", answer: "Cada modelo tem seu limite de projeto, então não trabalhamos com número único. O que avaliamos é o comportamento: temperatura subindo até a redução automática de desempenho, ventoinha travada no máximo e queda de frequência em carga indicam refrigeração saturada." },
+      { question: "Vocês fazem overclock?", answer: "Não realizamos overclock nem modificação não oficial de firmware. Trabalhamos com o perfil oficialmente suportado pelo fabricante, porque estabilidade em jogo vale mais que ganho marginal com risco de instabilidade." },
+      { question: "A limpeza e a troca de pasta térmica fazem diferença real?", answer: "Em máquina com anos de uso, faz. Dissipador saturado e pasta ressecada elevam a temperatura, e a máquina reduz o desempenho sozinha para se proteger. Isso aparece como queda de quadros mesmo sem nenhuma mudança de configuração." },
+      { question: "Posso levar peças que já comprei?", answer: "Sim, com conferência de compatibilidade antes e registro do estado no recebimento. A garantia da peça segue com o fornecedor; a nossa cobre a mão de obra do serviço executado, conforme as condições publicadas." },
+      { question: "Vocês garantem quantos quadros por segundo eu vou ganhar?", answer: "Não. Nenhuma promessa de número de quadros por segundo ou de percentual de ganho é feita: o resultado depende do jogo, da resolução, das configurações e do restante do conjunto. Mostramos as medições antes e depois do serviço." },
+      { question: "O serviço é feito em casa ou em bancada?", answer: "Revisão térmica, teste prolongado e substituição de componentes são feitos em bancada, com coleta e entrega dentro da área atendida. Ajustes simples de configuração podem ser resolvidos remotamente." },
+      { question: "Quanto tempo demora?", answer: "Depende da profundidade do diagnóstico. Instabilidade intermitente exige teste prolongado, então o prazo só é confirmado por escrito depois da avaliação em bancada — sem promessa antes disso." },
+    ],
+    relacionados: [
+      { label: "Montagem de PC (máquina nova)", to: "/servicos/montagem-de-pc" },
+      { label: "Manutenção de computador", to: "/servicos/manutencao-de-computador" },
+      { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" },
+      { label: "Reparo de placa eletrônica", to: "/servicos/conserto-placa" },
+      { label: "Conserto de monitor", to: "/servicos/conserto-monitor" },
+      { label: "Computador lento: investigar o sintoma", to: "/problemas/computador-lento" },
+      { label: "Quando não compensa reparar", to: "/quando-nao-compensa" },
+      ...LINKS_BASE,
+    ],
+    blocoLocal: [
+      {
+        titulo: "Queda de desempenho quase nunca começa na placa de vídeo",
+        paragrafos: [
+          "A sequência que mais aparece na bancada é sempre a mesma: a máquina rodava bem, passou a engasgar, e a primeira ideia é trocar a placa de vídeo. Quando medimos, o gargalo costuma estar em outro lugar — temperatura em carga que obriga o hardware a reduzir a própria frequência, fonte que não sustenta o pico de consumo, armazenamento no fim da vida ou sistema disputado por processos em segundo plano.",
+          "Reduzir a frequência para se proteger do calor é comportamento normal de projeto, não defeito. O problema é o motivo: dissipador saturado de poeira, pasta térmica ressecada, almofadas térmicas endurecidas na placa de vídeo, ventoinha travada ou fluxo de ar do gabinete empurrando ar quente de volta para dentro. Nesses casos, revisão térmica devolve desempenho sem trocar nenhuma peça cara.",
+          "Só depois de eliminar temperatura, energia e software é que a conversa sobre peça nova faz sentido. Com a medição na mesa, a decisão deixa de ser palpite: você vê o que está limitando a máquina e escolhe onde colocar o dinheiro.",
+        ],
+      },
+      {
+        titulo: "Fonte, energia e desligamento no meio da partida",
+        paragrafos: [
+          "Desligar do nada em jogo pesado, e não em uso comum, é assinatura de limite de energia. Conjunto atualizado ao longo do tempo — placa de vídeo mais forte, mais ventoinhas, mais armazenamento — sobre uma fonte dimensionada para a máquina antiga é o cenário típico. A máquina liga, trabalha bem em tarefas leves e cai exatamente quando o consumo sobe.",
+          "Avaliamos a fonte pelo conjunto real instalado, pelos conectores exigidos pela placa de vídeo e pelo comportamento sob carga. Também conferimos a rede elétrica do local: régua sobrecarregada, extensão inadequada e oscilação da instalação produzem exatamente o mesmo sintoma e não se resolvem trocando componente.",
+          "Quando a troca de fonte é indicada, ela vem com a justificativa do porquê, o modelo compatível e o valor aprovado antes da execução. Fonte não é item para economizar: é a peça que sustenta todas as outras.",
+        ],
+      },
+      {
+        titulo: "Manutenção de PC gamer não é a mesma coisa que montagem",
+        paragrafos: [
+          "Esta página trata de máquina que já existe e perdeu desempenho, esquenta, trava ou desliga. O trabalho é de diagnóstico: medir, isolar a causa e priorizar o que resolve primeiro.",
+          "Montar um computador do zero é outro serviço, com etapas próprias de compatibilidade, compra de peças, montagem, configuração de BIOS/UEFI e testes de entrega. Se o seu caso é escolher e montar uma máquina nova, a página de montagem de PC cobre esse fluxo por inteiro.",
+          "Os dois caminhos podem se encontrar: uma avaliação que conclui que a plataforma chegou ao limite vira uma conversa de montagem, com aproveitamento do que ainda serve — gabinete, armazenamento, fonte adequada e periféricos. O que não fazemos é empurrar máquina nova antes de medir.",
+        ],
+      },
+      {
+        titulo: "O que esta página não cobre",
+        paragrafos: [
+          "Não prometemos número de quadros por segundo, percentual de ganho nem resultado em jogo específico: qualquer promessa desse tipo seria chute, porque depende de jogo, resolução, configuração e do restante do conjunto.",
+          "Não fazemos overclock nem modificação não oficial de firmware, e não instalamos software pirata para 'otimizar' desempenho. Ganho obtido às custas de estabilidade não é ganho.",
+          "Reparo em nível de componente na placa de vídeo ou na placa-mãe, com retrabalho de BGA, é tratado na página de reparo de placa eletrônica. Notebook gamer tem desmontagem e refrigeração próprias e é atendido na página de manutenção de notebook.",
+        ],
+      },
+    ],
+    linksLocais: [
+      { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+      { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
+      { label: "Equipamentos atendidos", to: "/equipamentos-atendidos" },
+      { label: "Preços e políticas", to: "/precos-e-politicas" },
+    ],
+    dateModified: "2026-08-11",
+  },
 };
+
 
 /** Ordem canônica exibida no hub /servicos. */
 export const SERVICOS_CORE_ORDER = [
@@ -1837,6 +1957,7 @@ export const SERVICOS_CORE_ORDER = [
   "manutencao-de-notebook",
   "manutencao-de-computador",
   "montagem-de-pc",
+  "pc-gamer",
   "upgrade-ssd-ram",
   "remocao-de-virus",
   "recuperacao-de-dados",

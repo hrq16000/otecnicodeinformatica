@@ -1,3 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/formatacao</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/manutencao-de-notebook</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/manutencao-de-computador</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-ram</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/remocao-de-virus</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/recuperacao-de-dados</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/redes-e-wifi</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/suporte-tecnico-empresarial</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/manutencao-preventiva-empresas</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/backup-para-empresas</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/suporte-home-office</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/montagem-de-pc</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/conserto-tv</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/conserto-placa</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/conserto-monitor</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/formatacao-computador/cic</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/formatacao-computador/batel</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/formatacao-computador/agua-verde</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/remocao-virus/cic</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/remocao-virus/agua-verde</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/centro</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/agua-verde</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/cic</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/centro</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/agua-verde</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/portao</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -204,37 +205,6 @@ export default function AssistenciaTecnicaCuritiba() {
     return () => io.disconnect();
   }, []);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba#localbusiness",
-    name: "Preciso de um Técnico — Assistência Técnica Especializada",
-    description:
-      "Assistência técnica especializada em Curitiba: consoles, placas de vídeo, computadores, notebooks e smartphones.",
-    areaServed: [
-      { "@type": "City", name: "Curitiba", "@id": "https://www.wikidata.org/wiki/Q40269" },
-      { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
-    ],
-    serviceArea: { "@type": "City", name: "Curitiba" },
-    telephone: "+5541997086380",
-    url: "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
-    image: "https://tecnico.curitiba.br/favicon.png",
-    priceRange: "$$",
-    // aggregateRating removido: só deve ser emitido com reviews reais (ver
-    // DynamicAggregateRating + edge function aggregate-rating, MIN_REVIEWS=5).
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      telephone: "+5541997086380",
-      availableLanguage: ["Portuguese"],
-      areaServed: "BR-PR",
-    },
-  };
-
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("[LocalBusiness JSON-LD /assistencia-tecnica-curitiba]", jsonLd);
-  }, []);
 
   // Automated tracking check: confirm whatsapp_click events reach gtag with utm_*/gclid.
   // If a CTA is clicked and no gtag('event','cta_click') fires within 600ms, console.error.
@@ -340,7 +310,11 @@ export default function AssistenciaTecnicaCuritiba() {
           { name: "Assistência Técnica Curitiba", path: "/assistencia-tecnica-curitiba" },
         ]}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LocalBusinessJsonLd
+        path="/assistencia-tecnica-curitiba"
+        name="Preciso de um Técnico — Assistência Técnica Especializada"
+        description="Assistência técnica especializada em Curitiba: consoles, placas de vídeo, computadores, notebooks e smartphones."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {servicesJsonLd.map((svc, i) => (
         <script

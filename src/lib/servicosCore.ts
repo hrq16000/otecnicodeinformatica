@@ -549,7 +549,14 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { question: "Meu navegador foi 'sequestrado', dá para resolver?", answer: "Sim. Removemos extensões e redirecionamentos maliciosos e reconfiguramos o navegador com segurança." },
       { question: "Como evitar pegar vírus de novo?", answer: "Orientamos sobre antivírus, atualizações, downloads seguros e cuidado com anexos e links. A prevenção faz parte do atendimento." },
       { question: "Recebi um aviso pedindo pagamento, é golpe?", answer: "Avisos que pedem pagamento ou ligação urgente costumam ser golpe. Não pague nem ligue: avaliamos o equipamento e orientamos com segurança." },
+      { question: "Meus arquivos ficaram com extensão estranha e não abrem. É vírus?", answer: "Esse é o sinal clássico de ransomware, que criptografa os arquivos. Não renomeie nem tente abrir com outro programa: isso pode danificar o que ainda seria recuperável. Desligue o equipamento da rede e encaminhe para avaliação — verificamos a família da infecção e se existe ferramenta legítima de decriptação. Quando não existe, dizemos isso claramente." },
+      { question: "Antivírus pago resolve sozinho?", answer: "Ajuda, mas não substitui diagnóstico. Boa parte das infecções que atendemos chegou por instalação autorizada pelo próprio usuário — programa pirata, instalador baixado de anúncio ou extensão de navegador. Nesses casos o antivírus é ignorado porque a permissão foi dada." },
+      { question: "Dá para remover vírus por atendimento remoto?", answer: "Em muitos casos sim, quando a máquina liga, conecta e ainda permite instalar as ferramentas de análise. Quando o sistema não inicia, bloqueia a rede ou exibe tela de bloqueio, o atendimento precisa ser em bancada." },
+      { question: "Preciso trocar minhas senhas depois da limpeza?", answer: "Sim, e por outro aparelho enquanto a máquina ainda estiver infectada. Comece pelo e-mail principal, que é a chave de recuperação de todas as outras contas, e depois banco, redes sociais e serviços de trabalho. Ativar verificação em duas etapas fecha a maior parte das brechas." },
+      { question: "Vocês removem vírus de celular?", answer: "Nosso escopo é computador, notebook e equipamentos de informática. Em celulares orientamos os primeiros passos, mas não executamos o serviço." },
+      { question: "Quanto tempo leva a remoção?", answer: "Depende do tipo de infecção e do volume de dados a preservar. Casos de adware e sequestro de navegador costumam ser rápidos; sistemas comprometidos que exigem backup e reinstalação levam mais tempo. O prazo é informado junto com o valor, antes da execução." },
     ],
+
     relacionados: [
       { label: "Formatação", to: "/servicos/formatacao" },
       { label: "Recuperação de dados", to: "/servicos/recuperacao-de-dados" },

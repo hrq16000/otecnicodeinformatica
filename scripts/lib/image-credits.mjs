@@ -1,3 +1,4 @@
+import { BASE_URL } from "./site-env.mjs";
 /**
  * Espelho MJS de src/lib/imageCredits.ts — usado pelo prerender e pelos gates.
  * Mantenha os dois arquivos em sincronia (o gate check:image-credits valida
@@ -21,7 +22,7 @@ export const LICENSE_SOURCES = {
     host: "",
     provider: "O Técnico de Informática",
     license: "Acervo próprio — uso autorizado",
-    licenseUrl: "https://tecnico.curitiba.br/termos-e-condicoes",
+    licenseUrl: `${BASE_URL}/termos-e-condicoes`,
   },
 };
 
@@ -66,7 +67,7 @@ export function creditFor(src) {
     creditText: "Foto: acervo O Técnico de Informática",
     license: s.license,
     licenseUrl: s.licenseUrl,
-    sourceUrl: "https://tecnico.curitiba.br/sobre",
+    sourceUrl: `${BASE_URL}/sobre`,
     provider: s.provider,
   };
 }

@@ -1,3 +1,4 @@
+import { WHATSAPP_NUMBER } from "./site-env.mjs";
 import { clamp, DESC_MAX, TITLE_MAX } from "./seo-meta.mjs";
 
 /**
@@ -248,7 +249,7 @@ export function categoryLocalJsonLd(cat, local, site) {
           "@id": `${site}/#localbusiness`,
           name: "O Técnico de Informática",
           url: site,
-          telephone: "+5541997086380",
+          ...(WHATSAPP_NUMBER ? { telephone: `+${WHATSAPP_NUMBER}` } : {}),
           address: {
             "@type": "PostalAddress",
             addressLocality: "Curitiba",
@@ -428,7 +429,7 @@ export function localBusinessNode(cat, local, site) {
     url,
     image: coverDe(cat).url,
     logo: `${site}/logo.png`,
-    telephone: "+5541997086380",
+    ...(WHATSAPP_NUMBER ? { telephone: `+${WHATSAPP_NUMBER}` } : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Curitiba",

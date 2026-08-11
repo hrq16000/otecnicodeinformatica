@@ -62,7 +62,7 @@ function editorialInboundHtml(path) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Conteúdo relacionado</h2><ul style="line-height:1.9;padding-left:20px">${li}</ul>`;
 }
 
-import { BASE_URL } from "./lib/site-env.mjs";
+import { BASE_URL, WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 
 // Fail-closed: sem VITE_SITE_DOMAIN, URLs relativas (nunca o domínio herdado).
 export const SITE = BASE_URL;
@@ -72,9 +72,10 @@ export const SITE = BASE_URL;
 export const SITE_CONFIG = {
   brandName: "O Técnico de Informática",
   legalName: "O Técnico de Informática — Assistência Técnica em Informática",
-  foundedYear: "1998",
-  phoneE164: "+5541997086380",
-  whatsappNumber: "5541997086380",
+  // Fail-closed: sem VITE_BRAND_FOUNDED_YEAR/VITE_WHATSAPP_NUMBER nada é emitido.
+  foundedYear: (process.env.VITE_BRAND_FOUNDED_YEAR || "").trim(),
+  phoneE164: WHATSAPP_NUMBER ? `+${WHATSAPP_NUMBER}` : "",
+  whatsappNumber: WHATSAPP_NUMBER,
   primaryCity: "Curitiba",
   region: "PR",
   country: "BR",
@@ -863,10 +864,10 @@ function localBusiness(path, { name, description, areaServed } = {}) {
     parentOrganization: { "@id": `${SITE}/#organization` },
     name: name ?? NAP.name,
     legalName: NAP.legalName,
-    foundingDate: SITE_CONFIG.foundedYear,
+    ...(SITE_CONFIG.foundedYear ? { foundingDate: SITE_CONFIG.foundedYear } : {}),
     url,
     address: NAP.address,
-    telephone: NAP.telephone,
+    ...(NAP.telephone ? { telephone: NAP.telephone } : {}),
     email: NAP.email,
     areaServed: (areaServed ?? SITE_CONFIG.serviceArea).map((n) => ({ "@type": "City", name: n })),
     openingHoursSpecification: OPENING_HOURS,
@@ -885,13 +886,13 @@ function organization() {
     "@type": "Organization",
     "@id": `${SITE}/#organization`,
     name: SITE_CONFIG.brandName,
-    alternateName: ["O Técnico de Informática", "Técnico de Informática Curitiba"],
+
     legalName: SITE_CONFIG.legalName,
     url: `${SITE}/`,
     logo: `${SITE}/logo.png`,
     email: SITE_CONFIG.email,
-    telephone: SITE_CONFIG.phoneE164,
-    foundingDate: SITE_CONFIG.foundedYear,
+    ...(SITE_CONFIG.phoneE164 ? { telephone: SITE_CONFIG.phoneE164 } : {}),
+    ...(SITE_CONFIG.foundedYear ? { foundingDate: SITE_CONFIG.foundedYear } : {}),
     areaServed: SITE_CONFIG.serviceArea.map((name) => ({ "@type": "City", name })),
     contactPoint: {
       "@type": "ContactPoint",

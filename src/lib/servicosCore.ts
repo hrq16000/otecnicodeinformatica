@@ -609,7 +609,6 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
       { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
-
     ],
     dateModified: "2026-08-05",
   },

@@ -13,6 +13,7 @@ import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
 import { TrustStrip } from "@/components/TrustStrip";
 import { EditorialCallout } from "@/components/servico/EditorialCallout";
 import { InlineTriageCTA } from "@/components/servico/InlineTriageCTA";
+import { MobileServicoFunnelBar } from "@/components/servico/MobileServicoFunnelBar";
 import type { ServicoCaixa } from "@/lib/servicoVisual3q";
 import {
   EMPRESARIAL_SERVICO_HERO,
@@ -132,6 +133,18 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
     });
   };
 
+  /**
+   * Etapas exibidas na barra mobile: usa o processo real do serviço
+   * (títulos curtos) e cai no padrão de 4 etapas do portal quando a
+   * página declara menos de quatro passos.
+   */
+  const etapasFunil = (() => {
+    const doServico = data.processo.map((p) => p.title.split(" ").slice(0, 2).join(" "));
+    return doServico.length >= 4
+      ? doServico.slice(0, 4)
+      : ["Triagem", "Diagnóstico", "Aprovação", "Execução"];
+  })();
+
   // Rodada 3Q — caixas editoriais contextuais (no máximo três por página).
   const caixas = (data.caixas ?? []).slice(0, 3);
   const caixasBlock =
@@ -151,7 +164,7 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
     ) : null;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-24 md:pb-0">
       <PageSEO
         title={data.metaTitle}
         description={data.metaDescription}
@@ -548,6 +561,15 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       <InterlinkingBlock />
       </main>
       <Footer />
+      {/* Conversão mobile: CTA fixo com a mensagem de funil do próprio serviço */}
+      <MobileServicoFunnelBar
+        href={waHref}
+        servicoLabel={data.serviceName}
+        etapas={etapasFunil}
+        ctaLabel={isEmpresarial ? heroB2B.ctaPrimario : "Iniciar atendimento"}
+        location={`${data.trackingKey}_mobile_sticky`}
+        onClick={handleCtaAt("mobile_sticky")}
+      />
     </div>
   );
 };

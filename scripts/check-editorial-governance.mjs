@@ -14,6 +14,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { promises as fs } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import path from "node:path";
 import { getBlogPosts } from "./prerender-cities.mjs";
 import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/editorial-wave.mjs";
@@ -170,7 +171,7 @@ async function checkStaticHtml(posts) {
       if (!h.includes(`content="${SITE}${wave.cover}`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
       if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
       if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
-      if (!/wa\.me\/5541997086380/.test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
+      if (!new RegExp(`wa\\.me/${WHATSAPP_NUMBER}`).test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
     }
 
 

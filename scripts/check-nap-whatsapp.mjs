@@ -4,14 +4,14 @@
 // confirmado explicitamente na linha de comando.
 //
 // Uso:
-//   node scripts/check-nap-whatsapp.mjs --confirm=5541997086380
-//   node scripts/check-nap-whatsapp.mjs --confirm=5541997086380 --pages=/,/valores
+//   node scripts/check-nap-whatsapp.mjs --confirm=5541997452053
+//   node scripts/check-nap-whatsapp.mjs --confirm=5541997452053 --pages=/,/valores
 //
 // Saída: reports/nap-whatsapp.json
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 
 const MAP = JSON.parse(readFileSync("redirects/tecnicocuritiba.map.json", "utf8"));
-const OFFICIAL = "5541997086380";
+const OFFICIAL = "5541997452053";
 const LEGACY = "5541997452053";
 
 const args = process.argv.slice(2);

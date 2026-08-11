@@ -14,10 +14,11 @@
  * Uso: node scripts/check-jsonld-content-parity.mjs [dist]
  */
 import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import path from "node:path";
 
 const DIST = path.resolve(process.argv[2] || "dist");
-const OFFICIAL_PHONE = "+5541997086380";
+const OFFICIAL_PHONE = `+${WHATSAPP_NUMBER}`;
 
 if (!existsSync(DIST)) {
   console.error(`BLOQUEADO: ${DIST} não existe — rode "npm run build" antes.`);

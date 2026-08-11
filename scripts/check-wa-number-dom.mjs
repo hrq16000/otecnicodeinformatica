@@ -11,11 +11,12 @@
  * Uso: node scripts/check-wa-number-dom.mjs [dist]
  */
 import { readdirSync, readFileSync, statSync } from "node:fs";
+import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
 import { join, extname } from "node:path";
 
 const DIR = process.argv[2] || "dist";
-const DIGITS = "5541997086380";
-const LOCAL = "41997086380";
+const DIGITS = WHATSAPP_NUMBER;
+const LOCAL = WHATSAPP_NUMBER.replace(/^55/, "");
 
 const files = [];
 const walk = (p) => {

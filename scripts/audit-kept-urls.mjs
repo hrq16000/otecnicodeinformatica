@@ -5,7 +5,7 @@
 //
 // Uso:
 //   node scripts/audit-kept-urls.mjs
-//   node scripts/audit-kept-urls.mjs --confirm=5541997086380   # exige nº oficial presente
+//   node scripts/audit-kept-urls.mjs --confirm=5541997452053   # exige nº oficial presente
 //
 // Saídas: reports/kept-urls-audit.json · reports/kept-urls-audit.md
 import { writeFileSync, mkdirSync } from "node:fs";

@@ -83,6 +83,6 @@ export const IMAGES = {
   microscopioAlt: "Microscópio trinocular profissional para microsoldagem de componentes",
 
   // Amplificador / receiver / som
-  amplificadorSom: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=70",
+  amplificadorSom: "https://images.unsplash.com/photo-1601944177325-f8867652837f?auto=format&fit=crop&w=600&q=70",
   amplificadorSomAlt: "Amplificador de áudio aberto para reparo de componentes eletrônicos",
 } as const;

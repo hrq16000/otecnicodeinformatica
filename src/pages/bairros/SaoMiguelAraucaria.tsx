@@ -4,7 +4,7 @@ const data = {
   nome: "São Miguel",
   slug: "sao-miguel-araucaria",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no São Miguel | Araucária | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no São Miguel | Araucária | O Técnico de Informática",
   metaDescription: "Técnico de informática no São Miguel, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no São Miguel – Araucária",
   subtitulo: "Atendimento profissional a domicílio no São Miguel. Diagnóstico, reparo e suporte técnico com garantia.",

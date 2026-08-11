@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Remoção de Vírus em São José dos Pinhais | Técnico Especializado | Técnico Curitiba",
+  metaTitle: "Remoção de Vírus em São José dos Pinhais | Técnico Especializado | O Técnico de Informática",
   metaDescription: "Remoção de vírus, malware e ransomware em São José dos Pinhais. Limpeza completa, proteção avançada e atendimento domiciliar. A partir de R$ 89,99.",
   
   servico: "Remoção de Vírus",

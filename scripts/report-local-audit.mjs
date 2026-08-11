@@ -153,7 +153,7 @@ const checklists = pages
 
 const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Auditoria local — Técnico em Curitiba</title>
+<title>Auditoria local — O Técnico de Informática</title>
 <style>
 :root{--bg:#0f1720;--card:#16212c;--fg:#e8eef4;--mut:#9fb3c4;--ok:#16a34a;--bad:#dc2626;--acc:#12a6cf}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 system-ui,Arial,sans-serif}

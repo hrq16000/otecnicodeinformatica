@@ -63,12 +63,12 @@ const PoliticaCookiesAnuncios = () => {
   return (
     <>
       <Helmet>
-        <title>Política de Cookies e Anúncios | Técnico em Curitiba</title>
+        <title>Política de Cookies e Anúncios | O Técnico de Informática</title>
         <meta
           name="description"
           content={`Como o ${BRAND_NAME} usa cookies de análise e anúncios, como recusar, como gerenciar preferências e o que é registrado sem cookies.`}
         />
-        <meta property="og:title" content="Política de Cookies e Anúncios | Técnico em Curitiba" />
+        <meta property="og:title" content="Política de Cookies e Anúncios | O Técnico de Informática" />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="article" />
         <meta name="robots" content="index, follow" />

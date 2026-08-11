@@ -4,7 +4,7 @@ const data = {
   nome: "Campo do Tenente",
   slug: "campo-tenente-at",
   cidade: "Almirante Tamandaré",
-  metaTitle: "Técnico de Informática no Campo do Tenente | Almirante Tamandaré | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Campo do Tenente | Almirante Tamandaré | O Técnico de Informática",
   metaDescription: "Técnico de informática no Campo do Tenente, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Campo do Tenente – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Campo do Tenente. Diagnóstico, reparo e suporte técnico com garantia.",

@@ -47,7 +47,7 @@ const Sobre = () => {
     trackPageView("/sobre", "Sobre");
   }, []);
 
-  const waHref = whatsappLink("Olá! Quero saber mais sobre o atendimento do Técnico em Curitiba.");
+  const waHref = whatsappLink("Olá! Quero saber mais sobre o atendimento do Técnico de Informática.");
 
   const orgSchema = buildOrganizationSchema();
 
@@ -58,8 +58,8 @@ const Sobre = () => {
 
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Sobre o Técnico em Curitiba | PC, Notebook e Redes"
-        description="Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
+        title="Sobre O Técnico de Informática | PC, Notebook e Redes"
+        description="Conheça O Técnico de Informática: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente."
         path="/sobre"
         breadcrumbs={[{ name: "Início", path: "/" }, { name: "Sobre", path: "/sobre" }]}
       />
@@ -77,7 +77,7 @@ const Sobre = () => {
                 Diagnóstico honesto, valor transparente
               </span>
               <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
-                Sobre o <span className="text-accent">Técnico em Curitiba</span>
+                Sobre o <span className="text-accent">O Técnico de Informática</span>
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
                 Assistência técnica em informática com foco em resolver o problema do cliente, sem termos
@@ -94,7 +94,7 @@ const Sobre = () => {
               <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">Quem somos</h2>
               <div className="mt-4 space-y-4 text-muted-foreground">
                 <p>
-                  O <strong className="text-foreground">Técnico em Curitiba</strong> é um serviço de assistência
+                  O <strong className="text-foreground">O Técnico de Informática</strong> é um serviço de assistência
                   técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e
                   região metropolitana. A proposta é simples: você fala direto com quem entende do problema,
                   entende o que está acontecendo com o equipamento e decide com clareza.
@@ -191,9 +191,8 @@ const Sobre = () => {
               Experiência acumulada e limites do escopo
             </h2>
             <p>
-              A atuação em informática vem desde 1998, período em que o equipamento do dia a dia deixou de ser o
-              desktop de escritório e passou a incluir notebooks finos, armazenamento em estado sólido, redes
-              domésticas com vários dispositivos e home office. Essa continuidade importa por um motivo prático:
+              O escopo do dia a dia cobre notebooks finos, desktops, armazenamento em estado sólido, redes
+              domésticas com vários dispositivos e ambientes de home office. Isso importa por um motivo prático:
               boa parte do diagnóstico rápido vem de já ter visto o mesmo padrão de falha antes, em modelos e
               gerações diferentes.
             </p>

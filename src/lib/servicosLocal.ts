@@ -16,7 +16,7 @@ export interface ServicoLocalData {
 
 // Regiões âncora reutilizadas (bairros indexáveis + cidades da RMC).
 const REGIOES = [
-  { label: "Técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
+  { label: "O Técnico de Informática", to: "/tecnico-informatica-curitiba" },
   { label: "Empresa de TI em Curitiba", to: "/empresa-de-ti-curitiba" },
   { label: "Técnico no Batel", to: "/bairros/batel" },
   { label: "Técnico no CIC", to: "/bairros/cic" },

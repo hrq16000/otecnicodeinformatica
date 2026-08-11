@@ -138,7 +138,7 @@ O atendimento a domicílio está disponível no mesmo dia para a maioria das reg
 
   {
     slug: "computador-liga-e-desliga-curitiba",
-    title: "Computador Liga e Desliga Sozinho | Técnico Curitiba",
+    title: "Computador Liga e Desliga Sozinho | O Técnico de Informática",
     metaDescription: "Computador ligando e desligando sozinho em Curitiba? Veja causas, riscos e solução profissional. Diagnóstico no mesmo dia.",
     h1: "Computador Liga e Desliga Sozinho em Curitiba — O Que Está Acontecendo?",
     categoria: "Problemas de Computador",
@@ -814,7 +814,7 @@ Na maioria dos casos, a solução é limpeza interna + troca de pasta térmica �
 
   {
     slug: "notebook-desligando-sozinho-curitiba",
-    title: "Notebook Desligando Sozinho | Técnico Curitiba",
+    title: "Notebook Desligando Sozinho | O Técnico de Informática",
     metaDescription: "Notebook desligando sozinho? Superaquecimento, bateria ou placa-mãe. Diagnóstico profissional em Curitiba.",
     h1: "Notebook Desligando Sozinho em Curitiba — Causas e Solução",
     categoria: "Notebook",
@@ -1281,7 +1281,7 @@ Recebemos semanalmente casos de upgrade de RAM mal executado na região de Curit
 
 Se você está em dúvida sobre qual RAM comprar para seu computador em Curitiba, entre em contato antes de comprar. Uma consultoria rápida pode evitar uma compra errada e um reparo desnecessário.` },
 
-  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | Técnico Curitiba", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)
+  { slug: "upgrade-deu-problema", title: "Upgrade Deu Problema | O Técnico de Informática", metaDescription: "Fez upgrade e deu problema? SSD, RAM ou outro componente não funciona? Diagnóstico em Curitiba.", h1: "Upgrade Deu Problema — Como Resolver?", categoria: "Erros e Casos Reais", intro: `Upgrades de hardware são a forma mais eficiente de melhorar o desempenho de um computador. Mas quando feitos sem conhecimento técnico adequado, podem causar problemas sérios: computador que não liga, instabilidade, perda de dados ou até dano permanente. Atendemos dezenas de casos por mês de upgrades mal executados em Curitiba.`, sintomas: [{ titulo: "Não liga após upgrade", desc: "Peça incompatível ou mal instalada.", gravidade: "Simples a médio" }, { titulo: "Instabilidade após upgrade", desc: "Trava, tela azul ou reinicia. Compatibilidade ou instalação.", gravidade: "Simples a médio" }, { titulo: "Performance não melhorou", desc: "Upgrade errado para o gargalo real.", gravidade: "Simples" }], causas: [{ titulo: "Incompatibilidade de componentes", desc: "Peça que não funciona com o hardware existente.", tipo: "erro-humano" }, { titulo: "Instalação incorreta", desc: "Componente mal encaixado, cabo errado, sem pasta térmica.", tipo: "erro-humano" }, { titulo: "BIOS não configurada", desc: "Alguns upgrades exigem ajustes na BIOS para funcionar.", tipo: "erro-humano" }, { titulo: "Componente com defeito de fábrica", desc: "Peça nova já com defeito — acontece.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Reconfiguração, reencaixe, ajuste de BIOS.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Troca de peça por modelo compatível.", tempo: "1 a 2 dias", custo: "R$ 150 a R$ 300" }, { nivel: "Complexo", desc: "Reparo de dano causado pelo upgrade.", tempo: "3 a 7 dias", custo: "R$ 250 a R$ 600" }], riscos: ["Continuar tentando pode piorar o dano", "Trocar mais peças por achismo desperdiça dinheiro"], diagnostico: `Análise completa do upgrade realizado, teste de compatibilidade, verificação de instalação. Custo: R$ 90.`, solucao: `Correção do upgrade (peça certa, instalação certa, configuração certa).`, quandoCompensa: "Na maioria dos casos — o equipamento original geralmente está intacto.", quandoNaoCompensa: "Quando o upgrade causou curto e danificou a placa-mãe.", whatsappMessage: "Olá! Fiz um upgrade e agora meu computador tem problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Erro RAM", to: "/problemas/erro-ao-instalar-memoria-ram" }, { label: "Erros Comuns em Upgrade", to: "/problemas/erros-comuns-em-upgrade" }, { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" }, { label: "Computador Não Liga", to: "/problemas/computador-nao-liga-curitiba" }, { label: "Notebook Após Upgrade", to: "/problemas/notebook-apos-upgrade-nao-liga-curitiba" }], conteudoExtra: `### Os Upgrades Mais Comuns (e Erros)
 
 | Upgrade | Erro Comum | Como Evitar |
 |---|---|---|
@@ -1562,7 +1562,7 @@ Em Curitiba, atendemos casos de ransomware mensalmente — tanto em residências
 | Backup em nuvem | R$ 10-30/mês | Ransomware: perda total |
 | Proteção de e-mail | R$ 0 (educação) | Phishing: roubo bancário |` },
 
-  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. Técnico em Curitiba.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 99,99 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Erro Após Formatação", to: "/problemas/erro-apos-formatacao" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?
+  { slug: "formatacao-resolve-curitiba", title: "Formatação Resolve Meu Problema? | Curitiba", metaDescription: "Será que formatar resolve? Saiba quando a formatação é a solução e quando é desnecessária. O Técnico de Informática.", h1: "Formatação Resolve Meu Problema? — Guia Honesto", categoria: "Software / Sistema", intro: `"Manda formatar que resolve" é o conselho mais dado — e nem sempre correto. A formatação resolve problemas de software (vírus, sistema corrompido, lentidão por acúmulo), mas NÃO resolve problemas de hardware (HD com defeito, superaquecimento, RAM falhando). Formatar sem diagnóstico pode ser desperdício de tempo e dinheiro. Nesta página, explicamos quando formatar resolve e quando não resolve.`, sintomas: [{ titulo: "Formatar resolve quando:", desc: "Vírus persistente, sistema corrompido, acúmulo de programas, Windows instável.", gravidade: "Simples" }, { titulo: "Formatar NÃO resolve quando:", desc: "HD com setores defeituosos, superaquecimento, RAM com erro, fonte instável.", gravidade: "N/A" }], causas: [{ titulo: "Problemas de software resolvíveis por formatação", desc: "Vírus, drivers corrompidos, registro inchado, bloatware.", tipo: "software" }, { titulo: "Problemas de hardware que formatação ignora", desc: "HD desgastado, RAM defeituosa, processador com throttling.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Formatação resolve — Windows limpo + drivers.", tempo: "2h a 3h", custo: "R$ 150 a R$ 250" }, { nivel: "Médio", desc: "Formatação + diagnóstico para confirmar se é só software.", tempo: "3h a 5h", custo: "R$ 200 a R$ 350" }, { nivel: "Complexo", desc: "Problema é hardware — formatação não resolve.", tempo: "Variável", custo: "Depende do reparo" }], riscos: ["Formatar sem backup = perda total de dados", "Formatar com HD defeituoso = problema volta em semanas", "Formatar notebook com superaquecimento = dinheiro jogado fora"], diagnostico: `Diagnóstico rápido para determinar se é software ou hardware ANTES de formatar. Custo: R$ 99,99 (economiza formatação desnecessária).`, solucao: `Se é software: formatação limpa. Se é hardware: reparo ou upgrade primeiro, depois formatação se necessário.`, quandoCompensa: "Quando o diagnóstico confirma que é problema de software.", quandoNaoCompensa: "Quando há sintomas claros de hardware (barulhos, superaquecimento, erros em teste de memória).", whatsappMessage: "Olá! Preciso saber se formatação resolve meu problema. Podem me ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação", to: "/servicos/formatacao" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Erro Após Formatação", to: "/problemas/erro-apos-formatacao" }, { label: "Vírus no PC", to: "/problemas/computador-com-virus-curitiba" }], conteudoExtra: `### Tabela: Quando Formatar Resolve?
 
 | Problema | Formatar Resolve? |
 |---|---|
@@ -1616,7 +1616,7 @@ O diagnóstico custa R$ 99,99 e identifica se o problema é software (formataç�
 
 No segundo cenário, economiza R$ 110 E resolve mais rápido.` },
 
-  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | Técnico Curitiba", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Por Que Isso Acontece?
+  { slug: "erro-apos-formatacao", title: "Erro Após Formatação | O Técnico de Informática", metaDescription: "Formatou e continua com problemas? Veja por que a formatação não resolveu e o que fazer. Curitiba.", h1: "Erro Após Formatação — Por Que Não Resolveu?", categoria: "Software / Sistema", intro: `Formatou e o problema continua? Isso acontece quando a causa raiz é hardware, não software. Os erros mais comuns após formatação são: lentidão persistente (HD com setores defeituosos), travamentos (RAM com erro) e desligamentos (superaquecimento). Nesses casos, a formatação foi desnecessária — o próximo passo é diagnóstico de hardware.`, sintomas: [{ titulo: "Continua lento após formatar", desc: "HD com setores defeituosos ou hardware subdimensionado.", gravidade: "Médio" }, { titulo: "Tela azul mesmo após formatação", desc: "RAM, HD ou driver de hardware com problema.", gravidade: "Médio" }, { titulo: "Drivers não instalados corretamente", desc: "Formatação sem os drivers corretos.", gravidade: "Simples" }], causas: [{ titulo: "Problema era hardware", desc: "Formatação só resolve software. Hardware precisa de reparo.", tipo: "hardware" }, { titulo: "Formatação mal feita", desc: "Windows instalado sem drivers, partição errada, modo errado.", tipo: "erro-humano" }, { titulo: "HD defeituoso", desc: "Mesmo com sistema novo, disco com erros causa problemas.", tipo: "hardware" }], cenarios: [{ nivel: "Simples", desc: "Instalação de drivers faltantes.", tempo: "1h", custo: "R$ 99,99 a R$ 150" }, { nivel: "Médio", desc: "Diagnóstico de hardware + correção.", tempo: "2h a 4h", custo: "R$ 150 a R$ 400" }, { nivel: "Complexo", desc: "Troca de componente defeituoso + reinstalação.", tempo: "1 a 3 dias", custo: "R$ 250 a R$ 600+" }], riscos: ["Formatar de novo não vai resolver problema de hardware", "Continuar usando com HD defeituoso pode perder dados"], diagnostico: `Diagnóstico de hardware pós-formatação: teste de HD (SMART), RAM (MemTest), temperatura, fonte. Custo: R$ 90.`, solucao: `Identificar e resolver o problema de hardware que a formatação não resolveu.`, quandoCompensa: "Sempre compensa diagnosticar — melhor saber a verdade do que formatar novamente.", quandoNaoCompensa: "N/A", whatsappMessage: "Olá! Formatei meu computador mas continua com problemas. Podem ajudar?", relatedPages: [...RELATED_BASE, { label: "Formatação Resolve?", to: "/problemas/formatacao-resolve-curitiba" }, { label: "Computador Lento", to: "/problemas/computador-lento-curitiba" }, { label: "Windows Lento", to: "/problemas/windows-lento-curitiba" }, { label: "Upgrade de SSD e RAM", to: "/servicos/upgrade-ssd-ram" }], conteudoExtra: `### Por Que Isso Acontece?
 
 Formatação é como repintar uma casa com problemas estruturais — fica bonita por fora mas os problemas continuam. O diagnóstico antes de formatar evita esse desperdício.
 
@@ -3344,7 +3344,7 @@ Resolvemos problemas de áudio no mesmo dia em toda Curitiba e região metropoli
   {
     slug: "computador-nao-desliga-curitiba",
     title: "Computador Não Desliga em Curitiba | Diagnóstico Técnico",
-    metaDescription: "Computador não desliga ou fica na tela de desligamento? Técnico em Curitiba resolve problema de shutdown, driver e energia.",
+    metaDescription: "Computador não desliga ou fica na tela de desligamento? O Técnico de Informática resolve problema de shutdown, driver e energia.",
     h1: "Computador Não Desliga — Diagnóstico e Solução em Curitiba",
     categoria: "Sistema Operacional",
     intro: `Clicar em "Desligar" e o computador ficar preso na tela de encerramento ou simplesmente não desligar é um problema mais comum do que parece. Isso pode acontecer por processos travados, drivers incompatíveis, atualizações pendentes ou problemas na configuração de energia.
@@ -3485,7 +3485,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
   {
     slug: "notebook-superaquecendo-curitiba",
     title: "Notebook Superaquecendo em Curitiba | Diagnóstico e Reparo",
-    metaDescription: "Notebook esquentando demais e desligando sozinho? Técnico em Curitiba resolve superaquecimento com limpeza térmica, troca de pasta e reparo de cooler. Atendimento rápido.",
+    metaDescription: "Notebook esquentando demais e desligando sozinho? O Técnico de Informática resolve superaquecimento com limpeza térmica, troca de pasta e reparo de cooler. Atendimento rápido.",
     h1: "Notebook Superaquecendo — Diagnóstico e Solução em Curitiba",
     categoria: "Hardware",
     intro: `O superaquecimento é uma das falhas mais perigosas para notebooks. Quando a temperatura interna ultrapassa os limites seguros, o processador reduz a velocidade (thermal throttling) ou o notebook desliga abruptamente para se proteger. Ignorar esse problema pode causar danos irreversíveis na placa-mãe e no processador.\n\nEm Curitiba, especialmente em dias quentes ou em ambientes com pouca ventilação, notebooks podem atingir temperaturas críticas rapidamente. Usar o notebook na cama, sofá ou sobre superfícies que bloqueiam a ventilação agrava ainda mais o problema.\n\nNosso serviço inclui diagnóstico térmico completo com software profissional, limpeza interna, troca de pasta térmica e, quando necessário, reparo ou substituição do cooler. Tudo com garantia e atendimento em domicílio na região metropolitana de Curitiba.`,
@@ -3587,7 +3587,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
   {
     slug: "fonte-queimada-curitiba",
     title: "Fonte Queimada em Curitiba | Diagnóstico e Troca de Fonte",
-    metaDescription: "Fonte do computador ou notebook queimou? Técnico em Curitiba faz diagnóstico e troca de fonte com garantia. Atendimento rápido em domicílio.",
+    metaDescription: "Fonte do computador ou notebook queimou? O Técnico de Informática faz diagnóstico e troca de fonte com garantia. Atendimento rápido em domicílio.",
     h1: "Fonte Queimada — Diagnóstico e Substituição em Curitiba",
     categoria: "Hardware",
     intro: `A fonte de alimentação é responsável por converter a energia da tomada para o padrão que os componentes internos do computador ou notebook necessitam. Quando ela queima, o equipamento simplesmente para de funcionar — sem nenhum sinal de vida.\n\nUma fonte com defeito pode causar danos graves em outros componentes como placa-mãe, processador e HD/SSD. Por isso, é fundamental usar fontes de qualidade e fazer a substituição corretamente quando necessário.\n\nEm Curitiba, oferecemos diagnóstico preciso para confirmar se o problema é realmente na fonte (e não na placa-mãe) e fazemos a substituição com fontes certificadas 80 Plus, garantindo eficiência energética e proteção para seus componentes.`,
@@ -3638,7 +3638,7 @@ Realizamos instalação completa do Windows com drivers originais, otimização 
   {
     slug: "placa-mae-com-defeito-curitiba",
     title: "Placa-Mãe com Defeito em Curitiba | Diagnóstico e Reparo",
-    metaDescription: "Placa-mãe com defeito? Técnico em Curitiba faz diagnóstico profissional, reparo de componentes e substituição. Atendimento para desktop e notebook.",
+    metaDescription: "Placa-mãe com defeito? O Técnico de Informática faz diagnóstico profissional, reparo de componentes e substituição. Atendimento para desktop e notebook.",
     h1: "Placa-Mãe com Defeito — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `A placa-mãe é o componente central do computador — ela conecta e gerencia a comunicação entre processador, memória, disco, placa de vídeo e todos os periféricos. Um defeito na placa-mãe pode causar desde instabilidade e travamentos até a impossibilidade total de ligar o equipamento.\n\nO diagnóstico de placa-mãe exige conhecimento técnico avançado e ferramentas específicas, pois os sintomas podem ser confundidos com problemas em outros componentes. Em Curitiba, oferecemos diagnóstico profissional com multímetro, osciloscópio e testes de bancada para identificar com precisão o componente defeituoso.\n\nTrabalhamos com reparo de placa-mãe (quando viável) e substituição, tanto para desktops quanto para notebooks de todas as marcas.`,
@@ -4308,7 +4308,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "notebook-esquentando-desligando-curitiba",
     title: "Notebook Esquentando e Desligando Sozinho em Curitiba | Técnico Especialista",
-    metaDescription: "Notebook esquentando demais e desligando sozinho? Técnico em Curitiba resolve superaquecimento com limpeza, troca de pasta térmica e reparo de cooler. Atendimento rápido.",
+    metaDescription: "Notebook esquentando demais e desligando sozinho? O Técnico de Informática resolve superaquecimento com limpeza, troca de pasta térmica e reparo de cooler. Atendimento rápido.",
     h1: "Notebook Esquentando e Desligando — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware — Térmico",
     intro: `Quando o notebook começa a esquentar excessivamente e desliga sozinho sem aviso, isso é um mecanismo de proteção do processador chamado thermal shutdown. O processador atinge temperaturas acima de 95-100°C e o sistema desliga para evitar danos permanentes ao chip.\n\nEsse problema é extremamente comum em Curitiba — apesar do clima mais ameno, a poeira acumulada nas saídas de ar e a pasta térmica ressecada são as principais causas. Notebooks com mais de 2 anos sem manutenção preventiva quase sempre apresentam esse sintoma.\n\nIgnorar o superaquecimento pode causar danos irreversíveis ao processador, GPU e placa-mãe. A solda BGA que conecta o chip à placa pode trincar com ciclos repetidos de calor extremo, transformando um problema de R$ 150 em um de R$ 800+.`,
@@ -4360,7 +4360,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "erro-bios-curitiba",
     title: "Erro de BIOS em Curitiba | Diagnóstico e Reparo Especializado",
-    metaDescription: "Erro de BIOS no computador? Técnico em Curitiba resolve BIOS corrompida, configuração errada, atualização falha e senha esquecida. Atendimento profissional.",
+    metaDescription: "Erro de BIOS no computador? O Técnico de Informática resolve BIOS corrompida, configuração errada, atualização falha e senha esquecida. Atendimento profissional.",
     h1: "Erro de BIOS — Diagnóstico e Reparo Profissional em Curitiba",
     categoria: "Hardware — Firmware",
     intro: `A BIOS (ou UEFI, em computadores modernos) é o primeiro software que roda quando você liga o computador. Ela inicializa o hardware, verifica se tudo está funcionando e passa o controle para o sistema operacional. Quando há um erro na BIOS, o computador pode não ligar, travar na tela de POST, emitir bipes ou mostrar mensagens de erro antes do Windows.\n\nErros de BIOS são particularmente assustadores porque aparecem antes mesmo do sistema operacional carregar — muitos usuários pensam que o computador "morreu". Na maioria dos casos, porém, o problema é resolvível com configuração correta, reset de CMOS ou regravação de firmware.\n\nEm Curitiba, atendemos frequentemente casos de BIOS corrompida após queda de energia (algo comum em bairros como CIC, Boqueirão e Cajuru), atualização de BIOS interrompida e configurações incorretas após upgrade de hardware.`,
@@ -4465,7 +4465,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "backup-perdido-curitiba",
     title: "Backup Perdido em Curitiba | Recuperação de Dados Especializada",
-    metaDescription: "Perdeu backup, arquivos ou fotos importantes? Técnico em Curitiba recupera dados de HD, SSD, pen drive e nuvem. Atendimento emergencial com sigilo total.",
+    metaDescription: "Perdeu backup, arquivos ou fotos importantes? O Técnico de Informática recupera dados de HD, SSD, pen drive e nuvem. Atendimento emergencial com sigilo total.",
     h1: "Backup Perdido — Recuperação de Dados em Curitiba",
     categoria: "Dados — Recuperação",
     intro: `Perder um backup é uma das situações mais desesperadoras na informática. Fotos de família, documentos de trabalho, projetos acadêmicos, planilhas financeiras — anos de dados podem desaparecer em um instante por falha de hardware, exclusão acidental, ransomware ou corrupção de disco.\n\nA boa notícia é que, na maioria dos casos, os dados ainda existem no disco — mesmo quando você não consegue vê-los. Quando um arquivo é "deletado", o sistema apenas marca o espaço como disponível. Enquanto nada for gravado por cima, a recuperação é possível.\n\nA má notícia é que cada minuto que você continua usando o dispositivo após a perda reduz as chances de recuperação. Por isso, a primeira regra é: PARE DE USAR O DISPOSITIVO IMEDIATAMENTE e procure ajuda profissional.\n\nEm Curitiba, realizamos recuperação de dados com ferramentas profissionais (R-Studio, DMDE, PC-3000) e ambiente controlado para casos de HD com dano físico.`,
@@ -4518,7 +4518,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "notebook-nao-conecta-bluetooth-curitiba",
     title: "Notebook Não Conecta Bluetooth em Curitiba | Técnico Especialista",
-    metaDescription: "Bluetooth do notebook não funciona, não pareia ou não aparece? Técnico em Curitiba resolve problemas de Bluetooth com diagnóstico rápido. Atendimento profissional.",
+    metaDescription: "Bluetooth do notebook não funciona, não pareia ou não aparece? O Técnico de Informática resolve problemas de Bluetooth com diagnóstico rápido. Atendimento profissional.",
     h1: "Notebook Não Conecta Bluetooth — Diagnóstico e Reparo em Curitiba",
     categoria: "Conectividade — Bluetooth",
     intro: `O Bluetooth do notebook parou de funcionar, não encontra dispositivos ou sumiu das configurações? Esse problema é cada vez mais impactante com a popularização de fones sem fio, mouses Bluetooth, teclados e caixas de som wireless.\n\nAs causas vão desde um simples driver desatualizado até falha no módulo Wi-Fi/Bluetooth (que geralmente é um chip combo). Em notebooks, o módulo Bluetooth compartilha a mesma placa do Wi-Fi — se um funciona e o outro não, geralmente é problema de software ou antena.\n\nEm Curitiba, atendemos muitos casos onde uma atualização do Windows desabilitou o Bluetooth ou corrompeu o driver. Também é comum o Bluetooth "sumir" após reinstalação do sistema sem os drivers corretos do fabricante.`,
@@ -4568,7 +4568,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "erro-driver-windows-curitiba",
     title: "Erro de Driver no Windows em Curitiba | Diagnóstico e Correção",
-    metaDescription: "Erro de driver no Windows? Tela azul, dispositivo não reconhecido, hardware sem funcionar? Técnico em Curitiba resolve problemas de drivers com diagnóstico profissional.",
+    metaDescription: "Erro de driver no Windows? Tela azul, dispositivo não reconhecido, hardware sem funcionar? O Técnico de Informática resolve problemas de drivers com diagnóstico profissional.",
     h1: "Erro de Driver no Windows — Diagnóstico e Correção em Curitiba",
     categoria: "Software — Drivers",
     intro: `Drivers são os "tradutores" entre o hardware do seu computador e o sistema operacional. Quando um driver está ausente, corrompido, desatualizado ou incompatível, o resultado pode ir desde um dispositivo que não funciona até telas azuis constantes e instabilidade total do sistema.\n\nO Windows Update tenta instalar drivers automaticamente, mas frequentemente instala versões genéricas que não funcionam corretamente — especialmente para placas de vídeo, Wi-Fi, áudio e impressoras. Cada fabricante (Intel, NVIDIA, AMD, Realtek) tem drivers específicos otimizados para seus produtos.\n\nEm Curitiba, o problema mais comum que vemos é após formatação ou reinstalação do Windows: o técnico anterior instalou o sistema mas não colocou os drivers corretos, deixando dispositivos sem funcionar. Outro cenário frequente é o Windows Update favaliar o valor uma atualização de driver que causa conflito.`,
@@ -4620,7 +4620,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "pc-sem-imagem-curitiba",
     title: "PC Sem Imagem no Monitor em Curitiba | Diagnóstico Especializado",
-    metaDescription: "PC liga mas não aparece imagem no monitor? Técnico em Curitiba diagnostica e resolve problemas de vídeo, GPU, cabo e placa-mãe. Atendimento rápido.",
+    metaDescription: "PC liga mas não aparece imagem no monitor? O Técnico de Informática diagnostica e resolve problemas de vídeo, GPU, cabo e placa-mãe. Atendimento rápido.",
     h1: "PC Sem Imagem no Monitor — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware — Vídeo",
     intro: `O computador liga, os LEDs acendem, a ventoinha gira, mas o monitor fica preto sem nenhuma imagem? Esse é um dos problemas mais comuns e ao mesmo tempo mais difíceis de diagnosticar sem experiência, porque a causa pode estar em qualquer ponto da cadeia: monitor, cabo, placa de vídeo, memória RAM, processador ou placa-mãe.\n\nA primeira coisa a entender é: "sem imagem" é diferente de "tela preta com cursor". Se o monitor mostra "sem sinal" ou fica completamente apagado, o problema está antes do sistema operacional — é hardware. Se aparece o logo do Windows e depois fica preto, geralmente é software.\n\nEm Curitiba, atendemos esse problema diariamente. Na maioria dos casos, a causa é simples: cabo HDMI/VGA solto, RAM mal encaixada ou monitor na entrada errada. Mas também pode indicar GPU queimada ou placa-mãe com defeito, especialmente após quedas de energia.`,
@@ -4673,7 +4673,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "memoria-ram-com-defeito-curitiba",
     title: "Memória RAM com Defeito em Curitiba | Diagnóstico e Troca",
-    metaDescription: "Memória RAM com defeito? PC travando, tela azul ou reiniciando? Técnico em Curitiba diagnostica e troca RAM com teste MemTest86. Atendimento profissional.",
+    metaDescription: "Memória RAM com defeito? PC travando, tela azul ou reiniciando? O Técnico de Informática diagnostica e troca RAM com teste MemTest86. Atendimento profissional.",
     h1: "Memória RAM com Defeito — Diagnóstico e Troca em Curitiba",
     categoria: "Hardware — Memória",
     intro: `A memória RAM é o componente mais traiçoeiro quando apresenta defeito. Diferente de um HD que para de funcionar de vez ou uma GPU que mostra artefatos claros, RAM defeituosa causa problemas intermitentes e aparentemente aleatórios: telas azuis esporádicas, travamentos que somem após reiniciar, programas que crasham sem motivo e erros de corrupção de dados.\n\nO diagnóstico é especialmente difícil porque os sintomas imitam outros problemas — parece vírus, parece driver, parece superaquecimento. Muitos técnicos inexperientes formatam o computador ou trocam o HD sem nunca testar a RAM, e o cliente volta com o mesmo problema semanas depois.\n\nEm Curitiba, usamos MemTest86 com mínimo de 4 passes completos (2-4 horas de teste) para garantir detecção de erros intermitentes. Também testamos cada pente individualmente em cada slot para identificar se o defeito é no módulo de RAM ou no slot da placa-mãe.`,
@@ -4726,7 +4726,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "notebook-com-tela-piscando-curitiba",
     title: "Notebook com Tela Piscando em Curitiba | Diagnóstico e Reparo",
-    metaDescription: "Tela do notebook piscando, tremendo ou com flickering? Técnico em Curitiba diagnostica e resolve problemas de tela com reparo profissional. Atendimento rápido.",
+    metaDescription: "Tela do notebook piscando, tremendo ou com flickering? O Técnico de Informática diagnostica e resolve problemas de tela com reparo profissional. Atendimento rápido.",
     h1: "Notebook com Tela Piscando — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware — Display",
     intro: `A tela do notebook fica piscando, tremendo ou dando flicker? Esse problema pode ser desde algo simples como uma configuração de taxa de atualização errada até um defeito físico no cabo flat que conecta a tela à placa-mãe.\n\nO flickering de tela é especialmente incômodo porque causa fadiga visual, dor de cabeça e torna o notebook praticamente inutilizável para trabalho prolongado. Muitos usuários tentam conviver com o problema, mas ele tende a piorar progressivamente — o que era um piscar ocasional vira tela completamente apagando e voltando.\n\nEm Curitiba, o diagnóstico mais importante é determinar se o problema é de hardware (cabo flat, inversor, painel LCD) ou software (driver de vídeo, taxa de atualização, aplicativo conflitante). Um teste simples: conecte um monitor externo — se a imagem no monitor externo é estável, o problema é na tela/cabo do notebook.`,
@@ -4778,7 +4778,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "pc-fazendo-barulho-estranho-curitiba",
     title: "PC Fazendo Barulho Estranho em Curitiba | Diagnóstico Profissional",
-    metaDescription: "Computador fazendo barulho estranho? Cliques, zumbido, chiado ou vibração? Técnico em Curitiba identifica a origem e resolve. Diagnóstico rápido e preciso.",
+    metaDescription: "Computador fazendo barulho estranho? Cliques, zumbido, chiado ou vibração? O Técnico de Informática identifica a origem e resolve. Diagnóstico rápido e preciso.",
     h1: "PC Fazendo Barulho Estranho — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware — Mecânico",
     intro: `Seu computador começou a fazer barulhos estranhos — cliques, zumbidos, chiados, vibrações ou roncos? Qualquer ruído incomum é um sinal de alerta que não deve ser ignorado. O tipo de barulho indica exatamente qual componente está com problema e qual a urgência do reparo.\n\nCliques repetitivos podem indicar um HD mecânico em falha iminente (e seus dados em risco). Zumbido alto pode ser uma ventoinha com rolamento desgastado. Chiado elétrico (coil whine) geralmente vem da placa de vídeo ou fonte sob carga. Vibração excessiva pode ser uma ventoinha desbalanceada ou parafuso solto.\n\nEm Curitiba, o diagnóstico acústico é parte essencial do nosso atendimento. Com experiência, conseguimos identificar a origem do barulho sem sequer abrir o gabinete em muitos casos. Mas o diagnóstico completo envolve isolar cada componente para confirmar a fonte exata.`,
@@ -4831,7 +4831,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "erro-particao-windows-curitiba",
     title: "Erro de Partição no Windows em Curitiba | Reparo Profissional",
-    metaDescription: "Erro de partição no Windows? Disco não reconhecido, partição RAW ou corrompida? Técnico em Curitiba recupera partições e dados. Atendimento especializado.",
+    metaDescription: "Erro de partição no Windows? Disco não reconhecido, partição RAW ou corrompida? O Técnico de Informática recupera partições e dados. Atendimento especializado.",
     h1: "Erro de Partição no Windows — Reparo e Recuperação em Curitiba",
     categoria: "Software — Disco",
     intro: `Erros de partição são problemas na estrutura lógica do disco que impedem o Windows de acessar seus dados. O disco pode aparecer como RAW (sem sistema de arquivos), a partição pode sumir do Explorador de Arquivos, ou o Windows pode pedir para formatar o disco — mas NUNCA formate sem antes consultar um técnico.\n\nA tabela de partições (MBR ou GPT) é como um índice que diz ao sistema operacional onde cada partição começa e termina. Quando esse índice se corrompe — por queda de energia, vírus, erro de software ou operação incorreta — o Windows perde o acesso a todo o conteúdo, mesmo que os dados estejam intactos no disco.\n\nEm Curitiba, atendemos frequentemente casos de partição corrompida após queda de energia (especialmente em HDs mecânicos), tentativas fracassadas de redimensionar partições e erros causados por dual boot mal configurado.`,
@@ -4884,7 +4884,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "computador-desligando-apos-segundos-curitiba",
     title: "Computador Desligando Após Poucos Segundos em Curitiba | Diagnóstico",
-    metaDescription: "Computador liga e desliga sozinho após poucos segundos? Técnico em Curitiba diagnostica problemas de fonte, processador, placa-mãe e superaquecimento. Atendimento rápido.",
+    metaDescription: "Computador liga e desliga sozinho após poucos segundos? O Técnico de Informática diagnostica problemas de fonte, processador, placa-mãe e superaquecimento. Atendimento rápido.",
     h1: "Computador Desligando Após Poucos Segundos — Diagnóstico em Curitiba",
     categoria: "Hardware — Energia",
     intro: `O computador liga, as ventoinhas giram por 3 a 10 segundos e depois desliga sozinho? Esse comportamento indica um problema sério de hardware que impede o sistema de completar o POST (Power-On Self-Test). O computador detecta uma condição insegura e se desliga para proteger os componentes.\n\nAs causas mais comuns são: proteção térmica instantânea (cooler de CPU desencaixado ou sem pasta térmica), fonte de alimentação defeituosa, curto-circuito na placa-mãe ou memória RAM incompatível/defeituosa. Em casos raros, pode ser o processador com defeito.\n\nEsse é um dos problemas mais assustadores para o usuário, mas na maioria dos casos a causa é simples e o reparo é acessível. Em Curitiba, diagnosticamos com método de eliminação: testamos cada componente isoladamente para encontrar o culpado.`,
@@ -4937,7 +4937,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "notebook-touchpad-nao-funciona-curitiba",
     title: "Touchpad do Notebook Não Funciona em Curitiba | Técnico Especialista",
-    metaDescription: "Touchpad do notebook parou de funcionar, não responde ao toque ou está travado? Técnico em Curitiba resolve problemas de touchpad com diagnóstico rápido e preciso.",
+    metaDescription: "Touchpad do notebook parou de funcionar, não responde ao toque ou está travado? O Técnico de Informática resolve problemas de touchpad com diagnóstico rápido e preciso.",
     h1: "Touchpad do Notebook Não Funciona — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware — Periférico",
     intro: `O touchpad do notebook parou de responder, funciona de forma intermitente ou perdeu gestos como scroll e zoom? Esse problema pode parecer menor, mas torna o notebook praticamente inútil sem um mouse externo — especialmente para quem usa o equipamento fora de casa.\n\nAs causas vão desde uma simples tecla de atalho que desativou o touchpad (Fn + F-key) até problemas de driver, cabo flat desconectado ou defeito no próprio sensor capacitivo. Em notebooks mais recentes com touchpad de precisão (Windows Precision), problemas de driver são especialmente comuns após atualizações do Windows.\n\nEm Curitiba, atendemos muitos casos onde o touchpad parou após atualização do Windows, derramamento de líquido sobre o teclado (que atinge o touchpad por baixo) ou após manutenção onde o cabo flat não foi reconectado corretamente.`,
@@ -4989,7 +4989,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "pc-nao-reconhece-segundo-monitor-curitiba",
     title: "PC Não Reconhece Segundo Monitor em Curitiba | Técnico Especialista",
-    metaDescription: "Segundo monitor não é reconhecido pelo PC ou notebook? Técnico em Curitiba resolve problemas de dual monitor com diagnóstico profissional. Atendimento rápido.",
+    metaDescription: "Segundo monitor não é reconhecido pelo PC ou notebook? O Técnico de Informática resolve problemas de dual monitor com diagnóstico profissional. Atendimento rápido.",
     h1: "PC Não Reconhece Segundo Monitor — Diagnóstico e Configuração em Curitiba",
     categoria: "Hardware — Vídeo",
     intro: `Conectou um segundo monitor mas o PC não reconhece, não detecta ou mostra apenas um? O setup dual monitor se tornou essencial para produtividade, home office e gaming, mas configurá-lo nem sempre é simples — especialmente quando envolve tipos diferentes de saída de vídeo, adaptadores e configurações do Windows.\n\nOs problemas mais comuns envolvem: cabo ou adaptador incompatível, driver de vídeo desatualizado, configuração errada no Windows (modo de exibição), limitação da placa de vídeo ou notebook que não suporta saída simultânea em determinada resolução.\n\nEm Curitiba, configuramos setups dual e triple monitor diariamente para home offices, escritórios de contabilidade, design e programação. O diagnóstico identifica se o problema é hardware (cabo, porta, GPU) ou software (driver, configuração) para resolver com eficiência.`,
@@ -5041,7 +5041,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "erro-atualizacao-windows-11-curitiba",
     title: "Erro na Atualização do Windows 11 em Curitiba | Técnico Especialista",
-    metaDescription: "Erro ao atualizar o Windows 11? Atualização travada, falha de instalação ou PC incompatível? Técnico em Curitiba resolve problemas de update com segurança.",
+    metaDescription: "Erro ao atualizar o Windows 11? Atualização travada, falha de instalação ou PC incompatível? O Técnico de Informática resolve problemas de update com segurança.",
     h1: "Erro na Atualização do Windows 11 — Diagnóstico e Correção em Curitiba",
     categoria: "Software — Windows",
     intro: `Atualizações do Windows 11 são essenciais para segurança e desempenho, mas frequentemente causam dor de cabeça: atualizações que travam em uma porcentagem, erros com códigos incompreensíveis (0x80070002, 0x800f081f), PC que não inicia após update ou a mensagem temida "Desfazendo alterações, não desligue o computador".\n\nO Windows 11 trouxe requisitos de hardware mais rígidos (TPM 2.0, Secure Boot, processador compatível), e muitos PCs que rodavam Windows 10 perfeitamente enfrentam bloqueios ou instabilidade ao tentar migrar ou atualizar. Além disso, atualizações cumulativas mensais podem conflitar com drivers, softwares de terceiros ou configurações específicas.\n\nEm Curitiba, atendemos diariamente problemas de atualização — desde updates mensais que falham até migrações completas do Windows 10 para 11. Nosso diagnóstico identifica a causa exata e resolve sem perda de dados.`,
@@ -5094,7 +5094,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "computador-com-cheiro-de-queimado-curitiba",
     title: "Computador com Cheiro de Queimado em Curitiba | Emergência Técnica",
-    metaDescription: "Computador com cheiro de queimado? DESLIGUE IMEDIATAMENTE. Técnico em Curitiba diagnostica componente queimado (fonte, placa-mãe, capacitor) com urgência.",
+    metaDescription: "Computador com cheiro de queimado? DESLIGUE IMEDIATAMENTE. O Técnico de Informática diagnostica componente queimado (fonte, placa-mãe, capacitor) com urgência.",
     h1: "Computador com Cheiro de Queimado — Atendimento de Emergência em Curitiba",
     categoria: "Hardware — Emergência",
     intro: `Se seu computador está exalando cheiro de queimado, a primeira e mais importante ação é: DESLIGUE DA TOMADA IMEDIATAMENTE. Não desligue pelo botão — puxe o cabo de força da parede. Cheiro de queimado em eletrônico indica que algum componente está superaquecendo perigosamente ou já queimou, e continuar com o PC ligado pode causar danos em cadeia, incêndio ou choque elétrico.\n\nOs cheiros mais comuns são: plástico queimando (geralmente isolamento de fio ou conector derretendo), cheiro químico acre (capacitor estufando ou vazando eletrólito) e cheiro de metal quente (componente eletrônico queimando). Cada tipo de cheiro aponta para uma causa diferente.\n\nEm Curitiba, tratamos cheiro de queimado como atendimento de emergência. Após quedas de energia (frequentes durante tempestades), picos de tensão e uso de fontes de alimentação baratas, componentes podem queimar silenciosamente e o cheiro é o primeiro — e às vezes único — aviso antes de uma falha catastrófica.`,
@@ -5147,7 +5147,7 @@ Em Curitiba, diagnosticamos problemas de Wi-Fi tanto no computador quanto na red
   {
     slug: "notebook-bateria-nao-carrega-curitiba",
     title: "Notebook Não Carrega a Bateria em Curitiba | Diagnóstico Especializado",
-    metaDescription: "Notebook não carrega a bateria? Técnico em Curitiba diagnostica problemas no carregador, conector DC, chip de carga e bateria com laudo profissional.",
+    metaDescription: "Notebook não carrega a bateria? O Técnico de Informática diagnostica problemas no carregador, conector DC, chip de carga e bateria com laudo profissional.",
     h1: "Notebook Não Carrega a Bateria — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `Seu notebook está conectado na tomada, mostra "conectado, sem carregar" ou simplesmente não reconhece o carregador? Esse é um dos problemas mais comuns em notebooks com mais de 2 anos de uso e pode ter causas simples (cabo danificado) ou complexas (chip de gerenciamento de carga queimado).
@@ -5226,7 +5226,7 @@ O relatório mostra a capacidade original vs. atual e o número de ciclos.`,
   {
     slug: "pc-com-pop-ups-e-propagandas-curitiba",
     title: "PC com Pop-ups e Propagandas em Curitiba | Remoção de Adware",
-    metaDescription: "Computador cheio de pop-ups e propagandas? Técnico em Curitiba remove adware, browser hijackers e PUPs com limpeza profunda e proteção contra reinfecção.",
+    metaDescription: "Computador cheio de pop-ups e propagandas? O Técnico de Informática remove adware, browser hijackers e PUPs com limpeza profunda e proteção contra reinfecção.",
     h1: "PC com Pop-ups e Propagandas — Remoção Profissional em Curitiba",
     categoria: "Software / Segurança",
     intro: `Seu computador abriu uma enxurrada de pop-ups, propagandas em sites que antes não tinham, barras de ferramentas estranhas no navegador ou a página inicial mudou sozinha? Esses são sintomas clássicos de adware e browser hijackers — softwares indesejados que se instalam silenciosamente e bombardeiam você com publicidade.
@@ -5309,7 +5309,7 @@ Utilizamos ferramentas especializadas como AdwCleaner, Malwarebytes, HitmanPro e
   {
     slug: "erro-0x0000007b-curitiba",
     title: "Erro 0x0000007B (INACCESSIBLE_BOOT_DEVICE) Curitiba | Reparo Especializado",
-    metaDescription: "Erro 0x0000007B INACCESSIBLE_BOOT_DEVICE? Técnico em Curitiba resolve tela azul na inicialização com diagnóstico de disco, BIOS e drivers de armazenamento.",
+    metaDescription: "Erro 0x0000007B INACCESSIBLE_BOOT_DEVICE? O Técnico de Informática resolve tela azul na inicialização com diagnóstico de disco, BIOS e drivers de armazenamento.",
     h1: "Erro 0x0000007B (INACCESSIBLE_BOOT_DEVICE) — Reparo em Curitiba",
     categoria: "Software / Hardware",
     intro: `O erro 0x0000007B — também conhecido como INACCESSIBLE_BOOT_DEVICE — é uma das telas azuis (BSOD) mais temidas do Windows. Ele aparece durante a inicialização e impede completamente o carregamento do sistema operacional. A tela exibe a mensagem "Your PC ran into a problem" seguida do código de parada INACCESSIBLE_BOOT_DEVICE.
@@ -5399,7 +5399,7 @@ O código 0x0000007B traduz-se como INACCESSIBLE_BOOT_DEVICE. Em termos simples:
   {
     slug: "computador-nao-reconhece-usb-curitiba",
     title: "Computador Não Reconhece USB em Curitiba | Diagnóstico e Reparo",
-    metaDescription: "Computador não reconhece pendrive, HD externo ou dispositivo USB? Técnico em Curitiba diagnostica portas, drivers, hub e controladora USB.",
+    metaDescription: "Computador não reconhece pendrive, HD externo ou dispositivo USB? O Técnico de Informática diagnostica portas, drivers, hub e controladora USB.",
     h1: "Computador Não Reconhece USB — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware / Software",
     intro: `Você conecta um pendrive, HD externo, mouse, teclado ou impressora na porta USB e nada acontece? O Windows não emite o som de conexão, o dispositivo não aparece no Explorador de Arquivos ou surge a mensagem "Dispositivo USB não reconhecido"? Esse é um problema extremamente comum e pode ter causas simples ou complexas.
@@ -5492,7 +5492,7 @@ Sempre use "Remover hardware com segurança" antes de desconectar pendrives e HD
   // ============================================================
   {
     slug: "notebook-teclado-nao-funciona-curitiba",
-    title: "Teclado do Notebook Não Funciona? Causas e Soluções | Técnico Curitiba",
+    title: "Teclado do Notebook Não Funciona? Causas e Soluções | O Técnico de Informática",
     metaDescription: "Teclado do notebook parou de funcionar? Teclas travadas, sem resposta ou digitando errado? Diagnóstico e reparo em Curitiba. Atendimento rápido a domicílio.",
     h1: "Teclado do Notebook Não Funciona em Curitiba? Resolvemos!",
     categoria: "Hardware",
@@ -5572,7 +5572,7 @@ Enquanto aguarda o reparo, um teclado USB externo funciona perfeitamente com qua
   // ============================================================
   {
     slug: "pc-sem-audio-curitiba",
-    title: "PC Sem Áudio? Computador Sem Som | Técnico em Curitiba",
+    title: "PC Sem Áudio? Computador Sem Som | O Técnico de Informática",
     metaDescription: "Computador ou notebook sem som? Áudio parou de funcionar? Diagnóstico e reparo em Curitiba e região metropolitana. Atendimento rápido a domicílio.",
     h1: "PC ou Notebook Sem Áudio em Curitiba? Diagnóstico e Solução",
     categoria: "Hardware / Software",
@@ -5652,7 +5652,7 @@ Para quem não quer esperar o reparo, uma placa de som USB externa (adaptador US
   // ============================================================
   {
     slug: "erro-disco-100-porcento-curitiba",
-    title: "Disco 100% no Gerenciador de Tarefas? Solução | Técnico Curitiba",
+    title: "Disco 100% no Gerenciador de Tarefas? Solução | O Técnico de Informática",
     metaDescription: "Disco em 100% no Windows? Computador extremamente lento por uso de disco constante? Diagnóstico e solução em Curitiba. Atendimento rápido.",
     h1: "Disco 100% no Gerenciador de Tarefas em Curitiba? Resolvemos!",
     categoria: "Software / Hardware",
@@ -5745,7 +5745,7 @@ Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gar
   // ============================================================
   {
     slug: "computador-reiniciando-sozinho-curitiba",
-    title: "Computador Reiniciando Sozinho? Causas e Soluções | Técnico Curitiba",
+    title: "Computador Reiniciando Sozinho? Causas e Soluções | O Técnico de Informática",
     metaDescription: "Computador reiniciando sozinho sem aviso? Pode ser superaquecimento, fonte, RAM ou Windows. Diagnóstico profissional em Curitiba. Atendimento rápido.",
     h1: "Computador Reiniciando Sozinho em Curitiba? Encontramos a Causa!",
     categoria: "Hardware / Software",
@@ -5834,7 +5834,7 @@ Um SSD não tem partes móveis e acessa dados instantaneamente, eliminando o gar
   // ============================================================
   {
     slug: "pc-nao-conecta-internet-curitiba",
-    title: "PC Não Conecta na Internet? Causas e Soluções | Técnico Curitiba",
+    title: "PC Não Conecta na Internet? Causas e Soluções | O Técnico de Informática",
     metaDescription: "Computador ou notebook sem internet? Wi-Fi não conecta, cabo sem rede? Diagnóstico e solução em Curitiba e região. Atendimento rápido a domicílio.",
     h1: "PC ou Notebook Não Conecta na Internet em Curitiba? Resolvemos!",
     categoria: "Redes / Software",
@@ -5925,7 +5925,7 @@ netsh int ip reset
   // ============================================================
   {
     slug: "erro-registro-windows-curitiba",
-    title: "Erro no Registro do Windows? Solução | Técnico em Curitiba",
+    title: "Erro no Registro do Windows? Solução | O Técnico de Informática",
     metaDescription: "Erros no registro do Windows? Computador travando, programas não abrem? Reparo profissional do registro em Curitiba. Sem risco de perda de dados.",
     h1: "Erro no Registro do Windows em Curitiba? Reparo Seguro e Profissional",
     categoria: "Software",
@@ -6013,7 +6013,7 @@ O Registro do Windows é como o "cérebro" do sistema operacional. Ele armazena:
   // ============================================================
   {
     slug: "notebook-nao-carrega-curitiba",
-    title: "Notebook Não Carrega? Bateria Não Carrega | Técnico Curitiba",
+    title: "Notebook Não Carrega? Bateria Não Carrega | O Técnico de Informática",
     metaDescription: "Notebook não carrega a bateria? Carregador não funciona? LED não acende? Diagnóstico e reparo em Curitiba. Atendimento rápido a domicílio.",
     h1: "Notebook Não Carrega em Curitiba? Diagnóstico e Solução Rápida",
     categoria: "Hardware",
@@ -6101,7 +6101,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   // ============================================================
   {
     slug: "pc-com-virus-ransomware-curitiba",
-    title: "PC com Vírus Ransomware? Arquivos Criptografados | Técnico Curitiba",
+    title: "PC com Vírus Ransomware? Arquivos Criptografados | O Técnico de Informática",
     metaDescription: "Computador infectado com ransomware? Arquivos criptografados e pedido de resgate? Diagnóstico e tentativa de recuperação em Curitiba. Atendimento urgente.",
     h1: "PC com Ransomware em Curitiba? Ação Urgente Necessária",
     categoria: "Segurança",
@@ -7094,7 +7094,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "pc-sem-som-hdmi-curitiba",
     title: "PC Sem Som no HDMI em Curitiba | Diagnóstico e Solução",
-    metaDescription: "PC ou notebook sem som na TV via HDMI? Áudio não sai pelo HDMI? Técnico em Curitiba resolve problemas de áudio HDMI com diagnóstico preciso.",
+    metaDescription: "PC ou notebook sem som na TV via HDMI? Áudio não sai pelo HDMI? O Técnico de Informática resolve problemas de áudio HDMI com diagnóstico preciso.",
     h1: "PC Sem Som no HDMI — Diagnóstico e Solução em Curitiba",
     categoria: "Hardware / Áudio",
     intro: `Conectar o PC ou notebook na TV via HDMI e não ter som é um problema extremamente comum e frustrante. O cabo HDMI transmite tanto vídeo quanto áudio, mas o Windows nem sempre configura automaticamente a saída de som para o dispositivo HDMI.\n\nAs causas variam desde configurações simples de dispositivo de reprodução até problemas mais complexos com drivers de áudio HDMI (geralmente vinculados à placa de vídeo), cabos defeituosos ou incompatibilidade de handshake HDMI entre o PC e a TV.\n\nEm Curitiba, nosso técnico diagnostica e resolve problemas de áudio HDMI em PCs, notebooks e home theaters, garantindo que vídeo e som funcionem perfeitamente na sua TV.`,
@@ -7144,7 +7144,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "monitor-piscando-curitiba",
     title: "Monitor Piscando em Curitiba | Diagnóstico e Reparo Profissional",
-    metaDescription: "Monitor piscando, com flickering ou desligando sozinho? Técnico em Curitiba diagnostica e repara problemas de monitor e placa de vídeo com precisão.",
+    metaDescription: "Monitor piscando, com flickering ou desligando sozinho? O Técnico de Informática diagnostica e repara problemas de monitor e placa de vídeo com precisão.",
     h1: "Monitor Piscando — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware / Vídeo",
     intro: `Monitor piscando é um problema que afeta tanto a produtividade quanto a saúde visual. O flickering pode se manifestar como piscadas rápidas imperceptíveis (que causam dor de cabeça e fadiga ocular) ou como desligamentos completos da tela com intervalos regulares.\n\nAs causas são variadas: pode ser um problema no próprio monitor (capacitores da fonte interna, backlight ou painel), no cabo de vídeo (HDMI, DisplayPort, VGA), na placa de vídeo, nos drivers ou até na frequência de atualização configurada no Windows.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo testando cada componente da cadeia de vídeo para identificar exatamente a origem do problema antes de qualquer intervenção.`,
@@ -7196,7 +7196,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "notebook-nao-carrega-bateria-curitiba",
     title: "Notebook Não Carrega a Bateria em Curitiba | Diagnóstico e Reparo",
-    metaDescription: "Notebook não carrega a bateria? Carregador conectado mas bateria não enche? Técnico em Curitiba com diagnóstico preciso de fonte, conector e bateria.",
+    metaDescription: "Notebook não carrega a bateria? Carregador conectado mas bateria não enche? O Técnico de Informática com diagnóstico preciso de fonte, conector e bateria.",
     h1: "Notebook Não Carrega a Bateria — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `Notebook plugado na tomada mas a bateria não carrega é um problema que compromete completamente a mobilidade do equipamento. A causa pode estar no carregador, no conector DC-in, na própria bateria ou no circuito de carregamento da placa-mãe.\n\nÉ importante diferenciar os cenários: o notebook funciona apenas na tomada mas a bateria não carrega? A bateria carrega até certo percentual e para? O ícone mostra "conectado, não carregando"? Cada sintoma aponta para uma causa diferente.\n\nEm Curitiba, nosso técnico realiza testes elétricos precisos com multímetro no carregador, conector e bateria para identificar exatamente o componente com defeito antes de qualquer troca.`,
@@ -7246,7 +7246,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "erro-0xc000021a-curitiba",
     title: "Erro 0xc000021a Tela Azul em Curitiba | Resolução Profissional",
-    metaDescription: "Tela azul com erro 0xc000021a? PC não inicia e fica reiniciando? Técnico em Curitiba resolve falhas críticas do Windows sem perda de dados.",
+    metaDescription: "Tela azul com erro 0xc000021a? PC não inicia e fica reiniciando? O Técnico de Informática resolve falhas críticas do Windows sem perda de dados.",
     h1: "Erro 0xc000021a (Tela Azul) — Resolução Profissional em Curitiba",
     categoria: "Software / Windows",
     intro: `O erro 0xc000021a é uma das telas azuis (BSOD) mais graves do Windows porque indica que um processo crítico do sistema — geralmente o csrss.exe (Client/Server Runtime Subsystem) ou o winlogon.exe — falhou de forma irrecuperável, impedindo o Windows de iniciar.\n\nDiferentemente de outros erros de tela azul que ocorrem durante o uso, o 0xc000021a geralmente aparece durante a inicialização, criando um loop infinito de reinicialização. O sistema tenta iniciar, exibe a tela azul, reinicia e repete o ciclo.\n\nAs causas incluem atualizações do Windows que corromperam arquivos do sistema, drivers incompatíveis instalados antes da falha, infecção por malware que modificou arquivos críticos ou até mesmo setores defeituosos no HD/SSD. Em Curitiba, nosso técnico resolve esse erro com procedimentos avançados de recuperação, priorizando a preservação dos seus dados.`,
@@ -7296,7 +7296,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "pc-nao-reconhece-usb-curitiba",
     title: "PC Não Reconhece USB em Curitiba | Diagnóstico e Solução",
-    metaDescription: "PC ou notebook não reconhece pendrive, HD externo ou dispositivo USB? Técnico em Curitiba resolve problemas de portas USB com diagnóstico preciso.",
+    metaDescription: "PC ou notebook não reconhece pendrive, HD externo ou dispositivo USB? O Técnico de Informática resolve problemas de portas USB com diagnóstico preciso.",
     h1: "PC Não Reconhece USB — Diagnóstico e Solução em Curitiba",
     categoria: "Hardware / Periféricos",
     intro: `Quando o PC não reconhece dispositivos USB — pendrives, HDs externos, teclados, mouses ou impressoras — a produtividade é diretamente afetada. O problema pode estar nas portas USB do computador, nos drivers do sistema, no próprio dispositivo ou no gerenciamento de energia do Windows.\n\nÉ fundamental identificar se o problema é em todas as portas ou apenas em algumas, se afeta todos os dispositivos ou apenas um específico, e se começou após alguma atualização ou mudança no sistema. Cada combinação aponta para uma causa diferente.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo das portas USB, controladores e drivers para identificar a causa exata e aplicar a solução correta.`,
@@ -7346,7 +7346,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "wifi-caindo-curitiba",
     title: "Wi-Fi Caindo em Curitiba | Diagnóstico e Solução Profissional",
-    metaDescription: "Wi-Fi caindo toda hora? Internet instável, lenta ou desconectando? Técnico em Curitiba resolve problemas de rede Wi-Fi com diagnóstico completo.",
+    metaDescription: "Wi-Fi caindo toda hora? Internet instável, lenta ou desconectando? O Técnico de Informática resolve problemas de rede Wi-Fi com diagnóstico completo.",
     h1: "Wi-Fi Caindo — Diagnóstico e Solução em Curitiba",
     categoria: "Redes / Wi-Fi",
     intro: `Wi-Fi que cai toda hora é um dos problemas mais frustrantes da vida digital moderna. A instabilidade pode se manifestar como desconexões frequentes, velocidade muito abaixo do contratado, latência alta ou sinal fraco em determinados cômodos.\n\nAs causas vão desde problemas simples de configuração do roteador até interferência eletromagnética, sobrecarga de dispositivos conectados, firmware desatualizado, problemas na placa Wi-Fi do computador ou até mesmo falhas na infraestrutura do provedor de internet.\n\nEm Curitiba, nosso técnico realiza diagnóstico completo da rede Wi-Fi, incluindo análise de espectro, teste de velocidade em diferentes pontos, verificação de interferência e otimização de canais para garantir conexão estável e rápida.`,
@@ -7397,7 +7397,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "notebook-tela-preta-curitiba",
     title: "Notebook com Tela Preta em Curitiba — Diagnóstico e Reparo",
-    metaDescription: "Notebook ligou mas a tela ficou preta? Técnico em Curitiba identifica se é backlight, flat cable, GPU ou placa-mãe. Diagnóstico profissional com valor transparente.",
+    metaDescription: "Notebook ligou mas a tela ficou preta? O Técnico de Informática identifica se é backlight, flat cable, GPU ou placa-mãe. Diagnóstico profissional com valor transparente.",
     h1: "Notebook com Tela Preta — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `Quando o notebook liga mas a tela permanece completamente preta, o problema pode variar de algo simples como brilho no mínimo até falhas graves na GPU ou placa-mãe. Muitos clientes confundem tela preta com notebook que não liga — mas se os LEDs acendem e o cooler gira, o sistema está funcionando; o problema está no vídeo.\n\nEsse é um dos defeitos mais comuns e mais frustrantes: você ouve o Windows iniciando, mas não vê nada. A causa pode ser o inverter/backlight, o flat cable da tela, a própria tela LCD/LED, a GPU dedicada com solda fria, ou até problemas de BIOS/firmware.\n\nO diagnóstico correto é essencial porque trocar peças sem saber a causa real resulta em desperdício de dinheiro. Conectar um monitor externo é o primeiro teste que separa falha de tela de falha de GPU.`,
@@ -7448,7 +7448,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "erro-0x80240034-curitiba",
     title: "Erro 0x80240034 Windows Update Curitiba — Solução Profissional",
-    metaDescription: "Erro 0x80240034 impedindo atualizações do Windows? Técnico em Curitiba resolve falhas do Windows Update com diagnóstico profissional. Atendimento rápido.",
+    metaDescription: "Erro 0x80240034 impedindo atualizações do Windows? O Técnico de Informática resolve falhas do Windows Update com diagnóstico profissional. Atendimento rápido.",
     h1: "Erro 0x80240034 no Windows Update — Solução em Curitiba",
     categoria: "Software",
     intro: `O erro 0x80240034 é uma das falhas mais frustrantes do Windows Update. Ele aparece quando uma atualização falha durante o download ou instalação, impedindo que o sistema se mantenha atualizado e seguro. O código indica que o Windows Update não conseguiu processar a atualização corretamente.\n\nEsse erro pode ser causado por arquivos de cache corrompidos, conflitos com software de terceiros, problemas nos serviços do Windows Update, ou até disco com setores defeituosos que impedem a gravação dos arquivos de atualização.\n\nIgnorar atualizações do Windows deixa o sistema vulnerável a malware e exploits conhecidos, além de causar incompatibilidades com software mais recente.`,
@@ -7549,7 +7549,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "hd-externo-nao-reconhece-curitiba",
     title: "HD Externo Não Reconhece Curitiba — Recuperação e Diagnóstico",
-    metaDescription: "HD externo não aparece no PC? Técnico em Curitiba faz diagnóstico profissional para recuperar dados e reparar unidades externas. valor transparente.",
+    metaDescription: "HD externo não aparece no PC? O Técnico de Informática faz diagnóstico profissional para recuperar dados e reparar unidades externas. valor transparente.",
     h1: "HD Externo Não Reconhece — Diagnóstico e Recuperação em Curitiba",
     categoria: "Hardware / Armazenamento",
     intro: `Quando o HD externo não é reconhecido pelo computador, a preocupação principal é sempre os dados. Fotos, documentos, trabalhos acadêmicos e backups podem estar em risco. O problema pode ser tão simples quanto um cabo defeituoso ou tão grave quanto falha mecânica do disco.\n\nAntes de tentar qualquer solução por conta própria, é fundamental entender que HDs externos com problemas mecânicos (cliques, ruídos) NÃO devem ser ligados repetidamente — cada tentativa pode piorar o dano e tornar a recuperação mais cara ou impossível.\n\nOs HDs externos são especialmente vulneráveis porque são transportados constantemente e podem sofrer quedas, vibrações e variações de temperatura que HDs internos não experimentam.`,
@@ -7599,7 +7599,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "impressora-nao-imprime-curitiba",
     title: "Impressora Não Imprime em Curitiba — Diagnóstico e Solução Profissional",
-    metaDescription: "Impressora não imprime? Técnico em Curitiba resolve entupimento, erro de driver, spooler travado e falhas de conexão USB/Wi-Fi. Diagnóstico profissional.",
+    metaDescription: "Impressora não imprime? O Técnico de Informática resolve entupimento, erro de driver, spooler travado e falhas de conexão USB/Wi-Fi. Diagnóstico profissional.",
     h1: "Impressora Não Imprime — Diagnóstico e Solução em Curitiba",
     categoria: "Periféricos",
     intro: `Você manda imprimir e nada acontece. O documento fica preso na fila, a impressora pisca luzes ou simplesmente ignora o comando. Esse é um dos problemas mais comuns em escritórios e home offices de Curitiba.\n\nAs causas vão desde cabos mal conectados e drivers desatualizados até cabeçotes entupidos e falhas no spooler de impressão do Windows. Sem diagnóstico correto, muitos trocam cartuchos ou compram impressoras novas desnecessariamente.\n\nNosso técnico avalia o equipamento presencialmente, identifica a causa exata e resolve — seja ajuste de software, limpeza de cabeçote ou configuração de rede.`,
@@ -7649,7 +7649,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "notebook-desliga-sozinho-curitiba",
     title: "Notebook Desliga Sozinho em Curitiba — Causas e Solução Técnica",
-    metaDescription: "Notebook desliga sozinho? Técnico em Curitiba diagnostica superaquecimento, bateria defeituosa, falha de placa e instabilidade elétrica. Atendimento profissional.",
+    metaDescription: "Notebook desliga sozinho? O Técnico de Informática diagnostica superaquecimento, bateria defeituosa, falha de placa e instabilidade elétrica. Atendimento profissional.",
     h1: "Notebook Desliga Sozinho — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `O notebook desliga sem aviso, no meio de um trabalho ou reunião. Pode acontecer após minutos de uso ou sob carga pesada como jogos e edição de vídeo. Esse sintoma indica problemas que vão de superaquecimento a falhas críticas de hardware.\n\nIgnorar desligamentos repentinos acelera o desgaste de componentes e pode causar perda de dados. Cada desligamento abrupto é um risco para o HD/SSD e para a integridade do sistema operacional.\n\nNosso técnico em Curitiba realiza diagnóstico térmico, elétrico e de software para identificar e resolver a causa raiz do problema.`,
@@ -7698,7 +7698,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "erro-0x80070057-curitiba",
     title: "Erro 0x80070057 em Curitiba — Diagnóstico e Correção Profissional",
-    metaDescription: "Erro 0x80070057 no Windows? Técnico em Curitiba resolve falha de parâmetro incorreto em backup, formatação, Windows Update e partições. Atendimento especializado.",
+    metaDescription: "Erro 0x80070057 no Windows? O Técnico de Informática resolve falha de parâmetro incorreto em backup, formatação, Windows Update e partições. Atendimento especializado.",
     h1: "Erro 0x80070057 — Correção Profissional em Curitiba",
     categoria: "Software",
     intro: `O erro 0x80070057 ('O parâmetro está incorreto') é um dos mais frustrantes do Windows. Aparece em diversas situações: ao tentar fazer backup, formatar disco, instalar atualizações ou copiar arquivos grandes.\n\nEsse código genérico pode ter dezenas de causas diferentes, desde configuração regional incorreta até setores defeituosos no disco. Soluções genéricas da internet raramente resolvem porque não atacam a causa raiz.\n\nNosso técnico em Curitiba analisa o contexto exato do erro, identifica a causa específica e aplica a correção adequada — sem tentativa e erro.`,
@@ -7747,7 +7747,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "pc-reiniciando-sozinho-curitiba",
     title: "PC Reiniciando Sozinho em Curitiba — Diagnóstico e Solução",
-    metaDescription: "PC reiniciando sozinho? Técnico em Curitiba diagnostica superaquecimento, fonte instável, RAM defeituosa e erros de Windows. Atendimento profissional.",
+    metaDescription: "PC reiniciando sozinho? O Técnico de Informática diagnostica superaquecimento, fonte instável, RAM defeituosa e erros de Windows. Atendimento profissional.",
     h1: "PC Reiniciando Sozinho — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `O computador reinicia sem aviso, perdendo todo o trabalho aberto. Pode acontecer aleatoriamente, ao abrir programas pesados ou até durante o boot. Reinicializações constantes são sintomas de problemas sérios que pioram com o tempo.\n\nAs causas mais comuns são superaquecimento, fonte de alimentação instável, memória RAM defeituosa e drivers com bug. Em casos mais graves, pode indicar falha no processador ou placa-mãe.\n\nNosso técnico em Curitiba utiliza ferramentas de diagnóstico profissional para identificar a causa exata e resolver o problema de forma definitiva.`,
@@ -7796,7 +7796,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "monitor-sem-sinal-curitiba",
     title: "Monitor Sem Sinal em Curitiba — Diagnóstico e Solução Profissional",
-    metaDescription: "Monitor sem sinal? Técnico em Curitiba diagnostica cabo, placa de vídeo, RAM e configuração de saída de vídeo. Atendimento profissional com diagnóstico preciso.",
+    metaDescription: "Monitor sem sinal? O Técnico de Informática diagnostica cabo, placa de vídeo, RAM e configuração de saída de vídeo. Atendimento profissional com diagnóstico preciso.",
     h1: "Monitor Sem Sinal — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `Você liga o computador e o monitor exibe "Sem Sinal", "No Signal" ou simplesmente fica preto. O PC parece ligar normalmente — ventoinhas giram, LEDs acendem — mas não aparece imagem alguma.\n\nEsse problema pode ter causas simples como cabo solto ou entrada errada, mas também indica falhas graves como placa de vídeo queimada, RAM mal encaixada ou placa-mãe com defeito.\n\nNosso técnico em Curitiba realiza diagnóstico sistemático, testando cada componente para identificar a causa exata e resolver sem troca desnecessária de peças.`,
@@ -7845,7 +7845,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "placa-de-video-nao-funciona-curitiba",
     title: "Placa de Vídeo Não Funciona em Curitiba — Diagnóstico e Reparo",
-    metaDescription: "Placa de vídeo não funciona? Técnico em Curitiba diagnostica GPU queimada, driver crashando, artefatos e sem imagem. Reparo profissional com garantia.",
+    metaDescription: "Placa de vídeo não funciona? O Técnico de Informática diagnostica GPU queimada, driver crashando, artefatos e sem imagem. Reparo profissional com garantia.",
     h1: "Placa de Vídeo Não Funciona — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware",
     intro: `A placa de vídeo parou de funcionar: sem imagem, artefatos na tela, crashes em jogos ou driver que não instala. GPUs são componentes caros e sensíveis que podem falhar por superaquecimento, desgaste ou problema elétrico.\n\nAntes de comprar uma GPU nova, é essencial diagnosticar corretamente. Muitas vezes o problema é driver, alimentação insuficiente, slot PCI-E ou até a fonte — e não a placa em si.\n\nNosso técnico em Curitiba testa a GPU isoladamente, verifica alimentação, temperaturas e drivers para identificar a causa real e evitar gastos desnecessários.`,
@@ -7894,7 +7894,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "ssd-nao-reconhece-curitiba",
     title: "SSD Não Reconhece em Curitiba — Diagnóstico e Recuperação",
-    metaDescription: "SSD não reconhece no PC? Técnico em Curitiba diagnostica falha de firmware, BIOS, partição e recupera dados. Atendimento profissional com garantia.",
+    metaDescription: "SSD não reconhece no PC? O Técnico de Informática diagnostica falha de firmware, BIOS, partição e recupera dados. Atendimento profissional com garantia.",
     h1: "SSD Não Reconhece — Diagnóstico e Solução em Curitiba",
     categoria: "Hardware",
     intro: `O SSD não aparece no Windows, não é detectado na BIOS ou sumiu do dia para a noite. SSDs são mais confiáveis que HDs mecânicos, mas também falham — e quando falham, podem perder dados sem aviso.\n\nAs causas variam: BIOS desatualizada, modo AHCI desativado, partição corrompida, cabo/slot defeituoso ou falha de firmware. Em SSDs M.2 NVMe, incompatibilidade de slot é muito comum.\n\nNosso técnico em Curitiba diagnostica com precisão, recupera dados quando possível e resolve o problema — seja configuração, hardware ou substituição.`,
@@ -7943,7 +7943,7 @@ Abre um relatório HTML com capacidade original vs atual e histórico de carga.`
   {
     slug: "notebook-teclado-nao-funciona-curitiba",
     title: "Teclado do Notebook Não Funciona em Curitiba — Reparo Profissional",
-    metaDescription: "Teclado do notebook não funciona? Técnico em Curitiba resolve teclas travadas, flat cable, derramamento de líquido e driver. Reparo ou troca com garantia.",
+    metaDescription: "Teclado do notebook não funciona? O Técnico de Informática resolve teclas travadas, flat cable, derramamento de líquido e driver. Reparo ou troca com garantia.",
     h1: "Teclado do Notebook Não Funciona — Reparo em Curitiba",
     categoria: "Hardware",
     intro: `Algumas teclas não respondem, o teclado inteiro parou ou digita caracteres errados. Problemas de teclado em notebook são muito comuns e têm causas que vão de sujeira acumulada a danos por líquido.\n\nDiferente de desktops onde basta trocar o teclado, em notebooks o reparo envolve desmontagem e troca do flat cable ou do teclado inteiro — um procedimento delicado que exige técnico experiente.\n\nNosso técnico em Curitiba diagnostica a causa exata, realiza limpeza profissional ou troca o teclado por modelo compatível com garantia.`,
@@ -8270,7 +8270,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "notebook-nao-carrega-bateria-curitiba",
     title: "Notebook Não Carrega Bateria em Curitiba | Diagnóstico Profissional",
-    metaDescription: "Notebook não carrega a bateria? Técnico em Curitiba identifica se o problema é no carregador, conector DC, circuito de carga ou bateria. Atendimento rápido.",
+    metaDescription: "Notebook não carrega a bateria? O Técnico de Informática identifica se o problema é no carregador, conector DC, circuito de carga ou bateria. Atendimento rápido.",
     h1: "Notebook Não Carrega Bateria — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware / Notebook",
     intro: `Quando o notebook para de carregar a bateria, o problema pode estar no carregador, no conector DC jack, no circuito de carga da placa-mãe ou na própria bateria. Ignorar o sintoma pode levar a desligamentos inesperados e perda de dados.\n\nEm Curitiba, nosso técnico utiliza multímetro e ferramentas de diagnóstico para identificar exatamente onde está a falha — evitando trocar peças desnecessárias e economizando seu dinheiro.`,
@@ -8367,7 +8367,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "erro-driver-windows-curitiba",
     title: "Erro de Driver no Windows em Curitiba | Resolução Profissional",
-    metaDescription: "Erros de driver no Windows? Tela azul, dispositivo não reconhecido, conflitos de hardware. Técnico em Curitiba resolve com diagnóstico preciso.",
+    metaDescription: "Erros de driver no Windows? Tela azul, dispositivo não reconhecido, conflitos de hardware. O Técnico de Informática resolve com diagnóstico preciso.",
     h1: "Erro de Driver no Windows — Resolução Profissional em Curitiba",
     categoria: "Software / Windows",
     intro: `Erros de driver são uma das causas mais comuns de instabilidade no Windows. Podem causar tela azul (BSOD), dispositivos que param de funcionar, conflitos de hardware e até lentidão generalizada do sistema.\n\nEm Curitiba, nosso técnico resolve problemas de driver com metodologia profissional — identificando a versão correta, removendo drivers conflitantes com ferramentas especializadas e garantindo compatibilidade total com seu hardware.`,
@@ -8415,7 +8415,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "cabo-rede-nao-funciona-curitiba",
     title: "Cabo de Rede Não Funciona em Curitiba | Diagnóstico de Rede Profissional",
-    metaDescription: "Cabo de rede não funciona? Internet cabeada sem conexão, velocidade baixa ou intermitente. Técnico em Curitiba diagnostica com testador certificado.",
+    metaDescription: "Cabo de rede não funciona? Internet cabeada sem conexão, velocidade baixa ou intermitente. O Técnico de Informática diagnostica com testador certificado.",
     h1: "Cabo de Rede Não Funciona — Diagnóstico de Rede em Curitiba",
     categoria: "Redes / Infraestrutura",
     intro: `Problemas com cabo de rede podem parecer simples, mas frequentemente envolvem múltiplos pontos de falha: o próprio cabo, os conectores RJ-45, as tomadas de parede, o switch/roteador ou a placa de rede do computador.\n\nEm Curitiba, nosso técnico utiliza testador de cabos profissional e certificador de rede para identificar exatamente onde está o problema — desde crimpagem mal feita até cabo com par rompido internamente.`,
@@ -8661,7 +8661,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "impressora-nao-imprime-curitiba",
     title: "Impressora Não Imprime em Curitiba — Diagnóstico e Reparo",
-    metaDescription: "Impressora não imprime? Técnico em Curitiba resolve spooler travado, cabeçote entupido, erro de driver e problemas de conexão USB/WiFi. Diagnóstico profissional.",
+    metaDescription: "Impressora não imprime? O Técnico de Informática resolve spooler travado, cabeçote entupido, erro de driver e problemas de conexão USB/WiFi. Diagnóstico profissional.",
     h1: "Impressora Não Imprime — Diagnóstico e Reparo em Curitiba",
     categoria: "Periféricos",
     intro: `Sua impressora aparece como conectada mas não imprime nenhuma página? Esse é um dos problemas mais comuns em escritórios e residências, com causas que vão desde um simples spooler de impressão travado até defeitos no cabeçote ou na placa lógica.\n\nEm Curitiba e região metropolitana, atendemos todas as marcas — HP, Epson, Canon, Brother e Samsung — com diagnóstico técnico que identifica se o problema é de software (driver, fila de impressão) ou hardware (cabeçote, sensor, mecanismo de alimentação de papel).`,
@@ -8712,7 +8712,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "notebook-sem-som-curitiba",
     title: "Notebook Sem Som em Curitiba — Diagnóstico e Reparo de Áudio",
-    metaDescription: "Notebook sem som? Técnico em Curitiba resolve driver de áudio, alto-falante queimado, conector P2 danificado e conflitos de dispositivo. Atendimento rápido.",
+    metaDescription: "Notebook sem som? O Técnico de Informática resolve driver de áudio, alto-falante queimado, conector P2 danificado e conflitos de dispositivo. Atendimento rápido.",
     h1: "Notebook Sem Som — Diagnóstico e Reparo de Áudio em Curitiba",
     categoria: "Hardware",
     intro: `Seu notebook parou de reproduzir som? Esse problema pode ter causas simples como driver desatualizado ou volume desativado, mas também pode indicar defeito no alto-falante interno, no conector de fone ou na placa de áudio integrada.\n\nEm Curitiba, diagnosticamos problemas de áudio em notebooks de todas as marcas com testes que isolam cada componente da cadeia sonora — do software ao hardware.`,
@@ -8762,7 +8762,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "erro-registro-windows-curitiba",
     title: "Erro de Registro do Windows em Curitiba — Diagnóstico e Correção",
-    metaDescription: "Erro de registro do Windows? Técnico em Curitiba corrige chaves corrompidas, entradas órfãs e falhas de inicialização causadas por registro danificado.",
+    metaDescription: "Erro de registro do Windows? O Técnico de Informática corrige chaves corrompidas, entradas órfãs e falhas de inicialização causadas por registro danificado.",
     h1: "Erro de Registro do Windows — Diagnóstico e Correção em Curitiba",
     categoria: "Software",
     intro: `O registro do Windows (Registry) é o banco de dados central que armazena todas as configurações do sistema operacional, programas e hardware. Quando esse registro apresenta erros, os sintomas podem variar de lentidão geral até telas azuis e impossibilidade de iniciar o sistema.\n\nEm Curitiba, realizamos diagnóstico e reparo do registro do Windows com ferramentas profissionais, sem recorrer a "limpadores de registro" genéricos que frequentemente pioram a situação.`,
@@ -8812,7 +8812,7 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   {
     slug: "pc-reiniciando-sozinho-curitiba",
     title: "PC Reiniciando Sozinho em Curitiba — Diagnóstico e Solução",
-    metaDescription: "PC reiniciando sozinho? Técnico em Curitiba diagnostica superaquecimento, fonte instável, RAM defeituosa e erros de BSOD. Atendimento rápido.",
+    metaDescription: "PC reiniciando sozinho? O Técnico de Informática diagnostica superaquecimento, fonte instável, RAM defeituosa e erros de BSOD. Atendimento rápido.",
     h1: "PC Reiniciando Sozinho — Diagnóstico e Solução em Curitiba",
     categoria: "Hardware",
     intro: `Seu computador reinicia sozinho sem aviso, no meio do trabalho ou durante jogos? Esse problema pode ser causado por superaquecimento do processador, fonte de alimentação instável, memória RAM com defeito ou até mesmo infecção por malware.\n\nO reinício espontâneo é um dos problemas mais frustrantes porque pode causar perda de trabalho não salvo e, em casos graves, corrupção de dados. Em Curitiba, realizamos diagnóstico completo para identificar a causa exata.`,
@@ -8860,8 +8860,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   // ─── mouse-nao-funciona-curitiba ───
   {
     slug: "mouse-nao-funciona-curitiba",
-    title: "Mouse Não Funciona em Curitiba — Diagnóstico e Reparo | Técnico Curitiba",
-    metaDescription: "Mouse parou de funcionar? Técnico em Curitiba resolve mouse com fio, sem fio e Bluetooth. Diagnóstico rápido, atendimento em domicílio. WhatsApp agora!",
+    title: "Mouse Não Funciona em Curitiba — Diagnóstico e Reparo | O Técnico de Informática",
+    metaDescription: "Mouse parou de funcionar? O Técnico de Informática resolve mouse com fio, sem fio e Bluetooth. Diagnóstico rápido, atendimento em domicílio. WhatsApp agora!",
     h1: "Mouse Não Funciona — Diagnóstico e Reparo em Curitiba",
     categoria: "Periféricos",
     intro: `Seu mouse parou de funcionar e você não consegue trabalhar? Esse é um dos problemas mais comuns enfrentados por usuários de computador em Curitiba e região metropolitana. Apesar de parecer simples, a causa pode variar desde uma pilha descarregada até uma falha na porta USB da placa-mãe.\n\nAntes de comprar um mouse novo, vale a pena investigar a causa real. Muitos casos são resolvidos em minutos com ajuste de driver ou troca de porta USB. Já em situações mais complexas, o problema pode estar na controladora USB da placa-mãe ou em interferência de sinal no caso de mouses sem fio.\n\nNosso técnico em Curitiba faz o diagnóstico completo: testa portas, drivers, receptor wireless e estado interno do periférico. Atendemos em domicílio e também em bancada, garantindo que você volte a trabalhar o mais rápido possível.`,
@@ -8910,8 +8910,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   // ─── erro-windows-update-curitiba ───
   {
     slug: "erro-windows-update-curitiba",
-    title: "Erro no Windows Update em Curitiba — Correção Profissional | Técnico Curitiba",
-    metaDescription: "Windows Update travado ou com erro? Técnico em Curitiba corrige falhas de atualização, loops de reinicialização e erros 0x80070002. Diagnóstico rápido!",
+    title: "Erro no Windows Update em Curitiba — Correção Profissional | O Técnico de Informática",
+    metaDescription: "Windows Update travado ou com erro? O Técnico de Informática corrige falhas de atualização, loops de reinicialização e erros 0x80070002. Diagnóstico rápido!",
     h1: "Erro no Windows Update — Correção Profissional em Curitiba",
     categoria: "Software / Sistemas",
     intro: `O Windows Update é essencial para manter seu computador seguro e funcionando corretamente. Porém, quando ele falha, pode causar desde travamentos durante a atualização até loops de reinicialização que impedem o uso do computador.\n\nErros como 0x80070002, 0x800f081f, 0x80073712 e "Não foi possível concluir as atualizações" são extremamente comuns em Curitiba, especialmente em máquinas com pouco espaço em disco, drivers desatualizados ou instalações corrompidas do Windows.\n\nTentar resolver por conta própria pode piorar a situação: comandos incorretos no Prompt de Comando podem corromper arquivos do sistema, e favaliar o valor a desinstalação de atualizações pode quebrar dependências críticas. Nosso técnico em Curitiba diagnostica a causa raiz e aplica a correção correta sem riscos para seus dados.`,
@@ -8960,8 +8960,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   // ─── monitor-piscando-curitiba ───
   {
     slug: "monitor-piscando-curitiba",
-    title: "Monitor Piscando em Curitiba — Diagnóstico e Reparo | Técnico Curitiba",
-    metaDescription: "Monitor piscando ou com tela intermitente? Técnico em Curitiba diagnostica e repara cabos, placas de vídeo e fontes de monitores. Atendimento rápido!",
+    title: "Monitor Piscando em Curitiba — Diagnóstico e Reparo | O Técnico de Informática",
+    metaDescription: "Monitor piscando ou com tela intermitente? O Técnico de Informática diagnostica e repara cabos, placas de vídeo e fontes de monitores. Atendimento rápido!",
     h1: "Monitor Piscando — Diagnóstico e Reparo em Curitiba",
     categoria: "Hardware / Periféricos",
     intro: `Seu monitor está piscando, apagando e acendendo sozinho? Esse problema pode variar de algo simples como um cabo solto até uma falha grave na placa de vídeo ou na fonte interna do monitor.\n\nEm Curitiba, atendemos muitos casos de monitores piscando causados por cabos HDMI/VGA de baixa qualidade, drivers de vídeo desatualizados ou capacitores estufados na placa fonte do monitor. É fundamental diagnosticar corretamente antes de gastar com um monitor novo.\n\nNosso técnico faz a triagem completa: testa cabos, portas, placa de vídeo e a eletrônica interna do monitor. Muitos casos são resolvidos na hora com troca de cabo ou ajuste de taxa de atualização. Em casos mais complexos, realizamos reparo de placa fonte com troca de capacitores.`,
@@ -9010,8 +9010,8 @@ Atendemos toda Curitiba e região metropolitana. Problemas de software no touchp
   // ─── notebook-tela-escura-curitiba ───
   {
     slug: "notebook-tela-escura-curitiba",
-    title: "Notebook com Tela Escura em Curitiba — Diagnóstico e Reparo | Técnico Curitiba",
-    metaDescription: "Notebook com tela escura ou apagada? Técnico em Curitiba diagnostica backlight, flat cable e placa de vídeo. Atendimento em domicílio. WhatsApp agora!",
+    title: "Notebook com Tela Escura em Curitiba — Diagnóstico e Reparo | O Técnico de Informática",
+    metaDescription: "Notebook com tela escura ou apagada? O Técnico de Informática diagnostica backlight, flat cable e placa de vídeo. Atendimento em domicílio. WhatsApp agora!",
     h1: "Notebook com Tela Escura — Diagnóstico e Reparo em Curitiba",
     categoria: "Notebooks",
     intro: `Seu notebook liga mas a tela fica escura ou muito fraca? Esse é um dos problemas mais frustrantes para usuários de notebook em Curitiba. Você ouve o sistema iniciando, os LEDs acendem, mas a tela não exibe nada — ou exibe uma imagem tão fraca que só é visível em ambiente completamente escuro.\n\nA causa mais comum é falha no backlight (iluminação de fundo) da tela, mas pode também ser o flat cable que conecta a tela à placa-mãe, a própria placa de vídeo integrada ou até uma configuração de brilho no BIOS.\n\nÉ importante não confundir tela escura com tela quebrada: na tela escura, o painel está intacto mas sem iluminação. Nosso técnico em Curitiba faz o diagnóstico preciso usando monitor externo, lanterna e ferramentas específicas para identificar exatamente onde está a falha.`,

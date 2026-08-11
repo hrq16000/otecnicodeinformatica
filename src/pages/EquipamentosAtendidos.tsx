@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 const PATH = "/equipamentos-atendidos";
-const TITLE = "Equipamentos Atendidos | Técnico em Curitiba";
+const TITLE = "Equipamentos Atendidos | O Técnico de Informática";
 const DESCRIPTION =
   "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.";
 

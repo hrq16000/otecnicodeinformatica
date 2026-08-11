@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim das Américas",
   slug: "jardim-das-americas",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Jardim das Américas | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim das Américas | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim das Américas, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim das Américas – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Jardim das Américas. Diagnóstico, reparo e suporte técnico com garantia.",

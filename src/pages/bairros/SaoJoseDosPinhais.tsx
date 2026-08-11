@@ -4,7 +4,7 @@ const data = {
   nome: "São José dos Pinhais",
   slug: "sao-jose-dos-pinhais",
   cidade: "São José dos Pinhais",
-  metaTitle: "Técnico de Informática em São José dos Pinhais | Atendimento Rápido | Técnico Curitiba",
+  metaTitle: "Técnico de Informática em São José dos Pinhais | Atendimento Rápido | O Técnico de Informática",
   metaDescription: "Técnico de informática em São José dos Pinhais. Atendimento em domicílio para PC e notebook. Formatação, vírus, upgrade. a partir de R$ 99,99.",
   h1: "Técnico de Informática em São José dos Pinhais",
   subtitulo: "Atendimento profissional em toda São José dos Pinhais e região metropolitana",

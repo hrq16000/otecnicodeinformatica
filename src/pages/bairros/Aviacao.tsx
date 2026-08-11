@@ -5,7 +5,7 @@ const Aviacao = () => {
     nome: "Aviação",
     slug: "aviacao",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática na Aviação SJP | Próximo ao Aeroporto | Técnico Curitiba",
+    metaTitle: "Técnico de Informática na Aviação SJP | Próximo ao Aeroporto | O Técnico de Informática",
     metaDescription: "Técnico de informática no bairro Aviação em São José dos Pinhais. Próximo ao Aeroporto Afonso Pena. Atendimento rápido. Serviços a partir de a partir de R$ 99,99.",
     h1: "Técnico de Informática na Aviação – São José dos Pinhais",
     subtitulo: "Assistência técnica próxima ao Aeroporto Afonso Pena. Atendimento ágil para residências e empresas da região.",

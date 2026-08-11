@@ -150,7 +150,7 @@ export function osTimeline(record: OsRecord): OsEvento[] {
   return [abertura, ...eventos];
 }
 
-/** Formato oficial do protocolo: OS-MTG-AAAAMMDD-0000. */
+/** Formato oficial do protocolo (ver OS_FORMAT_LABEL em config/commercial). */
 export const OS_PATTERN = /^OS-[A-Z]{2,4}-\d{8}-\d{3,5}$/;
 
 export function normalizeOsNumero(valor: string): string {

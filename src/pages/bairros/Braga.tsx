@@ -5,7 +5,7 @@ const Braga = () => {
     nome: "Braga",
     slug: "braga",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Braga SJP | Conserto e Manutenção | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Braga SJP | Conserto e Manutenção | O Técnico de Informática",
     metaDescription: "Técnico de informática no bairro Braga em São José dos Pinhais. Manutenção, conserto de PC e notebook. Atendimento em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Braga – São José dos Pinhais",
     subtitulo: "Assistência técnica profissional no Braga e bairros vizinhos. Seu computador consertado sem sair de casa.",

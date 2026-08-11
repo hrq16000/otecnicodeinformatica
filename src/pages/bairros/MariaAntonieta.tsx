@@ -4,7 +4,7 @@ const data = {
   nome: "Maria Antonieta",
   slug: "maria-antonieta",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Maria Antonieta | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Maria Antonieta | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Maria Antonieta, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Maria Antonieta – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Maria Antonieta. Diagnóstico no local, valor transparente e garantia.",

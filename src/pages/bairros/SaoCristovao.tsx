@@ -5,7 +5,7 @@ const SaoCristovao = () => {
     nome: "São Cristóvão",
     slug: "sao-cristovao",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no São Cristóvão SJP | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no São Cristóvão SJP | O Técnico de Informática",
     metaDescription: "Técnico de informática no São Cristóvão, São José dos Pinhais. Conserto de PC e notebook, formatação, upgrade. Atendimento domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no São Cristóvão – São José dos Pinhais",
     subtitulo: "Atendimento técnico especializado no São Cristóvão. Seu computador funcionando perfeitamente.",

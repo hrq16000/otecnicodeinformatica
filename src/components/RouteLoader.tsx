@@ -21,7 +21,7 @@ export const RouteLoader = () => (
     <style>{`@keyframes routeLogoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.62;transform:scale(1.06)}}`}</style>
     <img
       src="/logo.webp"
-      alt="Técnico Curitiba"
+      alt="O Técnico de Informática"
       width={304}
       height={98}
       decoding="sync"

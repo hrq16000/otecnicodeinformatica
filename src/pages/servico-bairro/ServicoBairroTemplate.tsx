@@ -109,7 +109,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${CANONICAL_BASE}/#localbusiness`,
-    name: "Técnico em Curitiba",
+    name: "O Técnico de Informática",
     url: CANONICAL_BASE,
     telephone: WA_PHONE_E164,
     areaServed: [

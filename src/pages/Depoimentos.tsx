@@ -126,7 +126,7 @@ const Depoimentos = () => {
   return (
     <>
       <PageSEO
-        title="Depoimentos de clientes | Técnico em Curitiba"
+        title="Depoimentos de clientes | O Técnico de Informática"
         description="Avaliações verificadas de clientes atendidos em Curitiba e região. Filtre por bairro e por serviço e veja o que foi resolvido em cada atendimento."
         path={PATH}
         breadcrumbs={[

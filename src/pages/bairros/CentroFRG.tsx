@@ -5,7 +5,7 @@ const CentroFRG = () => {
     nome: "Centro (Fazenda Rio Grande)",
     slug: "centro-fazenda-rio-grande",
     cidade: "Fazenda Rio Grande",
-    metaTitle: "Técnico de Informática no Centro de Fazenda Rio Grande | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Centro de Fazenda Rio Grande | O Técnico de Informática",
     metaDescription: "Técnico de informática no Centro de Fazenda Rio Grande. Formatação, conserto, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Fazenda Rio Grande",
     subtitulo: "Assistência técnica profissional no Centro de Fazenda Rio Grande com atendimento rápido e garantia.",

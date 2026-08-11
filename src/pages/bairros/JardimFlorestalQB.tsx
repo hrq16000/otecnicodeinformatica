@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Florestal",
   slug: "jardim-florestal-qb",
   cidade: "Quatro Barras",
-  metaTitle: "Técnico de Informática no Jardim Florestal | Quatro Barras | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Florestal | Quatro Barras | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Florestal, Quatro Barras. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Florestal – Quatro Barras",
   subtitulo: "Atendimento profissional a domicílio no Jardim Florestal. Diagnóstico, reparo e suporte técnico com garantia.",

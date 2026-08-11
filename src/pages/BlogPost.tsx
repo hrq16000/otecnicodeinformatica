@@ -70,7 +70,7 @@ const BlogPost = () => {
 
   useEffect(() => {
     if (post) {
-      document.title = `${post.title} | Blog | Técnico em Curitiba`;
+      document.title = `${post.title} | Blog | O Técnico de Informática`;
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute("content", post.excerpt);
@@ -183,7 +183,7 @@ const BlogPost = () => {
         "isAccessibleForFree": true,
         "isPartOf": {
           "@type": "Blog",
-          "name": "Blog Técnico em Curitiba",
+          "name": "Blog O Técnico de Informática",
           "url": `${SITE_BASE_URL}/blog`
         },
         "about": { "@type": "Thing", "name": post.category },
@@ -244,7 +244,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} | Blog | Técnico em Curitiba</title>
+        <title>{post.title} | Blog | O Técnico de Informática</title>
         <meta name="description" content={post.excerpt} />
         {/* robots/googlebot são gerenciados via efeito (registro editorial) */}
         <meta property="og:type" content={approved ? "article" : "website"} />

@@ -40,7 +40,7 @@ export const buildT24Message = (ctx: ReviewRequestContext): string => {
   const bairro = ctx.neighborhood ? ` no ${ctx.neighborhood}` : "";
   const tech = ctx.technicianName ? `, do time do ${ctx.technicianName},` : "";
   return (
-    `Olá, ${nome}! Aqui é da Técnico Curitiba${tech} tudo certo${servico}${bairro}? ` +
+    `Olá, ${nome}! Aqui é da O Técnico de Informática${tech} tudo certo${servico}${bairro}? ` +
     `Se ficou satisfeito com o atendimento, sua avaliação no Google ajuda muito ` +
     `outros moradores a encontrarem ajuda confiável. ` +
     `É 1 minutinho aqui ó: ${GOOGLE_REVIEW_URL} 🙏\n\n` +

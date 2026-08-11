@@ -202,7 +202,7 @@ const AdminFunnel = () => {
 
     const generatedAt = new Date().toLocaleString("pt-BR");
     doc.setFontSize(14);
-    doc.text("Leads do funil — Técnico Curitiba", 40, 40);
+    doc.text("Leads do funil — O Técnico de Informática", 40, 40);
     doc.setFontSize(9);
     doc.setTextColor(100);
     const filters: string[] = [];
@@ -298,7 +298,7 @@ const AdminFunnel = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Funil — Admin | Técnico Curitiba</title>
+        <title>Funil — Admin | O Técnico de Informática</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />

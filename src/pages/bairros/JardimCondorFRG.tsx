@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Condor",
   slug: "jardim-condor-frg",
   cidade: "Fazenda Rio Grande",
-  metaTitle: "Técnico de Informática no Jardim Condor | Fazenda Rio Grande | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Condor | Fazenda Rio Grande | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Condor, Fazenda Rio Grande. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Condor – Fazenda Rio Grande",
   subtitulo: "Atendimento profissional a domicílio no Jardim Condor. Diagnóstico, reparo e suporte técnico com garantia.",

@@ -36,7 +36,7 @@ const RETENCAO = [
 
 const ExcluirMeusDados = () => {
   useEffect(() => {
-    document.title = "Excluir meus dados | Técnico em Curitiba";
+    document.title = "Excluir meus dados | O Técnico de Informática";
   }, []);
 
   const url = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(MENSAGEM)}`;
@@ -44,7 +44,7 @@ const ExcluirMeusDados = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Excluir meus dados e arquivos | Técnico em Curitiba"
+        title="Excluir meus dados e arquivos | O Técnico de Informática"
         description="Solicite a exclusão dos seus dados, fotos e Ordem de Serviço. Veja os prazos de retenção, a base legal de cada registro e como recebemos a confirmação do pedido."
         path="/excluir-meus-dados"
         breadcrumbs={[

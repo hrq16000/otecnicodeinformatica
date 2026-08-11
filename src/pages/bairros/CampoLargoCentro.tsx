@@ -5,7 +5,7 @@ const CampoLargoCentro = () => {
     nome: "Centro (Campo Largo)",
     slug: "centro-campo-largo",
     cidade: "Campo Largo",
-    metaTitle: "Técnico de Informática no Centro de Campo Largo | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Centro de Campo Largo | O Técnico de Informática",
     metaDescription:
       "Técnico de informática no Centro de Campo Largo. Conserto de PC e notebook, formatação, vírus, upgrade SSD e configuração de rede. Atendimento a domicílio com agendamento. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Campo Largo",

@@ -5,7 +5,7 @@ const NacoesFRG = () => {
     nome: "Nações",
     slug: "nacoes-frg",
     cidade: "Fazenda Rio Grande",
-    metaTitle: "Técnico de Informática no Nações (Fazenda Rio Grande) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Nações (Fazenda Rio Grande) | O Técnico de Informática",
     metaDescription: "Técnico de informática no Nações, Fazenda Rio Grande. Formatação, conserto, upgrade SSD e redes Wi-Fi. Atendimento domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Nações – Fazenda Rio Grande",
     subtitulo: "Assistência técnica no Nações com atendimento a domicílio, qualidade e garantia.",

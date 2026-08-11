@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Conserto de Notebook em Araucária | Todas as Marcas | Técnico Curitiba",
+  metaTitle: "Conserto de Notebook em Araucária | Todas as Marcas | O Técnico de Informática",
   metaDescription: "Conserto de notebook em Araucária. Tela, teclado, placa-mãe, bateria. Todas as marcas. atendimento sem compromisso e atendimento domiciliar.",
   
   servico: "Conserto de Notebook",

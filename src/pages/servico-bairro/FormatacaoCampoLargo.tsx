@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Formatação de Computador em Campo Largo | Técnico Local | Técnico Curitiba",
+  metaTitle: "Formatação de Computador em Campo Largo | Técnico Local | O Técnico de Informática",
   metaDescription: "Formatação de computador em Campo Largo. Windows 10/11, backup, drivers e programas. Atendimento domiciliar. A partir de R$ 109,99.",
   
   servico: "Formatação de Computador",

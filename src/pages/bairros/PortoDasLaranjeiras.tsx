@@ -4,7 +4,7 @@ const data = {
   nome: "Porto das Laranjeiras",
   slug: "porto-das-laranjeiras",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no Porto das Laranjeiras | Araucária | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Porto das Laranjeiras | Araucária | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Porto das Laranjeiras, Araucária. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Porto das Laranjeiras – Araucária",
   subtitulo: "Atendimento técnico profissional a domicílio no Porto das Laranjeiras. Diagnóstico no local, valor transparente e garantia.",

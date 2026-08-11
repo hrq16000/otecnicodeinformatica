@@ -10,7 +10,7 @@ const WHATSAPP_NUMBER = WA_NUMBER;
 // Fluxo do chatbot com triagem profissional completa
 const chatFlow = {
   inicio: {
-    mensagem: "Olá! 👋 Sou o assistente virtual do **Técnico Curitiba**. Estou aqui para ajudar você com:\n\n• Agendamento de visitas técnicas\n• Informações sobre serviços e preços\n• Diagnóstico inicial do problema\n\nComo posso ajudar?",
+    mensagem: "Olá! 👋 Sou o assistente virtual do **O Técnico de Informática**. Estou aqui para ajudar você com:\n\n• Agendamento de visitas técnicas\n• Informações sobre serviços e preços\n• Diagnóstico inicial do problema\n\nComo posso ajudar?",
     opcoes: [
       { label: "Preciso de atendimento técnico", proximo: "tipo_equipamento" },
       { label: "Quero saber os preços", proximo: "precos" },

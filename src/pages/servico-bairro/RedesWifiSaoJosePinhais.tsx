@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Instalação de Redes Wi-Fi em São José dos Pinhais | Técnico Especializado | Técnico Curitiba",
+  metaTitle: "Instalação de Redes Wi-Fi em São José dos Pinhais | Técnico Especializado | O Técnico de Informática",
   metaDescription: "Instalação e configuração de redes Wi-Fi em São José dos Pinhais. Internet rápida em toda casa ou empresa. Roteadores, repetidores e mesh. A partir de R$ 129,99.",
   
   servico: "Redes Wi-Fi",

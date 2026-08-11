@@ -4,7 +4,7 @@ const data = {
   nome: "Fazendinha",
   slug: "fazendinha",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Fazendinha | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Fazendinha | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Fazendinha, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Fazendinha – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Fazendinha. Diagnóstico, reparo e suporte técnico com garantia.",

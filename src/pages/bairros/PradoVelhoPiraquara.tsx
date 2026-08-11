@@ -4,7 +4,7 @@ const data = {
   nome: "Prado Velho",
   slug: "prado-velho-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Prado Velho | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Prado Velho | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Prado Velho, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Prado Velho – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no Prado Velho. Diagnóstico no local, valor transparente e garantia.",

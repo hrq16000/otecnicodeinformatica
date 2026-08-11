@@ -294,7 +294,7 @@ export function scriptPrimeiroContato(c: CategoriaOperacional, ctx: ScriptContex
   const local = ctx.bairro ? ` em ${ctx.bairro}` : "";
   const sintoma = ctx.sintoma ? ` (${ctx.sintoma})` : "";
   return [
-    `${saudacao} Aqui é do Técnico em Curitiba. Recebi seu contato sobre ${c.nome}${sintoma}${local}.`,
+    `${saudacao} Aqui é do Técnico de Informática. Recebi seu contato sobre ${c.nome}${sintoma}${local}.`,
     `Antes de confirmar o atendimento preciso checar 3 pontos:`,
     c.triagemObrigatoria.map((p, i) => `${i + 1}. ${p}`).join("\n"),
     `Prazo estimado para esta categoria: ${prazoEstimadoLabel(c)}.`,

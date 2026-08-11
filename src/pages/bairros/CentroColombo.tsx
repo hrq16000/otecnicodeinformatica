@@ -5,7 +5,7 @@ const CentroColombo = () => {
     nome: "Centro (Colombo)",
     slug: "centro-colombo",
     cidade: "Colombo",
-    metaTitle: "Técnico de Informática no Centro de Colombo | Atendimento Rápido | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Centro de Colombo | Atendimento Rápido | O Técnico de Informática",
     metaDescription: "Técnico de informática no Centro de Colombo PR. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Colombo",
     subtitulo: "Assistência técnica no Centro de Colombo com atendimento rápido, diagnóstico profissional e garantia.",

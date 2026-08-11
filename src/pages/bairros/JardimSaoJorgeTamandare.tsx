@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim São Jorge",
   slug: "jardim-sao-jorge-at",
   cidade: "Almirante Tamandaré",
-  metaTitle: "Técnico de Informática no Jardim São Jorge | Almirante Tamandaré | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim São Jorge | Almirante Tamandaré | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim São Jorge, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim São Jorge – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Jardim São Jorge. Diagnóstico, reparo e suporte técnico com garantia.",

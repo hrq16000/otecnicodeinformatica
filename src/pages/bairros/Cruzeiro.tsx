@@ -5,7 +5,7 @@ const Cruzeiro = () => {
     nome: "Cruzeiro",
     slug: "cruzeiro",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Cruzeiro SJP | Atendimento Rápido | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Cruzeiro SJP | Atendimento Rápido | O Técnico de Informática",
     metaDescription: "Técnico de informática no bairro Cruzeiro em São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Cruzeiro – São José dos Pinhais",
     subtitulo: "Assistência técnica profissional no Cruzeiro e região. Atendimento rápido em domicílio para residências e empresas.",

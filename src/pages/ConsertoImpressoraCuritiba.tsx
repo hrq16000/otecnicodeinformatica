@@ -153,7 +153,7 @@ const ConsertoImpressoraCuritiba = () => {
 
       <section className="py-14">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-center mb-8">Por que escolher a Técnico Curitiba</h2>
+          <h2 className="text-3xl font-heading font-bold text-center mb-8">Por que escolher a O Técnico de Informática</h2>
           <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
               { i: <Clock className="w-7 h-7 text-accent" />, t: "Atendimento conforme a agenda", d: "Visita domiciliar em 30-60 min em toda Curitiba." },

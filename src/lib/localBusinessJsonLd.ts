@@ -10,22 +10,15 @@
  *  - O telefone só existe dentro do JSON-LD e em deep links wa.me.
  *  - Nunca inventar avaliação / aggregateRating.
  */
-import { siteConfig, absoluteUrl } from "@/lib/siteConfig";
+import { siteConfig, absoluteUrl, BRAND_LOGO_PATH } from "@/lib/siteConfig";
+import { BUSINESS_HOURS } from "@/lib/config/contact";
 
-export const OPENING_HOURS = [
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "08:00",
-    closes: "18:00",
-  },
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: "Saturday",
-    opens: "09:00",
-    closes: "13:00",
-  },
-] as const;
+export const OPENING_HOURS = BUSINESS_HOURS.map((h) => ({
+  "@type": "OpeningHoursSpecification",
+  dayOfWeek: h.days,
+  opens: h.opens,
+  closes: h.closes,
+}));
 
 export const NAP = {
   name: siteConfig.brandName,
@@ -71,16 +64,13 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
     "@id": isHome ? `${siteConfig.baseUrl}/#localbusiness` : `${url}#localbusiness`,
     parentOrganization: { "@id": `${siteConfig.baseUrl}/#organization` },
     name: NAP.name,
-      alternateName: [
-      "Técnico de Informática Curitiba",
-      "Assistência Técnica em Informática Curitiba",
-    ],
+    alternateName: siteConfig.alternateNames,
     description:
       opts.description ?? siteConfig.defaultDescription,
     url,
     mainEntityOfPage: url,
     image: siteConfig.defaultOgImage,
-    logo: `${siteConfig.baseUrl}/logo.png`,
+    logo: `${siteConfig.baseUrl}${BRAND_LOGO_PATH}`,
     telephone: NAP.telephone,
     address: NAP.address,
     ...(siteConfig.geo
@@ -93,12 +83,19 @@ export function buildLocalBusinessSchema(opts: LocalBusinessOptions = {}) {
         }
       : {}),
     areaServed: opts.areaServed ?? AREA_SERVED,
-    openingHoursSpecification: OPENING_HOURS,
+    ...(OPENING_HOURS.length ? { openingHoursSpecification: OPENING_HOURS } : {}),
     priceRange: `${siteConfig.minPriceLabel}+`,
     currenciesAccepted: "BRL",
     paymentAccepted: "PIX, Cartão de Crédito, Cartão de Débito, Dinheiro, Transferência Bancária",
     foundingDate: siteConfig.foundedYear,
-    sameAs: [...siteConfig.sameAs, `https://wa.me/${siteConfig.whatsappNumber}`],
+    ...(siteConfig.whatsappConfigured || siteConfig.sameAs.length
+      ? {
+          sameAs: [
+            ...siteConfig.sameAs,
+            ...(siteConfig.whatsappConfigured ? [`https://wa.me/${siteConfig.whatsappNumber}`] : []),
+          ],
+        }
+      : {}),
   };
 
   if (opts.name) schema.name = opts.name;

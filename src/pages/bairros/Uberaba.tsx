@@ -4,7 +4,7 @@ const data = {
   nome: "Uberaba",
   slug: "uberaba",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Uberaba | Curitiba | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Uberaba | Curitiba | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Uberaba, Curitiba. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Uberaba – Curitiba",
   subtitulo: "Atendimento técnico profissional a domicílio no Uberaba. Diagnóstico no local, valor transparente e garantia.",

@@ -5,7 +5,7 @@ const GuaraitubaColombo = () => {
     nome: "Guaraituba",
     slug: "guaraituba-colombo",
     cidade: "Colombo",
-    metaTitle: "Técnico de Informática no Guaraituba (Colombo) | Atendimento Domicílio | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Guaraituba (Colombo) | Atendimento Domicílio | O Técnico de Informática",
     metaDescription: "Técnico de informática no Guaraituba, Colombo PR. Formatação, conserto, vírus, upgrade e redes. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Guaraituba – Colombo",
     subtitulo: "Assistência técnica no Guaraituba com atendimento domiciliar, diagnóstico preciso e preços justos.",

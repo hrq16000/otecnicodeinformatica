@@ -4,7 +4,7 @@ const data = {
   nome: "Centro",
   slug: "centro-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Centro | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Centro | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Centro, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Centro – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no Centro. Diagnóstico no local, valor transparente e garantia.",

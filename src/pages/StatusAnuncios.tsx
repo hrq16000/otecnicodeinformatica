@@ -57,7 +57,7 @@ const StatusAnuncios = () => {
   return (
     <>
       <Helmet>
-        <title>Status de Anúncios e Transparência | Técnico em Curitiba</title>
+        <title>Status de Anúncios e Transparência | O Técnico de Informática</title>
         <meta
           name="description"
           content={`Estado da verificação do ads.txt, do identificador de publisher e das políticas de cookies e privacidade do ${BRAND_NAME}.`}

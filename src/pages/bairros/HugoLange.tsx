@@ -4,7 +4,7 @@ const data = {
   nome: "Hugo Lange",
   slug: "hugo-lange",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Hugo Lange | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Hugo Lange | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Hugo Lange, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Hugo Lange – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Hugo Lange. Diagnóstico, reparo e suporte técnico com garantia.",

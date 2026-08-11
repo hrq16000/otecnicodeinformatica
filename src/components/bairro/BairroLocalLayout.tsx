@@ -76,7 +76,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
         path={path}
         breadcrumbs={[
           { name: "Início", path: "/" },
-          { name: "Técnico em Curitiba", path: CURITIBA_PATH },
+          { name: "O Técnico de Informática", path: CURITIBA_PATH },
           { name: data.nome, path },
         ]}
       />
@@ -85,7 +85,7 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
       <main className="pt-[var(--site-header-height)]">
         <Breadcrumbs
           items={[
-            { label: "Técnico em Curitiba", href: CURITIBA_PATH },
+            { label: "O Técnico de Informática", href: CURITIBA_PATH },
             { label: data.nome },
           ]}
         />

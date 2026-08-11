@@ -4,7 +4,7 @@ const data = {
   nome: "Graciosa",
   slug: "graciosa",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Graciosa | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Graciosa | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Graciosa, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Graciosa – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Graciosa. Diagnóstico no local, valor transparente e garantia.",

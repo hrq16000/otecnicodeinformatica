@@ -4,7 +4,7 @@ const data = {
   nome: "Cristo Rei",
   slug: "cristo-rei",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Cristo Rei | Curitiba | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Cristo Rei | Curitiba | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Cristo Rei, Curitiba. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Cristo Rei – Curitiba",
   subtitulo: "Atendimento técnico profissional a domicílio no Cristo Rei. Diagnóstico no local, valor transparente e garantia.",

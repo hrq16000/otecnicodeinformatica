@@ -4,7 +4,7 @@ const data = {
   nome: "Novo Mundo",
   slug: "novo-mundo",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Novo Mundo | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Novo Mundo | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Novo Mundo, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Novo Mundo – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Novo Mundo. Diagnóstico, reparo e suporte técnico com garantia.",

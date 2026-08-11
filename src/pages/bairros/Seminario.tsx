@@ -4,7 +4,7 @@ const data = {
   nome: "Seminário",
   slug: "seminario",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Seminário | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Seminário | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Seminário, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Seminário – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Seminário. Diagnóstico, reparo e suporte técnico com garantia.",

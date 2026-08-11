@@ -50,7 +50,7 @@ const WHATSAPP_NUMBER = WA_NUMBER;
 
 const ComoFunciona = () => {
   useEffect(() => {
-    document.title = "Como Funciona o Atendimento Técnico em Curitiba";
+    document.title = "Como Funciona o Atendimento | O Técnico de Informática";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -69,7 +69,7 @@ const ComoFunciona = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Como Funciona o Atendimento Técnico em Curitiba" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
+      <PageSEO title="Como Funciona o Atendimento | O Técnico de Informática" description="Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio conforme a disponibilidade da agenda." path="/como-funciona" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Como Funciona", path: "/como-funciona" }]} />
       {/* JSON-LD FAQPage */}
       <script
         type="application/ld+json"
@@ -114,7 +114,7 @@ const ComoFunciona = () => {
             <div className="max-w-3xl mx-auto text-center">
               <ExperienciaBadge className="mb-4" />
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Como Funciona o Atendimento Técnico em Curitiba e Região
+                Como Funciona o Atendimento | O Técnico de Informática e Região
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Entenda passo a passo como solicitar, quanto custa para começar e como garantimos um atendimento rápido, seguro e profissional.
@@ -891,7 +891,7 @@ const servicos = [
 ];
 
 const confiancaItems = [
-  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Atuação em informática desde 1998, com escopo e valor registrados por escrito. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
+  { icon: BadgeCheck, title: "Atendimento profissional e registrado", desc: "Escopo e valor registrados por escrito antes da execução. Nota fiscal de serviço emitida mediante solicitação e garantia registrada no valor aprovado." },
   { icon: Clock, title: "Atendimento Rápido — Conforme agenda", desc: "Na maioria dos casos, conseguimos atender conforme a disponibilidade da agenda. Nosso compromisso é não deixar você esperando. Agilidade é prioridade no nosso atendimento." },
   { icon: Eye, title: "Transparência Total nos Valores", desc: "Valor informado antes da execução. Sem taxas escondidas, sem surpresas no final. Você aprova cada etapa e cada valor antes de qualquer serviço ser realizado." },
   { icon: Shield, title: "Garantia por Escrito em Todo Serviço", desc: "Todos os serviços possuem garantia de 90 dias em mão de obra sobre o ponto reparado. Se algo der errado dentro do prazo, voltamos para resolver sem custo adicional. Sua segurança é nossa prioridade." },

@@ -26,7 +26,7 @@ const warnings = [];
 const fail = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
-const BRAND = "Técnico em Curitiba";
+const BRAND = "O Técnico de Informática";
 const SITE = "https://tecnico.curitiba.br";
 
 // Rotas internas permitidas em links dos pilotos (curadas).

@@ -4,7 +4,7 @@ const data = {
   nome: "Osvaldo Cruz",
   slug: "osvaldo-cruz-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no Osvaldo Cruz | Colombo | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Osvaldo Cruz | Colombo | O Técnico de Informática",
   metaDescription: "Técnico de informática no Osvaldo Cruz, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Osvaldo Cruz – Colombo",
   subtitulo: "Atendimento profissional a domicílio no Osvaldo Cruz. Diagnóstico, reparo e suporte técnico com garantia.",

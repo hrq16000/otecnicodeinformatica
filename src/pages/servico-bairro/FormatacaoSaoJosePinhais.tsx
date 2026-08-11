@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Formatação de Computador em São José dos Pinhais | Técnico Local | Técnico Curitiba",
+  metaTitle: "Formatação de Computador em São José dos Pinhais | Técnico Local | O Técnico de Informática",
   metaDescription: "Formatação de computador e notebook em São José dos Pinhais. Windows 10/11, backup, drivers. Atendimento domiciliar em todos os bairros. a partir de R$ 99,99.",
   
   servico: "Formatação de Computador",

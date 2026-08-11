@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Esplanada",
   slug: "jardim-esplanada-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Jardim Esplanada | Pinhais | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Esplanada | Pinhais | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Esplanada, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Esplanada – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Jardim Esplanada. Diagnóstico, reparo e suporte técnico com garantia.",

@@ -5,7 +5,7 @@ const DelRey = () => {
     nome: "Del Rey",
     slug: "del-rey",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Del Rey SJP | Atendimento Domicílio | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Del Rey SJP | Atendimento Domicílio | O Técnico de Informática",
     metaDescription: "Técnico de informática no Del Rey, São José dos Pinhais. Formatação, conserto, upgrade SSD. Atendimento rápido em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Del Rey – São José dos Pinhais",
     subtitulo: "Assistência técnica de qualidade no Del Rey. Atendimento domiciliar para sua comodidade.",

@@ -23,9 +23,9 @@ import { CURATED_ROUTES } from "./curated-routes-meta.mjs";
 const SITE = "https://tecnico.curitiba.br";
 const ORG_ID = `${SITE}/#organization`;
 const BRAND_NAMES = new Set([
-  "Técnico em Curitiba",
-  "Técnico Curitiba",
-  "Técnico em Curitiba — Assistência Técnica em Informática",
+  "O Técnico de Informática",
+  "O Técnico de Informática",
+  "O Técnico de Informática — Assistência Técnica em Informática",
 ]);
 const REF_KEYS = new Set([
   "publisher",

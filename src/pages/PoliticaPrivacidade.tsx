@@ -8,7 +8,7 @@ import { ShieldCheck, Cookie, Database, Mail, MessageCircle, FileText } from "lu
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL, SITE_DOMAIN, BRAND_NAME } from "@/lib/siteConfig";
 
 const CANONICAL = `${SITE_BASE_URL}/politica-de-privacidade`;
-const COMPANY = "Técnico Curitiba — Assistência Técnica em Informática";
+const COMPANY = "O Técnico de Informática — Assistência Técnica em Informática";
 const WHATSAPP = WA_NUMBER;
 const UPDATED = "08/08/2026";
 
@@ -310,12 +310,12 @@ const PoliticaPrivacidade = () => {
   return (
     <>
       <Helmet>
-        <title>Política de Privacidade | Técnico Curitiba</title>
+        <title>Política de Privacidade | O Técnico de Informática</title>
         <meta
           name="description"
-          content="Política de Privacidade e LGPD do Técnico Curitiba: como coletamos, usamos e protegemos seus dados, cookies, GA4, Google Ads e seus direitos."
+          content="Política de Privacidade e LGPD d'O Técnico de Informática: como coletamos, usamos e protegemos seus dados, cookies, GA4, Google Ads e seus direitos."
         />
-        <meta property="og:title" content="Política de Privacidade | Técnico Curitiba" />
+        <meta property="og:title" content="Política de Privacidade | O Técnico de Informática" />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="article" />
         <meta name="robots" content="index, follow" />

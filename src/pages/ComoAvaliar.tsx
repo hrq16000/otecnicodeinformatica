@@ -49,7 +49,7 @@ const ComoAvaliar = () => {
   return (
     <>
       <PageSEO
-        title="Como avaliar o atendimento | Técnico em Curitiba"
+        title="Como avaliar o atendimento | O Técnico de Informática"
         description="Passo a passo para registrar sua avaliação com estrelas após o atendimento, autorizar a publicação no site e acompanhar a moderação."
         path={PATH}
         breadcrumbs={[

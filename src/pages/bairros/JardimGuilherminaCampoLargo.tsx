@@ -5,7 +5,7 @@ const JardimGuilherminaCampoLargo = () => {
     nome: "Jardim Guilhermina",
     slug: "jardim-guilhermina",
     cidade: "Campo Largo",
-    metaTitle: "Técnico de Informática no Jardim Guilhermina (Campo Largo) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Jardim Guilhermina (Campo Largo) | O Técnico de Informática",
     metaDescription:
       "Técnico de informática no Jardim Guilhermina, Campo Largo. Formatação, vírus, conserto de notebook, upgrade SSD/RAM e Wi‑Fi. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Jardim Guilhermina – Campo Largo",

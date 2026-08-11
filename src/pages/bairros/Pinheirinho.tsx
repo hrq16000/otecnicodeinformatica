@@ -4,7 +4,7 @@ const data = {
   nome: "Pinheirinho",
   slug: "pinheirinho",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Pinheirinho | Curitiba | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Pinheirinho | Curitiba | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Pinheirinho, Curitiba. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Pinheirinho – Curitiba",
   subtitulo: "Atendimento técnico profissional a domicílio no Pinheirinho. Diagnóstico no local, valor transparente e garantia.",

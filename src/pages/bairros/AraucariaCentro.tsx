@@ -5,7 +5,7 @@ const AraucariaCentro = () => {
     nome: "Centro (Araucária)",
     slug: "centro-araucaria",
     cidade: "Araucária",
-    metaTitle: "Técnico de Informática no Centro de Araucária | Atendimento a Domicílio | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Centro de Araucária | Atendimento a Domicílio | O Técnico de Informática",
     metaDescription:
       "Técnico de informática no Centro de Araucária. Formatação, conserto de notebook/PC, remoção de vírus e upgrade SSD. Atendimento a domicílio com agendamento. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Centro de Araucária",

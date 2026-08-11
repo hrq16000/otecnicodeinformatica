@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Graziela",
   slug: "jardim-graziela",
   cidade: "Almirante Tamandaré",
-  metaTitle: "Técnico de Informática no Jardim Graziela | Almirante Tamandaré | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Graziela | Almirante Tamandaré | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Graziela, Almirante Tamandaré. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Graziela – Almirante Tamandaré",
   subtitulo: "Atendimento técnico profissional a domicílio no Jardim Graziela. Diagnóstico no local, valor transparente e garantia.",

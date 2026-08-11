@@ -5,7 +5,7 @@ const Costeira = () => {
     nome: "Costeira",
     slug: "costeira",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática na Costeira SJP | Atendimento Domicílio | Técnico Curitiba",
+    metaTitle: "Técnico de Informática na Costeira SJP | Atendimento Domicílio | O Técnico de Informática",
     metaDescription: "Técnico de informática na Costeira, São José dos Pinhais. Formatação, conserto, upgrade SSD. Visita técnica em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática na Costeira – São José dos Pinhais",
     subtitulo: "Serviços de informática na Costeira com atendimento rápido e profissional. Técnico vai até você.",

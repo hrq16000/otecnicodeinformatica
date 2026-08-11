@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Maria Antonieta",
   slug: "vila-maria-antonieta-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Vila Maria Antonieta | Pinhais | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Maria Antonieta | Pinhais | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Maria Antonieta, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Maria Antonieta – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Vila Maria Antonieta. Diagnóstico, reparo e suporte técnico com garantia.",

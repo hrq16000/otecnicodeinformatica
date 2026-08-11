@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Upgrade SSD em Santa Felicidade Curitiba | Computador Mais Rápido | Técnico Curitiba",
+  metaTitle: "Upgrade SSD em Santa Felicidade Curitiba | Computador Mais Rápido | O Técnico de Informática",
   metaDescription: "Upgrade de SSD e memória RAM em Santa Felicidade, Curitiba. Deixe seu computador até 10x mais rápido. Instalação profissional com migração de dados.",
   
   servico: "Upgrade SSD e Memória",

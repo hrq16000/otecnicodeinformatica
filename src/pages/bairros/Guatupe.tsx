@@ -5,7 +5,7 @@ const Guatupe = () => {
     nome: "Guatupê",
     slug: "guatupe",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Guatupê SJP | Atendimento Rápido | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Guatupê SJP | Atendimento Rápido | O Técnico de Informática",
     metaDescription: "Técnico de informática no Guatupê, São José dos Pinhais. Formatação, conserto, upgrade de hardware. Visita técnica domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Guatupê – São José dos Pinhais",
     subtitulo: "Assistência técnica profissional no Guatupê e região. Soluções rápidas para problemas de informática.",

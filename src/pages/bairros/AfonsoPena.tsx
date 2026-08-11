@@ -4,7 +4,7 @@ const data = {
   nome: "Afonso Pena",
   slug: "afonso-pena",
   cidade: "São José dos Pinhais",
-  metaTitle: "Técnico de Informática no Afonso Pena SJP | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Afonso Pena SJP | O Técnico de Informática",
   metaDescription: "Técnico de informática no Afonso Pena, São José dos Pinhais. Visita técnica a domicílio. Conserto de PC, formatação e suporte. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Afonso Pena – SJP",
   subtitulo: "Atendimento técnico no Afonso Pena e proximidades do aeroporto",

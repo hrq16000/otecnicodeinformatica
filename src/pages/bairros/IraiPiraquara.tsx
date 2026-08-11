@@ -4,7 +4,7 @@ const data = {
   nome: "Iraí",
   slug: "irai-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Iraí | Piraquara | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Iraí | Piraquara | O Técnico de Informática",
   metaDescription: "Técnico de informática no Iraí, Piraquara. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Iraí – Piraquara",
   subtitulo: "Atendimento profissional a domicílio no Iraí. Diagnóstico, reparo e suporte técnico com garantia.",

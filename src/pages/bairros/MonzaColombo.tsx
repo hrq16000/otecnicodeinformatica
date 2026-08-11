@@ -4,7 +4,7 @@ const data = {
   nome: "Monza",
   slug: "monza-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no Monza | Colombo | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Monza | Colombo | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Monza, Colombo. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Monza – Colombo",
   subtitulo: "Atendimento técnico profissional a domicílio no Monza. Diagnóstico no local, valor transparente e garantia.",

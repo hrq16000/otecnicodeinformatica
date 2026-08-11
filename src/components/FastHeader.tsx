@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { whatsappLink } from "@/lib/siteConfig";
+import { brandConfig } from "@/lib/config";
 
 const WA_SCHEDULE = whatsappLink("Olá! Quero agendar um atendimento técnico.");
 
@@ -26,6 +27,7 @@ type NavItem = { label: string; href: string; icon: LucideIcon };
 // Navegação enxuta — foco em informática/PC/notebook/empresarial.
 const primaryNav: NavItem[] = [
   { label: "Serviços", href: "/servicos", icon: Wrench },
+  { label: "Empresas", href: "/servicos/suporte-tecnico-empresarial", icon: Building2 },
   { label: "Como funciona", href: "/como-funciona", icon: Route },
   { label: "Preços", href: "/precos-e-politicas", icon: Tag },
   { label: "FAQ", href: "/faq", icon: HelpCircle },
@@ -34,7 +36,6 @@ const primaryNav: NavItem[] = [
 
 // Itens extras do menu mobile (mantém acesso, sem poluir o header).
 const mobileExtra: NavItem[] = [
-  { label: "Suporte empresarial", href: "/servicos/suporte-tecnico-empresarial", icon: Building2 },
   { label: "Atendimento a domicílio", href: "/atendimento-domicilio", icon: Home },
   { label: "Atendimento remoto", href: "/atendimento-remoto", icon: MonitorSmartphone },
   { label: "Sobre", href: "/sobre", icon: Info },
@@ -137,10 +138,10 @@ export const FastHeader = () => {
       style={{ zIndex: "var(--z-header)" as unknown as number }}
     >
       <div className="container mx-auto flex h-full items-center justify-between gap-3">
-        <a href="/" aria-label="Técnico em Curitiba — início" className="min-w-0 flex-shrink-0">
+        <a href="/" aria-label={`${brandConfig.brandName} — início`} className="min-w-0 flex-shrink-0">
           <img
-            alt="Técnico em Curitiba — assistência técnica em informática"
-            src="/logo.webp"
+            alt={brandConfig.logoAlt}
+            src={brandConfig.logo}
             width="304"
             height="71"
             decoding="sync"
@@ -150,7 +151,7 @@ export const FastHeader = () => {
           />
         </a>
 
-        <nav className="hidden items-center gap-0.5 text-sm font-semibold xl:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-0.5 text-sm font-semibold lg:flex" aria-label="Navegação principal">
           {primaryNav.map((item) => (
             <a
               key={item.href}
@@ -180,7 +181,7 @@ export const FastHeader = () => {
             className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
           >
             <span className="sm:hidden">Atender</span>
-            <span className="hidden sm:inline">Iniciar atendimento</span>
+            <span className="hidden sm:inline">Solicitar atendimento</span>
           </a>
 
           <div ref={menuRef} className="relative">

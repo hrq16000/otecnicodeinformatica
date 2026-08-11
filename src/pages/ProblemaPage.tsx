@@ -597,7 +597,7 @@ const ProblemaPage = () => {
                 to="/tecnico-informatica-curitiba"
                 className="rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent/20"
               >
-                Técnico em Curitiba
+                O Técnico de Informática
               </Link>
               {BAIRROS_ATENDIDOS.map((b) => (
                 <Link

@@ -220,7 +220,7 @@ const AtendimentoDomicilio = () => {
       <LocalBusinessJsonLd
         scriptId="ld-localbusiness-domicilio"
         path="/atendimento-domicilio"
-        name="Técnico em Curitiba — Atendimento em domicílio"
+        name="O Técnico de Informática — Atendimento em domicílio"
         description="Atendimento técnico de informática em domicílio em Curitiba e região metropolitana, com diagnóstico no local antes de informar o valor."
         services={[
           { name: "Atendimento técnico em domicílio", url: "/atendimento-domicilio" },

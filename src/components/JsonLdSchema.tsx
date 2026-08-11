@@ -45,7 +45,7 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${SITE}/#website`,
-  "name": "Técnico em Curitiba",
+  "name": "O Técnico de Informática",
   "url": SITE,
   "inLanguage": "pt-BR",
   "publisher": { "@id": `${SITE}/#organization` },

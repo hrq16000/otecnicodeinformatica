@@ -4,7 +4,7 @@ const data = {
   nome: "Capão da Imbuia",
   slug: "capao-da-imbuia",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Capão da Imbuia | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Capão da Imbuia | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Capão da Imbuia, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Capão da Imbuia – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Capão da Imbuia. Diagnóstico, reparo e suporte técnico com garantia.",

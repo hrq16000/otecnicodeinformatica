@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Paranaguá",
   slug: "jardim-paranagua-at",
   cidade: "Almirante Tamandaré",
-  metaTitle: "Técnico de Informática no Jardim Paranaguá | Almirante Tamandaré | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Paranaguá | Almirante Tamandaré | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Paranaguá, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Paranaguá – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Jardim Paranaguá. Diagnóstico, reparo e suporte técnico com garantia.",

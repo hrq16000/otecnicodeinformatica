@@ -5,7 +5,7 @@ const SaoFrancisco = () => {
     nome: "São Francisco",
     slug: "sao-francisco",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no São Francisco SJP | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no São Francisco SJP | O Técnico de Informática",
     metaDescription: "Técnico de informática no São Francisco, São José dos Pinhais. Manutenção, conserto de PC e notebook. Atendimento domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no São Francisco – São José dos Pinhais",
     subtitulo: "Serviços de informática no São Francisco com atendimento profissional e preços justos.",

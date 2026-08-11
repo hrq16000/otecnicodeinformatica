@@ -4,7 +4,7 @@ const data = {
   nome: "Iguaçu",
   slug: "iguacu-araucaria",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no Iguaçu | Araucária | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Iguaçu | Araucária | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Iguaçu, Araucária. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Iguaçu – Araucária",
   subtitulo: "Atendimento técnico profissional a domicílio no Iguaçu. Diagnóstico no local, valor transparente e garantia.",

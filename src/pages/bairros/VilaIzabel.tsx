@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Izabel",
   slug: "vila-izabel",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Vila Izabel | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Izabel | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Izabel, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Izabel – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Vila Izabel. Diagnóstico, reparo e suporte técnico com garantia.",

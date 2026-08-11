@@ -3575,7 +3575,7 @@ docker run -d --name db --network minha-rede postgres
           <li><Link to="/blog/como-cadastrar-preciso-de-um" className="text-accent">Como se cadastrar passo a passo</Link></li>
           <li><Link to="/blog/preciso-de-um-todos-os-ramos" className="text-accent">Quais ramos são aceitos?</Link></li>
           <li><Link to="/blog/preciso-de-um-vagas-oportunidades" className="text-accent">Vagas e oportunidades na plataforma</Link></li>
-          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da Técnico Curitiba</Link></li>
+          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da O Técnico de Informática</Link></li>
         </ul>
       </>
     ),
@@ -4863,7 +4863,7 @@ docker run -d --name db --network minha-rede postgres
         <ul>
           <li><Link to="/blog/preciso-de-um-plataforma-prestadores" className="text-accent">O que é o Preciso de Um?</Link></li>
           <li><Link to="/blog/como-cadastrar-preciso-de-um" className="text-accent">Como se cadastrar passo a passo</Link></li>
-          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da Técnico Curitiba</Link></li>
+          <li><Link to="/seja-parceiro" className="text-accent">Seja parceiro da O Técnico de Informática</Link></li>
         </ul>
       </>
     ),
@@ -9488,7 +9488,7 @@ crontab -e
         <p>Atualizações corrigem problemas de desempenho. Vá em <strong>Configurações → Windows Update → Verificar atualizações</strong> e instale o que aparecer. Reinicie depois.</p>
 
         <h2>5. Quando Chamar um Técnico</h2>
-        <p>Se mesmo depois disso seu PC continuar lento, pode ser disco antigo (HD em vez de SSD), pouca memória RAM ou vírus. Nesses casos, a <strong>Técnico Curitiba</strong> faz diagnóstico em casa em Curitiba e região metropolitana — chame pelo WhatsApp.</p>
+        <p>Se mesmo depois disso seu PC continuar lento, pode ser disco antigo (HD em vez de SSD), pouca memória RAM ou vírus. Nesses casos, a <strong>O Técnico de Informática</strong> faz diagnóstico em casa em Curitiba e região metropolitana — chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -9535,7 +9535,7 @@ crontab -e
         <p>Especialistas recomendam a regra <strong>3-2-1</strong>: três cópias, em dois lugares diferentes, sendo uma fora de casa (nuvem). Assim, mesmo que tudo dê errado, suas fotos estão seguras.</p>
 
         <h2>Ajuda Profissional</h2>
-        <p>Não conseguiu? A Técnico Curitiba faz backup completo em sua casa, configura nuvem e ainda recupera fotos de HDs com defeito. Atendemos Curitiba, São José dos Pinhais e região via WhatsApp.</p>
+        <p>Não conseguiu? A O Técnico de Informática faz backup completo em sua casa, configura nuvem e ainda recupera fotos de HDs com defeito. Atendemos Curitiba, São José dos Pinhais e região via WhatsApp.</p>
 
       </>
     ),
@@ -9579,7 +9579,7 @@ crontab -e
         <p>A maioria das impressoras modernas aceita imprimir do celular. No Android use <strong>Mopria Print Service</strong>, no iPhone é automático com <strong>AirPrint</strong>. Basta a impressora estar no mesmo Wi-Fi.</p>
 
         <h2>Quando Pedir Ajuda</h2>
-        <p>Impressoras antigas, sem driver para Windows 11, ou que ficam fora da rede com frequência podem precisar de configuração avançada. A Técnico Curitiba instala e configura impressoras em residências e escritórios em Curitiba.</p>
+        <p>Impressoras antigas, sem driver para Windows 11, ou que ficam fora da rede com frequência podem precisar de configuração avançada. A O Técnico de Informática instala e configura impressoras em residências e escritórios em Curitiba.</p>
 
       </>
     ),
@@ -9635,7 +9635,7 @@ crontab -e
         <p>Depois de limpar, troque as senhas de e-mail, banco e redes sociais. Use o celular (que provavelmente está limpo) para fazer isso.</p>
 
         <h2>Quando Chamar Profissional</h2>
-        <p>Se voltar logo, se não consegue abrir o antivírus, ou se aparecer tela pedindo dinheiro para 'liberar' arquivos (ransomware), <strong>não pague nada</strong> e chame a Técnico Curitiba imediatamente. Atendemos em domicílio em Curitiba e fazemos remoção profissional com garantia.</p>
+        <p>Se voltar logo, se não consegue abrir o antivírus, ou se aparecer tela pedindo dinheiro para 'liberar' arquivos (ransomware), <strong>não pague nada</strong> e chame a O Técnico de Informática imediatamente. Atendemos em domicílio em Curitiba e fazemos remoção profissional com garantia.</p>
 
       </>
     ),
@@ -9672,7 +9672,7 @@ crontab -e
         <p>A Área de Trabalho deveria ter no máximo 10 ícones. Mova tudo para Documentos. PC mais limpo = PC mais rápido.</p>
 
         <h2>Faça Backup Depois de Organizar</h2>
-        <p>Agora que está organizado, faça backup (veja nosso guia de backup de fotos). Se precisar de ajuda, a Técnico Curitiba organiza seus arquivos e configura backup automático em casa.</p>
+        <p>Agora que está organizado, faça backup (veja nosso guia de backup de fotos). Se precisar de ajuda, a O Técnico de Informática organiza seus arquivos e configura backup automático em casa.</p>
 
       </>
     ),
@@ -9711,7 +9711,7 @@ crontab -e
         <p>Em <strong>Windows Update → Opções avançadas → Horário ativo</strong> diga ao Windows quando você usa o PC. Ele só atualiza fora desse horário.</p>
 
         <h2>Atualização Não Funciona</h2>
-        <p>Erros recorrentes (códigos como 0x80070002) podem indicar problema de disco ou arquivos corrompidos. A Técnico Curitiba resolve em domicílio em Curitiba sem perder seus dados.</p>
+        <p>Erros recorrentes (códigos como 0x80070002) podem indicar problema de disco ou arquivos corrompidos. A O Técnico de Informática resolve em domicílio em Curitiba sem perder seus dados.</p>
 
       </>
     ),
@@ -9757,7 +9757,7 @@ crontab -e
         <p>Quanto MENOS você usar o computador depois de apagar, MAIOR a chance de recuperar. Não instale programas, não baixe arquivos grandes, não desfragmente.</p>
 
         <h2>Casos Difíceis</h2>
-        <p>HD com defeito, formatação acidental, arquivos muito antigos? A Técnico Curitiba tem ferramentas profissionais de recuperação. Atendemos Curitiba e região — quanto mais rápido, melhor a chance.</p>
+        <p>HD com defeito, formatação acidental, arquivos muito antigos? A O Técnico de Informática tem ferramentas profissionais de recuperação. Atendemos Curitiba e região — quanto mais rápido, melhor a chance.</p>
 
       </>
     ),
@@ -9839,7 +9839,7 @@ crontab -e
         <p>Algumas sugestões grátis para crianças: <strong>Khan Academy Kids</strong>, <strong>Microsoft Education</strong>, <strong>Scratch Junior</strong> (programação infantil).</p>
 
         <h2>Não Conseguiu Configurar?</h2>
-        <p>Configurar Microsoft Family pode ser confuso. A Técnico Curitiba configura controle parental, antivírus e backup em casa em Curitiba — proteja toda a família via WhatsApp.</p>
+        <p>Configurar Microsoft Family pode ser confuso. A O Técnico de Informática configura controle parental, antivírus e backup em casa em Curitiba — proteja toda a família via WhatsApp.</p>
 
       </>
     ),
@@ -9874,7 +9874,7 @@ crontab -e
         <p>Para juntar vários PDFs, use o site grátis <strong>ilovepdf.com</strong> (não precisa instalar nada).</p>
 
         <h2>Editar PDF</h2>
-        <p>Editar PDF (mudar texto, assinar) é mais avançado. Use o <strong>Adobe Acrobat Reader</strong> grátis para assinar e o <strong>ilovepdf.com</strong> para edições simples. Para casos complexos, a Técnico Curitiba ajuda em sua casa.</p>
+        <p>Editar PDF (mudar texto, assinar) é mais avançado. Use o <strong>Adobe Acrobat Reader</strong> grátis para assinar e o <strong>ilovepdf.com</strong> para edições simples. Para casos complexos, a O Técnico de Informática ajuda em sua casa.</p>
 
       </>
     ),
@@ -9922,7 +9922,7 @@ crontab -e
         <p>Faça backup primeiro! Depois <strong>Configurações → Sistema → Opções de redefinição → Apagar todos os dados</strong>. Volta como novo.</p>
 
         <h2>Não Resolveu?</h2>
-        <p>Pode ser bateria velha ou problema mais sério. A Técnico Curitiba avalia celulares em Curitiba e indica o que vale a pena consertar — chame pelo WhatsApp.</p>
+        <p>Pode ser bateria velha ou problema mais sério. A O Técnico de Informática avalia celulares em Curitiba e indica o que vale a pena consertar — chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -9974,7 +9974,7 @@ crontab -e
         <p>Carregadores baratos podem danificar bateria. Use sempre o original ou marca conhecida.</p>
 
         <h2>Bateria Não Dura Nem Meio Dia?</h2>
-        <p>Pode ser hora de trocar a bateria. A Técnico Curitiba faz troca de bateria de celular em Curitiba com peças de qualidade e garantia.</p>
+        <p>Pode ser hora de trocar a bateria. A O Técnico de Informática faz troca de bateria de celular em Curitiba com peças de qualidade e garantia.</p>
 
       </>
     ),
@@ -10020,7 +10020,7 @@ crontab -e
         <p>Ao ligar o celular novo, escolha <strong>Copiar do dispositivo</strong> ou faça login com sua conta Google. Tudo volta automaticamente.</p>
 
         <h2>Para Quem Quer Total Segurança</h2>
-        <p>A Técnico Curitiba faz backup completo do celular em casa, configura sincronização automática e ainda transfere tudo para celular novo. Atendemos Curitiba e região via WhatsApp.</p>
+        <p>A O Técnico de Informática faz backup completo do celular em casa, configura sincronização automática e ainda transfere tudo para celular novo. Atendemos Curitiba e região via WhatsApp.</p>
 
       </>
     ),
@@ -10058,7 +10058,7 @@ crontab -e
         <p>Para celulares Android: cabo <strong>USB-C para HDMI</strong>. Para iPhone: <strong>adaptador Lightning para HDMI</strong> da Apple. Plug no celular, plug na TV, escolha a entrada HDMI correta na TV.</p>
 
         <h2>Não Funciona?</h2>
-        <p>Verifique se TV e celular estão no MESMO Wi-Fi. Reinicie os dois. Se não resolver, a Técnico Curitiba configura espelhamento, Smart TV, Chromecast e até instala TV box em casa em Curitiba.</p>
+        <p>Verifique se TV e celular estão no MESMO Wi-Fi. Reinicie os dois. Se não resolver, a O Técnico de Informática configura espelhamento, Smart TV, Chromecast e até instala TV box em casa em Curitiba.</p>
 
       </>
     ),
@@ -10099,7 +10099,7 @@ crontab -e
         </ol>
 
         <h2>Cuidado com Golpes</h2>
-        <p>Nunca clique em links de números desconhecidos. Banco e Receita Federal NÃO ligam pedindo senha. Em dúvida, chame a Técnico Curitiba antes de fazer qualquer coisa — atendemos via WhatsApp.</p>
+        <p>Nunca clique em links de números desconhecidos. Banco e Receita Federal NÃO ligam pedindo senha. Em dúvida, chame a O Técnico de Informática antes de fazer qualquer coisa — atendemos via WhatsApp.</p>
 
       </>
     ),
@@ -10148,7 +10148,7 @@ crontab -e
         <p>Crie álbuns com várias fotos e compartilhe link com a família. Todos podem ver e adicionar fotos próprias. Ótimo para casamentos e viagens em grupo.</p>
 
         <h2>Não Está Subindo Backup?</h2>
-        <p>Verifique Wi-Fi, espaço na conta Google (15 GB grátis, depois compra plano), e configurações do app. A Técnico Curitiba ajuda a configurar Google Fotos e organizar fotos antigas em domicílio em Curitiba.</p>
+        <p>Verifique Wi-Fi, espaço na conta Google (15 GB grátis, depois compra plano), e configurações do app. A O Técnico de Informática ajuda a configurar Google Fotos e organizar fotos antigas em domicílio em Curitiba.</p>
 
       </>
     ),
@@ -10190,7 +10190,7 @@ crontab -e
         </ul>
 
         <h2>Removeu Mas Continua?</h2>
-        <p>Alguns vírus se reinstalam. A Técnico Curitiba faz limpeza completa do celular em casa em Curitiba, identifica apps maliciosos e configura proteção. Chame pelo WhatsApp.</p>
+        <p>Alguns vírus se reinstalam. A O Técnico de Informática faz limpeza completa do celular em casa em Curitiba, identifica apps maliciosos e configura proteção. Chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -10234,7 +10234,7 @@ crontab -e
         <p>WhatsApp tem migração própria entre iPhone e Android. No celular novo, ao instalar, escolha 'Transferir conversas'. Siga as instruções (precisa estar na mesma rede Wi-Fi).</p>
 
         <h2>Não Conseguiu?</h2>
-        <p>A Técnico Curitiba faz transferência completa entre celulares (até de marcas diferentes), garantindo que nada se perca. Atendemos em casa em Curitiba — chame pelo WhatsApp.</p>
+        <p>A O Técnico de Informática faz transferência completa entre celulares (até de marcas diferentes), garantindo que nada se perca. Atendemos em casa em Curitiba — chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -10311,7 +10311,7 @@ crontab -e
         <p>Se ainda consegue entrar mas notou atividade estranha: vá em <strong>myaccount.google.com → Segurança → Atividade recente</strong>. Saia de todos os dispositivos e troque a senha imediatamente.</p>
 
         <h2>Caso Difícil?</h2>
-        <p>A Técnico Curitiba ajuda na recuperação de contas, configura segurança em 2 etapas e protege todas as suas contas em domicílio em Curitiba. Chame pelo WhatsApp.</p>
+        <p>A O Técnico de Informática ajuda na recuperação de contas, configura segurança em 2 etapas e protege todas as suas contas em domicílio em Curitiba. Chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -10446,7 +10446,7 @@ crontab -e
         <p>Importante: troque a senha 'admin'. Procure <strong>Senha de Administrador</strong> ou <strong>Conta</strong> e defina uma nova.</p>
 
         <h2>Não Funcionou?</h2>
-        <p>Cada operadora tem particularidades (Vivo, Claro NET, Oi, GVT). A Técnico Curitiba configura roteador, repetidor e mesh em sua casa em Curitiba — chame pelo WhatsApp.</p>
+        <p>Cada operadora tem particularidades (Vivo, Claro NET, Oi, GVT). A O Técnico de Informática configura roteador, repetidor e mesh em sua casa em Curitiba — chame pelo WhatsApp.</p>
 
       </>
     ),
@@ -10495,7 +10495,7 @@ crontab -e
         <p>Aperte e segure o botão <strong>Reset</strong> atrás do roteador por 10 segundos. Volta para configuração de fábrica e você reconfigura. Atenção: vai apagar a senha do Wi-Fi também e voltar para a padrão de etiqueta.</p>
 
         <h2>Ajuda Profissional</h2>
-        <p>A Técnico Curitiba configura segurança avançada, rede separada para visitas e reset de roteador em casa em Curitiba — atendimento via WhatsApp.</p>
+        <p>A O Técnico de Informática configura segurança avançada, rede separada para visitas e reset de roteador em casa em Curitiba — atendimento via WhatsApp.</p>
 
       </>
     ),
@@ -10534,7 +10534,7 @@ crontab -e
         <p>No celular Android, vá em <strong>Configurações → Wi-Fi → toque na rede ativa → Compartilhar (QR Code)</strong>. Visitas escaneiam e conectam sem precisar digitar a senha.</p>
 
         <h2>Roteadores Que Não Têm Essa Função</h2>
-        <p>Roteadores antigos podem não ter. Considere atualizar o firmware ou trocar por modelo recente. A Técnico Curitiba indica e instala roteadores adequados ao seu uso em Curitiba.</p>
+        <p>Roteadores antigos podem não ter. Considere atualizar o firmware ou trocar por modelo recente. A O Técnico de Informática indica e instala roteadores adequados ao seu uso em Curitiba.</p>
 
       </>
     ),
@@ -10577,7 +10577,7 @@ crontab -e
         <p>Vá ao local com sinal fraco e veja se aparece a rede do repetidor. Conecte e teste velocidade. Se ainda fraco, mude o repetidor de lugar.</p>
 
         <h2>Limites do Repetidor</h2>
-        <p>Repetidor reduz velocidade pela metade. Para casas grandes, sistema <strong>Mesh</strong> (vários pontos integrados) é muito superior. A Técnico Curitiba instala mesh em Curitiba e região com cobertura total.</p>
+        <p>Repetidor reduz velocidade pela metade. Para casas grandes, sistema <strong>Mesh</strong> (vários pontos integrados) é muito superior. A O Técnico de Informática instala mesh em Curitiba e região com cobertura total.</p>
 
       </>
     ),
@@ -10626,7 +10626,7 @@ crontab -e
         </ul>
 
         <h2>Suspeita de Algo Mais Sério?</h2>
-        <p>Se mesmo trocando a senha continua estranho, pode ser problema mais grave. A Técnico Curitiba faz auditoria de rede em casa em Curitiba — atendimento via WhatsApp.</p>
+        <p>Se mesmo trocando a senha continua estranho, pode ser problema mais grave. A O Técnico de Informática faz auditoria de rede em casa em Curitiba — atendimento via WhatsApp.</p>
 
       </>
     ),
@@ -10667,13 +10667,13 @@ crontab -e
         </ol>
 
         <h2>8. Use Cabo de Rede</h2>
-        <p>Se nada funciona, conecte cabo de rede (ethernet) do roteador na TV. É mais estável e rápido. Se sua TV está longe do roteador, peça para a Técnico Curitiba passar o cabo discretamente.</p>
+        <p>Se nada funciona, conecte cabo de rede (ethernet) do roteador na TV. É mais estável e rápido. Se sua TV está longe do roteador, peça para a O Técnico de Informática passar o cabo discretamente.</p>
 
         <h2>Última Opção: Reset de Fábrica</h2>
         <p>Em <strong>Configurações → Suporte → Redefinir</strong>. Apaga tudo, mas resolve casos persistentes.</p>
 
         <h2>Continua Não Funcionando?</h2>
-        <p>Pode ser placa Wi-Fi da TV defeituosa. A Técnico Curitiba avalia em casa em Curitiba se vale conserto ou se é mais barato usar Chromecast/TV box.</p>
+        <p>Pode ser placa Wi-Fi da TV defeituosa. A O Técnico de Informática avalia em casa em Curitiba se vale conserto ou se é mais barato usar Chromecast/TV box.</p>
 
       </>
     ),
@@ -10708,7 +10708,7 @@ crontab -e
         <p>Ligue ou abra chat e diga: <strong>'Fiz teste por cabo direto no modem, todos os outros equipamentos desligados, e estou recebendo X mega de Y contratados. Quero técnico no local ou crédito proporcional.'</strong></p>
 
         <h2>Continuou Lento Mesmo Após Visita Técnica?</h2>
-        <p>Pode ser cabeamento interno antigo, modem velho ou interferência. A Técnico Curitiba faz análise independente e ajuda a comprovar para a operadora — atendemos Curitiba via WhatsApp.</p>
+        <p>Pode ser cabeamento interno antigo, modem velho ou interferência. A O Técnico de Informática faz análise independente e ajuda a comprovar para a operadora — atendemos Curitiba via WhatsApp.</p>
 
       </>
     ),
@@ -10753,7 +10753,7 @@ crontab -e
         <p>No painel do roteador, procure <strong>Filtro de Sites</strong> ou <strong>Bloqueio por DNS</strong>. Use o DNS do <strong>OpenDNS Family Shield</strong> (208.67.222.123 e 208.67.220.123) — bloqueia conteúdo adulto automaticamente.</p>
 
         <h2>Configuração Completa</h2>
-        <p>Configurar tudo isso é trabalhoso. A Técnico Curitiba configura controle parental completo, filtro de conteúdo e horários no roteador, no celular e no computador — atendemos Curitiba e região.</p>
+        <p>Configurar tudo isso é trabalhoso. A O Técnico de Informática configura controle parental completo, filtro de conteúdo e horários no roteador, no celular e no computador — atendemos Curitiba e região.</p>
 
       </>
     ),

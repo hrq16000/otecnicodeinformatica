@@ -19,13 +19,15 @@ export interface MontagemOsData {
   consentimentoLgpd?: boolean;
 }
 
+import { OS_PREFIX } from "@/lib/config/commercial";
+
 export const MONTAGEM_OS_PATH = "/servicos/montagem-de-pc";
 
 export function gerarProtocoloMontagem(): string {
   const d = new Date();
   const p = (n: number) => String(n).padStart(2, "0");
   const rand = Math.floor(Math.random() * 9000 + 1000);
-  return `OS-MTG-${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${rand}`;
+  return `${OS_PREFIX}-${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${rand}`;
 }
 
 export async function generateMontagemOsPdf(data: MontagemOsData): Promise<Blob> {

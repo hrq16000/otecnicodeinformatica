@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Instalação de Redes Wi-Fi em Campo Largo | Técnico Especializado | Técnico Curitiba",
+  metaTitle: "Instalação de Redes Wi-Fi em Campo Largo | Técnico Especializado | O Técnico de Informática",
   metaDescription: "Instalação de redes Wi-Fi em Campo Largo. Cobertura total, redes mesh, configuração profissional. Casas e empresas. A partir de R$ 129,99.",
   
   servico: "Redes Wi-Fi",

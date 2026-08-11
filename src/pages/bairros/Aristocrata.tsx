@@ -5,7 +5,7 @@ const Aristocrata = () => {
     nome: "Aristocrata",
     slug: "aristocrata",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Aristocrata SJP | Assistência Técnica | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Aristocrata SJP | Assistência Técnica | O Técnico de Informática",
     metaDescription: "Técnico de informática no Aristocrata em São José dos Pinhais. Conserto, formatação, upgrade. Atendimento domiciliar rápido. Serviços a partir de a partir de R$ 99,99.",
     h1: "Técnico de Informática no Aristocrata – São José dos Pinhais",
     subtitulo: "Atendimento técnico especializado no Aristocrata. Resolvemos seu problema de informática no conforto da sua casa ou empresa.",

@@ -53,7 +53,7 @@ const cidades = [
 
 const ConsertoCelular = () => {
   useEffect(() => {
-    document.title = "Conserto de Celular em Curitiba e Região | Atendimento sem Compromisso | Técnico Curitiba";
+    document.title = "Conserto de Celular em Curitiba e Região | Atendimento sem Compromisso | O Técnico de Informática";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", "Conserto de celular e smartphone em Curitiba e região metropolitana. iPhone, Samsung, Motorola, Xiaomi. atendimento humanizado sem compromisso. Troca de tela, bateria e mais.");
     trackPageView("/servicos/conserto-celular", "Conserto de Celular");
@@ -72,7 +72,7 @@ const ConsertoCelular = () => {
     description: "Serviço de conserto de celular e smartphone em Curitiba e região metropolitana.",
     provider: {
       "@type": "LocalBusiness",
-      name: "Técnico Curitiba",
+      name: "O Técnico de Informática",
     },
     areaServed: { "@type": "City", name: "Curitiba" },
   };

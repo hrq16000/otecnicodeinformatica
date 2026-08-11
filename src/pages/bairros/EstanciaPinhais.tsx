@@ -4,7 +4,7 @@ const data = {
   nome: "Estância Pinhais",
   slug: "estancia-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Estância Pinhais | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Estância Pinhais | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Estância Pinhais, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Estância Pinhais – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Estância Pinhais. Diagnóstico no local, valor transparente e garantia.",

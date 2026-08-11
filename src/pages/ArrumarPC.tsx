@@ -126,7 +126,7 @@ const ArrumarPC = () => {
     serviceType: "Suporte técnico remoto de informática",
     provider: {
       "@type": "Organization",
-      name: "Técnico Curitiba",
+      name: "O Técnico de Informática",
       url: SITE_BASE_URL,
     },
     areaServed: { "@type": "Country", name: "Brasil" },

@@ -16,7 +16,7 @@
 //  7. @type deve existir em cada entidade de topo / item de @graph.
 //  8. URLs absolutas do próprio site devem usar o domínio oficial.
 //  9. Proíbe entidades/claims inventados: gpt-engineer, publisher divergente
-//     "Técnico Curitiba", cargo "Técnico de Informática Sênior",
+//     "O Técnico de Informática", cargo "Técnico de Informática Sênior",
 //     aggregateRating inventado.
 // 10. Conteúdo editorial (/blog): proíbe Person fictício, jobTitle e
 //     BlogPosting/Article tratados como aprovados (governança fail-closed).
@@ -47,7 +47,7 @@ const FORBIDDEN_STRINGS = [
 ];
 
 // Valor de nome/marca divergente proibido (publisher/author/name === isto).
-const FORBIDDEN_BRAND_EXACT = "Técnico Curitiba"; // oficial é "Técnico em Curitiba"
+const FORBIDDEN_BRAND_EXACT = "O Técnico de Informática"; // oficial é "O Técnico de Informática"
 
 // @type proibidos em conteúdo editorial não aprovado (path /blog/).
 const EDITORIAL_FORBIDDEN_TYPES = new Set([
@@ -176,7 +176,7 @@ function validateEntity(entity, file, blockIndex, isEditorial, isApprovedEditori
     for (const key of ["name", "publisher", "author"]) {
       const v = node[key];
       if (v === FORBIDDEN_BRAND_EXACT) {
-        push(file, `${key} usa marca divergente "${FORBIDDEN_BRAND_EXACT}" (oficial: "Técnico em Curitiba")`, blockIndex);
+        push(file, `${key} usa marca divergente "${FORBIDDEN_BRAND_EXACT}" (oficial: "O Técnico de Informática")`, blockIndex);
       }
       if (v && typeof v === "object" && v.name === FORBIDDEN_BRAND_EXACT) {
         push(file, `${key}.name usa marca divergente "${FORBIDDEN_BRAND_EXACT}"`, blockIndex);

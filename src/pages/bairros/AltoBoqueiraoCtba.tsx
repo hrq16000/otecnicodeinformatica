@@ -4,7 +4,7 @@ const data = {
   nome: "Alto Boqueirão",
   slug: "alto-boqueirao",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Alto Boqueirão | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Alto Boqueirão | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Alto Boqueirão, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Alto Boqueirão – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Alto Boqueirão. Diagnóstico, reparo e suporte técnico com garantia.",

@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Configuração de Redes Wi-Fi em Santa Felicidade Curitiba | Técnico Curitiba",
+  metaTitle: "Configuração de Redes Wi-Fi em Santa Felicidade Curitiba | O Técnico de Informática",
   metaDescription: "Configuração de redes Wi-Fi em Santa Felicidade, Curitiba. Roteadores, mesh e cabeamento. Cobertura total para casas e restaurantes. a partir de R$ 99,99.",
   
   servico: "Configuração de Redes Wi-Fi",

@@ -22,7 +22,7 @@ import { MapPin, Clock, Shield, Wrench, CheckCircle, ArrowRight, Building2, Home
 const benefits = [
   { icon: MapPin, title: "Atendimento em Todo Piraquara", description: "Cobrimos do Centro ao Jardim Primavera. Técnico com conhecimento da região." },
   { icon: Clock, title: "Chegamos em 40-60 Minutos", description: "Acesso pela BR-116 e Estrada do Encanamento. Agendamento conforme a disponibilidade da agenda quando possível." },
-  { icon: Shield, title: "Técnico identificado", description: "Atuação em informática desde 1998, com equipamento profissional e registro do atendimento." },
+  { icon: Shield, title: "Técnico identificado", description: "Técnico identificado, com equipamento profissional e registro do atendimento." },
   { icon: Wrench, title: "Garantia em Todo Serviço", description: "Diagnóstico transparente, valor antes da execução e garantia por escrito." },
 ];
 
@@ -64,7 +64,7 @@ const schema = {
 
 const TecnicoInformaticaPiraquara = () => {
   useEffect(() => {
-    document.title = "Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba";
+    document.title = "Técnico de Informática em Piraquara PR | Atendimento Domicílio | O Técnico de Informática";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", "Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.");
     trackPageView("/tecnico-informatica-piraquara", "Técnico Piraquara");
@@ -72,7 +72,7 @@ const TecnicoInformaticaPiraquara = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Técnico de Informática em Piraquara PR | Atendimento Domicílio | Técnico Curitiba" description="Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-piraquara" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Piraquara", path: "/tecnico-informatica-piraquara" }]} />
+      <PageSEO noindex title="Técnico de Informática em Piraquara PR | Atendimento Domicílio | O Técnico de Informática" description="Técnico de informática em Piraquara PR. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99." path="/tecnico-informatica-piraquara" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Técnico de Informática", path: "/servicos" }, { name: "Piraquara", path: "/tecnico-informatica-piraquara" }]} />
       <CityServiceSchema city={"Piraquara"} citySameAs={"https://pt.wikipedia.org/wiki/Piraquara"} path={"/tecnico-informatica-piraquara"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <JsonLdSchema />

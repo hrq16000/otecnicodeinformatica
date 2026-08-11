@@ -145,14 +145,14 @@ const Anuncie = () => {
   }, []);
 
   const waHref = whatsappLink(
-    "Olá! Tenho interesse comercial em anunciar/patrocinar no portal Técnico em Curitiba. Pode me enviar o mídia kit e os formatos disponíveis?",
+    "Olá! Tenho interesse comercial em anunciar/patrocinar no portal O Técnico de Informática. Pode me enviar o mídia kit e os formatos disponíveis?",
   );
 
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Anuncie e Patrocine | Mídia Kit do Técnico em Curitiba"
-        description="Formatos de anúncio, posições recomendadas e regras de publicidade do portal Técnico em Curitiba. Fale com o comercial e receba o mídia kit atualizado."
+        title="Anuncie e Patrocine | Mídia Kit do Técnico de Informática"
+        description="Formatos de anúncio, posições recomendadas e regras de publicidade do portal O Técnico de Informática. Fale com o comercial e receba o mídia kit atualizado."
         path="/anuncie"
         breadcrumbs={[
           { name: "Início", path: "/" },
@@ -172,7 +172,7 @@ const Anuncie = () => {
                 Espaço comercial e patrocínio
               </span>
               <h1 className="mt-5 text-3xl font-heading font-bold leading-tight text-foreground md:text-5xl">
-                Anuncie no <span className="text-accent">Técnico em Curitiba</span>
+                Anuncie no <span className="text-accent">O Técnico de Informática</span>
               </h1>
               <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
                 Portal de conteúdo técnico e atendimento em informática, TV, placas e redes em{" "}

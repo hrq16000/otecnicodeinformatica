@@ -478,7 +478,7 @@ const ArticleSection = () => (
           <div className="bg-accent/10 border border-accent/20 rounded-xl p-5 mt-6">
             <p className="text-foreground font-semibold text-sm">
               💡 A Mileuma Soluções / Mestre dos Serviços realiza instalação profissional de kits Intelbras em 
-              Curitiba, São José dos Pinhais e Litoral do Paraná desde 1998. Kit completo a partir de R$ 1.350 
+              Curitiba, São José dos Pinhais e Região Metropolitana. Kit completo a partir de R$ 1.350 
               com garantia de 1 ano.
             </p>
           </div>

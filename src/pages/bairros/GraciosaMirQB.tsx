@@ -4,7 +4,7 @@ const data = {
   nome: "Graciosa",
   slug: "graciosa-qb",
   cidade: "Quatro Barras",
-  metaTitle: "Técnico de Informática no Graciosa | Quatro Barras | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Graciosa | Quatro Barras | O Técnico de Informática",
   metaDescription: "Técnico de informática no Graciosa, Quatro Barras. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Graciosa – Quatro Barras",
   subtitulo: "Atendimento profissional a domicílio no Graciosa. Diagnóstico, reparo e suporte técnico com garantia.",

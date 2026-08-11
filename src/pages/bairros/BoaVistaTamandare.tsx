@@ -4,7 +4,7 @@ const data = {
   nome: "Boa Vista",
   slug: "boa-vista-at",
   cidade: "Almirante Tamandaré",
-  metaTitle: "Técnico de Informática no Boa Vista | Almirante Tamandaré | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Boa Vista | Almirante Tamandaré | O Técnico de Informática",
   metaDescription: "Técnico de informática no Boa Vista, Almirante Tamandaré. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Boa Vista – Almirante Tamandaré",
   subtitulo: "Atendimento profissional a domicílio no Boa Vista. Diagnóstico, reparo e suporte técnico com garantia.",

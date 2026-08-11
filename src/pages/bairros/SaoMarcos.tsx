@@ -5,7 +5,7 @@ const SaoMarcos = () => {
     nome: "São Marcos",
     slug: "sao-marcos",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no São Marcos SJP | Assistência Técnica | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no São Marcos SJP | Assistência Técnica | O Técnico de Informática",
     metaDescription: "Técnico de informática no São Marcos, São José dos Pinhais. Formatação, conserto, upgrade. Visita técnica em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no São Marcos – São José dos Pinhais",
     subtitulo: "Assistência técnica completa no São Marcos. Técnico especializado vai até sua casa ou empresa.",

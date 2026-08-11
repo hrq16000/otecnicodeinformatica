@@ -4,7 +4,7 @@ const data = {
   nome: "São Cristóvão",
   slug: "sao-cristao-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no São Cristóvão | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no São Cristóvão | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no São Cristóvão, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no São Cristóvão – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no São Cristóvão. Diagnóstico no local, valor transparente e garantia.",

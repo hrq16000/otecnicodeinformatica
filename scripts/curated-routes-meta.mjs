@@ -14,7 +14,7 @@ import { servicoFaqs } from "./lib/servico-faqs.mjs";
 const BASE_ROUTES = [
   {
     "path": "/",
-    "title": "Técnico em Curitiba | Assistência Técnica e Suporte Local",
+    "title": "O Técnico de Informática | Assistência Técnica e Suporte Local",
     "description": "Assistência técnica em Curitiba com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue pelo WhatsApp."
   },
   {
@@ -273,13 +273,13 @@ const BASE_ROUTES = [
   },
   {
     "path": "/sobre",
-    "title": "Sobre o Técnico em Curitiba | PC, Notebook e Redes",
-    "description": "Conheça o Técnico em Curitiba: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
+    "title": "Sobre O Técnico de Informática | PC, Notebook e Redes",
+    "description": "Conheça O Técnico de Informática: foco em informática, notebook, PC, redes e suporte empresarial em Curitiba e região, com diagnóstico honesto e valor transparente.",
     "blocos": [
       {
         "titulo": "Quem somos e o que atendemos",
         "paragrafos": [
-          "O Técnico em Curitiba é um serviço de assistência técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e região metropolitana. A proposta é simples: você fala direto com quem entende do problema, entende o que está acontecendo com o equipamento e decide com clareza.",
+          "O Técnico de Informática é um serviço de assistência técnica em informática voltado a residências, profissionais liberais e empresas de Curitiba e região metropolitana. A proposta é simples: você fala direto com quem entende do problema, entende o que está acontecendo com o equipamento e decide com clareza.",
           "O trabalho começa pela triagem no WhatsApp e segue por diagnóstico, orientação, valor do atendimento e execução — sempre nessa ordem. Casos simples podem ser resolvidos em atendimento a domicílio; reparos que exigem bancada seguem para a oficina com o seu acompanhamento.",
           "O foco é informática: notebooks, computadores de mesa, formatação e sistema, upgrade de SSD e memória, remoção de vírus, recuperação de dados, redes e Wi-Fi e suporte empresarial. Nada de dispersar em áreas fora dessa competência."
         ]
@@ -313,7 +313,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/como-funciona",
-    "title": "Como Funciona o Atendimento Técnico em Curitiba",
+    "title": "Como Funciona o Atendimento | O Técnico de Informática",
     "description": "Entenda como funciona o atendimento técnico de informática em Curitiba e região. Passo a passo completo: solicitação via WhatsApp, diagnóstico, execução e garantia. Técnico a domicílio no mesmo dia.",
     "blocos": [
       {
@@ -355,7 +355,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/precos-e-politicas",
-    "title": "Preços e Políticas | Técnico em Curitiba",
+    "title": "Preços e Políticas | O Técnico de Informática",
     "description": "Preços e políticas do atendimento de informática em Curitiba: mão de obra a partir de R$ 99,99, valor após avaliação e regras claras sobre peças, prazos e dados.",
     "blocos": [
       {
@@ -404,12 +404,12 @@ const BASE_ROUTES = [
   },
   {
     "path": "/faq",
-    "title": "FAQ Técnico Curitiba | Preço, Prazo e Garantia",
+    "title": "FAQ O Técnico de Informática | Preço, Prazo e Garantia",
     "description": "Dúvidas sobre preço, prazo, garantia, formatação, vírus e atendimento técnico em Curitiba. Veja respostas rápidas e chame no WhatsApp."
   },
   {
     "path": "/contato",
-    "title": "Contato Técnico Curitiba | Atendimento a partir de R$ 99,99",
+    "title": "Contato | O Técnico de Informática | Atendimento a partir de R$ 99,99",
     "description": "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99."
   },
   {
@@ -690,7 +690,7 @@ const BASE_ROUTES = [
   {
     "path": "/areas-atendidas",
     "title": "Áreas Atendidas em Curitiba e Região | Bairros e Cidades",
-    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas pelo Técnico em Curitiba, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
+    "description": "Bairros de Curitiba e cidades da região metropolitana atendidas por O Técnico de Informática, com a modalidade indicada em cada caso: no local, remoto ou coleta para bancada.",
     "blocos": [
       {
         "titulo": "O que esta página resolve",
@@ -725,7 +725,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/equipamentos-atendidos",
-    "title": "Equipamentos Atendidos | Técnico em Curitiba",
+    "title": "Equipamentos Atendidos | O Técnico de Informática",
     "description": "Notebooks, desktops, PC gamer, All in One, estações de trabalho, equipamentos de home office, redes e armazenamento: o que atendemos em Curitiba, os limites e a modalidade indicada.",
     "blocos": [
       {
@@ -869,7 +869,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/problemas/computador-lento",
-    "title": "Computador Lento? Diagnóstico Técnico em Curitiba",
+    "title": "Computador Lento? Diagnóstico | O Técnico de Informática",
     "description": "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.",
     "h1": "Computador lento: sintomas, causas possíveis e o que realmente resolve",
     "subtitulo": "Lentidão quase nunca tem uma causa única: armazenamento, memória, temperatura e software se manifestam de formas diferentes e exigem soluções diferentes.",

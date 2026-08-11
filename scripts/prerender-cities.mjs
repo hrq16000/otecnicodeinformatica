@@ -127,7 +127,7 @@ function htmlEscape(s) {
 function cityMeta(c) {
   const path = `/arrumar-pc/${c.slug}`;
   const url = `${SITE}${path}`;
-  const title = `Arrumar PC em ${c.cidade} ${c.estado} — Técnico online | Técnico Curitiba`;
+  const title = `Arrumar PC em ${c.cidade} ${c.estado} — Técnico online | O Técnico de Informática`;
   const description = `Técnico de informática online para ${c.cidade}/${c.estado}. Formatação, vírus, lentidão, tela azul e Wi-Fi via WhatsApp + acesso remoto. Orçamento grátis, paga só se resolver.`;
   return { path, url, title, description };
 }
@@ -151,7 +151,7 @@ function injectMeta(html, meta) {
   const og = [
     `<meta property="og:type" content="website">`,
     `<meta property="og:url" content="${meta.url}">`,
-    `<meta property="og:site_name" content="Técnico em Curitiba">`,
+    `<meta property="og:site_name" content="O Técnico de Informática">`,
     `<meta property="og:locale" content="pt_BR">`,
     `<meta property="og:title" content="${htmlEscape(meta.title)}">`,
     `<meta property="og:description" content="${htmlEscape(meta.description)}">`,
@@ -401,7 +401,7 @@ function editorialStaticBody(post, wave) {
           </ul>
           ${outrosGuiasAprovados(post.slug)}
           <p style="margin:12px 0 0"><a href="/contato?assunto=${waText}" data-cta-location="editorial_static" style="color:#7fd4ec;font-weight:600">Falar sobre o meu caso (triagem antes do WhatsApp)</a></p>
-          <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Publicado por Técnico em Curitiba · <a href="${url}" style="color:#7fd4ec">${htmlEscape(url)}</a></p>
+          <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Publicado por O Técnico de Informática · <a href="${url}" style="color:#7fd4ec">${htmlEscape(url)}</a></p>
         </div>`;
 }
 
@@ -412,10 +412,10 @@ function editorialStaticBody(post, wave) {
 async function writeBlogPostPage(distDir, baseHtml, post) {
   const routePath = `/blog/${post.slug}`;
   const url = `${SITE}${routePath}`;
-  const title = normalizeTitle(post.title, "Técnico em Curitiba");
+  const title = normalizeTitle(post.title, "O Técnico de Informática");
   const description = normalizeDescription(
     post.excerpt || post.title,
-    "Guia técnico do Técnico em Curitiba, com atendimento em Curitiba e Região Metropolitana.",
+    "Guia técnico do Técnico de Informática, com atendimento em Curitiba e Região Metropolitana.",
   );
   const wave = getWaveArticle(post.slug);
 
@@ -437,8 +437,8 @@ async function writeBlogPostPage(distDir, baseHtml, post) {
       description,
       url,
       inLanguage: "pt-BR",
-      isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
-      publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+      isPartOf: { "@type": "WebSite", name: "O Técnico de Informática", url: SITE },
+      publisher: { "@type": "Organization", name: "O Técnico de Informática", url: SITE },
     };
     const html = injectMeta(baseHtml, {
       path: routePath, url, title, description,
@@ -463,14 +463,14 @@ async function writeBlogPostPage(distDir, baseHtml, post) {
     dateModified: `${wave.approvedAt}T08:00:00-03:00`,
     image: [{ "@type": "ImageObject", url: cover, width: 1200, height: 630 }],
     thumbnailUrl: cover,
-    author: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+    author: { "@type": "Organization", name: "O Técnico de Informática", url: SITE },
     publisher: {
       "@type": "Organization",
-      name: "Técnico em Curitiba",
+      name: "O Técnico de Informática",
       url: SITE,
       logo: { "@type": "ImageObject", url: `${SITE}/logo.png`, width: 600, height: 60 },
     },
-    isPartOf: { "@type": "Blog", name: "Blog Técnico em Curitiba", url: `${SITE}/blog` },
+    isPartOf: { "@type": "Blog", name: "Blog O Técnico de Informática", url: `${SITE}/blog` },
     about: { "@type": "Thing", name: post.category },
     articleSection: post.category,
     wordCount: post.wordCount,
@@ -549,7 +549,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: `Arrumar PC online em ${c.cidade}`,
       serviceType: "Suporte técnico remoto de informática",
-      provider: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+      provider: { "@type": "Organization", name: "O Técnico de Informática", url: SITE },
       areaServed: { "@type": "City", name: c.cidade, containedInPlace: { "@type": "State", name: c.estadoNome } },
       description: meta.description,
       url: meta.url,
@@ -569,7 +569,7 @@ export async function prerenderCities(distDir) {
       "@type": "Service",
       name: cat.titlePrefix,
       serviceType: cat.titlePrefix,
-      provider: { "@type": "LocalBusiness", name: "Técnico em Curitiba", url: SITE, telephone: "+5541997086380" },
+      provider: { "@type": "LocalBusiness", name: "O Técnico de Informática", url: SITE, telephone: "+5541997086380" },
       areaServed: { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
       description: meta.description,
       url: meta.url,
@@ -634,7 +634,7 @@ export async function prerenderCities(distDir) {
   // Hub /blog — indexável somente quando há artigos aprovados na onda.
   {
     const url = `${SITE}/blog`;
-    const title = "Guias de Informática | Técnico em Curitiba";
+    const title = "Guias de Informática | O Técnico de Informática";
     const description = "Guias sobre manutenção, segurança, computadores, notebooks, redes e cuidados com dados, publicados após revisão editorial.";
     const approvedPosts = blogPosts.filter((p) => isWaveApproved(p.slug));
     const jsonLd = {
@@ -644,8 +644,8 @@ export async function prerenderCities(distDir) {
       description,
       url,
       inLanguage: "pt-BR",
-      isPartOf: { "@type": "WebSite", name: "Técnico em Curitiba", url: SITE },
-      publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: SITE },
+      isPartOf: { "@type": "WebSite", name: "O Técnico de Informática", url: SITE },
+      publisher: { "@type": "Organization", name: "O Técnico de Informática", url: SITE },
       hasPart: approvedPosts.map((p) => ({
         "@type": "BlogPosting",
         headline: p.title,

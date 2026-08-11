@@ -5,7 +5,7 @@ const EucaliptosFRG = () => {
     nome: "Eucaliptos",
     slug: "eucaliptos-frg",
     cidade: "Fazenda Rio Grande",
-    metaTitle: "Técnico de Informática no Eucaliptos (Fazenda Rio Grande) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Eucaliptos (Fazenda Rio Grande) | O Técnico de Informática",
     metaDescription: "Técnico de informática no Eucaliptos, Fazenda Rio Grande. Conserto de PC/notebook, formatação, upgrade e redes. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Eucaliptos – Fazenda Rio Grande",
     subtitulo: "Atendimento técnico a domicílio no Eucaliptos com diagnóstico profissional e soluções práticas.",

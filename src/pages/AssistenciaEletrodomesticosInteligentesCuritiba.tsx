@@ -148,7 +148,7 @@ const AssistenciaEletrodomesticosInteligentesCuritiba = () => {
 
       <section className="py-14">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-center mb-8">Por que contratar a Técnico Curitiba</h2>
+          <h2 className="text-3xl font-heading font-bold text-center mb-8">Por que contratar a O Técnico de Informática</h2>
           <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
               { i: <Refrigerator className="w-7 h-7 text-accent" />, t: "Especialistas em IoT", d: "Diagnóstico técnico real, não \"reinstala o app\"." },

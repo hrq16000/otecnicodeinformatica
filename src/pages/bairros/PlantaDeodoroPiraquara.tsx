@@ -4,7 +4,7 @@ const data = {
   nome: "Planta Deodoro",
   slug: "planta-deodoro-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Planta Deodoro | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Planta Deodoro | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Planta Deodoro, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Planta Deodoro – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no Planta Deodoro. Diagnóstico no local, valor transparente e garantia.",

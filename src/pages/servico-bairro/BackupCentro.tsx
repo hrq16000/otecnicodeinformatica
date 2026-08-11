@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Backup e Recuperação de Dados no Centro de Curitiba | Técnico Curitiba",
+  metaTitle: "Backup e Recuperação de Dados no Centro de Curitiba | O Técnico de Informática",
   metaDescription: "Backup e recuperação de dados no Centro de Curitiba. HD, SSD, pendrive e nuvem. Recuperação de arquivos deletados e HD com defeito. A partir de R$ 89,99.",
   
   servico: "Backup e Recuperação de Dados",

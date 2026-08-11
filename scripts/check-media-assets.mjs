@@ -16,7 +16,12 @@ const publicPath = (url) => join("public", url.replace(/^https?:\/\/[^/]+/, "").
 
 // 1) og:image padrão do PageSEO
 const seo = readFileSync("src/components/PageSEO.tsx", "utf8");
-const defaultOg = seo.match(/DEFAULT_OG_IMAGE\s*=\s*"([^"]+)"/)?.[1];
+let defaultOg = seo.match(/DEFAULT_OG_IMAGE\s*=\s*"([^"]+)"/)?.[1];
+// PageSEO monta o og:image a partir de BRAND_OG_PATH (config centralizada).
+if (!defaultOg && /DEFAULT_OG_IMAGE\s*=\s*`\$\{SITE_BASE_URL\}\$\{BRAND_OG_PATH\}`/.test(seo)) {
+  const brand = readFileSync("src/lib/config/brand.ts", "utf8");
+  defaultOg = brand.match(/ogImage:[^"]*"([^"]+)"/)?.[1];
+}
 if (!defaultOg) errors.push("DEFAULT_OG_IMAGE não encontrado em src/components/PageSEO.tsx");
 else if (!existsSync(publicPath(defaultOg))) errors.push(`og:image padrão ausente em public/: ${defaultOg}`);
 else info.push(`og:image padrão OK: ${defaultOg}`);

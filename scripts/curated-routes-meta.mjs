@@ -409,7 +409,7 @@ const BASE_ROUTES = [
   },
   {
     "path": "/contato",
-    "title": "Contato Técnico Curitiba | WhatsApp e Orçamento",
+    "title": "Contato Técnico Curitiba | Atendimento a partir de R$ 99,99",
     "description": "Fale com técnico de informática em Curitiba pelo WhatsApp. Atendimento hoje para PC, notebook, vírus, formatação e SSD a partir de R$ 99,99."
   },
   {

@@ -256,6 +256,71 @@ const PROBLEMA_LINKS = {
 
 /** Saídas obrigatórias do cluster empresarial (contrato editorial da onda 3D). */
 const SERVICO_LINKS = {
+  // Rodada 4K — malha semântica declarada (vizinhança de intenção + reciprocidade).
+  "/servicos/formatacao": [
+    "/servicos/remocao-de-virus",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/manutencao-de-computador",
+    "/problemas/computador-lento",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/upgrade-ssd-ram": [
+    "/servicos/recuperacao-de-dados",
+    "/servicos/manutencao-de-computador",
+    "/servicos/pc-gamer",
+    "/problemas/computador-lento",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/remocao-de-virus": [
+    "/servicos/formatacao",
+    "/problemas/computador-lento",
+    "/servicos/manutencao-de-computador",
+    "/seguranca-dos-dados",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/recuperacao-de-dados": [
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/backup-para-empresas",
+    "/servicos/manutencao-de-notebook",
+    "/seguranca-dos-dados",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/conserto-placa": [
+    "/servicos/conserto-tv",
+    "/servicos/manutencao-de-notebook",
+    "/servicos/conserto-monitor",
+    "/servicos/manutencao-de-computador",
+    "/precos-e-politicas",
+    "/coleta-e-entrega",
+  ],
+  "/servicos/conserto-tv": [
+    "/servicos/conserto-placa",
+    "/servicos/conserto-monitor",
+    "/equipamentos-atendidos",
+    "/coleta-e-entrega",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/conserto-monitor": [
+    "/servicos/conserto-tv",
+    "/servicos/manutencao-de-computador",
+    "/servicos/conserto-placa",
+    "/coleta-e-entrega",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
+  "/servicos/montagem-de-pc": [
+    "/servicos/pc-gamer",
+    "/servicos/upgrade-ssd-ram",
+    "/servicos/manutencao-de-computador",
+    "/politica-de-pecas-do-cliente",
+    "/precos-e-politicas",
+    "/como-funciona",
+  ],
   // Rodada 4K — malha semântica da vertical de alto desempenho.
   "/servicos/pc-gamer": [
     "/servicos/montagem-de-pc",

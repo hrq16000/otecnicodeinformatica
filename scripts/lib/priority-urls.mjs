@@ -12,7 +12,7 @@
  */
 import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
 
-export const BASE_URL = "https://tecnico.curitiba.br";
+export { BASE_URL } from "./site-env.mjs";
 
 /** Páginas comerciais P0 (dinheiro). */
 export const P0_PATHS = [

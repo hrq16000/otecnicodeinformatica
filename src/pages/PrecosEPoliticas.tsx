@@ -116,7 +116,7 @@ interface PrecosEPoliticasProps {
 
 const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProps) => {
   useEffect(() => {
-    document.title = "Termos, Condições, Valores e Prazos | Técnico em Curitiba";
+    document.title = "Termos, Condições, Valores e Prazos | O Técnico de Informática";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -132,7 +132,7 @@ const PrecosEPoliticas = ({ path = "/precos-e-politicas" }: PrecosEPoliticasProp
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO title="Termos, Condições, Valores e Prazos | Técnico em Curitiba" description="Ponto único de termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Termos, Condições, Valores e Prazos", path: "/precos-e-politicas" }]} />
+      <PageSEO title="Termos, Condições, Valores e Prazos | O Técnico de Informática" description="Ponto único de termos, condições, valores e prazos: visita técnica de inspeção a partir de R$ 99,99 por 30 min, pacote de até 2h por R$ 279,99 e diagnóstico com coleta e entrega a partir de R$ 299,99, com cancelamento em até 24h." path="/precos-e-politicas" breadcrumbs={[{ name: "Início", path: "/" }, { name: "Termos, Condições, Valores e Prazos", path: "/precos-e-politicas" }]} />
       <JsonLdSchema />
       <LocalBusinessJsonLd path="/precos-e-politicas" description="Termos, condições, valores e prazos do atendimento técnico de informática em Curitiba e Região Metropolitana." />
       <PrecosServiceSchema path="/precos-e-politicas" />

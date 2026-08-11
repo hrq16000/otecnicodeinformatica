@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Maria",
   slug: "vila-maria-qb",
   cidade: "Quatro Barras",
-  metaTitle: "Técnico de Informática no Vila Maria | Quatro Barras | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Maria | Quatro Barras | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Maria, Quatro Barras. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Maria – Quatro Barras",
   subtitulo: "Atendimento técnico profissional a domicílio no Vila Maria. Diagnóstico no local, valor transparente e garantia.",

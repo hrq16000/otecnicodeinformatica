@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Formatação de Computador em Araucária | Técnico Local | Técnico Curitiba",
+  metaTitle: "Formatação de Computador em Araucária | Técnico Local | O Técnico de Informática",
   metaDescription: "Formatação de computador e notebook em Araucária. Windows 10/11, backup completo, drivers e programas. Atendimento domiciliar. A partir de R$ 109,99.",
   
   servico: "Formatação de Computador",

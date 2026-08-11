@@ -5,7 +5,7 @@ const CachoeiraAT = () => {
     nome: "Cachoeira",
     slug: "cachoeira-at",
     cidade: "Almirante Tamandaré",
-    metaTitle: "Técnico de Informática na Cachoeira (Almirante Tamandaré) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática na Cachoeira (Almirante Tamandaré) | O Técnico de Informática",
     metaDescription: "Técnico de informática na Cachoeira, Almirante Tamandaré. Formatação, conserto de notebook, vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática na Cachoeira – Almirante Tamandaré",
     subtitulo: "Assistência técnica na Cachoeira com atendimento domiciliar profissional e garantia.",

@@ -19,7 +19,7 @@ import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
 
 const PATH = "/problemas/computador-lento";
-const TITLE = "Computador Lento? Diagnóstico Técnico em Curitiba";
+const TITLE = "Computador Lento? Diagnóstico O Técnico de Informática";
 const DESCRIPTION =
   "Computador ou notebook lento para ligar e abrir programas? Veja os sintomas, as causas possíveis, quando SSD ou memória resolvem, quando formatar e quando trocar o equipamento.";
 

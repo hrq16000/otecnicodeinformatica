@@ -18,7 +18,7 @@ export default function Status() {
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
-    document.title = "Status do Portal — Técnico Curitiba";
+    document.title = "Status do Portal — O Técnico de Informática";
     const refresh = () => {
       const w = window as unknown as { __APP_ERRORS__?: AppError[] };
       setErrors([...(w.__APP_ERRORS__ ?? [])].reverse());

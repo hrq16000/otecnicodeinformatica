@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Conserto de Notebook no Portão Curitiba | Reparo Rápido | Técnico Curitiba",
+  metaTitle: "Conserto de Notebook no Portão Curitiba | Reparo Rápido | O Técnico de Informática",
   metaDescription: "Conserto de notebook no Portão, Curitiba. Tela, teclado, placa-mãe, bateria e dobradiça. Diagnóstico gratuito e atendimento a domicílio. A partir de R$ 89,99.",
   
   servico: "Conserto de Notebook",

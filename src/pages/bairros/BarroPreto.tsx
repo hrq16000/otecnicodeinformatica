@@ -5,7 +5,7 @@ const BarroPreto = () => {
     nome: "Barro Preto",
     slug: "barro-preto",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Barro Preto SJP | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Barro Preto SJP | O Técnico de Informática",
     metaDescription: "Técnico de informática no Barro Preto, São José dos Pinhais. Conserto de PC e notebook, formatação. Visita técnica domiciliar. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Barro Preto – São José dos Pinhais",
     subtitulo: "Serviços de informática profissionais no Barro Preto. Técnico especializado com atendimento rápido.",

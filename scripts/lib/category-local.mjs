@@ -246,7 +246,7 @@ export function categoryLocalJsonLd(cat, local, site) {
         provider: {
           "@type": "LocalBusiness",
           "@id": `${site}/#localbusiness`,
-          name: "Técnico em Curitiba",
+          name: "O Técnico de Informática",
           url: site,
           telephone: "+5541997086380",
           address: {
@@ -332,7 +332,7 @@ export function categoryLocalStaticBody(cat, local) {
           ${faqHtml}
           <h2 style="font-size:1.1rem;margin:24px 0 6px">Outras localidades atendidas</h2>
           <ul style="margin:0 0 8px;padding-left:20px">${outros}</ul>
-          <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">Técnico em Curitiba · atendimento em Curitiba e Região Metropolitana.</p>
+          <p style="margin:16px 0 0;font-size:.8rem;opacity:.7">O Técnico de Informática · atendimento em Curitiba e Região Metropolitana.</p>
         </div>`;
 }
 
@@ -423,7 +423,7 @@ export function localBusinessNode(cat, local, site) {
     "@type": "LocalBusiness",
     "@id": `${url}#localbusiness`,
     parentOrganization: { "@id": `${site}/#organization` },
-    name: "Técnico em Curitiba",
+    name: "O Técnico de Informática",
     description: `Assistência técnica com coleta e entrega em ${cityLabel(local)} e Região Metropolitana de Curitiba.`,
     url,
     image: coverDe(cat).url,

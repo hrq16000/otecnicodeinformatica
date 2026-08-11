@@ -4,7 +4,7 @@ const data = {
   nome: "Vila São José",
   slug: "vila-sao-jose-qb",
   cidade: "Quatro Barras",
-  metaTitle: "Técnico de Informática no Vila São José | Quatro Barras | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila São José | Quatro Barras | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila São José, Quatro Barras. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila São José – Quatro Barras",
   subtitulo: "Atendimento técnico profissional a domicílio no Vila São José. Diagnóstico no local, valor transparente e garantia.",

@@ -59,7 +59,7 @@ const ColetaEntrega = () => {
       <LocalBusinessJsonLd
         scriptId="ld-localbusiness-coleta"
         path="/coleta-e-entrega"
-        name="Técnico em Curitiba — Coleta e entrega"
+        name="O Técnico de Informática — Coleta e entrega"
         description="Coleta e entrega de equipamentos em Curitiba e região metropolitana para reparos que exigem bancada, com prazo e condições informados na triagem."
         services={[
           { name: "Coleta e entrega de equipamentos", url: "/coleta-e-entrega" },

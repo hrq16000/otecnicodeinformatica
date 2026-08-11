@@ -25,7 +25,7 @@ const sintomas = [
 
 const ComputadorNaoLiga = () => {
   useEffect(() => {
-    document.title = "Computador Não Liga? Causas e Soluções | Técnico em Curitiba";
+    document.title = "Computador Não Liga? Causas e Soluções | O Técnico de Informática";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Computador ou notebook não liga? Veja as causas mais comuns e quando procurar um técnico. Diagnóstico profissional em Curitiba e região. Atendimento a domicílio.");
@@ -40,7 +40,7 @@ const ComputadorNaoLiga = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Computador Não Liga? Causas e Soluções | Técnico em Curitiba" description="Computador ou notebook não liga? Veja as causas mais comuns e quando procurar um técnico. Diagnóstico profissional em Curitiba e região. Atendimento a domicílio." path="/servicos/computador-nao-liga"  breadcrumbs={[
+      <PageSEO noindex title="Computador Não Liga? Causas e Soluções | O Técnico de Informática" description="Computador ou notebook não liga? Veja as causas mais comuns e quando procurar um técnico. Diagnóstico profissional em Curitiba e região. Atendimento a domicílio." path="/servicos/computador-nao-liga"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Computador Não Liga", path: "/servicos/computador-nao-liga" }

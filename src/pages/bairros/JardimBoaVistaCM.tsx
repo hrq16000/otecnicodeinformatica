@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Boa Vista",
   slug: "jardim-boa-vista-cm",
   cidade: "Campo Magro",
-  metaTitle: "Técnico de Informática no Jardim Boa Vista | Campo Magro | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Boa Vista | Campo Magro | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Boa Vista, Campo Magro. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Boa Vista – Campo Magro",
   subtitulo: "Atendimento técnico profissional a domicílio no Jardim Boa Vista. Diagnóstico no local, valor transparente e garantia.",

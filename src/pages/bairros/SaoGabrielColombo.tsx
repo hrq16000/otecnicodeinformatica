@@ -4,7 +4,7 @@ const data = {
   nome: "São Gabriel",
   slug: "sao-gabriel-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no São Gabriel | Colombo | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no São Gabriel | Colombo | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no São Gabriel, Colombo. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no São Gabriel – Colombo",
   subtitulo: "Atendimento técnico profissional a domicílio no São Gabriel. Diagnóstico no local, valor transparente e garantia.",

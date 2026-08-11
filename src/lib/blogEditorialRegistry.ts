@@ -98,7 +98,7 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
       approvedAt: FIRST_WAVE_APPROVED_AT,
       imageOrigin: "generated" as EditorialImageOrigin,
       imageLicense: "Ativo gerado sob encomenda para uso próprio da marca",
-      imageAttribution: "Técnico em Curitiba",
+      imageAttribution: "O Técnico de Informática",
       notes:
         "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa própria conforme briefing.",
     },

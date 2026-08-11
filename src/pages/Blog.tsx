@@ -82,7 +82,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Guias de Informática | Técnico em Curitiba"
+        title="Guias de Informática | O Técnico de Informática"
         description="Guias sobre manutenção, segurança, computadores, notebooks, redes e cuidados com dados, publicados após revisão editorial."
         path="/blog"
         noindex={noindex}

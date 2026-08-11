@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Boa Vista Araucária",
   slug: "jardim-boa-vista-araucaria",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no Jardim Boa Vista Araucária | Araucária | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Boa Vista Araucária | Araucária | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Boa Vista Araucária, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Boa Vista Araucária – Araucária",
   subtitulo: "Atendimento profissional a domicílio no Jardim Boa Vista Araucária. Diagnóstico, reparo e suporte técnico com garantia.",

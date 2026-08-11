@@ -4,7 +4,7 @@ const data = {
   nome: "São Lourenço",
   slug: "sao-lourenco-frg",
   cidade: "Fazenda Rio Grande",
-  metaTitle: "Técnico de Informática no São Lourenço | Fazenda Rio Grande | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no São Lourenço | Fazenda Rio Grande | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no São Lourenço, Fazenda Rio Grande. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no São Lourenço – Fazenda Rio Grande",
   subtitulo: "Atendimento técnico profissional a domicílio no São Lourenço. Diagnóstico no local, valor transparente e garantia.",

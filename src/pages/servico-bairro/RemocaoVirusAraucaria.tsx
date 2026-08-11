@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Remoção de Vírus em Araucária | Técnico Especializado | Técnico Curitiba",
+  metaTitle: "Remoção de Vírus em Araucária | Técnico Especializado | O Técnico de Informática",
   metaDescription: "Remoção de vírus e malware em Araucária. Limpeza completa, antivírus profissional e proteção avançada. Atendimento domiciliar. A partir de R$ 89,99.",
   
   servico: "Remoção de Vírus",

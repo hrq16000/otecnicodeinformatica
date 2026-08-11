@@ -34,7 +34,7 @@ const TecnicoInformaticaCuritibaAds = () => {
       <header className="bg-primary py-4">
         <div className="container mx-auto text-center">
           <img
-            alt="Técnico Curitiba"
+            alt="O Técnico de Informática"
             src="/logo.webp"
             className="h-12 mx-auto"
           />
@@ -213,7 +213,7 @@ const TecnicoInformaticaCuritibaAds = () => {
       <footer className="bg-primary text-primary-foreground py-6">
         <div className="container mx-auto text-center">
           <p className="text-sm opacity-80">
-            © {new Date().getFullYear()} Técnico Curitiba • Assistência Técnica em Informática
+            © {new Date().getFullYear()} O Técnico de Informática • Assistência Técnica em Informática
           </p>
         </div>
       </footer>

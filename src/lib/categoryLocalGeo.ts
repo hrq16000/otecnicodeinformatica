@@ -87,7 +87,7 @@ export function localBusinessNode(cat: CategoryData, local: LocalData, site = SI
     "@type": "LocalBusiness",
     "@id": `${url}#localbusiness`,
     parentOrganization: { "@id": `${site}/#organization` },
-    name: "Técnico em Curitiba",
+    name: "O Técnico de Informática",
     description: `Assistência técnica com coleta e entrega em ${cityLabel(local)} e Região Metropolitana de Curitiba.`,
     url,
     image: coverDe(cat).url,

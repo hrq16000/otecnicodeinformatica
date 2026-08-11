@@ -4,7 +4,7 @@ const data = {
   nome: "Atuba",
   slug: "atuba-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Atuba | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Atuba | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Atuba, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Atuba – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Atuba. Diagnóstico no local, valor transparente e garantia.",

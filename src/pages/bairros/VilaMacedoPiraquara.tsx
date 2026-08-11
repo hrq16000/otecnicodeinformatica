@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Macedo",
   slug: "vila-macedo-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Vila Macedo | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Macedo | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Macedo, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Macedo – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no Vila Macedo. Diagnóstico no local, valor transparente e garantia.",

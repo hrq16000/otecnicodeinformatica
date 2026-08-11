@@ -27,7 +27,7 @@ const searchData: SearchItem[] = [
   { title: "CFTV / Câmeras de Segurança", path: "/cftv", category: "servico", keywords: ["câmera", "cftv", "segurança", "vigilância", "monitoramento"] },
 
   // Cidades
-  { title: "Técnico em Curitiba", path: "/tecnico-informatica-curitiba", category: "cidade", keywords: ["curitiba", "ctba"] },
+  { title: "O Técnico de Informática", path: "/tecnico-informatica-curitiba", category: "cidade", keywords: ["curitiba", "ctba"] },
   { title: "Técnico em São José dos Pinhais", path: "/tecnico-informatica-sao-jose-pinhais", category: "cidade", keywords: ["são josé", "sjp", "pinhais"] },
   { title: "Técnico em Araucária", path: "/tecnico-informatica-araucaria", category: "cidade", keywords: ["araucária"] },
   { title: "Técnico em Colombo", path: "/tecnico-informatica-colombo", category: "cidade", keywords: ["colombo"] },

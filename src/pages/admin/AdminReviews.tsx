@@ -317,7 +317,7 @@ const AdminReviews = () => {
   return (
     <>
       <Helmet>
-        <title>Admin Reviews | Técnico Curitiba</title>
+        <title>Admin Reviews | O Técnico de Informática</title>
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
       <Header />

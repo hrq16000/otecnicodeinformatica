@@ -90,7 +90,7 @@ const Obrigado = () => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    document.title = "Obrigado — Técnico em Curitiba";
+    document.title = "Obrigado — O Técnico de Informática";
     const setMeta = (sel: string, attr: string, val: string) => {
       const el = document.querySelector<HTMLMetaElement>(sel);
       if (el) el.setAttribute(attr, val);
@@ -102,7 +102,7 @@ const Obrigado = () => {
     );
     upsertCanonical(absoluteUrl("/obrigado"));
     setMeta('meta[property="og:url"]', "content", absoluteUrl("/obrigado"));
-    setMeta('meta[property="og:title"]', "content", "Obrigado — Técnico em Curitiba");
+    setMeta('meta[property="og:title"]', "content", "Obrigado — O Técnico de Informática");
     setMeta(
       'meta[property="og:description"]',
       "content",

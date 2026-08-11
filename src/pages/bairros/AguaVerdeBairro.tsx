@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Botânico",
   slug: "jardim-botanico",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Jardim Botânico | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Botânico | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Botânico, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Botânico – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Jardim Botânico. Diagnóstico, reparo e suporte técnico com garantia.",

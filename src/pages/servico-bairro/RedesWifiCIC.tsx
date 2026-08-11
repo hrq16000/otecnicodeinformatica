@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Configuração de Redes Wi-Fi no CIC Curitiba | Internet Estável | Técnico Curitiba",
+  metaTitle: "Configuração de Redes Wi-Fi no CIC Curitiba | Internet Estável | O Técnico de Informática",
   metaDescription: "Configuração e instalação de redes Wi-Fi no CIC, Curitiba. Roteadores, repetidores, mesh e cabeamento. Cobertura total para empresas e residências. a partir de R$ 99,99.",
   
   servico: "Configuração de Redes Wi-Fi",

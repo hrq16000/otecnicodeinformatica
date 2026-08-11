@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim São Paulo",
   slug: "jardim-sao-paulo-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Jardim São Paulo | Piraquara | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim São Paulo | Piraquara | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim São Paulo, Piraquara. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim São Paulo – Piraquara",
   subtitulo: "Atendimento profissional a domicílio no Jardim São Paulo. Diagnóstico, reparo e suporte técnico com garantia.",

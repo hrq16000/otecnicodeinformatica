@@ -4,7 +4,7 @@ const data = {
   nome: "Rondinha",
   slug: "rondinha",
   cidade: "Campo Largo",
-  metaTitle: "Técnico de Informática no Rondinha | Campo Largo | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Rondinha | Campo Largo | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Rondinha, Campo Largo. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Rondinha – Campo Largo",
   subtitulo: "Atendimento técnico profissional a domicílio no Rondinha. Diagnóstico no local, valor transparente e garantia.",

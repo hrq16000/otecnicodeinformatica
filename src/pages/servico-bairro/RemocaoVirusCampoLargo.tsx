@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Remoção de Vírus em Campo Largo | Técnico Especializado | Técnico Curitiba",
+  metaTitle: "Remoção de Vírus em Campo Largo | Técnico Especializado | O Técnico de Informática",
   metaDescription: "Remoção de vírus e malware em Campo Largo. Limpeza completa, antivírus profissional. Atendimento domiciliar em todos os bairros. A partir de R$ 89,99.",
   
   servico: "Remoção de Vírus",

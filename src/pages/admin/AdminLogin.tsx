@@ -34,7 +34,7 @@ const AdminLogin = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Acesso administrativo | Técnico Curitiba</title>
+        <title>Acesso administrativo | O Técnico de Informática</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />

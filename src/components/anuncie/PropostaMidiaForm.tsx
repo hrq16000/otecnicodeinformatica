@@ -48,7 +48,7 @@ export const PropostaMidiaForm = () => {
 
   const mensagem = useMemo(() => {
     const linhas = [
-      "Solicitação de proposta de mídia — Técnico em Curitiba",
+      "Solicitação de proposta de mídia — O Técnico de Informática",
       `Empresa/marca: ${clean(empresa, 80) || "(não informado)"}`,
       `Segmento: ${segmento}`,
       `Cidade/bairro de interesse: ${clean(regiao, 80) || "(a definir)"}`,

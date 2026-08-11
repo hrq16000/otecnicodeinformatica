@@ -4,7 +4,7 @@ const data = {
   nome: "Fazenda Velha",
   slug: "fazenda-velha-araucaria",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no Fazenda Velha | Araucária | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Fazenda Velha | Araucária | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Fazenda Velha, Araucária. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Fazenda Velha – Araucária",
   subtitulo: "Atendimento técnico profissional a domicílio no Fazenda Velha. Diagnóstico no local, valor transparente e garantia.",

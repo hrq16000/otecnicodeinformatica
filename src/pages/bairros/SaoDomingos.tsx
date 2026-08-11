@@ -5,7 +5,7 @@ const SaoDomingos = () => {
     nome: "São Domingos",
     slug: "sao-domingos",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no São Domingos SJP | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no São Domingos SJP | O Técnico de Informática",
     metaDescription: "Técnico de informática no São Domingos, São José dos Pinhais. Manutenção, formatação, conserto. Atendimento em domicílio rápido. a partir de R$ 99,99.",
     h1: "Técnico de Informática no São Domingos – São José dos Pinhais",
     subtitulo: "Serviços de informática profissionais no São Domingos. Atendimento rápido e de qualidade.",

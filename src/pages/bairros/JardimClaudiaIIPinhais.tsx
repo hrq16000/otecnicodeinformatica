@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Cláudia II",
   slug: "jardim-claudia-ii-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Jardim Cláudia II | Pinhais | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Cláudia II | Pinhais | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Cláudia II, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Cláudia II – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Jardim Cláudia II. Diagnóstico, reparo e suporte técnico com garantia.",

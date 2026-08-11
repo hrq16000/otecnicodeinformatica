@@ -4,7 +4,7 @@
 //     e curated-routes-meta.mjs (prerender pré-hidratação) nas 8 rotas de serviço.
 //  2. Ausência de storage externo (gpt-engineer) no HTML base.
 //  3. og:image === og:image:secure_url === twitter:image no index.html.
-//  4. Nome institucional único ("Técnico em Curitiba") nos campos de entidade.
+//  4. Nome institucional único ("O Técnico de Informática") nos campos de entidade.
 //  5. Exatamente 1 <title>, 1 description e 1 canonical no index.html.
 //  6. /valores sem canonical próprio (fora do prerender curado) e
 //     /precos-e-politicas presente como rota canônica oficial.
@@ -16,7 +16,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const OFFICIAL_NAME = "Técnico em Curitiba";
+const OFFICIAL_NAME = "O Técnico de Informática";
 const SERVICE_PATHS = [
   "formatacao",
   "manutencao-de-notebook",
@@ -112,11 +112,11 @@ if (manifest) {
 
 // ── 7. Identidade institucional: prerender-cities.mjs ───────────────
 // Campos institucionais (og:site_name, Organization.name, LocalBusiness.name)
-// não devem usar o nome antigo "Técnico Curitiba".
+// não devem usar o nome antigo "O Técnico de Informática".
 const prerenderSrc = readFileSync(resolve(root, "scripts/prerender-cities.mjs"), "utf8");
-const badSiteName = [...prerenderSrc.matchAll(/(og:site_name"\s+content=|name:\s*)"Técnico Curitiba"/g)];
+const badSiteName = [...prerenderSrc.matchAll(/(og:site_name"\s+content=|name:\s*)"O Técnico de Informática"/g)];
 if (badSiteName.length) {
-  fail(`prerender-cities.mjs ainda usa "Técnico Curitiba" em ${badSiteName.length} campo(s) institucional(is)`);
+  fail(`prerender-cities.mjs ainda usa "O Técnico de Informática" em ${badSiteName.length} campo(s) institucional(is)`);
 }
 
 // ── 8. Pós-build: dist/valores/index.html (alias de /precos-e-politicas) ──

@@ -233,7 +233,7 @@ const OrdemDeServico = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Ordem de serviço | Técnico em Curitiba"
+        title="Ordem de serviço | O Técnico de Informática"
         description="Registre os dados do equipamento e gere uma ordem de serviço para acompanhar o atendimento técnico."
         path="/ordem-de-servico"
         noindex

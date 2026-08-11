@@ -5,7 +5,7 @@ const MaracanaColombo = () => {
     nome: "Maracanã",
     slug: "maracana-colombo",
     cidade: "Colombo",
-    metaTitle: "Técnico de Informática no Maracanã (Colombo) | Conserto e Formatação | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Maracanã (Colombo) | Conserto e Formatação | O Técnico de Informática",
     metaDescription: "Técnico de informática no Maracanã, Colombo PR. Conserto de notebook, formatação, vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Maracanã – Colombo",
     subtitulo: "Atendimento a domicílio no Maracanã com suporte técnico completo e garantia.",

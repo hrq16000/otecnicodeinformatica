@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Social",
   slug: "jardim-social",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Jardim Social | Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Social | Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Social, Curitiba. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Social – Curitiba",
   subtitulo: "Atendimento profissional a domicílio no Jardim Social. Diagnóstico, reparo e suporte técnico com garantia.",

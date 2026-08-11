@@ -4,7 +4,7 @@ const data = {
   nome: "Cabral",
   slug: "cabral",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Cabral | Curitiba | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Cabral | Curitiba | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Cabral, Curitiba. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Cabral – Curitiba",
   subtitulo: "Atendimento técnico profissional a domicílio no Cabral. Diagnóstico no local, valor transparente e garantia.",

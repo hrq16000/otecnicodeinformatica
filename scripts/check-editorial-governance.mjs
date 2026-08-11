@@ -5,7 +5,7 @@
 //  - registro editorial existe e inicia vazio (zero aprovados);
 //  - BlogPost usa o registro (categoria não controla indexabilidade);
 //  - nenhum autor pessoal fictício / cargo inventado;
-//  - publisher institucional "Técnico em Curitiba";
+//  - publisher institucional "O Técnico de Informática";
 //  - /blog lista apenas aprovados e permanece noindex sem aprovados;
 //  - cada artigo possui HTML próprio com noindex,follow + canonical self;
 //  - zero artigos/problemas/marcas em sitemap; sitemap principal = manifesto curado (scripts/lib/curated-urls.mjs);
@@ -90,8 +90,8 @@ async function checkBlogPostRuntime() {
   if (/OFF_TOPIC_BLOG_CATEGORIES|isOffTopicCategory/.test(src))
     fail("BlogPost: categoria não pode controlar indexabilidade (lógica off-topic presente)");
   // Publisher institucional oficial.
-  if (/"Técnico Curitiba"/.test(src))
-    fail('BlogPost: publisher/autor deve usar "Técnico em Curitiba", não "Técnico Curitiba"');
+  if (/"O Técnico de Informática"/.test(src))
+    fail('BlogPost: publisher/autor deve usar "O Técnico de Informática", não "O Técnico de Informática"');
   // dateModified não pode ser gerado no build.
   if (/dateModified[\s\S]{0,80}(new Date\(\)|Date\.now\(\))/.test(src))
     fail("BlogPost: dateModified não pode ser gerado no build");
@@ -189,16 +189,16 @@ async function checkStaticHtml(posts) {
     if (!ogUrl || ogUrl[1] !== url) fail(`/blog/${post.slug}: og:url deve ser self`);
 
     // og:site_name oficial
-    if (!/og:site_name["']\s+content=["']Técnico em Curitiba["']/.test(h))
-      fail(`/blog/${post.slug}: og:site_name deve ser "Técnico em Curitiba"`);
+    if (!/og:site_name["']\s+content=["']O Técnico de Informática["']/.test(h))
+      fail(`/blog/${post.slug}: og:site_name deve ser "O Técnico de Informática"`);
 
     // Sem autor/cargo fictício no schema editorial injetado.
-    // (Obs.: "Técnico Curitiba" no alt do logo vem do index.html base e é
+    // (Obs.: "O Técnico de Informática" no alt do logo vem do index.html base e é
     //  legítimo — checamos apenas autor/publisher fictício e schema Person.)
     if (/Técnico de Informática Sênior/.test(h)) fail(`/blog/${post.slug}: cargo fictício no HTML`);
     if (/"@type":\s*"Person"/.test(h)) fail(`/blog/${post.slug}: Person no HTML`);
-    if (/"author":\s*\{[^}]*"Técnico Curitiba"/.test(h)) fail(`/blog/${post.slug}: autor fictício no schema`);
-    if (/"publisher":\s*\{[^}]*"Técnico Curitiba"/.test(h)) fail(`/blog/${post.slug}: publisher divergente no schema`);
+    if (/"author":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: autor fictício no schema`);
+    if (/"publisher":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: publisher divergente no schema`);
 
     checked++;
   }

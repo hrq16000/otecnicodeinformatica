@@ -174,7 +174,7 @@ const StatusOs = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Status da ordem de serviço | Técnico em Curitiba"
+        title="Status da ordem de serviço | O Técnico de Informática"
         description="Consulte o andamento do seu atendimento pelo número da ordem de serviço: linha do tempo com data e hora, etapas, prazos estimados e como falar com o técnico responsável."
         path={PATH}
         breadcrumbs={[

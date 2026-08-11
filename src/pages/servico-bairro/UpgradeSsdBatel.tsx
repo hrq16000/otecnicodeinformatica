@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Upgrade SSD e Memória no Batel Curitiba | Melhore seu PC | Técnico Curitiba",
+  metaTitle: "Upgrade SSD e Memória no Batel Curitiba | Melhore seu PC | O Técnico de Informática",
   metaDescription: "Upgrade de SSD e memória RAM no Batel, Curitiba. Seu computador até 10x mais rápido. Instalação profissional com garantia. A partir de R$ 149,99.",
   
   servico: "Upgrade SSD e Memória",

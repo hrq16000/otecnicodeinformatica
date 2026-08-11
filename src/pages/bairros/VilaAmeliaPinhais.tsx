@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Amélia",
   slug: "vila-amelia-pinhais",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Vila Amélia | Pinhais | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Amélia | Pinhais | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Amélia, Pinhais. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Amélia – Pinhais",
   subtitulo: "Atendimento profissional a domicílio no Vila Amélia. Diagnóstico, reparo e suporte técnico com garantia.",

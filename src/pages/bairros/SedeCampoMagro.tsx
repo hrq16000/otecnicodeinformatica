@@ -4,7 +4,7 @@ const data = {
   nome: "Sede",
   slug: "sede-campo-magro",
   cidade: "Campo Magro",
-  metaTitle: "Técnico de Informática no Sede | Campo Magro | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Sede | Campo Magro | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Sede, Campo Magro. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Sede – Campo Magro",
   subtitulo: "Atendimento técnico profissional a domicílio no Sede. Diagnóstico no local, valor transparente e garantia.",

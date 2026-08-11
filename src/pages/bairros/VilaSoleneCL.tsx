@@ -4,7 +4,7 @@ const data = {
   nome: "Vila Solene",
   slug: "vila-solene",
   cidade: "Campo Largo",
-  metaTitle: "Técnico de Informática no Vila Solene | Campo Largo | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Vila Solene | Campo Largo | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Vila Solene, Campo Largo. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Vila Solene – Campo Largo",
   subtitulo: "Atendimento técnico profissional a domicílio no Vila Solene. Diagnóstico no local, valor transparente e garantia.",

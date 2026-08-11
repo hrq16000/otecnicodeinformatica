@@ -4,7 +4,7 @@ const data = {
   nome: "Emiliano Perneta",
   slug: "emiliano-perneta",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Emiliano Perneta | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Emiliano Perneta | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Emiliano Perneta, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Emiliano Perneta – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Emiliano Perneta. Diagnóstico no local, valor transparente e garantia.",

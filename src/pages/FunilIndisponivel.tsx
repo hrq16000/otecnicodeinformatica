@@ -34,7 +34,7 @@ const FunilIndisponivel = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Funil temporariamente indisponível | Técnico Curitiba</title>
+        <title>Funil temporariamente indisponível | O Técnico de Informática</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />

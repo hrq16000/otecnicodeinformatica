@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Formatação de Computador em Pinhais | Técnico Local | Técnico Curitiba",
+  metaTitle: "Formatação de Computador em Pinhais | Técnico Local | O Técnico de Informática",
   metaDescription: "Formatação de computador e notebook em Pinhais. Windows 10/11, backup, drivers. Atendimento domiciliar em todos os bairros. A partir de R$ 109,99.",
   
   servico: "Formatação de Computador",

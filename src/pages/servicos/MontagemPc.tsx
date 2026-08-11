@@ -15,7 +15,7 @@ const WHATSAPP_NUMBER = WA_NUMBER;
 
 const MontagemPc = () => {
   useEffect(() => {
-    document.title = "Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba";
+    document.title = "Montagem de PC Gamer e Workstation em Curitiba | O Técnico de Informática";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu atendimento.");
@@ -31,7 +31,7 @@ const MontagemPc = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <PageSEO noindex title="Montagem de PC Gamer e Workstation em Curitiba | Técnico Curitiba" description="Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu atendimento." path="/servicos/montagem-pc"  breadcrumbs={[
+      <PageSEO noindex title="Montagem de PC Gamer e Workstation em Curitiba | O Técnico de Informática" description="Montagem de PC Gamer e Workstation em Curitiba. Computador personalizado para jogos, trabalho ou edição. Configuração ideal para seu atendimento." path="/servicos/montagem-pc"  breadcrumbs={[
         { name: "Início", path: "/" },
         { name: "Serviços", path: "/servicos" },
         { name: "Montagem de PC", path: "/servicos/montagem-pc" }

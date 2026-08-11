@@ -4,7 +4,7 @@ const data = {
   nome: "Espigão Alegre",
   slug: "espigao-alegre-cm",
   cidade: "Campo Magro",
-  metaTitle: "Técnico de Informática no Espigão Alegre | Campo Magro | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Espigão Alegre | Campo Magro | O Técnico de Informática",
   metaDescription: "Técnico de informática no Espigão Alegre, Campo Magro. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Espigão Alegre – Campo Magro",
   subtitulo: "Atendimento profissional a domicílio no Espigão Alegre. Diagnóstico, reparo e suporte técnico com garantia.",

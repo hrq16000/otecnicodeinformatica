@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Upgrade SSD e Memória em São José dos Pinhais | Computador Mais Rápido | Técnico Curitiba",
+  metaTitle: "Upgrade SSD e Memória em São José dos Pinhais | Computador Mais Rápido | O Técnico de Informática",
   metaDescription: "Upgrade de SSD e memória RAM em São José dos Pinhais. Computador até 10x mais rápido. Atendimento domiciliar. A partir de R$ 199,99 com SSD incluso.",
   
   servico: "Upgrade SSD e Memória",

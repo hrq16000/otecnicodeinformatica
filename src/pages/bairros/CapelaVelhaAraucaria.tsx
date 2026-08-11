@@ -5,7 +5,7 @@ const CapelaVelhaAraucaria = () => {
     nome: "Capela Velha",
     slug: "capela-velha",
     cidade: "Araucária",
-    metaTitle: "Técnico de Informática na Capela Velha (Araucária) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática na Capela Velha (Araucária) | O Técnico de Informática",
     metaDescription:
       "Técnico de informática na Capela Velha, Araucária. Conserto de notebook e PC, formatação, vírus, rede Wi‑Fi e upgrade. Atendimento em domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática na Capela Velha – Araucária",

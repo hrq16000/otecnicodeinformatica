@@ -31,7 +31,7 @@ const VALID_WEBPAGE = JSON.stringify({
   "@type": "WebPage",
   name: "Página válida",
   url: "https://tecnico.curitiba.br/exemplo",
-  publisher: { "@type": "Organization", name: "Técnico em Curitiba", url: "https://tecnico.curitiba.br" },
+  publisher: { "@type": "Organization", name: "O Técnico de Informática", url: "https://tecnico.curitiba.br" },
 });
 
 const CASES = [
@@ -56,11 +56,11 @@ const CASES = [
     files: { "index.html": htmlDoc(ld("   ")) },
   },
   {
-    name: "publisher proibido (Técnico Curitiba)",
+    name: "publisher proibido (O Técnico de Informática)",
     expectFail: true,
     files: {
       "index.html": htmlDoc(
-        ld(JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "x", publisher: { "@type": "Organization", name: "Técnico Curitiba" } })),
+        ld(JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "x", publisher: { "@type": "Organization", name: "O Técnico de Informática" } })),
       ),
     },
   },

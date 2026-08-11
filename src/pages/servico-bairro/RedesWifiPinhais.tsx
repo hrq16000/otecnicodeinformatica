@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Instalação de Redes Wi-Fi em Pinhais | Técnico Local | Técnico Curitiba",
+  metaTitle: "Instalação de Redes Wi-Fi em Pinhais | Técnico Local | O Técnico de Informática",
   metaDescription: "Instalação e configuração de redes Wi-Fi em Pinhais. Roteador, mesh, repetidor e Wi-Fi corporativo. Atendimento domiciliar. A partir de R$ 129,99.",
 
   servico: "Redes Wi-Fi",

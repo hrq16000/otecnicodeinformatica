@@ -4,7 +4,7 @@ const data = {
   nome: "Tingui",
   slug: "tingui",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática no Tingui | Curitiba | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Tingui | Curitiba | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Tingui, Curitiba. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Tingui – Curitiba",
   subtitulo: "Atendimento técnico profissional a domicílio no Tingui. Diagnóstico no local, valor transparente e garantia.",

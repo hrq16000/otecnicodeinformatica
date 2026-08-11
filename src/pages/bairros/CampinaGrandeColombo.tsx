@@ -4,7 +4,7 @@ const data = {
   nome: "Campina Grande do Sul",
   slug: "campina-grande-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no Campina Grande do Sul | Colombo | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Campina Grande do Sul | Colombo | O Técnico de Informática",
   metaDescription: "Técnico de informática no Campina Grande do Sul, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Campina Grande do Sul – Colombo",
   subtitulo: "Atendimento profissional a domicílio no Campina Grande do Sul. Diagnóstico, reparo e suporte técnico com garantia.",

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-const TITLE_404 = "Página não encontrada | Técnico Curitiba";
+const TITLE_404 = "Página não encontrada | O Técnico de Informática";
 const DESC_404 =
   "A página que você tentou acessar não existe ou foi movida. Veja os serviços disponíveis ou volte para a página inicial.";
 

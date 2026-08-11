@@ -4,7 +4,7 @@ const data = {
   nome: "Santa Terezinha",
   slug: "santa-terezinha-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no Santa Terezinha | Colombo | Atendimento a Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Santa Terezinha | Colombo | Atendimento a Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Santa Terezinha, Colombo. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio rápido. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Santa Terezinha – Colombo",
   subtitulo: "Atendimento técnico profissional a domicílio no Santa Terezinha. Diagnóstico no local, valor transparente e garantia.",

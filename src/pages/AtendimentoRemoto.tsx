@@ -137,7 +137,7 @@ const AtendimentoRemoto = () => {
       <LocalBusinessJsonLd
         scriptId="ld-localbusiness-remoto"
         path={PATH}
-        name="Técnico em Curitiba — Suporte remoto"
+        name="O Técnico de Informática — Suporte remoto"
         description="Suporte técnico remoto para sistemas, programas, configurações e orientações, atendendo Curitiba e região metropolitana."
         services={[
           { name: "Suporte remoto", url: "/atendimento-remoto" },

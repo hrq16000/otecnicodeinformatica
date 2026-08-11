@@ -4,7 +4,7 @@ const data = {
   nome: "Guarituba",
   slug: "guarituba-piraquara",
   cidade: "Piraquara",
-  metaTitle: "Técnico de Informática no Guarituba | Piraquara | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Guarituba | Piraquara | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Guarituba, Piraquara. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Guarituba – Piraquara",
   subtitulo: "Atendimento técnico profissional a domicílio no Guarituba. Diagnóstico no local, valor transparente e garantia.",

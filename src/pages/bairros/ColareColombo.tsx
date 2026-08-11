@@ -4,7 +4,7 @@ const data = {
   nome: "São Dimas",
   slug: "sao-dimas-colombo",
   cidade: "Colombo",
-  metaTitle: "Técnico de Informática no São Dimas | Colombo | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no São Dimas | Colombo | O Técnico de Informática",
   metaDescription: "Técnico de informática no São Dimas, Colombo. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no São Dimas – Colombo",
   subtitulo: "Atendimento profissional a domicílio no São Dimas. Diagnóstico, reparo e suporte técnico com garantia.",

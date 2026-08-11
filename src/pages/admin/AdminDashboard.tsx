@@ -253,7 +253,7 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Dashboard — Admin | Técnico Curitiba</title>
+        <title>Dashboard — Admin | O Técnico de Informática</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />

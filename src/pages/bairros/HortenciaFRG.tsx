@@ -4,7 +4,7 @@ const data = {
   nome: "Hortência",
   slug: "hortencia-frg",
   cidade: "Fazenda Rio Grande",
-  metaTitle: "Técnico de Informática no Hortência | Fazenda Rio Grande | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Hortência | Fazenda Rio Grande | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Hortência, Fazenda Rio Grande. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Hortência – Fazenda Rio Grande",
   subtitulo: "Atendimento técnico profissional a domicílio no Hortência. Diagnóstico no local, valor transparente e garantia.",

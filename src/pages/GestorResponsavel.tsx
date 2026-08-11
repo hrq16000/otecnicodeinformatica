@@ -46,7 +46,7 @@ const GestorResponsavelPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Responsável técnico | Técnico em Curitiba"
+        title="Responsável técnico | O Técnico de Informática"
         description={`Quem responde tecnicamente pelos atendimentos: ${siteConfig.brandName}${siteConfig.foundedYear ? `, atuação em informática desde ${siteConfig.foundedYear}` : ""}. Escopo, área de atuação e critérios de diagnóstico.`}
         path={PATH}
         breadcrumbs={[

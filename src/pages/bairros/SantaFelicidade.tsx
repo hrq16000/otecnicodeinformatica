@@ -4,7 +4,7 @@ const data = {
   nome: "Santa Felicidade",
   slug: "santa-felicidade",
   cidade: "Curitiba",
-  metaTitle: "Técnico de Informática em Santa Felicidade Curitiba | Técnico Curitiba",
+  metaTitle: "Técnico de Informática em Santa Felicidade Curitiba | O Técnico de Informática",
   metaDescription: "Técnico de informática em Santa Felicidade, Curitiba. Atendimento para residências e restaurantes. Conserto de PC e notebook. a partir de R$ 99,99.",
   h1: "Técnico de Informática em Santa Felicidade",
   subtitulo: "Atendimento técnico no tradicional bairro italiano de Curitiba",

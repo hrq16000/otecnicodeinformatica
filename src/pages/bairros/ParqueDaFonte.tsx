@@ -5,7 +5,7 @@ const ParqueDaFonte = () => {
     nome: "Parque da Fonte",
     slug: "parque-da-fonte",
     cidade: "São José dos Pinhais",
-    metaTitle: "Técnico de Informática no Parque da Fonte SJP | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Parque da Fonte SJP | O Técnico de Informática",
     metaDescription: "Técnico de informática no Parque da Fonte, São José dos Pinhais. Conserto, formatação, upgrade. Atendimento domiciliar profissional. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Parque da Fonte – São José dos Pinhais",
     subtitulo: "Serviços de informática de qualidade no Parque da Fonte. Atendimento em domicílio para sua comodidade.",

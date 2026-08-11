@@ -115,7 +115,7 @@ export default function Diagnostico60s() {
           name="description"
           content="Descubra em 60 segundos o que está acontecendo com seu notebook, TV, celular, impressora ou Wi-Fi. Diagnóstico guiado + WhatsApp direto com técnico em Curitiba."
         />
-        <meta property="og:title" content="Diagnóstico em 60s — Técnico em Curitiba" />
+        <meta property="og:title" content="Diagnóstico em 60s — O Técnico de Informática" />
         <meta property="og:url" content={`${SITE_BASE_URL}/diagnostico-60s`} />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>

@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Instalação de Redes Wi-Fi em Araucária | Internet Rápida | Técnico Curitiba",
+  metaTitle: "Instalação de Redes Wi-Fi em Araucária | Internet Rápida | O Técnico de Informática",
   metaDescription: "Instalação e configuração de redes Wi-Fi em Araucária. Wi-Fi empresarial, residencial, repetidores e mesh. Técnico especializado. Atendimento conforme a agenda.",
   
   servico: "Instalação de Redes Wi-Fi",

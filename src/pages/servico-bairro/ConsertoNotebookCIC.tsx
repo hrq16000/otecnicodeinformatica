@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Conserto de Notebook na CIC Curitiba | Reparo Industrial | Técnico Curitiba",
+  metaTitle: "Conserto de Notebook na CIC Curitiba | Reparo Industrial | O Técnico de Informática",
   metaDescription: "Conserto de notebook e computador na Cidade Industrial de Curitiba. Atendimento para empresas e residências. Reparo profissional com garantia.",
   
   servico: "Conserto de Notebook",

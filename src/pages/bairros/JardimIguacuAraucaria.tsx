@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Iguaçu",
   slug: "jardim-iguacu-araucaria",
   cidade: "Araucária",
-  metaTitle: "Técnico de Informática no Jardim Iguaçu | Araucária | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Iguaçu | Araucária | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Iguaçu, Araucária. Atendimento a domicílio com diagnóstico no local. Formatação, conserto de notebook, redes Wi-Fi. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Iguaçu – Araucária",
   subtitulo: "Atendimento profissional a domicílio no Jardim Iguaçu. Diagnóstico, reparo e suporte técnico com garantia.",

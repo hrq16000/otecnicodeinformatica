@@ -67,8 +67,8 @@ export const SITE = "https://tecnico.curitiba.br";
 // Espelho mínimo de src/lib/siteConfig.ts / src/lib/localBusinessJsonLd.ts.
 // Mantém NAP, área atendida e horários idênticos ao runtime.
 export const SITE_CONFIG = {
-  brandName: "Técnico em Curitiba",
-  legalName: "Técnico em Curitiba — Assistência Técnica em Informática",
+  brandName: "O Técnico de Informática",
+  legalName: "O Técnico de Informática — Assistência Técnica em Informática",
   foundedYear: "1998",
   phoneE164: "+5541997086380",
   whatsappNumber: "5541997086380",
@@ -144,7 +144,7 @@ const SHORT_LABEL = {
   "/contato": "Contato",
   "/como-funciona": "Como funciona",
   "/precos-e-politicas": "Preços e políticas",
-  "/tecnico-informatica-curitiba": "Técnico em Curitiba",
+  "/tecnico-informatica-curitiba": "O Técnico de Informática",
   "/empresa-de-ti-curitiba": "Empresa de TI em Curitiba",
   "/atendimento-domicilio": "Atendimento em domicílio",
   "/atendimento-remoto": "Atendimento remoto",
@@ -468,7 +468,7 @@ export function linksFor(path) {
 const WA_BASE = `https://wa.me/${SITE_CONFIG.whatsappNumber}`;
 
 function waLink(route) {
-  const msg = `Olá! Vim da página ${route.path} do site Técnico em Curitiba e preciso de atendimento.`;
+  const msg = `Olá! Vim da página ${route.path} do site O Técnico de Informática e preciso de atendimento.`;
   return `${WA_BASE}?text=${encodeURIComponent(msg)}`;
 }
 
@@ -822,7 +822,7 @@ export function staticBodyFor(route) {
 
   return `
         <div style="min-height:100vh;background:linear-gradient(155deg,hsl(205,58%,15%) 0%,hsl(200,45%,22%) 100%);color:#fff;padding:32px 20px;font-family:Arial,sans-serif;max-width:820px;margin:0 auto">
-          <img src="/logo.webp" alt="Técnico em Curitiba" width="240" height="78" style="max-width:60vw;height:auto" />
+          <img src="/logo.webp" alt="O Técnico de Informática" width="240" height="78" style="max-width:60vw;height:auto" />
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.9;margin:16px 0">${crumbHtml}</nav>
           <h1 style="font-size:1.6rem;line-height:1.25;margin:8px 0 12px">${esc(h1)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.94">${esc(route.description)}</p>
@@ -882,7 +882,7 @@ function organization() {
     "@type": "Organization",
     "@id": `${SITE}/#organization`,
     name: SITE_CONFIG.brandName,
-    alternateName: ["Técnico Curitiba", "Técnico de Informática Curitiba"],
+    alternateName: ["O Técnico de Informática", "Técnico de Informática Curitiba"],
     legalName: SITE_CONFIG.legalName,
     url: `${SITE}/`,
     logo: `${SITE}/logo.png`,

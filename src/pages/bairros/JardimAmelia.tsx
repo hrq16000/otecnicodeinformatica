@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Amélia",
   slug: "jardim-amelia",
   cidade: "Pinhais",
-  metaTitle: "Técnico de Informática no Jardim Amélia | Pinhais | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Amélia | Pinhais | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Amélia, Pinhais. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Amélia – Pinhais",
   subtitulo: "Atendimento técnico profissional a domicílio no Jardim Amélia. Diagnóstico no local, valor transparente e garantia.",

@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Conserto de Notebook no Batel Curitiba | Reparo Profissional | Técnico Curitiba",
+  metaTitle: "Conserto de Notebook no Batel Curitiba | Reparo Profissional | O Técnico de Informática",
   metaDescription: "Conserto de notebook no Batel, Curitiba. Reparo de tela, teclado, bateria, placa-mãe e mais. Técnico especializado com atendimento premium. atendimento sem compromisso.",
   
   servico: "Conserto de Notebook",

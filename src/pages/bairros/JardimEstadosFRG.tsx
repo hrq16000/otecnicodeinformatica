@@ -4,7 +4,7 @@ const data = {
   nome: "Jardim Estados",
   slug: "jardim-estados",
   cidade: "Fazenda Rio Grande",
-  metaTitle: "Técnico de Informática no Jardim Estados | Fazenda Rio Grande | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Jardim Estados | Fazenda Rio Grande | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Jardim Estados, Fazenda Rio Grande. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Jardim Estados – Fazenda Rio Grande",
   subtitulo: "Atendimento técnico profissional a domicílio no Jardim Estados. Diagnóstico no local, valor transparente e garantia.",

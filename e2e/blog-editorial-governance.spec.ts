@@ -111,11 +111,11 @@ test.describe("Artigos em noindex,follow (estático)", () => {
         expect(raw).not.toContain('"@type":"Person"');
         expect(raw).not.toContain("Técnico de Informática Sênior");
         expect(raw).not.toContain("jobTitle");
-        expect(raw, 'publisher/autor deve ser "Técnico em Curitiba"').not.toMatch(
-          /"(publisher|author)":\s*\{[^}]*"Técnico Curitiba"/,
+        expect(raw, 'publisher/autor deve ser "O Técnico de Informática"').not.toMatch(
+          /"(publisher|author)":\s*\{[^}]*"O Técnico de Informática"/,
         );
       }
-      expect(html).toContain('og:site_name" content="Técnico em Curitiba"');
+      expect(html).toContain('og:site_name" content="O Técnico de Informática"');
     });
   }
 });

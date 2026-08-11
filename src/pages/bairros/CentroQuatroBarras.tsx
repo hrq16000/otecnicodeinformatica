@@ -4,7 +4,7 @@ const data = {
   nome: "Centro",
   slug: "centro-quatro-barras",
   cidade: "Quatro Barras",
-  metaTitle: "Técnico de Informática no Centro | Quatro Barras | Atendimento Domicílio | Técnico Curitiba",
+  metaTitle: "Técnico de Informática no Centro | Quatro Barras | Atendimento Domicílio | O Técnico de Informática",
   metaDescription: "Técnico de informática no Centro, Quatro Barras. Formatação, conserto de notebook, remoção de vírus, upgrade SSD. Atendimento a domicílio. a partir de R$ 99,99.",
   h1: "Técnico de Informática no Centro – Quatro Barras",
   subtitulo: "Atendimento técnico profissional a domicílio no Centro. Diagnóstico no local, valor transparente e garantia.",

@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Upgrade SSD e Memória em Pinhais | PC Mais Rápido | Técnico Curitiba",
+  metaTitle: "Upgrade SSD e Memória em Pinhais | PC Mais Rápido | O Técnico de Informática",
   metaDescription: "Upgrade de SSD e memória RAM em Pinhais. Computador até 10x mais rápido. SSD incluso, instalação domiciliar. A partir de R$ 199,99.",
   
   servico: "Upgrade SSD e Memória",

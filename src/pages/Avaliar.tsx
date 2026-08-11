@@ -112,7 +112,7 @@ const Avaliar = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
-        title="Avaliar atendimento | Técnico em Curitiba"
+        title="Avaliar atendimento | O Técnico de Informática"
         description="Registre sua avaliação com estrelas do atendimento técnico em Curitiba e autorize (ou não) a publicação do comentário no site."
         path="/avaliar"
         noindex

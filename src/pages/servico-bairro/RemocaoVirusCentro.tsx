@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Remoção de Vírus no Centro de Curitiba | Limpeza Completa | Técnico Curitiba",
+  metaTitle: "Remoção de Vírus no Centro de Curitiba | Limpeza Completa | O Técnico de Informática",
   metaDescription: "Remoção de vírus e malware no Centro de Curitiba. Limpeza completa, proteção avançada e antivírus profissional. Atendimento conforme a agenda. A partir de R$ 79,99.",
   
   servico: "Remoção de Vírus",

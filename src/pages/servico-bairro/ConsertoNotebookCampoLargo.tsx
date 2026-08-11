@@ -1,7 +1,7 @@
 import { ServicoBairroTemplate, ServicoBairroData } from "./ServicoBairroTemplate";
 
 const data: ServicoBairroData = {
-  metaTitle: "Conserto de Notebook em Campo Largo | Todas as Marcas | Técnico Curitiba",
+  metaTitle: "Conserto de Notebook em Campo Largo | Todas as Marcas | O Técnico de Informática",
   metaDescription: "Conserto de notebook em Campo Largo. Tela, teclado, bateria, placa-mãe. Todas as marcas. atendimento sem compromisso e busca domiciliar.",
   
   servico: "Conserto de Notebook",

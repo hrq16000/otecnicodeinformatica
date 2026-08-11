@@ -5,7 +5,7 @@ const JardimMontoSanto = () => {
     nome: "Jardim Monte Santo",
     slug: "jardim-monte-santo",
     cidade: "Almirante Tamandaré",
-    metaTitle: "Técnico de Informática no Jardim Monte Santo (Almirante Tamandaré) | Técnico Curitiba",
+    metaTitle: "Técnico de Informática no Jardim Monte Santo (Almirante Tamandaré) | O Técnico de Informática",
     metaDescription: "Técnico de informática no Jardim Monte Santo, Almirante Tamandaré. Conserto, formatação, vírus, upgrade. Atendimento a domicílio. a partir de R$ 99,99.",
     h1: "Técnico de Informática no Jardim Monte Santo – Almirante Tamandaré",
     subtitulo: "Atendimento técnico a domicílio no Jardim Monte Santo com rapidez e garantia.",

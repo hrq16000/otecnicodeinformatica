@@ -13,6 +13,7 @@
 import { readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { BASE_URL as SITE_BASE_URL } from "./lib/site-env.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -78,7 +79,7 @@ if (!(ogImage === ogSecure && ogSecure === twImage)) {
   fail(`imagens sociais divergentes:\n  og:image=${ogImage}\n  secure_url=${ogSecure}\n  twitter=${twImage}`);
 }
 if (ogImage && /gpt-engineer/i.test(ogImage)) fail("og:image aponta para storage externo");
-if (ogImage && !ogImage.startsWith("https://tecnico.curitiba.br/")) fail("og:image não usa o domínio oficial");
+if (ogImage && !ogImage.startsWith(`${SITE_BASE_URL}/`)) fail("og:image não usa o domínio oficial");
 
 const siteName = metaContent(/property="og:site_name"\s+content="([^"]+)"/);
 if (siteName !== OFFICIAL_NAME) fail(`og:site_name divergente: "${siteName}" (esperado "${OFFICIAL_NAME}")`);
@@ -92,8 +93,9 @@ if (count(/rel="canonical"/g) !== 1) fail(`index.html: esperado exatamente 1 can
 
 // ── 4. Nome institucional em PageSEO.tsx (og:site_name runtime) ──────
 const pageSeo = readFileSync(resolve(root, "src/components/PageSEO.tsx"), "utf8");
-const siteNameConst = pageSeo.match(/const SITE_NAME\s*=\s*"([^"]+)"/);
-if (!siteNameConst || siteNameConst[1] !== OFFICIAL_NAME) {
+// SITE_NAME pode vir da constante única da marca (src/lib/config/brand.ts).
+const siteNameConst = pageSeo.match(/const SITE_NAME\s*=\s*(?:"([^"]+)"|BRAND_NAME)/);
+if (!siteNameConst || (siteNameConst[1] !== undefined && siteNameConst[1] !== OFFICIAL_NAME)) {
   fail(`PageSEO.tsx SITE_NAME divergente: "${siteNameConst ? siteNameConst[1] : "?"}" (esperado "${OFFICIAL_NAME}")`);
 }
 
@@ -107,16 +109,25 @@ try {
 }
 if (manifest) {
   if (manifest.name !== OFFICIAL_NAME) fail(`manifest.name divergente: "${manifest.name}" (esperado "${OFFICIAL_NAME}")`);
-  if (manifest.short_name !== OFFICIAL_NAME) fail(`manifest.short_name divergente: "${manifest.short_name}" (esperado "${OFFICIAL_NAME}")`);
+  // short_name é o rótulo curto do ícone (limite prático de ~12 caracteres).
+  if (!OFFICIAL_NAME.startsWith(manifest.short_name)) fail(`manifest.short_name divergente: "${manifest.short_name}" (deve ser um prefixo de "${OFFICIAL_NAME}")`);
 }
 
 // ── 7. Identidade institucional: prerender-cities.mjs ───────────────
 // Campos institucionais (og:site_name, Organization.name, LocalBusiness.name)
 // não devem usar o nome antigo "O Técnico de Informática".
 const prerenderSrc = readFileSync(resolve(root, "scripts/prerender-cities.mjs"), "utf8");
-const badSiteName = [...prerenderSrc.matchAll(/(og:site_name"\s+content=|name:\s*)"O Técnico de Informática"/g)];
+const badSiteName = [
+  ...prerenderSrc.matchAll(/og:site_name"\s+content="((?!\$\{)[^"]+)"/g),
+  ...prerenderSrc.matchAll(/"@type":\s*"(?:Organization|LocalBusiness)"\s*,\s*name:\s*"((?!\$\{)[^"]+)"/g),
+  ...prerenderSrc.matchAll(/"@type":\s*"(?:Organization|LocalBusiness)",\s*"name":\s*"((?!\$\{)[^"]+)"/g),
+].filter((m) => m[1] !== OFFICIAL_NAME);
 if (badSiteName.length) {
-  fail(`prerender-cities.mjs ainda usa "O Técnico de Informática" em ${badSiteName.length} campo(s) institucional(is)`);
+  fail(
+    `prerender-cities.mjs usa nome institucional divergente em ${badSiteName.length} campo(s): ${badSiteName
+      .map((m) => m[1])
+      .join(", ")}`,
+  );
 }
 
 // ── 8. Pós-build: dist/valores/index.html (alias de /precos-e-politicas) ──
@@ -126,14 +137,14 @@ if (existsSync(valoresHtmlPath)) {
   const canonicalCount = (v.match(/rel="canonical"/g) || []).length;
   if (canonicalCount !== 1) fail(`dist/valores: esperado exatamente 1 canonical (achou ${canonicalCount})`);
   const vCanonical = (v.match(/rel="canonical"\s+href="([^"]+)"/) || [])[1];
-  if (vCanonical !== "https://tecnico.curitiba.br/precos-e-politicas") {
+  if (vCanonical !== `${SITE_BASE_URL}/precos-e-politicas`) {
     fail(`dist/valores: canonical divergente "${vCanonical}" (esperado /precos-e-politicas)`);
   }
   if (/rel="canonical"\s+href="https:\/\/tecnico\.curitiba\.br\/"/.test(v)) {
     fail("dist/valores: canonical aponta para a home (proibido)");
   }
   const vOgUrl = (v.match(/property="og:url"\s+content="([^"]+)"/) || [])[1];
-  if (vOgUrl !== "https://tecnico.curitiba.br/precos-e-politicas") {
+  if (vOgUrl !== `${SITE_BASE_URL}/precos-e-politicas`) {
     fail(`dist/valores: og:url divergente "${vOgUrl}" (esperado /precos-e-politicas)`);
   }
   if (/gpt-engineer/i.test(v)) fail("dist/valores: contém referência a storage do gpt-engineer");
@@ -157,7 +168,7 @@ if (existsSync(valoresHtmlPath)) {
 //    ausentes de todos os sitemaps;
 //  - as rotas curadas pré-renderizadas continuam index,follow, self-canonical;
 //  - cada HTML tem exatamente 1 meta robots e 1 canonical.
-const SITE = "https://tecnico.curitiba.br";
+const SITE = SITE_BASE_URL;
 const distDir = resolve(root, "dist");
 if (existsSync(distDir)) {
   const { CITIES, CATEGORIES, LOCAIS, CFTV_ROUTES } = await import(
@@ -331,7 +342,7 @@ if (existsSync(distDir)) {
     if (htmlTitle !== homeR.title) fail(`home: <title> em index.html ("${htmlTitle}") diverge do curado ("${homeR.title}")`);
   }
   if (INTENT_RE.test(heroSrc)) fail("home (HeroPremium): não pode conter a intenção 'Técnico de informática em Curitiba'");
-  if (!/Soluções para computador, notebook, Wi-Fi/i.test(heroSrc)) fail("home: H1 esperado 'Soluções para computador, notebook, Wi-Fi e empresas' ausente no Hero");
+  if (!/Seu computador precisa funcionar\./i.test(heroSrc)) fail("home: H1 esperado 'Seu computador precisa funcionar. Nós cuidamos da parte técnica.' ausente no Hero");
 
   // Home: links para os 8 serviços + hub + landing local
   const HOME_SERVICE_LINKS = SERVICE_PATHS.map((p) => `/servicos/${p}`);
@@ -459,7 +470,7 @@ if (existsSync(distDir)) {
   const D2D = {
     "/empresa-de-ti-curitiba": { file: "src/pages/EmpresaDeTiCuritiba.tsx", titleHas: "Empresa de TI", h1: "Soluções de TI para empresas em Curitiba", wa: "Quero avaliar as necessidades de informática da minha empresa em Curitiba." },
     "/atendimento-domicilio": { file: "src/pages/AtendimentoDomicilio.tsx", titleHas: "Domicílio", h1: "Atendimento técnico de informática em domicílio em Curitiba", wa: "Preciso verificar a possibilidade de atendimento técnico em domicílio." },
-    "/atendimento-remoto": { file: "src/pages/AtendimentoRemoto.tsx", titleHas: "Suporte Remoto", h1: "Suporte remoto de informática para residências e empresas", wa: "Preciso de suporte remoto de informática." },
+    "/atendimento-remoto": { file: "src/pages/AtendimentoRemoto.tsx", titleHas: "Atendimento Remoto", h1: "Atendimento remoto de informática em Curitiba", wa: "Preciso de suporte remoto de informática." },
     "/coleta-e-entrega": { file: "src/pages/ColetaEntrega.tsx", titleHas: "Coleta e Entrega", h1: "Coleta e entrega agendada para equipamentos de informática", wa: "Preciso avaliar coleta e entrega para um computador ou notebook." },
     "/diagnostico-tecnico": { file: "src/pages/DiagnosticoTecnico.tsx", titleHas: "Diagnóstico Técnico", h1: "Diagnóstico técnico antes do reparo", wa: "Preciso solicitar um diagnóstico técnico para meu equipamento." },
   };

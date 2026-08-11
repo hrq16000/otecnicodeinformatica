@@ -1,5 +1,6 @@
 import { BadgeCheck, MessageCircle, ShieldCheck, Wrench } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
+import { experienciaLabel } from "@/lib/politicaComercial";
 
 /**
  * Rodada 3P — faixa de confiança compacta.
@@ -8,11 +9,23 @@ import { siteConfig } from "@/lib/siteConfig";
  * exclusivo por WhatsApp). Não cria promessa de prazo, avaliação ou preço.
  */
 const ITENS = [
-  {
-    icon: BadgeCheck,
-    titulo: `Atuação em informática desde ${siteConfig.foundedYear}`,
-    desc: "Atendimento em Curitiba e Região Metropolitana.",
-  },
+  // FAIL-CLOSED: sem ano de fundação confirmado da nova operação, o item de
+  // experiência simplesmente não existe (nunca "desde undefined").
+  ...(experienciaLabel
+    ? [
+        {
+          icon: BadgeCheck,
+          titulo: experienciaLabel,
+          desc: `Atendimento em ${siteConfig.primaryCity} e Região Metropolitana.`,
+        },
+      ]
+    : [
+        {
+          icon: BadgeCheck,
+          titulo: `Atendimento local em ${siteConfig.primaryCity} e RMC`,
+          desc: "Curitiba e São José dos Pinhais; demais municípios conforme a modalidade.",
+        },
+      ]),
   {
     icon: Wrench,
     titulo: "Valor aprovado antes do serviço",

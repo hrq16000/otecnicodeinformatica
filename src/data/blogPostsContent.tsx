@@ -1946,7 +1946,7 @@ docker run -d --name db --network minha-rede postgres
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">
           <h3 className="text-accent font-bold mb-2">Proteja Sua Casa de Praia</h3>
-          <p className="text-muted-foreground mb-0">A Mileuma Soluções instala câmeras Intelbras em <strong>Itapoá, Guaratuba e todo o litoral do PR</strong>. Kit completo com 4 câmeras, DVR e acesso remoto por R$ 1.350. Equipe especializada desde 1999.</p>
+          <p className="text-muted-foreground mb-0">O Técnico de Informática instala câmeras Intelbras em <strong>Itapoá, Guaratuba e todo o litoral do PR</strong>. Kit completo com 4 câmeras, DVR e acesso remoto por R$ 1.350. Equipe especializada desde 1999.</p>
         </div>
       </>
     ),
@@ -2067,7 +2067,7 @@ docker run -d --name db --network minha-rede postgres
           <li><strong>Teste completo:</strong> verificação de cada câmera, visão noturna e gravação antes de entregar</li>
         </ul>
 
-        <h2>Por Que a Mileuma Soluções no Litoral?</h2>
+        <h2>Por que o Técnico de Informática no Litoral?</h2>
         <p>A equipe do <strong>Mestre dos Serviços (Henrique da Cruz)</strong> atua desde 1999 e conhece as particularidades do litoral paranaense. Já instalamos câmeras em centenas de imóveis em <strong>Itapoá, Guaratuba, Matinhos e Pontal do Paraná</strong>.</p>
 
         <div className="bg-accent/10 rounded-xl p-6 my-8">

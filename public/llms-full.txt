@@ -60,17 +60,7 @@
 
 ## Serviço por bairro (páginas locais)
 
-- [Formatação de Computador — CIC, Curitiba](https://otecnicodeinformatica.com.br/servicos/formatacao-computador/cic)
-- [Formatação de Computador — Batel, Curitiba](https://otecnicodeinformatica.com.br/servicos/formatacao-computador/batel)
-- [Formatação de Computador — Água Verde, Curitiba](https://otecnicodeinformatica.com.br/servicos/formatacao-computador/agua-verde)
-- [Remoção de Vírus e Malware — CIC, Curitiba](https://otecnicodeinformatica.com.br/servicos/remocao-virus/cic)
-- [Remoção de Vírus e Malware — Água Verde, Curitiba](https://otecnicodeinformatica.com.br/servicos/remocao-virus/agua-verde)
-- [Conserto de PC e Notebook — Centro de Curitiba](https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/centro)
-- [Conserto de PC e Notebook — Água Verde, Curitiba](https://otecnicodeinformatica.com.br/servicos/conserto-pc-notebook/agua-verde)
-- [Upgrade de SSD e Memória — CIC, Curitiba](https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/cic)
-- [Upgrade de SSD e Memória — Centro de Curitiba](https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/centro)
-- [Upgrade de SSD e Memória — Água Verde, Curitiba](https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/agua-verde)
-- [Upgrade de SSD e Memória — Portão, Curitiba](https://otecnicodeinformatica.com.br/servicos/upgrade-ssd-memoria/portao)
+
 
 ## Cidades atendidas
 

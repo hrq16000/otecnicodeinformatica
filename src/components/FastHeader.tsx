@@ -178,7 +178,7 @@ export const FastHeader = () => {
             data-cta-location="header_agendar"
             data-wa-source="whatsapp_cta"
             aria-label="Iniciar atendimento"
-            className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+            className="inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
           >
             <span className="sm:hidden">Atender</span>
             <span className="hidden sm:inline">Solicitar atendimento</span>
@@ -194,7 +194,7 @@ export const FastHeader = () => {
               aria-expanded={menuOpen}
               aria-haspopup="menu"
               aria-controls="site-menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {menuOpen ? (
                 <X className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />

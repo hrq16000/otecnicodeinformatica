@@ -61,8 +61,8 @@ export const ConsentBanner = () => {
   if (!open) return null;
 
   const secondaryBtn: React.CSSProperties = {
-    minHeight: 40,
-    padding: "0 12px",
+    minHeight: 44,
+    padding: "0 16px",
     borderRadius: 10,
     border: "1px solid rgba(255,255,255,.25)",
     background: "transparent",

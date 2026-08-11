@@ -91,19 +91,16 @@ export const BAIRROS = [
  * e para o hub de Curitiba. Devem permanecer em sincronia com
  * `GENERATED_INDEXABLE_PATHS`.
  */
-export const SERVICO_BAIRRO = [
-  "/servicos/formatacao-computador/cic",
-  "/servicos/formatacao-computador/batel",
-  "/servicos/formatacao-computador/agua-verde",
-  "/servicos/remocao-virus/cic",
-  "/servicos/remocao-virus/agua-verde",
-  "/servicos/conserto-pc-notebook/centro",
-  "/servicos/conserto-pc-notebook/agua-verde",
-  "/servicos/upgrade-ssd-memoria/cic",
-  "/servicos/upgrade-ssd-memoria/centro",
-  "/servicos/upgrade-ssd-memoria/agua-verde",
-  "/servicos/upgrade-ssd-memoria/portao",
-].map((path) => ({ path, changefreq: "monthly", priority: "0.6" }));
+// RODADA 2A — QUARENTENA: a auditoria de herança editorial mediu 81%–83% de
+// sobreposição de conteúdo entre as 11 combinações serviço × bairro. Elas saem
+// temporariamente do sitemap e passam a renderizar `noindex, follow`
+// (src/lib/servicoBairroFactory.ts → QUARENTENA_DUPLICADAS). Reentram uma a uma,
+// somente com conteúdo próprio por bairro.
+export const SERVICO_BAIRRO = [].map((path) => ({
+  path,
+  changefreq: "monthly",
+  priority: "0.6",
+}));
 
 /**
  * Cluster de problemas (sintomas). Piloto controlado da Rodada 3B: só entram

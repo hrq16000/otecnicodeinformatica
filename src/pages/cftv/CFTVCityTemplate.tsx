@@ -45,7 +45,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         "@context": "https://schema.org",
         "@type": "Service",
         "name": `Instalação de Câmeras de Segurança em ${city}`,
-        "provider": { "@type": "Organization", "name": "Mileuma Soluções / Mestre dos Serviços" },
+        "provider": { "@type": "Organization", "name": "O Técnico de Informática" },
         "areaServed": { "@type": "City", "name": city },
         "offers": { "@type": "Offer", "price": "1350.00", "priceCurrency": "BRL" }
       })}} />
@@ -152,7 +152,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
               <div>
                 <h3 className="font-heading font-bold text-primary text-lg mb-2">Mestre dos Serviços — Desde 1998</h3>
                 <p className="text-muted-foreground text-sm">
-                  Mais de 25 anos protegendo patrimônios em {city} e região. Equipe especializada da Mileuma Soluções 
+                  Mais de 25 anos protegendo patrimônios em {city} e região. Equipe especializada d’O Técnico de Informática 
                   com instalação profissional, garantia real e suporte contínuo.
                 </p>
               </div>

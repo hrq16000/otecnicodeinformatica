@@ -589,10 +589,32 @@ export const SERVICOS_CORE: Record<string, ServicoLandingData> = {
       },
     ],
     linksLocais: [
+          "Fora do escopo: recuperação de contas já invadidas junto a bancos e plataformas, contestação de cobranças e perícia forense. Nesses casos indicamos os canais corretos e documentamos tecnicamente o que foi encontrado.",
+        ],
+      },
+      {
+        titulo: "Os sinais que aparecem antes do problema ficar grave",
+        paragrafos: [
+          "Máquina que liga bem e fica lenta minutos depois, ventoinha acelerada com o computador parado, consumo de rede alto sem ninguém usando: são sintomas de processo malicioso rodando em segundo plano, muitas vezes minerando ou enviando dados. Diferente do adware, ele não quer ser visto — e por isso costuma ser descoberto tarde.",
+          "Outro sinal frequente é a página inicial e o buscador do navegador voltarem sozinhos depois de corrigidos. Isso indica que a origem não está na configuração, e sim em uma extensão, uma tarefa agendada ou um atalho modificado que refaz a alteração a cada inicialização.",
+          "Também vale desconfiar de contatos recebendo mensagens que você não enviou, de programas que você não instalou aparecendo na lista e de avisos de login em outro dispositivo. Nesse ponto o problema já saiu da máquina e virou risco de conta — a limpeza técnica precisa vir acompanhada de troca de senhas.",
+        ],
+      },
+      {
+        titulo: "Golpes que chegam antes do vírus",
+        paragrafos: [
+          "Boa parte dos atendimentos começa não com um arquivo infectado, mas com um golpe de suporte falso: uma tela em tela cheia dizendo que o computador está infectado e exibindo um telefone para ligar. Quem liga é orientado a instalar um programa de acesso remoto e entrega a máquina a um desconhecido. Se isso aconteceu, o equipamento precisa ser tratado como comprometido, com senhas trocadas por outro aparelho.",
+          "Também é comum o falso boleto e o falso técnico de banco pedindo instalação de módulo de segurança. Nenhum banco pede instalação por telefone nem solicita acesso remoto. Diante de qualquer pedido assim, desligue a chamada e verifique pelo canal oficial.",
+          "Nesses casos, o serviço não termina na limpeza: revisamos programas de acesso remoto instalados, sessões ativas, regras de encaminhamento de e-mail criadas pelo invasor e permissões concedidas a aplicativos. É o passo que mais gente esquece — e o que costuma explicar a reincidência semanas depois.",
+        ],
+      },
+    ],
+    linksLocais: [
       { label: "Atendimento técnico em Curitiba", to: "/tecnico-informatica-curitiba" },
       { label: "Técnico no seu endereço", to: "/atendimento-domicilio" },
       { label: "Coleta e entrega do equipamento", to: "/coleta-e-entrega" },
       { label: "Preços e políticas", to: "/precos-e-politicas" },
+
     ],
     dateModified: "2026-08-05",
   },

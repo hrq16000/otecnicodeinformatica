@@ -1,149 +1,114 @@
 // ─────────────────────────────────────────────────────────────
-// FONTE ÚNICA DE VERDADE — marca, domínio, SEO e contato.
+// FACADE DE COMPATIBILIDADE — a fonte de verdade agora é src/lib/config/*
 //
-// RODADA 1 — ISOLAMENTO DO REMIX
-// Todos os dados de identidade agora vêm de variáveis de ambiente
-// (`VITE_*`). NÃO existe fallback para a marca de origem
-// (domínio e WhatsApp da marca de origem). Quando um dado não está
-// configurado o sistema falha de forma segura: omite o dado,
-// desabilita o canal ou emite URL relativa — nunca reaproveita o
-// valor herdado.
+// RODADA 2 — TRANSFORMAÇÃO ESTRUTURAL
+// Marca, domínio, contato, analytics, geografia, política comercial e
+// E-E-A-T vivem em módulos dedicados em `src/lib/config`. Este arquivo
+// apenas reexporta esses valores no formato antigo (`siteConfig`) para
+// os consumidores existentes, sem duplicar nenhuma decisão.
 //
 // Regra do WhatsApp: o número só pode existir em deep links (wa.me)
 // e no campo `telephone` do JSON-LD. Nunca como texto visível no DOM.
 // ─────────────────────────────────────────────────────────────
 
-const env = import.meta.env as unknown as Record<string, string | undefined>;
-
-const str = (v: string | undefined): string | undefined => {
-  const t = typeof v === "string" ? v.trim() : "";
-  return t.length > 0 ? t : undefined;
-};
+import brandConfig from "@/lib/config/brand";
+import commercialConfig from "@/lib/config/commercial";
+import contactConfig from "@/lib/config/contact";
+import eeatConfig from "@/lib/config/eeat";
+import geographyConfig from "@/lib/config/geography";
+import { BASE_URL, DOMAIN, SITE_CONFIGURED as DOMAIN_CONFIGURED, absoluteUrl as buildAbsoluteUrl } from "@/lib/config/domain";
+import { whatsappLink as buildWhatsappLink } from "@/lib/config/contact";
 
 // ── Marca ────────────────────────────────────────────────────
-export const BRAND_NAME = str(env.VITE_BRAND_NAME) ?? "O Técnico de Informática";
-export const BRAND_SHORT_NAME = str(env.VITE_BRAND_SHORT_NAME) ?? BRAND_NAME;
-export const BRAND_LEGAL_NAME =
-  str(env.VITE_BRAND_LEGAL_NAME) ?? `${BRAND_NAME} — Assistência Técnica em Informática`;
-
-/**
- * Ano de fundação. NÃO tem valor padrão: o histórico da empresa de
- * origem ("desde 1998") não é transferível. Enquanto não houver dado
- * verdadeiro da nova marca, o campo fica indefinido e não é renderizado.
- */
-export const BRAND_FOUNDED_YEAR = str(env.VITE_BRAND_FOUNDED_YEAR);
+export const BRAND_NAME = brandConfig.brandName;
+export const BRAND_SHORT_NAME = brandConfig.shortName;
+export const BRAND_LEGAL_NAME = brandConfig.legalName;
+export const BRAND_FOUNDED_YEAR = eeatConfig.foundingYear;
+export const BRAND_LOGO_PATH = brandConfig.logo;
+export const BRAND_OG_PATH = brandConfig.ogImage;
 
 // ── Domínio ──────────────────────────────────────────────────
-/** Domínio público (sem protocolo, sem www). Vazio = ambiente sem domínio definido. */
-export const SITE_DOMAIN = str(env.VITE_SITE_DOMAIN);
-export const SITE_CONFIGURED = Boolean(SITE_DOMAIN);
-/** URL base absoluta. Quando não configurada, retorna "" → URLs relativas (nunca o domínio antigo). */
-export const SITE_BASE_URL = SITE_DOMAIN ? `https://${SITE_DOMAIN}` : "";
+export const SITE_DOMAIN = DOMAIN;
+export const SITE_CONFIGURED = DOMAIN_CONFIGURED;
+export const SITE_BASE_URL = BASE_URL;
 
-// ── Contato (WhatsApp) ───────────────────────────────────────
-const waRaw = str(env.VITE_WHATSAPP_NUMBER);
-/** true somente quando há um número válido da NOVA marca configurado. */
-export const WHATSAPP_CONFIGURED = Boolean(waRaw && /^\d{12,15}$/.test(waRaw));
-/** Número em formato wa.me. Vazio quando não configurado — jamais o número herdado. */
-export const WHATSAPP_NUMBER = WHATSAPP_CONFIGURED ? (waRaw as string) : "";
-/** Telefone E.164 para JSON-LD. `undefined` some do schema ao serializar. */
-export const WHATSAPP_PHONE_E164 = WHATSAPP_CONFIGURED ? `+${waRaw}` : undefined;
-/** Destino seguro quando o canal não está configurado (não envia lead a lugar nenhum). */
-export const CONTACT_FALLBACK_URL = "/funil-indisponivel";
+// ── Contato ──────────────────────────────────────────────────
+export const WHATSAPP_CONFIGURED = contactConfig.whatsappConfigured;
+export const WHATSAPP_NUMBER = contactConfig.whatsappNumber;
+export const WHATSAPP_PHONE_E164 = contactConfig.phoneE164;
+export const CONTACT_FALLBACK_URL = contactConfig.fallbackUrl;
 
-// ── Geo / área de atendimento ────────────────────────────────
-export const PRIMARY_CITY = str(env.VITE_PRIMARY_CITY) ?? "Curitiba";
-export const REGION_UF = str(env.VITE_REGION_UF) ?? "PR";
-const geoLat = Number(env.VITE_GEO_LAT);
-const geoLng = Number(env.VITE_GEO_LNG);
-export const GEO_COORDS =
-  Number.isFinite(geoLat) && Number.isFinite(geoLng) ? { lat: geoLat, lng: geoLng } : undefined;
-
-const SERVICE_AREA = (str(env.VITE_SERVICE_AREA) ?? "")
-  .split(",")
-  .map((s) => s.trim())
-  .filter(Boolean);
-
-const SAME_AS = (str(env.VITE_SAME_AS) ?? "")
-  .split(",")
-  .map((s) => s.trim())
-  .filter(Boolean);
-
-// ── Imagens institucionais ───────────────────────────────────
-export const BRAND_LOGO_PATH = str(env.VITE_BRAND_LOGO) ?? "/logo.webp";
-export const BRAND_OG_PATH = str(env.VITE_BRAND_OG_IMAGE) ?? "/og-image.png";
+// ── Geo ──────────────────────────────────────────────────────
+export const PRIMARY_CITY = geographyConfig.primaryCity;
+export const REGION_UF = geographyConfig.primaryUF;
+export const GEO_COORDS = geographyConfig.geo;
 
 export const siteConfig = {
   // Marca
-  siteName: BRAND_NAME,
-  brandName: BRAND_NAME,
-  shortName: BRAND_SHORT_NAME,
-  legalName: BRAND_LEGAL_NAME,
+  siteName: brandConfig.siteName,
+  brandName: brandConfig.brandName,
+  shortName: brandConfig.shortName,
+  /** Pode ser `undefined` — nunca renderizar sem checar. */
+  legalName: brandConfig.legalName,
+  tagline: brandConfig.tagline,
+  alternateNames: brandConfig.alternateNames,
 
   /** Pode ser `undefined` — nunca renderizar sem checar. */
-  foundedYear: BRAND_FOUNDED_YEAR,
+  foundedYear: eeatConfig.foundingYear,
 
   // Domínio
-  domain: SITE_DOMAIN ?? "",
-  baseUrl: SITE_BASE_URL,
-  isConfigured: SITE_CONFIGURED,
+  domain: DOMAIN,
+  baseUrl: BASE_URL,
+  isConfigured: DOMAIN_CONFIGURED,
   get canonicalUrl() {
     return this.baseUrl;
   },
 
-  // SEO base — derivado da marca ativa (conteúdo editorial é tratado em rodada própria)
-  defaultTitle: `${BRAND_NAME} | Notebook, PC e Suporte de TI`,
+  // SEO base institucional (copy comercial vive nas próprias páginas)
+  defaultTitle: `Assistência Técnica em Informática em ${geographyConfig.primaryCity} | ${brandConfig.brandName}`,
   defaultDescription:
-    "Assistência técnica em informática: notebook, PC, formatação, upgrade SSD/RAM, backup, recuperação de dados, redes e suporte empresarial. Diagnóstico honesto.",
-  homeTitle: `${BRAND_NAME} | Assistência Técnica e Suporte`,
+    "Assistência técnica em informática para notebooks, computadores, redes e suporte empresarial em Curitiba, São José dos Pinhais e Região Metropolitana.",
+  homeTitle: `Assistência Técnica em Informática em ${geographyConfig.primaryCity} | ${brandConfig.brandName}`,
   homeDescription:
-    "Assistência técnica em informática com diagnóstico honesto: atendimento a domicílio, remoto ou com coleta. Escolha o serviço e continue o atendimento.",
-  defaultOgImage: SITE_BASE_URL ? `${SITE_BASE_URL}${BRAND_OG_PATH}` : BRAND_OG_PATH,
+    "Diagnóstico, manutenção, upgrade, recuperação de dados e redes. Atendimento residencial e empresarial em Curitiba e região.",
+  defaultOgImage: `${BASE_URL}${brandConfig.ogImage}`,
 
   // Contato — número NUNCA exibido como texto; só em wa.me / JSON-LD.
-  whatsappNumber: WHATSAPP_NUMBER,
-  whatsappConfigured: WHATSAPP_CONFIGURED,
-  phoneE164: WHATSAPP_PHONE_E164,
+  whatsappNumber: contactConfig.whatsappNumber,
+  whatsappConfigured: contactConfig.whatsappConfigured,
+  phoneE164: contactConfig.phoneE164,
 
   // Localização / negócio
-  primaryCity: PRIMARY_CITY,
-  region: REGION_UF,
-  country: "BR",
+  primaryCity: geographyConfig.primaryCity,
+  region: geographyConfig.primaryUF,
+  country: geographyConfig.country,
   businessType: ["LocalBusiness", "ProfessionalService", "ComputerRepairService"],
-  geo: GEO_COORDS,
-  serviceArea: SERVICE_AREA,
+  geo: geographyConfig.geo,
+  serviceArea: geographyConfig.serviceArea,
 
   // Presença externa (só o que for comprovadamente da nova marca)
-  sameAs: SAME_AS,
+  sameAs: [] as string[],
 
   // Interlink de ecossistema — controlado, contextual, NUNCA em massa.
   ecosystemLinks: [] as Array<{ label: string; url: string }>,
 
-  // Política comercial (real — não inventar valores fechados)
-  minPriceLabel: "R$ 99,99",
-  pricingDisclaimer:
-    "O valor final pode variar conforme equipamento, urgência, deslocamento, complexidade, peças e condição real do problema.",
+  // Política comercial (fonte: config/commercial.ts)
+  minPriceLabel: commercialConfig.minPriceLabel,
+  pricingDisclaimer: commercialConfig.pricingDisclaimer,
 };
 
-/**
- * Monta URL absoluta canônica a partir de um path.
- * Sem domínio configurado devolve caminho RELATIVO — jamais o domínio herdado.
- */
+/** Monta URL absoluta canônica a partir de um path. */
 export function absoluteUrl(path = "/"): string {
-  const clean = path.startsWith("/") ? path : `/${path}`;
-  const normalized = clean === "/" ? "/" : clean.replace(/\/$/, "");
-  return `${siteConfig.baseUrl}${normalized}`;
+  return buildAbsoluteUrl(path);
 }
 
 /**
- * Deep link WhatsApp (será interceptado pelo funil global).
+ * Deep link WhatsApp (interceptado pelo funil global).
  * Sem número configurado retorna a rota de indisponibilidade —
  * fail-safe explícito, nunca o contato da marca de origem.
  */
 export function whatsappLink(message?: string): string {
-  if (!WHATSAPP_CONFIGURED) return CONTACT_FALLBACK_URL;
-  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
-  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+  return buildWhatsappLink(message);
 }
 
 export default siteConfig;

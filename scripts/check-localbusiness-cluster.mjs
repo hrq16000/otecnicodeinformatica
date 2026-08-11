@@ -13,6 +13,7 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { WHATSAPP_NUMBER, OPENING_HOURS } from "./lib/site-env.mjs";
 
 const ROOT = process.argv[2] || "dist";
 
@@ -30,7 +31,7 @@ const CLUSTER = [
 ];
 
 const EXPECTED = {
-  telephone: "+5541997086380",
+  telephone: WHATSAPP_NUMBER ? `+${WHATSAPP_NUMBER}` : "",
   addressLocality: "Curitiba",
   addressRegion: "PR",
   addressCountry: "BR",
@@ -82,7 +83,8 @@ for (const route of CLUSTER) {
   const node = lb[0];
   checked += 1;
 
-  if (node.telephone !== EXPECTED.telephone) errors.push(`${route}: telephone divergente (${node.telephone})`);
+  if (EXPECTED.telephone && node.telephone !== EXPECTED.telephone)
+    errors.push(`${route}: telephone divergente (${node.telephone})`);
   const addr = node.address || {};
   for (const key of ["addressLocality", "addressRegion", "addressCountry"]) {
     if (addr[key] !== EXPECTED[key]) errors.push(`${route}: ${key} divergente (${addr[key]})`);
@@ -90,7 +92,9 @@ for (const route of CLUSTER) {
   const area = node.areaServed;
   if (!area || (Array.isArray(area) && area.length === 0)) errors.push(`${route}: areaServed ausente/vazio`);
   const hours = node.openingHoursSpecification;
-  if (!hours || (Array.isArray(hours) && hours.length === 0)) errors.push(`${route}: openingHoursSpecification ausente`);
+  // Fail-closed: horários só são exigidos quando VITE_BUSINESS_HOURS está configurada.
+  if (OPENING_HOURS.length > 0 && (!hours || (Array.isArray(hours) && hours.length === 0)))
+    errors.push(`${route}: openingHoursSpecification ausente`);
   if (!String(node.parentOrganization?.["@id"] || "").endsWith("#organization")) {
     errors.push(`${route}: parentOrganization não referencia #organization`);
   }

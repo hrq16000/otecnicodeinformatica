@@ -45,6 +45,8 @@ jobs:
 
       - name: Build
         run: npm run build
+      - name: Gate de WhatsApp oculto no HTML renderizado
+        run: npm run check:wa-number-dom
       - name: JSON-LD validation
         run: npm run validate:jsonld
       - name: JSON-LD gate das 4 páginas P0

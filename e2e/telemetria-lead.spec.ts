@@ -25,19 +25,24 @@ interface GtagCall {
   args: unknown[];
 }
 
+/**
+ * Espiona a camada de dados em vez de `window.gtag`: o próprio index.html
+ * define o stub do gtag, então sobrescrevê-lo aqui seria perdido. Tudo que o
+ * site mede passa por `dataLayer.push`.
+ */
 async function installGtagSpy(page: Page) {
   await page.addInitScript(() => {
-    const w = window as unknown as {
-      __gtagCalls: unknown[][];
-      dataLayer: unknown[];
-      gtag: (...a: unknown[]) => void;
-    };
+    const w = window as unknown as { __gtagCalls: unknown[][]; dataLayer: unknown[] };
     w.__gtagCalls = [];
-    w.dataLayer = [];
-    w.gtag = function (...args: unknown[]) {
-      w.__gtagCalls.push(args);
-      w.dataLayer.push(args);
+    const layer: unknown[] = [];
+    const originalPush = layer.push.bind(layer);
+    layer.push = (...items: unknown[]) => {
+      for (const item of items) {
+        w.__gtagCalls.push(Array.from(item as ArrayLike<unknown>));
+      }
+      return originalPush(...items);
     };
+    w.dataLayer = layer;
   });
 }
 

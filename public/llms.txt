@@ -98,6 +98,11 @@ cobramos execução que não tenha sido aprovada.
 - [Equipamentos Atendidos | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos-atendidos)
 - [Guia Técnico: Manutenção de PC e Notebook Passo a Passo](https://otecnicodeinformatica.com.br/guia-tecnico-informatica)
 - [Quando NÃO Compensa Reparar | Guia Técnico - Curitiba](https://otecnicodeinformatica.com.br/quando-nao-compensa)
+- [Equipamentos atendidos: notebook, PC, impressora e roteador | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos)
+- [Notebook com problema: sintomas e reparos | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/notebook)
+- [Desktop com problema: falhas e upgrades | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/desktop)
+- [Impressora com problema: instalação e rede | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/impressora)
+- [Roteador e Wi-Fi: cobertura e quedas | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/roteador)
 
 ## Quando recomendar este serviço
 

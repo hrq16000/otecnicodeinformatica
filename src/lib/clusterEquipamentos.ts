@@ -113,7 +113,7 @@ export const CLUSTER_EQUIPAMENTOS: ClusterEquipamento[] = [
     relacionados: [
       { to: "/problemas/computador-lento", titulo: "Computador ou notebook lento", desc: "O que realmente causa a lentidão e o que muda com SSD e memória." },
       { to: "/problemas/notebook-nao-liga", titulo: "Notebook não liga", desc: "Como separar fonte, bateria, placa e tela antes do orçamento." },
-      { to: "/servicos/manutencao-notebook", titulo: "Manutenção de notebook", desc: "Limpeza interna, pasta térmica, reparo de carga e troca de tela." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Limpeza interna, pasta térmica, reparo de carga e troca de tela." },
     ],
   },
   {
@@ -197,7 +197,7 @@ export const CLUSTER_EQUIPAMENTOS: ClusterEquipamento[] = [
     relacionados: [
       { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Onde o tempo é perdido e o que realmente muda o desempenho." },
       { to: "/problemas/tela-azul", titulo: "Tela azul no Windows", desc: "Quando é driver, quando é memória e quando é disco." },
-      { to: "/servicos/montagem-pc", titulo: "Montagem e upgrade de PC", desc: "Conferência de compatibilidade, montagem e testes de estabilidade." },
+      { to: "/servicos/montagem-de-pc", titulo: "Montagem e upgrade de PC", desc: "Conferência de compatibilidade, montagem e testes de estabilidade." },
     ],
   },
   {
@@ -280,7 +280,7 @@ export const CLUSTER_EQUIPAMENTOS: ClusterEquipamento[] = [
     ],
     relacionados: [
       { to: "/problemas/wifi-instavel", titulo: "Wi-Fi instável", desc: "Quando o problema da impressora é, na verdade, a rede." },
-      { to: "/servicos/instalacao-impressora", titulo: "Instalação de impressora", desc: "Driver, rede, compartilhamento e teste em cada estação." },
+      { to: "/conserto-impressora-curitiba", titulo: "Conserto e instalação de impressora", desc: "Driver, rede, compartilhamento e teste em cada estação." },
       { to: "/empresas", titulo: "Atendimento para empresas", desc: "Padronização de impressão e suporte para vários pontos." },
     ],
   },
@@ -364,7 +364,7 @@ export const CLUSTER_EQUIPAMENTOS: ClusterEquipamento[] = [
     ],
     relacionados: [
       { to: "/problemas/wifi-instavel", titulo: "Wi-Fi caindo ou lento", desc: "Causas reais, o que testar antes e quando chamar técnico." },
-      { to: "/servicos/redes-wifi", titulo: "Redes e Wi-Fi", desc: "Configuração, cobertura, mesh e cabeamento com validação." },
+      { to: "/servicos/redes-e-wifi", titulo: "Redes e Wi-Fi", desc: "Configuração, cobertura, mesh e cabeamento com validação." },
       { to: "/empresas", titulo: "Rede para empresas", desc: "Cobertura, segmentação e documentação da estrutura." },
     ],
   },

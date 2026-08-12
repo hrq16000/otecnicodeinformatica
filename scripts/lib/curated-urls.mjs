@@ -129,6 +129,19 @@ export const EQUIPAMENTOS = [
 ];
 
 /**
+ * Cluster de soluções (entrada pelo procedimento técnico). Mesma regra dos
+ * demais clusters: só entra URL com conteúdo próprio de execução.
+ */
+export const SOLUCOES = [
+  { path: "/solucoes", changefreq: "monthly", priority: "0.7" },
+  { path: "/solucoes/diagnostico", changefreq: "monthly", priority: "0.6" },
+  { path: "/solucoes/formatacao", changefreq: "monthly", priority: "0.6" },
+  { path: "/solucoes/ssd", changefreq: "monthly", priority: "0.6" },
+  { path: "/solucoes/backup", changefreq: "monthly", priority: "0.6" },
+  { path: "/solucoes/recuperacao-de-dados", changefreq: "monthly", priority: "0.6" },
+];
+
+/**
  * Onda editorial indexável (Rodada 4H). O hub /blog só é declarado aqui
  * porque passou a listar artigos aprovados de verdade. Cada artigo vem de
  * `scripts/lib/editorial-wave.mjs` — espelho de APPROVED_EDITORIAL_CONTENT.
@@ -151,6 +164,7 @@ export const ACTIVE_SITEMAPS = [
   ["sitemap-bairros.xml", BAIRROS],
   ["sitemap-problemas.xml", PROBLEMAS],
   ["sitemap-equipamentos.xml", EQUIPAMENTOS],
+  ["sitemap-solucoes.xml", SOLUCOES],
   ["sitemap-editorial.xml", EDITORIAL],
 ];
 

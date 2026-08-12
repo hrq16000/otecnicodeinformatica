@@ -19,7 +19,7 @@ const OUT = resolve("src/lib/fotosLicenciadas.ts");
 /** Curadoria revisada visualmente (nenhuma imagem sintética). */
 const CURADORIA = [
   { slug: "bancada-tecnica", id: "4795b5a0-5664-4991-9cfb-e6ccb008fb04", alt: "Interior de computador desktop aberto durante manutenção" },
-  { slug: "rede-cabeamento", id: "d08b5d37-27bb-4bb4-a24f-92d48fa6d0c1", alt: "Painel de rede com cabeamento estruturado organizado" },
+  { slug: "rede-cabeamento", id: "d08b5d37-27bb-4bb4-a24f-92d48fa6d0c1", alt: "Computador e roteador com cabos de rede desorganizados" },
   { slug: "infra-empresa", id: "896df346-b6e4-4855-b9b8-7a65cc3a758d", alt: "Sala de servidores com racks alinhados" },
   { slug: "estacao-trabalho", id: "e90a79ef-838b-4fef-8fb9-969ae98581b0", alt: "Estação de trabalho com monitor, teclado e periféricos" },
   { slug: "roteador-wifi", id: "8f506850-b2c6-4044-a606-493c1bc4ca62", alt: "Roteador Wi-Fi doméstico com antenas" },

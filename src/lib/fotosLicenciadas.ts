@@ -28,7 +28,7 @@ export const FOTOS_LICENCIADAS: FotoLicenciada[] = [
   {
     "slug": "rede-cabeamento",
     "src": "/fotos/rede-cabeamento.jpg",
-    "alt": "Painel de rede com cabeamento estruturado organizado",
+    "alt": "Computador e roteador com cabos de rede desorganizados",
     "autor": "DeclanTM",
     "autorUrl": "https://www.flickr.com/photos/36006949@N00",
     "origem": "https://www.flickr.com/photos/36006949@N00/5465427706",

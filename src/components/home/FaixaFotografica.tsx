@@ -3,7 +3,7 @@ import { FOTOS_LICENCIADAS } from "@/lib/fotosLicenciadas";
 
 const DESTAQUES = [
   { slug: "bancada-tecnica", legenda: "Diagnóstico começa com o equipamento aberto e o defeito confirmado." },
-  { slug: "rede-cabeamento", legenda: "Rede e Wi-Fi: problema costuma estar na infraestrutura, não no plano." },
+  { slug: "rede-cabeamento", legenda: "Wi-Fi instável: quase sempre é cabo, energia ou posicionamento — não o plano de internet." },
   { slug: "estacao-trabalho", legenda: "Estação parada é produtividade parada — prioridade em atendimento a empresas." },
 ];
 

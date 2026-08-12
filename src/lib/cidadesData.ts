@@ -32,6 +32,8 @@ export interface CidadeData {
   perfilLocal: string[];
   /** Contexto técnico da cidade — parágrafos autorais, sem promessa nova */
   contextoLocal?: string[];
+  /** Logística e acesso reais da localidade (conteúdo autoral) */
+  logisticaLocal?: string[];
   /** Quando chamar um técnico — exemplos práticos */
   quandoChamar: { title: string; desc: string }[];
   /** FAQ local — mínimo 5 por cidade, conteúdo distinto */
@@ -100,6 +102,11 @@ export const CIDADES: Record<string, CidadeData> = {
       "Curitiba tem um parque de equipamentos muito diverso: bairros de perfil corporativo com frota de notebooks e docks, regiões residenciais com desktops antigos ainda em uso diário e áreas industriais onde o computador é parte da linha de produção. Por isso a triagem começa sempre pelo uso real do equipamento, e não pela marca ou pela idade dele — a mesma lentidão significa coisas diferentes em uma estação de trabalho de edição e em um PC doméstico usado para navegação e boletos.",
       "O inverno curitibano, mais úmido e frio, também aparece nos chamados: máquinas guardadas em ambientes sem ventilação, condensação em equipamentos trazidos de fora e fontes antigas que passam a falhar quando a carga aumenta. Nada disso é diagnosticado por telefone. A avaliação técnica identifica a causa antes de qualquer reparo, e o valor só é informado depois dela.",
     ],
+    logisticaLocal: [
+      "Curitiba é atendida por roteiro: a cidade é grande o suficiente para que ir e voltar entre bairros distantes consuma mais tempo do que o próprio serviço. Por isso a triagem por WhatsApp já define região, tipo de acesso e modalidade antes de qualquer deslocamento, e chamados próximos são agrupados na mesma janela. Isso mantém o custo de deslocamento previsível e evita a promessa de horário que a cidade não permite cumprir.",
+      "A escolha entre remoto, visita e coleta segue um critério simples e informado antes: se a máquina liga e conecta, boa parte dos casos de sistema, configuração e rede se resolve remotamente no mesmo dia. Se o problema é físico — tela, fonte, teclado, armazenamento, placa — a bancada é mais segura e mais barata que tentar reparo improvisado no local, e a coleta com devolução no endereço evita que o cliente precise transportar o equipamento.",
+      "Todo atendimento em Curitiba termina com um resumo escrito pelo WhatsApp: o que foi encontrado, o que foi feito, o que foi substituído e o que ainda merece atenção no equipamento. Esse registro serve de histórico para a próxima manutenção e evita que o mesmo diagnóstico precise ser refeito do zero meses depois.",
+    ],
     perfilLocal: [
       "Alta demanda por suporte a home office e estudo remoto",
       "Empresas e escritórios que não podem ficar parados",
@@ -147,6 +154,11 @@ export const CIDADES: Record<string, CidadeData> = {
       "São José dos Pinhais tem forte presença industrial e logística ao lado de bairros residenciais em expansão, e isso se reflete nos chamados: de um lado, computadores de escritório e estações ligadas a operações que não podem parar; de outro, famílias com notebook único para trabalho e estudo. A distância entre distritos da cidade é relevante, então a triagem define antes se o caso é remoto, de visita ou de coleta, evitando deslocamento sem necessidade.",
       "Também é comum na região o atendimento a pequenos comércios e prestadores que dependem de impressora, leitor e rede funcionando juntos. Nesses casos, o diagnóstico não olha só o computador: verifica cabeamento, alimentação elétrica do ponto e configuração da rede, porque tratar apenas o sintoma visível costuma fazer o problema voltar em poucos dias.",
     ],
+    logisticaLocal: [
+      "São José dos Pinhais tem uma geografia de atendimento particular: um núcleo urbano denso, distritos afastados e uma faixa industrial forte ligada à cadeia automotiva. O tempo de deslocamento varia muito conforme o ponto, então o endereço completo é confirmado ainda na triagem e a janela de horário é combinada considerando o trânsito das rodovias de acesso, especialmente no fim da tarde.",
+      "O perfil de chamado também é misto. Nas empresas predominam estação de trabalho parada, rede instável entre setores e necessidade de rotina de backup que ninguém revisa há meses. Nas residências, notebook de estudo e trabalho remoto, disco cheio e Wi-Fi que não cobre a casa inteira. Para os dois casos, a modalidade é definida pelo sintoma: coleta com devolução quando exige bancada, visita quando o problema é de infraestrutura no ambiente.",
+      "Para empresas de São José dos Pinhais, chamados repetidos no mesmo equipamento são tratados como um caso só: se o sintoma retorna dentro da garantia de 90 dias da mão de obra e se refere ao mesmo defeito, o retorno não é cobrado novamente. Essa regra é dita antes, não descoberta depois.",
+    ],
     perfilLocal: [
       "Bairros residenciais em expansão com muitos home offices",
       "Comércios e empresas que precisam de rede e estações confiáveis",
@@ -192,6 +204,11 @@ export const CIDADES: Record<string, CidadeData> = {
     contextoLocal: [
       "Pinhais é uma cidade compacta e densa, conurbada com Curitiba, com muitos condomínios residenciais e pequenas empresas de serviços. O padrão de chamado mais frequente combina duas coisas: computador doméstico com armazenamento no limite e rede Wi-Fi disputada por muitos dispositivos ao mesmo tempo — TV, celulares, câmeras e notebook de trabalho no mesmo roteador de operadora.",
       "Em atendimentos assim, a avaliação separa desempenho de conectividade antes de recomendar qualquer compra. Trocar o roteador não resolve disco cheio, e trocar o disco não resolve sinal fraco no fundo da casa. A ordem correta — medir, diagnosticar, aprovar valor e só então executar — é o que evita gasto repetido no mesmo problema.",
+    ],
+    logisticaLocal: [
+      "Pinhais é compacta e faz divisa direta com Curitiba, o que torna a visita técnica uma opção prática na maior parte dos chamados — o deslocamento é curto e previsível, e o técnico consegue testar o conjunto completo no ambiente em que ele realmente é usado. Ainda assim, o horário é combinado com antecedência porque as principais vias de ligação com a capital congestionam em faixas bem definidas do dia.",
+      "A cidade concentra muito comércio de bairro e prestador de serviço com um computador central: caixa, emissão de nota, controle de estoque e impressora ligados à mesma máquina. Quando esse equipamento para, o negócio para junto. Por isso a prioridade nesses casos é restabelecer a operação primeiro — mesmo que de forma provisória — e só depois tratar a causa de fundo, com backup conferido antes de qualquer reinstalação.",
+      "Quando o comércio de Pinhais depende de um único computador, sugerimos programar a manutenção fora do horário de funcionamento e, quando existe risco de parada longa, avaliamos junto com o cliente uma alternativa temporária antes de retirar o equipamento. A prioridade é não deixar o negócio sem operação por conveniência de agenda.",
     ],
     perfilLocal: [
       "Proximidade com Curitiba facilita a logística de atendimento",
@@ -239,6 +256,11 @@ export const CIDADES: Record<string, CidadeData> = {
       "Colombo tem grande extensão territorial e bairros com perfil bem distinto entre si, do comércio mais adensado próximo à divisa com Curitiba às regiões residenciais mais afastadas. Isso torna a definição da modalidade de atendimento parte do diagnóstico: casos de software e configuração costumam ser resolvidos remotamente, enquanto defeitos de hardware pedem avaliação presencial ou coleta para bancada.",
       "Entre os equipamentos, aparecem com frequência desktops de uso familiar prolongado e notebooks que passaram por reparos anteriores mal executados — parafusos faltando, pasta térmica ressecada, dobradiça forçada. Nesses casos, o diagnóstico documenta o estado encontrado antes de propor qualquer serviço, para que a garantia de 90 dias cubra exatamente o defeito tratado.",
     ],
+    logisticaLocal: [
+      "Colombo se estende por uma área grande e com relevo irregular, e a diferença de tempo entre atender perto da divisa com Curitiba e atender em um bairro mais afastado é considerável. O endereço e o ponto de referência são confirmados na triagem justamente para dimensionar deslocamento com honestidade, em vez de prometer uma janela curta que não se sustenta.",
+      "O padrão de chamado da cidade tem forte presença residencial e de pequeno comércio: computador de família com anos de uso, notebook único que atende estudo e trabalho, roteador do provedor instalado na entrada da casa e cobertura de sinal ruim nos fundos. Nesses cenários, upgrade para SSD, limpeza interna com revisão térmica e reorganização da rede costumam entregar mais resultado por real investido do que a substituição do equipamento.",
+      "Em Colombo, quando o chamado é em bairro mais afastado, o custo de deslocamento é calculado e informado antes do agendamento, com a quilometragem considerada de forma transparente. Se a avaliação remota indicar que o problema não exige presença física, o cliente é orientado a não pagar por uma visita desnecessária.",
+    ],
     perfilLocal: [
       "Bairros residenciais extensos e população em crescimento",
       "Muitos moradores em home office e estudo remoto",
@@ -285,6 +307,11 @@ export const CIDADES: Record<string, CidadeData> = {
       "Araucária concentra atividade industrial e logística relevante, e boa parte dos chamados vem de escritórios ligados a essas operações: estações que precisam de disponibilidade, impressoras compartilhadas e rede local que não pode oscilar. O foco da avaliação nesses ambientes é reduzir tempo de parada — identificar se o caso resolve em ajuste, em troca de peça ou se exige substituição planejada do equipamento.",
       "Na frente residencial, a demanda é mais próxima da média regional: formatação com backup, upgrade de SSD e memória, remoção de malware e configuração de rede doméstica. Como a cidade está fora do núcleo de Curitiba, a triagem por WhatsApp é ainda mais importante para definir a modalidade certa antes de qualquer deslocamento.",
     ],
+    logisticaLocal: [
+      "Araucária tem peso industrial acentuado e uma parte residencial que cresceu em torno dele. Para chamados em área industrial, o acesso costuma exigir cadastro prévio, identificação na portaria e, em alguns casos, autorização de segurança do trabalho — informações que pedimos antes de sair, porque são elas que determinam se a visita será produtiva.",
+      "Nessas plantas, o computador raramente está isolado: ele conversa com sistema de gestão, leitor, impressora térmica ou equipamento de medição. Formatar sem mapear essas integrações costuma criar um problema maior que o original. A avaliação registra o que está conectado, o que precisa continuar funcionando e o que pode parar durante o serviço, e a execução é agendada preferencialmente fora do turno de produção. Na parte residencial, o padrão volta ao usual: SSD, limpeza, sistema e rede doméstica.",
+      "Em ambiente industrial de Araucária, equipamentos ligados a processos críticos só são desligados com autorização do responsável pela área, e a janela de intervenção é acordada por escrito. Quando o risco de parada é alto, priorizamos diagnóstico não invasivo e execução programada em vez de intervenção imediata.",
+    ],
     perfilLocal: [
       "Presença industrial e empresarial relevante",
       "Bairros residenciais com demanda de suporte doméstico",
@@ -330,6 +357,11 @@ export const CIDADES: Record<string, CidadeData> = {
     contextoLocal: [
       "Campo Largo tem centro urbano definido e áreas afastadas de perfil rural, o que torna o planejamento do atendimento parte do serviço. Muitos chamados chegam de casas e pequenos negócios com internet via rádio ou fibra recente, onde a instabilidade percebida como 'computador ruim' na verdade vem do enlace ou da instalação interna da rede.",
       "Entre os equipamentos atendidos, predominam desktops e notebooks de uso doméstico com vários anos de serviço, além de impressoras multifuncionais. Para esses casos, o roteiro é o mesmo aplicado no restante da região: cópia dos arquivos importantes antes de qualquer intervenção, diagnóstico para identificar a causa e valor informado só depois — com coleta sem custo quando o reparo exige bancada.",
+    ],
+    logisticaLocal: [
+      "Campo Largo é a mais distante entre as cidades atendidas, e isso muda a forma de trabalhar. O deslocamento é informado separadamente e aprovado antes, e sempre que o caso permite priorizamos resolver por acesso remoto no mesmo dia, sem custo de viagem para o cliente. Quando a visita é necessária, o agendamento tende a ser em bloco, para que uma única ida cubra tudo o que puder ser resolvido no endereço.",
+      "O perfil predominante é de residências e pequenos negócios com equipamentos que precisam durar: computador de escritório com anos de uso, notebook compartilhado pela família e rede simples com um roteador só. Para esse cenário, a recomendação técnica costuma ir na direção da manutenção preventiva — limpeza periódica, controle de temperatura, backup automatizado e substituição planejada de disco antes da falha, que é sempre mais barata que a recuperação depois dela.",
+      "Como a distância encarece o retorno, em Campo Largo a avaliação procura resolver o conjunto de pendências em uma única ida: além do defeito relatado, verificamos temperatura, armazenamento, estado da fonte e situação do backup, e informamos o que ainda pode falhar em curto prazo para que a decisão seja tomada de uma vez.",
     ],
     perfilLocal: [
       "Território amplo, com áreas urbanas e mais afastadas",

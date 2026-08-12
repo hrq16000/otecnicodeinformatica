@@ -146,6 +146,18 @@ export const BairroLocalLayout = ({ data }: { data: BairroLocalData }) => {
                   </div>
                 </div>
               ) : null}
+              {data.logisticaLocal?.length ? (
+                <div className="mt-8">
+                  <h3 className="text-xl font-heading font-bold text-foreground">
+                    Deslocamento, acesso e agendamento {data.nomeLocativo}
+                  </h3>
+                  <div className="mt-4 space-y-4 text-muted-foreground">
+                    {data.logisticaLocal.map((par, i) => (
+                      <p key={i}>{par}</p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
             <aside className="rounded-2xl border border-border bg-card p-6">
               <h3 className="text-lg font-semibold text-foreground">Como começa a triagem</h3>

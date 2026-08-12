@@ -63,6 +63,7 @@ function parse() {
       proposta: list("proposta"),
       perfilLocal: list("perfilLocal"),
       contexto: list("contextoLocal"),
+      logistica: list("logisticaLocal"),
       quandoChamar,
       faq,
     };
@@ -86,6 +87,12 @@ export function cidadeBlocos(path) {
     blocos.push({
       titulo: `O que costuma aparecer nos chamados de ${d.cidade}`,
       paragrafos: d.contexto,
+    });
+  }
+  if (d.logistica?.length) {
+    blocos.push({
+      titulo: `Deslocamento, acesso e agendamento em ${d.cidade}`,
+      paragrafos: d.logistica,
     });
   }
   if (d.perfilLocal.length) {

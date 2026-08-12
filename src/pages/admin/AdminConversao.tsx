@@ -277,7 +277,14 @@ const AdminConversao = () => {
         .sort((a, b) => b.wa - a.wa)
         .slice(0, 25),
       porVariante: [...porVariante.entries()].sort((a, b) => a[0].localeCompare(b[0])),
+      porHora,
+      picoHora: Math.max(1, ...porHora.map((h) => h.wa + h.call)),
+      porServico: [...porServico.entries()]
+        .map(([servico, v]) => ({ servico, ...v }))
+        .sort((a, b) => b.wa + b.call - (a.wa + a.call))
+        .slice(0, 15),
       funil: funil.map((f) => ({ ...f, taxa: pct(f.sessoes, base) })),
+
       totalWa: rows.filter((r) => r.event_type === "wa_click").length,
       totalCall: rows.filter((r) => r.event_type === "call_click").length,
       totalEventos: rows.length,

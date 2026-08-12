@@ -53,6 +53,15 @@ const CURADORIA = [
     slug: "como-saber-quem-esta-usando-meu-wifi",
     commons: "File:Home wifi.jpg",
   },
+  // Onda 5C — cluster de segurança (antivírus e golpes on-line).
+  {
+    slug: "como-escolher-um-bom-antivirus",
+    commons: "File:MEMZ Trojan running on Samsung N130, 13 December 2019.jpg",
+  },
+  {
+    slug: "como-proteger-computador-golpes-internet",
+    commons: "File:Computer virus scam.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

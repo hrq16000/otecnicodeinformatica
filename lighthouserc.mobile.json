@@ -27,7 +27,8 @@
           "rttMs": 150,
           "throughputKbps": 1638.4,
           "cpuSlowdownMultiplier": 4
-        }
+        },
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
       }
     },
     "assert": {

@@ -1,0 +1,290 @@
+[
+  {
+    "url": "http://localhost:4173/assistencia-tecnica-curitiba",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_26_36.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_26_36.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/assistencia-tecnica-curitiba",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_26_50.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_26_50.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/termos-e-condicoes",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_32.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_32.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/termos-e-condicoes",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_47.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_47.report.json",
+    "summary": {
+      "performance": 0.92,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/manutencao-preventiva-empresas",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_16.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_16.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/manutencao-preventiva-empresas",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_30.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_30.report.json",
+    "summary": {
+      "performance": 0.87,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/backup-para-empresas",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_28_44.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_28_44.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/backup-para-empresas",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_28_58.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_28_58.report.json",
+    "summary": {
+      "performance": 0.87,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/redes-e-wifi",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_40.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_40.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/redes-e-wifi",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_55.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_55.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/curitiba",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_09.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_09.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/curitiba",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_22.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_22.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/batel",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_30_50.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_30_50.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/batel",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_31_04.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_31_04.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-celular/sao-jose-dos-pinhais",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_31_32.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_31_32.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-celular/sao-jose-dos-pinhais",
+    "isRepresentativeRun": false,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_31_46.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_31_46.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/assistencia-tecnica-curitiba",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_27_04.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-assistencia_tecnica_curitiba-2026_08_12_00_27_04.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/termos-e-condicoes",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_18.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-termos_e_condicoes-2026_08_12_00_27_18.report.json",
+    "summary": {
+      "performance": 0.94,
+      "accessibility": 0.96,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/manutencao-preventiva-empresas",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_02.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_manutencao_preventiva_empresas-2026_08_12_00_28_02.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/backup-para-empresas",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_29_12.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_backup_para_empresas-2026_08_12_00_29_12.report.json",
+    "summary": {
+      "performance": 0.87,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/servicos/redes-e-wifi",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_26.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-servicos_redes_e_wifi-2026_08_12_00_29_26.report.json",
+    "summary": {
+      "performance": 0.88,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/curitiba",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_36.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_curitiba-2026_08_12_00_30_36.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-tv/batel",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_31_18.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_tv_batel-2026_08_12_00_31_18.report.json",
+    "summary": {
+      "performance": 0.92,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "http://localhost:4173/conserto-celular/sao-jose-dos-pinhais",
+    "isRepresentativeRun": true,
+    "htmlPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_32_00.report.html",
+    "jsonPath": "/dev-server/.lighthouseci/localhost-conserto_celular_sao_jose_dos_pinhais-2026_08_12_00_32_00.report.json",
+    "summary": {
+      "performance": 0.93,
+      "accessibility": 1,
+      "best-practices": 0.7,
+      "seo": 0.69
+    }
+  }
+]

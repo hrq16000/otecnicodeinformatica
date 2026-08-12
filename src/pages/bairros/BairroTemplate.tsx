@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
@@ -239,11 +240,11 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
               <div className="max-w-4xl mx-auto">
                 {/* Image with hover effect */}
                 <div className="mb-8 rounded-xl overflow-hidden shadow-lg group">
-                  <img 
+                  <SmartImage wrapperClassName="w-full" 
                     src={IMAGES.atendimentoDomiciliar} 
                     alt={`Técnico de informática realizando atendimento a domicílio no ${data.nome}, ${data.cidade}`}
                     className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    
                     width="800"
                     height="400"
                   />
@@ -389,11 +390,11 @@ export const BairroTemplate = ({ data }: BairroTemplateProps) => {
 
                 {/* Second image with hover zoom */}
                 <div className="mb-8 rounded-xl overflow-hidden shadow-lg group">
-                  <img 
+                  <SmartImage wrapperClassName="w-full" 
                     src={IMAGES.notebookReparo} 
                     alt={`Conserto de notebook e manutenção de computador no ${data.nome}, ${data.cidade}`}
                     className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    
                     width="800"
                     height="350"
                   />

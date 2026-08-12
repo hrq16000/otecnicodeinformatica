@@ -420,6 +420,18 @@ const AdminConversao = () => {
           <Download className="h-4 w-4" aria-hidden />
           Exportar CSV
         </Button>
+        <Button
+          variant={aoVivo ? "default" : "outline"}
+          onClick={() => setAoVivo((v) => !v)}
+          className="gap-2"
+          aria-pressed={aoVivo}
+        >
+          <span
+            className={`h-2 w-2 rounded-full ${aoVivo ? "animate-pulse bg-[hsl(var(--accent))]" : "bg-muted-foreground"}`}
+            aria-hidden
+          />
+          {aoVivo ? "Ao vivo" : "Pausado"}
+        </Button>
       </Card>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-3">
@@ -434,8 +446,55 @@ const AdminConversao = () => {
         <Card className="p-4">
           <p className="text-xs text-muted-foreground">Eventos no período</p>
           <p className="font-heading text-2xl font-bold text-foreground">{agregados.totalEventos}</p>
+          {ultimoEvento && (
+            <p className="mt-1 text-xs text-muted-foreground">Último evento ao vivo: {ultimoEvento}</p>
+          )}
         </Card>
       </div>
+
+      <div className="mb-6 grid gap-6 lg:grid-cols-2">
+        <Card className="p-4">
+          <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Cliques por horário</h2>
+          <ul className="flex h-40 items-end gap-1" aria-label="Cliques por hora do dia">
+            {agregados.porHora.map((h, i) => {
+              const total = h.wa + h.call;
+              return (
+                <li key={i} className="flex flex-1 flex-col items-center justify-end gap-1">
+                  <div
+                    className="w-full rounded-t bg-[hsl(var(--accent))]"
+                    style={{ height: `${Math.round((total / agregados.picoHora) * 100)}%` }}
+                    title={`${i}h — ${h.wa} WhatsApp / ${h.call} ligação`}
+                  />
+                  <span className="text-[10px] text-muted-foreground">{i % 3 === 0 ? i : ""}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-2 text-xs text-muted-foreground">Hora local do navegador. Pico: {agregados.picoHora} cliques.</p>
+        </Card>
+
+        <Card className="p-4">
+          <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Cliques por serviço</h2>
+          <table className="w-full text-sm">
+            <thead className="text-left text-xs text-muted-foreground">
+              <tr><th className="py-1">Serviço</th><th>WhatsApp</th><th>Ligação</th></tr>
+            </thead>
+            <tbody>
+              {agregados.porServico.map((s) => (
+                <tr key={s.servico} className="border-t border-border">
+                  <td className="py-1.5 pr-2 text-foreground">{s.servico}</td>
+                  <td>{s.wa}</td>
+                  <td>{s.call}</td>
+                </tr>
+              ))}
+              {agregados.porServico.length === 0 && (
+                <tr><td colSpan={3} className="py-3 text-muted-foreground">Sem dados no período.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </Card>
+      </div>
+
 
       <Card className="mb-6 p-4">
         <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Funil por etapa</h2>

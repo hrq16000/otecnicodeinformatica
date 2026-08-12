@@ -177,7 +177,8 @@
     "test:telemetria": "playwright test e2e/telemetria-lead.spec.ts",
     "check:analytics-tags": "node scripts/check-analytics-tags.mjs dist",
     "check:brand-isolation": "node scripts/check-brand-isolation.mjs",
-    "inventory:servicos": "node scripts/inventory-servicos.mjs dist"
+    "inventory:servicos": "node scripts/inventory-servicos.mjs dist",
+    "check:live-production": "node scripts/check-live-production.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -9554,61 +9554,74 @@ crontab -e
   },
 
   "como-remover-virus-windows-iniciantes": {
-    title: "Como Remover Vírus do Windows Grátis: Guia Completo 2026 (Sem Pagar Antivírus)",
-    excerpt: "Anúncios estranhos, navegador lento ou pop-ups? Aprenda como remover vírus do Windows com ferramentas gratuitas. Remoção profissional em Curitiba.",
-    date: "2026-04-29",
-    readTime: "9 min",
-    category: "Tutoriais Domésticos",
+    title: "Remover vírus e adware do Windows: o que funciona, o que só disfarça",
+    excerpt:
+      "Como reconhecer infecção de verdade, limpar sem quebrar o sistema, entender por que o problema volta e saber a hora em que remoção deixa de ser a resposta certa.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">Se aparecem anúncios do nada, abas estranhas no navegador, ou o computador ficou lento de repente, provavelmente é vírus ou adware. Você consegue limpar gratuitamente seguindo este passo a passo.</p>
+        <p className="lead">Grande parte do que as pessoas chamam de "vírus" hoje é adware e sequestro de navegador: programa instalado junto com outro, que ganha dinheiro exibindo anúncio e redirecionando busca. Isso muda o tratamento — e explica por que tantas limpezas caseiras não seguram o problema por uma semana.</p>
 
-        <h2>Sinais de Que Tem Vírus</h2>
+        <h2>Antes de tudo: é infecção mesmo?</h2>
+        <p>Lentidão sozinha não prova infecção. O que aponta para software malicioso é mudança de comportamento sem que você tenha mudado nada:</p>
         <ul>
-          <li>Computador muito lento sem motivo</li>
-          <li>Páginas abrindo sozinhas no navegador</li>
-          <li>Anúncios pop-up em sites que não tinham antes</li>
-          <li>Senhas mudando ou contas hackeadas</li>
-          <li>Cobranças estranhas no cartão</li>
-          <li>Antivírus ou Windows Update não abrem</li>
+          <li>Anúncio aparecendo fora do navegador, inclusive na área de trabalho.</li>
+          <li>Página inicial e buscador trocados, voltando sozinhos depois de corrigidos.</li>
+          <li>Abas abrindo sem clique, com redirecionamento para páginas de promoção ou download.</li>
+          <li>Antivírus, atualização do sistema ou gerenciador de tarefas bloqueados.</li>
+          <li>Extensão de navegador que você não instalou e não consegue remover.</li>
+          <li>Processo desconhecido consumindo processador de forma constante.</li>
+        </ul>
+        <p>Se nenhum desses aparece e a queixa é só desempenho, o diagnóstico provável é outro: veja <Link to="/blog/windows-11-lento-como-resolver">como descobrir a causa real da lentidão</Link> antes de sair varrendo o sistema.</p>
+
+        <h2>Primeiro passo: conter, não limpar</h2>
+        <p>Antes de rodar qualquer varredura vale reduzir dano. Se houver suspeita de roubo de credencial — senha que parou de funcionar, e-mail com atividade estranha, cobrança desconhecida — desconecte a máquina da rede e troque as senhas críticas usando outro aparelho, nunca o computador suspeito. Trocar senha de dentro da máquina infectada apenas entrega a senha nova.</p>
+        <p>Se a tela exibe cobrança para "liberar arquivos", pare aqui. Isso é ransomware, e a resposta é diferente: desligar, não pagar e tratar o caso como incidente. O procedimento está em <Link to="/blog/ransomware-como-proteger-empresa">ransomware: prevenção e resposta</Link>.</p>
+
+        <h2>Limpeza em camadas — a ordem importa</h2>
+        <ol>
+          <li><strong>Programas instalados:</strong> revise a lista de aplicativos por data de instalação. Adware quase sempre aparece ali, com nome genérico, instalado no mesmo dia em que o problema começou.</li>
+          <li><strong>Extensões do navegador:</strong> remova o que não reconhece e verifique também os atalhos do navegador — o sequestro costuma acrescentar um endereço ao final do atalho.</li>
+          <li><strong>Inicialização e tarefas agendadas:</strong> é o que faz o problema voltar. Enquanto existir uma entrada reinstalando o componente, cada limpeza dura até o próximo reinício.</li>
+          <li><strong>Varredura completa com a proteção nativa do Windows:</strong> atualizada, com o sistema ocioso, sem interromper no meio.</li>
+          <li><strong>Segunda opinião antimalware:</strong> uma ferramenta específica de adware pega o que a proteção genérica classifica como "programa potencialmente indesejado" e ignora.</li>
+        </ol>
+        <p>Uma proteção residente por vez. Dois antivírus ativos simultaneamente não protegem em dobro: disputam o mesmo arquivo, derrubam desempenho e às vezes bloqueiam um ao outro.</p>
+
+        <h2>Por que o problema volta</h2>
+        <p>Reinfecção rápida quase sempre tem uma explicação simples:</p>
+        <ul>
+          <li>Ficou uma entrada de inicialização ou tarefa agendada reinstalando o componente.</li>
+          <li>O perfil do navegador foi sincronizado com a conta e trouxe a extensão de volta.</li>
+          <li>A origem continua ativa: instalador pirata, "ativador" de sistema, driver baixado de site agregador.</li>
+          <li>Outro equipamento da mesma casa ou empresa segue infectado e reintroduz o arquivo pela rede ou por pendrive.</li>
+        </ul>
+        <p>Por isso a última etapa de qualquer limpeza séria é descobrir a porta de entrada. Sem isso, o serviço vira assinatura mensal de reinstalação.</p>
+
+        <h2>O que não fazer</h2>
+        <ul>
+          <li>Instalar vários "otimizadores" e limpadores de registro: parte deles é o próprio adware.</li>
+          <li>Apagar arquivos de sistema por indicação de vídeo aleatório.</li>
+          <li>Desativar a proteção do Windows para instalar algo que o antivírus bloqueou.</li>
+          <li>Confiar em varredura que "encontrou 3.000 problemas" e cobra para corrigir.</li>
+          <li>Pagar resgate em caso de arquivos criptografados.</li>
         </ul>
 
-        <h2>Passo 1: Use o Windows Defender (Já Vem no PC)</h2>
-        <ol>
-          <li>Aperte a tecla <strong>Windows</strong> e digite <strong>Segurança do Windows</strong></li>
-          <li>Abra e clique em <strong>Proteção contra vírus e ameaças</strong></li>
-          <li>Clique em <strong>Opções de verificação</strong></li>
-          <li>Escolha <strong>Verificação Completa</strong> e clique <strong>Verificar agora</strong></li>
-          <li>Espere terminar (pode levar 1-2 horas) e remova tudo que aparecer</li>
-        </ol>
+        <h2>Quando remoção deixa de ser a resposta</h2>
+        <p>Existe um ponto em que limpar sai mais caro e menos confiável do que reinstalar. Ele chega quando o sistema já não permite atualização, quando a proteção não inicia mais, quando há sinal de credencial comprometida ou quando o mesmo componente retorna após duas limpezas bem feitas. Nesses casos, a decisão técnica é backup verificado dos dados, reinstalação limpa e restauração seletiva — nunca restauração de imagem inteira do sistema infectado.</p>
+        <p>Em ambiente de empresa, o corte é mais cedo: máquina com suspeita de credencial vazada é isolada da rede antes de qualquer tentativa de limpeza, para evitar propagação lateral. A política de resguardo está em <Link to="/servicos/backup-para-empresas">backup para empresas</Link>.</p>
 
-        <h2>Passo 2: Malwarebytes (Grátis)</h2>
-        <p>O Defender pega vírus, mas o Malwarebytes é melhor com adware (aqueles anúncios chatos).</p>
-        <ol>
-          <li>Acesse <strong>malwarebytes.com</strong> e baixe a versão grátis</li>
-          <li>Instale e abra</li>
-          <li>Clique em <strong>Verificar</strong></li>
-          <li>Quando terminar, clique <strong>Quarentena</strong> em tudo que apareceu</li>
-          <li>Reinicie o computador</li>
-        </ol>
+        <h2>Depois da limpeza: fechar a porta</h2>
+        <p>Concluída a remoção, o trabalho ainda não acabou. Atualize o sistema e o navegador, revise permissões e senhas salvas, reative a proteção nativa, confirme que a inicialização está limpa e verifique se o backup dos arquivos importantes está funcionando de verdade — restaurando um arquivo de teste, não apenas olhando a pasta.</p>
 
-        <h2>Passo 3: Limpe Extensões do Navegador</h2>
-        <p>Muitos vírus se escondem como extensões. No Chrome ou Edge:</p>
-        <ol>
-          <li>Clique nos 3 pontinhos no canto superior direito</li>
-          <li>Vá em <strong>Extensões → Gerenciar extensões</strong></li>
-          <li>Remova qualquer uma que você não reconheça</li>
-        </ol>
-
-        <h2>Passo 4: Troque Suas Senhas</h2>
-        <p>Depois de limpar, troque as senhas de e-mail, banco e redes sociais. Use o celular (que provavelmente está limpo) para fazer isso.</p>
-
-        <h2>Quando Chamar Profissional</h2>
-        <p>Se voltar logo, se não consegue abrir o antivírus, ou se aparecer tela pedindo dinheiro para 'liberar' arquivos (ransomware), <strong>não pague nada</strong> e chame a O Técnico de Informática imediatamente. Atendemos em domicílio em Curitiba e fazemos remoção profissional com garantia.</p>
-
+        <h2>Resumo prático</h2>
+        <p>Confirme que é infecção, contenha o dano, limpe em camadas na ordem certa, elimine a origem e verifique o resultado. Se o componente volta ou o sistema perdeu funções básicas, reinstalar com backup verificado é mais rápido e mais seguro do que insistir. Em Curitiba, atendemos esses casos com diagnóstico antes de qualquer decisão — o critério está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
       </>
     ),
   },
+
   "como-organizar-arquivos-windows-iniciantes": {
     title: "Como Organizar Arquivos no Windows 11: Método Simples Para Achar Tudo Rápido",
     excerpt: "Aprenda como organizar pastas, documentos e fotos no Windows 11 com um método prático que nunca mais vai te deixar perder arquivos.",

@@ -110,7 +110,6 @@ const WAVE_4X: EditorialApproval[] = [
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...FIRST_WAVE_SLUGS.map((slug) => [
     slug,
-
     {
       slug,
       status: "approved" as EditorialStatus,
@@ -124,7 +123,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
       notes:
         "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa própria conforme briefing.",
     },
-  ]) as [string, EditorialApproval][]),
+  ] as [string, EditorialApproval]),
+
   ...WAVE_4X.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 

@@ -32,7 +32,7 @@ export const FotoLicenciadaImg = ({
         decoding="async"
         width={1024}
         height={683}
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`aspect-[3/2] h-auto w-full object-cover ${imgClassName}`}
       />
       <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">
         {legenda && <span className="block text-foreground">{legenda}</span>}

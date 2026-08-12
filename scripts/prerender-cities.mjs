@@ -21,6 +21,28 @@ import {
 import { normalizeTitle, normalizeDescription } from "./lib/seo-meta.mjs";
 
 import { BASE_URL } from "./lib/site-env.mjs";
+import { readFileSync } from "node:fs";
+
+// Alt das capas editoriais — fonte única em src/lib/blogEditorialCovers.ts.
+// Fail-closed: sem alt declarado, a capa não é renderizada no HTML estático
+// (imagem sem texto alternativo é pior que ausência de imagem).
+const COVER_ALT = (() => {
+  const map = new Map();
+  try {
+    const ts = readFileSync("src/lib/blogEditorialCovers.ts", "utf8");
+    const re = /"([a-z0-9-]+)":\s*\{[^}]*?alt:\s*"([^"]+)"/g;
+    let m;
+    while ((m = re.exec(ts))) map.set(m[1], m[2]);
+  } catch {
+    /* sem arquivo => nenhuma capa estática */
+  }
+  return map;
+})();
+
+function coverAltDe(slug) {
+  return COVER_ALT.get(slug) ?? "";
+}
+
 
 // Fail-closed: sem domínio configurado, os artefatos usam URLs relativas.
 const SITE = BASE_URL;
@@ -424,6 +446,22 @@ function outrosGuiasAprovados(slug) {
   return `<h2 style="font-size:1.1rem;margin:24px 0 8px">Outros guias técnicos</h2><ul style="margin:0 0 8px;padding-left:20px">${itens}</ul>`;
 }
 
+// Capa editorial visível no corpo estático (a mesma usada em og:image e no
+// JSON-LD do artigo). Fail-closed: sem alt declarado, nada é renderizado.
+function capaEditorial(slug, wave) {
+  const alt = coverAltDe(slug);
+  if (!wave?.cover || !alt) return "";
+  return `<figure style="margin:0 0 16px"><img src="${wave.cover}" alt="${htmlEscape(alt)}" width="1200" height="630" decoding="async" fetchpriority="high" style="width:100%;height:auto;border-radius:12px" /><figcaption style="font-size:.8rem;opacity:.72;margin-top:6px">${htmlEscape(alt)} — imagem de uso próprio do Técnico de Informática.</figcaption></figure>`;
+}
+
+// Miniatura da capa no hub /blog (mesma imagem da capa do artigo).
+function miniaturaEditorial(slug) {
+  const wave = getWaveArticle(slug);
+  const alt = coverAltDe(slug);
+  if (!wave?.cover || !alt) return "";
+  return `<img src="${wave.cover}" alt="${htmlEscape(alt)}" width="320" height="168" loading="lazy" decoding="async" style="width:100%;max-width:320px;height:auto;border-radius:10px;display:block;margin:0 0 6px" />`;
+}
+
 function editorialStaticBody(post, wave) {
   const url = `${SITE}/blog/${post.slug}`;
   const waText = encodeURIComponent(
@@ -453,6 +491,7 @@ function editorialStaticBody(post, wave) {
             <a href="/" style="color:#7fd4ec">Início</a> › <a href="/blog" style="color:#7fd4ec">Guias</a> › <span aria-current="page">${htmlEscape(post.title)}</span>
           </nav>
           <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">${htmlEscape(post.title)}</h1>
+          ${capaEditorial(post.slug, wave)}
           <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(post.lead || post.excerpt)}</p>
           ${sumario}
           ${corpo}
@@ -750,7 +789,7 @@ export async function prerenderCities(distDir) {
       const list = approvedPosts
         .map(
           (p) =>
-            `<li style="margin:10px 0"><a href="/blog/${p.slug}" style="color:#7fd4ec;font-weight:600">${htmlEscape(p.title)}</a><br><span style="font-size:.9rem;opacity:.9">${htmlEscape(p.excerpt)}</span></li>`,
+            `<li style="margin:14px 0;list-style:none">${miniaturaEditorial(p.slug)}<a href="/blog/${p.slug}" style="color:#7fd4ec;font-weight:600">${htmlEscape(p.title)}</a><br><span style="font-size:.9rem;opacity:.9">${htmlEscape(p.excerpt)}</span></li>`,
         )
         .join("");
       const body = `

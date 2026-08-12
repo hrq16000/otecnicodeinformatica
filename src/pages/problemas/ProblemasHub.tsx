@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { CLUSTER_PROBLEMAS } from "@/lib/clusterProblemas";
+import { TriagemRapidaHub } from "@/components/problemas/TriagemRapidaHub";
 import { trackPageView } from "@/lib/analytics";
 
 const PATH = "/problemas";
@@ -25,12 +26,14 @@ const ProblemasHub = () => {
       titulo: "Computador ou notebook lento",
       resumo:
         "Demora para ligar, trava ao abrir programas e piora com o tempo de uso. Quando SSD ou memória resolvem — e quando não resolvem.",
+      waMessage: "Olá! Meu computador está lento e quero uma avaliação técnica.",
     },
     {
       path: "/problemas/notebook-nao-liga",
       titulo: "Notebook não liga",
       resumo:
         "Sem luz, sem imagem ou liga e apaga. Como separar fonte, bateria, placa e tela antes de qualquer orçamento.",
+      waMessage: "Olá! Meu notebook não liga e preciso de diagnóstico.",
     },
   ];
 
@@ -38,6 +41,7 @@ const ProblemasHub = () => {
     path: p.path,
     titulo: p.titulo,
     resumo: p.metaDescription,
+    waMessage: p.waMessage,
   }));
 
   const todos = [...fixos, ...doCluster];
@@ -65,6 +69,10 @@ const ProblemasHub = () => {
           caso: cada página mostra as causas que investigamos, o que dá para checar sozinho antes de
           chamar alguém e qual modalidade de atendimento costuma resolver.
         </p>
+
+        <TriagemRapidaHub
+          opcoes={todos.map((p) => ({ path: p.path, titulo: p.titulo, waMessage: p.waMessage }))}
+        />
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {todos.map((p) => (

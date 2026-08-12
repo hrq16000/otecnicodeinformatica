@@ -20,6 +20,8 @@ const CONSUMIDORES = [
   "src/pages/problemas/ClusterProblemaPage.tsx",
   "src/pages/equipamentos/ClusterEquipamentoPage.tsx",
   "src/pages/solucoes/ClusterSolucaoPage.tsx",
+  "src/pages/problemas/ComputadorLento.tsx",
+  "src/pages/problemas/NotebookNaoLiga.tsx",
 ];
 
 const TERMOS_COMPONENTE = [

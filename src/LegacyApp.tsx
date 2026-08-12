@@ -36,6 +36,9 @@ const PoliticaPecasCliente = lazy(() => import("./pages/PoliticaPecasCliente"));
 const ColetaFormulario = lazy(() => import("./pages/ColetaFormulario"));
 const QuandoNaoCompensa = lazy(() => import("./pages/QuandoNaoCompensa"));
 const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
+const DiretorioProfissionais = lazy(() => import("./pages/profissionais/DiretorioProfissionais"));
+const PerfilProfissional = lazy(() => import("./pages/profissionais/PerfilProfissional"));
+const CadastroParceiro = lazy(() => import("./pages/profissionais/CadastroParceiro"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
 const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
@@ -556,6 +559,11 @@ const App = () => (
             <Route path="/coleta-formulario" element={<ColetaFormulario />} />
             <Route path="/quando-nao-compensa" element={<QuandoNaoCompensa />} />
             <Route path="/seja-parceiro" element={<SejaParceiro />} />
+
+            {/* Rede nacional de profissionais parceiros */}
+            <Route path="/profissionais" element={<DiretorioProfissionais />} />
+            <Route path="/profissionais/cadastro" element={<CadastroParceiro />} />
+            <Route path="/profissional/:slug" element={<PerfilProfissional />} />
             
             {/* Bairros Curitiba */}
             <Route path="/bairros/centro" element={<Centro />} />

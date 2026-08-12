@@ -40,6 +40,7 @@ import {
   Headphones,
 } from "lucide-react";
 import {
+import { SmartImage } from "@/components/SmartImage";
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -149,7 +150,7 @@ const ComoFunciona = () => {
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto -mt-8 relative z-20">
               <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img src={IMAGES.atendimentoDomiciliar} alt={IMAGES.atendimentoDomiciliarAlt} className="w-full h-48 md:h-72 object-cover" loading="eager" width="800" height="400" />
+                <SmartImage wrapperClassName="w-full" priority src={IMAGES.atendimentoDomiciliar} alt={IMAGES.atendimentoDomiciliarAlt} className="w-full h-48 md:h-72 object-cover"  width="800" height="400" />
               </div>
             </div>
           </div>

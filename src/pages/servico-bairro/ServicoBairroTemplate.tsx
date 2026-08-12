@@ -16,6 +16,7 @@ import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
 import { WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
+import { SmartImage } from "@/components/SmartImage";
 
 const CANONICAL_BASE = SITE_BASE_URL;
 
@@ -276,7 +277,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                   </div>
                 </div>
                 <div className="rounded-xl overflow-hidden shadow-lg group">
-                  <img 
+                  <SmartImage wrapperClassName="w-full" 
                     src={data.servicoSlug.includes("conserto") ? IMAGES.notebookReparo 
                       : data.servicoSlug.includes("formatacao") ? IMAGES.tecnicoTrabalhando
                       : data.servicoSlug.includes("virus") ? IMAGES.segurancaDigital
@@ -287,7 +288,7 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                       : IMAGES.tecnicoTrabalhando}
                     alt={`${data.servico} profissional no ${data.bairro}, ${data.cidade}`}
                     className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    
                     width="800"
                     height="400"
                   />

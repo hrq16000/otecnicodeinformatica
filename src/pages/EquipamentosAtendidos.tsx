@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import {
+import { SmartImage } from "@/components/SmartImage";
   Monitor, Laptop, HardDrive, Wifi, Server, Cpu, Keyboard,
   MessageCircle, ArrowRight, CheckCircle2, AlertTriangle, Ban, MonitorSmartphone,
 } from "lucide-react";
@@ -247,7 +248,7 @@ const EquipamentosAtendidos = () => {
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto -mt-8 relative z-20">
               <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img src={IMAGES.ferramentas} alt={IMAGES.ferramentasAlt} className="w-full h-48 md:h-64 object-cover" loading="eager" width="800" height="400" />
+                <SmartImage wrapperClassName="w-full" priority src={IMAGES.ferramentas} alt={IMAGES.ferramentasAlt} className="w-full h-48 md:h-64 object-cover"  width="800" height="400" />
               </div>
             </div>
           </div>

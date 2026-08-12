@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { IMAGES } from "@/lib/images";
 import { 
+import { SmartImage } from "@/components/SmartImage";
   AlertTriangle, 
   Search, 
   ShieldCheck, 
@@ -20,11 +21,11 @@ export const BlocoInteligencia = ({ compact = false }: BlocoInteligenciaProps) =
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Imagem de destaque */}
         <div className="mb-8 rounded-xl overflow-hidden shadow-lg max-w-3xl mx-auto">
-          <img 
+          <SmartImage wrapperClassName="w-full" 
             src={IMAGES.bancadaTecnica} 
             alt={IMAGES.bancadaTecnicaAlt}
             className="w-full h-40 md:h-56 object-cover"
-            loading="lazy"
+            
             width="800"
             height="300"
           />

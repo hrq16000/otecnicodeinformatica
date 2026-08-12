@@ -20,6 +20,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
+import { SmartImage } from "@/components/SmartImage";
   COLETA_TAXA_MINIMA_LABEL,
   DIAGNOSTICO_VALOR_LABEL,
   EQUIPAMENTOS_COLETA,
@@ -152,7 +153,7 @@ const ColetaEntrega = () => {
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto -mt-8 relative z-20">
               <div className="rounded-xl overflow-hidden shadow-2xl">
-                <img src={IMAGES.coletaEntrega} alt={IMAGES.coletaEntregaAlt} className="w-full h-48 md:h-64 object-cover" loading="eager" width="800" height="400" />
+                <SmartImage wrapperClassName="w-full" priority src={IMAGES.coletaEntrega} alt={IMAGES.coletaEntregaAlt} className="w-full h-48 md:h-64 object-cover"  width="800" height="400" />
               </div>
             </div>
           </div>

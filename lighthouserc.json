@@ -7,15 +7,16 @@
         "http://localhost:4173/servicos/manutencao-preventiva-empresas",
         "http://localhost:4173/servicos/backup-para-empresas",
         "http://localhost:4173/servicos/redes-e-wifi",
-        "http://localhost:4173/conserto-tv/curitiba",
-        "http://localhost:4173/conserto-tv/batel",
-        "http://localhost:4173/conserto-celular/sao-jose-dos-pinhais"
+        "http://localhost:4173/bairros/batel",
+        "http://localhost:4173/bairros/agua-verde",
+        "http://localhost:4173/tecnico-informatica-sao-jose-pinhais"
       ],
       "startServerCommand": "bun run preview -- --port 4173",
       "startServerReadyPattern": "Local:",
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop"
+        "preset": "desktop",
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
       }
     },
     "assert": {

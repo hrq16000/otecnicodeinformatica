@@ -25,11 +25,13 @@ const flag = (name, fallback) => {
   return hit ? hit.split("=").slice(1).join("=") : fallback;
 };
 const REPORT_ONLY = args.includes("--report-only");
+import { BASE_URL } from "./lib/site-env.mjs";
+
 const VALID_SAMPLE = Number(flag("valid", 45));
 const FAKE_COUNT = Math.max(50, Number(flag("fake", 60)));
 const DIST = path.resolve(flag("dist", "dist"));
 const TIMEOUT = Number(flag("timeout", 15000));
-let BASE = flag("base", "");
+let BASE = flag("base", "") || process.env.SITE_BASE_URL || BASE_URL;
 
 const manifest = JSON.parse(readFileSync(path.join(DIST, "route-manifest.json"), "utf8"));
 

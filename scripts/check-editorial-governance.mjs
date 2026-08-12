@@ -14,7 +14,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { promises as fs } from "node:fs";
-import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
+import { WHATSAPP_NUMBER, BASE_URL } from "./lib/site-env.mjs";
 import path from "node:path";
 import { getBlogPosts } from "./prerender-cities.mjs";
 import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/editorial-wave.mjs";
@@ -171,7 +171,11 @@ async function checkStaticHtml(posts) {
       if (!h.includes(`content="${SITE}${wave.cover}`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
       if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
       if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
-      if (!new RegExp(`wa\\.me/${WHATSAPP_NUMBER}`).test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
+      // O CTA editorial passa pela triagem central, nunca por wa.me direto
+      // (ver check:editorial-no-direct-wa) — aqui exigimos que ele exista.
+      if (!/data-cta-location="editorial_static"/.test(h))
+        fail(`/blog/${post.slug}: CTA editorial de triagem ausente`);
+
     }
 
 
@@ -194,12 +198,16 @@ async function checkStaticHtml(posts) {
       fail(`/blog/${post.slug}: og:site_name deve ser "O Técnico de Informática"`);
 
     // Sem autor/cargo fictício no schema editorial injetado.
-    // (Obs.: "O Técnico de Informática" no alt do logo vem do index.html base e é
-    //  legítimo — checamos apenas autor/publisher fictício e schema Person.)
+    // O publisher DEVE ser a organização oficial ("O Técnico de Informática");
+    // o autor nunca pode ser uma pessoa inventada.
     if (/Técnico de Informática Sênior/.test(h)) fail(`/blog/${post.slug}: cargo fictício no HTML`);
     if (/"@type":\s*"Person"/.test(h)) fail(`/blog/${post.slug}: Person no HTML`);
-    if (/"author":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: autor fictício no schema`);
-    if (/"publisher":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: publisher divergente no schema`);
+    if (/"author":/.test(h) && !/"author":\s*\{[^}]*"@type":\s*"Organization"/.test(h))
+      fail(`/blog/${post.slug}: autor deve ser a organização, nunca uma pessoa`);
+    const publisher = h.match(/"publisher":\s*\{[^}]*\}/)?.[0];
+    if (publisher && !(publisher.includes('"Organization"') && publisher.includes("O Técnico de Informática")))
+      fail(`/blog/${post.slug}: publisher divergente no schema`);
+
 
     checked++;
   }

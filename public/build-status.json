@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-08-12T07:15:49.355Z",
-  "finishedAt": "2026-08-12T07:15:50.572Z",
+  "startedAt": "2026-08-12T07:16:57.967Z",
+  "finishedAt": "2026-08-12T07:16:59.207Z",
   "ok": true,
   "total": 9,
   "passed": 9,
@@ -12,72 +12,72 @@
       "label": "ads.txt e metatag AdSense",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 68,
-      "checkedAt": "2026-08-12T07:15:49.423Z"
+      "durationMs": 74,
+      "checkedAt": "2026-08-12T07:16:58.042Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 63,
-      "checkedAt": "2026-08-12T07:15:49.486Z"
+      "durationMs": 72,
+      "checkedAt": "2026-08-12T07:16:58.114Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 74,
-      "checkedAt": "2026-08-12T07:15:49.560Z"
+      "durationMs": 73,
+      "checkedAt": "2026-08-12T07:16:58.187Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 461,
-      "checkedAt": "2026-08-12T07:15:50.021Z"
+      "durationMs": 455,
+      "checkedAt": "2026-08-12T07:16:58.642Z"
     },
     {
       "id": "internal-links",
       "label": "Links internos sem 404",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 167,
-      "checkedAt": "2026-08-12T07:15:50.188Z"
+      "durationMs": 164,
+      "checkedAt": "2026-08-12T07:16:58.806Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 85,
-      "checkedAt": "2026-08-12T07:15:50.273Z"
+      "durationMs": 91,
+      "checkedAt": "2026-08-12T07:16:58.897Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 98,
-      "checkedAt": "2026-08-12T07:15:50.371Z"
+      "durationMs": 107,
+      "checkedAt": "2026-08-12T07:16:59.004Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 105,
-      "checkedAt": "2026-08-12T07:15:50.476Z"
+      "durationMs": 123,
+      "checkedAt": "2026-08-12T07:16:59.127Z"
     },
     {
       "id": "orphan-pages",
       "label": "Páginas órfãs",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 95,
-      "checkedAt": "2026-08-12T07:15:50.571Z"
+      "durationMs": 78,
+      "checkedAt": "2026-08-12T07:16:59.205Z"
     }
   ]
 }

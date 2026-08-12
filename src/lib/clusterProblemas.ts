@@ -339,6 +339,212 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     foto: "bancada-tecnica",
   },
+  {
+    slug: "computador-desliga-sozinho",
+    path: "/problemas/computador-desliga-sozinho",
+    titulo: "Computador desligando sozinho ou reiniciando do nada",
+    metaTitle: "Computador desliga sozinho: causas e o que checar | O Técnico de Informática",
+    metaDescription:
+      "Desligamento súbito quase sempre é temperatura, fonte ou alimentação — raramente vírus. Veja como identificar a causa, o que testar antes e quando parar de usar.",
+    resumo:
+      "Desligamento sem aviso, sem tela azul e sem mensagem é um comportamento de proteção: alguma coisa cortou a energia ou o processador atingiu o limite térmico e o equipamento se desligou para não queimar. Por isso o diagnóstico começa por temperatura e alimentação, não por formatação.",
+    waMessage:
+      "Olá! Vim da página sobre computador que desliga sozinho. Preciso de diagnóstico de temperatura/fonte.",
+    sintomas: [
+      {
+        titulo: "Desliga depois de alguns minutos de uso pesado",
+        desc: "Jogo, edição de vídeo ou videochamada elevam a carga e a temperatura. Se o desligamento acontece justamente nesses momentos e o equipamento volta a ligar depois de esfriar, o padrão é térmico: dissipador entupido, ventoinha parada ou pasta térmica ressecada.",
+      },
+      {
+        titulo: "Desliga a qualquer momento, mesmo parado",
+        desc: "Corte sem relação com carga aponta para alimentação: fonte com capacitor no fim da vida, cabo de força folgado, régua sobrecarregada ou oscilação na tomada. Nesses casos o equipamento apaga de forma seca, como se tirassem o plugue.",
+      },
+      {
+        titulo: "Reinicia sozinho e volta na tela de boas-vindas",
+        desc: "Reinício imediato, sem apagar de vez, costuma ser driver, atualização mal aplicada ou memória instável. É o único cenário desta lista em que o software entra como suspeito principal.",
+      },
+      {
+        titulo: "Não volta a ligar logo em seguida",
+        desc: "Quando o botão não responde por alguns minutos, a proteção da fonte foi acionada. Insistir em ligar repetidamente nessa condição é o caminho mais rápido para danificar placa-mãe e disco.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Superaquecimento por sujeira ou pasta térmica vencida",
+        desc: "Poeira compactada entre as aletas do dissipador reduz a troca de calor e a pasta térmica perde eficiência com o tempo. O processador chega ao limite e o desligamento é a última defesa antes do dano permanente.",
+      },
+      {
+        titulo: "Fonte de alimentação degradada ou subdimensionada",
+        desc: "Fonte que entrega tensão instável sob carga derruba a máquina sem registrar erro nenhum no sistema. Verificamos tensão sob carga real, não apenas se a fonte 'liga'.",
+      },
+      {
+        titulo: "Energia elétrica do ambiente",
+        desc: "Régua com muitos aparelhos, tomada sem aterramento e queda breve de rede provocam desligamentos que parecem defeito do computador. Um teste simples em outro ponto de energia separa as hipóteses.",
+      },
+      {
+        titulo: "Memória ou placa-mãe com falha intermitente",
+        desc: "Módulo de memória com contato oxidado ou capacitor estufado gera instabilidade que só aparece depois de aquecer. Diagnóstico com teste de memória e inspeção visual da placa.",
+      },
+    ],
+    antesDeChamar: [
+      "Anote se o desligamento acontece sempre em atividade pesada ou também com a máquina ociosa — essa distinção já separa causa térmica de causa elétrica.",
+      "Confira se as ventoinhas giram e se sai ar quente pela traseira; ruído alto e constante é sinal de esforço térmico.",
+      "Teste em outra tomada, sem régua e sem extensão, para descartar a instalação elétrica.",
+      "Verifique se o gabinete está encostado na parede ou dentro de nicho fechado, sem espaço para o ar sair.",
+      "Se houver cheiro de queimado ou estalo, não ligue de novo: desligue da tomada e trate como caso de bancada.",
+    ],
+    naoFaca: [
+      "Não insista em apertar o botão de ligar várias vezes seguidas quando a máquina não responde.",
+      "Não formate: desligamento por temperatura ou fonte volta igual depois da formatação, e os dados já terão ido embora.",
+      "Não use ar comprimido segurando as ventoinhas soltas — girar acima da rotação nominal danifica o rolamento.",
+      "Não substitua a fonte por outra genérica sem conferir potência e conectores; fonte errada leva placa-mãe junto.",
+    ],
+    modalidades: [
+      {
+        titulo: "Triagem remota",
+        desc: "Leitura de temperatura, histórico de eventos e comportamento sob carga por acesso remoto — útil para confirmar o padrão antes de deslocar alguém.",
+      },
+      {
+        titulo: "Visita técnica",
+        desc: "Limpeza interna, troca de pasta térmica e medição de tensão no local, quando o equipamento não pode sair do ambiente.",
+      },
+      {
+        titulo: "Bancada",
+        desc: "Teste de fonte sob carga, teste de memória prolongado e inspeção de placa — necessário quando a falha é intermitente e precisa de horas de observação.",
+      },
+    ],
+    faq: [
+      {
+        q: "Computador que desliga sozinho é vírus?",
+        a: "Quase nunca. Vírus costuma deixar o sistema lento, exibir anúncios ou travar programas — não cortar a energia da máquina. Desligamento seco é sinal físico: temperatura, fonte ou alimentação.",
+      },
+      {
+        q: "Só limpar por dentro resolve?",
+        a: "Resolve quando a causa é térmica e o dissipador está entupido. Se a fonte estiver degradada ou a memória instável, a limpeza melhora por alguns dias e o problema volta.",
+      },
+      {
+        q: "Posso continuar usando até resolver?",
+        a: "Se o desligamento é térmico e esporádico, o risco é moderado. Se acontece durante gravação de arquivos, o risco de corromper dados é real — a orientação é fazer cópia dos arquivos importantes antes de qualquer coisa.",
+      },
+      {
+        q: "Como vocês descobrem se é a fonte?",
+        a: "Medindo tensão sob carga real e, quando possível, substituindo por uma fonte de teste compatível. Fonte que 'liga' não significa fonte saudável: o defeito aparece justamente quando o consumo sobe.",
+      },
+      {
+        q: "Notebook também desliga sozinho por temperatura?",
+        a: "Sim, e com mais frequência que desktop, porque o espaço interno é menor. Em notebook a limpeza envolve desmontagem parcial e troca de pasta térmica — procedimento de bancada, não de mesa do cliente.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/computador-nao-liga", titulo: "Computador não liga", desc: "Quando o desligamento evolui para máquina que não dá sinal nenhum." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção preventiva", desc: "Limpeza interna, troca de pasta térmica e revisão de refrigeração." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "bancada-tecnica",
+  },
+  {
+    slug: "notebook-nao-carrega",
+    path: "/problemas/notebook-nao-carrega",
+    titulo: "Notebook conectado na tomada e a bateria não carrega",
+    metaTitle: "Notebook não carrega: causas e o que testar | O Técnico de Informática",
+    metaDescription:
+      "Notebook ligado na tomada que não carrega pode ser fonte, conector, bateria ou placa. Veja como identificar cada caso, o que testar sozinho e o que evita gasto errado.",
+    resumo:
+      "“Conectada, não carregando” é uma mensagem que aparece em quatro cenários bem diferentes: carregador entregando tensão errada, conector de energia com mau contato, bateria no fim da vida útil ou circuito de carga da placa-mãe com falha. Cada um tem custo e solução distintos — e trocar a bateria por palpite é o erro mais comum.",
+    waMessage:
+      "Olá! Vim da página sobre notebook que não carrega. A bateria não sobe mesmo na tomada e preciso de diagnóstico.",
+    sintomas: [
+      {
+        titulo: "Fica em 0% e desliga ao tirar da tomada",
+        desc: "O notebook funciona ligado na energia mas apaga instantaneamente sem ela. A bateria não está recebendo carga nenhuma — pode ser célula morta, conector interno solto ou circuito de carga inativo.",
+      },
+      {
+        titulo: "Trava em uma porcentagem e não sobe",
+        desc: "Parar em 40%, 60% ou 80% e não avançar costuma indicar célula desequilibrada ou política de carga do fabricante. Nem sempre é defeito: alguns modelos limitam a carga por configuração de saúde da bateria.",
+      },
+      {
+        titulo: "Carrega só em certas posições do cabo",
+        desc: "Se mexer no plugue faz o LED piscar ou a carga voltar, o problema é físico: cabo rompido junto ao conector ou jack de energia com solda trincada na placa.",
+      },
+      {
+        titulo: "Descarrega mesmo ligado na tomada",
+        desc: "Carregador com potência abaixo do exigido alimenta o consumo básico, mas não dá conta do uso pesado. Comum quando o carregador original foi substituído por um genérico.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Carregador com defeito ou incompatível",
+        desc: "Fonte com tensão correta mas corrente insuficiente, cabo rompido internamente ou conector USB-C que não negocia a potência certa. É a primeira hipótese porque é a mais barata de confirmar.",
+      },
+      {
+        titulo: "Jack de energia com mau contato",
+        desc: "O conector onde o carregador entra sofre esforço mecânico e a solda trinca com o tempo. O reparo é ressolda ou troca do jack — serviço de bancada com microssolda, não troca de peça inteira.",
+      },
+      {
+        titulo: "Bateria no fim da vida útil",
+        desc: "Bateria é peça de consumo: perde capacidade por ciclos e por idade. Verificamos capacidade real e contagem de ciclos antes de indicar troca, para você não pagar por uma peça que não é o problema.",
+      },
+      {
+        titulo: "Circuito de carga da placa-mãe",
+        desc: "Quando carregador e bateria estão bons e a carga não acontece, a falha está no controlador de carga da placa. É o cenário mais caro e o que mais exige diagnóstico honesto antes do orçamento.",
+      },
+    ],
+    antesDeChamar: [
+      "Teste com outro carregador do mesmo modelo e potência, se conseguir emprestado — isso elimina ou confirma a hipótese mais comum de uma vez.",
+      "Confira a etiqueta do carregador e compare tensão e amperagem com o que o fabricante do notebook exige.",
+      "Observe se o LED de carga acende, pisca ou fica apagado, e anote o comportamento para relatar no atendimento.",
+      "Veja no próprio Windows o relatório de bateria (powercfg /batteryreport) e compare capacidade projetada com capacidade original.",
+      "Se o notebook esquentar de forma anormal na região do conector, pare de usar e trate como caso de bancada.",
+    ],
+    naoFaca: [
+      "Não compre bateria antes do diagnóstico: em boa parte dos casos a bateria está boa e o defeito é carregador ou jack.",
+      "Não use carregador universal genérico de forma permanente — tensão aproximada danifica o circuito de carga.",
+      "Não force o plugue nem improvise apoio para 'segurar o contato': isso agrava a trinca na solda da placa.",
+      "Não perfure, dobre nem descarte a bateria no lixo comum; bateria estufada precisa de manuseio e descarte adequados.",
+    ],
+    modalidades: [
+      {
+        titulo: "Triagem remota",
+        desc: "Leitura do relatório de bateria, ciclos e capacidade real por acesso remoto — separa desgaste natural de defeito antes de qualquer deslocamento.",
+      },
+      {
+        titulo: "Visita técnica",
+        desc: "Teste com carregador de referência e verificação do conector no local, quando o equipamento não pode sair.",
+      },
+      {
+        titulo: "Bancada",
+        desc: "Ressolda ou troca do jack de energia, medição no circuito de carga e substituição de bateria com peça compatível.",
+      },
+    ],
+    faq: [
+      {
+        q: "Trocar a bateria resolve notebook que não carrega?",
+        a: "Só quando a bateria é a causa. Carregador defeituoso, jack trincado e circuito de carga da placa produzem exatamente o mesmo sintoma — por isso o diagnóstico vem antes da compra da peça.",
+      },
+      {
+        q: "Posso usar o notebook sem bateria, direto na tomada?",
+        a: "Na maioria dos modelos sim, mas você fica exposto a qualquer oscilação de energia: uma queda breve desliga a máquina e pode corromper arquivos abertos.",
+      },
+      {
+        q: "Bateria parada em 80% é defeito?",
+        a: "Nem sempre. Vários fabricantes limitam a carga para prolongar a vida útil da bateria, e isso é configurável. Conferimos a configuração antes de tratar como falha.",
+      },
+      {
+        q: "Bateria estufada é perigosa?",
+        a: "Sim. Estufamento indica degradação química e risco de vazamento ou incêndio. A orientação é parar de usar, não perfurar e encaminhar para troca e descarte correto.",
+      },
+      {
+        q: "Vocês vendem a bateria?",
+        a: "Indicamos a peça compatível com o seu modelo e você decide onde comprar; se preferir, cuidamos da aquisição e da troca. Peça e mão de obra são informadas separadamente antes da aprovação.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Escopo de bancada, troca de componentes e revisão elétrica." },
+      { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Quando a falha está no circuito de carga da placa-mãe." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "placa-eletronica",
+  },
 ];
 
 export const clusterProblema = (slug: string) =>

@@ -68,6 +68,38 @@ const ClusterProblemaPage = () => {
 
   const waHref = whatsappLink(dados.waMessage);
 
+  /**
+   * CTA contextual por seção: mensagem diferente conforme o ponto da leitura,
+   * com rótulo próprio no GA4/Ads (origem por rota + seção).
+   */
+  const CtaContextual = ({
+    secao,
+    texto,
+    mensagem,
+    rotulo,
+  }: {
+    secao: string;
+    texto: string;
+    mensagem: string;
+    rotulo: string;
+  }) => (
+    <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
+      <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
+      <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
+        <a
+          href={whatsappLink(`${dados.waMessage} ${mensagem}`)}
+          onClick={() => trackCTAClick("whatsapp", `cluster_problema_${secao}`)}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
+          {rotulo}
+        </a>
+      </Button>
+    </div>
+  );
+
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO
@@ -131,6 +163,12 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
+          <CtaContextual
+            secao="sintomas"
+            texto="Seu caso se parece com algum desses? Descreva em uma frase e receba a orientação do próximo passo."
+            mensagem="O sintoma mais parecido com o meu caso é:"
+            rotulo="Descrever meu sintoma"
+          />
         </section>
 
         <section className="mt-12" aria-labelledby="causas">
@@ -145,6 +183,12 @@ const ClusterProblemaPage = () => {
               </li>
             ))}
           </ul>
+          <CtaContextual
+            secao="causas"
+            texto="Não dá para saber a causa só pelo sintoma. Uma triagem rápida indica se resolve remoto, em visita ou em bancada."
+            mensagem="Quero uma triagem para descobrir a causa."
+            rotulo="Pedir triagem"
+          />
         </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -212,6 +256,12 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
+          <CtaContextual
+            secao="faq"
+            texto="Ficou uma dúvida que não está aqui? Pergunte direto — resposta técnica, sem compromisso."
+            mensagem="Minha dúvida é:"
+            rotulo="Tirar minha dúvida"
+          />
         </section>
 
         <div className="mt-12">

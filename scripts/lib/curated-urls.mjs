@@ -118,6 +118,8 @@ export const PROBLEMAS = [
   { path: "/problemas/wifi-instavel", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/tela-azul", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/arquivos-apagados", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/computador-desliga-sozinho", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/notebook-nao-carrega", changefreq: "monthly", priority: "0.6" },
 ];
 
 /**

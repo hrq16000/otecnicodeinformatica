@@ -78,6 +78,8 @@ cobramos execução que não tenha sido aprovada.
 - [Wi-Fi caindo ou lento: causas e o que checar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/wifi-instavel)
 - [Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/tela-azul)
 - [Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/arquivos-apagados)
+- [Computador desliga sozinho: causas e o que checar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/computador-desliga-sozinho)
+- [Notebook não carrega: causas e o que testar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/notebook-nao-carrega)
 
 ## Páginas institucionais e de política
 

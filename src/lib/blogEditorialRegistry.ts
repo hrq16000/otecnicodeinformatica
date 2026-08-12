@@ -472,12 +472,10 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 // ─────────────────────────────────────────────────────────────
 // Fila-piloto: artigos ainda em revisão (noindex, fora do sitemap).
 // Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
-export const EDITORIAL_PILOT_SLUGS = [
-  // Rodada 3F: despromovidos por sobreposição de intenção com as páginas
-  // de sintoma /problemas/notebook-nao-liga e /problemas/computador-lento.
-  "notebook-nao-liga-o-que-fazer",
-  "computador-lento-causas-solucoes",
-] as const;
+// Fila de revisão editorial. Vazia quando todos os candidatos-piloto já
+// foram promovidos (Onda 4Z promoveu os dois últimos). Um slug nunca pode
+// estar simultaneamente na fila e aprovado em uma onda.
+export const EDITORIAL_PILOT_SLUGS = [] as const;
 
 
 export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(

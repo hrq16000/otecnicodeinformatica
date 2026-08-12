@@ -545,7 +545,226 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     foto: "placa-eletronica",
   },
+  {
+    slug: "hd-fazendo-barulho",
+    path: "/problemas/hd-fazendo-barulho",
+    titulo: "HD fazendo barulho: clique, estalo ou zumbido no disco",
+    metaTitle: "HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática",
+    metaDescription:
+      "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente. Entenda cada ruído, o que fazer imediatamente e o que destrói a chance de recuperar os arquivos.",
+    resumo:
+      "Ruído novo vindo do disco rígido é o único sintoma de informática que muda a ordem das prioridades: antes de qualquer reparo vem a cópia dos dados. HD é peça mecânica com pratos girando e um braço de leitura a micrômetros da superfície — quando esse conjunto começa a fazer barulho, cada minuto ligado pode transformar um arquivo recuperável em perda definitiva.",
+    waMessage:
+      "Olá! Vim da página sobre HD fazendo barulho. Meu disco está com ruído e preciso de orientação urgente sobre os dados.",
+    sintomas: [
+      {
+        titulo: "Clique repetido em intervalo regular",
+        desc: "O famoso 'click of death': o braço de leitura tenta encontrar a trilha, falha e recalibra em ciclo. É o ruído mais grave da lista e costuma significar cabeça de leitura ou motor comprometidos. Desligue o equipamento.",
+      },
+      {
+        titulo: "Estalo seco seguido de travamento",
+        desc: "O sistema congela por alguns segundos junto com o estalo e depois volta. Indica setores defeituosos e tentativas de releitura. O disco ainda entrega dados — é a janela para copiar tudo, não para formatar.",
+      },
+      {
+        titulo: "Zumbido ou vibração contínua",
+        desc: "Rolamento desgastado ou disco mal fixado no gabinete. Sozinho é o ruído menos alarmante, mas vibração constante acelera o desgaste mecânico e costuma preceder falhas de leitura.",
+      },
+      {
+        titulo: "Chiado agudo ou raspagem",
+        desc: "Som metálico de raspagem sugere contato da cabeça com o prato. Nesse cenário cada segundo ligado remove material da superfície magnética e reduz a chance de recuperação em sala limpa.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Desgaste natural das partes móveis",
+        desc: "HD tem vida útil mecânica. Depois de alguns anos ligado diariamente, rolamento e atuador acumulam desgaste — o ruído é o aviso antecipado da falha, não a falha em si.",
+      },
+      {
+        titulo: "Queda ou impacto com o disco em rotação",
+        desc: "Notebook que caiu ligado, gabinete derrubado ou transporte sem desligar. O impacto desalinha o braço de leitura e produz clique imediato ou intermitente.",
+      },
+      {
+        titulo: "Setores defeituosos crescendo",
+        desc: "A eletrônica remapeia setores ruins até acabar a reserva. Quando essa reserva se esgota, o disco passa a insistir na leitura e o estalo aparece junto com travamentos do sistema.",
+      },
+      {
+        titulo: "Alimentação instável",
+        desc: "Fonte degradada ou cabo de energia com mau contato faz o motor perder rotação e reiniciar. O ruído cíclico, nesse caso, é consequência da alimentação e não do disco — algo que só a medição sob carga separa.",
+      },
+      {
+        titulo: "Superaquecimento",
+        desc: "Disco sem ventilação, prensado em gaveta fechada ou em gabinete cheio de poeira, trabalha acima da temperatura de projeto e antecipa o desgaste mecânico.",
+      },
+    ],
+    antesDeChamar: [
+      "Desligue o equipamento se o ruído for clique repetido ou raspagem: manter ligado só reduz a chance de recuperar os arquivos.",
+      "Se o sistema ainda abre e o ruído é ocasional, copie primeiro os arquivos insubstituíveis para um HD externo ou nuvem — documentos e fotos antes de programas.",
+      "Confirme de onde vem o som: cooler com pá empenada e fonte com rolamento gasto também fazem barulho e são muito mais baratos de resolver.",
+      "Anote se o ruído começou depois de queda, mudança de lugar, queda de energia ou instalação de peça nova.",
+      "Não conte com o backup automático sem verificar: sincronização de nuvem replica exclusão e corrupção, então confira se os arquivos realmente estão lá.",
+    ],
+    naoFaca: [
+      "Não rode utilitário de correção de disco (chkdsk, scan de superfície) em HD com ruído mecânico: a varredura força milhares de leituras justamente onde o disco está frágil.",
+      "Não abra o disco, não congele e não bata no equipamento — o interior é montado em sala limpa e qualquer partícula risca o prato.",
+      "Não formate nem reinstale o sistema esperando que o ruído pare: formatação não conserta defeito mecânico e apaga referências que ajudariam a recuperação.",
+      "Não ligue e desligue várias vezes para 'testar se voltou'. Cada partida é o momento de maior esforço mecânico.",
+    ],
+    modalidades: [
+      {
+        titulo: "Orientação remota imediata",
+        desc: "Antes de mover o equipamento, orientamos por WhatsApp o que desligar e o que copiar primeiro. Essa conversa costuma valer mais que qualquer procedimento posterior.",
+      },
+      {
+        titulo: "Bancada com clonagem antes de tudo",
+        desc: "O procedimento correto é gerar uma imagem setor a setor do disco em outro dispositivo e trabalhar sobre a cópia. Só depois avaliamos reparo lógico, troca por SSD e reinstalação.",
+      },
+      {
+        titulo: "Encaminhamento para sala limpa",
+        desc: "Quando o dano é físico na cabeça ou no prato, o caso exige laboratório especializado. Informamos isso com clareza em vez de tentar procedimento que reduza a chance de sucesso.",
+      },
+    ],
+    faq: [
+      {
+        q: "HD fazendo clique tem conserto?",
+        a: "O disco em si raramente volta a ser confiável — o objetivo passa a ser recuperar os dados, não salvar a peça. Depois da cópia, a recomendação é substituir por um SSD e aposentar o disco com ruído.",
+      },
+      {
+        q: "Dá tempo de copiar os arquivos?",
+        a: "Depende do ruído. Estalo ocasional com sistema ainda funcional geralmente permite clonagem completa. Clique repetido significa que o disco já não encontra as trilhas, e cada tentativa reduz a janela.",
+      },
+      {
+        q: "Congelar o HD funciona?",
+        a: "Não. É um mito antigo que causa condensação dentro do disco e destrói o que ainda restava. Nenhum laboratório sério usa esse procedimento.",
+      },
+      {
+        q: "SSD também faz barulho?",
+        a: "Não, porque não tem partes móveis. Se o ruído aparece em uma máquina só com SSD, a fonte é outra: cooler, fonte de alimentação ou drive óptico.",
+      },
+      {
+        q: "Quanto custa recuperar os dados?",
+        a: "Depende do tipo de dano. Clonagem e recuperação lógica em bancada têm um custo; caso físico em sala limpa é outro patamar e é orçado à parte. Diagnóstico, mão de obra e peça são informados separadamente e nada é executado sem aprovação.",
+      },
+    ],
+    relacionados: [
+      { to: "/problemas/arquivos-apagados", titulo: "Arquivos apagados ou HD que não abre", desc: "Quando o disco não faz ruído, mas os arquivos sumiram ou a unidade não monta." },
+      { to: "/solucoes/backup", titulo: "Backup e cópia de segurança", desc: "Como montar a rotina que evita o próximo susto." },
+      { to: "/solucoes/ssd", titulo: "Troca por SSD", desc: "Substituição do disco mecânico com migração do sistema e dos arquivos." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "bancada-tecnica",
+  },
+  {
+    slug: "notebook-molhado",
+    path: "/problemas/notebook-molhado",
+    titulo: "Notebook molhado: o que fazer nos primeiros minutos",
+    metaTitle: "Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática",
+    metaDescription:
+      "Derramou líquido no notebook? Os primeiros minutos decidem o custo do reparo. Veja o que desligar, o que nunca fazer (arroz e secador) e quando o caso é de bancada.",
+    resumo:
+      "Líquido derramado é o acidente em que a reação do usuário pesa mais que o próprio derramamento. O dano imediato costuma ser pequeno: o que destrói a placa é a corrosão que avança nas horas seguintes e o curto provocado por quem religa o equipamento para 'ver se funciona'. Água, café com açúcar, refrigerante e cerveja produzem estragos bem diferentes.",
+    waMessage:
+      "Olá! Vim da página sobre notebook molhado. Derramei líquido no equipamento e preciso de orientação urgente.",
+    sintomas: [
+      {
+        titulo: "Desligou na hora e não liga mais",
+        desc: "Proteção elétrica atuando ou curto já estabelecido. Não insista em ligar: com líquido presente entre trilhas, cada tentativa aumenta a área danificada da placa.",
+      },
+      {
+        titulo: "Continua funcionando normalmente",
+        desc: "O cenário mais enganoso. Funcionar hoje não significa que passou: a corrosão dos contatos evolui por dias e a falha aparece depois, quando já não se associa ao acidente.",
+      },
+      {
+        titulo: "Teclas travadas, repetindo ou digitando sozinhas",
+        desc: "Líquido açucarado sob as membranas do teclado. Muitas vezes se resolve com limpeza ou troca da peça do teclado, sem envolver a placa-mãe.",
+      },
+      {
+        titulo: "Liga, mas com comportamento estranho",
+        desc: "Áudio mudo, touchpad errático, portas USB que não respondem ou carga instável indicam trilhas afetadas em pontos específicos — mapeáveis em bancada.",
+      },
+      {
+        titulo: "Manchas ou cheiro depois de dias",
+        desc: "Marcas esverdeadas nos contatos e cheiro adocicado indicam corrosão em andamento. Ainda é tratável, mas o tempo joga contra.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Curto entre trilhas energizadas",
+        desc: "Líquido conduz. Com a bateria conectada, há tensão na placa mesmo com o notebook desligado pelo botão — por isso desligar a energia é a primeira medida real.",
+      },
+      {
+        titulo: "Corrosão eletroquímica",
+        desc: "Resíduo de café, refrigerante ou suco ataca solda e cobre por dias. Um equipamento que 'sobreviveu' pode falhar duas semanas depois pela mesma causa.",
+      },
+      {
+        titulo: "Açúcar e ácido do líquido",
+        desc: "Água limpa é o melhor cenário. Refrigerante, café com açúcar e cerveja deixam resíduo pegajoso e condutivo que exige limpeza química, não apenas secagem.",
+      },
+      {
+        titulo: "Secagem improvisada",
+        desc: "Secador aquece componentes e empurra líquido para regiões ainda secas; arroz não remove umidade interna e ainda deposita amido e pó dentro do equipamento.",
+      },
+    ],
+    antesDeChamar: [
+      "Desligue segurando o botão de energia e retire o carregador imediatamente — nada de desligar pelo menu.",
+      "Se o modelo permitir, remova a bateria. Em bateria interna, não improvise: o objetivo é apenas não religar o equipamento.",
+      "Vire o notebook com a tela entreaberta em formato de tenda para o líquido escorrer para fora, sobre uma toalha.",
+      "Retire pen drives, cartão e periféricos e seque o excesso externo com pano macio, sem esfregar o teclado.",
+      "Anote o que derramou, a quantidade aproximada e o horário: água, café e refrigerante mudam o procedimento de limpeza.",
+      "Leve para bancada o quanto antes. Em líquido açucarado, o intervalo útil se mede em horas, não em dias.",
+    ],
+    naoFaca: [
+      "Não ligue para testar. É a atitude que mais transforma limpeza em troca de placa.",
+      "Não use secador nem forno: calor espalha o líquido e desloca componentes colados.",
+      "Não mergulhe em arroz — não seca o interior e adiciona resíduo dentro do equipamento.",
+      "Não coloque para carregar 'só para ver se acende'.",
+      "Não deixe o caso para a semana seguinte esperando secar sozinho: o que danifica é o resíduo, e ele não evapora.",
+    ],
+    modalidades: [
+      {
+        titulo: "Orientação imediata por WhatsApp",
+        desc: "Nos primeiros minutos, a instrução certa vale mais que qualquer serviço. Orientamos o desligamento e o transporte antes mesmo de abrir atendimento.",
+      },
+      {
+        titulo: "Bancada com desmontagem e limpeza técnica",
+        desc: "Desmontagem completa, remoção de resíduo com solução apropriada, secagem controlada e inspeção da placa sob lupa. Só depois vem o teste de energização.",
+      },
+      {
+        titulo: "Reparo de placa quando houver dano",
+        desc: "Trilha rompida ou componente corroído pode exigir microssolda. Diagnóstico, mão de obra e peça são informados separadamente, e a viabilidade é discutida antes de qualquer execução.",
+      },
+    ],
+    faq: [
+      {
+        q: "Meu notebook molhou e continua funcionando. Preciso levar?",
+        a: "Sim, e de preferência logo. A corrosão avança por dias com o equipamento aparentemente normal; a limpeza feita cedo costuma custar uma fração do reparo de placa depois.",
+      },
+      {
+        q: "Arroz funciona para secar notebook?",
+        a: "Não. O arroz não alcança a umidade interna, não remove resíduo de açúcar e ainda deposita pó e amido dentro do equipamento. É um mito que atrasa o único procedimento que ajuda: a limpeza técnica.",
+      },
+      {
+        q: "Quanto tempo tenho para levar?",
+        a: "Água limpa dá alguma folga; café, refrigerante e outros líquidos açucarados corroem rápido e o intervalo útil é de horas. Em qualquer caso, mantenha o equipamento desligado e sem carregador até a bancada.",
+      },
+      {
+        q: "Só o teclado molhou. Precisa mexer na placa?",
+        a: "Nem sempre. Em vários modelos o teclado é uma peça separada e a placa fica preservada. A desmontagem é o que confirma até onde o líquido chegou — sem abrir, é palpite.",
+      },
+      {
+        q: "Tem garantia no reparo de equipamento molhado?",
+        a: "A garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço. Dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é explicado antes da aprovação, sem promessa que não podemos cumprir.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Microssolda e reparo de trilhas quando a corrosão atinge a placa-mãe." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Desmontagem, limpeza técnica e troca de componentes em bancada." },
+      { to: "/problemas/notebook-nao-carrega", titulo: "Notebook não carrega", desc: "Quando o efeito do líquido aparece no circuito de carga." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "placa-eletronica",
+  },
 ];
+
 
 export const clusterProblema = (slug: string) =>
   CLUSTER_PROBLEMAS.find((p) => p.slug === slug);

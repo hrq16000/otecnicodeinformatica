@@ -286,7 +286,7 @@ export const EDITORIAL_WAVE = [
   {
     slug: "windows-11-lento-como-resolver",
     approvedAt: "2026-08-12",
-    pilar: "/servicos/formatacao-e-otimizacao",
+    pilar: "/servicos/formatacao",
     pilarLabel: "Formatação e otimização em Curitiba",
     apoio: "/blog/como-remover-virus-windows-iniciantes",
     apoioLabel: "Remover vírus e adware sem quebrar o sistema",
@@ -299,7 +299,7 @@ export const EDITORIAL_WAVE = [
     pilarLabel: "Remoção de vírus em Curitiba",
     apoio: "/blog/windows-11-lento-como-resolver",
     apoioLabel: "Windows 11 lento: achar a causa real",
-    cover: "/blog/windows-11-lento-como-resolver.jpg",
+    cover: "/blog/como-remover-virus-windows-iniciantes.jpg",
   },
 ];
 

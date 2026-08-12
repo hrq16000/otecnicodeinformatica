@@ -308,6 +308,33 @@ function extractHeadings(block) {
   return [...block.matchAll(/<h2>([\s\S]*?)<\/h2>/g)].map((m) => plainText(m[1])).filter(Boolean);
 }
 
+/**
+ * Seções reais do artigo (H2 + parágrafos/listas seguintes), na ordem em que
+ * aparecem. Todo o texto vem do próprio artigo — nada é inventado aqui.
+ * Usado para servir ao crawler o corpo editorial completo, e não só o sumário.
+ */
+function extractSections(block) {
+  const idx = block.indexOf("content:");
+  const body = idx >= 0 ? block.slice(idx) : block;
+  const parts = body.split(/<h2>/).slice(1);
+  const sections = [];
+  for (const part of parts) {
+    const h = plainText(part.slice(0, part.indexOf("</h2>") >= 0 ? part.indexOf("</h2>") : 0));
+    if (!h) continue;
+    const rest = part.slice(part.indexOf("</h2>") + 5);
+    const paragrafos = [...rest.matchAll(/<p>([\s\S]*?)<\/p>/g)]
+      .map((m) => plainText(m[1]))
+      .filter((t) => t.length > 40)
+      .slice(0, 4);
+    const itens = [...rest.matchAll(/<li>([\s\S]*?)<\/li>/g)]
+      .map((m) => plainText(m[1]))
+      .filter((t) => t.length > 8)
+      .slice(0, 6);
+    if (paragrafos.length || itens.length) sections.push({ h, paragrafos, itens });
+  }
+  return sections.slice(0, 8);
+}
+
 function countWords(block) {
   const idx = block.indexOf("content:");
   const body = idx >= 0 ? block.slice(idx) : block;
@@ -344,6 +371,7 @@ export async function getBlogPosts(rootDir = ".") {
       readTime: readTime ?? "10 min",
       lead: extractLead(block),
       headings: extractHeadings(block),
+      sections: extractSections(block),
       wordCount: countWords(block),
     });
   }

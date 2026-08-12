@@ -97,6 +97,38 @@ const AdminConversao = () => {
     void carregar();
   }, [carregar]);
 
+  /**
+   * Tempo real: novos cliques entram na lista sem recarregar a consulta.
+   * Respeita os mesmos filtros de tela e o corte de QA (filtrarComerciais).
+   */
+  const [aoVivo, setAoVivo] = useState(true);
+  const [ultimoEvento, setUltimoEvento] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isAdmin || !aoVivo) return;
+    const canal = supabase
+      .channel("admin-conversao-clicks")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "click_events" },
+        (payload) => {
+          const novo = payload.new as Evento;
+          if (rota !== "all" && novo.path !== rota) return;
+          if (viewport !== "all" && novo.viewport_bucket !== viewport) return;
+          if (origem !== "all" && novo.attribution_channel !== origem) return;
+          const [ok] = filtrarComerciais([novo]);
+          if (!ok) return;
+          setRows((prev) => [ok, ...prev].slice(0, 5000));
+          setUltimoEvento(new Date().toLocaleTimeString("pt-BR"));
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(canal);
+    };
+  }, [isAdmin, aoVivo, rota, viewport, origem]);
+
+
   const agregados = useMemo(() => {
     const porCta = new Map<string, { wa: number; call: number; abertura: number }>();
     const porViewport = new Map<string, { wa: number; call: number; total: number }>();

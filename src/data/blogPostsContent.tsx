@@ -2220,84 +2220,78 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "como-escolher-um-bom-antivirus": {
-    title: "Como Escolher um Bom Antivírus em 2024 (Sem Cair em Pegadinhas)",
+    title: "Como escolher um antivírus: o que muda de verdade na proteção",
     excerpt:
-      "Guia prático para escolher antivírus para Windows e notebook: o que realmente importa, recursos essenciais, opções gratuitas x pagas e sinais de falso antivírus.",
-    date: "2024-02-02",
-    readTime: "7 min",
+      "Critérios técnicos para escolher a proteção do Windows: o que o antivírus do sistema já cobre, quando um pago faz diferença, o que é só marketing e como reconhecer falso antivírus.",
+    date: "2026-08-12",
+    readTime: "11 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">
-          Escolher antivírus não é sobre “o mais famoso” — é sobre equilíbrio entre proteção,
-          desempenho e hábitos de uso. Aqui vai um guia objetivo (sem enrolação) para você
-          escolher bem e evitar falso antivírus, lentidão e anúncios chatos.
-        </p>
+        <p className="lead">A pergunta que chega na bancada quase sempre é "qual é o melhor antivírus?". A resposta honesta é que o programa importa menos do que a combinação entre sistema atualizado, hábitos de download e uma conta de usuário que não seja administradora o tempo todo. Ainda assim, a escolha da ferramenta faz diferença — e há critérios objetivos para decidir.</p>
 
-        <h2>1) O que um bom antivírus precisa ter (de verdade)</h2>
+        <h2>O que já vem instalado no Windows</h2>
+        <p>Desde o Windows 10, o sistema inclui uma solução de segurança ativa por padrão, com proteção em tempo real, verificação de arquivos baixados, filtro de reputação no navegador padrão e firewall integrado. Ela é atualizada pelo mesmo canal do sistema e desliga sozinha quando outro antivírus assume o posto.</p>
+        <p>Na prática, isso muda o ponto de partida: em um computador doméstico com o sistema em dia, o cenário não é "sem proteção", e sim "com proteção básica funcionando". A pergunta correta passa a ser o que uma solução adicional acrescenta ao que já existe.</p>
+
+        <h2>Os quatro critérios que realmente pesam</h2>
+        <h3>1. Detecção por comportamento, não só por assinatura</h3>
+        <p>Assinatura é o "retrato falado" de um arquivo já conhecido. Ameaças novas mudam de forma justamente para escapar disso. O que segura um ataque recente é a análise de comportamento: um programa que começa a renomear e criptografar arquivos em massa, ou que tenta se registrar para iniciar com o sistema, precisa ser interrompido mesmo sem estar em nenhuma lista.</p>
+
+        <h3>2. Proteção contra ransomware com controle de pastas</h3>
+        <p>É o recurso que mais evita prejuízo real. Ele restringe quais programas podem gravar em pastas de documentos, imagens e área de trabalho. Exige um ajuste inicial — programas legítimos podem ser bloqueados e precisam ser liberados —, mas é a diferença entre um susto e a perda de anos de arquivos.</p>
+
+        <h3>3. Impacto no desempenho</h3>
+        <p>Uma suíte pesada em um computador com disco mecânico e 4 GB de memória transforma segurança em lentidão, e o desfecho previsível é o usuário desativando tudo. Em máquinas antigas, uma proteção leve que permanece ligada vale mais do que uma completa que será desligada na primeira semana.</p>
+
+        <h3>4. Transparência de quem publica</h3>
+        <p>Fabricante identificável, política de privacidade legível, canal de suporte e presença em testes independentes de laboratórios reconhecidos. Programa distribuído por site de download genérico, sem página oficial própria, não entra na lista de candidatos.</p>
+
+        <h2>Gratuito ou pago: onde está a fronteira</h2>
+        <p>Para uso doméstico comum — navegação, streaming, banco, estudo, home office com documentos —, a proteção nativa do sistema somada a atualizações em dia e a um navegador atualizado cobre a maior parte dos cenários. O custo aqui é de disciplina, não de licença.</p>
+        <p>A versão paga passa a fazer sentido em situações específicas:</p>
         <ul>
-          <li>
-            <strong>Proteção em tempo real:</strong> monitora arquivos e downloads automaticamente.
-          </li>
-          <li>
-            <strong>Proteção web/anti-phishing:</strong> bloqueia links maliciosos e golpes por email.
-          </li>
-          <li>
-            <strong>Atualizações frequentes:</strong> novas ameaças surgem todos os dias.
-          </li>
-          <li>
-            <strong>Baixo impacto no desempenho:</strong> antivírus pesado deixa o PC lento.
-          </li>
+          <li>Vários computadores para administrar, com necessidade de visão central do que está acontecendo.</li>
+          <li>Uso profissional com dados de terceiros, em que a indisponibilidade tem custo direto.</li>
+          <li>Ambiente com muitos usuários no mesmo equipamento, inclusive crianças e adolescentes.</li>
+          <li>Histórico de infecções repetidas, que indica necessidade de camadas extras enquanto os hábitos mudam.</li>
+        </ul>
+        <p>Não existe licença que compense sistema desatualizado, senha repetida em todos os serviços e download de instalador "ativado" de origem desconhecida. Essa é a ordem de prioridade — ferramenta depois de hábito.</p>
+
+        <h2>Recursos que soam bem e merecem leitura atenta</h2>
+        <ul>
+          <li><strong>Otimizador e limpador de registro:</strong> costuma entregar ganho imperceptível e, em alguns casos, remove entradas úteis. Não é motivo para escolher um pacote.</li>
+          <li><strong>VPN inclusa:</strong> útil em rede pública, mas a qualidade varia muito entre fabricantes e o limite de tráfego do plano básico costuma ser baixo.</li>
+          <li><strong>Gerenciador de senhas:</strong> pode ser um bom recurso, desde que você saiba como exportar os dados caso decida trocar de fornecedor.</li>
+          <li><strong>Extensões de navegador:</strong> instale apenas a oficial do fabricante e apenas se for usar. Cada extensão amplia a superfície de acesso ao que você digita.</li>
         </ul>
 
-        <h2>2) Antivírus gratuito ou pago?</h2>
-        <p>
-          Para uso doméstico comum (navegar, redes sociais, estudos), soluções gratuitas podem
-          ser suficientes <strong>se você mantém o Windows atualizado</strong> e evita downloads
-          suspeitos. Já o antivírus pago costuma valer a pena quando você quer:
-        </p>
+        <h2>Como reconhecer um falso antivírus</h2>
+        <p>O golpe mais comum não invade o computador: ele convence o usuário a instalar. A imagem de capa deste guia mostra exatamente esse padrão — uma tela alarmante afirmando que a máquina está infectada. Os sinais que se repetem:</p>
         <ul>
-          <li>Mais camadas de proteção (ransomware, firewall avançado, proteção de webcam)</li>
-          <li>Suporte técnico do fabricante</li>
-          <li>Gerenciamento em múltiplos dispositivos</li>
+          <li>Janela do navegador em tela cheia dizendo que "vírus foram detectados agora" e exibindo contagem regressiva.</li>
+          <li>Número de telefone para "suporte imediato" — nenhum fabricante de antivírus faz isso por pop-up.</li>
+          <li>Verificação que "roda" dentro de uma página web. Nenhum site consegue varrer o seu disco.</li>
+          <li>Pedido de pagamento por link para "liberar a limpeza".</li>
+          <li>Programa que se instala sem pedir confirmação e depois resiste à desinstalação.</li>
         </ul>
+        <p>Se a tela apareceu no navegador, feche a janela pelo Gerenciador de Tarefas e não clique em nada dentro dela. Se um programa já foi instalado, o caminho é remoção assistida e verificação do que mais entrou junto — normalmente vem acompanhado de adware e de sequestro da página inicial.</p>
 
-        <h2>3) Recursos que parecem bons… mas exigem cuidado</h2>
-        <ul>
-          <li>
-            <strong>“Otimizador/limpador” embutido:</strong> alguns são mais marketing do que benefício.
-          </li>
-          <li>
-            <strong>VPN inclusa:</strong> pode ser útil, mas nem sempre tem boa qualidade/velocidade.
-          </li>
-          <li>
-            <strong>Extensões de navegador:</strong> só instale se for oficial e realmente necessária.
-          </li>
-        </ul>
+        <h2>Erros de instalação que enfraquecem a proteção</h2>
+        <ol>
+          <li><strong>Dois antivírus ativos ao mesmo tempo.</strong> Eles disputam os mesmos arquivos, geram falsos positivos e derrubam o desempenho. Um em tempo real; qualquer segundo programa apenas sob demanda.</li>
+          <li><strong>Baixar de site agregador.</strong> Sempre pelo domínio oficial do fabricante, digitado à mão ou vindo de resultado orgânico verificado.</li>
+          <li><strong>Aceitar o instalador completo sem ler.</strong> É onde entram barras de ferramentas e trocas de buscador padrão.</li>
+          <li><strong>Desligar a proteção para instalar algo que ela bloqueou.</strong> Se foi bloqueado, o motivo merece verificação antes da exceção.</li>
+          <li><strong>Ignorar a fila de atualizações do sistema.</strong> Boa parte das infecções explora falha corrigida meses antes.</li>
+        </ol>
 
-        <h2>4) Sinais de falso antivírus (fuja)</h2>
-        <ul>
-          <li>Janelas dizendo que você está infectado “agora” e pedindo pagamento imediato</li>
-          <li>Site estranho oferecendo “scan grátis” no navegador</li>
-          <li>Muitos anúncios, pop-ups e redirecionamentos depois da instalação</li>
-          <li>Desinstalação difícil ou “proteção” que não permite remover</li>
-        </ul>
+        <h2>O que fazer quando a suspeita já existe</h2>
+        <p>Se o computador apresenta comportamento estranho, o primeiro passo é diagnóstico, não instalação de mais programas. Vale conferir os sinais reunidos em <Link to="/blog/como-saber-se-pc-tem-virus-malware">como saber se o PC tem vírus ou malware</Link> e, se houver arquivos importantes envolvidos, garantir cópia antes de qualquer limpeza — o roteiro está em <Link to="/blog/backup-como-proteger-seus-arquivos">backup: como proteger seus arquivos</Link>.</p>
+        <p>Quando a infecção já alterou navegador, tarefas agendadas ou serviços do sistema, a remoção manual passa a exigir método. Nesses casos, a <Link to="/servicos/remocao-de-virus">remoção de vírus e malware</Link> inclui verificação do que ficou para trás, e a <Link to="/servicos/formatacao">formatação com reinstalação do sistema</Link> entra em cena quando o estrago compromete componentes do próprio Windows. Antes de decidir, entenda o critério em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
-        <h2>5) Checklist rápido (antes de instalar)</h2>
-        <ul>
-          <li>Baixe sempre do site oficial do fabricante</li>
-          <li>Evite ter 2 antivírus ao mesmo tempo (pode dar conflito e piorar a proteção)</li>
-          <li>Atualize Windows e navegador</li>
-          <li>Ative autenticação em dois fatores no email (muito mais importante do que parece)</li>
-        </ul>
-
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Quer que a gente configure pra você?</h3>
-          <p className="text-muted-foreground mb-0">
-            Um técnico pode instalar e configurar o antivírus correto, ajustar o navegador e verificar se
-            não há adwares/ameaças escondidas que deixam o PC lento.
-          </p>
-        </div>
+        <h2>Resumo prático</h2>
+        <p>Mantenha o sistema atualizado, use a proteção nativa como base, avalie uma solução paga apenas diante de necessidade concreta, desconfie de qualquer aviso que apareça dentro do navegador e nunca mantenha dois antivírus disputando o mesmo computador. Essa combinação resolve a maioria dos casos que chegariam à bancada como "peguei um vírus".</p>
       </>
     ),
   },
@@ -2853,37 +2847,74 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "como-proteger-computador-golpes-internet": {
-    title: "Como Proteger Seu Computador Contra Golpes e Fraudes na Internet",
-    excerpt: "Links falsos, phishing, extensões maliciosas — aprenda a se proteger.",
-    date: "2026-04-05",
-    readTime: "10 min",
+    title: "Como se proteger de golpes na internet: o que checar antes de clicar",
+    excerpt:
+      "Phishing, sites clonados, falso suporte técnico e extensões maliciosas: como reconhecer cada padrão, o que verificar antes de clicar e o que fazer nas primeiras horas depois de cair em um golpe.",
+    date: "2026-08-12",
+    readTime: "12 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">Golpes online estão cada vez mais sofisticados. E-mails que parecem reais, sites clonados, ligações falsas. Veja como se proteger.</p>
+        <p className="lead">Golpe digital raramente depende de uma falha técnica sofisticada. Ele depende de pressa, medo e distração. Quase todos os casos que chegam para atendimento seguem o mesmo roteiro: uma mensagem urgente, um link, uma página parecida com a original e uma senha digitada em lugar errado.</p>
 
-        <h2>1. Desconfie de Links em E-mails e SMS</h2>
-        <p>Bancos e empresas nunca pedem senhas por e-mail. Antes de clicar, <strong>passe o mouse sobre o link e veja o endereço real</strong>. Se não for o site oficial, não clique.</p>
+        <h2>Os quatro formatos que mais aparecem</h2>
+        <h3>Phishing por e-mail, SMS ou aplicativo de mensagem</h3>
+        <p>Mensagem que imita banco, operadora, loja ou órgão público, com aviso de dívida, entrega pendente, benefício disponível ou bloqueio de conta. O objetivo é levar a um formulário de login idêntico ao real. Instituições sérias não pedem senha, código de aplicativo ou dados de cartão por link.</p>
 
-        <h2>2. Verifique o Cadeado HTTPS</h2>
-        <p>Sites legítimos usam HTTPS (cadeado na barra de endereço). Mas atenção: golpistas também podem ter HTTPS. O cadeado significa que a conexão é segura, não que o site é confiável.</p>
+        <h3>Falso suporte técnico</h3>
+        <p>Pop-up ou ligação afirmando que o computador está infectado e oferecendo ajuda imediata, geralmente pedindo instalação de um programa de acesso remoto. A partir daí, quem está do outro lado enxerga a tela, acessa o banco aberto e instala o que quiser. Nenhum fabricante de sistema ou de antivírus liga para o usuário oferecendo limpeza.</p>
 
-        <h2>3. Não Instale Extensões Desconhecidas</h2>
-        <p>Extensões de navegador podem ler tudo que você digita, incluindo senhas. Instale apenas extensões de desenvolvedores conhecidos e com boas avaliações.</p>
+        <h3>Site clonado em anúncio de busca</h3>
+        <p>O endereço aparece no topo dos resultados como anúncio, com layout idêntico ao original e um domínio levemente diferente. É o formato mais eficaz contra quem confia no primeiro link. Para serviços sensíveis, digitar o endereço ou usar um favorito salvo elimina o problema.</p>
 
-        <h2>4. Use Senhas Fortes e Únicas</h2>
-        <p>Nada de "123456" ou "senha". Use um gerenciador de senhas (Bitwarden é gratuito e seguro) para criar senhas únicas para cada site.</p>
+        <h3>Extensão e programa "gratuito"</h3>
+        <p>Conversor de arquivos, acelerador de downloads, tradutor, cupom automático. Uma extensão com permissão de "ler e alterar dados em todos os sites" enxerga tudo o que é digitado, inclusive senhas e códigos de verificação.</p>
 
-        <h2>5. Ative a Autenticação em Dois Fatores</h2>
-        <p>Mesmo que descubram sua senha, o invasor não consegue entrar sem o segundo fator (código no celular). Ative em todas as contas importantes.</p>
+        <h2>O que verificar antes de clicar</h2>
+        <ol>
+          <li><strong>Leia o domínio de trás para frente.</strong> O que vale é o que está imediatamente antes da primeira barra. Em <code>banco.com.br.seguro-acesso.net</code>, o site é <code>seguro-acesso.net</code>.</li>
+          <li><strong>Passe o cursor sobre o link antes de clicar.</strong> No computador, o endereço real aparece no canto da tela; no celular, um toque longo mostra o destino.</li>
+          <li><strong>Ignore o cadeado como prova de idoneidade.</strong> Ele indica conexão criptografada, não que o site seja legítimo. Páginas de golpe também têm cadeado.</li>
+          <li><strong>Estranhe a urgência.</strong> Prazo de poucos minutos, ameaça de bloqueio e pedido de sigilo são sinais de engenharia social, não de processo real.</li>
+          <li><strong>Confirme por outro canal.</strong> Fechou a mensagem e ligou para o número oficial do cartão? O suposto problema costuma desaparecer.</li>
+        </ol>
 
-        <h2>6. Mantenha Tudo Atualizado</h2>
-        <p>Windows, navegador, antivírus. Atualizações corrigem vulnerabilidades que golpistas exploram.</p>
+        <h2>As proteções que mais reduzem o estrago</h2>
+        <h3>Senha única por serviço</h3>
+        <p>O maior multiplicador de dano é a senha repetida: um vazamento em um site pequeno abre e-mail, banco e redes sociais. Um gerenciador de senhas resolve isso sem exigir memória — basta uma frase longa como senha mestra.</p>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Computador Infectado?</h3>
-          <p className="text-muted-foreground mb-0">Se você caiu em um golpe ou suspeita de infecção, nosso técnico remove vírus e malwares e configura proteção adequada.</p>
-        </div>
+        <h3>Verificação em duas etapas onde ela importa</h3>
+        <p>Comece pelo e-mail principal, porque é ele que recupera todo o resto. Aplicativo autenticador é preferível ao código por SMS, que fica exposto a golpes de troca de chip. E o código nunca deve ser repassado a ninguém, por nenhum motivo.</p>
+
+        <h3>Conta de uso diário sem privilégio de administrador</h3>
+        <p>É a medida menos usada e uma das mais eficazes em computador doméstico. Ela transforma uma instalação silenciosa em um pedido de senha visível.</p>
+
+        <h3>Sistema, navegador e roteador atualizados</h3>
+        <p>Grande parte dos ataques em massa depende de falha antiga. Vale lembrar do roteador, que quase nunca recebe atenção: painel com senha de fábrica é porta aberta. O procedimento está em <Link to="/blog/como-configurar-roteador-wifi-iniciantes">como configurar um roteador do zero</Link>.</p>
+
+        <h3>Backup em cópia separada</h3>
+        <p>É o que transforma um ataque de ransomware em transtorno em vez de perda definitiva. A cópia precisa ficar desconectada quando não estiver em uso — disco externo permanentemente plugado é criptografado junto.</p>
+
+        <h2>Caiu no golpe: as primeiras horas</h2>
+        <ol>
+          <li><strong>Desconecte da rede</strong> se houve acesso remoto ou instalação de programa desconhecido. Isso interrompe o que estiver em andamento.</li>
+          <li><strong>Troque as senhas de outro dispositivo confiável</strong>, começando pelo e-mail e depois pelos serviços financeiros. Trocar senha na máquina possivelmente comprometida apenas entrega a nova.</li>
+          <li><strong>Encerre as sessões ativas</strong> nas contas principais — todos os grandes serviços têm essa opção — e revise dispositivos autorizados.</li>
+          <li><strong>Comunique o banco</strong> pelos canais oficiais e registre o ocorrido. Contestação tem prazo, e o registro conta.</li>
+          <li><strong>Revise regras de encaminhamento do e-mail.</strong> É comum o invasor criar uma regra que envia cópia de tudo e some com os avisos de segurança.</li>
+          <li><strong>Verifique o computador antes de voltar a usá-lo para assuntos sensíveis.</strong> Programa de acesso remoto instalado por terceiros precisa ser localizado e removido.</li>
+        </ol>
+
+        <h2>O que não ajuda</h2>
+        <ul>
+          <li>Instalar vários antivírus ao mesmo tempo depois do susto — eles conflitam e não desfazem o acesso já concedido.</li>
+          <li>Confiar em "limpeza" oferecida pelo mesmo pop-up que gerou o problema.</li>
+          <li>Formatar imediatamente sem preservar arquivos e sem entender o que aconteceu; parte da evidência se perde.</li>
+          <li>Trocar apenas a senha do serviço afetado e manter a mesma combinação nos demais.</li>
+        </ul>
+
+        <h2>Quando pedir ajuda técnica</h2>
+        <p>Acesso remoto concedido a desconhecido, arquivos que passaram a abrir com extensão estranha, navegador redirecionando sozinho e programas que reaparecem depois de removidos são cenários em que a limpeza superficial não resolve. Nesses casos, a <Link to="/servicos/remocao-de-virus">remoção de vírus e malware</Link> parte de uma varredura do que foi alterado no sistema; se houver arquivos criptografados ou apagados, vale verificar antes o que ainda pode ser preservado em <Link to="/servicos/recuperacao-de-dados">recuperação de dados</Link>. Para escolher a proteção que fica no computador depois da limpeza, veja <Link to="/blog/como-escolher-um-bom-antivirus">como escolher um antivírus</Link>.</p>
       </>
     ),
   },

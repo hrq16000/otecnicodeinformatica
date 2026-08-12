@@ -199,16 +199,27 @@ for (const path of SAMPLE) {
   row.problems.length ? ko("html_amostra", `${path}: ${row.problems.join("; ")}`) : ok(`html:${path}`);
 }
 
-// ── 8. noindex preservado ───────────────────────────────────────────
-const NOINDEX_SAMPLE = ["/arrumar-pc/notebook-nao-liga", "/bairros/santa-felicidade", "/conserto-tv/curitiba"];
+// ── 8. rotas válidas noindex (Rodada 3P.1) ──────────────────────────
+// Devem responder 200 com metadata da PRÓPRIA rota — nunca o shell da home.
+const NOINDEX_SAMPLE = [
+  "/arrumar-pc/curitiba",
+  "/bairros/santa-felicidade",
+  "/conserto-tv/curitiba",
+  "/servicos/formatacao/centro",
+];
+const homeTitle = (await get("/")).body.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? "";
 for (const path of NOINDEX_SAMPLE) {
   const { res, body } = await get(path);
   if (res.status !== 200) {
-    warn(`noindex-amostra ${path}: HTTP ${res.status} (rota pode não existir)`);
+    ko("noindex_amostra", `${path} → HTTP ${res.status} (rota válida deveria responder 200)`);
     continue;
   }
   const robots = body.match(/<meta[^>]+name="robots"[^>]+content="([^"]*)"/i)?.[1] ?? "";
+  const canonical = body.match(/<link[^>]+rel="canonical"[^>]+href="([^"]*)"/i)?.[1] ?? "";
+  const title = body.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? "";
   if (!/noindex/i.test(robots)) ko("noindex_amostra", `${path} deveria ser noindex (robots="${robots}")`);
+  else if (canonical !== `${BASE}${path}`) ko("noindex_canonical", `${path} canonical="${canonical}" (esperado self)`);
+  else if (title === homeTitle) ko("noindex_titulo", `${path} reusa o <title> da home`);
   else if (sitemapUrls.some((u) => u.endsWith(path))) ko("noindex_sitemap", `${path} é noindex mas está no sitemap`);
   else ok(`noindex:${path}`, robots);
 }
@@ -225,18 +236,25 @@ const FAKE = [
   "/admin/rota-fantasma-3p",
   "/x/y/z-3p",
   "/index.php?id=1",
+  "/isto-nao-existe-938472?utm_source=test",
 ];
 let fake404 = 0;
 for (const path of FAKE) {
   const { res, body } = await get(path);
   const robots = body.match(/<meta[^>]+name="robots"[^>]+content="([^"]*)"/i)?.[1] ?? "";
+  const canonical = body.match(/<link[^>]+rel="canonical"[^>]+href="([^"]*)"/i)?.[1] ?? "";
+  if (canonical === `${BASE}/` || canonical === BASE) {
+    ko("status_404", `${path} → HTTP ${res.status} com canonical da home (soft-404)`);
+    continue;
+  }
   if (res.status === 404) fake404 += 1;
   else if (res.status === 200 && /noindex/i.test(robots)) {
     fake404 += 1;
-    warn(`${path}: 200 com noindex (soft-404 controlado no edge)`);
+    warn(`${path}: 200 com noindex (soft-404 controlado, sem canonical da home)`);
   } else ko("status_404", `${path} → HTTP ${res.status} sem noindex`);
 }
 ok("status_404", `${fake404}/${FAKE.length} URLs inventadas tratadas corretamente`);
+
 
 // ── 10. assets essenciais ───────────────────────────────────────────
 {

@@ -150,3 +150,10 @@ do bundle; funções `SECURITY DEFINER` restritas a `service_role` (migration da
 **APROVADO PARA PRODUÇÃO COM RESSALVAS** — o portal está no ar, correto em domínio, robots,
 sitemaps, canonicals, marca, contato e analytics fail-closed; a indexação plena depende de
 resolver o soft-404 do fallback e de concluir a bateria (E2E Chromium, smoke público, Lighthouse).
+
+## Rodada 3P.2 — borda e paridade de 404 (fechamento)
+
+- Worker de borda repontado para a zona nova: `otecnicodeinformatica-route-guard`, rota `otecnicodeinformatica.com.br/*` (`cloudflare/wrangler.toml`, `cloudflare/worker.js`, workflow `cloudflare-edge.yml`). Artefatos `.wrangler/dry` herdados da marca de origem foram removidos.
+- Rotas dinâmicas inválidas (`/marcas/*`, `/problemas/*`, `/procedimentos/*`, `/blog/*`) passaram a renderizar a 404 canônica (`src/pages/NotFound.tsx`) em vez de telas próprias ou redirect para `/blog`: H1 "Página não encontrada", `noindex, nofollow`, sem canonical e sem JSON-LD.
+- Build: 1052 rotas exatas, 317 páginas próprias, 723 shells noindex. Gates `soft-404`, `http-route-semantics`, `brand-isolation`, `sitemap-source`, `internal-links`, `programmatic-similarity`, `local-seo-quality`, `faq-parity`, `meta-uniqueness` e `rich-results` verdes. Vitest 482/482; E2E `soft-404` 9/9.
+- Pendência única: 404 real (status HTTP) para URLs desconhecidas depende do deploy do Worker, que exige `CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID`. Até lá, URLs desconhecidas respondem 200 + `noindex` sem canonical da home (soft-404 controlado).

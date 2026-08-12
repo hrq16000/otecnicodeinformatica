@@ -26,6 +26,7 @@ import {
   EDITORIAL_PUBLISHER,
 } from "@/lib/blogEditorialRegistry";
 import { SITE_BASE_URL, BRAND_NAME } from "@/lib/siteConfig";
+import NotFound from "./NotFound";
 
 
 // blogPostsContentBase lives in its own chunk (src/data/blogPostsContent.tsx)
@@ -235,7 +236,7 @@ const BlogPost = () => {
     );
   }
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <NotFound />;
   }
 
 

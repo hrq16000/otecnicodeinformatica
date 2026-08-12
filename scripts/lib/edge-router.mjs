@@ -27,7 +27,7 @@ export const HEALTH_PATH = "/__edge/health";
  */
 export function healthPayload(compiled, manifest, problems = []) {
   return {
-    service: "tecnico-curitiba-route-guard",
+    service: "route-guard",
     status: problems.length ? "degraded" : "ok",
     build: {
       generatedAt: manifest?.generatedAt ?? null,

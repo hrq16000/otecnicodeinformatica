@@ -23,6 +23,7 @@ import { IMAGES } from "@/lib/images";
 import { RealImageSection } from "@/components/RealImageSection";
 import { siteConfig, absoluteUrl, SITE_BASE_URL } from "@/lib/siteConfig";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import NotFound from "./NotFound";
 
 const BAIRROS_ATENDIDOS = [
   { to: "/bairros/batel", label: "Batel" },
@@ -195,16 +196,7 @@ const ProblemaPage = () => {
   }
 
   if (!data) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <div className="container mx-auto py-20 text-center">
-          <h1 className="text-2xl font-bold text-primary mb-4">Página não encontrada</h1>
-          <Link to="/" className="text-accent underline">Voltar ao início</Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const handleWhatsApp = () => {

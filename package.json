@@ -12,7 +12,7 @@
     "check:missing-exports": "node scripts/check-missing-exports.mjs",
     "check:telemetry-transparency": "node scripts/check-telemetry-transparency.mjs",
     "build": "vite build",
-    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/check-soft-404.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist",
+    "postbuild": "bun scripts/check-seo-basics.ts dist/index.html && bun scripts/check-seo-basics.ts --curated dist && node scripts/check-jsonld-references.mjs dist && bun scripts/dump-dynamic-slugs.ts dist/dynamic-slugs.json && node scripts/generate-route-manifest.mjs dist && node scripts/generate-noindex-shells.mjs dist && node scripts/check-soft-404.mjs && node scripts/check-http-route-semantics.mjs && node scripts/generate-image-sitemap.mjs dist && node scripts/check-image-sitemap.mjs dist && node scripts/check-analytics-tags.mjs dist",
     "build:dev": "node scripts/generate-sitemaps.mjs && vite build --mode development",
     "check:seo": "bun scripts/check-seo-basics.ts index.html",
     "check:seo:curated": "bun scripts/check-seo-basics.ts --curated dist",
@@ -178,7 +178,9 @@
     "check:analytics-tags": "node scripts/check-analytics-tags.mjs dist",
     "check:brand-isolation": "node scripts/check-brand-isolation.mjs",
     "inventory:servicos": "node scripts/inventory-servicos.mjs dist",
-    "check:live-production": "node scripts/check-live-production.mjs"
+    "check:live-production": "node scripts/check-live-production.mjs",
+    "check:http-route-semantics": "node scripts/check-http-route-semantics.mjs",
+    "check:noindex-shells": "node scripts/generate-noindex-shells.mjs dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

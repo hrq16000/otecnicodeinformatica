@@ -1,8 +1,8 @@
-# tecnico-curitiba-route-guard — Worker de borda (NÃO PUBLICAR AINDA)
+# otecnicodeinformatica-route-guard — Worker de borda (NÃO PUBLICAR AINDA)
 #
 # Pré-requisitos antes de qualquer `wrangler deploy`:
-#   1. `tecnico.curitiba.br` adicionado MANUALMENTE como zona na Cloudflare
-#      (curitiba.br é domínio de registro e não pode ser zona do projeto).
+#   1. `otecnicodeinformatica.com.br` adicionado MANUALMENTE como zona na Cloudflare
+#      (zona da nova marca, sob a conta Cloudflare da nova operação).
 #   2. Origem real do Lovable configurada em LOVABLE_ORIGIN (CNAME fornecido
 #      ao ativar o modo avançado de proxy). Enquanto o valor for
 #      LOVABLE_ORIGIN_NOT_CONFIGURED o worker recusa servir a origem.
@@ -13,7 +13,7 @@
 #   npm run cf:edge:dry
 #   npm run check:cf-zone -- --enforce
 
-name = "tecnico-curitiba-route-guard"
+name = "otecnicodeinformatica-route-guard"
 main = "worker.js"
 compatibility_date = "2026-01-01"
 
@@ -27,13 +27,13 @@ ORIGIN_MODE = "dns"
 LOVABLE_ORIGIN = "LOVABLE_ORIGIN_NOT_CONFIGURED"
 
 [[routes]]
-pattern = "tecnico.curitiba.br/*"
-zone_name = "tecnico.curitiba.br"
+pattern = "otecnicodeinformatica.com.br/*"
+zone_name = "otecnicodeinformatica.com.br"
 
 # Habilitar somente quando o hostname www estiver realmente em uso.
 # [[routes]]
-# pattern = "www.tecnico.curitiba.br/*"
-# zone_name = "tecnico.curitiba.br"
+# pattern = "www.otecnicodeinformatica.com.br/*"
+# zone_name = "otecnicodeinformatica.com.br"
 
 # Sem [build]: o bundle do site é gerado antes, por `npm run build` na raiz do
 # repositório (gate obrigatório). Deixar o wrangler disparar o build tornava o

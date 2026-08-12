@@ -156,11 +156,14 @@ for (const slug of pilotSlugs) {
   for (const l of links) {
     if (l.startsWith("/blog/")) {
       const target = l.replace("/blog/", "");
-      if (!pilotSlugs.includes(target)) {
-        fail(`"${slug}" aponta para artigo não-piloto: ${l}`);
+      // Link editorial só pode apontar para artigo indexável: piloto ou
+      // aprovado na onda editorial vigente. Nunca para artigo noindex.
+      if (!pilotSlugs.includes(target) && !EDITORIAL_WAVE_SLUGS.includes(target)) {
+        fail(`"${slug}" aponta para artigo não indexável: ${l}`);
       }
       continue;
     }
+
     if (l.startsWith("/problemas") || l.startsWith("/marcas")) {
       fail(`"${slug}" aponta para rota programática proibida: ${l}`);
       continue;

@@ -3618,85 +3618,88 @@ docker run -d --name db --network minha-rede postgres
   // ═══════════════════════════════════════════════════════════════
 
   "como-trocar-pasta-termica-notebook": {
-    title: "Como Trocar a Pasta Térmica do Notebook: Guia Técnico Completo",
-    excerpt: "Passo a passo profissional para substituir a pasta térmica e resolver superaquecimento.",
-    date: "2026-04-08",
-    readTime: "10 min",
-    category: "Procedimentos Técnicos",
+    title: "Troca de pasta térmica no notebook: quando faz sentido e como não errar",
+    excerpt:
+      "O que a pasta térmica faz, como saber se ela é mesmo a causa do aquecimento, a sequência correta de remoção e aperto do dissipador e os erros que danificam a placa.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Manutenção",
     content: (
       <>
-        <p className="lead">A pasta térmica é o composto que fica entre o processador e o dissipador de calor. Com o tempo, ela resseca e perde a capacidade de conduzir calor, causando <strong>superaquecimento, throttling e desligamentos</strong>. A troca é um dos procedimentos mais comuns em manutenção de notebooks.</p>
+        <p className="lead">A pasta térmica é uma camada muito fina de composto entre a superfície do processador e a base do dissipador. Ela não esfria nada sozinha: apenas preenche as imperfeições microscópicas das duas peças para que o calor atravesse por contato em vez de por ar. Quando resseca, esse contato piora e a temperatura sobe mesmo com a refrigeração limpa.</p>
 
-        <h2>Quando Trocar a Pasta Térmica?</h2>
+        <h2>O que a troca resolve — e o que não resolve</h2>
+        <p>Trocar o composto recupera a transferência de calor no ponto de contato. É a resposta certa quando o conjunto está limpo, a ventoinha gira normalmente e ainda assim a máquina aquece rápido sob carga.</p>
+        <p>Não é a resposta quando as aletas estão obstruídas por poeira compactada, quando a ventoinha tem rolamento gasto, quando o heatpipe está amassado ou quando o problema é lentidão de software confundida com calor. Nesses casos, o composto novo dura pouco tempo antes de o sintoma voltar. A parte de obstrução está detalhada em <Link to="/blog/como-limpar-notebook-por-dentro">limpeza interna de notebook</Link>.</p>
+
+        <h2>Sinais que apontam para interface térmica ruim</h2>
         <ul>
-          <li>Notebook superaquecendo (acima de 85°C em uso normal)</li>
-          <li>Ventilador girando constantemente em velocidade máxima</li>
-          <li>Desempenho caindo após alguns minutos de uso (thermal throttling)</li>
-          <li>Notebook com mais de 2-3 anos sem manutenção</li>
-          <li>Desligamentos aleatórios durante jogos ou tarefas pesadas</li>
+          <li>Temperatura sobe muito rápido logo no início da carga e demora a cair depois.</li>
+          <li>Refrigeração já foi limpa recentemente e o quadro não mudou.</li>
+          <li>Queda de desempenho sob carga com ventoinha em rotação alta e saída de ar quente e forte — sinal de que o ar circula, mas o calor não chega bem até ele.</li>
+          <li>Equipamento com vários anos de uso e histórico de temperatura alta contínua.</li>
+        </ul>
+        <p>Se a saída de ar está fraca, o caso é obstrução, não composto. Essa distinção evita abrir a máquina duas vezes.</p>
+
+        <h2>Preparação: onde a maioria dos danos acontece</h2>
+        <p>Antes de qualquer ferramenta encostar no equipamento:</p>
+        <ul>
+          <li>Desligue por completo — desligar não é suspender nem fechar a tampa.</li>
+          <li>Retire o carregador. Em modelos com bateria interna, desconecte o conector da bateria assim que a tampa sair, antes de mexer em qualquer outra coisa.</li>
+          <li>Descarregue a estática do corpo tocando uma superfície metálica aterrada, ou use pulseira antiestática.</li>
+          <li>Registre a posição dos parafusos. Comprimentos diferentes em posições diferentes são regra; trocar dois de lugar pode perfurar a placa.</li>
+          <li>Use ferramenta plástica para as travas da carcaça. Chave metálica quebra presilha que costuma não ter reposição avulsa.</li>
         </ul>
 
-        <h2>Ferramentas Necessárias</h2>
+        <h2>Remoção do dissipador</h2>
+        <p>Os parafusos do dissipador vêm numerados na própria peça. A ordem existe porque a pressão precisa sair e entrar de forma distribuída: pressão desigual empena a base, e base empenada não faz contato uniforme com o chip.</p>
+        <ol>
+          <li>Solte os parafusos aos poucos, alternando entre eles, na ordem inversa à numeração — sem soltar um de cada vez até o fim.</li>
+          <li>Desconecte o cabo da ventoinha pelo conector, nunca puxando pela fiação.</li>
+          <li>Levante o conjunto com movimento suave. Se estiver aderido pela pasta endurecida, aplique um leve giro para romper a aderência em vez de puxar com força — puxar arranca o chip do soquete em alguns modelos.</li>
+        </ol>
+
+        <h2>Limpeza das superfícies</h2>
+        <p>O composto antigo precisa sair por inteiro, tanto do chip quanto da base do dissipador. Resíduo endurecido misturado com pasta nova mantém o problema. Use álcool isopropílico de alta concentração e material que não solte fibras; álcool comum contém água e deixa resíduo. Trabalhe até a superfície ficar espelhada e seca, sem líquido escorrendo para as trilhas ao redor.</p>
+        <p>Se houver almofada térmica sobre chips vizinhos — memória de vídeo ou controlador —, ela não é substituída por pasta. É outro material, com espessura própria; comprimir a peça sem essa almofada cria folga e piora o resfriamento daquele componente.</p>
+
+        <h2>Aplicação do composto</h2>
+        <p>Quantidade é a parte mais errada do procedimento. A camada útil é fina o bastante para preencher rugosidade — o excesso não melhora nada, escorre para fora sob pressão e, em compostos condutivos, pode fechar contato onde não deve.</p>
         <ul>
-          <li><strong>Chave Phillips #0 e #1</strong> (ou kit de precisão)</li>
-          <li><strong>Espátula plástica</strong> (spudger) para desencaixar conectores</li>
-          <li><strong>Álcool isopropílico 99%</strong> (nunca use álcool 70%)</li>
-          <li><strong>Papel toalha sem fiapos</strong> ou filtro de café</li>
-          <li><strong>Pasta térmica de qualidade</strong> (Arctic MX-4, Thermal Grizzly Kryonaut, Noctua NT-H1)</li>
-          <li><strong>Pulseira antiestática</strong> (recomendado)</li>
+          <li>Um ponto central pequeno, proporcional ao tamanho do chip, é suficiente na maioria dos processadores de notebook.</li>
+          <li>Não espalhe com o dedo. A pressão de aperto do dissipador distribui melhor e evita bolhas de ar.</li>
+          <li>Em chips retangulares maiores, uma linha fina no eixo maior distribui de forma mais previsível do que um ponto único.</li>
+          <li>Prefira composto não condutivo em manutenção doméstica: o ganho de compostos metálicos é pequeno perto do risco de curto por escorrimento.</li>
         </ul>
+        <p>Este guia não indica marca nem modelo de composto. O que define o resultado é a espessura correta e o contato limpo, não o rótulo.</p>
 
-        <h2>Procedimento Passo a Passo</h2>
+        <h2>Remontagem e verificação</h2>
+        <ol>
+          <li>Posicione o dissipador de uma vez, sem arrastar sobre o chip — arrastar espalha a pasta para fora da área útil.</li>
+          <li>Aperte os parafusos na ordem numerada, em passes leves e alternados, até a pressão ficar uniforme. Nada de apertar um até o fim antes dos demais.</li>
+          <li>Reconecte a ventoinha e confira o encaixe do conector.</li>
+          <li>Feche a carcaça só depois de conferir que nenhum cabo ficou preso entre a tampa e a placa.</li>
+          <li>Ligue e acompanhe o comportamento sob carga real por alguns minutos, comparando com o que acontecia antes.</li>
+        </ol>
+        <p>Sem essa comparação não há como afirmar que a troca funcionou. E se a temperatura continuar alta com a refrigeração limpa e a pasta nova, o próximo suspeito é o próprio conjunto de dissipação ou a ventoinha.</p>
 
-        <h3>1. Preparação</h3>
-        <p>Desligue o notebook completamente (não apenas suspender). Remova o carregador e, se possível, a bateria. Pressione o botão de power por 10 segundos para descarregar a energia residual.</p>
-
-        <h3>2. Abertura do Notebook</h3>
-        <p>Remova os parafusos da tampa inferior. Atenção: <strong>nem todos os parafusos têm o mesmo comprimento</strong> — organize-os por posição. Use a espátula plástica para soltar as travas de encaixe, começando pelas laterais. Nunca force com chave de fenda metálica.</p>
-
-        <h3>3. Localização do Dissipador</h3>
-        <p>Identifique o conjunto de heatpipes (tubos de cobre) que conectam o processador (CPU) e, em alguns modelos, a GPU ao ventilador. Os parafusos do dissipador geralmente são numerados (1, 2, 3, 4) — <strong>solte-os na ordem inversa e aperte na ordem numérica</strong>.</p>
-
-        <h3>4. Remoção do Dissipador</h3>
-        <p>Desparafuse na sequência correta e puxe o dissipador suavemente, fazendo um leve movimento de torção. Se estiver grudado, não force — aqueça ligeiramente com secador de cabelo para amolecer a pasta antiga.</p>
-
-        <h3>5. Limpeza</h3>
-        <p>Aplique álcool isopropílico 99% no chip (CPU/GPU) e na base do dissipador. Limpe com movimentos circulares usando papel sem fiapos até que as superfícies fiquem brilhantes, sem resíduos.</p>
-
-        <h3>6. Aplicação da Nova Pasta</h3>
-        <p>Aplique uma <strong>quantidade do tamanho de um grão de arroz</strong> no centro do chip. Não espalhe manualmente — a pressão do dissipador fará a distribuição uniforme. Para GPUs maiores, use o padrão "X" fino.</p>
-
-        <h3>7. Remontagem</h3>
-        <p>Reposicione o dissipador com cuidado. Aperte os parafusos <strong>na ordem numérica e de forma cruzada</strong> (como trocar pneu), aplicando pressão gradual e uniforme.</p>
-
-        <h2>Resultados Esperados</h2>
+        <h2>Erros que custam caro</h2>
         <ul>
-          <li>Redução de 10-25°C na temperatura do processador</li>
-          <li>Ventilador girando em velocidade mais baixa</li>
-          <li>Fim dos desligamentos por superaquecimento</li>
-          <li>Recuperação do desempenho original</li>
+          <li>Abrir sem desconectar a bateria interna e provocar curto com a ferramenta.</li>
+          <li>Soltar os parafusos do dissipador em ordem aleatória e empenar a base.</li>
+          <li>Usar quantidade excessiva de composto, especialmente do tipo condutivo.</li>
+          <li>Limpar com álcool diluído e deixar umidade sobre a placa.</li>
+          <li>Esquecer de reconectar a ventoinha — a máquina liga, aquece e desliga sozinha em poucos minutos.</li>
+          <li>Aquecer a região com secador para soltar o dissipador, deformando peças plásticas próximas.</li>
         </ul>
+        <p>Em equipamentos dentro da garantia de fábrica, confira as condições do fabricante antes de abrir: a abertura por terceiro pode afetar a cobertura.</p>
 
-        <h2>Erros Comuns</h2>
-        <ul>
-          <li>❌ Usar pasta térmica demais (causa vazamento para os componentes ao redor)</li>
-          <li>❌ Usar álcool 70% (contém água que pode danificar componentes)</li>
-          <li>❌ Favaliar o valor o dissipador sem alinhar corretamente</li>
-          <li>❌ Esquecer de reconectar o cabo do ventilador</li>
-          <li>❌ Apertar os parafusos fora de ordem (pressão desigual)</li>
-        </ul>
+        <h2>Quando não fazer sozinho</h2>
+        <p>Modelos em que o dissipador só é alcançado após remover teclado, placa e cabos de tela concentram risco maior do que ganho. O mesmo vale para máquinas com bateria inchada, líquido derramado, cheiro de queimado ou desligamento imediato ao ligar — nesses casos o aquecimento é sintoma, não o problema principal.</p>
+        <p>O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>. O procedimento completo de refrigeração faz parte da <Link to="/servicos/manutencao-de-notebook">manutenção de notebook</Link>, e quando o equipamento não pode sair do lugar existe o <Link to="/atendimento-domicilio">atendimento no endereço</Link>. Se o quadro for de calor recorrente, comece por <Link to="/blog/notebook-superaquecendo-o-que-fazer">notebook superaquecendo: o que fazer</Link>.</p>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Notebook Superaquecendo em Curitiba?</h3>
-          <p className="text-muted-foreground mb-0">Fazemos a troca de pasta térmica com pasta premium no local. Diagnóstico + limpeza completa a partir de R$ 99,99. Atendimento em domicílio.</p>
-        </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/blog/como-limpar-notebook-por-dentro" className="text-accent">Como limpar o notebook por dentro</Link></li>
-          <li><Link to="/blog/notebook-superaquecendo-o-que-fazer" className="text-accent">Notebook superaquecendo: o que fazer?</Link></li>
-          <li><Link to="/servicos/manutencao-de-computador" className="text-accent">Manutenção de computador e notebook</Link></li>
-        </ul>
+        <h2>Resumo prático</h2>
+        <p>Troque a pasta quando a refrigeração já estiver limpa e o aquecimento persistir. Corte a energia da bateria antes de tudo, remova o dissipador em passes alternados, limpe as duas superfícies por completo, aplique uma camada fina e aperte na ordem numerada. Depois, teste sob carga e compare — é o teste que confirma o serviço, não a aparência da montagem.</p>
       </>
     ),
   },
@@ -3868,73 +3871,84 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "como-limpar-notebook-por-dentro": {
-    title: "Como Limpar o Notebook Por Dentro: Desmontagem e Limpeza Profissional",
-    excerpt: "Procedimento completo de abertura, limpeza de cooler, dissipador e placa-mãe.",
-    date: "2026-04-08",
+    title: "Limpeza interna de notebook: o que muda de verdade e onde estão os riscos",
+    excerpt:
+      "Como a poeira compromete a refrigeração de um notebook, o que dá para verificar sem abrir o equipamento, o que a limpeza interna resolve, o que ela não resolve e quais erros custam caro na bancada.",
+    date: "2026-08-12",
     readTime: "11 min",
-    category: "Procedimentos Técnicos",
+    category: "Manutenção",
     content: (
       <>
-        <p className="lead">Poeira acumulada é a <strong>causa número 1 de superaquecimento</strong> em notebooks. A limpeza interna profissional — com abertura do equipamento, remoção de poeira do cooler e dissipador, e troca de pasta térmica — pode reduzir a temperatura em até 20°C e devolver o desempenho original.</p>
+        <p className="lead">Boa parte dos notebooks que chegam com queixa de aquecimento não tem defeito eletrônico: tem um caminho de ar obstruído. A limpeza interna corrige exatamente esse ponto — e apenas esse. Entender o limite do procedimento evita frustração depois, porque nem todo aquecimento vem de poeira.</p>
 
-        <h2>Sinais de Que Seu Notebook Precisa de Limpeza</h2>
+        <h2>Por que a poeira derruba a refrigeração</h2>
+        <p>O calor gerado pelo processador e pelo chip de vídeo é conduzido por tubos de cobre até um bloco de aletas metálicas, e uma ventoinha empurra ar por esse bloco para jogar o calor para fora. É um circuito fechado: entrada de ar, aletas, saída de ar.</p>
+        <p>A poeira não se espalha por igual. Ela se compacta em uma manta fina bem na face das aletas, no ponto exato onde o ar deveria atravessar. O resultado é contraintuitivo: a ventoinha gira mais rápido e faz mais barulho justamente porque está movendo menos ar útil. O usuário escuta esforço e sente a base quente enquanto a saída de ar sopra fraco.</p>
+        <p>Quando a temperatura passa de um limite definido pelo próprio fabricante, o sistema reduz a frequência de trabalho para se proteger. É por isso que a máquina começa rápida e vai ficando lenta depois de alguns minutos — o desempenho está sendo cortado de propósito para evitar dano.</p>
+
+        <h2>Sinais que apontam para obstrução</h2>
         <ul>
-          <li>Ventilador fazendo barulho excessivo</li>
-          <li>Saída de ar quente mais fraca que o normal</li>
-          <li>Notebook esquentando demais na base</li>
-          <li>Travamentos durante uso prolongado</li>
-          <li>Desligamentos por superaquecimento</li>
-          <li>Mais de 1 ano sem manutenção preventiva</li>
+          <li>Ventoinha acelerada em tarefas leves, como navegador e editor de texto.</li>
+          <li>Ar quente saindo fraco pela grade lateral ou traseira, mesmo com a ventoinha audível.</li>
+          <li>Base muito quente na região próxima à saída de ar.</li>
+          <li>Queda de desempenho progressiva durante o uso, e não desde o primeiro minuto.</li>
+          <li>Desligamento repentino em tarefas pesadas, sem tela de erro.</li>
+        </ul>
+        <p>Nenhum desses sinais isolado fecha diagnóstico. Ventoinha barulhenta também aparece em rolamento gasto; queda de desempenho também aparece em disco mecânico saturado; desligamento súbito também aparece em falha de energia. Por isso a verificação vem antes da desmontagem.</p>
+
+        <h2>O que dá para verificar antes de abrir</h2>
+        <ul>
+          <li>Observe a saída de ar contra a luz: aletas visivelmente cinzentas ou cobertas indicam obstrução.</li>
+          <li>Use o notebook sobre superfície rígida por alguns minutos. Se o comportamento muda bastante, parte do problema é bloqueio das entradas inferiores por cama, sofá ou colo.</li>
+          <li>Acompanhe se a lentidão aparece só depois de aquecer. Lentidão desde o boot costuma ser disco ou memória, não temperatura.</li>
+          <li>Confira se a ventoinha realmente gira em algum momento. Silêncio absoluto sob carga é outro problema — pode ser ventoinha travada ou desconectada.</li>
         </ul>
 
-        <h2>Ferramentas Necessárias</h2>
+        <h2>Por que ar comprimido "por fora" resolve pouco</h2>
+        <p>Soprar ar pela grade externa costuma empurrar a poeira para dentro do gabinete em vez de retirá-la, e ela se realoja sobre a placa. Pior: quando a ventoinha é girada em alta rotação pelo jato de ar, ela funciona como gerador e pode enviar corrente para a placa, além de castigar o rolamento.</p>
+        <p>Aspirador doméstico também não é o caminho. Além de não ter força direcionada onde interessa, o atrito do fluxo de ar em bico plástico gera carga estática perto de componentes sensíveis.</p>
+        <p>A limpeza que muda o quadro é a que remove a manta compactada das aletas com o conjunto acessível, retirando a sujeira do equipamento em vez de redistribuí-la.</p>
+
+        <h2>O procedimento como é feito na bancada</h2>
+        <ol>
+          <li><strong>Desligar por completo e cortar a energia.</strong> Não é suspender: é desligar, retirar o carregador e, em modelos com bateria interna, desconectar o conector da bateria antes de qualquer outro passo.</li>
+          <li><strong>Abrir com registro de posição.</strong> Parafusos de comprimentos diferentes em posições diferentes são regra, não exceção. Trocar dois deles de lugar pode perfurar a placa ou impedir o fechamento.</li>
+          <li><strong>Soltar as travas plásticas com ferramenta plástica.</strong> Chave metálica marca a carcaça e quebra presilhas que raramente têm reposição avulsa.</li>
+          <li><strong>Retirar a poeira das aletas com a ventoinha imobilizada.</strong> A manta sai inteira quando é solta pela face correta; jogar ar contra ela só a compacta mais.</li>
+          <li><strong>Verificar o rolamento da ventoinha.</strong> Ruído metálico ou folga axial indicam desgaste que a limpeza não corrige — é peça, e isso muda o orçamento.</li>
+          <li><strong>Avaliar a interface térmica.</strong> Com o dissipador removido, faz sentido renovar o composto térmico; recolocar um dissipador sobre pasta ressecada devolve o problema em poucas semanas.</li>
+          <li><strong>Remontar e testar sob carga.</strong> Fechar sem testar é adivinhação: o comportamento tem que ser comparado antes e depois, com o equipamento trabalhando de verdade.</li>
+        </ol>
+        <p>O detalhe do composto térmico tem regras próprias — quantidade, ordem de aperto e limpeza das superfícies. Elas estão em <Link to="/blog/como-trocar-pasta-termica-notebook">como trocar a pasta térmica do notebook</Link>.</p>
+
+        <h2>O que a limpeza não resolve</h2>
         <ul>
-          <li>Kit de chaves de precisão (Phillips #0, #1, Torx T5/T6)</li>
-          <li>Espátula plástica (spudger)</li>
-          <li>Pincel antiestático de cerdas macias</li>
-          <li>Ar comprimido em lata (ou mini compressor)</li>
-          <li>Álcool isopropílico 99%</li>
-          <li>Pasta térmica nova</li>
-          <li>Pulseira antiestática</li>
+          <li><strong>Rolamento de ventoinha gasto.</strong> O barulho volta porque a peça está no fim.</li>
+          <li><strong>Heatpipe amassado ou saturado.</strong> A condução cai e nenhuma limpeza recupera.</li>
+          <li><strong>Projeto térmico apertado.</strong> Modelos finos com processador potente aquecem por concepção; a limpeza devolve o normal do aparelho, não um patamar melhor do que ele nunca teve.</li>
+          <li><strong>Lentidão de origem lógica.</strong> Disco mecânico, pouca memória e sistema saturado continuam iguais depois da limpeza. Esse caminho está descrito em <Link to="/blog/computador-lento-causas-solucoes">computador lento: causas e como decidir</Link>.</li>
+          <li><strong>Aquecimento por bateria inchada.</strong> Aqui há risco físico e a prioridade deixa de ser temperatura.</li>
         </ul>
 
-        <h2>Procedimento de Limpeza</h2>
-
-        <h3>1. Desligamento e Preparação</h3>
-        <p>Desligue completamente. Remova carregador e bateria (se removível). Pressione power por 15 segundos. Trabalhe em superfície limpa e bem iluminada.</p>
-
-        <h3>2. Abertura da Tampa Inferior</h3>
-        <p>Remova todos os parafusos da tampa. <strong>Fotografe antes de começar</strong> para lembrar a posição de cada parafuso. Use a espátula plástica para soltar as travas de encaixe — comece por um canto e vá circundando.</p>
-
-        <h3>3. Desconectar a Bateria Interna</h3>
-        <p>Se o notebook tem bateria interna (não removível), <strong>desconecte o flat cable da bateria antes de qualquer outra coisa</strong>. Isso evita curtos-circuitos acidentais.</p>
-
-        <h3>4. Limpeza do Ventilador (Cooler)</h3>
-        <p>O cooler é onde mais acumula poeira. Use o pincel para soltar a poeira das pás e o ar comprimido para soprar os detritos. <strong>Segure as pás do ventilador</strong> enquanto sopra ar — girar em alta velocidade pode danificar o rolamento.</p>
-
-        <h3>5. Limpeza do Dissipador e Heatpipes</h3>
-        <p>As aletas do dissipador (na saída de ar) ficam completamente entupidas de poeira compactada. Use o pincel e ar comprimido para desobstruir todas as aletas. Se necessário, remova o dissipador para limpar por completo.</p>
-
-        <h3>6. Limpeza Geral da Placa-Mãe</h3>
-        <p>Com o pincel antiestático, remova poeira acumulada sobre a placa-mãe, slots de RAM, conectores e ao redor dos capacitores. <strong>Nunca use aspirador de pó</strong> — a eletricidade estática pode danificar componentes.</p>
-
-        <h3>7. Troca da Pasta Térmica (Opcional mas Recomendado)</h3>
-        <p>Se já abriu o notebook, aproveite para trocar a pasta térmica. Veja nosso <Link to="/blog/como-trocar-pasta-termica-notebook" className="text-accent">guia completo de troca de pasta térmica</Link>.</p>
-
-        <h3>8. Remontagem</h3>
-        <p>Reconecte a bateria, recoloque a tampa e aperte os parafusos. Ligue e verifique se o ventilador funciona normalmente e as temperaturas caíram.</p>
-
-        <h2>Frequência Recomendada</h2>
+        <h2>Erros que transformam manutenção em conserto</h2>
         <ul>
-          <li><strong>Uso doméstico:</strong> A cada 12-18 meses</li>
-          <li><strong>Ambientes com pets ou poeira:</strong> A cada 6-8 meses</li>
-          <li><strong>Uso profissional intenso:</strong> A cada 6 meses</li>
+          <li>Abrir com a bateria interna ainda conectada e provocar curto ao encostar a ferramenta na placa.</li>
+          <li>Forçar a tampa em um ponto ainda parafusado e trincar a carcaça.</li>
+          <li>Puxar o cabo flat da ventoinha pela fiação em vez de soltar o conector.</li>
+          <li>Aplicar produto de limpeza doméstico sobre a placa.</li>
+          <li>Fechar sem reconectar a ventoinha — a máquina liga, aquece e desliga em minutos.</li>
         </ul>
+        <p>Se o notebook ainda está em garantia de fábrica, verifique as condições do fabricante antes de abrir: em muitos casos a abertura por terceiro afeta a cobertura.</p>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Limpeza Profissional de Notebook em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Abrimos, limpamos e trocamos a pasta térmica do seu notebook no local. Sem necessidade de deixar o equipamento. A partir de R$ 99,99.</p>
-        </div>
+        <h2>De quanto em quanto tempo</h2>
+        <p>Não existe intervalo universal, porque o que define é o ambiente. Máquina usada sobre mesa, em local sem carpete e sem animais, acumula pouco. Notebook usado na cama, em obra, em cozinha ou em casa com pets acumula muito mais rápido. O critério prático é o comportamento: quando a ventoinha passa a trabalhar acelerada em tarefas leves e a saída de ar enfraquece, chegou a hora — independentemente do calendário.</p>
+
+        <h2>Quando levar para a bancada</h2>
+        <p>Faz sentido buscar atendimento quando há ruído metálico na ventoinha, desligamento sob carga, cheiro de queimado, líquido derramado ou quando o modelo exige remoção do teclado e da placa para chegar ao conjunto de refrigeração. Nesses casos o risco de dano na desmontagem é maior do que o ganho de fazer sozinho.</p>
+        <p>Na prática, o roteiro é: entender o sintoma, confirmar se é térmico e só então abrir. O critério de cobrança e o que é verificado estão em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>, e o procedimento completo de refrigeração faz parte da <Link to="/servicos/manutencao-de-notebook">manutenção de notebook</Link>. Quando o equipamento não pode sair do lugar, o <Link to="/atendimento-domicilio">atendimento no endereço</Link> cobre parte desses casos. Se o quadro for de calor recorrente, vale ler antes <Link to="/blog/notebook-superaquecendo-o-que-fazer">notebook superaquecendo: o que fazer</Link>.</p>
+
+        <h2>Resumo prático</h2>
+        <p>Poeira compactada nas aletas é a causa mais comum de aquecimento em notebook com alguns anos de uso, e a limpeza interna bem feita devolve o comportamento original do aparelho. Ela não corrige ventoinha gasta, projeto térmico limitado nem lentidão de origem lógica. Antes de abrir, confirme que o sintoma é realmente térmico; ao abrir, corte a energia da bateria e trate parafuso, trava plástica e conector com o cuidado que eles exigem.</p>
       </>
     ),
   },

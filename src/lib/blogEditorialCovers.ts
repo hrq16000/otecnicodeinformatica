@@ -129,6 +129,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5D — capas fotográficas reais licenciadas (sem IA).
+  "como-limpar-notebook-por-dentro": {
+    src: "/blog/como-limpar-notebook-por-dentro.jpg",
+    alt: "Dissipador de notebook com as aletas obstruídas por uma manta compacta de poeira",
+    width: 1200,
+    height: 630,
+  },
+  "como-trocar-pasta-termica-notebook": {
+    src: "/blog/como-trocar-pasta-termica-notebook.jpg",
+    alt: "Composto térmico aplicado sobre a superfície de um processador antes da montagem do dissipador",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

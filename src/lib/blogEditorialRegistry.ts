@@ -281,6 +281,40 @@ const WAVE_5C: EditorialApproval[] = [
   },
 ];
 
+/**
+ * ── Onda 5D — manutenção física de notebook (limpeza interna e pasta térmica).
+ */
+const WAVE_5D: EditorialApproval[] = [
+  {
+    slug: "como-limpar-notebook-por-dentro",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution:
+      "Foto: DMahalko / Dale Mahalko (Wikimedia Commons), CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Laptop_overheating_due_to_dust-clogged_internal_heatsinks_in_2.5_year_old_laptop.jpg",
+    notes:
+      "Reescrita integral na Onda 5D; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-trocar-pasta-termica-notebook",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution:
+      "Foto: Jyothis (Wikimedia Commons), CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Thermal_compound_Applied.JPG",
+    notes:
+      "Reescrita integral na Onda 5D; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -311,6 +345,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5B.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5C.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5D.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

@@ -9,6 +9,8 @@ import {
   type ContextoTriagem,
 } from "@/lib/problemasWaTemplates";
 import { useScrollBucket } from "@/hooks/useScrollBucket";
+import { useVarianteWa } from "@/lib/problemasWaVariants";
+import { trackWaClick } from "@/lib/funnelAnalytics";
 import { trackCTAClick } from "@/lib/analytics";
 
 export interface OpcaoSintoma {
@@ -27,6 +29,7 @@ export function TriagemRapidaHub({ opcoes }: { opcoes: OpcaoSintoma[] }) {
   const [selecionado, setSelecionado] = useState(opcoes[0]?.path ?? "");
   const [contexto, setContexto] = useState<ContextoTriagem>({});
   const rolagem = useScrollBucket();
+  const variante = useVarianteWa();
 
   const opcao = useMemo(
     () => opcoes.find((o) => o.path === selecionado) ?? opcoes[0],
@@ -36,7 +39,26 @@ export function TriagemRapidaHub({ opcoes }: { opcoes: OpcaoSintoma[] }) {
   if (!opcao) return null;
 
   const sintoma = opcao.path.replace("/problemas/", "");
-  const ctx = { ...contexto, sintoma, secao: "hub_triagem", rolagem, complemento: opcao.titulo };
+  const ctx = {
+    ...contexto,
+    sintoma,
+    secao: "hub_triagem",
+    rolagem,
+    variante,
+    complemento: opcao.titulo,
+  };
+
+  const registrarWa = () => {
+    const rotulo = rotuloEvento(ctx);
+    trackCTAClick("whatsapp", rotulo);
+    trackWaClick(rotulo, {
+      variant: `msg_${variante}`,
+      servico: sintoma,
+      cta_position: "problema_hub_triagem",
+      utm_medium: "cta",
+      bairro: contexto.bairro ?? null,
+    });
+  };
 
   return (
     <section
@@ -82,7 +104,7 @@ export function TriagemRapidaHub({ opcoes }: { opcoes: OpcaoSintoma[] }) {
         <Button asChild size="lg" className="transition-transform duration-200 hover:-translate-y-0.5">
           <a
             href={buildProblemaWaHref(opcao.waMessage, ctx)}
-            onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctx))}
+            onClick={registrarWa}
             rel="noopener noreferrer"
             target="_blank"
           >

@@ -4,6 +4,17 @@ import { Footer } from "@/components/Footer";
 import { upsertCanonical } from "@/lib/canonicalUrl";
 import { siteConfig } from "@/lib/siteConfig";
 import { FOTOS_LICENCIADAS } from "@/lib/fotosLicenciadas";
+import { EDITORIAL_COVERS } from "@/lib/blogEditorialCovers";
+import { APPROVED_EDITORIAL_CONTENT } from "@/lib/blogEditorialRegistry";
+
+/** Capas editoriais aprovadas cuja imagem é fotografia licenciada de terceiros. */
+const licensedCovers = Object.entries(EDITORIAL_COVERS)
+  .map(([slug, cover]) => ({ slug, cover, approval: APPROVED_EDITORIAL_CONTENT.get(slug) }))
+  .filter(
+    (item): item is { slug: string; cover: typeof item.cover; approval: NonNullable<typeof item.approval> } =>
+      item.approval?.imageOrigin === "licensed" && Boolean(item.approval.imageAttribution),
+  );
+
 
 /**
  * Créditos das fotografias reais (Etapa 10). Página utilitária: noindex,

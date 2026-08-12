@@ -219,7 +219,7 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(160deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 62%, hsl(197 55% 26%) 100%);
+    background: linear-gradient(158deg, hsl(var(--hero-bg)) 0%, hsl(var(--hero-bg-end)) 58%, hsl(178 34% 22%) 100%);
     /* Reserva mínima de altura para zerar CLS no mobile enquanto fontes/imagens
        do hero (LCP) ainda estão carregando. Mantém viewport estável. */
   }

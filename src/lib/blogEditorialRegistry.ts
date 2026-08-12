@@ -412,6 +412,35 @@ const WAVE_5G: EditorialApproval[] = [
   },
 ];
 
+const WAVE_5H: EditorialApproval[] = [
+  {
+    slug: "como-testar-fonte-de-alimentacao-pc",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "Public domain",
+    imageAttribution: "Foto: Alan Liefting (Wikimedia Commons), domínio público — https://commons.wikimedia.org/wiki/File:ATX_power_supply_interior.jpg",
+    notes:
+      "Reescrita integral na Onda 5H; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-diagnosticar-placa-mae-defeituosa",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 2.5",
+    imageAttribution: "Foto: Darkone (Wikimedia Commons), CC BY-SA 2.5 — https://commons.wikimedia.org/wiki/File:ASRock_K7VT4A_Pro_Mainboard.jpg",
+    notes:
+      "Reescrita integral na Onda 5H; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -450,6 +479,7 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5F.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5G.map((a) => [a.slug, a] as [string, EditorialApproval]),
+  ...WAVE_5H.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

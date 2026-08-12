@@ -263,6 +263,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Impressora em rede: por que ela some",
     cover: "/blog/como-conectar-wifi-tv-nao-conecta.jpg",
   },
+  // ── Rodada 5H — energia e placa-mãe (diagnóstico de bancada).
+  {
+    slug: "como-testar-fonte-de-alimentacao-pc",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/computador-nao-liga",
+    pilarLabel: "Computador não liga em Curitiba",
+    apoio: "/blog/como-diagnosticar-placa-mae-defeituosa",
+    apoioLabel: "Placa-mãe defeituosa: como confirmar",
+    cover: "/blog/como-testar-fonte-de-alimentacao-pc.jpg",
+  },
+  {
+    slug: "como-diagnosticar-placa-mae-defeituosa",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/conserto-placa",
+    pilarLabel: "Conserto de placa em Curitiba",
+    apoio: "/blog/como-testar-fonte-de-alimentacao-pc",
+    apoioLabel: "Testar a fonte do PC sem trocar peça boa",
+    cover: "/blog/como-diagnosticar-placa-mae-defeituosa.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

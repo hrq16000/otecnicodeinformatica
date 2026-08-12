@@ -181,6 +181,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5H — capas fotográficas reais licenciadas (sem IA).
+  "como-testar-fonte-de-alimentacao-pc": {
+    src: "/blog/como-testar-fonte-de-alimentacao-pc.jpg",
+    alt: "Interior de uma fonte de alimentação ATX de computador com capacitores e dissipadores",
+    width: 1200,
+    height: 630,
+  },
+  "como-diagnosticar-placa-mae-defeituosa": {
+    src: "/blog/como-diagnosticar-placa-mae-defeituosa.jpg",
+    alt: "Placa-mãe de computador de mesa com soquete do processador, slots de memória e capacitores",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

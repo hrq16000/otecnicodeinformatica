@@ -7,6 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { PoliticaAtendimentoBloco } from "@/components/PoliticaAtendimentoBloco";
 import { EditorialContentLinks } from "@/components/editorial/EditorialContentLinks";
 import { ExperienciaBadge } from "@/components/social-proof/ExperienciaBadge";
 import { PageTableOfContents } from "@/components/ui/PageTableOfContents";
@@ -481,6 +482,8 @@ export const ServicoLandingLayout = ({ data }: { data: ServicoLandingData }) => 
       )}
 
 
+
+      <PoliticaAtendimentoBloco />
 
       {/* FAQ */}
       <section id="faq" className="scroll-mt-24 py-14 md:py-16 bg-secondary">

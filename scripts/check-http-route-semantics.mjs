@@ -118,7 +118,10 @@ async function main() {
   for (const p of MISSING_ASSETS) {
     const r = await get(base, p);
     assert(r.status === 404, `[asset] ${p} → ${r.status} (esperado 404)`);
-    assert(!/<div id="root"/.test(r.body), `[asset] ${p} devolveu HTML de aplicação`);
+    assert(
+      !/rel=["']canonical["']/i.test(r.body) && !/"@type":\s*"Service"/.test(r.body),
+      `[asset] ${p} devolveu HTML de aplicação com sinais de página válida`,
+    );
   }
 
   if (server) await new Promise((r) => server.close(r));

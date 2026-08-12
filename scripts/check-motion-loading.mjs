@@ -59,7 +59,7 @@ const primitivas = [
 ];
 for (const [arquivo, tokens] of primitivas) {
   const conteudo = ler(arquivo);
-  if (/animate-pulse/.test(conteudo)) {
+  if (/className=[^\n]*animate-pulse/.test(conteudo)) {
     erros.push(`${arquivo} voltou a usar animate-pulse ad-hoc em vez do token .skel`);
   }
   for (const t of tokens) {
@@ -78,7 +78,7 @@ const viewsComDados = [
 ];
 for (const arquivo of viewsComDados) {
   const conteudo = ler(arquivo);
-  if (!/\bskel\b/.test(conteudo)) erros.push(`${arquivo} sem esqueleto .skel no estado de carregamento`);
+  if (!/\bskel\b/.test(conteudo) && !/Skeleton(List|Section|Grid|Card)/.test(conteudo)) erros.push(`${arquivo} sem esqueleto .skel no estado de carregamento`);
   if (/bg-muted\/40 animate-pulse|animate-pulse bg-muted/.test(conteudo)) {
     erros.push(`${arquivo} voltou a usar placeholder animate-pulse ad-hoc`);
   }

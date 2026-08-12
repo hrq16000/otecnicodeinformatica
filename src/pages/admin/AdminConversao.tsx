@@ -97,6 +97,38 @@ const AdminConversao = () => {
     void carregar();
   }, [carregar]);
 
+  /**
+   * Tempo real: novos cliques entram na lista sem recarregar a consulta.
+   * Respeita os mesmos filtros de tela e o corte de QA (filtrarComerciais).
+   */
+  const [aoVivo, setAoVivo] = useState(true);
+  const [ultimoEvento, setUltimoEvento] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isAdmin || !aoVivo) return;
+    const canal = supabase
+      .channel("admin-conversao-clicks")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "click_events" },
+        (payload) => {
+          const novo = payload.new as Evento;
+          if (rota !== "all" && novo.path !== rota) return;
+          if (viewport !== "all" && novo.viewport_bucket !== viewport) return;
+          if (origem !== "all" && novo.attribution_channel !== origem) return;
+          const [ok] = filtrarComerciais([novo]);
+          if (!ok) return;
+          setRows((prev) => [ok, ...prev].slice(0, 5000));
+          setUltimoEvento(new Date().toLocaleTimeString("pt-BR"));
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(canal);
+    };
+  }, [isAdmin, aoVivo, rota, viewport, origem]);
+
+
   const agregados = useMemo(() => {
     const porCta = new Map<string, { wa: number; call: number; abertura: number }>();
     const porViewport = new Map<string, { wa: number; call: number; total: number }>();
@@ -180,8 +212,20 @@ const AdminConversao = () => {
       etapaSessions.get(etapa)!.add(sid);
     }
 
+    // Recorte por hora local (0–23) e por serviço, para leitura operacional.
+    const porHora = Array.from({ length: 24 }, () => ({ wa: 0, call: 0 }));
+    const porServico = new Map<string, { wa: number; call: number }>();
+    for (const r of rows) {
+      const h = new Date(r.created_at).getHours();
+      const s = porServico.get(r.servico || "nao-informado") ?? { wa: 0, call: 0 };
+      if (r.event_type === "wa_click") { porHora[h].wa += 1; s.wa += 1; }
+      if (r.event_type === "call_click") { porHora[h].call += 1; s.call += 1; }
+      porServico.set(r.servico || "nao-informado", s);
+    }
+
     const funil = ETAPAS.map((e) => ({ ...e, sessoes: etapaSessions.get(e.id)?.size ?? 0 }));
     const base = funil[0].sessoes;
+
 
     return {
       porCta: [...porCta.entries()].sort((a, b) => b[1].wa + b[1].call - (a[1].wa + a[1].call)),
@@ -233,7 +277,14 @@ const AdminConversao = () => {
         .sort((a, b) => b.wa - a.wa)
         .slice(0, 25),
       porVariante: [...porVariante.entries()].sort((a, b) => a[0].localeCompare(b[0])),
+      porHora,
+      picoHora: Math.max(1, ...porHora.map((h) => h.wa + h.call)),
+      porServico: [...porServico.entries()]
+        .map(([servico, v]) => ({ servico, ...v }))
+        .sort((a, b) => b.wa + b.call - (a.wa + a.call))
+        .slice(0, 15),
       funil: funil.map((f) => ({ ...f, taxa: pct(f.sessoes, base) })),
+
       totalWa: rows.filter((r) => r.event_type === "wa_click").length,
       totalCall: rows.filter((r) => r.event_type === "call_click").length,
       totalEventos: rows.length,
@@ -369,6 +420,18 @@ const AdminConversao = () => {
           <Download className="h-4 w-4" aria-hidden />
           Exportar CSV
         </Button>
+        <Button
+          variant={aoVivo ? "default" : "outline"}
+          onClick={() => setAoVivo((v) => !v)}
+          className="gap-2"
+          aria-pressed={aoVivo}
+        >
+          <span
+            className={`h-2 w-2 rounded-full ${aoVivo ? "animate-pulse bg-[hsl(var(--accent))]" : "bg-muted-foreground"}`}
+            aria-hidden
+          />
+          {aoVivo ? "Ao vivo" : "Pausado"}
+        </Button>
       </Card>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-3">
@@ -383,8 +446,55 @@ const AdminConversao = () => {
         <Card className="p-4">
           <p className="text-xs text-muted-foreground">Eventos no período</p>
           <p className="font-heading text-2xl font-bold text-foreground">{agregados.totalEventos}</p>
+          {ultimoEvento && (
+            <p className="mt-1 text-xs text-muted-foreground">Último evento ao vivo: {ultimoEvento}</p>
+          )}
         </Card>
       </div>
+
+      <div className="mb-6 grid gap-6 lg:grid-cols-2">
+        <Card className="p-4">
+          <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Cliques por horário</h2>
+          <ul className="flex h-40 items-end gap-1" aria-label="Cliques por hora do dia">
+            {agregados.porHora.map((h, i) => {
+              const total = h.wa + h.call;
+              return (
+                <li key={i} className="flex flex-1 flex-col items-center justify-end gap-1">
+                  <div
+                    className="w-full rounded-t bg-[hsl(var(--accent))]"
+                    style={{ height: `${Math.round((total / agregados.picoHora) * 100)}%` }}
+                    title={`${i}h — ${h.wa} WhatsApp / ${h.call} ligação`}
+                  />
+                  <span className="text-[10px] text-muted-foreground">{i % 3 === 0 ? i : ""}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-2 text-xs text-muted-foreground">Hora local do navegador. Pico: {agregados.picoHora} cliques.</p>
+        </Card>
+
+        <Card className="p-4">
+          <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Cliques por serviço</h2>
+          <table className="w-full text-sm">
+            <thead className="text-left text-xs text-muted-foreground">
+              <tr><th className="py-1">Serviço</th><th>WhatsApp</th><th>Ligação</th></tr>
+            </thead>
+            <tbody>
+              {agregados.porServico.map((s) => (
+                <tr key={s.servico} className="border-t border-border">
+                  <td className="py-1.5 pr-2 text-foreground">{s.servico}</td>
+                  <td>{s.wa}</td>
+                  <td>{s.call}</td>
+                </tr>
+              ))}
+              {agregados.porServico.length === 0 && (
+                <tr><td colSpan={3} className="py-3 text-muted-foreground">Sem dados no período.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </Card>
+      </div>
+
 
       <Card className="mb-6 p-4">
         <h2 className="mb-3 font-heading text-lg font-bold text-foreground">Funil por etapa</h2>

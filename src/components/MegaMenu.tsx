@@ -87,7 +87,6 @@ export const MegaMenu = ({ grupos }: { grupos: MegaGrupo[] }) => {
                 // assim o clique continua sendo um toggle previsível.
                 setAberto((atual) => (atual ? g.id : atual));
               }}
-              onFocus={() => setAberto(g.id)}
               className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 ativo ? "bg-accent/10 text-accent" : "text-foreground/80 hover:bg-accent/10 hover:text-accent"
               }`}

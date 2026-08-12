@@ -99,6 +99,13 @@
           "Também deixamos configurado o essencial: proteção nativa do sistema ativa e atualizada, controle de instalação e limpeza dos agendamentos suspeitos encontrados no diagnóstico.",
           "Não vendemos assinatura de antivírus como condição do serviço. Quando o cliente já usa uma solução paga, verificamos se está corretamente configurada em vez de sugerir a troca sem motivo técnico."
         ]
+      },
+      {
+        "titulo": "Quando a limpeza precisa virar reinstalação",
+        "paragrafos": [
+          "Existe um ponto em que insistir na remoção custa mais do que recomeçar: quando arquivos do próprio sistema foram alterados, quando a infecção reapareceu após limpeza bem executada ou quando as permissões do perfil ficaram inconsistentes.",
+          "Nesses casos apresentamos o custo das duas rotas e o tempo de cada uma, com os dados do usuário preservados antes de qualquer decisão. Quem escolhe é o cliente, com o número na frente."
+        ]
       }
     ],
     "remocao-virus/agua-verde": [
@@ -123,6 +130,13 @@
           "Anúncios abrindo sozinhos, página inicial trocada, resultados de busca redirecionados, extensões que reaparecem e programas desconhecidos na inicialização são indícios consistentes de infecção por adware ou sequestro de navegador.",
           "Já lentidão constante sem anúncios, travamento em jogos, ruído alto do ventilador e desligamento repentino costumam ter outra origem: disco saturado, memória insuficiente, pasta térmica ressecada ou fonte degradada. Tratar isso como vírus atrasa a solução.",
           "A triagem por mensagem separa os dois cenários antes de qualquer deslocamento, e o cliente sabe desde o início qual serviço está contratando."
+        ]
+      },
+      {
+        "titulo": "Contas e senhas depois da limpeza",
+        "paragrafos": [
+          "Infecção que captura navegador costuma alcançar senhas salvas. Por isso, ao final do serviço, orientamos a troca das senhas críticas — e-mail principal, banco e redes — a partir de outro dispositivo já verificado.",
+          "Também recomendamos ativar verificação em duas etapas nas contas que oferecem o recurso e revisar as sessões conectadas. São ações gratuitas, feitas pelo próprio cliente, e reduzem drasticamente o prejuízo de qualquer episódio futuro."
         ]
       }
     ],
@@ -174,6 +188,13 @@
           "Só com esse conjunto de resultados montamos o orçamento. Isso evita o padrão mais comum do mercado — trocar peça por tentativa até acertar, com o cliente pagando cada tentativa.",
           "O laudo fica registrado na ordem de serviço, com o que foi medido e o que foi concluído, e acompanha o equipamento na devolução."
         ]
+      },
+      {
+        "titulo": "Prazos e comunicação durante o reparo",
+        "paragrafos": [
+          "Assim que o diagnóstico fecha, o cliente recebe o prazo estimado e o que depende de terceiros — normalmente disponibilidade de peça. Se o prazo mudar, avisamos antes do vencimento, não depois.",
+          "Cada etapa relevante fica registrada na ordem de serviço: entrada, laudo, aprovação, execução e teste final. Isso evita a situação mais desgastante da assistência técnica: o equipamento parado sem notícia."
+        ]
       }
     ],
     "upgrade-ssd-memoria/cic": [
@@ -198,6 +219,13 @@
           "Antes de indicar peça, confirmamos o que a máquina realmente aceita: tipo e quantidade máxima de memória, número de bancos livres, interface de armazenamento disponível e se a placa reconhece a velocidade do módulo pretendido.",
           "Esse levantamento evita o erro mais caro do upgrade doméstico — comprar uma peça pela promoção e descobrir que ela não é compatível ou que trabalhará abaixo da capacidade.",
           "O cliente recebe a especificação por escrito e pode comprar por conta própria, se preferir. Nesse caso, aplicam-se as condições da política de peças fornecidas pelo cliente."
+        ]
+      },
+      {
+        "titulo": "Peça nova, usada e recondicionada",
+        "paragrafos": [
+          "Trabalhamos preferencialmente com peça nova, porque é o único cenário em que a garantia do componente é integral e verificável. Quando o cliente pede alternativa mais barata, explicamos exatamente o que muda em garantia e vida útil esperada.",
+          "Não instalamos memória ou armazenamento de origem incerta sem registrar isso na ordem de serviço, com a limitação de garantia declarada por escrito."
         ]
       }
     ],
@@ -224,6 +252,13 @@
           "O disco original permanece intacto até o cliente confirmar que o sistema novo está completo — com programas, licenças e acessos funcionando. Esse é o seguro mais barato de todo o serviço.",
           "Quando a parada não pode ocorrer no horário comercial, a execução é combinada fora do expediente, dentro das condições publicadas."
         ]
+      },
+      {
+        "titulo": "Documentação do que foi instalado",
+        "paragrafos": [
+          "Ao final, a ordem de serviço traz modelo, capacidade e especificação da peça instalada, além da configuração final da máquina. Esse registro serve para garantia, para reposição futura e para o controle patrimonial de quem administra vários equipamentos.",
+          "Quando o parque tem mais de uma máquina, essa documentação permite padronizar as próximas trocas e comprar melhor."
+        ]
       }
     ],
     "upgrade-ssd-memoria/agua-verde": [
@@ -249,6 +284,13 @@
           "Depois da instalação, repetimos exatamente as mesmas medições. Assim o ganho deixa de ser impressão e passa a ser número comparável, e fica claro se o próximo passo do upgrade ainda faz sentido.",
           "Se a medição mostrar que a peça não trouxe ganho relevante para aquele uso, isso é informado com a mesma clareza."
         ]
+      },
+      {
+        "titulo": "O que fazer com o disco antigo",
+        "paragrafos": [
+          "O disco substituído é devolvido ao cliente por padrão. Quando ele ainda está saudável, indicamos dois destinos úteis: virar unidade externa para cópia de segurança ou permanecer como armazenamento secundário na própria máquina, quando há espaço interno.",
+          "Se o cliente prefere descartar, orientamos o apagamento seguro antes e o encaminhamento a ponto de coleta de eletrônicos — nunca lixo comum."
+        ]
       }
     ],
     "upgrade-ssd-memoria/portao": [
@@ -273,6 +315,13 @@
           "Computadores de atendimento têm dependências que não aparecem no uso doméstico: sistema de gestão com licença vinculada, impressora fiscal, leitor de código, integração com maquininha e, em muitos casos, acesso a câmeras.",
           "Antes do upgrade, listamos cada uma dessas dependências e confirmamos como serão restabelecidas. Depois da troca, testamos uma a uma com o operador presente, no próprio balcão.",
           "Só encerramos o atendimento quando a rotina completa de venda é executada com sucesso na máquina atualizada."
+        ]
+      },
+      {
+        "titulo": "Custo total antes de aprovar",
+        "paragrafos": [
+          "O valor apresentado reúne peça, mão de obra e o tempo estimado de parada do equipamento. Nada é acrescentado depois sem nova aprovação registrada.",
+          "Para quem opera atendimento ao público, o tempo parado costuma pesar mais que a peça — por isso ele entra na conta desde o início, e não como surpresa no fim do serviço."
         ]
       }
     ]

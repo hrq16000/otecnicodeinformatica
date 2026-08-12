@@ -1,7 +1,7 @@
 /**
- * WORKER DE BORDA — tecnico-curitiba-route-guard
+ * WORKER DE BORDA — otecnicodeinformatica-route-guard
  *
- * Zona: tecnico.curitiba.br (subzona própria). Não publica enquanto a origem
+ * Zona: otecnicodeinformatica.com.br. Não publica enquanto a origem
  * for o placeholder LOVABLE_ORIGIN_NOT_CONFIGURED.
  *
  * Responsabilidades (ordem em scripts/lib/edge-router.mjs):

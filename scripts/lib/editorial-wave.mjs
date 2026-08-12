@@ -90,6 +90,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Recuperação de dados",
     cover: "/blog/como-instalar-windows-11-do-zero.jpg",
   },
+  // ── Rodada 4Y — dois guias herdados reformados (0 rotas novas, capas reais).
+  {
+    slug: "como-resolver-tela-azul-windows",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-computador",
+    pilarLabel: "Manutenção de computador",
+    apoio: "/diagnostico-tecnico",
+    apoioLabel: "Como funciona o diagnóstico técnico",
+    cover: "/blog/como-resolver-tela-azul-windows.jpg",
+  },
+  {
+    slug: "como-trocar-tela-notebook-passo-a-passo",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-notebook",
+    pilarLabel: "Manutenção de notebook em Curitiba",
+    apoio: "/quando-nao-compensa",
+    apoioLabel: "Quando o reparo não compensa",
+    cover: "/blog/como-trocar-tela-notebook-passo-a-passo.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

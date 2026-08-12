@@ -308,6 +308,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Rodada 3O): critérios de levantamento de requisitos, sem configuração universal, sem benchmark, sem promessa de desempenho, sem nome de software no slug/H1/title e sem selo de homologação não publicado pelo fabricante. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-resolver-tela-azul-windows": {
+    slug: "como-resolver-tela-azul-windows",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Rodada 4Y): interpretação do código de parada como pista e não como diagnóstico fechado, ordem segura de verificação (alterações recentes, memória, disco, energia), aviso explícito de risco de perda de dados quando o disco está envolvido e nenhuma promessa de correção definitiva. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-trocar-tela-notebook-passo-a-passo": {
+    slug: "como-trocar-tela-notebook-passo-a-passo",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Rodada 4Y): identificação da tela pelo código do painel, distinção entre defeito de painel e de cabo/placa de vídeo, alerta de risco em telas coladas e touch, sem indicação de peça específica, sem preço de peça e sem promessa de compatibilidade universal. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

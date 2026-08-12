@@ -1023,6 +1023,8 @@ const App = () => (
             <Route path="/conserto-celular/:local" element={<ConsertoCelularLocalCity />} />
 
             <Route path="/status" element={<Status />} />
+            <Route path="/creditos-de-imagens" element={<CreditosDeImagens />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

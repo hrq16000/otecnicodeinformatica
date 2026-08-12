@@ -134,6 +134,70 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
       },
     ],
   },
+  {
+    path: "/problemas/computador-desliga-sozinho",
+    title: "Computador desliga sozinho: causas e o que checar | O Técnico de Informática",
+    description:
+      "Desligamento súbito quase sempre é temperatura, fonte ou alimentação — raramente vírus. Veja como identificar a causa, o que testar antes e quando parar de usar.",
+    h1: "Computador desligando sozinho ou reiniciando do nada",
+    subtitulo:
+      "Desligamento sem aviso é comportamento de proteção: alguma coisa cortou a energia ou o limite térmico foi atingido.",
+    blocos: [
+      {
+        titulo: "Temperatura ou alimentação: o padrão indica a causa",
+        paragrafos: [
+          "Quando a máquina apaga durante jogo, edição ou videochamada e volta a ligar depois de esfriar, o padrão é térmico: dissipador entupido de poeira, ventoinha parada ou pasta térmica ressecada. O processador chega ao limite e o desligamento é a última defesa antes do dano permanente.",
+          "Corte seco a qualquer momento, mesmo com a máquina ociosa, aponta para alimentação: fonte com capacitor no fim da vida, cabo de força folgado, régua sobrecarregada ou oscilação na tomada. Já reinício imediato, voltando na tela de boas-vindas, é o único cenário em que driver, atualização ou memória instável entram como suspeitos principais.",
+        ],
+      },
+      {
+        titulo: "O que dá para checar antes de chamar alguém",
+        paragrafos: [
+          "Anote se o desligamento acontece sempre em atividade pesada ou também parado, confira se as ventoinhas giram e se sai ar quente pela traseira, e teste em outra tomada sem régua nem extensão. Gabinete encostado na parede ou dentro de nicho fechado também derruba a troca de calor.",
+          "Não insista no botão de ligar quando a máquina não responde: a proteção da fonte foi acionada e forçar aumenta o risco para placa-mãe e disco. E não formate — desligamento térmico ou elétrico volta igual depois da formatação, com os dados já perdidos.",
+        ],
+      },
+      {
+        titulo: "Como é feito o diagnóstico",
+        paragrafos: [
+          "A triagem remota lê temperatura, histórico de eventos e comportamento sob carga para confirmar o padrão antes de deslocar alguém. A visita técnica cobre limpeza interna, troca de pasta térmica e medição de tensão no local.",
+          "Bancada entra quando a falha é intermitente: teste de fonte sob carga real, teste de memória prolongado e inspeção visual da placa exigem horas de observação. Diagnóstico, deslocamento, mão de obra e peça são informados separadamente, e nada é executado sem aprovação.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/problemas/notebook-nao-carrega",
+    title: "Notebook não carrega: causas e o que testar | O Técnico de Informática",
+    description:
+      "Notebook ligado na tomada que não carrega pode ser fonte, conector, bateria ou placa. Veja como identificar cada caso, o que testar sozinho e o que evita gasto errado.",
+    h1: "Notebook conectado na tomada e a bateria não carrega",
+    subtitulo:
+      "“Conectada, não carregando” aparece em quatro cenários diferentes — e trocar a bateria por palpite é o erro mais comum.",
+    blocos: [
+      {
+        titulo: "Quatro causas com o mesmo sintoma",
+        paragrafos: [
+          "Carregador com defeito ou incompatível é a primeira hipótese porque é a mais barata de confirmar: tensão correta com corrente insuficiente, cabo rompido internamente ou conector USB-C que não negocia a potência certa. Em seguida vem o jack de energia, que sofre esforço mecânico e trinca a solda com o tempo — se mexer no plugue faz o LED piscar, o problema é físico.",
+          "A bateria é peça de consumo e perde capacidade por ciclos e por idade, mas só indicamos troca depois de conferir capacidade real e contagem de ciclos. Quando carregador e bateria estão bons e a carga não acontece, a falha está no circuito de carga da placa-mãe: o cenário mais caro e o que mais exige diagnóstico honesto antes do orçamento.",
+        ],
+      },
+      {
+        titulo: "Testes que evitam comprar peça errada",
+        paragrafos: [
+          "Teste com outro carregador do mesmo modelo e potência, compare tensão e amperagem da etiqueta com o que o fabricante exige e observe se o LED de carga acende, pisca ou fica apagado. No Windows, o relatório de bateria mostra capacidade projetada contra capacidade original e resolve boa parte da dúvida sobre desgaste.",
+          "Não compre bateria antes do diagnóstico, não adote carregador universal genérico de forma permanente e não force o plugue nem improvise apoio para segurar o contato — isso agrava a trinca na solda da placa. Bateria estufada precisa de manuseio e descarte adequados.",
+        ],
+      },
+      {
+        titulo: "Modalidades de atendimento",
+        paragrafos: [
+          "A triagem remota lê relatório de bateria, ciclos e capacidade real, separando desgaste natural de defeito antes de qualquer deslocamento. A visita técnica testa com carregador de referência e verifica o conector no local.",
+          "Ressolda ou troca do jack de energia, medição no circuito de carga e substituição de bateria com peça compatível são serviços de bancada. Peça e mão de obra são informadas separadamente e aprovadas antes da execução.",
+        ],
+      },
+    ],
+  },
 ];
 
 /** FAQ espelhada (mesma copy do TS) — paridade FAQPage estático × conteúdo visível. */
@@ -158,6 +222,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "Programas de recuperação que baixo na internet funcionam?", resposta: "Às vezes, em exclusão simples. O risco é instalar o programa no mesmo disco e sobrescrever justamente os arquivos que você quer. Se os dados forem importantes, não é o primeiro passo indicado." },
     { pergunta: "Quanto tempo leva?", resposta: "Varredura lógica costuma levar de horas a alguns dias, conforme o tamanho do disco. Casos físicos dependem de avaliação e de peça compatível." },
     { pergunta: "Depois de recuperar, como evitar de novo?", resposta: "Backup em duas frentes: uma cópia local e uma em nuvem, com verificação periódica. Configuramos a rotina junto com a entrega, se você quiser." },
+  ],
+  "/problemas/computador-desliga-sozinho": [
+    { pergunta: "Computador que desliga sozinho é vírus?", resposta: "Quase nunca. Vírus costuma deixar o sistema lento, exibir anúncios ou travar programas — não cortar a energia da máquina. Desligamento seco é sinal físico: temperatura, fonte ou alimentação." },
+    { pergunta: "Só limpar por dentro resolve?", resposta: "Resolve quando a causa é térmica e o dissipador está entupido. Se a fonte estiver degradada ou a memória instável, a limpeza melhora por alguns dias e o problema volta." },
+    { pergunta: "Posso continuar usando até resolver?", resposta: "Se o desligamento é térmico e esporádico, o risco é moderado. Se acontece durante gravação de arquivos, o risco de corromper dados é real — faça cópia dos arquivos importantes antes de qualquer coisa." },
+    { pergunta: "Como vocês descobrem se é a fonte?", resposta: "Medindo tensão sob carga real e, quando possível, substituindo por uma fonte de teste compatível. Fonte que liga não significa fonte saudável: o defeito aparece quando o consumo sobe." },
+    { pergunta: "Notebook também desliga sozinho por temperatura?", resposta: "Sim, e com mais frequência que desktop, porque o espaço interno é menor. Em notebook a limpeza envolve desmontagem parcial e troca de pasta térmica — procedimento de bancada." },
+  ],
+  "/problemas/notebook-nao-carrega": [
+    { pergunta: "Trocar a bateria resolve notebook que não carrega?", resposta: "Só quando a bateria é a causa. Carregador defeituoso, jack trincado e circuito de carga da placa produzem o mesmo sintoma — por isso o diagnóstico vem antes da compra da peça." },
+    { pergunta: "Posso usar o notebook sem bateria, direto na tomada?", resposta: "Na maioria dos modelos sim, mas você fica exposto a qualquer oscilação de energia: uma queda breve desliga a máquina e pode corromper arquivos abertos." },
+    { pergunta: "Bateria parada em 80% é defeito?", resposta: "Nem sempre. Vários fabricantes limitam a carga para prolongar a vida útil da bateria, e isso é configurável. Conferimos a configuração antes de tratar como falha." },
+    { pergunta: "Bateria estufada é perigosa?", resposta: "Sim. Estufamento indica degradação química e risco de vazamento ou incêndio. Pare de usar, não perfure e encaminhe para troca e descarte correto." },
+    { pergunta: "Vocês vendem a bateria?", resposta: "Indicamos a peça compatível com o seu modelo e você decide onde comprar; se preferir, cuidamos da aquisição e da troca. Peça e mão de obra são informadas separadamente." },
   ],
 };
 

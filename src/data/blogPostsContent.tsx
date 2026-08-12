@@ -10292,61 +10292,52 @@ crontab -e
     ),
   },
   "como-configurar-roteador-wifi-iniciantes": {
-    title: "Como Configurar Roteador Wi-Fi Pela Primeira Vez: Guia Passo a Passo (2026)",
-    excerpt: "Trocou de operadora ou comprou roteador novo? Aprenda como configurar Wi-Fi em 15 minutos. Configuração profissional em Curitiba a partir de R$ 99,99.",
-    date: "2026-04-29",
-    readTime: "7 min",
-    category: "Tutoriais Domésticos",
+    title: "Como configurar um roteador Wi-Fi do zero, sem complicação",
+    excerpt: "Ordem correta das etapas, o que mudar na primeira configuração e os ajustes que evitam a maior parte dos problemas de sinal depois.",
+    date: "2026-04-22",
+    readTime: "11 min",
+    category: "Redes e Wi-Fi",
     content: (
       <>
-        <p className="lead">Configurar roteador parece complicado mas é simples. Veja o passo a passo geral que serve para a maioria dos modelos.</p>
+        <p className="lead">Configurar um roteador é simples quando a ordem das etapas é respeitada. A maior parte das dores de cabeça com Wi-Fi doméstico nasce de três decisões tomadas nos primeiros minutos: onde o aparelho foi colocado, qual senha ficou ativa e se ele continua repetindo a função do modem da operadora. Este guia percorre a configuração inicial na sequência correta.</p>
 
-        <h2>Antes de Começar</h2>
+        <h2>Antes de ligar: escolha o lugar</h2>
+        <p>Wi-Fi é rádio. O aparelho deve ficar em posição central em relação aos cômodos usados, elevado do chão, longe de caixas metálicas, do micro-ondas e de espelhos grandes. Roteador dentro do armário do corredor ou atrás da TV é a causa mais comum de queda de sinal — e nenhuma configuração compensa isso depois.</p>
+        <p>Se o ponto de entrada da operadora fica num canto ruim da casa, vale mais estender o cabo até um ponto central do que aceitar a posição imposta pela tomada.</p>
+
+        <h2>Modem, roteador e o duplo NAT</h2>
+        <p>Muitas operadoras entregam um aparelho que já faz modem e roteador. Ao acrescentar um roteador próprio, ficam duas redes em série, cada uma distribuindo endereços — o chamado duplo NAT. Nem sempre isso quebra a navegação, mas costuma atrapalhar jogos, câmeras, acesso remoto e transferências dentro da rede.</p>
+        <p>Há dois caminhos: colocar o aparelho da operadora em modo ponte, deixando o roteador próprio como único responsável pela rede; ou manter o roteador próprio em modo ponto de acesso, sem roteamento. Escolher um dos dois — e não os dois roteando ao mesmo tempo — resolve uma classe inteira de problemas.</p>
+
+        <h2>Primeiro acesso ao painel</h2>
+        <p>Com o cabo da internet na porta WAN e o computador ligado a uma porta LAN, o painel é aberto pelo endereço impresso na etiqueta do aparelho. Duas coisas devem mudar imediatamente:</p>
         <ul>
-          <li>Tenha o roteador novo em mãos</li>
-          <li>Tenha o cabo de internet da operadora</li>
-          <li>Tenha celular ou notebook para acessar o painel</li>
-          <li>Anote a SENHA padrão (vem na etiqueta embaixo do roteador)</li>
+          <li><strong>A senha de administração</strong>, que vem padrão e é pública na internet. Ela não é a senha do Wi-Fi — é a que protege as configurações.</li>
+          <li><strong>O acesso remoto ao painel</strong>, que deve permanecer desligado a menos que exista motivo claro para o contrário.</li>
         </ul>
 
-        <h2>Passo 1: Conexões Físicas</h2>
-        <ol>
-          <li>Plug o cabo da operadora na entrada azul ou marcada <strong>WAN</strong> ou <strong>Internet</strong> do roteador</li>
-          <li>Plug o roteador na tomada e ligue</li>
-          <li>Espere 2-3 minutos até as luzes ficarem fixas</li>
-        </ol>
+        <h2>Nome da rede e segurança</h2>
+        <p>Defina um nome de rede que não identifique morador, apartamento ou empresa. Em segurança, escolha WPA3 quando todos os aparelhos suportarem, ou WPA2 com AES quando houver equipamento antigo. Nunca deixe a rede aberta e evite WEP ou TKIP, que são padrões vencidos.</p>
+        <p>A senha deve ser longa e fácil de digitar — uma frase com quatro ou cinco palavras funciona melhor que uma sequência curta de símbolos. Desative o WPS: a comodidade de parear com um botão não compensa o risco que ele abre.</p>
 
-        <h2>Passo 2: Conectar no Wi-Fi</h2>
-        <ol>
-          <li>No celular, vá em Wi-Fi</li>
-          <li>Procure o nome do roteador (na etiqueta, algo como 'TPLINK_1234')</li>
-          <li>Conecte usando a senha padrão da etiqueta</li>
-        </ol>
+        <h2>2,4 GHz e 5 GHz: para que serve cada faixa</h2>
+        <p>A faixa de 2,4 GHz alcança mais longe e atravessa paredes com menos perda, mas é a mais congestionada e a mais lenta. A de 5 GHz entrega muito mais velocidade e sofre menos interferência, porém perde força com obstáculos.</p>
+        <p>Manter o mesmo nome nas duas faixas simplifica o uso e deixa o aparelho escolher. Separar em dois nomes dá controle manual e ajuda quando algum equipamento antigo insiste em conectar na faixa errada. As duas abordagens funcionam; o erro é desligar a faixa de 5 GHz achando que "não pega bem" quando o problema real é a posição do roteador.</p>
 
-        <h2>Passo 3: Acessar o Painel</h2>
-        <ol>
-          <li>Abra o navegador (Chrome, Safari)</li>
-          <li>Digite na barra de endereço: <strong>192.168.0.1</strong> ou <strong>192.168.1.1</strong> ou <strong>tplinkwifi.net</strong></li>
-          <li>Faça login (geralmente usuário 'admin' e senha 'admin', mas verifique a etiqueta)</li>
-        </ol>
+        <h2>Canais e largura</h2>
+        <p>Em prédios, dezenas de redes disputam o mesmo espaço. Em 2,4 GHz, use apenas os canais 1, 6 ou 11 — os demais se sobrepõem e pioram a situação de todos. Em 5 GHz, o automático costuma resolver bem. Largura de canal maior aumenta a velocidade de pico e reduz o alcance útil: em ambiente cheio, largura menor costuma render mais estabilidade real.</p>
 
-        <h2>Passo 4: Configurar Internet</h2>
-        <p>Geralmente o roteador detecta sozinho. Se não, escolha tipo de conexão. A maioria das operadoras no Brasil usa <strong>DHCP</strong> (automático). Para Vivo Fibra usa <strong>PPPoE</strong> com login e senha que vêm no contrato.</p>
+        <h2>Depois de configurar: os ajustes que valem</h2>
+        <ul>
+          <li><strong>Atualize o firmware.</strong> Correções de segurança e de estabilidade de conexão saem com frequência.</li>
+          <li><strong>Reserve endereços fixos</strong> para impressora, câmeras e servidores locais — evita que "sumam" da rede depois de uma queda de energia.</li>
+          <li><strong>Crie a rede de visitantes</strong> e use-a também para equipamentos de automação, isolando-os da rede principal.</li>
+          <li><strong>Anote as senhas</strong> em local seguro; a de administração some da memória exatamente quando é necessária.</li>
+        </ul>
 
-        <h2>Passo 5: Trocar Senha do Wi-Fi</h2>
-        <ol>
-          <li>Procure <strong>Configurações Wi-Fi</strong> ou <strong>Wireless</strong></li>
-          <li>Mude o nome da rede (SSID) para algo seu</li>
-          <li>Defina senha forte com 12+ caracteres</li>
-          <li>Salve</li>
-        </ol>
-
-        <h2>Passo 6: Trocar Senha do Painel</h2>
-        <p>Importante: troque a senha 'admin'. Procure <strong>Senha de Administrador</strong> ou <strong>Conta</strong> e defina uma nova.</p>
-
-        <h2>Não Funcionou?</h2>
-        <p>Cada operadora tem particularidades (Vivo, Claro NET, Oi, GVT). A O Técnico de Informática configura roteador, repetidor e mesh em sua casa em Curitiba — chame pelo WhatsApp.</p>
-
+        <h2>Quando o problema não é configuração</h2>
+        <p>Se o sinal cai sempre no mesmo cômodo, nenhuma configuração resolve — o caso é de cobertura, e a saída é um ponto de acesso adicional ligado por cabo, não um repetidor colocado onde o sinal já é fraco. Se a queda ocorre na casa toda, em horários fixos, a investigação passa pelo enlace da operadora. E se o roteador reinicia sozinho, o suspeito costuma ser a fonte de alimentação ou o superaquecimento.</p>
+        <p>Para melhorar cobertura, veja o guia de <Link to="/blog/como-melhorar-sinal-wifi-em-casa">como melhorar o sinal de Wi-Fi em casa</Link>. Para saber quem está conectado à sua rede, leia <Link to="/blog/como-saber-quem-esta-usando-meu-wifi">como identificar dispositivos no Wi-Fi</Link>. Quando o projeto envolve vários pontos, cabeamento ou rede de empresa, a página de <Link to="/servicos/redes-e-wifi">configuração de redes e Wi-Fi</Link> descreve como o serviço é feito.</p>
       </>
     ),
   },
@@ -10482,51 +10473,58 @@ crontab -e
     ),
   },
   "como-saber-quem-esta-usando-meu-wifi": {
-    title: "Como Saber Quem Está Usando o Meu Wi-Fi e Bloquear (Guia 2026)",
-    excerpt: "Internet lenta em casa? Aprenda como ver todos os dispositivos conectados no seu Wi-Fi e bloquear intrusos. Suporte técnico em Curitiba.",
-    date: "2026-04-29",
-    readTime: "6 min",
-    category: "Tutoriais Domésticos",
+    title: "Como saber quem está usando o seu Wi-Fi (e o que fazer)",
+    excerpt: "Como listar os dispositivos conectados, identificar cada um pelo nome e pelo endereço físico e retomar o controle da rede sem quebrar o que funciona.",
+    date: "2026-04-22",
+    readTime: "10 min",
+    category: "Redes e Wi-Fi",
     content: (
       <>
-        <p className="lead">Se sua internet está lenta, pode ter alguém usando sem permissão. Veja como descobrir e expulsar.</p>
+        <p className="lead">A suspeita costuma começar assim: a internet ficou lenta sem motivo, ou apareceu um aparelho desconhecido na lista do roteador. Antes de trocar tudo, vale entender o que a lista de dispositivos realmente mostra — e o que ela não mostra.</p>
 
-        <h2>Pelo Painel do Roteador (Mais Confiável)</h2>
+        <h2>Onde ver os aparelhos conectados</h2>
+        <p>O lugar confiável é o painel do próprio roteador, normalmente em uma seção chamada "dispositivos conectados", "clientes DHCP" ou "mapa da rede". Ali aparecem o nome informado por cada aparelho, o endereço IP recebido e o endereço físico (MAC) da placa de rede.</p>
+        <p>Aplicativos de celular que "escaneiam a rede" ajudam a ter uma visão rápida, mas só enxergam o que responde no momento da varredura. Um aparelho desligado ou em economia de energia não aparece — por isso a lista do roteador é a referência.</p>
+
+        <h2>Por que a lista parece cheia de estranhos</h2>
+        <p>Uma casa comum tem mais dispositivos conectados do que as pessoas imaginam: TV, console, caixa de som, aspirador, lâmpadas, câmeras, relógio, tablet antigo esquecido na gaveta. Muitos se apresentam com nomes genéricos ou apenas com um código do fabricante.</p>
+        <p>Some-se a isso a privacidade de endereço MAC: celulares modernos geram um endereço aleatório por rede, o que faz o mesmo aparelho aparecer com identidades diferentes ao longo do tempo. Ou seja, um nome estranho na lista não é prova de invasão.</p>
+
+        <h2>Como identificar cada aparelho com método</h2>
         <ol>
-          <li>Acesse o painel (192.168.0.1 ou 192.168.1.1)</li>
-          <li>Faça login</li>
-          <li>Procure <strong>Dispositivos Conectados</strong>, <strong>Status</strong>, <strong>Clientes Wi-Fi</strong> ou similar</li>
-          <li>Veja a lista de todos os aparelhos conectados</li>
+          <li>Liste o que você tem. Escreva todos os equipamentos da casa que usam rede, inclusive os raramente ligados.</li>
+          <li>Desligue o Wi-Fi de um aparelho por vez e observe qual entrada some da lista. É lento, mas elimina a dúvida.</li>
+          <li>Renomeie o que reconhecer. Muitos roteadores permitem apelidar dispositivos — depois disso, qualquer novidade fica evidente.</li>
+          <li>Reserve endereços fixos para os equipamentos permanentes. A lista passa a ter uma ordem estável.</li>
         </ol>
 
-        <h2>Identificar Cada Aparelho</h2>
-        <p>A lista mostra nomes técnicos ('android-d4f8'). Para identificar:</p>
+        <h2>Sinais que merecem atenção de verdade</h2>
         <ul>
-          <li>Compare com seus aparelhos: celulares, notebook, TV, Chromecast, câmeras, Alexa, geladeira smart</li>
-          <li>Anote o número de aparelhos seus</li>
-          <li>Se sobrar algum desconhecido, é intruso</li>
+          <li>Dispositivo conectado enquanto todos os aparelhos da casa estão desligados.</li>
+          <li>Alteração de configurações que você não fez — DNS trocado, acesso remoto habilitado, rede de visitantes ligada sozinha.</li>
+          <li>Tráfego contínuo em horários em que ninguém usa a internet.</li>
+          <li>Senha do painel que deixou de funcionar.</li>
         </ul>
+        <p>Esse conjunto aponta para acesso indevido ou para roteador comprometido — e aí não basta bloquear um endereço.</p>
 
-        <h2>Pelo Aplicativo (Android)</h2>
-        <p>Baixe o app <strong>Fing</strong> da Play Store. Mostra todos os dispositivos do Wi-Fi com nome amigável e identificação automática.</p>
+        <h2>Retomando o controle da rede</h2>
+        <h3>1. Troque a senha do Wi-Fi</h3>
+        <p>Use uma frase longa e mude o padrão de segurança para WPA3 ou WPA2 com AES. Todos os aparelhos precisarão reconectar — separe uma hora tranquila para isso.</p>
+        <h3>2. Troque a senha de administração</h3>
+        <p>É diferente da senha do Wi-Fi e é a que realmente protege as configurações. Se ela ainda era a de fábrica, considere que qualquer pessoa que já esteve na rede pôde acessá-la.</p>
+        <h3>3. Desative WPS e acesso remoto</h3>
+        <p>O WPS permite entrar sem digitar senha e é o atalho mais explorado em redes domésticas. O acesso remoto ao painel expõe o roteador à internet inteira.</p>
+        <h3>4. Atualize o firmware</h3>
+        <p>Boa parte das invasões de roteador explora falhas já corrigidas pelo fabricante em versões mais novas.</p>
+        <h3>5. Isole o que não precisa da rede principal</h3>
+        <p>Câmeras, automação e aparelhos de visitantes ficam melhor na rede de convidados. Se um deles for comprometido, o restante da casa não vai junto.</p>
 
-        <h2>Como Expulsar Intruso</h2>
-        <p>A forma mais eficaz: <strong>trocar a senha do Wi-Fi</strong>. O intruso é desconectado imediatamente e não consegue voltar. Use senha forte (12+ caracteres).</p>
+        <h2>Sobre bloquear por endereço MAC</h2>
+        <p>O filtro de MAC parece a solução óbvia, mas é uma barreira fraca: o endereço pode ser copiado, e a lista dá trabalho de manter. Ele funciona como organização, não como segurança. A proteção real vem da senha forte, do padrão de criptografia atual e do painel fechado.</p>
 
-        <h2>Bloquear Por MAC Address</h2>
-        <p>Roteadores avançados permitem bloquear endereço físico (MAC). No painel, em <strong>Filtro de MAC</strong> ou <strong>Bloqueio de Dispositivos</strong>, copie o MAC do intruso e bloqueie. Mas trocar a senha é mais simples.</p>
-
-        <h2>Como Evitar Que Aconteça</h2>
-        <ul>
-          <li>Senha forte e única (não use 'minhacasa123')</li>
-          <li>Não compartilhe sem necessidade</li>
-          <li>Crie rede separada para visitas</li>
-          <li>Troque a senha a cada 6 meses</li>
-        </ul>
-
-        <h2>Suspeita de Algo Mais Sério?</h2>
-        <p>Se mesmo trocando a senha continua estranho, pode ser problema mais grave. A O Técnico de Informática faz auditoria de rede em casa em Curitiba — atendimento via WhatsApp.</p>
-
+        <h2>Quando a lentidão não é intrusão</h2>
+        <p>Antes de concluir que alguém está usando sua internet, verifique atualizações de sistema em segundo plano, backups em nuvem, streaming em alta resolução e câmeras enviando vídeo o tempo todo. Também é comum o gargalo estar na cobertura, e não na banda contratada — o teste de velocidade próximo ao roteador e no cômodo problemático mostra a diferença em poucos minutos.</p>
+        <p>Se o diagnóstico apontar cobertura, o caminho está em <Link to="/blog/como-melhorar-sinal-wifi-em-casa">como melhorar o sinal de Wi-Fi em casa</Link>. Se o roteador nunca passou por uma configuração cuidadosa, comece por <Link to="/blog/como-configurar-roteador-wifi-iniciantes">como configurar um roteador do zero</Link>. Para revisão completa de rede, cabeamento e pontos de acesso, veja <Link to="/servicos/redes-e-wifi">configuração de redes e Wi-Fi</Link>.</p>
       </>
     ),
   },

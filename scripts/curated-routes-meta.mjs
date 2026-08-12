@@ -10,6 +10,7 @@ import { priorityFaq } from "./lib/priority-faq.mjs";
 import { priorityOffers } from "./lib/priority-offers.mjs";
 import { servicoBlocos } from "./lib/servico-blocos.mjs";
 import { blocos4n } from "./lib/blocos-4n.mjs";
+import { blocos4q } from "./lib/blocos-4q.mjs";
 import { servicoFaqs } from "./lib/servico-faqs.mjs";
 import { bairroBlocos, bairroFaq } from "./lib/bairro-static.mjs";
 import { cidadeBlocos, cidadeFaq } from "./lib/cidade-static.mjs";
@@ -991,10 +992,19 @@ const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
   return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}), ...(blocos ? { blocos } : {}) };
 });
 
+// Rodada 4Q: aprofundamento autoral anexado às rotas que ainda ficavam abaixo
+// do alvo de volume no inventário de herança editorial.
+const withBlocos4q = (r) => {
+  const extra = blocos4q(r.path);
+  if (!extra) return r;
+  return { ...r, blocos: [...(r.blocos ?? []), ...extra] };
+};
+
 export const CURATED_ROUTES = [
   ...BASE_ROUTES_WITH_FAQ,
   ...CLUSTER_PROBLEMAS_ROUTES,
   ...CLUSTER_EQUIPAMENTOS_ROUTES,
   ...CLUSTER_SOLUCOES_ROUTES,
   ...SERVICO_BAIRRO_ROUTES,
-];
+].map(withBlocos4q);
+

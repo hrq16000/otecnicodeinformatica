@@ -95,6 +95,11 @@
       "file": "src/lib/politicaComercial.ts",
       "rule": "filial",
       "why": "Fonte central declara explicitamente que NÃO há filial."
+    },
+    {
+      "file": "src/pages/equipamentos/EquipamentosHub.tsx",
+      "rule": "assistencia-autorizada",
+      "why": "Texto encaminha o cliente à assistência autorizada do fabricante quando o reparo é recusado; não reivindica autorização própria."
     }
   ],
   "_scope": "Conteúdo editorial (blog, páginas de problema, marcas) descreve terceiros e legislação — fora do escopo do gate de claims institucionais."

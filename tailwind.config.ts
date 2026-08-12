@@ -18,9 +18,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Montserrat", "Montserrat Fallback", "system-ui", "sans-serif"],
-        heading: ["Poppins", "Poppins Fallback", "system-ui", "sans-serif"],
+        sans: ["Figtree", "Figtree Fallback", "system-ui", "sans-serif"],
+        heading: ["Outfit", "Outfit Fallback", "system-ui", "sans-serif"],
       },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -48,6 +49,12 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           "on-dark": "hsl(var(--accent-on-dark))",
         },
+        categoria: {
+          DEFAULT: "hsl(var(--categoria))",
+          foreground: "hsl(var(--categoria-foreground))",
+          "on-dark": "hsl(var(--categoria-on-dark))",
+        },
+
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

@@ -4,7 +4,7 @@
 //
 // Valida, de forma derivada (nunca hardcodando a lista de aprovados):
 //   • no máximo 2 conteúdos promovidos nesta onda;
-//   • no máximo 7 artigos indexáveis no total (derivado do registro);
+//   • no máximo 8 artigos indexáveis no total (derivado do registro);
 //   • cada conteúdo da onda 3O tem destino comercial (pilar) e apoio reais;
 //   • links de entrada obrigatórios configurados (hub + páginas comerciais);
 //   • capa própria declarada e arquivo presente em public/;
@@ -45,7 +45,7 @@ const WAVE_3O = [
 ];
 
 const MAX_ONDA = 2;
-const MAX_INDEXAVEIS = 7;
+const MAX_INDEXAVEIS = 8;
 
 // Nomes de software que não podem aparecer em slug/H1/title/excerpt.
 const SOFTWARE = /autocad|revit|lumion|solidworks|photoshop|premiere|sketchup|archicad|blender|3ds\s?max|after\s?effects/i;
@@ -86,7 +86,11 @@ async function main() {
 
   // 1. Limite total de indexáveis (derivado do registro, não hardcodado no valor).
   const registered = (registry.match(/FIRST_WAVE_SLUGS\s*=\s*\[([\s\S]*?)\]/) || [])[1] ?? "";
-  const registeredSlugs = [...registered.matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
+  const wave4x = (registry.match(/WAVE_4X:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
+  const registeredSlugs = [
+    ...[...registered.matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]),
+    ...[...wave4x.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
+  ];
   if (registeredSlugs.length !== EDITORIAL_WAVE_SLUGS.length)
     fail(`paridade quebrada: registro tem ${registeredSlugs.length} slugs, onda de build tem ${EDITORIAL_WAVE_SLUGS.length}`);
   if (EDITORIAL_WAVE_SLUGS.length > MAX_INDEXAVEIS)

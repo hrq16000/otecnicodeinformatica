@@ -91,12 +91,12 @@ export const EDITORIAL_IMAGE_BRIEFS: Record<string, EditorialImageBrief> = {
     slug: "como-instalar-windows-11-do-zero",
     subject: "Instalação/recuperação do Windows 11",
     scene:
-      "Tela oficial de instalação ou recuperação do Windows 11 em um notebook, ambiente neutro (mesa clara).",
+      "Pendrive de mídia de instalação conectado à lateral de um notebook, em mesa clara e ambiente neutro.",
     framing:
-      "Plano frontal levemente inclinado (~10°) para leitura clara da tela; notebook centralizado, corte na altura do teclado; margem generosa acima para respiro editorial.",
+      "Closeup lateral do notebook com o pendrive em evidência; margem generosa para respiro editorial.",
     lighting:
-      "Luz frontal difusa balanceada com a temperatura da tela (~6500K); sem reflexos na tela e sem sombra no teclado.",
-    requiredElements: ["tela oficial de instalação ou recuperação"],
+      "Luz natural difusa, sem reflexos duros e sem sombras marcadas sobre o teclado.",
+    requiredElements: ["mídia de instalação conectada ao equipamento"],
     forbiddenElements: ["ativador", "software não oficial", "método de bypass"],
     privacyRisks: ["chave de produto", "e-mail", "nome de conta", "identificadores de máquina"],
     aspectRatio: "16:9",

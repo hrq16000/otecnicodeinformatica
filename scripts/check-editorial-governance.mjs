@@ -63,9 +63,11 @@ async function checkRegistry() {
 
   // Paridade runtime × build: o registro só pode aprovar slugs da onda.
   const waveBlock = src.match(/FIRST_WAVE_SLUGS\s*=\s*\[([\s\S]*?)\]/);
-  const registered = waveBlock
-    ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1])
-    : [];
+  const wave4xBlock = src.match(/WAVE_4X:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
+  const registered = [
+    ...(waveBlock ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
+    ...(wave4xBlock ? [...wave4xBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
+  ];
   const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
   const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));
   if (extra.length) fail(`registro: slugs aprovados fora da onda editorial: ${extra.join(", ")}`);

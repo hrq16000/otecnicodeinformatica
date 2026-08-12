@@ -80,6 +80,16 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Upgrade de SSD e memória",
     cover: "/blog/como-escolher-uma-workstation.jpg",
   },
+  // ── Rodada 4X — instalação limpa do Windows 11 (capa fotográfica licenciada).
+  {
+    slug: "como-instalar-windows-11-do-zero",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/formatacao",
+    pilarLabel: "Formatação e instalação do sistema",
+    apoio: "/servicos/recuperacao-de-dados",
+    apoioLabel: "Recuperação de dados",
+    cover: "/blog/como-instalar-windows-11-do-zero.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

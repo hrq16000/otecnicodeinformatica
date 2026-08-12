@@ -4,6 +4,17 @@ import { Footer } from "@/components/Footer";
 import { upsertCanonical } from "@/lib/canonicalUrl";
 import { siteConfig } from "@/lib/siteConfig";
 import { FOTOS_LICENCIADAS } from "@/lib/fotosLicenciadas";
+import { EDITORIAL_COVERS } from "@/lib/blogEditorialCovers";
+import { APPROVED_EDITORIAL_CONTENT } from "@/lib/blogEditorialRegistry";
+
+/** Capas editoriais aprovadas cuja imagem é fotografia licenciada de terceiros. */
+const licensedCovers = Object.entries(EDITORIAL_COVERS)
+  .map(([slug, cover]) => ({ slug, cover, approval: APPROVED_EDITORIAL_CONTENT.get(slug) }))
+  .filter(
+    (item): item is { slug: string; cover: typeof item.cover; approval: NonNullable<typeof item.approval> } =>
+      item.approval?.imageOrigin === "licensed" && Boolean(item.approval.imageAttribution),
+  );
+
 
 /**
  * Créditos das fotografias reais (Etapa 10). Página utilitária: noindex,
@@ -75,7 +86,36 @@ const CreditosDeImagens = () => {
             ))}
           </ul>
         )}
+
+        {licensedCovers.length > 0 && (
+          <section className="mt-12">
+            <h2 className="font-heading text-2xl font-bold text-foreground">
+              Capas editoriais licenciadas
+            </h2>
+            <ul className="mt-6 grid gap-4 md:grid-cols-2">
+              {licensedCovers.map(({ slug, cover, approval }) => (
+                <li key={slug} className="flex gap-4 rounded-2xl border border-border bg-card p-4">
+                  <img
+                    src={cover.src}
+                    alt={cover.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={160}
+                    height={110}
+                    className="h-[110px] w-[160px] shrink-0 rounded-lg object-cover"
+                  />
+                  <div className="text-sm">
+                    <p className="font-heading font-bold text-foreground">{cover.alt}</p>
+                    <p className="mt-1 text-muted-foreground">{approval.imageAttribution}</p>
+                    <p className="text-muted-foreground">Licença: {approval.imageLicense}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
+
       <Footer />
     </div>
   );

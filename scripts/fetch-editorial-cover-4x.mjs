@@ -16,6 +16,15 @@ const CURADORIA = [
     slug: "como-instalar-windows-11-do-zero",
     id: "d8410e51-f4e0-4ada-be56-9aedf9858d9e",
   },
+  // Onda 4Y
+  {
+    slug: "como-resolver-tela-azul-windows",
+    id: "f4da6064-dc69-4fca-adb2-62cd2e48904e",
+  },
+  {
+    slug: "como-trocar-tela-notebook-passo-a-passo",
+    id: "19796df3-5d9b-49f1-9a18-7ab8b3580c57",
+  },
 ];
 
 const DEST = resolve("public/blog");

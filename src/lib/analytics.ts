@@ -218,6 +218,37 @@ export const trackFaqToggle = (
 };
 
 /**
+ * Clique em âncora de pergunta (#faq-N) ou em link interno contextual dentro
+ * da resposta. Correlaciona a PERGUNTA lida com a INTENÇÃO de serviço:
+ * `faq_question` + `link_target` medem quais dúvidas puxam tráfego para
+ * quais páginas de serviço.
+ */
+export const trackFaqLinkClick = (
+  kind: 'anchor' | 'internal_link',
+  question: string,
+  target: string,
+  section = 'faq',
+) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag(
+    'event',
+    kind === 'anchor' ? GA4_EVENTS.faqAnchor : GA4_EVENTS.faqInternalLink,
+    {
+      event_category: 'engagement',
+      event_label: `${normalizeTrackingLabel(section)}_${normalizeTrackingLabel(question)}`,
+      faq_question: question.slice(0, 100),
+      faq_section: normalizeTrackingLabel(section),
+      link_target: target,
+      click_location: normalizeTrackingLabel(`${section}_${kind}`),
+      page_path: window.location.pathname,
+      route_type: routeTypeFromPath(window.location.pathname),
+      ...getDeviceContext(),
+      ...getUtmContext(),
+    },
+  );
+};
+
+/**
  * Download de arquivo (ex.: mídia kit em PDF).
  * Não é lead nem conversão do Ads — é engajamento comercial, medido por
  * `cta_location` para comparar CTA principal x rodapé.

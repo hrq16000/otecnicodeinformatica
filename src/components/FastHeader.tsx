@@ -82,6 +82,17 @@ const megaGrupos: MegaGrupo[] = [
           { label: "Ver todos os equipamentos", href: "/equipamentos" },
         ],
       },
+      {
+        titulo: "Por procedimento",
+        links: [
+          { label: "Diagnóstico técnico", href: "/solucoes/diagnostico" },
+          { label: "Formatação e reinstalação", href: "/solucoes/formatacao" },
+          { label: "Troca por SSD", href: "/solucoes/ssd" },
+          { label: "Backup", href: "/solucoes/backup" },
+          { label: "Recuperação de dados", href: "/solucoes/recuperacao-de-dados" },
+          { label: "Ver todas as soluções", href: "/solucoes" },
+        ],
+      },
     ],
 
     destaque: {

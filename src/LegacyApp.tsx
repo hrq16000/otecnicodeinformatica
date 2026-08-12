@@ -448,6 +448,8 @@ const ProblemasHub = lazy(() => import("./pages/problemas/ProblemasHub"));
 const ClusterProblemaPage = lazy(() => import("./pages/problemas/ClusterProblemaPage"));
 const EquipamentosHub = lazy(() => import("./pages/equipamentos/EquipamentosHub"));
 const ClusterEquipamentoPage = lazy(() => import("./pages/equipamentos/ClusterEquipamentoPage"));
+const SolucoesHub = lazy(() => import("./pages/solucoes/SolucoesHub"));
+const ClusterSolucaoPage = lazy(() => import("./pages/solucoes/ClusterSolucaoPage"));
 
 
 // Pillar do cluster de informática
@@ -989,6 +991,10 @@ const App = () => (
             {/* Cluster EQUIPAMENTOS — entrada por aparelho */}
             <Route path="/equipamentos" element={<EquipamentosHub />} />
             <Route path="/equipamentos/:slug" element={<ClusterEquipamentoPage />} />
+
+            {/* Cluster SOLUÇÕES — entrada pelo procedimento técnico */}
+            <Route path="/solucoes" element={<SolucoesHub />} />
+            <Route path="/solucoes/:slug" element={<ClusterSolucaoPage />} />
 
 
 

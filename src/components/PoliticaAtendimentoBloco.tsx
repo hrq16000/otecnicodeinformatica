@@ -40,6 +40,8 @@ const PILARES: Pilar[] = [
 interface Props {
   /** Título opcional para adequar ao contexto da página. */
   titulo?: string;
+  /** "section" = faixa full-width; "inline" = dentro de um container existente. */
+  variant?: "section" | "inline";
   className?: string;
 }
 
@@ -50,16 +52,22 @@ interface Props {
  */
 export function PoliticaAtendimentoBloco({
   titulo = "Como funciona o atendimento",
+  variant = "section",
   className = "",
 }: Props) {
+  const inline = variant === "inline";
   return (
     <section
       id="politica-atendimento"
       aria-label="Política de atendimento, coleta e valores"
-      className={`scroll-mt-24 border-y border-border bg-secondary py-14 md:py-16 ${className}`}
+      className={
+        inline
+          ? `scroll-mt-24 mt-12 rounded-2xl border border-border bg-secondary p-6 md:p-8 ${className}`
+          : `scroll-mt-24 border-y border-border bg-secondary py-14 md:py-16 ${className}`
+      }
     >
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl">
+      <div className={inline ? "" : "container mx-auto px-4"}>
+        <div className={inline ? "" : "mx-auto max-w-4xl"}>
           <h2 className="mb-3 font-heading text-2xl font-bold text-foreground md:text-3xl">
             {titulo}
           </h2>

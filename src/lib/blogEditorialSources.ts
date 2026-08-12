@@ -208,6 +208,26 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
 //     (vazio) em blogEditorialRegistry.ts.
 // ─────────────────────────────────────────────────────────────
 export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
+  "como-configurar-roteador-wifi-iniciantes": {
+    slug: "como-configurar-roteador-wifi-iniciantes",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5B. Sem velocidade prometida, sem marca de equipamento recomendada e sem passo dependente de painel específico de fabricante. Recomendações de canal (1/6/11 em 2,4 GHz) e de padrão de segurança (WPA3/WPA2-AES, WPS desligado) são conhecimento técnico estável.",
+  },
+  "como-saber-quem-esta-usando-meu-wifi": {
+    slug: "como-saber-quem-esta-usando-meu-wifi",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5B. Explicita que endereço MAC aleatório por rede torna nomes desconhecidos inconclusivos e que filtro de MAC não é medida de segurança. Sem indicação de aplicativo de terceiros e sem promessa de detecção de invasão.",
+  },
   "como-fazer-upgrade-ssd-nvme": {
     slug: "como-fazer-upgrade-ssd-nvme",
     sources: [],

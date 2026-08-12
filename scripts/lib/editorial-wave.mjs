@@ -149,6 +149,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Formatação e instalação do sistema",
     cover: "/blog/como-fazer-upgrade-ssd-nvme.jpg",
   },
+  // ── Rodada 5B — cluster de redes Wi-Fi doméstica.
+  {
+    slug: "como-configurar-roteador-wifi-iniciantes",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/redes-e-wifi",
+    pilarLabel: "Configuração de redes e Wi-Fi",
+    apoio: "/blog/como-melhorar-sinal-wifi-em-casa",
+    apoioLabel: "Como melhorar o sinal de Wi-Fi em casa",
+    cover: "/blog/como-configurar-roteador-wifi-iniciantes.jpg",
+  },
+  {
+    slug: "como-saber-quem-esta-usando-meu-wifi",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/redes-e-wifi",
+    pilarLabel: "Configuração de redes e Wi-Fi",
+    apoio: "/blog/como-configurar-roteador-wifi-iniciantes",
+    apoioLabel: "Como configurar um roteador do zero",
+    cover: "/blog/como-saber-quem-esta-usando-meu-wifi.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

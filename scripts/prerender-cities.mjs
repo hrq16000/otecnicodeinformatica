@@ -43,6 +43,27 @@ function coverAltDe(slug) {
   return COVER_ALT.get(slug) ?? "";
 }
 
+// Crédito das capas licenciadas — fonte única em src/lib/blogEditorialRegistry.ts.
+// Foto de terceiro exige atribuição visível; sem crédito declarado, a legenda
+// cai para a autoria própria.
+const COVER_CREDIT = (() => {
+  const map = new Map();
+  try {
+    const ts = readFileSync("src/lib/blogEditorialRegistry.ts", "utf8");
+    const re =
+      /slug:\s*"([a-z0-9-]+)"[\s\S]{0,900}?imageAttribution:\s*\n?\s*"([^"]+)"/g;
+    let m;
+    while ((m = re.exec(ts))) map.set(m[1], m[2]);
+  } catch {
+    /* sem registro => sem crédito de terceiros */
+  }
+  return map;
+})();
+
+function coverCreditoDe(slug) {
+  return COVER_CREDIT.get(slug) ?? "";
+}
+
 
 // Fail-closed: sem domínio configurado, os artefatos usam URLs relativas.
 const SITE = BASE_URL;
@@ -451,7 +472,7 @@ function outrosGuiasAprovados(slug) {
 function capaEditorial(slug, wave) {
   const alt = coverAltDe(slug);
   if (!wave?.cover || !alt) return "";
-  return `<figure style="margin:0 0 16px"><img src="${wave.cover}" alt="${htmlEscape(alt)}" width="1200" height="630" decoding="async" fetchpriority="high" style="width:100%;height:auto;border-radius:12px" /><figcaption style="font-size:.8rem;opacity:.72;margin-top:6px">${htmlEscape(alt)} — imagem de uso próprio do Técnico de Informática.</figcaption></figure>`;
+  return `<figure style="margin:0 0 16px"><img src="${wave.cover}" alt="${htmlEscape(alt)}" width="1200" height="630" decoding="async" fetchpriority="high" style="width:100%;height:auto;border-radius:12px" /><figcaption style="font-size:.8rem;opacity:.72;margin-top:6px">${htmlEscape(alt)} — ${htmlEscape(coverCreditoDe(slug) || "imagem de uso próprio do Técnico de Informática.")}</figcaption></figure>`;
 }
 
 // Miniatura da capa no hub /blog (mesma imagem da capa do artigo).

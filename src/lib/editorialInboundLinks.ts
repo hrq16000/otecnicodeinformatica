@@ -75,6 +75,16 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
   ],
   "/servicos/redes-e-wifi": [
     {
+      slug: "como-configurar-roteador-wifi-iniciantes",
+      label: "Como configurar um roteador Wi-Fi do zero",
+      hint: "Ordem correta das etapas, faixas 2,4/5 GHz e os ajustes de segurança que importam.",
+    },
+    {
+      slug: "como-saber-quem-esta-usando-meu-wifi",
+      label: "Quem está usando o seu Wi-Fi",
+      hint: "Como identificar dispositivos e retomar o controle da rede doméstica.",
+    },
+    {
       slug: "como-melhorar-sinal-wifi-em-casa",
       label: "Como melhorar o sinal de Wi-Fi em casa",
       hint: "Ajustes de posicionamento e rede local antes de considerar troca de equipamento.",

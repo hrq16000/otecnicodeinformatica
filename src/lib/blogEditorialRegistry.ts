@@ -211,6 +211,41 @@ const WAVE_5A: EditorialApproval[] = [
   },
 ];
 
+// Rodada 5B — cluster de redes Wi-Fi doméstica: dois guias herdados
+// reescritos do zero, com intenções distintas entre si e do guia de
+// cobertura já indexado. Capas são FOTOGRAFIAS REAIS licenciadas.
+// Limite total de artigos indexáveis: 16.
+const WAVE_5B: EditorialApproval[] = [
+  {
+    slug: "como-configurar-roteador-wifi-iniciantes",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 4.0",
+    imageAttribution:
+      "Foto: Hayden Schiff (Wikimedia Commons), CC BY 4.0 — https://commons.wikimedia.org/wiki/File:TP-Link_TL-WR740N_router_HS5.jpg",
+    notes:
+      "Reescrita integral na Onda 5B; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-saber-quem-esta-usando-meu-wifi",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 4.0",
+    imageAttribution:
+      "Foto: Mrbeastmodeallday (Wikimedia Commons), CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:Home_wifi.jpg",
+    notes:
+      "Reescrita integral na Onda 5B; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -237,6 +272,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_4Z.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5A.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5B.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

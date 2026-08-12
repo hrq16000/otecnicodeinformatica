@@ -19,6 +19,18 @@ export interface EditorialCover {
 }
 
 export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
+  "como-configurar-roteador-wifi-iniciantes": {
+    src: "/blog/como-configurar-roteador-wifi-iniciantes.jpg",
+    alt: "Roteador Wi-Fi doméstico com antenas externas sobre superfície clara",
+    width: 1200,
+    height: 630,
+  },
+  "como-saber-quem-esta-usando-meu-wifi": {
+    src: "/blog/como-saber-quem-esta-usando-meu-wifi.jpg",
+    alt: "Roteador de rede doméstica em uso, com indicadores luminosos acesos",
+    width: 1200,
+    height: 630,
+  },
   "como-recuperar-dados-hd-com-defeito": {
     src: "/blog/como-recuperar-dados-hd-com-defeito.jpg",
     alt: "Disco rígido de notebook de 2,5 polegadas fora do equipamento, sobre superfície clara",

@@ -10599,52 +10599,57 @@ crontab -e
     ),
   },
   "como-conectar-wifi-tv-nao-conecta": {
-    title: "Smart TV Não Conecta no Wi-Fi: 8 Soluções Que Funcionam em 2026",
-    excerpt: "Smart TV não acha sua rede Wi-Fi ou desconecta sozinha? Veja 8 soluções testadas. Atendimento técnico em domicílio em Curitiba.",
-    date: "2026-04-29",
-    readTime: "7 min",
-    category: "Tutoriais Domésticos",
+    title: "Smart TV não conecta no Wi-Fi: como separar problema de rede de defeito da TV",
+    excerpt:
+      "Como descobrir se a Smart TV não conecta por causa da rede, da faixa de 5 GHz, do isolamento do roteador ou de falha no módulo Wi-Fi do aparelho — e o que fazer em cada caso.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Redes",
     content: (
       <>
-        <p className="lead">Smart TV que não conecta no Wi-Fi é problema comum. Antes de pensar em chamar técnico, tente estas 8 soluções.</p>
+        <p className="lead">Smart TV que não conecta tem duas famílias de causa muito diferentes: a rede não está entregando conexão utilizável naquele ponto da casa, ou o módulo Wi-Fi da própria TV está falhando. Os dois sintomas parecem iguais na tela. A diferença aparece no teste, e é ela que decide se o caso se resolve no roteador ou exige avaliação do aparelho.</p>
 
-        <h2>1. Reinicie a TV</h2>
-        <p>Tire da tomada, espere 1 minuto, plug de volta. Resolve 30% dos casos.</p>
+        <h2>O teste que separa os dois cenários</h2>
+        <p>Antes de qualquer configuração, leve um celular até o local exato da TV — mesma altura, mesma parede, TV ligada. Depois observe:</p>
+        <ul>
+          <li><strong>Celular também pega mal ali:</strong> o problema é cobertura. A TV está apenas na pior posição da casa, normalmente atrás de móvel, em parede com estrutura metálica ou no cômodo mais distante do roteador.</li>
+          <li><strong>Celular conecta bem e a TV não enxerga a rede:</strong> o caso costuma ser de faixa ou de configuração do roteador, não de alcance.</li>
+          <li><strong>A TV conecta, mas cai sozinha depois de minutos ou horas:</strong> comportamento típico de rede saturada, canal congestionado ou módulo Wi-Fi do aparelho com falha térmica — nessa ordem de probabilidade.</li>
+          <li><strong>A TV não enxerga nenhuma rede, nem a do vizinho:</strong> forte indício de falha no módulo Wi-Fi do aparelho.</li>
+        </ul>
 
-        <h2>2. Reinicie o Roteador</h2>
-        <p>Tire da tomada, espere 30 segundos, plug de volta. Espere 2 minutos para estabilizar.</p>
+        <h2>Faixa de 5 GHz: a causa mais frequente de "a rede não aparece"</h2>
+        <p>Muitas TVs, inclusive modelos recentes de linha de entrada, operam apenas em 2,4 GHz. Se o roteador transmite as duas faixas com o mesmo nome de rede, a TV pode simplesmente não listar nada — para ela, aquela rede não existe.</p>
+        <p>A solução é separar os nomes das faixas no roteador e conectar a TV explicitamente à faixa de 2,4 GHz. Ela alcança mais longe e atravessa parede melhor; a perda de velocidade é irrelevante para vídeo, que consome muito menos banda do que a maioria das pessoas imagina.</p>
 
-        <h2>3. Verifique Senha Maiúscula/Minúscula</h2>
-        <p>Senhas Wi-Fi diferenciam letras. 'Casa123' é diferente de 'casa123'. Digite com atenção.</p>
+        <h2>Isolamento de clientes e rede de visitantes</h2>
+        <p>Roteadores de operadora frequentemente vêm com rede de visitantes ativa e isolamento entre aparelhos. A TV conectada nessa rede acessa a internet, mas não conversa com celular nem computador — e aí o espelhamento de tela e os aplicativos de controle deixam de funcionar, mesmo com o vídeo rodando normalmente.</p>
+        <p>Quando o sintoma é "a TV tem internet mas o celular não a encontra", esse é o primeiro item a verificar. A separação correta entre rede de trabalho, rede doméstica e rede de visitantes faz parte do que ajustamos em <Link to="/servicos/redes-e-wifi">redes e Wi-Fi</Link>.</p>
 
-        <h2>4. TV Está no Alcance?</h2>
-        <p>TV no fundo da casa, roteador na frente — pode estar fora do alcance. Teste levando o celular até a TV: se ele pegar mal o Wi-Fi ali, a TV também não vai pegar.</p>
+        <h2>Canal congestionado em prédio</h2>
+        <p>Em edifício, dezenas de redes disputam as mesmas frequências. A TV conecta, o ícone fica normal, e mesmo assim o vídeo trava e a conexão cai. Não é defeito: é disputa por espaço no ar. Fixar um canal menos ocupado em 2,4 GHz e reposicionar o roteador para longe de metal, espelho, caixa d'água e do próprio armário costuma mudar o resultado mais do que trocar de aparelho.</p>
 
-        <h2>5. Use Wi-Fi de 2.4GHz</h2>
-        <p>Algumas TVs antigas só funcionam no 2.4GHz, não no 5GHz. No painel do roteador, dê nomes diferentes para cada banda e conecte a TV na de 2.4GHz.</p>
-
-        <h2>6. Atualize a TV</h2>
-        <p>Em <strong>Configurações → Sobre → Atualizar Software</strong>. Atualizações corrigem bugs de Wi-Fi.</p>
-
-        <h2>7. Esqueça a Rede e Reconecte</h2>
+        <h2>O que fazer, na ordem que evita retrabalho</h2>
         <ol>
-          <li>Vá em <strong>Configurações → Rede → Wi-Fi</strong></li>
-          <li>Selecione sua rede e escolha <strong>Esquecer</strong></li>
-          <li>Reconecte digitando a senha</li>
+          <li><strong>Desligar TV e roteador da tomada</strong> por um minuto, religando primeiro o roteador e aguardando ele estabilizar. Isso limpa sessões travadas dos dois lados.</li>
+          <li><strong>Esquecer a rede na TV e reconectar</strong>, digitando a senha com atenção a maiúsculas e minúsculas — o teclado da TV frequentemente ativa maiúscula automática na primeira letra.</li>
+          <li><strong>Conectar à faixa de 2,4 GHz</strong> com nome próprio, se as faixas ainda estiverem unificadas.</li>
+          <li><strong>Verificar rede de visitantes e isolamento de clientes</strong> no roteador.</li>
+          <li><strong>Atualizar o sistema da TV</strong>, quando ela conseguir conectar ao menos por cabo — correções de conectividade são comuns nessas atualizações.</li>
+          <li><strong>Testar por cabo de rede.</strong> É o teste decisivo: se por cabo funciona perfeitamente e por Wi-Fi nunca funciona, o módulo sem fio do aparelho é o suspeito principal.</li>
         </ol>
+        <p>Reset de fábrica só faz sentido depois desses passos. Ele apaga contas, aplicativos e preferências e raramente resolve o que os itens anteriores não resolveram.</p>
 
-        <h2>8. Use Cabo de Rede</h2>
-        <p>Se nada funciona, conecte cabo de rede (ethernet) do roteador na TV. É mais estável e rápido. Se sua TV está longe do roteador, peça para a O Técnico de Informática passar o cabo discretamente.</p>
+        <h2>Quando é defeito da TV — e o que isso significa na prática</h2>
+        <p>Quando a TV não lista nenhuma rede, conecta por cabo sem falha e o problema persiste após atualização e reset, o cenário aponta para o módulo Wi-Fi do aparelho. Nesse ponto entra uma conversa honesta de custo: em boa parte dos televisores de linha de entrada, o reparo dessa parte custa mais do que resolver o uso com conexão cabeada ou com um aparelho externo de streaming ligado à porta HDMI.</p>
+        <p>Não prometemos reparo antes de avaliar, e não trocamos placa por suposição. A avaliação de imagem, som, placa e alimentação segue o escopo descrito em <Link to="/servicos/conserto-tv">conserto de TV</Link>, com o critério de verificação e cobrança explicado em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
-        <h2>Última Opção: Reset de Fábrica</h2>
-        <p>Em <strong>Configurações → Suporte → Redefinir</strong>. Apaga tudo, mas resolve casos persistentes.</p>
-
-        <h2>Continua Não Funcionando?</h2>
-        <p>Pode ser placa Wi-Fi da TV defeituosa. A O Técnico de Informática avalia em casa em Curitiba se vale conserto ou se é mais barato usar Chromecast/TV box.</p>
-
+        <h2>Resumo prático</h2>
+        <p>Compare a TV com o celular no mesmo ponto para separar cobertura de configuração. Se a rede não aparece na lista, quase sempre é faixa de 5 GHz; se aparece e cai, é congestionamento ou distância; se o celular não encontra a TV, é rede de visitantes ou isolamento; se por cabo funciona e por Wi-Fi nunca funciona, é o módulo sem fio do aparelho — e aí vale comparar o custo do reparo com a solução por cabo ou aparelho externo.</p>
       </>
     ),
   },
+
   "como-fazer-teste-velocidade-internet": {
     title: "Como Testar a Velocidade da Internet Corretamente: Guia 2026",
     excerpt: "Internet lenta em Curitiba? Aprenda como fazer um teste de velocidade confiável e descobrir se o problema é da operadora ou do seu Wi-Fi.",

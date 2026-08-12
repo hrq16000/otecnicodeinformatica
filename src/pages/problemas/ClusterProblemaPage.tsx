@@ -68,6 +68,38 @@ const ClusterProblemaPage = () => {
 
   const waHref = whatsappLink(dados.waMessage);
 
+  /**
+   * CTA contextual por seção: mensagem diferente conforme o ponto da leitura,
+   * com rótulo próprio no GA4/Ads (origem por rota + seção).
+   */
+  const CtaContextual = ({
+    secao,
+    texto,
+    mensagem,
+    rotulo,
+  }: {
+    secao: string;
+    texto: string;
+    mensagem: string;
+    rotulo: string;
+  }) => (
+    <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
+      <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
+      <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
+        <a
+          href={whatsappLink(`${dados.waMessage} ${mensagem}`)}
+          onClick={() => trackCTAClick("whatsapp", `cluster_problema_${secao}`)}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
+          {rotulo}
+        </a>
+      </Button>
+    </div>
+  );
+
+
   return (
     <div className="min-h-screen bg-background">
       <PageSEO

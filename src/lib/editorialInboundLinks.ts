@@ -48,6 +48,16 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Como saber se o PC tem vírus ou malware",
       hint: "Sinais que ajudam a diferenciar infecção de problema de hardware ou de sistema.",
     },
+    {
+      slug: "como-escolher-um-bom-antivirus",
+      label: "Como escolher um antivírus",
+      hint: "Critérios técnicos de escolha e como reconhecer falso antivírus.",
+    },
+    {
+      slug: "como-proteger-computador-golpes-internet",
+      label: "Como se proteger de golpes na internet",
+      hint: "Padrões de phishing e falso suporte, e o que fazer nas primeiras horas.",
+    },
   ],
   "/servicos/recuperacao-de-dados": [
     {

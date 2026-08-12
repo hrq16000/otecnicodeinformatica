@@ -72,7 +72,18 @@ const megaGrupos: MegaGrupo[] = [
           { label: "Ver todos os serviços", href: "/servicos" },
         ],
       },
+      {
+        titulo: "Por equipamento",
+        links: [
+          { label: "Notebook", href: "/equipamentos/notebook" },
+          { label: "Desktop / PC", href: "/equipamentos/desktop" },
+          { label: "Impressora", href: "/equipamentos/impressora" },
+          { label: "Roteador e Wi-Fi", href: "/equipamentos/roteador" },
+          { label: "Ver todos os equipamentos", href: "/equipamentos" },
+        ],
+      },
     ],
+
     destaque: {
       titulo: "Não sabe nomear o defeito?",
       texto: "Descreva com suas palavras. A triagem identifica o cenário antes de qualquer preço.",

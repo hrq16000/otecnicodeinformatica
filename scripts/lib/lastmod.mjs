@@ -19,6 +19,8 @@ export const LASTMOD = {
   "/problemas/wifi-instavel": "2026-08-12",
   "/problemas/tela-azul": "2026-08-12",
   "/problemas/arquivos-apagados": "2026-08-12",
+  "/problemas/computador-desliga-sozinho": "2026-08-12",
+  "/problemas/notebook-nao-carrega": "2026-08-12",
   "/solucoes": "2026-08-12",
   "/solucoes/diagnostico": "2026-08-12",
   "/solucoes/formatacao": "2026-08-12",

@@ -183,9 +183,14 @@ const Depoimentos = () => {
           </div>
 
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+              role="status"
+              aria-live="polite"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              <span className="sr-only">Carregando depoimentos…</span>
               {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="h-40 rounded-xl bg-muted/40 animate-pulse" />
+                <div key={i} className="skel h-40 rounded-xl" />
               ))}
             </div>
           ) : filtradas.length === 0 ? (

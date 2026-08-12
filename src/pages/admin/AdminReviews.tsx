@@ -436,7 +436,10 @@ const AdminReviews = () => {
 
 
           {loading ? (
-            <div className="flex justify-center py-12"><Loader2 className="w-6 h-6 animate-spin" /></div>
+            <div role="status" aria-live="polite" className="py-4">
+              <span className="sr-only">Carregando avaliações…</span>
+              <SkeletonList rows={5} />
+            </div>
           ) : (
             <div className="space-y-3">
               {filtered.length === 0 && (

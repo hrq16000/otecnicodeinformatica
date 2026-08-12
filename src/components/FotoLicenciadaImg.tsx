@@ -1,4 +1,5 @@
 import { foto } from "@/lib/fotosLicenciadas";
+import { SmartImage } from "@/components/SmartImage";
 
 /**
  * Fotografia REAL licenciada (Creative Commons comercial).
@@ -25,13 +26,13 @@ export const FotoLicenciadaImg = ({
 
   return (
     <figure className={`overflow-hidden rounded-2xl border border-border bg-card ${className}`}>
-      <img
+      <SmartImage
         src={f.src}
         alt={f.alt}
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
+        priority={priority}
         width={1024}
         height={683}
+        wrapperClassName="aspect-[3/2] w-full"
         className={`aspect-[3/2] h-auto w-full object-cover ${imgClassName}`}
       />
       <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">

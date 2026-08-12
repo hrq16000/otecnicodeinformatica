@@ -201,8 +201,12 @@ const InstantNavigation = ({
   return null;
 };
 
+// ONDA 4T: além do shell, uma barra de progresso indica avanço real da rota.
 const NavigationOverlay = () => (
   <div className="fixed inset-0 z-[var(--z-page-wipe)] animate-in fade-in duration-150">
+    <div className="route-progress z-[1]" role="progressbar" aria-label="Carregando página" aria-busy="true">
+      <span />
+    </div>
     <RouteLoader />
   </div>
 );

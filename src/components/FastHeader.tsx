@@ -38,8 +38,109 @@ const primaryNav: NavItem[] = [
 const mobileExtra: NavItem[] = [
   { label: "Atendimento a domicílio", href: "/atendimento-domicilio", icon: Home },
   { label: "Atendimento remoto", href: "/atendimento-remoto", icon: MonitorSmartphone },
+  { label: "Profissionais parceiros", href: "/profissionais", icon: Users },
+  { label: "Valorização do trabalho técnico", href: "/valorizacao-do-trabalho-tecnico", icon: Info },
   { label: "Sobre", href: "/sobre", icon: Info },
 ];
+
+// Mega-menu contextual: entra pelo problema, pelo equipamento ou pelo perfil.
+const megaGrupos: MegaGrupo[] = [
+  {
+    id: "problemas",
+    label: "Meu problema",
+    icon: Wrench,
+    colunas: [
+      {
+        titulo: "Sintomas comuns",
+        links: [
+          { label: "Computador não liga", href: "/problemas/computador-nao-liga" },
+          { label: "Notebook desligando sozinho", href: "/problemas/notebook-desliga-sozinho" },
+          { label: "PC muito lento", href: "/problemas/pc-lento" },
+          { label: "Tela azul e travamentos", href: "/problemas/tela-azul" },
+          { label: "Superaquecendo", href: "/problemas/superaquecimento" },
+        ],
+      },
+      {
+        titulo: "Serviços mais pedidos",
+        links: [
+          { label: "Formatação com backup", href: "/servicos/formatacao" },
+          { label: "Limpeza e troca de pasta térmica", href: "/servicos/limpeza-manutencao" },
+          { label: "Recuperação de dados", href: "/servicos/recuperacao-dados" },
+          { label: "Upgrade de SSD e memória", href: "/servicos/upgrade-hardware" },
+          { label: "Ver todos os serviços", href: "/servicos" },
+        ],
+      },
+    ],
+    destaque: {
+      titulo: "Não sabe nomear o defeito?",
+      texto: "Descreva com suas palavras. A triagem identifica o cenário antes de qualquer preço.",
+      cta: "Fazer triagem",
+      href: "/#triagem",
+    },
+  },
+  {
+    id: "empresas",
+    label: "Empresas",
+    icon: Building2,
+    colunas: [
+      {
+        titulo: "Para o seu negócio",
+        links: [
+          { label: "Atendimento para empresas", href: "/empresas" },
+          { label: "Suporte técnico empresarial", href: "/servicos/suporte-tecnico-empresarial" },
+          { label: "Manutenção preventiva", href: "/servicos/manutencao-preventiva-empresas" },
+          { label: "Backup para empresas", href: "/servicos/backup-para-empresas" },
+        ],
+      },
+      {
+        titulo: "Infraestrutura",
+        links: [
+          { label: "Empresa de TI em Curitiba", href: "/empresa-de-ti-curitiba" },
+          { label: "Redes e cabeamento", href: "/servicos/redes-wifi" },
+        ],
+      },
+    ],
+    destaque: {
+      titulo: "Estação parada custa caro",
+      texto: "Triagem empresarial com prioridade por impacto: máquina parada, rede instável ou backup.",
+      cta: "Abrir chamado",
+      href: "/empresas",
+    },
+  },
+  {
+    id: "profissionais",
+    label: "Profissionais",
+    icon: Users,
+    colunas: [
+      {
+        titulo: "Rede de parceiros",
+        links: [
+          { label: "Encontrar profissional", href: "/profissionais" },
+          { label: "Quero fazer parte da rede", href: "/profissionais/cadastro" },
+          { label: "Valorização do trabalho técnico", href: "/valorizacao-do-trabalho-tecnico" },
+        ],
+      },
+      {
+        titulo: "Transparência",
+        links: [
+          { label: "Preços e políticas", href: "/precos-e-politicas" },
+          { label: "Quando não compensa consertar", href: "/quando-nao-compensa" },
+          { label: "Como funciona o atendimento", href: "/como-funciona" },
+        ],
+      },
+    ],
+    destaque: {
+      titulo: "Sem leilão de preço",
+      texto: "A rede não coloca técnico para disputar quem cobra menos. Perfil próprio e contato direto.",
+      cta: "Ver a rede",
+      href: "/profissionais",
+    },
+  },
+  { id: "precos", label: "Preços", icon: Tag, href: "/precos-e-politicas" },
+  { id: "faq", label: "FAQ", icon: HelpCircle, href: "/faq" },
+  { id: "contato", label: "Contato", icon: MessageCircle, href: "/contato" },
+];
+
 
 
 export const FastHeader = () => {

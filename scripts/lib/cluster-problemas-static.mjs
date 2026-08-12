@@ -380,6 +380,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "Só o teclado molhou. Precisa mexer na placa?", resposta: "Nem sempre. Em vários modelos o teclado é uma peça separada e a placa fica preservada. A desmontagem é o que confirma até onde o líquido chegou — sem abrir, é palpite." },
     { pergunta: "Tem garantia no reparo de equipamento molhado?", resposta: "A garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço. Dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é explicado antes da aprovação." },
   ],
+  "/problemas/computador-nao-da-imagem": [
+    { pergunta: "Meu computador liga e não dá imagem: é a placa de vídeo?", resposta: "Pode ser, mas é a conclusão menos provável logo de início. Cabo, entrada errada, memória com mau contato e fonte degradada aparecem com muito mais frequência. A placa de vídeo só é apontada depois de testada em outro equipamento ou substituída por uma de referência." },
+    { pergunta: "Os bipes ajudam a descobrir o problema?", resposta: "Ajudam bastante. A sequência de bipes e os LEDs de diagnóstico da placa-mãe indicam qual subsistema travou — memória, vídeo ou processador. Anotar o padrão antes de abrir chamado reduz o tempo de diagnóstico." },
+    { pergunta: "Vale a pena consertar ou é melhor trocar o computador?", resposta: "Depende da peça envolvida e da idade da máquina. Memória e fonte costumam ter custo baixo diante do valor do equipamento; placa-mãe antiga com defeito, muitas vezes não. Informamos a estimativa antes para você decidir, sem empurrar reparo inviável." },
+    { pergunta: "Perco meus arquivos nesse tipo de reparo?", resposta: "Falha de vídeo não afeta o disco na maioria dos casos, e o procedimento padrão preserva os dados. Se durante o diagnóstico o disco também apresentar problema, avisamos antes de qualquer intervenção e a cópia vem primeiro." },
+    { pergunta: "Dá para resolver sem levar o computador?", resposta: "Cabo, entrada, reencaixe e configuração resolvem uma parte relevante dos casos remotamente ou em visita. Teste de fonte sob carga e inspeção de placa exigem bancada, com instrumentos que não vão para a casa do cliente." },
+  ],
+  "/problemas/cheiro-de-queimado": [
+    { pergunta: "Senti cheiro de queimado e o computador ainda liga. Posso usar?", resposta: "Não é recomendado. Cheiro indica componente fora da faixa térmica ou falha elétrica em andamento; continuar usando aumenta a chance de dano em cascata na placa e de risco elétrico. Desligue da tomada e trate como caso urgente." },
+    { pergunta: "Como sei se o problema é a fonte ou a placa-mãe?", resposta: "Pelo teste isolado. A fonte é avaliada fora do computador, com carga controlada, e a placa é inspecionada sob lupa antes de qualquer energização. Sem essa separação, trocar a fonte pode apenas repetir a queima em uma placa já comprometida." },
+    { pergunta: "Meus arquivos estão perdidos?", resposta: "Na maioria dos casos elétricos o disco continua íntegro, mesmo quando a placa não tem reparo viável. Retiramos a unidade e copiamos os dados em separado. Não prometemos recuperação total antes de examinar o dispositivo." },
+    { pergunta: "Estabilizador ou nobreak evita esse problema?", resposta: "Reduz o risco de surto pela rede, mas não substitui manutenção: poeira, fonte no fim da vida e conector com mau contato queimam mesmo com proteção instalada. Um bom filtro de linha ajuda; limpeza periódica e fonte adequada ajudam mais." },
+    { pergunta: "Vale a pena consertar um equipamento que queimou?", resposta: "Depende de qual componente foi atingido. Fonte, carregador e cabo têm custo baixo e troca direta. Placa-mãe com dano elétrico em máquina antiga costuma não compensar, e dizemos isso com clareza — diagnóstico, mão de obra e peça são informados separadamente antes de qualquer execução." },
+  ],
 };
 
 

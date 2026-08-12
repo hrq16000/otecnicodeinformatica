@@ -422,6 +422,161 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_photos: {
+        Row: {
+          created_at: string
+          id: string
+          legenda: string | null
+          ordem: number
+          partner_id: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          legenda?: string | null
+          ordem?: number
+          partner_id: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          legenda?: string | null
+          ordem?: number
+          partner_id?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "partner_photos_partner_id_fkey"
+            columns: ["partner_id"]
+            isOneToOne: false
+            referencedRelation: "partners"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      partner_program_settings: {
+        Row: {
+          aceitando_cadastros: boolean
+          created_at: string
+          id: boolean
+          moeda: string
+          preco_anual_centavos: number
+          texto_plano: string | null
+          updated_at: string
+        }
+        Insert: {
+          aceitando_cadastros?: boolean
+          created_at?: string
+          id?: boolean
+          moeda?: string
+          preco_anual_centavos?: number
+          texto_plano?: string | null
+          updated_at?: string
+        }
+        Update: {
+          aceitando_cadastros?: boolean
+          created_at?: string
+          id?: boolean
+          moeda?: string
+          preco_anual_centavos?: number
+          texto_plano?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      partners: {
+        Row: {
+          aceite_termos_em: string | null
+          certificacoes: string[]
+          cidade: string
+          created_at: string
+          descricao: string | null
+          documento: string | null
+          documento_tipo: string | null
+          especialidades: string[]
+          estado: string
+          experiencia: string | null
+          formas_atendimento: string[]
+          foto_url: string | null
+          horario: string | null
+          id: string
+          nome_profissional: string
+          notas_admin: string | null
+          plano_expira_em: string | null
+          redes_sociais: Json
+          regioes_atendidas: string[]
+          servicos: string[]
+          site_url: string | null
+          slug: string
+          status: Database["public"]["Enums"]["partner_status"]
+          updated_at: string
+          user_id: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          aceite_termos_em?: string | null
+          certificacoes?: string[]
+          cidade: string
+          created_at?: string
+          descricao?: string | null
+          documento?: string | null
+          documento_tipo?: string | null
+          especialidades?: string[]
+          estado: string
+          experiencia?: string | null
+          formas_atendimento?: string[]
+          foto_url?: string | null
+          horario?: string | null
+          id?: string
+          nome_profissional: string
+          notas_admin?: string | null
+          plano_expira_em?: string | null
+          redes_sociais?: Json
+          regioes_atendidas?: string[]
+          servicos?: string[]
+          site_url?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["partner_status"]
+          updated_at?: string
+          user_id?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          aceite_termos_em?: string | null
+          certificacoes?: string[]
+          cidade?: string
+          created_at?: string
+          descricao?: string | null
+          documento?: string | null
+          documento_tipo?: string | null
+          especialidades?: string[]
+          estado?: string
+          experiencia?: string | null
+          formas_atendimento?: string[]
+          foto_url?: string | null
+          horario?: string | null
+          id?: string
+          nome_profissional?: string
+          notas_admin?: string | null
+          plano_expira_em?: string | null
+          redes_sociais?: Json
+          regioes_atendidas?: string[]
+          servicos?: string[]
+          site_url?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["partner_status"]
+          updated_at?: string
+          user_id?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           author_name: string
@@ -607,6 +762,13 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      partner_status:
+        | "iniciado"
+        | "aguardando_analise"
+        | "aprovado"
+        | "ativo"
+        | "vencido"
+        | "suspenso"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -735,6 +897,14 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      partner_status: [
+        "iniciado",
+        "aguardando_analise",
+        "aprovado",
+        "ativo",
+        "vencido",
+        "suspenso",
+      ],
     },
   },
 } as const

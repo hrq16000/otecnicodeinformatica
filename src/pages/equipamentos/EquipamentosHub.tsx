@@ -101,6 +101,36 @@ const EquipamentosHub = () => {
             nunca antes.
           </p>
         </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Idade do equipamento muda o diagnóstico
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Aparelho com menos de três anos quase nunca falha por desgaste: as causas dominantes são software, atualização malfeita, armazenamento cheio e superaquecimento por pasta térmica seca ou entrada de ar obstruída. Nesses casos o caminho é limpeza interna, revisão térmica e organização do sistema, não substituição de placa.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Entre três e seis anos entra a faixa em que o upgrade rende mais que qualquer outro serviço: disco mecânico trocado por SSD e memória ampliada devolvem, na prática, a sensação de equipamento novo por uma fração do preço. Acima de seis anos a conta muda de novo — peça de reposição fica escassa, fonte e bateria já perderam capacidade e o custo de manter começa a competir com o de substituir.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Por isso a avaliação sempre registra idade, uso real e histórico de manutenção antes de qualquer orçamento. Dois notebooks com o mesmo sintoma podem receber recomendações opostas apenas por essa diferença de contexto.
+          </p>
+        </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Peças: o que usamos e o que recusamos
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Trabalhamos com peça nova, com procedência informada e com a especificação compatível com o aparelho — não com componente recuperado de outro equipamento com defeito. Quando existe alternativa mais barata e tecnicamente adequada, ela é apresentada junto da original, com a diferença de garantia explicada antes da escolha.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Há situações em que recusamos o serviço: painel de tela colado com risco de dano estrutural, placa com corrosão generalizada por líquido, equipamento em garantia de fábrica cuja abertura anularia o direito do cliente. Nesses casos indicamos o caminho correto — assistência autorizada ou substituição — mesmo sem faturar o reparo.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Toda peça substituída fica disponível para devolução ao cliente na entrega, e a garantia de 90 dias cobre a mão de obra do defeito tratado, com a cobertura do componente seguindo o prazo do fabricante.
+          </p>
+        </section>
       </main>
       <Footer />
     </div>

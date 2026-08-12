@@ -106,6 +106,36 @@ const SolucoesHub = () => {
             obra do defeito tratado.
           </p>
         </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Prazo real de cada procedimento
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Diagnóstico técnico é o mais rápido: quando o equipamento liga, a avaliação costuma se resolver no mesmo atendimento. Formatação com backup conferido consome mais tempo do que a formatação em si, porque a cópia dos arquivos e a reinstalação dos programas de uso diário é que definem o prazo — normalmente de algumas horas a um dia útil.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Troca por SSD depende de clonagem ou instalação limpa: clonar preserva o ambiente e é mais previsível; instalar do zero exige remontar contas, licenças e programas. Recuperação de dados é a única categoria sem prazo fixo, porque depende do tipo de perda — exclusão lógica responde rápido, disco com falha física exige varredura lenta e pode não ter retorno completo.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Prazo estimado é sempre informado antes da execução, e qualquer mudança relevante durante o serviço é comunicada em vez de descoberta na entrega.
+          </p>
+        </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Risco de dados por tipo de serviço
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Nem todo procedimento coloca arquivos em risco, e é importante saber qual é qual. Diagnóstico e limpeza não alteram dados. Troca de armazenamento com clonagem preserva o conteúdo, mas exige que a unidade de origem esteja íntegra. Formatação apaga tudo por definição — por isso não começa sem cópia conferida item a item, não apenas iniciada.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            O caso mais delicado é a suspeita de falha física de disco. Cada tentativa de ligar, cada varredura de software de recuperação executada sobre a própria unidade e cada cópia mal-sucedida reduzem a chance de retorno. A orientação nesses casos é desligar o equipamento e não tentar mais nada até a avaliação.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Em todo serviço que envolve dados, o acesso é limitado ao necessário para executar o procedimento, nada é copiado para fora do fluxo do atendimento e as mídias temporárias usadas na cópia são apagadas depois da entrega confirmada.
+          </p>
+        </section>
       </main>
       <Footer />
     </div>

@@ -101,6 +101,7 @@ async function main() {
     ...[...wave5a.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
     ...[...wave5b.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
     ...[...wave5c.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
+    ...[...wave5d.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
 
   ];
   if (registeredSlugs.length !== EDITORIAL_WAVE_SLUGS.length)

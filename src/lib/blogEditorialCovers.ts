@@ -79,6 +79,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 4Y — capas fotográficas reais licenciadas (sem IA).
+  "como-resolver-tela-azul-windows": {
+    src: "/blog/como-resolver-tela-azul-windows.jpg",
+    alt: "Notebook exibindo a tela azul do Windows com código de parada e QR code de diagnóstico",
+    width: 1200,
+    height: 630,
+  },
+  "como-trocar-tela-notebook-passo-a-passo": {
+    src: "/blog/como-trocar-tela-notebook-passo-a-passo.jpg",
+    alt: "Notebook aberto na bancada com a tampa inferior removida, placa, bateria e chaves de precisão ao lado",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

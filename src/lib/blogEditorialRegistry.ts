@@ -107,6 +107,41 @@ const WAVE_4X: EditorialApproval[] = [
   },
 ];
 
+// Rodada 4Y — reforma de dois guias herdados de alta intenção técnica, sem
+// sobreposição com /problemas/*: tela azul (BSOD) e troca de tela de notebook.
+// Ambas as capas são FOTOGRAFIAS REAIS licenciadas (Creative Commons).
+// Limite total de artigos indexáveis: 10.
+const WAVE_4Y: EditorialApproval[] = [
+  {
+    slug: "como-resolver-tela-azul-windows",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 4.0",
+    imageAttribution:
+      "Foto: QueenBarenziah (Wikimedia Commons), CC BY 4.0 — https://commons.wikimedia.org/w/index.php?curid=130534314",
+    notes:
+      "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-trocar-tela-notebook-passo-a-passo",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC0 1.0",
+    imageAttribution:
+      "Foto: Gregory Karastergios (Wikimedia Commons), CC0 1.0 — https://commons.wikimedia.org/w/index.php?curid=113932150",
+    notes:
+      "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa é fotografia real de domínio público (CC0), sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...FIRST_WAVE_SLUGS.map((slug) => [
     slug,
@@ -126,6 +161,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ] as [string, EditorialApproval]),
 
   ...WAVE_4X.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_4Y.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

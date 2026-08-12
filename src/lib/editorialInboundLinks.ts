@@ -54,6 +54,11 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
 ],
   "/servicos/remocao-de-virus": [
     {
+      slug: "como-remover-virus-windows-iniciantes",
+      label: "Remover vírus e adware sem quebrar o sistema",
+      hint: "Limpeza em camadas, por que a infecção volta e quando reinstalar é a decisão certa.",
+    },
+    {
       slug: "como-saber-se-pc-tem-virus-malware",
       label: "Como saber se o PC tem vírus ou malware",
       hint: "Sinais que ajudam a diferenciar infecção de problema de hardware ou de sistema.",
@@ -173,6 +178,18 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       slug: "como-conectar-wifi-tv-nao-conecta",
       label: "Smart TV não conecta no Wi-Fi: rede ou defeito?",
       hint: "O teste que separa problema de rede de falha no módulo Wi-Fi da TV.",
+    },
+  ],
+  "/servicos/formatacao": [
+    {
+      slug: "windows-11-lento-como-resolver",
+      label: "Windows 11 lento: achar a causa real",
+      hint: "Como medir qual recurso satura antes de otimizar, trocar peça ou reinstalar.",
+    },
+    {
+      slug: "como-remover-virus-windows-iniciantes",
+      label: "Remover vírus e adware sem quebrar o sistema",
+      hint: "Quando limpeza resolve e quando reinstalação com backup verificado é o caminho.",
     },
   ],
   "/servicos/montagem-de-pc": [

@@ -488,6 +488,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5H): inspeção visual, montagem mínima, isolamento de módulo × slot, descarte prévio da fonte, leitura de códigos de estágio pelo manual do modelo e critério econômico entre reparo eletrônico e substituição de plataforma. Sem tabela genérica de bips e sem promessa de reparo. Conhecimento técnico estável — sem fonte visível.",
   },
+  "windows-11-lento-como-resolver": {
+    slug: "windows-11-lento-como-resolver",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5I): classificação da lentidão por sintoma, leitura de saturação de disco/memória/CPU, limite de hardware (armazenamento mecânico e pouca RAM), throttling térmico, ajustes de software com efeito real e critério para reinstalação com backup verificado. Sem marca comercial e sem promessa de ganho percentual. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-remover-virus-windows-iniciantes": {
+    slug: "como-remover-virus-windows-iniciantes",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5I): distinção entre adware/sequestro de navegador e malware, contenção antes da limpeza, ordem de remoção em camadas, causas de reinfecção (persistência, sincronização de perfil, origem ativa), proibição de pagamento de resgate e critério de reinstalação. Sem indicação de marca de ferramenta. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

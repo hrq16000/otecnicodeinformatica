@@ -10,7 +10,7 @@ import crypto from "node:crypto";
 import { createServer } from "./serve-dist.mjs";
 
 const args = process.argv.slice(2);
-const baseArg = args.find((a) => a.startsWith("--base="))?.split("=")[1];
+const baseArg = args.find((a) => a.startsWith("--base="))?.split("=")[1] || process.env.SITE_BASE_URL || undefined;
 const DIST = path.resolve("dist");
 const PORT = 4187;
 

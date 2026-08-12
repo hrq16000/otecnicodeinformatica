@@ -23,6 +23,7 @@
 - [Funil inteligente em 4 etapas](mem://features/funil-4-etapas) — /atendimento noindex, deslocamento antes da confirmação, data-funnel-skip no CTA final.
 - [Cluster de equipamentos](mem://features/cluster-equipamentos) — Hub /equipamentos + 4 páginas por aparelho, espelho estático gerado e sitemap próprio.
 - [Cluster de soluções](mem://features/cluster-solucoes) — Hub /solucoes + 5 procedimentos indexáveis (diagnóstico, formatação, SSD, backup, dados), espelho estático e sitemap próprio.
+- [Cluster PROBLEMAS — Onda 20](mem://features/cluster-problemas-onda-20) — 2 sintomas novos, 5 pontos obrigatórios por rota e CTAs contextuais por seção (sem tel:).
 - [Onda 4V — inventário 82 A](mem://features/onda-4v-inventario-82a) — Blocos extras serviço × bairro, 100% grade A e SmartImage no CFTV/admin.
 - [Onda 4W — estados de carregamento](mem://design/onda-4w-loading-states) — Token .skel obrigatório, esqueletos acessíveis em views com dados e aria-busy no envio.
 - [Onda 5C — cluster segurança](mem://features/onda-5c-editorial-seguranca) — Teto de 18 artigos indexáveis, antivírus e golpes on-line reescritos, capas licenciadas do Commons.

@@ -86,8 +86,29 @@ const FIRST_WAVE_SLUGS = [
 ] as const;
 
 
-export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
-  FIRST_WAVE_SLUGS.map((slug) => [
+// Rodada 4X — promoção do guia de instalação limpa do Windows 11, o último
+// piloto sem sobreposição de intenção com as páginas de sintoma. Capa é
+// FOTOGRAFIA REAL licenciada (Creative Commons), nunca imagem de IA.
+// Limite total de artigos indexáveis: 8.
+const WAVE_4X: EditorialApproval[] = [
+  {
+    slug: "como-instalar-windows-11-do-zero",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-07-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 2.0",
+    imageAttribution:
+      "Foto: Shixart1985 (Wikimedia Commons), CC BY 2.0 — https://commons.wikimedia.org/w/index.php?curid=194512723",
+    notes:
+      "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada (Openverse/Wikimedia Commons), sem IA.",
+  },
+];
+
+export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
+  ...FIRST_WAVE_SLUGS.map((
     slug,
     {
       slug,
@@ -102,8 +123,9 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
       notes:
         "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa própria conforme briefing.",
     },
-  ]),
-);
+  ]) as [string, EditorialApproval][]),
+  ...WAVE_4X.map((a) => [a.slug, a] as [string, EditorialApproval]),
+]);
 
 
 // ─────────────────────────────────────────────────────────────
@@ -126,7 +148,6 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>(
 // Fila-piloto: artigos ainda em revisão (noindex, fora do sitemap).
 // Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
 export const EDITORIAL_PILOT_SLUGS = [
-  "como-instalar-windows-11-do-zero",
   // Rodada 3F: despromovidos por sobreposição de intenção com as páginas
   // de sintoma /problemas/notebook-nao-liga e /problemas/computador-lento.
   "notebook-nao-liga-o-que-fazer",

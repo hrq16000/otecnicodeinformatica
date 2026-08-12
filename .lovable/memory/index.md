@@ -20,3 +20,4 @@
 - [Technical Components](mem://features/technical-components) — Admin panel, routing maps, analytics, PWA, AdSense
 - [Governança de entidade local (4G)](mem://features/governanca-entidade-4g) — SERVICE AREA BUSINESS, proibido publicar endereço/CEP/CNPJ, "desde 1998" é declaração sem documento.
 - [Rede de profissionais parceiros](mem://features/rede-profissionais-parceiros) — /profissionais, perfil por slug, cadastro com análise e plano anual configurável no banco.
+- [Funil inteligente em 4 etapas](mem://features/funil-4-etapas) — /atendimento noindex, deslocamento antes da confirmação, data-funnel-skip no CTA final.

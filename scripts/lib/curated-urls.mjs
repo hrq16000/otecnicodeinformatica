@@ -120,6 +120,8 @@ export const PROBLEMAS = [
   { path: "/problemas/arquivos-apagados", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/computador-desliga-sozinho", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/notebook-nao-carrega", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/hd-fazendo-barulho", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/notebook-molhado", changefreq: "monthly", priority: "0.6" },
 ];
 
 /**

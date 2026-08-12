@@ -198,7 +198,72 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
       },
     ],
   },
+  {
+    path: "/problemas/hd-fazendo-barulho",
+    title: "HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática",
+    description:
+      "Clique repetido, estalo ou zumbido vindo do HD é sinal mecânico e urgente. Entenda cada ruído, o que fazer imediatamente e o que destrói a chance de recuperar os arquivos.",
+    h1: "HD fazendo barulho: clique, estalo ou zumbido no disco",
+    subtitulo:
+      "Ruído novo no disco muda a ordem das prioridades: antes de qualquer reparo vem a cópia dos dados.",
+    blocos: [
+      {
+        titulo: "Cada ruído aponta para um estágio diferente",
+        paragrafos: [
+          "Clique repetido em intervalo regular é o sinal mais grave: o braço de leitura tenta encontrar a trilha, falha e recalibra em ciclo, o que costuma indicar cabeça ou motor comprometidos. Estalo seco acompanhado de travamento do sistema aponta setores defeituosos e tentativas de releitura — o disco ainda entrega dados, e essa é a janela para copiar tudo.",
+          "Zumbido contínuo sugere rolamento desgastado ou disco mal fixado no gabinete, e vibração constante acelera o desgaste mecânico. Chiado agudo de raspagem é o pior cenário: indica contato da cabeça com o prato, e cada segundo ligado remove material da superfície magnética.",
+        ],
+      },
+      {
+        titulo: "O que fazer antes de qualquer reparo",
+        paragrafos: [
+          "Se o ruído é clique repetido ou raspagem, desligue o equipamento. Se o sistema ainda abre e o ruído é ocasional, copie primeiro os arquivos insubstituíveis para um disco externo ou nuvem — documentos e fotos antes de programas. Confirme também de onde vem o som: cooler com pá empenada e fonte com rolamento gasto fazem barulho parecido e custam muito menos para resolver.",
+          "Não rode utilitário de correção de disco em HD com ruído mecânico: a varredura força milhares de leituras justamente onde o disco está frágil. Não abra o disco, não congele, não bata no equipamento e não formate esperando que o ruído pare — formatação não corrige defeito mecânico.",
+        ],
+      },
+      {
+        titulo: "Modalidades de atendimento",
+        paragrafos: [
+          "A orientação remota imediata vem primeiro: pelo WhatsApp indicamos o que desligar e o que copiar antes mesmo de mover o equipamento. Em bancada, o procedimento correto é gerar uma imagem setor a setor em outro dispositivo e trabalhar sobre a cópia, avaliando depois reparo lógico, troca por SSD e reinstalação.",
+          "Quando o dano é físico na cabeça ou no prato, o caso exige laboratório em sala limpa e informamos isso com clareza. Diagnóstico, deslocamento, mão de obra e peça são informados separadamente, e nada é executado sem aprovação.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/problemas/notebook-molhado",
+    title: "Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática",
+    description:
+      "Derramou líquido no notebook? Os primeiros minutos decidem o custo do reparo. Veja o que desligar, o que nunca fazer (arroz e secador) e quando o caso é de bancada.",
+    h1: "Notebook molhado: o que fazer nos primeiros minutos",
+    subtitulo:
+      "O que costuma destruir a placa não é o líquido em si, e sim a corrosão das horas seguintes e a tentativa de religar.",
+    blocos: [
+      {
+        titulo: "Funcionar depois do acidente não significa que passou",
+        paragrafos: [
+          "Há cinco cenários típicos: o notebook desliga na hora e não liga mais, continua funcionando normalmente, apresenta teclas travadas ou digitando sozinhas, liga com comportamento estranho em áudio, touchpad e portas USB, ou exibe manchas esverdeadas e cheiro adocicado depois de alguns dias. O segundo é o mais enganoso, porque a corrosão dos contatos evolui em silêncio e a falha aparece quando ninguém mais associa ao derramamento.",
+          "Água limpa é o melhor cenário. Café com açúcar, refrigerante e cerveja deixam resíduo pegajoso e condutivo que exige limpeza química, não apenas secagem. Com a bateria conectada existe tensão na placa mesmo com o aparelho desligado pelo botão — por isso cortar a energia é a primeira medida que realmente ajuda.",
+        ],
+      },
+      {
+        titulo: "Primeiros minutos: o que fazer e o que evitar",
+        paragrafos: [
+          "Desligue segurando o botão de energia, retire o carregador, remova a bateria quando o modelo permitir e vire o notebook em formato de tenda sobre uma toalha para o líquido escorrer. Retire periféricos, seque o excesso externo sem esfregar o teclado e anote o que foi derramado, a quantidade e o horário.",
+          "Não ligue para testar, não use secador nem forno, não mergulhe em arroz e não coloque para carregar. Calor espalha o líquido e desloca componentes colados; o arroz não alcança a umidade interna e ainda deposita amido e pó no equipamento. Em líquido açucarado, o intervalo útil se mede em horas.",
+        ],
+      },
+      {
+        titulo: "Modalidades de atendimento",
+        paragrafos: [
+          "A orientação por WhatsApp cobre os primeiros minutos, antes de qualquer deslocamento. Em bancada, fazemos desmontagem completa, remoção de resíduo com solução apropriada, secagem controlada e inspeção da placa sob lupa — o teste de energização só acontece depois disso.",
+          "Trilha rompida ou componente corroído pode exigir microssolda. A viabilidade é discutida antes da execução e a garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço; dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é dito antes da aprovação.",
+        ],
+      },
+    ],
+  },
 ];
+
 
 /** FAQ espelhada (mesma copy do TS) — paridade FAQPage estático × conteúdo visível. */
 const FAQ_POR_ROTA = {
@@ -237,7 +302,22 @@ const FAQ_POR_ROTA = {
     { pergunta: "Bateria estufada é perigosa?", resposta: "Sim. Estufamento indica degradação química e risco de vazamento ou incêndio. Pare de usar, não perfure e encaminhe para troca e descarte correto." },
     { pergunta: "Vocês vendem a bateria?", resposta: "Indicamos a peça compatível com o seu modelo e você decide onde comprar; se preferir, cuidamos da aquisição e da troca. Peça e mão de obra são informadas separadamente." },
   ],
+  "/problemas/hd-fazendo-barulho": [
+    { pergunta: "HD fazendo clique tem conserto?", resposta: "O disco em si raramente volta a ser confiável — o objetivo passa a ser recuperar os dados, não salvar a peça. Depois da cópia, a recomendação é substituir por um SSD e aposentar o disco com ruído." },
+    { pergunta: "Dá tempo de copiar os arquivos?", resposta: "Depende do ruído. Estalo ocasional com sistema ainda funcional geralmente permite clonagem completa. Clique repetido significa que o disco já não encontra as trilhas, e cada tentativa reduz a janela." },
+    { pergunta: "Congelar o HD funciona?", resposta: "Não. É um mito antigo que causa condensação dentro do disco e destrói o que ainda restava. Nenhum laboratório sério usa esse procedimento." },
+    { pergunta: "SSD também faz barulho?", resposta: "Não, porque não tem partes móveis. Se o ruído aparece em uma máquina só com SSD, a fonte é outra: cooler, fonte de alimentação ou drive óptico." },
+    { pergunta: "Quanto custa recuperar os dados?", resposta: "Depende do tipo de dano. Clonagem e recuperação lógica em bancada têm um custo; caso físico em sala limpa é outro patamar e é orçado à parte. Diagnóstico, mão de obra e peça são informados separadamente e nada é executado sem aprovação." },
+  ],
+  "/problemas/notebook-molhado": [
+    { pergunta: "Meu notebook molhou e continua funcionando. Preciso levar?", resposta: "Sim, e de preferência logo. A corrosão avança por dias com o equipamento aparentemente normal; a limpeza feita cedo costuma custar uma fração do reparo de placa depois." },
+    { pergunta: "Arroz funciona para secar notebook?", resposta: "Não. O arroz não alcança a umidade interna, não remove resíduo de açúcar e ainda deposita pó e amido dentro do equipamento. É um mito que atrasa o único procedimento que ajuda: a limpeza técnica." },
+    { pergunta: "Quanto tempo tenho para levar?", resposta: "Água limpa dá alguma folga; café, refrigerante e outros líquidos açucarados corroem rápido e o intervalo útil é de horas. Em qualquer caso, mantenha o equipamento desligado e sem carregador até a bancada." },
+    { pergunta: "Só o teclado molhou. Precisa mexer na placa?", resposta: "Nem sempre. Em vários modelos o teclado é uma peça separada e a placa fica preservada. A desmontagem é o que confirma até onde o líquido chegou — sem abrir, é palpite." },
+    { pergunta: "Tem garantia no reparo de equipamento molhado?", resposta: "A garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço. Dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é explicado antes da aprovação." },
+  ],
 };
+
 
 for (const rota of CLUSTER_PROBLEMAS_ROUTES) {
   const faq = FAQ_POR_ROTA[rota.path];

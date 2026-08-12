@@ -434,6 +434,24 @@ const AdminConversao = () => {
         </Button>
       </Card>
 
+      {loading && agregados.totalEventos === 0 ? (
+        <div role="status" aria-live="polite" className="mb-6 space-y-4">
+          <span className="sr-only">Carregando dados de conversão…</span>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <Card key={i} className="space-y-3 p-4">
+                <div className="skel skel-line w-1/2" />
+                <div className="skel skel-title w-1/3" />
+              </Card>
+            ))}
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card className="p-4"><div className="skel h-48 w-full" /></Card>
+            <Card className="p-4"><div className="skel h-48 w-full" /></Card>
+          </div>
+        </div>
+      ) : null}
+
       <div className="mb-6 grid gap-3 sm:grid-cols-3">
         <Card className="p-4">
           <p className="text-xs text-muted-foreground">Cliques em WhatsApp</p>

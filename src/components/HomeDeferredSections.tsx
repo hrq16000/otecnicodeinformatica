@@ -3,6 +3,7 @@ import { BrowserRouter, useInRouterContext } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { LazyOnVisible } from "@/components/LazyOnVisible";
+import { SkeletonBand, SkeletonSection } from "@/components/SkeletonSection";
 
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const PainSection = lazy(() => import("@/components/PainSection").then(m => ({ default: m.PainSection })));
@@ -31,9 +32,13 @@ const ProblemasDestaque = lazy(() => import("@/components/ProblemasDestaque").th
 const TechBrandsMarquee = lazy(() => import("@/components/TechBrandsMarquee").then(m => ({ default: m.TechBrandsMarquee })));
 const GeolocationTrigger = lazy(() => import("@/components/GeolocationTrigger").then(m => ({ default: m.GeolocationTrigger })));
 
-const SectionFallback = ({ height = "400px" }: { height?: string }) => (
-  <div style={{ minHeight: height }} className="w-full" aria-hidden="true" />
-);
+// ONDA 4T: o espaço reservado agora mostra esqueleto com shimmer.
+const SectionFallback = ({ height = "400px" }: { height?: string }) =>
+  height === "120px" || height === "1px" ? (
+    <SkeletonBand height={height} />
+  ) : (
+    <SkeletonSection height={height} />
+  );
 
 const DeferredContent = () => (
   <>

@@ -1430,6 +1430,74 @@
   .stagger-grid > *:nth-child(12) { animation-delay: 660ms; }
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   ONDA 4T — Sistema de carregamento e movimento (motion principles)
+   Skeleton com shimmer, fade-in de imagem e barra de progresso de rota.
+   Tudo é enhancement: sem JS, o conteúdo permanece visível e estável.
+   ══════════════════════════════════════════════════════════════════ */
+@layer utilities {
+  @keyframes skelShimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  /* Bloco de esqueleto — reserva espaço exato (CLS 0) e sinaliza carga. */
+  .skel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-color: hsl(var(--muted) / 0.55);
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--muted) / 0) 0%,
+      hsl(var(--foreground) / 0.06) 50%,
+      hsl(var(--muted) / 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: skelShimmer 1.4s linear infinite;
+  }
+  .skel-line { height: 0.875rem; border-radius: 0.375rem; }
+  .skel-title { height: 1.5rem; border-radius: 0.5rem; }
+
+  /* Imagem: entra com fade curto quando decodifica, sem piscar. */
+  .img-fade {
+    opacity: 0;
+    transition: opacity 320ms var(--anim-ease-out);
+  }
+  .img-fade[data-loaded="true"] { opacity: 1; }
+
+  /* Barra de progresso de navegação (topo, não bloqueante). */
+  @keyframes routeProgress {
+    0% { transform: translateX(-100%); }
+    60% { transform: translateX(-22%); }
+    100% { transform: translateX(-8%); }
+  }
+  .route-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    overflow: hidden;
+    background: hsl(var(--muted) / 0.4);
+  }
+  .route-progress > span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    animation: routeProgress 1.6s var(--anim-ease-out) forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skel { animation: none; }
+  .img-fade { opacity: 1; transition: none; }
+  .route-progress > span { animation: none; transform: none; }
+}
+
+
+
 /* ── Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
   *,

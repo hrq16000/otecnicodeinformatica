@@ -28,7 +28,7 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
           "Como o problema costuma se manifestar, as causas checadas no diagnóstico, uma lista do que verificar antes de chamar alguém, o que evitar para não agravar o caso, as modalidades possíveis (remoto, domicílio ou bancada) e perguntas frequentes específicas daquele sintoma.",
           "Diagnóstico, deslocamento, mão de obra e peça são informados separadamente. Nada é executado sem aprovação prévia e não trabalhamos com valor fechado antes de entender o caso.",
         ],
-      },,
+      },
       {
         titulo: "Quando o sintoma vira urgência",
         paragrafos: [

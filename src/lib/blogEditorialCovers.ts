@@ -27,13 +27,13 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
   },
   "notebook-nao-liga-o-que-fazer": {
     src: "/blog/notebook-nao-liga-o-que-fazer.jpg",
-    alt: "Notebook entreaberto sobre bancada clara com a tela desligada",
+    alt: "Placa-mãe de notebook com a bateria CMOS e seu par de fios conectados à placa",
     width: 1200,
     height: 630,
   },
   "computador-lento-causas-solucoes": {
     src: "/blog/computador-lento-causas-solucoes.jpg",
-    alt: "Monitor exibindo gráficos genéricos de uso de processador, memória e disco",
+    alt: "Braço atuador e cabeça de leitura removidos de um disco rígido mecânico sobre fundo claro",
     width: 1200,
     height: 630,
   },

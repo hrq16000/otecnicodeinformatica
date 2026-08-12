@@ -18,7 +18,13 @@ export interface RedirectRule {
   /** Destino canônico e indexável. */
   to: string;
   /** Por que a regra existe — documentação viva para auditoria. */
-  motivo: "url-antiga" | "variacao-slug" | "alias-pf" | "alias-pj" | "alias-institucional";
+  motivo:
+    | "url-antiga"
+    | "variacao-slug"
+    | "alias-pf"
+    | "alias-pj"
+    | "alias-institucional"
+    | "consolidacao-editorial";
 }
 
 export const REDIRECT_MATRIX: RedirectRule[] = [
@@ -74,6 +80,15 @@ export const REDIRECT_MATRIX: RedirectRule[] = [
   { from: "/para-empresas", to: "/empresa-de-ti-curitiba", motivo: "alias-pj" },
   { from: "/ti-para-empresas", to: "/empresa-de-ti-curitiba", motivo: "alias-pj" },
   { from: "/suporte-corporativo", to: "/empresa-de-ti-curitiba", motivo: "alias-pj" },
+
+  // ── Consolidação editorial (Onda 4Z) ────────────────────────
+  // Artigos herdados que cobriam a MESMA intenção de um guia canônico.
+  // Em vez de manter duplicatas noindex competindo entre si, a URL antiga
+  // continua respondendo e transfere autoridade para o guia canônico.
+  { from: "/blog/pc-muito-lento-como-acelerar", to: "/blog/computador-lento-causas-solucoes", motivo: "consolidacao-editorial" },
+  { from: "/blog/como-recuperar-dados-hd-defeituoso", to: "/blog/como-recuperar-dados-hd-com-defeito", motivo: "consolidacao-editorial" },
+  { from: "/blog/como-instalar-windows-11-do-zero-2026", to: "/blog/como-instalar-windows-11-do-zero", motivo: "consolidacao-editorial" },
+  { from: "/blog/notebook-superaquecendo-solucoes", to: "/blog/notebook-superaquecendo-o-que-fazer", motivo: "consolidacao-editorial" },
 ];
 
 /** Conjunto de aliases — nenhum deles pode entrar no sitemap. */

@@ -142,6 +142,40 @@ const WAVE_4Y: EditorialApproval[] = [
   },
 ];
 
+// Rodada 4Z — os dois guias herdados de maior intenção comercial do acervo.
+// Capas trocadas por FOTOGRAFIAS REAIS licenciadas (Wikimedia Commons).
+// Limite total de artigos indexáveis: 12.
+const WAVE_4Z: EditorialApproval[] = [
+  {
+    slug: "notebook-nao-liga-o-que-fazer",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 3.0",
+    imageAttribution:
+      "Foto: Rider Adil (Wikimedia Commons), CC BY 3.0 — https://commons.wikimedia.org/wiki/File:Laptop_hardware.jpg",
+    notes:
+      "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "computador-lento-causas-solucoes",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY 4.0",
+    imageAttribution:
+      "Foto: Mk2010 (Wikimedia Commons), CC BY 4.0 — https://commons.wikimedia.org/wiki/File:Actuator_arm_assembly_of_a_hard_disk_drive.jpg",
+    notes:
+      "Revisão técnica concluída e fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...FIRST_WAVE_SLUGS.map((slug) => [
     slug,
@@ -163,6 +197,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_4X.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_4Y.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_4Z.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

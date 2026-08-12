@@ -118,9 +118,10 @@ const ClusterProblemaPage = () => {
           {rotulo}
         </a>
       </Button>
-
     </div>
-  );
+    );
+  };
+
 
 
   return (

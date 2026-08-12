@@ -35,6 +35,15 @@ const CURADORIA = [
     slug: "computador-lento-causas-solucoes",
     commons: "File:Actuator arm assembly of a hard disk drive.jpg",
   },
+  // Onda 5A — reforma dos dois procedimentos técnicos herdados.
+  {
+    slug: "como-recuperar-dados-hd-com-defeito",
+    commons: "File:Toshiba Laptop Hard Drive.jpg",
+  },
+  {
+    slug: "como-fazer-upgrade-ssd-nvme",
+    commons: "File:256GB 2230 NVME SSD + 256GB NGFF SSD.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

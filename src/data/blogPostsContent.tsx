@@ -9495,49 +9495,64 @@ crontab -e
     ),
   },
   "como-instalar-impressora-windows-passo-a-passo": {
-    title: "Como Instalar Impressora no Windows 11: Passo a Passo Completo 2026",
-    excerpt: "Veja como instalar qualquer impressora (HP, Epson, Brother, Canon) no Windows 11 em 10 minutos. Suporte técnico em Curitiba se travar.",
-    date: "2026-04-29",
-    readTime: "6 min",
-    category: "Tutoriais Domésticos",
+    title: "Instalar impressora no Windows: por que ela some da rede e como deixar a instalação estável",
+    excerpt:
+      "O que muda entre instalar por cabo e instalar em rede, por que a impressora desaparece depois de reiniciar o roteador e como fixar o endereço para a instalação parar de se perder.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Redes",
     content: (
       <>
-        <p className="lead">Instalar impressora pode parecer assustador, mas no Windows 10 e 11 ficou bem mais fácil. Veja o passo a passo conforme o tipo de impressora que você tem.</p>
+        <p className="lead">Instalar impressora quase nunca é o problema. O problema aparece depois: o aparelho imprime hoje, some da lista amanhã e volta a funcionar sozinho na semana seguinte. Esse comportamento tem causa técnica conhecida — e ela não está no computador, está em como a impressora recebe endereço na rede.</p>
 
-        <h2>Impressora com Cabo USB</h2>
+        <h2>Duas instalações diferentes com o mesmo nome</h2>
+        <p>Existe uma diferença de fundo entre os dois modos de instalação, e ela explica quase todos os atendimentos desse tipo:</p>
+        <ul>
+          <li><strong>Por cabo USB</strong>, o computador enxerga um dispositivo fixo. Enquanto o cabo estiver conectado, o endereço não muda e a fila de impressão não se perde. A limitação é óbvia: imprime só quem está naquele computador.</li>
+          <li><strong>Em rede (Wi-Fi ou cabo de rede)</strong>, o computador não fala com um dispositivo — fala com um endereço. Se o endereço mudar, a instalação continua existindo, mas aponta para um lugar onde não há mais ninguém. É por isso que o Windows mostra a impressora como "offline" mesmo com o aparelho ligado e imprimindo página de teste pelo próprio painel.</li>
+        </ul>
+
+        <h2>Por que o endereço muda sozinho</h2>
+        <p>O roteador distribui endereços por empréstimo temporário. Quando o prazo vence, quando a rede reinicia ou quando entram novos aparelhos, o roteador pode entregar à impressora um número diferente do anterior. O computador continua procurando o número antigo. Nada quebrou: a referência é que ficou velha.</p>
+        <p>Essa é a razão de o sintoma sempre voltar depois de queda de energia, troca de roteador, mudança de senha do Wi-Fi ou troca de plano de internet. Reinstalar a impressora resolve por alguns dias porque a instalação nova pega o endereço atual — até ele mudar de novo.</p>
+
+        <h2>A instalação que fica de pé</h2>
+        <p>A ordem que evita retrabalho é esta:</p>
         <ol>
-          <li>Conecte o cabo USB da impressora no computador</li>
-          <li>Ligue a impressora e espere ela ficar pronta (luz verde fixa)</li>
-          <li>O Windows vai detectar e instalar sozinho — espere a notificação 'Pronto para uso'</li>
-          <li>Abra qualquer documento e mande imprimir para testar</li>
+          <li><strong>Deixar a impressora na rede antes de mexer no computador.</strong> Conectar o aparelho ao Wi-Fi pelo painel dele, ou ligar o cabo de rede, e imprimir a página de configuração do próprio equipamento. Essa página mostra o endereço que ele recebeu.</li>
+          <li><strong>Reservar esse endereço no roteador.</strong> É o passo que quase ninguém faz e que resolve o problema de raiz: o roteador passa a entregar sempre o mesmo número para aquele aparelho. Alguns modelos de impressora também permitem fixar o endereço no próprio painel — nesse caso, o número escolhido precisa estar fora da faixa que o roteador distribui, ou dois aparelhos vão brigar pelo mesmo endereço.</li>
+          <li><strong>Instalar o driver oficial do fabricante</strong>, baixado do site do fabricante do equipamento. O driver genérico que o Windows instala sozinho costuma imprimir, mas frequentemente não expõe digitalização, frente e verso, bandeja alternativa e nível de suprimento.</li>
+          <li><strong>Adicionar a impressora pelo endereço</strong>, não pela descoberta automática. Descoberta automática é conveniente e frágil; endereço reservado é estável.</li>
+          <li><strong>Testar de cada computador que vai usar</strong>, e não apenas daquele onde a instalação foi feita.</li>
         </ol>
 
-        <h2>Impressora Wi-Fi</h2>
-        <ol>
-          <li>Coloque a impressora perto do roteador na primeira vez</li>
-          <li>No painel da impressora, vá em <strong>Configurações de Rede → Wi-Fi</strong></li>
-          <li>Selecione sua rede Wi-Fi e digite a senha</li>
-          <li>No PC: <strong>Configurações → Bluetooth e dispositivos → Impressoras → Adicionar dispositivo</strong></li>
-          <li>Aguarde sua impressora aparecer e clique em <strong>Adicionar</strong></li>
-        </ol>
+        <h2>Quando a impressora não aparece de jeito nenhum</h2>
+        <p>Antes de reinstalar pela terceira vez, vale verificar quatro coisas que respondem pela maioria dos casos:</p>
+        <ul>
+          <li><strong>Redes diferentes.</strong> Roteadores modernos criam faixas de 2,4 GHz e 5 GHz e, em muitos casos, uma rede de visitantes isolada. Impressora numa rede e computador em outra não se enxergam — principalmente quando o aparelho caiu na rede de visitantes, que é isolada por projeto.</li>
+          <li><strong>Impressora só em 2,4 GHz.</strong> Boa parte dos modelos domésticos não opera em 5 GHz. Se as duas faixas têm o mesmo nome, o aparelho pode simplesmente não encontrar a rede.</li>
+          <li><strong>Isolamento de clientes ativo no roteador.</strong> Recurso comum em redes de operadora: os aparelhos acessam a internet, mas não conversam entre si. Nesse cenário nenhuma impressora de rede vai funcionar até o recurso ser desativado.</li>
+          <li><strong>Fila travada.</strong> Um documento com erro parado na fila bloqueia tudo o que vem depois, mesmo com a impressora perfeitamente conectada. Limpar a fila e reiniciar o serviço de impressão devolve o funcionamento sem reinstalar nada.</li>
+        </ul>
+        <p>O desenho dessa parte — faixas, reserva de endereço, separação da rede de visitantes — é o mesmo trabalho descrito em <Link to="/servicos/redes-e-wifi">redes e Wi-Fi</Link>.</p>
 
-        <h2>Não Aparece? Faça Isso</h2>
-        <ol>
-          <li>Confirme que PC e impressora estão na MESMA rede Wi-Fi (não no Wi-Fi do vizinho)</li>
-          <li>Reinicie o roteador, depois a impressora</li>
-          <li>Baixe o driver oficial no site do fabricante (HP, Epson, Brother, Canon)</li>
-          <li>Se for HP, baixe o app <strong>HP Smart</strong> da Microsoft Store</li>
-        </ol>
+        <h2>Escritório: compartilhamento pelo computador é o erro mais comum</h2>
+        <p>Em escritório pequeno ainda é frequente encontrar a impressora instalada em um computador e compartilhada a partir dele. O arranjo funciona até o dia em que aquele computador é desligado, entra em suspensão ou recebe atualização — e o escritório inteiro para de imprimir.</p>
+        <p>Se o aparelho tem rede, cada estação deve falar direto com ele pelo endereço reservado. O computador deixa de ser ponto único de falha, e a manutenção de uma máquina para de derrubar a impressão de todo mundo. Esse ajuste costuma entrar junto do restante da organização descrita em <Link to="/servicos/suporte-tecnico-empresarial">suporte técnico empresarial</Link>.</p>
 
-        <h2>Imprimindo do Celular</h2>
-        <p>A maioria das impressoras modernas aceita imprimir do celular. No Android use <strong>Mopria Print Service</strong>, no iPhone é automático com <strong>AirPrint</strong>. Basta a impressora estar no mesmo Wi-Fi.</p>
+        <h2>Imprimir do celular</h2>
+        <p>Celular e impressora precisam estar na mesma rede — e, de novo, a rede de visitantes atrapalha. Android usa o serviço de impressão padrão do sistema; iPhone descobre automaticamente aparelhos compatíveis com o protocolo de impressão sem driver. Quando o modelo não é compatível, o caminho é o aplicativo do próprio fabricante. Nenhum dos dois casos exige instalar programa no computador.</p>
 
-        <h2>Quando Pedir Ajuda</h2>
-        <p>Impressoras antigas, sem driver para Windows 11, ou que ficam fora da rede com frequência podem precisar de configuração avançada. A O Técnico de Informática instala e configura impressoras em residências e escritórios em Curitiba.</p>
+        <h2>Onde este atendimento começa e termina</h2>
+        <p>O que tratamos aqui é configuração, comunicação e compartilhamento em rede: driver oficial, endereço fixo, compartilhamento entre estações, fila travada, descoberta na rede, digitalização em rede quando o modelo suporta e reconexão depois da troca de roteador.</p>
+        <p>Reparo mecânico ou eletrônico do aparelho — cabeçote, fusor, tracionamento de papel, placa — está fora do escopo, assim como fornecimento de toner e tinta. Se a avaliação apontar falha física, informamos e orientamos a assistência do fabricante em vez de empurrar um serviço que não resolveria. O critério de verificação e cobrança está descrito em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
+        <h2>Resumo prático</h2>
+        <p>Impressora em rede não some por defeito: some porque o endereço dela mudou. Conecte o aparelho à rede primeiro, imprima a página de configuração, reserve o endereço no roteador, instale o driver oficial e adicione a impressora pelo endereço em cada computador. Se mesmo assim ela não aparece, verifique faixas de Wi-Fi diferentes, rede de visitantes, isolamento de clientes e fila travada — nessa ordem.</p>
       </>
     ),
   },
+
   "como-remover-virus-windows-iniciantes": {
     title: "Como Remover Vírus do Windows Grátis: Guia Completo 2026 (Sem Pagar Antivírus)",
     excerpt: "Anúncios estranhos, navegador lento ou pop-ups? Aprenda como remover vírus do Windows com ferramentas gratuitas. Remoção profissional em Curitiba.",

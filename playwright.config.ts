@@ -22,13 +22,16 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: CI,
   retries: CI ? 2 : 0,
-  workers: CI ? 2 : undefined,
+  // Workers limitados: com paralelismo livre o Chromium é morto pelo limite de
+  // memória do ambiente e a suíte falha em massa por 'browser has been closed'.
+  workers: 2,
   reporter: CI ? [["github"], ["html", { open: "never" }]] : [["list"]],
   use: {
     baseURL: process.env.E2E_BASE_URL ?? "http://localhost:8080",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "off",
+    launchOptions: { args: ["--no-sandbox", "--disable-dev-shm-usage"] },
   },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },

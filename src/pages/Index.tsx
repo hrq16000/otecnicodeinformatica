@@ -4,6 +4,8 @@ import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
 import { HeroTriagem } from "@/components/home/HeroTriagem";
 import { ContextosBento } from "@/components/home/ContextosBento";
+import { FaixaFotografica } from "@/components/home/FaixaFotografica";
+
 
 import { TrustStrip } from "@/components/TrustStrip";
 

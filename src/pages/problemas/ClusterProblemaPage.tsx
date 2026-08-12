@@ -15,9 +15,14 @@ import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { clusterProblema } from "@/lib/clusterProblemas";
 import { absoluteUrl } from "@/lib/siteConfig";
-import { buildProblemaWaHref, rotuloEvento, type ContextoTriagem } from "@/lib/problemasWaTemplates";
+import {
+  buildProblemaWaHref,
+  buildProblemaWaFallbackHref,
+  rotuloEvento,
+  type ContextoTriagem,
+} from "@/lib/problemasWaTemplates";
 import { useScrollBucket } from "@/hooks/useScrollBucket";
-import { trackPageView, trackCTAClick } from "@/lib/analytics";
+import { trackPageView, trackCTAClick, trackFaqLinkClick } from "@/lib/analytics";
 
 
 /**
@@ -170,6 +175,27 @@ const ClusterProblemaPage = () => {
             </Link>
           </Button>
         </div>
+        {/* Fallback sem app instalado: mesmo texto e mesmos parâmetros de tracking. */}
+        <p className="mt-3 text-xs text-muted-foreground">
+          Sem o aplicativo instalado?{" "}
+          <a
+            href={buildProblemaWaFallbackHref(baseMsg, {
+              ...contexto,
+              sintoma: sintomaSlug,
+              secao: "topo_web",
+              rolagem,
+            })}
+            onClick={() =>
+              trackCTAClick("whatsapp", `problema_${sintomaSlug}_topo_web`)
+            }
+            rel="noopener noreferrer"
+            target="_blank"
+            className="font-bold underline-offset-4 transition-colors hover:text-accent hover:underline"
+          >
+            abrir no WhatsApp Web
+          </a>{" "}
+          com a mesma mensagem.
+        </p>
 
         <TriagemContexto valor={contexto} onChange={setContexto} />
 
@@ -289,7 +315,11 @@ const ClusterProblemaPage = () => {
               return (
                 <article key={f.q} id={ancora} className="rounded-xl border border-border bg-card p-5 animate-fade-in">
                   <h3 className="font-heading font-bold text-foreground">
-                    <a href={`#${ancora}`} className="transition-colors hover:text-accent">
+                    <a
+                      href={`#${ancora}`}
+                      onClick={() => trackFaqLinkClick("anchor", f.q, `#${ancora}`, ancora)}
+                      className="transition-colors hover:text-accent"
+                    >
                       {f.q}
                     </a>
                   </h3>
@@ -298,6 +328,7 @@ const ClusterProblemaPage = () => {
                     {rel && (
                       <Link
                         to={rel.to}
+                        onClick={() => trackFaqLinkClick("internal_link", f.q, rel.to, ancora)}
                         className="inline-flex items-center gap-1 text-sm font-bold text-accent transition-transform duration-200 hover:translate-x-0.5"
                       >
                         {rel.titulo}

@@ -10,6 +10,7 @@
  * escolhas de triagem (dispositivo/urgência), que são categorias, não PII.
  */
 import { whatsappLinkComContexto } from "@/lib/waContextLink";
+import { sufixoVariante, varianteWa, type VarianteWa } from "@/lib/problemasWaVariants";
 
 export type UrgenciaChave = "hoje" | "72h" | "sem-pressa";
 
@@ -43,6 +44,8 @@ export interface ProblemaWaCtx extends ContextoTriagem {
   rolagem?: number;
   /** Complemento específico do CTA/pergunta. */
   complemento?: string;
+  /** Variante do A/B da mensagem (default: variante persistida do visitante). */
+  variante?: VarianteWa;
 }
 
 function rotuloDispositivo(chave?: string): string | undefined {
@@ -66,16 +69,21 @@ export function buildProblemaWaMessage(base: string, ctx: ProblemaWaCtx): string
   if (urg) campos.push(urg);
   if (campos.length) linhas.push(campos.join("\n"));
 
+  const sufixo = sufixoVariante(ctx.variante ?? varianteWa());
+  if (sufixo) linhas.push(sufixo);
+
   return linhas.filter(Boolean).join("\n\n");
 }
 
 /** Link wa.me com mensagem pronta + UTMs e identificadores de atribuição. */
 export function buildProblemaWaHref(base: string, ctx: ProblemaWaCtx): string {
-  const href = whatsappLinkComContexto(buildProblemaWaMessage(base, ctx), {
+  const variante = ctx.variante ?? varianteWa();
+  const href = whatsappLinkComContexto(buildProblemaWaMessage(base, { ...ctx, variante }), {
     medium: "cta_problema",
     servico: ctx.sintoma,
     posicao: `problemas_${ctx.secao}`,
     etapa: "triagem",
+    variante: `msg_${variante}`,
   });
 
   if (!/^https?:\/\//.test(href)) return href;
@@ -87,7 +95,28 @@ export function buildProblemaWaHref(base: string, ctx: ProblemaWaCtx): string {
     if (typeof ctx.rolagem === "number") url.searchParams.set("rolagem", String(ctx.rolagem));
     if (ctx.dispositivo) url.searchParams.set("dispositivo", ctx.dispositivo);
     if (ctx.urgencia) url.searchParams.set("urgencia", ctx.urgencia);
+    url.searchParams.set("variante", variante);
     return url.toString();
+  } catch {
+    return href;
+  }
+}
+
+/**
+ * Fallback para quem não tem o app instalado (desktop sem WhatsApp Desktop,
+ * navegador sem handler): api.whatsapp.com/send abre o WhatsApp Web com a
+ * MESMA mensagem e os MESMOS parâmetros de tracking do link principal.
+ */
+export function buildProblemaWaFallbackHref(base: string, ctx: ProblemaWaCtx): string {
+  const href = buildProblemaWaHref(base, ctx);
+  if (!/^https?:\/\/wa\.me\//.test(href)) return href;
+  try {
+    const url = new URL(href);
+    const phone = url.pathname.replace(/^\//, "");
+    const web = new URL("https://api.whatsapp.com/send");
+    url.searchParams.forEach((v, k) => web.searchParams.set(k, v));
+    web.searchParams.set("phone", phone);
+    return web.toString();
   } catch {
     return href;
   }
@@ -97,5 +126,7 @@ export function buildProblemaWaHref(base: string, ctx: ProblemaWaCtx): string {
 export function rotuloEvento(ctx: ProblemaWaCtx): string {
   const partes = [`problema_${ctx.sintoma}`, ctx.secao];
   if (typeof ctx.rolagem === "number") partes.push(`scroll${ctx.rolagem}`);
+  if (ctx.variante) partes.push(`msg${ctx.variante}`);
   return partes.join("_");
 }
+

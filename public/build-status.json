@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-08-12T20:39:56.770Z",
-  "finishedAt": "2026-08-12T20:39:59.101Z",
+  "startedAt": "2026-08-12T23:05:39.364Z",
+  "finishedAt": "2026-08-12T23:05:40.752Z",
   "ok": true,
   "total": 9,
   "passed": 9,
@@ -12,72 +12,72 @@
       "label": "ads.txt e metatag AdSense",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 94,
-      "checkedAt": "2026-08-12T20:39:56.864Z"
+      "durationMs": 89,
+      "checkedAt": "2026-08-12T23:05:39.454Z"
     },
     {
       "id": "policy-jsonld",
       "label": "JSON-LD das políticas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 86,
-      "checkedAt": "2026-08-12T20:39:56.950Z"
+      "durationMs": 73,
+      "checkedAt": "2026-08-12T23:05:39.527Z"
     },
     {
       "id": "telemetry",
       "label": "Transparência da telemetria",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 104,
-      "checkedAt": "2026-08-12T20:39:57.054Z"
+      "durationMs": 76,
+      "checkedAt": "2026-08-12T23:05:39.603Z"
     },
     {
       "id": "missing-exports",
       "label": "Exports ausentes nas rotas",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 1014,
-      "checkedAt": "2026-08-12T20:39:58.068Z"
+      "durationMs": 502,
+      "checkedAt": "2026-08-12T23:05:40.105Z"
     },
     {
       "id": "internal-links",
       "label": "Links internos sem 404",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 320,
-      "checkedAt": "2026-08-12T20:39:58.388Z"
+      "durationMs": 196,
+      "checkedAt": "2026-08-12T23:05:40.301Z"
     },
     {
       "id": "sitemap-source",
       "label": "Sitemap x fonte curada",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 176,
-      "checkedAt": "2026-08-12T20:39:58.564Z"
+      "durationMs": 100,
+      "checkedAt": "2026-08-12T23:05:40.401Z"
     },
     {
       "id": "aggregate-rating",
       "label": "Ausência de aggregateRating fabricado",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 169,
-      "checkedAt": "2026-08-12T20:39:58.733Z"
+      "durationMs": 109,
+      "checkedAt": "2026-08-12T23:05:40.510Z"
     },
     {
       "id": "media-assets",
       "label": "og:image, mídia kit e assets públicos",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 225,
-      "checkedAt": "2026-08-12T20:39:58.958Z"
+      "durationMs": 137,
+      "checkedAt": "2026-08-12T23:05:40.647Z"
     },
     {
       "id": "orphan-pages",
       "label": "Páginas órfãs",
       "status": "ok",
       "detail": "sem pendências",
-      "durationMs": 142,
-      "checkedAt": "2026-08-12T20:39:59.100Z"
+      "durationMs": 104,
+      "checkedAt": "2026-08-12T23:05:40.751Z"
     }
   ]
 }

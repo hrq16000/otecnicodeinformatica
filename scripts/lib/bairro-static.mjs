@@ -57,6 +57,7 @@ function parse() {
       nomeLocativo: str("nomeLocativo"),
       introducao: list("introducaoLocal"),
       contexto: list("contextoLocal"),
+      logistica: list("logisticaLocal"),
       operacao: list("operacaoLocal"),
       atendimento: list("atendimentoLocal"),
       coleta: list("coletaBancada"),
@@ -83,6 +84,12 @@ export function bairroBlocos(path) {
     blocos.push({
       titulo: `O que costuma aparecer nos chamados ${loc}`,
       paragrafos: d.contexto,
+    });
+  }
+  if (d.logistica?.length) {
+    blocos.push({
+      titulo: `Deslocamento, acesso e agendamento ${loc}`,
+      paragrafos: d.logistica,
     });
   }
   if (d.operacao.length) {

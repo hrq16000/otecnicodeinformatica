@@ -974,8 +974,13 @@ const App = () => (
             {/* Redirects das URLs antigas de procedimentos */}
             
             {/* Páginas de Problema / Intenção de Busca (213 páginas dinâmicas) */}
+            <Route path="/problemas" element={<ProblemasHub />} />
             <Route path="/problemas/notebook-nao-liga" element={<NotebookNaoLiga />} />
             <Route path="/problemas/computador-lento" element={<ProblemaComputadorLento />} />
+            <Route path="/problemas/wifi-instavel" element={<ClusterProblemaPage />} />
+            <Route path="/problemas/tela-azul" element={<ClusterProblemaPage />} />
+            <Route path="/problemas/arquivos-apagados" element={<ClusterProblemaPage />} />
+
             <Route path="/guia-tecnico-informatica" element={<GuiaTecnicoInformatica />} />
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />

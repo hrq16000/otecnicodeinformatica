@@ -1,8 +1,8 @@
+import { SmartImage } from "@/components/SmartImage";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { TechnicalCase, TechnicalCasePhoto } from "@/lib/technicalCases";
 import { validateTechnicalCase } from "@/lib/technicalCases";
-import { SmartImage } from "@/components/SmartImage";
 
 /**
  * COMPONENTES DE PROVA TÉCNICA (Rodada 3G — preparação).

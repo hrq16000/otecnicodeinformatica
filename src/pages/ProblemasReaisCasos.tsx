@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
@@ -11,7 +12,6 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_NUMBER as WA_NUMBER, SITE_BASE_URL } from "@/lib/siteConfig";
 import {
-import { SmartImage } from "@/components/SmartImage";
   MessageCircle, ArrowRight, AlertTriangle, CheckCircle2,
   Zap, HardDrive, Cpu, Wrench, Monitor, ShieldCheck,
 } from "lucide-react";

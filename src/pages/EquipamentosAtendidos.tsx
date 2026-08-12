@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
@@ -12,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import {
-import { SmartImage } from "@/components/SmartImage";
   Monitor, Laptop, HardDrive, Wifi, Server, Cpu, Keyboard,
   MessageCircle, ArrowRight, CheckCircle2, AlertTriangle, Ban, MonitorSmartphone,
 } from "lucide-react";

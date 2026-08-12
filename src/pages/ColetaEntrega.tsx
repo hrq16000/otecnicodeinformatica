@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
@@ -20,7 +21,6 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-import { SmartImage } from "@/components/SmartImage";
   COLETA_TAXA_MINIMA_LABEL,
   DIAGNOSTICO_VALOR_LABEL,
   EQUIPAMENTOS_COLETA,

@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
@@ -40,7 +41,6 @@ import {
   Headphones,
 } from "lucide-react";
 import {
-import { SmartImage } from "@/components/SmartImage";
   Accordion,
   AccordionContent,
   AccordionItem,

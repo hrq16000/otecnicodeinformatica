@@ -1,7 +1,7 @@
+import { SmartImage } from "@/components/SmartImage";
 import { Link } from "react-router-dom";
 import { IMAGES } from "@/lib/images";
 import { 
-import { SmartImage } from "@/components/SmartImage";
   AlertTriangle, 
   Search, 
   ShieldCheck, 

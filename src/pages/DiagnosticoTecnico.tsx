@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { IMAGES } from "@/lib/images";
@@ -17,7 +18,6 @@ import {
   MessageCircle, DollarSign, Wrench, CircleDollarSign, ClipboardList,
 } from "lucide-react";
 import {
-import { SmartImage } from "@/components/SmartImage";
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 

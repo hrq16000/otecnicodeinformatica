@@ -1,3 +1,4 @@
+import { SmartImage } from "@/components/SmartImage";
 import { useEffect } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -16,7 +17,6 @@ import { trackPageView } from "@/lib/analytics";
 import { trackWaClick } from "@/lib/funnelAnalytics";
 import { buildCategoryMessage, type TemplateCategory } from "@/lib/whatsappTemplates";
 import { WHATSAPP_PHONE_E164 as WA_PHONE_E164, SITE_BASE_URL } from "@/lib/siteConfig";
-import { SmartImage } from "@/components/SmartImage";
 
 const CANONICAL_BASE = SITE_BASE_URL;
 

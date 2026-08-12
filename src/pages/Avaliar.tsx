@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Star, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Star, ShieldCheck, CheckCircle2, Loader2 } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -258,8 +258,10 @@ const Avaliar = () => {
               <Button
                 onClick={enviar}
                 disabled={enviando}
-                className="min-h-12 w-full text-base font-semibold"
+                aria-busy={enviando}
+                className="min-h-12 w-full gap-2 text-base font-semibold"
               >
+                {enviando ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
                 {enviando ? "Enviando..." : "Enviar avaliação"}
               </Button>
 

@@ -408,11 +408,14 @@ const AdminFunnel = () => {
                 </tr>
               </thead>
               <tbody>
-                {loading && rows.length === 0 && (
-                  <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
-                    <Loader2 className="h-4 w-4 animate-spin inline mr-2" /> Carregando…
-                  </td></tr>
-                )}
+                {loading && rows.length === 0 &&
+                  Array.from({ length: 5 }).map((_, i) => (
+                    <tr key={`skel-${i}`} className="border-t border-border">
+                      <td colSpan={8} className="px-3 py-2">
+                        <div className="skel h-6 w-full rounded-md" />
+                      </td>
+                    </tr>
+                  ))}
                 {!loading && rows.length === 0 && (
                   <tr><td colSpan={8} className="text-center py-6 text-muted-foreground">
                     <Filter className="h-4 w-4 inline mr-2" /> Nenhum lead encontrado

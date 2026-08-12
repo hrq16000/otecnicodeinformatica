@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { AlertTriangle, ArrowRight, CheckCircle2, MessageCircle, XCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
@@ -22,7 +22,10 @@ import { trackPageView, trackCTAClick } from "@/lib/analytics";
  * cluster devolve 404 real (nada de shell da Home).
  */
 const ClusterProblemaPage = () => {
-  const { slug = "" } = useParams();
+  const params = useParams();
+  const { pathname } = useLocation();
+  // Rotas literais (/problemas/tela-azul) não têm :slug — cai no pathname.
+  const slug = params.slug ?? pathname.replace(/^\/problemas\//, "").replace(/\/$/, "");
   const dados = clusterProblema(slug);
 
   useEffect(() => {

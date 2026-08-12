@@ -54,7 +54,7 @@ export default {
     if (d.action === "redirect") {
       const location = new URL(d.location, url.origin).toString();
       return new Response(null, {
-        status: 301,
+        status: d.status === 308 ? 308 : 301,
         headers: { location, "cache-control": "public, max-age=86400" },
       });
     }

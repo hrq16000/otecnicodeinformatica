@@ -157,3 +157,48 @@ resolver o soft-404 do fallback e de concluir a bateria (E2E Chromium, smoke pú
 - Rotas dinâmicas inválidas (`/marcas/*`, `/problemas/*`, `/procedimentos/*`, `/blog/*`) passaram a renderizar a 404 canônica (`src/pages/NotFound.tsx`) em vez de telas próprias ou redirect para `/blog`: H1 "Página não encontrada", `noindex, nofollow`, sem canonical e sem JSON-LD.
 - Build: 1052 rotas exatas, 317 páginas próprias, 723 shells noindex. Gates `soft-404`, `http-route-semantics`, `brand-isolation`, `sitemap-source`, `internal-links`, `programmatic-similarity`, `local-seo-quality`, `faq-parity`, `meta-uniqueness` e `rich-results` verdes. Vitest 482/482; E2E `soft-404` 9/9.
 - Pendência única: 404 real (status HTTP) para URLs desconhecidas depende do deploy do Worker, que exige `CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID`. Até lá, URLs desconhecidas respondem 200 + `noindex` sem canonical da home (soft-404 controlado).
+
+## Rodada 3P.2 — ativação do Worker e 404 HTTP real
+
+Data/hora: 2026-08-12T01:45Z. Escopo: **exclusivamente borda** — nenhuma alteração em rotas React,
+conteúdo, SEO, schemas, sitemap, robots, analytics, funil ou WhatsApp.
+
+**Preparação concluída (código de borda pronto para publicar)**
+- `scripts/cf-edge-dry.mjs`: nome esperado do Worker passou a ser derivado de `VITE_SITE_DOMAIN`
+  (não mais o literal da marca de origem). Pré-voo agora resulta **APTO**.
+- `scripts/lib/edge-router.mjs`: `www.<domínio>` deixou de ser proxy e passa a **308 permanente**
+  para o apex, preservando path e query (`/servicos/manutencao-de-notebook?utm_source=x`).
+- `cloudflare/worker.js`: honra o status 308 devolvido pelo roteador.
+- `cloudflare/wrangler.toml`: rota `www.otecnicodeinformatica.com.br/*` habilitada.
+- Testes unitários do roteador: 12/12. Bundle do Worker: 26,6 KiB comprimido (limite 2457,6 KiB).
+- Build: 1052 rotas exatas, 38 aliases, 711 assets, 723 shells noindex; gates `soft-404` e
+  `http-route-semantics` verdes.
+
+**Medição em produção (2026-08-12, antes do Worker)**
+
+| URL | Esperado | Obtido |
+| --- | --- | --- |
+| `/` | 200 | 200 |
+| `/servicos/manutencao-de-notebook` | 200 | 200 |
+| `/tecnico-informatica-curitiba` | 200 | 200 |
+| `/bairros/batel` | 200 | 200 |
+| `/bairros/academia-sjp` (noindex válido) | 200 + noindex | 200 + noindex |
+| `/isto-nao-existe-938472` | 404 | 200 (noindex, sem canonical da home) |
+| `/servicos/banana-quantica` | 404 | 200 (noindex) |
+| `/bairros/bairro-que-nao-existe` | 404 | 200 (noindex) |
+| `/blog/artigo-inexistente-938472` | 404 | 200 (noindex) |
+| `/assets/nao-existe-938472.js` | 404 | **404** |
+| `/isto-nao-existe-938472?utm_source=test` | 404 | 200 (noindex) |
+| `www` + path + query | 301/308 | 302 (path e query preservados) |
+
+**Pendência única (infraestrutura, não código)**
+`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` e `CLOUDFLARE_ZONE_ID` não estão disponíveis no
+ambiente de execução nem como secrets do repositório; sem eles não é possível validar a zona
+(`check:cf-zone` apenas avisa e sai), publicar o Worker (`cf:edge:deploy`) nem rodar
+`verify:cf`. Nenhum token foi versionado, impresso ou adicionado ao `.env.example`.
+
+**Veredito mantido: APROVADO PARA PRODUÇÃO COM RESSALVAS.** Todas as condições sob controle da
+aplicação estão satisfeitas (indexáveis 200, noindex válidos 200 + noindex, asset inexistente 404,
+404 canônica sem canonical da home). O upgrade para **APROVADO PARA PRODUÇÃO E INDEXAÇÃO** ocorre
+automaticamente após o deploy do Worker com o token, quando URLs desconhecidas passarem a devolver
+status HTTP 404 real.

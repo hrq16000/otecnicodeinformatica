@@ -16,7 +16,12 @@ test("manifesto passa no fail-safe de quantidades mínimas", () => {
 
 test("host inesperado é recusado", () => {
   assert.equal(decide(req("/", { host: "exemplo.com" }), m).action, "reject");
-  assert.equal(decide(req("/", { host: `www.${SITE_DOMAIN}` }), m).action, "proxy");
+  {
+    const d = decide(req("/servicos/manutencao-de-notebook", { host: `www.${SITE_DOMAIN}`, search: "?utm_source=x" }), m);
+    assert.equal(d.action, "redirect");
+    assert.equal(d.status, 308);
+    assert.equal(d.location, `https://${SITE_DOMAIN}/servicos/manutencao-de-notebook?utm_source=x`);
+  }
 });
 
 test("rotas válidas vão para a origem", () => {

@@ -140,6 +140,17 @@ export function decide(req, m) {
   const host = String(req.host ?? "").toLowerCase().split(":")[0];
   if (!ALLOWED_HOSTS.includes(host)) return { action: "reject", status: 421, reason: "host-nao-permitido" };
 
+  // 1b. www é secundário: 308 permanente para o apex, preservando path e query.
+  if (host === `www.${SITE_DOMAIN}`) {
+    const rawPath = typeof req.pathname === "string" && req.pathname.startsWith("/") ? req.pathname : "/";
+    return {
+      action: "redirect",
+      status: 308,
+      location: `${BASE_URL}${rawPath}${req.search ?? ""}`,
+      reason: "www-para-apex",
+    };
+  }
+
   const pathname = normalizePath(req.pathname);
   if (pathname === null) return { action: "notfound", status: 404, reason: "path-malformado" };
 

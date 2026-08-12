@@ -14,7 +14,8 @@ const toml = readFileSync("cloudflare/wrangler.toml", "utf8")
   .filter((l) => !l.trim().startsWith("#"))
   .join("\n");
 const name = toml.match(/^name\s*=\s*"([^"]+)"/m)?.[1];
-if (name !== "tecnico-curitiba-route-guard") problems.push(`nome do worker inesperado: ${name}`);
+const EXPECTED_WORKER = `${SITE_DOMAIN.split(".")[0]}-route-guard`;
+if (name !== EXPECTED_WORKER) problems.push(`nome do worker inesperado: ${name}`);
 info.push(`worker: ${name}`);
 
 const zones = [...toml.matchAll(/zone_name\s*=\s*"([^"]+)"/g)].map((m) => m[1]);

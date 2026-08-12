@@ -437,7 +437,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/servicos/computador-nao-liga", titulo: "Computador não liga", desc: "Quando o desligamento evolui para máquina que não dá sinal nenhum." },
-      { to: "/servicos/limpeza-e-manutencao", titulo: "Limpeza e manutenção", desc: "Limpeza interna, troca de pasta térmica e revisão de refrigeração." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção preventiva", desc: "Limpeza interna, troca de pasta térmica e revisão de refrigeração." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],
     foto: "bancada-tecnica",
@@ -539,7 +539,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/conserto-de-notebook", titulo: "Conserto de notebook", desc: "Escopo de bancada, microssolda e troca de componentes." },
+      { to: "/servicos/manutencao-de-notebook", titulo: "Manutenção de notebook", desc: "Escopo de bancada, troca de componentes e revisão elétrica." },
       { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Quando a falha está no circuito de carga da placa-mãe." },
       { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
     ],

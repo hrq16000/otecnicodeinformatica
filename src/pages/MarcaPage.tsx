@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
+import NotFound from "./NotFound";
 
 const WHATSAPP = WA_NUMBER;
 
@@ -27,16 +28,7 @@ const MarcaPage = () => {
   }, [brand]);
 
   if (!brand) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main className="container mx-auto py-20 text-center">
-          <h1 className="text-3xl font-bold text-foreground mb-4">Marca não encontrada</h1>
-          <Link to="/blog" className="text-accent hover:underline">Voltar ao portal de conteúdo</Link>
-        </main>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   const whatsappUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Olá! Preciso de assistência técnica para meu equipamento ${brand.name}.`)}`;

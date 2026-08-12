@@ -383,6 +383,35 @@ const WAVE_5F: EditorialApproval[] = [
   },
 ];
 
+const WAVE_5G: EditorialApproval[] = [
+  {
+    slug: "como-instalar-impressora-windows-passo-a-passo",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "COVER_LICENSE_1",
+    imageAttribution: "COVER_ATTR_1",
+    notes:
+      "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-conectar-wifi-tv-nao-conecta",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "COVER_LICENSE_2",
+    imageAttribution: "COVER_ATTR_2",
+    notes:
+      "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -419,6 +448,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5E.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5F.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5G.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

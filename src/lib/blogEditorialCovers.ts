@@ -168,6 +168,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5G — capas fotográficas reais licenciadas (sem IA).
+  "como-instalar-impressora-windows-passo-a-passo": {
+    src: "/blog/como-instalar-impressora-windows-passo-a-passo.jpg",
+    alt: "Impressora jato de tinta doméstica sobre mesa, usada para instalação em rede",
+    width: 1200,
+    height: 630,
+  },
+  "como-conectar-wifi-tv-nao-conecta": {
+    src: "/blog/como-conectar-wifi-tv-nao-conecta.jpg",
+    alt: "Módulo Wi-Fi interno de uma Smart TV responsável pela conexão sem fio do aparelho",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

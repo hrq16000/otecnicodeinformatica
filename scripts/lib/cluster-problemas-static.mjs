@@ -302,7 +302,22 @@ const FAQ_POR_ROTA = {
     { pergunta: "Bateria estufada é perigosa?", resposta: "Sim. Estufamento indica degradação química e risco de vazamento ou incêndio. Pare de usar, não perfure e encaminhe para troca e descarte correto." },
     { pergunta: "Vocês vendem a bateria?", resposta: "Indicamos a peça compatível com o seu modelo e você decide onde comprar; se preferir, cuidamos da aquisição e da troca. Peça e mão de obra são informadas separadamente." },
   ],
+  "/problemas/hd-fazendo-barulho": [
+    { pergunta: "HD fazendo clique tem conserto?", resposta: "O disco em si raramente volta a ser confiável — o objetivo passa a ser recuperar os dados, não salvar a peça. Depois da cópia, a recomendação é substituir por um SSD e aposentar o disco com ruído." },
+    { pergunta: "Dá tempo de copiar os arquivos?", resposta: "Depende do ruído. Estalo ocasional com sistema ainda funcional geralmente permite clonagem completa. Clique repetido significa que o disco já não encontra as trilhas, e cada tentativa reduz a janela." },
+    { pergunta: "Congelar o HD funciona?", resposta: "Não. É um mito antigo que causa condensação dentro do disco e destrói o que ainda restava. Nenhum laboratório sério usa esse procedimento." },
+    { pergunta: "SSD também faz barulho?", resposta: "Não, porque não tem partes móveis. Se o ruído aparece em uma máquina só com SSD, a fonte é outra: cooler, fonte de alimentação ou drive óptico." },
+    { pergunta: "Quanto custa recuperar os dados?", resposta: "Depende do tipo de dano. Clonagem e recuperação lógica em bancada têm um custo; caso físico em sala limpa é outro patamar e é orçado à parte. Diagnóstico, mão de obra e peça são informados separadamente e nada é executado sem aprovação." },
+  ],
+  "/problemas/notebook-molhado": [
+    { pergunta: "Meu notebook molhou e continua funcionando. Preciso levar?", resposta: "Sim, e de preferência logo. A corrosão avança por dias com o equipamento aparentemente normal; a limpeza feita cedo costuma custar uma fração do reparo de placa depois." },
+    { pergunta: "Arroz funciona para secar notebook?", resposta: "Não. O arroz não alcança a umidade interna, não remove resíduo de açúcar e ainda deposita pó e amido dentro do equipamento. É um mito que atrasa o único procedimento que ajuda: a limpeza técnica." },
+    { pergunta: "Quanto tempo tenho para levar?", resposta: "Água limpa dá alguma folga; café, refrigerante e outros líquidos açucarados corroem rápido e o intervalo útil é de horas. Em qualquer caso, mantenha o equipamento desligado e sem carregador até a bancada." },
+    { pergunta: "Só o teclado molhou. Precisa mexer na placa?", resposta: "Nem sempre. Em vários modelos o teclado é uma peça separada e a placa fica preservada. A desmontagem é o que confirma até onde o líquido chegou — sem abrir, é palpite." },
+    { pergunta: "Tem garantia no reparo de equipamento molhado?", resposta: "A garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço. Dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é explicado antes da aprovação." },
+  ],
 };
+
 
 for (const rota of CLUSTER_PROBLEMAS_ROUTES) {
   const faq = FAQ_POR_ROTA[rota.path];

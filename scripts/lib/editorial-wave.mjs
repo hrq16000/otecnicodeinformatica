@@ -187,6 +187,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Recuperação de dados",
     cover: "/blog/como-proteger-computador-golpes-internet.jpg",
   },
+  // ── Rodada 5D — manutenção física de notebook (limpeza interna e pasta térmica).
+  {
+    slug: "como-limpar-notebook-por-dentro",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-notebook",
+    pilarLabel: "Manutenção de notebook em Curitiba",
+    apoio: "/blog/notebook-superaquecendo-o-que-fazer",
+    apoioLabel: "Notebook superaquecendo: o que fazer",
+    cover: "/blog/como-limpar-notebook-por-dentro.jpg",
+  },
+  {
+    slug: "como-trocar-pasta-termica-notebook",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-notebook",
+    pilarLabel: "Manutenção de notebook em Curitiba",
+    apoio: "/blog/como-limpar-notebook-por-dentro",
+    apoioLabel: "Limpeza interna de notebook",
+    cover: "/blog/como-trocar-pasta-termica-notebook.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

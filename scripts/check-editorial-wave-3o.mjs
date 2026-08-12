@@ -45,7 +45,7 @@ const WAVE_3O = [
 ];
 
 const MAX_ONDA = 2;
-const MAX_INDEXAVEIS = 28;
+const MAX_INDEXAVEIS = 30;
 
 // Nomes de software que não podem aparecer em slug/H1/title/excerpt.
 const SOFTWARE = /autocad|revit|lumion|solidworks|photoshop|premiere|sketchup|archicad|blender|3ds\s?max|after\s?effects/i;

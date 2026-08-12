@@ -194,6 +194,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5I — capas fotográficas reais licenciadas (sem IA).
+  "windows-11-lento-como-resolver": {
+    src: "/blog/windows-11-lento-como-resolver.jpg",
+    alt: "Pessoa usando um notebook sobre a mesa durante o trabalho diário",
+    width: 1200,
+    height: 630,
+  },
+  "como-remover-virus-windows-iniciantes": {
+    src: "/blog/como-remover-virus-windows-iniciantes.jpg",
+    alt: "Tela de notebook exibindo janelas e alertas gerados por um programa malicioso em execução",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

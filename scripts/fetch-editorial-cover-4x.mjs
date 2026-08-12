@@ -80,6 +80,15 @@ const CURADORIA = [
     slug: "como-instalar-segundo-ssd-notebook",
     commons: "File:WesterDigital-Black-NVMe-SSD.jpg",
   },
+  // Onda 5F — continuidade empresarial (ransomware e backup em nuvem).
+  {
+    slug: "ransomware-como-proteger-empresa",
+    commons: "File:2017 Petya cyberattack screenshot.jpg",
+  },
+  {
+    slug: "backup-nuvem-empresas-qual-escolher",
+    commons: "File:BalticServers data center.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

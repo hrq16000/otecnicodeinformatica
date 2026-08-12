@@ -2955,52 +2955,77 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "windows-11-lento-como-resolver": {
-    title: "Windows 11 Lento? 10 Soluções Para Acelerar",
-    excerpt: "10 dicas práticas para otimizar o desempenho.",
-    date: "2024-01-12",
-    readTime: "7 min",
-    category: "Windows 11",
+    title: "Windows 11 lento: como descobrir a causa antes de sair otimizando",
+    excerpt:
+      "Lentidão no Windows 11 quase nunca tem uma causa única. Como ler os sinais, separar limite de hardware de software mal configurado e decidir entre ajuste, upgrade e reinstalação.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">O Windows 11 pode ficar lento por vários motivos. Veja <strong>10 soluções práticas</strong> que realmente funcionam.</p>
+        <p className="lead">A maior parte das listas de "otimização" trata sintoma. Elas desativam animação, limpam pasta temporária e prometem velocidade — sem nunca perguntar por que a máquina ficou lenta. Aqui o caminho é o contrário: primeiro identificar qual recurso está saturado, depois agir só onde faz diferença.</p>
 
-        <h2>1. Desative Efeitos Visuais</h2>
-        <p>Configurações → Sistema → Sobre → Configurações avançadas → Desempenho → Ajustar para melhor desempenho. Isso desativa animações e transparências que consomem recursos.</p>
+        <h2>Lentidão não é um sintoma só</h2>
+        <p>Antes de qualquer ajuste, descreva com precisão o que está lento. Demora para chegar à área de trabalho é um problema. Travamento momentâneo ao abrir programas é outro. Interface que engasga ao rolar página é outro ainda. Cada um aponta para um recurso diferente e exige decisão diferente.</p>
+        <ul>
+          <li><strong>Demora na inicialização:</strong> disco lento ou fila grande de programas iniciando junto com o sistema.</li>
+          <li><strong>Travadas curtas e repetidas:</strong> falta de memória — o sistema passa a usar o disco como memória de apoio.</li>
+          <li><strong>Lentidão constante em tudo:</strong> processador saturado por algum processo em segundo plano ou por limite térmico.</li>
+          <li><strong>Só o navegador pesa:</strong> excesso de abas, extensões e cache — não é o Windows.</li>
+          <li><strong>Piorou de repente:</strong> atualização mal aplicada, driver trocado ou software indesejado instalado.</li>
+        </ul>
 
-        <h2>2. Desative Apps de Inicialização</h2>
-        <p>Configurações → Aplicativos → Inicialização. Desative tudo que não precisa iniciar com o Windows.</p>
+        <h2>Leia o Gerenciador de Tarefas antes de mexer</h2>
+        <p>Abra o Gerenciador de Tarefas e observe a aba de desempenho durante alguns minutos de uso normal, não com a máquina parada. O que interessa é qual coluna encosta no teto:</p>
+        <ol>
+          <li><strong>Disco em 100% de forma contínua:</strong> gargalo clássico de disco mecânico com Windows 11. Nenhum ajuste de software resolve de forma duradoura.</li>
+          <li><strong>Memória acima de 80% em uso comum:</strong> a máquina está trabalhando no limite; qualquer programa a mais gera engasgo.</li>
+          <li><strong>Processador alto sem você fazer nada:</strong> vale identificar o processo. Indexação e atualização em andamento são temporários; mineração, adware e antivírus duplicado não são.</li>
+          <li><strong>Tudo baixo e mesmo assim lento:</strong> suspeite de disco com setores em falha ou de queda de desempenho por temperatura.</li>
+        </ol>
+        <p>Essa leitura de dois minutos evita horas de ajustes inúteis, porque troca palpite por evidência.</p>
 
-        <h2>3. Limpe Arquivos Temporários</h2>
-        <p>Configurações → Sistema → Armazenamento → Arquivos temporários. Limpe cache, lixeira e arquivos de atualização antigos.</p>
+        <h2>Limite de hardware não se resolve com ajuste</h2>
+        <p>O Windows 11 assume armazenamento de estado sólido e folga de memória. Em disco mecânico, o sistema fica preso na fila de leitura mesmo com processador sobrando: é por isso que a máquina demora para abrir a área de trabalho e trava por alguns segundos ao clicar em qualquer coisa. Trocar para SSD é a mudança com maior efeito perceptível, e nenhum ajuste de configuração substitui isso.</p>
+        <p>Memória é a segunda barreira. Com pouca RAM, o sistema empurra parte do conteúdo para o arquivo de paginação no disco, e a lentidão vira ciclo: falta memória, sobra acesso a disco, tudo engasga. Antes de comprar módulo, porém, confirme a leitura no Gerenciador de Tarefas — máquina com memória sobrando não melhora nada com mais memória.</p>
+        <p>Existe ainda o caso do notebook que começa rápido e vai perdendo desempenho depois de alguns minutos. Isso não é software: é refrigeração saturada reduzindo a frequência do processador para conter temperatura. O tratamento está em <Link to="/blog/como-limpar-notebook-por-dentro">limpeza interna e manutenção da refrigeração</Link>, não em configuração do Windows.</p>
 
-        <h2>4. Atualize os Drivers</h2>
-        <p>Drivers genéricos podem causar lentidão. Baixe os drivers corretos do site do fabricante.</p>
+        <h2>O que ajustar quando o gargalo é software</h2>
+        <p>Quando o hardware é compatível e a máquina ainda arrasta, os ajustes que realmente pesam são poucos:</p>
+        <ul>
+          <li><strong>Programas na inicialização:</strong> tudo que sobe junto com o sistema disputa disco e memória no pior momento. Mantenha só o necessário.</li>
+          <li><strong>Antivírus duplicado:</strong> duas soluções de proteção ativas ao mesmo tempo verificam o mesmo arquivo duas vezes e brigam entre si. Uma é o bastante.</li>
+          <li><strong>Sincronização de nuvem:</strong> pastas grandes sincronizando em segundo plano consomem disco e rede continuamente. Vale limitar as pastas envolvidas.</li>
+          <li><strong>Driver de vídeo e chipset:</strong> instalados pelo fabricante do equipamento, resolvem travamento de interface que nenhuma limpeza corrige.</li>
+          <li><strong>Espaço livre no disco do sistema:</strong> disco quase cheio degrada desempenho de forma real. Deixe folga de trabalho.</li>
+        </ul>
+        <p>Efeitos visuais e "dicas do sistema" entram por último, e com expectativa modesta: mudam a sensação de resposta, não a capacidade da máquina.</p>
 
-        <h2>5. Verifique Se Há Vírus</h2>
-        <p>Windows Defender → Verificação completa. Malwares consomem recursos em segundo plano.</p>
+        <h2>Quando desconfiar de infecção</h2>
+        <p>Lentidão que aparece de um dia para o outro, junto com anúncios fora do lugar, página inicial trocada ou processos desconhecidos consumindo processador, tem cara de software indesejado. Nesse caso, otimizar não adianta — o consumo volta. O caminho está em <Link to="/blog/como-remover-virus-windows-iniciantes">como remover vírus e adware do Windows</Link>, e só depois vale reavaliar o desempenho.</p>
 
-        <h2>6. Troque HD por SSD</h2>
-        <p>Se ainda usa HD mecânico, essa é a mudança com maior impacto. O Windows 11 fica praticamente inutilizável em HD.</p>
+        <h2>Reinstalar: quando faz sentido e quando é atalho errado</h2>
+        <p>Reinstalação limpa resolve acúmulo de configuração quebrada, software residual e perfil corrompido. É a saída correta quando a máquina foi usada por anos, passou por várias instalações e continua lenta mesmo com hardware adequado.</p>
+        <p>Não é a saída quando o gargalo é disco mecânico ou pouca memória: nesses casos o sistema fica rápido por alguns dias e volta ao mesmo ponto. Reinstalar também exige backup verificado antes — arquivo copiado e conferido, não presumido. O procedimento de resguardo está em <Link to="/servicos/recuperacao-de-dados">recuperação e proteção de dados</Link>.</p>
 
-        <h2>7. Aumente a Memória RAM</h2>
-        <p>8 GB é o mínimo recomendado. Com 4 GB, o Windows 11 sofre constantemente.</p>
+        <h2>Ordem de trabalho que usamos na bancada</h2>
+        <ol>
+          <li>Reproduzir a lentidão descrita pelo cliente, no mesmo cenário de uso.</li>
+          <li>Medir qual recurso satura durante essa reprodução.</li>
+          <li>Verificar saúde do disco e temperatura sob carga.</li>
+          <li>Descartar software indesejado e proteção duplicada.</li>
+          <li>Ajustar inicialização, drivers e sincronização.</li>
+          <li>Só então propor upgrade ou reinstalação, com o motivo medido registrado.</li>
+        </ol>
+        <p>Essa ordem existe para não vender peça antes de provar necessidade. O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>; quando o desfecho é troca de armazenamento, o passo a passo está em <Link to="/blog/como-clonar-hd-para-ssd">como clonar o HD para SSD sem perder nada</Link>.</p>
 
-        <h2>8. Desative Dicas e Sugestões</h2>
-        <p>Configurações → Sistema → Notificações → Desative "Obter dicas e sugestões".</p>
-
-        <h2>9. Use o Plano de Energia "Alto Desempenho"</h2>
-        <p>Painel de Controle → Opções de Energia → Alto desempenho.</p>
-
-        <h2>10. Considere uma Instalação Limpa</h2>
-        <p>Se nada resolver, uma formatação elimina anos de lixo acumulado.</p>
-
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Windows 11 Lento?</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico otimiza ou formata seu PC com Windows 11. Atendimento rápido em Curitiba e região.</p>
-        </div>
+        <h2>Resumo prático</h2>
+        <p>Descreva o tipo de lentidão, meça qual recurso satura, elimine causas externas (infecção, proteção duplicada, temperatura) e trate o gargalo real. Ajuste de sistema muda sensação; disco, memória e refrigeração mudam capacidade. Quando a máquina está lenta em Curitiba e você não quer trocar peça no escuro, o atendimento começa pela medição — não pela venda.</p>
       </>
     ),
   },
+
+
 
   "windows-11-vale-a-pena-atualizar": {
     title: "Windows 11: Vale a Pena Atualizar?",

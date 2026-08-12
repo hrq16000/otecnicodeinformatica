@@ -27,14 +27,27 @@ const CURADORIA = [
   },
 ];
 
+/** Fetch com retentativas — a origem (Wikimedia) recusa esporadicamente. */
+async function fetchRetry(url, tries = 4) {
+  for (let i = 0; i < tries; i += 1) {
+    try {
+      const res = await fetch(url, { headers: { "User-Agent": UA, Accept: "*/*" } });
+      if (res.ok) return res;
+    } catch { /* rede instável: nova tentativa */ }
+    await new Promise((r) => setTimeout(r, 1200 * (i + 1)));
+  }
+  return null;
+}
+
 const DEST = resolve("public/blog");
 if (!existsSync(DEST)) mkdirSync(DEST, { recursive: true });
 
 for (const item of CURADORIA) {
-  const meta = await fetch(`https://api.openverse.org/v1/images/${item.id}/`, { headers: { "User-Agent": UA } }).then((r) => (r.ok ? r.json() : null));
+  const metaRes = await fetchRetry(`https://api.openverse.org/v1/images/${item.id}/`);
+  const meta = metaRes ? await metaRes.json() : null;
   if (!meta?.url) { console.error(`[capa] sem metadados: ${item.slug}`); process.exit(1); }
-  const res = await fetch(meta.url, { headers: { "User-Agent": UA } });
-  if (!res.ok) { console.error(`[capa] download falhou: ${item.slug}`); process.exit(1); }
+  const res = await fetchRetry(meta.url);
+  if (!res) { console.error(`[capa] download falhou: ${item.slug}`); process.exit(1); }
   const buf = Buffer.from(await res.arrayBuffer());
   const out = resolve(DEST, `${item.slug}.jpg`);
   await sharp(buf).rotate().resize(1200, 630, { fit: "cover", position: "attention" }).jpeg({ quality: 82, mozjpeg: true }).toFile(out);

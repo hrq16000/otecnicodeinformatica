@@ -408,6 +408,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5D): critério para separar interface térmica de obstrução, ordem alternada de soltura/aperto do dissipador, preservação de almofadas térmicas, preferência por composto não condutivo, sem marca, sem quantidade em medida absoluta e sem promessa de resultado. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-clonar-hd-para-ssd": {
+    slug: "como-clonar-hd-para-ssd",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5E): critério entre clonar e reinstalar, alerta de leitura integral em disco com setores defeituosos, exigência de backup independente, cópia de todas as partições e primeiro boot com disco único. Sem indicação de marca de software e sem promessa de ganho numérico. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-instalar-segundo-ssd-notebook": {
+    slug: "como-instalar-segundo-ssd-notebook",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5E): verificação de slot M.2 livre, comprimento e chaveamento antes da compra; limites reais do caddy no lugar do leitor óptico; desconexão da bateria interna; inicialização do disco após a montagem. Sem marca e sem promessa de ganho de desempenho. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

@@ -41,7 +41,17 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Como escolher uma workstation profissional",
       hint: "Quando dimensionar uma máquina nova em vez de melhorar a atual.",
     },
-  ],
+      {
+      slug: "como-clonar-hd-para-ssd",
+      label: "Clonar HD para SSD: quando clonar e quando reinstalar",
+      hint: "Critério de decisão, riscos na origem e conferências depois da cópia.",
+    },
+    {
+      slug: "como-instalar-segundo-ssd-notebook",
+      label: "Segundo SSD no notebook: quando cabe",
+      hint: "Como confirmar slot M.2 livre e o limite real do caddy.",
+    },
+],
   "/servicos/remocao-de-virus": [
     {
       slug: "como-saber-se-pc-tem-virus-malware",

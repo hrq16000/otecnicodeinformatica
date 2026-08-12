@@ -71,6 +71,15 @@ const CURADORIA = [
     slug: "como-trocar-pasta-termica-notebook",
     commons: "File:Thermal compound Applied.JPG",
   },
+  // Onda 5E — cluster de armazenamento (clonagem e segundo disco).
+  {
+    slug: "como-clonar-hd-para-ssd",
+    commons: "File:Maxtor HDD and Intel SSD 20100117.jpg",
+  },
+  {
+    slug: "como-instalar-segundo-ssd-notebook",
+    commons: "File:WesterDigital-Black-NVMe-SSD.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

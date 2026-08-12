@@ -3705,89 +3705,67 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "como-clonar-hd-para-ssd": {
-    title: "Como Clonar HD Para SSD Sem Perder Dados: Procedimento Técnico",
-    excerpt: "Migração segura de disco com clonagem setor a setor usando ferramentas profissionais.",
-    date: "2026-04-08",
-    readTime: "12 min",
-    category: "Procedimentos Técnicos",
+    title: "Clonar HD para SSD: quando clonar, quando reinstalar e onde o processo falha",
+    excerpt:
+      "A diferença real entre clonar e reinstalar, como saber se o disco de origem aguenta a clonagem, os pontos em que o processo trava e o que conferir antes de apagar o disco antigo.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Manutenção",
     content: (
       <>
-        <p className="lead">A clonagem de HD para SSD é o upgrade com <strong>maior impacto perceptível</strong> em qualquer computador. Em vez de reinstalar o Windows e todos os programas do zero, a clonagem copia tudo — sistema, arquivos, configurações — para o novo SSD. O computador liga exatamente como antes, mas até <strong>10x mais rápido</strong>.</p>
+        <p className="lead">Clonar copia o disco inteiro para outro: sistema, programas, arquivos e configurações. A máquina volta igual, só que em um disco mais rápido. É prático — mas nem sempre é a melhor decisão, e há pontos em que a clonagem falha de forma previsível.</p>
 
-        <h2>Pré-Requisitos</h2>
+        <h2>Clonar ou reinstalar</h2>
+        <p>Clonar preserva tudo, inclusive o que estava errado. Reinstalar limpa tudo, inclusive o que estava certo. A escolha depende do estado atual do sistema.</p>
         <ul>
-          <li><strong>SSD com capacidade suficiente</strong> para os dados existentes (não precisa ser maior que o HD, apenas maior que o espaço usado)</li>
-          <li><strong>Adaptador USB para SATA</strong> ou dock para conectar o SSD externamente</li>
-          <li><strong>Software de clonagem:</strong> Macrium Reflect Free, Clonezilla, Samsung Data Migration (para SSDs Samsung) ou Acronis True Image</li>
-          <li>HD original em bom estado (sem setores defeituosos graves)</li>
+          <li><strong>Clonagem faz sentido</strong> quando o sistema está saudável, com programas licenciados difíceis de reinstalar e configurações que levariam horas para refazer.</li>
+          <li><strong>Reinstalação faz sentido</strong> quando há travamentos, erros recorrentes, infecção recente ou histórico longo de instalações e desinstalações. Clonar um sistema problemático apenas leva o problema para o disco novo, mais rápido.</li>
         </ul>
 
-        <h2>Procedimento Completo</h2>
+        <h2>Antes de começar: a origem aguenta?</h2>
+        <p>Clonagem lê o disco inteiro de ponta a ponta — é a leitura mais exigente que um disco recebe. Se o HD já apresenta setores defeituosos, ruído mecânico ou travamentos, esse esforço pode ser o empurrão final.</p>
+        <p>Nesse cenário, a ordem correta se inverte: primeiro copia-se os arquivos pessoais para outro lugar, depois se avalia a clonagem. Disco com sinal de falha física não é caso de clonagem doméstica; é caso de recuperação, tratado em <Link to="/blog/como-recuperar-dados-hd-com-defeito">recuperação de dados em HD com defeito</Link>.</p>
+        <p>Existe ainda o requisito de espaço: o que importa não é a capacidade do disco antigo, e sim o volume realmente ocupado. Um HD de 1 TB com 180 GB usados cabe em um SSD de 240 GB, desde que a ferramenta consiga redimensionar as partições.</p>
 
-        <h3>1. Verificação do HD Original</h3>
-        <p>Antes de clonar, verifique a saúde do HD com <strong>CrystalDiskInfo</strong>. Se o status for "Caution" ou "Bad", faça backup manual dos dados importantes antes — a clonagem pode falhar em discos com muitos setores defeituosos.</p>
-
-        <h3>2. Limpeza Pré-Clonagem</h3>
-        <p>Reduza o tamanho dos dados para acelerar o processo:</p>
-        <ul>
-          <li>Limpe a Lixeira</li>
-          <li>Execute a Limpeza de Disco do Windows (cleanmgr)</li>
-          <li>Desinstale programas não utilizados</li>
-          <li>Mova arquivos grandes (fotos, vídeos) para HD externo temporariamente</li>
-        </ul>
-
-        <h3>3. Conexão do SSD</h3>
-        <p>Conecte o SSD novo via adaptador USB. O Windows deve reconhecê-lo automaticamente. Se não aparecer no Explorer, abra o <strong>Gerenciamento de Disco</strong> (diskmgmt.msc) e inicialize o disco como GPT (para UEFI) ou MBR (para BIOS legado).</p>
-
-        <h3>4. Clonagem com Macrium Reflect</h3>
+        <h2>Preparação que evita retrabalho</h2>
         <ol>
-          <li>Abra o Macrium Reflect e selecione o disco de origem (HD)</li>
-          <li>Clique em <strong>"Clone this disk"</strong></li>
-          <li>Selecione o disco de destino (SSD)</li>
-          <li>Ajuste o tamanho das partições (se o SSD for menor, redimensione)</li>
-          <li>Inicie a clonagem — o processo leva de 30 min a 2 horas dependendo do volume de dados</li>
+          <li><strong>Backup separado dos arquivos que não podem sumir.</strong> Clonagem não é backup: se algo der errado no meio, você precisa de uma cópia independente.</li>
+          <li><strong>Liberar espaço antes.</strong> Arquivos temporários e downloads antigos ocupam tempo de cópia sem servir para nada.</li>
+          <li><strong>Conferir como o disco será conectado.</strong> Em desktop, sobra porta interna. Em notebook, quase sempre é preciso um adaptador USB para conectar o disco novo durante o processo.</li>
+          <li><strong>Alimentação estável.</strong> Queda de energia no meio da cópia deixa o destino inconsistente. Em notebook, com carregador ligado.</li>
         </ol>
 
-        <h3>5. Verificação Pós-Clonagem</h3>
-        <p>Antes de trocar o disco fisicamente:</p>
+        <h2>Onde o processo costuma falhar</h2>
         <ul>
-          <li>Verifique se todas as partições foram clonadas (inclusive EFI/Recovery)</li>
-          <li>Se possível, faça boot pelo SSD via USB para testar</li>
+          <li><strong>Erro de leitura na origem.</strong> A ferramenta para em determinada porcentagem e não avança: são setores ilegíveis. Insistir castiga o disco.</li>
+          <li><strong>Partição de inicialização ausente.</strong> Copiar apenas a partição visível do sistema deixa de fora a partição de boot, e o computador não inicia. A cópia precisa incluir todas as partições do disco, não só a maior.</li>
+          <li><strong>Destino menor que o ocupado.</strong> A cópia nem começa, ou começa e para no fim.</li>
+          <li><strong>Disco antigo ainda conectado no primeiro boot.</strong> Dois discos com o mesmo identificador de sistema geram confusão de inicialização. O primeiro boot deve ser feito só com o disco novo.</li>
+          <li><strong>Modo de inicialização divergente.</strong> Se o firmware está configurado de um jeito e o disco clonado espera outro, a máquina não encontra sistema — e o sintoma engana, parecendo clonagem malfeita.</li>
         </ul>
 
-        <h3>6. Troca Física do Disco</h3>
-        <p>Desligue o computador, remova o HD antigo e instale o SSD no mesmo slot. Em notebooks, geralmente é um compartimento acessível pela tampa inferior.</p>
+        <h2>Depois da clonagem</h2>
+        <ol>
+          <li>Inicie apenas com o disco novo instalado e confirme que o sistema sobe normalmente.</li>
+          <li>Confira se os arquivos pessoais estão todos lá — pastas de documentos, imagens e área de trabalho.</li>
+          <li>Verifique se o espaço total do novo disco aparece disponível. Sobra não alocada significa que a partição não foi expandida e precisa ser ajustada.</li>
+          <li>Use a máquina alguns dias antes de apagar o disco antigo. Ele é a sua rede de segurança nesse intervalo.</li>
+        </ol>
+        <p>Só depois desse período faz sentido reaproveitar o disco antigo como armazenamento secundário — procedimento descrito em <Link to="/blog/como-instalar-segundo-ssd-notebook">segundo SSD no notebook</Link>.</p>
 
-        <h3>7. Ajustes Pós-Instalação</h3>
-        <ul>
-          <li>Verifique se o modo AHCI está ativo na BIOS (essencial para performance do SSD)</li>
-          <li>Confirme que o TRIM está habilitado: <code>fsutil behavior query DisableDeleteNotify</code> (resultado 0 = TRIM ativo)</li>
-          <li>Desative a desfragmentação para o SSD</li>
-        </ul>
+        <h2>O que a troca de disco resolve — e o que não resolve</h2>
+        <p>Sair de HD mecânico para SSD muda a percepção de velocidade de forma clara: o sistema inicia mais rápido, programas abrem quase imediatamente e a máquina para de travar durante tarefas simples. Esse ganho é real e não depende de configuração.</p>
+        <p>O que não muda: pouca memória continua limitando quem trabalha com muitas abas e programas simultâneos; processador antigo continua sendo o limite em tarefas pesadas; e sistema cheio de programas iniciando junto continua demorando a ficar utilizável. Esses fatores estão separados em <Link to="/blog/computador-lento-causas-solucoes">computador lento: causas e como decidir</Link>.</p>
 
-        <h2>Problemas Comuns e Soluções</h2>
-        <ul>
-          <li><strong>SSD não dá boot:</strong> Verifique a ordem de boot na BIOS e se o modo (UEFI/Legacy) está correto</li>
-          <li><strong>Partição não cabe no SSD:</strong> Reduza a partição no HD antes de clonar usando o Gerenciamento de Disco</li>
-          <li><strong>Erro durante clonagem:</strong> HD com setores defeituosos — tente com Clonezilla em modo de "rescue" que pula setores ruins</li>
-          <li><strong>Windows não ativa:</strong> A ativação está vinculada à placa-mãe, não ao disco — reinicie e a ativação deve reconectar automaticamente</li>
-        </ul>
+        <h2>Quando levar para a bancada</h2>
+        <p>Faz sentido buscar atendimento quando o disco de origem faz ruído, quando a clonagem trava sempre no mesmo ponto, quando a máquina não inicia depois da cópia ou quando os dados envolvidos não têm backup nenhum. Nesses casos, cada tentativa adicional por conta própria reduz a chance de recuperar o que ainda está lá.</p>
+        <p>O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>, e a migração completa faz parte do <Link to="/servicos/upgrade-ssd-ram">upgrade de SSD e memória</Link>.</p>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Upgrade de SSD em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Fazemos a clonagem completa do seu HD para SSD com garantia. Seu computador liga em 15 segundos. Atendimento em domicílio.</p>
-        </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
-          <li><Link to="/blog/como-instalar-segundo-ssd-notebook" className="text-accent">Como instalar segundo SSD no notebook</Link></li>
-          <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Upgrade de SSD e memória RAM</Link></li>
-        </ul>
+        <h2>Resumo prático</h2>
+        <p>Clone quando o sistema está saudável e reinstale quando não está. Confira a saúde do disco de origem antes, tenha backup independente dos arquivos essenciais, copie o disco inteiro e não apenas a partição visível, inicie com um disco só e mantenha o antigo intacto por alguns dias antes de apagar qualquer coisa.</p>
       </>
     ),
   },
-
   "como-testar-fonte-de-alimentacao-pc": {
     title: "Como Testar a Fonte de Alimentação do PC com Multímetro",
     excerpt: "Procedimento técnico para diagnosticar defeitos na fonte ATX usando multímetro.",
@@ -4217,86 +4195,74 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "como-instalar-segundo-ssd-notebook": {
-    title: "Como Instalar um Segundo SSD no Notebook (Caddy ou M.2)",
-    excerpt: "Procedimento técnico para adicionar armazenamento extra substituindo o drive óptico ou via slot M.2.",
-    date: "2026-04-07",
-    readTime: "8 min",
-    category: "Procedimentos Técnicos",
+    title: "Segundo SSD no notebook: quando cabe, quando não cabe e o que muda",
+    excerpt:
+      "Como descobrir se o notebook aceita um segundo disco, a diferença entre slot M.2 livre e caddy no lugar do leitor óptico, os limites de cada caminho e o que fazer depois da instalação.",
+    date: "2026-08-12",
+    readTime: "10 min",
+    category: "Manutenção",
     content: (
       <>
-        <p className="lead">Muitos notebooks permitem a instalação de um <strong>segundo disco de armazenamento</strong> — seja substituindo o drive de DVD por um SSD via caddy, seja utilizando um slot M.2 livre. É uma forma econômica de ter SSD para o sistema e HD/SSD para armazenamento.</p>
+        <p className="lead">Adicionar um segundo disco é a saída para quem já tem SSD rápido de pouca capacidade e não quer trocar tudo de novo. Só que nem todo notebook aceita — e os dois caminhos possíveis, slot M.2 livre e caddy no lugar do leitor óptico, entregam resultados bem diferentes.</p>
 
-        <h2>Método 1: Caddy de HD (Substituindo o Drive de DVD)</h2>
-        <p>Se seu notebook tem leitor de CD/DVD que você não usa, pode substituí-lo por um <strong>caddy (adaptador)</strong> que aceita um HD ou SSD SATA de 2.5".</p>
-
-        <h3>Material Necessário</h3>
+        <h2>Antes de comprar qualquer peça</h2>
+        <p>A pergunta certa não é "qual SSD comprar", é "o que este modelo aceita". Comprar antes de conferir é o erro mais caro dessa história, porque peça de armazenamento aberta raramente volta.</p>
         <ul>
-          <li><strong>Caddy SATA 9.5mm ou 12.7mm</strong> (meça a espessura do drive de DVD do seu notebook)</li>
-          <li>SSD ou HD SATA 2.5"</li>
-          <li>Chave Phillips pequena</li>
+          <li><strong>Existe slot M.2 livre?</strong> Muitos notebooks finos têm apenas um, já ocupado. Outros têm dois, sendo o segundo com comprimento limitado.</li>
+          <li><strong>O slot é NVMe, SATA ou aceita os dois?</strong> São conectores parecidos com chaveamento diferente. Um disco NVMe em slot só SATA simplesmente não é reconhecido.</li>
+          <li><strong>Existe baia de 2,5 polegadas?</strong> Comum em modelos com alguns anos, rara em ultrafinos.</li>
+          <li><strong>Ainda existe leitor óptico?</strong> Se sim, o caddy vira alternativa. Se não, esse caminho está fechado.</li>
+        </ul>
+        <p>A resposta está no manual de serviço do fabricante para o número exato do modelo, não para a linha comercial. Dois notebooks com o mesmo nome de família podem ter placas diferentes.</p>
+
+        <h2>Caminho 1 — slot M.2 livre</h2>
+        <p>É o melhor cenário: o disco entra direto na placa, sem cabo, sem adaptador e sem perda de desempenho. Pontos que costumam travar a instalação:</p>
+        <ul>
+          <li><strong>Comprimento.</strong> O formato mais comum é 2280 (80 mm), mas há slots que só comportam 2242 ou 2230. O parafuso de fixação indica o tamanho previsto.</li>
+          <li><strong>Chaveamento do conector.</strong> A posição do recorte diferencia módulos SATA de NVMe. Se não encaixa sem esforço, é incompatibilidade — forçar quebra o slot.</li>
+          <li><strong>Espaço de dissipação.</strong> Modelos com pouco espaço interno esquentam; disco quente reduz a velocidade para se proteger.</li>
         </ul>
 
-        <h3>Procedimento</h3>
+        <h2>Caminho 2 — caddy no lugar do leitor óptico</h2>
+        <p>O caddy é um adaptador que ocupa a baia do leitor de DVD e recebe um disco de 2,5 polegadas. Funciona, mas com ressalvas que precisam ficar claras antes:</p>
+        <ul>
+          <li>A porta do leitor óptico costuma ser mais lenta que a porta principal. Colocar ali o disco do sistema é desperdício — o caddy serve para armazenamento, não para boot rápido.</li>
+          <li>A espessura importa: caddies de 9,5 mm e de 12,7 mm não são intercambiáveis. Medir o leitor antes evita a peça errada.</li>
+          <li>Alguns modelos deixam de reconhecer o disco quando a bateria está muito baixa ou em modos de economia agressivos.</li>
+          <li>O acabamento frontal nem sempre encaixa bem; a tampa original do leitor às vezes precisa ser transferida para o caddy.</li>
+        </ul>
+
+        <h2>Instalação com segurança</h2>
         <ol>
-          <li>Desligue o notebook e remova a bateria</li>
-          <li>Localize o parafuso que prende o drive de DVD (geralmente na parte inferior, próximo ao drive)</li>
-          <li>Remova o parafuso e puxe o drive de DVD deslizando para fora</li>
-          <li>Remova a <strong>moldura frontal (bezel)</strong> do drive antigo e encaixe no caddy</li>
-          <li>Remova o <strong>suporte metálico de fixação</strong> do drive antigo e parafuse no caddy</li>
-          <li>Insira o SSD no caddy</li>
-          <li>Deslize o caddy com SSD no slot do notebook</li>
-          <li>Parafuse no lugar</li>
+          <li>Desligue por completo, retire o carregador e desconecte o conector da bateria interna antes de tocar na placa.</li>
+          <li>Descarregue a estática do corpo antes de manusear o disco. Segure o módulo pelas bordas, nunca pelos contatos.</li>
+          <li>Registre a posição de cada parafuso; comprimentos diferentes em posições diferentes são regra.</li>
+          <li>No M.2, encaixe em ângulo até o módulo assentar e só então aperte o parafuso — sem pressionar o módulo para baixo antes do encaixe.</li>
+          <li>Feche a máquina somente depois de conferir que nenhum cabo ficou preso.</li>
         </ol>
 
-        <h2>Método 2: Slot M.2 (NVMe ou SATA)</h2>
-        <p>Notebooks mais recentes têm um slot M.2 que aceita SSDs no formato de "chiclete" — muito mais rápidos que SATA.</p>
+        <h2>Depois de instalar: o disco não aparece sozinho</h2>
+        <p>Disco novo vem sem partição. Ele não surge no explorador de arquivos até ser inicializado e formatado pela ferramenta de gerenciamento de discos do sistema. Se nem lá ele aparece, o problema é anterior: encaixe, chaveamento incompatível ou slot desabilitado no firmware.</p>
+        <p>Um cuidado extra vale para quem move as pastas pessoais para o disco novo: mover a pasta de perfil inteira por caminhos improvisados costuma quebrar atualizações do sistema. Redirecionar apenas as bibliotecas de documentos, imagens e vídeos é o caminho estável.</p>
+        <p>Se a intenção é migrar o sistema atual para o disco novo em vez de apenas ampliar espaço, o procedimento é outro — está em <Link to="/blog/como-clonar-hd-para-ssd">clonagem de HD para SSD</Link>.</p>
 
-        <h3>Verificações Prévias</h3>
+        <h2>O que esperar de ganho</h2>
+        <p>Um segundo disco amplia espaço; ele não deixa o sistema mais rápido por si só. A percepção de velocidade vem de onde o sistema está instalado e de quanta memória a máquina tem. Notebook com sistema em HD mecânico continua lento mesmo com um SSD adicional guardando arquivos.</p>
+
+        <h2>Quando não vale a pena fazer sozinho</h2>
         <ul>
-          <li><strong>Tipo de slot:</strong> M.2 SATA (key B+M) ou M.2 NVMe (key M) — não são compatíveis entre si</li>
-          <li><strong>Tamanho:</strong> 2230, 2242, 2260 ou 2280 (o mais comum é 2280)</li>
-          <li><strong>Slot livre:</strong> Consulte o manual do notebook ou abra para verificar</li>
+          <li>Modelos que exigem remover teclado, placa ou tela para chegar ao slot.</li>
+          <li>Equipamento na garantia de fábrica — confira as condições antes de abrir.</li>
+          <li>Notebook com bateria inchada: a prioridade passa a ser a bateria, não o armazenamento.</li>
+          <li>Dúvida sobre compatibilidade do slot: uma peça errada custa mais do que a verificação.</li>
         </ul>
+        <p>O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>. A instalação e a migração fazem parte do <Link to="/servicos/upgrade-ssd-ram">upgrade de SSD e memória</Link>, e o roteiro de escolha entre SATA e NVMe está em <Link to="/blog/como-fazer-upgrade-ssd-nvme">upgrade para SSD NVMe</Link>.</p>
 
-        <h3>Procedimento</h3>
-        <ol>
-          <li>Desligue e abra a tampa inferior do notebook</li>
-          <li>Localize o slot M.2 na placa-mãe</li>
-          <li>Insira o SSD M.2 em ângulo de 30° no slot</li>
-          <li>Pressione para baixo e fixe com o parafuso M2x3mm</li>
-          <li>Feche o notebook e ligue</li>
-          <li>No Windows, acesse <strong>Gerenciamento de Disco</strong> para inicializar e formatar o novo SSD</li>
-        </ol>
-
-        <h2>Configuração Ideal (Dois Discos)</h2>
-        <ul>
-          <li><strong>SSD principal (slot original ou M.2):</strong> Windows + programas (mínimo 240 GB)</li>
-          <li><strong>Segundo disco (caddy ou M.2):</strong> Arquivos pessoais, fotos, vídeos, jogos</li>
-        </ul>
-
-        <h2>Compatibilidade</h2>
-        <p>Nem todos os notebooks suportam segundo disco. Verifique:</p>
-        <ul>
-          <li>Se tem drive de DVD removível (para caddy)</li>
-          <li>Se tem slot M.2 livre (para SSD M.2)</li>
-          <li>Modelo exato do notebook no site do fabricante ou em fóruns</li>
-        </ul>
-
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Instalação de SSD em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Verificamos a compatibilidade do seu notebook, fornecemos e instalamos o SSD no local. Com clonagem do sistema se necessário.</p>
-        </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/blog/como-clonar-hd-para-ssd" className="text-accent">Como clonar HD para SSD</Link></li>
-          <li><Link to="/blog/quando-trocar-hd-por-ssd" className="text-accent">Quando vale trocar HD por SSD?</Link></li>
-          <li><Link to="/servicos/upgrade-ssd-ram" className="text-accent">Upgrade de SSD e memória RAM</Link></li>
-        </ul>
+        <h2>Resumo prático</h2>
+        <p>Confirme no manual de serviço do modelo exato se existe slot M.2 livre, qual o comprimento aceito e qual o tipo suportado. Havendo slot, ele é sempre o melhor caminho. O caddy resolve armazenamento, não desempenho. Corte a energia da bateria antes de abrir, inicialize o disco depois da montagem e não espere ganho de velocidade em uma máquina cujo sistema continua em disco mecânico.</p>
       </>
     ),
   },
-
   "como-crimpar-cabo-de-rede-rj45": {
     title: "Como Crimpar Cabo de Rede RJ45: Padrão T568A e T568B",
     excerpt: "Procedimento técnico completo para crimpar cabos de rede Cat5e e Cat6 com testagem.",

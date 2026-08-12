@@ -142,6 +142,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5E — capas fotográficas reais licenciadas (sem IA).
+  "como-clonar-hd-para-ssd": {
+    src: "/blog/como-clonar-hd-para-ssd.jpg",
+    alt: "HD mecânico de 3,5 polegadas ao lado de uma unidade de estado sólido sobre bancada",
+    width: 1200,
+    height: 630,
+  },
+  "como-instalar-segundo-ssd-notebook": {
+    src: "/blog/como-instalar-segundo-ssd-notebook.jpg",
+    alt: "Unidade SSD no formato M.2 NVMe segurada pelas bordas antes da instalação",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

@@ -315,6 +315,40 @@ const WAVE_5D: EditorialApproval[] = [
   },
 ];
 
+/**
+ * ── Onda 5E — armazenamento (clonagem de disco e segundo SSD).
+ */
+const WAVE_5E: EditorialApproval[] = [
+  {
+    slug: "como-clonar-hd-para-ssd",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution:
+      "Foto: Wikimedia Commons, licença livre — https://commons.wikimedia.org/wiki/File:Maxtor_HDD_and_Intel_SSD_20100117.jpg",
+    notes:
+      "Reescrita integral na Onda 5E; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-instalar-segundo-ssd-notebook",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 2.0",
+    imageAttribution:
+      "Foto: Deviantart (Wikimedia Commons), CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:WesterDigital-Black-NVMe-SSD.jpg",
+    notes:
+      "Reescrita integral na Onda 5E; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -347,6 +381,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5C.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5D.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5E.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

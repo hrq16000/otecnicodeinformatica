@@ -206,6 +206,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Limpeza interna de notebook",
     cover: "/blog/como-trocar-pasta-termica-notebook.jpg",
   },
+  // ── Rodada 5E — armazenamento (clonagem e segundo disco).
+  {
+    slug: "como-clonar-hd-para-ssd",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/upgrade-ssd-ram",
+    pilarLabel: "Upgrade de SSD e memória em Curitiba",
+    apoio: "/blog/como-fazer-upgrade-ssd-nvme",
+    apoioLabel: "Upgrade para SSD NVMe",
+    cover: "/blog/como-clonar-hd-para-ssd.jpg",
+  },
+  {
+    slug: "como-instalar-segundo-ssd-notebook",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/upgrade-ssd-ram",
+    pilarLabel: "Upgrade de SSD e memória em Curitiba",
+    apoio: "/blog/como-clonar-hd-para-ssd",
+    apoioLabel: "Clonar HD para SSD",
+    cover: "/blog/como-instalar-segundo-ssd-notebook.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

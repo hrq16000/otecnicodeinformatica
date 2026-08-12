@@ -21,7 +21,15 @@ const errors = [];
 
 for (const ev of EVENTS) {
   if (!new RegExp(`track\\("${ev}"`).test(funnel)) errors.push(`GA4 não dispara "${ev}" em funnelAnalytics.ts`);
-  if (!new RegExp(`persistClickEvent\\("${ev}"`).test(funnel)) errors.push(`"${ev}" não é persistido em click_events`);
+  // Rodada 4M: a persistência passa por registrarConversaoClique(), que aplica a
+  // deduplicação antes de gravar em click_events e de reportar a conversão do Ads.
+  // Aceitamos tanto a chamada direta quanto a rota deduplicada — o que não pode
+  // faltar é o evento chegar a click_events por algum caminho.
+  const persisteDireto = new RegExp(`persistClickEvent\\("${ev}"`).test(funnel);
+  const persisteDeduplicado =
+    new RegExp(`registrarConversaoClique\\(\\s*"${ev}"`).test(funnel) &&
+    /function registrarConversaoClique[\s\S]*?persistClickEvent\(/.test(funnel);
+  if (!persisteDireto && !persisteDeduplicado) errors.push(`"${ev}" não é persistido em click_events`);
   if (!weekly.includes(`"${ev}"`)) errors.push(`relatório semanal não contabiliza "${ev}"`);
 }
 

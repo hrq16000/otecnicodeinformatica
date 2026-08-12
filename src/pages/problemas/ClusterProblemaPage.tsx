@@ -163,6 +163,12 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
+          <CtaContextual
+            secao="sintomas"
+            texto="Seu caso se parece com algum desses? Descreva em uma frase e receba a orientação do próximo passo."
+            mensagem="O sintoma mais parecido com o meu caso é:"
+            rotulo="Descrever meu sintoma"
+          />
         </section>
 
         <section className="mt-12" aria-labelledby="causas">
@@ -177,6 +183,12 @@ const ClusterProblemaPage = () => {
               </li>
             ))}
           </ul>
+          <CtaContextual
+            secao="causas"
+            texto="Não dá para saber a causa só pelo sintoma. Uma triagem rápida indica se resolve remoto, em visita ou em bancada."
+            mensagem="Quero uma triagem para descobrir a causa."
+            rotulo="Pedir triagem"
+          />
         </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -244,6 +256,12 @@ const ClusterProblemaPage = () => {
               </article>
             ))}
           </div>
+          <CtaContextual
+            secao="faq"
+            texto="Ficou uma dúvida que não está aqui? Pergunte direto — resposta técnica, sem compromisso."
+            mensagem="Minha dúvida é:"
+            rotulo="Tirar minha dúvida"
+          />
         </section>
 
         <div className="mt-12">

@@ -246,6 +246,41 @@ const WAVE_5B: EditorialApproval[] = [
   },
 ];
 
+// ── ONDA 5C — cluster de segurança: escolha de antivírus e golpes on-line,
+// reescritos do zero com intenções distintas entre si. Capas são
+// FOTOGRAFIAS REAIS licenciadas (Wikimedia Commons), sem IA.
+// Limite total de artigos indexáveis: 18.
+const WAVE_5C: EditorialApproval[] = [
+  {
+    slug: "como-escolher-um-bom-antivirus",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 4.0",
+    imageAttribution:
+      "Foto: BrayLockBoy (Wikimedia Commons), CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:MEMZ_Trojan_running_on_Samsung_N130,_13_December_2019.jpg",
+    notes:
+      "Reescrita integral na Onda 5C; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-proteger-computador-golpes-internet",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC0 1.0",
+    imageAttribution:
+      "Foto: Packer1028 (Wikimedia Commons), CC0 1.0 — https://commons.wikimedia.org/wiki/File:Computer_virus_scam.jpg",
+    notes:
+      "Reescrita integral na Onda 5C; fact-check registrado em blogEditorialSources.ts; capa é fotografia real de domínio público (CC0), sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -274,6 +309,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5A.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5B.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5C.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

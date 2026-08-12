@@ -168,6 +168,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Como configurar um roteador do zero",
     cover: "/blog/como-saber-quem-esta-usando-meu-wifi.jpg",
   },
+  // ── Rodada 5C — cluster de segurança (antivírus e golpes on-line).
+  {
+    slug: "como-escolher-um-bom-antivirus",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/remocao-de-virus",
+    pilarLabel: "Remoção de vírus e malware",
+    apoio: "/servicos/formatacao",
+    apoioLabel: "Formatação e instalação do sistema",
+    cover: "/blog/como-escolher-um-bom-antivirus.jpg",
+  },
+  {
+    slug: "como-proteger-computador-golpes-internet",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/remocao-de-virus",
+    pilarLabel: "Remoção de vírus e malware",
+    apoio: "/servicos/recuperacao-de-dados",
+    apoioLabel: "Recuperação de dados",
+    cover: "/blog/como-proteger-computador-golpes-internet.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

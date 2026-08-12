@@ -208,6 +208,26 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
 //     (vazio) em blogEditorialRegistry.ts.
 // ─────────────────────────────────────────────────────────────
 export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
+  "como-escolher-um-bom-antivirus": {
+    slug: "como-escolher-um-bom-antivirus",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5C. Sem ranking de fabricante, sem indicação de produto comercial e sem promessa de detecção total. Critérios (detecção por comportamento, proteção de pastas contra ransomware, impacto em desempenho, transparência do publicador) e a regra de não manter dois antivírus em tempo real são conhecimento técnico estável.",
+  },
+  "como-proteger-computador-golpes-internet": {
+    slug: "como-proteger-computador-golpes-internet",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5C. Explicita que HTTPS/cadeado não atesta idoneidade do site e que código de verificação em duas etapas nunca deve ser repassado. Sem citar aplicativo de terceiros como solução, sem estatística de golpes e sem promessa de recuperação de valores.",
+  },
   "como-configurar-roteador-wifi-iniciantes": {
     slug: "como-configurar-roteador-wifi-iniciantes",
     sources: [],

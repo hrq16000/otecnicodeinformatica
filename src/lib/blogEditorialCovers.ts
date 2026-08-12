@@ -116,6 +116,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5C — capas fotográficas reais licenciadas (sem IA).
+  "como-escolher-um-bom-antivirus": {
+    src: "/blog/como-escolher-um-bom-antivirus.jpg",
+    alt: "Notebook exibindo tela tomada por um programa malicioso em execução",
+    width: 1200,
+    height: 630,
+  },
+  "como-proteger-computador-golpes-internet": {
+    src: "/blog/como-proteger-computador-golpes-internet.jpg",
+    alt: "Notebook exibindo um falso alerta de antivírus típico de golpe on-line",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

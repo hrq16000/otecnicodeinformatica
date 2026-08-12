@@ -19,6 +19,8 @@ export const GA4_EVENTS = {
   faqAnchor: "faq_anchor_click",
   /** Clique em link interno contextual dentro de uma resposta da FAQ. */
   faqInternalLink: "faq_internal_link",
+  /** Marco de leitura (25/50/75/100%) de uma seção específica da FAQ. */
+  faqSectionDepth: "faq_section_depth",
   fileDownload: "file_download",
 } as const;
 

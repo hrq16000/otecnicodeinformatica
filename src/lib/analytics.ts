@@ -249,6 +249,32 @@ export const trackFaqLinkClick = (
 };
 
 /**
+ * Marco de leitura por SEÇÃO de FAQ (25/50/75/100%).
+ * Correlaciona profundidade de leitura da pergunta com os cliques de
+ * WhatsApp/links internos daquela mesma seção (mesmo `faq_section`).
+ */
+export const trackFaqSectionDepth = (
+  section: string,
+  question: string,
+  depth: number,
+  pageScroll?: number,
+) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', GA4_EVENTS.faqSectionDepth, {
+    event_category: 'engagement',
+    event_label: `${normalizeTrackingLabel(section)}_${depth}`,
+    faq_section: normalizeTrackingLabel(section),
+    faq_question: question.slice(0, 100),
+    faq_depth: depth,
+    ...(typeof pageScroll === 'number' ? { page_scroll_bucket: pageScroll } : {}),
+    page_path: window.location.pathname,
+    route_type: routeTypeFromPath(window.location.pathname),
+    ...getDeviceContext(),
+    ...getUtmContext(),
+  });
+};
+
+/**
  * Download de arquivo (ex.: mídia kit em PDF).
  * Não é lead nem conversão do Ads — é engajamento comercial, medido por
  * `cta_location` para comparar CTA principal x rodapé.

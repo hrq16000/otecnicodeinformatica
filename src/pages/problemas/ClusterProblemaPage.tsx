@@ -22,7 +22,15 @@ import {
   type ContextoTriagem,
 } from "@/lib/problemasWaTemplates";
 import { useScrollBucket } from "@/hooks/useScrollBucket";
-import { trackPageView, trackCTAClick, trackFaqLinkClick } from "@/lib/analytics";
+import { useFaqSectionDepth } from "@/hooks/useFaqSectionDepth";
+import { useVarianteWa } from "@/lib/problemasWaVariants";
+import { trackWaClick } from "@/lib/funnelAnalytics";
+import {
+  trackPageView,
+  trackCTAClick,
+  trackFaqLinkClick,
+  trackFaqSectionDepth,
+} from "@/lib/analytics";
 
 
 /**
@@ -75,6 +83,24 @@ const ClusterProblemaPage = () => {
 
   const [contexto, setContexto] = useState<ContextoTriagem>({});
   const rolagem = useScrollBucket();
+  // Mesma variante do A/B durante toda a navegação (localStorage + cookie).
+  const variante = useVarianteWa();
+
+  /**
+   * Registro único de clique de WhatsApp: GA4 (engajamento) + click_events
+   * (conversão por sessão, com variante e sintoma) — alimenta /admin/experimento-wa.
+   */
+  const registrarWa = (ctx: { secao: string }) => {
+    const rotulo = rotuloEvento({ ...contexto, sintoma: sintomaSlug, secao: ctx.secao, rolagem, variante });
+    trackCTAClick("whatsapp", rotulo);
+    trackWaClick(rotulo, {
+      variant: `msg_${variante}`,
+      servico: sintomaSlug,
+      cta_position: `problema_${ctx.secao}`,
+      utm_medium: "cta",
+      bairro: contexto.bairro ?? null,
+    });
+  };
 
   const sintomaSlug = dados?.slug ?? slug;
   const baseMsg = dados?.waMessage ?? "";
@@ -86,9 +112,20 @@ const ClusterProblemaPage = () => {
         sintoma: sintomaSlug,
         secao: "topo",
         rolagem,
+        variante,
       }),
-    [baseMsg, contexto, sintomaSlug, rolagem],
+    [baseMsg, contexto, sintomaSlug, rolagem, variante],
   );
+
+  const faqIds = useMemo(
+    () => (dados ? dados.faq.map((_, i) => `faq-${i + 1}`) : []),
+    [dados],
+  );
+  useFaqSectionDepth(faqIds, (id, depth) => {
+    const idx = Number(id.replace("faq-", "")) - 1;
+    const pergunta = dados?.faq[idx]?.q ?? id;
+    trackFaqSectionDepth(id, pergunta, depth, rolagem);
+  });
 
   if (!dados) return <NotFound />;
 
@@ -108,14 +145,14 @@ const ClusterProblemaPage = () => {
     mensagem: string;
     rotulo: string;
   }) => {
-    const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem };
+    const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem, variante };
     return (
     <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
       <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
       <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
         <a
           href={buildProblemaWaHref(baseMsg, ctx)}
-          onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctx))}
+          onClick={() => registrarWa({ secao })}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -310,6 +347,7 @@ const ClusterProblemaPage = () => {
                 sintoma: sintomaSlug,
                 secao: ancora,
                 rolagem,
+                variante,
                 complemento: `Minha dúvida é sobre: ${f.q}`,
               };
               return (
@@ -337,7 +375,7 @@ const ClusterProblemaPage = () => {
                     )}
                     <a
                       href={buildProblemaWaHref(baseMsg, ctxFaq)}
-                      onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctxFaq))}
+                      onClick={() => registrarWa({ secao: ancora })}
                       rel="noopener noreferrer"
                       target="_blank"
                       className="text-sm font-bold text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"

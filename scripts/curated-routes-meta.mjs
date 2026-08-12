@@ -14,6 +14,7 @@ import { bairroBlocos, bairroFaq } from "./lib/bairro-static.mjs";
 import { cidadeBlocos, cidadeFaq } from "./lib/cidade-static.mjs";
 import { CLUSTER_PROBLEMAS_ROUTES } from "./lib/cluster-problemas-static.mjs";
 import { CLUSTER_EQUIPAMENTOS_ROUTES } from "./lib/cluster-equipamentos-static.mjs";
+import { CLUSTER_SOLUCOES_ROUTES } from "./lib/cluster-solucoes-static.mjs";
 
 const BASE_ROUTES = [
   {
@@ -993,5 +994,6 @@ export const CURATED_ROUTES = [
   ...BASE_ROUTES_WITH_FAQ,
   ...CLUSTER_PROBLEMAS_ROUTES,
   ...CLUSTER_EQUIPAMENTOS_ROUTES,
+  ...CLUSTER_SOLUCOES_ROUTES,
   ...SERVICO_BAIRRO_ROUTES,
 ];

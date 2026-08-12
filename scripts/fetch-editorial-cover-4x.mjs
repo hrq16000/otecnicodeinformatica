@@ -98,6 +98,15 @@ const CURADORIA = [
     slug: "como-conectar-wifi-tv-nao-conecta",
     commons: "File:LG Smart TV WIFI + IR Remote 04.jpg",
   },
+  // Onda 5H — energia e placa-mãe (diagnóstico de bancada).
+  {
+    slug: "como-testar-fonte-de-alimentacao-pc",
+    commons: "File:ATX power supply interior.jpg",
+  },
+  {
+    slug: "como-diagnosticar-placa-mae-defeituosa",
+    commons: "File:ASRock K7VT4A Pro Mainboard.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

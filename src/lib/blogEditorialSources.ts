@@ -468,6 +468,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5G): teste comparativo com celular no mesmo ponto, limitação de 2,4 GHz em TVs, isolamento de clientes/rede de visitantes, congestionamento de canal em prédio e critério para suspeitar do módulo Wi-Fi do aparelho. Sem estatística inventada e sem promessa de reparo. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-testar-fonte-de-alimentacao-pc": {
+    slug: "como-testar-fonte-de-alimentacao-pc",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5H): modos de falha da fonte (não liga, tensão fora de faixa, queda sob carga, ruído), segurança com capacitores carregados, limite do teste de acionamento, medição em repouso × sob carga e substituição controlada como cruzamento. Sem marca comercial e sem promessa. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-diagnosticar-placa-mae-defeituosa": {
+    slug: "como-diagnosticar-placa-mae-defeituosa",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5H): inspeção visual, montagem mínima, isolamento de módulo × slot, descarte prévio da fonte, leitura de códigos de estágio pelo manual do modelo e critério econômico entre reparo eletrônico e substituição de plataforma. Sem tabela genérica de bips e sem promessa de reparo. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

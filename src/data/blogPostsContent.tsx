@@ -3811,83 +3811,76 @@ docker run -d --name db --network minha-rede postgres
     ),
   },
   "como-testar-fonte-de-alimentacao-pc": {
-    title: "Como Testar a Fonte de Alimentação do PC com Multímetro",
-    excerpt: "Procedimento técnico para diagnosticar defeitos na fonte ATX usando multímetro.",
-    date: "2026-04-08",
-    readTime: "9 min",
+    title: "Testar a fonte do PC: o que o teste prova, o que ele não prova e quando trocar",
+    excerpt:
+      "Como separar defeito de fonte de defeito de placa antes de comprar peça: o que cada teste mede, por que fonte que liga pode estar ruim e quais sinais fecham a decisão de troca.",
+    date: "2026-08-12",
+    readTime: "10 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">A fonte de alimentação é um dos componentes que mais falham — e que mais causam danos a outros componentes quando defeituosa. <strong>Uma fonte instável pode queimar placa-mãe, processador e até SSDs.</strong> Saber testar é fundamental para qualquer diagnóstico.</p>
+        <p className="lead">A fonte é o componente que mais leva a culpa e o que menos é testado direito. Ela alimenta tudo, então qualquer falha estranha parece "problema de fonte". O objetivo aqui não é decorar valores: é entender o que cada teste realmente prova, para não trocar peça boa nem insistir em peça ruim.</p>
 
-        <h2>Sintomas de Fonte Defeituosa</h2>
+        <h2>Por que a fonte engana o diagnóstico</h2>
+        <p>Uma fonte não falha só de um jeito. Ela pode não ligar, pode ligar e entregar tensão fora de faixa, pode entregar tensão certa em repouso e afundar quando o processador e a placa de vídeo puxam corrente ao mesmo tempo, ou pode entregar tensão média correta com ruído elétrico alto o suficiente para reiniciar o sistema. Só o primeiro caso é óbvio.</p>
+        <p>Por isso o padrão de sintomas importa mais do que qualquer leitura isolada. Falha que aparece só sob carga, só depois de aquecer, ou só ao ligar o computador com tudo conectado aponta para regulação sob demanda — exatamente o que um teste rápido de bancada não vê.</p>
+
+        <h2>Sintomas que combinam com fonte</h2>
         <ul>
-          <li>PC não liga de jeito nenhum (nenhum LED, nenhum ventilador)</li>
-          <li>PC liga e desliga imediatamente (ciclo de power)</li>
-          <li>Reinicializações aleatórias, especialmente sob carga</li>
-          <li>Tela azul frequente sem causa aparente</li>
-          <li>Cheiro de queimado vindo do gabinete</li>
-          <li>Ventilador da fonte não gira</li>
+          <li>Nada acende: sem LED, sem giro de ventoinha, sem reação ao botão.</li>
+          <li>Liga por um instante e desliga sozinho, em ciclo repetido.</li>
+          <li>Reinício súbito sob esforço — jogo, renderização, cópia grande de arquivos.</li>
+          <li>Desligamentos que aumentam quando a máquina já está quente.</li>
+          <li>Cheiro de queimado ou ruído elétrico agudo vindo do gabinete.</li>
+        </ul>
+        <p>Os mesmos sintomas aparecem em memória com contato sujo, em refrigeração saturada e em placa-mãe com regulagem defeituosa. Nenhum deles fecha diagnóstico sozinho: eles apenas colocam a fonte na lista de suspeitos.</p>
+
+        <h2>Segurança antes de qualquer teste</h2>
+        <p>Fonte de computador guarda energia em capacitores mesmo depois de desligada da tomada. Isso muda as regras:</p>
+        <ul>
+          <li>Não abra a caixa metálica da fonte. Não há manutenção doméstica ali dentro.</li>
+          <li>Trabalhe sempre com o cabo de força retirado ao conectar ou desconectar qualquer coisa.</li>
+          <li>Nunca teste com o gabinete apoiado em superfície metálica ou úmida.</li>
+          <li>Se houver marca de queimado, estufamento visível ou cheiro forte, o teste acabou: a peça é descartada, não investigada.</li>
         </ul>
 
-        <h2>Teste 1: Teste do Clip (Paperclip Test)</h2>
-        <p>Este teste verifica se a fonte liga sem estar conectada à placa-mãe:</p>
+        <h2>Teste 1 — a fonte reage sozinha?</h2>
+        <p>Existe um teste clássico que força a fonte a ligar fora da placa-mãe, curtocircuitando o sinal de acionamento a um terra do conector principal. Ele responde uma única pergunta: a fonte reage ao comando de ligar.</p>
+        <p>É um teste de exclusão, não de aprovação. Fonte que gira a ventoinha nesse teste pode continuar entregando tensão errada. E fonte que não reage também pode estar apenas em proteção por causa de curto em outro componente ligado a ela. Por isso o teste vale com todos os cabos de periférico desconectados.</p>
+
+        <h2>Teste 2 — medir com o multímetro</h2>
+        <p>Medir tensão contínua nos conectores mostra se a saída está dentro das faixas previstas pelo padrão de fonte do PC. As linhas principais toleram cerca de 5% de variação; a linha auxiliar de standby permanece ativa mesmo com a máquina desligada, o que explica placa com LED aceso e computador que não liga.</p>
         <ol>
-          <li>Desconecte a fonte de <strong>todos</strong> os componentes</li>
-          <li>Localize o conector ATX 24 pinos</li>
-          <li>Com um clip de papel, conecte o <strong>fio verde (PS_ON)</strong> a qualquer <strong>fio preto (GND)</strong></li>
-          <li>Conecte a fonte na tomada e ligue</li>
-          <li>Se o ventilador da fonte girar, ela está recebendo energia. Se não girar, a fonte está morta</li>
+          <li>Ajuste o instrumento para tensão contínua, em escala compatível.</li>
+          <li>Fixe a ponta de referência em um terra do próprio conector.</li>
+          <li>Toque as linhas positivas uma a uma e anote cada leitura em vez de decidir na hora.</li>
+          <li>Repita a medição com a máquina montada e ligada, não apenas em teste isolado.</li>
         </ol>
-        <p><strong>⚠️ Atenção:</strong> Este teste só confirma se a fonte liga — não garante que as tensões estão corretas.</p>
+        <p>Leitura estável dentro da faixa em repouso não aprova a fonte. Aprova só aquele momento, naquela demanda.</p>
 
-        <h2>Teste 2: Medição com Multímetro</h2>
-        <p>Com a fonte ligada (conectada à placa-mãe ou com o teste do clip ativo), meça as tensões nos conectores:</p>
+        <h2>Teste 3 — o único que vale a decisão: sob carga</h2>
+        <p>A prova real é medir enquanto o computador trabalha. Se a linha de 12 V cai abaixo da faixa quando o processador e o vídeo puxam junto, ou se a leitura oscila de forma visível, a fonte não está regulando. É esse comportamento que derruba a máquina no meio de um jogo e volta a "funcionar perfeitamente" no teste seguinte em repouso.</p>
+        <p>O mesmo raciocínio vale para a temperatura: fonte que só falha depois de meia hora ligada precisa ser testada depois de meia hora ligada. Teste de dois minutos aprova defeito térmico.</p>
 
-        <h3>Tensões Esperadas (Padrão ATX)</h3>
+        <h2>Substituição controlada: o teste mais confiável</h2>
+        <p>Em bancada, o método que menos erra não é medição — é troca por uma fonte sabidamente boa e de capacidade adequada. Se o sintoma some, a peça estava ruim. Se o sintoma continua idêntico, a fonte foi descartada como causa e o próximo suspeito é a placa, a memória ou a refrigeração. Esse cruzamento evita comprar peça por eliminação errada.</p>
+
+        <h2>Quando trocar sem hesitar</h2>
         <ul>
-          <li><strong>+3.3V (fio laranja):</strong> 3.14V a 3.47V (tolerância ±5%)</li>
-          <li><strong>+5V (fio vermelho):</strong> 4.75V a 5.25V (tolerância ±5%)</li>
-          <li><strong>+12V (fio amarelo):</strong> 11.40V a 12.60V (tolerância ±5%)</li>
-          <li><strong>-12V (fio azul):</strong> -10.80V a -13.20V (tolerância ±10%)</li>
-          <li><strong>+5VSB (fio roxo):</strong> 4.75V a 5.25V (stand-by, sempre presente)</li>
+          <li>Tensão fora de faixa em qualquer linha principal, mesmo que só sob carga.</li>
+          <li>Oscilação perceptível durante a medição.</li>
+          <li>Sem reação no teste de acionamento com tudo desconectado.</li>
+          <li>Sinais físicos: estufamento, vazamento, marca de queimado, ruído elétrico.</li>
+          <li>Fonte genérica sem especificação clara em máquina que ganhou placa de vídeo dedicada.</li>
         </ul>
+        <p>Não trocamos fonte por idade. Trocamos por comportamento medido ou por evidência física — e registramos qual dos dois motivou a decisão.</p>
 
-        <h3>Como Medir</h3>
-        <ol>
-          <li>Configure o multímetro em <strong>tensão DC (VDC)</strong></li>
-          <li>Coloque a ponta preta em qualquer fio <strong>preto (GND)</strong> do conector</li>
-          <li>Toque a ponta vermelha nos fios coloridos correspondentes</li>
-          <li>Anote as leituras e compare com os valores esperados</li>
-        </ol>
+        <h2>Quando o caso deixa de ser doméstico</h2>
+        <p>Se a máquina já queimou fonte mais de uma vez, se houve surto elétrico, se há marca de carbonização na placa ou se o computador desliga também com fonte boa, o problema saiu da fonte. Nesse ponto o caminho é diagnóstico de placa, não substituição repetida de peça.</p>
+        <p>O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>. Quando o quadro é de máquina que não dá sinal, comece por <Link to="/servicos/computador-nao-liga">computador não liga</Link>; se a suspeita passa para a eletrônica, o procedimento está em <Link to="/servicos/conserto-placa">conserto de placa</Link>. Para separar os dois casos, veja <Link to="/blog/como-diagnosticar-placa-mae-defeituosa">como diagnosticar placa-mãe defeituosa</Link>.</p>
 
-        <h2>Teste 3: Teste Sob Carga</h2>
-        <p>Uma fonte pode fornecer tensões corretas em repouso mas falhar sob carga. Para testar:</p>
-        <ul>
-          <li>Conecte a fonte ao PC normalmente</li>
-          <li>Meça as tensões durante uso pesado (jogo, benchmark)</li>
-          <li>Se a tensão de 12V cair abaixo de 11.4V sob carga, a fonte é insuficiente ou defeituosa</li>
-        </ul>
-
-        <h2>Quando Trocar a Fonte</h2>
-        <ul>
-          <li>Tensões fora da tolerância de ±5%</li>
-          <li>Oscilação (ripple) excessiva — valores instáveis no multímetro</li>
-          <li>Não liga no teste do clip</li>
-          <li>Capacitores estufados visíveis na inspeção visual</li>
-          <li>Mais de 5 anos de uso sem troca</li>
-        </ul>
-
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">PC Não Liga? Pode Ser a Fonte</h3>
-          <p className="text-muted-foreground mb-0">Nosso técnico faz o diagnóstico completo no local com equipamento profissional. Se for a fonte, trocamos na hora. Atendimento em Curitiba e região.</p>
-        </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/blog/como-diagnosticar-placa-mae-defeituosa" className="text-accent">Como diagnosticar placa-mãe defeituosa</Link></li>
-          <li><Link to="/servicos/computador-nao-liga" className="text-accent">Computador não liga: causas e soluções</Link></li>
-        </ul>
+        <h2>Resumo prático</h2>
+        <p>Comece pelos sintomas e pelo padrão em que eles aparecem. Confirme reação da fonte com tudo desconectado, meça as linhas em repouso, repita sob carga real e, se ainda houver dúvida, troque por uma fonte boa para cruzar o resultado. Decisão de troca vem de medição fora de faixa, oscilação ou dano físico — nunca de suposição.</p>
       </>
     ),
   },
@@ -4149,91 +4142,73 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "como-diagnosticar-placa-mae-defeituosa": {
-    title: "Como Diagnosticar Placa-Mãe Defeituosa: Testes e Sinais",
-    excerpt: "Procedimentos de diagnóstico visual, elétrico e lógico para identificar defeitos em placas-mãe.",
-    date: "2026-04-07",
+    title: "Placa-mãe defeituosa: como confirmar antes de trocar a peça errada",
+    excerpt:
+      "Inspeção visual, teste mínimo e eliminação sistemática para distinguir falha de placa-mãe de falha de memória, fonte ou refrigeração — e quando reparo eletrônico ainda faz sentido.",
+    date: "2026-08-12",
     readTime: "11 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">A placa-mãe é o componente mais complexo do computador — e o mais difícil de diagnosticar. <strong>Muitos sintomas que parecem ser de outros componentes (RAM, fonte, processador) são, na verdade, falhas da placa-mãe.</strong> Este guia cobre os procedimentos que usamos para identificar defeitos.</p>
+        <p className="lead">Placa-mãe é o diagnóstico que mais se conclui por eliminação e o que mais se erra por pressa. Ela não costuma dar um sintoma próprio: ela faz outro componente parecer defeituoso. Confirmar exige método, e o método é sempre reduzir a máquina até sobrar uma variável.</p>
 
-        <h2>Sintomas de Placa-Mãe Defeituosa</h2>
+        <h2>Por que o sintoma engana</h2>
+        <p>A placa distribui energia, comanda o vídeo integrado, controla memória, armazenamento e portas. Quando um desses caminhos falha na própria placa, o efeito aparece no periférico ligado ali. Um slot de memória com contato ruim gera erro que parece pente defeituoso; uma regulagem instável na placa gera reinício que parece fonte fraca; um controlador de USB travado parece cabo ou dispositivo.</p>
+        <p>Por isso a regra é simples: nunca se conclui placa por sintoma. Conclui-se placa quando todo o resto já foi testado e o comportamento não mudou.</p>
+
+        <h2>Inspeção visual — o passo que resolve muitos casos</h2>
+        <p>Antes de qualquer teste, com o cabo de força retirado, observe a placa com boa luz:</p>
         <ul>
-          <li>PC não liga de jeito nenhum (sem LEDs, sem ventiladores)</li>
-          <li>Liga mas não dá imagem (POST falha)</li>
-          <li>Bips contínuos ou em padrão específico</li>
-          <li>Reinicializações aleatórias</li>
-          <li>Tela azul frequente (BSOD) com códigos variados</li>
-          <li>Portas USB, áudio ou rede não funcionam</li>
-          <li>Não reconhece RAM, HD ou placa de vídeo</li>
-          <li>Cheiro de queimado ou marcas de carbonização</li>
+          <li><strong>Capacitores deformados ou com resíduo:</strong> topo abaulado, aberto ou com crosta escura indicam peça no fim.</li>
+          <li><strong>Escurecimento e carbonização:</strong> trilha ou componente queimado é evidência direta.</li>
+          <li><strong>Corrosão:</strong> manchas esverdeadas ou esbranquiçadas indicam umidade ou líquido derramado, comum em máquinas guardadas.</li>
+          <li><strong>Dano mecânico:</strong> pino torto no soquete, trava de slot quebrada, trilha rompida perto de furo de parafuso.</li>
+          <li><strong>Poeira compactada e pasta térmica ressecada:</strong> não é defeito de placa, mas muda o comportamento térmico e precisa ser corrigido antes de qualquer conclusão.</li>
         </ul>
 
-        <h2>Diagnóstico Visual (Primeiro Passo)</h2>
-        <p>Antes de qualquer teste elétrico, faça uma inspeção visual minuciosa:</p>
-        <ul>
-          <li><strong>Capacitores estufados ou vazando:</strong> Capacitores com topo arredondado ou líquido marrom são defeituosos</li>
-          <li><strong>Marcas de queimado:</strong> Trilhas escurecidas ou componentes carbonizados</li>
-          <li><strong>Solda fria:</strong> Pontos de solda rachados ou opacos, especialmente no soquete do processador</li>
-          <li><strong>Corrosão:</strong> Manchas verdes ou brancas causadas por umidade ou líquidos derramados</li>
-          <li><strong>Danos mecânicos:</strong> Trilhas rompidas, slot de RAM quebrado, soquete com pinos tortos</li>
-        </ul>
-
-        <h2>Teste de Eliminação (Método Sistemático)</h2>
-        <p>A forma mais confiável de diagnosticar placa-mãe é por eliminação:</p>
-
-        <h3>1. Teste Mínimo (Barebone)</h3>
+        <h2>Teste mínimo: reduzir até sobrar o essencial</h2>
+        <p>A montagem mínima existe para eliminar interferência. Ficam apenas placa, processador com refrigeração, um módulo de memória e a fonte. Saem armazenamento, placa de vídeo dedicada, periféricos e cabos de painel frontal que não sejam necessários.</p>
         <ol>
-          <li>Remova <strong>tudo</strong> exceto: placa-mãe, processador, 1 pente de RAM e cooler</li>
-          <li>Desconecte HD, SSD, placa de vídeo, periféricos USB</li>
-          <li>Conecte apenas fonte e monitor (use saída de vídeo integrada se disponível)</li>
-          <li>Tente ligar — se o PC chegar à BIOS, a placa-mãe está funcional no nível básico</li>
+          <li>Monte só o essencial e tente ligar usando o vídeo integrado, quando existir.</li>
+          <li>Se chegar à tela de configuração da BIOS, a placa responde no nível básico — o defeito está no que foi removido.</li>
+          <li>Se não chegar, devolva um componente por vez e observe em qual deles o comportamento muda.</li>
+          <li>Anote cada passo. Diagnóstico de placa se perde quando se troca duas coisas ao mesmo tempo.</li>
         </ol>
 
-        <h3>2. Teste de RAM</h3>
+        <h2>Isolando memória e slots</h2>
+        <p>Teste um módulo por vez, e cada módulo em cada slot. Se um módulo específico falha em todos os slots, o módulo é o problema. Se qualquer módulo falha sempre no mesmo slot, o defeito é do slot — e slot é placa. Antes de concluir, limpe os contatos e verifique se o módulo está travado até o fim, porque encaixe parcial produz exatamente o mesmo sintoma.</p>
+
+        <h2>Descartando a fonte antes de acusar a placa</h2>
+        <p>Metade dos casos de "placa morta" é energia. Confirme a fonte com medição sob carga ou, melhor, com substituição por uma fonte sabidamente boa. O procedimento completo está em <Link to="/blog/como-testar-fonte-de-alimentacao-pc">como testar a fonte de alimentação</Link>. Só depois desse descarte o diagnóstico de placa começa a ter valor.</p>
+
+        <h2>Sinais de diagnóstico da própria placa</h2>
+        <p>Muitas placas indicam onde o processo parou: sequência sonora quando existe alto-falante interno, LEDs de estágio identificando processador, memória, vídeo ou inicialização, e visor de código em modelos mais completos. Esses códigos variam por fabricante — o valor deles é apontar a etapa que travou, não entregar a peça culpada. Confira o significado no manual do modelo exato, nunca em tabela genérica.</p>
+
+        <h2>Quando a placa é o veredito</h2>
         <ul>
-          <li>Teste cada pente individualmente em cada slot</li>
-          <li>Use MemTest86 para verificar erros de memória</li>
-          <li>Se um slot específico falha com qualquer pente, o slot da placa-mãe está defeituoso</li>
+          <li>Montagem mínima não inicia mesmo com fonte, memória e processador comprovados em outra máquina.</li>
+          <li>Slot ou porta específica falha de forma reproduzível com qualquer peça.</li>
+          <li>Dano físico visível: queimado, corrosão, trilha rompida, pino do soquete danificado.</li>
+          <li>Instabilidade persistente após descartar energia, memória e temperatura.</li>
         </ul>
 
-        <h3>3. Teste de Fonte</h3>
-        <p>Teste a fonte com multímetro (veja nosso <Link to="/blog/como-testar-fonte-de-alimentacao-pc" className="text-accent">guia de teste de fonte</Link>) ou substitua por uma fonte sabidamente boa.</p>
+        <h2>Reparar ou substituir</h2>
+        <p>Nem todo defeito de placa é fim de linha. Capacitor deformado, conector de energia danificado e trilha rompida em região acessível costumam ter reparo eletrônico viável. Já falha de chipset, corrosão espalhada por líquido e dano após surto elétrico com marcas em vários pontos raramente compensam o reparo — o custo se aproxima do de uma placa compatível, e a confiabilidade não volta.</p>
+        <p>A decisão também depende da plataforma: placa antiga exige processador e memória da mesma geração, então trocar a placa às vezes puxa dois componentes junto. Esse cálculo é apresentado antes de qualquer autorização, com peça e mão de obra separadas.</p>
 
-        <h3>4. Códigos de Bip (Beep Codes)</h3>
-        <p>Se a placa tem speaker interno, os bips indicam o problema:</p>
+        <h2>O que não fazer</h2>
         <ul>
-          <li><strong>1 bip curto:</strong> POST OK (placa funcionando)</li>
-          <li><strong>Bips contínuos:</strong> Problema de RAM</li>
-          <li><strong>1 longo + 2 curtos:</strong> Problema de vídeo</li>
-          <li><strong>1 longo + 3 curtos:</strong> Falha no teste de memória</li>
-          <li><strong>Sem bip nenhum:</strong> Falha na placa-mãe, processador ou fonte</li>
+          <li>Insistir em ligar repetidamente uma máquina com cheiro de queimado.</li>
+          <li>Aquecer a placa com fonte de calor doméstica na esperança de reativar solda.</li>
+          <li>Trocar processador por suspeita, sem descarte prévio de fonte e memória.</li>
+          <li>Comprar placa antes de confirmar compatibilidade com o processador e a memória que já existem.</li>
         </ul>
 
-        <h3>5. Cartão POST (Debug Card)</h3>
-        <p>Para diagnóstico profissional, usamos um cartão POST — placa que se conecta ao slot PCI/PCIe e exibe códigos hexadecimais indicando em qual etapa do boot a placa-mãe parou.</p>
+        <h2>Próximo passo</h2>
+        <p>Se a máquina não dá nenhum sinal, comece por <Link to="/servicos/computador-nao-liga">computador não liga</Link>. Quando a suspeita se firma na eletrônica, o procedimento de bancada está em <Link to="/servicos/conserto-placa">conserto de placa</Link>, e o critério de verificação e cobrança em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
-        <h2>Quando a Placa-Mãe Precisa Ser Substituída</h2>
-        <ul>
-          <li>Capacitores estufados (pode ser reparado por técnico em eletrônica)</li>
-          <li>Trilhas queimadas</li>
-          <li>Soquete do processador com pinos tortos (em alguns casos, recuperável)</li>
-          <li>Chipset defeituoso (inviável reparar)</li>
-          <li>Falha após surto elétrico</li>
-        </ul>
-
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Diagnóstico de Placa-Mãe em Curitiba</h3>
-          <p className="text-muted-foreground mb-0">Fazemos diagnóstico completo com equipamento profissional. Se for caso de reparo de placa, temos técnico especializado em eletrônica.</p>
-        </div>
-
-        <p><strong>Leia também:</strong></p>
-        <ul>
-          <li><Link to="/blog/como-testar-fonte-de-alimentacao-pc" className="text-accent">Como testar a fonte de alimentação</Link></li>
-          <li><Link to="/servicos/conserto-placa" className="text-accent">Conserto de placa-mãe</Link></li>
-          <li><Link to="/servicos/computador-nao-liga" className="text-accent">Computador não liga: causas</Link></li>
-        </ul>
+        <h2>Resumo prático</h2>
+        <p>Inspecione antes de testar, reduza a máquina ao mínimo, isole memória por slot, descarte a fonte com substituição e só então trate a placa como responsável. Com dano físico evidente, o veredito é imediato; sem ele, é a eliminação registrada passo a passo que sustenta a decisão de reparar ou substituir.</p>
       </>
     ),
   },

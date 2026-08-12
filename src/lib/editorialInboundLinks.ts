@@ -181,6 +181,35 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Como escolher uma workstation profissional",
       hint: "Critérios de requisitos, componentes e limites antes de montar a estação.",
     },
+    {
+      slug: "como-testar-fonte-de-alimentacao-pc",
+      label: "Testar a fonte do PC sem trocar peça boa",
+      hint: "O que cada teste prova, por que só a medição sob carga decide e quando trocar.",
+    },
+  ],
+  "/servicos/computador-nao-liga": [
+    {
+      slug: "como-testar-fonte-de-alimentacao-pc",
+      label: "Testar a fonte do PC sem trocar peça boa",
+      hint: "Como separar defeito de energia de defeito de placa antes de comprar peça.",
+    },
+    {
+      slug: "como-diagnosticar-placa-mae-defeituosa",
+      label: "Placa-mãe defeituosa: como confirmar",
+      hint: "Inspeção visual, montagem mínima e eliminação registrada passo a passo.",
+    },
+  ],
+  "/servicos/conserto-placa": [
+    {
+      slug: "como-diagnosticar-placa-mae-defeituosa",
+      label: "Placa-mãe defeituosa: como confirmar",
+      hint: "Quando o veredito é placa e quando reparo eletrônico ainda compensa.",
+    },
+    {
+      slug: "como-testar-fonte-de-alimentacao-pc",
+      label: "Testar a fonte antes de acusar a placa",
+      hint: "Descarte de energia com medição sob carga e substituição controlada.",
+    },
   ],
   "/servicos/manutencao-de-notebook": [
     {

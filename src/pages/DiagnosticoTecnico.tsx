@@ -122,7 +122,7 @@ const DiagnosticoTecnico = () => {
     trackPageView("/diagnostico-tecnico", "Diagnóstico Técnico");
   }, []);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Quero um diagnóstico técnico. Vou descrever o que está acontecendo com o equipamento.")}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Preciso solicitar um diagnóstico técnico para meu equipamento. Vou descrever o que está acontecendo.")}`;
   const handleCTA = (label: string) => trackCTAClick("whatsapp", `diagnostico-${label}`);
 
   return (

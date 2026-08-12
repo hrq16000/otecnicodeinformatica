@@ -13,7 +13,12 @@ test.describe("smoke: home CTAs", () => {
     const consoleErrors: string[] = [];
     page.on("pageerror", (e) => consoleErrors.push(String(e)));
     page.on("console", (m) => {
-      if (m.type() === "error") consoleErrors.push(m.text());
+      if (m.type() !== "error") return;
+      const text = m.text();
+      // Avisos de desenvolvimento do React emitidos pelo tagger de dev do
+      // preview (ele injeta props nos elementos JSX) não são erros do produto.
+      if (/^Warning: /.test(text)) return;
+      consoleErrors.push(text);
     });
 
     await page.goto(TARGET, { waitUntil: "domcontentloaded" });

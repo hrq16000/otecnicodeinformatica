@@ -68,13 +68,29 @@ const ClusterProblemaPage = () => {
     SLOT_PRIORITY.page,
   );
 
+  const [contexto, setContexto] = useState<ContextoTriagem>({});
+  const rolagem = useScrollBucket();
+
+  const sintomaSlug = dados?.slug ?? slug;
+  const baseMsg = dados?.waMessage ?? "";
+
+  const waHref = useMemo(
+    () =>
+      buildProblemaWaHref(baseMsg, {
+        ...contexto,
+        sintoma: sintomaSlug,
+        secao: "topo",
+        rolagem,
+      }),
+    [baseMsg, contexto, sintomaSlug, rolagem],
+  );
+
   if (!dados) return <NotFound />;
 
-  const waHref = whatsappLink(dados.waMessage);
-
   /**
-   * CTA contextual por seção: mensagem diferente conforme o ponto da leitura,
-   * com rótulo próprio no GA4/Ads (origem por rota + seção).
+   * CTA contextual por seção: mensagem pré-preenchida (sintoma + equipamento +
+   * bairro + urgência) e link com UTM/identificadores de rota, seção e rolagem,
+   * para atribuição precisa no GA4/Google Ads.
    */
   const CtaContextual = ({
     secao,
@@ -86,13 +102,15 @@ const ClusterProblemaPage = () => {
     texto: string;
     mensagem: string;
     rotulo: string;
-  }) => (
+  }) => {
+    const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem };
+    return (
     <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
       <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
       <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
         <a
-          href={whatsappLink(`${dados.waMessage} ${mensagem}`)}
-          onClick={() => trackCTAClick("whatsapp", `cluster_problema_${secao}`)}
+          href={buildProblemaWaHref(baseMsg, ctx)}
+          onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctx))}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -100,6 +118,7 @@ const ClusterProblemaPage = () => {
           {rotulo}
         </a>
       </Button>
+
     </div>
   );
 

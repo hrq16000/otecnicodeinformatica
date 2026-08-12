@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
+import { SmartImage } from "@/components/SmartImage";
 import { trackPageView } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
@@ -55,7 +56,7 @@ const CFTVCityTemplate = ({ city, slug, metaTitle, metaDescription, neighborhood
         {/* Hero */}
         <section className="relative pt-10 md:pt-12 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img src={cftvHero} alt={`Câmeras de segurança em ${city}`} className="w-full h-full object-cover" loading="eager" decoding="async" />
+            <SmartImage src={cftvHero} alt={`Câmeras de segurança em ${city}`} wrapperClassName="w-full h-full" className="w-full h-full object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
           </div>
           <div className="container mx-auto relative z-10 py-16 md:py-24">

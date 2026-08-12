@@ -24,6 +24,20 @@
           "Formatar não resolve travamento por memória defeituosa, desligamento por fonte degradada, superaquecimento por ventilação obstruída nem lentidão causada por disco em fim de vida. Quando o teste aponta um desses cenários, avisamos antes de executar — reinstalar o sistema nessas condições só devolve o problema mais adiante, agora com o tempo do cliente já gasto.",
           "Por isso o diagnóstico vem antes da recomendação, e o cliente recebe o resultado do teste junto com o valor de cada caminho possível."
         ]
+      },
+      {
+        "titulo": "Licenças, e-mails e programas de trabalho autônomo no CIC",
+        "paragrafos": [
+          "Boa parte dos chamados do CIC vem de quem usa o computador para trabalhar por conta própria: emissão de nota pela prefeitura, planilhas de controle de entregas, sistemas de loja e programas de costura ou marcenaria comprados anos atrás. Antes de reinstalar, listamos cada programa em uso, verificamos se ainda existe instalador disponível e se a licença está vinculada a e-mail, chave física ou cadastro do fabricante. O que não puder ser reativado é avisado antes, nunca depois da formatação.",
+          "Contas de e-mail configuradas em programa local também entram nessa checagem. Muitas máquinas do bairro guardam anos de mensagens em arquivo POP, sem cópia no servidor: nesse cenário exportamos a base antes de tocar no sistema e reimportamos após a instalação, com o cliente confirmando na tela que as pastas voltaram completas."
+        ]
+      },
+      {
+        "titulo": "Custo, prazo e o que fica registrado na ordem de serviço",
+        "paragrafos": [
+          "A visita de inspeção no CIC parte de R$ 99,99 e cobre diagnóstico, medição do disco e apresentação do plano. Formatação com backup pequeno costuma sair no mesmo atendimento; volumes grandes, disco lento ou máquinas com pendência de peça seguem para coleta, com prazo informado por escrito antes de sair do endereço.",
+          "Tudo o que foi combinado — dados copiados, programas reinstalados, peças trocadas e prazo de garantia do serviço executado — fica na ordem de serviço enviada pelo WhatsApp. Sem esse registro não iniciamos execução paga, justamente para evitar discussão sobre escopo depois da entrega."
+        ]
       }
     ],
     "formatacao-computador/batel": [
@@ -49,6 +63,20 @@
           "Cada item dessa lista recebe uma confirmação explícita do cliente sobre onde ele será restaurado depois. Essa etapa é chata e demora alguns minutos, mas é o que separa uma reinstalação tranquila de um dia inteiro parado tentando recuperar um acesso perdido.",
           "O disco original é preservado até a validação final do ambiente reinstalado, funcionando como plano de retorno."
         ]
+      },
+      {
+        "titulo": "Formatação sem parar a agenda de quem atende cliente no Batel",
+        "paragrafos": [
+          "Consultórios, escritórios de advocacia e pequenas agências do Batel raramente conseguem deixar a máquina parada em horário comercial. Por isso a formatação nesses endereços é planejada em duas etapas: primeiro uma inspeção curta, que mede disco, inventaria programas e confirma onde estão os dados; depois a execução em janela combinada, normalmente no início da manhã ou após o expediente, para o equipamento voltar operacional antes do próximo atendimento.",
+          "Quando o computador é o único da operação, indicamos preparar o novo sistema em disco separado e só então migrar. O equipamento continua funcionando enquanto o ambiente novo é montado, e a troca acontece em minutos."
+        ]
+      },
+      {
+        "titulo": "Dados sensíveis e descarte responsável de disco no Batel",
+        "paragrafos": [
+          "Máquinas de escritório guardam contratos, prontuários e documentos de clientes. Antes de qualquer reinstalação, o backup é feito em mídia informada ao responsável e devolvido junto com o equipamento — não mantemos cópia depois da entrega, salvo pedido expresso e por prazo combinado.",
+          "Se o disco antigo for aposentado, ele pode ser devolvido ao cliente ou apagado com sobrescrita antes do descarte, à escolha de quem contratou. A opção escolhida fica registrada na ordem de serviço, com data e horário do procedimento."
+        ]
       }
     ],
     "formatacao-computador/agua-verde": [
@@ -73,6 +101,20 @@
           "A entrega não termina no sistema instalado. Configuramos a rede do apartamento, testamos a conexão com o roteador do provedor, reinstalamos os aplicativos de rotina informados na triagem e conferimos que a impressora doméstica, quando existe, voltou a ser reconhecida.",
           "Também deixamos o computador com atualizações aplicadas, inicialização enxuta e uma anotação simples do que foi instalado e de quais contas precisam ser reautenticadas nos próximos dias.",
           "Se algo do uso cotidiano não estiver funcionando como antes, o ajuste é tratado dentro da mesma ordem de serviço, conforme as condições publicadas na página de preços e políticas."
+        ]
+      },
+      {
+        "titulo": "Rotina de famílias e estudantes do Água Verde antes de formatar",
+        "paragrafos": [
+          "No Água Verde é comum o mesmo notebook servir para faculdade, trabalho remoto e uso doméstico. Isso muda a preparação: além de fotos e documentos, precisamos preservar ambientes de estudo — projetos de curso, arquivos de editor de vídeo, máquinas virtuais e pastas sincronizadas que ficaram só na nuvem parcialmente baixada. Cada um desses itens é conferido com o usuário antes da reinstalação.",
+          "Também revisamos senhas salvas no navegador. Muita gente descobre no pior momento que o acesso ao banco ou ao portal da faculdade dependia do preenchimento automático; exportamos essa lista com o cliente presente e ela volta configurada no sistema novo."
+        ]
+      },
+      {
+        "titulo": "Garantia do serviço e suporte após a entrega no Água Verde",
+        "paragrafos": [
+          "A garantia cobre o serviço executado: se o sistema apresentar falha ligada à instalação feita por nós dentro do prazo informado, voltamos sem nova cobrança de mão de obra. Ela não cobre infecção nova por uso, desgaste de disco já sinalizado no diagnóstico ou instalação posterior feita por terceiros — essa delimitação é dita antes, não na hora do problema.",
+          "Nos primeiros dias após a entrega, dúvidas de configuração são respondidas pelo mesmo WhatsApp do atendimento, sem abrir novo chamado. Ajustes rápidos de impressora, e-mail e sincronização normalmente se resolvem remotamente."
         ]
       }
     ],
@@ -106,6 +148,20 @@
           "Existe um ponto em que insistir na remoção custa mais do que recomeçar: quando arquivos do próprio sistema foram alterados, quando a infecção reapareceu após limpeza bem executada ou quando as permissões do perfil ficaram inconsistentes.",
           "Nesses casos apresentamos o custo das duas rotas e o tempo de cada uma, com os dados do usuário preservados antes de qualquer decisão. Quem escolhe é o cliente, com o número na frente."
         ]
+      },
+      {
+        "titulo": "Golpes e falsos suportes que aparecem nas máquinas do CIC",
+        "paragrafos": [
+          "Uma parte relevante das infecções que encontramos no CIC não vem de vírus clássico, e sim de instalação autorizada pelo próprio usuário: falso técnico por telefone, aplicativo de acesso remoto instalado a pedido de um suposto banco, extensão de navegador prometendo cupom. O tratamento é diferente — além de remover, precisamos revisar quem teve acesso e por quanto tempo.",
+          "Nesses casos orientamos trocar senhas em outro aparelho, revisar dispositivos conectados nas contas principais e conferir se há regra de encaminhamento criada no e-mail. Remover o programa sem fazer essa revisão deixa a porta aberta."
+        ]
+      },
+      {
+        "titulo": "O que entregamos por escrito depois da limpeza no CIC",
+        "paragrafos": [
+          "Ao final, o cliente recebe a lista do que foi encontrado e removido, o que ficou em quarentena e quais ajustes de configuração foram aplicados — inicialização, permissões de navegador e atualizações pendentes. Esse registro serve de referência caso o problema volte.",
+          "Se a limpeza não devolver estabilidade, o caminho seguinte é reinstalação, e o valor já pago na inspeção é considerado no plano apresentado. Nenhuma etapa paga começa sem aprovação no WhatsApp."
+        ]
       }
     ],
     "remocao-virus/agua-verde": [
@@ -138,6 +194,20 @@
           "Infecção que captura navegador costuma alcançar senhas salvas. Por isso, ao final do serviço, orientamos a troca das senhas críticas — e-mail principal, banco e redes — a partir de outro dispositivo já verificado.",
           "Também recomendamos ativar verificação em duas etapas nas contas que oferecem o recurso e revisar as sessões conectadas. São ações gratuitas, feitas pelo próprio cliente, e reduzem drasticamente o prejuízo de qualquer episódio futuro."
         ]
+      },
+      {
+        "titulo": "Rede doméstica e outros aparelhos infectados no Água Verde",
+        "paragrafos": [
+          "Em prédios do Água Verde, o computador quase nunca está sozinho: divide rede com celulares, TV, console e às vezes com o notebook do trabalho. Quando a infecção envolve sequestro de navegador ou redirecionamento de páginas, verificamos também o roteador, porque servidor de DNS alterado reproduz o sintoma mesmo com a máquina limpa.",
+          "A checagem inclui senha padrão de administração do roteador, firmware desatualizado e dispositivos desconhecidos conectados. Onde encontramos brecha, deixamos a correção aplicada e explicamos como conferir depois."
+        ]
+      },
+      {
+        "titulo": "Backup íntegro antes de mexer em máquina infectada",
+        "paragrafos": [
+          "Antes de qualquer remoção, copiamos os arquivos do usuário para mídia externa e verificamos a cópia. Isso protege contra o cenário mais caro: ransomware descoberto no meio da limpeza, quando os dados ainda não estavam salvos.",
+          "Se aparecerem arquivos criptografados, interrompemos a execução e apresentamos a situação com clareza — não prometemos recuperação de dados sequestrados, e explicamos quais alternativas reais existem antes de o cliente decidir gastar mais."
+        ]
       }
     ],
     "conserto-pc-notebook/centro": [
@@ -162,6 +232,20 @@
           "Cada laudo classifica o equipamento em uma das três situações: reparo com custo previsível, substituição de componente com ganho claro, ou fim de ciclo útil, quando o valor somado das peças se aproxima do preço de um equipamento equivalente.",
           "Essa classificação é apresentada com números, não com adjetivos. O cliente vê o custo estimado de cada caminho e decide com informação — inclusive a opção de não fazer nada agora e usar o equipamento com a limitação conhecida.",
           "Quando a recomendação é não reparar, dizemos isso mesmo perdendo a execução. Um laudo honesto vale mais do que um reparo que não se sustenta."
+        ]
+      },
+      {
+        "titulo": "Bateria, carregador e dobradiça: os reparos mais pedidos no Centro",
+        "paragrafos": [
+          "Quem trabalha no Centro carrega o notebook todos os dias, e o desgaste aparece nos pontos de esforço: dobradiça trincada, conector de energia com mau contato e bateria que não segura carga por uma reunião inteira. Antes de orçar, medimos ciclos e saúde da bateria, testamos o carregador com outra fonte compatível e conferimos se o problema está na placa ou apenas no cabo.",
+          "Esse cuidado evita a troca desnecessária mais comum do setor: substituir bateria quando o defeito estava na fonte, ou trocar a fonte quando o conector interno é que estava rompido."
+        ]
+      },
+      {
+        "titulo": "Equipamento de trabalho parado: prioridade e alternativa provisória",
+        "paragrafos": [
+          "Quando o notebook parado significa faturamento parado, tratamos o chamado com prazo declarado logo na triagem: o que dá para resolver em bancada no mesmo dia, o que depende de peça e qual o tempo realista de chegada dessa peça.",
+          "Se a espera for longa, apresentamos alternativas honestas — usar o disco atual em outro equipamento, migrar temporariamente o ambiente de trabalho ou adiar o reparo. Preferimos indicar o caminho mais barato para o cliente do que segurar um serviço que não compensa."
         ]
       }
     ],
@@ -195,6 +279,20 @@
           "Assim que o diagnóstico fecha, o cliente recebe o prazo estimado e o que depende de terceiros — normalmente disponibilidade de peça. Se o prazo mudar, avisamos antes do vencimento, não depois.",
           "Cada etapa relevante fica registrada na ordem de serviço: entrada, laudo, aprovação, execução e teste final. Isso evita a situação mais desgastante da assistência técnica: o equipamento parado sem notícia."
         ]
+      },
+      {
+        "titulo": "Superaquecimento e ruído em notebooks do Água Verde",
+        "paragrafos": [
+          "O sintoma mais recorrente nos atendimentos residenciais do bairro é o notebook que esquenta, faz barulho de cooler e desliga sozinho em tarefa pesada. Medimos temperatura sob carga antes e depois da manutenção, registramos os números e mostramos ao cliente — sem medição, limpeza interna vira promessa vaga.",
+          "Na prática, boa parte dos casos combina pasta térmica ressecada, dissipador obstruído e uso sobre superfície macia. Corrigimos o que é técnico e explicamos o que é hábito de uso, porque um sem o outro devolve o problema em poucos meses."
+        ]
+      },
+      {
+        "titulo": "Peças, procedência e o que fazemos quando não compensa consertar",
+        "paragrafos": [
+          "Toda peça proposta vem com procedência informada: nova, recondicionada ou aproveitada de outro equipamento com o consentimento do cliente. O preço aparece separado da mão de obra, para ficar claro o que é serviço e o que é material.",
+          "Quando a soma passa do valor de mercado de um equipamento equivalente, dizemos isso abertamente. Nesses casos a recomendação costuma ser recuperar os dados, preservar o que ainda serve e planejar a troca — mesmo que isso signifique não executar o reparo."
+        ]
       }
     ],
     "upgrade-ssd-memoria/cic": [
@@ -226,6 +324,20 @@
         "paragrafos": [
           "Trabalhamos preferencialmente com peça nova, porque é o único cenário em que a garantia do componente é integral e verificável. Quando o cliente pede alternativa mais barata, explicamos exatamente o que muda em garantia e vida útil esperada.",
           "Não instalamos memória ou armazenamento de origem incerta sem registrar isso na ordem de serviço, com a limitação de garantia declarada por escrito."
+        ]
+      },
+      {
+        "titulo": "Migrar o sistema sem perder o ambiente configurado no CIC",
+        "paragrafos": [
+          "Em máquinas do CIC que rodam programas antigos de loja ou de oficina, reinstalar do zero costuma ser pior do que clonar. Quando o sistema atual está saudável, migramos a instalação para o SSD com verificação de integridade, mantendo programas, licenças e atalhos exatamente como estavam.",
+          "Se a checagem apontar sistema já comprometido, avisamos que clonar levaria o problema junto e apresentamos o custo de reinstalação limpa. A escolha fica com o cliente, com prós e contras ditos antes da execução."
+        ]
+      },
+      {
+        "titulo": "Ganho real medido, não prometido",
+        "paragrafos": [
+          "Registramos tempo de inicialização e de abertura dos programas mais usados antes do upgrade e repetimos a mesma medição depois, com o cliente vendo. É a forma mais simples de mostrar que o investimento entregou o que foi combinado.",
+          "Quando a máquina continua limitada por processador ou por um programa específico, dizemos isso no relatório. Preferimos entregar expectativa correta a vender uma peça que não vai resolver o incômodo relatado."
         ]
       }
     ],
@@ -259,6 +371,20 @@
           "Ao final, a ordem de serviço traz modelo, capacidade e especificação da peça instalada, além da configuração final da máquina. Esse registro serve para garantia, para reposição futura e para o controle patrimonial de quem administra vários equipamentos.",
           "Quando o parque tem mais de uma máquina, essa documentação permite padronizar as próximas trocas e comprar melhor."
         ]
+      },
+      {
+        "titulo": "Compatibilidade antes da compra em equipamentos corporativos do Centro",
+        "paragrafos": [
+          "Notebooks corporativos usados em escritórios do Centro têm restrições que só aparecem na conferência: slot único de memória, memória soldada à placa, limite de reconhecimento do chipset e travas de firmware que recusam módulos fora da lista do fabricante. Conferimos o modelo exato e a revisão da placa antes de qualquer indicação de peça.",
+          "Essa etapa evita o desperdício mais comum: comprar memória pela internet pelo nome do modelo e descobrir na bancada que o equipamento não aceita. Quando o upgrade não é viável, dizemos antes de cobrar execução."
+        ]
+      },
+      {
+        "titulo": "Janela de parada e devolução do equipamento no Centro",
+        "paragrafos": [
+          "A troca em si leva pouco tempo; o que exige planejamento é a janela em que o profissional fica sem a máquina. Combinamos horário fixo, informamos quanto tempo o equipamento ficará indisponível e cumprimos ou avisamos com antecedência se algo mudar.",
+          "Em prédios comerciais com controle de acesso, precisamos de nome do responsável, andar e sala na triagem. Sem esse dado a visita não é confirmada, para não gerar deslocamento cobrado sem atendimento realizado."
+        ]
       }
     ],
     "upgrade-ssd-memoria/agua-verde": [
@@ -291,6 +417,20 @@
           "O disco substituído é devolvido ao cliente por padrão. Quando ele ainda está saudável, indicamos dois destinos úteis: virar unidade externa para cópia de segurança ou permanecer como armazenamento secundário na própria máquina, quando há espaço interno.",
           "Se o cliente prefere descartar, orientamos o apagamento seguro antes e o encaminhamento a ponto de coleta de eletrônicos — nunca lixo comum."
         ]
+      },
+      {
+        "titulo": "Escolher entre SSD, memória ou os dois no Água Verde",
+        "paragrafos": [
+          "Nem todo computador lento precisa das duas peças. Antes de indicar, observamos o uso real: se o disco fica ocupado o tempo todo e o sistema demora a responder, o SSD resolve; se a máquina trava ao abrir muitas abas e programas simultâneos, o gargalo é memória. Fazer essa leitura antes evita gasto dobrado sem ganho proporcional.",
+          "O diagnóstico é apresentado com número — ocupação de disco, uso de memória em pico e tempo de resposta — e não apenas com impressão de uso. O cliente aprova o que quiser executar."
+        ]
+      },
+      {
+        "titulo": "Instalação em apartamento: cuidados de bancada improvisada",
+        "paragrafos": [
+          "Trabalhar dentro de apartamento exige preparo: superfície firme, iluminação adequada e cuidado com estática. Levamos o material necessário para abrir o equipamento com segurança e devolvemos todos os parafusos no lugar — detalhe simples que evita chassi frouxo e ruído depois.",
+          "Quando o modelo exige desmontagem profunda ou solda, indicamos coleta em vez de execução no local. Serviço apressado em mesa de sala é o caminho mais curto para um dano novo."
+        ]
       }
     ],
     "upgrade-ssd-memoria/portao": [
@@ -322,6 +462,20 @@
         "paragrafos": [
           "O valor apresentado reúne peça, mão de obra e o tempo estimado de parada do equipamento. Nada é acrescentado depois sem nova aprovação registrada.",
           "Para quem opera atendimento ao público, o tempo parado costuma pesar mais que a peça — por isso ele entra na conta desde o início, e não como surpresa no fim do serviço."
+        ]
+      },
+      {
+        "titulo": "Equipamentos de comércio do Portão que não podem parar no movimento",
+        "paragrafos": [
+          "Lojas e prestadores do Portão dependem do computador do balcão para emitir cupom, consultar estoque e receber pagamento. Por isso o upgrade nesses endereços é agendado fora do pico de movimento, com o escopo definido na triagem e o tempo de parada informado antes de abrir o equipamento.",
+          "Quando o sistema de frente de caixa é crítico, testamos a operação completa antes de encerrar o atendimento: emissão, impressora térmica, leitor e conexão com o servidor da loja. Só consideramos entregue quando o fluxo de venda roda na frente do responsável."
+        ]
+      },
+      {
+        "titulo": "Poeira, rede elétrica e o que mais limita desempenho no Portão",
+        "paragrafos": [
+          "Em ambiente de comércio, o desempenho não depende só de peça: gabinete saturado de poeira, tomada compartilhada com equipamento de alta carga e falta de estabilização derrubam a máquina mesmo depois do upgrade. Apontamos essas condições no relatório, com o que é ajuste imediato e o que é obra elétrica fora do nosso escopo.",
+          "Também revisamos rotina de desligamento. Máquina desligada no botão da régua todos os dias castiga disco e fonte — orientar isso custa nada e evita chamado novo em poucos meses."
         ]
       }
     ]

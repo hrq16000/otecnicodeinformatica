@@ -432,7 +432,7 @@ const Anuncie = () => {
                 A maior parte das visitas não começa por marca nem por nome de empresa: começa por
                 uma frase de problema — “computador lento”, “notebook não liga”, “internet caindo”,
                 “apaguei um arquivo”. Quem digita isso está a poucos passos de uma decisão de compra
-                ou de contratação, e normalmente decide no mesmo dia. É esse recorte de momento, e
+                ou de contratação, e normalmente decide em pouco tempo. É esse recorte de momento, e
                 não o volume bruto de acessos, que dá valor ao espaço publicitário aqui.
               </p>
               <p>

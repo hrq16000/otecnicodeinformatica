@@ -46,6 +46,9 @@ const ALLOW = [
   { file: "src/lib/siteConfig.ts", id: "cnpj-palavra" },
   { file: "src/lib/siteConfig.ts", id: "razao-social" },
   { file: "src/lib/config/brand.ts", id: "razao-social" },
+  // Formulário do programa de parceiros: campo de documento (CPF/CNPJ) é
+  // dado do parceiro, não identificação jurídica do portal.
+  { file: "src/pages/profissionais/CadastroParceiro.tsx", id: "cnpj-palavra" },
   // rotas legadas/canônicas que não podem ser removidas (SEO evolutivo)
 ];
 

@@ -55,20 +55,20 @@ const megaGrupos: MegaGrupo[] = [
       {
         titulo: "Sintomas comuns",
         links: [
-          { label: "Computador não liga", href: "/problemas/computador-nao-liga" },
-          { label: "Notebook desligando sozinho", href: "/problemas/notebook-desliga-sozinho" },
-          { label: "PC muito lento", href: "/problemas/pc-lento" },
-          { label: "Tela azul e travamentos", href: "/problemas/tela-azul" },
-          { label: "Superaquecendo", href: "/problemas/superaquecimento" },
+          { label: "Computador não liga", href: "/problemas/computador-nao-liga-curitiba" },
+          { label: "Notebook desligando sozinho", href: "/problemas/notebook-desligando-sozinho-curitiba" },
+          { label: "PC muito lento", href: "/problemas/computador-lento" },
+          { label: "Travando e tela azul", href: "/problemas/computador-travando-curitiba" },
+          { label: "Superaquecendo", href: "/problemas/pc-superaquecendo-curitiba" },
         ],
       },
       {
         titulo: "Serviços mais pedidos",
         links: [
           { label: "Formatação com backup", href: "/servicos/formatacao" },
-          { label: "Limpeza e troca de pasta térmica", href: "/servicos/limpeza-manutencao" },
-          { label: "Recuperação de dados", href: "/servicos/recuperacao-dados" },
-          { label: "Upgrade de SSD e memória", href: "/servicos/upgrade-hardware" },
+          { label: "Limpeza e troca de pasta térmica", href: "/servicos/manutencao-de-computador" },
+          { label: "Recuperação de dados", href: "/servicos/recuperacao-de-dados" },
+          { label: "Upgrade de SSD e memória", href: "/servicos/upgrade-ssd-ram" },
           { label: "Ver todos os serviços", href: "/servicos" },
         ],
       },
@@ -98,7 +98,7 @@ const megaGrupos: MegaGrupo[] = [
         titulo: "Infraestrutura",
         links: [
           { label: "Empresa de TI em Curitiba", href: "/empresa-de-ti-curitiba" },
-          { label: "Redes e cabeamento", href: "/servicos/redes-wifi" },
+          { label: "Redes e cabeamento", href: "/servicos/redes-e-wifi" },
         ],
       },
     ],

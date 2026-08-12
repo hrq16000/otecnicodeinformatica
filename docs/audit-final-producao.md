@@ -1,11 +1,13 @@
 # Auditoria final de produção — O Técnico de Informática
 
-Data: 12/08/2026 · Domínio: https://otecnicodeinformatica.com.br
+Data: 12/08/2026 (execução real) · Domínio: https://otecnicodeinformatica.com.br
 
 ## Veredito
 
-**APROVADO PARA PRODUÇÃO.** Build de produção verde e bateria completa de gates
-(SEO, marca, local, editorial, conversão, telemetria e segurança) sem bloqueios.
+**APROVADO PARA PRODUÇÃO COM RESSALVAS.** Build de produção verde e bateria local de gates
+(SEO, marca, local, editorial, conversão, telemetria e segurança) sem bloqueios — gates
+dependentes de rede, smoke público e E2E Chromium contra o domínio publicado ainda pendentes
+(ver "Validação pós-publicação" ao final).
 
 ## Build
 
@@ -56,3 +58,95 @@ Lighthouse desktop sobre rotas locais indexáveis (`/bairros/batel`, `/bairros/a
   `verify:prod-status`) devem rodar contra o domínio publicado.
 - Suíte E2E completa (`npx playwright test --project=chromium`) roda longa; o projeto `webkit`
   não tem binário neste ambiente.
+
+---
+
+# Validação pós-publicação (Rodada 3P)
+
+- Data/hora real: **12/08/2026 00:50–01:05 UTC**
+- Domínio auditado: **https://otecnicodeinformatica.com.br** (build `x-deployment-id: 39836076-ff8f-41cd-ba8f-81290c881e4b`)
+- Novo gate: `npm run check:live-production` (`scripts/check-live-production.mjs`)
+
+## A. Deploy
+
+| Item | Resultado |
+| --- | --- |
+| Host canônico | https://otecnicodeinformatica.com.br — HTTP 200 |
+| www | 302 → host canônico (funciona; recomendado 301) |
+| HTTPS / HSTS | OK (`max-age=31536000; includeSubDomains`) |
+| Headers | `x-content-type-options`, `referrer-policy` OK; CSP e Permissions-Policy ausentes na resposta real |
+| Cache | `no-cache` no HTML, imutável em assets |
+
+## B. Rede
+
+| Gate | Resultado |
+| --- | --- |
+| check:sitemap-status | HEALTHY — 10 arquivos, 68 URLs, chave IndexNow 200 |
+| check:cf-zone | NÃO EXECUTADO — `CLOUDFLARE_API_TOKEN` ausente |
+| check:index-health | Corrigido (`BASE_URL` não importado); execução contra produção é longa e ficou incompleta nesta janela |
+| check:live-production | BLOQUEADO — ver Pendências |
+| verify:prod-status / smoke:edge:prod | NÃO EXECUTADOS nesta janela |
+
+## C/D. Indexação e sitemaps
+
+| Shard | URLs | HTTP |
+| --- | ---: | --- |
+| sitemap-main.xml | 19 | 200 |
+| sitemap-servicos.xml | 15 | 200 |
+| sitemap-regioes.xml | 6 | 200 |
+| sitemap-bairros.xml | 5 | 200 |
+| sitemap-problemas.xml | 2 | 200 |
+| sitemap-editorial.xml | 8 | 200 |
+
+Nenhuma URL fora do host oficial, nenhuma URL herdada, localhost ou preview.
+
+## E. HTML real e canonical
+
+As 11 páginas da amostra (`/`, 4 serviços, 2 cidades, 2 bairros, `/sobre`, `/precos-e-politicas`)
+entregam title, description, canonical self-referente HTTPS, H1, JSON-LD válido, OG e marca
+oficial já no HTML servido pelo servidor. Zero `tel:`, zero número visível, zero token herdado.
+
+## F. Analytics
+
+Fail-closed confirmado em produção: sem GA4, sem Google Ads, sem requisição de medição externa.
+
+## G. Horário
+
+`VITE_BUSINESS_HOURS` configurado — horários aparecem no schema conforme política.
+
+## H. Segurança
+
+Rotas admin bloqueadas em robots; nenhum dado administrativo no HTML servido; service role ausente
+do bundle; funções `SECURITY DEFINER` restritas a `service_role` (migration da rodada anterior).
+
+## I. E2E
+
+- Chromium: **NÃO EXECUTADO nesta janela**
+- Firefox: **NÃO EXECUTADO**
+- WebKit: **NÃO EXECUTADO — LIMITAÇÃO DE AMBIENTE**
+
+## J. Lighthouse de produção
+
+**NÃO EXECUTADO nesta janela.**
+
+## L. Pendências
+
+**Bloqueante**
+1. **Soft-404 em produção.** Qualquer URL inexistente (10/10 testadas) responde **HTTP 200 com o
+   HTML da Home**, com `canonical=https://otecnicodeinformatica.com.br/` e `index, follow`.
+   O `public/_redirects` (`/* → /404.html 404`) não é honrado pelo host atual; o fallback de SPA
+   entrega `index.html`. Isso vale também para rotas reais não prerenderizadas
+   (`/bairros/santa-felicidade`, `/arrumar-pc/curitiba`, `/servicos/*-curitiba`), que deveriam ser
+   `noindex,follow` e hoje chegam ao Google como duplicata da Home.
+
+**Não bloqueantes**
+- www responde 302 (idealmente 301).
+- CSP e Permissions-Policy não são entregues pelo servidor.
+- `check:cf-zone` sem credenciais Cloudflare.
+- E2E Chromium, smoke público e Lighthouse de produção pendentes.
+
+## M. Veredito
+
+**APROVADO PARA PRODUÇÃO COM RESSALVAS** — o portal está no ar, correto em domínio, robots,
+sitemaps, canonicals, marca, contato e analytics fail-closed; a indexação plena depende de
+resolver o soft-404 do fallback e de concluir a bateria (E2E Chromium, smoke público, Lighthouse).

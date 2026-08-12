@@ -155,6 +155,19 @@ export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
     width: 1200,
     height: 630,
   },
+  // ── Onda 5F — capas fotográficas reais licenciadas (sem IA).
+  "ransomware-como-proteger-empresa": {
+    src: "/blog/ransomware-como-proteger-empresa.jpg",
+    alt: "Tela de computador exibindo mensagem de resgate de um ataque de ransomware",
+    width: 1200,
+    height: 630,
+  },
+  "backup-nuvem-empresas-qual-escolher": {
+    src: "/blog/backup-nuvem-empresas-qual-escolher.jpg",
+    alt: "Corredor de data center com racks de servidores usados para armazenamento e backup",
+    width: 1200,
+    height: 630,
+  },
 };
 
 export function getEditorialCover(slug: string): EditorialCover | undefined {

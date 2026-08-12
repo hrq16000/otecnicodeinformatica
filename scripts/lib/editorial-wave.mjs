@@ -225,6 +225,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Clonar HD para SSD",
     cover: "/blog/como-instalar-segundo-ssd-notebook.jpg",
   },
+  // ── Rodada 5F — continuidade empresarial (ransomware e backup em nuvem).
+  {
+    slug: "ransomware-como-proteger-empresa",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/backup-para-empresas",
+    pilarLabel: "Backup para empresas em Curitiba",
+    apoio: "/blog/backup-nuvem-empresas-qual-escolher",
+    apoioLabel: "Backup em nuvem para empresas",
+    cover: "/blog/ransomware-como-proteger-empresa.jpg",
+  },
+  {
+    slug: "backup-nuvem-empresas-qual-escolher",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/backup-para-empresas",
+    pilarLabel: "Backup para empresas em Curitiba",
+    apoio: "/blog/ransomware-como-proteger-empresa",
+    apoioLabel: "Ransomware em pequenas empresas",
+    cover: "/blog/backup-nuvem-empresas-qual-escolher.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

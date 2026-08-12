@@ -62,6 +62,7 @@ function parse() {
       cidade: str("cidade"),
       proposta: list("proposta"),
       perfilLocal: list("perfilLocal"),
+      contexto: list("contextoLocal"),
       quandoChamar,
       faq,
     };
@@ -81,6 +82,12 @@ export function cidadeBlocos(path) {
       paragrafos: d.proposta,
     },
   ];
+  if (d.contexto?.length) {
+    blocos.push({
+      titulo: `O que costuma aparecer nos chamados de ${d.cidade}`,
+      paragrafos: d.contexto,
+    });
+  }
   if (d.perfilLocal.length) {
     blocos.push({
       titulo: `Perfil dos chamados em ${d.cidade}`,

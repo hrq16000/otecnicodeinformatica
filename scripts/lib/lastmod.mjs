@@ -15,6 +15,10 @@ export const LASTMOD = {
   "/guia-tecnico-informatica": "2026-08-09",
   "/problemas/notebook-nao-liga": "2026-08-09",
   "/problemas/computador-lento": "2026-08-09",
+  "/problemas": "2026-08-12",
+  "/problemas/wifi-instavel": "2026-08-12",
+  "/problemas/tela-azul": "2026-08-12",
+  "/problemas/arquivos-apagados": "2026-08-12",
   // Frente de monetização — página comercial de patrocínio
   "/anuncie": "2026-08-08",
   // Rodada 3L — montagem de PC e periféricos em rede

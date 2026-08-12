@@ -110,6 +110,10 @@ export const SERVICO_BAIRRO = [].map((path) => ({
 export const PROBLEMAS = [
   { path: "/problemas/notebook-nao-liga", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/computador-lento", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas", changefreq: "monthly", priority: "0.7" },
+  { path: "/problemas/wifi-instavel", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/tela-azul", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/arquivos-apagados", changefreq: "monthly", priority: "0.6" },
 ];
 
 /**

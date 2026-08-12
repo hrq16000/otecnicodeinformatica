@@ -34,7 +34,7 @@ async function fetchRetry(url, tries = 4) {
       const res = await fetch(url, { headers: { "User-Agent": UA, Accept: "*/*" } });
       if (res.ok) return res;
     } catch { /* rede instável: nova tentativa */ }
-    await new Promise((r) => setTimeout(r, 1200 * (i + 1)));
+    await new Promise((r) => setTimeout(r, 5000 * (i + 1)));
   }
   return null;
 }
@@ -43,6 +43,9 @@ const DEST = resolve("public/blog");
 if (!existsSync(DEST)) mkdirSync(DEST, { recursive: true });
 
 for (const item of CURADORIA) {
+  const alvo = resolve(DEST, `${item.slug}.jpg`);
+  // Idempotente: capa já baixada não é rebaixada (evita 429 da origem).
+  if (existsSync(alvo)) { console.log(`[capa] já existe ${item.slug}`); continue; }
   const metaRes = await fetchRetry(`https://api.openverse.org/v1/images/${item.id}/`);
   const meta = metaRes ? await metaRes.json() : null;
   if (!meta?.url) { console.error(`[capa] sem metadados: ${item.slug}`); process.exit(1); }

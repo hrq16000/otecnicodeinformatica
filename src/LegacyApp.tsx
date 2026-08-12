@@ -984,6 +984,12 @@ const App = () => (
             <Route path="/problemas/tela-azul" element={<ClusterProblemaPage />} />
             <Route path="/problemas/arquivos-apagados" element={<ClusterProblemaPage />} />
 
+            {/* Cluster EQUIPAMENTOS — entrada por aparelho */}
+            <Route path="/equipamentos" element={<EquipamentosHub />} />
+            <Route path="/equipamentos/:slug" element={<ClusterEquipamentoPage />} />
+
+
+
             <Route path="/guia-tecnico-informatica" element={<GuiaTecnicoInformatica />} />
             <Route path="/problemas/:slug" element={<ProblemaPage />} />
             <Route path="/assistencia-tecnica-curitiba" element={<AssistenciaTecnicaCuritiba />} />

@@ -83,7 +83,9 @@ export const MegaMenu = ({ grupos }: { grupos: MegaGrupo[] }) => {
               onClick={() => setAberto(ativo ? null : g.id)}
               onMouseEnter={() => {
                 cancelarFechamento();
-                setAberto(g.id);
+                // Hover só troca de coluna quando algum painel já está aberto:
+                // assim o clique continua sendo um toggle previsível.
+                setAberto((atual) => (atual ? g.id : atual));
               }}
               onFocus={() => setAberto(g.id)}
               className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${

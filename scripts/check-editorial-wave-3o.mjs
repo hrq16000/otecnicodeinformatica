@@ -95,6 +95,7 @@ async function main() {
   const wave5f = (registry.match(/WAVE_5F:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5g = (registry.match(/WAVE_5G:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5h = (registry.match(/WAVE_5H:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
+  const wave5i = (registry.match(/WAVE_5I:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5a = (registry.match(/WAVE_5A:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave4z = (registry.match(/WAVE_4Z:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const registeredSlugs = [
@@ -110,6 +111,7 @@ async function main() {
     ...[...wave5f.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
     ...[...wave5g.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
     ...[...wave5h.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
+    ...[...wave5i.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
 
   ];
   if (registeredSlugs.length !== EDITORIAL_WAVE_SLUGS.length)

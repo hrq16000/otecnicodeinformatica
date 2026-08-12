@@ -25,16 +25,39 @@ const CURADORIA = [
     slug: "como-trocar-tela-notebook-passo-a-passo",
     id: "fcc0aa98-ca11-420f-b06e-ea9be3fe365f",
   },
-  // Onda 4Z
+  // Onda 4Z — origem Wikimedia Commons (o CDN do Flickr recusa o
+  // download automatizado com 502; a origem é declarada por arquivo).
   {
     slug: "notebook-nao-liga-o-que-fazer",
-    id: "9d395fcb-f432-46a5-a330-c8ec68b4e190",
+    commons: "File:Laptop hardware.jpg",
   },
   {
     slug: "computador-lento-causas-solucoes",
-    id: "a3cdc6ad-9098-4342-9afd-3a612062d4f2",
+    commons: "File:Actuator arm assembly of a hard disk drive.jpg",
   },
 ];
+
+/** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */
+async function commonsInfo(title) {
+  const url =
+    "https://commons.wikimedia.org/w/api.php?" +
+    new URLSearchParams({
+      action: "query", format: "json", titles: title, prop: "imageinfo",
+      iiprop: "url|extmetadata", iiurlwidth: "1600",
+    });
+  const res = await fetchRetry(url);
+  if (!res) return null;
+  const data = await res.json();
+  const page = Object.values(data?.query?.pages ?? {})[0];
+  const info = page?.imageinfo?.[0];
+  if (!info) return null;
+  return {
+    url: info.thumburl || info.url,
+    licenca: info.extmetadata?.LicenseShortName?.value ?? "",
+    autor: (info.extmetadata?.Artist?.value ?? "").replace(/<[^>]+>/g, "").trim(),
+    pagina: info.descriptionurl,
+  };
+}
 
 /** Fetch com retentativas — a origem (Wikimedia) recusa esporadicamente. */
 async function fetchRetry(url, tries = 4) {
@@ -55,13 +78,20 @@ for (const item of CURADORIA) {
   const alvo = resolve(DEST, `${item.slug}.jpg`);
   // Idempotente: capa já baixada não é rebaixada (evita 429 da origem).
   if (existsSync(alvo)) { console.log(`[capa] já existe ${item.slug}`); continue; }
-  const metaRes = await fetchRetry(`https://api.openverse.org/v1/images/${item.id}/`);
-  const meta = metaRes ? await metaRes.json() : null;
+  const meta = item.commons
+    ? await commonsInfo(item.commons)
+    : await (async () => {
+        const r = await fetchRetry(`https://api.openverse.org/v1/images/${item.id}/`);
+        return r ? await r.json() : null;
+      })();
   if (!meta?.url) { console.error(`[capa] sem metadados: ${item.slug}`); process.exit(1); }
   const res = await fetchRetry(meta.url);
   if (!res) { console.error(`[capa] download falhou: ${item.slug}`); process.exit(1); }
   const buf = Buffer.from(await res.arrayBuffer());
   const out = resolve(DEST, `${item.slug}.jpg`);
   await sharp(buf).rotate().resize(1200, 630, { fit: "cover", position: "attention" }).jpeg({ quality: 82, mozjpeg: true }).toFile(out);
-  console.log(`[capa] ok ${item.slug} — ${meta.creator} — CC ${String(meta.license).toUpperCase()} ${meta.license_version || ""} — ${meta.foreign_landing_url}`);
+  const credito = item.commons
+    ? `${meta.autor} — ${meta.licenca} — ${meta.pagina}`
+    : `${meta.creator} — CC ${String(meta.license).toUpperCase()} ${meta.license_version || ""} — ${meta.foreign_landing_url}`;
+  console.log(`[capa] ok ${item.slug} — ${credito}`);
 }

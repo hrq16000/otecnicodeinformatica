@@ -17,6 +17,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { BASE_URL } from "./lib/site-env.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const argBase = process.argv.find((a) => a.startsWith("--base="));
@@ -24,7 +25,7 @@ const argBase = process.argv.find((a) => a.startsWith("--base="));
 // build com prerender curado). Sem a flag (dev server), essas checagens viram
 // avisos, porque o Vite serve o index.html cru antes da hidratação.
 const STRICT = process.argv.includes("--strict");
-const BASE = (argBase ? argBase.split("=")[1] : process.env.CHECK_BASE_URL || "http://localhost:8080").replace(/\/$/, "");
+const BASE = (argBase ? argBase.split("=")[1] : process.env.CHECK_BASE_URL || process.env.SITE_BASE_URL || "http://localhost:8080").replace(/\/$/, "");
 const CANONICAL_HOST = BASE_URL;
 
 const errors = [];

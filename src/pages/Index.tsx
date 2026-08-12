@@ -2,7 +2,9 @@ import { lazy, Suspense, useEffect } from "react";
 import { upsertCanonical } from "@/lib/canonicalUrl";
 import { FastHeader } from "@/components/FastHeader";
 import { JsonLdSchema } from "@/components/JsonLdSchema";
-import { HeroPremium } from "@/components/home/HeroPremium";
+import { HeroTriagem } from "@/components/home/HeroTriagem";
+import { ContextosBento } from "@/components/home/ContextosBento";
+
 import { TrustStrip } from "@/components/TrustStrip";
 
 import { LazyOnVisible } from "@/components/LazyOnVisible";

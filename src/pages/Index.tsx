@@ -49,6 +49,8 @@ const Index = () => {
         <HeroTriagem />
         <TrustStrip />
         <ContextosBento />
+        <FaixaFotografica />
+
 
 
 

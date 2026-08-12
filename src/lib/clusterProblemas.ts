@@ -126,7 +126,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
       },
     ],
     relacionados: [
-      { to: "/servicos/redes-wifi", titulo: "Redes e Wi-Fi", desc: "Escopo do serviço de rede, cobertura e configuração." },
+      { to: "/servicos/redes-e-wifi", titulo: "Redes e Wi-Fi", desc: "Escopo do serviço de rede, cobertura e configuração." },
       { to: "/empresas", titulo: "Atendimento para empresas", desc: "Rede instável parando o escritório: prioridade e escopo próprios." },
       { to: "/atendimento", titulo: "Solicitar atendimento", desc: "Funil em 4 etapas com estimativa de deslocamento." },
     ],
@@ -232,7 +232,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/problemas/computador-lento", titulo: "Computador lento", desc: "Quando o sintoma é lentidão e não travamento." },
-      { to: "/servicos/formatacao-e-sistema", titulo: "Formatação e sistema", desc: "Reinstalação com preservação de dados e drivers corretos." },
+      { to: "/servicos/formatacao", titulo: "Formatação e sistema", desc: "Reinstalação com preservação de dados e drivers corretos." },
       { to: "/atendimento", titulo: "Solicitar atendimento", desc: "Descreva o erro e receba a modalidade indicada." },
     ],
     foto: "placa-eletronica",
@@ -334,7 +334,7 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     relacionados: [
       { to: "/servicos/recuperacao-de-dados", titulo: "Recuperação de dados", desc: "Escopo, limites e como funciona a avaliação." },
-      { to: "/servicos/backup", titulo: "Backup", desc: "Rotina de cópia para não repetir o problema." },
+      { to: "/servicos/backup-para-empresas", titulo: "Backup", desc: "Rotina de cópia para não repetir o problema." },
       { to: "/atendimento", titulo: "Solicitar avaliação", desc: "Descreva o que aconteceu e receba a orientação inicial." },
     ],
     foto: "bancada-tecnica",

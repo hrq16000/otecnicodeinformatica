@@ -147,7 +147,17 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Como organizar a informática de um pequeno escritório",
       hint: "Onde os arquivos moram, quem responde por eles e como testar a restauração.",
     },
-  ],
+      {
+      slug: "ransomware-como-proteger-empresa",
+      label: "Ransomware em pequenas empresas: como o ataque entra",
+      hint: "Vetores reais, por que o backup conectado cai junto e o que fazer nas primeiras horas.",
+    },
+    {
+      slug: "backup-nuvem-empresas-qual-escolher",
+      label: "Backup em nuvem: sincronização não é backup",
+      hint: "Critérios de retenção, imutabilidade e o teste mensal de restauração.",
+    },
+],
   "/servicos/montagem-de-pc": [
     {
       slug: "como-escolher-uma-workstation",

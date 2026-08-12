@@ -428,6 +428,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5E): verificação de slot M.2 livre, comprimento e chaveamento antes da compra; limites reais do caddy no lugar do leitor óptico; desconexão da bateria interna; inicialização do disco após a montagem. Sem marca e sem promessa de ganho de desempenho. Conhecimento técnico estável — sem fonte visível.",
   },
+  "ransomware-como-proteger-empresa": {
+    slug: "ransomware-como-proteger-empresa",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5F): vetores de entrada em empresa pequena, motivo de o backup conectado ser criptografado junto, ordem de contenção nas primeiras horas e recomendação de não pagar resgate sem prometer recuperação. Sem marca de ferramenta e sem estatística não verificável. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "backup-nuvem-empresas-qual-escolher": {
+    slug: "backup-nuvem-empresas-qual-escolher",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5F): distinção entre sincronização e backup, critérios de comparação (retenção, granularidade, escopo, imutabilidade, tempo de restauração), camadas de cópia e teste mensal de restauração. Reescrito sem citar marcas nem planos comerciais. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

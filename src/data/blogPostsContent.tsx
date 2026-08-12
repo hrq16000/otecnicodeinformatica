@@ -3192,34 +3192,67 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "ransomware-como-proteger-empresa": {
-    title: "Ransomware: Como Proteger Sua Empresa",
-    excerpt: "Como funcionam os ataques e medidas preventivas.",
-    date: "2024-01-07",
-    readTime: "10 min",
+    title: "Ransomware em pequenas empresas: como o ataque entra e o que realmente segura o prejuízo",
+    excerpt:
+      "Por onde o ransomware entra numa empresa pequena, por que o backup comum costuma ser criptografado junto, o que fazer nas primeiras horas e quais medidas realmente reduzem o risco.",
+    date: "2026-08-12",
+    readTime: "12 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">Ransomware é um tipo de malware que <strong>criptografa seus arquivos e exige resgate</strong> para devolvê-los. Empresas de todos os portes são alvo. Veja como se proteger.</p>
+        <p className="lead">Ransomware criptografa os arquivos da empresa e cobra resgate para devolvê-los. O que quase ninguém explica é a parte que decide o desfecho: na maioria dos casos que chegam à bancada, o backup existia — e foi criptografado junto, porque estava conectado à mesma rede.</p>
 
-        <h2>Como Funciona o Ataque</h2>
-        <p>O ransomware geralmente chega por e-mail (anexo ou link malicioso), downloads de sites comprometidos ou vulnerabilidades em softwares desatualizados. Uma vez executado, ele criptografa todos os arquivos acessíveis — inclusive em rede.</p>
-
-        <h2>Devo Pagar o Resgate?</h2>
-        <p><strong>Não.</strong> Pagar não garante que você terá os arquivos de volta. Além disso, financia o crime e te coloca como alvo preferencial para futuros ataques.</p>
-
-        <h2>Como Se Proteger</h2>
+        <h2>Por onde o ataque entra</h2>
+        <p>Em empresa pequena, o caminho raramente é sofisticado. São quatro portas recorrentes:</p>
         <ul>
-          <li><strong>Backup offline:</strong> Backup em HD externo que fica desconectado do PC. Ransomware não alcança o que não está conectado</li>
-          <li><strong>Backup na nuvem com versionamento:</strong> OneDrive e Google Drive mantêm versões anteriores dos arquivos</li>
-          <li><strong>E-mail com filtro anti-phishing:</strong> Microsoft 365 e Google Workspace filtram ameaças</li>
-          <li><strong>Não abrir anexos suspeitos:</strong> Mesmo de remetentes conhecidos (a conta pode ter sido invadida)</li>
-          <li><strong>Manter tudo atualizado:</strong> Windows, Office, navegadores, Java, Adobe</li>
+          <li><strong>Anexo ou link em e-mail.</strong> Cobrança falsa, boleto, currículo, nota fiscal. O remetente pode ser um contato real cuja conta foi invadida — por isso "conheço quem mandou" não é critério de segurança.</li>
+          <li><strong>Acesso remoto exposto na internet.</strong> Área de trabalho remota liberada para fora com senha fraca é o vetor mais explorado em escritórios que precisaram improvisar trabalho fora da empresa.</li>
+          <li><strong>Programa desatualizado.</strong> Falhas conhecidas em sistema operacional, navegador e utilitários de rede continuam sendo exploradas anos depois da correção existir.</li>
+          <li><strong>Credencial reaproveitada.</strong> Senha de administrador repetida entre máquinas transforma uma infecção isolada em ataque a toda a rede.</li>
         </ul>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Empresa Atacada por Ransomware?</h3>
-          <p className="text-muted-foreground mb-0">Não pague o resgate. Entre em contato conosco para avaliar as opções de recuperação e implementar proteção contra futuros ataques.</p>
-        </div>
+        <h2>Por que o backup normalmente falha justamente na hora</h2>
+        <p>O ransomware não ataca só o computador onde foi executado. Ele procura tudo que estiver acessível a partir dali: pastas compartilhadas, unidades mapeadas, servidor de arquivos, HD externo plugado e, em vários casos, a pasta sincronizada com a nuvem.</p>
+        <p>Isso significa que backup em HD externo permanentemente conectado não é proteção contra ransomware — é mais um alvo. O mesmo vale para a pasta sincronizada: se a versão criptografada sobe para a nuvem, o arquivo bom é substituído.</p>
+        <p>O que resiste tem três características:</p>
+        <ul>
+          <li><strong>Cópia desconectada</strong>, que só é ligada durante a rotina de backup e depois removida.</li>
+          <li><strong>Versionamento</strong>, que permite voltar a um estado anterior à criptografia mesmo depois da sincronização.</li>
+          <li><strong>Credencial separada</strong>, para que o usuário infectado não tenha permissão de apagar o destino do backup.</li>
+        </ul>
+        <p>O critério prático de teste é simples e vale mais que qualquer plano no papel: se a empresa não consegue restaurar um arquivo de duas semanas atrás em poucos minutos, o backup ainda não foi validado. O desenho dessa rotina está em <Link to="/servicos/backup-para-empresas">backup para empresas</Link>.</p>
+
+        <h2>Primeiras horas depois do ataque</h2>
+        <ol>
+          <li><strong>Isolar, não desligar às pressas.</strong> Tire as máquinas afetadas da rede — cabo e Wi-Fi. Isso interrompe a propagação sem destruir informação que ainda pode ajudar a identificar o que aconteceu.</li>
+          <li><strong>Desconectar os destinos de backup</strong> antes que sejam alcançados, se ainda não foram.</li>
+          <li><strong>Não formatar nada</strong> enquanto o cenário não estiver mapeado. Formatação apressada elimina a chance de recuperar o que sobrou.</li>
+          <li><strong>Levantar o alcance real:</strong> quais máquinas, quais pastas de rede, qual servidor e desde quando.</li>
+          <li><strong>Preservar os arquivos criptografados.</strong> Em parte dos casos existe ferramenta de decriptação pública para a variante específica, publicada depois do ataque.</li>
+        </ol>
+
+        <h2>Sobre pagar o resgate</h2>
+        <p>Pagar não garante devolução, não garante que a chave funcione em todos os arquivos e não impede um segundo ataque — pelo contrário, marca a empresa como pagadora. Além disso, o acesso que permitiu a entrada continua aberto enquanto não for fechado. A decisão é da empresa, mas ela precisa ser tomada sabendo que o pagamento não resolve a causa.</p>
+
+        <h2>O que reduz risco de verdade em empresa pequena</h2>
+        <ul>
+          <li><strong>Fechar o acesso remoto exposto.</strong> Se é necessário acesso de fora, ele deve passar por um túnel autenticado, nunca por porta aberta na internet.</li>
+          <li><strong>Contas de trabalho sem privilégio de administrador.</strong> Grande parte dos ataques depende do usuário poder instalar o que aparecer.</li>
+          <li><strong>Senhas distintas por máquina e segundo fator no e-mail.</strong> E-mail comprometido é a origem de boa parte das fraudes que vêm depois.</li>
+          <li><strong>Atualizações em rotina definida</strong>, não quando alguém lembra.</li>
+          <li><strong>Filtro de e-mail e bloqueio de anexos executáveis.</strong></li>
+          <li><strong>Rotina de restauração testada por amostragem</strong>, com registro de quem testou e quando.</li>
+        </ul>
+        <p>Essas verificações fazem parte da rotina descrita em <Link to="/servicos/manutencao-preventiva-empresas">manutenção preventiva para empresas</Link> e do acompanhamento em <Link to="/servicos/suporte-tecnico-empresarial">suporte técnico empresarial</Link>.</p>
+
+        <h2>O erro mais caro: tratar como incidente de uma máquina</h2>
+        <p>Quando a empresa limpa apenas o computador que apareceu com a mensagem de resgate e volta a operar, o acesso original continua disponível. Reinfecção em poucas semanas é o desfecho comum. O encerramento correto envolve identificar a porta de entrada, trocar credenciais, revisar o que era acessível a partir da máquina afetada e só então restaurar.</p>
+
+        <h2>Quando chamar atendimento</h2>
+        <p>Vale acionar suporte imediatamente quando arquivos passaram a abrir com extensão estranha, quando surgiu arquivo de texto pedindo resgate nas pastas, quando o servidor de arquivos ficou inacessível ou quando mais de uma máquina apresentou o mesmo comportamento. O critério de verificação e cobrança está em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>, e a avaliação de dados já atingidos aparece em <Link to="/servicos/recuperacao-de-dados">recuperação de dados</Link>.</p>
+
+        <h2>Resumo prático</h2>
+        <p>Ransomware entra por e-mail, acesso remoto exposto, software desatualizado ou senha reaproveitada. Backup só protege se estiver desconectado ou versionado e se a restauração já tiver sido testada. Diante do ataque, isole a rede, preserve os arquivos, mapeie o alcance e feche a porta de entrada antes de restaurar — limpar só a máquina visível costuma resultar em reinfecção.</p>
       </>
     ),
   },
@@ -3263,47 +3296,58 @@ docker run -d --name db --network minha-rede postgres
   },
 
   "backup-nuvem-empresas-qual-escolher": {
-    title: "Backup na Nuvem Para Empresas: Qual Escolher?",
-    excerpt: "Comparativo entre OneDrive, Google Drive e soluções profissionais.",
-    date: "2024-01-05",
-    readTime: "8 min",
+    title: "Backup em nuvem para empresas: o que diferencia sincronização de backup de verdade",
+    excerpt:
+      "Por que pasta sincronizada não é backup, quais critérios comparar antes de contratar, como estruturar cópias em camadas e o teste que revela se a rotina realmente funciona.",
+    date: "2026-08-12",
+    readTime: "11 min",
     category: "Segurança",
     content: (
       <>
-        <p className="lead">Backup na nuvem é essencial para qualquer empresa. Mas qual solução escolher? Vamos comparar as principais opções.</p>
+        <p className="lead">A maioria das empresas pequenas acredita ter backup porque os arquivos ficam em uma pasta na nuvem. Sincronização e backup, porém, resolvem problemas diferentes — e a confusão entre os dois só aparece no dia em que algo precisa ser restaurado.</p>
 
-        <h2>OneDrive for Business (Microsoft 365)</h2>
+        <h2>A diferença que decide tudo</h2>
+        <p><strong>Sincronização</strong> mantém o mesmo conteúdo em vários lugares. Se o arquivo é apagado, corrompido ou criptografado, a alteração se propaga para todas as cópias — foi exatamente o que se pediu que ela fizesse.</p>
+        <p><strong>Backup</strong> guarda estados anteriores, independentes do arquivo atual. Ele responde a uma pergunta que a sincronização não responde: como estava esse arquivo na semana passada, antes do erro.</p>
+        <p>Serviços de nuvem corporativa costumam oferecer histórico de versões e lixeira com prazo, o que aproxima o comportamento de um backup — desde que o prazo de retenção seja maior que o tempo típico entre o problema e a descoberta dele. Erro percebido depois do prazo é erro sem volta.</p>
+
+        <h2>Critérios que realmente importam na comparação</h2>
+        <p>Espaço em disco é o critério menos relevante e o mais usado em propaganda. Antes de olhar preço por terabyte, compare:</p>
         <ul>
-          <li>1 TB por usuário</li>
-          <li>Integração total com Office (Word, Excel salvam direto na nuvem)</li>
-          <li>Versionamento de arquivos (recupere versões anteriores)</li>
-          <li>Sincronização automática</li>
-          <li>Ideal para quem já usa Microsoft 365</li>
+          <li><strong>Retenção.</strong> Por quantos dias é possível voltar? Trinta dias resolve erro humano; incidente descoberto tarde exige mais.</li>
+          <li><strong>Granularidade da restauração.</strong> Dá para recuperar um arquivo só, uma pasta inteira ou apenas tudo de uma vez?</li>
+          <li><strong>Escopo.</strong> A ferramenta copia só documentos, ou também bancos de dados, e-mail, configurações e sistema completo?</li>
+          <li><strong>Imutabilidade.</strong> Uma conta comprometida consegue apagar as cópias? Se consegue, o backup não protege contra ataque, só contra defeito de disco.</li>
+          <li><strong>Tempo de restauração.</strong> Baixar centenas de gigabytes por link comum leva horas. Isso precisa ser conhecido antes, não durante a emergência.</li>
+          <li><strong>Onde os dados ficam</strong> e o que o contrato diz sobre acesso, em especial para empresas que tratam dados pessoais de clientes.</li>
         </ul>
 
-        <h2>Google Drive (Google Workspace)</h2>
+        <h2>Estrutura em camadas que funciona em empresa pequena</h2>
+        <ol>
+          <li><strong>Cópia operacional.</strong> Arquivos do dia a dia em nuvem corporativa com histórico de versões ativo — resolve exclusão acidental e edição errada, que são a maioria dos incidentes.</li>
+          <li><strong>Cópia local rápida.</strong> Servidor ou disco dedicado dentro da empresa, para restaurações grandes sem depender da internet.</li>
+          <li><strong>Cópia isolada.</strong> Destino desconectado ou com escrita protegida, fora do alcance de qualquer credencial de usuário comum. É a camada que sobrevive a ransomware, conforme detalhado em <Link to="/blog/ransomware-como-proteger-empresa">ransomware em pequenas empresas</Link>.</li>
+        </ol>
+        <p>Nem toda empresa precisa das três de imediato. O que não pode faltar é uma camada que não seja alcançável a partir da estação de trabalho comum.</p>
+
+        <h2>O que costuma ficar de fora — e faz falta</h2>
         <ul>
-          <li>15 GB gratuito, planos a partir de 30 GB</li>
-          <li>Integração com Google Docs, Sheets, Gmail</li>
-          <li>Busca poderosa nos arquivos</li>
-          <li>Ideal para equipes que usam Gmail corporativo</li>
+          <li><strong>E-mail.</strong> Muita gente assume que a caixa corporativa está coberta. A retenção padrão da plataforma pode ser bem menor que a necessidade da empresa.</li>
+          <li><strong>Sistema de gestão e banco de dados.</strong> Copiar o arquivo do banco com ele em uso pode gerar cópia inconsistente, que só falha na hora de restaurar.</li>
+          <li><strong>Máquinas individuais.</strong> Se o time salva no computador local, o backup do servidor não cobre esse conteúdo.</li>
+          <li><strong>Configurações e licenças.</strong> Restaurar arquivos é rápido; reconstruir a configuração de todos os postos é o que costuma tomar dias.</li>
         </ul>
 
-        <h2>Soluções Profissionais (Acronis, Veeam)</h2>
-        <ul>
-          <li>Backup completo do sistema (bare-metal)</li>
-          <li>Agendamento e automação avançada</li>
-          <li>Criptografia de ponta</li>
-          <li>Ideal para servidores e dados críticos</li>
-        </ul>
+        <h2>O teste que separa rotina real de rotina no papel</h2>
+        <p>Uma vez por mês, escolha um arquivo aleatório e tente restaurá-lo em uma versão de duas ou três semanas atrás. Cronometre. Registre quem fez e o resultado.</p>
+        <p>Esse teste revela, sem custo, os três problemas mais comuns: rotina interrompida há meses sem ninguém perceber, retenção menor do que se imaginava e ausência da senha ou da permissão necessária para restaurar. Backup nunca testado é uma expectativa, não uma garantia.</p>
 
-        <h2>Nossa Recomendação</h2>
-        <p>Para PMEs: <strong>Microsoft 365 (OneDrive)</strong> é a melhor relação custo-benefício. Já inclui Office, e-mail e 1 TB de backup. Para dados críticos, adicione um backup local em NAS.</p>
+        <h2>Como decidir sem depender de marca</h2>
+        <p>Comece pela pergunta inversa: quanto tempo a empresa aguenta parada e quanto trabalho ela pode perder. Uma empresa que aceita perder um dia de trabalho e ficar meio dia parada precisa de uma estrutura muito mais simples — e mais barata — do que uma que não pode perder uma hora. Definidos esses dois números, a escolha de ferramenta vira consequência técnica, não preferência de fornecedor.</p>
+        <p>A implantação, o monitoramento das rotinas e o teste periódico fazem parte de <Link to="/servicos/backup-para-empresas">backup para empresas</Link>, acompanhados dentro de <Link to="/servicos/suporte-tecnico-empresarial">suporte técnico empresarial</Link>. Quando a perda já ocorreu e não há cópia utilizável, o caminho passa por <Link to="/servicos/recuperacao-de-dados">recuperação de dados</Link>.</p>
 
-        <div className="bg-accent/10 rounded-xl p-6 my-8">
-          <h3 className="text-accent font-bold mb-2">Configuração de Backup Empresarial</h3>
-          <p className="text-muted-foreground mb-0">Implementamos backup na nuvem + local para sua empresa. Configuração, automação e monitoramento. Suporte em Curitiba.</p>
-        </div>
+        <h2>Resumo prático</h2>
+        <p>Pasta sincronizada não é backup. Compare retenção, granularidade, escopo, imutabilidade e tempo de restauração antes de comparar preço. Mantenha ao menos uma camada fora do alcance das estações de trabalho, inclua e-mail e bancos de dados no escopo e teste a restauração todo mês — o teste é a única evidência de que a rotina existe.</p>
       </>
     ),
   },

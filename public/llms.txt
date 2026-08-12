@@ -16,6 +16,24 @@
 - Contato: somente por WhatsApp, a partir do funil publicado no site
 - Não publicamos notas, médias de avaliação nem depoimentos não verificados
 
+## Preços de referência
+
+Valores de partida, informados para orientação. O preço final só é fechado após
+diagnóstico e sempre com aprovação prévia do cliente.
+
+| Item | Referência |
+| --- | --- |
+| Visita técnica / atendimento no local | a partir de R$ 99,99 |
+| Suporte remoto (sessão) | a partir de R$ 99,99 |
+| Serviço em bancada (com coleta e entrega) | a partir de R$ 99,99 + deslocamento |
+| Deslocamento | R$ 2,00/km fora do raio de 15 km da base |
+| Atendimento empresarial por diária | mínimo de R$ 200,00 |
+| Peças e componentes | orçados à parte, por modelo confirmado |
+| Garantia | 90 dias, escopada ao reparo executado |
+
+Não trabalhamos com valor fechado por telefone antes de entender o caso, e não
+cobramos execução que não tenha sido aprovada.
+
 ## Serviços
 
 - [Formatação de PC e Notebook em Curitiba | Windows](https://otecnicodeinformatica.com.br/servicos/formatacao)
@@ -56,6 +74,10 @@
 
 - [Computador Lento? Diagnóstico | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/computador-lento)
 - [Notebook Não Liga? Assistência Técnica em Curitiba](https://otecnicodeinformatica.com.br/problemas/notebook-nao-liga)
+- [Problemas comuns de computador, rede e dados | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas)
+- [Wi-Fi caindo ou lento: causas e o que checar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/wifi-instavel)
+- [Tela azul no Windows: causas, o que anotar e como resolver | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/tela-azul)
+- [Arquivos apagados ou HD que não abre: primeiros passos | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/arquivos-apagados)
 
 ## Páginas institucionais e de política
 
@@ -93,4 +115,6 @@ telefonia celular e eletrodomésticos de linha branca.
 ## Recursos
 
 - [Sitemap](https://otecnicodeinformatica.com.br/sitemap.xml)
+- [Índice de sitemaps](https://otecnicodeinformatica.com.br/sitemap-index.xml)
+- [Hub de problemas comuns](https://otecnicodeinformatica.com.br/problemas)
 - [Versão completa para LLMs](https://otecnicodeinformatica.com.br/llms-full.txt)

@@ -273,12 +273,48 @@ const ClusterProblemaPage = () => {
             Perguntas frequentes sobre este problema
           </h2>
           <div className="space-y-4">
-            {dados.faq.map((f) => (
-              <article key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="font-heading font-bold text-foreground">{f.q}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-              </article>
-            ))}
+            {dados.faq.map((f, i) => {
+              const rel = dados.relacionados[i % dados.relacionados.length];
+              const ancora = `faq-${i + 1}`;
+              const ctxFaq = {
+                ...contexto,
+                sintoma: sintomaSlug,
+                secao: ancora,
+                rolagem,
+                complemento: `Minha dúvida é sobre: ${f.q}`,
+              };
+              return (
+                <article key={f.q} id={ancora} className="rounded-xl border border-border bg-card p-5 animate-fade-in">
+                  <h3 className="font-heading font-bold text-foreground">
+                    <a href={`#${ancora}`} className="transition-colors hover:text-accent">
+                      {f.q}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-4">
+                    {rel && (
+                      <Link
+                        to={rel.to}
+                        className="inline-flex items-center gap-1 text-sm font-bold text-accent transition-transform duration-200 hover:translate-x-0.5"
+                      >
+                        {rel.titulo}
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    )}
+                    <a
+                      href={buildProblemaWaHref(baseMsg, ctxFaq)}
+                      onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctxFaq))}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="text-sm font-bold text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    >
+                      Perguntar isso no WhatsApp
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+
           </div>
           <CtaContextual
             secao="faq"

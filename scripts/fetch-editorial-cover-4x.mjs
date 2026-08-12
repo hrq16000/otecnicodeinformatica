@@ -62,6 +62,15 @@ const CURADORIA = [
     slug: "como-proteger-computador-golpes-internet",
     commons: "File:Computer virus scam.jpg",
   },
+  // Onda 5D — cluster de manutenção física de notebook (limpeza e pasta térmica).
+  {
+    slug: "como-limpar-notebook-por-dentro",
+    commons: "File:Laptop overheating due to dust-clogged internal heatsinks in 2.5 year old laptop.jpg",
+  },
+  {
+    slug: "como-trocar-pasta-termica-notebook",
+    commons: "File:Thermal compound Applied.JPG",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

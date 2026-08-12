@@ -212,8 +212,20 @@ const AdminConversao = () => {
       etapaSessions.get(etapa)!.add(sid);
     }
 
+    // Recorte por hora local (0–23) e por serviço, para leitura operacional.
+    const porHora = Array.from({ length: 24 }, () => ({ wa: 0, call: 0 }));
+    const porServico = new Map<string, { wa: number; call: number }>();
+    for (const r of rows) {
+      const h = new Date(r.created_at).getHours();
+      const s = porServico.get(r.servico || "nao-informado") ?? { wa: 0, call: 0 };
+      if (r.event_type === "wa_click") { porHora[h].wa += 1; s.wa += 1; }
+      if (r.event_type === "call_click") { porHora[h].call += 1; s.call += 1; }
+      porServico.set(r.servico || "nao-informado", s);
+    }
+
     const funil = ETAPAS.map((e) => ({ ...e, sessoes: etapaSessions.get(e.id)?.size ?? 0 }));
     const base = funil[0].sessoes;
+
 
     return {
       porCta: [...porCta.entries()].sort((a, b) => b[1].wa + b[1].call - (a[1].wa + a[1].call)),

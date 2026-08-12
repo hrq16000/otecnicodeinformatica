@@ -77,6 +77,8 @@ const AdminConversao = lazy(() => import("./pages/admin/AdminConversao"));
 const ConsertoImpressoraCuritiba = lazy(() => import("./pages/ConsertoImpressoraCuritiba"));
 const AssistenciaEletrodomesticosInteligentesCuritiba = lazy(() => import("./pages/AssistenciaEletrodomesticosInteligentesCuritiba"));
 const Status = lazy(() => import("./pages/Status"));
+const CreditosDeImagens = lazy(() => import("./pages/CreditosDeImagens"));
+
 const Obrigado = lazy(() => import("./pages/Obrigado"));
 
 // Hubs SEO de categorias (TV, Som, Videogame, Celular) × cidades/bairros

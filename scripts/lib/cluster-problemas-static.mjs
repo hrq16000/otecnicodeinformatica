@@ -28,7 +28,14 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
           "Como o problema costuma se manifestar, as causas checadas no diagnóstico, uma lista do que verificar antes de chamar alguém, o que evitar para não agravar o caso, as modalidades possíveis (remoto, domicílio ou bancada) e perguntas frequentes específicas daquele sintoma.",
           "Diagnóstico, deslocamento, mão de obra e peça são informados separadamente. Nada é executado sem aprovação prévia e não trabalhamos com valor fechado antes de entender o caso.",
         ],
-      },
+      },,
+      {
+        titulo: "Quando o sintoma vira urgência",
+        paragrafos: [
+          "Nem todo problema precisa de pressa, mas alguns sinais mudam a prioridade: ruído metálico ou clique repetido vindo do disco, cheiro de queimado, desligamento súbito por aquecimento e tela azul que se repete a cada poucos minutos. Nesses casos, continuar usando o equipamento aumenta o risco de perder dados de forma definitiva — a orientação é desligar e tratar a cópia dos arquivos como primeira etapa.",
+          "Lentidão progressiva, travamento em um programa específico, Wi-Fi oscilante e atualização que não conclui raramente são emergência. Costumam ser resolvidos por acesso remoto ou em uma visita técnica com janela de até 30 minutos para inspeção, diagnóstico e tentativa de reparo rápido compatível, sem compromisso e sem peças inclusas.",
+        ],
+      }
     ],
   },
   {

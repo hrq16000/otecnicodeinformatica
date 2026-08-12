@@ -26,6 +26,13 @@ export const CLUSTER_SOLUCOES_ROUTES = [
           "Atendemos por acesso remoto, por visita técnica no endereço e por coleta com devolução. Não temos balcão de atendimento ao público: quando o caso exige bancada, buscamos e entregamos o equipamento.",
           "Diagnóstico, deslocamento, mão de obra e peça são informados separadamente e nada é executado sem aprovação prévia. As condições completas estão na página de preços e políticas."
         ]
+      },
+      {
+        "titulo": "A ordem importa mais que a velocidade",
+        "paragrafos": [
+          "Quase todo prejuízo evitável em manutenção vem de procedimento executado fora de ordem: formatar antes de conferir a cópia dos arquivos, instalar SSD sem clonar o sistema, continuar ligando um disco com ruído mecânico na esperança de que ele volte. Cada página deste hub começa pelo pré-requisito — o que precisa estar feito antes de a primeira etapa começar.",
+          "Procedimentos de bancada seguem a mesma regra comercial do restante do atendimento: coleta sem custo quando o serviço passa de uma a duas horas, mínimo pré-aprovado de R$ 299,99, valor acima disso informado antes da execução e 90 dias de garantia na mão de obra do defeito tratado."
+        ]
       }
     ],
     "faq": [

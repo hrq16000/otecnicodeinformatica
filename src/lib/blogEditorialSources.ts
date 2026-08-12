@@ -388,6 +388,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Rodada 4Y): identificação da tela pelo código do painel, distinção entre defeito de painel e de cabo/placa de vídeo, alerta de risco em telas coladas e touch, sem indicação de peça específica, sem preço de peça e sem promessa de compatibilidade universal. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-limpar-notebook-por-dentro": {
+    slug: "como-limpar-notebook-por-dentro",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5D): distinção entre obstrução de aletas, rolamento gasto e lentidão lógica; alerta de desconexão da bateria interna antes de qualquer manuseio; recusa explícita de ar comprimido externo e aspirador; sem promessa numérica de queda de temperatura, sem indicação de marca e com aviso de garantia de fábrica. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-trocar-pasta-termica-notebook": {
+    slug: "como-trocar-pasta-termica-notebook",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5D): critério para separar interface térmica de obstrução, ordem alternada de soltura/aperto do dissipador, preservação de almofadas térmicas, preferência por composto não condutivo, sem marca, sem quantidade em medida absoluta e sem promessa de resultado. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

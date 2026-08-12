@@ -45,7 +45,7 @@ const WAVE_3O = [
 ];
 
 const MAX_ONDA = 2;
-const MAX_INDEXAVEIS = 18;
+const MAX_INDEXAVEIS = 20;
 
 // Nomes de software que não podem aparecer em slug/H1/title/excerpt.
 const SOFTWARE = /autocad|revit|lumion|solidworks|photoshop|premiere|sketchup|archicad|blender|3ds\s?max|after\s?effects/i;
@@ -90,6 +90,7 @@ async function main() {
   const wave4y = (registry.match(/WAVE_4Y:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5b = (registry.match(/WAVE_5B:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5c = (registry.match(/WAVE_5C:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
+  const wave5d = (registry.match(/WAVE_5D:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave5a = (registry.match(/WAVE_5A:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const wave4z = (registry.match(/WAVE_4Z:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/) || [])[1] ?? "";
   const registeredSlugs = [

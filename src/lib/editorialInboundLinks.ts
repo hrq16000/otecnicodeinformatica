@@ -151,6 +151,16 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Notebook superaquecendo: o que fazer",
       hint: "Verificações de refrigeração e sinais que indicam limpeza interna.",
     },
+    {
+      slug: "como-limpar-notebook-por-dentro",
+      label: "Limpeza interna de notebook: o que muda de verdade",
+      hint: "Como a poeira compactada derruba a refrigeração e o que a limpeza não resolve.",
+    },
+    {
+      slug: "como-trocar-pasta-termica-notebook",
+      label: "Troca de pasta térmica: quando faz sentido",
+      hint: "Como separar interface térmica de obstrução antes de abrir o equipamento.",
+    },
   ],
 };
 

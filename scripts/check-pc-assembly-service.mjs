@@ -75,8 +75,12 @@ if (!aprovado) {
   if (!staticBody.includes(ROUTE)) errors.push("Links obrigatórios ausentes no corpo estático");
 
   // Conteúdo da entrada de serviço
+  // O bloco vai do início da entrada até o fechamento dela (`\n  },`), e não
+  // até o fim do objeto — senão o gate audita também os serviços seguintes.
   const start = core.indexOf('"montagem-de-pc": {');
-  const chunk = start === -1 ? "" : core.slice(start, core.indexOf("\n  },\n};", start) + 6 || undefined);
+  const end = start === -1 ? -1 : core.indexOf("\n  },", start);
+  const chunk = start === -1 || end === -1 ? "" : core.slice(start, end + 5);
+
   if (!chunk) errors.push("Entrada montagem-de-pc ausente em servicosCore.ts");
 
   const faqCount = [...chunk.matchAll(/question:\s*"/g)].length;

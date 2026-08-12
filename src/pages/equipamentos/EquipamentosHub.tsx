@@ -82,6 +82,25 @@ const EquipamentosHub = () => {
             </Link>
           </div>
         </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Reparo, upgrade ou substituição: como a decisão é tomada
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Antes de orçar peça, a avaliação responde se o aparelho ainda comporta o uso que você faz
+            dele. Notebook de escritório com disco mecânico quase sempre responde melhor a um upgrade
+            para SSD do que a uma formatação; desktop com fonte instável precisa de teste de
+            alimentação antes de qualquer troca de placa; impressora com falha de tracionamento tem
+            custo de peça que costuma superar o valor de um equipamento de entrada.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            A régua prática é a mesma para todos os aparelhos: quando o reparo passa de 40% a 50% do
+            preço de um equivalente novo, a recomendação é substituir e aproveitar o que ainda serve —
+            SSD, memória e, em alguns casos, a fonte. Essa conclusão sempre vem depois do diagnóstico,
+            nunca antes.
+          </p>
+        </section>
       </main>
       <Footer />
     </div>

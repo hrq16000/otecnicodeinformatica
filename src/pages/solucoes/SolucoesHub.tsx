@@ -87,6 +87,25 @@ const SolucoesHub = () => {
             </Link>
           </div>
         </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            A ordem importa mais que a velocidade
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Quase todo prejuízo evitável em manutenção vem de procedimento executado fora de ordem:
+            formatar antes de conferir a cópia dos arquivos, instalar SSD sem clonar o sistema,
+            continuar ligando um disco com ruído mecânico na esperança de que ele volte. Cada página
+            deste hub começa pelo pré-requisito — o que precisa estar feito antes de a primeira etapa
+            começar.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Procedimentos de bancada seguem a mesma regra comercial do restante do atendimento:
+            coleta sem custo quando o serviço passa de uma a duas horas, mínimo pré-aprovado de
+            R$ 299,99, valor acima disso informado antes da execução e 90 dias de garantia na mão de
+            obra do defeito tratado.
+          </p>
+        </section>
       </main>
       <Footer />
     </div>

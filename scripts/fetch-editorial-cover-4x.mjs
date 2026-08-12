@@ -107,6 +107,15 @@ const CURADORIA = [
     slug: "como-diagnosticar-placa-mae-defeituosa",
     commons: "File:ASRock K7VT4A Pro Mainboard.jpg",
   },
+  // Onda 5I — desempenho do Windows e remoção de malware.
+  {
+    slug: "windows-11-lento-como-resolver",
+    commons: "File:Working on my laptop.jpg",
+  },
+  {
+    slug: "como-remover-virus-windows-iniciantes",
+    commons: "File:MEMZ Trojan running on Samsung N130, 13 December 2019.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

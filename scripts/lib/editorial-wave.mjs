@@ -282,6 +282,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Testar a fonte do PC sem trocar peça boa",
     cover: "/blog/como-diagnosticar-placa-mae-defeituosa.jpg",
   },
+  // ── Rodada 5I — desempenho do Windows e remoção de malware.
+  {
+    slug: "windows-11-lento-como-resolver",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/formatacao",
+    pilarLabel: "Formatação e otimização em Curitiba",
+    apoio: "/blog/como-remover-virus-windows-iniciantes",
+    apoioLabel: "Remover vírus e adware sem quebrar o sistema",
+    cover: "/blog/windows-11-lento-como-resolver.jpg",
+  },
+  {
+    slug: "como-remover-virus-windows-iniciantes",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/remocao-de-virus",
+    pilarLabel: "Remoção de vírus em Curitiba",
+    apoio: "/blog/windows-11-lento-como-resolver",
+    apoioLabel: "Windows 11 lento: achar a causa real",
+    cover: "/blog/como-remover-virus-windows-iniciantes.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

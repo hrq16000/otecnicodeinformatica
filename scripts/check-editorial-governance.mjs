@@ -73,6 +73,7 @@ async function checkRegistry() {
   const wave5fBlock = src.match(/WAVE_5F:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
   const wave5gBlock = src.match(/WAVE_5G:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
   const wave5hBlock = src.match(/WAVE_5H:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
+  const wave5iBlock = src.match(/WAVE_5I:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
   const wave5aBlock = src.match(/WAVE_5A:\s*EditorialApproval\[\]\s*=\s*\[([\s\S]*?)\n\];/);
   const registered = [
     ...(waveBlock ? [...waveBlock[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
@@ -87,6 +88,7 @@ async function checkRegistry() {
     ...(wave5fBlock ? [...wave5fBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
     ...(wave5gBlock ? [...wave5gBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
     ...(wave5hBlock ? [...wave5hBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
+    ...(wave5iBlock ? [...wave5iBlock[1].matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]) : []),
   ];
   const extra = registered.filter((s) => !EDITORIAL_WAVE_SLUGS.includes(s));
   const missing = EDITORIAL_WAVE_SLUGS.filter((s) => !registered.includes(s));

@@ -5,6 +5,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { PoliticaAtendimentoBloco } from "@/components/PoliticaAtendimentoBloco";
 import { Button } from "@/components/ui/button";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
@@ -175,6 +176,8 @@ const ClusterEquipamentoPage = () => {
             </span>
           </p>
         </section>
+
+        <PoliticaAtendimentoBloco variant="inline" />
 
         <section className="mt-12" aria-labelledby="faq">
           <h2 id="faq" className="mb-4 font-heading text-2xl font-bold text-foreground">

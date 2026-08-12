@@ -30,10 +30,10 @@ LOVABLE_ORIGIN = "LOVABLE_ORIGIN_NOT_CONFIGURED"
 pattern = "otecnicodeinformatica.com.br/*"
 zone_name = "otecnicodeinformatica.com.br"
 
-# Habilitar somente quando o hostname www estiver realmente em uso.
-# [[routes]]
-# pattern = "www.otecnicodeinformatica.com.br/*"
-# zone_name = "otecnicodeinformatica.com.br"
+# www é secundário: a rota existe apenas para o worker emitir 308 → apex.
+[[routes]]
+pattern = "www.otecnicodeinformatica.com.br/*"
+zone_name = "otecnicodeinformatica.com.br"
 
 # Sem [build]: o bundle do site é gerado antes, por `npm run build` na raiz do
 # repositório (gate obrigatório). Deixar o wrangler disparar o build tornava o

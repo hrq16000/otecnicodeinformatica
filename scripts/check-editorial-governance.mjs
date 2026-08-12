@@ -194,12 +194,16 @@ async function checkStaticHtml(posts) {
       fail(`/blog/${post.slug}: og:site_name deve ser "O Técnico de Informática"`);
 
     // Sem autor/cargo fictício no schema editorial injetado.
-    // (Obs.: "O Técnico de Informática" no alt do logo vem do index.html base e é
-    //  legítimo — checamos apenas autor/publisher fictício e schema Person.)
+    // O publisher DEVE ser a organização oficial ("O Técnico de Informática");
+    // o autor nunca pode ser uma pessoa inventada.
     if (/Técnico de Informática Sênior/.test(h)) fail(`/blog/${post.slug}: cargo fictício no HTML`);
     if (/"@type":\s*"Person"/.test(h)) fail(`/blog/${post.slug}: Person no HTML`);
-    if (/"author":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: autor fictício no schema`);
-    if (/"publisher":\s*\{[^}]*"O Técnico de Informática"/.test(h)) fail(`/blog/${post.slug}: publisher divergente no schema`);
+    if (/"author":/.test(h) && !/"author":\s*\{[^}]*"@type":\s*"Organization"/.test(h))
+      fail(`/blog/${post.slug}: autor deve ser a organização, nunca uma pessoa`);
+    const publisher = h.match(/"publisher":\s*\{[^}]*\}/)?.[0];
+    if (publisher && !(publisher.includes('"Organization"') && publisher.includes("O Técnico de Informática")))
+      fail(`/blog/${post.slug}: publisher divergente no schema`);
+
 
     checked++;
   }

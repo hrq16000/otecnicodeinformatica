@@ -171,7 +171,11 @@ async function checkStaticHtml(posts) {
       if (!h.includes(`content="${SITE}${wave.cover}`)) fail(`/blog/${post.slug}: og:image deve usar a capa exclusiva`);
       if (!h.includes(`href="${wave.pilar}"`)) fail(`/blog/${post.slug}: link interno ao pilar ausente`);
       if (!h.includes('href="/blog"')) fail(`/blog/${post.slug}: link ao hub /blog ausente`);
-      if (!new RegExp(`wa\\.me/${WHATSAPP_NUMBER}`).test(h)) fail(`/blog/${post.slug}: CTA de WhatsApp oficial ausente`);
+      // O CTA editorial passa pela triagem central, nunca por wa.me direto
+      // (ver check:editorial-no-direct-wa) — aqui exigimos que ele exista.
+      if (!/data-cta-location="editorial_static"/.test(h))
+        fail(`/blog/${post.slug}: CTA editorial de triagem ausente`);
+
     }
 
 

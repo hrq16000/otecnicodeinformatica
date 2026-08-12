@@ -49,6 +49,12 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           "on-dark": "hsl(var(--accent-on-dark))",
         },
+        categoria: {
+          DEFAULT: "hsl(var(--categoria))",
+          foreground: "hsl(var(--categoria-foreground))",
+          "on-dark": "hsl(var(--categoria-on-dark))",
+        },
+
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

@@ -18,9 +18,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Montserrat", "Montserrat Fallback", "system-ui", "sans-serif"],
-        heading: ["Poppins", "Poppins Fallback", "system-ui", "sans-serif"],
+        sans: ["Figtree", "Figtree Fallback", "system-ui", "sans-serif"],
+        heading: ["Outfit", "Outfit Fallback", "system-ui", "sans-serif"],
       },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

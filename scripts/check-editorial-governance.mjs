@@ -14,7 +14,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { promises as fs } from "node:fs";
-import { WHATSAPP_NUMBER } from "./lib/site-env.mjs";
+import { WHATSAPP_NUMBER, BASE_URL } from "./lib/site-env.mjs";
 import path from "node:path";
 import { getBlogPosts } from "./prerender-cities.mjs";
 import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/editorial-wave.mjs";

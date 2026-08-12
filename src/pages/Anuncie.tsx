@@ -421,6 +421,36 @@ const Anuncie = () => {
             </div>
           </div>
         </section>
+
+        <section className="py-12 md:py-16 border-t border-border">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground md:text-3xl">
+              Quem chega a este portal e em que momento
+            </h2>
+            <div className="mt-5 space-y-4 text-muted-foreground">
+              <p>
+                A maior parte das visitas não começa por marca nem por nome de empresa: começa por
+                uma frase de problema — “computador lento”, “notebook não liga”, “internet caindo”,
+                “apaguei um arquivo”. Quem digita isso está a poucos passos de uma decisão de compra
+                ou de contratação, e normalmente decide no mesmo dia. É esse recorte de momento, e
+                não o volume bruto de acessos, que dá valor ao espaço publicitário aqui.
+              </p>
+              <p>
+                A segunda camada de audiência é de decisão de investimento: páginas sobre quando
+                trocar HD por SSD, quando o reparo deixa de compensar, montagem de PC e escolha de
+                workstation. Nelas o leitor está comparando custo de conserto contra custo de
+                equipamento novo — contexto natural para revendas, lojas de peças, provedores de
+                internet e integradores de TI.
+              </p>
+              <p>
+                O terceiro grupo é empresarial: escritórios, clínicas, comércios e prestadores que
+                buscam suporte recorrente, rede estável e rotina de backup. Esse público entra por
+                páginas de serviço corporativo e por conteúdo de organização de TI, com ciclo de
+                decisão mais longo e ticket maior do que o atendimento residencial.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

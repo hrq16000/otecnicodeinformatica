@@ -30,6 +30,8 @@ export interface CidadeData {
   proposta: string[];
   /** Perfil local resumido em bullets */
   perfilLocal: string[];
+  /** Contexto técnico da cidade — parágrafos autorais, sem promessa nova */
+  contextoLocal?: string[];
   /** Quando chamar um técnico — exemplos práticos */
   quandoChamar: { title: string; desc: string }[];
   /** FAQ local — mínimo 5 por cidade, conteúdo distinto */
@@ -94,6 +96,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Atendemos residências e empresas em Curitiba com atendimento a domicílio ou por coleta e entrega, conforme o tipo de problema. Casos simples costumam ser resolvidos na primeira visita; reparos de bancada (placa, tela de notebook, recuperação de dados) seguem para a oficina com o seu acompanhamento.",
       "Trabalhamos com diagnóstico primeiro, valor do atendimento depois. Você entende o que está acontecendo com o equipamento antes de aprovar qualquer coisa — e decide com calma.",
     ],
+    contextoLocal: [
+      "Curitiba tem um parque de equipamentos muito diverso: bairros de perfil corporativo com frota de notebooks e docks, regiões residenciais com desktops antigos ainda em uso diário e áreas industriais onde o computador é parte da linha de produção. Por isso a triagem começa sempre pelo uso real do equipamento, e não pela marca ou pela idade dele — a mesma lentidão significa coisas diferentes em uma estação de trabalho de edição e em um PC doméstico usado para navegação e boletos.",
+      "O inverno curitibano, mais úmido e frio, também aparece nos chamados: máquinas guardadas em ambientes sem ventilação, condensação em equipamentos trazidos de fora e fontes antigas que passam a falhar quando a carga aumenta. Nada disso é diagnosticado por telefone. A avaliação técnica identifica a causa antes de qualquer reparo, e o valor só é informado depois dela.",
+    ],
     perfilLocal: [
       "Alta demanda por suporte a home office e estudo remoto",
       "Empresas e escritórios que não podem ficar parados",
@@ -137,6 +143,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Atendemos a cidade com atendimento a domicílio ou por coleta e entrega. Para o dia a dia residencial, resolvemos lentidão, vírus, formatação e Wi-Fi; para o lado empresarial, damos suporte a estações, backup e rede, de forma pontual ou recorrente sob consulta.",
       "Nossa postura é sempre a mesma: primeiro entender o problema, depois avaliar o valor. Você aprova antes de qualquer execução e sabe exatamente o que será feito.",
     ],
+    contextoLocal: [
+      "São José dos Pinhais tem forte presença industrial e logística ao lado de bairros residenciais em expansão, e isso se reflete nos chamados: de um lado, computadores de escritório e estações ligadas a operações que não podem parar; de outro, famílias com notebook único para trabalho e estudo. A distância entre distritos da cidade é relevante, então a triagem define antes se o caso é remoto, de visita ou de coleta, evitando deslocamento sem necessidade.",
+      "Também é comum na região o atendimento a pequenos comércios e prestadores que dependem de impressora, leitor e rede funcionando juntos. Nesses casos, o diagnóstico não olha só o computador: verifica cabeamento, alimentação elétrica do ponto e configuração da rede, porque tratar apenas o sintoma visível costuma fazer o problema voltar em poucos dias.",
+    ],
     perfilLocal: [
       "Bairros residenciais em expansão com muitos home offices",
       "Comércios e empresas que precisam de rede e estações confiáveis",
@@ -178,6 +188,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Pinhais é uma cidade compacta e densa, colada a Curitiba, o que favorece um atendimento ágil. O perfil é bastante residencial e de pequenos comércios, com muita gente usando o computador para trabalho, estudo e serviços do dia a dia.",
       "Atendemos Pinhais com atendimento a domicílio ou por coleta e entrega. Resolvemos os casos mais comuns — lentidão, vírus, formatação, upgrade de SSD e Wi-Fi instável — e encaminhamos para bancada os reparos que exigem estrutura, sempre com seu acompanhamento.",
       "Você fala direto com quem vai resolver o problema. Primeiro o diagnóstico, depois o valor do atendimento — e nada é feito sem sua aprovação.",
+    ],
+    contextoLocal: [
+      "Pinhais é uma cidade compacta e densa, conurbada com Curitiba, com muitos condomínios residenciais e pequenas empresas de serviços. O padrão de chamado mais frequente combina duas coisas: computador doméstico com armazenamento no limite e rede Wi-Fi disputada por muitos dispositivos ao mesmo tempo — TV, celulares, câmeras e notebook de trabalho no mesmo roteador de operadora.",
+      "Em atendimentos assim, a avaliação separa desempenho de conectividade antes de recomendar qualquer compra. Trocar o roteador não resolve disco cheio, e trocar o disco não resolve sinal fraco no fundo da casa. A ordem correta — medir, diagnosticar, aprovar valor e só então executar — é o que evita gasto repetido no mesmo problema.",
     ],
     perfilLocal: [
       "Proximidade com Curitiba facilita a logística de atendimento",
@@ -221,6 +235,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Atendemos Colombo com atendimento a domicílio ou por coleta e entrega. Os problemas mais comuns — formatação, remoção de vírus, upgrade de SSD, reparo de notebook e Wi-Fi — costumam ser tratados de forma direta; casos de bancada seguem para a oficina.",
       "Sem promessa de valor fechado por telefone: primeiro avaliamos o equipamento, depois apresentamos o valor do atendimento para você decidir.",
     ],
+    contextoLocal: [
+      "Colombo tem grande extensão territorial e bairros com perfil bem distinto entre si, do comércio mais adensado próximo à divisa com Curitiba às regiões residenciais mais afastadas. Isso torna a definição da modalidade de atendimento parte do diagnóstico: casos de software e configuração costumam ser resolvidos remotamente, enquanto defeitos de hardware pedem avaliação presencial ou coleta para bancada.",
+      "Entre os equipamentos, aparecem com frequência desktops de uso familiar prolongado e notebooks que passaram por reparos anteriores mal executados — parafusos faltando, pasta térmica ressecada, dobradiça forçada. Nesses casos, o diagnóstico documenta o estado encontrado antes de propor qualquer serviço, para que a garantia de 90 dias cubra exatamente o defeito tratado.",
+    ],
     perfilLocal: [
       "Bairros residenciais extensos e população em crescimento",
       "Muitos moradores em home office e estudo remoto",
@@ -263,6 +281,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Atendemos a cidade com atendimento a domicílio ou por coleta e entrega para uso residencial, e com suporte a estações, rede e backup para empresas — pontual ou recorrente, sob consulta. Formatação, upgrade de SSD, remoção de vírus e redes são os pedidos mais frequentes.",
       "Em todos os casos, seguimos a mesma lógica: diagnóstico primeiro, valor do atendimento depois, execução só com sua aprovação.",
     ],
+    contextoLocal: [
+      "Araucária concentra atividade industrial e logística relevante, e boa parte dos chamados vem de escritórios ligados a essas operações: estações que precisam de disponibilidade, impressoras compartilhadas e rede local que não pode oscilar. O foco da avaliação nesses ambientes é reduzir tempo de parada — identificar se o caso resolve em ajuste, em troca de peça ou se exige substituição planejada do equipamento.",
+      "Na frente residencial, a demanda é mais próxima da média regional: formatação com backup, upgrade de SSD e memória, remoção de malware e configuração de rede doméstica. Como a cidade está fora do núcleo de Curitiba, a triagem por WhatsApp é ainda mais importante para definir a modalidade certa antes de qualquer deslocamento.",
+    ],
     perfilLocal: [
       "Presença industrial e empresarial relevante",
       "Bairros residenciais com demanda de suporte doméstico",
@@ -304,6 +326,10 @@ export const CIDADES: Record<string, CidadeData> = {
       "Campo Largo tem território amplo, com áreas urbanas, comércio local e regiões mais afastadas. Esse espalhamento torna o atendimento planejado ainda mais importante: combinamos tudo antes pelo WhatsApp para organizar visita ou coleta sem desperdício de tempo.",
       "Atendemos residências e comércios da cidade com atendimento a domicílio ou por coleta e entrega. Formatação, remoção de vírus, upgrade de SSD, reparo de notebook e Wi-Fi instável estão entre os serviços mais pedidos, e reparos de bancada seguem para a oficina.",
       "Como em toda a região, o método é o mesmo: entender o problema primeiro, avaliar o valor depois e executar apenas com a sua aprovação.",
+    ],
+    contextoLocal: [
+      "Campo Largo tem centro urbano definido e áreas afastadas de perfil rural, o que torna o planejamento do atendimento parte do serviço. Muitos chamados chegam de casas e pequenos negócios com internet via rádio ou fibra recente, onde a instabilidade percebida como 'computador ruim' na verdade vem do enlace ou da instalação interna da rede.",
+      "Entre os equipamentos atendidos, predominam desktops e notebooks de uso doméstico com vários anos de serviço, além de impressoras multifuncionais. Para esses casos, o roteiro é o mesmo aplicado no restante da região: cópia dos arquivos importantes antes de qualquer intervenção, diagnóstico para identificar a causa e valor informado só depois — com coleta sem custo quando o reparo exige bancada.",
     ],
     perfilLocal: [
       "Território amplo, com áreas urbanas e mais afastadas",

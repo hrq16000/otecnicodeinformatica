@@ -759,6 +759,10 @@ export async function prerenderCities(distDir) {
           <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(description)}</p>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Guias publicados</h2>
           <ul style="margin:0;padding-left:20px">${list}</ul>
+          <h2 style="font-size:1.1rem;margin:24px 0 8px">Como estes guias são escritos</h2>
+          <p style="margin:0 0 10px;font-size:.95rem;opacity:.94">Cada guia parte de um caso que aparece de verdade no atendimento em Curitiba e região: computador que fica lento com o tempo, notebook que desliga sozinho, Wi-Fi que cai no fundo da casa, arquivo apagado por engano. O texto começa pelo sintoma descrito com as palavras do dia a dia e só depois entra na causa técnica, porque é assim que a dúvida chega.</p>
+          <p style="margin:0 0 10px;font-size:.95rem;opacity:.94">Os passos sugeridos são sempre os seguros de fazer sozinho — verificar cabo, liberar espaço, conferir atualização, observar temperatura e ruído. Procedimentos que podem agravar o defeito ou colocar dados em risco, como abrir equipamento na garantia, insistir em disco com ruído mecânico ou usar programas de recuperação sobre a mesma unidade, ficam explicitamente marcados como parada obrigatória.</p>
+          <p style="margin:0 0 10px;font-size:.95rem;opacity:.94">Nenhum guia informa preço de reparo sem diagnóstico. Valores só existem depois da avaliação técnica do equipamento, e é isso que os textos repetem: identificar a causa, apresentar o custo, obter aprovação e só então executar. Quando o conserto não compensa, a orientação também aparece — inclusive quando a conclusão é não contratar serviço nenhum.</p>
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Serviços relacionados</h2>
           <ul style="margin:0;padding-left:20px">
             <li style="margin:4px 0"><a href="/servicos" style="color:#7fd4ec">Serviços de informática em Curitiba</a></li>

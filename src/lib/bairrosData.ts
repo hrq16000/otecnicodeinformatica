@@ -30,6 +30,8 @@ export interface BairroLocalData {
   whatsappMessage: string;
   /** Introdução local — parágrafos distintos por bairro */
   introducaoLocal: string[];
+  /** Contexto técnico do bairro — parágrafos autorais, sem promessa nova */
+  contextoLocal?: string[];
   /** Como a triagem e a operação funcionam naquele bairro */
   operacaoLocal: string[];
   /** Quando o atendimento no local pode ser indicado */
@@ -63,6 +65,10 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Atendimento para residências e empresas no maior bairro de Curitiba, começando por triagem no WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no CIC, em Curitiba. Pode me orientar?",
+    contextoLocal: [
+      "A CIC concentra galpões, pequenas fábricas e prestadores que trabalham com computadores ligados o dia inteiro, muitas vezes em ambientes com mais poeira em suspensão do que um escritório comum. Isso muda o padrão de defeito: dissipador saturado, ventoinha ruidosa, desligamento por temperatura e fonte que começa a falhar sob carga aparecem com mais frequência do que problemas puramente de software. Em máquinas assim, limpeza interna com troca de pasta térmica e teste de alimentação costumam ser verificados antes de qualquer formatação.",
+      "Na parte residencial do bairro, a demanda é outra: notebook de estudo e trabalho remoto, computador de família com disco mecânico antigo e roteador posicionado longe dos cômodos onde o sinal é usado. Nesses casos, o ganho real quase sempre vem de três frentes — troca para SSD, reinstalação limpa do sistema com backup conferido antes e reposicionamento ou substituição do roteador. A triagem por WhatsApp serve justamente para separar qual dos dois cenários é o seu antes de deslocar equipe ou equipamento.",
+    ],
     introducaoLocal: [
       "A Cidade Industrial de Curitiba (CIC) é o maior bairro da capital em extensão, com um perfil que mistura indústrias, comércios e muitas residências. Isso gera dois tipos de demanda: empresas que dependem de computadores e rede estáveis para não parar a operação e famílias que precisam do notebook do dia a dia funcionando.",
       "O contato começa pelo WhatsApp: você descreve o problema, recebe as primeiras orientações e, se fizer sentido, combinamos a avaliação do equipamento. A modalidade — no local, remoto ou por coleta — é definida conforme o problema, não prometida antes de entender o caso.",
@@ -115,6 +121,10 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Suporte para residências, home office e pequenos escritórios no Batel, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Batel, em Curitiba. Pode me orientar?",
+    contextoLocal: [
+      "O Batel é uma região de escritórios, consultórios, agências e apartamentos, com uso intenso de notebooks, monitores externos, docks e videoconferência. O que mais aparece por aqui não é máquina quebrada, e sim máquina lenta em horário de reunião: disco cheio, dezenas de abas e aplicativos carregando junto com o sistema, além de conflitos entre dock USB-C e drivers de vídeo. Boa parte disso é diagnosticável remotamente, sem parar o expediente.",
+      "Prédios comerciais e residenciais verticais também trazem uma questão específica de rede: muitos roteadores concorrendo nos mesmos canais de 2,4 GHz, paredes de concreto e cabeamento antigo até o ponto de trabalho. A avaliação nesses casos mede o sinal onde ele é realmente usado, verifica se o problema está no link, no roteador ou no dispositivo, e só então indica troca de equipamento, ponto adicional ou cabeamento — nunca o contrário.",
+    ],
     introducaoLocal: [
       "O Batel reúne muita gente que trabalha em casa e depende do computador o tempo todo. Por isso, os pedidos mais comuns na região envolvem notebook lento ou esquentando, necessidade de formatação com backup e Wi-Fi estável o suficiente para reuniões online.",
       "O atendimento começa por triagem no WhatsApp. A partir da descrição do problema, orientamos os primeiros passos e definimos se o caso pode ser resolvido no local, de forma remota ou se precisa seguir para bancada — sempre com diagnóstico antes de informar o valor.",
@@ -166,6 +176,10 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Manutenção de notebook e PC para quem trabalha e estuda em casa no Água Verde, com triagem por WhatsApp e valor transparente.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Água Verde, em Curitiba. Pode me orientar?",
+    contextoLocal: [
+      "Água Verde é um bairro majoritariamente residencial e verticalizado, com forte presença de home office e de famílias que compartilham o mesmo computador entre trabalho, estudo e lazer. Esse uso misto gera um padrão claro de chamado: sistema abarrotado de programas instalados ao longo dos anos, atualizações interrompidas, perfis de usuário sobrecarregados e armazenamento no limite. São casos em que a reinstalação organizada, com separação de perfis e backup validado, resolve mais do que a troca de peça.",
+      "A segunda demanda recorrente é conectividade dentro do apartamento: o sinal chega bem na sala e cai no quarto onde a pessoa trabalha. Antes de sugerir repetidor ou rede em malha, a avaliação confirma a velocidade contratada, testa o sinal em cada ambiente e observa quantas redes vizinhas disputam o mesmo canal. Muitas vezes a solução é ajuste de canal e posição, não compra de equipamento novo.",
+    ],
     introducaoLocal: [
       "No Água Verde, o perfil que mais aparece é o de quem trabalha de casa e não pode ficar com o notebook parado. Por isso, boa parte das solicitações envolve notebook lento, aquecimento, tela ou teclado com defeito e a necessidade de um upgrade de SSD para dar sobrevida à máquina.",
       "Também há forte procura por formatação com backup e remoção de vírus em computadores usados por vários membros da família. Tudo começa pela triagem no WhatsApp, com diagnóstico antes de informar qualquer valor e sem troca de peça sem necessidade.",
@@ -217,6 +231,10 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Atendimento ágil para lojas, consultórios e escritórios do Centro de Curitiba, com triagem por WhatsApp e diagnóstico antes de informar o valor.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Centro de Curitiba. Pode me orientar?",
+    contextoLocal: [
+      "O Centro de Curitiba reúne comércio de rua, salas comerciais compactas e moradia, com um parque de equipamentos bastante heterogêneo: computadores de balcão com anos de uso ao lado de notebooks recentes. Em comércio, o que costuma parar a operação não é o computador em si, mas a cadeia em volta dele — impressora fiscal ou térmica sem comunicação, sistema de vendas travado após atualização e rede instável entre caixa e retaguarda.",
+      "Como boa parte dos atendimentos no Centro acontece em horário comercial, a triagem prioriza o que pode ser feito remotamente e o que exige presença. Quando o reparo é mais longo — troca de peça interna, recuperação de dados ou reinstalação completa — a coleta evita que o equipamento fique inoperante no balcão durante horas de movimento, e o valor só é informado depois do diagnóstico.",
+    ],
     introducaoLocal: [
       "O Centro de Curitiba tem ritmo comercial: lojas, escritórios de advocacia e contabilidade, imobiliárias e consultórios que não podem ficar com o computador parado no meio do expediente. Os chamados mais comuns envolvem PC de balcão travando, lentidão com sistemas e planilhas e rede instável afetando o atendimento.",
       "Como cada hora parada pesa no comércio, priorizamos triagem rápida pelo WhatsApp e diagnóstico objetivo. A partir daí, indicamos se o caso é resolvido no local, de forma remota ou por coleta — sempre com valor aprovado antes da execução.",
@@ -268,6 +286,10 @@ export const BAIRROS: Record<string, BairroLocalData> = {
       "Conserto de notebook, PC e redes para casas e comércios do Portão, com triagem por WhatsApp e valor aprovado por você.",
     whatsappMessage:
       "Olá! Preciso de um técnico de informática no Portão, em Curitiba. Pode me orientar?",
+    contextoLocal: [
+      "Portão combina avenidas de comércio, edifícios residenciais e casas, e é um dos bairros onde mais aparecem equipamentos de uso doméstico prolongado: desktops de cinco a dez anos, notebooks com bateria já degradada e impressoras multifuncionais compartilhadas pela família. O diagnóstico nesses casos costuma separar três coisas que o usuário sente como uma só — lentidão por disco mecânico, travamento por superaquecimento e falha de software após atualização.",
+      "Pequenos comércios da região trazem outro conjunto: rede Wi-Fi cobrindo loja e estoque, computador que não pode ficar fora do ar e backup inexistente. A recomendação padrão nesses atendimentos é sempre a mesma e é dita antes de qualquer serviço: garantir uma cópia dos arquivos críticos primeiro, depois tratar desempenho e, por último, discutir upgrade ou substituição do equipamento.",
+    ],
     introducaoLocal: [
       "O Portão tem um perfil familiar e comercial ao mesmo tempo: casas com um ou mais computadores usados por toda a família e pequenos comércios que dependem de um PC estável para vender e emitir nota. Por isso aparecem muito computador lento e cheio de programas, notebook esquentando e Wi-Fi que não cobre a casa inteira.",
       "O atendimento começa pela triagem no WhatsApp. A partir do relato, orientamos os primeiros passos e definimos a melhor forma de resolver — no local, remotamente ou por coleta — com diagnóstico antes de informar o valor.",

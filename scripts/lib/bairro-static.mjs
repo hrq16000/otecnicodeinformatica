@@ -56,6 +56,7 @@ function parse() {
       nome: str("nome"),
       nomeLocativo: str("nomeLocativo"),
       introducao: list("introducaoLocal"),
+      contexto: list("contextoLocal"),
       operacao: list("operacaoLocal"),
       atendimento: list("atendimentoLocal"),
       coleta: list("coletaBancada"),
@@ -78,6 +79,12 @@ export function bairroBlocos(path) {
       paragrafos: d.introducao,
     },
   ];
+  if (d.contexto?.length) {
+    blocos.push({
+      titulo: `O que costuma aparecer nos chamados ${loc}`,
+      paragrafos: d.contexto,
+    });
+  }
   if (d.operacao.length) {
     blocos.push({
       titulo: "Como a triagem funciona nessa região",

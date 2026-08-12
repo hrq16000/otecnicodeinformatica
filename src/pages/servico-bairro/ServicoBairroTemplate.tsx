@@ -51,6 +51,8 @@ export interface ServicoBairroData {
   tempoAtendimento: string;
   servicosRelacionados: { nome: string; slug: string }[];
   bairrosProximos: { nome: string; slug: string }[];
+  /** Blocos autorais exclusivos da combinação (onda 4S). */
+  blocos?: { titulo: string; paragrafos: string[] }[];
   /** Se true, sobrescreve `noindex` do PageSEO (default false = noindex). */
   indexable?: boolean;
 }
@@ -310,6 +312,24 @@ export const ServicoBairroTemplate = ({ data }: { data: ServicoBairroData }) => 
                   ))}
                 </div>
               </div>
+
+              {/* Blocos autorais exclusivos da combinação serviço × bairro (onda 4S) */}
+              {data.blocos?.length ? (
+                <div className="mt-10 space-y-8">
+                  {data.blocos.map((bloco) => (
+                    <div key={bloco.titulo}>
+                      <h2 className="text-2xl font-heading font-bold text-foreground mb-3">
+                        {bloco.titulo}
+                      </h2>
+                      <div className="space-y-3 text-muted-foreground">
+                        {bloco.paragrafos.map((p, i) => (
+                          <p key={i}>{p}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         </section>

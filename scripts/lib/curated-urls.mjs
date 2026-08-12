@@ -17,6 +17,7 @@ import { EDITORIAL_WAVE_SLUGS } from "./editorial-wave.mjs";
 // RODADA 1: domínio vem de env (scripts/lib/site-env.mjs). Sem env = vazio,
 // e o gerador de sitemap se recusa a publicar URLs.
 import { BASE_URL } from "./site-env.mjs";
+import { BLOCOS_4S_PATHS } from "./blocos-4s.mjs";
 export { BASE_URL };
 
 export const MAIN = [
@@ -97,7 +98,10 @@ export const BAIRROS = [
 // temporariamente do sitemap e passam a renderizar `noindex, follow`
 // (src/lib/servicoBairroFactory.ts → QUARENTENA_DUPLICADAS). Reentram uma a uma,
 // somente com conteúdo próprio por bairro.
-export const SERVICO_BAIRRO = [].map((path) => ({
+// RODADA 4S — reabilitação: reentram apenas as combinações com blocos
+// autorais próprios declarados em src/lib/servicoBairroBlocos4s.json
+// (fonte única, espelhada em scripts/lib/blocos-4s.mjs).
+export const SERVICO_BAIRRO = BLOCOS_4S_PATHS.map((path) => ({
   path,
   changefreq: "monthly",
   priority: "0.6",

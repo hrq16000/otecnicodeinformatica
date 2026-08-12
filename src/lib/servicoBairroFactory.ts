@@ -15,6 +15,7 @@
  */
 import type { ServicoBairroData } from "@/pages/servico-bairro/ServicoBairroTemplate";
 import { BAIRROS_INDEXAVEIS } from "@/pages/servico-bairro/wifiTvBairroData";
+import { blocosServicoBairro, temBlocosProprios } from "@/lib/servicoBairroBlocos4s";
 
 /** Bairros-âncora do sitemap curado (política de poda). */
 export const BAIRROS_ANCORA = ["cic", "batel", "agua-verde", "centro", "portao"] as const;
@@ -264,12 +265,13 @@ export const ROTAS_ESTATICAS_EXISTENTES = new Set<string>([
 ]);
 
 /**
- * RODADA 2A — quarentena editorial.
- * Auditoria de herança (scripts/inventory-inherited-pages.mjs) mediu 81%–83%
- * de sobreposição de conteúdo entre estas combinações serviço × bairro. Até
- * que cada uma receba texto próprio (sintomas, referências e casos do bairro),
- * elas ficam FORA do sitemap e renderizam `noindex, follow` — a URL continua
- * existindo e acessível, apenas não disputa indexação duplicada.
+ * RODADA 2A — quarentena editorial (mantida como registro histórico).
+ * Auditoria de herança mediu 81%–83% de sobreposição entre estas combinações.
+ *
+ * RODADA 4S — reabilitação: uma combinação sai da quarentena somente quando
+ * recebe blocos autorais próprios em src/lib/servicoBairroBlocos4s.json
+ * (contexto técnico + logística exclusivos do bairro). Sem blocos, continua
+ * `noindex, follow` e fora do sitemap — fail-closed.
  */
 export const QUARENTENA_DUPLICADAS = new Set<string>([
   "formatacao-computador/cic",
@@ -286,11 +288,12 @@ export const QUARENTENA_DUPLICADAS = new Set<string>([
 ]);
 
 export function isIndexavel(servicoSlug: string, bairroSlug: string): boolean {
-  if (QUARENTENA_DUPLICADAS.has(`${servicoSlug}/${bairroSlug}`)) return false;
+  const key = `${servicoSlug}/${bairroSlug}`;
+  if (QUARENTENA_DUPLICADAS.has(key) && !temBlocosProprios(servicoSlug, bairroSlug)) return false;
   const bairro = BAIRROS_INDEXAVEIS[bairroSlug];
   if (!bairro) return false;
   if (!(BAIRROS_ANCORA as readonly string[]).includes(bairroSlug)) return false;
-  if (ROTAS_ESTATICAS_EXISTENTES.has(`${servicoSlug}/${bairroSlug}`)) return false;
+  if (ROTAS_ESTATICAS_EXISTENTES.has(key)) return false;
   return Boolean(bairro.narrativaLocal || bairro.descricaoLocal);
 }
 
@@ -347,6 +350,7 @@ export function buildServicoBairroData(
     tempoAtendimento: bairro.tempoAtendimento,
     servicosRelacionados: servico.relacionados,
     bairrosProximos: bairro.bairrosProximos,
+    blocos: blocosServicoBairro(servicoSlug, bairroSlug) ?? undefined,
     indexable: isIndexavel(servicoSlug, bairroSlug),
   };
 }

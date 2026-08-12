@@ -7,6 +7,7 @@
 // hidrata: mesmo H1, mesma descrição e mesmo FAQ.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { blocos4s } from "./blocos-4s.mjs";
 
 const ROOT = process.cwd();
 const factorySrc = readFileSync(join(ROOT, "src/lib/servicoBairroFactory.ts"), "utf8");
@@ -72,6 +73,7 @@ export function servicoBairroMeta(path) {
       pergunta: f.pergunta.replace("${b}", bairro.nome),
       resposta: f.resposta.replace("${b}", bairro.nome),
     })),
+    blocos: blocos4s(path) ?? undefined,
     servicoSlug,
     bairroSlug,
   };

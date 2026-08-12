@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { AlertTriangle, ArrowRight, CheckCircle2, MessageCircle, XCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
@@ -10,11 +10,15 @@ import { Button } from "@/components/ui/button";
 import { FotoLicenciadaImg } from "@/components/FotoLicenciadaImg";
 import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 import { ProximosPassos } from "@/components/informatica/ProximosPassos";
+import { TriagemContexto } from "@/components/problemas/TriagemContexto";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { clusterProblema } from "@/lib/clusterProblemas";
-import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
+import { absoluteUrl } from "@/lib/siteConfig";
+import { buildProblemaWaHref, rotuloEvento, type ContextoTriagem } from "@/lib/problemasWaTemplates";
+import { useScrollBucket } from "@/hooks/useScrollBucket";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+
 
 /**
  * Cluster PROBLEMAS (Etapa 12) — página indexável de sintoma.

@@ -44,8 +44,10 @@ const Index = () => {
       <FastHeader />
       <div aria-hidden="true" className="h-[var(--site-header-height)]" />
       <main>
-        <HeroPremium />
+        <HeroTriagem />
         <TrustStrip />
+        <ContextosBento />
+
 
 
         <LazyOnVisible minHeight="900px" rootMargin="-200px 0px">

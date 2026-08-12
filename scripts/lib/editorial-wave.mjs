@@ -109,6 +109,26 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Quando o reparo não compensa",
     cover: "/blog/como-trocar-tela-notebook-passo-a-passo.jpg",
   },
+  // ── Rodada 4Z — dois guias herdados de maior volume, mais consolidação
+  // de 4 duplicatas por 301 (ver src/lib/redirectMatrix.ts).
+  {
+    slug: "notebook-nao-liga-o-que-fazer",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-notebook",
+    pilarLabel: "Manutenção de notebook em Curitiba",
+    apoio: "/diagnostico-tecnico",
+    apoioLabel: "Como funciona o diagnóstico técnico",
+    cover: "/blog/notebook-nao-liga-o-que-fazer.jpg",
+  },
+  {
+    slug: "computador-lento-causas-solucoes",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/manutencao-de-computador",
+    pilarLabel: "Manutenção de computador",
+    apoio: "/servicos/upgrade-ssd-ram",
+    apoioLabel: "Upgrade de SSD e memória",
+    cover: "/blog/computador-lento-causas-solucoes.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

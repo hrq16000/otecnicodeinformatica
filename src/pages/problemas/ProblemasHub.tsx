@@ -100,6 +100,25 @@ const ProblemasHub = () => {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </section>
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Quando o sintoma vira urgência
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Nem todo problema precisa de pressa, mas alguns sinais mudam a prioridade: ruído metálico
+            ou clique repetido vindo do disco, cheiro de queimado, desligamento súbito por
+            aquecimento e tela azul que se repete a cada poucos minutos. Nesses casos, continuar
+            usando o equipamento aumenta o risco de perder dados de forma definitiva — a orientação é
+            desligar e tratar a cópia dos arquivos como primeira etapa.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Lentidão progressiva, travamento em um programa específico, Wi-Fi oscilante e atualização
+            que não conclui raramente são emergência. Costumam ser resolvidos por acesso remoto ou em
+            uma visita técnica com janela de até 30 minutos para inspeção, diagnóstico e tentativa de
+            reparo rápido compatível, sem compromisso e sem peças inclusas.
+          </p>
+        </section>
       </main>
       <Footer />
     </div>

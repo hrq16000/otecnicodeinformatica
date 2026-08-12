@@ -308,6 +308,33 @@ function extractHeadings(block) {
   return [...block.matchAll(/<h2>([\s\S]*?)<\/h2>/g)].map((m) => plainText(m[1])).filter(Boolean);
 }
 
+/**
+ * Seções reais do artigo (H2 + parágrafos/listas seguintes), na ordem em que
+ * aparecem. Todo o texto vem do próprio artigo — nada é inventado aqui.
+ * Usado para servir ao crawler o corpo editorial completo, e não só o sumário.
+ */
+function extractSections(block) {
+  const idx = block.indexOf("content:");
+  const body = idx >= 0 ? block.slice(idx) : block;
+  const parts = body.split(/<h2>/).slice(1);
+  const sections = [];
+  for (const part of parts) {
+    const h = plainText(part.slice(0, part.indexOf("</h2>") >= 0 ? part.indexOf("</h2>") : 0));
+    if (!h) continue;
+    const rest = part.slice(part.indexOf("</h2>") + 5);
+    const paragrafos = [...rest.matchAll(/<p>([\s\S]*?)<\/p>/g)]
+      .map((m) => plainText(m[1]))
+      .filter((t) => t.length > 40)
+      .slice(0, 4);
+    const itens = [...rest.matchAll(/<li>([\s\S]*?)<\/li>/g)]
+      .map((m) => plainText(m[1]))
+      .filter((t) => t.length > 8)
+      .slice(0, 6);
+    if (paragrafos.length || itens.length) sections.push({ h, paragrafos, itens });
+  }
+  return sections.slice(0, 8);
+}
+
 function countWords(block) {
   const idx = block.indexOf("content:");
   const body = idx >= 0 ? block.slice(idx) : block;
@@ -344,6 +371,7 @@ export async function getBlogPosts(rootDir = ".") {
       readTime: readTime ?? "10 min",
       lead: extractLead(block),
       headings: extractHeadings(block),
+      sections: extractSections(block),
       wordCount: countWords(block),
     });
   }
@@ -405,6 +433,19 @@ function editorialStaticBody(post, wave) {
         .map((h) => `<li style="margin:4px 0">${htmlEscape(h)}</li>`)
         .join("")}</ul>`
     : "";
+  const corpo = (post.sections ?? [])
+    .map((sec) => {
+      const ps = sec.paragrafos
+        .map((t) => `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${htmlEscape(t)}</p>`)
+        .join("");
+      const lis = sec.itens.length
+        ? `<ul style="margin:0 0 10px;padding-left:20px">${sec.itens
+            .map((t) => `<li style="margin:4px 0">${htmlEscape(t)}</li>`)
+            .join("")}</ul>`
+        : "";
+      return `<h2 style="font-size:1.1rem;margin:24px 0 8px">${htmlEscape(sec.h)}</h2>${ps}${lis}`;
+    })
+    .join("");
   return `
         <div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e8eef2;background:#0f171c">
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.85;margin-bottom:12px">
@@ -413,6 +454,7 @@ function editorialStaticBody(post, wave) {
           <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">${htmlEscape(post.title)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(post.lead || post.excerpt)}</p>
           ${sumario}
+          ${corpo}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Precisa de atendimento técnico em Curitiba?</h2>
           <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Atendemos Curitiba e Região Metropolitana com diagnóstico antes de qualquer reparo. O contato é feito pelo WhatsApp.</p>
           <ul style="margin:0 0 8px;padding-left:20px">

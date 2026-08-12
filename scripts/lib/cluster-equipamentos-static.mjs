@@ -26,6 +26,13 @@ export const CLUSTER_EQUIPAMENTOS_ROUTES = [
           "Atendemos por acesso remoto, por visita técnica no endereço e por coleta com devolução. Não temos balcão de atendimento ao público: quando o caso exige bancada, buscamos e entregamos o equipamento.",
           "Diagnóstico, deslocamento, mão de obra e peça são informados separadamente e nada é executado sem aprovação prévia. As condições completas estão na página de preços e políticas."
         ]
+      },
+      {
+        "titulo": "Reparo, upgrade ou substituição: como a decisão é tomada",
+        "paragrafos": [
+          "Antes de orçar peça, a avaliação responde se o aparelho ainda comporta o uso que você faz dele. Notebook de escritório com disco mecânico quase sempre responde melhor a um upgrade para SSD do que a uma formatação; desktop com fonte instável precisa de teste de alimentação antes de qualquer troca de placa; impressora com falha de tracionamento tem custo de peça que costuma superar o valor de um equipamento de entrada.",
+          "A régua prática é a mesma para todos os aparelhos: quando o reparo passa de 40% a 50% do preço de um equivalente novo, a recomendação é substituir e aproveitar o que ainda serve — SSD, memória e, em alguns casos, a fonte. Essa conclusão sempre vem depois do diagnóstico, nunca antes."
+        ]
       }
     ],
     "faq": [

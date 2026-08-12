@@ -39,6 +39,9 @@ const SejaParceiro = lazy(() => import("./pages/SejaParceiro"));
 const DiretorioProfissionais = lazy(() => import("./pages/profissionais/DiretorioProfissionais"));
 const PerfilProfissional = lazy(() => import("./pages/profissionais/PerfilProfissional"));
 const CadastroParceiro = lazy(() => import("./pages/profissionais/CadastroParceiro"));
+const ProfissionaisLocal = lazy(() => import("./pages/profissionais/ProfissionaisLocal"));
+const Empresas = lazy(() => import("./pages/Empresas"));
+const ValorizacaoTrabalhoTecnico = lazy(() => import("./pages/ValorizacaoTrabalhoTecnico"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
 const ArrumarPC = lazy(() => import("./pages/ArrumarPC"));
@@ -564,6 +567,12 @@ const App = () => (
             <Route path="/profissionais" element={<DiretorioProfissionais />} />
             <Route path="/profissionais/cadastro" element={<CadastroParceiro />} />
             <Route path="/profissional/:slug" element={<PerfilProfissional />} />
+            <Route path="/profissionais/:estado" element={<ProfissionaisLocal />} />
+            <Route path="/profissionais/:estado/:cidade" element={<ProfissionaisLocal />} />
+
+            {/* Área empresarial e posição institucional */}
+            <Route path="/empresas" element={<Empresas />} />
+            <Route path="/valorizacao-do-trabalho-tecnico" element={<ValorizacaoTrabalhoTecnico />} />
             
             {/* Bairros Curitiba */}
             <Route path="/bairros/centro" element={<Centro />} />

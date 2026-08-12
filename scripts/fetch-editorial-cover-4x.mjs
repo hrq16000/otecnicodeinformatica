@@ -9,7 +9,7 @@ import { mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import sharp from "sharp";
 
-const UA = "otecnicodeinformatica/1.0 (contato via site)";
+const UA = "otecnicodeinformatica-bot/1.0 (https://otecnicodeinformatica.com.br; contato via site)";
 
 const CURADORIA = [
   {

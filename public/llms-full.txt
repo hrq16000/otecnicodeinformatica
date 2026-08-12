@@ -133,6 +133,12 @@ Demais municípios da Região Metropolitana são avaliados sob consulta pelo Wha
 - [Desktop com problema: falhas e upgrades | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/desktop)
 - [Impressora com problema: instalação e rede | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/impressora)
 - [Roteador e Wi-Fi: cobertura e quedas | O Técnico de Informática](https://otecnicodeinformatica.com.br/equipamentos/roteador)
+- [Soluções técnicas: diagnóstico, formatação, SSD, backup e dados | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes)
+- [Diagnóstico técnico de computador e notebook | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes/diagnostico)
+- [Formatação e reinstalação de Windows com backup | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes/formatacao)
+- [Instalação e troca de SSD com clonagem | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes/ssd)
+- [Backup de arquivos e rotina de cópia segura | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes/backup)
+- [Recuperação de dados de HD, SSD e pen drive | O Técnico de Informática](https://otecnicodeinformatica.com.br/solucoes/recuperacao-de-dados)
 
 ## Marcas atendidas
 

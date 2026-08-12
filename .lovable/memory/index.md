@@ -26,5 +26,6 @@
 - [Onda 4V — inventário 82 A](mem://features/onda-4v-inventario-82a) — Blocos extras serviço × bairro, 100% grade A e SmartImage no CFTV/admin.
 - [Onda 4W — estados de carregamento](mem://design/onda-4w-loading-states) — Token .skel obrigatório, esqueletos acessíveis em views com dados e aria-busy no envio.
 - [Onda 5C — cluster segurança](mem://features/onda-5c-editorial-seguranca) — Teto de 18 artigos indexáveis, antivírus e golpes on-line reescritos, capas licenciadas do Commons.
+- [Onda 5F — continuidade empresarial](mem://features/onda-5f-editorial-continuidade) — Teto de 24 artigos, ransomware e backup em nuvem reescritos, pilar backup-para-empresas.
 - [Onda 5E — cluster armazenamento](mem://features/onda-5e-editorial-armazenamento) — Teto de 22 artigos, clonagem e segundo SSD reescritos, capas reais e pilar upgrade-ssd-ram.
 - [Onda 5D — cluster refrigeração](mem://features/onda-5d-editorial-refrigeracao) — Teto de 20 artigos, limpeza interna e pasta térmica reescritas, parser WAVE_5D obrigatório nos gates.

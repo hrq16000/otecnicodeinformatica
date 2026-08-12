@@ -23,7 +23,7 @@ const CURADORIA = [
   },
   {
     slug: "como-trocar-tela-notebook-passo-a-passo",
-    id: "19796df3-5d9b-49f1-9a18-7ab8b3580c57",
+    id: "fcc0aa98-ca11-420f-b06e-ea9be3fe365f",
   },
 ];
 

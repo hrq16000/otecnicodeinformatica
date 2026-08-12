@@ -32,3 +32,4 @@
 - [Onda 5E — cluster armazenamento](mem://features/onda-5e-editorial-armazenamento) — Teto de 22 artigos, clonagem e segundo SSD reescritos, capas reais e pilar upgrade-ssd-ram.
 - [Onda 5D — cluster refrigeração](mem://features/onda-5d-editorial-refrigeracao) — Teto de 20 artigos, limpeza interna e pasta térmica reescritas, parser WAVE_5D obrigatório nos gates.
 - [Onda 5I — software e desempenho](mem://features/onda-5i-editorial-software) — Teto de 30 artigos, Windows 11 lento e remoção de vírus reescritos, pilares formatacao e remocao-de-virus.
+- [Onda 21 — WhatsApp e triagem em /problemas](mem://features/problemas-wa-templates-onda21) — Mensagens pré-preenchidas, UTM por rota/seção/rolagem e FAQs com links internos.

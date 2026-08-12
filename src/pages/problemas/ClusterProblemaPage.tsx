@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { AlertTriangle, ArrowRight, CheckCircle2, MessageCircle, XCircle } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
@@ -10,11 +10,15 @@ import { Button } from "@/components/ui/button";
 import { FotoLicenciadaImg } from "@/components/FotoLicenciadaImg";
 import { ServicosCorrelatos } from "@/components/informatica/ServicosCorrelatos";
 import { ProximosPassos } from "@/components/informatica/ProximosPassos";
+import { TriagemContexto } from "@/components/problemas/TriagemContexto";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { clusterProblema } from "@/lib/clusterProblemas";
-import { whatsappLink, absoluteUrl } from "@/lib/siteConfig";
+import { absoluteUrl } from "@/lib/siteConfig";
+import { buildProblemaWaHref, rotuloEvento, type ContextoTriagem } from "@/lib/problemasWaTemplates";
+import { useScrollBucket } from "@/hooks/useScrollBucket";
 import { trackPageView, trackCTAClick } from "@/lib/analytics";
+
 
 /**
  * Cluster PROBLEMAS (Etapa 12) — página indexável de sintoma.
@@ -64,13 +68,29 @@ const ClusterProblemaPage = () => {
     SLOT_PRIORITY.page,
   );
 
+  const [contexto, setContexto] = useState<ContextoTriagem>({});
+  const rolagem = useScrollBucket();
+
+  const sintomaSlug = dados?.slug ?? slug;
+  const baseMsg = dados?.waMessage ?? "";
+
+  const waHref = useMemo(
+    () =>
+      buildProblemaWaHref(baseMsg, {
+        ...contexto,
+        sintoma: sintomaSlug,
+        secao: "topo",
+        rolagem,
+      }),
+    [baseMsg, contexto, sintomaSlug, rolagem],
+  );
+
   if (!dados) return <NotFound />;
 
-  const waHref = whatsappLink(dados.waMessage);
-
   /**
-   * CTA contextual por seção: mensagem diferente conforme o ponto da leitura,
-   * com rótulo próprio no GA4/Ads (origem por rota + seção).
+   * CTA contextual por seção: mensagem pré-preenchida (sintoma + equipamento +
+   * bairro + urgência) e link com UTM/identificadores de rota, seção e rolagem,
+   * para atribuição precisa no GA4/Google Ads.
    */
   const CtaContextual = ({
     secao,
@@ -82,13 +102,15 @@ const ClusterProblemaPage = () => {
     texto: string;
     mensagem: string;
     rotulo: string;
-  }) => (
+  }) => {
+    const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem };
+    return (
     <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
       <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
       <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
         <a
-          href={whatsappLink(`${dados.waMessage} ${mensagem}`)}
-          onClick={() => trackCTAClick("whatsapp", `cluster_problema_${secao}`)}
+          href={buildProblemaWaHref(baseMsg, ctx)}
+          onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctx))}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -97,7 +119,9 @@ const ClusterProblemaPage = () => {
         </a>
       </Button>
     </div>
-  );
+    );
+  };
+
 
 
   return (
@@ -147,9 +171,12 @@ const ClusterProblemaPage = () => {
           </Button>
         </div>
 
+        <TriagemContexto valor={contexto} onChange={setContexto} />
+
         {dados.foto && (
           <FotoLicenciadaImg slug={dados.foto} className="mt-8" />
         )}
+
 
         <section className="mt-12" aria-labelledby="sintomas">
           <h2 id="sintomas" className="mb-4 font-heading text-2xl font-bold text-foreground">
@@ -249,12 +276,48 @@ const ClusterProblemaPage = () => {
             Perguntas frequentes sobre este problema
           </h2>
           <div className="space-y-4">
-            {dados.faq.map((f) => (
-              <article key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <h3 className="font-heading font-bold text-foreground">{f.q}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-              </article>
-            ))}
+            {dados.faq.map((f, i) => {
+              const rel = dados.relacionados[i % dados.relacionados.length];
+              const ancora = `faq-${i + 1}`;
+              const ctxFaq = {
+                ...contexto,
+                sintoma: sintomaSlug,
+                secao: ancora,
+                rolagem,
+                complemento: `Minha dúvida é sobre: ${f.q}`,
+              };
+              return (
+                <article key={f.q} id={ancora} className="rounded-xl border border-border bg-card p-5 animate-fade-in">
+                  <h3 className="font-heading font-bold text-foreground">
+                    <a href={`#${ancora}`} className="transition-colors hover:text-accent">
+                      {f.q}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-4">
+                    {rel && (
+                      <Link
+                        to={rel.to}
+                        className="inline-flex items-center gap-1 text-sm font-bold text-accent transition-transform duration-200 hover:translate-x-0.5"
+                      >
+                        {rel.titulo}
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    )}
+                    <a
+                      href={buildProblemaWaHref(baseMsg, ctxFaq)}
+                      onClick={() => trackCTAClick("whatsapp", rotuloEvento(ctxFaq))}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className="text-sm font-bold text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    >
+                      Perguntar isso no WhatsApp
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+
           </div>
           <CtaContextual
             secao="faq"

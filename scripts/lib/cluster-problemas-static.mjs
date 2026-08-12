@@ -128,3 +128,33 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
     ],
   },
 ];
+
+/** FAQ espelhada (mesma copy do TS) — paridade FAQPage estático × conteúdo visível. */
+const FAQ_POR_ROTA = {
+  "/problemas/wifi-instavel": [
+    { pergunta: "Trocar o roteador resolve Wi-Fi que cai?", resposta: "Resolve quando o equipamento é o gargalo — modelo antigo, sem 5 GHz ou com defeito. Não resolve quando o problema é posicionamento, cabo ou interferência. Por isso o diagnóstico vem antes da indicação de compra." },
+    { pergunta: "Mesh é melhor que repetidor?", resposta: "Em geral sim, porque os pontos trabalham como uma rede só e o aparelho troca de ponto sem cair. Mas mesh também depende de bom posicionamento e, quando possível, de ligação por cabo entre os pontos." },
+    { pergunta: "Preciso trocar meu plano de internet?", resposta: "Só se o teste com cabo mostrar que a velocidade contratada não está chegando. Se por cabo o resultado é bom, o plano não é o problema." },
+    { pergunta: "Dá para resolver sem visita?", resposta: "Parte dos casos sim — configuração e ajuste de canal são feitos remotamente. Cobertura, cabeamento e interferência física exigem medição no local." },
+    { pergunta: "Vocês vendem o equipamento?", resposta: "Indicamos o que atende ao caso e você decide onde comprar. Se preferir, a instalação e a configuração ficam por nossa conta depois que o equipamento chegar." },
+  ],
+  "/problemas/tela-azul": [
+    { pergunta: "Tela azul significa que o computador vai parar de funcionar?", resposta: "Não necessariamente. Muitos casos são driver ou atualização e se resolvem sem troca de peça. O que define é o diagnóstico: memória, disco, temperatura e alimentação são verificados antes de qualquer conclusão." },
+    { pergunta: "Formatar resolve tela azul?", resposta: "Só quando a origem é o sistema. Se a causa for memória, disco ou fonte, a tela azul volta depois da formatação — e os dados já terão sido perdidos." },
+    { pergunta: "Perco meus arquivos no reparo?", resposta: "O procedimento padrão preserva os dados. Quando o disco apresenta falha física, a cópia é feita primeiro e o risco real é informado antes de qualquer intervenção — sem promessa de recuperação total." },
+    { pergunta: "O código do erro é mesmo importante?", resposta: "É o melhor atalho que existe. Códigos ligados a memória, disco e driver direcionam o teste inicial e reduzem o tempo de bancada." },
+    { pergunta: "Dá para fazer o diagnóstico remotamente?", resposta: "Quando o Windows inicia, sim: log, driver e integridade são verificados remotamente. Teste de memória e de fonte exige o equipamento em bancada." },
+  ],
+  "/problemas/arquivos-apagados": [
+    { pergunta: "Vocês garantem que os arquivos voltam?", resposta: "Não. Nenhuma avaliação séria garante recuperação antes de examinar o dispositivo. O que informamos é o cenário encontrado, a chance estimada e o custo — para você decidir com clareza." },
+    { pergunta: "Quanto custa recuperar dados?", resposta: "Depende do tipo de falha. Casos lógicos têm custo previsível; casos físicos dependem de peça, tempo e encaminhamento. O valor é apresentado depois da avaliação e antes de qualquer execução." },
+    { pergunta: "Programas de recuperação que baixo na internet funcionam?", resposta: "Às vezes, em exclusão simples. O risco é instalar o programa no mesmo disco e sobrescrever justamente os arquivos que você quer. Se os dados forem importantes, não é o primeiro passo indicado." },
+    { pergunta: "Quanto tempo leva?", resposta: "Varredura lógica costuma levar de horas a alguns dias, conforme o tamanho do disco. Casos físicos dependem de avaliação e de peça compatível." },
+    { pergunta: "Depois de recuperar, como evitar de novo?", resposta: "Backup em duas frentes: uma cópia local e uma em nuvem, com verificação periódica. Configuramos a rotina junto com a entrega, se você quiser." },
+  ],
+};
+
+for (const rota of CLUSTER_PROBLEMAS_ROUTES) {
+  const faq = FAQ_POR_ROTA[rota.path];
+  if (faq) rota.faq = faq;
+}

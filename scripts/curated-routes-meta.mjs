@@ -12,6 +12,7 @@ import { servicoBlocos } from "./lib/servico-blocos.mjs";
 import { servicoFaqs } from "./lib/servico-faqs.mjs";
 import { bairroBlocos, bairroFaq } from "./lib/bairro-static.mjs";
 import { cidadeBlocos, cidadeFaq } from "./lib/cidade-static.mjs";
+import { CLUSTER_PROBLEMAS_ROUTES } from "./lib/cluster-problemas-static.mjs";
 
 const BASE_ROUTES = [
   {
@@ -987,4 +988,8 @@ const BASE_ROUTES_WITH_FAQ = BASE_ROUTES.map((r) => {
   return { ...r, ...(faq ? { faq } : {}), ...(offers ? { offers } : {}), ...(blocos ? { blocos } : {}) };
 });
 
-export const CURATED_ROUTES = [...BASE_ROUTES_WITH_FAQ, ...SERVICO_BAIRRO_ROUTES];
+export const CURATED_ROUTES = [
+  ...BASE_ROUTES_WITH_FAQ,
+  ...CLUSTER_PROBLEMAS_ROUTES,
+  ...SERVICO_BAIRRO_ROUTES,
+];

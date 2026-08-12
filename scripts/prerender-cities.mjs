@@ -433,6 +433,19 @@ function editorialStaticBody(post, wave) {
         .map((h) => `<li style="margin:4px 0">${htmlEscape(h)}</li>`)
         .join("")}</ul>`
     : "";
+  const corpo = (post.sections ?? [])
+    .map((sec) => {
+      const ps = sec.paragrafos
+        .map((t) => `<p style="margin:0 0 10px;font-size:.95rem;opacity:.94">${htmlEscape(t)}</p>`)
+        .join("");
+      const lis = sec.itens.length
+        ? `<ul style="margin:0 0 10px;padding-left:20px">${sec.itens
+            .map((t) => `<li style="margin:4px 0">${htmlEscape(t)}</li>`)
+            .join("")}</ul>`
+        : "";
+      return `<h2 style="font-size:1.1rem;margin:24px 0 8px">${htmlEscape(sec.h)}</h2>${ps}${lis}`;
+    })
+    .join("");
   return `
         <div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e8eef2;background:#0f171c">
           <nav aria-label="Trilha de navegação" style="font-size:.85rem;opacity:.85;margin-bottom:12px">
@@ -441,6 +454,7 @@ function editorialStaticBody(post, wave) {
           <h1 style="font-size:1.7rem;line-height:1.25;margin:0 0 12px">${htmlEscape(post.title)}</h1>
           <p style="margin:0 0 16px;font-size:1rem;opacity:.95">${htmlEscape(post.lead || post.excerpt)}</p>
           ${sumario}
+          ${corpo}
           <h2 style="font-size:1.1rem;margin:24px 0 8px">Precisa de atendimento técnico em Curitiba?</h2>
           <p style="margin:0 0 8px;font-size:.95rem;opacity:.94">Atendemos Curitiba e Região Metropolitana com diagnóstico antes de qualquer reparo. O contato é feito pelo WhatsApp.</p>
           <ul style="margin:0 0 8px;padding-left:20px">

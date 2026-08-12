@@ -763,6 +763,240 @@ export const CLUSTER_PROBLEMAS: ClusterProblema[] = [
     ],
     foto: "placa-eletronica",
   },
+  {
+    slug: "computador-nao-da-imagem",
+    path: "/problemas/computador-nao-da-imagem",
+    titulo: "Computador liga mas não aparece imagem no monitor",
+    metaTitle: "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
+    metaDescription:
+      "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
+    resumo:
+      "Ligar e não dar imagem não é um defeito só: é o resultado visível de qualquer falha que impeça o computador de concluir a inicialização. O diagnóstico útil começa separando três blocos — o que exibe (monitor e cabo), o que gera vídeo (placa de vídeo ou vídeo integrado) e o que permite ligar (fonte, memória e placa-mãe). Trocar peça antes dessa separação é a forma mais cara de descobrir o problema.",
+    waMessage:
+      "Olá! Vim da página sobre computador que liga e não dá imagem. Preciso de diagnóstico do meu equipamento.",
+    sintomas: [
+      {
+        titulo: "Monitor mostra “sem sinal” e entra em espera",
+        desc: "O monitor está funcionando e informando que nada chega até ele. A investigação vai para cabo, entrada selecionada e saída de vídeo usada — muita gente liga o cabo na saída da placa-mãe com uma placa de vídeo dedicada instalada.",
+      },
+      {
+        titulo: "Tela totalmente preta, sem mensagem nenhuma",
+        desc: "Nem a mensagem do monitor aparece. Costuma indicar que o monitor não está recebendo energia, está com defeito próprio ou que a fonte do computador não sustenta o consumo depois do primeiro instante.",
+      },
+      {
+        titulo: "Coolers giram, luzes acendem, nada acontece",
+        desc: "O computador aparenta ligar, mas não passa do POST. Memória mal encaixada, contato oxidado, placa de vídeo mal assentada e falha de placa-mãe são as causas mais comuns nesse padrão.",
+      },
+      {
+        titulo: "Bipes ou LEDs piscando em sequência",
+        desc: "Bipes e LEDs de diagnóstico da placa-mãe são código, não ruído. A sequência aponta o subsistema que travou — normalmente memória, vídeo ou CPU — e reduz muito o tempo de bancada.",
+      },
+      {
+        titulo: "Imagem aparece e some depois de alguns segundos",
+        desc: "Chega a mostrar o logotipo e apaga. Aponta para superaquecimento imediato, fonte incapaz de sustentar carga ou falha do driver de vídeo já dentro do sistema.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Cabo, adaptador ou entrada errada",
+        desc: "Cabo HDMI danificado, adaptador de má qualidade e entrada do monitor no canal errado respondem por uma parcela grande dos chamados. É a primeira verificação justamente porque não custa nada.",
+      },
+      {
+        titulo: "Memória RAM com mau contato ou defeituosa",
+        desc: "Pente deslocado, contato oxidado ou módulo com falha impedem o POST. O teste é metódico: um módulo por vez, alternando slots, com limpeza dos contatos.",
+      },
+      {
+        titulo: "Placa de vídeo mal assentada ou sem alimentação",
+        desc: "Placa dedicada exige encaixe firme e, em muitos modelos, conectores de energia próprios da fonte. Sem isso o sistema liga e não gera vídeo.",
+      },
+      {
+        titulo: "Fonte degradada",
+        desc: "Fonte que entrega tensão só no instante inicial faz o computador ligar sem concluir a inicialização. É uma causa frequente em máquinas com anos de uso e só se confirma com teste sob carga.",
+      },
+      {
+        titulo: "Placa-mãe com capacitor ou trilha comprometidos",
+        desc: "Capacitor estufado, marca de queima ou trilha rompida após surto elétrico. Aqui a inspeção visual em bancada, com lupa, vale mais que qualquer software.",
+      },
+      {
+        titulo: "Processador ou dissipador mal instalado",
+        desc: "Comum depois de limpeza ou troca de pasta térmica: dissipador frouxo, soquete com pino torto ou cooler não conectado ao conector correto fazem a máquina desligar ou nem iniciar o vídeo.",
+      },
+    ],
+    antesDeChamar: [
+      "Teste outro cabo e outra entrada do monitor, e confirme no menu do monitor qual entrada está selecionada.",
+      "Se houver placa de vídeo dedicada, confirme que o cabo está na saída da placa e não na saída da placa-mãe.",
+      "Ligue o monitor em outro aparelho (notebook, videogame ou TV box) para descobrir se o problema é do monitor.",
+      "Desligue da tomada, abra o gabinete e reencaixe firmemente memória e placa de vídeo até ouvir o clique das travas.",
+      "Anote bipes, LEDs piscando e se algo mudou antes da falha: queda de energia, limpeza, troca de peça ou transporte.",
+    ],
+    naoFaca: [
+      "Não fique ligando e desligando pelo botão repetidamente esperando que “pegue”: cada partida força a fonte e a placa.",
+      "Não compre placa de vídeo ou memória por palpite antes do diagnóstico — na maior parte dos casos a peça nova não era necessária.",
+      "Não mexa em componentes sem desligar da tomada e sem descarregar a energia estática tocando parte metálica do gabinete.",
+      "Não force o pente de memória nem o conector da placa de vídeo: pino torto no soquete transforma um caso simples em troca de placa-mãe.",
+      "Não limpe contatos com produto abrasivo ou objeto metálico; a superfície dourada é fina e o risco é permanente.",
+    ],
+    modalidades: [
+      {
+        titulo: "Orientação remota antes de mover o equipamento",
+        desc: "Pelo WhatsApp conduzimos os testes de cabo, entrada e reencaixe. Boa parte dos casos de “sem sinal” se resolve nessa conversa, sem custo de deslocamento.",
+      },
+      {
+        titulo: "Visita técnica com peças de referência",
+        desc: "Quando o computador precisa ficar onde está, a visita leva cabo, memória e fonte de teste para isolar o componente no local, em janela de até 30 minutos de inspeção.",
+      },
+      {
+        titulo: "Bancada para teste sob carga",
+        desc: "Fonte, placa-mãe e vídeo exigem medição com instrumentos e substituição controlada. O orçamento separa diagnóstico, mão de obra e peça, e nada é executado sem aprovação.",
+      },
+    ],
+    faq: [
+      {
+        q: "Meu computador liga e não dá imagem: é a placa de vídeo?",
+        a: "Pode ser, mas é a conclusão menos provável logo de início. Cabo, entrada errada, memória com mau contato e fonte degradada aparecem com muito mais frequência. A placa de vídeo só é apontada depois de testada em outro equipamento ou substituída por uma de referência.",
+      },
+      {
+        q: "Os bipes ajudam a descobrir o problema?",
+        a: "Ajudam bastante. A sequência de bipes e os LEDs de diagnóstico da placa-mãe indicam qual subsistema travou — memória, vídeo ou processador. Anotar o padrão antes de abrir chamado reduz o tempo de diagnóstico.",
+      },
+      {
+        q: "Vale a pena consertar ou é melhor trocar o computador?",
+        a: "Depende da peça envolvida e da idade da máquina. Memória e fonte costumam ter custo baixo diante do valor do equipamento; placa-mãe antiga com defeito, muitas vezes não. Informamos a estimativa antes para você decidir, sem empurrar reparo inviável.",
+      },
+      {
+        q: "Perco meus arquivos nesse tipo de reparo?",
+        a: "Falha de vídeo não afeta o disco na maioria dos casos, e o procedimento padrão preserva os dados. Se durante o diagnóstico o disco também apresentar problema, avisamos antes de qualquer intervenção e a cópia vem primeiro.",
+      },
+      {
+        q: "Dá para resolver sem levar o computador?",
+        a: "Cabo, entrada, reencaixe e configuração resolvem uma parte relevante dos casos remotamente ou em visita. Teste de fonte sob carga e inspeção de placa exigem bancada, com instrumentos que não vão para a casa do cliente.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Diagnóstico, limpeza técnica e troca de componentes com teste sob carga." },
+      { to: "/servicos/conserto-monitor", titulo: "Conserto de monitor", desc: "Quando o teste mostra que o problema está na tela, não no gabinete." },
+      { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando a máquina chega a iniciar e depois cai — fonte, temperatura e alimentação." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "bancada-tecnica",
+  },
+  {
+    slug: "cheiro-de-queimado",
+    path: "/problemas/cheiro-de-queimado",
+    titulo: "Cheiro de queimado no computador, fonte ou carregador",
+    metaTitle: "Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática",
+    metaDescription:
+      "Cheiro de queimado vindo do gabinete, da fonte ou do carregador é sinal elétrico e urgente. Veja o que desligar agora, o que nunca fazer e como o diagnóstico é conduzido.",
+    resumo:
+      "Cheiro de queimado é um dos poucos sintomas em que a orientação certa é parar de usar o equipamento imediatamente. Ele indica que algum componente ultrapassou a temperatura de projeto ou que houve falha elétrica — e o risco deixa de ser só perder a peça: envolve dano em cascata na placa e, em casos extremos, princípio de incêndio. O diagnóstico depois é técnico e frio; o primeiro passo é elétrico e imediato.",
+    waMessage:
+      "Olá! Vim da página sobre cheiro de queimado. Senti cheiro no meu equipamento e preciso de orientação urgente.",
+    sintomas: [
+      {
+        titulo: "Cheiro forte de plástico ou verniz queimado",
+        desc: "Odor acre, parecido com fio derretido. Costuma vir de fonte de alimentação, carregador ou cabo com mau contato aquecendo no conector.",
+      },
+      {
+        titulo: "Cheiro seguido de desligamento imediato",
+        desc: "O equipamento apaga junto com o odor e não volta. Padrão típico de proteção da fonte atuando ou de componente que abriu em curto.",
+      },
+      {
+        titulo: "Cheiro adocicado ou de peixe",
+        desc: "Odor característico de capacitor eletrolítico rompido e de alguns retardantes de chama em sobreaquecimento. Merece inspeção visual da placa antes de religar.",
+      },
+      {
+        titulo: "Estalo ou clarão junto do cheiro",
+        desc: "Houve descarga. Nesse cenário a tomada deve ser desligada primeiro e o equipamento não pode ser religado para testar, sob risco de propagar o dano.",
+      },
+      {
+        titulo: "Marca escura, derretimento ou fumaça leve",
+        desc: "Sinal visível no conector, na fonte, no carregador ou na placa. O ponto queimado indica onde investigar, mas quase nunca é o único componente afetado.",
+      },
+    ],
+    causas: [
+      {
+        titulo: "Fonte de alimentação em fim de vida",
+        desc: "Capacitores secos e ventilação obstruída fazem a fonte trabalhar acima do limite. É a origem mais comum de cheiro em computador de mesa e costuma envolver troca da peça, não reparo.",
+      },
+      {
+        titulo: "Carregador ou cabo com mau contato",
+        desc: "Conector frouxo aquece por resistência. Em notebook, o cheiro aparece no plugue ou na fonte externa, e o cabo derrete localizadamente antes de qualquer falha da placa.",
+      },
+      {
+        titulo: "Surto elétrico ou raio",
+        desc: "Descarga na rede queima o estágio de entrada da fonte e pode atingir placa-mãe, rede e disco. Após surto, religar sem inspeção costuma ampliar o prejuízo.",
+      },
+      {
+        titulo: "Poeira acumulada e ventilação bloqueada",
+        desc: "Camada de poeira sobre dissipadores e fonte funciona como isolante térmico. O calor concentrado degrada o verniz da placa e produz odor mesmo sem falha elétrica declarada.",
+      },
+      {
+        titulo: "Capacitor rompido ou componente em curto",
+        desc: "Capacitor estufado, bobina queimada ou circuito de alimentação em curto liberam odor característico. A inspeção sob lupa localiza o ponto antes de qualquer energização.",
+      },
+      {
+        titulo: "Bateria inchada ou danificada",
+        desc: "Célula de lítio deformada é risco separado: além do odor, existe possibilidade de aquecimento descontrolado. O procedimento correto é remover a bateria e descartar em ponto adequado.",
+      },
+    ],
+    antesDeChamar: [
+      "Desligue o equipamento pelo botão de energia e tire o plugue da tomada — em notebook, retire também o carregador e a bateria removível.",
+      "Não religue para “ver se o cheiro volta”: se houve curto, a nova energização amplia o dano.",
+      "Identifique de onde vem o odor com o equipamento já desligado: fonte, carregador, régua, tomada ou monitor têm caminhos de reparo diferentes.",
+      "Verifique se há marca escura, derretimento no conector ou capacitor estufado, e fotografe o que encontrar para adiantar a triagem.",
+      "Se houver bateria visivelmente inchada, mantenha o aparelho em superfície não inflamável, longe de material combustível, até o atendimento.",
+    ],
+    naoFaca: [
+      "Não use o equipamento “só um pouco para salvar arquivos” — o risco elétrico é maior que o benefício, e a cópia pode ser feita depois com o disco fora da máquina.",
+      "Não troque a fonte por outra qualquer sem confirmar a potência e a origem do problema: fonte inadequada repete a falha em pouco tempo.",
+      "Não ligue o aparelho em régua improvisada, benjamim ou extensão subdimensionada, que aquecem no próprio conector.",
+      "Não perfure, não pressione e não jogue no lixo comum bateria inchada.",
+      "Não aplique produto de limpeza líquido sobre a placa tentando remover a marca de queima antes da inspeção técnica.",
+    ],
+    modalidades: [
+      {
+        titulo: "Orientação imediata por WhatsApp",
+        desc: "Primeiro cuidamos da segurança: o que desligar, o que remover e como transportar. Essa orientação é dada antes de qualquer agendamento e não depende de contratar serviço.",
+      },
+      {
+        titulo: "Bancada com inspeção antes de energizar",
+        desc: "O procedimento correto começa com inspeção visual sob lupa e medição sem energizar. Só depois a fonte é testada em bancada, isolada da placa, com carga controlada.",
+      },
+      {
+        titulo: "Recuperação dos dados em separado",
+        desc: "Quando a placa está comprometida, o disco costuma estar íntegro. Retiramos a unidade e copiamos os arquivos independentemente da decisão sobre reparar ou substituir o equipamento.",
+      },
+    ],
+    faq: [
+      {
+        q: "Senti cheiro de queimado e o computador ainda liga. Posso usar?",
+        a: "Não é recomendado. Cheiro indica componente fora da faixa térmica ou falha elétrica em andamento; continuar usando aumenta a chance de dano em cascata na placa e de risco elétrico. Desligue da tomada e trate como caso urgente.",
+      },
+      {
+        q: "Como sei se o problema é a fonte ou a placa-mãe?",
+        a: "Pelo teste isolado. A fonte é avaliada fora do computador, com carga controlada, e a placa é inspecionada sob lupa antes de qualquer energização. Sem essa separação, trocar a fonte pode apenas repetir a queima em uma placa já comprometida.",
+      },
+      {
+        q: "Meus arquivos estão perdidos?",
+        a: "Na maioria dos casos elétricos o disco continua íntegro, mesmo quando a placa não tem reparo viável. Retiramos a unidade e copiamos os dados em separado. Não prometemos recuperação total antes de examinar o dispositivo.",
+      },
+      {
+        q: "Estabilizador ou nobreak evita esse problema?",
+        a: "Reduz o risco de surto pela rede, mas não substitui manutenção: poeira, fonte no fim da vida e conector com mau contato queimam mesmo com proteção instalada. Um bom filtro de linha ajuda; limpeza periódica e fonte adequada ajudam mais.",
+      },
+      {
+        q: "Vale a pena consertar um equipamento que queimou?",
+        a: "Depende de qual componente foi atingido. Fonte, carregador e cabo têm custo baixo e troca direta. Placa-mãe com dano elétrico em máquina antiga costuma não compensar, e dizemos isso com clareza — diagnóstico, mão de obra e peça são informados separadamente antes de qualquer execução.",
+      },
+    ],
+    relacionados: [
+      { to: "/servicos/manutencao-de-computadores", titulo: "Manutenção de computadores", desc: "Limpeza técnica, teste de fonte e substituição de componentes em bancada." },
+      { to: "/problemas/computador-desliga-sozinho", titulo: "Computador desliga sozinho", desc: "Quando a falha elétrica ou térmica aparece antes do cheiro." },
+      { to: "/servicos/conserto-placa", titulo: "Conserto de placa", desc: "Inspeção sob lupa, medição e microssolda quando o dano é localizado." },
+      { to: "/problemas", titulo: "Outros sintomas", desc: "Volte ao hub e escolha o problema mais parecido com o seu." },
+    ],
+    foto: "placa-eletronica",
+  },
 ];
 
 

@@ -82,6 +82,8 @@ cobramos execução que não tenha sido aprovada.
 - [Notebook não carrega: causas e o que testar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/notebook-nao-carrega)
 - [HD fazendo barulho: clique, estalo e risco de perder dados | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/hd-fazendo-barulho)
 - [Notebook molhado com água ou café: o que fazer agora | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/notebook-molhado)
+- [Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/computador-nao-da-imagem)
+- [Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática](https://otecnicodeinformatica.com.br/problemas/cheiro-de-queimado)
 
 ## Páginas institucionais e de política
 

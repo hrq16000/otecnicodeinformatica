@@ -22,6 +22,8 @@ export const LASTMOD = {
   "/problemas/computador-desliga-sozinho": "2026-08-12",
   "/problemas/notebook-nao-carrega": "2026-08-12",
   "/problemas/hd-fazendo-barulho": "2026-08-12",
+  "/problemas/computador-nao-da-imagem": "2026-08-13",
+  "/problemas/cheiro-de-queimado": "2026-08-13",
   "/problemas/notebook-molhado": "2026-08-12",
   "/solucoes": "2026-08-12",
   "/solucoes/diagnostico": "2026-08-12",

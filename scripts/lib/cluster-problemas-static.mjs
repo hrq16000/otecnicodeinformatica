@@ -262,6 +262,70 @@ export const CLUSTER_PROBLEMAS_ROUTES = [
       },
     ],
   },
+  {
+    path: "/problemas/computador-nao-da-imagem",
+    title: "Computador liga e não dá imagem: causas e o que testar | O Técnico de Informática",
+    description:
+      "Gabinete liga, coolers giram e o monitor fica preto ou em “sem sinal”. Veja como separar monitor, cabo, memória, placa de vídeo e fonte antes de trocar qualquer peça.",
+    h1: "Computador liga mas não aparece imagem no monitor",
+    subtitulo:
+      "Antes de comprar peça: o diagnóstico separa o que exibe, o que gera vídeo e o que permite ligar.",
+    blocos: [
+      {
+        titulo: "Três blocos diferentes, três caminhos de reparo",
+        paragrafos: [
+          "Ligar e não dar imagem não é um defeito único: é o resultado visível de qualquer falha que impeça o computador de concluir a inicialização. A investigação separa o que exibe (monitor e cabo), o que gera vídeo (placa dedicada ou vídeo integrado) e o que permite ligar (fonte, memória e placa-mãe). Trocar peça antes dessa separação é a forma mais cara de descobrir o problema.",
+          "Monitor em “sem sinal” indica que a tela funciona e nada chega até ela — cabo, entrada selecionada ou saída de vídeo errada. Tela totalmente preta, sem mensagem, aponta para energia do monitor ou fonte que não sustenta o consumo. Coolers girando sem POST costuma ser memória ou placa de vídeo mal assentada. Bipes e LEDs de diagnóstico são código e indicam o subsistema travado.",
+        ],
+      },
+      {
+        titulo: "O que testar antes de chamar alguém",
+        paragrafos: [
+          "Teste outro cabo, outra entrada e confirme no menu do monitor qual entrada está ativa. Com placa de vídeo dedicada instalada, o cabo precisa estar na saída da placa, não na da placa-mãe. Ligue o monitor em outro aparelho para descobrir se o defeito é dele. Depois, com o computador fora da tomada, reencaixe firmemente memória e placa de vídeo até travar.",
+          "Não fique ligando e desligando repetidamente esperando que “pegue”, e não compre placa de vídeo ou memória por palpite: na maior parte dos atendimentos a peça nova não era necessária. Forçar módulo ou conector torto no soquete transforma um caso simples em troca de placa-mãe.",
+        ],
+      },
+      {
+        titulo: "Modalidades de atendimento",
+        paragrafos: [
+          "A orientação remota conduz os testes de cabo, entrada e reencaixe e resolve boa parte dos casos de “sem sinal”, sem custo de deslocamento. A visita técnica leva cabo, memória e fonte de referência para isolar o componente no local, em janela de até 30 minutos de inspeção.",
+          "Fonte, placa-mãe e vídeo exigem medição sob carga em bancada, com substituição controlada. Diagnóstico, deslocamento, mão de obra e peça são informados separadamente e nada é executado sem aprovação.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/problemas/cheiro-de-queimado",
+    title: "Cheiro de queimado no computador: o que fazer imediatamente | O Técnico de Informática",
+    description:
+      "Cheiro de queimado vindo do gabinete, da fonte ou do carregador é sinal elétrico e urgente. Veja o que desligar agora, o que nunca fazer e como o diagnóstico é conduzido.",
+    h1: "Cheiro de queimado no computador, fonte ou carregador",
+    subtitulo:
+      "É um dos poucos sintomas em que a orientação certa é parar de usar o equipamento na hora.",
+    blocos: [
+      {
+        titulo: "Por que o cheiro muda a prioridade",
+        paragrafos: [
+          "Odor de queimado indica que algum componente ultrapassou a temperatura de projeto ou que houve falha elétrica. O risco deixa de ser apenas perder a peça: envolve dano em cascata na placa e, em casos extremos, princípio de incêndio. Cheiro acre de plástico costuma vir de fonte, carregador ou conector aquecendo; odor adocicado é típico de capacitor eletrolítico rompido; estalo ou clarão junto do cheiro significa que houve descarga.",
+          "As origens mais frequentes são fonte de alimentação em fim de vida, carregador ou cabo com mau contato, surto elétrico pela rede, poeira acumulada bloqueando ventilação, capacitor rompido e bateria de lítio inchada — cada uma com caminho de reparo e risco próprios.",
+        ],
+      },
+      {
+        titulo: "O que fazer nos primeiros minutos",
+        paragrafos: [
+          "Desligue pelo botão de energia e tire o plugue da tomada; em notebook, remova também o carregador e a bateria quando o modelo permitir. Identifique de onde vem o odor com o equipamento já desligado e fotografe marcas escuras, derretimento no conector ou capacitor estufado — isso adianta a triagem.",
+          "Não religue para testar se o cheiro volta, não use o equipamento “só um pouco para salvar arquivos”, não substitua a fonte por outra qualquer sem confirmar potência e origem da falha e não perfure nem descarte bateria inchada no lixo comum.",
+        ],
+      },
+      {
+        titulo: "Modalidades de atendimento",
+        paragrafos: [
+          "A orientação imediata por WhatsApp cuida primeiro da segurança: o que desligar, o que remover e como transportar — sem depender de contratar serviço. Em bancada, o procedimento começa com inspeção visual sob lupa e medição sem energizar; a fonte só é testada isolada da placa, com carga controlada.",
+          "Quando a placa está comprometida, o disco costuma estar íntegro: retiramos a unidade e copiamos os arquivos independentemente da decisão sobre reparar ou substituir. Diagnóstico, mão de obra e peça são informados separadamente antes da execução.",
+        ],
+      },
+    ],
+  },
 ];
 
 
@@ -315,6 +379,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "Quanto tempo tenho para levar?", resposta: "Água limpa dá alguma folga; café, refrigerante e outros líquidos açucarados corroem rápido e o intervalo útil é de horas. Em qualquer caso, mantenha o equipamento desligado e sem carregador até a bancada." },
     { pergunta: "Só o teclado molhou. Precisa mexer na placa?", resposta: "Nem sempre. Em vários modelos o teclado é uma peça separada e a placa fica preservada. A desmontagem é o que confirma até onde o líquido chegou — sem abrir, é palpite." },
     { pergunta: "Tem garantia no reparo de equipamento molhado?", resposta: "A garantia cobre o serviço executado e a peça trocada, com escopo descrito na ordem de serviço. Dano por líquido pode evoluir depois em pontos não relacionados ao reparo, e isso é explicado antes da aprovação." },
+  ],
+  "/problemas/computador-nao-da-imagem": [
+    { pergunta: "Meu computador liga e não dá imagem: é a placa de vídeo?", resposta: "Pode ser, mas é a conclusão menos provável logo de início. Cabo, entrada errada, memória com mau contato e fonte degradada aparecem com muito mais frequência. A placa de vídeo só é apontada depois de testada em outro equipamento ou substituída por uma de referência." },
+    { pergunta: "Os bipes ajudam a descobrir o problema?", resposta: "Ajudam bastante. A sequência de bipes e os LEDs de diagnóstico da placa-mãe indicam qual subsistema travou — memória, vídeo ou processador. Anotar o padrão antes de abrir chamado reduz o tempo de diagnóstico." },
+    { pergunta: "Vale a pena consertar ou é melhor trocar o computador?", resposta: "Depende da peça envolvida e da idade da máquina. Memória e fonte costumam ter custo baixo diante do valor do equipamento; placa-mãe antiga com defeito, muitas vezes não. Informamos a estimativa antes para você decidir, sem empurrar reparo inviável." },
+    { pergunta: "Perco meus arquivos nesse tipo de reparo?", resposta: "Falha de vídeo não afeta o disco na maioria dos casos, e o procedimento padrão preserva os dados. Se durante o diagnóstico o disco também apresentar problema, avisamos antes de qualquer intervenção e a cópia vem primeiro." },
+    { pergunta: "Dá para resolver sem levar o computador?", resposta: "Cabo, entrada, reencaixe e configuração resolvem uma parte relevante dos casos remotamente ou em visita. Teste de fonte sob carga e inspeção de placa exigem bancada, com instrumentos que não vão para a casa do cliente." },
+  ],
+  "/problemas/cheiro-de-queimado": [
+    { pergunta: "Senti cheiro de queimado e o computador ainda liga. Posso usar?", resposta: "Não é recomendado. Cheiro indica componente fora da faixa térmica ou falha elétrica em andamento; continuar usando aumenta a chance de dano em cascata na placa e de risco elétrico. Desligue da tomada e trate como caso urgente." },
+    { pergunta: "Como sei se o problema é a fonte ou a placa-mãe?", resposta: "Pelo teste isolado. A fonte é avaliada fora do computador, com carga controlada, e a placa é inspecionada sob lupa antes de qualquer energização. Sem essa separação, trocar a fonte pode apenas repetir a queima em uma placa já comprometida." },
+    { pergunta: "Meus arquivos estão perdidos?", resposta: "Na maioria dos casos elétricos o disco continua íntegro, mesmo quando a placa não tem reparo viável. Retiramos a unidade e copiamos os dados em separado. Não prometemos recuperação total antes de examinar o dispositivo." },
+    { pergunta: "Estabilizador ou nobreak evita esse problema?", resposta: "Reduz o risco de surto pela rede, mas não substitui manutenção: poeira, fonte no fim da vida e conector com mau contato queimam mesmo com proteção instalada. Um bom filtro de linha ajuda; limpeza periódica e fonte adequada ajudam mais." },
+    { pergunta: "Vale a pena consertar um equipamento que queimou?", resposta: "Depende de qual componente foi atingido. Fonte, carregador e cabo têm custo baixo e troca direta. Placa-mãe com dano elétrico em máquina antiga costuma não compensar, e dizemos isso com clareza — diagnóstico, mão de obra e peça são informados separadamente antes de qualquer execução." },
   ],
 };
 

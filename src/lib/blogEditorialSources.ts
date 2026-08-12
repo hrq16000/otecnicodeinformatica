@@ -328,26 +328,6 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Rodada 4Y): identificação da tela pelo código do painel, distinção entre defeito de painel e de cabo/placa de vídeo, alerta de risco em telas coladas e touch, sem indicação de peça específica, sem preço de peça e sem promessa de compatibilidade universal. Conhecimento técnico estável — sem fonte visível.",
   },
-  "notebook-nao-liga-o-que-fazer": {
-    slug: "notebook-nao-liga-o-que-fazer",
-    sources: [],
-    technicalReview: "reviewed",
-    factChecked: true,
-    factCheckedAt: "2026-08-12",
-    stableKnowledge: true,
-    notes:
-      "Revisão concluída (Rodada 4Z): separa 'não liga' de 'liga e não dá vídeo', ordem segura de verificação (fonte/carregador, bateria, sinal de energia, memória, tela), sem indicação de abrir equipamento em garantia, sem promessa de reparo e sem valor de peça. Conhecimento técnico estável — sem fonte visível.",
-  },
-  "computador-lento-causas-solucoes": {
-    slug: "computador-lento-causas-solucoes",
-    sources: [],
-    technicalReview: "reviewed",
-    factChecked: true,
-    factCheckedAt: "2026-08-12",
-    stableKnowledge: true,
-    notes:
-      "Revisão concluída (Rodada 4Z): distingue lentidão por disco mecânico, memória insuficiente, superaquecimento, software em segundo plano e falha iminente de disco; sem 'programa otimizador', sem ganho percentual prometido e com alerta de backup antes de qualquer intervenção. Conhecimento técnico estável — sem fonte visível.",
-  },
 };
 
 

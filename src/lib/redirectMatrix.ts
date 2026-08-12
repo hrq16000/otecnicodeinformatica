@@ -18,7 +18,13 @@ export interface RedirectRule {
   /** Destino canônico e indexável. */
   to: string;
   /** Por que a regra existe — documentação viva para auditoria. */
-  motivo: "url-antiga" | "variacao-slug" | "alias-pf" | "alias-pj" | "alias-institucional";
+  motivo:
+    | "url-antiga"
+    | "variacao-slug"
+    | "alias-pf"
+    | "alias-pj"
+    | "alias-institucional"
+    | "consolidacao-editorial";
 }
 
 export const REDIRECT_MATRIX: RedirectRule[] = [

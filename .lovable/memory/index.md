@@ -22,3 +22,4 @@
 - [Rede de profissionais parceiros](mem://features/rede-profissionais-parceiros) — /profissionais, perfil por slug, cadastro com análise e plano anual configurável no banco.
 - [Funil inteligente em 4 etapas](mem://features/funil-4-etapas) — /atendimento noindex, deslocamento antes da confirmação, data-funnel-skip no CTA final.
 - [Cluster de equipamentos](mem://features/cluster-equipamentos) — Hub /equipamentos + 4 páginas por aparelho, espelho estático gerado e sitemap próprio.
+- [Cluster de soluções](mem://features/cluster-solucoes) — Hub /solucoes + 5 procedimentos indexáveis (diagnóstico, formatação, SSD, backup, dados), espelho estático e sitemap próprio.

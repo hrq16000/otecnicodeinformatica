@@ -44,6 +44,15 @@ const CURADORIA = [
     slug: "como-fazer-upgrade-ssd-nvme",
     commons: "File:256GB 2230 NVME SSD + 256GB NGFF SSD.jpg",
   },
+  // Onda 5B — cluster de redes Wi-Fi doméstica.
+  {
+    slug: "como-configurar-roteador-wifi-iniciantes",
+    commons: "File:TP-Link TL-WR740N router HS5.jpg",
+  },
+  {
+    slug: "como-saber-quem-esta-usando-meu-wifi",
+    commons: "File:Home wifi.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

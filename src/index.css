@@ -32,44 +32,52 @@
 
 @layer base {
   :root {
-    --background: 220 20% 99%;
-    --foreground: 215 50% 16%;
+    /* ── Identidade "O Técnico de Informática" ──────────────────────
+       Base off-white quente (#faf8f5), texto e superfícies escuras em
+       petróleo (#0f2b33), verde técnico (#0f7a6b) como única cor de ação
+       e terroso (#c9713a) reservado a rótulos de categoria. */
+    --background: 40 33% 97%;
+    --foreground: 191 55% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 50% 16%;
+    --card-foreground: 191 55% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 50% 16%;
+    --popover-foreground: 191 55% 13%;
 
-    /* Nova identidade: grafite / azul petróleo escuro */
-    --primary: 205 58% 15%;
-    --primary-foreground: 0 0% 100%;
+    /* Petróleo profundo: superfícies escuras e texto de alta hierarquia */
+    --primary: 191 55% 13%;
+    --primary-foreground: 40 33% 97%;
 
-    --secondary: 205 20% 96%;
-    --secondary-foreground: 205 50% 14%;
+    --secondary: 40 25% 94%;
+    --secondary-foreground: 191 55% 13%;
 
-    --muted: 205 14% 95%;
-    /* Reforçado para garantir contraste AA em texto secundário. */
-    --muted-foreground: 205 22% 32%;
+    --muted: 40 22% 94%;
+    /* Contraste AA garantido para texto secundário sobre o off-white. */
+    --muted-foreground: 191 18% 33%;
 
-    /* Acento: azul elétrico / ciano controlado.
-       35% de luminosidade garante contraste AA (>=4.5:1) para texto pequeno
-       sobre fundos claros e mantém texto branco legível sobre o acento. */
-    --accent: 197 90% 33%;
+    /* Verde técnico: cor de ação. 27% de luminosidade mantém AA para texto
+       branco sobre o acento e para o acento como texto sobre off-white. */
+    --accent: 171 78% 27%;
     --accent-foreground: 0 0% 100%;
-    /* Variante clara do acento para texto pequeno sobre o fundo escuro do hero
-       (hsl(var(--hero-bg))): garante contraste AA (>= 4.5:1). */
-    --accent-on-dark: 197 88% 64%;
+    /* Variante menta para texto pequeno sobre superfícies petróleo (AA). */
+    --accent-on-dark: 167 55% 62%;
+
+    /* Terroso: rótulo de categoria, nunca botão primário. */
+    --categoria: 23 57% 45%;
+    --categoria-foreground: 0 0% 100%;
+    /* Variante clara do terroso para rótulos sobre petróleo (AA). */
+    --categoria-on-dark: 23 72% 66%;
 
     /* Escurecido para contraste AA em texto de alerta sobre fundos claros. */
     --destructive: 0 72% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 197 90% 42%;
+    --border: 40 16% 88%;
+    --input: 40 16% 88%;
+    --ring: 171 78% 27%;
 
-    --radius: 0.625rem;
+    --radius: 1rem;
 
     /* Fixed top chrome sizing: header + offer bar */
     --site-header-height: 72px;
@@ -86,20 +94,21 @@
 
     /* Nova paleta técnica premium */
     /* Escurecido para contraste AA (>=4.5:1) do texto branco no botão. */
-    --whatsapp: 145 63% 32%;
-    --whatsapp-hover: 145 63% 27%;
-    /* Acento herdado (mantém o nome por compatibilidade) — agora ciano elétrico */
-    --cta-orange: 197 90% 42%;
-    --cta-orange-hover: 197 90% 35%;
-    --hero-bg: 205 58% 13%;
-    --hero-bg-end: 200 45% 22%;
-    --section-light: 205 20% 97%;
-    --trust-green: 145 63% 42%;
+    --whatsapp: 145 63% 30%;
+    --whatsapp-hover: 145 63% 25%;
+    /* Acento herdado (mantém o nome por compatibilidade) — agora verde técnico */
+    --cta-orange: 171 78% 27%;
+    --cta-orange-hover: 171 78% 21%;
+    --hero-bg: 191 55% 13%;
+    --hero-bg-end: 187 40% 19%;
+    --section-light: 40 28% 96%;
+    --trust-green: 171 60% 34%;
 
     /* Refined glow tokens */
-    --glow-primary: 205 60% 40%;
-    --glow-accent: 195 92% 52%;
-    --glow-whatsapp: 145 55% 48%;
+    --glow-primary: 191 45% 30%;
+    --glow-accent: 171 70% 38%;
+    --glow-whatsapp: 145 55% 42%;
+
 
     /* Premium shadow tokens */
     --shadow-sm: 0 1px 3px 0 hsl(215 50% 16% / 0.04), 0 1px 2px -1px hsl(215 50% 16% / 0.03);

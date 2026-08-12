@@ -15,6 +15,10 @@ export const GA4_EVENTS = {
   funnelOpen: "funnel_open",
   funnelSubmit: "funnel_submit",
   faqToggle: "faq_toggle",
+  /** Clique na âncora da pergunta (deep link #faq-N). */
+  faqAnchor: "faq_anchor_click",
+  /** Clique em link interno contextual dentro de uma resposta da FAQ. */
+  faqInternalLink: "faq_internal_link",
   fileDownload: "file_download",
 } as const;
 

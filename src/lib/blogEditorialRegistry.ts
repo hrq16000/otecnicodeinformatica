@@ -392,8 +392,8 @@ const WAVE_5G: EditorialApproval[] = [
     reviewedAt: "2026-08-12",
     approvedAt: "2026-08-12",
     imageOrigin: "licensed",
-    imageLicense: "COVER_LICENSE_1",
-    imageAttribution: "COVER_ATTR_1",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution: "Foto: Somebody in the WWW (Wikimedia Commons), CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Epson-inkjet-printer.jpg",
     notes:
       "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
   },
@@ -405,8 +405,8 @@ const WAVE_5G: EditorialApproval[] = [
     reviewedAt: "2026-08-12",
     approvedAt: "2026-08-12",
     imageOrigin: "licensed",
-    imageLicense: "COVER_LICENSE_2",
-    imageAttribution: "COVER_ATTR_2",
+    imageLicense: "CC BY-SA 4.0",
+    imageAttribution: "Foto: Suyash Dwivedi (Wikimedia Commons), CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:LG_Smart_TV_WIFI_%2B_IR_Remote_04.jpg",
     notes:
       "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
   },

@@ -124,6 +124,7 @@
     "check:soft404": "node scripts/check-soft-404.mjs",
     "serve:dist": "node scripts/serve-dist.mjs",
     "check:jsonld-parity": "node scripts/check-jsonld-content-parity.mjs dist",
+    "check:problemas-jsonld": "node scripts/check-problemas-jsonld.mjs dist",
     "notify:seo-alerts": "node scripts/notify-seo-alerts.mjs",
     "cf:edge:deploy": "npx wrangler deploy --config cloudflare/wrangler.toml",
     "cf:edge:dry": "node scripts/cf-edge-dry.mjs",

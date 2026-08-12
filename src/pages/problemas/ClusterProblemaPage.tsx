@@ -171,9 +171,12 @@ const ClusterProblemaPage = () => {
           </Button>
         </div>
 
+        <TriagemContexto valor={contexto} onChange={setContexto} />
+
         {dados.foto && (
           <FotoLicenciadaImg slug={dados.foto} className="mt-8" />
         )}
+
 
         <section className="mt-12" aria-labelledby="sintomas">
           <h2 id="sintomas" className="mb-4 font-heading text-2xl font-bold text-foreground">

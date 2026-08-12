@@ -10,6 +10,7 @@
  * escolhas de triagem (dispositivo/urgência), que são categorias, não PII.
  */
 import { whatsappLinkComContexto } from "@/lib/waContextLink";
+import { sufixoVariante, varianteWa, type VarianteWa } from "@/lib/problemasWaVariants";
 
 export type UrgenciaChave = "hoje" | "72h" | "sem-pressa";
 

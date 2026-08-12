@@ -345,6 +345,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5B.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5C.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5D.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

@@ -1,12 +1,13 @@
 /**
  * Etapa 10 — fotografia REAL licenciada (sem IA).
  *
- * Busca fotos com licença comercial no Openverse (agregador de CC),
- * baixa para public/fotos/ e grava o manifesto de créditos em
- * src/lib/fotosLicenciadas.ts (URL de origem, autor, licença, atribuição).
+ * Baixa fotos curadas manualmente no Openverse (agregador de Creative
+ * Commons) por ID fixo, grava em public/fotos/ e gera o manifesto de
+ * créditos em src/lib/fotosLicenciadas.ts (origem, autor, licença, URL da
+ * licença). IDs fixos = build determinístico e curadoria revisada.
  *
- * Fail-closed: se uma busca não retornar foto utilizável, a entrada é
- * omitida do manifesto — nenhuma imagem é inventada ou gerada.
+ * Fail-closed: foto que não baixar fica fora do manifesto — nada é gerado
+ * por IA e nenhuma atribuição é inventada.
  */
 import { writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
@@ -15,25 +16,20 @@ const UA = "otecnicodeinformatica/1.0 (contato via site)";
 const DEST = resolve("public/fotos");
 const OUT = resolve("src/lib/fotosLicenciadas.ts");
 
-const ALVOS = [
-  { slug: "bancada-tecnica", q: "computer repair workbench", alt: "Bancada com computador aberto durante manutenção técnica" },
-  { slug: "notebook-manutencao", q: "laptop repair technician", alt: "Técnico realizando manutenção em notebook" },
-  { slug: "rede-cabeamento", q: "network cables rack", alt: "Rack de rede com cabeamento organizado" },
-  { slug: "roteador-wifi", q: "wifi router home", alt: "Roteador Wi-Fi instalado em ambiente residencial" },
-  { slug: "escritorio-empresa", q: "office computers workplace", alt: "Estações de trabalho em escritório de empresa" },
-  { slug: "armazenamento-dados", q: "hard drive ssd storage", alt: "Unidades de armazenamento HD e SSD sobre bancada" },
+/** Curadoria revisada visualmente (nenhuma imagem sintética). */
+const CURADORIA = [
+  { slug: "bancada-tecnica", id: "4795b5a0-5664-4991-9cfb-e6ccb008fb04", alt: "Interior de computador desktop aberto durante manutenção" },
+  { slug: "rede-cabeamento", id: "d08b5d37-27bb-4bb4-a24f-92d48fa6d0c1", alt: "Painel de rede com cabeamento estruturado organizado" },
+  { slug: "infra-empresa", id: "896df346-b6e4-4855-b9b8-7a65cc3a758d", alt: "Sala de servidores com racks alinhados" },
+  { slug: "estacao-trabalho", id: "e90a79ef-838b-4fef-8fb9-969ae98581b0", alt: "Estação de trabalho com monitor, teclado e periféricos" },
+  { slug: "roteador-wifi", id: "8f506850-b2c6-4044-a606-493c1bc4ca62", alt: "Roteador Wi-Fi doméstico com antenas" },
+  { slug: "placa-eletronica", id: "bef1e65a-161e-4d10-afc7-0563eeb43643", alt: "Detalhe macro de placa eletrônica com componentes" },
 ];
 
-const LICENCAS_OK = new Set(["cc0", "pdm", "by", "by-sa"]);
-
-async function buscar(q) {
-  const url = `https://api.openverse.org/v1/images/?q=${encodeURIComponent(q)}&license_type=commercial&page_size=12&mature=false`;
-  const res = await fetch(url, { headers: { "User-Agent": UA } });
+async function detalhe(id) {
+  const res = await fetch(`https://api.openverse.org/v1/images/${id}/`, { headers: { "User-Agent": UA } });
   if (!res.ok) return null;
-  const json = await res.json();
-  return (json.results || []).find(
-    (r) => LICENCAS_OK.has(r.license) && r.url && /\.(jpe?g|png)$/i.test(new URL(r.url).pathname),
-  );
+  return res.json();
 }
 
 async function baixar(url, destino) {
@@ -49,24 +45,23 @@ const main = async () => {
   if (!existsSync(DEST)) mkdirSync(DEST, { recursive: true });
   const manifesto = [];
 
-  for (const alvo of ALVOS) {
+  for (const item of CURADORIA) {
     try {
-      const foto = await buscar(alvo.q);
-      if (!foto) {
-        console.warn(`[fotos] sem resultado utilizável para "${alvo.q}"`);
+      const foto = await detalhe(item.id);
+      if (!foto?.url) {
+        console.warn(`[fotos] sem metadados: ${item.slug}`);
         continue;
       }
       const ext = new URL(foto.url).pathname.split(".").pop().toLowerCase();
-      const arquivo = `${alvo.slug}.${ext === "jpeg" ? "jpg" : ext}`;
-      const ok = await baixar(foto.url, resolve(DEST, arquivo));
-      if (!ok) {
-        console.warn(`[fotos] download falhou: ${alvo.slug}`);
+      const arquivo = `${item.slug}.${ext === "jpeg" ? "jpg" : ext}`;
+      if (!(await baixar(foto.url, resolve(DEST, arquivo)))) {
+        console.warn(`[fotos] download falhou: ${item.slug}`);
         continue;
       }
       manifesto.push({
-        slug: alvo.slug,
+        slug: item.slug,
         src: `/fotos/${arquivo}`,
-        alt: alvo.alt,
+        alt: item.alt,
         autor: foto.creator || "Autor não informado",
         autorUrl: foto.creator_url || "",
         origem: foto.foreign_landing_url || foto.url,
@@ -74,14 +69,14 @@ const main = async () => {
         licencaUrl: foto.license_url || "",
         fonte: foto.source || "openverse",
       });
-      console.log(`[fotos] ok ${alvo.slug} — ${foto.license}`);
+      console.log(`[fotos] ok ${item.slug} — ${foto.license}`);
     } catch (e) {
-      console.warn(`[fotos] erro em ${alvo.slug}: ${e.message}`);
+      console.warn(`[fotos] erro em ${item.slug}: ${e.message}`);
     }
   }
 
   const ts = `// GERADO por scripts/fetch-real-photos.mjs — não editar à mão.
-// Fotografias reais com licença comercial (Openverse). Nenhuma imagem de IA.
+// Fotografias reais com licença Creative Commons comercial. Nenhuma imagem de IA.
 
 export type FotoLicenciada = {
   slug: string;
@@ -97,6 +92,7 @@ export type FotoLicenciada = {
 
 export const FOTOS_LICENCIADAS: FotoLicenciada[] = ${JSON.stringify(manifesto, null, 2)};
 
+/** Fail-closed: componente só renderiza foto que exista no manifesto. */
 export const foto = (slug: string): FotoLicenciada | undefined =>
   FOTOS_LICENCIADAS.find((f) => f.slug === slug);
 `;

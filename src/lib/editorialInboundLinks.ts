@@ -27,6 +27,11 @@ const MAX_POR_PAGINA = 3;
 const MAPA: Record<string, EditorialInboundLink[]> = {
   "/servicos/upgrade-ssd-ram": [
     {
+      slug: "como-fazer-upgrade-ssd-nvme",
+      label: "Upgrade para SSD NVMe: quando compensa",
+      hint: "Como verificar compatibilidade e o que muda de fato no uso diário.",
+    },
+    {
       slug: "quando-trocar-hd-por-ssd",
       label: "Quando vale trocar o HD por SSD",
       hint: "Critérios técnicos para decidir entre manter o disco atual ou migrar para SSD.",
@@ -45,6 +50,11 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
     },
   ],
   "/servicos/recuperacao-de-dados": [
+    {
+      slug: "como-recuperar-dados-hd-com-defeito",
+      label: "Recuperação de dados de HD com defeito",
+      hint: "Diferença entre falha lógica e mecânica e o que evitar nos primeiros minutos.",
+    },
     {
       slug: "backup-como-proteger-seus-arquivos",
       label: "Backup: como proteger seus arquivos",

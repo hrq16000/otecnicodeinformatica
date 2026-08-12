@@ -129,6 +129,26 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Upgrade de SSD e memória",
     cover: "/blog/computador-lento-causas-solucoes.jpg",
   },
+  // ── Rodada 5A — dois procedimentos técnicos herdados reescritos do zero
+  // (texto-modelo e marca de origem removidos), com capas fotográficas reais.
+  {
+    slug: "como-recuperar-dados-hd-com-defeito",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/recuperacao-de-dados",
+    pilarLabel: "Recuperação de dados",
+    apoio: "/diagnostico-tecnico",
+    apoioLabel: "Como funciona o diagnóstico técnico",
+    cover: "/blog/como-recuperar-dados-hd-com-defeito.jpg",
+  },
+  {
+    slug: "como-fazer-upgrade-ssd-nvme",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/upgrade-ssd-ram",
+    pilarLabel: "Upgrade de SSD e memória",
+    apoio: "/servicos/formatacao",
+    apoioLabel: "Formatação e instalação do sistema",
+    cover: "/blog/como-fazer-upgrade-ssd-nvme.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

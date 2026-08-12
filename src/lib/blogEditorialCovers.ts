@@ -19,6 +19,18 @@ export interface EditorialCover {
 }
 
 export const EDITORIAL_COVERS: Record<string, EditorialCover> = {
+  "como-recuperar-dados-hd-com-defeito": {
+    src: "/blog/como-recuperar-dados-hd-com-defeito.jpg",
+    alt: "Disco rígido de notebook de 2,5 polegadas fora do equipamento, sobre superfície clara",
+    width: 1200,
+    height: 630,
+  },
+  "como-fazer-upgrade-ssd-nvme": {
+    src: "/blog/como-fazer-upgrade-ssd-nvme.jpg",
+    alt: "SSD NVMe no formato M.2 ao lado de um SSD M.2 SATA para comparação de tamanho",
+    width: 1200,
+    height: 630,
+  },
   "como-instalar-windows-11-do-zero": {
     src: "/blog/como-instalar-windows-11-do-zero.jpg",
     alt: "Pendrive com mídia de instalação conectado à lateral de um notebook sobre mesa clara",

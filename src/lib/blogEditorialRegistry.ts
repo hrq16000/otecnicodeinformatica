@@ -176,7 +176,43 @@ const WAVE_4Z: EditorialApproval[] = [
   },
 ];
 
+// Rodada 5A — dois procedimentos técnicos herdados REESCRITOS do zero:
+// o texto-modelo programático e a marca de origem foram removidos.
+// Capas são FOTOGRAFIAS REAIS licenciadas (Wikimedia Commons), sem IA.
+// Limite total de artigos indexáveis: 14.
+const WAVE_5A: EditorialApproval[] = [
+  {
+    slug: "como-recuperar-dados-hd-com-defeito",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 2.0",
+    imageAttribution:
+      "Foto: Brian Wong (Wikimedia Commons), CC BY-SA 2.0 — https://commons.wikimedia.org/wiki/File:Toshiba_Laptop_Hard_Drive.jpg",
+    notes:
+      "Reescrita integral na Onda 5A; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-fazer-upgrade-ssd-nvme",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC0 1.0",
+    imageAttribution:
+      "Foto: User5515 (Wikimedia Commons), CC0 1.0 — https://commons.wikimedia.org/wiki/File:256GB_2230_NVME_SSD_%2B_256GB_NGFF_SSD.jpg",
+    notes:
+      "Reescrita integral na Onda 5A; fact-check registrado em blogEditorialSources.ts; capa é fotografia real de domínio público (CC0), sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
+
   ...FIRST_WAVE_SLUGS.map((slug) => [
     slug,
     {
@@ -199,6 +235,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_4Y.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_4Z.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5A.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 

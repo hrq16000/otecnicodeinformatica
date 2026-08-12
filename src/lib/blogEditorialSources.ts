@@ -208,6 +208,26 @@ export const EDITORIAL_SOURCES: Record<string, EditorialSource> = {
 //     (vazio) em blogEditorialRegistry.ts.
 // ─────────────────────────────────────────────────────────────
 export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
+  "como-fazer-upgrade-ssd-nvme": {
+    slug: "como-fazer-upgrade-ssd-nvme",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5A: removido o texto-modelo herdado e a marca de origem. Sem promessa de ganho percentual, sem número instável de fabricante e sem indicação de modelo comercial. Compatibilidade tratada como verificação (slot M.2, linhas PCIe, boot na UEFI), não como afirmação universal. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-recuperar-dados-hd-com-defeito": {
+    slug: "como-recuperar-dados-hd-com-defeito",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Reescrito na Onda 5A: removido o texto-modelo herdado e a marca de origem. Declara explicitamente que recuperação de dados não tem garantia de sucesso; separa falha lógica de falha física; encaminha casos mecânicos a laboratório especializado. Sem taxa de sucesso, sem prazo e sem preço prometido.",
+  },
   "notebook-nao-liga-o-que-fazer": {
     slug: "notebook-nao-liga-o-que-fazer",
     sources: [],

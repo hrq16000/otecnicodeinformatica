@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { EditorialReferences } from "@/components/BlogPostFAQ";
 import windowsKb5074105Image from "@/assets/blog/windows-11-kb5074105-update.jpg";
+import { BRAND_NAME } from "@/lib/siteConfig";
 
 
 export type BlogPostContent = {
@@ -5291,7 +5292,7 @@ Description: Navegação web + DNS`}</code></pre>
         </ul>
 
         <h2>Precisa de Ajuda com Firewall Empresarial?</h2>
-        <p>A <strong>Helptec</strong> configura e mantém firewalls pfSense para empresas em Curitiba e região metropolitana. Desde a escolha do hardware até a configuração de VPN e IDS — cuidamos de toda a infraestrutura de segurança da sua rede.</p>
+        <p>A <strong>{BRAND_NAME}</strong> configura e mantém firewalls pfSense para empresas em Curitiba e região metropolitana. Desde a escolha do hardware até a configuração de VPN e IDS — cuidamos de toda a infraestrutura de segurança da sua rede.</p>
       </>
     ),
   },
@@ -5418,7 +5419,7 @@ Patch Panel porta 02 → Switch porta 02 → Ponto 2F-RH-P02`}</code></pre>
         </ul>
 
         <h2>Montagem Profissional de Rack em Curitiba</h2>
-        <p>A <strong>Helptec</strong> realiza montagem de rack, cabeamento estruturado e certificação de pontos de rede para empresas em Curitiba e região metropolitana. Garantimos organização, documentação e testes completos.</p>
+        <p>A <strong>{BRAND_NAME}</strong> realiza montagem de rack, cabeamento estruturado e certificação de pontos de rede para empresas em Curitiba e região metropolitana. Garantimos organização, documentação e testes completos.</p>
       </>
     ),
   },
@@ -5575,7 +5576,7 @@ Import-Csv "C:\\usuarios.csv" | ForEach-Object {
         </ul>
 
         <h2>Implantação de Active Directory em Curitiba</h2>
-        <p>A <strong>Helptec</strong> implanta e gerencia ambientes Active Directory para empresas em Curitiba e região metropolitana. Do planejamento à migração de usuários, GPOs e políticas de segurança — sua infraestrutura Windows em mãos experientes.</p>
+        <p>A <strong>{BRAND_NAME}</strong> implanta e gerencia ambientes Active Directory para empresas em Curitiba e região metropolitana. Do planejamento à migração de usuários, GPOs e políticas de segurança — sua infraestrutura Windows em mãos experientes.</p>
       </>
     ),
   },
@@ -5728,241 +5729,124 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Manutenção de Nobreak em Curitiba</h2>
-        <p>A <strong>Helptec</strong> realiza manutenção preventiva e corretiva de nobreaks para empresas em Curitiba e região metropolitana. Teste de autonomia, troca de bateria com descarte correto e dimensionamento adequado para sua infraestrutura.</p>
+        <p>A <strong>{BRAND_NAME}</strong> realiza manutenção preventiva e corretiva de nobreaks para empresas em Curitiba e região metropolitana. Teste de autonomia, troca de bateria com descarte correto e dimensionamento adequado para sua infraestrutura.</p>
       </>
     ),
   },
 
   "como-fazer-upgrade-ssd-nvme": {
-    title: "Como Fazer Upgrade Para SSD NVMe: Guia Técnico Completo",
-    excerpt: "Procedimento completo para migrar HD/SATA para SSD NVMe — clonagem, instalação física e configuração da BIOS.",
+    title: "Upgrade para SSD NVMe: quando compensa e como é feito",
+    excerpt: "Como saber se a sua placa aceita NVMe, o que muda de verdade no uso diário e quais são as etapas do serviço feito em bancada.",
     date: "2026-04-20",
     readTime: "11 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">Realizar <strong>fazer upgrade para ssd nvme</strong> exige procedimento técnico, ferramentas adequadas e atenção a detalhes que separam o trabalho amador do profissional. Neste guia, você vai aprender o passo a passo real usado em laboratórios de assistência técnica em Curitiba.</p>
+        <p className="lead">Trocar o disco por um SSD NVMe é uma das poucas intervenções que mudam a sensação de uso de um computador inteiro. Mas nem toda máquina aceita NVMe, e nem todo travamento vem do disco. Este guia explica como identificar se o upgrade se aplica ao seu caso, o que esperar do resultado e como o serviço é executado em bancada.</p>
 
-        <h2>Por Que o Procedimento Importa</h2>
-        <p>Trabalhar em hardware sem método é a principal causa de dano permanente em equipamentos. Pequenos descuidos — descarga eletrostática, parafuso errado, conector mal encaixado — podem transformar um serviço simples em um problema irreversível. Por isso, todo técnico profissional segue um <strong>checklist documentado</strong> antes, durante e depois de cada intervenção.</p>
-        <p>O custo médio de um erro evitável em manutenção de hardware varia entre R$ 200 e R$ 2.000, dependendo da peça danificada. Já o custo de seguir o procedimento correto é apenas o tempo de leitura deste artigo.</p>
+        <h2>O que diferencia um NVMe de um SSD comum</h2>
+        <p>Um SSD SATA conversa com a placa-mãe pelo mesmo barramento que os HDs usavam há mais de uma década. Um SSD NVMe usa linhas PCI Express diretamente, o que reduz muito a latência de cada leitura e permite várias filas de comandos em paralelo. Na prática, os dois eliminam o gargalo mecânico do HD; a diferença entre eles aparece principalmente em cópias grandes, compilação, edição de vídeo e abertura de projetos pesados.</p>
+        <p>Por isso a resposta honesta é: sair de HD para qualquer SSD é uma mudança que se percebe no primeiro boot. Sair de SSD SATA para NVMe é um ganho real, porém mais discreto em uso comum de navegador e pacote de escritório. Quando alguém promete que o NVMe vai "resolver tudo", desconfie — o disco é apenas um dos componentes envolvidos.</p>
 
-        <h2>Ferramentas e Materiais Necessários</h2>
-        <p>Antes de começar, separe todo o material. Interromper o procedimento no meio para buscar uma chave Phillips é como abrir uma cirurgia sem o instrumental.</p>
+        <h2>Antes de comprar: a máquina aceita NVMe?</h2>
+        <p>Três verificações resolvem a dúvida antes de qualquer compra:</p>
         <ul>
-          <li><strong>Pulseira antiestática</strong> (ESD) — protege componentes contra descarga eletrostática, principal causa silenciosa de morte de placas</li>
-          <li><strong>Chaves Phillips e Torx</strong> — kit de precisão com bits magnéticos, indispensável para notebooks modernos</li>
-          <li><strong>Pasta térmica de qualidade</strong> — Arctic MX-6, Noctua NT-H2 ou Thermal Grizzly Kryonaut (evite genéricas)</li>
-          <li><strong>Álcool isopropílico 99,9%</strong> — para limpeza de pasta térmica antiga e contatos oxidados</li>
-          <li><strong>Pincel antiestático</strong> e pano de microfibra — limpeza segura de placas e dissipadores</li>
-          <li><strong>Pinça de precisão</strong> — manuseio de conectores flat cable e parafusos pequenos</li>
-          <li><strong>Pendrive com Ventoy</strong> — para boot de utilitários (MemTest86, Hiren's BootCD, Hard Disk Sentinel)</li>
+          <li><strong>Existe slot M.2?</strong> Placas e notebooks anteriores a essa geração podem não ter nenhum, ou ter apenas um slot com chave B destinado a SSD M.2 SATA.</li>
+          <li><strong>O slot é PCIe ou apenas SATA?</strong> O conector é parecido, mas nem todo M.2 entrega linhas PCIe. O manual da placa ou do modelo do notebook informa isso.</li>
+          <li><strong>A UEFI enxerga discos NVMe para boot?</strong> Algumas máquinas de transição reconhecem o disco como armazenamento, mas não conseguem iniciar o sistema a partir dele.</li>
         </ul>
-        <p>Investir R$ 300-500 num kit profissional retorna em economia já no primeiro serviço evitando danos.</p>
+        <p>Também vale conferir o comprimento suportado (2280 é o mais comum, mas notebooks compactos usam 2230 ou 2242) e se há folga para o dissipador. Em desktops, o slot M.2 costuma compartilhar linhas com uma porta SATA: ocupar o M.2 pode desativar automaticamente uma porta, o que surpreende quem tem HD secundário instalado.</p>
 
-        <h2>Preparação do Ambiente</h2>
-        <p>O local de trabalho influencia diretamente a qualidade do serviço. Profissionais sérios trabalham em ambientes controlados — não em cima do sofá da sala.</p>
+        <h2>Quando o upgrade não é a resposta</h2>
+        <p>Existem situações em que instalar um NVMe apenas troca a peça errada:</p>
         <ul>
-          <li><strong>Bancada plana e iluminada</strong> — preferencialmente com manta antiestática</li>
-          <li><strong>Recipientes para parafusos</strong> — separe por etapa da desmontagem (use bandejas magnéticas ou organizadores)</li>
-          <li><strong>Documentação aberta</strong> — manual de serviço do equipamento, vídeos do iFixit, fórum específico</li>
-          <li><strong>Câmera ou celular</strong> — fotografe cada etapa antes de desconectar (especialmente conectores flat)</li>
-          <li><strong>Sem animais ou crianças</strong> — peças pequenas se perdem em frações de segundo</li>
-          <li><strong>Temperatura ambiente</strong> — entre 18-25°C, sem umidade alta (problemas comuns em Curitiba no inverno)</li>
+          <li>Memória insuficiente para a rotina de trabalho — o sistema continua recorrendo ao arquivo de paginação e a lentidão volta.</li>
+          <li>Superaquecimento com redução de frequência do processador: a máquina fica rápida por alguns minutos e cai de novo.</li>
+          <li>Sistema comprometido por programas indesejados ou por dezenas de itens em inicialização automática.</li>
+          <li>Placa com defeito intermitente, que se manifesta como travamento e é frequentemente confundido com disco lento.</li>
         </ul>
+        <p>É por isso que, em atendimento, o disco só é indicado depois de um diagnóstico que observa temperatura, consumo de memória, integridade do disco atual e comportamento sob carga. Trocar antes de medir é o caminho mais rápido para gastar sem resolver.</p>
 
-        <h2>Diagnóstico Inicial</h2>
-        <p>Nunca comece um procedimento sem entender o estado atual do equipamento. O diagnóstico determina se a intervenção planejada é realmente a correta — ou se você está prestes a substituir uma peça boa enquanto o problema real é outro.</p>
-        <p>Documente:</p>
+        <h2>Como o serviço é executado em bancada</h2>
+        <h3>1. Leitura de saúde do disco atual</h3>
+        <p>A primeira etapa é verificar os indicadores de saúde do disco de origem. Um disco com setores realocados em crescimento ou com erros de leitura muda toda a estratégia: nesse caso, não se clona — copiam-se os dados enquanto o disco ainda responde, e a instalação do sistema é feita do zero no disco novo.</p>
+        <h3>2. Decisão entre clonar e instalar limpo</h3>
+        <p>Clonar preserva programas, licenças locais e configurações, e é a opção mais confortável quando o sistema está saudável. Instalação limpa é preferível quando o sistema já acumulou anos de camadas, drivers antigos e falhas de atualização. As duas rotas são apresentadas ao cliente com a diferença de tempo envolvida antes da execução.</p>
+        <h3>3. Cópia de segurança antes de tocar no hardware</h3>
+        <p>Nenhum disco é aberto ou substituído sem cópia prévia dos arquivos do usuário em mídia separada. Esse passo é inegociável, porque é justamente durante uma migração que aparecem os defeitos silenciosos de um disco antigo.</p>
+        <h3>4. Instalação física</h3>
+        <p>O equipamento é desligado da tomada e, em notebooks, tem a bateria desconectada quando o projeto permite. O SSD entra em ângulo no slot M.2, é apoiado e só então parafusado — pressionar o módulo para baixo antes de encaixar é o erro que mais danifica o conector. Quando existe dissipador ou espuma térmica de fábrica, o contato é refeito.</p>
+        <h3>5. Configuração de firmware</h3>
+        <p>Com o disco instalado, confere-se na UEFI se ele foi reconhecido, se o modo de operação está correto e se a ordem de inicialização aponta para o disco novo. Em máquinas que vieram com criptografia de disco ativa, a chave de recuperação precisa estar em mãos antes de qualquer alteração — sem ela, o sistema pode não iniciar após a mudança.</p>
+        <h3>6. Testes e devolução</h3>
+        <p>Antes de devolver, o equipamento passa por reinicializações sucessivas, verificação de temperatura em carga, checagem de espaço e conferência de que os arquivos do usuário estão íntegros. O disco antigo é entregue ao cliente ou, mediante autorização por escrito, higienizado.</p>
+
+        <h2>Detalhes que evitam retrabalho</h2>
         <ul>
-          <li>Modelo exato do equipamento e número de série</li>
-          <li>Sintomas relatados pelo usuário e quando começaram</li>
-          <li>Última intervenção realizada (atualização, queda, contato com líquido)</li>
-          <li>Estado físico aparente — pontos de impacto, sinais de líquido, cheiro de queimado</li>
-          <li>Comportamento ao ligar — LEDs, ventoinhas, beeps, mensagens de POST</li>
-        </ul>
-        <p>Esse registro vale ouro: serve de proteção em caso de discussão sobre danos pré-existentes e ajuda a refinar o diagnóstico se o problema persistir.</p>
-
-        <h2>Procedimento Passo a Passo</h2>
-        <p>Com tudo preparado, execute o procedimento na ordem correta. <strong>Pular etapas é o caminho mais curto para o retrabalho.</strong></p>
-        <ol>
-          <li><strong>Backup completo dos dados</strong> — antes de qualquer intervenção em hardware com armazenamento, copie tudo. HD/SSD podem morrer durante o processo.</li>
-          <li><strong>Desligue completamente</strong> — não basta hibernar. Desconecte da tomada e remova a bateria (se removível). Aguarde 30 segundos para descarga residual.</li>
-          <li><strong>Aterre-se</strong> — toque numa parte metálica aterrada antes de manusear componentes. Use pulseira ESD em peças sensíveis (RAM, GPU, SSD NVMe).</li>
-          <li><strong>Desmontagem documentada</strong> — fotografe cada parafuso retirado e cada conector desconectado. Use bandejas separadas por etapa.</li>
-          <li><strong>Execução técnica</strong> — siga o procedimento específico para o tipo de intervenção. Não force nada. Se está duro, há algo errado.</li>
-          <li><strong>Limpeza durante a montagem</strong> — aproveite o equipamento aberto para limpeza completa de coolers, dissipadores e contatos.</li>
-          <li><strong>Remontagem na ordem inversa</strong> — sem pular conectores. Confira cada flat cable e cada parafuso antes de fechar.</li>
-          <li><strong>Teste antes de fechar definitivamente</strong> — ligue com a tampa solta e verifique se tudo funciona. Só então parafuse tudo.</li>
-        </ol>
-
-        <h2>Erros Comuns Que Devem Ser Evitados</h2>
-        <p>Mesmo técnicos experientes cometem erros recorrentes. Conhecê-los previamente reduz drasticamente as chances de problema.</p>
-        <ul>
-          <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
-          <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
-          <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
-          <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
-          <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
+          <li><strong>Espaço reservado:</strong> manter uma folga livre no SSD ajuda o controlador a distribuir a escrita e preserva a estabilidade de desempenho.</li>
+          <li><strong>Firmware do SSD:</strong> alguns modelos receberam correções de estabilidade depois do lançamento; conferir a versão evita problemas que parecem defeito de placa.</li>
+          <li><strong>Temperatura:</strong> NVMe em notebook fino esquenta. Sem contato térmico adequado, ele reduz a velocidade justamente nas tarefas longas.</li>
+          <li><strong>Backup continua necessário:</strong> SSD falha de forma diferente do HD — costuma avisar menos. O upgrade não substitui rotina de cópia.</li>
         </ul>
 
-        <h2>Validação e Testes Pós-Procedimento</h2>
-        <p>O serviço só está concluído quando passa nos testes. Profissionais entregam o equipamento com relatório de testes, não com base em "tá funcionando".</p>
-        <ul>
-          <li><strong>Teste de boot completo</strong> — entrar no SO sem erros, sem mensagens de POST anormais</li>
-          <li><strong>Stress test de CPU</strong> — Cinebench R23 ou Prime95 por 30 minutos, monitorando temperatura</li>
-          <li><strong>Stress test de GPU</strong> — FurMark ou 3DMark por 20 minutos (em GPUs dedicadas)</li>
-          <li><strong>Teste de memória RAM</strong> — MemTest86 por pelo menos um ciclo completo</li>
-          <li><strong>Teste de disco</strong> — CrystalDiskInfo (saúde) e CrystalDiskMark (performance)</li>
-          <li><strong>Teste de carga prolongada</strong> — uso real por algumas horas antes de devolver ao cliente</li>
-        </ul>
-
-        <h2>Quando Chamar um Profissional</h2>
-        <p>Há situações em que tentar resolver sozinho não compensa. O custo do erro é maior que o do serviço técnico.</p>
-        <ul>
-          <li>Equipamento ainda em garantia — abrir cancela a cobertura do fabricante</li>
-          <li>Problema envolve solda em placa-mãe (BGA, SMD, microsoldagem)</li>
-          <li>Recuperação de dados de HD com falha mecânica (cabeça travada, motor queimado)</li>
-          <li>Contato com líquido — cada minuto sem limpeza profissional causa mais corrosão</li>
-          <li>Falta de ferramenta específica (estação de retrabalho, microscópio, oscilador)</li>
-          <li>Quando o equipamento tem valor sentimental ou contém dados insubstituíveis</li>
-        </ul>
-
-        <h2>Garantia e Documentação do Serviço</h2>
-        <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
-        <ul>
-          <li>Diagnóstico inicial documentado</li>
-          <li>Lista de peças trocadas (com nota fiscal das peças)</li>
-          <li>Procedimentos realizados</li>
-          <li>Testes executados e resultados</li>
-          <li>Garantia mínima de 90 dias para serviços e peças</li>
-        </ul>
-
-        <h2>Fazendo Fazer Upgrade Para SSD NVMe em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer upgrade para ssd nvme em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
-        <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
-
+        <h2>Quando levar para atendimento técnico</h2>
+        <p>Faz sentido buscar ajuda quando o notebook exige desmontagem completa para chegar ao slot, quando o sistema está com criptografia ativa, quando o disco atual apresenta erros de leitura ou quando os dados não podem ser perdidos em hipótese alguma. Nesses cenários, o custo do erro é maior do que o do serviço.</p>
+        <p>Se quiser conferir antes se o gargalo é mesmo o disco, o caminho é o <Link to="/diagnostico-tecnico">diagnóstico técnico</Link>. Para o serviço de troca e migração, veja <Link to="/servicos/upgrade-ssd-ram">instalação de SSD e upgrade de memória</Link>; se a intenção for reinstalar o sistema no disco novo, a página de <Link to="/servicos/formatacao">formatação e instalação</Link> explica o procedimento.</p>
       </>
     ),
   },
-
   "como-recuperar-dados-hd-com-defeito": {
-    title: "Como Recuperar Dados de HD Com Defeito: Procedimento Profissional",
-    excerpt: "Técnicas reais usadas em laboratório para recuperar arquivos de discos com setores defeituosos ou que não montam.",
+    title: "Recuperação de dados de HD com defeito: o que é possível",
+    excerpt: "Como diferenciar falha lógica de falha mecânica, o que fazer nos primeiros minutos e por que insistir em ligar o disco reduz a chance de recuperar.",
     date: "2026-04-20",
     readTime: "12 min",
     category: "Procedimentos Técnicos",
     content: (
       <>
-        <p className="lead">Realizar <strong>recuperar dados de hd com defeito</strong> exige procedimento técnico, ferramentas adequadas e atenção a detalhes que separam o trabalho amador do profissional. Neste guia, você vai aprender o passo a passo real usado em laboratórios de assistência técnica em Curitiba.</p>
+        <p className="lead">Quando um disco para de responder, a decisão tomada nos primeiros minutos costuma pesar mais do que qualquer ferramenta usada depois. Este guia explica como identificar o tipo de falha, o que evitar antes de procurar ajuda e como um serviço de recuperação é conduzido — sem promessa de resultado, porque recuperação de dados não tem garantia de sucesso.</p>
 
-        <h2>Por Que o Procedimento Importa</h2>
-        <p>Trabalhar em hardware sem método é a principal causa de dano permanente em equipamentos. Pequenos descuidos — descarga eletrostática, parafuso errado, conector mal encaixado — podem transformar um serviço simples em um problema irreversível. Por isso, todo técnico profissional segue um <strong>checklist documentado</strong> antes, durante e depois de cada intervenção.</p>
-        <p>O custo médio de um erro evitável em manutenção de hardware varia entre R$ 200 e R$ 2.000, dependendo da peça danificada. Já o custo de seguir o procedimento correto é apenas o tempo de leitura deste artigo.</p>
+        <h2>Primeiro: pare de usar o disco</h2>
+        <p>Cada tentativa de ligar um disco que já apresenta falha pode transformar um problema recuperável em perda definitiva. Se o disco faz ruído repetitivo, some do sistema durante o uso ou ficou lento a ponto de travar o computador inteiro, o passo correto é desligar e não repetir tentativas de boot.</p>
+        <p>Também evite formatar "para ver se resolve", instalar sistema por cima ou rodar utilitários de correção de disco. Ferramentas de reparo trabalham reescrevendo estruturas — exatamente o que se quer preservar quando o objetivo é recuperar arquivos.</p>
 
-        <h2>Ferramentas e Materiais Necessários</h2>
-        <p>Antes de começar, separe todo o material. Interromper o procedimento no meio para buscar uma chave Phillips é como abrir uma cirurgia sem o instrumental.</p>
+        <h2>Falha lógica e falha física: o divisor de águas</h2>
+        <p>Chamamos de <strong>falha lógica</strong> quando o hardware ainda responde, mas a estrutura de arquivos foi comprometida: partição apagada, tabela corrompida, exclusão acidental, formatação indevida, interrupção de energia durante escrita. Nesses casos, o disco é reconhecido, aceita leitura e a recuperação acontece por software, sempre a partir de uma cópia — nunca do original.</p>
+        <p>Chamamos de <strong>falha física</strong> quando há dano no próprio conjunto mecânico ou eletrônico: motor que não gira, cabeças de leitura danificadas, placa lógica queimada, conector rompido. O sinal clássico é ruído cíclico, clique repetido ou ausência total de reconhecimento. Aqui, software não faz nada — e insistir apenas espalha o dano.</p>
+        <p>Existe ainda uma faixa intermediária muito comum: o disco funciona, mas com setores instáveis. Ele monta, copia parte dos arquivos e trava em determinados trechos. É o cenário em que a estratégia de cópia faz toda a diferença.</p>
+
+        <h2>Sinais que ajudam a classificar antes de abrir</h2>
         <ul>
-          <li><strong>Pulseira antiestática</strong> (ESD) — protege componentes contra descarga eletrostática, principal causa silenciosa de morte de placas</li>
-          <li><strong>Chaves Phillips e Torx</strong> — kit de precisão com bits magnéticos, indispensável para notebooks modernos</li>
-          <li><strong>Pasta térmica de qualidade</strong> — Arctic MX-6, Noctua NT-H2 ou Thermal Grizzly Kryonaut (evite genéricas)</li>
-          <li><strong>Álcool isopropílico 99,9%</strong> — para limpeza de pasta térmica antiga e contatos oxidados</li>
-          <li><strong>Pincel antiestático</strong> e pano de microfibra — limpeza segura de placas e dissipadores</li>
-          <li><strong>Pinça de precisão</strong> — manuseio de conectores flat cable e parafusos pequenos</li>
-          <li><strong>Pendrive com Ventoy</strong> — para boot de utilitários (MemTest86, Hiren's BootCD, Hard Disk Sentinel)</li>
-        </ul>
-        <p>Investir R$ 300-500 num kit profissional retorna em economia já no primeiro serviço evitando danos.</p>
-
-        <h2>Preparação do Ambiente</h2>
-        <p>O local de trabalho influencia diretamente a qualidade do serviço. Profissionais sérios trabalham em ambientes controlados — não em cima do sofá da sala.</p>
-        <ul>
-          <li><strong>Bancada plana e iluminada</strong> — preferencialmente com manta antiestática</li>
-          <li><strong>Recipientes para parafusos</strong> — separe por etapa da desmontagem (use bandejas magnéticas ou organizadores)</li>
-          <li><strong>Documentação aberta</strong> — manual de serviço do equipamento, vídeos do iFixit, fórum específico</li>
-          <li><strong>Câmera ou celular</strong> — fotografe cada etapa antes de desconectar (especialmente conectores flat)</li>
-          <li><strong>Sem animais ou crianças</strong> — peças pequenas se perdem em frações de segundo</li>
-          <li><strong>Temperatura ambiente</strong> — entre 18-25°C, sem umidade alta (problemas comuns em Curitiba no inverno)</li>
+          <li><strong>Clique rítmico:</strong> típico de problema no conjunto de cabeças. Desligue imediatamente.</li>
+          <li><strong>Zumbido sem giro:</strong> normalmente motor travado ou falha de alimentação na placa.</li>
+          <li><strong>Reconhecido, mas com capacidade errada:</strong> costuma indicar defeito de firmware ou da placa lógica.</li>
+          <li><strong>Cópias que travam sempre no mesmo arquivo:</strong> setores defeituosos localizados.</li>
+          <li><strong>Sumiço de partições em SSD:</strong> comportamento distinto do HD; o controlador pode entrar em modo de proteção e o disco fica somente leitura ou invisível.</li>
         </ul>
 
-        <h2>Diagnóstico Inicial</h2>
-        <p>Nunca comece um procedimento sem entender o estado atual do equipamento. O diagnóstico determina se a intervenção planejada é realmente a correta — ou se você está prestes a substituir uma peça boa enquanto o problema real é outro.</p>
-        <p>Documente:</p>
-        <ul>
-          <li>Modelo exato do equipamento e número de série</li>
-          <li>Sintomas relatados pelo usuário e quando começaram</li>
-          <li>Última intervenção realizada (atualização, queda, contato com líquido)</li>
-          <li>Estado físico aparente — pontos de impacto, sinais de líquido, cheiro de queimado</li>
-          <li>Comportamento ao ligar — LEDs, ventoinhas, beeps, mensagens de POST</li>
-        </ul>
-        <p>Esse registro vale ouro: serve de proteção em caso de discussão sobre danos pré-existentes e ajuda a refinar o diagnóstico se o problema persistir.</p>
+        <h2>Como o trabalho é conduzido em bancada</h2>
+        <h3>1. Avaliação sem escrita</h3>
+        <p>O disco é conectado em uma porta configurada para leitura e observa-se se ele estabiliza, quanto tempo leva para responder e o que os indicadores de saúde relatam. Nada é gravado no disco de origem em nenhum momento.</p>
+        <h3>2. Imagem setor a setor</h3>
+        <p>Quando o disco sustenta leitura, a prioridade é gerar uma imagem completa em outra mídia. Trabalhar sobre a imagem protege o original e permite repetir tentativas sem novo desgaste. Em discos instáveis, a leitura é feita por blocos, adiando as áreas problemáticas para o fim — muitas vezes é isso que salva a maior parte dos arquivos.</p>
+        <h3>3. Reconstrução da estrutura</h3>
+        <p>Com a imagem em mãos, a estrutura de arquivos é reconstruída. Quando não há metadados aproveitáveis, resta a recuperação por assinatura de arquivo: os arquivos voltam pelo conteúdo, geralmente sem os nomes e pastas originais.</p>
+        <h3>4. Conferência do que foi recuperado</h3>
+        <p>Arquivo recuperado que não abre não conta como recuperado. Documentos, fotos e bancos de dados são abertos por amostragem antes de qualquer entrega, e o cliente recebe a relação real do que foi obtido.</p>
+        <h3>5. Entrega em mídia nova</h3>
+        <p>Os dados são entregues em mídia diferente da que falhou. Devolver arquivos para o mesmo disco é repetir a condição que causou o problema.</p>
 
-        <h2>Procedimento Passo a Passo</h2>
-        <p>Com tudo preparado, execute o procedimento na ordem correta. <strong>Pular etapas é o caminho mais curto para o retrabalho.</strong></p>
-        <ol>
-          <li><strong>Backup completo dos dados</strong> — antes de qualquer intervenção em hardware com armazenamento, copie tudo. HD/SSD podem morrer durante o processo.</li>
-          <li><strong>Desligue completamente</strong> — não basta hibernar. Desconecte da tomada e remova a bateria (se removível). Aguarde 30 segundos para descarga residual.</li>
-          <li><strong>Aterre-se</strong> — toque numa parte metálica aterrada antes de manusear componentes. Use pulseira ESD em peças sensíveis (RAM, GPU, SSD NVMe).</li>
-          <li><strong>Desmontagem documentada</strong> — fotografe cada parafuso retirado e cada conector desconectado. Use bandejas separadas por etapa.</li>
-          <li><strong>Execução técnica</strong> — siga o procedimento específico para o tipo de intervenção. Não force nada. Se está duro, há algo errado.</li>
-          <li><strong>Limpeza durante a montagem</strong> — aproveite o equipamento aberto para limpeza completa de coolers, dissipadores e contatos.</li>
-          <li><strong>Remontagem na ordem inversa</strong> — sem pular conectores. Confira cada flat cable e cada parafuso antes de fechar.</li>
-          <li><strong>Teste antes de fechar definitivamente</strong> — ligue com a tampa solta e verifique se tudo funciona. Só então parafuse tudo.</li>
-        </ol>
+        <h2>O que exige laboratório especializado</h2>
+        <p>Casos com falha mecânica confirmada — cabeças danificadas, motor travado, discos que sofreram queda ou contato com líquido — exigem abertura em ambiente controlado e peças doadoras compatíveis. Isso não é feito em bancada comum, e qualquer tentativa caseira de abrir o disco encerra as chances. Nesses casos, o papel do atendimento é diagnosticar corretamente, explicar a situação e encaminhar, deixando claro que o custo e o prazo são maiores.</p>
 
-        <h2>Erros Comuns Que Devem Ser Evitados</h2>
-        <p>Mesmo técnicos experientes cometem erros recorrentes. Conhecê-los previamente reduz drasticamente as chances de problema.</p>
-        <ul>
-          <li><strong>Excesso de pasta térmica</strong> — uma quantidade do tamanho de um grão de arroz é suficiente. Excesso prejudica a dissipação.</li>
-          <li><strong>Apertar parafusos demais</strong> — especialmente em notebooks, pode quebrar o plástico ou empenar a placa</li>
-          <li><strong>Favaliar o valor conectores</strong> — flat cables têm orientação específica. Se está duro, está errado.</li>
-          <li><strong>Misturar parafusos</strong> — usar parafuso longo onde deveria ser curto pode perfurar componentes internos</li>
-          <li><strong>Trabalhar com o equipamento ligado</strong> — exceto em testes específicos, sempre desligue. Curtos acidentais são fatais.</li>
-          <li><strong>Pular o teste pós-procedimento</strong> — fechar tudo sem testar é receita para retrabalho</li>
-        </ul>
+        <h2>Expectativa realista</h2>
+        <p>Recuperação de dados é trabalho de probabilidade, não de certeza. Um mesmo sintoma pode terminar em recuperação integral ou em perda definitiva, e isso só fica conhecido depois da avaliação. Por isso, o compromisso possível é de método e transparência: avaliar, informar o que foi encontrado, dizer o que pode ser tentado e não cobrar por promessa que não pode ser sustentada.</p>
+        <p>E a lição que aparece em quase todo atendimento: o custo de uma rotina de cópia é sempre menor que o de uma tentativa de recuperação. Vale ler o guia de <Link to="/blog/backup-como-proteger-seus-arquivos">backup para proteger seus arquivos</Link> antes de precisar deste aqui.</p>
 
-        <h2>Validação e Testes Pós-Procedimento</h2>
-        <p>O serviço só está concluído quando passa nos testes. Profissionais entregam o equipamento com relatório de testes, não com base em "tá funcionando".</p>
-        <ul>
-          <li><strong>Teste de boot completo</strong> — entrar no SO sem erros, sem mensagens de POST anormais</li>
-          <li><strong>Stress test de CPU</strong> — Cinebench R23 ou Prime95 por 30 minutos, monitorando temperatura</li>
-          <li><strong>Stress test de GPU</strong> — FurMark ou 3DMark por 20 minutos (em GPUs dedicadas)</li>
-          <li><strong>Teste de memória RAM</strong> — MemTest86 por pelo menos um ciclo completo</li>
-          <li><strong>Teste de disco</strong> — CrystalDiskInfo (saúde) e CrystalDiskMark (performance)</li>
-          <li><strong>Teste de carga prolongada</strong> — uso real por algumas horas antes de devolver ao cliente</li>
-        </ul>
-
-        <h2>Quando Chamar um Profissional</h2>
-        <p>Há situações em que tentar resolver sozinho não compensa. O custo do erro é maior que o do serviço técnico.</p>
-        <ul>
-          <li>Equipamento ainda em garantia — abrir cancela a cobertura do fabricante</li>
-          <li>Problema envolve solda em placa-mãe (BGA, SMD, microsoldagem)</li>
-          <li>Recuperação de dados de HD com falha mecânica (cabeça travada, motor queimado)</li>
-          <li>Contato com líquido — cada minuto sem limpeza profissional causa mais corrosão</li>
-          <li>Falta de ferramenta específica (estação de retrabalho, microscópio, oscilador)</li>
-          <li>Quando o equipamento tem valor sentimental ou contém dados insubstituíveis</li>
-        </ul>
-
-        <h2>Garantia e Documentação do Serviço</h2>
-        <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
-        <ul>
-          <li>Diagnóstico inicial documentado</li>
-          <li>Lista de peças trocadas (com nota fiscal das peças)</li>
-          <li>Procedimentos realizados</li>
-          <li>Testes executados e resultados</li>
-          <li>Garantia mínima de 90 dias para serviços e peças</li>
-        </ul>
-
-        <h2>Fazendo Recuperar Dados de HD Com Defeito em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza recuperar dados de hd com defeito em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
-        <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
-
+        <h2>Próximo passo</h2>
+        <p>Se o disco ainda está conectado ao computador, desligue-o. Para avaliação, veja como funciona a <Link to="/servicos/recuperacao-de-dados">recuperação de dados</Link> e o que é observado no <Link to="/diagnostico-tecnico">diagnóstico técnico</Link>. Se os arquivos já estão salvos e o objetivo é voltar a usar a máquina, a página de <Link to="/servicos/upgrade-ssd-ram">troca de disco e upgrade</Link> descreve o serviço.</p>
       </>
     ),
   },
-
   "como-trocar-tela-notebook-passo-a-passo": {
     title: "Como Trocar a Tela do Notebook: Passo a Passo Profissional",
     excerpt: "Guia técnico para identificar a tela correta, desmontar com segurança e instalar a nova sem danificar o flat cable.",
@@ -6061,7 +5945,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
 
         <h2>Garantia e Documentação do Serviço</h2>
         <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
+        <p>Em Curitiba, a {BRAND_NAME} emite ordem de serviço completa com:</p>
         <ul>
           <li>Diagnóstico inicial documentado</li>
           <li>Lista de peças trocadas (com nota fiscal das peças)</li>
@@ -6071,7 +5955,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Trocar a Tela do Notebook em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza trocar a tela do notebook em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>{BRAND_NAME}</strong> realiza trocar a tela do notebook em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6176,7 +6060,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
 
         <h2>Garantia e Documentação do Serviço</h2>
         <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
+        <p>Em Curitiba, a {BRAND_NAME} emite ordem de serviço completa com:</p>
         <ul>
           <li>Diagnóstico inicial documentado</li>
           <li>Lista de peças trocadas (com nota fiscal das peças)</li>
@@ -6186,7 +6070,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Fazer Backup Completo do Windows 11 em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer backup completo do windows 11 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>{BRAND_NAME}</strong> realiza fazer backup completo do windows 11 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6373,7 +6257,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
 
         <h2>Garantia e Documentação do Serviço</h2>
         <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
+        <p>Em Curitiba, a {BRAND_NAME} emite ordem de serviço completa com:</p>
         <ul>
           <li>Diagnóstico inicial documentado</li>
           <li>Lista de peças trocadas (com nota fiscal das peças)</li>
@@ -6383,7 +6267,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Resolver Tela Azul do Windows (BSOD) em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza resolver tela azul do windows (bsod) em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>{BRAND_NAME}</strong> realiza resolver tela azul do windows (bsod) em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6488,7 +6372,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
 
         <h2>Garantia e Documentação do Serviço</h2>
         <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
+        <p>Em Curitiba, a {BRAND_NAME} emite ordem de serviço completa com:</p>
         <ul>
           <li>Diagnóstico inicial documentado</li>
           <li>Lista de peças trocadas (com nota fiscal das peças)</li>
@@ -6498,7 +6382,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Fazer Overclock de CPU com Segurança em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza fazer overclock de cpu com segurança em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>{BRAND_NAME}</strong> realiza fazer overclock de cpu com segurança em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6603,7 +6487,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
 
         <h2>Garantia e Documentação do Serviço</h2>
         <p>Todo serviço técnico profissional vem com <strong>garantia escrita</strong> e documentação. Se o serviço não tem nota fiscal, ordem de serviço e prazo de garantia, não é serviço profissional.</p>
-        <p>Em Curitiba, a Helptec emite ordem de serviço completa com:</p>
+        <p>Em Curitiba, a {BRAND_NAME} emite ordem de serviço completa com:</p>
         <ul>
           <li>Diagnóstico inicial documentado</li>
           <li>Lista de peças trocadas (com nota fiscal das peças)</li>
@@ -6613,7 +6497,7 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         </ul>
 
         <h2>Fazendo Montar um PC Gamer em 2026 em Curitiba</h2>
-        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>Helptec</strong> realiza montar um pc gamer em 2026 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
+        <p>Se você prefere deixar o serviço com quem faz isso todos os dias, a <strong>{BRAND_NAME}</strong> realiza montar um pc gamer em 2026 em Curitiba e região metropolitana. Atendimento a domicílio, laboratório próprio, garantia escrita e valor transparente antes da execução.</p>
         <p>Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande. Diagnóstico via WhatsApp em até 5 minutos.</p>
 
       </>
@@ -6733,7 +6617,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -6853,7 +6737,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -6973,7 +6857,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7093,7 +6977,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7213,7 +7097,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7333,7 +7217,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7453,7 +7337,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7573,7 +7457,7 @@ crontab -e
 # adicione: 0 3 * * 0 /caminho/manutencao.sh > /var/log/manut.log 2>&1`}</code></pre>
 
         <h2>Suporte Linux em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece suporte profissional para servidores e desktops Linux em Curitiba e região. Configuração de servidores web, e-mail, samba, firewall, monitoramento, backup e migração de Windows para Linux. Atendemos empresas de todos os portes com SLA definido e técnicos certificados.</p>
         <p>Cobertura: Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande.</p>
 
       </>
@@ -7684,7 +7568,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -7794,7 +7678,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -7904,7 +7788,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8014,7 +7898,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8124,7 +8008,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8234,7 +8118,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8344,7 +8228,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8454,7 +8338,7 @@ crontab -e
         </ul>
 
         <h2>Suporte e Consultoria em IA em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria em implementação de IA para empresas de Curitiba e região. Configuração de modelos locais (Ollama, LM Studio), integração com sistemas existentes, treinamento de equipes e desenvolvimento de soluções customizadas. Atendimento presencial em Curitiba, São José dos Pinhais, Pinhais, Colombo e demais cidades da região metropolitana.</p>
 
       </>
     ),
@@ -8580,7 +8464,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -8706,7 +8590,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -8832,7 +8716,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -8958,7 +8842,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -9084,7 +8968,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -9210,7 +9094,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -9336,7 +9220,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),
@@ -9462,7 +9346,7 @@ crontab -e
         </ul>
 
         <h2>Suporte em Segurança em Curitiba</h2>
-        <p>A <strong>Helptec</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
+        <p>A <strong>{BRAND_NAME}</strong> oferece consultoria e implementação de segurança digital para empresas em Curitiba e região metropolitana. Auditoria, hardening, configuração de firewall, implementação de backup, treinamento de usuários e resposta a incidentes. Atendemos Curitiba, São José dos Pinhais, Pinhais, Colombo, Almirante Tamandaré, Araucária, Campo Largo, Campo Magro, Piraquara, Quatro Barras e Fazenda Rio Grande com técnicos certificados em segurança ofensiva e defensiva.</p>
 
       </>
     ),

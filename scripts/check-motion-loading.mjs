@@ -52,6 +52,45 @@ const foto = ler("src/components/FotoLicenciadaImg.tsx");
 if (!foto.includes("SmartImage")) erros.push("FotoLicenciadaImg não usa SmartImage");
 if (!foto.includes("alt={f.alt}")) erros.push("FotoLicenciadaImg perdeu o alt da foto licenciada");
 
+// ONDA 4W — placeholders de carregamento padronizados no token `.skel`
+const primitivas = [
+  ["src/components/Skeleton.tsx", ["SkeletonCard", "SkeletonGrid", "skel"]],
+  ["src/components/ui/skeleton.tsx", ["skel"]],
+];
+for (const [arquivo, tokens] of primitivas) {
+  const conteudo = ler(arquivo);
+  if (/animate-pulse/.test(conteudo)) {
+    erros.push(`${arquivo} voltou a usar animate-pulse ad-hoc em vez do token .skel`);
+  }
+  for (const t of tokens) {
+    if (conteudo.includes(t)) ok.push(`${arquivo} ${t}`);
+    else erros.push(`${arquivo} perdeu ${t}`);
+  }
+}
+
+// Views com dados remotos precisam de esqueleto shimmer + status acessível
+const viewsComDados = [
+  "src/pages/Depoimentos.tsx",
+  "src/components/ReviewsGrid.tsx",
+  "src/pages/admin/AdminReviews.tsx",
+  "src/pages/admin/AdminFunnel.tsx",
+  "src/pages/admin/AdminConversao.tsx",
+];
+for (const arquivo of viewsComDados) {
+  const conteudo = ler(arquivo);
+  if (!/\bskel\b/.test(conteudo)) erros.push(`${arquivo} sem esqueleto .skel no estado de carregamento`);
+  if (/bg-muted\/40 animate-pulse|animate-pulse bg-muted/.test(conteudo)) {
+    erros.push(`${arquivo} voltou a usar placeholder animate-pulse ad-hoc`);
+  }
+}
+
+// Envio de formulário público precisa de feedback de progresso
+const avaliar = ler("src/pages/Avaliar.tsx");
+if (!avaliar.includes("aria-busy={enviando}") || !avaliar.includes("animate-spin")) {
+  erros.push("Avaliar.tsx perdeu o feedback de envio (spinner/aria-busy)");
+}
+
+
 console.log("── Gate check:motion-loading ──");
 console.log(`  verificações OK: ${ok.length}`);
 if (erros.length) {

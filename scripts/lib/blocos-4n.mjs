@@ -12,6 +12,30 @@
 // ─────────────────────────────────────────────────────────────
 
 export const BLOCOS_4N = {
+  "/servicos": [
+    {
+      titulo: "Como escolher o serviço certo sem chutar",
+      paragrafos: [
+        "Serviço errado é dinheiro perdido duas vezes: paga-se pelo que foi feito e o problema continua. Por isso a lista abaixo é lida de trás para frente: primeiro o sintoma que você observa, depois o procedimento que costuma resolvê-lo. Computador que demora a abrir tudo aponta para disco mecânico e sistema saturado; travamento em jogo ou renderização aponta para temperatura e alimentação; queda de rede em parte do imóvel aponta para cobertura e canal de Wi-Fi.",
+        "Quando o sintoma não é conclusivo, o caminho é o diagnóstico técnico: ele define a causa antes de qualquer execução e evita a troca de peça por tentativa, prática comum no mercado e que encarece o atendimento sem garantia de resultado.",
+      ],
+    },
+    {
+      titulo: "Serviços para uso doméstico e serviços para empresa",
+      paragrafos: [
+        "No uso doméstico e em home office predominam formatação com preservação de arquivos, troca por SSD e memória, remoção de vírus, recuperação de dados e estabilização de Wi-Fi. São atendimentos pontuais, resolvidos por acesso remoto ou em uma visita, e o critério de sucesso é simples: a máquina volta a servir para o que você usa.",
+        "Em empresa a lógica muda. O que pesa não é o reparo isolado e sim a continuidade: parque de máquinas padronizado, rotina de backup testada, rede corporativa estável e manutenção preventiva agendada. Aqui o atendimento é contratado por recorrência ou por projeto, com registro do que foi feito em cada equipamento.",
+      ],
+    },
+    {
+      titulo: "Valores, aprovação e garantia — a mesma regra em todos os serviços",
+      paragrafos: [
+        "Os atendimentos partem de R$ 99,99 para diagnóstico e serviços simples. Casos que vão para bancada têm coleta sem custo e mínimo pré-aprovado de R$ 299,99: se o reparo couber nesse valor, é executado sem custo adicional; se ultrapassar, o valor é informado antes e só segue com sua autorização.",
+        "Peças são cobradas à parte da mão de obra, com aprovação expressa. A mão de obra tem 90 dias de garantia no mesmo defeito tratado e as peças seguem a garantia do fornecedor ou fabricante. Não trabalhamos com balcão aberto ao público: tudo acontece por atendimento remoto, visita técnica ou coleta com entrega.",
+      ],
+    },
+  ],
+
   "/": [
     {
       titulo: "Comece pelo sintoma, não pelo nome do serviço",

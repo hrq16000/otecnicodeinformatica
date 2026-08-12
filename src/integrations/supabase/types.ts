@@ -717,6 +717,85 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_list_partners: {
+        Args: never
+        Returns: {
+          aceite_termos_em: string | null
+          certificacoes: string[]
+          cidade: string
+          created_at: string
+          descricao: string | null
+          documento: string | null
+          documento_tipo: string | null
+          especialidades: string[]
+          estado: string
+          experiencia: string | null
+          formas_atendimento: string[]
+          foto_url: string | null
+          horario: string | null
+          id: string
+          nome_profissional: string
+          notas_admin: string | null
+          plano_expira_em: string | null
+          redes_sociais: Json
+          regioes_atendidas: string[]
+          servicos: string[]
+          site_url: string | null
+          slug: string
+          status: Database["public"]["Enums"]["partner_status"]
+          updated_at: string
+          user_id: string | null
+          whatsapp: string | null
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "partners"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
+      admin_update_partner_status: {
+        Args: {
+          _notas_admin?: string
+          _partner_id: string
+          _plano_expira_em?: string
+          _status: Database["public"]["Enums"]["partner_status"]
+        }
+        Returns: {
+          aceite_termos_em: string | null
+          certificacoes: string[]
+          cidade: string
+          created_at: string
+          descricao: string | null
+          documento: string | null
+          documento_tipo: string | null
+          especialidades: string[]
+          estado: string
+          experiencia: string | null
+          formas_atendimento: string[]
+          foto_url: string | null
+          horario: string | null
+          id: string
+          nome_profissional: string
+          notas_admin: string | null
+          plano_expira_em: string | null
+          redes_sociais: Json
+          regioes_atendidas: string[]
+          servicos: string[]
+          site_url: string | null
+          slug: string
+          status: Database["public"]["Enums"]["partner_status"]
+          updated_at: string
+          user_id: string | null
+          whatsapp: string | null
+        }
+        SetofOptions: {
+          from: "*"
+          to: "partners"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
       consolidate_click_events: {
         Args: { p_until?: string }
         Returns: {

@@ -32,6 +32,8 @@ export interface CidadeData {
   perfilLocal: string[];
   /** Contexto técnico da cidade — parágrafos autorais, sem promessa nova */
   contextoLocal?: string[];
+  /** Logística e acesso reais da localidade (conteúdo autoral) */
+  logisticaLocal?: string[];
   /** Quando chamar um técnico — exemplos práticos */
   quandoChamar: { title: string; desc: string }[];
   /** FAQ local — mínimo 5 por cidade, conteúdo distinto */

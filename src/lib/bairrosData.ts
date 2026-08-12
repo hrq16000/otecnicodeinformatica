@@ -32,6 +32,8 @@ export interface BairroLocalData {
   introducaoLocal: string[];
   /** Contexto técnico do bairro — parágrafos autorais, sem promessa nova */
   contextoLocal?: string[];
+  /** Logística e acesso reais da localidade (conteúdo autoral) */
+  logisticaLocal?: string[];
   /** Como a triagem e a operação funcionam naquele bairro */
   operacaoLocal: string[];
   /** Quando o atendimento no local pode ser indicado */

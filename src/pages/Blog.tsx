@@ -276,6 +276,39 @@ const Blog = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        <section className="py-14 bg-background border-t border-border">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-4">
+                Como estes guias são escritos
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Cada guia parte de um caso que aparece de verdade no atendimento em Curitiba e
+                  região: computador que fica lento com o tempo, notebook que desliga sozinho, Wi-Fi
+                  que cai no fundo da casa, arquivo apagado por engano. O texto começa pelo sintoma
+                  descrito com as palavras do dia a dia e só depois entra na causa técnica, porque é
+                  assim que a dúvida chega.
+                </p>
+                <p>
+                  Os passos sugeridos são sempre os seguros de fazer sozinho — verificar cabo,
+                  liberar espaço, conferir atualização, observar temperatura e ruído. Procedimentos
+                  que podem agravar o defeito ou colocar dados em risco, como abrir equipamento na
+                  garantia, insistir em disco com ruído mecânico ou usar programas de recuperação
+                  sobre a mesma unidade, ficam explicitamente marcados como parada obrigatória.
+                </p>
+                <p>
+                  Nenhum guia informa preço de reparo sem diagnóstico. Valores só existem depois da
+                  avaliação técnica do equipamento, e é isso que os textos repetem: identificar a
+                  causa, apresentar o custo, obter aprovação e só então executar. Quando o conserto
+                  não compensa, a orientação também aparece — inclusive quando a conclusão é não
+                  contratar serviço nenhum.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

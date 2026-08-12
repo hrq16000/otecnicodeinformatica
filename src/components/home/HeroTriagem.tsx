@@ -4,8 +4,19 @@ import { siteConfig } from "@/lib/siteConfig";
 import { brandConfig } from "@/lib/config";
 import { CAMINHOS_ENTRADA, filtrarSintomas } from "@/lib/homeContextos";
 
-const track = (loc: string) =>
-  import("@/lib/analytics").then(({ trackCTAClick }) => trackCTAClick("internal", loc));
+/**
+ * Navegação interna não é lead: registramos apenas engajamento, sem tocar
+ * em `generate_lead` nem nas conversões do Ads (isso é do funil WhatsApp).
+ */
+const track = (loc: string) => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", "home_navegacao", {
+    event_category: "engagement",
+    click_location: loc,
+    page_path: window.location.pathname,
+  });
+};
+
 
 /**
  * REDESIGN — primeira dobra orientada a problema.

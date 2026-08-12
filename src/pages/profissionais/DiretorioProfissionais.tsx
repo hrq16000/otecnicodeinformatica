@@ -109,7 +109,17 @@ const DiretorioProfissionais = () => {
 
         <section className="container mx-auto py-12">
           {parceiros === null ? (
-            <p className="text-muted-foreground">Carregando profissionais…</p>
+            <div role="status" aria-live="polite" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <span className="sr-only">Carregando profissionais…</span>
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="space-y-3 rounded-2xl border border-border bg-card p-5">
+                  <div className="skel h-12 w-12 rounded-full" />
+                  <div className="skel skel-title w-2/3" />
+                  <div className="skel skel-line w-full" />
+                  <div className="skel skel-line w-1/2" />
+                </div>
+              ))}
+            </div>
           ) : filtrados.length === 0 ? (
             <div className="rounded-2xl border border-border bg-card p-8">
               <h2 className="font-heading text-xl font-bold text-foreground">

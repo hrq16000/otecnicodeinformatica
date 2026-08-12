@@ -95,7 +95,7 @@ const ClusterProblemaPage = () => {
           <Button asChild size="lg">
             <a
               href={waHref}
-              onClick={() => trackCTAClick("cluster_problema_topo", dados.path)}
+              onClick={() => trackCTAClick("whatsapp", "cluster_problema_topo")}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -215,7 +215,7 @@ const ClusterProblemaPage = () => {
           <ProximosPassos
             waHref={waHref}
             ctaLocation="cluster_problema_passos"
-            onCta={() => trackCTAClick("cluster_problema_passos", dados.path)}
+            onCta={() => trackCTAClick("whatsapp", "cluster_problema_passos")}
           />
         </div>
       </main>

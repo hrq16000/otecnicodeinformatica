@@ -91,6 +91,8 @@ async function main() {
   const registeredSlugs = [
     ...[...registered.matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]),
     ...[...wave4x.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
+    ...[...wave4y.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]),
+
   ];
   if (registeredSlugs.length !== EDITORIAL_WAVE_SLUGS.length)
     fail(`paridade quebrada: registro tem ${registeredSlugs.length} slugs, onda de build tem ${EDITORIAL_WAVE_SLUGS.length}`);

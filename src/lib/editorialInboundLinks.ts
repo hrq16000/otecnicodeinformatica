@@ -114,6 +114,16 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       label: "Como organizar a informática de um pequeno escritório",
       hint: "Como mapear pontos de rede, energia e equipamentos críticos do escritório.",
     },
+    {
+      slug: "como-instalar-impressora-windows-passo-a-passo",
+      label: "Impressora em rede: por que ela some da lista",
+      hint: "Endereço reservado no roteador, driver oficial e o que trava a fila de impressão.",
+    },
+    {
+      slug: "como-conectar-wifi-tv-nao-conecta",
+      label: "Smart TV que não conecta no Wi-Fi",
+      hint: "Como separar cobertura, faixa de 5 GHz e isolamento de rede de defeito do aparelho.",
+    },
   ],
   "/empresa-de-ti-curitiba": [
     {
@@ -158,6 +168,13 @@ const MAPA: Record<string, EditorialInboundLink[]> = {
       hint: "Critérios de retenção, imutabilidade e o teste mensal de restauração.",
     },
 ],
+  "/servicos/conserto-tv": [
+    {
+      slug: "como-conectar-wifi-tv-nao-conecta",
+      label: "Smart TV não conecta no Wi-Fi: rede ou defeito?",
+      hint: "O teste que separa problema de rede de falha no módulo Wi-Fi da TV.",
+    },
+  ],
   "/servicos/montagem-de-pc": [
     {
       slug: "como-escolher-uma-workstation",

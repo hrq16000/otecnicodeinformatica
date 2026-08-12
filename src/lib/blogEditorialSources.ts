@@ -448,6 +448,26 @@ export const ARTICLE_SOURCE_MANIFEST: Record<string, ArticleSourceManifest> = {
     notes:
       "Revisão concluída (Onda 5F): distinção entre sincronização e backup, critérios de comparação (retenção, granularidade, escopo, imutabilidade, tempo de restauração), camadas de cópia e teste mensal de restauração. Reescrito sem citar marcas nem planos comerciais. Conhecimento técnico estável — sem fonte visível.",
   },
+  "como-instalar-impressora-windows-passo-a-passo": {
+    slug: "como-instalar-impressora-windows-passo-a-passo",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5G): diferença entre instalação por cabo e por endereço de rede, causa real do sumiço (empréstimo de endereço), reserva no roteador, driver oficial, isolamento de clientes, rede de visitantes e limite de escopo (sem reparo mecânico/eletrônico). Sem marca comercial e sem promessa. Conhecimento técnico estável — sem fonte visível.",
+  },
+  "como-conectar-wifi-tv-nao-conecta": {
+    slug: "como-conectar-wifi-tv-nao-conecta",
+    sources: [],
+    technicalReview: "reviewed",
+    factChecked: true,
+    factCheckedAt: "2026-08-12",
+    stableKnowledge: true,
+    notes:
+      "Revisão concluída (Onda 5G): teste comparativo com celular no mesmo ponto, limitação de 2,4 GHz em TVs, isolamento de clientes/rede de visitantes, congestionamento de canal em prédio e critério para suspeitar do módulo Wi-Fi do aparelho. Sem estatística inventada e sem promessa de reparo. Conhecimento técnico estável — sem fonte visível.",
+  },
 };
 
 

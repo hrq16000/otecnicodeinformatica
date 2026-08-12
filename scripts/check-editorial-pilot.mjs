@@ -80,8 +80,11 @@ const overlap = pilotSlugs.filter((s) => EDITORIAL_WAVE_SLUGS.includes(s));
 if (overlap.length) {
   fail(`Slugs simultaneamente piloto e aprovados na onda: ${overlap.join(", ")}.`);
 }
+// Fila vazia é estado legítimo: significa que todo candidato-piloto já foi
+// promovido a uma onda editorial aprovada. O que não pode existir é slug
+// simultaneamente na fila e aprovado (verificado acima).
 if (!pilotSlugs.length) {
-  fail("Nenhum slug-piloto declarado — a fila de revisão não pode ficar vazia.");
+  console.log("  • fila-piloto vazia — todos os candidatos foram promovidos.");
 }
 if (new Set(pilotSlugs).size !== pilotSlugs.length) {
   fail("Há slugs-piloto duplicados em EDITORIAL_PILOT_SLUGS.");

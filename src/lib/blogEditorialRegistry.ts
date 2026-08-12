@@ -383,6 +383,35 @@ const WAVE_5F: EditorialApproval[] = [
   },
 ];
 
+const WAVE_5G: EditorialApproval[] = [
+  {
+    slug: "como-instalar-impressora-windows-passo-a-passo",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution: "Foto: Somebody in the WWW (Wikimedia Commons), CC BY-SA 3.0 — https://commons.wikimedia.org/wiki/File:Epson-inkjet-printer.jpg",
+    notes:
+      "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+  {
+    slug: "como-conectar-wifi-tv-nao-conecta",
+    status: "approved",
+    authorType: "organization",
+    authorId: INSTITUTIONAL_AUTHOR.id,
+    reviewedAt: "2026-08-12",
+    approvedAt: "2026-08-12",
+    imageOrigin: "licensed",
+    imageLicense: "CC BY-SA 4.0",
+    imageAttribution: "Foto: Suyash Dwivedi (Wikimedia Commons), CC BY-SA 4.0 — https://commons.wikimedia.org/wiki/File:LG_Smart_TV_WIFI_%2B_IR_Remote_04.jpg",
+    notes:
+      "Reescrita integral na Onda 5G; fact-check registrado em blogEditorialSources.ts; capa é fotografia real licenciada, sem IA.",
+  },
+];
+
 export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 
   ...FIRST_WAVE_SLUGS.map((slug) => [
@@ -419,6 +448,8 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
   ...WAVE_5E.map((a) => [a.slug, a] as [string, EditorialApproval]),
 
   ...WAVE_5F.map((a) => [a.slug, a] as [string, EditorialApproval]),
+
+  ...WAVE_5G.map((a) => [a.slug, a] as [string, EditorialApproval]),
 ]);
 
 
@@ -441,12 +472,10 @@ export const APPROVED_EDITORIAL_CONTENT = new Map<string, EditorialApproval>([
 // ─────────────────────────────────────────────────────────────
 // Fila-piloto: artigos ainda em revisão (noindex, fora do sitemap).
 // Os slugs promovidos na primeira onda (FIRST_WAVE_SLUGS) saíram desta fila.
-export const EDITORIAL_PILOT_SLUGS = [
-  // Rodada 3F: despromovidos por sobreposição de intenção com as páginas
-  // de sintoma /problemas/notebook-nao-liga e /problemas/computador-lento.
-  "notebook-nao-liga-o-que-fazer",
-  "computador-lento-causas-solucoes",
-] as const;
+// Fila de revisão editorial. Vazia quando todos os candidatos-piloto já
+// foram promovidos (Onda 4Z promoveu os dois últimos). Um slug nunca pode
+// estar simultaneamente na fila e aprovado em uma onda.
+export const EDITORIAL_PILOT_SLUGS = [] as const;
 
 
 export const EDITORIAL_REVIEW_QUEUE = new Map<string, EditorialApproval>(

@@ -89,6 +89,15 @@ const CURADORIA = [
     slug: "backup-nuvem-empresas-qual-escolher",
     commons: "File:BalticServers data center.jpg",
   },
+  // Onda 5G — impressora em rede e Smart TV no Wi-Fi.
+  {
+    slug: "como-instalar-impressora-windows-passo-a-passo",
+    commons: "File:Epson-inkjet-printer.jpg",
+  },
+  {
+    slug: "como-conectar-wifi-tv-nao-conecta",
+    commons: "File:LG Smart TV WIFI + IR Remote 04.jpg",
+  },
 ];
 
 /** Metadados + URL de uma imagem do Wikimedia Commons (licença real, sem IA). */

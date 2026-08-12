@@ -244,6 +244,25 @@ export const EDITORIAL_WAVE = [
     apoioLabel: "Ransomware em pequenas empresas",
     cover: "/blog/backup-nuvem-empresas-qual-escolher.jpg",
   },
+  // ── Rodada 5G — impressora em rede e Smart TV no Wi-Fi.
+  {
+    slug: "como-instalar-impressora-windows-passo-a-passo",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/redes-e-wifi",
+    pilarLabel: "Redes e Wi-Fi em Curitiba",
+    apoio: "/blog/como-configurar-roteador-wifi-iniciantes",
+    apoioLabel: "Configurar roteador Wi-Fi do zero",
+    cover: "/blog/como-instalar-impressora-windows-passo-a-passo.jpg",
+  },
+  {
+    slug: "como-conectar-wifi-tv-nao-conecta",
+    approvedAt: "2026-08-12",
+    pilar: "/servicos/conserto-tv",
+    pilarLabel: "Conserto de TV em Curitiba",
+    apoio: "/blog/como-instalar-impressora-windows-passo-a-passo",
+    apoioLabel: "Impressora em rede: por que ela some",
+    cover: "/blog/como-conectar-wifi-tv-nao-conecta.jpg",
+  },
 ];
 
 export const EDITORIAL_WAVE_SLUGS = EDITORIAL_WAVE.map((a) => a.slug);

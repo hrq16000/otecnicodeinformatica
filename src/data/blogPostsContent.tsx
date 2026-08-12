@@ -9495,49 +9495,64 @@ crontab -e
     ),
   },
   "como-instalar-impressora-windows-passo-a-passo": {
-    title: "Como Instalar Impressora no Windows 11: Passo a Passo Completo 2026",
-    excerpt: "Veja como instalar qualquer impressora (HP, Epson, Brother, Canon) no Windows 11 em 10 minutos. Suporte técnico em Curitiba se travar.",
-    date: "2026-04-29",
-    readTime: "6 min",
-    category: "Tutoriais Domésticos",
+    title: "Instalar impressora no Windows: por que ela some da rede e como deixar a instalação estável",
+    excerpt:
+      "O que muda entre instalar por cabo e instalar em rede, por que a impressora desaparece depois de reiniciar o roteador e como fixar o endereço para a instalação parar de se perder.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Redes",
     content: (
       <>
-        <p className="lead">Instalar impressora pode parecer assustador, mas no Windows 10 e 11 ficou bem mais fácil. Veja o passo a passo conforme o tipo de impressora que você tem.</p>
+        <p className="lead">Instalar impressora quase nunca é o problema. O problema aparece depois: o aparelho imprime hoje, some da lista amanhã e volta a funcionar sozinho na semana seguinte. Esse comportamento tem causa técnica conhecida — e ela não está no computador, está em como a impressora recebe endereço na rede.</p>
 
-        <h2>Impressora com Cabo USB</h2>
+        <h2>Duas instalações diferentes com o mesmo nome</h2>
+        <p>Existe uma diferença de fundo entre os dois modos de instalação, e ela explica quase todos os atendimentos desse tipo:</p>
+        <ul>
+          <li><strong>Por cabo USB</strong>, o computador enxerga um dispositivo fixo. Enquanto o cabo estiver conectado, o endereço não muda e a fila de impressão não se perde. A limitação é óbvia: imprime só quem está naquele computador.</li>
+          <li><strong>Em rede (Wi-Fi ou cabo de rede)</strong>, o computador não fala com um dispositivo — fala com um endereço. Se o endereço mudar, a instalação continua existindo, mas aponta para um lugar onde não há mais ninguém. É por isso que o Windows mostra a impressora como "offline" mesmo com o aparelho ligado e imprimindo página de teste pelo próprio painel.</li>
+        </ul>
+
+        <h2>Por que o endereço muda sozinho</h2>
+        <p>O roteador distribui endereços por empréstimo temporário. Quando o prazo vence, quando a rede reinicia ou quando entram novos aparelhos, o roteador pode entregar à impressora um número diferente do anterior. O computador continua procurando o número antigo. Nada quebrou: a referência é que ficou velha.</p>
+        <p>Essa é a razão de o sintoma sempre voltar depois de queda de energia, troca de roteador, mudança de senha do Wi-Fi ou troca de plano de internet. Reinstalar a impressora resolve por alguns dias porque a instalação nova pega o endereço atual — até ele mudar de novo.</p>
+
+        <h2>A instalação que fica de pé</h2>
+        <p>A ordem que evita retrabalho é esta:</p>
         <ol>
-          <li>Conecte o cabo USB da impressora no computador</li>
-          <li>Ligue a impressora e espere ela ficar pronta (luz verde fixa)</li>
-          <li>O Windows vai detectar e instalar sozinho — espere a notificação 'Pronto para uso'</li>
-          <li>Abra qualquer documento e mande imprimir para testar</li>
+          <li><strong>Deixar a impressora na rede antes de mexer no computador.</strong> Conectar o aparelho ao Wi-Fi pelo painel dele, ou ligar o cabo de rede, e imprimir a página de configuração do próprio equipamento. Essa página mostra o endereço que ele recebeu.</li>
+          <li><strong>Reservar esse endereço no roteador.</strong> É o passo que quase ninguém faz e que resolve o problema de raiz: o roteador passa a entregar sempre o mesmo número para aquele aparelho. Alguns modelos de impressora também permitem fixar o endereço no próprio painel — nesse caso, o número escolhido precisa estar fora da faixa que o roteador distribui, ou dois aparelhos vão brigar pelo mesmo endereço.</li>
+          <li><strong>Instalar o driver oficial do fabricante</strong>, baixado do site do fabricante do equipamento. O driver genérico que o Windows instala sozinho costuma imprimir, mas frequentemente não expõe digitalização, frente e verso, bandeja alternativa e nível de suprimento.</li>
+          <li><strong>Adicionar a impressora pelo endereço</strong>, não pela descoberta automática. Descoberta automática é conveniente e frágil; endereço reservado é estável.</li>
+          <li><strong>Testar de cada computador que vai usar</strong>, e não apenas daquele onde a instalação foi feita.</li>
         </ol>
 
-        <h2>Impressora Wi-Fi</h2>
-        <ol>
-          <li>Coloque a impressora perto do roteador na primeira vez</li>
-          <li>No painel da impressora, vá em <strong>Configurações de Rede → Wi-Fi</strong></li>
-          <li>Selecione sua rede Wi-Fi e digite a senha</li>
-          <li>No PC: <strong>Configurações → Bluetooth e dispositivos → Impressoras → Adicionar dispositivo</strong></li>
-          <li>Aguarde sua impressora aparecer e clique em <strong>Adicionar</strong></li>
-        </ol>
+        <h2>Quando a impressora não aparece de jeito nenhum</h2>
+        <p>Antes de reinstalar pela terceira vez, vale verificar quatro coisas que respondem pela maioria dos casos:</p>
+        <ul>
+          <li><strong>Redes diferentes.</strong> Roteadores modernos criam faixas de 2,4 GHz e 5 GHz e, em muitos casos, uma rede de visitantes isolada. Impressora numa rede e computador em outra não se enxergam — principalmente quando o aparelho caiu na rede de visitantes, que é isolada por projeto.</li>
+          <li><strong>Impressora só em 2,4 GHz.</strong> Boa parte dos modelos domésticos não opera em 5 GHz. Se as duas faixas têm o mesmo nome, o aparelho pode simplesmente não encontrar a rede.</li>
+          <li><strong>Isolamento de clientes ativo no roteador.</strong> Recurso comum em redes de operadora: os aparelhos acessam a internet, mas não conversam entre si. Nesse cenário nenhuma impressora de rede vai funcionar até o recurso ser desativado.</li>
+          <li><strong>Fila travada.</strong> Um documento com erro parado na fila bloqueia tudo o que vem depois, mesmo com a impressora perfeitamente conectada. Limpar a fila e reiniciar o serviço de impressão devolve o funcionamento sem reinstalar nada.</li>
+        </ul>
+        <p>O desenho dessa parte — faixas, reserva de endereço, separação da rede de visitantes — é o mesmo trabalho descrito em <Link to="/servicos/redes-e-wifi">redes e Wi-Fi</Link>.</p>
 
-        <h2>Não Aparece? Faça Isso</h2>
-        <ol>
-          <li>Confirme que PC e impressora estão na MESMA rede Wi-Fi (não no Wi-Fi do vizinho)</li>
-          <li>Reinicie o roteador, depois a impressora</li>
-          <li>Baixe o driver oficial no site do fabricante (HP, Epson, Brother, Canon)</li>
-          <li>Se for HP, baixe o app <strong>HP Smart</strong> da Microsoft Store</li>
-        </ol>
+        <h2>Escritório: compartilhamento pelo computador é o erro mais comum</h2>
+        <p>Em escritório pequeno ainda é frequente encontrar a impressora instalada em um computador e compartilhada a partir dele. O arranjo funciona até o dia em que aquele computador é desligado, entra em suspensão ou recebe atualização — e o escritório inteiro para de imprimir.</p>
+        <p>Se o aparelho tem rede, cada estação deve falar direto com ele pelo endereço reservado. O computador deixa de ser ponto único de falha, e a manutenção de uma máquina para de derrubar a impressão de todo mundo. Esse ajuste costuma entrar junto do restante da organização descrita em <Link to="/servicos/suporte-tecnico-empresarial">suporte técnico empresarial</Link>.</p>
 
-        <h2>Imprimindo do Celular</h2>
-        <p>A maioria das impressoras modernas aceita imprimir do celular. No Android use <strong>Mopria Print Service</strong>, no iPhone é automático com <strong>AirPrint</strong>. Basta a impressora estar no mesmo Wi-Fi.</p>
+        <h2>Imprimir do celular</h2>
+        <p>Celular e impressora precisam estar na mesma rede — e, de novo, a rede de visitantes atrapalha. Android usa o serviço de impressão padrão do sistema; iPhone descobre automaticamente aparelhos compatíveis com o protocolo de impressão sem driver. Quando o modelo não é compatível, o caminho é o aplicativo do próprio fabricante. Nenhum dos dois casos exige instalar programa no computador.</p>
 
-        <h2>Quando Pedir Ajuda</h2>
-        <p>Impressoras antigas, sem driver para Windows 11, ou que ficam fora da rede com frequência podem precisar de configuração avançada. A O Técnico de Informática instala e configura impressoras em residências e escritórios em Curitiba.</p>
+        <h2>Onde este atendimento começa e termina</h2>
+        <p>O que tratamos aqui é configuração, comunicação e compartilhamento em rede: driver oficial, endereço fixo, compartilhamento entre estações, fila travada, descoberta na rede, digitalização em rede quando o modelo suporta e reconexão depois da troca de roteador.</p>
+        <p>Reparo mecânico ou eletrônico do aparelho — cabeçote, fusor, tracionamento de papel, placa — está fora do escopo, assim como fornecimento de toner e tinta. Se a avaliação apontar falha física, informamos e orientamos a assistência do fabricante em vez de empurrar um serviço que não resolveria. O critério de verificação e cobrança está descrito em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
+        <h2>Resumo prático</h2>
+        <p>Impressora em rede não some por defeito: some porque o endereço dela mudou. Conecte o aparelho à rede primeiro, imprima a página de configuração, reserve o endereço no roteador, instale o driver oficial e adicione a impressora pelo endereço em cada computador. Se mesmo assim ela não aparece, verifique faixas de Wi-Fi diferentes, rede de visitantes, isolamento de clientes e fila travada — nessa ordem.</p>
       </>
     ),
   },
+
   "como-remover-virus-windows-iniciantes": {
     title: "Como Remover Vírus do Windows Grátis: Guia Completo 2026 (Sem Pagar Antivírus)",
     excerpt: "Anúncios estranhos, navegador lento ou pop-ups? Aprenda como remover vírus do Windows com ferramentas gratuitas. Remoção profissional em Curitiba.",
@@ -10584,52 +10599,57 @@ crontab -e
     ),
   },
   "como-conectar-wifi-tv-nao-conecta": {
-    title: "Smart TV Não Conecta no Wi-Fi: 8 Soluções Que Funcionam em 2026",
-    excerpt: "Smart TV não acha sua rede Wi-Fi ou desconecta sozinha? Veja 8 soluções testadas. Atendimento técnico em domicílio em Curitiba.",
-    date: "2026-04-29",
-    readTime: "7 min",
-    category: "Tutoriais Domésticos",
+    title: "Smart TV não conecta no Wi-Fi: como separar problema de rede de defeito da TV",
+    excerpt:
+      "Como descobrir se a Smart TV não conecta por causa da rede, da faixa de 5 GHz, do isolamento do roteador ou de falha no módulo Wi-Fi do aparelho — e o que fazer em cada caso.",
+    date: "2026-08-12",
+    readTime: "11 min",
+    category: "Redes",
     content: (
       <>
-        <p className="lead">Smart TV que não conecta no Wi-Fi é problema comum. Antes de pensar em chamar técnico, tente estas 8 soluções.</p>
+        <p className="lead">Smart TV que não conecta tem duas famílias de causa muito diferentes: a rede não está entregando conexão utilizável naquele ponto da casa, ou o módulo Wi-Fi da própria TV está falhando. Os dois sintomas parecem iguais na tela. A diferença aparece no teste, e é ela que decide se o caso se resolve no roteador ou exige avaliação do aparelho.</p>
 
-        <h2>1. Reinicie a TV</h2>
-        <p>Tire da tomada, espere 1 minuto, plug de volta. Resolve 30% dos casos.</p>
+        <h2>O teste que separa os dois cenários</h2>
+        <p>Antes de qualquer configuração, leve um celular até o local exato da TV — mesma altura, mesma parede, TV ligada. Depois observe:</p>
+        <ul>
+          <li><strong>Celular também pega mal ali:</strong> o problema é cobertura. A TV está apenas na pior posição da casa, normalmente atrás de móvel, em parede com estrutura metálica ou no cômodo mais distante do roteador.</li>
+          <li><strong>Celular conecta bem e a TV não enxerga a rede:</strong> o caso costuma ser de faixa ou de configuração do roteador, não de alcance.</li>
+          <li><strong>A TV conecta, mas cai sozinha depois de minutos ou horas:</strong> comportamento típico de rede saturada, canal congestionado ou módulo Wi-Fi do aparelho com falha térmica — nessa ordem de probabilidade.</li>
+          <li><strong>A TV não enxerga nenhuma rede, nem a do vizinho:</strong> forte indício de falha no módulo Wi-Fi do aparelho.</li>
+        </ul>
 
-        <h2>2. Reinicie o Roteador</h2>
-        <p>Tire da tomada, espere 30 segundos, plug de volta. Espere 2 minutos para estabilizar.</p>
+        <h2>Faixa de 5 GHz: a causa mais frequente de "a rede não aparece"</h2>
+        <p>Muitas TVs, inclusive modelos recentes de linha de entrada, operam apenas em 2,4 GHz. Se o roteador transmite as duas faixas com o mesmo nome de rede, a TV pode simplesmente não listar nada — para ela, aquela rede não existe.</p>
+        <p>A solução é separar os nomes das faixas no roteador e conectar a TV explicitamente à faixa de 2,4 GHz. Ela alcança mais longe e atravessa parede melhor; a perda de velocidade é irrelevante para vídeo, que consome muito menos banda do que a maioria das pessoas imagina.</p>
 
-        <h2>3. Verifique Senha Maiúscula/Minúscula</h2>
-        <p>Senhas Wi-Fi diferenciam letras. 'Casa123' é diferente de 'casa123'. Digite com atenção.</p>
+        <h2>Isolamento de clientes e rede de visitantes</h2>
+        <p>Roteadores de operadora frequentemente vêm com rede de visitantes ativa e isolamento entre aparelhos. A TV conectada nessa rede acessa a internet, mas não conversa com celular nem computador — e aí o espelhamento de tela e os aplicativos de controle deixam de funcionar, mesmo com o vídeo rodando normalmente.</p>
+        <p>Quando o sintoma é "a TV tem internet mas o celular não a encontra", esse é o primeiro item a verificar. A separação correta entre rede de trabalho, rede doméstica e rede de visitantes faz parte do que ajustamos em <Link to="/servicos/redes-e-wifi">redes e Wi-Fi</Link>.</p>
 
-        <h2>4. TV Está no Alcance?</h2>
-        <p>TV no fundo da casa, roteador na frente — pode estar fora do alcance. Teste levando o celular até a TV: se ele pegar mal o Wi-Fi ali, a TV também não vai pegar.</p>
+        <h2>Canal congestionado em prédio</h2>
+        <p>Em edifício, dezenas de redes disputam as mesmas frequências. A TV conecta, o ícone fica normal, e mesmo assim o vídeo trava e a conexão cai. Não é defeito: é disputa por espaço no ar. Fixar um canal menos ocupado em 2,4 GHz e reposicionar o roteador para longe de metal, espelho, caixa d'água e do próprio armário costuma mudar o resultado mais do que trocar de aparelho.</p>
 
-        <h2>5. Use Wi-Fi de 2.4GHz</h2>
-        <p>Algumas TVs antigas só funcionam no 2.4GHz, não no 5GHz. No painel do roteador, dê nomes diferentes para cada banda e conecte a TV na de 2.4GHz.</p>
-
-        <h2>6. Atualize a TV</h2>
-        <p>Em <strong>Configurações → Sobre → Atualizar Software</strong>. Atualizações corrigem bugs de Wi-Fi.</p>
-
-        <h2>7. Esqueça a Rede e Reconecte</h2>
+        <h2>O que fazer, na ordem que evita retrabalho</h2>
         <ol>
-          <li>Vá em <strong>Configurações → Rede → Wi-Fi</strong></li>
-          <li>Selecione sua rede e escolha <strong>Esquecer</strong></li>
-          <li>Reconecte digitando a senha</li>
+          <li><strong>Desligar TV e roteador da tomada</strong> por um minuto, religando primeiro o roteador e aguardando ele estabilizar. Isso limpa sessões travadas dos dois lados.</li>
+          <li><strong>Esquecer a rede na TV e reconectar</strong>, digitando a senha com atenção a maiúsculas e minúsculas — o teclado da TV frequentemente ativa maiúscula automática na primeira letra.</li>
+          <li><strong>Conectar à faixa de 2,4 GHz</strong> com nome próprio, se as faixas ainda estiverem unificadas.</li>
+          <li><strong>Verificar rede de visitantes e isolamento de clientes</strong> no roteador.</li>
+          <li><strong>Atualizar o sistema da TV</strong>, quando ela conseguir conectar ao menos por cabo — correções de conectividade são comuns nessas atualizações.</li>
+          <li><strong>Testar por cabo de rede.</strong> É o teste decisivo: se por cabo funciona perfeitamente e por Wi-Fi nunca funciona, o módulo sem fio do aparelho é o suspeito principal.</li>
         </ol>
+        <p>Reset de fábrica só faz sentido depois desses passos. Ele apaga contas, aplicativos e preferências e raramente resolve o que os itens anteriores não resolveram.</p>
 
-        <h2>8. Use Cabo de Rede</h2>
-        <p>Se nada funciona, conecte cabo de rede (ethernet) do roteador na TV. É mais estável e rápido. Se sua TV está longe do roteador, peça para a O Técnico de Informática passar o cabo discretamente.</p>
+        <h2>Quando é defeito da TV — e o que isso significa na prática</h2>
+        <p>Quando a TV não lista nenhuma rede, conecta por cabo sem falha e o problema persiste após atualização e reset, o cenário aponta para o módulo Wi-Fi do aparelho. Nesse ponto entra uma conversa honesta de custo: em boa parte dos televisores de linha de entrada, o reparo dessa parte custa mais do que resolver o uso com conexão cabeada ou com um aparelho externo de streaming ligado à porta HDMI.</p>
+        <p>Não prometemos reparo antes de avaliar, e não trocamos placa por suposição. A avaliação de imagem, som, placa e alimentação segue o escopo descrito em <Link to="/servicos/conserto-tv">conserto de TV</Link>, com o critério de verificação e cobrança explicado em <Link to="/diagnostico-tecnico">como funciona o diagnóstico técnico</Link>.</p>
 
-        <h2>Última Opção: Reset de Fábrica</h2>
-        <p>Em <strong>Configurações → Suporte → Redefinir</strong>. Apaga tudo, mas resolve casos persistentes.</p>
-
-        <h2>Continua Não Funcionando?</h2>
-        <p>Pode ser placa Wi-Fi da TV defeituosa. A O Técnico de Informática avalia em casa em Curitiba se vale conserto ou se é mais barato usar Chromecast/TV box.</p>
-
+        <h2>Resumo prático</h2>
+        <p>Compare a TV com o celular no mesmo ponto para separar cobertura de configuração. Se a rede não aparece na lista, quase sempre é faixa de 5 GHz; se aparece e cai, é congestionamento ou distância; se o celular não encontra a TV, é rede de visitantes ou isolamento; se por cabo funciona e por Wi-Fi nunca funciona, é o módulo sem fio do aparelho — e aí vale comparar o custo do reparo com a solução por cabo ou aparelho externo.</p>
       </>
     ),
   },
+
   "como-fazer-teste-velocidade-internet": {
     title: "Como Testar a Velocidade da Internet Corretamente: Guia 2026",
     excerpt: "Internet lenta em Curitiba? Aprenda como fazer um teste de velocidade confiável e descobrir se o problema é da operadora ou do seu Wi-Fi.",

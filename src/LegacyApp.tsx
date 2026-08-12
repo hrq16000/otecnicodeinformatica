@@ -41,6 +41,7 @@ const PerfilProfissional = lazy(() => import("./pages/profissionais/PerfilProfis
 const CadastroParceiro = lazy(() => import("./pages/profissionais/CadastroParceiro"));
 const ProfissionaisLocal = lazy(() => import("./pages/profissionais/ProfissionaisLocal"));
 const Empresas = lazy(() => import("./pages/Empresas"));
+const Atendimento = lazy(() => import("./pages/Atendimento"));
 const ValorizacaoTrabalhoTecnico = lazy(() => import("./pages/ValorizacaoTrabalhoTecnico"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AssistenciaTecnicaCuritiba = lazy(() => import("./pages/AssistenciaTecnicaCuritiba"));
@@ -571,6 +572,7 @@ const App = () => (
             <Route path="/profissionais/:estado/:cidade" element={<ProfissionaisLocal />} />
 
             {/* Área empresarial e posição institucional */}
+            <Route path="/atendimento" element={<Atendimento />} />
             <Route path="/empresas" element={<Empresas />} />
             <Route path="/valorizacao-do-trabalho-tecnico" element={<ValorizacaoTrabalhoTecnico />} />
             

@@ -50,7 +50,7 @@ export const CAMINHOS_ENTRADA: CaminhoEntrada[] = [
     titulo: "Falar com quem executa",
     descricao: "A triagem é feita pelo próprio técnico responsável pelo caso.",
     cta: "Pedir ajuda técnica",
-    href: "/contato",
+    href: "/atendimento",
   },
 ];
 

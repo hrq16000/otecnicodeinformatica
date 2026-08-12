@@ -25,6 +25,15 @@ const CURADORIA = [
     slug: "como-trocar-tela-notebook-passo-a-passo",
     id: "fcc0aa98-ca11-420f-b06e-ea9be3fe365f",
   },
+  // Onda 4Z
+  {
+    slug: "notebook-nao-liga-o-que-fazer",
+    id: "9d395fcb-f432-46a5-a330-c8ec68b4e190",
+  },
+  {
+    slug: "computador-lento-causas-solucoes",
+    id: "a3cdc6ad-9098-4342-9afd-3a612062d4f2",
+  },
 ];
 
 /** Fetch com retentativas — a origem (Wikimedia) recusa esporadicamente. */

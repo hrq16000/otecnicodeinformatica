@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { SITE_URL } from "./site-env";
 
 /**
  * Guarda de SEO: canônicos self-referentes nas rotas internas e alias
@@ -6,7 +7,7 @@ import { test, expect } from "@playwright/test";
  * Evita duplicidade e regressão silenciosa de indexação.
  */
 
-const BASE = "https://tecnico.curitiba.br";
+const BASE = SITE_URL;
 
 /** Rotas que devem ter canônico self-referente. */
 const SELF_CANONICAL = [

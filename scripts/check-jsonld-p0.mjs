@@ -20,9 +20,10 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const DIST = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : "dist";
-const BASE = "https://tecnico.curitiba.br";
+const BASE = BASE_URL;
 const ORG_ID = `${BASE}/#organization`;
 const ROUTES = ["/", "/tecnico-informatica-curitiba", "/atendimento-domicilio", "/empresa-de-ti-curitiba"];
 

@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { EDITORIAL_WAVE_SLUGS } from "./lib/editorial-wave.mjs";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const rel = (p) => path.join(root, p);
@@ -27,7 +28,7 @@ const fail = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
 const BRAND = "O Técnico de Informática";
-const SITE = "https://tecnico.curitiba.br";
+const SITE = BASE_URL;
 
 // Rotas internas permitidas em links dos pilotos (curadas).
 const ALLOWED_ROUTES = new Set([

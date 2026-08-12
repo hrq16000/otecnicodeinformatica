@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 /**
  * PRÉ-VOO DE BORDA — confirma que os hostnames do site estão numa zona
  * Cloudflare sob nosso controle e com proxy ativo ANTES de publicar o worker.
@@ -19,10 +20,10 @@
 const args = process.argv.slice(2);
 const ENFORCE = args.includes("--enforce");
 
-const HOSTS = ["tecnico.curitiba.br", "www.tecnico.curitiba.br"];
+const HOSTS = [SITE_DOMAIN, `www.${SITE_DOMAIN}`];
 const ZONE_CANDIDATES = [
   process.env.CLOUDFLARE_ZONE_NAME,
-  "tecnico.curitiba.br",
+  SITE_DOMAIN,
   "curitiba.br",
 ].filter(Boolean);
 

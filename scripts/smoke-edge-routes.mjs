@@ -11,7 +11,7 @@
  *
  * Uso:
  *   node scripts/smoke-edge-routes.mjs                      # sobe serve-dist e testa
- *   node scripts/smoke-edge-routes.mjs --base=https://tecnico.curitiba.br
+ *   node scripts/smoke-edge-routes.mjs --base=https://o domínio configurado
  *   node scripts/smoke-edge-routes.mjs --valid=60 --fake=80 --report-only
  *
  * Artefatos: reports/edge-smoke.json e docs/relatorio-smoke-edge.md

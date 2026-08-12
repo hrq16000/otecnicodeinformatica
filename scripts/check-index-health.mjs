@@ -25,7 +25,7 @@ const argBase = process.argv.find((a) => a.startsWith("--base="));
 // avisos, porque o Vite serve o index.html cru antes da hidratação.
 const STRICT = process.argv.includes("--strict");
 const BASE = (argBase ? argBase.split("=")[1] : process.env.CHECK_BASE_URL || "http://localhost:8080").replace(/\/$/, "");
-const CANONICAL_HOST = "https://tecnico.curitiba.br";
+const CANONICAL_HOST = BASE_URL;
 
 const errors = [];
 const warnings = [];

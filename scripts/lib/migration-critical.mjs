@@ -1,5 +1,5 @@
 // Lista determinística das 41 URLs críticas da migração
-// tecnicocuritiba.com.br → tecnico.curitiba.br.
+// tecnicocuritiba.com.br → o domínio configurado.
 //
 // Composição: 11 URLs núcleo (Etapa 10 da Rodada 4B.1) + representantes
 // obrigatórios por categoria fora do core (TV, celular, CFTV, impressora,

@@ -21,7 +21,7 @@ import { EDITORIAL_WAVE, EDITORIAL_WAVE_SLUGS, isWaveApproved } from "./lib/edit
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
-const SITE = "https://tecnico.curitiba.br";
+const SITE = BASE_URL;
 
 const errors = [];
 const notes = [];

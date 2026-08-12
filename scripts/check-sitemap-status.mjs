@@ -15,16 +15,17 @@
  *
  * Saída: reports/sitemap-status.json  (consumido por alert-sitemap-status.mjs)
  *
- * Uso: node scripts/check-sitemap-status.mjs [--base=https://tecnico.curitiba.br] [--offline] [--strict]
+ * Uso: node scripts/check-sitemap-status.mjs [--base=https://o domínio configurado] [--offline] [--strict]
  */
 import { readdirSync, readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve, basename } from "node:path";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const args = process.argv.slice(2);
 const arg = (n, d) => args.find((a) => a.startsWith(`--${n}=`))?.split("=")[1] ?? d;
 const OFFLINE = args.includes("--offline");
 const STRICT = args.includes("--strict");
-const BASE = (arg("base", "https://tecnico.curitiba.br")).replace(/\/+$/, "");
+const BASE = (arg("base", BASE_URL)).replace(/\/+$/, "");
 
 const publicDir = resolve(process.cwd(), "public");
 const problems = [];   // → unhealthy

@@ -73,7 +73,7 @@ const badge = (s) =>
 
 const html = `<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
-<title>Relatório de segurança — tecnico.curitiba.br</title>
+<title>Relatório de segurança — o domínio configurado</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{color-scheme:dark}
@@ -89,7 +89,7 @@ code{background:#16212a;padding:1px 5px;border-radius:4px;font-size:13px}
 pre{background:#0a1013;border:1px solid #223038;border-radius:8px;padding:14px;overflow:auto;font-size:12.5px}
 </style></head><body>
 <h1>Relatório de segurança</h1>
-<div class="meta">Gerado em ${new Date().toISOString()} &middot; projeto tecnico.curitiba.br</div>
+<div class="meta">Gerado em ${new Date().toISOString()} &middot; projeto o domínio configurado</div>
 
 <h2>Findings monitorados (internal_id)</h2>
 <table><thead><tr><th>internal_id</th><th>Status</th><th>Descrição / detalhe</th></tr></thead><tbody>

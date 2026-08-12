@@ -1,4 +1,4 @@
-// RODADA 4B/4B.1 — Gate de redirects da migração tecnicocuritiba.com.br → tecnico.curitiba.br
+// RODADA 4B/4B.1 — Gate de redirects da migração tecnicocuritiba.com.br → o domínio configurado
 // Valida, contra a rede, cada regra de redirects/tecnicocuritiba.map.json:
 //   status 301/308 · Location exato · salto único · destino 200 · HTTPS
 //   destino sem noindex · canonical final self-referente · sem loop
@@ -150,7 +150,7 @@ writeFileSync("reports/redirect-gate.json", JSON.stringify(summary, null, 2) + "
 
 // Relatório consolidado em markdown (anexo de aprovação).
 const md = [
-  "# Gate de redirects — tecnicocuritiba.com.br → tecnico.curitiba.br",
+  "# Gate de redirects — tecnicocuritiba.com.br → o domínio configurado",
   "",
   `- Gerado em: ${summary.generated_at}`,
   `- Mapa publicado (published): **${summary.published ? "true" : "false"}**`,

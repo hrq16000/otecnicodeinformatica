@@ -18,6 +18,7 @@
  * Uso: node scripts/alert-edge-errors.mjs [--max-404=5] [--max-5xx=1] [--strict] [--dry-run]
  */
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { BASE_URL, SITE_DOMAIN } from "./lib/site-env.mjs";
 
 const args = process.argv.slice(2);
 const num = (n, d) => Number(args.find((a) => a.startsWith(`--${n}=`))?.split("=")[1] ?? d);
@@ -26,7 +27,7 @@ const STRICT = args.includes("--strict");
 const MAX_404 = num("max-404", 5);
 const MAX_5XX = num("max-5xx", 1);
 
-const SITE = "https://tecnico.curitiba.br";
+const SITE = BASE_URL;
 const REPO_DOCS = "docs/relatorio-smoke-edge.md";
 
 const read = (f) => (existsSync(f) ? JSON.parse(readFileSync(f, "utf8")) : null);
@@ -137,7 +138,7 @@ if (to && resend) {
     method: "POST",
     headers: { authorization: `Bearer ${resend}`, "content-type": "application/json" },
     body: JSON.stringify({
-      from: process.env.ALERT_EMAIL_FROM ?? "alertas@tecnico.curitiba.br",
+      from: process.env.ALERT_EMAIL_FROM ?? `alertas@${SITE_DOMAIN}`,
       to: [to],
       subject: `[edge] ${alerts.length} alerta(s) em ${SITE}`,
       text: lines,

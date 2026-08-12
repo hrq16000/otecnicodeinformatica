@@ -9,7 +9,7 @@ import { createHash } from "node:crypto";
 
 export const LIST_NAME = "tecnicocuritiba_migration_list";
 export const RULE_DESCRIPTION = "tecnicocuritiba-migration-rule";
-export const LIST_DESCRIPTION = "tecnicocuritiba-migration-list (projeto tecnico.curitiba.br — Rodada 2A.2)";
+export const LIST_DESCRIPTION = "tecnicocuritiba-migration-list (projeto o domínio configurado — Rodada 2A.2)";
 export const OWNER_MARKER = "tecnico-curitiba-migration";
 export const BATCH_SIZE = 1000; // limite de itens por operação de lista
 export const REDIRECT_PHASE = "http_request_redirect"; // fase de Bulk Redirects (conta)

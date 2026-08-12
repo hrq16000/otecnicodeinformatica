@@ -14,7 +14,7 @@
  */
 import { chromium } from "playwright";
 
-const BASE = (process.env.CUTOVER_BASE_URL ?? "https://tecnico.curitiba.br").replace(/\/$/, "");
+const BASE = (process.env.CUTOVER_BASE_URL ?? BASE_URL).replace(/\/$/, "");
 // Permite usar um Chromium de sistema quando o binário empacotado do Playwright
 // não tem as bibliotecas necessárias (sandbox/CI mínimo).
 const EXECUTABLE = process.env.CUTOVER_CHROMIUM_PATH || undefined;

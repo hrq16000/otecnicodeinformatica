@@ -13,7 +13,12 @@ test.describe("smoke: home CTAs", () => {
     const consoleErrors: string[] = [];
     page.on("pageerror", (e) => consoleErrors.push(String(e)));
     page.on("console", (m) => {
-      if (m.type() === "error") consoleErrors.push(m.text());
+      if (m.type() !== "error") return;
+      const text = m.text();
+      // Avisos de desenvolvimento do React emitidos pelo tagger de dev do
+      // preview (ele injeta props nos elementos JSX) não são erros do produto.
+      if (/^Warning: /.test(text)) return;
+      consoleErrors.push(text);
     });
 
     await page.goto(TARGET, { waitUntil: "domcontentloaded" });
@@ -38,7 +43,18 @@ test.describe("smoke: home CTAs", () => {
       route.abort();
     });
     await waLinks.first().click({ button: "left" }).catch(() => { /* abort esperado */ });
-    expect(clicked, "click no WhatsApp deve disparar requisição").toBe(true);
+
+    // Por decisão de produto, o clique é interceptado pelo funil de triagem:
+    // ou abre o modal de triagem, ou (quando o funil não intercepta) navega para wa.me.
+    const triagem = page.locator('[role="dialog"][data-triage="1"]');
+    const abriuTriagem = await triagem
+      .waitFor({ state: "visible", timeout: 5000 })
+      .then(() => true)
+      .catch(() => false);
+    expect(
+      abriuTriagem || clicked,
+      "click no WhatsApp deve abrir o funil de triagem ou disparar requisição",
+    ).toBe(true);
 
     // Não deve ter botão "Ligar Agora" (regra de produto)
     const ligar = page.getByRole("link", { name: /ligar agora/i });

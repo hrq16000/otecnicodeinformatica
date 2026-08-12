@@ -120,6 +120,12 @@ const SolucoesHub = () => {
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Prazo estimado é sempre informado antes da execução, e qualquer mudança relevante durante o serviço é comunicada em vez de descoberta na entrega.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Quando dois procedimentos entram no mesmo atendimento, a ordem é definida pelo risco:
+            primeiro o que protege os dados, depois o que altera o sistema, por último o que troca
+            hardware. Essa sequência é informada no orçamento para que você saiba o que acontece em
+            cada etapa.
+          </p>
         </section>
 
         <section className="mt-10 max-w-3xl">

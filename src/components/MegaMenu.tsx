@@ -103,7 +103,7 @@ export const MegaMenu = ({ grupos }: { grupos: MegaGrupo[] }) => {
               <div
                 role="group"
                 aria-label={g.label}
-                className="absolute left-1/2 top-[calc(100%+10px)] z-50 w-[min(92vw,860px)] -translate-x-1/2 rounded-2xl border border-border bg-background p-6 shadow-[var(--shadow-xl)]"
+                className="absolute left-0 top-[calc(100%+10px)] z-50 w-[min(86vw,860px)] rounded-2xl border border-border bg-background p-6 shadow-[var(--shadow-xl)]"
               >
                 <div className="grid gap-8 md:grid-cols-[2fr_2fr_1.4fr]">
                   {g.colunas?.map((col) => (

@@ -86,17 +86,17 @@ export const SINTOMAS: Sintoma[] = [
   {
     label: "Tela azul e erros do Windows",
     termos: ["tela azul", "bsod", "windows", "erro", "reinicia"],
-    href: "/servicos/formatacao",
+    href: "/problemas/tela-azul",
   },
   {
     label: "O Wi-Fi está ruim",
     termos: ["wifi", "wi-fi", "internet", "rede", "sinal", "roteador"],
-    href: "/servicos/redes-e-wifi",
+    href: "/problemas/wifi-instavel",
   },
   {
     label: "Preciso recuperar arquivos",
     termos: ["arquivos", "dados", "apagado", "perdi", "hd", "backup"],
-    href: "/servicos/recuperacao-de-dados",
+    href: "/problemas/arquivos-apagados",
   },
   {
     label: "Acho que peguei vírus",

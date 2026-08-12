@@ -6,6 +6,7 @@ import { InterlinkingBlock } from "@/components/InterlinkingBlock";
 import { BlocoInteligencia } from "@/components/BlocoInteligencia";
 import { RealImageSection } from "@/components/RealImageSection";
 import { Button } from "@/components/ui/button";
+import { SmartImage } from "@/components/SmartImage";
 import { trackPageView, trackCTAClick, trackFaqToggle } from "@/lib/analytics";
 import cftvHero from "@/assets/cftv-hero.jpg";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
@@ -76,7 +77,7 @@ const CFTVPage = () => {
         {/* HERO */}
         <section className="relative pt-10 md:pt-12 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img src={cftvHero} alt="Câmeras de segurança Intelbras instaladas" className="w-full h-full object-cover" loading="eager" decoding="async" />
+            <SmartImage src={cftvHero} alt="Câmeras de segurança Intelbras instaladas" wrapperClassName="w-full h-full" className="w-full h-full object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
           </div>
 

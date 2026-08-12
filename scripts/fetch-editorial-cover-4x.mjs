@@ -19,7 +19,7 @@ const CURADORIA = [
   // Onda 4Y
   {
     slug: "como-resolver-tela-azul-windows",
-    id: "f4da6064-dc69-4fca-adb2-62cd2e48904e",
+    id: "e259eeea-6903-44d8-aeeb-99e2b43b5d65",
   },
   {
     slug: "como-trocar-tela-notebook-passo-a-passo",

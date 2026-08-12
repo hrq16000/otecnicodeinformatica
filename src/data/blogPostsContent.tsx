@@ -6240,6 +6240,21 @@ Ideal: 1000VA / 600W (para crescimento)`}</code></pre>
         <p>A instalação limpa organiza o sistema, mas <strong>não resolve</strong> problemas físicos: se o disco, a memória ou outra peça estão com defeito, reinstalar o Windows 11 não corrige a falha. Interrompa a instalação limpa se houver <strong>disco com sinais de falha, arquivos ainda sem backup, chave de recuperação desconhecida, equipamento sem compatibilidade confirmada, dúvida sobre partições, suspeita de falha física ou necessidade de recuperar dados</strong>. Nesses casos, seguir em frente pode apagar dados sem retorno. Se os arquivos já estão inacessíveis, o caminho é a <Link to="/servicos/recuperacao-de-dados" className="text-accent">recuperação de dados</Link>, não a instalação limpa.</p>
 
 
+        <h2>Quanto tempo leva e o que esperar</h2>
+        <p>A instalação em si costuma ser a parte mais curta do processo. O tempo real é consumido pelas etapas em volta: conferir e copiar arquivos, criar a mídia oficial, instalar drivers e reinstalar programas. Em equipamentos com disco mecânico antigo, cada etapa se alonga; em máquinas com SSD saudável, o mesmo roteiro é bem mais rápido. Planeje a instalação limpa para um período em que o equipamento possa ficar indisponível sem prejudicar trabalho ou estudo.</p>
+        <p>Depois de concluir, o sistema volta sem seus programas, sem suas contas conectadas e sem as configurações que você tinha. Isso é esperado: a instalação limpa devolve um sistema padrão. Reserve tempo para reconfigurar impressora, rede, navegador, e-mail e os programas usados no dia a dia, e só apague o backup depois de confirmar que tudo voltou.</p>
+
+        <h2>Erros comuns que custam arquivos</h2>
+        <ul>
+          <li><strong>Confiar em um backup nunca conferido:</strong> copiar não é o mesmo que verificar. Abra alguns arquivos no destino antes de prosseguir.</li>
+          <li><strong>Guardar o backup no próprio disco do sistema:</strong> a instalação limpa apaga justamente esse disco.</li>
+          <li><strong>Ignorar o BitLocker:</strong> sem a chave de recuperação, o conteúdo do disco pode ficar inacessível.</li>
+          <li><strong>Escolher a partição errada:</strong> em equipamentos com mais de um disco, a seleção precisa ser conferida com calma.</li>
+          <li><strong>Reinstalar por cima de uma falha física:</strong> disco ou memória com defeito continuam com defeito depois da instalação.</li>
+          <li><strong>Perder acessos:</strong> contas com verificação em duas etapas podem exigir códigos que ficaram só no equipamento antigo.</li>
+        </ul>
+        <p>Nenhum desses pontos exige conhecimento avançado — exige apenas ordem. Quando a ordem é respeitada (conferir, salvar, validar, então instalar), a instalação limpa deixa de ser um risco e vira manutenção previsível.</p>
+
         <h2>Quando procurar atendimento técnico</h2>
         <p>Se você não tem certeza sobre requisitos, partições, licença ou backup, um diagnóstico define o melhor caminho antes de apagar o disco. Assim você evita reinstalar o sistema e perder arquivos no processo.</p>
 

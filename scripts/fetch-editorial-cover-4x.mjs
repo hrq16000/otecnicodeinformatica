@@ -74,11 +74,11 @@ const CURADORIA = [
   // Onda 5E — cluster de armazenamento (clonagem e segundo disco).
   {
     slug: "como-clonar-hd-para-ssd",
-    commons: "File:Hard disk drive and solid state drive.jpg",
+    commons: "File:Maxtor HDD and Intel SSD 20100117.jpg",
   },
   {
     slug: "como-instalar-segundo-ssd-notebook",
-    commons: "File:M.2 2280 SSD.jpg",
+    commons: "File:WesterDigital-Black-NVMe-SSD.jpg",
   },
 ];
 

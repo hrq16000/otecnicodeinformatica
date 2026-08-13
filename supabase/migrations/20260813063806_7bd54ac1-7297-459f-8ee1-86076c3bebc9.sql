@@ -1,0 +1,1 @@
+GRANT SELECT (status) ON public.partners TO anon, authenticated;

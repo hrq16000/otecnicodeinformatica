@@ -134,22 +134,29 @@ const ClusterProblemaPage = () => {
    * CTA contextual por seção: mensagem pré-preenchida (sintoma + equipamento +
    * bairro + urgência) e link com UTM/identificadores de rota, seção e rolagem,
    * para atribuição precisa no GA4/Google Ads.
+   *
+   * O microcopy, o rótulo e a POSIÇÃO do bloco vêm do experimento cta_1/cta_2
+   * (src/lib/problemasCtaVariants.ts). Cada ponto de inserção declara `quando`
+   * ("antes" ou "depois" do conteúdo da seção) e só renderiza se bater com a
+   * posição da variante — o conteúdo editorial nunca muda.
    */
   const CtaContextual = ({
     secao,
-    texto,
     mensagem,
-    rotulo,
+    quando = "depois",
   }: {
     secao: string;
-    texto: string;
     mensagem: string;
-    rotulo: string;
+    quando?: "antes" | "depois";
   }) => {
+    const copy = copyCta(secao, varianteBotao);
+    if (copy.posicao !== quando) return null;
     const ctx = { ...contexto, sintoma: sintomaSlug, secao, rolagem, complemento: mensagem, variante };
     return (
-    <div className="mt-6 flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in">
-      <p className="text-sm leading-relaxed text-muted-foreground">{texto}</p>
+    <div
+      className={`${quando === "antes" ? "mb-6" : "mt-6"} flex flex-col gap-3 rounded-xl border border-border bg-secondary/30 p-5 sm:flex-row sm:items-center sm:justify-between animate-fade-in`}
+    >
+      <p className="text-sm leading-relaxed text-muted-foreground">{copy.texto}</p>
       <Button asChild className="shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
         <a
           href={buildProblemaWaHref(baseMsg, ctx)}
@@ -158,12 +165,13 @@ const ClusterProblemaPage = () => {
           target="_blank"
         >
           <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
-          {rotulo}
+          {copy.rotulo}
         </a>
       </Button>
     </div>
     );
   };
+
 
 
 

@@ -38,6 +38,7 @@ jobs:
         run: |
           npm run check:soft404
           npm run check:sitemap-source
+          npm run cf:edge:test
 
       - name: Pré-voo de zona Cloudflare (proxied e sob nosso controle)
         env:

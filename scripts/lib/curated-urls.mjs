@@ -124,6 +124,8 @@ export const PROBLEMAS = [
   { path: "/problemas/computador-nao-da-imagem", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/cheiro-de-queimado", changefreq: "monthly", priority: "0.6" },
   { path: "/problemas/notebook-molhado", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/windows-nao-inicia", changefreq: "monthly", priority: "0.6" },
+  { path: "/problemas/computador-esquentando", changefreq: "monthly", priority: "0.6" },
 ];
 
 /**

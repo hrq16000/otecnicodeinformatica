@@ -1,16 +1,512 @@
 {
-  "generatedAt": "2026-08-13T02:22:26.094Z",
+  "generatedAt": "2026-08-13T02:39:44.388Z",
   "resumo": {
-    "total": 0,
+    "total": 83,
     "bloqueios": 0,
     "avisos": 0,
-    "pendencias": 0,
+    "pendencias": 83,
     "fontesAusentes": [
-      "image-integrity",
-      "imageobject-jsonld",
-      "cross-cluster-similarity",
-      "photo-review"
+      "imageobject-jsonld"
     ]
   },
-  "linhas": []
+  "linhas": [
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/anuncie",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/areas-atendidas",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/atendimento-domicilio",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/atendimento-remoto",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/agua-verde",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/batel",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/centro",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/cic",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/bairros/portao",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/coleta-e-entrega",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/como-funciona",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/contato",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/diagnostico-tecnico",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/empresa-de-ti-curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos-atendidos",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos/desktop",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos/impressora",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos/notebook",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/equipamentos/roteador",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/faq",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/guia-tecnico-informatica",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/politica-de-pecas-do-cliente",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/precos-e-politicas",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/arquivos-apagados",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/cheiro-de-queimado",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/computador-desliga-sozinho",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/computador-esquentando",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/computador-lento",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/computador-nao-da-imagem",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/hd-fazendo-barulho",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/notebook-molhado",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/notebook-nao-carrega",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/notebook-nao-liga",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/tela-azul",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/wifi-instavel",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/problemas/windows-nao-inicia",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/quando-nao-compensa",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/seguranca-dos-dados",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/backup-para-empresas",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-monitor",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-pc-notebook/agua-verde",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-pc-notebook/centro",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-placa",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/conserto-tv",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/formatacao-computador/agua-verde",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/formatacao-computador/batel",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/formatacao-computador/cic",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/formatacao",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/manutencao-de-computador",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/manutencao-de-notebook",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/manutencao-preventiva-empresas",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/montagem-de-pc",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/pc-gamer",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/recuperacao-de-dados",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/redes-e-wifi",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/remocao-de-virus",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/remocao-virus/agua-verde",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/remocao-virus/cic",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/suporte-home-office",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/suporte-tecnico-empresarial",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd-memoria/agua-verde",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd-memoria/centro",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd-memoria/cic",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd-memoria/portao",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/servicos/upgrade-ssd-ram",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/sobre",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes/backup",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes/diagnostico",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes/formatacao",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes/recuperacao-de-dados",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/solucoes/ssd",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-araucaria",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-campo-largo",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-colombo",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-curitiba",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-pinhais",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/tecnico-informatica-sao-jose-pinhais",
+      "detalhe": "página indexável sem foto real"
+    },
+    {
+      "gate": "imagem",
+      "severidade": "pendencia",
+      "pagina": "/valores",
+      "detalhe": "página indexável sem foto real"
+    }
+  ]
 }

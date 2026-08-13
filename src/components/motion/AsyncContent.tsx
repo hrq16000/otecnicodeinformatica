@@ -1,6 +1,7 @@
-import { type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { AlertCircle, Inbox } from "lucide-react";
 import { FadeIn } from "./FadeIn";
+import { iniciarEstadoCarregamento } from "@/lib/interactionMetrics";
 
 interface AsyncContentProps<T> {
   loading: boolean;
@@ -13,6 +14,8 @@ interface AsyncContentProps<T> {
   children: ReactNode;
   /** Mantém o conteúdo atual visível durante refetch (listas/tabelas). */
   keepPreviousOnRefetch?: boolean;
+  /** Nome da superfície para telemetria do estado de carregamento. */
+  metricSurface?: string;
 }
 
 const isEmpty = (data: unknown) =>
@@ -32,8 +35,29 @@ export function AsyncContent<T>({
   errorLabel = "Não foi possível carregar agora. Tente novamente.",
   children,
   keepPreviousOnRefetch = true,
+  metricSurface,
 }: AsyncContentProps<T>) {
   const temConteudo = !isEmpty(data);
+  const encerrar = useRef<((r?: "success" | "error" | "abort") => number) | null>(null);
+
+  useEffect(() => {
+    if (loading && !encerrar.current) {
+      encerrar.current = iniciarEstadoCarregamento(metricSurface || "async-content", "skeleton");
+      return;
+    }
+    if (!loading && encerrar.current) {
+      encerrar.current(error ? "error" : "success");
+      encerrar.current = null;
+    }
+  }, [loading, error, metricSurface]);
+
+  useEffect(
+    () => () => {
+      encerrar.current?.("abort");
+      encerrar.current = null;
+    },
+    [],
+  );
 
   if (loading && (!temConteudo || !keepPreviousOnRefetch)) {
     return (

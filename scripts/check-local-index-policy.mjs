@@ -12,7 +12,7 @@
  * Fail-closed: rota declarada como indexável cujo HTML não existe é erro.
  */
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { ENTIDADES, resolveLocal } from "./lib/local-index-policy.mjs";
 import { CURATED_PATHS } from "./lib/curated-urls.mjs";
@@ -31,10 +31,11 @@ function htmlPath(p) {
 }
 
 const sitemapUrls = new Set();
-for (const file of ["sitemap.xml", "sitemap-pages.xml", "sitemap-local.xml", "sitemap-blog.xml"]) {
-  const f = resolve(dist, file);
-  if (!existsSync(f)) continue;
-  const xml = readFileSync(f, "utf8");
+const arquivosSitemap = existsSync(dist)
+  ? readdirSync(dist).filter((f) => /^sitemap.*\.xml$/.test(f) && !/images|news|index/.test(f))
+  : [];
+for (const file of arquivosSitemap) {
+  const xml = readFileSync(resolve(dist, file), "utf8");
   for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     try {
       sitemapUrls.add(new URL(m[1]).pathname.replace(/\/$/, "") || "/");

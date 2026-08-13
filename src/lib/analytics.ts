@@ -1,4 +1,5 @@
 import { GA4_EVENTS, normalizeTrackingLabel, routeTypeFromPath, viewportBucket } from '@/lib/trackingTaxonomy';
+import { capturarEvento } from '@/lib/observability';
 
 
 // Google Analytics & Ads tracking utilities — no UI imports here to keep the first load lean.
@@ -175,6 +176,24 @@ export const trackCTAClick = (ctaType: 'whatsapp' | 'phone' | 'chatbot', rawLoca
       });
       gtagReportConversion();
     }
+
+    // Sentry: o clique de conversão vira evento próprio (nível info) com o
+    // mesmo lead_id do GA4. É o que permite abrir uma sessão e ver a sequência
+    // "CTA WhatsApp Agora → botão em loading 3,2 s → budget estourado":
+    // `ui.loading_*` e `ui.budget_exceeded` carregam cta_type/cta_location.
+    capturarEvento('cta.click', 'info', {
+      message: `CTA ${ctaType} clicado em ${location}`,
+      cta_type: ctaType,
+      cta_location: location,
+      surface: location,
+      route_type: payload.route_type,
+      lead_id: leadId,
+      first_of_session: isNew,
+      path: window.location.pathname,
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+    });
 
     // Visual debug for WhatsApp clicks (dev or ?debug_utm=1)
     if (ctaType === 'whatsapp') {

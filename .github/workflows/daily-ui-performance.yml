@@ -1,0 +1,53 @@
+# Relatório diário de performance de interface.
+# Roda o Lighthouse CI sobre as rotas críticas e resume o que ficou acima dos
+# budgets, apontando regressões contra o baseline versionado e contra o
+# relatório do dia anterior (restaurado do cache). O resumo vai para o Sentry
+# e para o GA4 quando os segredos estiverem configurados — sem eles o script
+# apenas grava os arquivos em reports/ e sai com sucesso.
+name: daily-ui-performance
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # 06:00 America/Sao_Paulo
+  workflow_dispatch:
+
+jobs:
+  relatorio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      # Relatório de ontem: base da detecção de piora gradual dentro da tolerância.
+      - name: Restaurar relatório anterior
+        uses: actions/cache/restore@v4
+        with:
+          path: reports/daily-ui-performance.json
+          key: daily-ui-performance-${{ github.run_id }}
+          restore-keys: daily-ui-performance-
+
+      - run: npm run build
+      - name: Lighthouse CI
+        run: npx --yes @lhci/cli autorun --collect.numberOfRuns=1 || true
+
+      - name: Gerar relatório diário
+        env:
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
+          GA4_API_SECRET: ${{ secrets.GA4_API_SECRET }}
+        run: npm run report:daily-ui
+
+      - name: Guardar relatório do dia
+        uses: actions/cache/save@v4
+        with:
+          path: reports/daily-ui-performance.json
+          key: daily-ui-performance-${{ github.run_id }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daily-ui-performance
+          path: reports/daily-ui-performance.*

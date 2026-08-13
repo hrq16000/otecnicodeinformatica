@@ -6,6 +6,31 @@
  * `animate-pulse` que fugiam do sistema de movimento.
  */
 
+import { useEffect } from "react";
+import { iniciarEstadoCarregamento } from "@/lib/interactionMetrics";
+
+/**
+ * Mede quanto tempo um esqueleto ficou na tela.
+ *
+ * O ciclo abre na montagem e fecha na desmontagem (= conteúdo real entrou),
+ * gerando o evento `ui_loading_state` com superfície, rota e duração. É isso
+ * que permite correlacionar exibição de skeleton × LoadingButton × conversão
+ * no painel /admin/ui-performance e no GA4.
+ */
+export const useSkeletonTelemetry = (superficie?: string) => {
+  useEffect(() => {
+    if (!superficie) return;
+    const encerrar = iniciarEstadoCarregamento(superficie, "skeleton");
+    return () => {
+      encerrar("success");
+    };
+  }, [superficie]);
+};
+
+/** Props comuns: `metricSurface` liga a medição de exibição do esqueleto. */
+type SkeletonBase = { className?: string; metricSurface?: string };
+
+
 export const SkeletonCard = ({ className = "" }: { className?: string }) => (
   <div
     aria-hidden="true"

@@ -43,6 +43,7 @@
     "check:editorial-pilot": "node scripts/check-editorial-pilot.mjs",
     "check:editorial-technical-review": "node scripts/check-editorial-technical-review.mjs",
     "check:motion-loading": "node scripts/check-motion-loading.mjs",
+    "check:motion-audit": "node scripts/check-motion-audit.mjs",
     "check:politica-atendimento": "node scripts/check-politica-atendimento.mjs",
     "check:ficha-comercial": "node scripts/check-ficha-comercial.mjs",
     "check:malha-interna": "node scripts/check-malha-interna.mjs",

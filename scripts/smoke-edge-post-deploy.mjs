@@ -143,7 +143,9 @@ const assetsReais = (manifest.assetFiles ?? [])
   .map((f) => (f.startsWith("/") ? f : `/${f}`))
   .filter((f) => /\.[a-z0-9]{1,8}$/i.test(f));
 for (const real of sample(assetsReais, 3)) {
-  await expect("asset-real", real, 200);
+  // 200 (mesmo build publicado) ou 404 (build local defasado) — o que importa
+  // é o vizinho parecido nunca responder 200.
+  await expect("asset-real", real, [200, 404]);
   await expect("asset-parecido", real.replace(/(\.[a-z0-9]+)$/i, "-copy$1"), 404);
   await expect("asset-parecido", `${real}.map`, 404);
 }

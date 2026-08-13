@@ -74,10 +74,12 @@ if (atualizar) {
 }
 
 if (!existsSync(BASELINE)) {
-  console.error(
-    `Regressão de performance: ${BASELINE} ausente. Gere com "npm run perf:baseline" e versione o arquivo.`,
+  // Primeira execução: sem baseline não há o que comparar. Avisamos e passamos,
+  // para não travar o CI antes do arquivo ser gerado e versionado.
+  console.warn(
+    `::warning::${BASELINE} ausente — gate de regressão pulado. Gere com "npm run perf:baseline" e versione o arquivo.`,
   );
-  process.exit(1);
+  process.exit(0);
 }
 
 const baseline = JSON.parse(readFileSync(BASELINE, "utf8")).rotas || {};

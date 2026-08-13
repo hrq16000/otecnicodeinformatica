@@ -458,6 +458,20 @@ const FAQ_POR_ROTA = {
     { pergunta: "Estabilizador ou nobreak evita esse problema?", resposta: "Reduz o risco de surto pela rede, mas não substitui manutenção: poeira, fonte no fim da vida e conector com mau contato queimam mesmo com proteção instalada. Um bom filtro de linha ajuda; limpeza periódica e fonte adequada ajudam mais." },
     { pergunta: "Vale a pena consertar um equipamento que queimou?", resposta: "Depende de qual componente foi atingido. Fonte, carregador e cabo têm custo baixo e troca direta. Placa-mãe com dano elétrico em máquina antiga costuma não compensar, e dizemos isso com clareza — diagnóstico, mão de obra e peça são informados separadamente antes de qualquer execução." },
   ],
+  "/problemas/windows-nao-inicia": [
+    { pergunta: "Windows que não inicia significa formatar e perder tudo?", resposta: "Na maioria dos atendimentos, não. Reversão de atualização, correção da estrutura de arquivos e remoção de driver resolvem com os documentos intactos. A formatação só entra quando o sistema está irrecuperável — e, mesmo assim, os arquivos são copiados antes." },
+    { pergunta: "Como sei se é o disco ou o sistema?", resposta: "Pela leitura dos indicadores de saúde da unidade e pelo tempo de resposta na leitura. Disco saudável com sistema quebrado repara rápido; disco com setores realocados repete a falha em poucos dias mesmo depois de reinstalar." },
+    { pergunta: "Modo de segurança abre. Isso é bom sinal?", resposta: "É ótimo sinal. Significa que o hardware está funcional, os arquivos estão acessíveis e a falha está em algum componente de software que pode ser identificado pela data de instalação." },
+    { pergunta: "Perdi a senha de administrador. Muda alguma coisa?", resposta: "Muda o caminho, não o resultado. A recuperação dos arquivos é feita com a unidade acessada em bancada. Não fazemos remoção de bloqueio em equipamento sem comprovação de propriedade." },
+    { pergunta: "Vale reinstalar o Windows num computador antigo?", resposta: "Depende do conjunto. Em máquina com disco mecânico, reinstalar sozinho entrega pouco: o ganho real vem de trocar por SSD e, se couber, ampliar a memória. Informamos essa diferença antes, com peça e mão de obra separadas." },
+  ],
+  "/problemas/computador-esquentando": [
+    { pergunta: "Qual temperatura é considerada alta?", resposta: "Depende do modelo, mas a referência prática é o comportamento: se o equipamento reduz a velocidade sozinho ou desliga por proteção, passou do limite dele. Por isso medimos antes e depois da manutenção, em vez de trabalhar com números genéricos." },
+    { pergunta: "Base refrigeradora resolve?", resposta: "Ajuda em uso pesado e em ambiente quente, principalmente por levantar o notebook e liberar a entrada de ar. Não substitui limpeza interna: se o radiador está entupido, o ar frio de fora não chega a lugar nenhum." },
+    { pergunta: "De quanto em quanto tempo fazer limpeza interna?", resposta: "Em uso doméstico comum, algo entre um e dois anos. Em ambiente com pet, obra por perto, fumo ou uso intenso de jogos, o intervalo cai bastante. Quem carrega o notebook todo dia na mochila também acumula mais rápido." },
+    { pergunta: "Trocar só a pasta térmica adianta?", resposta: "Adianta quando o radiador está limpo e a ventoinha saudável. Se o caminho do ar continua obstruído, a pasta nova baixa poucos graus e o problema volta em semanas — por isso os dois serviços costumam andar juntos." },
+    { pergunta: "O calor pode ter estragado alguma peça?", resposta: "Exposição prolongada acelera o desgaste de bateria, capacitores e do próprio disco. Verificamos a saúde da unidade e da bateria junto da limpeza e informamos o que encontramos, sem transformar isso em venda automática de peça." },
+  ],
 };
 
 

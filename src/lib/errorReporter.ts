@@ -63,6 +63,9 @@ const report = (kind: string, payload: Record<string, unknown>) => {
     window.dispatchEvent(new CustomEvent("app:error", { detail: entry }));
   } catch { /* noop */ }
   try {
+    void import("@/lib/observability").then(({ capturarErro }) => capturarErro(kind, entry));
+  } catch { /* noop */ }
+  try {
     const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
     if (typeof gtag === "function") {
       gtag("event", "app_error", {

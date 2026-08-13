@@ -91,6 +91,49 @@ if (!avaliar.includes("aria-busy={enviando}") || !avaliar.includes("animate-spin
 }
 
 
+// MOTION SYSTEM GLOBAL — tokens únicos e primitivas reutilizáveis
+for (const token of [
+  "--motion-duration-instant",
+  "--motion-duration-fast",
+  "--motion-duration-normal",
+  "--motion-duration-slow",
+  "--motion-ease-standard",
+  "--motion-ease-enter",
+  "--motion-ease-exit",
+  ".motion-enter",
+  ".motion-exit",
+  ".motion-collapse",
+  ".motion-surface",
+  ".motion-progress-indeterminate",
+]) {
+  if (css.includes(token)) ok.push(`motion ${token}`);
+  else erros.push(`token do motion system ausente em src/index.css: ${token}`);
+}
+for (const token of [".motion-enter", ".motion-collapse", ".motion-progress-indeterminate"]) {
+  if (reduced.includes(token)) ok.push(`reduced-motion ${token}`);
+  else erros.push(`prefers-reduced-motion não neutraliza ${token}`);
+}
+
+const primitivasMotion = [
+  ["src/lib/motion.ts", ["duration", "ease", "staggerDelay"]],
+  ["src/components/motion/FadeIn.tsx", ["motion-enter"]],
+  ["src/components/motion/Collapse.tsx", ["motion-collapse"]],
+  ["src/components/motion/Presence.tsx", ["motion-exit"]],
+  ["src/components/motion/LoadingButton.tsx", ["aria-busy", "Loader2"]],
+  ["src/components/motion/AsyncContent.tsx", ["aria-busy", "skeleton"]],
+  ["src/components/motion/Progress.tsx", ["role=\"progressbar\"", "aria-valuenow"]],
+  ["src/components/motion/AnimatedList.tsx", ["staggerLimit"]],
+  ["src/components/motion/index.ts", ["AsyncContent", "LoadingButton", "SkeletonTable"]],
+  ["src/components/Skeleton.tsx", ["SkeletonTable", "SkeletonPage", "SkeletonForm", "SkeletonMetrics", "SkeletonChart"]],
+];
+for (const [arquivo, tokens] of primitivasMotion) {
+  const conteudo = ler(arquivo);
+  for (const t of tokens) {
+    if (conteudo.includes(t)) ok.push(`${arquivo} ${t}`);
+    else erros.push(`${arquivo} perdeu ${t}`);
+  }
+}
+
 console.log("── Gate check:motion-loading ──");
 console.log(`  verificações OK: ${ok.length}`);
 if (erros.length) {

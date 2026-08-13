@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, Activity, Gauge, Trash2 } from "lucide-react";
+import { AlertTriangle, Activity, Gauge, Trash2, Download, ExternalLink, Printer } from "lucide-react";
 import {
   Bar,
   BarChart,
@@ -32,6 +32,7 @@ import {
   type AlertaUi,
 } from "@/lib/interactionMetrics";
 import { BUDGETS, formatarMetrica } from "@/lib/uiPerformanceBudgets";
+import { linkDrilldown, drilldownDisponivel } from "@/lib/sentryDrilldown";
 
 /**
  * PAINEL DE PERFORMANCE DE INTERFACE (/admin/ui-performance).
@@ -92,6 +93,57 @@ const Selecao = ({
     </select>
   </label>
 );
+
+/** CSV com separador padrão brasileiro (;) e escape de aspas. */
+const paraCsv = (colunas: string[], linhas: (string | number)[][]) =>
+  [colunas, ...linhas]
+    .map((linha) =>
+      linha
+        .map((c) => {
+          const v = String(c ?? "");
+          return /[";\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+        })
+        .join(";"),
+    )
+    .join("\n");
+
+const baixar = (nome: string, conteudo: string, tipo = "text/csv;charset=utf-8") => {
+  const url = URL.createObjectURL(new Blob(["\uFEFF" + conteudo], { type: tipo }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = nome;
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
+/** Abre o Sentry com os filtros do painel já aplicados (ou nada, se não houver org). */
+const LinkSentry = ({
+  rota,
+  componente,
+  kind,
+  janela,
+  rotulo,
+}: {
+  rota?: string;
+  componente?: string;
+  kind?: string;
+  janela?: string;
+  rotulo: string;
+}) => {
+  const href = linkDrilldown({ rota, componente, kind, janela });
+  if (!href) return null;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="inline-flex items-center gap-1 text-xs text-accent underline underline-offset-2"
+    >
+      {rotulo}
+      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+    </a>
+  );
+};
 
 const AdminUiPerformance = () => {
   const [vitais, setVitais] = useState<WebVitalEntry[]>([]);

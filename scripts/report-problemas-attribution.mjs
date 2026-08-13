@@ -52,7 +52,7 @@ if (!/ADS|ads/.test(analyticsCfg))
 
 // ── 2) Cobertura por rota ────────────────────────────────────────────────────
 const cluster = readFileSync("src/lib/clusterProblemas.ts", "utf8");
-const blocos = cluster.split(/\n\s*\{\s*\n\s*path:\s*"/).slice(1);
+const blocos = cluster.split(/\n\s+path:\s*"/).slice(1);
 const linhas = [];
 
 for (const bloco of blocos) {
@@ -62,8 +62,8 @@ for (const bloco of blocos) {
   const corpo = bloco.slice(0, bloco.indexOf("\n  },") + 1 || undefined);
 
   const temMensagem = /waMessage:\s*["'`]/.test(corpo);
-  const perguntas = (corpo.match(/pergunta:/g) || []).length;
-  const linksFaq = (corpo.match(/linkPath:|linkTexto:/g) || []).length;
+  const perguntas = (corpo.match(/\n\s+q:\s*"/g) || []).length;
+  const linksFaq = (corpo.match(/\n\s+to:\s*"/g) || []).length;
   const prerender = existsSync(path.join(DIST, "problemas", slug, "index.html"));
 
   if (!temMensagem) erros.push(`${slugRota}: sem waMessage (CTA sairia sem mensagem pré-preenchida)`);

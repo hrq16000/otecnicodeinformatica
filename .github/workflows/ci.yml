@@ -142,6 +142,8 @@ jobs:
           E2E_NONADMIN_PASSWORD: ${{ secrets.E2E_NONADMIN_PASSWORD }}
       - name: Acessibilidade axe-core (páginas empresariais 3T/3U)
         run: npx playwright test e2e/a11y-empresarial.spec.ts
+        env:
+          E2E_BASE_URL: http://localhost:8080
       - name: Acessibilidade axe-core (rotas públicas — home, problemas, empresas, serviços)
         run: npx playwright test e2e/a11y-rotas-publicas.spec.ts
         env:

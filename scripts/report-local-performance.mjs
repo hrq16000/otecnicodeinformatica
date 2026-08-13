@@ -70,27 +70,42 @@ try {
     process.exit(0);
   }
 
-  const fim = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 10);
-  const inicio = new Date(Date.now() - 31 * 864e5).toISOString().slice(0, 10);
-  const res = await fetch(
-    `${GATEWAY}/webmasters/v3/sites/${encodeURIComponent(matches[0].siteUrl)}/searchAnalytics/query`,
-    {
-      method: "POST",
-      headers: { ...headers, "Content-Type": "application/json" },
-      body: JSON.stringify({ startDate: inicio, endDate: fim, dimensions: ["page"], rowLimit: 500 }),
-    },
-  );
-  if (!res.ok) throw new Error(`searchAnalytics [${res.status}]: ${await res.text()}`);
-  const { rows = [] } = await res.json();
+  const dia = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
+  const fim = dia(3);
+  const inicio = dia(31);
+  const fimAnt = dia(32);
+  const inicioAnt = dia(60);
 
-  const saida = rows
-    .map((r) => {
-      const path = new URL(r.keys[0]).pathname.replace(/\/$/, "") || "/";
-      return { path, clicks: r.clicks ?? 0, impressions: r.impressions ?? 0, ctr: r.ctr ?? 0, position: r.position ?? 0 };
-    })
-    .filter((r) => rotas.has(r.path));
+  const consultar = async (startDate, endDate) => {
+    const res = await fetch(
+      `${GATEWAY}/webmasters/v3/sites/${encodeURIComponent(matches[0].siteUrl)}/searchAnalytics/query`,
+      {
+        method: "POST",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify({ startDate, endDate, dimensions: ["page"], rowLimit: 500 }),
+      },
+    );
+    if (!res.ok) throw new Error(`searchAnalytics [${res.status}]: ${await res.text()}`);
+    const { rows = [] } = await res.json();
+    return rows
+      .map((r) => {
+        const path = new URL(r.keys[0]).pathname.replace(/\/$/, "") || "/";
+        return { path, clicks: r.clicks ?? 0, impressions: r.impressions ?? 0, ctr: r.ctr ?? 0, position: r.position ?? 0 };
+      })
+      .filter((r) => rotas.has(r.path));
+  };
 
-  gravar({ generatedAt: new Date().toISOString(), disponivel: true, periodo: { inicio, fim }, rotas: saida });
+  const saida = await consultar(inicio, fim);
+  const anterior = await consultar(inicioAnt, fimAnt);
+
+  gravar({
+    generatedAt: new Date().toISOString(),
+    disponivel: true,
+    periodo: { inicio, fim },
+    periodoAnterior: { inicio: inicioAnt, fim: fimAnt },
+    rotas: saida,
+    rotasAnterior: anterior,
+  });
   console.log(`local-performance: ${saida.length} rota(s) de problema com dados de busca.`);
 } catch (e) {
   gravar({

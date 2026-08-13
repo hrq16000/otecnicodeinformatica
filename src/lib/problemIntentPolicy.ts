@@ -47,6 +47,9 @@ const normalizar = (t: string) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 
+/** Mesma normalização, com hífen/pontuação virando espaço (para casar frases em slug). */
+const emFrase = (t: string) => normalizar(t).replace(/[^a-z0-9]+/g, " ").trim();
+
 export const temSufixoLocal = (urlOuSlug: string) =>
   normalizar(urlOuSlug).replace(/\/$/, "").endsWith(SUFIXO_LOCAL);
 
@@ -64,7 +67,7 @@ export const contarMencoesCidade = (texto: string) =>
  * É o lado "observado" da comparação — não o desejado.
  */
 export function intencaoObservada(url: string, titulo: string): [IntencaoPrimaria, IntencaoPrimaria] {
-  const t = normalizar(`${url} ${titulo}`);
+  const t = emFrase(`${url} ${titulo}`);
   if (/(preco|orcamento|quanto custa|valor)/.test(t)) return ["COMERCIAL", "DIAGNÓSTICA"];
   if (temSufixoLocal(url) || /(bairro|perto de mim|domicilio)/.test(t)) return ["LOCAL", "DIAGNÓSTICA"];
   if (/(o que e|como funciona|guia|significa|por que)/.test(t)) return ["INFORMATIVA", "DIAGNÓSTICA"];
@@ -77,7 +80,7 @@ export function intencaoObservada(url: string, titulo: string): [IntencaoPrimari
  * preço/orçamento é comercial. Localidade nunca é primária em /problemas/*.
  */
 export function intencaoEsperada(url: string, titulo = ""): IntencaoPrimaria {
-  const t = normalizar(`${slugCanonico(url)} ${titulo}`);
+  const t = emFrase(`${slugCanonico(url)} ${titulo}`);
   if (/(preco|orcamento|quanto custa|valor)/.test(t)) return "COMERCIAL";
   if (/(o que e|como funciona|guia|significa|por que)/.test(t)) return "INFORMATIVA";
   return "DIAGNÓSTICA";

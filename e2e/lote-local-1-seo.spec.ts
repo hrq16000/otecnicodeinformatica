@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { resolve } from "node:path";
 
 /**
  * RODADA 5 — contrato SEO do Lote Local 1 (12 URLs).
@@ -37,21 +39,26 @@ const LOTE_LOCAL_1: Caso[] = [
 // O contrato de indexação vive no HTML estático publicado (dist), não no
 // runtime: a trava VITE_SITE_INDEXING_ENABLED remove canonical/robots no
 // preview local. Por isso robots, canonical e JSON-LD são lidos do artefato.
-const STATIC_BASE = process.env.E2E_STATIC_URL ?? "http://localhost:4173";
+const DIST = process.env.E2E_DIST_DIR ?? "dist";
+
+function lerArtefato(path: string): string | null {
+  const clean = path === "/" ? "/index" : path.replace(/\/$/, "");
+  for (const candidato of [resolve(DIST, `.${clean}.html`), resolve(DIST, `.${clean}/index.html`)]) {
+    if (existsSync(candidato)) return readFileSync(candidato, "utf8");
+  }
+  return null;
+}
 
 let sitemapPaths: Set<string> | null = null;
 
-async function carregarSitemap(request: import("@playwright/test").APIRequestContext, baseURL: string) {
+function carregarSitemap(): Set<string> {
   if (sitemapPaths) return sitemapPaths;
   const paths = new Set<string>();
-  const indexRes = await request.get(`${baseURL}/sitemap-index.xml`);
-  const arquivos = indexRes.ok()
-    ? [...(await indexRes.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
-    : [`${baseURL}/sitemap.xml`];
+  const arquivos = existsSync(DIST)
+    ? readdirSync(DIST).filter((f) => /^sitemap.*\.xml$/.test(f) && !/images|news|index/.test(f))
+    : [];
   for (const arquivo of arquivos) {
-    const res = await request.get(arquivo);
-    if (!res.ok()) continue;
-    for (const m of (await res.text()).matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    for (const m of readFileSync(resolve(DIST, arquivo), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)) {
       try {
         paths.add(new URL(m[1]).pathname.replace(/\/$/, "") || "/");
       } catch {
@@ -64,31 +71,30 @@ async function carregarSitemap(request: import("@playwright/test").APIRequestCon
 }
 
 for (const caso of LOTE_LOCAL_1) {
-  test(`contrato SEO — ${caso.path}`, async ({ page, request, baseURL }) => {
+  test(`contrato SEO — ${caso.path}`, async ({ page, baseURL }) => {
     const base = baseURL ?? "http://localhost:8080";
 
     // Artefato publicado: fonte de verdade do contrato de indexação.
-    const estatico = await request.get(`${STATIC_BASE}${caso.path}`);
-    expect(estatico.ok(), `${caso.path} não existe no build`).toBe(true);
-    const html = await estatico.text();
+    const html = lerArtefato(caso.path);
+    expect(html, `${caso.path} não existe no build (rode npm run build antes)`).toBeTruthy();
 
     // 1. meta robots coerente com a política
-    const robots = html.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? "";
+    const robots = html!.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i)?.[1] ?? "";
     expect(robots, `${caso.path} sem meta robots`).not.toBe("");
     expect(/noindex/i.test(robots), `${caso.path}: robots "${robots}"`).toBe(!caso.indexavel);
 
     // 2. canonical apontando para o alvo declarado
-    const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1];
+    const canonical = html!.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1];
     expect(canonical, `${caso.path} sem canonical`).toBeTruthy();
     expect(new URL(canonical!, base).pathname.replace(/\/$/, "") || "/").toBe(caso.canonical);
 
     // 3. sitemap
-    const paths = await carregarSitemap(request, STATIC_BASE);
+    const paths = carregarSitemap();
     expect(paths.has(caso.path.replace(/\/$/, "")), `${caso.path} no sitemap`).toBe(caso.sitemap);
 
     // 4. JSON-LD com BreadcrumbList e um nó de página/negócio
     const tipos: string[] = [];
-    for (const bloco of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    for (const bloco of html!.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
       try {
         const coleta = (n: unknown): void => {
           if (Array.isArray(n)) return n.forEach(coleta);

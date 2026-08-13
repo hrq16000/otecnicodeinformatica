@@ -185,7 +185,7 @@ export const TechnicianAvailabilityInline = () => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 text-white/90 text-sm">
       <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-green-400 motion-status-live" />
         <span><strong className="text-white">{status.technicianCount}</strong> técnico{status.technicianCount > 1 ? "s" : ""} disponíve{status.technicianCount > 1 ? "is" : "l"}</span>
       </div>
       <div className="hidden sm:block w-px h-4 bg-white/30" />

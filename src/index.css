@@ -82,6 +82,9 @@
     /* Fixed top chrome sizing: header + offer bar */
     --site-header-height: 72px;
     --site-header-height-compact: 56px;
+    /* Altura reservada no fluxo: NUNCA encolhe. O header fixo pode ficar
+       compacto ao rolar, mas o espaço reservado é constante — sem CLS. */
+    --site-header-space: 72px;
     --top-offer-height: 42px;
 
     /* Stacking tokens — keep top chrome above page content, below toasts/modals */
@@ -144,6 +147,7 @@
     :root {
       --site-header-height: 80px;
       --site-header-height-compact: 60px;
+      --site-header-space: 80px;
       --top-offer-height: 40px;
     }
   }
@@ -152,6 +156,7 @@
     :root {
       --site-header-height: 88px;
       --site-header-height-compact: 64px;
+      --site-header-space: 88px;
     }
   }
 

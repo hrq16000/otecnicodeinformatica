@@ -1,0 +1,4 @@
+{
+  "mobile": { "LCP": 2500, "TBT": 200, "CLS": 0.05, "score": 0.85 },
+  "desktop": { "LCP": 1800, "TBT": 100, "CLS": 0.02, "score": 0.95 }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "O Técnico de Informática",
+  "short_name": "O Técnico",
+  "description": "Assistência técnica em informática: notebooks, computadores, redes e suporte empresarial em Curitiba e região.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b2733",
+  "theme_color": "#0b2733",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

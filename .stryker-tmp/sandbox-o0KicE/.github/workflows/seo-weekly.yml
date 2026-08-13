@@ -1,0 +1,139 @@
+name: SEO weekly monitoring
+
+# Relatório semanal de busca + monitoramento de indexação das URLs prioritárias.
+# Alerta (falha do job) quando uma URL prioritária perde indexação, sai do
+# sitemap ou vira noindex.
+on:
+  schedule:
+    - cron: "0 9 * * 1" # segunda-feira, 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  seo-monitoring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Build (HTML estático)
+        run: npm run build
+
+      - name: Guard de URLs prioritárias (sitemap + noindex + canonical)
+        run: npm run check:priority-urls:dist
+
+      - name: Relatório pós-deploy (rich results + NAP)
+        run: npm run report:post-deploy
+
+      - name: Monitoramento de indexação (GSC)
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run monitor:indexing:alert
+
+      - name: Status HTTP em produção (200/301/404)
+        if: always()
+        run: npm run verify:prod-status
+
+      - name: Core Web Vitals das URLs prioritárias
+        if: always()
+        env:
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: npm run monitor:vitals:alert
+
+      - name: Rank tracking local (WoW por consulta × URL)
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run report:rank-tracking
+
+      - name: Relatório semanal de busca
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: npm run report:weekly-seo
+
+      - name: Relatório semanal da Rodada 3C (5 páginas)
+        if: always()
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: npm run report:weekly-3c
+
+
+
+      - name: Smoke de borda (rotas, aliases 301 e 404 reais)
+        if: always()
+        run: npm run smoke:edge:prod -- --report-only
+
+      - name: Cobertura de redirects (declarado × observado)
+        if: always()
+        run: npm run report:redirect-coverage
+
+      - name: Saúde de sitemap + IndexNow (200 obrigatório para healthy)
+        if: always()
+        run: npm run check:sitemap-status
+
+      - name: Alertas de sitemap/IndexNow (Slack / e-mail / PagerDuty)
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ALERT_EMAIL_TO: ${{ vars.ALERT_EMAIL_TO }}
+          ALERT_EMAIL_FROM: ${{ vars.ALERT_EMAIL_FROM }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          PAGERDUTY_ROUTING_KEY: ${{ secrets.PAGERDUTY_ROUTING_KEY }}
+        run: npm run alert:sitemap-status
+
+      - name: Alertas de borda (taxa de 404 e 5xx)
+        if: always()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ALERT_EMAIL_TO: ${{ vars.ALERT_EMAIL_TO }}
+          ALERT_EMAIL_FROM: ${{ vars.ALERT_EMAIL_FROM }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: npm run alert:edge
+
+      - name: Alertas (Slack / e-mail) com link para os artefatos
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ALERT_EMAIL_TO: ${{ vars.ALERT_EMAIL_TO }}
+          ALERT_EMAIL_FROM: ${{ vars.ALERT_EMAIL_FROM }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: npm run notify:seo-alerts
+
+
+      - name: Publicar relatórios como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-weekly-reports
+          path: |
+            reports/weekly-seo.md
+            reports/weekly-seo.json
+            reports/gsc-indexing.md
+            reports/gsc-indexing.json
+            reports/post-deploy-rich-results.md
+            reports/web-vitals.md
+            reports/web-vitals.json
+            reports/rank-tracking.md
+            reports/rank-tracking.json
+            reports/edge-smoke.json
+            reports/redirect-coverage.json
+            reports/edge-alerts.json
+            docs/relatorio-smoke-edge.md
+            docs/relatorio-cobertura-redirects.md
+          if-no-files-found: warn

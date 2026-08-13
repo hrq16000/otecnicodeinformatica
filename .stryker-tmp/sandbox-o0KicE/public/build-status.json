@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-08-13T00:05:15.114Z",
+  "finishedAt": "2026-08-13T00:05:16.586Z",
+  "ok": false,
+  "total": 9,
+  "passed": 8,
+  "failed": 1,
+  "skipped": 0,
+  "gates": [
+    {
+      "id": "ads-txt",
+      "label": "ads.txt e metatag AdSense",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 60,
+      "checkedAt": "2026-08-13T00:05:15.174Z"
+    },
+    {
+      "id": "policy-jsonld",
+      "label": "JSON-LD das políticas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 72,
+      "checkedAt": "2026-08-13T00:05:15.246Z"
+    },
+    {
+      "id": "telemetry",
+      "label": "Transparência da telemetria",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 74,
+      "checkedAt": "2026-08-13T00:05:15.320Z"
+    },
+    {
+      "id": "missing-exports",
+      "label": "Exports ausentes nas rotas",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 627,
+      "checkedAt": "2026-08-13T00:05:15.947Z"
+    },
+    {
+      "id": "internal-links",
+      "label": "Links internos sem 404",
+      "status": "fail",
+      "detail": "  - link interno quebrado → /servicos/manutencao-de-computadores (em src/lib/clusterProblemas.ts)",
+      "durationMs": 194,
+      "checkedAt": "2026-08-13T00:05:16.141Z"
+    },
+    {
+      "id": "sitemap-source",
+      "label": "Sitemap x fonte curada",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 99,
+      "checkedAt": "2026-08-13T00:05:16.240Z"
+    },
+    {
+      "id": "aggregate-rating",
+      "label": "Ausência de aggregateRating fabricado",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 110,
+      "checkedAt": "2026-08-13T00:05:16.350Z"
+    },
+    {
+      "id": "media-assets",
+      "label": "og:image, mídia kit e assets públicos",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 142,
+      "checkedAt": "2026-08-13T00:05:16.492Z"
+    },
+    {
+      "id": "orphan-pages",
+      "label": "Páginas órfãs",
+      "status": "ok",
+      "detail": "sem pendências",
+      "durationMs": 94,
+      "checkedAt": "2026-08-13T00:05:16.586Z"
+    }
+  ]
+}

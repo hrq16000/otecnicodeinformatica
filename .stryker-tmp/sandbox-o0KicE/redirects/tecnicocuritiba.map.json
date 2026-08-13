@@ -1,0 +1,3080 @@
+{
+  "source_domain": "https://tecnicocuritiba.com.br",
+  "target_domain": "https://tecnico.curitiba.br",
+  "generated_from": "docs/migracao/old-paths.txt",
+  "published": false,
+  "kept_urls": [
+    "/atendimento/balsa-nova",
+    "/atendimento/balsa-nova/centro",
+    "/atendimento/contenda",
+    "/atendimento/contenda/centro",
+    "/atendimento/mandirituba",
+    "/atendimento/mandirituba/centro",
+    "/atendimento/rio-branco-do-sul",
+    "/atendimento/rio-branco-do-sul/centro",
+    "/atendimento/tijucas-do-sul",
+    "/atendimento/tijucas-do-sul/centro"
+  ],
+  "rules": [
+    {
+      "from": "/",
+      "to": "https://tecnico.curitiba.br/",
+      "status": 301
+    },
+    {
+      "from": "/arrumar-pc",
+      "to": "https://tecnico.curitiba.br/arrumar-pc",
+      "status": 301
+    },
+    {
+      "from": "/arrumar-pc/online",
+      "to": "https://tecnico.curitiba.br/arrumar-pc/online",
+      "status": 301
+    },
+    {
+      "from": "/assistencia-eletrodomesticos-inteligentes-curitiba",
+      "to": "https://tecnico.curitiba.br/assistencia-eletrodomesticos-inteligentes-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/assistencia-tecnica-curitiba",
+      "to": "https://tecnico.curitiba.br/assistencia-tecnica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento",
+      "to": "https://tecnico.curitiba.br/atendimento-domicilio",
+      "status": 301
+    },
+    {
+      "from": "/atendimento-domicilio",
+      "to": "https://tecnico.curitiba.br/atendimento-domicilio",
+      "status": 301
+    },
+    {
+      "from": "/atendimento-remoto",
+      "to": "https://tecnico.curitiba.br/atendimento-remoto",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/almirante-tamandare",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-almirante-tamandare",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/almirante-tamandare/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-almirante-tamandare",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/almirante-tamandare/tranqueira",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-almirante-tamandare",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/araucaria",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/araucaria/cachoeira",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/araucaria/capela-velha",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/araucaria/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/araucaria/iguacu",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-largo",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-largo/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-largo/cercadinho",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-largo/sao-caetano",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-magro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-magro",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/campo-magro/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-magro",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/colombo",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/colombo/alto-maracana",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/colombo/atuba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/colombo/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/colombo/sao-gabriel",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/agua-verde",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/bacacheri",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/batel",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/boa-vista",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/boqueirao",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/cabral",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/cajuru",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/cic",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/hauer",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/novo-mundo",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/pinheirinho",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/portao",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/santa-felicidade",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/sitio-cercado",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/tatuquara",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/curitiba/uberaba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/fazenda-rio-grande",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/fazenda-rio-grande/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/fazenda-rio-grande/eucaliptos",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/fazenda-rio-grande/nacoes",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/pinhais/atuba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/pinhais/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/pinhais/estancia-pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/pinhais/weissopolis",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/piraquara",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/piraquara/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/piraquara/guarituba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/quatro-barras",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-quatro-barras",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/quatro-barras/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-quatro-barras",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/afonso-pena",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/aviacao",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/centro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/cidade-jardim",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/guatupe",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/atendimento/sao-jose-dos-pinhais/sao-pedro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/autor/tecnico-curitiba",
+      "to": "https://tecnico.curitiba.br/gestor-responsavel",
+      "status": 301
+    },
+    {
+      "from": "/bairros/academia-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/academia-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/afonso-pena",
+      "to": "https://tecnico.curitiba.br/bairros/afonso-pena",
+      "status": 301
+    },
+    {
+      "from": "/bairros/agricola-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/agricola-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/agua-verde",
+      "to": "https://tecnico.curitiba.br/bairros/agua-verde",
+      "status": 301
+    },
+    {
+      "from": "/bairros/alto-boqueirao",
+      "to": "https://tecnico.curitiba.br/bairros/alto-boqueirao",
+      "status": 301
+    },
+    {
+      "from": "/bairros/alto-da-gloria",
+      "to": "https://tecnico.curitiba.br/bairros/alto-da-gloria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/alto-maracana",
+      "to": "https://tecnico.curitiba.br/bairros/alto-maracana",
+      "status": 301
+    },
+    {
+      "from": "/bairros/alto-taruma",
+      "to": "https://tecnico.curitiba.br/bairros/alto-taruma",
+      "status": 301
+    },
+    {
+      "from": "/bairros/antonio-olivero-cm",
+      "to": "https://tecnico.curitiba.br/bairros/antonio-olivero-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/aristocrata",
+      "to": "https://tecnico.curitiba.br/bairros/aristocrata",
+      "status": 301
+    },
+    {
+      "from": "/bairros/atuba-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/atuba-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/atuba-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/atuba-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/aviacao",
+      "to": "https://tecnico.curitiba.br/bairros/aviacao",
+      "status": 301
+    },
+    {
+      "from": "/bairros/bacacheri",
+      "to": "https://tecnico.curitiba.br/bairros/bacacheri",
+      "status": 301
+    },
+    {
+      "from": "/bairros/barigui-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/barigui-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/barro-preto",
+      "to": "https://tecnico.curitiba.br/bairros/barro-preto",
+      "status": 301
+    },
+    {
+      "from": "/bairros/bateias",
+      "to": "https://tecnico.curitiba.br/bairros/bateias",
+      "status": 301
+    },
+    {
+      "from": "/bairros/batel",
+      "to": "https://tecnico.curitiba.br/bairros/batel",
+      "status": 301
+    },
+    {
+      "from": "/bairros/bigorrilho",
+      "to": "https://tecnico.curitiba.br/bairros/bigorrilho",
+      "status": 301
+    },
+    {
+      "from": "/bairros/boa-vista",
+      "to": "https://tecnico.curitiba.br/bairros/boa-vista",
+      "status": 301
+    },
+    {
+      "from": "/bairros/boa-vista-at",
+      "to": "https://tecnico.curitiba.br/bairros/boa-vista-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/boneca-do-iguacu-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/boneca-do-iguacu-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/boqueirao",
+      "to": "https://tecnico.curitiba.br/bairros/boqueirao",
+      "status": 301
+    },
+    {
+      "from": "/bairros/boqueirao-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/boqueirao-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/borda-campo-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/borda-campo-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/borda-do-campo-qb",
+      "to": "https://tecnico.curitiba.br/bairros/borda-do-campo-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/borda-do-campo-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/borda-do-campo-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/botiatuva",
+      "to": "https://tecnico.curitiba.br/bairros/botiatuva",
+      "status": 301
+    },
+    {
+      "from": "/bairros/botiatuva-cm",
+      "to": "https://tecnico.curitiba.br/bairros/botiatuva-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/braga",
+      "to": "https://tecnico.curitiba.br/bairros/braga",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cabral",
+      "to": "https://tecnico.curitiba.br/bairros/cabral",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cachoeira-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/cachoeira-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cachoeira-at",
+      "to": "https://tecnico.curitiba.br/bairros/cachoeira-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/caiua-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/caiua-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cajuru",
+      "to": "https://tecnico.curitiba.br/bairros/cajuru",
+      "status": 301
+    },
+    {
+      "from": "/bairros/california-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/california-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campina-da-barra",
+      "to": "https://tecnico.curitiba.br/bairros/campina-da-barra",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campina-grande-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/campina-grande-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campo-comprido",
+      "to": "https://tecnico.curitiba.br/bairros/campo-comprido",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campo-largo-roseira-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/campo-largo-roseira-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campo-pequeno",
+      "to": "https://tecnico.curitiba.br/bairros/campo-pequeno",
+      "status": 301
+    },
+    {
+      "from": "/bairros/campo-tenente-at",
+      "to": "https://tecnico.curitiba.br/bairros/campo-tenente-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/capao-da-imbuia",
+      "to": "https://tecnico.curitiba.br/bairros/capao-da-imbuia",
+      "status": 301
+    },
+    {
+      "from": "/bairros/capela-velha",
+      "to": "https://tecnico.curitiba.br/bairros/capela-velha",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro",
+      "to": "https://tecnico.curitiba.br/bairros/centro",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-almirante-tamandare",
+      "to": "https://tecnico.curitiba.br/bairros/centro-almirante-tamandare",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/centro-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/centro-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-campo-magro",
+      "to": "https://tecnico.curitiba.br/bairros/centro-campo-magro",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/centro-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-fazenda-rio-grande",
+      "to": "https://tecnico.curitiba.br/bairros/centro-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/centro-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/centro-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/centro-quatro-barras",
+      "to": "https://tecnico.curitiba.br/bairros/centro-quatro-barras",
+      "status": 301
+    },
+    {
+      "from": "/bairros/chapada",
+      "to": "https://tecnico.curitiba.br/bairros/chapada",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cic",
+      "to": "https://tecnico.curitiba.br/bairros/cic",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cidade-jardim-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/cidade-jardim-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/colonia-antonio-prado",
+      "to": "https://tecnico.curitiba.br/bairros/colonia-antonio-prado",
+      "status": 301
+    },
+    {
+      "from": "/bairros/colonia-malhada-cl",
+      "to": "https://tecnico.curitiba.br/bairros/colonia-malhada-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/colonia-murici-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/colonia-murici-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/correia-de-freitas",
+      "to": "https://tecnico.curitiba.br/bairros/correia-de-freitas",
+      "status": 301
+    },
+    {
+      "from": "/bairros/costeira",
+      "to": "https://tecnico.curitiba.br/bairros/costeira",
+      "status": 301
+    },
+    {
+      "from": "/bairros/costeira-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/costeira-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cristo-rei",
+      "to": "https://tecnico.curitiba.br/bairros/cristo-rei",
+      "status": 301
+    },
+    {
+      "from": "/bairros/cruzeiro",
+      "to": "https://tecnico.curitiba.br/bairros/cruzeiro",
+      "status": 301
+    },
+    {
+      "from": "/bairros/del-rey",
+      "to": "https://tecnico.curitiba.br/bairros/del-rey",
+      "status": 301
+    },
+    {
+      "from": "/bairros/embu-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/embu-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/emiliano-perneta",
+      "to": "https://tecnico.curitiba.br/bairros/emiliano-perneta",
+      "status": 301
+    },
+    {
+      "from": "/bairros/espigao-alegre-cm",
+      "to": "https://tecnico.curitiba.br/bairros/espigao-alegre-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/estacao-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/estacao-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/estancia-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/estancia-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/eucaliptos-frg",
+      "to": "https://tecnico.curitiba.br/bairros/eucaliptos-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/fatima-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/fatima-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/fazenda-velha-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/fazenda-velha-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/fazendinha",
+      "to": "https://tecnico.curitiba.br/bairros/fazendinha",
+      "status": 301
+    },
+    {
+      "from": "/bairros/ferraria",
+      "to": "https://tecnico.curitiba.br/bairros/ferraria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/gabirobal",
+      "to": "https://tecnico.curitiba.br/bairros/gabirobal",
+      "status": 301
+    },
+    {
+      "from": "/bairros/graciosa",
+      "to": "https://tecnico.curitiba.br/bairros/graciosa",
+      "status": 301
+    },
+    {
+      "from": "/bairros/graciosa-qb",
+      "to": "https://tecnico.curitiba.br/bairros/graciosa-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/gralha-azul",
+      "to": "https://tecnico.curitiba.br/bairros/gralha-azul",
+      "status": 301
+    },
+    {
+      "from": "/bairros/guajuvira",
+      "to": "https://tecnico.curitiba.br/bairros/guajuvira",
+      "status": 301
+    },
+    {
+      "from": "/bairros/guaraituba-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/guaraituba-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/guarituba-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/guarituba-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/guatupe",
+      "to": "https://tecnico.curitiba.br/bairros/guatupe",
+      "status": 301
+    },
+    {
+      "from": "/bairros/hauer",
+      "to": "https://tecnico.curitiba.br/bairros/hauer",
+      "status": 301
+    },
+    {
+      "from": "/bairros/hortencia-frg",
+      "to": "https://tecnico.curitiba.br/bairros/hortencia-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/hugo-lange",
+      "to": "https://tecnico.curitiba.br/bairros/hugo-lange",
+      "status": 301
+    },
+    {
+      "from": "/bairros/iguacu-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/iguacu-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/iguacu-frg",
+      "to": "https://tecnico.curitiba.br/bairros/iguacu-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/independencia-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/independencia-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/industrial-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/industrial-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/ipe-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/ipe-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/irai-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/irai-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/italia-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/italia-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/itaqui",
+      "to": "https://tecnico.curitiba.br/bairros/itaqui",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-amelia",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-amelia",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-america-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-america-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-bela-vista-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-bela-vista-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-boa-vista-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-boa-vista-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-boa-vista-cm",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-boa-vista-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-botanico",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-botanico",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-claudia",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-claudia",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-claudia-ii-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-claudia-ii-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-condor-frg",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-condor-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-das-americas",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-das-americas",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-das-pedras-frg",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-das-pedras-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-dona-rosa-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-dona-rosa-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-esperanca-cl",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-esperanca-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-esplanada-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-esplanada-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-estados",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-estados",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-florestal-qb",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-florestal-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-graziela",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-graziela",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-guilhermina",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-guilhermina",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-iguacu-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-iguacu-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-ipe-frg",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-ipe-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-japao-qb",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-japao-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-karla-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-karla-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-laranjeiras-cl",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-laranjeiras-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-menino-deus-qb",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-menino-deus-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-monte-santo",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-monte-santo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-novo-horizonte-cl",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-novo-horizonte-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-osasco",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-osasco",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-paraiso-at",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-paraiso-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-paranagua-at",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-paranagua-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-pedro-demeterco",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-pedro-demeterco",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-planalto-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-planalto-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-planalto-ii-cl",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-planalto-ii-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-primavera-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-primavera-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-roma",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-roma",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-santo-antonio-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-santo-antonio-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-sao-jorge-at",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-sao-jorge-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-sao-paulo-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-sao-paulo-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-shangrila-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-shangrila-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-social",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-social",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-tropical-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-tropical-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-uniao-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-uniao-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/jardim-wissinger-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/jardim-wissinger-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/joquei-clube-cm",
+      "to": "https://tecnico.curitiba.br/bairros/joquei-clube-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/juveve",
+      "to": "https://tecnico.curitiba.br/bairros/juveve",
+      "status": 301
+    },
+    {
+      "from": "/bairros/lamenha-grande-cl",
+      "to": "https://tecnico.curitiba.br/bairros/lamenha-grande-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/maracana-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/maracana-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/maria-antonieta",
+      "to": "https://tecnico.curitiba.br/bairros/maria-antonieta",
+      "status": 301
+    },
+    {
+      "from": "/bairros/merces",
+      "to": "https://tecnico.curitiba.br/bairros/merces",
+      "status": 301
+    },
+    {
+      "from": "/bairros/monza-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/monza-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/nacoes-frg",
+      "to": "https://tecnico.curitiba.br/bairros/nacoes-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/novo-mundo",
+      "to": "https://tecnico.curitiba.br/bairros/novo-mundo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/osvaldo-cruz-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/osvaldo-cruz-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/ouro-fino",
+      "to": "https://tecnico.curitiba.br/bairros/ouro-fino",
+      "status": 301
+    },
+    {
+      "from": "/bairros/ouro-fino-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/ouro-fino-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/palmital-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/palmital-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/palmital-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/palmital-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/palmital-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/palmital-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/parque-da-fonte",
+      "to": "https://tecnico.curitiba.br/bairros/parque-da-fonte",
+      "status": 301
+    },
+    {
+      "from": "/bairros/parque-industrial-frg",
+      "to": "https://tecnico.curitiba.br/bairros/parque-industrial-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/parque-nascentes-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/parque-nascentes-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/passauna",
+      "to": "https://tecnico.curitiba.br/bairros/passauna",
+      "status": 301
+    },
+    {
+      "from": "/bairros/pedro-moro-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/pedro-moro-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/pineville",
+      "to": "https://tecnico.curitiba.br/bairros/pineville",
+      "status": 301
+    },
+    {
+      "from": "/bairros/pinheirinho",
+      "to": "https://tecnico.curitiba.br/bairros/pinheirinho",
+      "status": 301
+    },
+    {
+      "from": "/bairros/pioneiros-frg",
+      "to": "https://tecnico.curitiba.br/bairros/pioneiros-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/planta-deodoro-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/planta-deodoro-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/planta-sao-tiago-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/planta-sao-tiago-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/portao",
+      "to": "https://tecnico.curitiba.br/bairros/portao",
+      "status": 301
+    },
+    {
+      "from": "/bairros/porto-das-laranjeiras",
+      "to": "https://tecnico.curitiba.br/bairros/porto-das-laranjeiras",
+      "status": 301
+    },
+    {
+      "from": "/bairros/prado-velho-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/prado-velho-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/quississana-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/quississana-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/reboucas",
+      "to": "https://tecnico.curitiba.br/bairros/reboucas",
+      "status": 301
+    },
+    {
+      "from": "/bairros/rio-pequeno-sjp",
+      "to": "https://tecnico.curitiba.br/bairros/rio-pequeno-sjp",
+      "status": 301
+    },
+    {
+      "from": "/bairros/rio-verde-cm",
+      "to": "https://tecnico.curitiba.br/bairros/rio-verde-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/roca-grande",
+      "to": "https://tecnico.curitiba.br/bairros/roca-grande",
+      "status": 301
+    },
+    {
+      "from": "/bairros/rondinha",
+      "to": "https://tecnico.curitiba.br/bairros/rondinha",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sabia",
+      "to": "https://tecnico.curitiba.br/bairros/sabia",
+      "status": 301
+    },
+    {
+      "from": "/bairros/santa-cruz-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/santa-cruz-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/santa-felicidade",
+      "to": "https://tecnico.curitiba.br/bairros/santa-felicidade",
+      "status": 301
+    },
+    {
+      "from": "/bairros/santa-terezinha-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/santa-terezinha-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/santa-terezinha-frg",
+      "to": "https://tecnico.curitiba.br/bairros/santa-terezinha-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-cristao-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/sao-cristao-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-cristovao",
+      "to": "https://tecnico.curitiba.br/bairros/sao-cristovao",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-dimas-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/sao-dimas-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-domingos",
+      "to": "https://tecnico.curitiba.br/bairros/sao-domingos",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-francisco",
+      "to": "https://tecnico.curitiba.br/bairros/sao-francisco",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-gabriel-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/sao-gabriel-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-jose-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/sao-jose-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-lourenco-frg",
+      "to": "https://tecnico.curitiba.br/bairros/sao-lourenco-frg",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-lourenco-qb",
+      "to": "https://tecnico.curitiba.br/bairros/sao-lourenco-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-marcos",
+      "to": "https://tecnico.curitiba.br/bairros/sao-marcos",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-marcos-campo-largo",
+      "to": "https://tecnico.curitiba.br/bairros/sao-marcos-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-miguel-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/sao-miguel-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-sebastiao-cm",
+      "to": "https://tecnico.curitiba.br/bairros/sao-sebastiao-cm",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-silvestre",
+      "to": "https://tecnico.curitiba.br/bairros/sao-silvestre",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sao-venancio",
+      "to": "https://tecnico.curitiba.br/bairros/sao-venancio",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sede-campo-magro",
+      "to": "https://tecnico.curitiba.br/bairros/sede-campo-magro",
+      "status": 301
+    },
+    {
+      "from": "/bairros/seminario",
+      "to": "https://tecnico.curitiba.br/bairros/seminario",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sete-vilas",
+      "to": "https://tecnico.curitiba.br/bairros/sete-vilas",
+      "status": 301
+    },
+    {
+      "from": "/bairros/sitio-cercado",
+      "to": "https://tecnico.curitiba.br/bairros/sitio-cercado",
+      "status": 301
+    },
+    {
+      "from": "/bairros/tangua-at",
+      "to": "https://tecnico.curitiba.br/bairros/tangua-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/taruma",
+      "to": "https://tecnico.curitiba.br/bairros/taruma",
+      "status": 301
+    },
+    {
+      "from": "/bairros/taxiqueira-colombo",
+      "to": "https://tecnico.curitiba.br/bairros/taxiqueira-colombo",
+      "status": 301
+    },
+    {
+      "from": "/bairros/thomaz-coelho",
+      "to": "https://tecnico.curitiba.br/bairros/thomaz-coelho",
+      "status": 301
+    },
+    {
+      "from": "/bairros/thomaz-coelho-ii",
+      "to": "https://tecnico.curitiba.br/bairros/thomaz-coelho-ii",
+      "status": 301
+    },
+    {
+      "from": "/bairros/timbotuva-cl",
+      "to": "https://tecnico.curitiba.br/bairros/timbotuva-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/tindiquera",
+      "to": "https://tecnico.curitiba.br/bairros/tindiquera",
+      "status": 301
+    },
+    {
+      "from": "/bairros/tingui",
+      "to": "https://tecnico.curitiba.br/bairros/tingui",
+      "status": 301
+    },
+    {
+      "from": "/bairros/tranqueira-at",
+      "to": "https://tecnico.curitiba.br/bairros/tranqueira-at",
+      "status": 301
+    },
+    {
+      "from": "/bairros/tres-corregos",
+      "to": "https://tecnico.curitiba.br/bairros/tres-corregos",
+      "status": 301
+    },
+    {
+      "from": "/bairros/uberaba",
+      "to": "https://tecnico.curitiba.br/bairros/uberaba",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vale-das-aguas",
+      "to": "https://tecnico.curitiba.br/bairros/vale-das-aguas",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vargem-grande",
+      "to": "https://tecnico.curitiba.br/bairros/vargem-grande",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-amelia-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/vila-amelia-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-candida-cl",
+      "to": "https://tecnico.curitiba.br/bairros/vila-candida-cl",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-izabel",
+      "to": "https://tecnico.curitiba.br/bairros/vila-izabel",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-macedo-piraquara",
+      "to": "https://tecnico.curitiba.br/bairros/vila-macedo-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-maria-antonieta-pinhais",
+      "to": "https://tecnico.curitiba.br/bairros/vila-maria-antonieta-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-maria-qb",
+      "to": "https://tecnico.curitiba.br/bairros/vila-maria-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-nova-araucaria",
+      "to": "https://tecnico.curitiba.br/bairros/vila-nova-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-sao-jose-qb",
+      "to": "https://tecnico.curitiba.br/bairros/vila-sao-jose-qb",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-solene",
+      "to": "https://tecnico.curitiba.br/bairros/vila-solene",
+      "status": 301
+    },
+    {
+      "from": "/bairros/vila-taruma",
+      "to": "https://tecnico.curitiba.br/bairros/vila-taruma",
+      "status": 301
+    },
+    {
+      "from": "/bairros/weissopolis",
+      "to": "https://tecnico.curitiba.br/bairros/weissopolis",
+      "status": 301
+    },
+    {
+      "from": "/bairros/xaxim",
+      "to": "https://tecnico.curitiba.br/bairros/xaxim",
+      "status": 301
+    },
+    {
+      "from": "/blog",
+      "to": "https://tecnico.curitiba.br/blog",
+      "status": 301
+    },
+    {
+      "from": "/blog/como-escolher-tecnico-informatica-confiavel-curitiba",
+      "to": "https://tecnico.curitiba.br/blog/como-escolher-tecnico-informatica-confiavel-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/blog/meu-computador-precisa-de-formatacao",
+      "to": "https://tecnico.curitiba.br/blog/meu-computador-precisa-de-formatacao",
+      "status": 301
+    },
+    {
+      "from": "/blog/quanto-custa-formatar-computador-curitiba",
+      "to": "https://tecnico.curitiba.br/blog/quanto-custa-formatar-computador-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/blog/suporte-tecnico-remoto-como-funciona",
+      "to": "https://tecnico.curitiba.br/blog/suporte-tecnico-remoto-como-funciona",
+      "status": 301
+    },
+    {
+      "from": "/blog/upgrade-ram-quando-vale-a-pena",
+      "to": "https://tecnico.curitiba.br/blog/upgrade-ram-quando-vale-a-pena",
+      "status": 301
+    },
+    {
+      "from": "/cftv",
+      "to": "https://tecnico.curitiba.br/cftv",
+      "status": 301
+    },
+    {
+      "from": "/cftv/araucaria",
+      "to": "https://tecnico.curitiba.br/cftv/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/cftv/campo-largo",
+      "to": "https://tecnico.curitiba.br/cftv/campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/cftv/curitiba",
+      "to": "https://tecnico.curitiba.br/cftv/curitiba",
+      "status": 301
+    },
+    {
+      "from": "/cftv/guaratuba",
+      "to": "https://tecnico.curitiba.br/cftv/guaratuba",
+      "status": 301
+    },
+    {
+      "from": "/cftv/litoral",
+      "to": "https://tecnico.curitiba.br/cftv/litoral",
+      "status": 301
+    },
+    {
+      "from": "/cftv/pinhais",
+      "to": "https://tecnico.curitiba.br/cftv/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/cftv/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/cftv/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/coleta-e-entrega",
+      "to": "https://tecnico.curitiba.br/coleta-e-entrega",
+      "status": 301
+    },
+    {
+      "from": "/coleta-formulario",
+      "to": "https://tecnico.curitiba.br/coleta-formulario",
+      "status": 301
+    },
+    {
+      "from": "/como-funciona",
+      "to": "https://tecnico.curitiba.br/como-funciona",
+      "status": 301
+    },
+    {
+      "from": "/conserto-celular-curitiba",
+      "to": "https://tecnico.curitiba.br/conserto-celular-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/conserto-impressora-curitiba",
+      "to": "https://tecnico.curitiba.br/conserto-impressora-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/conserto-som-curitiba",
+      "to": "https://tecnico.curitiba.br/conserto-som-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/conserto-tv-curitiba",
+      "to": "https://tecnico.curitiba.br/conserto-tv-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/conserto-videogame-curitiba",
+      "to": "https://tecnico.curitiba.br/conserto-videogame-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/contato",
+      "to": "https://tecnico.curitiba.br/contato",
+      "status": 301
+    },
+    {
+      "from": "/diagnostico-60s",
+      "to": "https://tecnico.curitiba.br/diagnostico-60s",
+      "status": 301
+    },
+    {
+      "from": "/diagnostico-tecnico",
+      "to": "https://tecnico.curitiba.br/diagnostico-tecnico",
+      "status": 301
+    },
+    {
+      "from": "/equipamentos-atendidos",
+      "to": "https://tecnico.curitiba.br/equipamentos-atendidos",
+      "status": 301
+    },
+    {
+      "from": "/faq",
+      "to": "https://tecnico.curitiba.br/faq",
+      "status": 301
+    },
+    {
+      "from": "/funil-indisponivel",
+      "to": "https://tecnico.curitiba.br/funil-indisponivel",
+      "status": 301
+    },
+    {
+      "from": "/gestor-responsavel",
+      "to": "https://tecnico.curitiba.br/gestor-responsavel",
+      "status": 301
+    },
+    {
+      "from": "/manutencao-notebook-pc-curitiba",
+      "to": "https://tecnico.curitiba.br/servicos/manutencao-de-notebook",
+      "status": 301
+    },
+    {
+      "from": "/marcas",
+      "to": "https://tecnico.curitiba.br/marcas",
+      "status": 301
+    },
+    {
+      "from": "/marcas/acer",
+      "to": "https://tecnico.curitiba.br/marcas/acer",
+      "status": 301
+    },
+    {
+      "from": "/marcas/amd",
+      "to": "https://tecnico.curitiba.br/marcas/amd",
+      "status": 301
+    },
+    {
+      "from": "/marcas/apple",
+      "to": "https://tecnico.curitiba.br/marcas/apple",
+      "status": 301
+    },
+    {
+      "from": "/marcas/asus",
+      "to": "https://tecnico.curitiba.br/marcas/asus",
+      "status": 301
+    },
+    {
+      "from": "/marcas/corsair",
+      "to": "https://tecnico.curitiba.br/marcas/corsair",
+      "status": 301
+    },
+    {
+      "from": "/marcas/dell",
+      "to": "https://tecnico.curitiba.br/marcas/dell",
+      "status": 301
+    },
+    {
+      "from": "/marcas/gigabyte",
+      "to": "https://tecnico.curitiba.br/marcas/gigabyte",
+      "status": 301
+    },
+    {
+      "from": "/marcas/hp",
+      "to": "https://tecnico.curitiba.br/marcas/hp",
+      "status": 301
+    },
+    {
+      "from": "/marcas/intel",
+      "to": "https://tecnico.curitiba.br/marcas/intel",
+      "status": 301
+    },
+    {
+      "from": "/marcas/intelbras",
+      "to": "https://tecnico.curitiba.br/marcas/intelbras",
+      "status": 301
+    },
+    {
+      "from": "/marcas/kingston",
+      "to": "https://tecnico.curitiba.br/marcas/kingston",
+      "status": 301
+    },
+    {
+      "from": "/marcas/lenovo",
+      "to": "https://tecnico.curitiba.br/marcas/lenovo",
+      "status": 301
+    },
+    {
+      "from": "/marcas/lg",
+      "to": "https://tecnico.curitiba.br/marcas/lg",
+      "status": 301
+    },
+    {
+      "from": "/marcas/logitech",
+      "to": "https://tecnico.curitiba.br/marcas/logitech",
+      "status": 301
+    },
+    {
+      "from": "/marcas/microsoft",
+      "to": "https://tecnico.curitiba.br/marcas/microsoft",
+      "status": 301
+    },
+    {
+      "from": "/marcas/motorola",
+      "to": "https://tecnico.curitiba.br/marcas/motorola",
+      "status": 301
+    },
+    {
+      "from": "/marcas/msi",
+      "to": "https://tecnico.curitiba.br/marcas/msi",
+      "status": 301
+    },
+    {
+      "from": "/marcas/nvidia",
+      "to": "https://tecnico.curitiba.br/marcas/nvidia",
+      "status": 301
+    },
+    {
+      "from": "/marcas/positivo",
+      "to": "https://tecnico.curitiba.br/marcas/positivo",
+      "status": 301
+    },
+    {
+      "from": "/marcas/razer",
+      "to": "https://tecnico.curitiba.br/marcas/razer",
+      "status": 301
+    },
+    {
+      "from": "/marcas/samsung",
+      "to": "https://tecnico.curitiba.br/marcas/samsung",
+      "status": 301
+    },
+    {
+      "from": "/marcas/seagate",
+      "to": "https://tecnico.curitiba.br/marcas/seagate",
+      "status": 301
+    },
+    {
+      "from": "/marcas/sony",
+      "to": "https://tecnico.curitiba.br/marcas/sony",
+      "status": 301
+    },
+    {
+      "from": "/marcas/tp-link",
+      "to": "https://tecnico.curitiba.br/marcas/tp-link",
+      "status": 301
+    },
+    {
+      "from": "/marcas/western-digital",
+      "to": "https://tecnico.curitiba.br/marcas/western-digital",
+      "status": 301
+    },
+    {
+      "from": "/marcas/xiaomi",
+      "to": "https://tecnico.curitiba.br/marcas/xiaomi",
+      "status": 301
+    },
+    {
+      "from": "/obrigado",
+      "to": "https://tecnico.curitiba.br/obrigado",
+      "status": 301
+    },
+    {
+      "from": "/politica-de-privacidade",
+      "to": "https://tecnico.curitiba.br/politica-de-privacidade",
+      "status": 301
+    },
+    {
+      "from": "/precos-e-politicas",
+      "to": "https://tecnico.curitiba.br/precos-e-politicas",
+      "status": 301
+    },
+    {
+      "from": "/problemas-reais-e-casos",
+      "to": "https://tecnico.curitiba.br/problemas-reais-e-casos",
+      "status": 301
+    },
+    {
+      "from": "/problemas/alto-falante-queimado-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/alto-falante-queimado-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/amplificador-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/amplificador-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/assistencia-tecnica-urgente-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/assistencia-tecnica-urgente-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/backup-perdido-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/backup-perdido-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/cabo-rede-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/cabo-rede-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/caixa-som-nao-carrega-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/caixa-som-nao-carrega-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/caixa-som-sem-audio-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/caixa-som-sem-audio-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/caixa-som-sem-bluetooth-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/caixa-som-sem-bluetooth-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/camera-seguranca-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/camera-seguranca-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-bateria-inchada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-bateria-inchada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-camera-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-camera-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-com-virus-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-com-virus-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-lento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-lento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-listras-na-tela-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-listras-na-tela-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-molhou-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-molhou-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-nao-carrega-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-nao-carrega-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-sem-sinal-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-sem-sinal-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-tela-quebrada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-tela-quebrada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/celular-touch-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/celular-touch-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-com-cheiro-de-queimado-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-com-cheiro-de-queimado-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-com-som-estranho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-com-som-estranho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-com-tela-preta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-com-tela-preta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-com-virus-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-com-virus-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-desligando-apos-segundos-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-desligando-apos-segundos-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-lento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-lento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-liga-e-desliga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-liga-e-desliga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-muito-barulhento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-muito-barulhento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-nao-conecta-bluetooth-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-nao-conecta-bluetooth-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-nao-desliga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-nao-desliga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-nao-reconhece-usb-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-nao-reconhece-usb-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-reiniciando-sozinho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-reiniciando-sozinho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-sem-video-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-sem-video-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-sem-wifi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-sem-wifi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/computador-travando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/computador-travando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/conserto-computador-domicilio-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/conserto-computador-domicilio-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/curto-em-placa-eletronica",
+      "to": "https://tecnico.curitiba.br/problemas/curto-em-placa-eletronica",
+      "status": 301
+    },
+    {
+      "from": "/problemas/custo-reparo-vs-novo",
+      "to": "https://tecnico.curitiba.br/problemas/custo-reparo-vs-novo",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x0000007b-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x0000007b-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x80004005-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x80004005-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x80070005-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x80070005-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x80070057-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x80070057-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x800f081f-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x800f081f-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0x80240034-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0x80240034-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0xc00000e-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0xc00000e-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-0xc000021a-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-0xc000021a-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-ao-instalar-memoria-ram",
+      "to": "https://tecnico.curitiba.br/problemas/erro-ao-instalar-memoria-ram",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-ao-instalar-windows-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-ao-instalar-windows-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-apos-formatacao",
+      "to": "https://tecnico.curitiba.br/problemas/erro-apos-formatacao",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-atualizacao-windows-11-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-atualizacao-windows-11-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-bios-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-bios-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-disco-100-porcento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-disco-100-porcento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-disco-cheio-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-disco-cheio-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-driver-windows-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-driver-windows-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-particao-windows-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-particao-windows-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-registro-windows-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-registro-windows-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erro-windows-update-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/erro-windows-update-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/erros-comuns-em-upgrade",
+      "to": "https://tecnico.curitiba.br/problemas/erros-comuns-em-upgrade",
+      "status": 301
+    },
+    {
+      "from": "/problemas/fonte-queimada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/fonte-queimada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/formatacao-resolve-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/formatacao-resolve-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/gpu-desgastada",
+      "to": "https://tecnico.curitiba.br/problemas/gpu-desgastada",
+      "status": 301
+    },
+    {
+      "from": "/problemas/hd-externo-nao-reconhece-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/hd-externo-nao-reconhece-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/hd-fazendo-barulho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/hd-fazendo-barulho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/impressora-cartucho-nao-reconhece-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/impressora-cartucho-nao-reconhece-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/impressora-erro-conexao-usb-wifi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/impressora-erro-conexao-usb-wifi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/impressora-nao-imprime-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/impressora-nao-imprime-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/impressora-papel-preso-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/impressora-papel-preso-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/impressora-tinta-nao-sai-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/impressora-tinta-nao-sai-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/internet-lenta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/internet-lenta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/listras-tela-celular-apos-atualizacao-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/listras-tela-celular-apos-atualizacao-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/manutencao-notebook-curitiba-rapido",
+      "to": "https://tecnico.curitiba.br/problemas/manutencao-notebook-curitiba-rapido",
+      "status": 301
+    },
+    {
+      "from": "/problemas/memoria-ram-com-defeito-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/memoria-ram-com-defeito-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/microsoldagem-celular-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/microsoldagem-celular-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/monitor-piscando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/monitor-piscando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/monitor-sem-sinal-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/monitor-sem-sinal-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/mouse-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/mouse-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-apos-upgrade-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-apos-upgrade-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-bateria-nao-carrega-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-bateria-nao-carrega-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-com-agua-ou-liquido-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-com-agua-ou-liquido-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-com-tela-piscando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-com-tela-piscando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-com-tela-quebrada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-com-tela-quebrada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-desliga-sozinho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-desliga-sozinho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-desligando-sozinho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-desligando-sozinho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-esquentando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-esquentando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-esquentando-desligando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-esquentando-desligando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-esquentando-muito-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-esquentando-muito-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-lento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-lento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-nao-carrega-bateria-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-nao-carrega-bateria-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-nao-carrega-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-nao-carrega-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-nao-conecta-bluetooth-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-nao-conecta-bluetooth-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-sem-audio-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-sem-audio-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-sem-imagem-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-sem-imagem-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-sem-som-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-sem-som-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-sem-webcam-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-sem-webcam-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-sem-wifi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-sem-wifi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-superaquecendo-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-superaquecendo-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-teclado-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-teclado-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-tela-amarelada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-tela-amarelada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-tela-escura-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-tela-escura-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-tela-preta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-tela-preta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/notebook-touchpad-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/notebook-touchpad-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/o-que-causa-curto-em-placa",
+      "to": "https://tecnico.curitiba.br/problemas/o-que-causa-curto-em-placa",
+      "status": 301
+    },
+    {
+      "from": "/problemas/o-que-fazer-computador-nao-liga",
+      "to": "https://tecnico.curitiba.br/problemas/o-que-fazer-computador-nao-liga",
+      "status": 301
+    },
+    {
+      "from": "/problemas/o-que-fazer-notebook-lento",
+      "to": "https://tecnico.curitiba.br/problemas/o-que-fazer-notebook-lento",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-barulho-estranho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-barulho-estranho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-pop-ups-e-propagandas-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-pop-ups-e-propagandas-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-programas-pesados",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-programas-pesados",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-tela-congelada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-tela-congelada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-tela-preta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-tela-preta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-com-virus-ransomware-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-com-virus-ransomware-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-desligando-sozinho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-desligando-sozinho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-fazendo-barulho-estranho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-fazendo-barulho-estranho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-conecta-bluetooth-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-conecta-bluetooth-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-conecta-internet-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-conecta-internet-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-conecta-wifi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-conecta-wifi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-entra-modo-seguro-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-entra-modo-seguro-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-reconhece-hd-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-reconhece-hd-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-reconhece-segundo-monitor-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-reconhece-segundo-monitor-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-nao-reconhece-usb-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-nao-reconhece-usb-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-reiniciando-sozinho-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-reiniciando-sozinho-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-sem-audio-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-sem-audio-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-sem-imagem-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-sem-imagem-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-sem-som-hdmi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-sem-som-hdmi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-superaquecendo-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-superaquecendo-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-trava-ao-jogar-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-trava-ao-jogar-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-travando-em-jogos-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-travando-em-jogos-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pc-travando-jogos-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pc-travando-jogos-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/pen-drive-nao-reconhece-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/pen-drive-nao-reconhece-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/placa-de-video-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/placa-de-video-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/placa-mae-com-defeito-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/placa-mae-com-defeito-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/placa-mae-queimada",
+      "to": "https://tecnico.curitiba.br/problemas/placa-mae-queimada",
+      "status": 301
+    },
+    {
+      "from": "/problemas/por-que-conserto-placa-mae-custa-caro-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/por-que-conserto-placa-mae-custa-caro-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/por-que-display-e-caro-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/por-que-display-e-caro-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/quando-nao-compensa-reparo",
+      "to": "https://tecnico.curitiba.br/problemas/quando-nao-compensa-reparo",
+      "status": 301
+    },
+    {
+      "from": "/problemas/quando-trocar-computador",
+      "to": "https://tecnico.curitiba.br/problemas/quando-trocar-computador",
+      "status": 301
+    },
+    {
+      "from": "/problemas/quanto-custa-trocar-tela-celular-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/quanto-custa-trocar-tela-celular-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/quanto-custa-trocar-tela-tv-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/quanto-custa-trocar-tela-tv-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/radio-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/radio-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reballing-bga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reballing-bga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/recapacitacao-placa-eletronica-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/recapacitacao-placa-eletronica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/receiver-sem-som-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/receiver-sem-som-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reflow-bga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reflow-bga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reparo-placa-mae-celular-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reparo-placa-mae-celular-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reparo-placa-mae-notebook-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reparo-placa-mae-notebook-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reparo-placa-principal-tv-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reparo-placa-principal-tv-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/reparo-placa-som-amplificador-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/reparo-placa-som-amplificador-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/riscos-de-tentar-consertar",
+      "to": "https://tecnico.curitiba.br/problemas/riscos-de-tentar-consertar",
+      "status": 301
+    },
+    {
+      "from": "/problemas/smart-tv-lenta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/smart-tv-lenta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/som-automotivo-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/som-automotivo-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/som-chiando-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/som-chiando-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/som-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/som-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/ssd-nao-reconhece-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/ssd-nao-reconhece-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/teclado-mouse-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/teclado-mouse-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/teclado-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/teclado-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tecnico-computador-perto-de-mim",
+      "to": "https://tecnico.curitiba.br/problemas/tecnico-computador-perto-de-mim",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tecnico-informatica-emergencia-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tecnico-informatica-emergencia-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tela-azul-windows-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tela-azul-windows-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/troca-chip-bga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/troca-chip-bga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-cheiro-queimado-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-cheiro-queimado-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-com-linhas-na-tela-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-com-linhas-na-tela-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-com-som-sem-imagem-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-com-som-sem-imagem-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-com-tela-escura-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-com-tela-escura-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-controle-nao-funciona-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-controle-nao-funciona-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-demora-ligar-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-demora-ligar-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-desliga-sozinha-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-desliga-sozinha-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-desligando-sozinha-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-desligando-sozinha-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-imagem-fantasma-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-imagem-fantasma-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-listras-horizontais-verticais-conserto-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-listras-horizontais-verticais-conserto-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-listras-na-tela-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-listras-na-tela-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-manchas-na-tela-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-manchas-na-tela-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-nao-conecta-wifi-bluetooth-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-nao-conecta-wifi-bluetooth-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-nao-liga-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-nao-liga-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-pixel-morto-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-pixel-morto-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-sem-cores-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-sem-cores-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-sem-hdmi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-sem-hdmi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-sem-imagem-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-sem-imagem-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-sem-som-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-sem-som-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-sem-wifi-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-sem-wifi-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-som-sem-video-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-som-sem-video-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-tela-quebrada-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-tela-quebrada-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/tv-travando-lenta-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/tv-travando-lenta-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/upgrade-deu-problema",
+      "to": "https://tecnico.curitiba.br/problemas/upgrade-deu-problema",
+      "status": 301
+    },
+    {
+      "from": "/problemas/vale-a-pena-consertar-computador",
+      "to": "https://tecnico.curitiba.br/problemas/vale-a-pena-consertar-computador",
+      "status": 301
+    },
+    {
+      "from": "/problemas/vale-a-pena-consertar-notebook",
+      "to": "https://tecnico.curitiba.br/problemas/vale-a-pena-consertar-notebook",
+      "status": 301
+    },
+    {
+      "from": "/problemas/wifi-caindo-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/wifi-caindo-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/windows-lento-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/windows-lento-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/problemas/windows-travando-na-atualizacao-curitiba",
+      "to": "https://tecnico.curitiba.br/problemas/windows-travando-na-atualizacao-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/procedimentos-placa",
+      "to": "https://tecnico.curitiba.br/procedimentos-placa",
+      "status": 301
+    },
+    {
+      "from": "/quando-nao-compensa",
+      "to": "https://tecnico.curitiba.br/quando-nao-compensa",
+      "status": 301
+    },
+    {
+      "from": "/seja-parceiro",
+      "to": "https://tecnico.curitiba.br/seja-parceiro",
+      "status": 301
+    },
+    {
+      "from": "/servicos",
+      "to": "https://tecnico.curitiba.br/servicos",
+      "status": 301
+    },
+    {
+      "from": "/servicos/backup-recuperacao",
+      "to": "https://tecnico.curitiba.br/servicos/recuperacao-de-dados",
+      "status": 301
+    },
+    {
+      "from": "/servicos/backup-recuperacao/centro",
+      "to": "https://tecnico.curitiba.br/servicos/backup-recuperacao/centro",
+      "status": 301
+    },
+    {
+      "from": "/servicos/computador-lento",
+      "to": "https://tecnico.curitiba.br/servicos/computador-lento",
+      "status": 301
+    },
+    {
+      "from": "/servicos/computador-nao-liga",
+      "to": "https://tecnico.curitiba.br/servicos/computador-nao-liga",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-celular",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-celular",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-notebook-curitiba",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-notebook-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook",
+      "to": "https://tecnico.curitiba.br/servicos/manutencao-de-notebook",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/araucaria",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/batel",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/batel",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/campo-largo",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/cic",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/cic",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/portao",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/portao",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-pc-notebook/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-pc-notebook/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-placa",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-placa",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-tv",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-tv",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-tv/bacacheri",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-tv/bacacheri",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-tv/batel",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-tv/batel",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-tv/boqueirao",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-tv/boqueirao",
+      "status": 301
+    },
+    {
+      "from": "/servicos/conserto-tv/cabral",
+      "to": "https://tecnico.curitiba.br/servicos/conserto-tv/cabral",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/araucaria",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/campo-comprido",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/campo-comprido",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/campo-largo",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/centro",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/centro",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/portao",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/portao",
+      "status": 301
+    },
+    {
+      "from": "/servicos/formatacao-computador/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/formatacao-computador/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/manutencao-tv",
+      "to": "https://tecnico.curitiba.br/servicos/manutencao-tv",
+      "status": 301
+    },
+    {
+      "from": "/servicos/montagem-pc",
+      "to": "https://tecnico.curitiba.br/servicos/montagem-pc",
+      "status": 301
+    },
+    {
+      "from": "/servicos/montagem-pc/cic",
+      "to": "https://tecnico.curitiba.br/servicos/montagem-pc/cic",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi",
+      "to": "https://tecnico.curitiba.br/servicos/redes-e-wifi",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/araucaria",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/bacacheri",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/bacacheri",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/batel",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/batel",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/campo-largo",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/cic",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/cic",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/santa-felicidade",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/santa-felicidade",
+      "status": 301
+    },
+    {
+      "from": "/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/redes-wifi/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-de-virus",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/araucaria",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/batel",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/batel",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/campo-largo",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/centro",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/centro",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/portao",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/portao",
+      "status": 301
+    },
+    {
+      "from": "/servicos/remocao-virus/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/remocao-virus/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-ram",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria/araucaria",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-memoria/araucaria",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria/batel",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-memoria/batel",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria/pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-memoria/pinhais",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria/santa-felicidade",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-memoria/santa-felicidade",
+      "status": 301
+    },
+    {
+      "from": "/servicos/upgrade-ssd-memoria/sao-jose-dos-pinhais",
+      "to": "https://tecnico.curitiba.br/servicos/upgrade-ssd-memoria/sao-jose-dos-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/sobre",
+      "to": "https://tecnico.curitiba.br/sobre",
+      "status": 301
+    },
+    {
+      "from": "/status",
+      "to": "https://tecnico.curitiba.br/status",
+      "status": 301
+    },
+    {
+      "from": "/suporte-empresas",
+      "to": "https://tecnico.curitiba.br/suporte-empresas",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-almirante-tamandare",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-almirante-tamandare",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-araucaria",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-araucaria",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-campo-largo",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-largo",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-campo-magro",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-campo-magro",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-colombo",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-colombo",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-curitiba",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-curitiba",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-fazenda-rio-grande",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-fazenda-rio-grande",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-piraquara",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-piraquara",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-quatro-barras",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-quatro-barras",
+      "status": 301
+    },
+    {
+      "from": "/tecnico-informatica-sao-jose-pinhais",
+      "to": "https://tecnico.curitiba.br/tecnico-informatica-sao-jose-pinhais",
+      "status": 301
+    },
+    {
+      "from": "/termos-e-condicoes",
+      "to": "https://tecnico.curitiba.br/termos-e-condicoes",
+      "status": 301
+    },
+    {
+      "from": "/valores",
+      "to": "https://tecnico.curitiba.br/precos-e-politicas",
+      "status": 301
+    }
+  ]
+}

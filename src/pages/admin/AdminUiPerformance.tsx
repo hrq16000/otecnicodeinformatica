@@ -301,6 +301,64 @@ const AdminUiPerformance = () => {
     [alertasVitais, alertasUi, limite, rota],
   );
 
+  const sufixo = `${janela}_${rota === "__todas__" ? "todas" : rota.replace(/\W+/g, "-")}_${componente === "__todas__" ? "todos" : componente}`;
+
+  /** Exporta as amostras já filtradas (rota, componente e janela ativos). */
+  const exportarAmostras = () =>
+    baixar(
+      `ui-performance-amostras_${sufixo}.csv`,
+      paraCsv(
+        ["timestamp", "tipo", "rota", "componente", "superficie", "duracao_ms", "resultado", "acima_budget", "cta_tipo", "cta_local"],
+        amostras.map((a) => [
+          new Date(a.timestamp).toISOString(),
+          a.tipo,
+          a.rota,
+          a.primitiva,
+          a.superficie,
+          Math.round(a.duracao),
+          a.resultado,
+          a.excedeu ? "sim" : "nao",
+          a.ctaTipo ?? "",
+          a.ctaLocal ?? "",
+        ]),
+      ),
+    );
+
+  /** Exporta o resumo por rota (a visão usada para decidir onde atacar). */
+  const exportarResumo = () =>
+    baixar(
+      `ui-performance-rotas_${sufixo}.csv`,
+      paraCsv(
+        ["rota", "lcp_p75_ms", "cls_p75", "loading_p75_ms", "interacao_p75_ms", "erros", "budget_lcp_ms", "budget_cls", "budget_loading_ms", "budget_interacao_ms"],
+        porRota.map((r) => [
+          r.rota,
+          Math.round(r.lcp),
+          r.cls.toFixed(3),
+          Math.round(r.loadingP75),
+          Math.round(r.interacaoP75),
+          r.erros,
+          BUDGETS.LCP,
+          BUDGETS.CLS,
+          BUDGETS.LOADING,
+          BUDGETS.INTERACTION,
+        ]),
+      ),
+    );
+
+  /** Exporta os alertas de budget (o que já foi para Sentry/GA4). */
+  const exportarAlertas = () =>
+    baixar(
+      `ui-performance-alertas_${sufixo}.csv`,
+      paraCsv(
+        ["timestamp", "alerta", "detalhe"],
+        alertas.map((a) => [new Date(a.t).toISOString(), a.titulo, a.detalhe]),
+      ),
+    );
+
+  // PDF: usa a impressão do navegador ("Salvar como PDF"). Evita puxar uma
+  // biblioteca de ~500 kB para uma tela administrativa de uso pontual.
+  const exportarPdf = () => window.print();
+
   const limparTudo = () => {
     clearVitalsAlerts();
     clearVitalsHistory();
@@ -340,10 +398,36 @@ const AdminUiPerformance = () => {
           opcoes={componentes}
           onChange={setComponente}
         />
-        <Button variant="outline" size="sm" onClick={limparTudo} className="gap-2">
-          <Trash2 className="h-4 w-4" aria-hidden="true" /> Limpar histórico
-        </Button>
+        <div className="flex flex-wrap items-center gap-2 print:hidden">
+          <Button variant="outline" size="sm" onClick={exportarAmostras} className="gap-2">
+            <Download className="h-4 w-4" aria-hidden="true" /> CSV amostras
+          </Button>
+          <Button variant="outline" size="sm" onClick={exportarResumo} className="gap-2">
+            <Download className="h-4 w-4" aria-hidden="true" /> CSV por rota
+          </Button>
+          <Button variant="outline" size="sm" onClick={exportarAlertas} className="gap-2">
+            <Download className="h-4 w-4" aria-hidden="true" /> CSV alertas
+          </Button>
+          <Button variant="outline" size="sm" onClick={exportarPdf} className="gap-2">
+            <Printer className="h-4 w-4" aria-hidden="true" /> PDF
+          </Button>
+          <Button variant="outline" size="sm" onClick={limparTudo} className="gap-2">
+            <Trash2 className="h-4 w-4" aria-hidden="true" /> Limpar histórico
+          </Button>
+        </div>
       </section>
+
+      {drilldownDisponivel() ? (
+        <p className="mb-6 text-xs text-muted-foreground">
+          Os links “Sentry” abrem a busca de eventos já filtrada pelas mesmas tags gravadas pelo
+          cliente (<code>kind</code>, <code>path</code>, <code>primitive</code>).
+        </p>
+      ) : (
+        <p className="mb-6 text-xs text-muted-foreground">
+          Drilldown no Sentry desativado: defina <code>VITE_SENTRY_ORG</code> (e opcionalmente{" "}
+          <code>VITE_SENTRY_PROJECT</code>) para liberar os links por rota e componente.
+        </p>
+      )}
 
       <section aria-labelledby="vitais" className="mb-10">
         <h2 id="vitais" className="mb-3 flex items-center gap-2 text-lg font-semibold">
@@ -453,6 +537,21 @@ const AdminUiPerformance = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
+          {drilldownDisponivel() && porSuperficie.length > 0 && (
+            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              {porSuperficie.slice(0, 6).map((s) => (
+                <li key={`link-${s.chave}`}>
+                  <LinkSentry
+                    componente={s.primitiva}
+                    rota={rota}
+                    kind="ui.loading_end"
+                    janela={janela}
+                    rotulo={`Sentry · ${s.chave}`}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
           {porSuperficie.some((s) => s.cta) && (
             <p className="mt-3 text-xs text-muted-foreground">
               CTA correlacionado mais recente:{" "}
@@ -480,12 +579,13 @@ const AdminUiPerformance = () => {
                 <th className="px-4 py-3">Loading p75</th>
                 <th className="px-4 py-3">Interação p75</th>
                 <th className="px-4 py-3">Erros</th>
+                <th className="px-4 py-3 print:hidden">Sentry</th>
               </tr>
             </thead>
             <tbody>
               {porRota.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-4 py-6 text-muted-foreground">
+                  <td colSpan={7} className="px-4 py-6 text-muted-foreground">
                     Sem amostras nesta janela.
                   </td>
                 </tr>
@@ -506,6 +606,9 @@ const AdminUiPerformance = () => {
                     {r.interacaoP75 ? `${Math.round(r.interacaoP75)}ms` : "—"}
                   </td>
                   <td className="px-4 py-3">{r.erros}</td>
+                  <td className="px-4 py-3 print:hidden">
+                    <LinkSentry rota={r.rota} componente={componente} janela={janela} rotulo="Abrir" />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -516,6 +619,9 @@ const AdminUiPerformance = () => {
       <section aria-labelledby="alertas">
         <h2 id="alertas" className="mb-3 flex items-center gap-2 text-lg font-semibold">
           <AlertTriangle className="h-4 w-4" aria-hidden="true" /> Alertas de budget ({alertas.length})
+          <span className="ml-auto text-xs font-normal">
+            <LinkSentry rota={rota} kind="ui.budget_exceeded" janela={janela} rotulo="Ver no Sentry" />
+          </span>
         </h2>
         <Card className="p-4">
           {alertas.length === 0 ? (

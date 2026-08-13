@@ -94,6 +94,8 @@ jobs:
         run: npm run check:geo
       - name: Gate schema.org (LocalBusiness, Service, FAQPage, BreadcrumbList)
         run: npm run check:schema-standards
+      - name: Gate robots.txt e X-Robots-Tag (rotas indexáveis)
+        run: npm run check:robots
       - name: Gate de saúde de indexação (rotas + aliases)
         run: |
           npx vite preview --port 4321 --strictPort &

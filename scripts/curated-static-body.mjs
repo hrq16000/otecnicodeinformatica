@@ -1130,6 +1130,10 @@ export function jsonLdFor(route) {
     });
   }
   if (bc) out.push(bc);
+  // Onda 30: fotografia real licenciada da rota vira ImageObject com crédito
+  // e licença — reforça relevância e permite indexação da imagem.
+  const img = imageObjectFor(path);
+  if (img) out.push(img);
   return out;
 }
 

@@ -24,6 +24,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { problemaPagesData } from "../src/lib/problemIntentSources";
 import { slugCanonico } from "../src/lib/problemIntentPolicy";
+import { CURATED_PATHS } from "./lib/curated-urls.mjs";
 
 const LIMITE_RELACIONADOS = 4;
 const MINIMO_RELACIONADOS = 2;
@@ -43,11 +44,11 @@ const TAXONOMIA: { nome: string; cluster: string; termos: string[] }[] = [
 ];
 
 const SERVICOS: Record<string, { principal: string; secundario?: string }> = {
-  dados: { principal: "/servicos/recuperacao-de-dados", secundario: "/servicos/backup-em-nuvem" },
+  dados: { principal: "/servicos/recuperacao-de-dados" },
   armazenamento: { principal: "/servicos/upgrade-ssd-ram", secundario: "/servicos/recuperacao-de-dados" },
-  superaquecimento: { principal: "/servicos/limpeza-e-pasta-termica", secundario: "/servicos/manutencao-de-computador" },
+  superaquecimento: { principal: "/servicos/manutencao-de-computador", secundario: "/servicos/manutencao-de-notebook" },
   rede: { principal: "/servicos/redes-e-wifi" },
-  windows: { principal: "/servicos/formatacao-e-backup", secundario: "/servicos/remocao-de-virus" },
+  windows: { principal: "/servicos/formatacao", secundario: "/servicos/remocao-de-virus" },
   "nao-liga": { principal: "/servicos/manutencao-de-computador", secundario: "/servicos/manutencao-de-notebook" },
   lentidao: { principal: "/servicos/manutencao-de-computador", secundario: "/servicos/upgrade-ssd-ram" },
   notebook: { principal: "/servicos/manutencao-de-notebook" },
@@ -96,6 +97,17 @@ const ancora = (url: string, variante: number) => {
 
 const ancoraServico = (servico: string) =>
   `${servico.replace("/servicos/", "").replace(/-/g, " ")} — ver serviço`;
+
+// Serviço recomendado que não existe vira link interno quebrado: falha alto.
+const rotasExistentes = new Set(
+  (CURATED_PATHS as (string | { path: string })[]).map((p) => (typeof p === "string" ? p : p.path)),
+);
+const servicosInvalidos = [...new Set(Object.values(SERVICOS).flatMap((s) => [s.principal, s.secundario]))]
+  .filter((s): s is string => Boolean(s) && !rotasExistentes.has(s));
+if (servicosInvalidos.length) {
+  console.error(`✖ Serviço(s) inexistente(s) no mapa de interlinks: ${servicosInvalidos.join(", ")}`);
+  process.exit(1);
+}
 
 const entradas = problemaPagesData();
 const tokensPorUrl = new Map(entradas.map((e) => [e.url, tokens(e.texto)]));

@@ -188,7 +188,9 @@ test("query string nunca transforma rota inexistente em válida", () => {
 });
 
 test("assets com paths parecidos: só o que o build emitiu passa", () => {
-  const reais = (manifest.assetFiles ?? []).map((f) => (f.startsWith("/") ? f : `/${f}`));
+  const reais = (manifest.assetFiles ?? [])
+    .map((f) => (f.startsWith("/") ? f : `/${f}`))
+    .filter((f) => /\.[a-z0-9]{1,8}$/i.test(f)); // arquivos sem extensão (ex.: /_headers) não são servidos como asset
   assert.ok(reais.length >= 5, "manifesto sem assets suficientes");
   for (const real of reais.slice(0, 8)) {
     assert.equal(decide(req(real), m).action, "asset", real);

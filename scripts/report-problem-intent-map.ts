@@ -133,7 +133,7 @@ const brutos = [
     titulo: p.title,
     h1: p.h1,
     descricao: p.metaDescription,
-    texto: `${p.slug} ${p.h1} ${p.metaDescription} ${p.intro}`.slice(0, 1200),
+    texto: `${p.slug} ${p.h1} ${p.metaDescription}`,
   })),
   ...CLUSTER_PROBLEMAS.map((p) => ({
     url: p.path,
@@ -141,7 +141,7 @@ const brutos = [
     titulo: p.metaTitle,
     h1: p.titulo,
     descricao: p.metaDescription,
-    texto: `${p.slug} ${p.titulo} ${p.metaDescription} ${p.resumo}`.slice(0, 1200),
+    texto: `${p.slug} ${p.titulo} ${p.metaDescription}`,
   })),
 ];
 
@@ -189,12 +189,12 @@ for (let i = 0; i < registros.length; i++) {
     const a = registros[i];
     const b = registros[j];
     const s = jaccard(tokensPorUrl.get(a.url)!, tokensPorUrl.get(b.url)!);
-    if (s < 0.45) continue;
+    if (s < 0.35) continue;
     const mesmoCluster = a.cluster === b.cluster;
     const decisao =
-      s >= 0.75 && mesmoCluster
+      s >= 0.6 && mesmoCluster
         ? "CONSOLIDAR"
-        : s >= 0.6 && mesmoCluster
+        : s >= 0.45 && mesmoCluster
           ? "REPOSICIONAR INTENÇÃO"
           : "MANTER AMBAS";
     pares.push({
@@ -216,7 +216,7 @@ for (const par of pares) {
   ]) {
     const reg = porUrl.get(url)!;
     const nivel: Registro["riscoCanibalizacao"] =
-      par.sobreposicao >= 0.75 ? "CRÍTICO" : par.sobreposicao >= 0.6 ? "ALTO" : "MÉDIO";
+      par.sobreposicao >= 0.6 ? "CRÍTICO" : par.sobreposicao >= 0.45 ? "ALTO" : "MÉDIO";
     const ordem = { BAIXO: 0, MÉDIO: 1, ALTO: 2, CRÍTICO: 3 } as const;
     if (ordem[nivel] > ordem[reg.riscoCanibalizacao]) {
       reg.riscoCanibalizacao = nivel;
@@ -295,7 +295,7 @@ Gerado em ${new Date().toISOString()}.
 - Páginas de problema inventariadas: **${registros.length}**
 - Indexáveis hoje (no sitemap curado): **${indexaveis.length}**
 - Fora do sitemap (noindex/reavaliar): **${registros.length - indexaveis.length}**
-- Pares com sobreposição ≥ 0,45: **${pares.length}**
+- Pares com sobreposição ≥ 0,35: **${pares.length}**
 - URLs declaradas em duas fontes: **${duplicadasEntreFontes.length}**${duplicadasEntreFontes.length ? ` (${duplicadasEntreFontes.join(", ")})` : ""}
 
 ## Taxonomia
@@ -335,5 +335,5 @@ ${indexaveis.filter((r) => r.riscoCanibalizacao !== "CRÍTICO" && r.riscoCanibal
 writeFileSync("reports/problem-intent-map.md", md);
 
 console.log(`📋 ${registros.length} páginas de problema inventariadas (${indexaveis.length} indexáveis).`);
-console.log(`   ${pares.length} par(es) com sobreposição ≥ 0,45 · ${duplicadasEntreFontes.length} URL(s) duplicada(s) entre fontes.`);
+console.log(`   ${pares.length} par(es) com sobreposição ≥ 0,35 · ${duplicadasEntreFontes.length} URL(s) duplicada(s) entre fontes.`);
 console.log("   → reports/problem-intent-map.{json,csv,md} · reports/problem-cannibalization.{json,csv}");

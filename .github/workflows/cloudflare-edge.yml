@@ -63,6 +63,11 @@ jobs:
       - name: Validar contrato HTTP em produção (200 / 301 / 404)
         run: npm run verify:prod-status
 
+      - name: Smoke de borda pós-deploy (404 real + noindex 200)
+        env:
+          SITE_BASE_URL: https://otecnicodeinformatica.com.br
+        run: npm run smoke:edge:post-deploy
+
       - name: Evidências
         if: always()
         uses: actions/upload-artifact@v4

@@ -1690,3 +1690,79 @@ html[data-reduced-motion="true"] *::after {
 html[data-reduced-motion="true"] .skel { animation: none; }
 html[data-reduced-motion="true"] .img-fade { opacity: 1; transition: none; }
 html[data-reduced-motion="true"] .route-progress > span { animation: none; transform: none; }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOTION SYSTEM GLOBAL (design-motion-principles)
+   Tokens únicos de duração/ease + primitivas de entrada, saída,
+   colapso e progresso. Movimento sempre curto, com função clara e
+   neutralizado por prefers-reduced-motion.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --motion-duration-instant: 100ms;
+  --motion-duration-fast: 160ms;
+  --motion-duration-normal: 220ms;
+  --motion-duration-slow: 300ms;
+
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer utilities {
+  @keyframes motionEnter {
+    from { opacity: 0; transform: translate3d(0, var(--motion-enter-y, 8px), 0); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes motionExit {
+    from { opacity: 1; transform: none; }
+    to { opacity: 0; transform: translate3d(0, calc(var(--motion-enter-y, 8px) * -0.5), 0); }
+  }
+  @keyframes motionIndeterminate {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+  }
+
+  /* Entrada/saída padrão de elementos condicionais. */
+  .motion-enter {
+    animation: motionEnter var(--motion-duration-normal) var(--motion-ease-enter) both;
+  }
+  .motion-exit {
+    animation: motionExit var(--motion-duration-fast) var(--motion-ease-exit) both;
+  }
+
+  /* Colapso/expansão sem animar height fixa (grid-template-rows = sem reflow custoso). */
+  .motion-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--motion-duration-normal) var(--motion-ease-standard),
+                opacity var(--motion-duration-fast) var(--motion-ease-standard);
+    opacity: 0;
+  }
+  .motion-collapse[data-open="true"] { grid-template-rows: 1fr; opacity: 1; }
+  .motion-collapse > * { overflow: hidden; min-height: 0; }
+
+  /* Feedback de interação: sem scale genérico, só superfície/borda/sombra. */
+  .motion-surface {
+    transition: background-color var(--motion-duration-fast) var(--motion-ease-standard),
+                border-color var(--motion-duration-fast) var(--motion-ease-standard),
+                box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
+                color var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  /* Barra de progresso indeterminada, discreta. */
+  .motion-progress-indeterminate > span {
+    animation: motionIndeterminate 1.1s var(--motion-ease-standard) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-enter, .motion-exit { animation-duration: 0.01ms; transform: none; }
+  .motion-collapse { transition: none; }
+  .motion-progress-indeterminate > span { animation: none; }
+}
+
+html[data-reduced-motion="true"] .motion-enter,
+html[data-reduced-motion="true"] .motion-exit { animation-duration: 0.01ms !important; transform: none !important; }
+html[data-reduced-motion="true"] .motion-collapse { transition: none !important; }
+html[data-reduced-motion="true"] .motion-progress-indeterminate > span { animation: none !important; }

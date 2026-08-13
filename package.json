@@ -148,6 +148,7 @@
     "test:cutover-browser": "node scripts/test-cutover-browser.mjs",
     "smoke:edge": "node scripts/smoke-edge-routes.mjs",
     "smoke:edge:prod": "node scripts/smoke-edge-routes.mjs --base=$SITE_BASE_URL",
+    "smoke:edge:post-deploy": "node scripts/smoke-edge-post-deploy.mjs",
     "report:redirect-coverage": "node scripts/report-redirect-coverage.mjs",
     "report:redirect-coverage:strict": "node scripts/report-redirect-coverage.mjs --strict",
     "alert:edge": "node scripts/alert-edge-errors.mjs",

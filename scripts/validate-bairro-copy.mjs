@@ -44,7 +44,7 @@ function extractEntries() {
     const nome = /nome:\s*"([^"]+)"/.exec(body)?.[1] || slug;
     const descricao = /descricaoLocal:\s*\n?\s*"([\s\S]*?)"(?=,\n)/.exec(body)?.[1] || "";
     const narrativa = /narrativaLocal:\s*\n?\s*"([\s\S]*?)"(?=,\n)/.exec(body)?.[1] || "";
-    const indexable = /indexable:\s*false/.test(body) ? false : true;
+    const indexable = !/indexable:\s*false/.test(body);
     entries.push({ slug, nome, descricao, narrativa, indexable });
   }
   return entries;

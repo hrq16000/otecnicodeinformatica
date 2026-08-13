@@ -104,7 +104,7 @@ async function analyze(file) {
         : lb.areaServed
           ? 1
           : 0,
-      openingHours: lb.openingHours ?? lb.openingHoursSpecification ? true : false,
+      openingHours: !!(lb.openingHours ?? lb.openingHoursSpecification ),
       url: lb.url ?? null,
       id: lb["@id"] ?? null,
     },

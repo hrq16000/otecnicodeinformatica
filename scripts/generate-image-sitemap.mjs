@@ -110,5 +110,23 @@ const xml =
 
 writeFileSync(path.join(DIST, "sitemap-images.xml"), xml);
 
+// Declara o image sitemap no índice servido (dist), para o Search Console
+// rastrear as imagens junto das páginas. Só quando há domínio configurado.
+if (SITE) {
+  for (const name of ["sitemap-index.xml", "sitemap.xml"]) {
+    const file = path.join(DIST, name);
+    if (!existsSync(file)) continue;
+    const current = readFileSync(file, "utf8");
+    if (current.includes("sitemap-images.xml") || !current.includes("</sitemapindex>")) continue;
+    writeFileSync(
+      file,
+      current.replace(
+        "</sitemapindex>",
+        `  <sitemap><loc>${SITE}/sitemap-images.xml</loc></sitemap>\n</sitemapindex>`,
+      ),
+    );
+  }
+}
+
 const total = [...entries.values()].reduce((n, e) => n + e.images.size, 0);
 console.log(`OK — sitemap-images.xml gerado com ${entries.size} página(s) e ${total} imagem(ns).`);

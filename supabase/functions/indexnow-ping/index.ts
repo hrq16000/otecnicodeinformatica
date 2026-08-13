@@ -3,8 +3,9 @@
 // Also accepts a single { url } string. GET returns the configured key for sanity checks.
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 
-const HOST = "tecnico.curitiba.br";
-const KEY = "f783ab585dfa9e6b017cb058009cccae";
+// Fail-closed: o host vem do ambiente (domínio próprio). Nunca herdar marca.
+const HOST = (Deno.env.get("SITE_DOMAIN") ?? "otecnicodeinformatica.com.br").replace(/^https?:\/\//, "").replace(/\/$/, "");
+const KEY = Deno.env.get("INDEXNOW_KEY") ?? "f783ab585dfa9e6b017cb058009cccae";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = "https://api.indexnow.org/IndexNow";
 

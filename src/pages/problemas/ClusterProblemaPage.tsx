@@ -15,7 +15,7 @@ import { TriagemContexto } from "@/components/problemas/TriagemContexto";
 import NotFound from "@/pages/NotFound";
 import { SCHEMA_SLOTS, SLOT_PRIORITY, useJsonLdSlot } from "@/lib/jsonLdSlots";
 import { clusterProblema } from "@/lib/clusterProblemas";
-import { absoluteUrl } from "@/lib/siteConfig";
+import { absoluteUrl, siteConfig } from "@/lib/siteConfig";
 import {
   buildProblemaWaHref,
   buildProblemaWaFallbackHref,
@@ -78,6 +78,30 @@ const ClusterProblemaPage = () => {
           description: dados.metaDescription,
           url: absoluteUrl(dados.path),
           inLanguage: "pt-BR",
+        }
+      : null,
+    SLOT_PRIORITY.page,
+  );
+
+  // Relevância local: Service da página de sintoma, provido pela organização
+  // canônica e delimitado à área realmente atendida.
+  useJsonLdSlot(
+    SCHEMA_SLOTS.service,
+    dados
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: dados.titulo,
+          description: dados.metaDescription,
+          serviceType: dados.titulo,
+          url: absoluteUrl(dados.path),
+          provider: { "@id": `${siteConfig.baseUrl}/#organization` },
+          areaServed: siteConfig.serviceArea.map((name) => ({ "@type": "City", name })),
+          availableChannel: {
+            "@type": "ServiceChannel",
+            serviceUrl: absoluteUrl(dados.path),
+            availableLanguage: "pt-BR",
+          },
         }
       : null,
     SLOT_PRIORITY.page,

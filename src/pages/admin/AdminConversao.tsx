@@ -1,3 +1,4 @@
+import { projetarEventoClique } from "@/lib/realtimeSafeFields";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -112,7 +113,7 @@ const AdminConversao = () => {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "click_events" },
         (payload) => {
-          const novo = payload.new as Evento;
+          const novo = projetarEventoClique<Evento>(payload.new);
           if (rota !== "all" && novo.path !== rota) return;
           if (viewport !== "all" && novo.viewport_bucket !== viewport) return;
           if (origem !== "all" && novo.attribution_channel !== origem) return;

@@ -24,6 +24,7 @@ import { RealImageSection } from "@/components/RealImageSection";
 import { siteConfig, absoluteUrl, SITE_BASE_URL } from "@/lib/siteConfig";
 import { WHATSAPP_NUMBER as WA_NUMBER } from "@/lib/siteConfig";
 import NotFound from "./NotFound";
+import { SkeletonSection } from "@/components/SkeletonSection";
 
 const BAIRROS_ATENDIDOS = [
   { to: "/bairros/batel", label: "Batel" },
@@ -184,11 +185,21 @@ const ProblemaPage = () => {
   } : null;
 
   if (loading) {
+    // ONDA 5J — esqueleto shimmer no lugar do texto "Carregando…" (sem CLS).
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <div className="container mx-auto py-20 text-center text-muted-foreground">
-          Carregando…
+        <div role="status" aria-live="polite" aria-busy="true" className="container mx-auto max-w-5xl px-4 py-12">
+          <span className="sr-only">Carregando conteúdo do problema…</span>
+          <div className="skel skel-line w-40" />
+          <div className="skel skel-title mt-6 w-3/4 max-w-2xl" />
+          <div className="mt-4 space-y-3">
+            <div className="skel skel-line w-full" />
+            <div className="skel skel-line w-11/12" />
+            <div className="skel skel-line w-2/3" />
+          </div>
+          <div className="skel mt-8 h-12 w-64 rounded-xl" />
+          <SkeletonSection height="480px" />
         </div>
         <Footer />
       </div>
